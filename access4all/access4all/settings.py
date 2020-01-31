@@ -27,7 +27,7 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,9 +39,10 @@ ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
 # STATIC_URL = "/static/"
 
 # WARNING: This is scalingo specific, shouldn't be modified
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
+STATIC_ROOT = "staticfiles"
 STATIC_URL = "/static/"
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, "..", "static"),)
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # Application definition
 
