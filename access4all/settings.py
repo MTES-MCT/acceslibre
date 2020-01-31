@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.gis",
 ]
 
 MIDDLEWARE = [
@@ -107,6 +108,7 @@ WSGI_APPLICATION = "access4all.wsgi.application"
 # see https://pypi.org/project/dj-database-url/ for options management
 database_url = os.environ.get("DATABASE_URL", "postgres://access4all:access4all@localhost/access4all")
 DATABASES = {"default": dj_database_url.config()}
+DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

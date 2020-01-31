@@ -2,11 +2,13 @@ import re
 
 from datetime import datetime
 from django.contrib import admin
+from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
 from .models import Activite, Erp
+from .geocode import geocode
 
 CCONFORME_DATE_FORMAT = "%Y%m%d"
 CCONFORME_GEOM_RE = re.compile(r"POINT\((\d+\.\d+) (\d+\.\d+)\)")
@@ -65,7 +67,7 @@ class ActiviteAdmin(admin.ModelAdmin):
 admin.site.register(Activite, ActiviteAdmin)
 
 
-class ErpAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+class ErpAdmin(ImportExportModelAdmin, OSMGeoAdmin, admin.ModelAdmin):
     resource_class = ErpResource
 
     list_display = ("nom", "activite", "code_postal", "commune", "created_at", "updated_at")
@@ -80,9 +82,13 @@ class ErpAdmin(ImportExportModelAdmin, admin.ModelAdmin):
         (None, {"fields": ["activite", "nom", "siret"]}),
         (
             "Localisation",
-            {"fields": ["lat", "lon", "numero", "complement", "voie", "lieu_dit", "code_postal", "commune", "code_insee",]},
+            {"fields": ["geom", "numero", "complement", "voie", "lieu_dit", "code_postal", "commune", "code_insee",]},
         ),
     ]
+
+    def save_model(self, request, obj, form, change):
+        localized_obj = geocode(obj)
+        super(ErpAdmin, self).save_model(request, localized_obj, form, change)
 
 
 admin.site.register(Erp, ErpAdmin)

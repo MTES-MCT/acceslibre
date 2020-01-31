@@ -1,8 +1,7 @@
 import json
 import requests
 
-from django.db import models
-from django.core.exceptions import ValidationError
+from django.contrib.gis.db import models
 
 
 class Activite(models.Model):
@@ -18,8 +17,7 @@ class Activite(models.Model):
 class Erp(models.Model):
     nom = models.CharField(max_length=255, help_text="Nom de l’établissement ou de l’enseigne")
     activite = models.ForeignKey(Activite, null=True, blank=True, on_delete=models.SET_NULL)
-    lat = models.FloatField(null=True, blank=True, help_text="Latitude")
-    lon = models.FloatField(null=True, blank=True, help_text="Longitude")
+    geom = models.PointField(null=True, blank=True)
     siret = models.CharField(max_length=255, null=True, blank=True, help_text="Numéro SIRET")
     # adresse
     adresse = models.CharField(max_length=255, null=True, blank=True, help_text="Adresse complète")
@@ -39,5 +37,7 @@ class Erp(models.Model):
 
     @property
     def adresse(self):
-        pieces = filter(lambda x: x is not None, [self.num, self.cplt, self.voie, self.lieu_dit, self.cpost, self.commune])
+        pieces = filter(
+            lambda x: x is not None, [self.numero, self.complement, self.voie, self.lieu_dit, self.code_postal, self.commune]
+        )
         return " ".join(pieces).strip()
