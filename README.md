@@ -14,11 +14,6 @@ Référencement de l'accessibilité des ERP (Établissements Recevant du Public)
 Créez un fichier `.env` à la racine du dépôt, définissant les variables d'environnement suivantes :
 
 - `SECRET_KEY`: une chaine de caractères unique permettant de gérer les [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key).
-- `DB_HOST`: l'uri de connexion postgres
-- `DB_PORT`: le port de connexion à la base postgres
-- `DB_NAME`: le nom de la base postgres
-- `DB_USER`: le nom d'utilisateur postgres
-- `DB_PASSWORD`: le most de passe de l'utilisateur postgres
 
 Note: un fichier d'exemple `.env.sample` est disponible à la racine du dépôt.
 
@@ -131,4 +126,40 @@ $ python manage.py flush
 
 ```
 $ python manage.py shell
+```
+
+# Déploiement
+
+L'application est hébergée sur la plateforme [Scalingo](https://scalingo.com/).
+
+## Configuration préliminaire
+
+Il faut installer l'outil en ligne de commande `scalingo`. Vous trouverez les instructions [ici](https://doc.scalingo.com/cli).
+
+Une fois l'installation effectuée, vous pouvez ajouter votre clé publique SSH :
+
+```
+$ scalingo keys-add <user> ~/.ssh/id_rsa.pub
+```
+
+Note: replacez `<user>` par le nom que vous voulez donner à votre clé sur Scalingo.
+
+Vous pouvez maintenant vous authentifier en ligne de commande :
+
+```
+$ scalingo login
+```
+
+Enfin, il faut ajouter le remote git suivant :
+
+```
+git remote add scalingo git@ssh.osc-fr1.scalingo.com:access4all.git
+```
+
+## Déployer l'application
+
+Le déploiement s'effectue au moyen de la simple commande git :
+
+```
+$ git push scalingo master
 ```

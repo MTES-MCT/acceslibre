@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import dj_database_url
 import os
 
 from django.core.exceptions import ImproperlyConfigured
@@ -86,16 +87,22 @@ WSGI_APPLICATION = "access4all.wsgi.application"
 
 # DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3"),}}
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": get_env_variable("DB_NAME"),
-        "USER": get_env_variable("DB_USER"),
-        "PASSWORD": get_env_variable("DB_PASSWORD"),
-        "HOST": get_env_variable("DB_HOST"),
-        "PORT": get_env_variable("DB_PORT"),
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": get_env_variable("DB_NAME"),
+#         "USER": get_env_variable("DB_USER"),
+#         "PASSWORD": get_env_variable("DB_PASSWORD"),
+#         "HOST": get_env_variable("DB_HOST"),
+#         "PORT": get_env_variable("DB_PORT"),
+#     }
+# }
+
+# Database connection
+# see https://doc.scalingo.com/languages/python/django/start#configure-the-database-access
+# see https://pypi.org/project/dj-database-url/ for options management
+database_url = os.environ.get("DATABASE_URL", "postgres://access4all:access4all@localhost/access4all")
+DATABASES = {"default": dj_database_url.config()}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
