@@ -6,6 +6,7 @@ Référencement de l'accessibilité des ERP (Établissements Recevant du Public)
 
 - Environnement Linux (ex. Debian/Ubuntu recommandé)
 - Python 3.7+
+- PostgreSQL 10.11+
 - Les paquets `libpq-dev` et `python3.7-dev` doivent également être installés sur le système
 - [Pipenv](https://pipenv.kennethreitz.org/en/latest/)
 
@@ -27,6 +28,8 @@ $ pipenv install
 ## Configurer la base de données
 
 :warning: Assurez-vous de disposer des paquets `libpq-dev` et `python3.7-dev`:
+
+:bulb: Cette étape est inutile dans l'environnement de production Scalingo.
 
 ```
 sudo apt install libpq-dev python3.7-dev
@@ -174,12 +177,4 @@ Le déploiement s'effectue au moyen de la simple commande git :
 
 ```
 $ git push scalingo master
-```
-
-## Jouer les migration en production
-
-Typiquement à chaque déploiment, il faut s'assurer de migrer le schéma de la base de données :
-
-```
-scalingo run -a access4all access4all/manage.py migrate
 ```
