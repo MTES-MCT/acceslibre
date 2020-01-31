@@ -32,7 +32,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# FIXME: this should eventually be provided by some env var
+ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
