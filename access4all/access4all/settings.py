@@ -30,7 +30,7 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = "SCALINGO_POSTGRESQL_URL" not in os.environ
 
 # FIXME: this should eventually be provided by some env var
 ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
