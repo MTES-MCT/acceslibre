@@ -35,8 +35,13 @@ DEBUG = True
 # FIXME: this should eventually be provided by some env var
 ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
 
+# STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
+# STATIC_URL = "/static/"
+
+# WARNING: This is scalingo specific, shouldn't be modified
+STATIC_ROOT = "staticfiles"
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "..", "static"),)
 
 # Application definition
 
