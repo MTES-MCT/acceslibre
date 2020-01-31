@@ -27,22 +27,16 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "SCALINGO_POSTGRESQL_URL" not in os.environ
+DEBUG = True
 
 # FIXME: this should eventually be provided by some env var
 ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
 
-# STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
-# STATIC_URL = "/static/"
-
-# WARNING: This is scalingo specific, shouldn't be modified
-STATIC_ROOT = "staticfiles"
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
 STATIC_URL = "/static/"
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # Application definition
 
