@@ -175,3 +175,11 @@ Le déploiement s'effectue au moyen de la simple commande git :
 ```
 $ git push scalingo master
 ```
+
+## Jouer les migration en production
+
+Typiquement à chaque déploiment, il faut s'assurer de migrer le schéma de la base de données :
+
+```
+scalingo run -a access4all access4all/manage.py migrate
+```
