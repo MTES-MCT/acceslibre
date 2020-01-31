@@ -150,10 +150,22 @@ Vous pouvez maintenant vous authentifier en ligne de commande :
 $ scalingo login
 ```
 
-Enfin, il faut ajouter le remote git suivant :
+Ensuite, il faut ajouter le remote git suivant :
 
 ```
 git remote add scalingo git@ssh.osc-fr1.scalingo.com:access4all.git
+```
+
+Enfin, il faut positionner les variables d'environnement applicatives :
+
+```
+$ scalingo -a access4all env-set SECRET_KEY="<insérez une chaîne de caractère arbitraire ici>"
+```
+
+Au besoin, redémarrez le conteneur applicatif pour prendre en compte une éventuelle modification :
+
+```
+$ scalingo --app access4all restart
 ```
 
 ## Déployer l'application
