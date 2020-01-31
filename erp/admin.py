@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Erp
+from .models import Activite, Erp
 
 CCONFORME_DATE_FORMAT = "%Y%m%d"
 CCONFORME_GEOM_RE = re.compile(r"POINT\((\d+\.\d+) (\d+\.\d+)\)")
@@ -56,28 +56,36 @@ class ErpResource(resources.ModelResource):
         return super(ErpResource, self).skip_row(instance, original)
 
 
+class ActiviteAdmin(admin.ModelAdmin):
+    list_display = ("nom", "created_at", "updated_at")
+    list_display_links = ("nom",)
+    ordering = ("nom",)
+
+
+admin.site.register(Activite, ActiviteAdmin)
+
+
 class ErpAdmin(ImportExportModelAdmin, admin.ModelAdmin):
     resource_class = ErpResource
 
-    list_display = ("nom", "nature", "domaine", "dossier", "cpost", "commune")
+    list_display = ("nom", "activite", "code_postal", "commune", "created_at", "updated_at")
     list_display_links = ("nom",)
-    list_filter = ("nature", "dossier", "categorie", "domaine")
+    list_filter = ("created_at", "updated_at", "activite")
     save_on_top = True
-    search_fields = ["nom", "domaine"]
-    sortable_by = ("nom", "cpost", "commune")
+    search_fields = ["nom", "activite__nom"]
+    sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = False
 
     fieldsets = [
-        (None, {"fields": ["domaine", "nom", "dossier", "nature", "categorie", "siret"]}),
+        (None, {"fields": ["activite", "nom", "siret"]}),
         (
             "Localisation",
-            {"fields": ["adresse", "lat", "lon", "num", "cplt", "voie", "lieu_dit", "cpost", "commune", "code_insee"]},
+            {"fields": ["lat", "lon", "numero", "complement", "voie", "lieu_dit", "code_postal", "commune", "code_insee",]},
         ),
-        ("Autorisation", {"fields": ["demandeur", "id_adap"]}),
-        ("Attestation", {"fields": ["date", "duree"]}),
-        ("Dérogation", {"fields": ["derog", "objet_dero", "precision", "qualite"]}),
-        ("SDIS", {"fields": ["type"]}),
     ]
 
 
 admin.site.register(Erp, ErpAdmin)
+admin.site.site_title = "Access4all admin"
+admin.site.site_header = "Access4all admin"
+admin.site.index_title = "Access4all administration"
