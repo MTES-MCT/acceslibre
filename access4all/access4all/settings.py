@@ -35,7 +35,7 @@ DEBUG = True
 # FIXME: this should eventually be provided by some env var
 ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
 
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "..", "static"))
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATIC_URL = "/static/"
 
 # Application definition
