@@ -167,6 +167,10 @@ Au besoin, redémarrez le conteneur applicatif pour prendre en compte une évent
 $ scalingo --app access4all restart
 ```
 
+## Activer l'extension postgis
+
+Les instructions de mise en place et d'activation postgis sont disponibles [à cette adresse](https://doc.scalingo.com/languages/python/django/geodjango).
+
 ## Déployer l'application
 
 Le déploiement s'effectue au moyen de la simple commande git :
