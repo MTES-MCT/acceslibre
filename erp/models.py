@@ -49,7 +49,7 @@ class Erp(models.Model):
         null=True,
         blank=True,
         verbose_name="Localisation",
-        help_text="Localisation du bâtiment",
+        help_text="Géolocalisation opérée à partir de l'adresse une fois l'enregistrement sauvegardé",
     )
     siret = models.CharField(
         max_length=255,

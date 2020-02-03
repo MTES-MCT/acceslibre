@@ -90,8 +90,39 @@ class CheminementInline(nested_admin.NestedStackedInline):
 
 class AccessibiliteInline(nested_admin.NestedStackedInline):
     model = Accessibilite
-
     inlines = [CheminementInline]
+    fieldsets = [
+        (
+            "Stationnement",
+            {"fields": ["stationnement_presence", "stationnement_pmr"]},
+        ),
+        (
+            "Entrée principale et secondaire",
+            {
+                "fields": [
+                    "entree_signaletique",
+                    "entree_secondaire",
+                    "entree_secondaire_informations",
+                ]
+            },
+        ),
+        (
+            "Accueil",
+            {
+                "fields": [
+                    "accueil_personnels",
+                    "accueil_lsf",
+                    "accueil_bim",
+                    "accueil_prestations",
+                ]
+            },
+        ),
+        (
+            "Sanitaires",
+            {"fields": ["sanitaires_presence", "sanitaires_adaptes"]},
+        ),
+        ("Labels", {"fields": ["labels"]}),
+    ]
 
 
 @admin.register(Erp)
@@ -100,9 +131,11 @@ class ErpAdmin(
 ):
     resource_class = ErpResource
 
+    inlines = [AccessibiliteInline]
     list_display = (
         "nom",
         "activite",
+        "accessibilite",
         "code_postal",
         "commune",
         "created_at",
@@ -110,12 +143,12 @@ class ErpAdmin(
     )
     list_display_links = ("nom",)
     list_filter = ("created_at", "updated_at", "activite")
+    map_height = 300
     save_on_top = True
     search_fields = ["nom", "activite__nom"]
+    scrollable = False
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = False
-
-    inlines = [AccessibiliteInline]
 
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret"]}),
@@ -123,13 +156,13 @@ class ErpAdmin(
             "Localisation",
             {
                 "fields": [
-                    "geom",
                     "numero",
                     "voie",
                     "lieu_dit",
                     "code_postal",
                     "commune",
                     "code_insee",
+                    "geom",
                 ]
             },
         ),
