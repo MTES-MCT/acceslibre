@@ -4,11 +4,15 @@ Référencement de l'accessibilité des ERP (Établissements Recevant du Public)
 
 ## Prérequis
 
-- Environnement Linux (ex. Debian/Ubuntu recommandé)
+L'environnement de développement recommandé est Ubuntu 18.04 LTS, disposant des outils et paquets suivants :
+
 - Python 3.7+
-- PostgreSQL 10.11+
-- Les paquets `libpq-dev` et `python3.7-dev` doivent également être installés sur le système
 - [Pipenv](https://pipenv.kennethreitz.org/en/latest/)
+- PostgreSQL 10.11+
+- `postgresql-10-postgis-3`
+- `postgresql-10-postgis-3-scripts`
+- `libpq-dev`
+- `python3.7-dev`
 
 ## Configurer les variables d'environnement
 
@@ -58,19 +62,11 @@ ALTER ROLE access4all SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE access4all TO access4all;
 ```
 
-Dans `access4all/settings.py`, spécifiez la connexion :
+Activez le support postgis pour la base `access4all` :
 
 ```
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'access4all',
-        'USER': 'access4all',
-        'PASSWORD': 'access4all',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+$ psql access4all
+> CREATE EXTENSION postgis;
 ```
 
 Puis, initialisez la base de données :
@@ -170,6 +166,10 @@ Au besoin, redémarrez le conteneur applicatif pour prendre en compte une évent
 ```
 $ scalingo --app access4all restart
 ```
+
+## Activer l'extension postgis
+
+Les instructions de mise en place et d'activation postgis sont disponibles [à cette adresse](https://doc.scalingo.com/languages/python/django/geodjango).
 
 ## Déployer l'application
 
