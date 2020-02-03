@@ -20,7 +20,9 @@ def get_env_variable(var_name):
     try:
         return os.environ[var_name]
     except KeyError:
-        raise ImproperlyConfigured(f"The '{var_name}' environment variable must be set.")
+        raise ImproperlyConfigured(
+            f"The '{var_name}' environment variable must be set."
+        )
 
 
 SECRET_KEY = get_env_variable("SECRET_KEY")
@@ -33,17 +35,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 
 # FIXME: this should eventually be provided by some env var
-ALLOWED_HOSTS = ["localhost", "access4all.osc-fr1.scalingo.io"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "access4all.osc-fr1.scalingo.io"]
 
+# Static files
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "staticfiles"))
 STATIC_URL = "/static/"
-
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # Application definition
 
 INSTALLED_APPS = [
     "django_extensions",
+    "nested_admin",
     "import_export",
     "reset_migrations",
     "erp.apps.ErpConfig",
@@ -87,26 +90,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "access4all.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-# DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.path.join(BASE_DIR, "db.sqlite3"),}}
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": get_env_variable("DB_NAME"),
-#         "USER": get_env_variable("DB_USER"),
-#         "PASSWORD": get_env_variable("DB_PASSWORD"),
-#         "HOST": get_env_variable("DB_HOST"),
-#         "PORT": get_env_variable("DB_PORT"),
-#     }
-# }
-
 # Database connection
+# see https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # see https://doc.scalingo.com/languages/python/django/start#configure-the-database-access
 # see https://pypi.org/project/dj-database-url/ for options management
-database_url = os.environ.get("DATABASE_URL", "postgres://access4all:access4all@localhost/access4all")
+database_url = os.environ.get(
+    "DATABASE_URL", "postgres://access4all:access4all@localhost/access4all"
+)
 DATABASES = {"default": dj_database_url.config()}
 DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 
@@ -114,32 +104,29 @@ DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
-
+LANGUAGE_CODE = "fr"
 TIME_ZONE = "Europe/Paris"
-
 DATETIME_FORMAT = "Y-m-d, H:i:s"
-
 USE_I18N = True
-
 USE_L10N = False
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = "/static/"
+# Email sending
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

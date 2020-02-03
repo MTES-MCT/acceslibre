@@ -1,3 +1,4 @@
+import nested_admin
 import re
 
 from datetime import datetime
@@ -7,7 +8,7 @@ from django.core.exceptions import ValidationError
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Activite, Erp, Label, Accessibilite, Circulation
+from .models import Activite, Erp, Label, Accessibilite, Cheminement
 from .geocode import geocode
 
 CCONFORME_DATE_FORMAT = "%Y%m%d"
@@ -81,12 +82,22 @@ class LabelAdmin(admin.ModelAdmin):
     ordering = ("nom",)
 
 
-class AccessibiliteInline(admin.TabularInline):
+class CheminementInline(nested_admin.NestedStackedInline):
+    model = Cheminement
+    max_num = 6
+    extra = 0
+
+
+class AccessibiliteInline(nested_admin.NestedStackedInline):
     model = Accessibilite
+
+    inlines = [CheminementInline]
 
 
 @admin.register(Erp)
-class ErpAdmin(ImportExportModelAdmin, OSMGeoAdmin, admin.ModelAdmin):
+class ErpAdmin(
+    ImportExportModelAdmin, OSMGeoAdmin, nested_admin.NestedModelAdmin
+):
     resource_class = ErpResource
 
     list_display = (
@@ -114,7 +125,6 @@ class ErpAdmin(ImportExportModelAdmin, OSMGeoAdmin, admin.ModelAdmin):
                 "fields": [
                     "geom",
                     "numero",
-                    "complement",
                     "voie",
                     "lieu_dit",
                     "code_postal",
