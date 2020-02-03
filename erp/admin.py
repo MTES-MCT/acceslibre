@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Activite, Erp
+from .models import Activite, Erp, Label, Accessibilite, Circulation
 from .geocode import geocode
 
 CCONFORME_DATE_FORMAT = "%Y%m%d"
@@ -27,7 +27,16 @@ class ErpResource(resources.ModelResource):
         except (AttributeError, ValueError):
             return  # TODO: warning/info
         # adresse
-        row["addresse"] = " ".join([row["num"], row["cplt"], row["voie"], row["lieu_dit"], row["cpost"], row["commune"]]).strip()
+        row["addresse"] = " ".join(
+            [
+                row["num"],
+                row["cplt"],
+                row["voie"],
+                row["lieu_dit"],
+                row["cpost"],
+                row["commune"],
+            ]
+        ).strip()
         # lat & lon fields
         try:
             (slat, slon) = CCONFORME_GEOM_RE.match(row["geom"]).groups()
@@ -58,19 +67,36 @@ class ErpResource(resources.ModelResource):
         return super(ErpResource, self).skip_row(instance, original)
 
 
+@admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
     list_display = ("nom", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
 
 
-admin.site.register(Activite, ActiviteAdmin)
+@admin.register(Label)
+class LabelAdmin(admin.ModelAdmin):
+    list_display = ("nom", "created_at", "updated_at")
+    list_display_links = ("nom",)
+    ordering = ("nom",)
 
 
+class AccessibiliteInline(admin.TabularInline):
+    model = Accessibilite
+
+
+@admin.register(Erp)
 class ErpAdmin(ImportExportModelAdmin, OSMGeoAdmin, admin.ModelAdmin):
     resource_class = ErpResource
 
-    list_display = ("nom", "activite", "code_postal", "commune", "created_at", "updated_at")
+    list_display = (
+        "nom",
+        "activite",
+        "code_postal",
+        "commune",
+        "created_at",
+        "updated_at",
+    )
     list_display_links = ("nom",)
     list_filter = ("created_at", "updated_at", "activite")
     save_on_top = True
@@ -78,11 +104,24 @@ class ErpAdmin(ImportExportModelAdmin, OSMGeoAdmin, admin.ModelAdmin):
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = False
 
+    inlines = [AccessibiliteInline]
+
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret"]}),
         (
             "Localisation",
-            {"fields": ["geom", "numero", "complement", "voie", "lieu_dit", "code_postal", "commune", "code_insee",]},
+            {
+                "fields": [
+                    "geom",
+                    "numero",
+                    "complement",
+                    "voie",
+                    "lieu_dit",
+                    "code_postal",
+                    "commune",
+                    "code_insee",
+                ]
+            },
         ),
     ]
 
@@ -91,7 +130,7 @@ class ErpAdmin(ImportExportModelAdmin, OSMGeoAdmin, admin.ModelAdmin):
         super(ErpAdmin, self).save_model(request, localized_obj, form, change)
 
 
-admin.site.register(Erp, ErpAdmin)
+# General admin heading & labels
 admin.site.site_title = "Access4all admin"
 admin.site.site_header = "Access4all admin"
 admin.site.index_title = "Access4all administration"
