@@ -137,10 +137,9 @@ class ErpAdmin(
     list_display = (
         "nom",
         "activite",
-        "accessibilite",
         "code_postal",
         "commune",
-        "created_at",
+        "renseignee",
         "updated_at",
     )
     list_display_links = ("nom",)
@@ -169,6 +168,12 @@ class ErpAdmin(
             },
         ),
     ]
+
+    def renseignee(self, instance):
+        return instance.accessibilite is not None
+
+    renseignee.boolean = True
+    renseignee.short_description = "Renseignée"
 
     def save_model(self, request, obj, form, change):
         localized_obj = geocode(obj)
