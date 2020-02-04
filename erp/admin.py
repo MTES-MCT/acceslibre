@@ -2,6 +2,7 @@ import nested_admin
 import re
 
 from datetime import datetime
+from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.contrib import admin
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
@@ -143,10 +144,14 @@ class ErpAdmin(
         "updated_at",
     )
     list_display_links = ("nom",)
-    list_filter = ("created_at", "updated_at", "activite")
+    list_filter = [
+        ("activite", RelatedDropdownFilter),
+        "created_at",
+        "updated_at",
+    ]
     map_height = 300
     save_on_top = True
-    search_fields = ["nom", "activite__nom"]
+    search_fields = ["nom", "activite__nom", "code_postal", "commune"]
     scrollable = False
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = False

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "nested_admin",
     "import_export",
     "reset_migrations",
+    "django_admin_listfilter_dropdown",
     "erp.apps.ErpConfig",
     "django.contrib.admin",
     "django.contrib.auth",

@@ -118,9 +118,11 @@ class Accessibilite(models.Model):
         verbose_name = "Accessibilité"
         verbose_name_plural = "Accessibilités"
 
+    PERSONNELS_AUCUN = "aucun"
     PERSONNELS_FORMES = "formés"
     PERSONNELS_NON_FORMES = "non-formés"
     PERSONNELS_CHOICES = [
+        (PERSONNELS_AUCUN, "Aucun personnel"),
         (PERSONNELS_FORMES, "Personnels formés"),
         (PERSONNELS_NON_FORMES, "Personnels non-formés"),
     ]
@@ -264,22 +266,34 @@ class Cheminement(models.Model):
         (TYPE_ENTREE, "Cheminement autour de l'entrée"),
     ]
 
+    RAMPE_AUCUNE = "aucune"
     RAMPE_FIXE = "fixe"
     RAMPE_AMOVIBLE = "amovible"
     RAMPE_AIDE_HUMAINE = "aide humaine"
     RAMPE_CHOICES = [
+        (RAMPE_AUCUNE, "Aucune"),
         (RAMPE_FIXE, "Fixe"),
         (RAMPE_AMOVIBLE, "Amovible"),
         (RAMPE_AIDE_HUMAINE, "Aide humaine"),
     ]
 
+    DEVERS_AUCUN = "aucun"
     DEVERS_LEGER = "léger"
     DEVERS_IMPORTANT = "important"
-    DEVERS_CHOICES = [(DEVERS_LEGER, "Léger"), (DEVERS_IMPORTANT, "Important")]
+    DEVERS_CHOICES = [
+        (DEVERS_AUCUN, "Aucun"),
+        (DEVERS_LEGER, "Léger"),
+        (DEVERS_IMPORTANT, "Important"),
+    ]
 
+    PENTE_AUCUNE = "aucune"
     PENTE_LEGERE = "légère"
     PENTE_IMPORTANTE = "importante"
-    PENTE_CHOICES = [(PENTE_LEGERE, "Légère"), (PENTE_IMPORTANTE, "Importante")]
+    PENTE_CHOICES = [
+        (PENTE_AUCUNE, "Aucune"),
+        (PENTE_LEGERE, "Légère"),
+        (PENTE_IMPORTANTE, "Importante"),
+    ]
 
     accessibilite = models.ForeignKey(Accessibilite, on_delete=models.CASCADE)
 
