@@ -5,6 +5,10 @@ from django.contrib.gis.db import models
 
 
 class Activite(models.Model):
+    class Meta:
+        verbose_name = "Activité"
+        verbose_name_plural = "Activités"
+
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
     )
@@ -21,6 +25,10 @@ class Activite(models.Model):
 
 
 class Label(models.Model):
+    class Meta:
+        verbose_name = "Label d'accessibilité"
+        verbose_name_plural = "Labels d'accessibilité"
+
     nom = models.CharField(max_length=255)
     # datetimes
     created_at = models.DateTimeField(
@@ -35,6 +43,10 @@ class Label(models.Model):
 
 
 class Erp(models.Model):
+    class Meta:
+        verbose_name = "Établissement"
+        verbose_name_plural = "Établissements"
+
     nom = models.CharField(
         max_length=255, help_text="Nom de l’établissement ou de l’enseigne"
     )
@@ -102,6 +114,10 @@ class Erp(models.Model):
 
 
 class Accessibilite(models.Model):
+    class Meta:
+        verbose_name = "Accessibilité"
+        verbose_name_plural = "Accessibilités"
+
     PERSONNELS_FORMES = "formés"
     PERSONNELS_NON_FORMES = "non-formés"
     PERSONNELS_CHOICES = [
@@ -149,6 +165,12 @@ class Accessibilite(models.Model):
         verbose_name="Infos entrée secondaire",
         help_text="Précisions sur les modalités d'accès de l'entrée secondaire",
     )
+    entree_interphone = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Dispositif d'appel",
+        help_text="Présence d'un dispositif d'appel (ex. interphone)",
+    )
 
     # accueil
     accueil_personnels = models.CharField(
@@ -170,6 +192,12 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="BIM",
         help_text="Présence d'équipements BIM",
+    )
+    accueil_sous_titrage = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Sous-titrage",
+        help_text="Présence d'équipements de sous-titrage",
     )
     accueil_prestations = models.TextField(
         max_length=1000,
@@ -238,7 +266,12 @@ class Cheminement(models.Model):
 
     RAMPE_FIXE = "fixe"
     RAMPE_AMOVIBLE = "amovible"
-    RAMPE_CHOICES = [(RAMPE_FIXE, "Fixe"), (RAMPE_AMOVIBLE, "Amovible")]
+    RAMPE_AIDE_HUMAINE = "aide humaine"
+    RAMPE_CHOICES = [
+        (RAMPE_FIXE, "Fixe"),
+        (RAMPE_AMOVIBLE, "Amovible"),
+        (RAMPE_AIDE_HUMAINE, "Aide humaine"),
+    ]
 
     DEVERS_LEGER = "léger"
     DEVERS_IMPORTANT = "important"
@@ -282,7 +315,7 @@ class Cheminement(models.Model):
         null=True,
         blank=True,
         verbose_name="Largeur minimale",
-        help_text="Largeur minimale du passage, en centimètres",
+        help_text="Largeur minimale du passage ou rétrécissement, en centimètres",
     )
     # déclivité
     pente = models.CharField(
@@ -313,6 +346,12 @@ class Cheminement(models.Model):
         blank=True,
         verbose_name="Marches d'escalier",
         help_text="Nombre de marches d'escalier, si applicable",
+    )
+    escalier_reperage = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Repérage des marches",
+        help_text="Repérage visuel des marches d'escalier",
     )
     escalier_main_courante = models.BooleanField(
         null=True,

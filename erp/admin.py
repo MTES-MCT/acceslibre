@@ -101,6 +101,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             {
                 "fields": [
                     "entree_signaletique",
+                    "entree_interphone",
                     "entree_secondaire",
                     "entree_secondaire_informations",
                 ]
@@ -113,6 +114,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
                     "accueil_personnels",
                     "accueil_lsf",
                     "accueil_bim",
+                    "accueil_sous_titrage",
                     "accueil_prestations",
                 ]
             },
