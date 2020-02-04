@@ -61,7 +61,7 @@ class Erp(models.Model):
         null=True,
         blank=True,
         verbose_name="Localisation",
-        help_text="Géolocalisation opérée à partir de l'adresse une fois l'enregistrement sauvegardé",
+        help_text="Géolocalisation (carte rafraîchie une fois l'enregistrement sauvegardé)",
     )
     siret = models.CharField(
         max_length=255,
@@ -116,7 +116,7 @@ class Erp(models.Model):
 class Accessibilite(models.Model):
     class Meta:
         verbose_name = "Accessibilité"
-        verbose_name_plural = "Accessibilités"
+        verbose_name_plural = "Accessibilité"
 
     PERSONNELS_AUCUN = "aucun"
     PERSONNELS_FORMES = "formés"
@@ -235,7 +235,7 @@ class Accessibilite(models.Model):
     )
 
     def __str__(self):
-        return f"Accessibilité #{self.id}"
+        return f"Caractéristiques d'accessibilité de cet ERP"
 
 
 class Cheminement(models.Model):
@@ -380,3 +380,6 @@ class Cheminement(models.Model):
         verbose_name="Ascenseur/élévateur",
         help_text="Présence d'un ascenseur ou d'un élévateur",
     )
+
+    def __str__(self):
+        return dict(self.TYPE_CHOICES)[self.type]

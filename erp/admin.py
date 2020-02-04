@@ -149,6 +149,7 @@ class ErpAdmin(
         "created_at",
         "updated_at",
     ]
+    point_zoom = 18
     map_height = 300
     save_on_top = True
     search_fields = ["nom", "activite__nom", "code_postal", "commune"]
@@ -173,6 +174,17 @@ class ErpAdmin(
             },
         ),
     ]
+
+    def get_fieldsets(self, request, obj=None):
+        if obj is None:
+            # hide geom when object is new
+            fieldsets = dict(self.fieldsets.copy())
+            fieldsets["Localisation"]["fields"] = [
+                f for f in fieldsets["Localisation"]["fields"] if f != "geom"
+            ]
+            new_fieldsets = list(fieldsets.items())
+            return new_fieldsets
+        return self.fieldsets
 
     def renseignee(self, instance):
         return instance.accessibilite is not None
