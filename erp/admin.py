@@ -235,6 +235,7 @@ class ErpAdmin(
         ),
     ]
 
+    # FIXME: this, for some reason, doesn't work on production: investigate
     # def get_fieldsets(self, request, obj=None):
     #     if obj is None:
     #         # hide geom when object is new
