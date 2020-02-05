@@ -66,7 +66,7 @@ class Erp(models.Model):
         verbose_name_plural = "Établissements"
 
     nom = models.CharField(
-        max_length=255, help_text="Nom de l’établissement ou de l’enseigne"
+        max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
     )
     activite = models.ForeignKey(
         Activite,
@@ -157,7 +157,7 @@ class Accessibilite(models.Model):
         (None, "Inconnu"),
         (PERSONNELS_AUCUN, "Aucun personnel"),
         (PERSONNELS_FORMES, "Personnels sensibilisés et formés"),
-        (PERSONNELS_NON_FORMES, "Personnels non non-formés"),
+        (PERSONNELS_NON_FORMES, "Personnels non-formés"),
     ]
 
     # erp
@@ -177,7 +177,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Stationnements PMR dans l'ERP",
-        help_text="Présence de stationnements adaptés au sein de l'ERP",
+        help_text="Présence de stationnements PMR au sein de l'ERP",
     )
 
     # stationnement extérieur à proximité
@@ -191,7 +191,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Stationnements PMR à proximité",
-        help_text="Présence de stationnements adaptés à proximité (200m)",
+        help_text="Présence de stationnements PMR à proximité (200m)",
     )
 
     # entrées principale et secondaires
@@ -281,31 +281,30 @@ class Accessibilite(models.Model):
 
 
 class Cheminement(models.Model):
-    TYPE_STAT_VERS_ERP = "stationnement_vers_erp"
-    TYPE_STAT_EXT_VERS_ERP = "stationnement_ext_vers_erp"
-    TYPE_STAT_VERS_ENTREE = "stationnement_vers_entree"
-    TYPE_PARCELLE_VERS_ENTREE = "parcelle_vers_entree"
-    TYPE_ENTREE_VERS_ACCUEIL = "entree_vers_accueil"
+    class Meta:
+        verbose_name = "Circulation"
+        verbose_name_plural = "Circulations"
+
+    TYPE_EXT_STAT_VERS_ENTREE = "ext_stationnement_vers_entree"
+    TYPE_EXT_ENTREE_PARCELLE_ENTREE_BATIMENT = (
+        "ext_entree_parcelle_entree_vers_batiment"
+    )
+    TYPE_INT_ENTREE_BATIMENT_ACCUEIL = "int_entree_batiment_vers_accueil"
     TYPE_ENTREE = "entree"
     TYPE_CHOICES = [
-        (TYPE_STAT_VERS_ERP, "Cheminement depuis le stationnement de l'ERP"),
+        (TYPE_ENTREE, "Accessibilité de l'entrée"),
         (
-            TYPE_STAT_EXT_VERS_ERP,
-            "Cheminement depuis le stationnement extérieur à l'ERP",
+            TYPE_EXT_STAT_VERS_ENTREE,
+            "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée",
         ),
         (
-            TYPE_STAT_VERS_ENTREE,
-            "Cheminement du stationnement à l'entrée du bâtiment",
+            TYPE_EXT_ENTREE_PARCELLE_ENTREE_BATIMENT,
+            "Cheminement extérieur de l'entrée de la parcelle de terrain à l'entrée du bâtiment",
         ),
         (
-            TYPE_PARCELLE_VERS_ENTREE,
-            "Cheminement depuis l'entrée de la parcelle de terrain à l'entrée du bâtiment",
+            TYPE_INT_ENTREE_BATIMENT_ACCUEIL,
+            "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil",
         ),
-        (
-            TYPE_ENTREE_VERS_ACCUEIL,
-            "Cheminement de l'entrée du bâtiment à la zone d'accueil",
-        ),
-        (TYPE_ENTREE, "Cheminement autour de l'entrée"),
     ]
 
     RAMPE_AUCUNE = "aucune"
@@ -345,8 +344,8 @@ class Cheminement(models.Model):
         max_length=100,
         default=TYPE_ENTREE,
         choices=TYPE_CHOICES,
-        verbose_name="Cheminement",
-        help_text="Type de cheminement",
+        verbose_name="Type",
+        help_text="Type de circulation",
     )
 
     # équipements
@@ -408,13 +407,13 @@ class Cheminement(models.Model):
         null=True,
         blank=True,
         verbose_name="Marches d'escalier",
-        help_text="Nombre de marches d'escalier, si applicable",
+        help_text="Nombre de marches d'escalier. Indiquez 0 si pas d'escalier ou si présence d'un ascenseur/élévateur.",
     )
     escalier_reperage = models.BooleanField(
         null=True,
         blank=True,
         verbose_name="Repérage de l'escalier",
-        help_text="Si marches contrastées, bande d’éveil ou nez de marche contrastés, indiquez “Oui”",
+        help_text="Si marches contrastées, bande d'éveil ou nez de marche contrastés, indiquez “Oui”",
     )
     escalier_main_courante = models.BooleanField(
         null=True,
