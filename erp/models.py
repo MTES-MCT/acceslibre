@@ -2,6 +2,7 @@ import json
 import requests
 
 from django.contrib.gis.db import models
+from django.core.exceptions import ValidationError
 
 
 class Activite(models.Model):
@@ -110,7 +111,9 @@ class Erp(models.Model):
         verbose_name="Numéro",
         help_text="Numéro dans la voie, incluant le complément (BIS, TER, etc.)",
     )
-    voie = models.CharField(max_length=255, help_text="Voie")
+    voie = models.CharField(
+        max_length=255, null=True, blank=True, help_text="Voie"
+    )
     lieu_dit = models.CharField(
         max_length=255, null=True, blank=True, help_text="Lieu dit"
     )
@@ -143,6 +146,11 @@ class Erp(models.Model):
             ],
         )
         return " ".join(pieces).strip()
+
+    def clean(self):
+        if self.voie is None and self.lieu_dit is None:
+            error = "Veuillez entrer une voie ou un lieu-dit"
+            raise ValidationError({"voie": error, "lieu_dit": error})
 
 
 class Accessibilite(models.Model):
