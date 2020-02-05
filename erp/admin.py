@@ -102,6 +102,21 @@ class CheminementInline(nested_admin.NestedStackedInline):
     model = Cheminement
     max_num = 6
     extra = 0
+    fields = (
+        "type",
+        "pente",
+        "devers",
+        "reperage_vitres",
+        "bande_guidage",
+        "guidage_sonore",
+        "largeur_mini",
+        "rampe",
+        "aide_humaine",
+        "escalier_marches",
+        "escalier_reperage",
+        "escalier_main_courante",
+        "ascenseur",
+    )
 
 
 class AccessibiliteInline(nested_admin.NestedStackedInline):
@@ -127,6 +142,15 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
                     "entree_interphone",
                     "entree_pmr",
                     "entree_pmr_informations",
+                    "reperage_vitres",
+                    "guidage_sonore",
+                    "largeur_mini",
+                    "rampe",
+                    "aide_humaine",
+                    "escalier_marches",
+                    "escalier_reperage",
+                    "escalier_main_courante",
+                    "ascenseur",
                 ]
             },
         ),

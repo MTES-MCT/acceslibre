@@ -5,6 +5,12 @@ from django.contrib.gis.db import models
 from django.core.exceptions import ValidationError
 
 
+# retirer :
+#     bande de guidage
+#     pente
+#     dévers
+
+
 class Activite(models.Model):
     class Meta:
         ordering = ["nom"]
@@ -160,7 +166,78 @@ class Erp(models.Model):
             raise ValidationError({"voie": error, "lieu_dit": error})
 
 
-class Accessibilite(models.Model):
+class CriteresCommunsMixin(models.Model):
+    class Meta:
+        abstract = True
+
+    RAMPE_AUCUNE = "aucune"
+    RAMPE_FIXE = "fixe"
+    RAMPE_AMOVIBLE = "amovible"
+    RAMPE_AIDE_HUMAINE = "aide humaine"
+    RAMPE_CHOICES = [
+        (None, "Inconnu"),
+        (RAMPE_AUCUNE, "Aucune"),
+        (RAMPE_FIXE, "Fixe"),
+        (RAMPE_AMOVIBLE, "Amovible"),
+    ]
+
+    reperage_vitres = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Répérage surfaces vitrées",
+        help_text="Présence d'un repérage sur les surfaces vitrées",
+    )
+    guidage_sonore = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Système de guidage sonore",
+        help_text="Présence d'un dispositif de guidage sonore",
+    )
+    largeur_mini = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Largeur minimale",
+        help_text="Largeur minimale du passage ou rétrécissement, en centimètres",
+    )
+    rampe = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        choices=RAMPE_CHOICES,
+        help_text="Présence et type de rampe",
+    )
+    aide_humaine = models.BooleanField(
+        null=True,
+        blank=True,
+        help_text="Présence ou possibilité d'une aide humaine au déplacement",
+    )
+    escalier_marches = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Marches d'escalier",
+        help_text="Nombre de marches d'escalier. Indiquez 0 si pas d'escalier ou si présence d'un ascenseur/élévateur.",
+    )
+    escalier_reperage = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Repérage de l'escalier",
+        help_text="Si marches contrastées, bande d'éveil ou nez de marche contrastés, indiquez “Oui”",
+    )
+    escalier_main_courante = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Main courante",
+        help_text="Présence d'une main courante d'escalier",
+    )
+    ascenseur = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Ascenseur/élévateur",
+        help_text="Présence d'un ascenseur ou d'un élévateur",
+    )
+
+
+class Accessibilite(CriteresCommunsMixin):
     class Meta:
         verbose_name = "Accessibilité"
         verbose_name_plural = "Accessibilité"
@@ -176,7 +253,6 @@ class Accessibilite(models.Model):
     ]
 
     # erp
-    # see https://docs.djangoproject.com/en/3.0/topics/db/examples/one_to_one/
     erp = models.OneToOneField(
         Erp, on_delete=models.CASCADE, null=True, blank=True, help_text="ERP"
     )
@@ -209,7 +285,8 @@ class Accessibilite(models.Model):
         help_text="Présence de stationnements PMR à proximité (200m)",
     )
 
-    # entrées principale et secondaires
+    # entrées principale et PMR
+    # note: le mixin CriteresCommunsMixin apporte des champs supplémentaires
     entree_reperage = models.BooleanField(
         null=True,
         blank=True,
@@ -295,20 +372,22 @@ class Accessibilite(models.Model):
         return f"Caractéristiques d'accessibilité de cet ERP"
 
 
-class Cheminement(models.Model):
+class Cheminement(CriteresCommunsMixin):
     class Meta:
         unique_together = ("accessibilite", "type")
-        verbose_name = "Circulation"
-        verbose_name_plural = "Circulations"
+        verbose_name = "Cheminement"
+        verbose_name_plural = "Cheminements"
 
+    TYPE_INT_ENTREE_BATIMENT_ACCUEIL = "int_entree_batiment_vers_accueil"
     TYPE_EXT_STAT_VERS_ENTREE = "ext_stationnement_vers_entree"
     TYPE_EXT_ENTREE_PARCELLE_ENTREE_BATIMENT = (
         "ext_entree_parcelle_entree_vers_batiment"
     )
-    TYPE_INT_ENTREE_BATIMENT_ACCUEIL = "int_entree_batiment_vers_accueil"
-    TYPE_ENTREE = "entree"
     TYPE_CHOICES = [
-        (TYPE_ENTREE, "Accessibilité de l'entrée"),
+        (
+            TYPE_INT_ENTREE_BATIMENT_ACCUEIL,
+            "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil",
+        ),
         (
             TYPE_EXT_STAT_VERS_ENTREE,
             "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée",
@@ -317,21 +396,6 @@ class Cheminement(models.Model):
             TYPE_EXT_ENTREE_PARCELLE_ENTREE_BATIMENT,
             "Cheminement extérieur de l'entrée de la parcelle de terrain à l'entrée du bâtiment",
         ),
-        (
-            TYPE_INT_ENTREE_BATIMENT_ACCUEIL,
-            "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil",
-        ),
-    ]
-
-    RAMPE_AUCUNE = "aucune"
-    RAMPE_FIXE = "fixe"
-    RAMPE_AMOVIBLE = "amovible"
-    RAMPE_AIDE_HUMAINE = "aide humaine"
-    RAMPE_CHOICES = [
-        (None, "Inconnu"),
-        (RAMPE_AUCUNE, "Aucune"),
-        (RAMPE_FIXE, "Fixe"),
-        (RAMPE_AMOVIBLE, "Amovible"),
     ]
 
     DEVERS_AUCUN = "aucun"
@@ -358,37 +422,19 @@ class Cheminement(models.Model):
 
     type = models.CharField(
         max_length=100,
-        default=TYPE_ENTREE,
+        default=TYPE_INT_ENTREE_BATIMENT_ACCUEIL,
         choices=TYPE_CHOICES,
         verbose_name="Type",
         help_text="Type de circulation",
     )
 
     # équipements
-    reperage_vitres = models.BooleanField(
-        null=True,
-        blank=True,
-        verbose_name="Répérage surfaces vitrées",
-        help_text="Présence d'un repérage sur les surfaces vitrées",
-    )
+    # note: le mixin CriteresCommunsMixin apporte des champs supplémentaires
     bande_guidage = models.BooleanField(
         null=True,
         blank=True,
         verbose_name="Bande de guidage",
         help_text="Présence d'une bande de guidage",
-    )
-    guidage_sonore = models.BooleanField(
-        null=True,
-        blank=True,
-        verbose_name="Système de guidage sonore",
-        help_text="Présence d'un dispositif de guidage sonore",
-    )
-    # largeur du passage
-    largeur_mini = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Largeur minimale",
-        help_text="Largeur minimale du passage ou rétrécissement, en centimètres",
     )
     # déclivité
     pente = models.CharField(
@@ -406,44 +452,9 @@ class Cheminement(models.Model):
         choices=DEVERS_CHOICES,
         help_text="Inclinaison transversale du cheminement",
     )
-    rampe = models.CharField(
-        max_length=20,
-        null=True,
-        blank=True,
-        choices=RAMPE_CHOICES,
-        help_text="Présence et type de rampe",
-    )
-    aide_humaine = models.BooleanField(
-        null=True,
-        blank=True,
-        help_text="Présence ou possibilité d'une aide humaine au déplacement",
-    )
-    # escalier
-    escalier_marches = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Marches d'escalier",
-        help_text="Nombre de marches d'escalier. Indiquez 0 si pas d'escalier ou si présence d'un ascenseur/élévateur.",
-    )
-    escalier_reperage = models.BooleanField(
-        null=True,
-        blank=True,
-        verbose_name="Repérage de l'escalier",
-        help_text="Si marches contrastées, bande d'éveil ou nez de marche contrastés, indiquez “Oui”",
-    )
-    escalier_main_courante = models.BooleanField(
-        null=True,
-        blank=True,
-        verbose_name="Main courante",
-        help_text="Présence d'une main courante d'escalier",
-    )
-    # ascenseur ou élévateur
-    ascenseur = models.BooleanField(
-        null=True,
-        blank=True,
-        verbose_name="Ascenseur/élévateur",
-        help_text="Présence d'un ascenseur ou d'un élévateur",
-    )
 
     def __str__(self):
-        return dict(self.TYPE_CHOICES)[self.type]
+        try:
+            return dict(self.TYPE_CHOICES)[self.type]
+        except KeyError:
+            return f"Type non supporté: {self.type}"
