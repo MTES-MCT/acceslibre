@@ -290,6 +290,7 @@ class Accessibilite(models.Model):
 
 class Cheminement(models.Model):
     class Meta:
+        unique_together = ("accessibilite", "type")
         verbose_name = "Circulation"
         verbose_name_plural = "Circulations"
 
