@@ -210,17 +210,16 @@ class ErpAdmin(
         ),
     ]
 
-    # FIXME: doesn't render on update everytime: investigate
-    # def get_fieldsets(self, request, obj=None):
-    #     if obj is None:
-    #         # hide geom when object is new
-    #         fieldsets = dict(self.fieldsets.copy())
-    #         fieldsets["Localisation"]["fields"] = [
-    #             f for f in fieldsets["Localisation"]["fields"] if f != "geom"
-    #         ]
-    #         new_fieldsets = list(fieldsets.items())
-    #         return new_fieldsets
-    #     return self.fieldsets
+    def get_fieldsets(self, request, obj=None):
+        if obj is None:
+            # hide geom when object is new
+            fieldsets = dict(self.fieldsets.copy())
+            fieldsets["Localisation"]["fields"] = [
+                f for f in fieldsets["Localisation"]["fields"] if f != "geom"
+            ]
+            new_fieldsets = list(fieldsets.items())
+            self.fieldsets = new_fieldsets
+        return self.fieldsets
 
     def renseignee(self, instance):
         return instance.accessibilite is not None
