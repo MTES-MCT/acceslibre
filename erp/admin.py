@@ -2,6 +2,7 @@ import nested_admin
 import re
 
 from datetime import datetime
+from django import forms
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.contrib import admin
 from django.contrib.gis.admin import OSMGeoAdmin
@@ -9,7 +10,14 @@ from django.core.exceptions import ValidationError
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Activite, Erp, Label, Accessibilite, Cheminement
+from .models import (
+    Activite,
+    Erp,
+    Label,
+    Accessibilite,
+    Cheminement,
+    EquipementMalentendant,
+)
 from .geocode import geocode
 
 CCONFORME_DATE_FORMAT = "%Y%m%d"
@@ -76,6 +84,13 @@ class ActiviteAdmin(admin.ModelAdmin):
     ordering = ("nom",)
 
 
+@admin.register(EquipementMalentendant)
+class EquipementMalentendantAdmin(admin.ModelAdmin):
+    list_display = ("nom", "created_at", "updated_at")
+    list_display_links = ("nom",)
+    ordering = ("nom",)
+
+
 @admin.register(Label)
 class LabelAdmin(admin.ModelAdmin):
     list_display = ("nom", "created_at", "updated_at")
@@ -87,6 +102,21 @@ class CheminementInline(nested_admin.NestedStackedInline):
     model = Cheminement
     max_num = 6
     extra = 0
+    fields = (
+        "type",
+        "pente",
+        "devers",
+        "reperage_vitres",
+        "bande_guidage",
+        "guidage_sonore",
+        "largeur_mini",
+        "rampe",
+        "aide_humaine",
+        "escalier_marches",
+        "escalier_reperage",
+        "escalier_main_courante",
+        "ascenseur",
+    )
 
 
 class AccessibiliteInline(nested_admin.NestedStackedInline):
@@ -95,16 +125,33 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
     fieldsets = [
         (
             "Stationnement",
-            {"fields": ["stationnement_presence", "stationnement_pmr"]},
-        ),
-        (
-            "Entrée principale et secondaire",
             {
                 "fields": [
-                    "entree_signaletique",
+                    "stationnement_presence",
+                    "stationnement_pmr",
+                    "stationnement_ext_presence",
+                    "stationnement_ext_pmr",
+                ]
+            },
+        ),
+        (
+            "Entrée",
+            {
+                "fields": [
+                    "entree_plain_pied",
+                    "entree_reperage",
                     "entree_interphone",
-                    "entree_secondaire",
-                    "entree_secondaire_informations",
+                    "entree_pmr",
+                    "entree_pmr_informations",
+                    "reperage_vitres",
+                    "guidage_sonore",
+                    "largeur_mini",
+                    "rampe",
+                    "aide_humaine",
+                    "escalier_marches",
+                    "escalier_reperage",
+                    "escalier_main_courante",
+                    "ascenseur",
                 ]
             },
         ),
@@ -112,10 +159,9 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             "Accueil",
             {
                 "fields": [
+                    "accueil_visibilite",
                     "accueil_personnels",
-                    "accueil_lsf",
-                    "accueil_bim",
-                    "accueil_sous_titrage",
+                    "accueil_equipements_malentendants",
                     "accueil_prestations",
                 ]
             },
@@ -128,10 +174,23 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
     ]
 
 
+class ErpAdminForm(forms.ModelForm):
+    class Meta:
+        model = Erp
+        fields = ("activite",)
+
+    activite = forms.ModelChoiceField(
+        queryset=Activite.objects.order_by("nom"),
+        required=False,
+        empty_label="Inconnue",
+    )
+
+
 @admin.register(Erp)
 class ErpAdmin(
     ImportExportModelAdmin, OSMGeoAdmin, nested_admin.NestedModelAdmin
 ):
+    form = ErpAdminForm
     resource_class = ErpResource
 
     inlines = [AccessibiliteInline]
@@ -159,6 +218,7 @@ class ErpAdmin(
 
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret"]}),
+        ("Contact", {"fields": ["telephone", "site_internet"]}),
         (
             "Localisation",
             {
@@ -183,7 +243,7 @@ class ErpAdmin(
                 f for f in fieldsets["Localisation"]["fields"] if f != "geom"
             ]
             new_fieldsets = list(fieldsets.items())
-            return new_fieldsets
+            self.fieldsets = new_fieldsets
         return self.fieldsets
 
     def renseignee(self, instance):
