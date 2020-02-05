@@ -7,6 +7,7 @@ from django.core.exceptions import ValidationError
 
 class Activite(models.Model):
     class Meta:
+        ordering = ["nom"]
         verbose_name = "Activité"
         verbose_name_plural = "Activités"
 
@@ -27,10 +28,13 @@ class Activite(models.Model):
 
 class Label(models.Model):
     class Meta:
+        ordering = ["nom"]
         verbose_name = "Label d'accessibilité"
         verbose_name_plural = "Labels d'accessibilité"
 
-    nom = models.CharField(max_length=255, help_text="Nom du label")
+    nom = models.CharField(
+        max_length=255, unique=True, help_text="Nom du label"
+    )
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"
@@ -45,10 +49,13 @@ class Label(models.Model):
 
 class EquipementMalentendant(models.Model):
     class Meta:
+        ordering = ["nom"]
         verbose_name = "Équipement sourd/malentendant"
         verbose_name_plural = "Équipements sourd/malentendant"
 
-    nom = models.CharField(max_length=255, help_text="Nom de l'équipement")
+    nom = models.CharField(
+        max_length=255, unique=True, help_text="Nom de l'équipement"
+    )
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"

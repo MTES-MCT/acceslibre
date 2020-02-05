@@ -155,7 +155,9 @@ class ErpAdminForm(forms.ModelForm):
         fields = ("activite",)
 
     activite = forms.ModelChoiceField(
-        queryset=Activite.objects, required=False, empty_label="Inconnue"
+        queryset=Activite.objects.order_by("nom"),
+        required=False,
+        empty_label="Inconnue",
     )
 
 
