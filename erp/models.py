@@ -287,6 +287,12 @@ class Accessibilite(CriteresCommunsMixin):
 
     # entrées principale et PMR
     # note: le mixin CriteresCommunsMixin apporte des champs supplémentaires
+    entree_plain_pied = models.BooleanField(
+        null=True,
+        blank=True,
+        verbose_name="Plain-pied",
+        help_text="L'entrée est-elle de plain-pied ?",
+    )
     entree_reperage = models.BooleanField(
         null=True,
         blank=True,

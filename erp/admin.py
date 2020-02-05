@@ -138,6 +138,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             "Entrée",
             {
                 "fields": [
+                    "entree_plain_pied",
                     "entree_reperage",
                     "entree_interphone",
                     "entree_pmr",
