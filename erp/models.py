@@ -70,6 +70,7 @@ class EquipementMalentendant(models.Model):
 
 class Erp(models.Model):
     class Meta:
+        ordering = ("nom",)
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
 

@@ -1,5 +1,4 @@
 import nested_admin
-import re
 
 from datetime import datetime
 from django import forms
@@ -7,9 +6,9 @@ from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.contrib import admin
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
-from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
+from .imports import ErpResource
 from .models import (
     Activite,
     Erp,
@@ -19,62 +18,6 @@ from .models import (
     EquipementMalentendant,
 )
 from .geocode import geocode
-
-CCONFORME_DATE_FORMAT = "%Y%m%d"
-CCONFORME_GEOM_RE = re.compile(r"POINT\((\d+\.\d+) (\d+\.\d+)\)")
-
-
-class ErpResource(resources.ModelResource):
-    class Meta:
-        model = Erp
-        # skip_unchanged = True
-        exclude = ("id",)
-
-    def before_import_row(self, row, **kwargs):
-        # date field
-        try:
-            row["date"] = datetime.strptime(row["date"], CCONFORME_DATE_FORMAT)
-        except (AttributeError, ValueError):
-            return  # TODO: warning/info
-        # adresse
-        row["addresse"] = " ".join(
-            [
-                row["num"],
-                row["cplt"],
-                row["voie"],
-                row["lieu_dit"],
-                row["cpost"],
-                row["commune"],
-            ]
-        ).strip()
-        # lat & lon fields
-        try:
-            (slat, slon) = CCONFORME_GEOM_RE.match(row["geom"]).groups()
-            (lat, lon) = (float(slat), float(slon))
-        except (AttributeError, ValueError):
-            return  # TODO: warning/info
-        row["lat"] = lat
-        row["lon"] = lon
-        # cplt
-        if row["cplt"] == "NR":
-            row["cplt"] = ""
-        # categorie
-        try:
-            int(row["categorie"])
-        except ValueError:
-            row["categorie"] = ""
-        # precision
-        try:
-            float(row["precision"])
-        except ValueError:
-            row["precision"] = ""
-        # nature
-        row["nature"].strip().upper()
-
-    def skip_row(self, instance, original):
-        if instance.lat is None or instance.lon is None:
-            return True
-        return super(ErpResource, self).skip_row(instance, original)
 
 
 @admin.register(Activite)
