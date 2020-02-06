@@ -202,6 +202,7 @@ class ErpAdmin(
         "activite",
         "code_postal",
         "commune",
+        "geolocalise",
         "renseignee",
         "updated_at",
     )
@@ -239,18 +240,6 @@ class ErpAdmin(
         ),
     ]
 
-    # FIXME: this, for some reason, doesn't work on production: investigate
-    # def get_fieldsets(self, request, obj=None):
-    #     if obj is None:
-    #         # hide geom when object is new
-    #         fieldsets = dict(self.fieldsets.copy())
-    #         fieldsets["Localisation"]["fields"] = [
-    #             f for f in fieldsets["Localisation"]["fields"] if f != "geom"
-    #         ]
-    #         new_fieldsets = list(fieldsets.items())
-    #         self.fieldsets = new_fieldsets
-    #     return self.fieldsets
-
     def get_form(self, request, obj=None, **kwargs):
         # see https://code.djangoproject.com/ticket/9071#comment:24
         form = super(ErpAdmin, self).get_form(request, obj, **kwargs)
@@ -260,6 +249,12 @@ class ErpAdmin(
         if obj is None:
             form.base_fields["geom"].widget = forms.HiddenInput()
         return form
+
+    def geolocalise(self, instance):
+        return instance.geom is not None
+
+    geolocalise.boolean = True
+    geolocalise.short_description = "Géolocalisé"
 
     def renseignee(self, instance):
         return instance.accessibilite is not None
