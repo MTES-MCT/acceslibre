@@ -256,6 +256,9 @@ class ErpAdmin(
         form = super(ErpAdmin, self).get_form(request, obj, **kwargs)
         form.base_fields["activite"].widget.can_change_related = False
         form.base_fields["activite"].widget.can_delete_related = False
+        # hide geom field on new obj
+        if obj is None:
+            form.base_fields["geom"].widget = forms.HiddenInput()
         return form
 
     def renseignee(self, instance):
