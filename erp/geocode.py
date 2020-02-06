@@ -9,10 +9,7 @@ GEOCODER_URL = "https://api-adresse.data.gouv.fr/search/"
 
 def geocode(erp):
     # retrieve geolocoder data
-    res = requests.get(
-        GEOCODER_URL,
-        {"q": erp.adresse, "limit": 1, "postcode": erp.code_postal},
-    )
+    res = requests.get(GEOCODER_URL, {"q": erp.adresse, "limit": 1},)
     if res.status_code != 200:
         raise RuntimeError("Impossible de géocoder l'adresse.")
     data = res.json()
@@ -25,7 +22,10 @@ def geocode(erp):
         # coordinates
         geometry = feature["geometry"]
         erp.geom = Point(geometry["coordinates"])
-    except (KeyError, IndexError, RuntimeError):
+        # address
+
+    except (KeyError, IndexError, RuntimeError) as err:
         # print(json.dumps(data, indent=2))
         erp.geom = None
+        print(f"Failed geocoding address '{erp.adresse}': {err}")
     return erp

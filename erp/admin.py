@@ -82,6 +82,7 @@ class ActiviteAdmin(admin.ModelAdmin):
     list_display = ("nom", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
+    search_fields = ("nom",)
 
 
 @admin.register(EquipementMalentendant)
@@ -89,6 +90,7 @@ class EquipementMalentendantAdmin(admin.ModelAdmin):
     list_display = ("nom", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
+    search_fields = ("nom",)
 
 
 @admin.register(Label)
@@ -96,6 +98,7 @@ class LabelAdmin(admin.ModelAdmin):
     list_display = ("nom", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
+    search_fields = ("nom",)
 
 
 class CheminementInline(nested_admin.NestedStackedInline):
@@ -121,6 +124,7 @@ class CheminementInline(nested_admin.NestedStackedInline):
 
 class AccessibiliteInline(nested_admin.NestedStackedInline):
     model = Accessibilite
+    autocomplete_fields = ["accueil_equipements_malentendants", "labels"]
     inlines = [CheminementInline]
     fieldsets = [
         (
@@ -173,24 +177,23 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         ("Labels", {"fields": ["labels"]}),
     ]
 
-
-class ErpAdminForm(forms.ModelForm):
-    class Meta:
-        model = Erp
-        fields = ("activite",)
-
-    activite = forms.ModelChoiceField(
-        queryset=Activite.objects.order_by("nom"),
-        required=False,
-        empty_label="Inconnue",
-    )
+    def get_formset(self, request, obj=None, **kwargs):
+        # see https://stackoverflow.com/a/37558444/330911
+        formset = super(AccessibiliteInline, self).get_formset(
+            request, obj, **kwargs
+        )
+        form = formset.form
+        widget = form.base_fields["accueil_equipements_malentendants"].widget
+        widget.can_change_related = False
+        widget.can_delete_related = False
+        return formset
 
 
 @admin.register(Erp)
 class ErpAdmin(
     ImportExportModelAdmin, OSMGeoAdmin, nested_admin.NestedModelAdmin
 ):
-    form = ErpAdminForm
+    # form = ErpAdminForm
     resource_class = ErpResource
 
     inlines = [AccessibiliteInline]
@@ -212,6 +215,7 @@ class ErpAdmin(
     map_height = 300
     save_on_top = True
     search_fields = ["nom", "activite__nom", "code_postal", "commune"]
+    autocomplete_fields = ["activite"]
     scrollable = False
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = False
@@ -246,6 +250,13 @@ class ErpAdmin(
     #         new_fieldsets = list(fieldsets.items())
     #         self.fieldsets = new_fieldsets
     #     return self.fieldsets
+
+    def get_form(self, request, obj=None, **kwargs):
+        # see https://code.djangoproject.com/ticket/9071#comment:24
+        form = super(ErpAdmin, self).get_form(request, obj, **kwargs)
+        form.base_fields["activite"].widget.can_change_related = False
+        form.base_fields["activite"].widget.can_delete_related = False
+        return form
 
     def renseignee(self, instance):
         return instance.accessibilite is not None

@@ -5,15 +5,9 @@ from django.contrib.gis.db import models
 from django.core.exceptions import ValidationError
 
 
-# retirer :
-#     bande de guidage
-#     pente
-#     dévers
-
-
 class Activite(models.Model):
     class Meta:
-        ordering = ["nom"]
+        ordering = ("nom",)
         verbose_name = "Activité"
         verbose_name_plural = "Activités"
 
@@ -34,7 +28,7 @@ class Activite(models.Model):
 
 class Label(models.Model):
     class Meta:
-        ordering = ["nom"]
+        ordering = ("nom",)
         verbose_name = "Label d'accessibilité"
         verbose_name_plural = "Labels d'accessibilité"
 
@@ -55,7 +49,7 @@ class Label(models.Model):
 
 class EquipementMalentendant(models.Model):
     class Meta:
-        ordering = ["nom"]
+        ordering = ("nom",)
         verbose_name = "Équipement sourd/malentendant"
         verbose_name_plural = "Équipements sourd/malentendant"
 
@@ -87,6 +81,7 @@ class Erp(models.Model):
         null=True,
         blank=True,
         verbose_name="Activité",
+        help_text="Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées",
         on_delete=models.SET_NULL,
     )
     geom = models.PointField(
