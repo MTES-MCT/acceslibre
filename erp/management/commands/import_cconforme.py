@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand, CommandError
 from erp.models import Activite, Erp
 
 
-VILLES_CIBLES = ["rueil-malmaison", "courbevoie", "lorient"]
+VILLES_CIBLES = ["lyon", "villeurbanne"]
 VALEURS_VIDES = [
     "nr",
     "non renseigné",
@@ -85,20 +85,26 @@ class Command(BaseCommand):
 
         # activité
         nom_activite = clean(row["domaine"])
-        try:
-            activite = Activite.objects.get(nom=nom_activite)
-            fields["activite"] = activite
-        except Activite.DoesNotExist:
-            activite = None
+        if nom_activite:
+            for (pka, activite) in self.activites:
+                if nom_activite.lower().strip() == activite:
+                    fields["activite_id"] = pka
 
         erp = Erp(**fields)
-        print(f"ADD: {erp.nom} ({erp.adresse})")
+        if erp.activite is not None:
+            act = f"\n    {erp.activite.nom}"
+        else:
+            act = ""
+        print(f"ADD {erp.nom}{act}\n    {erp.adresse}")
         return erp
 
     def handle(self, *args, **options):
         csv_path = options["csv_path"]
         self.stdout.write(f"Importation des ERP depuis {csv_path}")
         to_import = []
+
+        self.activites = [(a.pk, a.nom.lower()) for a in Activite.objects.all()]
+
         with open(csv_path, "r") as file:
             reader = csv.DictReader(file)
             try:
