@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>ERP à proximité</h2>
+{% if object_list %}
+<ul>
+  {% for erp in object_list %}
+  <li>
+    {{ erp.nom }} : {{ erp.distance }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %} {% endblock %}

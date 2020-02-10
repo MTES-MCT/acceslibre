@@ -4,6 +4,8 @@ import requests
 from django.contrib.gis.db import models
 from django.core.exceptions import ValidationError
 
+from .manager import ErpManager
+
 
 class Activite(models.Model):
     class Meta:
@@ -73,6 +75,8 @@ class Erp(models.Model):
         ordering = ("nom",)
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
+
+    objects = ErpManager()
 
     nom = models.CharField(
         max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
