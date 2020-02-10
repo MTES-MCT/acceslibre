@@ -135,6 +135,22 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         return formset
 
 
+class CommuneFilter(admin.SimpleListFilter):
+    # see https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter
+    title = "Commune"
+    parameter_name = "commune"
+
+    def lookups(self, request, model_admin):
+        values = Erp.objects.order_by("commune").distinct("commune").all()
+        return ((v.commune, v.commune) for v in values)
+
+    def queryset(self, request, queryset):
+        if self.value() is None:
+            return queryset
+        else:
+            return queryset.filter(commune=self.value())
+
+
 @admin.register(Erp)
 class ErpAdmin(
     ImportExportModelAdmin, OSMGeoAdmin, nested_admin.NestedModelAdmin
@@ -155,6 +171,7 @@ class ErpAdmin(
     list_display_links = ("nom",)
     list_filter = [
         ("activite", RelatedDropdownFilter),
+        CommuneFilter,
         "created_at",
         "updated_at",
     ]
