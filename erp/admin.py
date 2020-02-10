@@ -126,9 +126,12 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             request, obj, **kwargs
         )
         form = formset.form
-        widget = form.base_fields["accueil_equipements_malentendants"].widget
-        widget.can_change_related = False
-        widget.can_delete_related = False
+        if "accueil_equipements_malentendants" in form.base_fields:
+            widget = form.base_fields[
+                "accueil_equipements_malentendants"
+            ].widget
+            widget.can_change_related = False
+            widget.can_delete_related = False
         return formset
 
 
@@ -186,10 +189,11 @@ class ErpAdmin(
     def get_form(self, request, obj=None, **kwargs):
         # see https://code.djangoproject.com/ticket/9071#comment:24
         form = super(ErpAdmin, self).get_form(request, obj, **kwargs)
-        form.base_fields["activite"].widget.can_change_related = False
-        form.base_fields["activite"].widget.can_delete_related = False
+        if "activite" in form.base_fields:
+            form.base_fields["activite"].widget.can_change_related = False
+            form.base_fields["activite"].widget.can_delete_related = False
         # hide geom field on new obj
-        if obj is None:
+        if "geom" in form.base_fields and obj is None:
             form.base_fields["geom"].widget = forms.HiddenInput()
         return form
 
