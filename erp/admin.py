@@ -6,6 +6,8 @@ from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.contrib import admin
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from import_export.admin import ImportExportModelAdmin
 
 from .imports import ErpResource
@@ -158,7 +160,7 @@ class ErpAdmin(
     # form = ErpAdminForm
     resource_class = ErpResource
 
-    actions = ["publish", "unpublish"]
+    actions = ["assign_activite", "publish", "unpublish"]
     inlines = [AccessibiliteInline]
     list_display = (
         "nom",
@@ -205,6 +207,25 @@ class ErpAdmin(
             },
         ),
     ]
+
+    def assign_activite(self, request, queryset):
+        if "apply" in request.POST:
+            try:
+                queryset.update(activite_id=int(request.POST["activite"]))
+                self.message_user(
+                    request, f"{queryset.count()} ERP ont été modifiés."
+                )
+            except (KeyError, TypeError):
+                pass
+            return HttpResponseRedirect(request.get_full_path())
+
+        return render(
+            request,
+            "admin/assign_activite.html",
+            context={"erps": queryset, "activites": Activite.objects.all()},
+        )
+
+    assign_activite.short_description = "Assigner une nouvelle catégorie"
 
     def publish(self, request, queryset):
         queryset.update(published=True)
