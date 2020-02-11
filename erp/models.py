@@ -89,6 +89,11 @@ class Erp(models.Model):
         help_text="Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées",
         on_delete=models.SET_NULL,
     )
+    published = models.BooleanField(
+        default=True,
+        verbose_name="Publié",
+        help_text="Statut de publication de cette fiche ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.",
+    )
     geom = models.PointField(
         null=True,
         blank=True,

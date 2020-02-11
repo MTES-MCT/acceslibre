@@ -158,12 +158,15 @@ class ErpAdmin(
     # form = ErpAdminForm
     resource_class = ErpResource
 
+    actions = ["publish", "unpublish"]
     inlines = [AccessibiliteInline]
     list_display = (
         "nom",
         "activite",
+        "voie_ou_lieu_dit",
         "code_postal",
         "commune",
+        "published",
         "geolocalise",
         "renseignee",
         "updated_at",
@@ -185,7 +188,7 @@ class ErpAdmin(
     view_on_site = False
 
     fieldsets = [
-        (None, {"fields": ["activite", "nom", "siret"]}),
+        (None, {"fields": ["activite", "nom", "siret", "published"]}),
         ("Contact", {"fields": ["telephone", "site_internet"]}),
         (
             "Localisation",
@@ -202,6 +205,16 @@ class ErpAdmin(
             },
         ),
     ]
+
+    def publish(self, request, queryset):
+        queryset.update(published=True)
+
+    publish.short_description = "Publier"
+
+    def unpublish(self, request, queryset):
+        queryset.update(published=False)
+
+    unpublish.short_description = "Mettre hors ligne"
 
     def get_form(self, request, obj=None, **kwargs):
         # see https://code.djangoproject.com/ticket/9071#comment:24
@@ -225,6 +238,18 @@ class ErpAdmin(
 
     renseignee.boolean = True
     renseignee.short_description = "Renseignée"
+
+    def voie_ou_lieu_dit(self, instance):
+        if instance.voie is not None:
+            return (
+                getattr(instance, "numero", "") + " " + instance.voie
+            ).strip()
+        elif instance.lieu_dit is not None:
+            return instance.lieu_dit
+        else:
+            return "Inconnu"
+
+    voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
 
     def save_model(self, request, obj, form, change):
         localized_obj = geocode(obj)
