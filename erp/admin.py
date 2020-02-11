@@ -241,9 +241,10 @@ class ErpAdmin(
 
     def voie_ou_lieu_dit(self, instance):
         if instance.voie is not None:
-            return (
-                getattr(instance, "numero", "") + " " + instance.voie
-            ).strip()
+            num = ""
+            if instance.numero is not None:
+                num = instance.numero
+            return (num + " " + instance.voie).strip()
         elif instance.lieu_dit is not None:
             return instance.lieu_dit
         else:
