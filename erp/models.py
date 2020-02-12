@@ -167,7 +167,17 @@ class Erp(models.Model):
         )
         return " ".join(pieces).strip().replace("  ", " ")
 
+    @property
+    def departement(self):
+        return self.code_postal[:2]
+
     def clean(self):
+        # code postal
+        if len(self.code_postal) != 5:
+            raise ValidationError(
+                {"code_postal": "Le code postal doit faire 5 caractères"}
+            )
+        # voie ou lieu-dit sont requis
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})

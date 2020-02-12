@@ -154,11 +154,9 @@ class CommuneFilter(admin.SimpleListFilter):
 
 
 @admin.register(Erp)
-class ErpAdmin(
-    ImportExportModelAdmin, OSMGeoAdmin, nested_admin.NestedModelAdmin
-):
-    # form = ErpAdminForm
-    resource_class = ErpResource
+class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
+    # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
+    # resource_class = ErpResource
 
     actions = ["assign_activite", "publish", "unpublish"]
     inlines = [AccessibiliteInline]
