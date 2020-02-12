@@ -2,20 +2,28 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Access4all</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==">
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="></script>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <script src="{% static "js/app.js" %}"></script>
-    <style>
-    #map { height: 580px; }
-    </style>
   </head>
 
   <body>
-    <h1><a href="{% url "app" %}">Access4all</a></h1>
-    {% block content %}{% endblock %}
+    <a class="skippy sr-only sr-only-focusable" href="#content">
+      <span class="skippy-text">Aller au contenu principal</span>
+    </a>
+    <nav class="navbar navbar-dark" style="background-color: #4493ce;">
+      <h1><a class="navbar-brand" href="{% url "app" %}">Access4all</a></h1>
+    </nav>
+    <div class="container-fluid">
+      {% block content %}{% endblock %}
+    </div>
   </body>
 </html>

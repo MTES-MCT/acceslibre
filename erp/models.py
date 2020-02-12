@@ -3,6 +3,7 @@ import requests
 
 from django.contrib.gis.db import models
 from django.core.exceptions import ValidationError
+from django.urls import reverse
 
 from .manager import ActiviteManager, ErpManager
 
@@ -153,6 +154,15 @@ class Erp(models.Model):
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom})"
+
+    def get_absolute_url(self):
+        commune = f"{self.departement}-{self.commune.lower()}"
+        return reverse(
+            "commune_activite_erp",
+            kwargs=dict(
+                commune=commune, activite=self.activite.pk, erp=self.pk,
+            ),
+        )
 
     @property
     def adresse(self):

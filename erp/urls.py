@@ -9,14 +9,20 @@ urlpatterns = [
     path(
         # FIXME slugs
         "app/<str:commune>/",
-        views.Commune.as_view(),
+        views.App.as_view(),
         name="commune",
     ),
     path(
         # FIXME slugs
-        "app/<str:commune>/<str:activite>/",
-        views.Commune.as_view(),
+        "app/<str:commune>/<int:activite>/",
+        views.App.as_view(),
         name="commune_activite",
+    ),
+    path(
+        # FIXME slugs
+        "app/<str:commune>/<int:activite>/<int:erp>/",
+        views.App.as_view(),
+        name="commune_activite_erp",
     ),
     path("nested_admin/", include("nested_admin.urls")),
 ]

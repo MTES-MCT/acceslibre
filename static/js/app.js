@@ -7,10 +7,21 @@ function initMap(info, geoJson) {
 
   // see https://leafletjs.com/examples/geojson/
   function onEachFeature({ properties }, layer) {
-    const content = `<p><strong>${properties.nom}</strong><br>${properties.activite__nom}<br>${properties.adresse}</p>`
-    layer.bindPopup(content);
+    layer.bindPopup(`
+      <p>
+        <strong><a href="#" onclick="openErp(${properties.pk})">${properties.nom}</a></strong>
+        <br>
+        ${properties.activite__nom}
+        <br>
+        ${properties.adresse}
+      </p>
+    `);
   }
 
   var group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
   map.fitBounds(group.getBounds());
+}
+
+function openErp(id) {
+  alert(id)
 }
