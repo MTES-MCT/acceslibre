@@ -1,6 +1,7 @@
 import json
 import requests
 
+from autoslug import AutoSlugField
 from django.contrib.gis.db import models
 from django.core.exceptions import ValidationError
 
@@ -18,6 +19,8 @@ class Activite(models.Model):
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
     )
+    slug = AutoSlugField(null=True, default="generic", populate_from="nom")
+
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"
