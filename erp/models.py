@@ -4,7 +4,7 @@ import requests
 from django.contrib.gis.db import models
 from django.core.exceptions import ValidationError
 
-from .manager import ErpManager
+from .manager import ActiviteManager, ErpManager
 
 
 class Activite(models.Model):
@@ -12,6 +12,8 @@ class Activite(models.Model):
         ordering = ("nom",)
         verbose_name = "Activité"
         verbose_name_plural = "Activités"
+
+    objects = ActiviteManager()
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
@@ -163,7 +165,7 @@ class Erp(models.Model):
                 self.commune,
             ],
         )
-        return " ".join(pieces).strip()
+        return " ".join(pieces).strip().replace("  ", " ")
 
     def clean(self):
         if self.voie is None and self.lieu_dit is None:

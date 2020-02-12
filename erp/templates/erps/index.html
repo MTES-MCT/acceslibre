@@ -1,12 +1,16 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
-<h2>ERP à proximité</h2>
-{% if object_list %}
-<ul>
-  {% for erp in object_list %}
-  <li>
-    {{ erp.nom }} : {{ erp.distance }}
-  </li>
-  {% endfor %}
-</ul>
-{% endif %} {% endblock %}
+{% block content %}
+  <h2>Communes</h2>
+  {% if communes %}
+  <ul>
+    {% for slug, commune in communes.items %}
+    <li>
+      <a href="{% url 'commune' slug %}">{{ commune.nom }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>Aucune commune n'est actuellement couverte, revenez plus tard :)</p>
+  {% endif %}
+{% endblock %}
