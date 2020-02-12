@@ -4,9 +4,9 @@
   <h2>Communes</h2>
   {% if communes %}
   <ul>
-    {% for slug, commune in communes.items %}
+    {% for _, commune in communes.items %}
     <li>
-      <a href="{% url 'commune' slug %}">{{ commune.nom }}</a>
+      <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
     </li>
     {% endfor %}
   </ul>

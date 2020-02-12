@@ -2,13 +2,13 @@
 
 {% block content %}
 
-  <h2>Commune de <a href="{% url "commune" commune_slug %}">{{ commune_name}}</a></h2>
+  <h2>Commune de <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a></h2>
 
   <h3>Activités</h3>
   {% if activites %}
   <p>
     {% for activite in activites %}
-    <a href="{% url 'commune_activite' commune=commune_slug activite=activite.nom %}">{{ activite.nom }} ({{ activite.count }})</a>
+    <a href="{% url 'commune_activite' commune=commune.slug activite=activite.nom %}">{{ activite.nom }} ({{ activite.count }})</a>
     {% endfor %}
   </p>
   {% endif %}
@@ -28,7 +28,7 @@
 
   <script>
     window.addEventListener("DOMContentLoaded", function() {
-      initMap({{ commune_info | safe }}, {{ geojson_list | safe }});
+      initMap({{ commune_json | safe }}, {{ geojson_list | safe }});
     });
   </script>
 {% endblock %}

@@ -8,13 +8,13 @@ urlpatterns = [
     path("app/", views.home, name="app"),
     path(
         # FIXME slugs
-        "app/commune/<str:commune>/",
+        "app/<str:commune>/",
         views.Commune.as_view(),
         name="commune",
     ),
     path(
         # FIXME slugs
-        "app/commune/<str:commune>/<str:activite>/",
+        "app/<str:commune>/<str:activite>/",
         views.Commune.as_view(),
         name="commune_activite",
     ),

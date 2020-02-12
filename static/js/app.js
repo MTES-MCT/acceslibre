@@ -12,5 +12,5 @@ function initMap(info, geoJson) {
   }
 
   var group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
-  map.fitBounds(group.getBounds().pad(0.5));
+  map.fitBounds(group.getBounds());
 }
