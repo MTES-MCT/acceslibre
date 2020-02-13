@@ -50,6 +50,10 @@ class App(generic.ListView):
         context["activites"] = Activite.objects.with_erp_counts(
             commune=self.commune["nom"], order_by="nom"
         )
+        if "activite" in self.kwargs:
+            context["current_activite"] = get_object_or_404(
+                Activite, pk=self.kwargs["activite"]
+            )
         if "erp" in self.kwargs:
             context["erp"] = get_object_or_404(Erp, id=self.kwargs["erp"])
         # see https://stackoverflow.com/a/56557206/330911

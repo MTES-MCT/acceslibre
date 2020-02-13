@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Communes</h2>
-  {% if communes %}
-  <ul>
-    {% for _, commune in communes.items %}
-    <li>
-      <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>Aucune commune n'est actuellement couverte, revenez plus tard :)</p>
-  {% endif %}
+  <div class="app-content">
+    <h2 id="content" class="display-4" style="font-size:32px">Communes</h2>
+    {% if communes %}
+    <ul>
+      {% for _, commune in communes.items %}
+      <li>
+        <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Aucune commune n'est actuellement couverte, revenez plus tard :)</p>
+    {% endif %}
+  </div>
 {% endblock %}

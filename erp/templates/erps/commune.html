@@ -1,45 +1,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  <div class="row">
-    <div class="col">
-      <h2 class="display-4" style="font-size:32px">Commune de <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a></h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-2">
-      <h3>Activités</h3>
-      <div class="list-group">
-        {% for activite in activites %}
-        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-            href="{% url 'commune_activite' commune=commune.slug activite=activite.pk %}">
-              {{ activite.nom }}
-              <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
-        </a>
-        {% endfor %}
+  <div class="app-content">
+    <div class="row p-0 m-0">
+      <div class="col pt-2 pb-1">
+        <h2 id="content" class="display-4" style="font-size:32px">
+          Commune de <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a>
+          {% if current_activite %}
+          <small class="text-muted">&raquo; {{ current_activite.nom }}</small>
+          {% endif %}
+        </h2>
       </div>
     </div>
 
-    <div class="col">
-      <h3>ERP</h3>
-      <div class="list-group">
-        {% for erp in object_list %}
-        <a class="list-group-item list-group-item-action"
-            href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
-        {% endfor %}
+    <div class="row p-0 m-0">
+      <nav class="col-md-2 d-none d-md-block bg-light activites-list p-0 m-0 border-top">
+        <div class="list-group list-group-flush border-right">
+          {% for activite in activites %}
+          <a class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
+              href="{% url 'commune_activite' commune=commune.slug activite=activite.pk %}">
+                {{ activite.nom }}
+                <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </nav>
+
+      <main class="col-lg-4 col-md-4 ml-sm-auto erp-list p-0 m-0 border-top">
+        {% if erp %}
+        <div class="col">
+          <p class="pt-2">
+            <a href="{% url 'commune_activite' commune=commune.slug activite=current_activite.pk %}">
+                &laquo; Retour à la liste des établissements
+            </a>
+          <h3>{{ erp.nom }}</h3>
+          <p>{{ erp.adresse }}</p>
+        </div>
+        {% else %}
+        <div class="list-group list-group-flush">
+          {% for erp in object_list %}
+          <a class="list-group-item list-group-item-action"
+              href="{{ erp.get_absolute_url }}">{{ erp.nom }}
+            <small class="text-muted">&raquo; {{ erp.voie }}</small></a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </main>
+
+      <div class="col-lg-6 col-md-5 ml-sm-auto map-area p-0 m-0">
+        <div id="map" class="a4a-map"></div>
       </div>
-    </div>
-
-    {% if erp %}
-    <div class="col">
-      <h3>{{ erp.nom }}</h3>
-      <p>{{ erp.adresse }}</p>
-    </div>
-    {% endif %}
-
-    <div class="col-6">
-      <div id="map"></div>
     </div>
   </div>
 
