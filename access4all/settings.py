@@ -31,13 +31,10 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # FIXME: this should eventually be provided by some env var
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
     "access4all.osc-fr1.scalingo.io",
     "access4all.beta.gouv.fr",
 ]
@@ -137,3 +134,9 @@ USE_TZ = True
 # Email sending
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Local settings
+try:
+    from .local_settings import *
+except ImportError as e:
+    pass

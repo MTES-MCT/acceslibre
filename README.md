@@ -89,6 +89,10 @@ $ python manage.py runserver
 
 L'application est alors accessible à l'adresse [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
+## Configuration locale (développement)
+
+Il est possible de surcharger la configuration du projet Django en créant un fichier `local_settings.py` dans le répertoire `access4all`.
+
 ## Générer et appliquer les migrations du modèle de données
 
 Générer les migrations :
