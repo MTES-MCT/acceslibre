@@ -19,12 +19,6 @@
     <a class="skippy sr-only sr-only-focusable" href="#content">
       <span class="skippy-text">Aller au contenu principal</span>
     </a>
-    <nav class="navbar navbar-dark fixed-top flex-md-nowrap shadow a4a-navbar" style="background-color: #4493ce;">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url "app" %}">Access4all</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Restaurant, café, poste, pharmacie..." aria-label="Search">
-    </nav>
-    <div class="container-fluid p-0 m-0">
-      {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
   </body>
 </html>

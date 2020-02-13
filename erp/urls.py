@@ -3,9 +3,8 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    # FIXME: we want a proper landing page here
-    path("", views.to_betagouv, name="home"),
-    path("app/", views.home, name="app"),
+    # path("", views.to_betagouv, name="home"),
+    path("", views.home, name="app"),
     path(
         # FIXME slugs
         "app/<str:commune>/",

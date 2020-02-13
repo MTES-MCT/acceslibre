@@ -2,19 +2,15 @@ body {
   font-size: 14px;
 }
 
-.a4a-navbar {
-  position: sticky;
+.a4a-map,
+.a4a-app-content {
+  height: calc(100vh - 115px);
 }
 
-.a4a-map {
-  height: 100%;
-  min-height: 500px;
-  max-height: calc(100vh - 60px);
-}
-
-.app-content {
-  height: calc(100vh - 60px);
-  min-height: calc(100vh - 60px);
-  max-height: calc(100vh - 60px);
-  overflow: hidden;
+.a4a-app-nav,
+.a4a-app-main,
+.a4a-app-map {
+  background: #fff;
+  height: calc(100vh - 115px);
+  overflow-y: auto;
 }
