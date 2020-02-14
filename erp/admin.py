@@ -3,6 +3,7 @@ import nested_admin
 from datetime import datetime
 from django import forms
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from django.conf import settings
 from django.contrib import admin
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
@@ -171,6 +172,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "renseignee",
         "updated_at",
     )
+    list_select_related = ("activite", "accessibilite")
     list_display_links = ("nom",)
     list_filter = [
         ("activite", RelatedDropdownFilter),
@@ -277,6 +279,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
 
 # General admin heading & labels
-admin.site.site_title = "Access4all admin"
-admin.site.site_header = "Access4all admin"
-admin.site.index_title = "Access4all administration"
+warn = " (LOCAL)" if settings.DEBUG else ""
+admin.site.site_title = f"Access4all admin{warn}"
+admin.site.site_header = f"Access4all admin{warn}"
+admin.site.index_title = f"Access4all administration{warn}"

@@ -60,13 +60,8 @@ ALTER ROLE access4all SET client_encoding TO 'utf8';
 ALTER ROLE access4all SET default_transaction_isolation TO 'read committed';
 ALTER ROLE access4all SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE access4all TO access4all;
-```
-
-Activez le support postgis pour la base `access4all` :
-
-```
-$ psql access4all
-> CREATE EXTENSION postgis;
+\c access4all;
+CREATE EXTENSION postgis;
 ```
 
 Puis, initialisez la base de données :
@@ -182,3 +177,7 @@ Le déploiement s'effectue au moyen de la simple commande git :
 ```
 $ git push scalingo master
 ```
+
+## Dump manuel de la base de données de production
+
+La [procédure](https://doc.scalingo.com/databases/postgresql/dump-restore) est décrite dans la documentation de Scalingo.
