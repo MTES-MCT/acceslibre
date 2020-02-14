@@ -7,6 +7,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
+from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from import_export.admin import ImportExportModelAdmin
@@ -25,10 +26,18 @@ from .geocode import geocode
 
 @admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
-    list_display = ("nom", "created_at", "updated_at")
+    list_display = ("nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
     search_fields = ("nom",)
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.annotate(_erp_count=Count("erp", distinct=True),)
+        return queryset
+
+    def erp_count(self, obj):
+        return obj._erp_count
 
 
 @admin.register(EquipementMalentendant)
