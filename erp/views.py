@@ -11,8 +11,6 @@ from .models import Activite, Erp
 from .serializers import ErpSerializer
 
 # TODO
-# - page ERP
-# - design
 # - détails d'access
 
 
