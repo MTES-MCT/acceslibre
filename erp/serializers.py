@@ -10,6 +10,8 @@ class ErpSerializer(geojson.Serializer):
                 continue
             elif field in self._current.keys():
                 continue
+            elif field == "absolute_url":
+                self._current[field] = obj.get_absolute_url()
             elif field == "adresse":
                 self._current[field] = obj.adresse
             else:

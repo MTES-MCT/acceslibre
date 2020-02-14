@@ -54,13 +54,15 @@ class App(generic.ListView):
             )
         if "erp" in self.kwargs:
             context["erp"] = get_object_or_404(Erp, id=self.kwargs["erp"])
+        # if len(context["object_list"]) == 1:
+        #     context["erp"] = context["object_list"][0]
         # see https://stackoverflow.com/a/56557206/330911
         serializer = ErpSerializer()
         context["geojson_list"] = serializer.serialize(
-            self.get_queryset(),
+            context["object_list"],
             geometry_field="geom",
             use_natural_foreign_keys=True,
-            fields=["pk", "nom", "activite__nom", "adresse"],
+            fields=["pk", "nom", "activite__nom", "adresse", "absolute_url",],
         )
         return context
 

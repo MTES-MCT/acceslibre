@@ -22,7 +22,8 @@
     </header>
 
     <div class="row p-0 m-0">
-      <nav class="a4a-app-nav col-md-2 d-none d-md-block bg-light activites-list p-0 m-0 border-top">
+      <nav class="a4a-app-nav col-md-2 d-none d-md-block bg-light activites-list p-0 m-0 border-top overflow-auto">
+        <h3 class="sr-only">Liste des domaines d'activité</h3>
         <div class="list-group list-group-flush border-right">
           {% for activite in activites %}
           <a class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
@@ -34,7 +35,7 @@
         </div>
       </nav>
 
-      <main class="a4a-app-main col-lg-4 col-md-4 ml-sm-auto erp-list p-0 m-0 border-top">
+      <main class="a4a-app-main col-lg-4 col-md-4 ml-sm-auto erp-list p-0 m-0 border-top overflow-auto">
         {% if erp %}
         <div class="col">
           <p class="pt-2">
@@ -45,6 +46,7 @@
           <p>{{ erp.adresse }}</p>
         </div>
         {% else %}
+        <h3 class="sr-only">Liste des établissements corespondant</h3>
         <div class="list-group list-group-flush">
           {% for erp in object_list %}
           <a class="list-group-item list-group-item-action"
