@@ -51,7 +51,9 @@
           {% for erp in object_list %}
           <a class="list-group-item list-group-item-action"
               href="{{ erp.get_absolute_url }}">{{ erp.nom }}
-            <small class="text-muted">&raquo; {{ erp.voie }}</small></a>
+            <small class="text-muted">&raquo; {{ erp.voie }}</small>
+            <a href="#" href="#" onclick="openMarkerPopup({{ erp.pk }})">loc</a>
+          </a>
           {% endfor %}
         </div>
         {% endif %}

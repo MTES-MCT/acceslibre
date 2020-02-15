@@ -1,3 +1,5 @@
+let layers = [];
+
 function initMap(info, geoJson) {
   var map = L.map("map").setView(info.center, info.zoom).setMinZoom(info.zoom - 2);
 
@@ -15,8 +17,19 @@ function initMap(info, geoJson) {
         ${properties.adresse}
       </p>
     `);
+    layer.pk = parseInt(properties.pk, 10);
+    layers.push(layer);
   }
 
-  var group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
+  group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
   map.fitBounds(group.getBounds());
+}
+
+function openMarkerPopup(target) {
+  for (const layer of layers) {
+    if (layer.pk === target) {
+      layer.openPopup();
+      break;
+    }
+  }
 }
