@@ -33,3 +33,14 @@ function openMarkerPopup(target) {
     }
   }
 }
+
+window.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".a4a-geo-link").forEach((link) => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const pk = parseInt(link.dataset.erpId, 10);
+      if (pk) openMarkerPopup(pk);
+    });
+  });
+});

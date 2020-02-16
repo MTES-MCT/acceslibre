@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
   <nav class="navbar navbar-dark  flex-md-nowrap shadow a4a-navbar" style="background-color: #4493ce;">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url "app" %}">Access4all</a>
@@ -26,7 +28,7 @@
         <h3 class="sr-only">Liste des domaines d'activité</h3>
         <div class="list-group list-group-flush border-right">
           {% for activite in activites %}
-          <a class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
               href="{% url 'commune_activite' commune=commune.slug activite=activite.pk %}">
                 {{ activite.nom }}
                 <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
@@ -49,10 +51,14 @@
         <h3 class="sr-only">Liste des établissements corespondant</h3>
         <div class="list-group list-group-flush">
           {% for erp in object_list %}
-          <a class="list-group-item list-group-item-action"
-              href="{{ erp.get_absolute_url }}">{{ erp.nom }}
-            <small class="text-muted">&raquo; {{ erp.voie }}</small>
-            <a href="#" href="#" onclick="openMarkerPopup({{ erp.pk }})">loc</a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
+              href="{{ erp.get_absolute_url }}">
+            <span>
+              {{ erp.nom }} <small class="text-muted">&raquo; {{ erp.voie }}</small>
+            </span>
+            <button class="btn btn-sm btn-outline-primary a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+              <span class="icon icon-target" alt="Localiser" width="24" height="24"></span>
+            </button>
           </a>
           {% endfor %}
         </div>
