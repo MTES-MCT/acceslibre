@@ -21,9 +21,6 @@
             &raquo; <a href="{% url 'commune_activite' commune=commune.slug activite=current_activite.pk %}">{{ current_activite.nom }}</a>
           </small>
           {% endif %}
-          {% if erp %}
-          <small class="text-muted">&raquo; {{ erp.nom }}</small>
-          {% endif %}
           {% if search_terms %}
           <small class="text-muted">&raquo; Recherche de <em>{{ search_terms }}</em></small>
           {% endif %}
@@ -32,7 +29,7 @@
     </header>
 
     <div class="row p-0 m-0">
-      <nav class="a4a-app-nav col-lg-2 col-md-3 d-none d-md-block bg-light activites-list p-0 m-0 border-top overflow-auto">
+      <nav class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto">
         <h3 class="sr-only">Liste des domaines d'activité</h3>
         <div class="list-group list-group-flush border-right">
           {% for activite in activites %}
@@ -45,7 +42,7 @@
         </div>
       </nav>
 
-      <main class="a4a-app-main col-lg-4 col-md-5 erp-list p-0 m-0 border-top overflow-auto">
+      <main class="a4a-app-main col-lg-4 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto">
         {% if erp %}
         <div class="px-3">
           <p class="pt-2">
@@ -74,7 +71,7 @@
                 {{ erp.numero }} {{ erp.voie }} {{ erp.lieu_dit }}
               </small>
             </span>
-            <button class="btn btn-sm btn-outline-primary d-md-block a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+            <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
               <span class="icon icon-target" alt="Localiser" width="24" height="24"></span>
             </button>
           </a>

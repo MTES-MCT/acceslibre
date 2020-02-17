@@ -22,7 +22,7 @@ function initMap(info, geoJson) {
   }
 
   group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
-  map.fitBounds(group.getBounds().pad(.3));
+  map.fitBounds(group.getBounds().pad(.1));
 }
 
 function openMarkerPopup(target) {
