@@ -32,7 +32,7 @@
     </header>
 
     <div class="row p-0 m-0">
-      <nav class="a4a-app-nav col-md-2 d-none d-md-block bg-light activites-list p-0 m-0 border-top overflow-auto">
+      <nav class="a4a-app-nav col-lg-2 col-md-3 d-none d-md-block bg-light activites-list p-0 m-0 border-top overflow-auto">
         <h3 class="sr-only">Liste des domaines d'activité</h3>
         <div class="list-group list-group-flush border-right">
           {% for activite in activites %}
@@ -45,13 +45,14 @@
         </div>
       </nav>
 
-      <main class="a4a-app-main col-lg-4 col-md-4 ml-sm-auto erp-list p-0 m-0 border-top overflow-auto">
+      <main class="a4a-app-main col-lg-4 col-md-5 erp-list p-0 m-0 border-top overflow-auto">
         {% if erp %}
-        <div class="col">
+        <div class="px-3">
           <p class="pt-2">
             <a href="{% url 'commune_activite' commune=commune.slug activite=current_activite.pk %}">
                 &laquo; Retour à la liste des établissements
             </a>
+          </p>
           <h3>
             {{ erp.nom }}
             {% if erp.activite %}
@@ -61,7 +62,6 @@
           <address>{{ erp.adresse }}</address>
         </div>
         {% else %}
-        <h3 class="sr-only">Liste des établissements corespondant</h3>
         <div class="list-group list-group-flush">
           {% if object_list %}
           {% for erp in object_list %}
@@ -74,7 +74,7 @@
                 {{ erp.numero }} {{ erp.voie }} {{ erp.lieu_dit }}
               </small>
             </span>
-            <button class="btn btn-sm btn-outline-primary a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+            <button class="btn btn-sm btn-outline-primary d-md-block a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
               <span class="icon icon-target" alt="Localiser" width="24" height="24"></span>
             </button>
           </a>
@@ -88,7 +88,7 @@
         {% endif %}
       </main>
 
-      <div class="a4a-app-map col-lg-6 col-md-5 ml-sm-auto map-area p-0 m-0">
+      <div class="a4a-app-map col-lg-6 col-md-4 d-none d-md-block map-area p-0 m-0">
         <div id="map" class="a4a-map"></div>
       </div>
     </div>
