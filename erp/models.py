@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.urls import reverse
 
-from .manager import ActiviteManager, ErpManager
+from . import managers
 
 
 FULLTEXT_CONFIG = "french_unaccent"
@@ -20,7 +20,7 @@ class Activite(models.Model):
         verbose_name = "Activité"
         verbose_name_plural = "Activités"
 
-    objects = ActiviteManager()
+    objects = managers.ActiviteQuerySet.as_manager()
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
@@ -92,7 +92,7 @@ class Erp(models.Model):
             GinIndex(fields=["search_vector"]),
         ]
 
-    objects = ErpManager()
+    objects = managers.ErpQuerySet.as_manager()
 
     nom = models.CharField(
         max_length=255, help_text="Nom de l'établissement ou de l'enseigne"

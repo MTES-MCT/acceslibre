@@ -5,7 +5,7 @@ from django.db import models
 from django.db.models.aggregates import Count
 
 
-class ActiviteManager(models.Manager):
+class ActiviteQuerySet(models.QuerySet):
     def with_erp_counts(self, commune=None, order_by=None):
         qs = self
         if commune is not None:
@@ -18,7 +18,13 @@ class ActiviteManager(models.Manager):
         return qs
 
 
-class ErpManager(models.Manager):
+class ErpQuerySet(models.QuerySet):
+    def having_an_activite(self):
+        return self.filter(activite__isnull=False)
+
+    def published(self):
+        return self.filter(published=True)
+
     def autocomplete(self, query):
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.filter(nom__trigram_similar=query)
