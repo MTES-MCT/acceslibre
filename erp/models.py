@@ -171,12 +171,18 @@ class Erp(models.Model):
 
     def get_absolute_url(self):
         commune = f"{self.departement}-{self.commune.lower()}"
-        return reverse(
-            "commune_activite_erp",
-            kwargs=dict(
-                commune=commune, activite=self.activite.pk, erp=self.pk,
-            ),
-        )
+        # FIXME: either there shoudl be
+        # - a page for erp with no activité
+        # - activite should be a mandatory field
+        if self.activite is None:
+            return reverse("commune", kwargs=dict(commune=commune,),)
+        else:
+            return reverse(
+                "commune_activite_erp",
+                kwargs=dict(
+                    commune=commune, activite=self.activite.pk, erp=self.pk,
+                ),
+            )
 
     @property
     def adresse(self):
