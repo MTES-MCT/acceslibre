@@ -2,10 +2,16 @@ import json
 import requests
 
 from django.contrib.gis.db import models
+from django.contrib.postgres.indexes import GinIndex
+from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
+from django.db.models import Value
 from django.urls import reverse
 
-from .manager import ActiviteManager, ErpManager
+from . import managers
+
+
+FULLTEXT_CONFIG = "french_unaccent"
 
 
 class Activite(models.Model):
@@ -14,7 +20,7 @@ class Activite(models.Model):
         verbose_name = "Activité"
         verbose_name_plural = "Activités"
 
-    objects = ActiviteManager()
+    objects = managers.ActiviteQuerySet.as_manager()
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
@@ -79,8 +85,14 @@ class Erp(models.Model):
         ordering = ("nom",)
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
+        indexes = [
+            GinIndex(
+                name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]
+            ),
+            GinIndex(fields=["search_vector"]),
+        ]
 
-    objects = ErpManager()
+    objects = managers.ErpQuerySet.as_manager()
 
     nom = models.CharField(
         max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
@@ -151,18 +163,26 @@ class Erp(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True, verbose_name="Dernière modification"
     )
+    # search vector
+    search_vector = SearchVectorField("Search vector", null=True)
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom})"
 
     def get_absolute_url(self):
         commune = f"{self.departement}-{self.commune.lower()}"
-        return reverse(
-            "commune_activite_erp",
-            kwargs=dict(
-                commune=commune, activite=self.activite.pk, erp=self.pk,
-            ),
-        )
+        # FIXME: either there shoudl be
+        # - a page for erp with no activité
+        # - activite should be a mandatory field
+        if self.activite is None:
+            return reverse("commune", kwargs=dict(commune=commune,),)
+        else:
+            return reverse(
+                "commune_activite_erp",
+                kwargs=dict(
+                    commune=commune, activite=self.activite.pk, erp=self.pk,
+                ),
+            )
 
     @property
     def adresse(self):
@@ -192,6 +212,39 @@ class Erp(models.Model):
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})
+
+    def save(self, *args, **kwargs):
+        self.search_vector = (
+            SearchVector(
+                Value(self.nom, output_field=models.TextField()),
+                weight="A",
+                config=FULLTEXT_CONFIG,
+            )
+            + SearchVector(
+                Value(
+                    self.activite and self.activite.nom or "",
+                    output_field=models.TextField(),
+                ),
+                weight="B",
+                config=FULLTEXT_CONFIG,
+            )
+            + SearchVector(
+                Value(self.commune, output_field=models.TextField()),
+                weight="C",
+                config=FULLTEXT_CONFIG,
+            )
+            + SearchVector(
+                Value(self.voie, output_field=models.TextField()),
+                weight="D",
+                config=FULLTEXT_CONFIG,
+            )
+            + SearchVector(
+                Value(self.lieu_dit, output_field=models.TextField()),
+                weight="D",
+                config=FULLTEXT_CONFIG,
+            )
+        )
+        super().save(*args, **kwargs)
 
 
 class CriteresCommunsMixin(models.Model):

@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
   <nav class="navbar navbar-dark  flex-md-nowrap shadow a4a-navbar" style="background-color: #4493ce;">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url "app" %}">Access4all</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Restaurant, café, poste, pharmacie... (fonctionnalité à venir)" aria-label="Search">
+    <a class="navbar-brand col-sm-3 col-md-2 m-0 p-0" href="{% url "app" %}">Access4all</a>
+    <form class="w-100" action="{% url "commune" commune=commune.slug %}" method="get">
+      <input class="form-control form-control-dark" type="search" name="q" value="{{ search_terms|default_if_none:"" }}"
+          placeholder="Restaurant, café, poste, pharmacie..." aria-label="Search">
+    </form>
   </nav>
 
   <div class="container-fluid p-0 m-0 a4a-app-content">
@@ -12,10 +17,15 @@
         <h2 id="content" class="display-4" style="font-size:32px">
           Commune de <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a>
           {% if current_activite %}
-          <small class="text-muted">&raquo; {{ current_activite.nom }}</small>
+          <small class="text-muted">
+            &raquo; <a href="{% url 'commune_activite' commune=commune.slug activite=current_activite.pk %}">{{ current_activite.nom }}</a>
+          </small>
           {% endif %}
           {% if erp %}
           <small class="text-muted">&raquo; {{ erp.nom }}</small>
+          {% endif %}
+          {% if search_terms %}
+          <small class="text-muted">&raquo; Recherche de <em>{{ search_terms }}</em></small>
           {% endif %}
         </h2>
       </div>
@@ -26,7 +36,7 @@
         <h3 class="sr-only">Liste des domaines d'activité</h3>
         <div class="list-group list-group-flush border-right">
           {% for activite in activites %}
-          <a class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
               href="{% url 'commune_activite' commune=commune.slug activite=activite.pk %}">
                 {{ activite.nom }}
                 <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
@@ -42,17 +52,38 @@
             <a href="{% url 'commune_activite' commune=commune.slug activite=current_activite.pk %}">
                 &laquo; Retour à la liste des établissements
             </a>
-          <h3>{{ erp.nom }}</h3>
-          <p>{{ erp.adresse }}</p>
+          <h3>
+            {{ erp.nom }}
+            {% if erp.activite %}
+            <br><small class="text-muted">{{ erp.activite.nom }}</small>
+            {% endif %}
+          </h3>
+          <address>{{ erp.adresse }}</address>
         </div>
         {% else %}
         <h3 class="sr-only">Liste des établissements corespondant</h3>
         <div class="list-group list-group-flush">
+          {% if object_list %}
           {% for erp in object_list %}
-          <a class="list-group-item list-group-item-action"
-              href="{{ erp.get_absolute_url }}">{{ erp.nom }}
-            <small class="text-muted">&raquo; {{ erp.voie }}</small></a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
+              href="{{ erp.get_absolute_url }}">
+            <span>
+              {{ erp.nom }}<br>
+              <small class="text-muted">
+                {% if erp.activite %}<strong>{{ erp.activite.nom }}</strong> &raquo; {% endif %}
+                {{ erp.numero }} {{ erp.voie }} {{ erp.lieu_dit }}
+              </small>
+            </span>
+            <button class="btn btn-sm btn-outline-primary a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+              <span class="icon icon-target" alt="Localiser" width="24" height="24"></span>
+            </button>
+          </a>
           {% endfor %}
+          {% elif search_terms %}
+          <p class="p-2 m-2">Votre recherche pour <q>{{ search_terms }}</q> n'a retourné aucun résultat.</p>
+          {% else %}
+          <p class="p-2 m-2">Aucun établissement correspondant.</p>
+          {% endif %}
         </div>
         {% endif %}
       </main>

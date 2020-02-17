@@ -20,9 +20,12 @@ def home(request):
 
 class App(generic.ListView):
     model = Erp
-    queryset = Erp.objects.filter(
-        published=True, activite__isnull=False
-    ).select_related("activite")
+    queryset = (
+        Erp.objects.published()
+        .having_an_activite()
+        .prefetch_related("activite")
+        .select_related("activite")
+    )
     template_name = "erps/commune.html"
 
     @property
@@ -32,19 +35,29 @@ class App(generic.ListView):
                 return COMMUNES[key]
         raise Http404("Cette commune est introuvable.")
 
+    @property
+    def search_terms(self):
+        q = self.request.GET.get("q", "").strip()
+        if len(q) >= 2:
+            return q
+
     def get_queryset(self):
         queryset = super(App, self).get_queryset()
         queryset = queryset.filter(commune__iexact=self.commune["nom"])
-        if "activite" in self.kwargs:
-            queryset = queryset.filter(activite_id=self.kwargs["activite"])
-        if "erp" in self.kwargs:
-            queryset = queryset.filter(id=self.kwargs["erp"])
-        return queryset
+        if self.search_terms is not None:
+            queryset = queryset.search(self.search_terms)
+        else:
+            if "activite" in self.kwargs:
+                queryset = queryset.filter(activite_id=self.kwargs["activite"])
+            if "erp" in self.kwargs:
+                queryset = queryset.filter(id=self.kwargs["erp"])
+        return queryset[:100]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["commune"] = self.commune
         context["commune_json"] = json.dumps(self.commune)
+        context["search_terms"] = self.search_terms
         context["activites"] = Activite.objects.with_erp_counts(
             commune=self.commune["nom"], order_by="nom"
         )

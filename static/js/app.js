@@ -1,3 +1,5 @@
+let layers = [];
+
 function initMap(info, geoJson) {
   var map = L.map("map").setView(info.center, info.zoom).setMinZoom(info.zoom - 2);
 
@@ -15,8 +17,30 @@ function initMap(info, geoJson) {
         ${properties.adresse}
       </p>
     `);
+    layer.pk = parseInt(properties.pk, 10);
+    layers.push(layer);
   }
 
-  var group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
-  map.fitBounds(group.getBounds());
+  group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
+  map.fitBounds(group.getBounds().pad(.3));
 }
+
+function openMarkerPopup(target) {
+  for (const layer of layers) {
+    if (layer.pk === target) {
+      layer.openPopup();
+      break;
+    }
+  }
+}
+
+window.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".a4a-geo-link").forEach((link) => {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const pk = parseInt(link.dataset.erpId, 10);
+      if (pk) openMarkerPopup(pk);
+    });
+  });
+});
