@@ -11,6 +11,9 @@ from django.urls import reverse
 from .manager import ActiviteManager, ErpManager
 
 
+FULLTEXT_CONFIG = "french_unaccent"
+
+
 class Activite(models.Model):
     class Meta:
         ordering = ("nom",)
@@ -83,6 +86,7 @@ class Erp(models.Model):
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
         indexes = [
+            # GinIndex(fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
         ]
 
@@ -206,7 +210,7 @@ class Erp(models.Model):
             SearchVector(
                 Value(self.nom, output_field=models.TextField()),
                 weight="A",
-                config="french",
+                config=FULLTEXT_CONFIG,
             )
             + SearchVector(
                 Value(
@@ -214,22 +218,22 @@ class Erp(models.Model):
                     output_field=models.TextField(),
                 ),
                 weight="B",
-                config="french",
+                config=FULLTEXT_CONFIG,
             )
             + SearchVector(
                 Value(self.commune, output_field=models.TextField()),
                 weight="C",
-                config="french",
+                config=FULLTEXT_CONFIG,
             )
             + SearchVector(
                 Value(self.voie, output_field=models.TextField()),
                 weight="D",
-                config="french",
+                config=FULLTEXT_CONFIG,
             )
             + SearchVector(
                 Value(self.lieu_dit, output_field=models.TextField()),
                 weight="D",
-                config="french",
+                config=FULLTEXT_CONFIG,
             )
         )
         super().save(*args, **kwargs)

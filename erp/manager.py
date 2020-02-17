@@ -25,8 +25,12 @@ class ErpManager(models.Manager):
             "distance"
         )
 
-    def search(self, query):
-        qs = self.filter(search_vector=SearchQuery(query, config="french"))
+    def search(self, query, commune=None):
+        qs = self.filter(
+            search_vector=SearchQuery(query, config="french_unaccent")
+        )
+        if commune is not None:
+            qs = qs.filter(commune__unaccent__iexact=commune)
         qs = qs.annotate(rank=SearchRank(models.F("search_vector"), query))
         qs = qs.order_by("-rank")
         return qs
