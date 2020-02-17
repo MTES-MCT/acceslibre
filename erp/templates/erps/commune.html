@@ -7,7 +7,7 @@
     <a class="navbar-brand col-sm-3 col-md-2 m-0 p-0" href="{% url "app" %}">Access4all</a>
     <form class="w-100" action="{% url "commune" commune=commune.slug %}" method="get">
       <input class="form-control form-control-dark" type="search" name="q" value="{{ search_terms|default_if_none:"" }}"
-          placeholder="Restaurant, café, poste, pharmacie... (fonctionnalité à venir)" aria-label="Search">
+          placeholder="Restaurant, café, poste, pharmacie..." aria-label="Search">
     </form>
   </nav>
 
@@ -17,7 +17,9 @@
         <h2 id="content" class="display-4" style="font-size:32px">
           Commune de <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a>
           {% if current_activite %}
-          <small class="text-muted">&raquo; {{ current_activite.nom }}</small>
+          <small class="text-muted">
+            &raquo; <a href="{% url 'commune_activite' commune=commune.slug activite=current_activite.pk %}">{{ current_activite.nom }}</a>
+          </small>
           {% endif %}
           {% if erp %}
           <small class="text-muted">&raquo; {{ erp.nom }}</small>
