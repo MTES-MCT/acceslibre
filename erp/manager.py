@@ -1,5 +1,6 @@
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
+from django.contrib.postgres.search import SearchQuery, SearchRank
 from django.db import models
 from django.db.models.aggregates import Count
 
@@ -23,3 +24,9 @@ class ErpManager(models.Manager):
         return self.annotate(distance=Distance("geom", location)).order_by(
             "distance"
         )
+
+    def search(self, query):
+        qs = self.filter(search_vector=SearchQuery(query, config="french"))
+        qs = qs.annotate(rank=SearchRank(models.F("search_vector"), query))
+        qs = qs.order_by("-rank")
+        return qs

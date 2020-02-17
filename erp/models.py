@@ -2,7 +2,10 @@ import json
 import requests
 
 from django.contrib.gis.db import models
+from django.contrib.postgres.indexes import GinIndex
+from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
+from django.db.models import Value
 from django.urls import reverse
 
 from .manager import ActiviteManager, ErpManager
@@ -79,6 +82,9 @@ class Erp(models.Model):
         ordering = ("nom",)
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
+        indexes = [
+            GinIndex(fields=["search_vector"]),
+        ]
 
     objects = ErpManager()
 
@@ -151,6 +157,8 @@ class Erp(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True, verbose_name="Dernière modification"
     )
+    # search vector
+    search_vector = SearchVectorField("Search vector", null=True)
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom})"
@@ -192,6 +200,39 @@ class Erp(models.Model):
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})
+
+    def save(self, *args, **kwargs):
+        self.search_vector = (
+            SearchVector(
+                Value(self.nom, output_field=models.TextField()),
+                weight="A",
+                config="french",
+            )
+            + SearchVector(
+                Value(
+                    self.activite and self.activite.nom or "",
+                    output_field=models.TextField(),
+                ),
+                weight="B",
+                config="french",
+            )
+            + SearchVector(
+                Value(self.commune, output_field=models.TextField()),
+                weight="C",
+                config="french",
+            )
+            + SearchVector(
+                Value(self.voie, output_field=models.TextField()),
+                weight="D",
+                config="french",
+            )
+            + SearchVector(
+                Value(self.lieu_dit, output_field=models.TextField()),
+                weight="D",
+                config="french",
+            )
+        )
+        super().save(*args, **kwargs)
 
 
 class CriteresCommunsMixin(models.Model):
