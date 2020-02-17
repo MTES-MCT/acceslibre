@@ -4,8 +4,11 @@
 
 {% block content %}
   <nav class="navbar navbar-dark  flex-md-nowrap shadow a4a-navbar" style="background-color: #4493ce;">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{% url "app" %}">Access4all</a>
-    <input class="form-control form-control-dark w-100" type="text" placeholder="Restaurant, café, poste, pharmacie... (fonctionnalité à venir)" aria-label="Search">
+    <a class="navbar-brand col-sm-3 col-md-2 m-0 p-0" href="{% url "app" %}">Access4all</a>
+    <form class="w-100" action="{% url "commune" commune=commune.slug %}" method="get">
+      <input class="form-control form-control-dark" type="search" name="q" value="{{ search_terms|default_if_none:"" }}"
+          placeholder="Restaurant, café, poste, pharmacie... (fonctionnalité à venir)" aria-label="Search">
+    </form>
   </nav>
 
   <div class="container-fluid p-0 m-0 a4a-app-content">
@@ -18,6 +21,9 @@
           {% endif %}
           {% if erp %}
           <small class="text-muted">&raquo; {{ erp.nom }}</small>
+          {% endif %}
+          {% if search_terms %}
+          <small class="text-muted">&raquo; Recherche de <em>{{ search_terms }}</em></small>
           {% endif %}
         </h2>
       </div>
@@ -50,6 +56,7 @@
         {% else %}
         <h3 class="sr-only">Liste des établissements corespondant</h3>
         <div class="list-group list-group-flush">
+          {% if object_list %}
           {% for erp in object_list %}
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
               href="{{ erp.get_absolute_url }}">
@@ -61,6 +68,11 @@
             </button>
           </a>
           {% endfor %}
+          {% elif search_terms %}
+          <p class="p-2 m-2">Votre recherche n'a retourné aucun résultat.</p>
+          {% else %}
+          <p class="p-2 m-2">Aucun résultat.</p>
+          {% endif %}
         </div>
         {% endif %}
       </main>
