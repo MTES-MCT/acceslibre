@@ -1,6 +1,6 @@
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
-from django.contrib.postgres.search import SearchQuery, SearchRank
+from django.contrib.postgres import search
 from django.db import models
 from django.db.models.aggregates import Count
 
@@ -19,6 +19,12 @@ class ActiviteManager(models.Manager):
 
 
 class ErpManager(models.Manager):
+    def autocomplete(self, query):
+        qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
+        qs = qs.filter(nom__trigram_similar=query)
+        qs = qs.order_by("-similarity")
+        return qs
+
     def nearest(self, lon, lat):
         location = Point(lon, lat, srid=4326)
         return self.annotate(distance=Distance("geom", location)).order_by(
@@ -27,10 +33,12 @@ class ErpManager(models.Manager):
 
     def search(self, query, commune=None):
         qs = self.filter(
-            search_vector=SearchQuery(query, config="french_unaccent")
+            search_vector=search.SearchQuery(query, config="french_unaccent")
         )
         if commune is not None:
             qs = qs.filter(commune__unaccent__iexact=commune)
-        qs = qs.annotate(rank=SearchRank(models.F("search_vector"), query))
+        qs = qs.annotate(
+            rank=search.SearchRank(models.F("search_vector"), query)
+        )
         qs = qs.order_by("-rank")
         return qs

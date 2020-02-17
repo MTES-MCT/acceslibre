@@ -86,7 +86,9 @@ class Erp(models.Model):
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
         indexes = [
-            # GinIndex(fields=["nom"], opclasses=["gin_trgm_ops"]),
+            GinIndex(
+                name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]
+            ),
             GinIndex(fields=["search_vector"]),
         ]
 
