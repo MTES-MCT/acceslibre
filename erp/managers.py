@@ -2,6 +2,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
+from django.db.models import Q
 from django.db.models.aggregates import Count
 
 
@@ -37,14 +38,19 @@ class ErpQuerySet(models.QuerySet):
             "distance"
         )
 
-    def search(self, query, commune=None):
-        qs = self.filter(
-            search_vector=search.SearchQuery(query, config="french_unaccent")
-        )
-        if commune is not None:
-            qs = qs.filter(commune__unaccent__iexact=commune)
+    def search(self, query):
+        qs = self
+        qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.annotate(
             rank=search.SearchRank(models.F("search_vector"), query)
         )
-        qs = qs.order_by("-rank")
+        qs = qs.filter(
+            Q(nom__trigram_similar=query)
+            | Q(
+                search_vector=search.SearchQuery(
+                    query, config="french_unaccent"
+                )
+            )
+        )
+        qs = qs.order_by("-similarity", "-rank")
         return qs

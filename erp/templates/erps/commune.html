@@ -70,7 +70,7 @@
             <span>
               {{ erp.nom }}<br>
               <small class="text-muted">
-                {% if erp.activite %}{{ erp.activite.nom }} &raquo; {% endif %}
+                {% if erp.activite %}<strong>{{ erp.activite.nom }}</strong> &raquo; {% endif %}
                 {{ erp.numero }} {{ erp.voie }} {{ erp.lieu_dit }}
               </small>
             </span>
