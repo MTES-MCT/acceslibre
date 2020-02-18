@@ -30,6 +30,14 @@
             <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
             {% elif field.name == "largeur_mini" %}
             {{ field.value }}cm
+            {% elif field.name == "accueil_equipements_malentendants" %}
+            {% for label in erp.accessibilite.accueil_equipements_malentendants.all %}
+              <span class="badge badge-info">{{ label.nom }}</span>
+            {% endfor %}
+            {% elif field.name == "labels" %}
+            {% for label in erp.accessibilite.labels.all %}
+              <span class="badge badge-info">{{ label.nom }}</span>
+            {% endfor %}
             {% else %}
             {{ field.value }}
             {% endif %}

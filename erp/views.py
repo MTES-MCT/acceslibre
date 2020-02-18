@@ -81,8 +81,7 @@ class App(generic.ListView):
     queryset = (
         Erp.objects.published()
         .having_an_activite()
-        .prefetch_related("activite")
-        .select_related("activite")
+        .select_related("activite", "accessibilite")
     )
     template_name = "erps/commune.html"
 
