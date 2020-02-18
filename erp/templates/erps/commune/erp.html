@@ -1,0 +1,77 @@
+<div class="a4a-erp-details">
+  <h3>
+    {{ erp.nom }}
+    {% if erp.activite %}
+    <br><small class="text-muted">{{ erp.activite.nom }}</small>
+    {% endif %}
+  </h3>
+  <address>{{ erp.adresse }}</address>
+
+  {% if accessibilite_data %}
+  <h4>Accessibilité</h4>
+  {% for section, info in accessibilite_data.items %}
+  <div class="card mb-3">
+    <div class="card-header border-bottom-0 p-2">
+      <h6 class="m-0"><i class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}</h6>
+    </div>
+    <div class="card-body p-0">
+      <ul class="list-group list-group-flush">
+        {% for field in info.fields %}
+        {% if field.value != "" and field.value != None %}
+        <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+          <span>
+            {{ field.label }}
+            <br><small class="text-muted">{{ field.help_text }}</small>
+          </span>
+          <span>
+            {% if field.value == True %}
+            <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
+            {% elif field.value == False or field.value == "aucune" %}
+            <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
+            {% elif field.name == "largeur_mini" %}
+            {{ field.value }}cm
+            {% else %}
+            {{ field.value }}
+            {% endif %}
+          </span>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+
+  <table class="table table-sm">
+    <caption class="sr-only">Tableau des critères d'accessibilité renseignés pour cet établissement</caption>
+    <tbody>
+    {% for field in accessibilite_form %}
+      {% if field.value != "" and field.value != None %}
+      <tr>
+        <th>
+          {{ field.label }}
+          <br><small class="text-muted">{{ field.help_text }}</small>
+        </th>
+        <td class="align-middle text-center" nowrap>
+          {% if field.value == True %}
+          <i class="icon icon-check-circle text-success" style="font-size:1.2rem"/>
+          {% elif field.value == False or field.value == "aucune" %}
+          <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"/>
+          {% elif field.name == "largeur_mini" %}
+          {{ field.value }}cm
+          {% else %}
+          {{ field.value }}
+          {% endif %}
+        </td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
+
+  {% else %}
+  <div class="alert alert-info">
+    Cet établissement ne possède pas encore de données d'accessibilité associées.
+  </div>
+  {% endif %}
+</div>

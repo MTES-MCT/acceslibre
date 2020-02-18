@@ -2,16 +2,74 @@ import json
 
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
+from django import forms
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 
 from .communes import COMMUNES
-from .models import Activite, Erp
+from .models import Accessibilite, Activite, Erp
 from .serializers import ErpSerializer
 
-# TODO
-# - détails d'access
+
+class AccessibiliteForm(forms.ModelForm):
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk", "erp")
+
+    fieldsets = {
+        "Stationnement": {
+            "icon": "car",
+            "fields": [
+                "stationnement_presence",
+                "stationnement_pmr",
+                "stationnement_ext_presence",
+                "stationnement_ext_pmr",
+            ],
+        },
+        "Entrée": {
+            "icon": "entrance",
+            "fields": [
+                "entree_plain_pied",
+                "entree_reperage",
+                "entree_pmr",
+                "entree_pmr_informations",
+                "entree_interphone",
+                "reperage_vitres",
+                "guidage_sonore",
+                "largeur_mini",
+                "rampe",
+                "aide_humaine",
+                "escalier_marches",
+                "escalier_reperage",
+                "escalier_main_courante",
+                "ascenseur",
+            ],
+        },
+        "Accueil": {
+            "icon": "users",
+            "fields": [
+                "accueil_visibilite",
+                "accueil_personnels",
+                "accueil_equipements_malentendants",
+                "accueil_prestations",
+            ],
+        },
+        "Sanitaires": {
+            "icon": "male-female",
+            "fields": ["sanitaires_presence", "sanitaires_adaptes",],
+        },
+        "Labels d'accessibilité": {"icon": "star-o", "fields": ["labels",]},
+    }
+
+    def get_accessibilite_data(self):
+        data = {}
+        for section, info in self.fieldsets.items():
+            data[section] = {"icon": info["icon"], "fields": []}
+            for field_name in info["fields"]:
+                field = self[field_name]
+                data[section]["fields"].append(field)
+        return data
 
 
 def home(request):
@@ -66,7 +124,11 @@ class App(generic.ListView):
                 Activite, pk=self.kwargs["activite"]
             )
         if "erp" in self.kwargs:
-            context["erp"] = get_object_or_404(Erp, id=self.kwargs["erp"])
+            erp = get_object_or_404(Erp, id=self.kwargs["erp"])
+            context["erp"] = erp
+            if hasattr(erp, "accessibilite") and erp.accessibilite is not None:
+                form = AccessibiliteForm(instance=erp.accessibilite)
+                context["accessibilite_data"] = form.get_accessibilite_data()
         # if len(context["object_list"]) == 1:
         #     context["erp"] = context["object_list"][0]
         # see https://stackoverflow.com/a/56557206/330911

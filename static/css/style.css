@@ -1,4 +1,5 @@
 body {
+  color: #333s;
   font-size: 14px;
 }
 
@@ -12,4 +13,8 @@ body {
   display: inline;
   padding-bottom: 1px;
   padding-right: 8px;
+}
+
+.icon {
+  vertical-align: middle;
 }
