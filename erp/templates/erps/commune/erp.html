@@ -2,67 +2,61 @@
   <h3>
     {{ erp.nom }}
     {% if erp.activite %}
-    <br><small class="text-muted">{{ erp.activite.nom }}</small>
+    <small class="text-muted">{{ erp.activite.nom }}</small>
     {% endif %}
   </h3>
-  <address>{{ erp.adresse }}</address>
+  <address><em>{{ erp.adresse }}</em></address>
 
   {% if accessibilite_data %}
-  <h4>Accessibilité</h4>
+  {% if erp.accessibilite.labels.count > 0 %}
+  <div class="d-flex justify-content-between align-items-top">
+    <h4 class="flex-fill">Accessibilité</h4>
+    <span class="text-right">
+    {% for label in erp.accessibilite.labels.all %}
+      <big><span class="badge badge-info p-1">{{ label.nom }}</span></big>
+    {% endfor %}
+    </span>
+  </div>
+  {% endif %}
 
-  {% for section, info in accessibilite_data.items %}
-  <div class="card mb-3">
-    <div class="card-header border-bottom-0 p-2">
-      <h6 class="m-0"><i class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}</h6>
-    </div>
-    <div class="card-body p-0">
-      <ul class="list-group list-group-flush">
-        {% for field in info.fields %}
-        {% if field.value != "" and field.value != None %}
-        <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-          <span>
-            {{ field.label }}
-            <br><small class="text-muted">{{ field.help_text }}</small>
-          </span>
-          <span>
-            {% if field.value == True %}
-            <span>
-              <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
-              <span class="sr-only">Oui</span>
-            </span>
-            {% elif field.value == False %}
-            <span>
-              <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
-              <span class="sr-only">Non</span>
-            </span>
-            {% elif field.value == "aucun" or field.value == "aucune" %}
-            <span>
-              <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
-              <span class="sr-only">Aucun</span>
-            </span>
-            {% elif field.name == "accueil_personnels" %}
-              {{ erp.accessibilite.get_accueil_personnels_display }}
-            {% elif field.name == "largeur_mini" %}
-            {{ field.value }}cm
-            {% elif field.name == "accueil_equipements_malentendants" %}
-            {% for label in erp.accessibilite.accueil_equipements_malentendants.all %}
-              <span class="badge badge-info">{{ label.nom }}</span>
-            {% endfor %}
-            {% elif field.name == "labels" %}
-            {% for label in erp.accessibilite.labels.all %}
-              <span class="badge badge-info">{{ label.nom }}</span>
-            {% endfor %}
-            {% else %}
-            {{ field.value }}
-            {% endif %}
-          </span>
-        </li>
+  <div class="mb-2">
+    <ul class="nav nav-pills mb-2" role="tablist" aria-label="Sections">
+    {% for section, info in accessibilite_data.items %}
+      <li class="nav-item">
+        <a class="nav-link px-2 py-1{% if forloop.first %} active{% endif %}"
+            href="#{{ info.tabid }}"
+            role="tab"
+            aria-controls="{{ info.tabid }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            id="{{ info.tabid }}-tab"
+            data-toggle="tab">
+          <i class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+    <div class="tab-content">
+    {% for section, info in accessibilite_data.items %}
+      <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}"
+          role="tabpanel" aria-labelledby="{{ info.tabid }}-tab">
+        {% if info.fields %}
+          {% include "erps/commune/fields.html" with fields=info.fields %}
+        {% elif info.sections %}
+          {% for subsection, subinfo in info.sections.items %}
+            <div class="card mb-3">
+              <div class="card-header border-bottom-0 p-2">
+                <h6 class="m-0"><i class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}</h6>
+              </div>
+              <div class="card-body p-0">
+                {% include "erps/commune/fields.html" with fields=subinfo.fields %}
+              </div>
+            </div>
+          {% endfor %}
         {% endif %}
-        {% endfor %}
-      </ul>
+      </div>
+    {% endfor %}
     </div>
   </div>
-  {% endfor %}
 
   {% else %}
   <div class="alert alert-info">

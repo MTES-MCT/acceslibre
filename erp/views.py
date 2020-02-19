@@ -21,20 +21,12 @@ class CheminementForm(forms.ModelForm):
 class AccessibiliteForm(forms.ModelForm):
     class Meta:
         model = Accessibilite
-        exclude = ("pk", "erp")
+        exclude = ("pk", "erp", "labels")
 
     fieldsets = {
-        "Stationnement": {
-            "icon": "car",
-            "fields": [
-                "stationnement_presence",
-                "stationnement_pmr",
-                "stationnement_ext_presence",
-                "stationnement_ext_pmr",
-            ],
-        },
         "Entrée": {
             "icon": "entrance",
+            "tabid": "entree",
             "fields": [
                 "entree_plain_pied",
                 "entree_reperage",
@@ -52,8 +44,19 @@ class AccessibiliteForm(forms.ModelForm):
                 "ascenseur",
             ],
         },
+        "Stationnement": {
+            "icon": "car",
+            "tabid": "stationnement",
+            "fields": [
+                "stationnement_presence",
+                "stationnement_pmr",
+                "stationnement_ext_presence",
+                "stationnement_ext_pmr",
+            ],
+        },
         "Accueil": {
             "icon": "users",
+            "tabid": "accueil",
             "fields": [
                 "accueil_visibilite",
                 "accueil_personnels",
@@ -63,24 +66,44 @@ class AccessibiliteForm(forms.ModelForm):
         },
         "Sanitaires": {
             "icon": "male-female",
+            "tabid": "sanitaires",
             "fields": ["sanitaires_presence", "sanitaires_adaptes",],
         },
-        "Labels d'accessibilité": {"icon": "star-o", "fields": ["labels",]},
     }
 
     def get_accessibilite_data(self):
         data = {}
         for section, info in self.fieldsets.items():
-            data[section] = {"icon": info["icon"], "fields": []}
+            data[section] = {
+                "icon": info["icon"],
+                "tabid": info["tabid"],
+                "fields": [],
+            }
             for field_name in info["fields"]:
                 field = self[field_name]
+                # TODO: deconstruct field to make it serializable -> future API
                 data[section]["fields"].append(field)
-        for cheminement in self.instance.cheminement_set.all():
-            section = cheminement.get_type_display()
-            form = CheminementForm(instance=cheminement)
-            data[section] = {"icon": "path", "fields": []}
-            for field_name in form.fields:
-                data[section]["fields"].append(form[field_name])
+        cheminements = self.instance.cheminement_set.all()
+        if len(cheminements) > 0:
+            data["Cheminements"] = {
+                "icon": "path",
+                "tabid": "cheminements",
+                "sections": {},
+            }
+            for cheminement in cheminements:
+                section = cheminement.get_type_display()
+                form = CheminementForm(instance=cheminement)
+                data["Cheminements"]["sections"][section] = {
+                    "icon": "path",
+                    "tabid": cheminement.type,
+                    "fields": [],
+                }
+                for field_name in form.fields:
+                    # TODO: deconstruct field to make it serializable -> future API
+                    field = form[field_name]
+                    data["Cheminements"]["sections"][section]["fields"].append(
+                        field
+                    )
         return data
 
 

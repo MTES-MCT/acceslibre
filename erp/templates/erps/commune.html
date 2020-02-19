@@ -42,7 +42,7 @@
         </div>
       </nav>
 
-      <main class="a4a-app-main col-lg-4 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto">
+      <main class="a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto">
         {% if erp %}
         <div class="px-3">
           <p class="pt-2">
@@ -62,7 +62,9 @@
               {{ erp.nom }}<br>
               <small class="text-muted">
                 {% if erp.activite %}<strong>{{ erp.activite.nom }}</strong> &raquo; {% endif %}
-                {{ erp.numero }} {{ erp.voie }} {{ erp.lieu_dit }}
+                {{ erp.numero|default_if_none:"" }}
+                {{ erp.voie|default_if_none:"" }}
+                {{ erp.lieu_dit|default_if_none:"" }}
               </small>
             </span>
             {% if erp.accessibilite %}
@@ -86,7 +88,7 @@
         {% endif %}
       </main>
 
-      <div class="a4a-app-map col-lg-6 col-md-4 d-none d-md-block map-area p-0 m-0">
+      <div class="a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0">
         <div id="map" class="a4a-map"></div>
       </div>
     </div>
