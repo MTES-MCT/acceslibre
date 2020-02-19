@@ -10,6 +10,7 @@ from django.core.exceptions import ValidationError
 from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.utils.safestring import mark_safe
 from import_export.admin import ImportExportModelAdmin
 
 from .imports import ErpResource
@@ -180,6 +181,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "geolocalise",
         "renseignee",
         "updated_at",
+        "view_link",
     )
     list_select_related = ("activite", "accessibilite")
     list_display_links = ("nom",)
@@ -196,7 +198,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     autocomplete_fields = ["activite"]
     scrollable = False
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
-    view_on_site = False
+    view_on_site = True
 
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret", "published"]}),
@@ -285,6 +287,13 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     def save_model(self, request, obj, form, change):
         localized_obj = geocode(obj)
         super(ErpAdmin, self).save_model(request, localized_obj, form, change)
+
+    def view_link(self, obj):
+        return mark_safe(
+            f'<a target="_blank" href="{obj.get_absolute_url()}">Voir</a>'
+        )
+
+    view_link.short_description = ""
 
 
 # General admin heading & labels

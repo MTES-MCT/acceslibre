@@ -1,0 +1,43 @@
+{% if fields %}
+<ul class="list-group list-group-flush">
+{% for field in fields %}
+  {% if field.value != "" and field.value != None %}
+  <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+    <span>
+      {{ field.label }}&nbsp;<small class="text-muted">{{ field.help_text }}</small>
+    </span>
+    <span>
+      {% if field.value == True %}
+        <span>
+          <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
+          <span class="sr-only">Oui</span>
+        </span>
+      {% elif field.value == False %}
+        <span>
+          <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
+          <span class="sr-only">Non</span>
+        </span>
+      {% elif field.value == "aucun" or field.value == "aucune" %}
+        <span>
+          <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
+          <span class="sr-only">Aucun</span>
+        </span>
+      {% elif field.name == "accueil_personnels" %}
+        {{ erp.accessibilite.get_accueil_personnels_display }}
+      {% elif field.name == "largeur_mini" %}
+        {{ field.value }}cm
+      {% elif field.name == "accueil_equipements_malentendants" %}
+        {% for label in erp.accessibilite.accueil_equipements_malentendants.all %}
+          <span class="badge badge-info">{{ label.nom }}</span>
+        {% endfor %}
+      {% else %}
+        {{ field.value }}
+      {% endif %}
+    </span>
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% else %}
+<p>Aucune information.</p>
+{% endif %}

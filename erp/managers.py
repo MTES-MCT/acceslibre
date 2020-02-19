@@ -45,12 +45,9 @@ class ErpQuerySet(models.QuerySet):
             rank=search.SearchRank(models.F("search_vector"), query)
         )
         qs = qs.filter(
-            Q(nom__trigram_similar=query)
-            | Q(
-                search_vector=search.SearchQuery(
-                    query, config="french_unaccent"
-                )
-            )
+            Q(search_vector=search.SearchQuery(query, config="french_unaccent"))
+            # TODO: check https://github.com/django/django/blob/master/tests/postgres_tests/test_trigram.py#L40
+            | Q(nom__trigram_similar=query)
         )
-        qs = qs.order_by("-similarity", "-rank")
+        qs = qs.order_by("-rank", "-similarity")
         return qs

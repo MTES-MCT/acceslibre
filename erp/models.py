@@ -216,16 +216,16 @@ class Erp(models.Model):
     def save(self, *args, **kwargs):
         self.search_vector = (
             SearchVector(
-                Value(self.nom, output_field=models.TextField()),
-                weight="A",
-                config=FULLTEXT_CONFIG,
-            )
-            + SearchVector(
                 Value(
                     self.activite and self.activite.nom or "",
                     output_field=models.TextField(),
                 ),
-                weight="B",
+                weight="A",
+                config=FULLTEXT_CONFIG,
+            )
+            + SearchVector(
+                Value(self.nom, output_field=models.TextField()),
+                weight="A",
                 config=FULLTEXT_CONFIG,
             )
             + SearchVector(

@@ -1,15 +1,40 @@
 body {
+  color: #333s;
   font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+}
+
+.a4a-navbar {
+  background-color: #4493ce;
 }
 
 .a4a-app-nav,
 .a4a-app-main,
 .a4a-map {
-  height: calc(100vh - 115px);
+  height: calc(100vh - 58px - 57px);
 }
 
 .a4a-geo-link {
+}
+
+.a4a-app-title {
+  max-height: 58px;
+}
+  .a4a-app-title h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+.a4a-icon-btn {
   display: inline;
   padding-bottom: 1px;
   padding-right: 8px;
+}
+
+.icon {
+  vertical-align: middle;
 }
