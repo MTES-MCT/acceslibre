@@ -3,16 +3,22 @@
 {% for field in fields %}
   {% if field.value != "" and field.value != None %}
   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+    {% if field.field.widget.template_name == "django/forms/widgets/textarea.html" %}
+    <div>
+      <div>{{ field.label }}&nbsp;<small class="text-muted">{{ field.help_text }}</small></div>
+      <p class="lead mb-0 my-1">{{ field.value }}</p>
+    </div>
+    {% else %}
     <span>
       {{ field.label }}&nbsp;<small class="text-muted">{{ field.help_text }}</small>
     </span>
     <span>
-      {% if field.value == True %}
+      {% if field.value is True %}
         <span>
           <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
           <span class="sr-only">Oui</span>
         </span>
-      {% elif field.value == False %}
+      {% elif field.value is False %}
         <span>
           <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
           <span class="sr-only">Non</span>
@@ -34,6 +40,7 @@
         {{ field.value }}
       {% endif %}
     </span>
+    {% endif %}
   </li>
   {% endif %}
 {% endfor %}
