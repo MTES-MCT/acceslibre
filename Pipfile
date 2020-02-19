@@ -19,6 +19,7 @@ django-admin-list-filter-dropdown = "*"
 django-logentry-admin = "*"
 django-autoslug = "*"
 django-debug-toolbar = "*"
+sentry-sdk = "==0.14.1"
 
 [requires]
 python_version = "3.7"

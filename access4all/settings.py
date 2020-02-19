@@ -12,21 +12,31 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import dj_database_url
 import os
+import sentry_sdk
 
 from django.core.exceptions import ImproperlyConfigured
 
 
-def get_env_variable(var_name):
-    try:
-        return os.environ[var_name]
-    except KeyError:
-        raise ImproperlyConfigured(
-            f"The '{var_name}' environment variable must be set."
-        )
+def get_env_variable(var_name, required=True):
+    if required:
+        try:
+            return os.environ[var_name]
+        except KeyError:
+            raise ImproperlyConfigured(
+                f"The '{var_name}' environment variable must be set."
+            )
+    else:
+        return os.environ.get(var_name)
 
 
 SECRET_KEY = get_env_variable("SECRET_KEY")
 
+# Sentry integration
+SENTRY_DSN = get_env_variable("SENTRY_DSN", required=False)
+if SENTRY_DSN is not None:
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration()])
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
