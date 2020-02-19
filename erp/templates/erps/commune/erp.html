@@ -40,6 +40,8 @@
               <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
               <span class="sr-only">Aucun</span>
             </span>
+            {% elif field.name == "accueil_personnels" %}
+              {{ erp.accessibilite.get_accueil_personnels_display }}
             {% elif field.name == "largeur_mini" %}
             {{ field.value }}cm
             {% elif field.name == "accueil_equipements_malentendants" %}

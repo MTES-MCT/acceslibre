@@ -8,8 +8,14 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 
 from .communes import COMMUNES
-from .models import Accessibilite, Activite, Erp
+from .models import Accessibilite, Activite, Cheminement, Erp
 from .serializers import ErpSerializer
+
+
+class CheminementForm(forms.ModelForm):
+    class Meta:
+        model = Cheminement
+        exclude = ("pk", "accessibilite", "type")
 
 
 class AccessibiliteForm(forms.ModelForm):
@@ -69,6 +75,12 @@ class AccessibiliteForm(forms.ModelForm):
             for field_name in info["fields"]:
                 field = self[field_name]
                 data[section]["fields"].append(field)
+        for cheminement in self.instance.cheminement_set.all():
+            section = cheminement.get_type_display()
+            form = CheminementForm(instance=cheminement)
+            data[section] = {"icon": "path", "fields": []}
+            for field_name in form.fields:
+                data[section]["fields"].append(form[field_name])
         return data
 
 
