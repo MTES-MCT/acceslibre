@@ -9,6 +9,7 @@
 
   {% if accessibilite_data %}
   <h4>Accessibilité</h4>
+
   {% for section, info in accessibilite_data.items %}
   <div class="card mb-3">
     <div class="card-header border-bottom-0 p-2">
@@ -25,9 +26,20 @@
           </span>
           <span>
             {% if field.value == True %}
-            <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
-            {% elif field.value == False or field.value == "aucune" %}
-            <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
+            <span>
+              <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
+              <span class="sr-only">Oui</span>
+            </span>
+            {% elif field.value == False %}
+            <span>
+              <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
+              <span class="sr-only">Non</span>
+            </span>
+            {% elif field.value == "aucun" or field.value == "aucune" %}
+            <span>
+              <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
+              <span class="sr-only">Aucun</span>
+            </span>
             {% elif field.name == "largeur_mini" %}
             {{ field.value }}cm
             {% elif field.name == "accueil_equipements_malentendants" %}
@@ -50,36 +62,9 @@
   </div>
   {% endfor %}
 
-  <table class="table table-sm">
-    <caption class="sr-only">Tableau des critères d'accessibilité renseignés pour cet établissement</caption>
-    <tbody>
-    {% for field in accessibilite_form %}
-      {% if field.value != "" and field.value != None %}
-      <tr>
-        <th>
-          {{ field.label }}
-          <br><small class="text-muted">{{ field.help_text }}</small>
-        </th>
-        <td class="align-middle text-center" nowrap>
-          {% if field.value == True %}
-          <i class="icon icon-check-circle text-success" style="font-size:1.2rem"/>
-          {% elif field.value == False or field.value == "aucune" %}
-          <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"/>
-          {% elif field.name == "largeur_mini" %}
-          {{ field.value }}cm
-          {% else %}
-          {{ field.value }}
-          {% endif %}
-        </td>
-      </tr>
-      {% endif %}
-    {% endfor %}
-    </tbody>
-  </table>
-
   {% else %}
   <div class="alert alert-info">
-    Cet établissement ne possède pas encore de données d'accessibilité associées.
+    Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
   </div>
   {% endif %}
 </div>

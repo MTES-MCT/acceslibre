@@ -58,15 +58,22 @@
           {% for erp in object_list %}
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
               href="{{ erp.get_absolute_url }}">
-            <span>
+            <span class="flex-fill">
               {{ erp.nom }}<br>
               <small class="text-muted">
                 {% if erp.activite %}<strong>{{ erp.activite.nom }}</strong> &raquo; {% endif %}
                 {{ erp.numero }} {{ erp.voie }} {{ erp.lieu_dit }}
               </small>
             </span>
-            <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-geo-link" title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
-              <span class="icon icon-target" alt="Localiser" width="24" height="24"></span>
+            {% if erp.accessibilite %}
+            <button class="btn btn-sm btn-outline-success mr-2 a4a-icon-btn" title="Les informations d'accessibilités sont disponibles">
+              <i class="icon icon-checklist"></i>
+              <span class="sr-only">Les informations d'accessibilités sont disponibles</span>
+            </button>
+            {% endif %}
+            <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link"
+                title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+              <i class="icon icon-target"></i>
             </button>
           </a>
           {% endfor %}
