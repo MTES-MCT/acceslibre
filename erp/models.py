@@ -229,7 +229,7 @@ class Erp(models.Model):
         )
         search_vector = search_vector + SearchVector(
             Value(self.commune, output_field=models.TextField()),
-            weight="B",
+            weight="D",
             config=FULLTEXT_CONFIG,
         )
         search_vector = search_vector + SearchVector(
@@ -245,7 +245,7 @@ class Erp(models.Model):
         if self.activite is not None:
             search_vector = search_vector + SearchVector(
                 Value(self.activite.nom, output_field=models.TextField(),),
-                weight="A",
+                weight="B",
                 config=FULLTEXT_CONFIG,
             )
             search_vector = search_vector + SearchVector(
@@ -253,7 +253,7 @@ class Erp(models.Model):
                     " ".join(self.activite.mots_cles),
                     output_field=models.TextField(),
                 ),
-                weight="A",
+                weight="C",
                 config=FULLTEXT_CONFIG,
             )
 
