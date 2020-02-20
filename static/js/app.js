@@ -14,6 +14,14 @@ function onEachFeature({ properties }, layer) {
   layers.push(layer);
 }
 
+function iconCreateFunction(cluster) {
+  return L.divIcon({
+    html: cluster.getChildCount(),
+    className: "a4a-cluster-icon", 
+    iconSize: null
+  });
+}
+
 function initMap(info, geoJson) {
   const tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -22,7 +30,8 @@ function initMap(info, geoJson) {
   const map = L.map("map").addLayer(tiles).setMinZoom(info.zoom - 2);
   const markers = L.markerClusterGroup({
     disableClusteringAtZoom: 17,
-    showCoverageOnHover: false
+    showCoverageOnHover: false,
+    iconCreateFunction
   });
   const geoJsonLayer = L.geoJSON(geoJson, { onEachFeature });
 
