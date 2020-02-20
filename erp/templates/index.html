@@ -1,0 +1,21 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block editorial_content %}
+  <div class="row">
+  {% for _, commune in communes.items %}
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <a href="{% url 'commune' commune.slug %}">
+          <img class="card-img-top" alt="{{ commune.nom }}" src="{% static "img/communes/" %}{{ commune.slug }}.jpg">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></h5>
+          <p class="card-text">Découvrez l'accessibilité des établissements de {{ commune.nom }}.</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}

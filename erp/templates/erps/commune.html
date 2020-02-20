@@ -4,7 +4,7 @@
 
 {% block content %}
   <nav class="a4a-navbar navbar navbar-dark d-flex flex-md-nowrap justify-content-between align-items-stretch shadow">
-    <a class="navbar-brand m-0 mr-3" href="{% url "app" %}">Access4all</a>
+    <a class="navbar-brand m-0 mr-3" href="{% url "home" %}">Access4all</a>
     <form class="flex-fill" style="max-width:70%" action="{% url "commune" commune=commune.slug %}" method="get">
       <input class="form-control form-control-dark w-100" type="search" name="q" value="{{ search_terms|default_if_none:"" }}"
           placeholder="Restaurant, café, poste, pharmacie..." aria-label="Search" autocomplete="off">

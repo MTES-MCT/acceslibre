@@ -1,11 +1,37 @@
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 from . import views
 
 
 urlpatterns = [
-    # path("", views.to_betagouv, name="home"),
-    path("", views.home, name="app"),
+    path("", views.home, name="home"),
+    path(
+        "mentions-legales",
+        views.EditorialView.as_view(
+            template_name="editorial/mentions_legales.html"
+        ),
+        name="mentions_legales",
+    ),
+    path(
+        "accessibilite",
+        views.EditorialView.as_view(
+            template_name="editorial/accessibilite.html"
+        ),
+        name="accessibilite",
+    ),
+    path(
+        "contact",
+        views.EditorialView.as_view(template_name="editorial/contact.html"),
+        name="contact",
+    ),
+    path(
+        "donnees-personnelles",
+        views.EditorialView.as_view(
+            template_name="editorial/donnees_personnelles.html"
+        ),
+        name="donnees_personnelles",
+    ),
     path(
         # FIXME slugs
         "app/<str:commune>/",

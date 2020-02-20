@@ -1,15 +1,26 @@
 import json
 
+from django import forms
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
-from django import forms
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
+from django.views.generic.base import TemplateView
 
 from .communes import COMMUNES
 from .models import Accessibilite, Activite, Cheminement, Erp
 from .serializers import ErpSerializer
+
+
+class EditorialView(TemplateView):
+
+    template_name = "editorial/base.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["communes"] = COMMUNES
+        return context
 
 
 class CheminementForm(forms.ModelForm):
@@ -108,7 +119,7 @@ class AccessibiliteForm(forms.ModelForm):
 
 
 def home(request):
-    return render(request, "erps/index.html", {"communes": COMMUNES})
+    return render(request, "index.html", {"communes": COMMUNES})
 
 
 class App(generic.ListView):
