@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.gis",
     "django.contrib.postgres",
+    "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
     "logentry_admin",
 ]
 

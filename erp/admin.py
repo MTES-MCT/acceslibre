@@ -11,6 +11,7 @@ from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
+from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from import_export.admin import ImportExportModelAdmin
 
 from .imports import ErpResource
@@ -26,7 +27,7 @@ from .geocode import geocode
 
 
 @admin.register(Activite)
-class ActiviteAdmin(admin.ModelAdmin):
+class ActiviteAdmin(admin.ModelAdmin, DynamicArrayMixin):
     list_display = ("nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)

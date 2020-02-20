@@ -7,6 +7,7 @@ from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.urls import reverse
+from django_better_admin_arrayfield.models.fields import ArrayField
 
 from . import managers
 
@@ -24,6 +25,13 @@ class Activite(models.Model):
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
+    )
+    mots_cles = ArrayField(
+        models.CharField(max_length=40, blank=True),
+        verbose_name="Mots-clés",
+        default=list,
+        blank=True,
+        help_text="Liste de mots-clés apparentés à cette activité",
     )
 
     # datetimes
@@ -214,36 +222,42 @@ class Erp(models.Model):
             raise ValidationError({"voie": error, "lieu_dit": error})
 
     def save(self, *args, **kwargs):
-        self.search_vector = (
-            SearchVector(
+        search_vector = SearchVector(
+            Value(self.nom, output_field=models.TextField()),
+            weight="A",
+            config=FULLTEXT_CONFIG,
+        )
+        search_vector = search_vector + SearchVector(
+            Value(self.commune, output_field=models.TextField()),
+            weight="B",
+            config=FULLTEXT_CONFIG,
+        )
+        search_vector = search_vector + SearchVector(
+            Value(self.voie, output_field=models.TextField()),
+            weight="C",
+            config=FULLTEXT_CONFIG,
+        )
+        search_vector = search_vector + SearchVector(
+            Value(self.lieu_dit, output_field=models.TextField()),
+            weight="C",
+            config=FULLTEXT_CONFIG,
+        )
+        if self.activite is not None:
+            search_vector = search_vector + SearchVector(
+                Value(self.activite.nom, output_field=models.TextField(),),
+                weight="A",
+                config=FULLTEXT_CONFIG,
+            )
+            search_vector = search_vector + SearchVector(
                 Value(
-                    self.activite and self.activite.nom or "",
+                    " ".join(self.activite.mots_cles),
                     output_field=models.TextField(),
                 ),
                 weight="A",
                 config=FULLTEXT_CONFIG,
             )
-            + SearchVector(
-                Value(self.nom, output_field=models.TextField()),
-                weight="A",
-                config=FULLTEXT_CONFIG,
-            )
-            + SearchVector(
-                Value(self.commune, output_field=models.TextField()),
-                weight="C",
-                config=FULLTEXT_CONFIG,
-            )
-            + SearchVector(
-                Value(self.voie, output_field=models.TextField()),
-                weight="D",
-                config=FULLTEXT_CONFIG,
-            )
-            + SearchVector(
-                Value(self.lieu_dit, output_field=models.TextField()),
-                weight="D",
-                config=FULLTEXT_CONFIG,
-            )
-        )
+
+        self.search_vector = search_vector
         super().save(*args, **kwargs)
 
 
