@@ -1,4 +1,4 @@
-let layers = [];
+let layers = [], markers;
 
 // see https://leafletjs.com/examples/geojson/
 function onEachFeature({ properties }, layer) {
@@ -17,7 +17,7 @@ function onEachFeature({ properties }, layer) {
 function iconCreateFunction(cluster) {
   return L.divIcon({
     html: cluster.getChildCount(),
-    className: "a4a-cluster-icon", 
+    className: "a4a-cluster-icon",
     iconSize: null
   });
 }
@@ -27,23 +27,30 @@ function initMap(info, geoJson) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
 
+  const geoJsonLayer = L.geoJSON(geoJson, { onEachFeature });
+
   const map = L.map("map").addLayer(tiles).setMinZoom(info.zoom - 2);
-  const markers = L.markerClusterGroup({
+
+  markers = L.markerClusterGroup({
     disableClusteringAtZoom: 17,
     showCoverageOnHover: false,
     iconCreateFunction
   });
-  const geoJsonLayer = L.geoJSON(geoJson, { onEachFeature });
-
   markers.addLayer(geoJsonLayer);
   map.addLayer(markers);
   map.fitBounds(markers.getBounds().pad(.1));
 }
 
 function openMarkerPopup(target) {
+  if (!markers) {
+    console.warn("No marker clusters were registered, cannot open marker.")
+    return;
+  }
   for (const layer of layers) {
     if (layer.pk === target) {
-      layer.openPopup();
+      markers.zoomToShowLayer(layer, () => {
+        layer.openPopup();
+      })
       break;
     }
   }
