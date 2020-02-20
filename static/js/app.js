@@ -1,28 +1,34 @@
 let layers = [];
 
+// see https://leafletjs.com/examples/geojson/
+function onEachFeature({ properties }, layer) {
+  layer.bindPopup(`
+    <p><strong><a href="${properties.absolute_url}">${properties.nom}</a></strong>
+      <br>
+      ${properties.activite__nom}
+      <br>
+      ${properties.adresse}
+    </p>
+  `);
+  layer.pk = parseInt(properties.pk, 10);
+  layers.push(layer);
+}
+
 function initMap(info, geoJson) {
-  var map = L.map("map").setView(info.center, info.zoom).setMinZoom(info.zoom - 2);
+  const tiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  });
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
+  const map = L.map("map").addLayer(tiles).setMinZoom(info.zoom - 2);
+  const markers = L.markerClusterGroup({
+    disableClusteringAtZoom: 17,
+    showCoverageOnHover: false
+  });
+  const geoJsonLayer = L.geoJSON(geoJson, { onEachFeature });
 
-  // see https://leafletjs.com/examples/geojson/
-  function onEachFeature({ properties }, layer) {
-    layer.bindPopup(`
-      <p><strong><a href="${properties.absolute_url}">${properties.nom}</a></strong>
-        <br>
-        ${properties.activite__nom}
-        <br>
-        ${properties.adresse}
-      </p>
-    `);
-    layer.pk = parseInt(properties.pk, 10);
-    layers.push(layer);
-  }
-
-  group = L.geoJSON(geoJson, { onEachFeature }).addTo(map);
-  map.fitBounds(group.getBounds().pad(.1));
+  markers.addLayer(geoJsonLayer);
+  map.addLayer(markers);
+  map.fitBounds(markers.getBounds().pad(.1));
 }
 
 function openMarkerPopup(target) {

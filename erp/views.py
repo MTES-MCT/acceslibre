@@ -154,7 +154,7 @@ class App(generic.ListView):
                 queryset = queryset.filter(activite_id=self.kwargs["activite"])
             if "erp" in self.kwargs:
                 queryset = queryset.filter(id=self.kwargs["erp"])
-        return queryset[:100]
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
