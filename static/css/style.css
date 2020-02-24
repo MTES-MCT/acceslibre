@@ -61,3 +61,6 @@ h1, h2, h3, h4, h5, h6 {
 .icon {
   vertical-align: middle;
 }
+.a4a-locate-icon::before {
+  line-height: inherit !important; 
+}

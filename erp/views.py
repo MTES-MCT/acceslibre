@@ -159,6 +159,7 @@ class App(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["commune"] = self.commune
+        context["communes"] = COMMUNES
         context["commune_json"] = json.dumps(self.commune)
         context["search_terms"] = self.search_terms
         context["activites"] = Activite.objects.with_erp_counts(

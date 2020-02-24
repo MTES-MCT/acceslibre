@@ -1,4 +1,4 @@
-let layers = [], markers;
+let layers = [], markers, map;
 
 // see https://leafletjs.com/examples/geojson/
 function onEachFeature({ properties }, layer) {
@@ -29,7 +29,7 @@ function initMap(info, geoJson) {
 
   const geoJsonLayer = L.geoJSON(geoJson, { onEachFeature });
 
-  const map = L.map("map").addLayer(tiles).setMinZoom(info.zoom - 2);
+  map = L.map("map").addLayer(tiles).setMinZoom(info.zoom - 2);
 
   markers = L.markerClusterGroup({
     disableClusteringAtZoom: 17,
@@ -39,6 +39,11 @@ function initMap(info, geoJson) {
   markers.addLayer(geoJsonLayer);
   map.addLayer(markers);
   map.fitBounds(markers.getBounds().pad(.1));
+
+  L.control.locate({
+    icon: "icon icon-street-view a4a-locate-icon",
+    strings: { title: "Localisez moi" }
+  }).addTo(map);
 }
 
 function openMarkerPopup(target) {

@@ -3,12 +3,28 @@
 {% load static %}
 
 {% block content %}
-  <nav class="a4a-navbar navbar navbar-dark d-flex flex-md-nowrap justify-content-between align-items-stretch shadow">
-    <a class="navbar-brand m-0 mr-3" href="{% url "home" %}">Access4all</a>
-    <form class="flex-fill" style="max-width:70%" action="{% url "commune" commune=commune.slug %}" method="get">
-      <input class="form-control form-control-dark w-100" type="search" name="q" value="{{ search_terms|default_if_none:"" }}"
-          placeholder="Restaurant, café, poste, pharmacie..." aria-label="Search" autocomplete="off">
-    </form>
+  <nav class="navbar navbar-expand-lg navbar-dark a4a-navbar">
+    <a class="navbar-brand" href="{% url "home" %}">access4all</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% for _, commune_entry in communes.items %}
+        <li class="nav-item{% if commune_entry.slug == commune.slug %} active{% endif %}">
+          <a class="nav-link" href="{% url "commune" commune=commune_entry.slug %}">{{ commune_entry.nom }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <form class="form-inline my-2 my-lg-0 ml-1 flex-fill" action="{% url "commune" commune=commune.slug %}" method="get">
+        <input class="form-control mr-sm-2 w-100" name="q" type="search" placeholder="Rue, restaurant, café, poste, pharmacie... à {{ commune.nom }}"
+            value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
+      </form>
+    </div>
   </nav>
 
   <div class="container-fluid p-0 m-0 a4a-app-content">
