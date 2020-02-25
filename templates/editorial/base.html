@@ -16,29 +16,32 @@
   <main class="container a4a-editorial mb-5">
     {% block editorial_content %}{% endblock%}
   </main>
-  <footer class="container-fluid bg-dark text-light py-4">
+  <footer class="container-fluid bg-dark text-light pt-4 pb-5">
     <div class="container">
       <div class="row">
-        <div class="col">
-          <h2>
-            <img class="a4a-marianne" src="{% static "img/logo-marianne.svg" %}" alt="République Française">
-            <a class="text-white text-decoration-none" href="{% url "home" %}">access4all</a>
-          </h2>
+        <div class="col-sm">
+          <h2><a class="text-white text-decoration-none" href="{% url "home" %}">access4all</a></h2>
           <nav>
             <div><a class="text-white" href="{% url "home" %}">Accueil</a></div>
             <div><a class="text-white" href="{% url "donnees_personnelles" %}">Données personnelles</a></div>
             <div><a class="text-white" href="{% url "mentions_legales" %}">Mentions légales</a></div>
             <div><a class="text-white" href="{% url "accessibilite" %}">Accessibilité</a></div>
             <div><a class="text-white" href="{% url "contact" %}">Contact</a></div>
+            <div><a class="text-white" href="{% url "stats_home" %}">Statistiques</a></div>
+            <div><a class="text-white" href="https://github.com/MTES-MCT/access4all" target="_blank">Code source</a></div>
           </nav>
         </div>
-        <div class="col">
+        <div class="col-sm">
           <h2>Communes</h2>
           <nav>
           {% for _, commune in communes.items %}
             <div><a class="text-white" href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></div>
           {% endfor %}
           </nav>
+        </div>
+        <div class="col-sm d-inline-flex justify-content-center align-items-center">
+          <img width="200" height="200" alt="Logo : la Fabrique Numérique" src="{% static "img/logo-fabriquenumerique.svg" %}">
+          <img width="90" height="200" alt="Logo : Ministère de la transition écologique et solidaire, Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" src="{% static "img/MTES_MCTRCT.svg" %}">
         </div>
       </div>
     </div>

@@ -23,6 +23,9 @@ class ErpQuerySet(models.QuerySet):
     def having_an_activite(self):
         return self.filter(activite__isnull=False)
 
+    def having_an_accessibilite(self):
+        return self.filter(accessibilite__isnull=False)
+
     def published(self):
         return self.filter(published=True)
 
