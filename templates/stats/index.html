@@ -1,6 +1,6 @@
 {% extends "editorial/base.html" %}
 
-{% load static %}
+{% load a4a %}
 
 {% block editorial_content %}
   <h2>Statistiques</h2>
@@ -8,27 +8,27 @@
     <div class="card">
       <div class="card-body text-center">
         <h3 class="display-2">{{ nb_published_erps }}</h3>
-        <p class="card-text">ERP publiés au total</p>
+        <p class="card-text">ERP publié{{ nb_published_erps|pluriel }} au total</p>
       </div>
     </div>
     <div class="card">
       <div class="card-body text-center">
         <h3 class="display-3">{{ nb_filled_erps }}</h3>
-        <p class="card-text">fiches accessibilité renseignées au total</p>
+        <p class="card-text">fiche{{ nb_filled_erps|pluriel }} accessibilité renseignée{{ nb_filled_erps|pluriel }} au total</p>
       </div>
     </div>
     {% for _, commune in communes.items %}
     <div class="card">
       <div class="card-body text-center">
         <h3 class="display-4">{{ commune.nb_filled_erps }}<small> /{{ commune.nb_erps }}</small></h3>
-        <p class="card-text">fiches reseignées pour <strong>{{ commune.nom }}</strong></p>
+        <p class="card-text">fiche{{ commune.nb_filled_erps|pluriel }} renseignée{{ commune.nb_filled_erps|pluriel }} pour <strong>{{ commune.nom }}</strong></p>
       </div>
     </div>
     {% endfor %}
     <div class="card">
       <div class="card-body text-center">
         <h3 class="display-3">{{ nb_contributors }}</h3>
-        <p class="card-text">contributeur(s)</p>
+        <p class="card-text">contributeur{{ nb_contributors|pluriel }}</p>
       </div>
     </div>
   </div>
