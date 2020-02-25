@@ -13,8 +13,18 @@ from .models import Accessibilite, Activite, Cheminement, Erp
 from .serializers import ErpSerializer
 
 
-class EditorialView(TemplateView):
+def home(request):
+    latest = (
+        Erp.objects.published()
+        .having_an_accessibilite()
+        .order_by("-created_at")[:15]
+    )
+    return render(
+        request, "index.html", {"communes": COMMUNES, "latest": latest}
+    )
 
+
+class EditorialView(TemplateView):
     template_name = "editorial/base.html"
 
     def get_context_data(self, **kwargs):
@@ -116,10 +126,6 @@ class AccessibiliteForm(forms.ModelForm):
                         field
                     )
         return data
-
-
-def home(request):
-    return render(request, "index.html", {"communes": COMMUNES})
 
 
 class App(generic.ListView):

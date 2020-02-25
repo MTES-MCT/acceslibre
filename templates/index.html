@@ -4,18 +4,33 @@
 
 {% block editorial_content %}
   <div class="row">
-  {% for _, commune in communes.items %}
-    <div class="col-md-4">
+    <div class="col-sm-8 card-columns">
+      {% for _, commune in communes.items %}
       <div class="card mb-4 shadow-sm">
         <a href="{% url 'commune' commune.slug %}">
           <img class="card-img-top" alt="{{ commune.nom }}" src="{% static "img/communes/" %}{{ commune.slug }}.jpg">
         </a>
         <div class="card-body">
           <h5 class="card-title"><a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></h5>
-          <p class="card-text">Découvrez l'accessibilité des établissements de {{ commune.nom }}.</p>
+          <p class="card-text">
+            <small class="text-muted">Découvrez l'accessibilité des établissements de {{ commune.nom }}.</small>
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">Derniers établissements renseignés</div>
+        <div class="list-group list-group-flush">
+          {% for erp in latest %}
+          <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
+            {{ erp.commune }} &raquo; <span class="text-muted">{{ erp.activite.nom}}</span>
+            <br><strong>{{ erp.nom }}</strong>
+          </a>
+          {% endfor %}
         </div>
       </div>
     </div>
-  {% endfor %}
   </div>
 {% endblock %}
