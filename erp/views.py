@@ -16,6 +16,7 @@ from .serializers import ErpSerializer
 def home(request):
     latest = (
         Erp.objects.published()
+        .select_related("activite")
         .having_an_accessibilite()
         .order_by("-created_at")[:15]
     )
