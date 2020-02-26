@@ -4,10 +4,8 @@ let layers = [], markers, map;
 function onEachFeature({ properties }, layer) {
   layer.bindPopup(`
     <p><strong><a href="${properties.absolute_url}">${properties.nom}</a></strong>
-      <br>
-      ${properties.activite__nom}
-      <br>
-      ${properties.adresse}
+      ${properties.activite__nom && ("<br>" + properties.activite__nom) || ""}
+      <br>${properties.adresse}
     </p>
   `);
   layer.pk = parseInt(properties.pk, 10);
@@ -53,7 +51,7 @@ function openMarkerPopup(target) {
   }
   for (const layer of layers) {
     if (layer.pk === target) {
-      markers.zoomToShowLayer(layer, () => {
+      markers.zoomToShowLayer(layer, function() {
         layer.openPopup();
       })
       break;
@@ -62,7 +60,7 @@ function openMarkerPopup(target) {
 }
 
 window.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".a4a-geo-link").forEach((link) => {
+  document.querySelectorAll(".a4a-geo-link").forEach(function(link) {
     link.addEventListener("click", function(event) {
       event.preventDefault();
       event.stopPropagation();
