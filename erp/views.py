@@ -168,6 +168,9 @@ class App(generic.ListView):
                     )
             if "erp" in self.kwargs:
                 queryset = queryset.filter(id=self.kwargs["erp"])
+        # FIXME: find a better trick to list erps having an accessibilite first
+        queryset = queryset.order_by("accessibilite")
+        # We can't hammer the pages with too many entries, hard-limiting here
         return queryset[:500]
 
     def get_context_data(self, **kwargs):
@@ -186,11 +189,9 @@ class App(generic.ListView):
         if "erp" in self.kwargs:
             erp = get_object_or_404(Erp, id=self.kwargs["erp"])
             context["erp"] = erp
-            if hasattr(erp, "accessibilite") and erp.accessibilite is not None:
+            if erp.has_accessibilite():
                 form = AccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
-        # if len(context["object_list"]) == 1:
-        #     context["erp"] = context["object_list"][0]
         # see https://stackoverflow.com/a/56557206/330911
         serializer = ErpSerializer()
         context["geojson_list"] = serializer.serialize(

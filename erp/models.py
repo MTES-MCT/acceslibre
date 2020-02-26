@@ -197,6 +197,9 @@ class Erp(models.Model):
                 ),
             )
 
+    def has_accessibilite(self):
+        return hasattr(self, "accessibilite") and self.accessibilite is not None
+
     @property
     def adresse(self):
         pieces = filter(
