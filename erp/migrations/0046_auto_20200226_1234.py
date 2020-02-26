@@ -25,6 +25,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.AlterUniqueTogether(
+            name="cheminement",
+            unique_together={("accessibilite", "type", "nom")},
+        ),
         migrations.AddField(
             model_name="cheminement",
             name="nom",
