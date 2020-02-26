@@ -45,7 +45,9 @@
           {% for subsection, subinfo in info.sections.items %}
             <div class="card mb-3">
               <div class="card-header border-bottom-0 p-2">
-                <h6 class="m-0"><i class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}</h6>
+                <h6 class="m-0">
+                  <i class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
+                </h6>
               </div>
               <div class="card-body p-0">
                 {% include "erps/commune/fields.html" with fields=subinfo.fields %}

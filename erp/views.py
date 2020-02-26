@@ -37,7 +37,7 @@ class EditorialView(TemplateView):
 class CheminementForm(forms.ModelForm):
     class Meta:
         model = Cheminement
-        exclude = ("pk", "accessibilite", "type")
+        exclude = ("pk", "accessibilite", "type", "nom")
 
 
 class AccessibiliteForm(forms.ModelForm):
@@ -113,7 +113,9 @@ class AccessibiliteForm(forms.ModelForm):
                 "sections": {},
             }
             for cheminement in cheminements:
-                section = cheminement.get_type_display()
+                section = (
+                    cheminement.get_type_display() + " : " + cheminement.nom
+                )
                 form = CheminementForm(instance=cheminement)
                 data["Cheminements"]["sections"][section] = {
                     "icon": "path",

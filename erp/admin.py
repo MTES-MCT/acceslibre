@@ -64,6 +64,7 @@ class CheminementInline(nested_admin.NestedStackedInline):
     extra = 0
     fields = (
         "type",
+        "nom",
         "pente",
         "devers",
         "reperage_vitres",
