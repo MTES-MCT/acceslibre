@@ -183,6 +183,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "geolocalise",
         "renseignee",
         "updated_at",
+        "view_search",
         "view_link",
     )
     list_select_related = ("activite", "accessibilite")
@@ -296,6 +297,14 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         )
 
     view_link.short_description = ""
+
+    def view_search(self, obj):
+        terms = f"{obj.nom} {obj.voie} {obj.commune}"
+        return mark_safe(
+            f'<a target="_blank" href="https://www.google.fr/search?source=hp&q={terms}">Rech.</a>'
+        )
+
+    view_search.short_description = ""
 
 
 # General admin heading & labels
