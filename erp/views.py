@@ -135,7 +135,7 @@ class App(generic.ListView):
     model = Erp
     queryset = (
         Erp.objects.published()
-        .having_an_activite()
+        # .having_an_activite()
         .select_related("activite", "accessibilite")
     )
     template_name = "erps/commune.html"
@@ -160,10 +160,15 @@ class App(generic.ListView):
             queryset = queryset.search(self.search_terms)
         else:
             if "activite" in self.kwargs:
-                queryset = queryset.filter(activite_id=self.kwargs["activite"])
+                if self.kwargs["activite"] is 0:
+                    queryset = queryset.filter(activite__isnull=True)
+                else:
+                    queryset = queryset.filter(
+                        activite_id=self.kwargs["activite"]
+                    )
             if "erp" in self.kwargs:
                 queryset = queryset.filter(id=self.kwargs["erp"])
-        return queryset
+        return queryset[:500]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -174,7 +179,7 @@ class App(generic.ListView):
         context["activites"] = Activite.objects.with_erp_counts(
             commune=self.commune["nom"], order_by="nom"
         )
-        if "activite" in self.kwargs:
+        if "activite" in self.kwargs and self.kwargs["activite"] is not 0:
             context["current_activite"] = get_object_or_404(
                 Activite, pk=self.kwargs["activite"]
             )

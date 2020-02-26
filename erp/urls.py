@@ -40,13 +40,19 @@ urlpatterns = [
     ),
     path(
         # FIXME slugs
-        "app/<str:commune>/<int:activite>/",
+        "app/<str:commune>/a/<int:activite>/",
         views.App.as_view(),
         name="commune_activite",
     ),
     path(
         # FIXME slugs
-        "app/<str:commune>/<int:activite>/<int:erp>/",
+        "app/<str:commune>/erp/<int:erp>/",
+        views.App.as_view(),
+        name="commune_erp",
+    ),
+    path(
+        # FIXME slugs
+        "app/<str:commune>/a/<int:activite>/erp/<int:erp>/",
         views.App.as_view(),
         name="commune_activite_erp",
     ),

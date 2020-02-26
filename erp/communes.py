@@ -1,4 +1,10 @@
 COMMUNES = {
+    "clichy": {
+        "nom": "Clichy",
+        "slug": "92-clichy",
+        "center": (48.9041, 2.2952),
+        "zoom": 15,
+    },
     "courbevoie": {
         "nom": "Courbevoie",
         "slug": "92-courbevoie",

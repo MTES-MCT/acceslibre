@@ -185,11 +185,10 @@ class Erp(models.Model):
 
     def get_absolute_url(self):
         commune = f"{self.departement}-{self.commune.lower()}"
-        # FIXME: either there shoudl be
-        # - a page for erp with no activité
-        # - activite should be a mandatory field
         if self.activite is None:
-            return reverse("commune", kwargs=dict(commune=commune,),)
+            return reverse(
+                "commune_erp", kwargs=dict(commune=commune, erp=self.pk),
+            )
         else:
             return reverse(
                 "commune_activite_erp",
