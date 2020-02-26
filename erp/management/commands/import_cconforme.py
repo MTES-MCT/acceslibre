@@ -1,11 +1,13 @@
 import csv
+import os
+import re
 
 from django.core.management.base import BaseCommand, CommandError
 
 from erp.models import Activite, Erp
 
 
-VILLES_CIBLES = ["lyon", "villeurbanne"]
+VILLES_CIBLES = [r"^Lyon$", r"^Clichy$"]
 VALEURS_VIDES = [
     "nr",
     "non renseigné",
@@ -29,11 +31,12 @@ def clean(string):
     )
 
 
+def clean_commune(string):
+    return clean("".join(i for i in string if not i.isdigit()))
+
+
 class Command(BaseCommand):
     help = "Importe les données c-conforme"
-
-    def add_arguments(self, parser):
-        parser.add_argument("csv_path")
 
     def handle_5digits_code(self, cpost):
         cpost = clean(cpost).strip()
@@ -64,24 +67,45 @@ class Command(BaseCommand):
         fields["voie"] = clean(row["voie"])
         fields["lieu_dit"] = clean(row["lieu_dit"])
         fields["code_postal"] = self.handle_5digits_code(row["cpost"])
-        fields["commune"] = clean(row["commune"])
+        fields["commune"] = clean_commune(row["commune"])
         fields["code_insee"] = self.handle_5digits_code(row["code_insee"])
 
         # geom
         fields["geom"] = clean(row["geom"])
 
-        # checks
+        # check ville
+        commune_ok = any(
+            [re.match(r, fields["commune"]) for r in VILLES_CIBLES]
+        )
+
+        # checks rest
         if any(
             [
-                fields["commune"].lower() not in VILLES_CIBLES,
+                not commune_ok,
                 fields["nom"] == "",
                 fields["code_postal"] == "",
                 fields["commune"] == "",
-                fields["voie"] == "" and clean(row["lieu_dit"]) == "",
+                fields["voie"] == "" and fields["lieu_dit"] == "",
                 fields["geom"] == "",
+                len(fields["numero"]) > 30,
             ]
         ):
-            return
+            return None
+
+        # check doublons
+        try:
+            Erp.objects.get(
+                nom=fields["nom"],
+                voie=fields["voie"],
+                commune=fields["commune"],
+            )
+            print(f"EXIST {fields['nom']} {fields['voie']} {fields['commune']}")
+            return None
+        except Erp.MultipleObjectsReturned:
+            # des doublons existent déjà malheureusement :(
+            return None
+        except Erp.DoesNotExist:
+            pass
 
         # activité
         nom_activite = clean(row["domaine"])
@@ -95,15 +119,24 @@ class Command(BaseCommand):
             act = f"\n    {erp.activite.nom}"
         else:
             act = ""
+
         print(f"ADD {erp.nom}{act}\n    {erp.adresse}")
         return erp
 
+    def get_csv_path(self):
+        here = os.path.abspath(
+            os.path.join(os.path.abspath(__file__), "..", "..", "..")
+        )
+        return os.path.join(os.path.dirname(here), "data", "source.csv",)
+
     def handle(self, *args, **options):
-        csv_path = options["csv_path"]
+        csv_path = self.get_csv_path()
         self.stdout.write(f"Importation des ERP depuis {csv_path}")
         to_import = []
 
-        self.activites = [(a.pk, a.nom.lower()) for a in Activite.objects.all()]
+        self.activites = [
+            (a.pk, a.nom.lower().strip()) for a in Activite.objects.all()
+        ]
 
         with open(csv_path, "r") as file:
             reader = csv.DictReader(file)
@@ -118,4 +151,4 @@ class Command(BaseCommand):
             print("Rien à importer.")
             exit(0)
         res = Erp.objects.bulk_create(to_import)
-        print(res)
+        print("Importation effectuée.")

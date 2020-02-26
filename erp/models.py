@@ -153,7 +153,7 @@ class Erp(models.Model):
     )
     # adresse
     numero = models.CharField(
-        max_length=12,
+        max_length=255,
         null=True,
         blank=True,
         verbose_name="Numéro",
