@@ -62,7 +62,8 @@ class LabelAdmin(admin.ModelAdmin):
 class CheminementInline(nested_admin.NestedStackedInline):
     model = Cheminement
     form = AdminCheminementForm
-    max_num = 3
+    classes = ("collapse",)
+    max_num = 5
     extra = 0
     fields = (
         "type",
@@ -94,17 +95,19 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         (
             "Stationnement",
             {
+                "classes": ("collapse",),
                 "fields": [
                     "stationnement_presence",
                     "stationnement_pmr",
                     "stationnement_ext_presence",
                     "stationnement_ext_pmr",
-                ]
+                ],
             },
         ),
         (
             "Entrée",
             {
+                "classes": ("collapse",),
                 "fields": [
                     "entree_plain_pied",
                     "entree_reperage",
@@ -116,29 +119,33 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
                     "largeur_mini",
                     "rampe",
                     "aide_humaine",
+                    "ascenseur",
                     "escalier_marches",
                     "escalier_reperage",
                     "escalier_main_courante",
-                    "ascenseur",
-                ]
+                ],
             },
         ),
         (
             "Accueil",
             {
+                "classes": ("collapse",),
                 "fields": [
                     "accueil_visibilite",
                     "accueil_personnels",
                     "accueil_equipements_malentendants",
                     "accueil_prestations",
-                ]
+                ],
             },
         ),
         (
             "Sanitaires",
-            {"fields": ["sanitaires_presence", "sanitaires_adaptes"]},
+            {
+                "classes": ("collapse",),
+                "fields": ["sanitaires_presence", "sanitaires_adaptes"],
+            },
         ),
-        ("Labels", {"fields": ["labels"]}),
+        ("Labels", {"classes": ("collapse",), "fields": ["labels"]}),
     ]
 
     def get_formset(self, request, obj=None, **kwargs):

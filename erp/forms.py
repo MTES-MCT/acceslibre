@@ -49,7 +49,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
                     "entree_pmr",
                     "reperage_vitres",
                     "guidage_sonore",
-                    "largeur_mini",
                     "rampe",
                     "aide_humaine",
                     "escalier_reperage",
