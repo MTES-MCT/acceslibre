@@ -32,27 +32,19 @@ urlpatterns = [
         ),
         name="donnees_personnelles",
     ),
+    path("app/<str:commune>/", views.App.as_view(), name="commune",),
     path(
-        # FIXME slugs
-        "app/<str:commune>/",
-        views.App.as_view(),
-        name="commune",
-    ),
-    path(
-        # FIXME slugs
-        "app/<str:commune>/a/<int:activite>/",
+        "app/<str:commune>/a/<str:activite_slug>/",
         views.App.as_view(),
         name="commune_activite",
     ),
     path(
-        # FIXME slugs
-        "app/<str:commune>/erp/<int:erp>/",
+        "app/<str:commune>/erp/<str:erp_slug>/",
         views.App.as_view(),
         name="commune_erp",
     ),
     path(
-        # FIXME slugs
-        "app/<str:commune>/a/<int:activite>/erp/<int:erp>/",
+        "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
         views.App.as_view(),
         name="commune_activite_erp",
     ),

@@ -1,6 +1,7 @@
 import json
 import requests
 
+from autoslug import AutoSlugField
 from django.contrib.gis.db import models
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
@@ -38,6 +39,12 @@ class Activite(models.Model):
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'activité"
     )
+    slug = AutoSlugField(
+        default="",
+        unique=True,
+        populate_from="nom",
+        help_text="Identifiant d'URL (slug)",
+    )
     mots_cles = ArrayField(
         models.CharField(max_length=40, blank=True),
         verbose_name="Mots-clés",
@@ -68,6 +75,12 @@ class Label(models.Model):
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom du label"
     )
+    slug = AutoSlugField(
+        default="",
+        unique=True,
+        populate_from="nom",
+        help_text="Identifiant d'URL (slug)",
+    )
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"
@@ -88,6 +101,12 @@ class EquipementMalentendant(models.Model):
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'équipement"
+    )
+    slug = AutoSlugField(
+        default="",
+        unique=True,
+        populate_from="nom",
+        help_text="Identifiant d'URL (slug)",
     )
     # datetimes
     created_at = models.DateTimeField(
@@ -117,6 +136,12 @@ class Erp(models.Model):
 
     nom = models.CharField(
         max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
+    )
+    slug = AutoSlugField(
+        default="",
+        unique=True,
+        populate_from="nom",
+        help_text="Identifiant d'URL (slug)",
     )
     activite = models.ForeignKey(
         Activite,
@@ -195,13 +220,15 @@ class Erp(models.Model):
         commune = f"{self.departement}-{self.commune.lower()}"
         if self.activite is None:
             return reverse(
-                "commune_erp", kwargs=dict(commune=commune, erp=self.pk),
+                "commune_erp", kwargs=dict(commune=commune, erp_slug=self.slug),
             )
         else:
             return reverse(
                 "commune_activite_erp",
                 kwargs=dict(
-                    commune=commune, activite=self.activite.pk, erp=self.pk,
+                    commune=commune,
+                    activite_slug=self.activite.slug,
+                    erp_slug=self.slug,
                 ),
             )
 
@@ -553,6 +580,12 @@ class Cheminement(CriteresCommunsMixin):
         default="Cheminement indéterminé",
         verbose_name="Dénomination du cheminement",
         help_text="Nom du cheminement, d'un point vers un autre (ex. Du stationnement à l'entrée de l'ERP)",
+    )
+    slug = AutoSlugField(
+        default="",
+        unique=True,
+        populate_from="nom",
+        help_text="Identifiant d'URL (slug)",
     )
 
     # équipements

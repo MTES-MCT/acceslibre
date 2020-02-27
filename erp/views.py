@@ -62,15 +62,15 @@ class App(generic.ListView):
         if self.search_terms is not None:
             queryset = queryset.search(self.search_terms)
         else:
-            if "activite" in self.kwargs:
-                if self.kwargs["activite"] is 0:
+            if "activite_slug" in self.kwargs:
+                if self.kwargs["activite_slug"] == "non-categorises":
                     queryset = queryset.filter(activite__isnull=True)
                 else:
                     queryset = queryset.filter(
-                        activite_id=self.kwargs["activite"]
+                        activite__slug=self.kwargs["activite_slug"]
                     )
-            if "erp" in self.kwargs:
-                queryset = queryset.filter(id=self.kwargs["erp"])
+            if "erp_slug" in self.kwargs:
+                queryset = queryset.filter(slug=self.kwargs["erp_slug"])
         # FIXME: find a better trick to list erps having an accessibilite first
         queryset = queryset.order_by("accessibilite")
         # We can't hammer the pages with too many entries, hard-limiting here
@@ -85,12 +85,17 @@ class App(generic.ListView):
         context["activites"] = Activite.objects.with_erp_counts(
             commune=self.commune["nom"], order_by="nom"
         )
-        if "activite" in self.kwargs and self.kwargs["activite"] is not 0:
+        if (
+            "activite_slug" in self.kwargs
+            and self.kwargs["activite_slug"] != "non-categorises"
+        ):
             context["current_activite"] = get_object_or_404(
-                Activite, pk=self.kwargs["activite"]
+                Activite, slug=self.kwargs["activite_slug"]
             )
-        if "erp" in self.kwargs:
-            erp = get_object_or_404(Erp, published=True, id=self.kwargs["erp"])
+        if "erp_slug" in self.kwargs:
+            erp = get_object_or_404(
+                Erp, published=True, slug=self.kwargs["erp_slug"]
+            )
             context["erp"] = erp
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
