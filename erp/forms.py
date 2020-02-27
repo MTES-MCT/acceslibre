@@ -7,6 +7,29 @@ def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
 
+class AdminCheminementForm(forms.ModelForm):
+    class Meta:
+        model = Cheminement
+        exclude = ("pk",)
+        widgets = dict(
+            [
+                (f, bool_radios())
+                for f in [
+                    "pente",
+                    "devers",
+                    "reperage_vitres",
+                    "bande_guidage",
+                    "guidage_sonore",
+                    "rampe",
+                    "aide_humaine",
+                    "escalier_reperage",
+                    "escalier_main_courante",
+                    "ascenseur",
+                ]
+            ]
+        )
+
+
 class AdminAccessibiliteForm(forms.ModelForm):
     class Meta:
         model = Accessibilite

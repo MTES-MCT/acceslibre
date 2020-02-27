@@ -14,7 +14,7 @@ from django.utils.safestring import mark_safe
 from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from import_export.admin import ImportExportModelAdmin
 
-from .forms import AdminAccessibiliteForm, AdminErpForm
+from .forms import AdminAccessibiliteForm, AdminErpForm, AdminCheminementForm
 from .imports import ErpResource
 from .models import (
     Activite,
@@ -61,6 +61,7 @@ class LabelAdmin(admin.ModelAdmin):
 
 class CheminementInline(nested_admin.NestedStackedInline):
     model = Cheminement
+    form = AdminCheminementForm
     max_num = 3
     extra = 0
     fields = (
