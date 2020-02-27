@@ -36,6 +36,7 @@ class Activite(models.Model):
         models.CharField(max_length=40, blank=True),
         verbose_name="Mots-clés",
         default=list,
+        null=True,
         blank=True,
         help_text="Liste de mots-clés apparentés à cette activité",
     )
