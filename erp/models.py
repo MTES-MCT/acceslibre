@@ -264,14 +264,15 @@ class Erp(models.Model):
                 weight="B",
                 config=FULLTEXT_CONFIG,
             )
-            search_vector = search_vector + SearchVector(
-                Value(
-                    " ".join(self.activite.mots_cles),
-                    output_field=models.TextField(),
-                ),
-                weight="C",
-                config=FULLTEXT_CONFIG,
-            )
+            if self.activite.mots_cles is not None:
+                search_vector = search_vector + SearchVector(
+                    Value(
+                        " ".join(self.activite.mots_cles),
+                        output_field=models.TextField(),
+                    ),
+                    weight="C",
+                    config=FULLTEXT_CONFIG,
+                )
 
         self.search_vector = search_vector
         super().save(*args, **kwargs)
