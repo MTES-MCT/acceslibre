@@ -13,11 +13,17 @@ from . import managers
 
 
 FULLTEXT_CONFIG = "french_unaccent"
+UNKNOWN = "Inconnu"
 UNKNOWN_OR_NA = "Inconnu ou sans objet"
 NULLABLE_BOOLEAN_CHOICES = (
-    (None, UNKNOWN_OR_NA),
     (True, "Oui"),
     (False, "Non"),
+    (None, UNKNOWN),
+)
+NULLABLE_OR_NA_BOOLEAN_CHOICES = (
+    (True, "Oui"),
+    (False, "Non"),
+    (None, UNKNOWN_OR_NA),
 )
 
 
@@ -123,7 +129,8 @@ class Erp(models.Model):
     published = models.BooleanField(
         default=True,
         verbose_name="Publié",
-        help_text="Statut de publication de cette fiche ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.",
+        # choices=BOOLEAN_CHOICES,
+        help_text="Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.",
     )
     geom = models.PointField(
         null=True,
@@ -279,22 +286,23 @@ class CriteresCommunsMixin(models.Model):
     RAMPE_AMOVIBLE = "amovible"
     RAMPE_AIDE_HUMAINE = "aide humaine"
     RAMPE_CHOICES = [
-        (None, UNKNOWN_OR_NA),
         (RAMPE_AUCUNE, "Aucune"),
         (RAMPE_FIXE, "Fixe"),
         (RAMPE_AMOVIBLE, "Amovible"),
+        (None, UNKNOWN),
     ]
 
     reperage_vitres = models.BooleanField(
         null=True,
         blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Répérage surfaces vitrées",
         help_text="Présence d'un repérage sur les surfaces vitrées",
     )
     guidage_sonore = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Système de guidage sonore",
         help_text="Présence d'un dispositif de guidage sonore",
     )
@@ -314,6 +322,7 @@ class CriteresCommunsMixin(models.Model):
     aide_humaine = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         help_text="Présence ou possibilité d'une aide humaine au déplacement",
     )
     escalier_marches = models.PositiveSmallIntegerField(
@@ -325,14 +334,14 @@ class CriteresCommunsMixin(models.Model):
     escalier_reperage = models.BooleanField(
         null=True,
         blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Repérage de l'escalier",
         help_text="Si marches contrastées, bande d'éveil ou nez de marche contrastés, indiquez “Oui”",
     )
     escalier_main_courante = models.BooleanField(
         null=True,
         blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Main courante",
         help_text="Présence d'une main courante d'escalier",
     )
@@ -354,10 +363,10 @@ class Accessibilite(CriteresCommunsMixin):
     PERSONNELS_FORMES = "formés"
     PERSONNELS_NON_FORMES = "non-formés"
     PERSONNELS_CHOICES = [
-        (None, UNKNOWN_OR_NA),
         (PERSONNELS_AUCUN, "Aucun personnel"),
         (PERSONNELS_FORMES, "Personnels sensibilisés et formés"),
         (PERSONNELS_NON_FORMES, "Personnels non-formés"),
+        (None, UNKNOWN),
     ]
 
     # erp
@@ -369,12 +378,14 @@ class Accessibilite(CriteresCommunsMixin):
     stationnement_presence = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnement dans l'ERP",
         help_text="Présence de stationnements au sein de l'ERP",
     )
     stationnement_pmr = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnements PMR dans l'ERP",
         help_text="Présence de stationnements PMR au sein de l'ERP",
     )
@@ -383,12 +394,14 @@ class Accessibilite(CriteresCommunsMixin):
     stationnement_ext_presence = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnement à proximité",
         help_text="Présence de stationnements à proximité (200m)",
     )
     stationnement_ext_pmr = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnements PMR à proximité",
         help_text="Présence de stationnements PMR à proximité (200m)",
     )
@@ -398,18 +411,21 @@ class Accessibilite(CriteresCommunsMixin):
     entree_plain_pied = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Plain-pied",
         help_text="L'entrée est-elle de plain-pied ?",
     )
     entree_reperage = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Repérage de l'entrée",
         help_text="Présence d'éléments de répérage de l'entrée",
     )
     entree_pmr = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Entrée spécifique PMR",
         help_text="Présence d'une entrée secondaire spécifique PMR",
     )
@@ -423,6 +439,7 @@ class Accessibilite(CriteresCommunsMixin):
     entree_interphone = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Dispositif d'appel",
         help_text="Présence d'un dispositif d'appel (ex. interphone)",
     )
@@ -460,6 +477,7 @@ class Accessibilite(CriteresCommunsMixin):
     sanitaires_presence = models.BooleanField(
         null=True,
         blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Sanitaires",
         help_text="Présence de sanitaires dans l'établissement",
     )
@@ -504,20 +522,20 @@ class Cheminement(CriteresCommunsMixin):
     DEVERS_LEGER = "léger"
     DEVERS_IMPORTANT = "important"
     DEVERS_CHOICES = [
-        (None, UNKNOWN_OR_NA),
         (DEVERS_AUCUN, "Aucun"),
         (DEVERS_LEGER, "Léger"),
         (DEVERS_IMPORTANT, "Important"),
+        (None, UNKNOWN_OR_NA),
     ]
 
     PENTE_AUCUNE = "aucune"
     PENTE_LEGERE = "légère"
     PENTE_IMPORTANTE = "importante"
     PENTE_CHOICES = [
-        (None, UNKNOWN_OR_NA),
         (PENTE_AUCUNE, "Aucune"),
         (PENTE_LEGERE, "Légère"),
         (PENTE_IMPORTANTE, "Importante"),
+        (None, UNKNOWN_OR_NA),
     ]
 
     accessibilite = models.ForeignKey(Accessibilite, on_delete=models.CASCADE)

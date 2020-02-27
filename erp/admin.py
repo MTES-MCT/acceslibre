@@ -14,6 +14,7 @@ from django.utils.safestring import mark_safe
 from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from import_export.admin import ImportExportModelAdmin
 
+from .forms import AdminAccessibiliteForm, AdminErpForm
 from .imports import ErpResource
 from .models import (
     Activite,
@@ -81,7 +82,11 @@ class CheminementInline(nested_admin.NestedStackedInline):
 
 
 class AccessibiliteInline(nested_admin.NestedStackedInline):
+    class Media:
+        css = {"all": ("admin/a4a-addons.css",)}
+
     model = Accessibilite
+    form = AdminAccessibiliteForm
     autocomplete_fields = ["accueil_equipements_malentendants", "labels"]
     inlines = [CheminementInline]
     fieldsets = [
@@ -168,8 +173,12 @@ class CommuneFilter(admin.SimpleListFilter):
 
 @admin.register(Erp)
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
+    class Media:
+        css = {"all": ("admin/a4a-addons.css",)}
+
     # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
     # resource_class = ErpResource
+    form = AdminErpForm
 
     actions = ["assign_activite", "publish", "unpublish"]
     inlines = [AccessibiliteInline]

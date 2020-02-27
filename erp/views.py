@@ -1,6 +1,5 @@
 import json
 
-from django import forms
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
 from django.http import Http404
@@ -9,6 +8,7 @@ from django.views import generic
 from django.views.generic.base import TemplateView
 
 from .communes import COMMUNES
+from .forms import ViewAccessibiliteForm
 from .models import Accessibilite, Activite, Cheminement, Erp
 from .serializers import ErpSerializer
 
@@ -32,103 +32,6 @@ class EditorialView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["communes"] = COMMUNES
         return context
-
-
-class CheminementForm(forms.ModelForm):
-    class Meta:
-        model = Cheminement
-        exclude = ("pk", "accessibilite", "type", "nom")
-
-
-class AccessibiliteForm(forms.ModelForm):
-    class Meta:
-        model = Accessibilite
-        exclude = ("pk", "erp", "labels")
-
-    fieldsets = {
-        "Entrée": {
-            "icon": "entrance",
-            "tabid": "entree",
-            "fields": [
-                "entree_plain_pied",
-                "entree_reperage",
-                "entree_pmr",
-                "entree_pmr_informations",
-                "entree_interphone",
-                "reperage_vitres",
-                "guidage_sonore",
-                "largeur_mini",
-                "rampe",
-                "aide_humaine",
-                "escalier_marches",
-                "escalier_reperage",
-                "escalier_main_courante",
-                "ascenseur",
-            ],
-        },
-        "Stationnement": {
-            "icon": "car",
-            "tabid": "stationnement",
-            "fields": [
-                "stationnement_presence",
-                "stationnement_pmr",
-                "stationnement_ext_presence",
-                "stationnement_ext_pmr",
-            ],
-        },
-        "Accueil": {
-            "icon": "users",
-            "tabid": "accueil",
-            "fields": [
-                "accueil_visibilite",
-                "accueil_personnels",
-                "accueil_equipements_malentendants",
-                "accueil_prestations",
-            ],
-        },
-        "Sanitaires": {
-            "icon": "male-female",
-            "tabid": "sanitaires",
-            "fields": ["sanitaires_presence", "sanitaires_adaptes",],
-        },
-    }
-
-    def get_accessibilite_data(self):
-        data = {}
-        for section, info in self.fieldsets.items():
-            data[section] = {
-                "icon": info["icon"],
-                "tabid": info["tabid"],
-                "fields": [],
-            }
-            for field_name in info["fields"]:
-                field = self[field_name]
-                # TODO: deconstruct field to make it serializable -> future API
-                data[section]["fields"].append(field)
-        cheminements = self.instance.cheminement_set.all()
-        if len(cheminements) > 0:
-            data["Cheminements"] = {
-                "icon": "path",
-                "tabid": "cheminements",
-                "sections": {},
-            }
-            for cheminement in cheminements:
-                section = (
-                    cheminement.get_type_display() + " : " + cheminement.nom
-                )
-                form = CheminementForm(instance=cheminement)
-                data["Cheminements"]["sections"][section] = {
-                    "icon": "path",
-                    "tabid": cheminement.type,
-                    "fields": [],
-                }
-                for field_name in form.fields:
-                    # TODO: deconstruct field to make it serializable -> future API
-                    field = form[field_name]
-                    data["Cheminements"]["sections"][section]["fields"].append(
-                        field
-                    )
-        return data
 
 
 class App(generic.ListView):
@@ -187,10 +90,10 @@ class App(generic.ListView):
                 Activite, pk=self.kwargs["activite"]
             )
         if "erp" in self.kwargs:
-            erp = get_object_or_404(Erp, id=self.kwargs["erp"])
+            erp = get_object_or_404(Erp, published=True, id=self.kwargs["erp"])
             context["erp"] = erp
             if erp.has_accessibilite():
-                form = AccessibiliteForm(instance=erp.accessibilite)
+                form = ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
         # see https://stackoverflow.com/a/56557206/330911
         serializer = ErpSerializer()
