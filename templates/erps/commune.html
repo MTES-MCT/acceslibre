@@ -21,7 +21,9 @@
         {% endfor %}
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-1 flex-fill" action="{% url "commune" commune=commune.slug %}" method="get">
-        <input class="form-control mr-sm-2 w-100" name="q" type="search" placeholder="Rue, restaurant, café, poste, pharmacie... à {{ commune.nom }}"
+        <input class="form-control mr-sm-2 w-100" name="q" id="q" type="search"
+            data-commune="{{ commune.nom }}" data-lat="{{ commune.center.1 }}" data-lon="{{ commune.center.0 }}"
+            placeholder="Rue, restaurant, café, poste, pharmacie... à {{ commune.nom }}"
             value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
       </form>
     </div>
