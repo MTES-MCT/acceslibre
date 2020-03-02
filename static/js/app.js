@@ -2,6 +2,26 @@ let layers = [],
   markers,
   map;
 
+function createIcon(info) {
+  let iconUrl = "/static/img/markers/common.png";
+  let iconRetinaUrl = "/static/img/markers/common-2x.png";
+  if (info) {
+    iconUrl = "/static/img/markers/info.png";
+    iconRetinaUrl = "/static/img/markers/info-2x.png";
+  }
+  const options = {
+    iconUrl: iconUrl,
+    iconRetinaUrl: iconRetinaUrl,
+    shadowUrl: "/static/img/markers/shadow.png",
+    iconSize: [34, 41],
+    iconAnchor: [16, 41],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+    shadowSize: [41, 41]
+  };
+  return L.icon(options);
+}
+
 // see https://leafletjs.com/examples/geojson/
 function onEachFeature(feature, layer) {
   const properties = feature.properties;
@@ -18,6 +38,12 @@ function onEachFeature(feature, layer) {
   layer.bindPopup(content);
   layer.pk = parseInt(feature.properties.pk, 10);
   layers.push(layer);
+}
+
+function pointToLayer(feature, coords) {
+  return L.marker(coords, {
+    icon: createIcon(feature.properties.has_accessibilite)
+  });
 }
 
 function iconCreateFunction(cluster) {
@@ -37,7 +63,10 @@ function initMap(info, pk, around, geoJson) {
     }
   );
 
-  const geoJsonLayer = L.geoJSON(geoJson, { onEachFeature: onEachFeature });
+  const geoJsonLayer = L.geoJSON(geoJson, {
+    onEachFeature: onEachFeature,
+    pointToLayer: pointToLayer
+  });
 
   map = L.map("map")
     .addLayer(tiles)
@@ -105,11 +134,8 @@ $(document).ready(function() {
   });
 
   $("#q").autocomplete({
-    dataType: "json",
     deferRequestBy: 350,
     minChars: 2,
-    paramName: "q",
-    preserveInput: true,
     lookup: function(query, done) {
       const $input = $("#q");
       const commune = $input.data("commune");
@@ -169,7 +195,6 @@ $(document).ready(function() {
           const results = [].sort.call(streets.concat(erps), function(a, b) {
             return b.data.score - a.data.score;
           });
-          console.log(results);
           done({ suggestions: results });
         })
         .fail(function(err) {
@@ -177,13 +202,7 @@ $(document).ready(function() {
         });
     },
     onSelect: function(suggestion) {
-      // if (suggestion.data.type === "erp") {
       document.location = suggestion.data.url;
-      // } else {
-      //   map
-      //     .setView([suggestion.data.loc[1], suggestion.data.loc[0]])
-      //     .setZoom(17);
-      // }
     }
   });
 });

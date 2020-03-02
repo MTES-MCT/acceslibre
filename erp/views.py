@@ -146,13 +146,19 @@ class App(generic.ListView):
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
-        # see https://stackoverflow.com/a/56557206/330911
         serializer = ErpSerializer()
         context["geojson_list"] = serializer.serialize(
             context["object_list"],
             geometry_field="geom",
             use_natural_foreign_keys=True,
-            fields=["pk", "nom", "activite__nom", "adresse", "absolute_url",],
+            fields=[
+                "pk",
+                "nom",
+                "activite__nom",
+                "adresse",
+                "absolute_url",
+                "has_accessibilite",
+            ],
         )
         return context
 
