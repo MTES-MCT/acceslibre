@@ -140,7 +140,9 @@ class App(generic.ListView):
             )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp, published=True, slug=self.kwargs["erp_slug"]
+                Erp.objects.select_related("accessibilite"),
+                published=True,
+                slug=self.kwargs["erp_slug"],
             )
             context["erp"] = erp
             if erp.has_accessibilite():
