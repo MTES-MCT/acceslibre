@@ -28,7 +28,7 @@ function iconCreateFunction(cluster) {
   });
 }
 
-function initMap(info, geoJson) {
+function initMap(info, pk, around, geoJson) {
   const tiles = L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
@@ -51,7 +51,18 @@ function initMap(info, geoJson) {
   markers.addLayer(geoJsonLayer);
   map.addLayer(markers);
 
-  if (geoJson.features.length > 0) {
+  if (around) {
+    L.marker(around, {
+      icon: L.divIcon({ className: "a4a-center-icon icon icon-target" })
+    }).addTo(map);
+    L.circle(around, {
+      fillColor: "#0f0",
+      fillOpacity: 0.1,
+      stroke: 0,
+      radius: 400
+    }).addTo(map);
+    map.setView(around, 16);
+  } else if (geoJson.features.length > 0) {
     map.fitBounds(markers.getBounds().pad(0.1));
   } else {
     map.setView(info.center, info.zoom);
@@ -63,15 +74,19 @@ function initMap(info, geoJson) {
       strings: { title: "Localisez moi" }
     })
     .addTo(map);
+
+  if (pk) {
+    openMarkerPopup(pk);
+  }
 }
 
-function openMarkerPopup(target) {
+function openMarkerPopup(pk) {
   if (!markers) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
   }
   layers.forEach(function(layer) {
-    if (layer.pk === target) {
+    if (layer.pk === pk) {
       markers.zoomToShowLayer(layer, function() {
         layer.openPopup();
       });
@@ -113,7 +128,14 @@ $(document).ready(function() {
               data: {
                 type: "adr",
                 loc: feature.geometry.coordinates,
-                score: feature.properties.importance
+                score: feature.properties.importance,
+                url:
+                  "/app/" +
+                  communeSlug +
+                  "/?around=" +
+                  feature.geometry.coordinates[1] +
+                  "," +
+                  feature.geometry.coordinates[0]
               }
             };
           });
@@ -132,6 +154,7 @@ $(document).ready(function() {
               value: sugg.value,
               data: {
                 type: "erp",
+                loc: sugg.data.loc,
                 score: sugg.data.score,
                 url: sugg.data.url
               }
@@ -146,6 +169,7 @@ $(document).ready(function() {
           const results = [].sort.call(streets.concat(erps), function(a, b) {
             return b.data.score - a.data.score;
           });
+          console.log(results);
           done({ suggestions: results });
         })
         .fail(function(err) {
@@ -153,13 +177,13 @@ $(document).ready(function() {
         });
     },
     onSelect: function(suggestion) {
-      if (suggestion.data.type === "erp") {
-        document.location = suggestion.data.url;
-      } else {
-        map
-          .setView([suggestion.data.loc[1], suggestion.data.loc[0]])
-          .setZoom(17);
-      }
+      // if (suggestion.data.type === "erp") {
+      document.location = suggestion.data.url;
+      // } else {
+      //   map
+      //     .setView([suggestion.data.loc[1], suggestion.data.loc[0]])
+      //     .setZoom(17);
+      // }
     }
   });
 });

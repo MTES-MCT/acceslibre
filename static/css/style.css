@@ -3,7 +3,12 @@ body {
   font-size: 14px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
 }
 
@@ -31,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 34px;
   width: 34px;
   border-radius: 50%;
-  background-color: rgba(68, 147, 206, .9);
+  background-color: rgba(68, 147, 206, 0.9);
   color: white;
   text-align: center;
   font-size: 13px;
@@ -46,11 +51,11 @@ h1, h2, h3, h4, h5, h6 {
 .a4a-app-title {
   max-height: 58px;
 }
-  .a4a-app-title h2 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.a4a-app-title h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .a4a-icon-btn {
   display: inline;
@@ -65,9 +70,34 @@ h1, h2, h3, h4, h5, h6 {
   line-height: inherit !important;
 }
 
-.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; cursor: pointer; }
-.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
-.autocomplete-selected { background: #F0F0F0; }
-.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
-.autocomplete-group { padding: 2px 5px; }
-.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+.a4a-center-icon {
+  color: red;
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.autocomplete-suggestions {
+  border: 1px solid #999;
+  background: #fff;
+  overflow: auto;
+  cursor: pointer;
+}
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.autocomplete-selected {
+  background: #f0f0f0;
+}
+.autocomplete-suggestions strong {
+  font-weight: normal;
+  color: #3399ff;
+}
+.autocomplete-group {
+  padding: 2px 5px;
+}
+.autocomplete-group strong {
+  display: block;
+  border-bottom: 1px solid #000;
+}

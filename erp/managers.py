@@ -38,8 +38,8 @@ class ErpQuerySet(models.QuerySet):
         qs = qs.order_by("-similarity")
         return qs
 
-    def nearest(self, lon, lat):
-        location = Point(lon, lat, srid=4326)
+    def nearest(self, coords):
+        location = Point(coords[0], coords[1], srid=4326)
         return self.annotate(distance=Distance("geom", location)).order_by(
             "distance"
         )

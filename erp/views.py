@@ -47,7 +47,12 @@ def autocomplete(request, commune):
                 "value": erp.nom + ", " + erp.short_adresse,
                 "data": {
                     "score": erp.similarity * 3,
-                    "url": erp.get_absolute_url(),
+                    "loc": erp.geom.coords,
+                    "url": erp.get_absolute_url()
+                    + "?around="
+                    + str(erp.geom.coords[1])
+                    + ","
+                    + str(erp.geom.coords[0]),
                 },
             }
         )
@@ -73,6 +78,17 @@ class App(generic.ListView):
     template_name = "erps/commune.html"
 
     @property
+    def around(self):
+        raw = self.request.GET.get("around")
+        if raw is None:
+            return
+        try:
+            rlon, rlat = raw.split(",")
+            return (float(rlon), float(rlat))
+        except (IndexError, ValueError, TypeError) as err:
+            return
+
+    @property
     def commune(self):
         return find_commune_by_slug_or_404(self.kwargs["commune"])
 
@@ -95,8 +111,8 @@ class App(generic.ListView):
                     queryset = queryset.filter(
                         activite__slug=self.kwargs["activite_slug"]
                     )
-            if "erp_slug" in self.kwargs:
-                queryset = queryset.filter(slug=self.kwargs["erp_slug"])
+        if self.around is not None:
+            queryset = queryset.nearest(self.around)
         # FIXME: find a better trick to list erps having an accessibilite first,
         # so we can keep name ordering
         queryset = queryset.order_by("accessibilite")
@@ -105,6 +121,9 @@ class App(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["around"] = (
+            list(self.around) if self.around is not None else self.around
+        )
         context["commune"] = self.commune
         context["communes"] = COMMUNES
         context["commune_json"] = json.dumps(self.commune)
@@ -134,19 +153,6 @@ class App(generic.ListView):
             geometry_field="geom",
             use_natural_foreign_keys=True,
             fields=["pk", "nom", "activite__nom", "adresse", "absolute_url",],
-        )
-        return context
-
-
-class Geoloc(generic.ListView):
-    model = Erp
-    queryset = Erp.objects.nearest(2.352222, 48.856613)[0:10]  # paris center
-    template_name = "erps/commune.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["geojson_list"] = serialize(
-            "geojson", self.queryset, geometry_field="geom", fields=("nom",)
         )
         return context
 
