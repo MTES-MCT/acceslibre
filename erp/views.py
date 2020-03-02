@@ -2,9 +2,10 @@ import json
 
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
+from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
 from .communes import COMMUNES
@@ -23,6 +24,26 @@ def home(request):
     return render(
         request, "index.html", {"communes": COMMUNES, "latest": latest}
     )
+
+
+def find_commune_by_slug_or_404(commune_slug):
+    for key, commune in COMMUNES.items():
+        if commune_slug == commune["slug"]:
+            return COMMUNES[key]
+    raise Http404(f"Cette commune est introuvable ({commune}).")
+
+
+@cache_page(60 * 15)
+def autocomplete(request, commune):
+    res = {"suggestions": []}
+    q = request.GET.get("q", "")
+    commune_nom = find_commune_by_slug_or_404(commune)["nom"]
+    if len(q) < 3:
+        return JsonResponse(res)
+    qs = Erp.objects.published().in_commune(commune_nom).search(q)[:5]
+    for erp in qs:
+        res["suggestions"].append({"value": erp.nom, "data": erp.geom.coords})
+    return JsonResponse(res)
 
 
 class EditorialView(TemplateView):
@@ -45,10 +66,7 @@ class App(generic.ListView):
 
     @property
     def commune(self):
-        for key, commune in COMMUNES.items():
-            if self.kwargs["commune"] == commune["slug"]:
-                return COMMUNES[key]
-        raise Http404("Cette commune est introuvable.")
+        return find_commune_by_slug_or_404(self.kwargs["commune"])
 
     @property
     def search_terms(self):
@@ -58,7 +76,7 @@ class App(generic.ListView):
 
     def get_queryset(self):
         queryset = super(App, self).get_queryset()
-        queryset = queryset.filter(commune__iexact=self.commune["nom"])
+        queryset = queryset.in_commune(self.commune["nom"])
         if self.search_terms is not None:
             queryset = queryset.search(self.search_terms)
         else:
@@ -71,7 +89,8 @@ class App(generic.ListView):
                     )
             if "erp_slug" in self.kwargs:
                 queryset = queryset.filter(slug=self.kwargs["erp_slug"])
-        # FIXME: find a better trick to list erps having an accessibilite first
+        # FIXME: find a better trick to list erps having an accessibilite first,
+        # so we can keep name ordering
         queryset = queryset.order_by("accessibilite")
         # We can't hammer the pages with too many entries, hard-limiting here
         return queryset[:500]

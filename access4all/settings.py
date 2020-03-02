@@ -148,6 +148,11 @@ USE_TZ = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+# Cache
+CACHES = {
+    "default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",}
+}
+
 # Local settings
 try:
     from .local_settings import *

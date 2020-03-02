@@ -20,6 +20,9 @@ class ActiviteQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
+    def in_commune(self, commune):
+        return self.filter(commune__iexact=commune)
+
     def having_an_activite(self):
         return self.filter(activite__isnull=False)
 
