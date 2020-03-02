@@ -42,7 +42,15 @@ def autocomplete(request, commune):
         return JsonResponse(res)
     qs = Erp.objects.published().in_commune(commune_nom).search(q)[:5]
     for erp in qs:
-        res["suggestions"].append({"value": erp.nom, "data": erp.geom.coords})
+        res["suggestions"].append(
+            {
+                "value": erp.nom + ", " + erp.short_adresse,
+                "data": {
+                    "score": erp.similarity * 3,
+                    "url": erp.get_absolute_url(),
+                },
+            }
+        )
     return JsonResponse(res)
 
 

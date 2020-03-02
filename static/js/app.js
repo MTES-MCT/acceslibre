@@ -79,7 +79,7 @@ function openMarkerPopup(target) {
   });
 }
 
-window.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function() {
   [].forEach.call(document.querySelectorAll(".a4a-geo-link"), function(link) {
     link.addEventListener("click", function(event) {
       event.preventDefault();
@@ -95,38 +95,71 @@ window.addEventListener("DOMContentLoaded", function() {
     minChars: 2,
     paramName: "q",
     preserveInput: true,
-    serviceUrl: "https://api-adresse.data.gouv.fr/search",
-    params: {
-      type: "street",
-      lat: $("#q").data("lat"),
-      lon: $("#q").data("lon")
-    },
-    onSearchStart: function(params) {
-      // ensure city is always passed to query
-      params.q += ", " + $("#q").data("commune");
-      return params;
-    },
-    onSelect: function(suggestion) {
-      map.setView([suggestion.data[1], suggestion.data[0]]).setZoom(17);
-    },
-    transformResult: function(response) {
-      return {
-        suggestions: response.features
-          .filter(function(feature) {
-            return (
-              feature.properties.city.toLowerCase() ===
-              $("#q")
-                .data("commune")
-                .toLowerCase()
-            );
-          })
-          .map(function(feature) {
+    lookup: function(query, done) {
+      const $input = $("#q");
+      const commune = $input.data("commune");
+      const communeSlug = $input.data("commune-slug");
+      const lat = $input.data("lat");
+      const lon = $input.data("lon");
+      const results = {};
+      const streetsReq = $.ajax({
+        url: "https://api-adresse.data.gouv.fr/search",
+        data: { q: query + ", " + commune, lat: lat, lon: lon }
+      })
+        .then(function(result) {
+          return result.features.map(function(feature) {
             return {
               value: feature.properties.label,
-              data: feature.geometry.coordinates
+              data: {
+                type: "adr",
+                loc: feature.geometry.coordinates,
+                score: feature.properties.importance
+              }
             };
-          })
-      };
+          });
+        })
+        .fail(function(err) {
+          console.error(err);
+        });
+      const erpsReq = $.ajax({
+        url: "/app/" + communeSlug + "/autocomplete/",
+        dataType: "json",
+        data: { q: query }
+      })
+        .then(function(result) {
+          return result.suggestions.map(function(sugg) {
+            return {
+              value: sugg.value,
+              data: {
+                type: "erp",
+                score: sugg.data.score,
+                url: sugg.data.url
+              }
+            };
+          });
+        })
+        .fail(function(err) {
+          console.error(err);
+        });
+      $.when(streetsReq, erpsReq)
+        .done(function(streets, erps) {
+          const results = [].sort.call(streets.concat(erps), function(a, b) {
+            return b.data.score - a.data.score;
+          });
+          done({ suggestions: results });
+        })
+        .fail(function(err) {
+          console.error(err);
+        });
+    },
+    onSelect: function(suggestion) {
+      if (suggestion.data.type === "erp") {
+        document.location = suggestion.data.url;
+      } else {
+        map
+          .setView([suggestion.data.loc[1], suggestion.data.loc[0]])
+          .setZoom(17);
+      }
     }
   });
 });

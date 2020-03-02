@@ -250,6 +250,13 @@ class Erp(models.Model):
         return " ".join(pieces).strip().replace("  ", " ")
 
     @property
+    def short_adresse(self):
+        pieces = filter(
+            lambda x: x is not None, [self.numero, self.voie, self.lieu_dit,],
+        )
+        return " ".join(pieces).strip().replace("  ", " ")
+
+    @property
     def departement(self):
         return self.code_postal[:2]
 
