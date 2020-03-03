@@ -24,7 +24,6 @@ from .models import (
     Cheminement,
     EquipementMalentendant,
 )
-from .geocode import geocode
 
 
 @admin.register(Activite)
@@ -303,10 +302,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             return "Inconnu"
 
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
-
-    def save_model(self, request, obj, form, change):
-        localized_obj = geocode(obj)
-        super(ErpAdmin, self).save_model(request, localized_obj, form, change)
 
     def view_link(self, obj):
         return mark_safe(

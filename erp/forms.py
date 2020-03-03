@@ -1,5 +1,7 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
+from .geocode import geocode
 from .models import Accessibilite, Cheminement, Erp
 
 
@@ -68,7 +70,28 @@ class AdminErpForm(forms.ModelForm):
     class Meta:
         model = Erp
         exclude = ("pk",)
-        # widgets = {"published": forms.RadioSelect}
+
+    def get_adresse(self):
+        return " ".join(
+            [
+                self.cleaned_data[f]
+                for f in [
+                    "numero",
+                    "voie",
+                    "lieu_dit",
+                    "code_postal",
+                    "commune",
+                ]
+                if self.cleaned_data[f] is not None
+            ]
+        )
+
+    def clean(self):
+        addr = self.get_adresse()
+        geom = geocode(addr)
+        if geom is None:
+            raise ValidationError({"voie": f"Adresse non localisable: {addr}."})
+        self.cleaned_data["geom"] = geom
 
 
 class ViewCheminementForm(forms.ModelForm):

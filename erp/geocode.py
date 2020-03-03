@@ -15,27 +15,23 @@ def autocomplete(q, postcode=None, limit=5):
     return data["features"]
 
 
-def geocode(erp):
+def geocode(adresse):
     # retrieve geolocoder data
-    data = query({"q": erp.adresse, "limit": 1})
+    data = query({"q": adresse, "limit": 1})
     try:
         feature = data["features"][0]
-        # print(json.dumps(feature, indent=2))
         # score
         if feature["properties"]["score"] < 0.5:
-            raise RuntimeError()
+            return None
         # coordinates
         geometry = feature["geometry"]
-        erp.geom = Point(geometry["coordinates"])
+        return Point(geometry["coordinates"])
     except (KeyError, IndexError, RuntimeError) as err:
-        # print(json.dumps(data, indent=2))
-        erp.geom = None
-        print(f"Failed geocoding address '{erp.adresse}': {err}")
-    return erp
+        return None
 
 
 def query(params):
     res = requests.get(GEOCODER_URL, params)
     if res.status_code != 200:
-        raise RuntimeError("Impossible de géocoder l'adresse.")
+        raise RuntimeError("Serveur de géocodage indisponible.")
     return res.json()

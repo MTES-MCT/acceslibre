@@ -145,15 +145,19 @@ $(document).ready(function() {
       const results = {};
       const streetsReq = $.ajax({
         url: "https://api-adresse.data.gouv.fr/search",
-        data: { q: query + ", " + commune, lat: lat, lon: lon }
+        data: { q: query + ", " + commune, type: "street", lat: lat, lon: lon }
       })
         .then(function(result) {
-          return result.features.map(function(feature) {
+          return result.features
+          .filter(function(feature) {
+            return feature.properties.city.toLowerCase() === commune.toLowerCase();
+          })
+          .map(function(feature) {
             return {
               value: feature.properties.label,
               data: {
                 type: "adr",
-                score: feature.properties.importance,
+                score: feature.properties.score,
                 url:
                   "/app/" +
                   communeSlug +
