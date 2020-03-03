@@ -45,15 +45,15 @@ class ErpQuerySet(models.QuerySet):
         )
 
     def search(self, query):
-        qs = self
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
+        qs = qs.annotate(distance=search.TrigramDistance("nom", query))
         qs = qs.annotate(
             rank=search.SearchRank(models.F("search_vector"), query)
         )
         qs = qs.filter(
             Q(search_vector=search.SearchQuery(query, config="french_unaccent"))
-            # TODO: check https://github.com/django/django/blob/master/tests/postgres_tests/test_trigram.py#L40
             | Q(nom__trigram_similar=query)
+            | Q(distance__gte=0.6)
         )
-        qs = qs.order_by("-rank", "-similarity")
+        qs = qs.order_by("-rank", "-similarity", "distance")
         return qs

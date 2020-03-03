@@ -15,7 +15,7 @@ function createIcon(info) {
     shadowUrl: "/static/img/markers/shadow.png",
     iconSize: [34, 41],
     iconAnchor: [16, 41],
-    popupAnchor: [1, -34],
+    popupAnchor: [1, -36],
     tooltipAnchor: [16, -28],
     shadowSize: [41, 41]
   };
@@ -134,7 +134,7 @@ $(document).ready(function() {
   });
 
   $("#q").autocomplete({
-    deferRequestBy: 350,
+    deferRequestBy: 100,
     minChars: 2,
     lookup: function(query, done) {
       const $input = $("#q");

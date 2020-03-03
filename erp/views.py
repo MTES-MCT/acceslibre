@@ -35,18 +35,23 @@ def find_commune_by_slug_or_404(commune_slug):
 
 @cache_page(60 * 15)
 def autocomplete(request, commune):
-    res = {"suggestions": []}
+    suggestions = []
     q = request.GET.get("q", "")
     commune_nom = find_commune_by_slug_or_404(commune)["nom"]
     if len(q) < 3:
-        return JsonResponse(res)
-    qs = Erp.objects.published().in_commune(commune_nom).search(q)[:5]
+        return JsonResponse({"suggestions": suggestions})
+    qs = Erp.objects.published().in_commune(commune_nom).search(q)[:10]
     for erp in qs:
-        res["suggestions"].append(
+        score = (erp.rank + erp.similarity - (erp.distance / 6)) * 60
+        score = 10 if score > 10 else score
+        suggestions.append(
             {
                 "value": erp.nom + ", " + erp.short_adresse,
                 "data": {
-                    "score": erp.similarity * 3,
+                    "score": score,
+                    # "rank": erp.rank,
+                    # "similarity": erp.similarity,
+                    # "distance": erp.distance,
                     "loc": erp.geom.coords,
                     "url": erp.get_absolute_url()
                     + "?around="
@@ -56,7 +61,10 @@ def autocomplete(request, commune):
                 },
             }
         )
-    return JsonResponse(res)
+    suggestions = sorted(
+        suggestions, key=lambda s: s["data"]["score"], reverse=True
+    )
+    return JsonResponse({"suggestions": suggestions})
 
 
 class EditorialView(TemplateView):
@@ -111,11 +119,11 @@ class App(generic.ListView):
                     queryset = queryset.filter(
                         activite__slug=self.kwargs["activite_slug"]
                     )
+            # FIXME: find a better trick to list erps having an accessibilite first,
+            # so we can keep name ordering
+            queryset = queryset.order_by("accessibilite")
         if self.around is not None:
             queryset = queryset.nearest(self.around)
-        # FIXME: find a better trick to list erps having an accessibilite first,
-        # so we can keep name ordering
-        queryset = queryset.order_by("accessibilite")
         # We can't hammer the pages with too many entries, hard-limiting here
         return queryset[:500]
 
