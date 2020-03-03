@@ -153,7 +153,6 @@ $(document).ready(function() {
               value: feature.properties.label,
               data: {
                 type: "adr",
-                loc: feature.geometry.coordinates,
                 score: feature.properties.importance,
                 url:
                   "/app/" +
@@ -180,7 +179,6 @@ $(document).ready(function() {
               value: sugg.value,
               data: {
                 type: "erp",
-                loc: sugg.data.loc,
                 score: sugg.data.score,
                 url: sugg.data.url
               }

@@ -44,20 +44,21 @@ def autocomplete(request, commune):
     for erp in qs:
         score = (erp.rank + erp.similarity - (erp.distance / 6)) * 60
         score = 10 if score > 10 else score
+        if erp.geom is not None:
+            around = (
+                "?around="
+                + str(erp.geom.coords[1])
+                + ","
+                + str(erp.geom.coords[0])
+            )
+        else:
+            around = ""
         suggestions.append(
             {
                 "value": erp.nom + ", " + erp.short_adresse,
                 "data": {
                     "score": score,
-                    # "rank": erp.rank,
-                    # "similarity": erp.similarity,
-                    # "distance": erp.distance,
-                    "loc": erp.geom.coords,
-                    "url": erp.get_absolute_url()
-                    + "?around="
-                    + str(erp.geom.coords[1])
-                    + ","
-                    + str(erp.geom.coords[0]),
+                    "url": erp.get_absolute_url() + around,
                 },
             }
         )
