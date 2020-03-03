@@ -29,6 +29,9 @@ class ErpQuerySet(models.QuerySet):
     def having_an_accessibilite(self):
         return self.filter(accessibilite__isnull=False)
 
+    def geolocated(self):
+        return self.filter(geom__isnull=False)
+
     def published(self):
         return self.filter(published=True)
 

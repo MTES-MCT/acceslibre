@@ -88,10 +88,17 @@ class AdminErpForm(forms.ModelForm):
 
     def clean(self):
         addr = self.get_adresse()
-        geom = geocode(addr)
-        if geom is None:
+        locdata = geocode(addr)
+        if locdata["geom"] is None:
             raise ValidationError({"voie": f"Adresse non localisable: {addr}."})
-        self.cleaned_data["geom"] = geom
+        # FIXME: would be nice to allow just setting custom geom
+        self.cleaned_data["geom"] = locdata["geom"]
+        self.cleaned_data["numero"] = locdata["numero"]
+        self.cleaned_data["voie"] = locdata["voie"]
+        self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
+        self.cleaned_data["code_postal"] = locdata["code_postal"]
+        self.cleaned_data["commune"] = locdata["commune"]
+        self.cleaned_data["code_insee"] = locdata["code_insee"]
 
 
 class ViewCheminementForm(forms.ModelForm):

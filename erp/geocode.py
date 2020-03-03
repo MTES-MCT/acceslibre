@@ -20,12 +20,26 @@ def geocode(adresse):
     data = query({"q": adresse, "limit": 1})
     try:
         feature = data["features"][0]
+        print(json.dumps(data, indent=2))
+        properties = feature["properties"]
         # score
-        if feature["properties"]["score"] < 0.5:
+        if properties["score"] < 0.5:
             return None
         # coordinates
         geometry = feature["geometry"]
-        return Point(geometry["coordinates"])
+        return {
+            "geom": Point(geometry["coordinates"]),
+            "numero": properties.get("housenumber"),
+            "voie": properties.get("street"),
+            "lieu_dit": (
+                properties.get("name")
+                if properties.get("type") == "locality"
+                else None
+            ),
+            "code_postal": properties.get("postcode"),
+            "commune": properties.get("city"),
+            "code_insee": properties.get("citycode"),
+        }
     except (KeyError, IndexError, RuntimeError) as err:
         return None
 

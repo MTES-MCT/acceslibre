@@ -33,6 +33,9 @@ class Activite(models.Model):
         ordering = ("nom",)
         verbose_name = "Activité"
         verbose_name_plural = "Activités"
+        indexes = [
+            models.Index(fields=["slug"]),
+        ]
 
     objects = managers.ActiviteQuerySet.as_manager()
 
@@ -71,6 +74,9 @@ class Label(models.Model):
         ordering = ("nom",)
         verbose_name = "Label d'accessibilité"
         verbose_name_plural = "Labels d'accessibilité"
+        indexes = [
+            models.Index(fields=["slug"]),
+        ]
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom du label"
@@ -98,6 +104,9 @@ class EquipementMalentendant(models.Model):
         ordering = ("nom",)
         verbose_name = "Équipement sourd/malentendant"
         verbose_name_plural = "Équipements sourd/malentendant"
+        indexes = [
+            models.Index(fields=["slug"]),
+        ]
 
     nom = models.CharField(
         max_length=255, unique=True, help_text="Nom de l'équipement"
@@ -126,6 +135,8 @@ class Erp(models.Model):
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
         indexes = [
+            models.Index(fields=["slug"]),
+            models.Index(fields=["commune", "activite_id"]),
             GinIndex(
                 name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]
             ),
@@ -154,7 +165,6 @@ class Erp(models.Model):
     published = models.BooleanField(
         default=True,
         verbose_name="Publié",
-        # choices=BOOLEAN_CHOICES,
         help_text="Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.",
     )
     geom = models.PointField(

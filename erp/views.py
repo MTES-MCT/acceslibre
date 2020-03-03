@@ -17,6 +17,7 @@ from .serializers import ErpSerializer
 def home(request):
     latest = (
         Erp.objects.published()
+        .geolocated()
         .select_related("activite")
         .having_an_accessibilite()
         .order_by("-created_at")[:15]
@@ -40,25 +41,27 @@ def autocomplete(request, commune):
     commune_nom = find_commune_by_slug_or_404(commune)["nom"]
     if len(q) < 3:
         return JsonResponse({"suggestions": suggestions})
-    qs = Erp.objects.published().in_commune(commune_nom).search(q)[:10]
+    qs = (
+        Erp.objects.published()
+        .geolocated()
+        .in_commune(commune_nom)
+        .search(q)[:7]
+    )
     for erp in qs:
         score = (erp.rank + erp.similarity - (erp.distance / 6)) * 60
         score = 10 if score > 10 else score
-        if erp.geom is not None:
-            around = (
-                "?around="
-                + str(erp.geom.coords[1])
-                + ","
-                + str(erp.geom.coords[0])
-            )
-        else:
-            around = ""
         suggestions.append(
             {
                 "value": erp.nom + ", " + erp.short_adresse,
                 "data": {
                     "score": score,
-                    "url": erp.get_absolute_url() + around,
+                    "url": (
+                        erp.get_absolute_url()
+                        + "?around="
+                        + str(erp.geom.coords[1])
+                        + ","
+                        + str(erp.geom.coords[0])
+                    ),
                 },
             }
         )
@@ -80,7 +83,7 @@ class EditorialView(TemplateView):
 class App(generic.ListView):
     model = Erp
     queryset = (
-        Erp.objects.published()
+        Erp.objects.published().geolocated()
         # .having_an_activite()
         .select_related("activite", "accessibilite")
     )
