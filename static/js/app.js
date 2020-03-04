@@ -56,13 +56,21 @@ function iconCreateFunction(cluster) {
 
 function initMap(info, pk, around, geoJson) {
   const tiles = L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      attribution: [
+        'Cartographie &copy; contributeurs <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>'
+      ].join(", "),
+      maxZoom: 18,
+      id: "mapbox/streets-v11",
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken:
+        "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTltZjgwNzJyM2hud3N0aTI1anNwIn0.hWR9DB1maPjWBhUlQtQ4NA"
     }
   );
-
   const geoJsonLayer = L.geoJSON(geoJson, {
     onEachFeature: onEachFeature,
     pointToLayer: pointToLayer
@@ -149,25 +157,27 @@ $(document).ready(function() {
       })
         .then(function(result) {
           return result.features
-          .filter(function(feature) {
-            return feature.properties.city.toLowerCase() === commune.toLowerCase();
-          })
-          .map(function(feature) {
-            return {
-              value: feature.properties.label,
-              data: {
-                type: "adr",
-                score: feature.properties.score,
-                url:
-                  "/app/" +
-                  communeSlug +
-                  "/?around=" +
-                  feature.geometry.coordinates[1] +
-                  "," +
-                  feature.geometry.coordinates[0]
-              }
-            };
-          });
+            .filter(function(feature) {
+              return (
+                feature.properties.city.toLowerCase() === commune.toLowerCase()
+              );
+            })
+            .map(function(feature) {
+              return {
+                value: feature.properties.label,
+                data: {
+                  type: "adr",
+                  score: feature.properties.score,
+                  url:
+                    "/app/" +
+                    communeSlug +
+                    "/?around=" +
+                    feature.geometry.coordinates[1] +
+                    "," +
+                    feature.geometry.coordinates[0]
+                }
+              };
+            });
         })
         .fail(function(err) {
           console.error(err);
