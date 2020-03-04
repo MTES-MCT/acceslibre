@@ -224,7 +224,7 @@ class Erp(models.Model):
     search_vector = SearchVectorField("Search vector", null=True)
 
     def __str__(self):
-        return f"ERP #{self.id} ({self.nom})"
+        return f"ERP #{self.id} ({self.nom}, {self.commune})"
 
     def get_absolute_url(self):
         commune = f"{self.departement}-{self.commune.lower()}"
