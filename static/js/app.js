@@ -64,7 +64,7 @@ function initMap(info, pk, around, geoJson) {
         'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>'
       ].join(", "),
       maxZoom: 18,
-      id: "mapbox/streets-v11",
+      id: "n1k0/ck7daao8i07o51ipn747gwtdq",
       tileSize: 512,
       zoomOffset: -1,
       accessToken:
