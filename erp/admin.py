@@ -165,7 +165,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             form.base_fields["labels"].widget.can_add_related = False
             form.base_fields["labels"].widget.can_change_related = False
             form.base_fields["labels"].widget.can_delete_related = False
-        return formset.all()
+        return formset
 
 
 class CommuneFilter(admin.SimpleListFilter):
