@@ -157,8 +157,13 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             widget = form.base_fields[
                 "accueil_equipements_malentendants"
             ].widget
+            widget.can_add_related = False
             widget.can_change_related = False
             widget.can_delete_related = False
+        if "labels" in form.base_fields:
+            form.base_fields["labels"].widget.can_add_related = False
+            form.base_fields["labels"].widget.can_change_related = False
+            form.base_fields["labels"].widget.can_delete_related = False
         return formset
 
 
@@ -271,6 +276,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         # see https://code.djangoproject.com/ticket/9071#comment:24
         form = super(ErpAdmin, self).get_form(request, obj, **kwargs)
         if "activite" in form.base_fields:
+            form.base_fields["activite"].widget.can_add_related = False
             form.base_fields["activite"].widget.can_change_related = False
             form.base_fields["activite"].widget.can_delete_related = False
         # hide geom field on new obj

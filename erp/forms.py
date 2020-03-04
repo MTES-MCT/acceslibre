@@ -59,7 +59,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
                     "accueil_visibilite",
                     "accueil_personnels",
                     "accueil_equipements_malentendants",
-                    "accueil_prestations",
                     "sanitaires_presence",
                 ]
             ]
