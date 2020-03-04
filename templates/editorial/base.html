@@ -6,13 +6,18 @@
   <header class="container-fluid p-0 m-0">
     <section class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4" id="content">
-          <a class="text-body text-decoration-none" href="{% url "home" %}">access4all</a>
-        </h1>
-        <p class="lead">
-          La plateforme collaborative pour l’accessibilité
-          <small class="text-muted"><a href="https://beta.gouv.fr/startups/access4all.html">(en savoir plus)</a></small>
-        </p>
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="display-4" id="content">
+              <a class="text-body text-decoration-none" href="{% url "home" %}">access4all</a>
+            </h1>
+            <p class="lead">
+              La plateforme collaborative pour l’accessibilité
+              <small class="text-muted"><a href="https://beta.gouv.fr/startups/access4all.html">(en savoir plus)</a></small>
+            </p>
+          </div>
+          <div class="col-4 d-none d-md-block a4a-jumbotron"></div>
+        </div>
       </div>
     </section>
   </header>

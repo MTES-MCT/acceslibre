@@ -12,6 +12,16 @@ h6 {
   font-weight: 400;
 }
 
+.a4a-jumbotron {
+  background: url(/static/img/undraw_coming_home.svg);
+  background-size: contain;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position-x: right;
+  background-position-y: center;
+}
+
 .a4a-marianne {
   background: #fff;
   width: 50px;
