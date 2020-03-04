@@ -2,6 +2,7 @@ import json
 import requests
 
 from autoslug import AutoSlugField
+from django.conf import settings
 from django.contrib.gis.db import models
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
@@ -136,6 +137,7 @@ class Erp(models.Model):
         verbose_name_plural = "Établissements"
         indexes = [
             models.Index(fields=["slug"]),
+            models.Index(fields=["commune"]),
             models.Index(fields=["commune", "activite_id"]),
             GinIndex(
                 name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]
@@ -145,6 +147,12 @@ class Erp(models.Model):
 
     objects = managers.ErpQuerySet.as_manager()
 
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        null=True,
+        verbose_name="Créateur",
+        on_delete=models.SET_NULL,
+    )
     nom = models.CharField(
         max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
     )

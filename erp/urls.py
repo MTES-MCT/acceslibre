@@ -1,3 +1,4 @@
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
@@ -54,6 +55,26 @@ urlpatterns = [
         "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
         app_page(),
         name="commune_activite_erp",
+    ),
+    path(
+        "admin/password_reset/",
+        auth_views.PasswordResetView.as_view(),
+        name="admin_password_reset",
+    ),
+    path(
+        "admin/password_reset/done/",
+        auth_views.PasswordResetDoneView.as_view(),
+        name="password_reset_done",
+    ),
+    path(
+        "reset/<uidb64>/<token>/",
+        auth_views.PasswordResetConfirmView.as_view(),
+        name="password_reset_confirm",
+    ),
+    path(
+        "reset/done/",
+        auth_views.PasswordResetCompleteView.as_view(),
+        name="password_reset_complete",
     ),
     path("nested_admin/", include("nested_admin.urls")),
 ]

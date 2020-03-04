@@ -20,7 +20,7 @@ def geocode(adresse):
     data = query({"q": adresse, "limit": 1})
     try:
         feature = data["features"][0]
-        print(json.dumps(data, indent=2))
+        # print(json.dumps(data, indent=2))
         properties = feature["properties"]
         # score
         if properties["score"] < 0.5:

@@ -5,6 +5,7 @@ from django import forms
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.admin.models import ADDITION, LogEntry
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
 from django.db.models import Count
@@ -164,7 +165,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             form.base_fields["labels"].widget.can_add_related = False
             form.base_fields["labels"].widget.can_change_related = False
             form.base_fields["labels"].widget.can_delete_related = False
-        return formset
+        return formset.all()
 
 
 class CommuneFilter(admin.SimpleListFilter):
@@ -173,7 +174,7 @@ class CommuneFilter(admin.SimpleListFilter):
     parameter_name = "commune"
 
     def lookups(self, request, model_admin):
-        values = Erp.objects.order_by("commune").distinct("commune").all()
+        values = Erp.objects.order_by("commune").distinct("commune")
         return ((v.commune, v.commune) for v in values)
 
     def queryset(self, request, queryset):
@@ -203,14 +204,17 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "published",
         "geolocalise",
         "renseignee",
+        "user",
         "updated_at",
         "view_search",
         "view_link",
     )
-    list_select_related = ("activite", "accessibilite")
+    list_select_related = ("activite", "accessibilite", "user")
     list_display_links = ("nom",)
+    list_per_page = 20
     list_filter = [
         ("activite", RelatedDropdownFilter),
+        ("user", RelatedDropdownFilter),
         CommuneFilter,
         "created_at",
         "updated_at",
@@ -242,6 +246,11 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             },
         ),
     ]
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.user = request.user
+        super().save_model(request, obj, form, change)
 
     def assign_activite(self, request, queryset):
         if "apply" in request.POST:
