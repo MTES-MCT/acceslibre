@@ -71,19 +71,12 @@ class AdminErpForm(forms.ModelForm):
         exclude = ("pk",)
 
     def get_adresse(self):
-        return " ".join(
-            [
-                self.cleaned_data[f]
-                for f in [
-                    "numero",
-                    "voie",
-                    "lieu_dit",
-                    "code_postal",
-                    "commune",
-                ]
-                if self.cleaned_data[f] is not None
-            ]
-        )
+        parts = [
+            self.cleaned_data[f]
+            for f in ["numero", "voie", "lieu_dit", "code_postal", "commune",]
+            if f in self.cleaned_data and self.cleaned_data[f] is not None
+        ]
+        return " ".join(parts).strip()
 
     def clean(self):
         addr = self.get_adresse()
