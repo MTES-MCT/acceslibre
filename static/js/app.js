@@ -68,7 +68,7 @@ function initMap(info, pk, around, geoJson) {
       tileSize: 512,
       zoomOffset: -1,
       accessToken:
-        "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTltZjgwNzJyM2hud3N0aTI1anNwIn0.hWR9DB1maPjWBhUlQtQ4NA"
+        "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
     }
   );
   const geoJsonLayer = L.geoJSON(geoJson, {
