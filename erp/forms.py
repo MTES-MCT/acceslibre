@@ -80,6 +80,8 @@ class AdminErpForm(forms.ModelForm):
 
     def clean(self):
         addr = self.get_adresse()
+        if addr == "":
+            return
         locdata = geocode(addr)
         if locdata["geom"] is None:
             raise ValidationError({"voie": f"Adresse non localisable: {addr}."})
