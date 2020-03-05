@@ -1,0 +1,19 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block editorial_content %}
+  <h2>Une erreur est survenue</h2>
+  <div class="my-2">
+    <img width="100%" src="{% static "img/undraw_server_down.svg" %}" alt="Erreur serveur">
+  </div>
+  <p>Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
+    requête. L'erreur a vraisemblablement déjà été automatiquement notifiée
+    à l'équipe technique, qui s'efforcera de corriger le problème dans les plus
+    brefs délais.
+  </p>
+  <p>En attendant, vous pouvez tenter de revenir à <a href="{% url "home" %}">l'accueil</a>
+    ou de nous <a href="{% url "contact" %}">contacter spécifiquement à ce sujet</a>
+    si vous l'estimez nécessaire.
+  </p>
+{% endblock %}

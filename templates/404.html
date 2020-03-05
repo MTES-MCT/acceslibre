@@ -1,0 +1,14 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block editorial_content %}
+  <h2>Oh non ! Cette page est manquante</h2>
+  <div class="my-2">
+    <img width="100%" src="{% static "img/undraw_page_not_found.svg" %}" alt="Page non trouvée">
+  </div>
+  <p>Vous pouvez tenter de revenir à <a href="{% url "home" %}">l'accueil</a>
+    ou de nous <a href="{% url "contact" %}">contacter à ce sujet</a> en prenant
+    soin de préciser l'adresse utilisée.
+  </p>
+{% endblock %}

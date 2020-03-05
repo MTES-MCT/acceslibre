@@ -9,6 +9,10 @@ APP_CACHE_TTL = 60 * 5
 EDITORIAL_CACHE_TTL = 60 * 60
 
 
+handler404 = views.handler404
+handler500 = views.handler500
+
+
 def app_page():
     return cache_page(APP_CACHE_TTL)(views.App.as_view())
 
