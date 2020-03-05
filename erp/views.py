@@ -15,11 +15,18 @@ from .serializers import ErpSerializer
 
 
 def handler404(request, exception):
-    return render(request, "404.html", {"exception": exception}, status=404)
+    return render(
+        request,
+        "404.html",
+        context={"communes": COMMUNES, "exception": exception},
+        status=404,
+    )
 
 
 def handler500(request):
-    return render(request, "500.html", status=500)
+    return render(
+        request, "500.html", context={"communes": COMMUNES}, status=500
+    )
 
 
 def home(request):
@@ -31,7 +38,7 @@ def home(request):
         .order_by("-created_at")[:15]
     )
     return render(
-        request, "index.html", {"communes": COMMUNES, "latest": latest}
+        request, "index.html", context={"communes": COMMUNES, "latest": latest}
     )
 
 
