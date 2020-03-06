@@ -1,4 +1,13 @@
+# python/django
 .env
 *.pyc
 docs
 access4all/local_settings.py
+
+# elm
+/build
+/elm-stuff
+/tests/elm-stuff
+/node_modules
+/package-lock.json
+/public/elm.js

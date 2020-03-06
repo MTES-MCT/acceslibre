@@ -131,7 +131,7 @@ function openMarkerPopup(pk) {
   });
 }
 
-$(document).ready(function() {
+window.addEventListener("DOMContentLoaded", function() {
   [].forEach.call(document.querySelectorAll(".a4a-geo-link"), function(link) {
     link.addEventListener("click", function(event) {
       event.preventDefault();
@@ -141,80 +141,80 @@ $(document).ready(function() {
     });
   });
 
-  $("#q").autocomplete({
-    deferRequestBy: 100,
-    minChars: 2,
-    lookup: function(query, done) {
-      const $input = $("#q");
-      const commune = $input.data("commune");
-      const communeSlug = $input.data("commune-slug");
-      const lat = $input.data("lat");
-      const lon = $input.data("lon");
-      const results = {};
-      const streetsReq = $.ajax({
-        url: "https://api-adresse.data.gouv.fr/search",
-        data: { q: query + ", " + commune, type: "street", lat: lat, lon: lon }
-      })
-        .then(function(result) {
-          return result.features
-            .filter(function(feature) {
-              return (
-                feature.properties.city.toLowerCase() === commune.toLowerCase()
-              );
-            })
-            .map(function(feature) {
-              return {
-                value: feature.properties.label,
-                data: {
-                  type: "adr",
-                  score: feature.properties.score,
-                  url:
-                    "/app/" +
-                    communeSlug +
-                    "/?around=" +
-                    feature.geometry.coordinates[1] +
-                    "," +
-                    feature.geometry.coordinates[0]
-                }
-              };
-            });
-        })
-        .fail(function(err) {
-          console.error(err);
-        });
-      const erpsReq = $.ajax({
-        url: "/app/" + communeSlug + "/autocomplete/",
-        dataType: "json",
-        data: { q: query }
-      })
-        .then(function(result) {
-          return result.suggestions.map(function(sugg) {
-            return {
-              value: sugg.value,
-              data: {
-                type: "erp",
-                score: sugg.data.score,
-                url: sugg.data.url
-              }
-            };
-          });
-        })
-        .fail(function(err) {
-          console.error(err);
-        });
-      $.when(streetsReq, erpsReq)
-        .done(function(streets, erps) {
-          const results = [].sort.call(streets.concat(erps), function(a, b) {
-            return b.data.score - a.data.score;
-          });
-          done({ suggestions: results });
-        })
-        .fail(function(err) {
-          console.error(err);
-        });
-    },
-    onSelect: function(suggestion) {
-      document.location = suggestion.data.url;
-    }
-  });
+  // $("#q").autocomplete({
+  //   deferRequestBy: 100,
+  //   minChars: 2,
+  //   lookup: function(query, done) {
+  //     const $input = $("#q");
+  //     const commune = $input.data("commune");
+  //     const communeSlug = $input.data("commune-slug");
+  //     const lat = $input.data("lat");
+  //     const lon = $input.data("lon");
+  //     const results = {};
+  //     const streetsReq = $.ajax({
+  //       url: "https://api-adresse.data.gouv.fr/search",
+  //       data: { q: query + ", " + commune, type: "street", lat: lat, lon: lon }
+  //     })
+  //       .then(function(result) {
+  //         return result.features
+  //           .filter(function(feature) {
+  //             return (
+  //               feature.properties.city.toLowerCase() === commune.toLowerCase()
+  //             );
+  //           })
+  //           .map(function(feature) {
+  //             return {
+  //               value: feature.properties.label,
+  //               data: {
+  //                 type: "adr",
+  //                 score: feature.properties.score,
+  //                 url:
+  //                   "/app/" +
+  //                   communeSlug +
+  //                   "/?around=" +
+  //                   feature.geometry.coordinates[1] +
+  //                   "," +
+  //                   feature.geometry.coordinates[0]
+  //               }
+  //             };
+  //           });
+  //       })
+  //       .fail(function(err) {
+  //         console.error(err);
+  //       });
+  //     const erpsReq = $.ajax({
+  //       url: "/app/" + communeSlug + "/autocomplete/",
+  //       dataType: "json",
+  //       data: { q: query }
+  //     })
+  //       .then(function(result) {
+  //         return result.suggestions.map(function(sugg) {
+  //           return {
+  //             value: sugg.value,
+  //             data: {
+  //               type: "erp",
+  //               score: sugg.data.score,
+  //               url: sugg.data.url
+  //             }
+  //           };
+  //         });
+  //       })
+  //       .fail(function(err) {
+  //         console.error(err);
+  //       });
+  //     $.when(streetsReq, erpsReq)
+  //       .done(function(streets, erps) {
+  //         const results = [].sort.call(streets.concat(erps), function(a, b) {
+  //           return b.data.score - a.data.score;
+  //         });
+  //         done({ suggestions: results });
+  //       })
+  //       .fail(function(err) {
+  //         console.error(err);
+  //       });
+  //   },
+  //   onSelect: function(suggestion) {
+  //     document.location = suggestion.data.url;
+  //   }
+  // });
 });
