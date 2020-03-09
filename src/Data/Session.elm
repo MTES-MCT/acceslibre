@@ -2,10 +2,13 @@ module Data.Session exposing
     ( Session
     , Store
     , deserializeStore
+    , resetAutocomplete
     , serializeStore
     )
 
 import Browser.Navigation as Nav
+import Data.Autocomplete as Autocomplete
+import Data.Commune as Commune exposing (Commune)
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
 
@@ -14,6 +17,11 @@ type alias Session =
     { navKey : Nav.Key
     , clientUrl : String
     , store : Store
+    , commune : Maybe Commune
+    , autocomplete :
+        { search : String
+        , results : List Autocomplete.Entry
+        }
     }
 
 
@@ -45,6 +53,11 @@ encodeStore v =
 deserializeStore : String -> Store
 deserializeStore =
     Decode.decodeString decodeStore >> Result.withDefault defaultStore
+
+
+resetAutocomplete : Session -> Session
+resetAutocomplete session =
+    { session | autocomplete = { search = "", results = [] } }
 
 
 serializeStore : Store -> String

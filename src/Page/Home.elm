@@ -6,7 +6,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
 import Markdown
-import Request.Github as Github
 import Route exposing (Route)
 
 
@@ -21,7 +20,7 @@ type Msg
 init : Session -> Maybe Commune -> ( Model, Session, Cmd Msg )
 init session maybeCommune =
     ( { commune = maybeCommune }
-    , session
+    , { session | commune = maybeCommune }
     , Cmd.none
     )
 

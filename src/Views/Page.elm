@@ -6,6 +6,7 @@ import Data.Session exposing (Session)
 import Dict
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Route
 
 
@@ -14,13 +15,14 @@ type ActivePage
     | Other
 
 
-type alias Config =
+type alias Config msg =
     { session : Session
+    , autocomplete : String -> msg
     , activePage : ActivePage
     }
 
 
-frame : Config -> ( String, List (Html msg) ) -> Document msg
+frame : Config msg -> ( String, List (Html msg) ) -> Document msg
 frame config ( title, content ) =
     { title = title ++ " | elm-kitchen"
     , body =
@@ -30,8 +32,8 @@ frame config ( title, content ) =
     }
 
 
-viewHeader : Config -> Html msg
-viewHeader { activePage } =
+viewHeader : Config msg -> Html msg
+viewHeader { session, autocomplete, activePage } =
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
             [ class "navbar-brand"
@@ -59,12 +61,7 @@ viewHeader { activePage } =
                             [ classList
                                 [ ( "nav-item", True )
                                 , ( "active"
-                                  , case activePage of
-                                        Home (Just c) ->
-                                            commune == c
-
-                                        _ ->
-                                            False
+                                  , session.commune == Just commune
                                   )
                                 ]
                             ]
@@ -77,21 +74,40 @@ viewHeader { activePage } =
                     )
                 |> ul [ class "navbar-nav mr-auto" ]
             , Html.form
-                [ action "/app/56-lorient/"
-                , class "form-inline my-2 my-lg-0 ml-1 flex-fill"
-                , method "get"
+                [ class "form-inline my-2 my-lg-0 ml-1 flex-fill"
                 ]
-                [ input
-                    [ attribute "aria-label" "Rechercher"
-                    , attribute "autocomplete" "off"
-                    , class "form-control mr-sm-2 w-100"
-                    , id "q"
-                    , name "q"
-                    , placeholder "Rue, restaurant, café, poste, pharmacie... à Lorient"
-                    , type_ "search"
-                    , value ""
+                [ div [ class "a4a-autocomplete" ]
+                    [ input
+                        [ type_ "search"
+                        , class "form-control mr-sm-2 w-100"
+                        , attribute "aria-label" "Rechercher"
+                        , attribute "autocomplete" "off"
+                        , onInput autocomplete
+                        , value session.autocomplete.search
+                        , placeholder
+                            ("Rue, restaurant, café, poste, pharmacie..."
+                                ++ (case session.commune of
+                                        Just commune ->
+                                            " à " ++ commune.nom
+
+                                        Nothing ->
+                                            ""
+                                   )
+                            )
+                        ]
+                        []
+                    , if List.length session.autocomplete.results > 0 then
+                        session.autocomplete.results
+                            |> List.map
+                                (\entry ->
+                                    div []
+                                        [ a [ href ("#" ++ entry.url) ] [ text entry.value ] ]
+                                )
+                            |> div [ class "a4a-autocomplete-items" ]
+
+                      else
+                        text ""
                     ]
-                    []
                 ]
             ]
         ]
