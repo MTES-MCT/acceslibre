@@ -160,9 +160,9 @@ class App(BaseListView):
         context["communes"] = COMMUNES
         context["commune_json"] = json.dumps(self.commune)
         context["search_terms"] = self.search_terms
-        context["activites"] = Activite.objects.with_erp_counts(
-            commune=self.commune["nom"], order_by="nom"
-        )
+        context["activites"] = Activite.objects.in_commune(
+            self.commune["nom"]
+        ).with_erp_counts()
         if (
             "activite_slug" in self.kwargs
             and self.kwargs["activite_slug"] != "non-categorises"
@@ -214,9 +214,9 @@ class Api(BaseListView):
         # data["commune_json"] = json.dumps(self.commune)
         data["search_terms"] = self.search_terms
         data["activites"] = list(
-            Activite.objects.with_erp_counts(
-                commune=self.commune["nom"], order_by="nom"
-            ).values("nom", "slug", "count")
+            Activite.objects.in_commune(self.commune["nom"])
+            .with_erp_counts()
+            .values("nom", "slug", "count")
         )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(

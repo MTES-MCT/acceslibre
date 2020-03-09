@@ -72,25 +72,6 @@ urlpatterns = [
         name="commune_activite_erp",
     ),
     ############################################################################
-    # API
-    ############################################################################
-    # path("api/<str:commune>/", api_view(), name="api_commune",),
-    # path(
-    #     "api/<str:commune>/a/<str:activite_slug>/",
-    #     api_view(),
-    #     name="api_commune_activite",
-    # ),
-    # path(
-    #     "api/<str:commune>/erp/<str:erp_slug>/",
-    #     api_view(),
-    #     name="api_commune_erp",
-    # ),
-    # path(
-    #     "api/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
-    #     api_view(),
-    #     name="api_commune_activite_erp",
-    # ),
-    ############################################################################
     # Admin stuff
     ############################################################################
     path(

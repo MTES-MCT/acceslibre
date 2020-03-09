@@ -7,21 +7,26 @@ from django.db.models.aggregates import Count
 
 
 class ActiviteQuerySet(models.QuerySet):
-    def with_erp_counts(self, commune=None, order_by=None):
+    def in_commune(self, commune):
+        return self.filter(erp__commune__iexact=commune)
+
+    def with_erp_counts(self):
+        """ Note: this should come last when chained, otherwise you'll have
+            erroneous counts.
+        """
         qs = self
-        if commune is not None:
-            qs = qs.filter(erp__commune__iexact=commune)
-        qs = qs.annotate(count=Count("erp__activite")).filter(count__gt=0)
-        if order_by is not None:
-            qs = qs.order_by(order_by)
-        else:
-            qs = qs.order_by("-count")
+        qs = qs.annotate(count=Count("erp__activite"))
+        qs = qs.filter(count__gt=0)
+        qs = qs.order_by("-count")
         return qs
 
 
 class ErpQuerySet(models.QuerySet):
     def in_commune(self, commune):
         return self.filter(commune__iexact=commune)
+
+    def having_activite(self, activite_slug):
+        return self.filter(activite__slug=activite_slug)
 
     def having_an_activite(self):
         return self.filter(activite__isnull=False)
