@@ -1,9 +1,11 @@
 import json
 
+
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+
 from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
@@ -147,6 +149,7 @@ class BaseListView(generic.ListView):
 
 
 class App(BaseListView):
+    "Static, template-based Web application views."
     template_name = "erps/commune.html"
 
     def get_context_data(self, **kwargs):
@@ -196,50 +199,51 @@ class App(BaseListView):
 
 
 class Api(BaseListView):
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["around"] = (
+    "JSON api endpoints."
+    http_method_names = [
+        "get",
+        "options",
+    ]
+
+    def get(self, request, *args, **kwargs):
+        data = {}
+        data["around"] = (
             list(self.around) if self.around is not None else self.around
         )
-        context["commune"] = self.commune
-        context["communes"] = COMMUNES
-        context["commune_json"] = json.dumps(self.commune)
-        context["search_terms"] = self.search_terms
-        context["activites"] = Activite.objects.with_erp_counts(
-            commune=self.commune["nom"], order_by="nom"
+        # data["commune"] = self.commune
+        # data["communes"] = COMMUNES
+        # data["commune_json"] = json.dumps(self.commune)
+        data["search_terms"] = self.search_terms
+        data["activites"] = list(
+            Activite.objects.with_erp_counts(
+                commune=self.commune["nom"], order_by="nom"
+            ).values("nom", "slug", "count")
         )
-        if (
-            "activite_slug" in self.kwargs
-            and self.kwargs["activite_slug"] != "non-categorises"
-        ):
-            context["current_activite"] = get_object_or_404(
-                Activite, slug=self.kwargs["activite_slug"]
-            )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
                 Erp.objects.select_related("accessibilite"),
                 published=True,
                 slug=self.kwargs["erp_slug"],
             )
-            context["erp"] = erp
+            data["erp"] = erp
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
-                context["accessibilite_data"] = form.get_accessibilite_data()
-        serializer = ErpSerializer()
-        context["geojson_list"] = serializer.serialize(
-            context["object_list"],
-            geometry_field="geom",
-            use_natural_foreign_keys=True,
-            fields=[
-                "pk",
-                "nom",
-                "activite__nom",
-                "adresse",
-                "absolute_url",
-                "has_accessibilite",
-            ],
-        )
-        return context
+                data["accessibilite_data"] = form.get_accessibilite_data()
+        # serializer = ErpSerializer()
+        # geojson_list = serializer.serialize(
+        #     self.get_queryset(),
+        #     geometry_field="geom",
+        #     use_natural_foreign_keys=True,
+        #     fields=[
+        #         "pk",
+        #         "nom",
+        #         "activite__nom",
+        #         "adresse",
+        #         "absolute_url",
+        #         "has_accessibilite",
+        #     ],
+        # )
+        return JsonResponse(data, status=200)
 
 
 def to_betagouv(self):
