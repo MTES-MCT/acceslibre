@@ -33,7 +33,7 @@ run session msg =
         Just commune ->
             Http.get
                 { url =
-                    "http://localhost:8000/app/"
+                    "http://localhost:8000/api/"
                         ++ Commune.slugToString commune.slug
                         ++ "/autocomplete/?q="
                         ++ Url.percentEncode session.autocomplete.search

@@ -95,14 +95,13 @@ class EditorialView(TemplateView):
         return context
 
 
-class App(generic.ListView):
+class BaseListView(generic.ListView):
     model = Erp
     queryset = (
         Erp.objects.published().geolocated()
         # .having_an_activite()
         .select_related("activite", "accessibilite")
     )
-    template_name = "erps/commune.html"
 
     @property
     def around(self):
@@ -126,7 +125,7 @@ class App(generic.ListView):
             return q
 
     def get_queryset(self):
-        queryset = super(App, self).get_queryset()
+        queryset = super().get_queryset()
         queryset = queryset.in_commune(self.commune["nom"])
         if self.search_terms is not None:
             queryset = queryset.search(self.search_terms)
@@ -146,6 +145,57 @@ class App(generic.ListView):
         # We can't hammer the pages with too many entries, hard-limiting here
         return queryset[:500]
 
+
+class App(BaseListView):
+    template_name = "erps/commune.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["around"] = (
+            list(self.around) if self.around is not None else self.around
+        )
+        context["commune"] = self.commune
+        context["communes"] = COMMUNES
+        context["commune_json"] = json.dumps(self.commune)
+        context["search_terms"] = self.search_terms
+        context["activites"] = Activite.objects.with_erp_counts(
+            commune=self.commune["nom"], order_by="nom"
+        )
+        if (
+            "activite_slug" in self.kwargs
+            and self.kwargs["activite_slug"] != "non-categorises"
+        ):
+            context["current_activite"] = get_object_or_404(
+                Activite, slug=self.kwargs["activite_slug"]
+            )
+        if "erp_slug" in self.kwargs:
+            erp = get_object_or_404(
+                Erp.objects.select_related("accessibilite"),
+                published=True,
+                slug=self.kwargs["erp_slug"],
+            )
+            context["erp"] = erp
+            if erp.has_accessibilite():
+                form = ViewAccessibiliteForm(instance=erp.accessibilite)
+                context["accessibilite_data"] = form.get_accessibilite_data()
+        serializer = ErpSerializer()
+        context["geojson_list"] = serializer.serialize(
+            context["object_list"],
+            geometry_field="geom",
+            use_natural_foreign_keys=True,
+            fields=[
+                "pk",
+                "nom",
+                "activite__nom",
+                "adresse",
+                "absolute_url",
+                "has_accessibilite",
+            ],
+        )
+        return context
+
+
+class Api(BaseListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["around"] = (
