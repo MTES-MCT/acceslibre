@@ -1,7 +1,9 @@
 from django.contrib.gis.serializers import geojson
 
+from .models import Activite, Erp
 
-class ErpSerializer(geojson.Serializer):
+
+class SpecialErpSerializer(geojson.Serializer):
     # see https://stackoverflow.com/a/56557206/330911
 
     def end_object(self, obj):
@@ -27,4 +29,4 @@ class ErpSerializer(geojson.Serializer):
                             self._current[field] = value
                 except AttributeError:
                     pass
-        super(ErpSerializer, self).end_object(obj)
+        super().end_object(obj)

@@ -5,7 +5,6 @@ from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-
 from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
@@ -13,7 +12,7 @@ from django.views.generic.base import TemplateView
 from .communes import COMMUNES
 from .forms import ViewAccessibiliteForm
 from .models import Accessibilite, Activite, Cheminement, Erp
-from .serializers import ErpSerializer
+from .serializers import SpecialErpSerializer
 
 
 def handler404(request, exception):
@@ -181,7 +180,7 @@ class App(BaseListView):
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
-        serializer = ErpSerializer()
+        serializer = SpecialErpSerializer()
         context["geojson_list"] = serializer.serialize(
             context["object_list"],
             geometry_field="geom",
@@ -229,7 +228,7 @@ class Api(BaseListView):
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
                 data["accessibilite_data"] = form.get_accessibilite_data()
-        # serializer = ErpSerializer()
+        # serializer = SpecialErpSerializer()
         # geojson_list = serializer.serialize(
         #     self.get_queryset(),
         #     geometry_field="geom",

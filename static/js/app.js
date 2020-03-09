@@ -183,7 +183,7 @@ window.addEventListener("DOMContentLoaded", function() {
           console.error(err);
         });
       const erpsReq = $.ajax({
-        url: "/api/" + communeSlug + "/autocomplete/",
+        url: "/app/" + communeSlug + "/autocomplete/",
         dataType: "json",
         data: { q: query }
       })

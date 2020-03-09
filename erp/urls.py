@@ -54,6 +54,11 @@ urlpatterns = [
     ############################################################################
     path("app/<str:commune>/", app_page(), name="commune",),
     path(
+        "app/<str:commune>/autocomplete/",
+        views.autocomplete,
+        name="commune_autocomplete",
+    ),
+    path(
         "app/<str:commune>/a/<str:activite_slug>/",
         app_page(),
         name="commune_activite",
@@ -69,27 +74,22 @@ urlpatterns = [
     ############################################################################
     # API
     ############################################################################
-    path("api/<str:commune>/", api_view(), name="api_commune",),
-    path(
-        "api/<str:commune>/autocomplete/",
-        views.autocomplete,
-        name="api_commune_autocomplete",
-    ),
-    path(
-        "api/<str:commune>/a/<str:activite_slug>/",
-        api_view(),
-        name="api_commune_activite",
-    ),
-    path(
-        "api/<str:commune>/erp/<str:erp_slug>/",
-        api_view(),
-        name="api_commune_erp",
-    ),
-    path(
-        "api/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
-        api_view(),
-        name="api_commune_activite_erp",
-    ),
+    # path("api/<str:commune>/", api_view(), name="api_commune",),
+    # path(
+    #     "api/<str:commune>/a/<str:activite_slug>/",
+    #     api_view(),
+    #     name="api_commune_activite",
+    # ),
+    # path(
+    #     "api/<str:commune>/erp/<str:erp_slug>/",
+    #     api_view(),
+    #     name="api_commune_erp",
+    # ),
+    # path(
+    #     "api/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
+    #     api_view(),
+    #     name="api_commune_activite_erp",
+    # ),
     ############################################################################
     # Admin stuff
     ############################################################################
