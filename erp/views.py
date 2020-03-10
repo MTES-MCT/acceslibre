@@ -197,53 +197,5 @@ class App(BaseListView):
         return context
 
 
-class Api(BaseListView):
-    "JSON api endpoints."
-    http_method_names = [
-        "get",
-        "options",
-    ]
-
-    def get(self, request, *args, **kwargs):
-        data = {}
-        data["around"] = (
-            list(self.around) if self.around is not None else self.around
-        )
-        # data["commune"] = self.commune
-        # data["communes"] = COMMUNES
-        # data["commune_json"] = json.dumps(self.commune)
-        data["search_terms"] = self.search_terms
-        data["activites"] = list(
-            Activite.objects.in_commune(self.commune["nom"])
-            .with_erp_counts()
-            .values("nom", "slug", "count")
-        )
-        if "erp_slug" in self.kwargs:
-            erp = get_object_or_404(
-                Erp.objects.select_related("accessibilite"),
-                published=True,
-                slug=self.kwargs["erp_slug"],
-            )
-            data["erp"] = erp
-            if erp.has_accessibilite():
-                form = ViewAccessibiliteForm(instance=erp.accessibilite)
-                data["accessibilite_data"] = form.get_accessibilite_data()
-        # serializer = SpecialErpSerializer()
-        # geojson_list = serializer.serialize(
-        #     self.get_queryset(),
-        #     geometry_field="geom",
-        #     use_natural_foreign_keys=True,
-        #     fields=[
-        #         "pk",
-        #         "nom",
-        #         "activite__nom",
-        #         "adresse",
-        #         "absolute_url",
-        #         "has_accessibilite",
-        #     ],
-        # )
-        return JsonResponse(data, status=200)
-
-
 def to_betagouv(self):
     return redirect("https://beta.gouv.fr/startups/access4all.html")
