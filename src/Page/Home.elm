@@ -17,8 +17,6 @@ type alias Model =
     { commune : Maybe Commune
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
-    , activites : List Activite
-    , erps : List Erp
     }
 
 
@@ -35,8 +33,6 @@ init session route =
             { commune = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
-            , activites = session.activites
-            , erps = session.erps
             }
 
         model =
@@ -73,11 +69,7 @@ init session route =
                     }
     in
     ( model
-    , { session
-        | commune = model.commune
-        , activites = model.activites
-        , erps = model.erps
-      }
+    , { session | commune = model.commune }
     , Cmd.batch
         [ Request.Activite.list session model.commune ActivitesReceived
         , Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
@@ -89,13 +81,19 @@ update : Session -> Msg -> Model -> ( Model, Session, Cmd Msg )
 update session msg model =
     case msg of
         ActivitesReceived (Ok activites) ->
-            ( { model | activites = activites }, session, Cmd.none )
+            ( model
+            , { session | activites = activites }
+            , Cmd.none
+            )
 
         ActivitesReceived (Err error) ->
             ( model, session, Cmd.none )
 
         ErpsReceived (Ok erps) ->
-            ( { model | erps = erps }, session, Cmd.none )
+            ( model
+            , { session | erps = erps }
+            , Cmd.none
+            )
 
         ErpsReceived (Err error) ->
             let
@@ -111,13 +109,14 @@ update session msg model =
             )
 
 
-activitesListView : Model -> Html Msg
-activitesListView model =
-    model.activites
+activitesListView : Session -> Model -> Html Msg
+activitesListView session model =
+    session.activites
         |> List.map
             (\activite ->
                 a
                     [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                    , classList [ ( "active", model.activiteSlug == Just activite.slug ) ]
                     , case model.commune of
                         Just commune ->
                             Route.href (Route.CommuneActivite commune activite.slug)
@@ -184,7 +183,7 @@ erpListEntryView model erp =
 
 
 view : Session -> Model -> ( String, List (Html Msg) )
-view _ model =
+view session model =
     ( case model.commune of
         Just commune ->
             commune.nom
@@ -210,7 +209,7 @@ view _ model =
                                     [ text " » "
 
                                     -- TODO: link to activite
-                                    , model.activites
+                                    , session.activites
                                         |> Activite.findBySlug activiteSlug
                                         |> Debug.log ""
                                         |> Maybe.map .nom
@@ -230,10 +229,10 @@ view _ model =
                     ]
                     [ h3 [ class "sr-only" ]
                         [ text "Liste des domaines d'activité" ]
-                    , activitesListView model
+                    , activitesListView session model
                     ]
                 , main_ [ class "a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto" ]
-                    [ model.erps
+                    [ session.erps
                         |> List.map (\erp -> erpListEntryView model erp)
                         |> div [ class "list-group list-group-flush" ]
                     ]

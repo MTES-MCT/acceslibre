@@ -22,7 +22,7 @@ class ActiviteQuerySet(models.QuerySet):
             )
         )
         qs = qs.filter(count__gt=0)
-        qs = qs.order_by("-count")
+        qs = qs.order_by("nom")
         return qs
 
 
