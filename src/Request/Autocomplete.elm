@@ -5,7 +5,7 @@ import Data.Commune as Commune
 import Data.Session exposing (Session)
 import Http exposing (Error(..))
 import Json.Decode as Decode exposing (Decoder)
-import Url
+import Url.Builder as UrlBuilder
 
 
 errorToString : Http.Error -> String
@@ -33,10 +33,10 @@ run session msg =
         Just commune ->
             Http.get
                 { url =
-                    "http://localhost:8000/api/"
-                        ++ Commune.slugToString commune.slug
-                        ++ "/autocomplete/?q="
-                        ++ Url.percentEncode session.autocomplete.search
+                    UrlBuilder.crossOrigin "http://localhost:8000"
+                        [ "app", Commune.slugToString commune.slug, "autocomplete" ]
+                        [ UrlBuilder.string "q" session.autocomplete.search
+                        ]
                 , expect =
                     Http.expectJson msg
                         (Decode.at [ "suggestions" ]

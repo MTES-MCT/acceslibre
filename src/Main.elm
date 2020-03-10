@@ -74,6 +74,14 @@ setRoute maybeRoute model =
                 Route.CommuneHome commune ->
                     toPage HomePage (Home.init model.session (Just commune)) HomeMsg
 
+                Route.Activite activiteSlug ->
+                    -- TODO: pass slug
+                    toPage HomePage (Home.init model.session Nothing) HomeMsg
+
+                Route.Erp erpSlug ->
+                    -- TODO: pass slug
+                    toPage HomePage (Home.init model.session Nothing) HomeMsg
+
                 Route.CommuneActivite commune activite ->
                     toPage HomePage (Home.init model.session (Just commune)) HomeMsg
 
