@@ -3,20 +3,20 @@ module Request.Error exposing (toString)
 import Http
 
 
-toString : Http.Error -> Error
+toString : Http.Error -> String
 toString error =
     case error of
         Http.BadUrl url ->
-            "Bad url: " ++ url
+            "URL malformée: " ++ url
 
         Http.Timeout ->
-            "Request timed out."
+            "Délai de traitement de la rquête expiré."
 
         Http.NetworkError ->
-            "Network error. Are you online?"
+            "Erreur réseau : êtes-vous connecté ?"
 
         Http.BadStatus status_code ->
-            "HTTP error " ++ String.fromInt status_code
+            "Erreur HTTP " ++ String.fromInt status_code
 
         Http.BadBody body ->
-            "Unable to parse response body: " ++ body
+            "Impossible de décoder le corps de la réponse HTTP : " ++ body

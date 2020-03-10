@@ -35,6 +35,7 @@ type alias Model =
 type Msg
     = Autocomplete String
     | AutocompleteReceived (Result Http.Error (List Autocomplete.Entry))
+    | ClearNotif Session.Notif
     | HomeMsg Home.Msg
     | StoreChanged String
     | UrlChanged Url
@@ -99,6 +100,7 @@ init flags url navKey =
             { clientUrl = flags.clientUrl
             , navKey = navKey
             , store = Session.deserializeStore flags.rawStore
+            , notifs = []
             , commune = Nothing
             , activites = []
             , erps = []
@@ -156,11 +158,10 @@ update msg ({ page, session } as model) =
             ( { model | session = { session | autocomplete = newAutocomplete } }, Cmd.none )
 
         ( AutocompleteReceived (Err error), _ ) ->
-            let
-                _ =
-                    Debug.log "error de coding autocomplete results" error
-            in
-            ( model, Cmd.none )
+            ( { model | session = session |> Session.notifyHttpError error }, Cmd.none )
+
+        ( ClearNotif notif, _ ) ->
+            ( { model | session = session |> Session.clearNotif notif }, Cmd.none )
 
         ( HomeMsg homeMsg, HomePage homeModel ) ->
             toPage HomePage HomeMsg Home.update homeMsg homeModel
@@ -209,7 +210,7 @@ view : Model -> Document Msg
 view { page, session } =
     let
         pageConfig =
-            Page.Config session Autocomplete
+            Page.Config session Autocomplete ClearNotif
 
         mapMsg msg ( title, content ) =
             ( title, content |> List.map (Html.map msg) )

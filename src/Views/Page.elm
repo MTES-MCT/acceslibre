@@ -2,7 +2,7 @@ module Views.Page exposing (ActivePage(..), Config, frame)
 
 import Browser exposing (Document)
 import Data.Commune as Commune exposing (Commune)
-import Data.Session exposing (Session)
+import Data.Session as Session exposing (Session)
 import Dict
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -11,13 +11,14 @@ import Route
 
 
 type ActivePage
-    = Home (Maybe Commune)
+    = Home (Maybe Commune) -- XXX: remove this
     | Other
 
 
 type alias Config msg =
     { session : Session
     , autocomplete : String -> msg
+    , clearNotif : Session.Notif -> msg
     , activePage : ActivePage
     }
 
@@ -28,17 +29,17 @@ frame config ( title, content ) =
     , body =
         [ viewHeader config
         , main_ [] content
+        , viewNotifs config
         ]
     }
 
 
 viewHeader : Config msg -> Html msg
 viewHeader { session, autocomplete, activePage } =
+    -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
-            [ class "navbar-brand"
-            , href "/"
-            ]
+            [ class "navbar-brand", Route.href Route.Home ]
             [ text "access4all" ]
         , button
             [ attribute "aria-controls" "navbarSupportedContent"
@@ -111,3 +112,28 @@ viewHeader { session, autocomplete, activePage } =
                 ]
             ]
         ]
+
+
+viewNotifs : Config msg -> Html msg
+viewNotifs { session, clearNotif } =
+    session.notifs
+        |> List.map
+            (\notif ->
+                case notif of
+                    Session.ErrorNotif message ->
+                        div
+                            [ class "alert alert-danger a4a-notif"
+                            , attribute "role" "alert"
+                            ]
+                            [ button
+                                [ type_ "button"
+                                , class "close"
+                                , attribute "data-dismiss" "alert"
+                                , attribute "aria-label" "Close"
+                                , onClick (clearNotif notif)
+                                ]
+                                [ span [ attribute "aria-hidden" "true" ] [ text "×" ] ]
+                            , text message
+                            ]
+            )
+        |> div [ class "a4a-notifs" ]

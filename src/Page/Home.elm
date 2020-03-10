@@ -4,7 +4,7 @@ import Browser.Dom as Dom
 import Data.Activite as Activite exposing (Activite)
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
-import Data.Session exposing (Session)
+import Data.Session as Session exposing (Session)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
@@ -83,11 +83,7 @@ init session route =
 
           else
             Cmd.none
-        , if session.erps == [] || session.activiteSlug /= model.activiteSlug then
-            Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
-
-          else
-            Cmd.none
+        , Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
         ]
     )
 
@@ -107,7 +103,7 @@ update session msg model =
             )
 
         ActivitesReceived (Err error) ->
-            ( model, session, Cmd.none )
+            ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         ErpsReceived (Ok erps) ->
             ( model
@@ -116,11 +112,7 @@ update session msg model =
             )
 
         ErpsReceived (Err error) ->
-            let
-                _ =
-                    Debug.log "error erp" error
-            in
-            ( model, session, Cmd.none )
+            ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         NoOp ->
             ( model

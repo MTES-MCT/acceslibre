@@ -1,7 +1,11 @@
 module Data.Session exposing
-    ( Session
+    ( Notif(..)
+    , Session
     , Store
+    , clearNotif
     , deserializeStore
+    , notifyError
+    , notifyHttpError
     , resetAutocomplete
     , serializeStore
     )
@@ -11,14 +15,21 @@ import Data.Activite as Activite exposing (Activite)
 import Data.Autocomplete as Autocomplete
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
+import Http
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
+import Request.Error
+
+
+type Notif
+    = ErrorNotif String
 
 
 type alias Session =
     { navKey : Nav.Key
     , clientUrl : String
     , store : Store
+    , notifs : List Notif
     , commune : Maybe Commune
     , activites : List Activite
     , erps : List Erp
@@ -36,6 +47,11 @@ across browser restarts, typically in localStorage.
 -}
 type alias Store =
     { counter : Int }
+
+
+clearNotif : Notif -> Session -> Session
+clearNotif notif session =
+    { session | notifs = session.notifs |> List.filter ((/=) notif) }
 
 
 defaultStore : Store
@@ -59,6 +75,16 @@ encodeStore v =
 deserializeStore : String -> Store
 deserializeStore =
     Decode.decodeString decodeStore >> Result.withDefault defaultStore
+
+
+notifyError : String -> Session -> Session
+notifyError message session =
+    { session | notifs = ErrorNotif message :: session.notifs }
+
+
+notifyHttpError : Http.Error -> Session -> Session
+notifyHttpError error session =
+    session |> notifyError (Request.Error.toString error)
 
 
 resetAutocomplete : Session -> Session
