@@ -69,27 +69,27 @@ setRoute maybeRoute model =
         Just route ->
             case route of
                 Route.Home ->
-                    toPage HomePage (Home.init model.session Nothing) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
                 Route.CommuneHome commune ->
-                    toPage HomePage (Home.init model.session (Just commune)) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
                 Route.Activite activiteSlug ->
                     -- TODO: pass slug
-                    toPage HomePage (Home.init model.session Nothing) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
                 Route.Erp erpSlug ->
                     -- TODO: pass slug
-                    toPage HomePage (Home.init model.session Nothing) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
                 Route.CommuneActivite commune activite ->
-                    toPage HomePage (Home.init model.session (Just commune)) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
                 Route.CommuneActiviteErp commune activite erp ->
-                    toPage HomePage (Home.init model.session (Just commune)) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
                 Route.CommuneErp commune erp ->
-                    toPage HomePage (Home.init model.session (Just commune)) HomeMsg
+                    toPage HomePage (Home.init model.session route) HomeMsg
 
 
 init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )

@@ -22,17 +22,15 @@ type alias Erp =
     { url : String
     , nom : String
     , slug : Slug
-    , published : Bool
     , activite : Maybe Activite
+    , adresse : String
     , geom : Maybe Point
     , siret : Maybe String
     , telephone : Maybe String
     , siteInternet : Maybe String
-    , numero : Maybe String
-    , voie : Maybe String
-    , codePostal : String
     , commune : String
     , codeInsee : Maybe String
+    , hasAccessibilite : Bool
     }
 
 
@@ -42,17 +40,15 @@ decode =
         |> Pipe.required "url" Decode.string
         |> Pipe.required "nom" Decode.string
         |> Pipe.required "slug" (Decode.map Slug Decode.string)
-        |> Pipe.required "published" Decode.bool
         |> Pipe.required "activite" (Decode.nullable Activite.decode)
+        |> Pipe.required "adresse" Decode.string
         |> Pipe.required "geom" (Decode.nullable Point.decode)
         |> Pipe.required "siret" (Decode.nullable Decode.string)
         |> Pipe.required "telephone" (Decode.nullable Decode.string)
         |> Pipe.required "site_internet" (Decode.nullable Decode.string)
-        |> Pipe.required "numero" (Decode.nullable Decode.string)
-        |> Pipe.required "voie" (Decode.nullable Decode.string)
-        |> Pipe.required "code_postal" Decode.string
         |> Pipe.required "commune" Decode.string
         |> Pipe.required "code_insee" (Decode.nullable Decode.string)
+        |> Pipe.required "has_accessibilite" Decode.bool
 
 
 slugToString : Slug -> String

@@ -5,6 +5,7 @@ from erp.models import Activite, Erp
 
 # Useful docs:
 # - extra fields: https://stackoverflow.com/a/36697562/330911
+# - extra property field: https://stackoverflow.com/questions/17066074/modelserializer-using-model-property#comment89003163_17066237
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -34,10 +35,25 @@ class ActiviteWithCountSerializer(serializers.HyperlinkedModelSerializer):
 class ErpSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Erp
-        exclude = ("search_vector",)
-        # fields = ["url", "nom", "slug", "activite_id"]
+        fields = (
+            "url",
+            "activite",
+            "user",
+            "nom",
+            "slug",
+            "adresse",
+            "commune",
+            "code_insee",
+            "geom",
+            "siret",
+            "telephone",
+            "site_internet",
+            "has_accessibilite",
+        )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
 
     activite = ActiviteSerializer(many=False, read_only=True)
     user = UserSerializer(many=False, read_only=True)
+    adresse = serializers.ReadOnlyField()
+    has_accessibilite = serializers.ReadOnlyField()

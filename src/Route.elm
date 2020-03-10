@@ -15,9 +15,9 @@ type Route
     | CommuneHome Commune
     | Activite Activite.Slug
     | Erp Erp.Slug
-    | CommuneActivite Commune String
-    | CommuneActiviteErp Commune String String
-    | CommuneErp Commune String
+    | CommuneActivite Commune Activite.Slug
+    | CommuneActiviteErp Commune Activite.Slug Erp.Slug
+    | CommuneErp Commune Erp.Slug
 
 
 parser : Parser (Route -> a) a
@@ -27,9 +27,9 @@ parser =
         , Parser.map CommuneHome Commune.slugParser
         , Parser.map Activite (s "a" </> Activite.slugParser)
         , Parser.map Erp (s "erp" </> Erp.slugParser)
-        , Parser.map CommuneActivite (Commune.slugParser </> s "a" </> Parser.string)
-        , Parser.map CommuneActiviteErp (Commune.slugParser </> s "a" </> Parser.string </> s "erp" </> Parser.string)
-        , Parser.map CommuneErp (Commune.slugParser </> s "a" </> Parser.string)
+        , Parser.map CommuneActivite (Commune.slugParser </> s "a" </> Activite.slugParser)
+        , Parser.map CommuneActiviteErp (Commune.slugParser </> s "a" </> Activite.slugParser </> s "erp" </> Erp.slugParser)
+        , Parser.map CommuneErp (Commune.slugParser </> s "a" </> Erp.slugParser)
         ]
 
 
@@ -89,13 +89,13 @@ toString route =
                 Erp slug ->
                     [ "erp", Erp.slugToString slug ]
 
-                CommuneActivite commune activite ->
-                    [ Commune.slugToString commune.slug, "a", activite ]
+                CommuneActivite commune slug ->
+                    [ Commune.slugToString commune.slug, "a", Activite.slugToString slug ]
 
-                CommuneActiviteErp commune activite erp ->
-                    [ Commune.slugToString commune.slug, "a", activite, "erp", erp ]
+                CommuneActiviteErp commune activiteSlug erpSlug ->
+                    [ Commune.slugToString commune.slug, "a", Activite.slugToString activiteSlug, "erp", Erp.slugToString erpSlug ]
 
-                CommuneErp commune erp ->
-                    [ Commune.slugToString commune.slug, "erp", erp ]
+                CommuneErp commune erpSlug ->
+                    [ Commune.slugToString commune.slug, "erp", Erp.slugToString erpSlug ]
     in
     "#/" ++ String.join "/" pieces

@@ -15,7 +15,12 @@ class ActiviteQuerySet(models.QuerySet):
             erroneous counts.
         """
         qs = self
-        qs = qs.annotate(count=Count("erp__activite"))
+        qs = qs.annotate(
+            count=Count(
+                "erp__activite",
+                filter=Q(erp__published=True, erp__geom__isnull=False),
+            )
+        )
         qs = qs.filter(count__gt=0)
         qs = qs.order_by("-count")
         return qs

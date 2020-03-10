@@ -24,7 +24,7 @@ type alias Config msg =
 
 frame : Config msg -> ( String, List (Html msg) ) -> Document msg
 frame config ( title, content ) =
-    { title = title ++ " | elm-kitchen"
+    { title = title ++ " · access4all"
     , body =
         [ viewHeader config
         , main_ [] content

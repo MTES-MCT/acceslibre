@@ -9,8 +9,8 @@ import Json.Decode as Decode
 import Url.Builder as UrlBuilder
 
 
-list : Session -> Maybe Commune -> Maybe Activite -> Maybe String -> (Result Http.Error (List Erp) -> msg) -> Cmd msg
-list session maybeCommune maybeActivite maybeSearch msg =
+list : Session -> Maybe Commune -> Maybe Activite.Slug -> Maybe String -> (Result Http.Error (List Erp) -> msg) -> Cmd msg
+list session maybeCommune maybeActiviteSlug maybeSearch msg =
     Http.get
         { url =
             UrlBuilder.crossOrigin "http://localhost:8000"
@@ -22,9 +22,9 @@ list session maybeCommune maybeActivite maybeSearch msg =
 
                         Nothing ->
                             []
-                    , case maybeActivite of
-                        Just activite ->
-                            [ UrlBuilder.string "activite" (Activite.slugToString activite.slug) ]
+                    , case maybeActiviteSlug of
+                        Just activiteSlug ->
+                            [ UrlBuilder.string "activite" (Activite.slugToString activiteSlug) ]
 
                         Nothing ->
                             []

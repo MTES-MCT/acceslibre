@@ -2,6 +2,7 @@ module Data.Activite exposing
     ( Activite
     , Slug
     , decode
+    , findBySlug
     , slugFromString
     , slugParser
     , slugToString
@@ -31,6 +32,11 @@ decode =
         |> Pipe.required "nom" Decode.string
         |> Pipe.required "slug" (Decode.map Slug Decode.string)
         |> Pipe.optional "count" (Decode.maybe Decode.int) Nothing
+
+
+findBySlug : Slug -> List Activite -> Maybe Activite
+findBySlug slug =
+    List.filter (.slug >> (==) slug) >> List.head
 
 
 slugToString : Slug -> String
