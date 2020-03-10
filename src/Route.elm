@@ -29,7 +29,7 @@ parser =
         , Parser.map Erp (s "erp" </> Erp.slugParser)
         , Parser.map CommuneActivite (Commune.slugParser </> s "a" </> Activite.slugParser)
         , Parser.map CommuneActiviteErp (Commune.slugParser </> s "a" </> Activite.slugParser </> s "erp" </> Erp.slugParser)
-        , Parser.map CommuneErp (Commune.slugParser </> s "a" </> Erp.slugParser)
+        , Parser.map CommuneErp (Commune.slugParser </> s "erp" </> Erp.slugParser)
         ]
 
 

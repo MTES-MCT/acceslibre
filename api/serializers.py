@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from erp.models import Activite, Erp
 
@@ -8,35 +9,34 @@ from erp.models import Activite, Erp
 # - extra property field: https://stackoverflow.com/questions/17066074/modelserializer-using-model-property#comment89003163_17066237
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["username"]
 
 
-class ActiviteSerializer(serializers.HyperlinkedModelSerializer):
+class ActiviteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Activite
-        fields = ["url", "nom", "slug"]
+        fields = ["nom", "slug"]
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
 
 
-class ActiviteWithCountSerializer(serializers.HyperlinkedModelSerializer):
+class ActiviteWithCountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Activite
-        fields = ["url", "nom", "slug", "count"]
+        fields = ["nom", "slug", "count"]
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
 
     count = serializers.IntegerField()
 
 
-class ErpSerializer(serializers.HyperlinkedModelSerializer):
+class ErpSerializer(serializers.ModelSerializer):
     class Meta:
         model = Erp
         fields = (
-            "url",
             "activite",
             "user",
             "nom",

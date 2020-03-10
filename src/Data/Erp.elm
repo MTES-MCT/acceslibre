@@ -19,8 +19,7 @@ type Slug
 
 
 type alias Erp =
-    { url : String
-    , nom : String
+    { nom : String
     , slug : Slug
     , activite : Maybe Activite
     , adresse : String
@@ -37,7 +36,6 @@ type alias Erp =
 decode : Decoder Erp
 decode =
     Decode.succeed Erp
-        |> Pipe.required "url" Decode.string
         |> Pipe.required "nom" Decode.string
         |> Pipe.required "slug" (Decode.map Slug Decode.string)
         |> Pipe.required "activite" (Decode.nullable Activite.decode)

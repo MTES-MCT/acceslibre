@@ -1,6 +1,38 @@
+// The localStorage key to use to store serialized session data
+const storeKey = "a4a";
+
+// Mutable data
 let layers = [],
   markers,
   map;
+
+// Elm app
+const app = Elm.Main.init({
+  flags: {
+    clientUrl: location.origin + location.pathname,
+    rawStore: localStorage[storeKey] || ""
+  }
+});
+
+// Ensure session is refreshed when it changes in another tab/window
+window.addEventListener(
+  "storage",
+  event => {
+    if (event.storageArea === localStorage && event.key === storeKey) {
+      app.ports.storeChanged.send(event.newValue);
+    }
+  },
+  false
+);
+
+// Ports
+app.ports.saveStore.subscribe(rawStore => {
+  localStorage[storeKey] = rawStore;
+});
+
+app.ports.initMap.subscribe(function() {
+
+});
 
 function createIcon(info) {
   let iconUrl = "/static/img/markers/common.png";
@@ -130,99 +162,3 @@ function openMarkerPopup(pk) {
     }
   });
 }
-
-window.addEventListener("DOMContentLoaded", function() {
-  if (window.hasOwnProperty("$")) {
-    [].forEach.call(document.querySelectorAll(".a4a-geo-link"), function(link) {
-      link.addEventListener("click", function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const pk = parseInt(link.dataset.erpId, 10);
-        if (pk) openMarkerPopup(pk);
-      });
-    });
-
-    $("#q").autocomplete({
-      deferRequestBy: 100,
-      minChars: 2,
-      lookup: function(query, done) {
-        const $input = $("#q");
-        const commune = $input.data("commune");
-        const communeSlug = $input.data("commune-slug");
-        const lat = $input.data("lat");
-        const lon = $input.data("lon");
-        const results = {};
-        const streetsReq = $.ajax({
-          url: "https://api-adresse.data.gouv.fr/search",
-          data: {
-            q: query + ", " + commune,
-            type: "street",
-            lat: lat,
-            lon: lon
-          }
-        })
-          .then(function(result) {
-            return result.features
-              .filter(function(feature) {
-                return (
-                  feature.properties.city.toLowerCase() ===
-                  commune.toLowerCase()
-                );
-              })
-              .map(function(feature) {
-                return {
-                  value: feature.properties.label,
-                  data: {
-                    type: "adr",
-                    score: feature.properties.score,
-                    url:
-                      "/app/" +
-                      communeSlug +
-                      "/?around=" +
-                      feature.geometry.coordinates[1] +
-                      "," +
-                      feature.geometry.coordinates[0]
-                  }
-                };
-              });
-          })
-          .fail(function(err) {
-            console.error(err);
-          });
-        const erpsReq = $.ajax({
-          url: "/app/" + communeSlug + "/autocomplete/",
-          dataType: "json",
-          data: { q: query }
-        })
-          .then(function(result) {
-            return result.suggestions.map(function(sugg) {
-              return {
-                value: sugg.value,
-                data: {
-                  type: "erp",
-                  score: sugg.data.score,
-                  url: sugg.data.url
-                }
-              };
-            });
-          })
-          .fail(function(err) {
-            console.error(err);
-          });
-        $.when(streetsReq, erpsReq)
-          .done(function(streets, erps) {
-            const results = [].sort.call(streets.concat(erps), function(a, b) {
-              return b.data.score - a.data.score;
-            });
-            done({ suggestions: results });
-          })
-          .fail(function(err) {
-            console.error(err);
-          });
-      },
-      onSelect: function(suggestion) {
-        document.location = suggestion.data.url;
-      }
-    });
-  }
-});

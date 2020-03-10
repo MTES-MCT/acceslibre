@@ -18,8 +18,7 @@ type Slug
 
 
 type alias Activite =
-    { url : String
-    , nom : String
+    { nom : String
     , slug : Slug
     , count : Maybe Int
     }
@@ -28,7 +27,6 @@ type alias Activite =
 decode : Decoder Activite
 decode =
     Decode.succeed Activite
-        |> Pipe.required "url" Decode.string
         |> Pipe.required "nom" Decode.string
         |> Pipe.required "slug" (Decode.map Slug Decode.string)
         |> Pipe.optional "count" (Decode.maybe Decode.int) Nothing

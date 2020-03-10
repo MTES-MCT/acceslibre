@@ -1,4 +1,7 @@
-port module Ports exposing (saveStore, storeChanged)
+port module Ports exposing (initMap, saveStore, storeChanged)
+
+
+port initMap : { x : Int } -> Cmd msg
 
 
 port saveStore : String -> Cmd msg

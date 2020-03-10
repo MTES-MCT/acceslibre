@@ -1,5 +1,6 @@
 module Page.Home exposing (Model, Msg(..), init, update, view)
 
+import Browser.Dom as Dom
 import Data.Activite as Activite exposing (Activite)
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
@@ -8,9 +9,11 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
 import Markdown
+import Ports
 import Request.Activite
 import Request.Erp
 import Route exposing (Route)
+import Task exposing (Task)
 
 
 type alias Model =
@@ -69,12 +72,29 @@ init session route =
                     }
     in
     ( model
-    , { session | commune = model.commune }
+    , { session
+        | commune = model.commune
+        , activiteSlug = model.activiteSlug
+        , erpSlug = model.erpSlug
+      }
     , Cmd.batch
-        [ Request.Activite.list session model.commune ActivitesReceived
-        , Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
+        [ if session.activites == [] || session.commune /= model.commune then
+            Request.Activite.list session model.commune ActivitesReceived
+
+          else
+            Cmd.none
+        , if session.erps == [] || session.activiteSlug /= model.activiteSlug then
+            Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
+
+          else
+            Cmd.none
         ]
     )
+
+
+scrollTop : String -> Task Dom.Error ()
+scrollTop id =
+    Dom.setViewportOf id 0 0
 
 
 update : Session -> Msg -> Model -> ( Model, Session, Cmd Msg )
@@ -83,7 +103,7 @@ update session msg model =
         ActivitesReceived (Ok activites) ->
             ( model
             , { session | activites = activites }
-            , Cmd.none
+            , scrollTop "a4a-activite-list" |> Task.attempt (always NoOp)
             )
 
         ActivitesReceived (Err error) ->
@@ -92,7 +112,7 @@ update session msg model =
         ErpsReceived (Ok erps) ->
             ( model
             , { session | erps = erps }
-            , Cmd.none
+            , scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
             )
 
         ErpsReceived (Err error) ->
@@ -105,7 +125,7 @@ update session msg model =
         NoOp ->
             ( model
             , session
-            , Cmd.none
+            , Ports.initMap { x = 2 }
             )
 
 
@@ -138,7 +158,7 @@ activitesListView session model =
 
 erpListEntryView : Model -> Erp -> Html Msg
 erpListEntryView model erp =
-    a
+    Html.a
         [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
         , case model.commune of
             Just commune ->
@@ -147,7 +167,7 @@ erpListEntryView model erp =
             Nothing ->
                 Route.href (Route.Erp erp.slug)
         ]
-        [ span [ class "flex-fill" ]
+        [ span [ class "flex-fill pr-2" ]
             [ text erp.nom
             , br [] []
             , small [ class "text-muted" ]
@@ -211,7 +231,6 @@ view session model =
                                     -- TODO: link to activite
                                     , session.activites
                                         |> Activite.findBySlug activiteSlug
-                                        |> Debug.log ""
                                         |> Maybe.map .nom
                                         |> Maybe.withDefault ""
                                         |> text
@@ -225,20 +244,22 @@ view session model =
             , div [ class "row p-0 m-0" ]
                 [ nav
                     [ class "a4a-app-nav col-lg-2 col-md-3 col-sm-4 d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto"
+                    , id "a4a-activite-list"
                     , attribute "role" "navigation"
                     ]
-                    [ h3 [ class "sr-only" ]
-                        [ text "Liste des domaines d'activité" ]
+                    [ h3 [ class "sr-only" ] [ text "Liste des domaines d'activité" ]
                     , activitesListView session model
                     ]
-                , main_ [ class "a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto" ]
+                , main_
+                    [ class "a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto"
+                    , id "a4a-erp-list"
+                    ]
                     [ session.erps
                         |> List.map (\erp -> erpListEntryView model erp)
                         |> div [ class "list-group list-group-flush" ]
                     ]
                 , div [ class "a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0" ]
-                    [ div [ class "a4a-map", id "map" ]
-                        []
+                    [ div [ class "a4a-map", id "map" ] []
                     ]
                 ]
             ]

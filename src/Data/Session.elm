@@ -22,6 +22,8 @@ type alias Session =
     , commune : Maybe Commune
     , activites : List Activite
     , erps : List Erp
+    , activiteSlug : Maybe Activite.Slug
+    , erpSlug : Maybe Erp.Slug
     , autocomplete :
         { search : String
         , results : List Autocomplete.Entry

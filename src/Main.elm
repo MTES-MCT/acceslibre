@@ -102,6 +102,8 @@ init flags url navKey =
             , commune = Nothing
             , activites = []
             , erps = []
+            , activiteSlug = Nothing
+            , erpSlug = Nothing
             , autocomplete = { search = "", results = [] }
             }
     in
