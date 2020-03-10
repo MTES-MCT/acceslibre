@@ -100,6 +100,8 @@ init flags url navKey =
             , navKey = navKey
             , store = Session.deserializeStore flags.rawStore
             , commune = Nothing
+            , activites = []
+            , erps = []
             , autocomplete = { search = "", results = [] }
             }
     in

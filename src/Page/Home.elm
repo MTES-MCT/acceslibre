@@ -35,8 +35,8 @@ init session route =
             { commune = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
-            , activites = []
-            , erps = []
+            , activites = session.activites
+            , erps = session.erps
             }
 
         model =
@@ -73,7 +73,11 @@ init session route =
                     }
     in
     ( model
-    , { session | commune = model.commune }
+    , { session
+        | commune = model.commune
+        , activites = model.activites
+        , erps = model.erps
+      }
     , Cmd.batch
         [ Request.Activite.list session model.commune ActivitesReceived
         , Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived

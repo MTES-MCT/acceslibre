@@ -7,8 +7,10 @@ module Data.Session exposing
     )
 
 import Browser.Navigation as Nav
+import Data.Activite as Activite exposing (Activite)
 import Data.Autocomplete as Autocomplete
 import Data.Commune as Commune exposing (Commune)
+import Data.Erp as Erp exposing (Erp)
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
 
@@ -18,6 +20,8 @@ type alias Session =
     , clientUrl : String
     , store : Store
     , commune : Maybe Commune
+    , activites : List Activite
+    , erps : List Erp
     , autocomplete :
         { search : String
         , results : List Autocomplete.Entry
