@@ -7,7 +7,9 @@ import Data.Erp as Erp exposing (Erp)
 import Data.Session as Session exposing (Session)
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Http
+import Json.Decode as Decode
 import Markdown
 import Ports
 import Request.Activite
@@ -18,6 +20,7 @@ import Task exposing (Task)
 
 type alias Model =
     { commune : Maybe Commune
+    , erp : Maybe Erp
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
     }
@@ -25,7 +28,9 @@ type alias Model =
 
 type Msg
     = ActivitesReceived (Result Http.Error (List Activite))
+    | ErpReceived (Result Http.Error Erp)
     | ErpsReceived (Result Http.Error (List Erp))
+    | LocateOnMap Erp
     | NoOp
 
 
@@ -34,6 +39,7 @@ init session route =
     let
         base =
             { commune = Nothing
+            , erp = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
             }
@@ -90,6 +96,12 @@ init session route =
           else
             Cmd.none
         , Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
+        , case model.erpSlug of
+            Just erpSlug ->
+                Request.Erp.get session erpSlug ErpReceived
+
+            Nothing ->
+                Cmd.none
         ]
     )
 
@@ -116,12 +128,30 @@ update session msg model =
             , { session | erps = erps }
             , Cmd.batch
                 [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
-                , Ports.addMapMarkers (Erp.toJsonList erps)
+
+                -- only add erp list markers to map when an erp is not opened
+                , if model.erp == Nothing then
+                    Ports.addMapMarkers (Erp.toJsonList erps)
+
+                  else
+                    Cmd.none
                 ]
             )
 
         ErpsReceived (Err error) ->
             ( model, session |> Session.notifyHttpError error, Cmd.none )
+
+        ErpReceived (Ok erp) ->
+            ( { model | erp = Just erp }
+            , session
+            , Ports.openMapErpMarker (Erp.slugToString erp.slug)
+            )
+
+        ErpReceived (Err error) ->
+            ( model, session |> Session.notifyHttpError error, Cmd.none )
+
+        LocateOnMap erp ->
+            ( model, session, Ports.openMapErpMarker (Erp.slugToString erp.slug) )
 
         NoOp ->
             ( model, session, Cmd.none )
@@ -134,7 +164,17 @@ activitesListView session model =
             (\activite ->
                 a
                     [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-                    , classList [ ( "active", model.activiteSlug == Just activite.slug ) ]
+                    , classList
+                        [ ( "active"
+                          , model.activiteSlug
+                                == Just activite.slug
+                                || (model.erp
+                                        |> Maybe.andThen .activite
+                                        |> Maybe.map (.slug >> (==) activite.slug)
+                                        |> Maybe.withDefault False
+                                   )
+                          )
+                        ]
                     , case model.commune of
                         Just commune ->
                             Route.href (Route.CommuneActivite commune activite.slug)
@@ -158,7 +198,7 @@ erpListEntryView : Model -> Erp -> Html Msg
 erpListEntryView model erp =
     Html.a
         [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
-        , case model.commune of
+        , case Commune.findByNom erp.commune of
             Just commune ->
                 Route.href (Route.CommuneErp commune erp.slug)
 
@@ -191,9 +231,18 @@ erpListEntryView model erp =
           else
             text ""
         , button
-            [ class "btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link"
+            [ type_ "button"
+            , class "btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link"
             , attribute "data-erp-id" "11571"
             , title "Localiser sur la carte"
+            , attribute "aria-label" "Localiser sur la carte"
+            , custom "click"
+                (Decode.succeed
+                    { message = LocateOnMap erp
+                    , stopPropagation = True
+                    , preventDefault = True
+                    }
+                )
             ]
             [ i [ class "icon icon-target" ] []
             ]
@@ -243,6 +292,236 @@ pageTitle session model =
         |> String.join " · "
 
 
+accessibiliteView : Html Msg
+accessibiliteView =
+    div [ class "mb-2" ]
+        [ ul
+            [ attribute "aria-label" "Sections"
+            , class "nav nav-pills nav-fill mb-2"
+            , attribute "role" "tablist"
+            ]
+            [ li [ class "nav-item" ]
+                [ a
+                    [ attribute "aria-controls" "entree"
+                    , attribute "aria-selected" "true"
+                    , class "nav-link px-2 py-1 active"
+                    , attribute "data-toggle" "tab"
+                    , href "#entree"
+                    , id "entree-tab"
+                    , attribute "role" "tab"
+                    ]
+                    [ i [ class "icon icon-entrance mr-2" ]
+                        []
+                    , text "Entrée        "
+                    ]
+                ]
+            , li [ class "nav-item" ]
+                [ a
+                    [ attribute "aria-controls" "stationnement"
+                    , attribute "aria-selected" "false"
+                    , class "nav-link px-2 py-1"
+                    , attribute "data-toggle" "tab"
+                    , href "#stationnement"
+                    , id "stationnement-tab"
+                    , attribute "role" "tab"
+                    ]
+                    [ i [ class "icon icon-car mr-2" ]
+                        []
+                    , text "Stationnement        "
+                    ]
+                ]
+            , li [ class "nav-item" ]
+                [ a
+                    [ attribute "aria-controls" "accueil"
+                    , attribute "aria-selected" "false"
+                    , class "nav-link px-2 py-1"
+                    , attribute "data-toggle" "tab"
+                    , href "#accueil"
+                    , id "accueil-tab"
+                    , attribute "role" "tab"
+                    ]
+                    [ i [ class "icon icon-users mr-2" ]
+                        []
+                    , text "Accueil        "
+                    ]
+                ]
+            , li [ class "nav-item" ]
+                [ a
+                    [ attribute "aria-controls" "sanitaires"
+                    , attribute "aria-selected" "false"
+                    , class "nav-link px-2 py-1"
+                    , attribute "data-toggle" "tab"
+                    , href "#sanitaires"
+                    , id "sanitaires-tab"
+                    , attribute "role" "tab"
+                    ]
+                    [ i [ class "icon icon-male-female mr-2" ]
+                        []
+                    , text "Sanitaires        "
+                    ]
+                ]
+            ]
+        , div [ class "tab-content" ]
+            [ div [ attribute "aria-labelledby" "entree-tab", class "tab-pane active", id "entree", attribute "role" "tabpanel" ]
+                [ ul [ class "list-group list-group-flush" ]
+                    [ li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Plain-pied "
+                            , small [ class "text-muted" ]
+                                [ text "L'entrée est-elle de plain-pied ?" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Non" ]
+                                ]
+                            ]
+                        ]
+                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Repérage de l'entrée "
+                            , small [ class "text-muted" ]
+                                [ text "Présence d'éléments de répérage de l'entrée" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-check-circle text-success", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Oui" ]
+                                ]
+                            ]
+                        ]
+                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Entrée spécifique PMR "
+                            , small [ class "text-muted" ]
+                                [ text "Présence d'une entrée secondaire spécifique PMR" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Non" ]
+                                ]
+                            ]
+                        ]
+                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Dispositif d'appel "
+                            , small [ class "text-muted" ]
+                                [ text "Présence d'un dispositif d'appel (ex. interphone)" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-check-circle text-success", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Oui" ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            , div [ attribute "aria-labelledby" "stationnement-tab", class "tab-pane", id "stationnement", attribute "role" "tabpanel" ]
+                [ ul [ class "list-group list-group-flush" ]
+                    [ li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Stationnement dans l'ERP "
+                            , small [ class "text-muted" ]
+                                [ text "Présence de stationnements au sein de l'ERP" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Non" ]
+                                ]
+                            ]
+                        ]
+                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Stationnements PMR dans l'ERP "
+                            , small [ class "text-muted" ]
+                                [ text "Présence de stationnements PMR au sein de l'ERP" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Non" ]
+                                ]
+                            ]
+                        ]
+                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Stationnement à proximité "
+                            , small [ class "text-muted" ]
+                                [ text "Présence de stationnements à proximité (200m)" ]
+                            ]
+                        , span []
+                            [ span []
+                                [ i [ class "icon icon-check-circle text-success", attribute "style" "font-size:1.2rem" ]
+                                    []
+                                , span [ class "sr-only" ]
+                                    [ text "Oui" ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            , div [ attribute "aria-labelledby" "accueil-tab", class "tab-pane", id "accueil", attribute "role" "tabpanel" ]
+                [ ul [ class "list-group list-group-flush" ]
+                    [ li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
+                        [ span []
+                            [ text "Équipements sourds/malentendants "
+                            , small [ class "text-muted" ]
+                                []
+                            ]
+                        , span []
+                            []
+                        ]
+                    ]
+                ]
+            , div [ attribute "aria-labelledby" "sanitaires-tab", class "tab-pane", id "sanitaires", attribute "role" "tabpanel" ]
+                [ ul [ class "list-group list-group-flush" ]
+                    []
+                ]
+            ]
+        ]
+
+
+erpDetailsView : Session -> Erp -> Html Msg
+erpDetailsView session erp =
+    div [ class "px-3" ]
+        [ p [ class "pt-2" ]
+            -- TODO: historize routes, navigate to previous in history
+            [ a [ href "/app/92-rueil-malmaison/a/coiffure/" ]
+                [ text "Retour"
+                ]
+            ]
+        , div [ class "a4a-erp-details" ]
+            [ h3 []
+                [ text erp.nom
+                , case erp.activite of
+                    Just activite ->
+                        small [ class "text-muted" ] [ text (" " ++ activite.nom) ]
+
+                    Nothing ->
+                        text ""
+                ]
+            , address [] [ em [] [ text erp.adresse ] ]
+
+            -- TODO: add accessibiliteView
+            ]
+        ]
+
+
 view : Session -> Model -> ( String, List (Html Msg) )
 view session model =
     ( pageTitle session model
@@ -261,9 +540,14 @@ view session model =
                     [ class "a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto"
                     , id "a4a-erp-list"
                     ]
-                    [ session.erps
-                        |> List.map (\erp -> erpListEntryView model erp)
-                        |> div [ class "list-group list-group-flush" ]
+                    [ case model.erp of
+                        Just erp ->
+                            erpDetailsView session erp
+
+                        Nothing ->
+                            session.erps
+                                |> List.map (\erp -> erpListEntryView model erp)
+                                |> div [ class "list-group list-group-flush" ]
                     ]
                 , div [ class "a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0" ]
                     [ div [ class "a4a-map", id "map" ] []

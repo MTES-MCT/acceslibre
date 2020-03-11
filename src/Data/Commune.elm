@@ -3,6 +3,7 @@ module Data.Commune exposing
     , Slug
     , communes
     , encode
+    , findByNom
     , slugFromString
     , slugParser
     , slugToString
@@ -34,6 +35,14 @@ encode v =
         , ( "center", Point.encode v.center )
         , ( "zoom", Encode.int v.zoom )
         ]
+
+
+findByNom : String -> Maybe Commune
+findByNom string =
+    communes
+        |> Dict.values
+        |> List.filter (.nom >> (==) string)
+        |> List.head
 
 
 slugToString : Slug -> String

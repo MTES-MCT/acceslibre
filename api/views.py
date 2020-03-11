@@ -45,7 +45,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
         Erp.objects.published()
         .geolocated()
         .select_related("activite")
-        .order_by("nom")
+        .order_by("accessibilite")
     )
     serializer_class = ErpSerializer
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]

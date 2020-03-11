@@ -2,9 +2,7 @@
 const storeKey = "a4a";
 
 // Mutable data
-let layers = [],
-  markers,
-  map;
+let markers, map;
 
 // Elm app
 const app = Elm.Main.init({
@@ -57,7 +55,6 @@ app.ports.addMapMarkers.subscribe(function(erps) {
 
   erps.forEach(function(erp) {
     const marker = createErpMarker(erp);
-    layers.push(marker);
     markers.addLayer(marker);
   });
 
@@ -156,11 +153,15 @@ function openMarkerPopup(slug) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
   }
-  layers.forEach(function(layer) {
+  markers.getLayers().forEach(function(layer) {
     if (layer.slug === slug) {
-      markers.zoomToShowLayer(layer, function() {
+      try {
+        markers.zoomToShowLayer(layer, function() {
+          layer.openPopup();
+        });
+      } catch (err) {
         layer.openPopup();
-      });
+      }
     }
   });
 }

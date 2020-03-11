@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["username"]
 
 
-class ActiviteSerializer(serializers.ModelSerializer):
+class ActiviteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Activite
         fields = ["nom", "slug"]
@@ -23,7 +23,7 @@ class ActiviteSerializer(serializers.ModelSerializer):
         extra_kwargs = {"url": {"lookup_field": "slug"}}
 
 
-class ActiviteWithCountSerializer(serializers.ModelSerializer):
+class ActiviteWithCountSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Activite
         fields = ["nom", "slug", "count"]
@@ -33,10 +33,11 @@ class ActiviteWithCountSerializer(serializers.ModelSerializer):
     count = serializers.IntegerField()
 
 
-class ErpSerializer(serializers.ModelSerializer):
+class ErpSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Erp
         fields = (
+            "url",
             "activite",
             "user",
             "nom",

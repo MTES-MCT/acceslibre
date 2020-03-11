@@ -1,4 +1,4 @@
-module Request.Erp exposing (list)
+module Request.Erp exposing (get, list)
 
 import Data.Activite as Activite exposing (Activite)
 import Data.Commune as Commune exposing (Commune)
@@ -7,6 +7,17 @@ import Data.Session as Session exposing (Session)
 import Http
 import Json.Decode as Decode
 import Url.Builder as UrlBuilder
+
+
+get : Session -> Erp.Slug -> (Result Http.Error Erp -> msg) -> Cmd msg
+get session slug msg =
+    Http.get
+        { url =
+            UrlBuilder.crossOrigin "http://localhost:8000"
+                [ "api", "erps", Erp.slugToString slug ]
+                []
+        , expect = Http.expectJson msg Erp.decode
+        }
 
 
 list : Session -> Maybe Commune -> Maybe Activite.Slug -> Maybe String -> (Result Http.Error (List Erp) -> msg) -> Cmd msg
