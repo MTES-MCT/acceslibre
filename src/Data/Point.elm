@@ -1,11 +1,12 @@
-module Data.Point exposing (Point, decode)
+module Data.Point exposing (Point, decode, encode)
 
 import Json.Decode as Decode exposing (Decoder)
+import Json.Encode as Encode
 
 
 type alias Point =
-    { lon : Float
-    , lat : Float
+    { lat : Float
+    , lon : Float
     }
 
 
@@ -16,8 +17,13 @@ decode =
             (\arr ->
                 case arr of
                     [ lon, lat ] ->
-                        Decode.succeed { lon = lon, lat = lat }
+                        Decode.succeed { lat = lat, lon = lon }
 
                     _ ->
                         Decode.fail "Unable to decode Point"
             )
+
+
+encode : Point -> Encode.Value
+encode v =
+    Encode.list Encode.float [ v.lat, v.lon ]

@@ -78,7 +78,13 @@ init session route =
         , erpSlug = model.erpSlug
       }
     , Cmd.batch
-        [ if session.activites == [] || session.commune /= model.commune then
+        [ case model.commune of
+            Just commune ->
+                Ports.communeMap (Commune.encode commune)
+
+            Nothing ->
+                Ports.franceMap ()
+        , if session.activites == [] || session.commune /= model.commune then
             Request.Activite.list session model.commune ActivitesReceived
 
           else
@@ -115,10 +121,7 @@ update session msg model =
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         NoOp ->
-            ( model
-            , session
-            , Ports.initMap { x = 2 }
-            )
+            ( model, session, Cmd.none )
 
 
 activitesListView : Session -> Model -> Html Msg

@@ -30,9 +30,50 @@ app.ports.saveStore.subscribe(rawStore => {
   localStorage[storeKey] = rawStore;
 });
 
-app.ports.initMap.subscribe(function() {
-
+app.ports.communeMap.subscribe(function(commune) {
+  createMap()
+    .setMinZoom(commune.zoom - 2)
+    .setView(commune.center, commune.zoom);
 });
+
+app.ports.franceMap.subscribe(function() {
+  createMap()
+    .setMinZoom(6)
+    .setView([46.227638, 2.213749], 6);
+});
+
+function createMap() {
+  if (!map) {
+    const tiles = L.tileLayer(
+      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+      {
+        attribution: [
+          'Cartographie &copy; contributeurs <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+          '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+          'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>'
+        ].join(", "),
+        maxZoom: 18,
+        id: "n1k0/ck7daao8i07o51ipn747gwtdq",
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken:
+          "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
+      }
+    );
+
+    map = L.map("map").addLayer(tiles);
+
+    // TODO geolocate me: would be nice to zoom out to a larger area, ideally bounded
+    // to current points so we could see both user localization and the points
+    L.control
+      .locate({
+        icon: "icon icon-street-view a4a-locate-icon",
+        strings: { title: "Localisez moi" }
+      })
+      .addTo(map);
+  }
+  return map;
+}
 
 function createIcon(info) {
   let iconUrl = "/static/img/markers/common.png";

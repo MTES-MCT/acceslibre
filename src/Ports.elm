@@ -1,7 +1,12 @@
-port module Ports exposing (initMap, saveStore, storeChanged)
+port module Ports exposing (communeMap, franceMap, saveStore, storeChanged)
+
+import Json.Encode as Encode
 
 
-port initMap : { x : Int } -> Cmd msg
+port franceMap : () -> Cmd msg
+
+
+port communeMap : Encode.Value -> Cmd msg
 
 
 port saveStore : String -> Cmd msg
