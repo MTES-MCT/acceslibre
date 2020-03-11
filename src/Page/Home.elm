@@ -116,10 +116,7 @@ update session msg model =
             , { session | erps = erps }
             , Cmd.batch
                 [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
-                , Ports.clearMapMarkers ()
-                , erps
-                    |> List.map (Erp.toGeoJson >> Ports.addMapMarker)
-                    |> Cmd.batch
+                , Ports.addMapMarkers (Erp.toJsonList erps)
                 ]
             )
 

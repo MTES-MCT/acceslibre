@@ -5,7 +5,8 @@ module Data.Erp exposing
     , slugFromString
     , slugParser
     , slugToString
-    , toGeoJson
+    , toJson
+    , toJsonList
     )
 
 import Data.Activite as Activite exposing (Activite)
@@ -51,8 +52,8 @@ decode =
         |> Pipe.required "has_accessibilite" Decode.bool
 
 
-toGeoJson : Erp -> Encode.Value
-toGeoJson erp =
+toJson : Erp -> Encode.Value
+toJson erp =
     Encode.object
         [ ( "nom", Encode.string erp.nom )
         , ( "slug", Encode.string (slugToString erp.slug) )
@@ -66,6 +67,11 @@ toGeoJson erp =
         , ( "codeInsee", erp.codeInsee |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
         , ( "hasAccessibilite", Encode.bool erp.hasAccessibilite )
         ]
+
+
+toJsonList : List Erp -> Encode.Value
+toJsonList =
+    Encode.list toJson
 
 
 slugToString : Slug -> String

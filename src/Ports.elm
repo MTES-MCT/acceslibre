@@ -1,8 +1,8 @@
 port module Ports exposing
-    ( addMapMarker
-    , clearMapMarkers
+    ( addMapMarkers
     , communeMap
     , franceMap
+    , openMapErpMarker
     , saveStore
     , storeChanged
     )
@@ -10,16 +10,16 @@ port module Ports exposing
 import Json.Encode as Encode
 
 
-port addMapMarker : Encode.Value -> Cmd msg
+port addMapMarkers : Encode.Value -> Cmd msg
 
 
-port clearMapMarkers : () -> Cmd msg
+port communeMap : Encode.Value -> Cmd msg
 
 
 port franceMap : () -> Cmd msg
 
 
-port communeMap : Encode.Value -> Cmd msg
+port openMapErpMarker : String -> Cmd msg
 
 
 port saveStore : String -> Cmd msg
