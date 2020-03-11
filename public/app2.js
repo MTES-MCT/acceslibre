@@ -42,6 +42,14 @@ app.ports.franceMap.subscribe(function() {
     .setView([46.227638, 2.213749], 6);
 });
 
+app.ports.addMapMarker.subscribe(function(marker) {
+  console.log(marker);
+});
+
+app.ports.clearMapMarkers.subscribe(function() {
+  // TODO
+});
+
 function createMap() {
   if (!map) {
     const tiles = L.tileLayer(

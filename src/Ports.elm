@@ -1,6 +1,19 @@
-port module Ports exposing (communeMap, franceMap, saveStore, storeChanged)
+port module Ports exposing
+    ( addMapMarker
+    , clearMapMarkers
+    , communeMap
+    , franceMap
+    , saveStore
+    , storeChanged
+    )
 
 import Json.Encode as Encode
+
+
+port addMapMarker : Encode.Value -> Cmd msg
+
+
+port clearMapMarkers : () -> Cmd msg
 
 
 port franceMap : () -> Cmd msg

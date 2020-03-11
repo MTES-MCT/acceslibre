@@ -114,7 +114,13 @@ update session msg model =
         ErpsReceived (Ok erps) ->
             ( model
             , { session | erps = erps }
-            , scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
+            , Cmd.batch
+                [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
+                , Ports.clearMapMarkers ()
+                , erps
+                    |> List.map (Erp.toGeoJson >> Ports.addMapMarker)
+                    |> Cmd.batch
+                ]
             )
 
         ErpsReceived (Err error) ->

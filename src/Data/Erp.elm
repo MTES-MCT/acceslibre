@@ -5,12 +5,14 @@ module Data.Erp exposing
     , slugFromString
     , slugParser
     , slugToString
+    , toGeoJson
     )
 
 import Data.Activite as Activite exposing (Activite)
 import Data.Point as Point exposing (Point)
 import Json.Decode as Decode exposing (Decoder)
 import Json.Decode.Pipeline as Pipe
+import Json.Encode as Encode
 import Url.Parser as Parser exposing (Parser)
 
 
@@ -47,6 +49,23 @@ decode =
         |> Pipe.required "commune" Decode.string
         |> Pipe.required "code_insee" (Decode.nullable Decode.string)
         |> Pipe.required "has_accessibilite" Decode.bool
+
+
+toGeoJson : Erp -> Encode.Value
+toGeoJson erp =
+    Encode.object
+        [ ( "nom", Encode.string erp.nom )
+        , ( "slug", Encode.string (slugToString erp.slug) )
+        , ( "activite", erp.activite |> Maybe.map (.nom >> Encode.string) |> Maybe.withDefault Encode.null )
+        , ( "adresse", Encode.string erp.adresse )
+        , ( "geom", erp.geom |> Maybe.map Point.encode |> Maybe.withDefault Encode.null )
+        , ( "siret", erp.siret |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
+        , ( "telephone", erp.telephone |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
+        , ( "siteInternet", erp.siteInternet |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
+        , ( "commune", Encode.string erp.commune )
+        , ( "codeInsee", erp.codeInsee |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
+        , ( "hasAccessibilite", Encode.bool erp.hasAccessibilite )
+        ]
 
 
 slugToString : Slug -> String
