@@ -194,45 +194,54 @@ erpListEntryView model erp =
         ]
 
 
+headerView : Session -> Model -> Html Msg
+headerView session model =
+    header [ class "a4a-app-title row p-0 m-0" ]
+        [ div [ class "col pt-2 pb-1" ]
+            [ h2 [ class "display-4", id "content", attribute "style" "font-size:32px" ]
+                [ case model.commune of
+                    Just commune ->
+                        span []
+                            [ text "Commune de "
+                            , a [ Route.href (Route.CommuneHome commune) ] [ text commune.nom ]
+                            ]
+
+                    Nothing ->
+                        text "Toutes les communes"
+                , case model.activiteSlug of
+                    Just activiteSlug ->
+                        small [ class "text-muted" ]
+                            [ text " » "
+                            , session.activites
+                                |> Activite.findBySlug activiteSlug
+                                |> Maybe.map .nom
+                                |> Maybe.withDefault ""
+                                |> text
+                            ]
+
+                    Nothing ->
+                        text ""
+                ]
+            ]
+        ]
+
+
+pageTitle : Session -> Model -> String
+pageTitle session model =
+    [ model.activiteSlug
+        |> Maybe.andThen (\slug -> Activite.findBySlug slug session.activites)
+        |> Maybe.map .nom
+    , model.commune |> Maybe.map .nom |> Maybe.withDefault "Accueil" |> Just
+    ]
+        |> List.filterMap identity
+        |> String.join " · "
+
+
 view : Session -> Model -> ( String, List (Html Msg) )
 view session model =
-    ( case model.commune of
-        Just commune ->
-            commune.nom
-
-        Nothing ->
-            "Accueil"
+    ( pageTitle session model
     , [ div [ class "container-fluid p-0 m-0 a4a-app-content" ]
-            [ header [ class "a4a-app-title row p-0 m-0" ]
-                [ div [ class "col pt-2 pb-1" ]
-                    [ h2 [ class "display-4", id "content", attribute "style" "font-size:32px" ]
-                        [ case model.commune of
-                            Just commune ->
-                                span []
-                                    [ text "Commune de "
-                                    , a [ Route.href (Route.CommuneHome commune) ] [ text commune.nom ]
-                                    ]
-
-                            Nothing ->
-                                text "Toutes les communes"
-                        , case model.activiteSlug of
-                            Just activiteSlug ->
-                                small [ class "text-muted" ]
-                                    [ text " » "
-
-                                    -- TODO: link to activite
-                                    , session.activites
-                                        |> Activite.findBySlug activiteSlug
-                                        |> Maybe.map .nom
-                                        |> Maybe.withDefault ""
-                                        |> text
-                                    ]
-
-                            Nothing ->
-                                text ""
-                        ]
-                    ]
-                ]
+            [ headerView session model
             , div [ class "row p-0 m-0" ]
                 [ nav
                     [ class "a4a-app-nav col-lg-2 col-md-3 col-sm-4 d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto"

@@ -3,7 +3,9 @@ module Data.Session exposing
     , Session
     , Store
     , clearNotif
+    , default
     , deserializeStore
+    , initStore
     , notifyError
     , notifyHttpError
     , resetAutocomplete
@@ -42,11 +44,8 @@ type alias Session =
     }
 
 
-{-| A serializable data structure holding session information you want to share
-across browser restarts, typically in localStorage.
--}
 type alias Store =
-    { counter : Int }
+    {}
 
 
 clearNotif : Notif -> Session -> Session
@@ -54,27 +53,47 @@ clearNotif notif session =
     { session | notifs = session.notifs |> List.filter ((/=) notif) }
 
 
+default : Nav.Key -> String -> Session
+default navKey clientUrl =
+    { navKey = navKey
+    , clientUrl = clientUrl
+    , store = defaultStore
+    , notifs = []
+    , commune = Nothing
+    , activites = []
+    , erps = []
+    , activiteSlug = Nothing
+    , erpSlug = Nothing
+    , autocomplete =
+        { search = ""
+        , results = []
+        }
+    }
+
+
 defaultStore : Store
 defaultStore =
-    { counter = 0 }
+    {}
 
 
 decodeStore : Decoder Store
 decodeStore =
-    Decode.map Store
-        (Decode.field "counter" Decode.int)
+    Decode.succeed {}
 
 
 encodeStore : Store -> Encode.Value
 encodeStore v =
-    Encode.object
-        [ ( "counter", Encode.int v.counter )
-        ]
+    Encode.object []
 
 
 deserializeStore : String -> Store
 deserializeStore =
     Decode.decodeString decodeStore >> Result.withDefault defaultStore
+
+
+initStore : String -> Session -> Session
+initStore string session =
+    { session | store = deserializeStore string }
 
 
 notifyError : String -> Session -> Session

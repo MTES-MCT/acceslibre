@@ -97,17 +97,8 @@ init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
     let
         session =
-            { clientUrl = flags.clientUrl
-            , navKey = navKey
-            , store = Session.deserializeStore flags.rawStore
-            , notifs = []
-            , commune = Nothing
-            , activites = []
-            , erps = []
-            , activiteSlug = Nothing
-            , erpSlug = Nothing
-            , autocomplete = { search = "", results = [] }
-            }
+            Session.default navKey flags.clientUrl
+                |> Session.initStore flags.rawStore
     in
     setRoute (Route.fromUrl url)
         { page = Blank
