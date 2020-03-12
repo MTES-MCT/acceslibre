@@ -3,7 +3,14 @@ window.addEventListener("DOMContentLoaded", function() {
     return function() {
       targets.forEach(function(target) {
         const field = document.querySelector(target);
-        field.querySelector("input[type=radio][value='']").click();
+        const radioNone = field.querySelector("input[type=radio][value='']");
+        if (radioNone) {
+          radioNone.click();
+        }
+        const textarea = field.querySelector("textarea");
+        if (textarea) {
+          textarea.value = "";
+        }
         field.style.display = style;
       });
     };
@@ -20,5 +27,9 @@ window.addEventListener("DOMContentLoaded", function() {
   ]);
   conditionals("input[name=accessibilite-0-stationnement_ext_presence]", [
     ".form-row.field-stationnement_ext_pmr"
+  ]);
+
+  conditionals("input[name=accessibilite-0-entree_pmr]", [
+    ".form-row.field-entree_pmr_informations"
   ]);
 });

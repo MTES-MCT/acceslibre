@@ -72,7 +72,6 @@ INSTALLED_APPS = [
     "django.contrib.gis",
     "django.contrib.postgres",
     "logentry_admin",
-    "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
     "rest_framework",
     "rest_framework_gis",
 ]

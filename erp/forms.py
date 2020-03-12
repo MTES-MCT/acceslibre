@@ -1,5 +1,7 @@
 from django import forms
+from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
+from django.forms import fields
 
 from .geocode import geocode
 from .models import Accessibilite, Erp
@@ -9,60 +11,69 @@ def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
 
-# class AdminCheminementForm(forms.ModelForm):
-#     class Meta:
-#         model = Cheminement
-#         exclude = ("pk",)
-#         widgets = dict(
-#             [
-#                 (f, bool_radios())
-#                 for f in [
-#                     "pente",
-#                     "devers",
-#                     "reperage_vitres",
-#                     "bande_guidage",
-#                     "guidage_sonore",
-#                     "rampe",
-#                     "aide_humaine",
-#                     "escalier_reperage",
-#                     "escalier_main_courante",
-#                     "ascenseur",
-#                 ]
-#             ]
-#         )
+def get_widgets_for_accessibilite():
+    # Note: commented fields are those not being custom boolean fields
+    field_names = [
+        "stationnement_presence",
+        "stationnement_pmr",
+        "stationnement_ext_presence",
+        "stationnement_ext_pmr",
+        "cheminement_ext_plain_pied",
+        # "cheminement_ext_nombre_marches",
+        "cheminement_ext_reperage_marches",
+        "cheminement_ext_main_courante",
+        "cheminement_ext_rampe",
+        "cheminement_ext_ascenseur",
+        "cheminement_ext_pente",
+        "cheminement_ext_devers",
+        "cheminement_ext_bande_guidage",
+        "cheminement_ext_guidage_sonore",
+        "cheminement_ext_retrecissement",
+        "entree_reperage",
+        "entree_reperage_vitres",
+        "entree_plain_pied",
+        # "entree_marches",
+        "entree_marches_reperage",
+        "entree_marches_main_courante",
+        "entree_marches_rampe",
+        "entree_dispositif_appel",
+        "entree_aide_humaine",
+        "entree_ascenseur",
+        # "entree_largeur_mini",
+        "entree_pmr",
+        # "entree_pmr_informations",
+        "accueil_visibilite",
+        "accueil_personnels",
+        "accueil_equipements_malentendants",
+        "accueil_cheminement_plain_pied",
+        # "accueil_cheminement_nombre_marches",
+        "accueil_cheminement_reperage_marches",
+        "accueil_cheminement_main_courante",
+        "accueil_cheminement_rampe",
+        "accueil_cheminement_ascenseur",
+        "accueil_retrecissement",
+        # "accueil_prestations",
+        "sanitaires_presence",
+        # "sanitaires_adaptes",
+        # "labels",
+        # "labels_autre",
+    ]
+    widgets = dict([(f, bool_radios()) for f in field_names])
+    widgets.update(
+        # if you've ever looked for a way to simply render a postgres ArrayField
+        # using checkboxes, this is it.
+        labels_familles_handicap=forms.CheckboxSelectMultiple(
+            choices=Accessibilite.HANDICAP_CHOICES
+        )
+    )
+    return widgets
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
     class Meta:
         model = Accessibilite
         exclude = ("pk",)
-        widgets = dict(
-            [
-                (f, bool_radios())
-                for f in [
-                    "entree_plain_pied",
-                    "stationnement_presence",
-                    "stationnement_pmr",
-                    "stationnement_ext_presence",
-                    "stationnement_ext_pmr",
-                    "entree_plain_pied",
-                    "entree_reperage",
-                    "entree_interphone",
-                    "entree_pmr",
-                    "reperage_vitres",
-                    "guidage_sonore",
-                    "rampe",
-                    "aide_humaine",
-                    "escalier_reperage",
-                    "escalier_main_courante",
-                    "ascenseur",
-                    "accueil_visibilite",
-                    "accueil_personnels",
-                    "accueil_equipements_malentendants",
-                    "sanitaires_presence",
-                ]
-            ]
-        )
+        widgets = get_widgets_for_accessibilite()
 
 
 class AdminErpForm(forms.ModelForm):

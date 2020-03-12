@@ -12,7 +12,6 @@ from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
-from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from import_export.admin import ImportExportModelAdmin
 
 from .forms import AdminAccessibiliteForm, AdminErpForm
@@ -27,7 +26,7 @@ from .models import (
 
 
 @admin.register(Activite)
-class ActiviteAdmin(admin.ModelAdmin, DynamicArrayMixin):
+class ActiviteAdmin(admin.ModelAdmin):
     list_display = ("nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
@@ -66,7 +65,6 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         (
             "Stationnement",
             {
-                # "classes": ("collapse",),
                 "fields": [
                     "stationnement_presence",
                     "stationnement_pmr",
@@ -76,47 +74,69 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             },
         ),
         (
+            "Cheminement extérieur",
+            {
+                "fields": [
+                    "cheminement_ext_plain_pied",
+                    "cheminement_ext_nombre_marches",
+                    "cheminement_ext_reperage_marches",
+                    "cheminement_ext_main_courante",
+                    "cheminement_ext_rampe",
+                    "cheminement_ext_ascenseur",
+                    "cheminement_ext_pente",
+                    "cheminement_ext_devers",
+                    "cheminement_ext_bande_guidage",
+                    "cheminement_ext_guidage_sonore",
+                    "cheminement_ext_retrecissement",
+                ]
+            },
+        ),
+        (
             "Entrée",
             {
-                # "classes": ("collapse",),
                 "fields": [
-                    "entree_plain_pied",
                     "entree_reperage",
-                    "entree_interphone",
+                    "entree_reperage_vitres",
+                    "entree_plain_pied",
+                    "entree_marches",
+                    "entree_marches_reperage",
+                    "entree_marches_main_courante",
+                    "entree_marches_rampe",
+                    "entree_dispositif_appel",
+                    "entree_aide_humaine",
+                    "entree_ascenseur",
+                    "entree_largeur_mini",
                     "entree_pmr",
                     "entree_pmr_informations",
-                    "reperage_vitres",
-                    "guidage_sonore",
-                    "largeur_mini",
-                    "rampe",
-                    "aide_humaine",
-                    "ascenseur",
-                    "escalier_marches",
-                    "escalier_reperage",
-                    "escalier_main_courante",
                 ],
             },
         ),
         (
-            "Accueil",
+            "Accueil et espace intérieur",
             {
-                # "classes": ("collapse",),
                 "fields": [
                     "accueil_visibilite",
                     "accueil_personnels",
                     "accueil_equipements_malentendants",
+                    "accueil_cheminement_plain_pied",
+                    "accueil_cheminement_nombre_marches",
+                    "accueil_cheminement_reperage_marches",
+                    "accueil_cheminement_main_courante",
+                    "accueil_cheminement_rampe",
+                    "accueil_cheminement_ascenseur",
+                    "accueil_retrecissement",
                     "accueil_prestations",
                 ],
             },
         ),
         (
             "Sanitaires",
-            {
-                # "classes": ("collapse",),
-                "fields": ["sanitaires_presence", "sanitaires_adaptes"],
-            },
+            {"fields": ["sanitaires_presence", "sanitaires_adaptes",]},
         ),
-        ("Labels", {"fields": ["labels"]}),
+        (
+            "Labels",
+            {"fields": ["labels", "labels_familles_handicap", "labels_autre",]},
+        ),
     ]
 
     def get_formset(self, request, obj=None, **kwargs):
@@ -202,13 +222,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret", "published"]}),
-        (
-            "Contact",
-            {
-                "description": "Les moyens de contact proposés par cet ERP",
-                "fields": ["telephone", "site_internet"],
-            },
-        ),
+        ("Contact", {"fields": ["telephone", "site_internet"],},),
         (
             "Localisation",
             {

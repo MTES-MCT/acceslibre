@@ -4,12 +4,12 @@ import requests
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
+from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.urls import reverse
-from django_better_admin_arrayfield.models.fields import ArrayField
 
 from . import managers
 
@@ -381,14 +381,19 @@ class Accessibilite(models.Model):
     HANDICAP_MOTEUR = "moteur"
     HANDICAP_VISUEL = "visuel"
     HANDICAP_CHOICES = [
-        (HANDICAP_AUDITIF, "auditif"),
-        (HANDICAP_MENTAL, "mental"),
-        (HANDICAP_MOTEUR, "moteur"),
-        (HANDICAP_VISUEL, "visuel"),
+        (HANDICAP_AUDITIF, "Auditif"),
+        (HANDICAP_MENTAL, "Mental"),
+        (HANDICAP_MOTEUR, "Moteur"),
+        (HANDICAP_VISUEL, "Visuel"),
     ]
 
     erp = models.OneToOneField(
-        Erp, on_delete=models.CASCADE, null=True, blank=True, help_text="ERP"
+        Erp,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name="Établissement",
+        help_text="ERP",
     )
 
     # 1. Stationnement dans l'ERP
@@ -466,7 +471,7 @@ class Accessibilite(models.Model):
         max_length=20,
         null=True,
         blank=True,
-        choices=RAMPE_CHOICES,  # FIXME: check inheritance
+        choices=RAMPE_CHOICES,
         help_text="Présence et type de rampe",
     )
     #  3.e ascenseur / élévateur : oui / non / inconnu / sans objet
@@ -604,6 +609,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Aide humaine",
         help_text="Présence ou possibilité d'une aide humaine au déplacement",
     )
     entree_ascenseur = models.BooleanField(
@@ -712,7 +718,8 @@ class Accessibilite(models.Model):
         max_length=20,
         null=True,
         blank=True,
-        choices=RAMPE_CHOICES,  # FIXME: check inheritance
+        choices=RAMPE_CHOICES,
+        verbose_name="Rampe",
         help_text="Présence et type de rampe",
     )
     #  18.e Ascenseur / élévateur
@@ -773,12 +780,11 @@ class Accessibilite(models.Model):
         help_text="Labels d'accessibilité obtenus par l'ERP",
     )
     labels_familles_handicap = ArrayField(
-        models.CharField(max_length=255, blank=True),
+        models.CharField(max_length=255, blank=True, choices=HANDICAP_CHOICES),
         verbose_name="Famille(s) de handicap concernées(s)",
         default=list,
         null=True,
         blank=True,
-        choices=HANDICAP_CHOICES,
     )
     labels_autre = models.CharField(
         max_length=255,
