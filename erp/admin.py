@@ -15,14 +15,13 @@ from django.utils.safestring import mark_safe
 from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from import_export.admin import ImportExportModelAdmin
 
-from .forms import AdminAccessibiliteForm, AdminErpForm, AdminCheminementForm
+from .forms import AdminAccessibiliteForm, AdminErpForm
 from .imports import ErpResource
 from .models import (
     Activite,
     Erp,
     Label,
     Accessibilite,
-    Cheminement,
     EquipementMalentendant,
 )
 
@@ -59,43 +58,15 @@ class LabelAdmin(admin.ModelAdmin):
     search_fields = ("nom",)
 
 
-class CheminementInline(nested_admin.NestedStackedInline):
-    model = Cheminement
-    form = AdminCheminementForm
-    classes = ("collapse",)
-    max_num = 5
-    extra = 0
-    fields = (
-        "type",
-        "nom",
-        "pente",
-        "devers",
-        "reperage_vitres",
-        "bande_guidage",
-        "guidage_sonore",
-        "largeur_mini",
-        "rampe",
-        "aide_humaine",
-        "escalier_marches",
-        "escalier_reperage",
-        "escalier_main_courante",
-        "ascenseur",
-    )
-
-
 class AccessibiliteInline(nested_admin.NestedStackedInline):
-    class Media:
-        css = {"all": ("admin/a4a-addons.css",)}
-
     model = Accessibilite
     form = AdminAccessibiliteForm
     autocomplete_fields = ["accueil_equipements_malentendants", "labels"]
-    inlines = [CheminementInline]
     fieldsets = [
         (
             "Stationnement",
             {
-                "classes": ("collapse",),
+                # "classes": ("collapse",),
                 "fields": [
                     "stationnement_presence",
                     "stationnement_pmr",
@@ -107,7 +78,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         (
             "Entrée",
             {
-                "classes": ("collapse",),
+                # "classes": ("collapse",),
                 "fields": [
                     "entree_plain_pied",
                     "entree_reperage",
@@ -129,7 +100,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         (
             "Accueil",
             {
-                "classes": ("collapse",),
+                # "classes": ("collapse",),
                 "fields": [
                     "accueil_visibilite",
                     "accueil_personnels",
@@ -141,11 +112,11 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
         (
             "Sanitaires",
             {
-                "classes": ("collapse",),
+                # "classes": ("collapse",),
                 "fields": ["sanitaires_presence", "sanitaires_adaptes"],
             },
         ),
-        ("Labels", {"classes": ("collapse",), "fields": ["labels"]}),
+        ("Labels", {"fields": ["labels"]}),
     ]
 
     def get_formset(self, request, obj=None, **kwargs):
@@ -188,6 +159,7 @@ class CommuneFilter(admin.SimpleListFilter):
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     class Media:
         css = {"all": ("admin/a4a-addons.css",)}
+        js = ("admin/js/a4a-admin.js",)
 
     # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
     # resource_class = ErpResource
@@ -230,7 +202,13 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret", "published"]}),
-        ("Contact", {"fields": ["telephone", "site_internet"]}),
+        (
+            "Contact",
+            {
+                "description": "Les moyens de contact proposés par cet ERP",
+                "fields": ["telephone", "site_internet"],
+            },
+        ),
         (
             "Localisation",
             {

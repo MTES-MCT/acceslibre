@@ -2,34 +2,34 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from .geocode import geocode
-from .models import Accessibilite, Cheminement, Erp
+from .models import Accessibilite, Erp
 
 
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
 
-class AdminCheminementForm(forms.ModelForm):
-    class Meta:
-        model = Cheminement
-        exclude = ("pk",)
-        widgets = dict(
-            [
-                (f, bool_radios())
-                for f in [
-                    "pente",
-                    "devers",
-                    "reperage_vitres",
-                    "bande_guidage",
-                    "guidage_sonore",
-                    "rampe",
-                    "aide_humaine",
-                    "escalier_reperage",
-                    "escalier_main_courante",
-                    "ascenseur",
-                ]
-            ]
-        )
+# class AdminCheminementForm(forms.ModelForm):
+#     class Meta:
+#         model = Cheminement
+#         exclude = ("pk",)
+#         widgets = dict(
+#             [
+#                 (f, bool_radios())
+#                 for f in [
+#                     "pente",
+#                     "devers",
+#                     "reperage_vitres",
+#                     "bande_guidage",
+#                     "guidage_sonore",
+#                     "rampe",
+#                     "aide_humaine",
+#                     "escalier_reperage",
+#                     "escalier_main_courante",
+#                     "ascenseur",
+#                 ]
+#             ]
+#         )
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
@@ -93,12 +93,6 @@ class AdminErpForm(forms.ModelForm):
         self.cleaned_data["code_postal"] = locdata["code_postal"]
         self.cleaned_data["commune"] = locdata["commune"]
         self.cleaned_data["code_insee"] = locdata["code_insee"]
-
-
-class ViewCheminementForm(forms.ModelForm):
-    class Meta:
-        model = Cheminement
-        exclude = ("pk", "accessibilite", "type", "nom")
 
 
 class ViewAccessibiliteForm(forms.ModelForm):
@@ -166,27 +160,27 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 field = self[field_name]
                 # TODO: deconstruct field to make it serializable -> future API
                 data[section]["fields"].append(field)
-        cheminements = self.instance.cheminement_set.all()
-        if len(cheminements) > 0:
-            data["Cheminements"] = {
-                "icon": "path",
-                "tabid": "cheminements",
-                "sections": {},
-            }
-            for cheminement in cheminements:
-                section = (
-                    cheminement.get_type_display() + " : " + cheminement.nom
-                )
-                form = ViewCheminementForm(instance=cheminement)
-                data["Cheminements"]["sections"][section] = {
-                    "icon": "path",
-                    "tabid": cheminement.type,
-                    "fields": [],
-                }
-                for field_name in form.fields:
-                    # TODO: deconstruct field to make it serializable -> future API
-                    field = form[field_name]
-                    data["Cheminements"]["sections"][section]["fields"].append(
-                        field
-                    )
+        # cheminements = self.instance.cheminement_set.all()
+        # if len(cheminements) > 0:
+        #     data["Cheminements"] = {
+        #         "icon": "path",
+        #         "tabid": "cheminements",
+        #         "sections": {},
+        #     }
+        #     for cheminement in cheminements:
+        #         section = (
+        #             cheminement.get_type_display() + " : " + cheminement.nom
+        #         )
+        #         form = ViewCheminementForm(instance=cheminement)
+        #         data["Cheminements"]["sections"][section] = {
+        #             "icon": "path",
+        #             "tabid": cheminement.type,
+        #             "fields": [],
+        #         }
+        #         for field_name in form.fields:
+        #             # TODO: deconstruct field to make it serializable -> future API
+        #             field = form[field_name]
+        #             data["Cheminements"]["sections"][section]["fields"].append(
+        #                 field
+        #             )
         return data

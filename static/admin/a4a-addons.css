@@ -1,3 +1,9 @@
-ul.inline li input[type=radio] {
+ul.inline li input[type="radio"] {
   vertical-align: -2px;
+}
+
+.form-row.field-stationnement_pmr,
+.form-row.field-stationnement_ext_pmr {
+  margin-left: 15px;
+  display: none;
 }
