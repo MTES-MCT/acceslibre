@@ -4,12 +4,12 @@ import requests
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
+from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.urls import reverse
-from django_better_admin_arrayfield.models.fields import ArrayField
 
 from . import managers
 
@@ -330,84 +330,7 @@ class Erp(models.Model):
         super().save(*args, **kwargs)
 
 
-class CriteresCommunsMixin(models.Model):
-    class Meta:
-        abstract = True
-
-    RAMPE_AUCUNE = "aucune"
-    RAMPE_FIXE = "fixe"
-    RAMPE_AMOVIBLE = "amovible"
-    RAMPE_AIDE_HUMAINE = "aide humaine"
-    RAMPE_CHOICES = [
-        (RAMPE_AUCUNE, "Aucune"),
-        (RAMPE_FIXE, "Fixe"),
-        (RAMPE_AMOVIBLE, "Amovible"),
-        (None, UNKNOWN),
-    ]
-
-    reperage_vitres = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Répérage surfaces vitrées",
-        help_text="Présence d'un repérage sur les surfaces vitrées",
-    )
-    guidage_sonore = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Système de guidage sonore",
-        help_text="Présence d'un dispositif de guidage sonore",
-    )
-    largeur_mini = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Largeur minimale",
-        help_text="Largeur minimale du passage ou rétrécissement, en centimètres",
-    )
-    rampe = models.CharField(
-        max_length=20,
-        null=True,
-        blank=True,
-        choices=RAMPE_CHOICES,
-        help_text="Présence et type de rampe",
-    )
-    aide_humaine = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        help_text="Présence ou possibilité d'une aide humaine au déplacement",
-    )
-    escalier_marches = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Marches d'escalier",
-        help_text="Nombre de marches d'escalier. Indiquez 0 si pas d'escalier ou si présence d'un ascenseur/élévateur.",
-    )
-    escalier_reperage = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Repérage de l'escalier",
-        help_text="Si marches contrastées, bande d'éveil ou nez de marche contrastés, indiquez “Oui”",
-    )
-    escalier_main_courante = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Main courante",
-        help_text="Présence d'une main courante d'escalier",
-    )
-    ascenseur = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Ascenseur/élévateur",
-        help_text="Présence d'un ascenseur ou d'un élévateur",
-    )
-
-
-class Accessibilite(CriteresCommunsMixin):
+class Accessibilite(models.Model):
     class Meta:
         verbose_name = "Accessibilité"
         verbose_name_plural = "Accessibilité"
@@ -420,155 +343,6 @@ class Accessibilite(CriteresCommunsMixin):
         (PERSONNELS_FORMES, "Personnels sensibilisés et formés"),
         (PERSONNELS_NON_FORMES, "Personnels non-formés"),
         (None, UNKNOWN),
-    ]
-
-    # erp
-    erp = models.OneToOneField(
-        Erp, on_delete=models.CASCADE, null=True, blank=True, help_text="ERP"
-    )
-
-    # stationnement dans l'ERP
-    stationnement_presence = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Stationnement dans l'ERP",
-        help_text="Présence de stationnements au sein de l'ERP",
-    )
-    stationnement_pmr = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Stationnements PMR dans l'ERP",
-        help_text="Présence de stationnements PMR au sein de l'ERP",
-    )
-
-    # stationnement extérieur à proximité
-    stationnement_ext_presence = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Stationnement à proximité",
-        help_text="Présence de stationnements à proximité (200m)",
-    )
-    stationnement_ext_pmr = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Stationnements PMR à proximité",
-        help_text="Présence de stationnements PMR à proximité (200m)",
-    )
-
-    # entrées principale et PMR
-    # note: le mixin CriteresCommunsMixin apporte des champs supplémentaires
-    entree_plain_pied = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Plain-pied",
-        help_text="L'entrée est-elle de plain-pied ?",
-    )
-    entree_reperage = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Repérage de l'entrée",
-        help_text="Présence d'éléments de répérage de l'entrée",
-    )
-    entree_pmr = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Entrée spécifique PMR",
-        help_text="Présence d'une entrée secondaire spécifique PMR",
-    )
-    entree_pmr_informations = models.TextField(
-        max_length=500,
-        null=True,
-        blank=True,
-        verbose_name="Infos entrée spécifique PMR",
-        help_text="Précisions sur les modalités d'accès de l'entrée spécifique PMR",
-    )
-    entree_interphone = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Dispositif d'appel",
-        help_text="Présence d'un dispositif d'appel (ex. interphone)",
-    )
-
-    # accueil
-    accueil_visibilite = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Visibilité directe de la zone d'accueil",
-        help_text="La zone d'accueil est-elle visible depuis l'entrée ?",
-    )
-    accueil_personnels = models.CharField(
-        max_length=255,
-        null=True,
-        blank=True,
-        choices=PERSONNELS_CHOICES,
-        verbose_name="Personnel d'accueil",
-        help_text="Présence et type de personnel d'accueil",
-    )
-    accueil_equipements_malentendants = models.ManyToManyField(
-        EquipementMalentendant,
-        blank=True,
-        verbose_name="Équipements sourds/malentendants",
-    )
-    accueil_prestations = models.TextField(
-        max_length=1000,
-        null=True,
-        blank=True,
-        verbose_name="Prestations d'accueil",
-        help_text="Description libre des prestations adaptées",
-    )
-
-    # sanitaires
-    sanitaires_presence = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Sanitaires",
-        help_text="Présence de sanitaires dans l'établissement",
-    )
-    sanitaires_adaptes = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Nombre de sanitaires adaptés",
-        help_text="Nombre de sanitaires adaptés dans l'établissement",
-    )
-
-    # labels
-    labels = models.ManyToManyField(
-        Label, blank=True, help_text="Labels d'accessibilité obtenus par l'ERP",
-    )
-
-    # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
-
-    def __str__(self):
-        return f"Caractéristiques d'accessibilité de cet ERP"
-
-
-class Cheminement(CriteresCommunsMixin):
-    class Meta:
-        unique_together = ("accessibilite", "type", "nom")
-        verbose_name = "Cheminement"
-        verbose_name_plural = "Cheminements"
-
-    TYPE_INTERIEUR = "int"
-    TYPE_EXTERIEUR = "ext"
-    TYPE_CHOICES = [
-        (TYPE_INTERIEUR, "Cheminement intérieur",),
-        (TYPE_EXTERIEUR, "Cheminement extérieur",),
     ]
 
     DEVERS_AUCUN = "aucun"
@@ -591,46 +365,135 @@ class Cheminement(CriteresCommunsMixin):
         (None, UNKNOWN_OR_NA),
     ]
 
-    accessibilite = models.ForeignKey(Accessibilite, on_delete=models.CASCADE)
+    RAMPE_AUCUNE = "aucune"
+    RAMPE_FIXE = "fixe"
+    RAMPE_AMOVIBLE = "amovible"
+    RAMPE_AIDE_HUMAINE = "aide humaine"
+    RAMPE_CHOICES = [
+        (RAMPE_AUCUNE, "Aucune"),
+        (RAMPE_FIXE, "Fixe"),
+        (RAMPE_AMOVIBLE, "Amovible"),
+        (None, UNKNOWN),
+    ]
 
-    type = models.CharField(
-        max_length=255,
-        default=TYPE_EXTERIEUR,
-        choices=TYPE_CHOICES,
-        verbose_name="Type",
-        help_text="Type de cheminement",
-    )
-    nom = models.CharField(
-        max_length=255,
-        default="Cheminement indéterminé",
-        verbose_name="Dénomination du cheminement",
-        help_text="Nom du cheminement, d'un point vers un autre (ex. Du stationnement à l'entrée de l'ERP)",
-    )
-    slug = AutoSlugField(
-        default="",
-        unique=True,
-        populate_from="nom",
-        help_text="Identifiant d'URL (slug)",
+    HANDICAP_AUDITIF = "auditif"
+    HANDICAP_MENTAL = "mental"
+    HANDICAP_MOTEUR = "moteur"
+    HANDICAP_VISUEL = "visuel"
+    HANDICAP_CHOICES = [
+        (HANDICAP_AUDITIF, "Auditif"),
+        (HANDICAP_MENTAL, "Mental"),
+        (HANDICAP_MOTEUR, "Moteur"),
+        (HANDICAP_VISUEL, "Visuel"),
+    ]
+
+    erp = models.OneToOneField(
+        Erp,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name="Établissement",
+        help_text="ERP",
     )
 
-    # équipements
-    # note: le mixin CriteresCommunsMixin apporte des champs supplémentaires
-    bande_guidage = models.BooleanField(
+    # 1. Stationnement dans l'ERP
+    stationnement_presence = models.BooleanField(
         null=True,
         blank=True,
         choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Bande de guidage",
-        help_text="Présence d'une bande de guidage",
+        verbose_name="Stationnement dans l'ERP",
+        help_text="Existe-t-il une ou plusieurs places de stationnement au sein de la parcelle de l'ERP ?",
     )
-    # déclivité
-    pente = models.CharField(
+    stationnement_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Stationnements PMR dans l'ERP",
+        help_text="Existe-t-il une ou plusieurs places de stationnement adaptées ?",
+    )
+
+    # 2. Stationnement à proximité
+    stationnement_ext_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Stationnement à proximité de l'ERP",
+        help_text="Présence de stationnements à proximité de l'ERP (200m)",
+    )
+    stationnement_ext_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Stationnements PMR à proximité de l'ERP",
+        help_text="Existe-t-il une ou plusieurs places de stationnement en voirie ou "
+        "en parking à proximité de l'ERP (200m) ?",
+    )
+
+    #########################
+    # Cheminement extérieur #
+    #########################
+
+    # 3. cheminement de plain-pied – oui / non / inconnu
+    cheminement_ext_plain_pied = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Cheminement de plain-pied",
+        help_text="Le cheminement est-il de plain-pied ou existe-t-il une rupture de "
+        "niveau entraînant la présence de marches ou d'un équipement type ascenseur ?",
+    )
+    # 3.a Nombre de marches – nombre entre 0 et >10
+    cheminement_ext_nombre_marches = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Nombre de marches",
+        help_text="Indiquez 0 s’il n’y a ni marche ni escalier",
+    )
+    # 3.b Repérage des marches ou de l’escalier – oui / non / inconnu / sans objet
+    cheminement_ext_reperage_marches = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Repérage des marches ou de l’escalier",
+        help_text="Nez de marche contrasté, bande d'éveil à la vigilance en haut "
+        "de l'escalier, première et dernière contremarches de l'escalier contrastées",
+    )
+    #  3.c Main courante - oui / non / inconnu / sans objet
+    cheminement_ext_main_courante = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Main courante",
+        help_text="Présence d'une main courante d'escalier",
+    )
+    #  3.d rampe – oui / non / inconnu / sans objet
+    cheminement_ext_rampe = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        choices=RAMPE_CHOICES,
+        help_text="Présence et type de rampe",
+    )
+    #  3.e ascenseur / élévateur : oui / non / inconnu / sans objet
+    cheminement_ext_ascenseur = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Ascenseur/élévateur",
+        help_text="Présence d'un ascenseur ou d'un élévateur",
+    )
+
+    # 4. Pente - Aucune, légère, importante, inconnu
+    cheminement_ext_pente = models.CharField(
         max_length=15,
         null=True,
         blank=True,
         choices=PENTE_CHOICES,
         help_text="Présence et type de pente",
     )
-    devers = models.CharField(
+
+    # 5. dévers - Aucun, léger, important, inconnu
+    cheminement_ext_devers = models.CharField(
         max_length=15,
         null=True,
         blank=True,
@@ -639,13 +502,317 @@ class Cheminement(CriteresCommunsMixin):
         help_text="Inclinaison transversale du cheminement",
     )
 
-    def __str__(self):
-        try:
-            return dict(self.TYPE_CHOICES)[self.type]
-        except KeyError:
-            return f"Type non supporté: {self.type}"
+    # 6. Bande de guidage – oui / non / inconnu
+    cheminement_ext_bande_guidage = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Bande de guidage",
+        help_text="Présence d'une bande de guidage au sol facilitant le déplacement "
+        "d'une personne aveugle ou malvoyante",
+    )
 
-    # def clean(self):
-    #     # TODO: check qu'au moins un champ optionnel est renseigné à la sauvegarde
-    #     if x:
-    #         raise ValidationError("Veuillez renseigner au moins un champ d'accessibilité du cheminement")
+    # 7. Système de guidage sonore  – oui / non / inconnu
+    cheminement_ext_guidage_sonore = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Système de guidage sonore",
+        help_text="Présence d'un système de guidage sonore aidant le déplacement "
+        "d'une personne aveugle ou malvoyante",
+    )
+
+    # 8. Rétrécissement du cheminement  – oui / non / inconnu
+    cheminement_ext_retrecissement = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Rétrécissement du cheminement",
+        help_text="Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) "
+        "du chemin emprunté par le public pour atteindre l'entrée ?",
+    )
+
+    ##########
+    # Entrée #
+    ##########
+
+    #  9. Entrée facilement repérable  – oui / non / inconnu
+    entree_reperage = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Entrée facilement repérable",
+        help_text="Y a-t-il des éléments de repérage de l'entrée (numéro de rue à "
+        "proximité, enseigne, etc)",
+    )
+
+    #  10. Entrée vitrée
+    entree_reperage_vitres = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Entrée vitrée",
+        help_text="Si l'entrée est vitrée, présence d'éléments contrastés permettant "
+        "de visualiser l'entrée (vitrophanie) ?",
+    )
+
+    #  11. Entrée de plain-pied
+    entree_plain_pied = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Entrée de plain-pied",
+        help_text="L'entrée est-elle de plain-pied ?",
+    )
+    #  11.a Nombre de marches
+    entree_marches = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Marches d'escalier",
+        help_text="Nombre de marches d'escalier",
+    )
+    #  11.b repérage des marches ou de l'escalier
+    entree_marches_reperage = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Repérage de l'escalier",
+        help_text="Nez de marche contrasté, bande d'éveil à la vigilance en haut "
+        "de l'escalier, première et dernière contremarches de l'escalier contrastées",
+    )
+    # 11.c Main courante
+    entree_marches_main_courante = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Main courante",
+        help_text="Présence d'une main courante pour franchir les marches",
+    )
+    #  11.d Rampe
+    entree_marches_rampe = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        choices=RAMPE_CHOICES,
+        help_text="Présence et type de rampe",
+    )
+    #  11.e Dispositif d’appel
+    entree_dispositif_appel = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Dispositif d'appel",
+        help_text="Existe-t-il un dispositif comme une sonnette pour permettre à "
+        "quelqu'un ayant besoin de la rampe de signaler sa présence ?",
+    )
+    entree_aide_humaine = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Aide humaine",
+        help_text="Présence ou possibilité d'une aide humaine au déplacement",
+    )
+    entree_ascenseur = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Ascenseur/élévateur",
+        help_text="Présence d'un ascenseur ou d'un élévateur",
+    )
+
+    # 12. Largeur minimale
+    entree_largeur_mini = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Largeur minimale",
+        help_text="Si la largeur n’est pas précisément connue, indiquez une valeur "
+        "minimum. Exemple : ma largeur se situe entre 90 et 100 cm ; indiquez 90.",
+    )
+
+    # 13. Entrée spécifique PMR
+    entree_pmr = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Entrée spécifique PMR",
+        help_text="Présence d'une entrée secondaire spécifique PMR",
+    )
+
+    # 14. Informations sur l’entrée spécifique
+    entree_pmr_informations = models.TextField(
+        max_length=500,
+        null=True,
+        blank=True,
+        verbose_name="Infos entrée spécifique PMR",
+        help_text="Précisions sur les modalités d'accès de l'entrée spécifique PMR",
+    )
+
+    ###########
+    # Accueil #
+    ###########
+
+    # 15. Visibilité directe de la zone d'accueil depuis l’entrée
+    accueil_visibilite = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Visibilité directe de la zone d'accueil depuis l'entrée",
+        help_text="La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) "
+        "est-elle visible depuis l'entrée ?",
+    )
+
+    # 16. Personnel d’accueil
+    accueil_personnels = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        choices=PERSONNELS_CHOICES,
+        verbose_name="Personnel d'accueil",
+        help_text="Présence et sensibilisation du personnel d'accueil",
+    )
+
+    # 17. Équipements pour personnes sourdes ou malentendantes
+    accueil_equipements_malentendants = models.ManyToManyField(
+        EquipementMalentendant,
+        blank=True,
+        verbose_name="Équipements sourds/malentendants",
+        help_text="L'accueil est-il équipé de produits ou prestations dédiés aux personnes "
+        "sourdes ou malentendantes (boucle à induction magnétique, langue des signes "
+        "françaises, solution de traduction à distance, etc)",
+    )
+
+    # 18. Cheminement de plain pied entre l’entrée et l’accueil
+    accueil_cheminement_plain_pied = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Cheminement de plain pied",
+        help_text="Le cheminement entre l’entrée et l’accueil est-il de plain-pied ?",
+    )
+    #  18.a Présence de marches entre l’entrée et l’accueil – nombre entre 0 et >10
+    accueil_cheminement_nombre_marches = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Nombre de marches",
+        help_text="Indiquez 0 s’il n’y a ni marche ni escalier",
+    )
+    #  18.b Repérage des marches ou de l’escalier
+    accueil_cheminement_reperage_marches = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Repérage des marches ou de l’escalier",
+        help_text="Nez de marche contrasté, bande d'éveil à la vigilance en haut "
+        "de l'escalier, première et dernière contremarches de l'escalier contrastées",
+    )
+    #  18.c Main courante
+    accueil_cheminement_main_courante = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        verbose_name="Main courante",
+        help_text="Présence d'une main courante d'escalier",
+    )
+    #  18.d Rampe – aucune / fixe / amovible / inconnu
+    accueil_cheminement_rampe = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        choices=RAMPE_CHOICES,
+        verbose_name="Rampe",
+        help_text="Présence et type de rampe",
+    )
+    #  18.e Ascenseur / élévateur
+    accueil_cheminement_ascenseur = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Ascenseur/élévateur",
+        help_text="Présence d'un ascenseur ou d'un élévateur",
+    )
+
+    # 19. Rétrécissement du cheminement
+    accueil_retrecissement = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Rétrécissement du cheminement",
+        help_text="Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) "
+        "du chemin emprunté par le public pour atteindre la zone d’accueil ?",
+    )
+
+    # 20. Prestations d'accueil adapté supplémentaires
+    accueil_prestations = models.TextField(
+        max_length=1000,
+        null=True,
+        blank=True,
+        verbose_name="Prestations d'accueil adapté supplémentaires",
+        help_text="Veuillez indiquer ici les prestations spécifiques supplémentaires "
+        "proposées par l'établissement",
+    )
+
+    ##############
+    # Sanitaires #
+    ##############
+
+    sanitaires_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Sanitaires",
+        help_text="Présence de sanitaires dans l'établissement",
+    )
+    sanitaires_adaptes = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Nombre de sanitaires adaptés",
+        help_text="Nombre de sanitaires adaptés dans l'établissement",
+    )
+
+    ##########
+    # labels #
+    ##########
+
+    labels = models.ManyToManyField(
+        Label,
+        blank=True,
+        verbose_name="Labels d'accessibilité",
+        help_text="Labels d'accessibilité obtenus par l'ERP",
+    )
+    labels_familles_handicap = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=HANDICAP_CHOICES),
+        verbose_name="Famille(s) de handicap concernées(s)",
+        default=list,
+        null=True,
+        blank=True,
+    )
+    labels_autre = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Autre label",
+        help_text="Si autre, précisez le nom du label",
+    )
+
+    #####################
+    # Commentaire libre #
+    #####################
+    commentaire = models.TextField(
+        max_length=1000,
+        null=True,
+        blank=True,
+        verbose_name="Commentaire libre",
+        help_text="Indiquez tout autre information qui vous semble pertinente pour "
+        "décrire l’accessibilité du bâtiment",
+    )
+
+    # datetimes
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Date de création"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True, verbose_name="Dernière modification"
+    )
+
+    def __str__(self):
+        return f"Caractéristiques d'accessibilité de cet ERP"

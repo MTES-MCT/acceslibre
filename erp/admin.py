@@ -12,23 +12,22 @@ from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
-from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
 from import_export.admin import ImportExportModelAdmin
 
-from .forms import AdminAccessibiliteForm, AdminErpForm, AdminCheminementForm
+from .forms import AdminActiviteForm, AdminAccessibiliteForm, AdminErpForm
 from .imports import ErpResource
 from .models import (
     Activite,
     Erp,
     Label,
     Accessibilite,
-    Cheminement,
     EquipementMalentendant,
 )
 
 
 @admin.register(Activite)
-class ActiviteAdmin(admin.ModelAdmin, DynamicArrayMixin):
+class ActiviteAdmin(admin.ModelAdmin):
+    form = AdminActiviteForm
     list_display = ("nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
@@ -59,43 +58,14 @@ class LabelAdmin(admin.ModelAdmin):
     search_fields = ("nom",)
 
 
-class CheminementInline(nested_admin.NestedStackedInline):
-    model = Cheminement
-    form = AdminCheminementForm
-    classes = ("collapse",)
-    max_num = 5
-    extra = 0
-    fields = (
-        "type",
-        "nom",
-        "pente",
-        "devers",
-        "reperage_vitres",
-        "bande_guidage",
-        "guidage_sonore",
-        "largeur_mini",
-        "rampe",
-        "aide_humaine",
-        "escalier_marches",
-        "escalier_reperage",
-        "escalier_main_courante",
-        "ascenseur",
-    )
-
-
 class AccessibiliteInline(nested_admin.NestedStackedInline):
-    class Media:
-        css = {"all": ("admin/a4a-addons.css",)}
-
     model = Accessibilite
     form = AdminAccessibiliteForm
     autocomplete_fields = ["accueil_equipements_malentendants", "labels"]
-    inlines = [CheminementInline]
     fieldsets = [
         (
             "Stationnement",
             {
-                "classes": ("collapse",),
                 "fields": [
                     "stationnement_presence",
                     "stationnement_pmr",
@@ -105,47 +75,70 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             },
         ),
         (
+            "Cheminement extérieur",
+            {
+                "fields": [
+                    "cheminement_ext_plain_pied",
+                    "cheminement_ext_nombre_marches",
+                    "cheminement_ext_reperage_marches",
+                    "cheminement_ext_main_courante",
+                    "cheminement_ext_rampe",
+                    "cheminement_ext_ascenseur",
+                    "cheminement_ext_pente",
+                    "cheminement_ext_devers",
+                    "cheminement_ext_bande_guidage",
+                    "cheminement_ext_guidage_sonore",
+                    "cheminement_ext_retrecissement",
+                ]
+            },
+        ),
+        (
             "Entrée",
             {
-                "classes": ("collapse",),
                 "fields": [
-                    "entree_plain_pied",
                     "entree_reperage",
-                    "entree_interphone",
+                    "entree_reperage_vitres",
+                    "entree_plain_pied",
+                    "entree_marches",
+                    "entree_marches_reperage",
+                    "entree_marches_main_courante",
+                    "entree_marches_rampe",
+                    "entree_dispositif_appel",
+                    "entree_aide_humaine",
+                    "entree_ascenseur",
+                    "entree_largeur_mini",
                     "entree_pmr",
                     "entree_pmr_informations",
-                    "reperage_vitres",
-                    "guidage_sonore",
-                    "largeur_mini",
-                    "rampe",
-                    "aide_humaine",
-                    "ascenseur",
-                    "escalier_marches",
-                    "escalier_reperage",
-                    "escalier_main_courante",
                 ],
             },
         ),
         (
-            "Accueil",
+            "Accueil et espace intérieur",
             {
-                "classes": ("collapse",),
                 "fields": [
                     "accueil_visibilite",
                     "accueil_personnels",
                     "accueil_equipements_malentendants",
+                    "accueil_cheminement_plain_pied",
+                    "accueil_cheminement_nombre_marches",
+                    "accueil_cheminement_reperage_marches",
+                    "accueil_cheminement_main_courante",
+                    "accueil_cheminement_rampe",
+                    "accueil_cheminement_ascenseur",
+                    "accueil_retrecissement",
                     "accueil_prestations",
                 ],
             },
         ),
         (
             "Sanitaires",
-            {
-                "classes": ("collapse",),
-                "fields": ["sanitaires_presence", "sanitaires_adaptes"],
-            },
+            {"fields": ["sanitaires_presence", "sanitaires_adaptes",]},
         ),
-        ("Labels", {"classes": ("collapse",), "fields": ["labels"]}),
+        (
+            "Labels",
+            {"fields": ["labels", "labels_familles_handicap", "labels_autre",]},
+        ),
+        ("Commentaires", {"fields": ["commentaire"]}),
     ]
 
     def get_formset(self, request, obj=None, **kwargs):
@@ -188,6 +181,7 @@ class CommuneFilter(admin.SimpleListFilter):
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     class Media:
         css = {"all": ("admin/a4a-addons.css",)}
+        js = ("admin/js/a4a-admin.js",)
 
     # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
     # resource_class = ErpResource
@@ -230,7 +224,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
     fieldsets = [
         (None, {"fields": ["activite", "nom", "siret", "published"]}),
-        ("Contact", {"fields": ["telephone", "site_internet"]}),
+        ("Contact", {"fields": ["telephone", "site_internet"],},),
         (
             "Localisation",
             {

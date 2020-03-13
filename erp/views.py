@@ -11,7 +11,7 @@ from django.views.generic.base import TemplateView
 
 from .communes import COMMUNES
 from .forms import ViewAccessibiliteForm
-from .models import Accessibilite, Activite, Cheminement, Erp
+from .models import Accessibilite, Activite, Erp
 from .serializers import SpecialErpSerializer
 
 
