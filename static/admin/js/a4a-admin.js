@@ -62,19 +62,26 @@ window.addEventListener("DOMContentLoaded", function() {
   function processRules() {
     for (let source in rules) {
       const rule = rules[source];
+      const sourceSelector = "input[name=accessibilite-0-" + source + "]";
+      const selectedSource = [].filter.call(
+        document.querySelectorAll(sourceSelector),
+        function(input) {
+          return input.checked;
+        }
+      )[0];
       const targets = rule.targets.map(function(target) {
         return ".form-row.field-" + target;
       });
-      // hide target fields
+      // show/hide target fields
       targets.forEach(function(target) {
-        document.querySelector(target).classList.add("indented-hidden");
+        const classes = document.querySelector(target).classList;
+        classes.add("indented");
+        if (rule.condition && selectedSource.value !== "True") {
+          classes.add("hidden");
+        }
       });
       // register conditional behaviors
-      condition(
-        rule.condition,
-        "input[name=accessibilite-0-" + source + "]",
-        targets
-      );
+      condition(rule.condition, sourceSelector, targets);
     }
   }
 

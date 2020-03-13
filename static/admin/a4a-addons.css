@@ -2,8 +2,11 @@ ul.inline li input[type="radio"] {
   vertical-align: -2px;
 }
 
-.indented-hidden {
+.indented {
   border-left: 1px solid #eee;
   margin-left: 169px;
+}
+
+.hidden {
   display: none;
 }
