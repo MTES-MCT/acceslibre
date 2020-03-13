@@ -527,7 +527,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Rétrécissment du cheminement",
+        verbose_name="Rétrécissement du cheminement",
         help_text="Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) "
         "du chemin emprunté par le public pour atteindre l'entrée ?",
     )
