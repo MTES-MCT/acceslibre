@@ -14,7 +14,7 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from import_export.admin import ImportExportModelAdmin
 
-from .forms import AdminAccessibiliteForm, AdminErpForm
+from .forms import AdminActiviteForm, AdminAccessibiliteForm, AdminErpForm
 from .imports import ErpResource
 from .models import (
     Activite,
@@ -27,6 +27,7 @@ from .models import (
 
 @admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
+    form = AdminActiviteForm
     list_display = ("nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)

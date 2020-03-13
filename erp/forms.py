@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
-from django.forms import fields
+from django.forms import fields, widgets
 
 from .geocode import geocode
-from .models import Accessibilite, Erp
+from .models import Activite, Accessibilite, Erp
 
 
 def bool_radios():
@@ -74,6 +74,20 @@ class AdminAccessibiliteForm(forms.ModelForm):
         model = Accessibilite
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
+
+
+class AdminActiviteForm(forms.ModelForm):
+    class Meta:
+        model = Activite
+        exclude = ("pk",)
+
+    mots_cles = SimpleArrayField(
+        forms.CharField(),
+        widget=widgets.Textarea(),
+        delimiter="\n",
+        required=False,
+        help_text="Un mots-clé par ligne",
+    )
 
 
 class AdminErpForm(forms.ModelForm):
