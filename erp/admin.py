@@ -137,6 +137,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
             "Labels",
             {"fields": ["labels", "labels_familles_handicap", "labels_autre",]},
         ),
+        ("Commentaires", {"fields": ["commentaire"]}),
     ]
 
     def get_formset(self, request, obj=None, **kwargs):

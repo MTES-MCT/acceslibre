@@ -794,6 +794,18 @@ class Accessibilite(models.Model):
         help_text="Si autre, précisez le nom du label",
     )
 
+    #####################
+    # Commentaire libre #
+    #####################
+    commentaire = models.TextField(
+        max_length=1000,
+        null=True,
+        blank=True,
+        verbose_name="Commentaire libre",
+        help_text="Indiquez tout autre information qui vous semble pertinente pour "
+        "décrire l’accessibilité du bâtiment",
+    )
+
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"
