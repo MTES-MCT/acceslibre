@@ -21,6 +21,10 @@ window.addEventListener("DOMContentLoaded", function() {
       ]
     },
     // Entrée
+    entree_vitree: {
+      condition: true,
+      targets: ["entree_vitree_vitrophanie"]
+    },
     entree_plain_pied: {
       condition: false,
       targets: [

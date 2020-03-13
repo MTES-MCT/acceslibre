@@ -472,6 +472,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=RAMPE_CHOICES,
+        verbose_name="Rampe",
         help_text="Présence et type de rampe",
     )
     #  3.e ascenseur / élévateur : oui / non / inconnu / sans objet
@@ -489,6 +490,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=PENTE_CHOICES,
+        verbose_name="Pente",
         help_text="Présence et type de pente",
     )
 
@@ -547,13 +549,20 @@ class Accessibilite(models.Model):
     )
 
     #  10. Entrée vitrée
-    entree_reperage_vitres = models.BooleanField(
+    entree_vitree = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Entrée vitrée",
+        help_text="La porte d'entrée est-elle vitrée ?",
+    )
+    entree_vitree_vitrophanie = models.BooleanField(
         null=True,
         blank=True,
         choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        verbose_name="Entrée vitrée",
+        verbose_name="Vitrophanie",
         help_text="Si l'entrée est vitrée, présence d'éléments contrastés permettant "
-        "de visualiser l'entrée (vitrophanie) ?",
+        "de visualiser l'entrée ?",
     )
 
     #  11. Entrée de plain-pied
@@ -593,6 +602,7 @@ class Accessibilite(models.Model):
         max_length=20,
         null=True,
         blank=True,
+        verbose_name="Rampe",
         choices=RAMPE_CHOICES,
         help_text="Présence et type de rampe",
     )
