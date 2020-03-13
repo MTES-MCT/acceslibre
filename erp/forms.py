@@ -116,20 +116,19 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "icon": "entrance",
             "tabid": "entree",
             "fields": [
-                "entree_plain_pied",
                 "entree_reperage",
+                "entree_reperage_vitres",
+                "entree_plain_pied",
+                "entree_marches",
+                "entree_marches_reperage",
+                "entree_marches_main_courante",
+                "entree_marches_rampe",
+                "entree_dispositif_appel",
+                "entree_aide_humaine",
+                "entree_ascenseur",
+                "entree_largeur_mini",
                 "entree_pmr",
                 "entree_pmr_informations",
-                "entree_interphone",
-                "reperage_vitres",
-                "guidage_sonore",
-                "largeur_mini",
-                "rampe",
-                "aide_humaine",
-                "escalier_marches",
-                "escalier_reperage",
-                "escalier_main_courante",
-                "ascenseur",
             ],
         },
         "Stationnement": {
@@ -142,6 +141,23 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 "stationnement_ext_pmr",
             ],
         },
+        "Cheminement extérieur": {
+            "icon": "path",
+            "tabid": "cheminement_ext",
+            "fields": [
+                "cheminement_ext_plain_pied",
+                "cheminement_ext_nombre_marches",
+                "cheminement_ext_reperage_marches",
+                "cheminement_ext_main_courante",
+                "cheminement_ext_rampe",
+                "cheminement_ext_ascenseur",
+                "cheminement_ext_pente",
+                "cheminement_ext_devers",
+                "cheminement_ext_bande_guidage",
+                "cheminement_ext_guidage_sonore",
+                "cheminement_ext_retrecissement",
+            ],
+        },
         "Accueil": {
             "icon": "users",
             "tabid": "accueil",
@@ -149,6 +165,13 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 "accueil_visibilite",
                 "accueil_personnels",
                 "accueil_equipements_malentendants",
+                "accueil_cheminement_plain_pied",
+                "accueil_cheminement_nombre_marches",
+                "accueil_cheminement_reperage_marches",
+                "accueil_cheminement_main_courante",
+                "accueil_cheminement_rampe",
+                "accueil_cheminement_ascenseur",
+                "accueil_retrecissement",
                 "accueil_prestations",
             ],
         },
@@ -156,6 +179,11 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "icon": "male-female",
             "tabid": "sanitaires",
             "fields": ["sanitaires_presence", "sanitaires_adaptes",],
+        },
+        "Commentaire": {
+            "icon": "info-circled",
+            "tabid": "commentaire",
+            "fields": ["commentaire"],
         },
     }
 
@@ -171,27 +199,4 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 field = self[field_name]
                 # TODO: deconstruct field to make it serializable -> future API
                 data[section]["fields"].append(field)
-        # cheminements = self.instance.cheminement_set.all()
-        # if len(cheminements) > 0:
-        #     data["Cheminements"] = {
-        #         "icon": "path",
-        #         "tabid": "cheminements",
-        #         "sections": {},
-        #     }
-        #     for cheminement in cheminements:
-        #         section = (
-        #             cheminement.get_type_display() + " : " + cheminement.nom
-        #         )
-        #         form = ViewCheminementForm(instance=cheminement)
-        #         data["Cheminements"]["sections"][section] = {
-        #             "icon": "path",
-        #             "tabid": cheminement.type,
-        #             "fields": [],
-        #         }
-        #         for field_name in form.fields:
-        #             # TODO: deconstruct field to make it serializable -> future API
-        #             field = form[field_name]
-        #             data["Cheminements"]["sections"][section]["fields"].append(
-        #                 field
-        #             )
         return data
