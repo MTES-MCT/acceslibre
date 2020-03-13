@@ -132,7 +132,8 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "tabid": "entree",
             "fields": [
                 "entree_reperage",
-                "entree_reperage_vitres",
+                "entree_vitree",
+                "entree_vitree_vitrophanie",
                 "entree_plain_pied",
                 "entree_marches",
                 "entree_marches_reperage",
