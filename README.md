@@ -92,7 +92,65 @@ L'application est alors accessible à l'adresse [http://127.0.0.1:8000/](http://
 
 ## Configuration locale (développement)
 
-Il est possible de surcharger la configuration du projet Django en créant un fichier `local_settings.py` dans le répertoire `access4all`.
+La configuration de production des paramètres applicatifs se fait dans le fichier `access4all/settings.py`. Il est cependant possible de surcharger les paramètres en créant un fichier `local_settings.py` dans le même répertoire, qui sera alors interprété localement pour servir l'application.
+
+Par exemple :
+
+```python
+DEBUG = True
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+INSTALLED_APPS = [
+    "django_extensions",
+    "nested_admin",
+    "import_export",
+    "reset_migrations",
+    "django_admin_listfilter_dropdown",
+    "erp.apps.ErpConfig",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.gis",
+    "django.contrib.postgres",
+    "corsheaders",
+    "logentry_admin",
+    "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
+    "rest_framework",
+    "rest_framework_gis",
+    "debug_toolbar",
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+CACHES = {
+    "default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache",}
+}
+```
 
 ## Générer et appliquer les migrations du modèle de données
 
