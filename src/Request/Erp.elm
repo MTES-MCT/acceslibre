@@ -1,4 +1,4 @@
-module Request.Erp exposing (get, list)
+module Request.Erp exposing (get, list, listNext)
 
 import Data.Activite as Activite exposing (Activite)
 import Data.Commune as Commune exposing (Commune)
@@ -51,3 +51,23 @@ list session maybeCommune maybeActiviteSlug maybeSearch msg =
                 )
         , expect = Http.expectJson (RemoteData.fromResult >> msg) (Pager.decode Erp.decode)
         }
+
+
+listNext : Session -> (WebData (Pager Erp) -> msg) -> Cmd msg
+listNext session msg =
+    case session.erps of
+        RemoteData.Success pager ->
+            case pager.next of
+                Just next ->
+                    Http.get
+                        { url = next
+                        , expect =
+                            Http.expectJson (Result.map (Pager.update pager) >> RemoteData.fromResult >> msg)
+                                (Pager.decode Erp.decode)
+                        }
+
+                Nothing ->
+                    Cmd.none
+
+        _ ->
+            Cmd.none

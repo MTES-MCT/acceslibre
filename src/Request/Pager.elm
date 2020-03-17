@@ -1,4 +1,4 @@
-module Request.Pager exposing (Pager, decode)
+module Request.Pager exposing (Pager, decode, update)
 
 import Http
 import Json.Decode as Decode exposing (Decoder)
@@ -19,3 +19,8 @@ decode decodeItem =
         (Decode.field "next" (Decode.nullable Decode.string))
         (Decode.field "previous" (Decode.nullable Decode.string))
         (Decode.field "results" (Decode.list decodeItem))
+
+
+update : Pager a -> Pager a -> Pager a
+update previous new =
+    { new | results = previous.results ++ new.results }

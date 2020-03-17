@@ -36,7 +36,8 @@ type Msg
     | ErpsReceived (WebData (Pager Erp))
     | InfiniteScrollMsg InfiniteScroll.Msg
     | LocateOnMap Erp
-    | NextPage ()
+    | NextErpsPage ()
+    | NextErpsReceived (WebData (Pager Erp))
     | NoOp
 
 
@@ -44,7 +45,8 @@ init : Session -> Route -> ( Model, Session, Cmd Msg )
 init session route =
     let
         defaultInfiniteScroll =
-            InfiniteScroll.init (\_ -> Task.perform NextPage (Task.succeed ()))
+            InfiniteScroll.init (\_ -> Task.perform NextErpsPage (Task.succeed ()))
+                |> InfiniteScroll.offset 100
 
         base =
             { commune = Nothing
@@ -179,9 +181,6 @@ update session msg model =
 
         InfiniteScrollMsg msg_ ->
             let
-                _ =
-                    Debug.log "plop" "InfiniteScrollMsg"
-
                 ( infiniteScroll, cmd ) =
                     InfiniteScroll.update InfiniteScrollMsg msg_ model.infiniteScroll
             in
@@ -190,11 +189,25 @@ update session msg model =
             , cmd
             )
 
-        NextPage () ->
-            let
-                _ =
-                    Debug.log "plop" "NextPage"
-            in
+        NextErpsPage () ->
+            ( model
+            , session
+            , Request.Erp.listNext session NextErpsReceived
+            )
+
+        NextErpsReceived (RemoteData.Success nextErps) ->
+            ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
+            , { session | erps = RemoteData.Success nextErps }
+            , Cmd.none
+            )
+
+        NextErpsReceived (RemoteData.Failure error) ->
+            ( model, session |> Session.notifyHttpError error, Cmd.none )
+
+        NextErpsReceived RemoteData.Loading ->
+            ( model, session, Cmd.none )
+
+        NextErpsReceived RemoteData.NotAsked ->
             ( model, session, Cmd.none )
 
         NoOp ->
@@ -236,61 +249,6 @@ activitesListView session model =
                     ]
             )
         |> div [ class "list-group list-group-flush border-right" ]
-
-
-erpListEntryView : Model -> Erp -> Html Msg
-erpListEntryView model erp =
-    Html.a
-        [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
-        , case Commune.findByNom erp.commune of
-            Just commune ->
-                Route.href (Route.CommuneErp commune erp.slug)
-
-            Nothing ->
-                Route.href (Route.Erp erp.slug)
-        ]
-        [ span [ class "flex-fill pr-2" ]
-            [ text erp.nom
-            , br [] []
-            , small [ class "text-muted" ]
-                [ case erp.activite of
-                    Just activite ->
-                        span [] [ strong [] [ text activite.nom ], text " » " ]
-
-                    Nothing ->
-                        text ""
-                , text erp.adresse
-                ]
-            ]
-        , if erp.hasAccessibilite then
-            button
-                [ class "btn btn-sm btn-outline-success mr-2 a4a-icon-btn"
-                , title "Les informations d'accessibilité sont disponibles"
-                ]
-                [ i [ class "icon icon-checklist" ] []
-                , span [ class "sr-only" ]
-                    [ text "Les informations d'accessibilités sont disponibles" ]
-                ]
-
-          else
-            text ""
-        , button
-            [ type_ "button"
-            , class "btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link"
-            , attribute "data-erp-id" "11571"
-            , title "Localiser sur la carte"
-            , attribute "aria-label" "Localiser sur la carte"
-            , custom "click"
-                (Decode.succeed
-                    { message = LocateOnMap erp
-                    , stopPropagation = True
-                    , preventDefault = True
-                    }
-                )
-            ]
-            [ i [ class "icon icon-target" ] []
-            ]
-        ]
 
 
 headerView : Session -> Model -> Html Msg
@@ -566,6 +524,80 @@ erpDetailsView session erp =
         ]
 
 
+erpListEntryView : Model -> Erp -> Html Msg
+erpListEntryView model erp =
+    Html.a
+        [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
+        , case Commune.findByNom erp.commune of
+            Just commune ->
+                Route.href (Route.CommuneErp commune erp.slug)
+
+            Nothing ->
+                Route.href (Route.Erp erp.slug)
+        ]
+        [ span [ class "flex-fill pr-2" ]
+            [ text erp.nom
+            , br [] []
+            , small [ class "text-muted" ]
+                [ case erp.activite of
+                    Just activite ->
+                        span [] [ strong [] [ text activite.nom ], text " » " ]
+
+                    Nothing ->
+                        text ""
+                , text erp.adresse
+                ]
+            ]
+        , if erp.hasAccessibilite then
+            button
+                [ class "btn btn-sm btn-outline-success mr-2 a4a-icon-btn"
+                , title "Les informations d'accessibilité sont disponibles"
+                ]
+                [ i [ class "icon icon-checklist" ] []
+                , span [ class "sr-only" ]
+                    [ text "Les informations d'accessibilités sont disponibles" ]
+                ]
+
+          else
+            text ""
+        , button
+            [ type_ "button"
+            , class "btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link"
+            , attribute "data-erp-id" "11571"
+            , title "Localiser sur la carte"
+            , attribute "aria-label" "Localiser sur la carte"
+            , custom "click"
+                (Decode.succeed
+                    { message = LocateOnMap erp
+                    , stopPropagation = True
+                    , preventDefault = True
+                    }
+                )
+            ]
+            [ i [ class "icon icon-target" ] []
+            ]
+        ]
+
+
+erpListView : Session -> Model -> Html Msg
+erpListView session model =
+    case session.erps of
+        RemoteData.NotAsked ->
+            text "not asked"
+
+        RemoteData.Loading ->
+            text "loading"
+
+        RemoteData.Failure error ->
+            text "error !"
+
+        RemoteData.Success erps ->
+            erps.results
+                |> List.map (\erp -> erpListEntryView model erp)
+                |> div
+                    [ class "list-group list-group-flush" ]
+
+
 view : Session -> Model -> ( String, List (Html Msg) )
 view session model =
     ( pageTitle session model
@@ -590,13 +622,7 @@ view session model =
                             erpDetailsView session erp
 
                         Nothing ->
-                            session.erps
-                                |> RemoteData.map .results
-                                -- FIXME: extract data
-                                |> RemoteData.withDefault []
-                                |> List.map (\erp -> erpListEntryView model erp)
-                                |> div
-                                    [ class "list-group list-group-flush" ]
+                            erpListView session model
                     ]
                 , div [ class "a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0" ]
                     [ div [ class "a4a-map", id "map" ] []
