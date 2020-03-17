@@ -11,7 +11,6 @@ import Html.Events exposing (..)
 import Http
 import InfiniteScroll
 import Json.Decode as Decode
-import Markdown
 import Ports
 import RemoteData exposing (WebData)
 import Request.Activite
@@ -557,8 +556,8 @@ erpDetailsView session erp =
         ]
 
 
-erpListEntryView : Model -> Erp -> Html Msg
-erpListEntryView model erp =
+erpListEntryView : Erp -> Html Msg
+erpListEntryView erp =
     Html.a
         [ class "list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
         , case Commune.findByNom erp.commune of
@@ -617,7 +616,7 @@ erpListView session model =
     case session.erps of
         RemoteData.Success erps ->
             erps.results
-                |> List.map (\erp -> erpListEntryView model erp)
+                |> List.map (\erp -> erpListEntryView erp)
                 |> div
                     [ class "list-group list-group-flush a4a-erp-list-inner"
                     , classList [ ( "loading", model.loading ) ]

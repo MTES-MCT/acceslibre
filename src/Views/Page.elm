@@ -35,7 +35,7 @@ frame config ( title, content ) =
 
 
 viewHeader : Config msg -> Html msg
-viewHeader { session, autocomplete, activePage } =
+viewHeader { session, autocomplete } =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
@@ -54,10 +54,9 @@ viewHeader { session, autocomplete, activePage } =
                 []
             ]
         , div [ class "collapse navbar-collapse", id "navbarSupportedContent" ]
-            [ Commune.communes
-                |> Dict.toList
+            [ Dict.values Commune.communes
                 |> List.map
-                    (\( slug, commune ) ->
+                    (\commune ->
                         li
                             [ classList
                                 [ ( "nav-item", True )

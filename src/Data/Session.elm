@@ -86,7 +86,7 @@ decodeStore =
 
 
 encodeStore : Store -> Encode.Value
-encodeStore v =
+encodeStore _ =
     Encode.object []
 
 

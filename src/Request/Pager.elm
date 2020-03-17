@@ -1,6 +1,5 @@
 module Request.Pager exposing (Pager, decode, update)
 
-import Http
 import Json.Decode as Decode exposing (Decoder)
 
 

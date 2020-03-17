@@ -4,7 +4,7 @@ import Data.Autocomplete as Autocomplete
 import Data.Commune as Commune
 import Data.Session exposing (Session)
 import Http
-import Json.Decode as Decode exposing (Decoder)
+import Json.Decode as Decode
 import Url.Builder as UrlBuilder
 
 

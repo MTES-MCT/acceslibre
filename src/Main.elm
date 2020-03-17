@@ -72,24 +72,22 @@ setRoute maybeRoute model =
                 Route.Home ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
-                Route.CommuneHome commune ->
+                Route.CommuneHome _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
-                Route.Activite activiteSlug ->
-                    -- TODO: pass slug
+                Route.Activite _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
-                Route.Erp erpSlug ->
-                    -- TODO: pass slug
+                Route.Erp _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
-                Route.CommuneActivite commune activite ->
+                Route.CommuneActivite _ _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
-                Route.CommuneActiviteErp commune activite erp ->
+                Route.CommuneActiviteErp _ _ _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
-                Route.CommuneErp commune erp ->
+                Route.CommuneErp _ _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
 

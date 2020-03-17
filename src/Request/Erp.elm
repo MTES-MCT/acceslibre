@@ -1,6 +1,6 @@
 module Request.Erp exposing (get, list, listNext)
 
-import Data.Activite as Activite exposing (Activite)
+import Data.Activite as Activite
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
 import Data.Session as Session exposing (Session)
@@ -26,7 +26,7 @@ list : Session -> Maybe Commune -> Maybe Activite.Slug -> Maybe String -> (WebDa
 list session maybeCommune maybeActiviteSlug maybeSearch msg =
     Http.get
         { url =
-            UrlBuilder.crossOrigin "http://localhost:8000"
+            UrlBuilder.crossOrigin session.serverUrl
                 [ "api", "erps" ]
                 (List.concat
                     [ case maybeCommune of
