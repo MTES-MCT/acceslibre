@@ -19,10 +19,12 @@ import Request.Erp
 import Request.Pager as Pager exposing (Pager)
 import Route exposing (Route)
 import Task exposing (Task)
+import Views.Spinner as Spinner
 
 
 type alias Model =
-    { commune : Maybe Commune
+    { loading : Bool
+    , commune : Maybe Commune
     , erp : Maybe Erp
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
@@ -49,7 +51,8 @@ init session route =
                 |> InfiniteScroll.offset 100
 
         base =
-            { commune = Nothing
+            { loading = True
+            , commune = Nothing
             , erp = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
@@ -136,7 +139,10 @@ update session msg model =
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         ErpsReceived (RemoteData.Success erps) ->
-            ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
+            ( { model
+                | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
+                , loading = False
+              }
             , { session | erps = RemoteData.Success erps }
             , Cmd.batch
                 [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
@@ -153,7 +159,10 @@ update session msg model =
             )
 
         ErpsReceived (RemoteData.Failure error) ->
-            ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
+            ( { model
+                | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
+                , loading = False
+              }
             , session |> Session.notifyHttpError error
             , Cmd.none
             )
@@ -582,20 +591,16 @@ erpListEntryView model erp =
 erpListView : Session -> Model -> Html Msg
 erpListView session model =
     case session.erps of
-        RemoteData.NotAsked ->
-            text "not asked"
-
-        RemoteData.Loading ->
-            text "loading"
-
-        RemoteData.Failure error ->
-            text "error !"
-
         RemoteData.Success erps ->
             erps.results
                 |> List.map (\erp -> erpListEntryView model erp)
                 |> div
-                    [ class "list-group list-group-flush" ]
+                    [ class "list-group list-group-flush a4a-erp-list-inner"
+                    , classList [ ( "loading", model.loading ) ]
+                    ]
+
+        _ ->
+            div [ class "p-5 text-center" ] [ Spinner.view ]
 
 
 view : Session -> Model -> ( String, List (Html Msg) )
