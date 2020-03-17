@@ -50,9 +50,7 @@ viewHeader { session, autocomplete } =
             , attribute "data-toggle" "collapse"
             , type_ "button"
             ]
-            [ span [ class "navbar-toggler-icon" ]
-                []
-            ]
+            [ span [ class "navbar-toggler-icon" ] [] ]
         , div [ class "collapse navbar-collapse", id "navbarSupportedContent" ]
             [ Dict.values Commune.communes
                 |> List.map

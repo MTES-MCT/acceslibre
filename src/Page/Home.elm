@@ -110,13 +110,12 @@ init session route =
 
           else
             Cmd.none
-        , Request.Erp.list session model.commune model.activiteSlug Nothing ErpListReceived
         , case model.erpSlug of
             Just erpSlug ->
                 Request.Erp.get session erpSlug ErpDetailReceived
 
             Nothing ->
-                Cmd.none
+                Request.Erp.list session model.commune model.activiteSlug Nothing ErpListReceived
         ]
     )
 
