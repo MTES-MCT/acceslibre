@@ -97,7 +97,7 @@ init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
     let
         serverUrl =
-            if flags.clientUrl == "http://localhost:3000" then
+            if flags.clientUrl == "http://localhost:3000/" then
                 "http://localhost:8000"
 
             else

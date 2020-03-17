@@ -1,5 +1,6 @@
 module Route exposing
     ( Route(..)
+    , forAutocompleteEntry
     , forErp
     , fromUrl
     , href
@@ -9,6 +10,7 @@ module Route exposing
 
 import Browser.Navigation as Nav
 import Data.Activite as Activite exposing (Activite)
+import Data.Autocomplete as Autocomplete
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
 import Html exposing (Attribute)
@@ -38,6 +40,19 @@ parser =
         , Parser.map CommuneActiviteErp (Commune.slugParser </> s "a" </> Activite.slugParser </> s "erp" </> Erp.slugParser)
         , Parser.map CommuneErp (Commune.slugParser </> s "erp" </> Erp.slugParser)
         ]
+
+
+forAutocompleteEntry : Autocomplete.Entry -> Route
+forAutocompleteEntry entry =
+    case ( entry.activiteSlug, Commune.findBySlug entry.communeSlug ) of
+        ( Just activiteSlug, Just commune ) ->
+            CommuneActiviteErp commune activiteSlug entry.erpSlug
+
+        ( Nothing, Just commune ) ->
+            CommuneErp commune entry.erpSlug
+
+        _ ->
+            Erp entry.erpSlug
 
 
 forErp : Erp -> Route

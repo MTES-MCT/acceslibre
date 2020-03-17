@@ -102,7 +102,9 @@ viewHeader { session, autocomplete, activePage } =
                             |> List.map
                                 (\entry ->
                                     div []
-                                        [ a [ href ("#" ++ entry.url) ] [ text entry.value ] ]
+                                        [ a [ Route.href (Route.forAutocompleteEntry entry) ]
+                                            [ text entry.value ]
+                                        ]
                                 )
                             |> div [ class "a4a-autocomplete-items" ]
 

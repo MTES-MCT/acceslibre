@@ -71,6 +71,9 @@ def autocomplete(request, commune):
                 "value": erp.nom + ", " + erp.short_adresse,
                 "data": {
                     "score": score,
+                    "commune": commune,
+                    "slug": erp.slug,
+                    "activite": erp.activite and erp.activite.slug,
                     "url": (
                         erp.get_absolute_url()
                         + "?around="

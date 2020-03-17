@@ -34,12 +34,13 @@ type alias Model =
 
 type Msg
     = ActivitesReceived (Result Http.Error (List Activite))
-    | ErpReceived (Result Http.Error Erp)
-    | ErpsReceived (WebData (Pager Erp))
+    | Back
+    | ErpDetailReceived (Result Http.Error Erp)
+    | ErpListReceived (WebData (Pager Erp))
     | InfiniteScrollMsg InfiniteScroll.Msg
     | LocateOnMap Erp
-    | NextErpsPage ()
-    | NextErpsReceived (WebData (Pager Erp))
+    | NextErpListPage ()
+    | NextErpListReceived (WebData (Pager Erp))
     | NoOp
 
 
@@ -47,7 +48,7 @@ init : Session -> Route -> ( Model, Session, Cmd Msg )
 init session route =
     let
         defaultInfiniteScroll =
-            InfiniteScroll.init (\_ -> Task.perform NextErpsPage (Task.succeed ()))
+            InfiniteScroll.init (\_ -> Task.perform NextErpListPage (Task.succeed ()))
                 |> InfiniteScroll.offset 100
 
         base =
@@ -110,10 +111,10 @@ init session route =
 
           else
             Cmd.none
-        , Request.Erp.list session model.commune model.activiteSlug Nothing ErpsReceived
+        , Request.Erp.list session model.commune model.activiteSlug Nothing ErpListReceived
         , case model.erpSlug of
             Just erpSlug ->
-                Request.Erp.get session erpSlug ErpReceived
+                Request.Erp.get session erpSlug ErpDetailReceived
 
             Nothing ->
                 Cmd.none
@@ -124,6 +125,12 @@ init session route =
 scrollTop : String -> Task Dom.Error ()
 scrollTop id =
     Dom.setViewportOf id 0 0
+
+
+addMapMarkers : List Erp -> Cmd Msg
+addMapMarkers =
+    Erp.toJsonList (Route.forErp >> Route.toString)
+        >> Ports.addMapMarkers
 
 
 update : Session -> Msg -> Model -> ( Model, Session, Cmd Msg )
@@ -138,7 +145,22 @@ update session msg model =
         ActivitesReceived (Err error) ->
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
-        ErpsReceived (RemoteData.Success erps) ->
+        Back ->
+            ( { model | erp = Nothing }, session, Cmd.none )
+
+        ErpDetailReceived (Ok erp) ->
+            ( { model | erp = Just erp }
+            , session
+            , Cmd.batch
+                [ addMapMarkers [ erp ]
+                , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
+                ]
+            )
+
+        ErpDetailReceived (Err error) ->
+            ( model, session |> Session.notifyHttpError error, Cmd.none )
+
+        ErpListReceived (RemoteData.Success erps) ->
             ( { model
                 | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
                 , loading = False
@@ -149,16 +171,14 @@ update session msg model =
 
                 -- only add erp list markers to map when an erp is not opened
                 , if model.erp == Nothing then
-                    erps.results
-                        |> Erp.toJsonList (Route.forErp >> Route.toString)
-                        |> Ports.addMapMarkers
+                    addMapMarkers erps.results
 
                   else
                     Cmd.none
                 ]
             )
 
-        ErpsReceived (RemoteData.Failure error) ->
+        ErpListReceived (RemoteData.Failure error) ->
             ( { model
                 | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
                 , loading = False
@@ -167,20 +187,11 @@ update session msg model =
             , Cmd.none
             )
 
-        ErpsReceived RemoteData.NotAsked ->
+        ErpListReceived RemoteData.NotAsked ->
             ( model, session, Cmd.none )
 
-        ErpsReceived RemoteData.Loading ->
+        ErpListReceived RemoteData.Loading ->
             ( model, session, Cmd.none )
-
-        ErpReceived (Ok erp) ->
-            ( { model | erp = Just erp }
-            , session
-            , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
-            )
-
-        ErpReceived (Err error) ->
-            ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         LocateOnMap erp ->
             ( model
@@ -198,25 +209,25 @@ update session msg model =
             , cmd
             )
 
-        NextErpsPage () ->
+        NextErpListPage () ->
             ( model
             , session
-            , Request.Erp.listNext session NextErpsReceived
+            , Request.Erp.listNext session NextErpListReceived
             )
 
-        NextErpsReceived (RemoteData.Success nextErps) ->
+        NextErpListReceived (RemoteData.Success nextErps) ->
             ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
             , { session | erps = RemoteData.Success nextErps }
             , Cmd.none
             )
 
-        NextErpsReceived (RemoteData.Failure error) ->
+        NextErpListReceived (RemoteData.Failure error) ->
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
-        NextErpsReceived RemoteData.Loading ->
+        NextErpListReceived RemoteData.Loading ->
             ( model, session, Cmd.none )
 
-        NextErpsReceived RemoteData.NotAsked ->
+        NextErpListReceived RemoteData.NotAsked ->
             ( model, session, Cmd.none )
 
         NoOp ->
@@ -511,10 +522,23 @@ erpDetailsView : Session -> Erp -> Html Msg
 erpDetailsView session erp =
     div [ class "px-3" ]
         [ p [ class "pt-2" ]
-            -- TODO: historize routes, navigate to previous in history
-            [ a [ href "/app/92-rueil-malmaison/a/coiffure/" ]
-                [ text "Retour"
+            [ a
+                [ Route.href
+                    (case ( session.commune, erp.activite ) of
+                        ( Just commune, Just activite ) ->
+                            Route.CommuneActivite commune activite.slug
+
+                        ( Just commune, Nothing ) ->
+                            Route.CommuneHome commune
+
+                        ( Nothing, Just activite ) ->
+                            Route.Activite activite.slug
+
+                        _ ->
+                            Route.Home
+                    )
                 ]
+                [ text "« Retour" ]
             ]
         , div [ class "a4a-erp-details" ]
             [ h3 []

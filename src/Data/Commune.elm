@@ -4,6 +4,7 @@ module Data.Commune exposing
     , communes
     , encode
     , findByNom
+    , findBySlug
     , slugFromString
     , slugParser
     , slugToString
@@ -43,6 +44,11 @@ findByNom string =
         |> Dict.values
         |> List.filter (.nom >> (==) string)
         |> List.head
+
+
+findBySlug : Slug -> Maybe Commune
+findBySlug slug =
+    communes |> Dict.get (slugToString slug)
 
 
 slugToString : Slug -> String
