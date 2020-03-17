@@ -1,12 +1,15 @@
 module Views.Page exposing (ActivePage(..), Config, frame)
 
 import Browser exposing (Document)
+import Data.Autocomplete as Autocomplete
 import Data.Commune as Commune exposing (Commune)
+import Data.Point exposing (Point)
 import Data.Session as Session exposing (Session)
 import Dict
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Json.Decode as Decode
 import Route
 
 
@@ -19,6 +22,7 @@ type alias Config msg =
     { session : Session
     , autocomplete : String -> msg
     , clearNotif : Session.Notif -> msg
+    , locateMap : Point -> msg
     , activePage : ActivePage
     }
 
@@ -35,7 +39,7 @@ frame config ( title, content ) =
 
 
 viewHeader : Config msg -> Html msg
-viewHeader { session, autocomplete } =
+viewHeader { session, autocomplete, locateMap } =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
@@ -99,8 +103,23 @@ viewHeader { session, autocomplete } =
                             |> List.map
                                 (\entry ->
                                     div []
-                                        [ a [ Route.href (Route.forAutocompleteEntry entry) ]
-                                            [ text entry.value ]
+                                        [ case entry of
+                                            Autocomplete.Ban banEntry ->
+                                                div
+                                                    [ href "http://google.com"
+                                                    , custom "click"
+                                                        (Decode.succeed
+                                                            { message = locateMap banEntry.point
+                                                            , stopPropagation = True
+                                                            , preventDefault = True
+                                                            }
+                                                        )
+                                                    ]
+                                                    [ i [ class "icon icon-road" ] [], text " ", text banEntry.label ]
+
+                                            Autocomplete.Erp erpEntry ->
+                                                a [ Route.href (Route.forAutocompleteEntry erpEntry) ]
+                                                    [ i [ class "icon icon-commercial" ] [], text " ", text erpEntry.value ]
                                         ]
                                 )
                             |> div [ class "a4a-autocomplete-items" ]

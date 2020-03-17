@@ -40,6 +40,10 @@ app.ports.franceMap.subscribe(function() {
     .setView([46.227638, 2.213749], 6);
 });
 
+app.ports.locateMap.subscribe(function(point) {
+  createMap().setView(point, 18);
+});
+
 app.ports.addMapMarkers.subscribe(function(erps) {
   // Cluster
   if (markers) {

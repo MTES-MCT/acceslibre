@@ -2,6 +2,8 @@ module Data.Session exposing
     ( Notif(..)
     , Session
     , Store
+    , addBanEntries
+    , addErpEntries
     , clearNotif
     , default
     , deserializeStore
@@ -49,6 +51,28 @@ type alias Session =
 
 type alias Store =
     {}
+
+
+addBanEntries : List Autocomplete.BanEntry -> Session -> Session
+addBanEntries bans ({ autocomplete } as session) =
+    { session
+        | autocomplete =
+            { autocomplete
+                | results =
+                    autocomplete.results |> Autocomplete.addBanEntries bans
+            }
+    }
+
+
+addErpEntries : List Autocomplete.ErpEntry -> Session -> Session
+addErpEntries erps ({ autocomplete } as session) =
+    { session
+        | autocomplete =
+            { autocomplete
+                | results =
+                    autocomplete.results |> Autocomplete.addErpEntries erps
+            }
+    }
 
 
 clearNotif : Notif -> Session -> Session

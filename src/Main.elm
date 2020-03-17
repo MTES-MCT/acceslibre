@@ -3,6 +3,7 @@ module Main exposing (main)
 import Browser exposing (Document)
 import Browser.Navigation as Nav
 import Data.Autocomplete as Autocomplete
+import Data.Point as Point exposing (Point)
 import Data.Session as Session exposing (Session)
 import Html exposing (..)
 import Http
@@ -34,9 +35,11 @@ type alias Model =
 
 type Msg
     = Autocomplete String
-    | AutocompleteReceived (Result Http.Error (List Autocomplete.Entry))
+    | AutocompleteBanReceived (Result Http.Error (List Autocomplete.BanEntry))
+    | AutocompleteErpReceived (Result Http.Error (List Autocomplete.ErpEntry))
     | ClearNotif Session.Notif
     | HomeMsg Home.Msg
+    | LocateMap Point
     | StoreChanged String
     | UrlChanged Url
     | UrlRequested Browser.UrlRequest
@@ -140,24 +143,35 @@ update msg ({ page, session } as model) =
                     { session | autocomplete = { autocomplete | search = search, results = [] } }
             in
             ( { model | session = newSession }
-            , Request.Autocomplete.run newSession AutocompleteReceived
+            , if String.length search > 2 then
+                Cmd.batch
+                    [ Request.Autocomplete.ban newSession AutocompleteBanReceived
+                    , Request.Autocomplete.erp newSession AutocompleteErpReceived
+                    ]
+
+              else
+                Cmd.none
             )
 
-        ( AutocompleteReceived (Ok results), _ ) ->
-            let
-                autocomplete =
-                    session.autocomplete
+        ( AutocompleteBanReceived (Ok results), _ ) ->
+            ( { model | session = session |> Session.addBanEntries results }, Cmd.none )
 
-                newAutocomplete =
-                    { autocomplete | results = results }
-            in
-            ( { model | session = { session | autocomplete = newAutocomplete } }, Cmd.none )
+        ( AutocompleteBanReceived (Err error), _ ) ->
+            ( { model | session = session |> Session.notifyHttpError error }, Cmd.none )
 
-        ( AutocompleteReceived (Err error), _ ) ->
+        ( AutocompleteErpReceived (Ok results), _ ) ->
+            ( { model | session = session |> Session.addErpEntries results }, Cmd.none )
+
+        ( AutocompleteErpReceived (Err error), _ ) ->
             ( { model | session = session |> Session.notifyHttpError error }, Cmd.none )
 
         ( ClearNotif notif, _ ) ->
             ( { model | session = session |> Session.clearNotif notif }, Cmd.none )
+
+        ( LocateMap point, _ ) ->
+            ( { model | session = session |> Session.resetAutocomplete }
+            , Ports.locateMap (Point.encode point)
+            )
 
         ( HomeMsg homeMsg, HomePage homeModel ) ->
             toPage HomePage HomeMsg Home.update homeMsg homeModel
@@ -206,7 +220,7 @@ view : Model -> Document Msg
 view { page, session } =
     let
         pageConfig =
-            Page.Config session Autocomplete ClearNotif
+            Page.Config session Autocomplete ClearNotif LocateMap
 
         mapMsg msg ( title, content ) =
             ( title, content |> List.map (Html.map msg) )

@@ -2,6 +2,7 @@ port module Ports exposing
     ( addMapMarkers
     , communeMap
     , franceMap
+    , locateMap
     , openMapErpMarker
     , saveStore
     , storeChanged
@@ -17,6 +18,9 @@ port communeMap : Encode.Value -> Cmd msg
 
 
 port franceMap : () -> Cmd msg
+
+
+port locateMap : Encode.Value -> Cmd msg
 
 
 port openMapErpMarker : String -> Cmd msg
