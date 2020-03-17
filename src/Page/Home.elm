@@ -131,7 +131,9 @@ update session msg model =
 
                 -- only add erp list markers to map when an erp is not opened
                 , if model.erp == Nothing then
-                    Ports.addMapMarkers (Erp.toJsonList erps)
+                    erps
+                        |> Erp.toJsonList (Route.forErp >> Route.toString)
+                        |> Ports.addMapMarkers
 
                   else
                     Cmd.none
@@ -144,14 +146,17 @@ update session msg model =
         ErpReceived (Ok erp) ->
             ( { model | erp = Just erp }
             , session
-            , Ports.openMapErpMarker (Erp.slugToString erp.slug)
+            , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
             )
 
         ErpReceived (Err error) ->
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         LocateOnMap erp ->
-            ( model, session, Ports.openMapErpMarker (Erp.slugToString erp.slug) )
+            ( model
+            , session
+            , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
+            )
 
         NoOp ->
             ( model, session, Cmd.none )

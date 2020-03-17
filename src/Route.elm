@@ -1,4 +1,11 @@
-module Route exposing (Route(..), fromUrl, href, pushUrl)
+module Route exposing
+    ( Route(..)
+    , forErp
+    , fromUrl
+    , href
+    , pushUrl
+    , toString
+    )
 
 import Browser.Navigation as Nav
 import Data.Activite as Activite exposing (Activite)
@@ -31,6 +38,19 @@ parser =
         , Parser.map CommuneActiviteErp (Commune.slugParser </> s "a" </> Activite.slugParser </> s "erp" </> Erp.slugParser)
         , Parser.map CommuneErp (Commune.slugParser </> s "erp" </> Erp.slugParser)
         ]
+
+
+forErp : Erp -> Route
+forErp erp =
+    case ( erp.activite, Commune.findByNom erp.commune ) of
+        ( Just activite, Just commune ) ->
+            CommuneActiviteErp commune activite.slug erp.slug
+
+        ( Nothing, Just commune ) ->
+            CommuneErp commune erp.slug
+
+        _ ->
+            Erp erp.slug
 
 
 {-| Note: as elm-kitchen relies on URL fragment based routing, the source URL is

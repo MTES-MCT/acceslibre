@@ -10,6 +10,7 @@ module Data.Erp exposing
     )
 
 import Data.Activite as Activite exposing (Activite)
+import Data.Commune as Commune
 import Data.Point as Point exposing (Point)
 import Json.Decode as Decode exposing (Decoder)
 import Json.Decode.Pipeline as Pipe
@@ -52,10 +53,11 @@ decode =
         |> Pipe.required "has_accessibilite" Decode.bool
 
 
-toJson : Erp -> Encode.Value
-toJson erp =
+toJson : (Erp -> String) -> Erp -> Encode.Value
+toJson toUrl erp =
     Encode.object
         [ ( "nom", Encode.string erp.nom )
+        , ( "url", Encode.string (toUrl erp) )
         , ( "slug", Encode.string (slugToString erp.slug) )
         , ( "activite", erp.activite |> Maybe.map (.nom >> Encode.string) |> Maybe.withDefault Encode.null )
         , ( "adresse", Encode.string erp.adresse )
@@ -69,9 +71,9 @@ toJson erp =
         ]
 
 
-toJsonList : List Erp -> Encode.Value
-toJsonList =
-    Encode.list toJson
+toJsonList : (Erp -> String) -> List Erp -> Encode.Value
+toJsonList toUrl =
+    Encode.list (toJson toUrl)
 
 
 slugToString : Slug -> String

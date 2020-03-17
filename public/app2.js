@@ -62,8 +62,8 @@ app.ports.addMapMarkers.subscribe(function(erps) {
   map.fitBounds(markers.getBounds().pad(0.1));
 });
 
-app.ports.openMapErpMarker.subscribe(function(slug) {
-  openMarkerPopup(slug);
+app.ports.openMapErpMarker.subscribe(function(erpUrl) {
+  openMarkerPopup(erpUrl);
 });
 
 function createErpMarker(erp) {
@@ -82,7 +82,7 @@ function createErpMarker(erp) {
     icon: createIcon(erp.hasAccessibilite)
   }).bindPopup(content);
 
-  marker.slug = erp.slug;
+  marker.url = erp.url;
 
   return marker;
 }
@@ -148,13 +148,13 @@ function iconCreateFunction(cluster) {
   });
 }
 
-function openMarkerPopup(slug) {
+function openMarkerPopup(url) {
   if (!markers) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
   }
   markers.getLayers().forEach(function(layer) {
-    if (layer.slug === slug) {
+    if (layer.url === url) {
       try {
         markers.zoomToShowLayer(layer, function() {
           layer.openPopup();
