@@ -9,11 +9,14 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Http
+import InfiniteScroll
 import Json.Decode as Decode
 import Markdown
 import Ports
+import RemoteData exposing (WebData)
 import Request.Activite
 import Request.Erp
+import Request.Pager as Pager exposing (Pager)
 import Route exposing (Route)
 import Task exposing (Task)
 
@@ -23,25 +26,32 @@ type alias Model =
     , erp : Maybe Erp
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
+    , infiniteScroll : InfiniteScroll.Model Msg
     }
 
 
 type Msg
     = ActivitesReceived (Result Http.Error (List Activite))
     | ErpReceived (Result Http.Error Erp)
-    | ErpsReceived (Result Http.Error (List Erp))
+    | ErpsReceived (WebData (Pager Erp))
+    | InfiniteScrollMsg InfiniteScroll.Msg
     | LocateOnMap Erp
+    | NextPage ()
     | NoOp
 
 
 init : Session -> Route -> ( Model, Session, Cmd Msg )
 init session route =
     let
+        defaultInfiniteScroll =
+            InfiniteScroll.init (\_ -> Task.perform NextPage (Task.succeed ()))
+
         base =
             { commune = Nothing
             , erp = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
+            , infiniteScroll = defaultInfiniteScroll
             }
 
         model =
@@ -123,15 +133,15 @@ update session msg model =
         ActivitesReceived (Err error) ->
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
-        ErpsReceived (Ok erps) ->
-            ( model
-            , { session | erps = erps }
+        ErpsReceived (RemoteData.Success erps) ->
+            ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
+            , { session | erps = RemoteData.Success erps }
             , Cmd.batch
                 [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
 
                 -- only add erp list markers to map when an erp is not opened
                 , if model.erp == Nothing then
-                    erps
+                    erps.results
                         |> Erp.toJsonList (Route.forErp >> Route.toString)
                         |> Ports.addMapMarkers
 
@@ -140,8 +150,17 @@ update session msg model =
                 ]
             )
 
-        ErpsReceived (Err error) ->
-            ( model, session |> Session.notifyHttpError error, Cmd.none )
+        ErpsReceived (RemoteData.Failure error) ->
+            ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
+            , session |> Session.notifyHttpError error
+            , Cmd.none
+            )
+
+        ErpsReceived RemoteData.NotAsked ->
+            ( model, session, Cmd.none )
+
+        ErpsReceived RemoteData.Loading ->
+            ( model, session, Cmd.none )
 
         ErpReceived (Ok erp) ->
             ( { model | erp = Just erp }
@@ -157,6 +176,26 @@ update session msg model =
             , session
             , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
             )
+
+        InfiniteScrollMsg msg_ ->
+            let
+                _ =
+                    Debug.log "plop" "InfiniteScrollMsg"
+
+                ( infiniteScroll, cmd ) =
+                    InfiniteScroll.update InfiniteScrollMsg msg_ model.infiniteScroll
+            in
+            ( { model | infiniteScroll = infiniteScroll }
+            , session
+            , cmd
+            )
+
+        NextPage () ->
+            let
+                _ =
+                    Debug.log "plop" "NextPage"
+            in
+            ( model, session, Cmd.none )
 
         NoOp ->
             ( model, session, Cmd.none )
@@ -544,6 +583,7 @@ view session model =
                 , main_
                     [ class "a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto"
                     , id "a4a-erp-list"
+                    , InfiniteScroll.infiniteScroll InfiniteScrollMsg
                     ]
                     [ case model.erp of
                         Just erp ->
@@ -551,8 +591,12 @@ view session model =
 
                         Nothing ->
                             session.erps
+                                |> RemoteData.map .results
+                                -- FIXME: extract data
+                                |> RemoteData.withDefault []
                                 |> List.map (\erp -> erpListEntryView model erp)
-                                |> div [ class "list-group list-group-flush" ]
+                                |> div
+                                    [ class "list-group list-group-flush" ]
                     ]
                 , div [ class "a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0" ]
                     [ div [ class "a4a-map", id "map" ] []

@@ -20,7 +20,9 @@ import Data.Erp as Erp exposing (Erp)
 import Http
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
+import RemoteData exposing (WebData)
 import Request.Error
+import Request.Pager as Pager exposing (Pager)
 
 
 type Notif
@@ -34,7 +36,7 @@ type alias Session =
     , notifs : List Notif
     , commune : Maybe Commune
     , activites : List Activite
-    , erps : List Erp
+    , erps : WebData (Pager Erp)
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
     , autocomplete :
@@ -61,7 +63,7 @@ default navKey clientUrl =
     , notifs = []
     , commune = Nothing
     , activites = []
-    , erps = []
+    , erps = RemoteData.NotAsked
     , activiteSlug = Nothing
     , erpSlug = Nothing
     , autocomplete =

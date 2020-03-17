@@ -6,6 +6,8 @@ import Data.Erp as Erp exposing (Erp)
 import Data.Session as Session exposing (Session)
 import Http
 import Json.Decode as Decode
+import RemoteData exposing (WebData)
+import Request.Pager as Pager exposing (Pager)
 import Url.Builder as UrlBuilder
 
 
@@ -20,7 +22,7 @@ get session slug msg =
         }
 
 
-list : Session -> Maybe Commune -> Maybe Activite.Slug -> Maybe String -> (Result Http.Error (List Erp) -> msg) -> Cmd msg
+list : Session -> Maybe Commune -> Maybe Activite.Slug -> Maybe String -> (WebData (Pager Erp) -> msg) -> Cmd msg
 list session maybeCommune maybeActiviteSlug maybeSearch msg =
     Http.get
         { url =
@@ -47,5 +49,5 @@ list session maybeCommune maybeActiviteSlug maybeSearch msg =
                             []
                     ]
                 )
-        , expect = Http.expectJson msg (Decode.at [ "results" ] (Decode.list Erp.decode))
+        , expect = Http.expectJson (RemoteData.fromResult >> msg) (Pager.decode Erp.decode)
         }
