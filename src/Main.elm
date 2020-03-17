@@ -96,8 +96,15 @@ setRoute maybeRoute model =
 init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
     let
+        serverUrl =
+            if flags.clientUrl == "http://localhost:3000" then
+                "http://localhost:8000"
+
+            else
+                "https://access4all.beta.gouv.fr"
+
         session =
-            Session.default navKey flags.clientUrl
+            Session.default navKey flags.clientUrl serverUrl
                 |> Session.initStore flags.rawStore
     in
     setRoute (Route.fromUrl url)

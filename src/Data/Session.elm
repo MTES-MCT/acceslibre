@@ -32,6 +32,7 @@ type Notif
 type alias Session =
     { navKey : Nav.Key
     , clientUrl : String
+    , serverUrl : String
     , store : Store
     , notifs : List Notif
     , commune : Maybe Commune
@@ -55,10 +56,11 @@ clearNotif notif session =
     { session | notifs = session.notifs |> List.filter ((/=) notif) }
 
 
-default : Nav.Key -> String -> Session
-default navKey clientUrl =
+default : Nav.Key -> String -> String -> Session
+default navKey clientUrl serverUrl =
     { navKey = navKey
     , clientUrl = clientUrl
+    , serverUrl = serverUrl
     , store = defaultStore
     , notifs = []
     , commune = Nothing

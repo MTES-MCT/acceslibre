@@ -12,7 +12,7 @@ list : Session -> Maybe Commune -> (Result Http.Error (List Activite) -> msg) ->
 list session maybeCommune msg =
     Http.get
         { url =
-            UrlBuilder.crossOrigin "http://localhost:8000"
+            UrlBuilder.crossOrigin session.serverUrl
                 [ "api", "activites" ]
                 (case maybeCommune of
                     Just commune ->

@@ -14,7 +14,7 @@ run session msg =
         Just commune ->
             Http.get
                 { url =
-                    UrlBuilder.crossOrigin "http://localhost:8000"
+                    UrlBuilder.crossOrigin session.serverUrl
                         [ "app", Commune.slugToString commune.slug, "autocomplete" ]
                         [ UrlBuilder.string "q" session.autocomplete.search
                         ]

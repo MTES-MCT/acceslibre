@@ -15,7 +15,7 @@ get : Session -> Erp.Slug -> (Result Http.Error Erp -> msg) -> Cmd msg
 get session slug msg =
     Http.get
         { url =
-            UrlBuilder.crossOrigin "http://localhost:8000"
+            UrlBuilder.crossOrigin session.serverUrl
                 [ "api", "erps", Erp.slugToString slug ]
                 []
         , expect = Http.expectJson msg Erp.decode
