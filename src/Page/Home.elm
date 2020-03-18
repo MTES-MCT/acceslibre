@@ -110,13 +110,12 @@ init session route =
 
           else
             Cmd.none
-        , Request.Erp.list session model.commune model.activiteSlug Nothing ErpListReceived
         , case model.erpSlug of
             Just erpSlug ->
                 Request.Erp.get session erpSlug ErpDetailReceived
 
             Nothing ->
-                Cmd.none
+                Request.Erp.list session model.commune model.activiteSlug Nothing ErpListReceived
         ]
     )
 
@@ -217,7 +216,7 @@ update session msg model =
         NextErpListReceived (RemoteData.Success nextErps) ->
             ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
             , { session | erps = RemoteData.Success nextErps }
-            , Cmd.none
+            , addMapMarkers nextErps.results
             )
 
         NextErpListReceived (RemoteData.Failure error) ->

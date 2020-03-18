@@ -2,19 +2,22 @@ module Data.Session exposing
     ( Notif(..)
     , Session
     , Store
+    , addBanEntries
+    , addErpEntries
     , clearNotif
     , default
     , deserializeStore
     , initStore
     , notifyError
     , notifyHttpError
+    , purgeAutocomplete
     , resetAutocomplete
     , serializeStore
     )
 
 import Browser.Navigation as Nav
 import Data.Activite as Activite exposing (Activite)
-import Data.Autocomplete as Autocomplete
+import Data.Autocomplete as Autocomplete exposing (Autocomplete)
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
 import Http
@@ -40,15 +43,22 @@ type alias Session =
     , erps : WebData (Pager Erp)
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
-    , autocomplete :
-        { search : String
-        , results : List Autocomplete.Entry
-        }
+    , autocomplete : Autocomplete
     }
 
 
 type alias Store =
     {}
+
+
+addBanEntries : List Autocomplete.BanEntry -> Session -> Session
+addBanEntries bans ({ autocomplete } as session) =
+    { session | autocomplete = { autocomplete | bans = bans } }
+
+
+addErpEntries : List Autocomplete.ErpEntry -> Session -> Session
+addErpEntries erps ({ autocomplete } as session) =
+    { session | autocomplete = { autocomplete | erps = erps } }
 
 
 clearNotif : Notif -> Session -> Session
@@ -68,10 +78,7 @@ default navKey clientUrl serverUrl =
     , erps = RemoteData.NotAsked
     , activiteSlug = Nothing
     , erpSlug = Nothing
-    , autocomplete =
-        { search = ""
-        , results = []
-        }
+    , autocomplete = Autocomplete.default
     }
 
 
@@ -110,9 +117,14 @@ notifyHttpError error session =
     session |> notifyError (Request.Error.toString error)
 
 
+purgeAutocomplete : String -> Session -> Session
+purgeAutocomplete search ({ autocomplete } as session) =
+    { session | autocomplete = { autocomplete | search = search, bans = [], erps = [] } }
+
+
 resetAutocomplete : Session -> Session
 resetAutocomplete session =
-    { session | autocomplete = { search = "", results = [] } }
+    { session | autocomplete = Autocomplete.default }
 
 
 serializeStore : Store -> String

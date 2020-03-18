@@ -1,13 +1,17 @@
 module Views.Page exposing (ActivePage(..), Config, frame)
 
 import Browser exposing (Document)
+import Data.Autocomplete as Autocomplete
 import Data.Commune as Commune exposing (Commune)
+import Data.Point exposing (Point)
 import Data.Session as Session exposing (Session)
 import Dict
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Route
+import Views.Autocomplete as AutocompleteView
+import Views.Notifs as NotifsView
 
 
 type ActivePage
@@ -19,6 +23,7 @@ type alias Config msg =
     { session : Session
     , autocomplete : String -> msg
     , clearNotif : Session.Notif -> msg
+    , locateMap : Point -> msg
     , activePage : ActivePage
     }
 
@@ -29,13 +34,13 @@ frame config ( title, content ) =
     , body =
         [ viewHeader config
         , main_ [] content
-        , viewNotifs config
+        , NotifsView.view config.session { clearNotif = config.clearNotif }
         ]
     }
 
 
 viewHeader : Config msg -> Html msg
-viewHeader { session, autocomplete } =
+viewHeader { session, autocomplete, locateMap } =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
@@ -50,9 +55,7 @@ viewHeader { session, autocomplete } =
             , attribute "data-toggle" "collapse"
             , type_ "button"
             ]
-            [ span [ class "navbar-toggler-icon" ]
-                []
-            ]
+            [ span [ class "navbar-toggler-icon" ] [] ]
         , div [ class "collapse navbar-collapse", id "navbarSupportedContent" ]
             [ Dict.values Commune.communes
                 |> List.map
@@ -96,45 +99,8 @@ viewHeader { session, autocomplete } =
                             )
                         ]
                         []
-                    , if List.length session.autocomplete.results > 0 then
-                        session.autocomplete.results
-                            |> List.map
-                                (\entry ->
-                                    div []
-                                        [ a [ Route.href (Route.forAutocompleteEntry entry) ]
-                                            [ text entry.value ]
-                                        ]
-                                )
-                            |> div [ class "a4a-autocomplete-items" ]
-
-                      else
-                        text ""
+                    , AutocompleteView.panel session { locateMap = locateMap }
                     ]
                 ]
             ]
         ]
-
-
-viewNotifs : Config msg -> Html msg
-viewNotifs { session, clearNotif } =
-    session.notifs
-        |> List.map
-            (\notif ->
-                case notif of
-                    Session.ErrorNotif message ->
-                        div
-                            [ class "alert alert-danger a4a-notif"
-                            , attribute "role" "alert"
-                            ]
-                            [ button
-                                [ type_ "button"
-                                , class "close"
-                                , attribute "data-dismiss" "alert"
-                                , attribute "aria-label" "Close"
-                                , onClick (clearNotif notif)
-                                ]
-                                [ span [ attribute "aria-hidden" "true" ] [ text "×" ] ]
-                            , text message
-                            ]
-            )
-        |> div [ class "a4a-notifs" ]

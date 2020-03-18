@@ -42,7 +42,7 @@ parser =
         ]
 
 
-forAutocompleteEntry : Autocomplete.Entry -> Route
+forAutocompleteEntry : Autocomplete.ErpEntry -> Route
 forAutocompleteEntry entry =
     case ( entry.activiteSlug, Commune.findBySlug entry.communeSlug ) of
         ( Just activiteSlug, Just commune ) ->

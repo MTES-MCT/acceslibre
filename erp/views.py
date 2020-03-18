@@ -68,7 +68,7 @@ def autocomplete(request, commune):
         score = 10 if score > 10 else score
         suggestions.append(
             {
-                "value": erp.nom + ", " + erp.short_adresse,
+                "value": erp.nom + ", " + erp.adresse,
                 "data": {
                     "score": score,
                     "commune": commune,
