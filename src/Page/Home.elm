@@ -216,7 +216,7 @@ update session msg model =
         NextErpListReceived (RemoteData.Success nextErps) ->
             ( { model | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll }
             , { session | erps = RemoteData.Success nextErps }
-            , Cmd.none
+            , addMapMarkers nextErps.results
             )
 
         NextErpListReceived (RemoteData.Failure error) ->

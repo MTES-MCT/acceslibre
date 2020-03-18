@@ -53,6 +53,7 @@ app.ports.addMapMarkers.subscribe(function(erps) {
 
   markers = L.markerClusterGroup({
     disableClusteringAtZoom: 17,
+    maxClusterRadius: 40,
     showCoverageOnHover: false,
     iconCreateFunction: iconCreateFunction
   });
