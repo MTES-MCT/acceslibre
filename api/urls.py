@@ -1,8 +1,9 @@
 from django.urls import include, path
 from rest_framework import routers
-from .views import ActiviteViewSet, ErpViewSet
+from .views import AccessibiliteViewSet, ActiviteViewSet, ErpViewSet
 
 router = routers.DefaultRouter()
+router.register(r"accessibilite", AccessibiliteViewSet)
 router.register(r"activites", ActiviteViewSet)
 router.register(r"erps", ErpViewSet)
 

@@ -1,9 +1,11 @@
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 
-from erp.models import Activite, Erp
+from erp.models import Accessibilite, Activite, Erp
 from .serializers import (
+    AccessibiliteSerializer,
     ActiviteSerializer,
     ActiviteWithCountSerializer,
     ErpSerializer,
@@ -13,6 +15,18 @@ from .serializers import (
 # - permissions: https://www.django-rest-framework.org/api-guide/permissions/#api-reference
 # - queryable slugs: https://stackoverflow.com/a/32209005/330911
 # - pagination style: https://www.django-rest-framework.org/api-guide/pagination/#modifying-the-pagination-style
+# - detail view queryset overriding: https://github.com/encode/django-rest-framework/blob/0407a0df8a16fdac94bbd08d49143a74a88001cd/rest_framework/generics.py#L75-L101
+
+
+class AccessibilitePagination(PageNumberPagination):
+    page_size = 20
+
+
+class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Accessibilite.objects.filter(erp__published=True)
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
+    serializer_class = AccessibiliteSerializer
+    pagination_class = AccessibilitePagination
 
 
 class ActivitePagination(PageNumberPagination):

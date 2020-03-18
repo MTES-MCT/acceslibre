@@ -600,7 +600,7 @@ erpListEntryView erp =
                 , text erp.adresse
                 ]
             ]
-        , if erp.hasAccessibilite then
+        , if erp.accessibiliteApiUrl /= Nothing then
             button
                 [ class "btn btn-sm btn-outline-success mr-2 a4a-icon-btn"
                 , title "Les informations d'accessibilité sont disponibles"

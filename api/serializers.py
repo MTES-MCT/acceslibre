@@ -35,11 +35,14 @@ class LabelSerializer(serializers.ModelSerializer):
         fields = ["nom"]
 
 
-class AccessibiliteSerializer(serializers.ModelSerializer):
+class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Accessibilite
-        exclude = ["id", "erp", "created_at", "updated_at"]
+        exclude = ["created_at", "updated_at"]
 
+    erp = serializers.StringRelatedField(
+        source="erp.slug", many=False, read_only=True
+    )
     labels = serializers.SlugRelatedField(
         slug_field="nom", many=True, read_only=True
     )
@@ -82,7 +85,6 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "siret",
             "telephone",
             "site_internet",
-            "has_accessibilite",
             "accessibilite",
         )
         lookup_field = "slug"
@@ -93,5 +95,3 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         slug_field="username", many=False, read_only=True
     )
     adresse = serializers.ReadOnlyField()
-    has_accessibilite = serializers.ReadOnlyField()
-    accessibilite = AccessibiliteSerializer(many=False, read_only=True)
