@@ -1,12 +1,14 @@
 module Main exposing (main)
 
 import Browser exposing (Document)
+import Browser.Events as BE
 import Browser.Navigation as Nav
 import Data.Autocomplete as Autocomplete
 import Data.Point as Point exposing (Point)
 import Data.Session as Session exposing (Session)
 import Html exposing (..)
 import Http
+import Json.Decode as Decode
 import Page.Home as Home
 import Ports
 import Request.Autocomplete
@@ -37,6 +39,7 @@ type Msg
     = Autocomplete String
     | AutocompleteBanReceived (Result Http.Error (List Autocomplete.BanEntry))
     | AutocompleteErpReceived (Result Http.Error (List Autocomplete.ErpEntry))
+    | AutocompleteClose
     | ClearNotif Session.Notif
     | HomeMsg Home.Msg
     | LocateMap Point
@@ -140,7 +143,7 @@ update msg ({ page, session } as model) =
                     session.autocomplete
 
                 newSession =
-                    { session | autocomplete = { autocomplete | search = search, results = [] } }
+                    { session | autocomplete = { autocomplete | search = search, bans = [], erps = [] } }
             in
             ( { model | session = newSession }
             , if String.length search > 2 then
@@ -164,6 +167,9 @@ update msg ({ page, session } as model) =
 
         ( AutocompleteErpReceived (Err error), _ ) ->
             ( { model | session = session |> Session.notifyHttpError error }, Cmd.none )
+
+        ( AutocompleteClose, _ ) ->
+            ( { model | session = session |> Session.resetAutocomplete }, Cmd.none )
 
         ( ClearNotif notif, _ ) ->
             ( { model | session = session |> Session.clearNotif notif }, Cmd.none )
@@ -204,6 +210,9 @@ subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.batch
         [ Ports.storeChanged StoreChanged
+
+        -- autocomplete panel close
+        , BE.onMouseUp (Decode.succeed AutocompleteClose)
         , case model.page of
             HomePage _ ->
                 Sub.none

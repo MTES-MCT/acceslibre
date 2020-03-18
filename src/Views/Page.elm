@@ -9,8 +9,9 @@ import Dict
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Json.Decode as Decode
 import Route
+import Views.Autocomplete as AutocompleteView
+import Views.Notifs as NotifsView
 
 
 type ActivePage
@@ -33,13 +34,13 @@ frame config ( title, content ) =
     , body =
         [ viewHeader config
         , main_ [] content
-        , viewNotifs config
+        , NotifsView.view config.session { clearNotif = config.clearNotif }
         ]
     }
 
 
 viewHeader : Config msg -> Html msg
-viewHeader { session, autocomplete, locateMap } =
+viewHeader ({ session, autocomplete, locateMap } as config) =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
@@ -98,60 +99,8 @@ viewHeader { session, autocomplete, locateMap } =
                             )
                         ]
                         []
-                    , if List.length session.autocomplete.results > 0 then
-                        session.autocomplete.results
-                            |> List.map
-                                (\entry ->
-                                    div []
-                                        [ case entry of
-                                            Autocomplete.Ban banEntry ->
-                                                div
-                                                    [ href "http://google.com"
-                                                    , custom "click"
-                                                        (Decode.succeed
-                                                            { message = locateMap banEntry.point
-                                                            , stopPropagation = True
-                                                            , preventDefault = True
-                                                            }
-                                                        )
-                                                    ]
-                                                    [ i [ class "icon icon-road" ] [], text " ", text banEntry.label ]
-
-                                            Autocomplete.Erp erpEntry ->
-                                                a [ Route.href (Route.forAutocompleteEntry erpEntry) ]
-                                                    [ i [ class "icon icon-commercial" ] [], text " ", text erpEntry.value ]
-                                        ]
-                                )
-                            |> div [ class "a4a-autocomplete-items" ]
-
-                      else
-                        text ""
+                    , AutocompleteView.panel session { locateMap = locateMap }
                     ]
                 ]
             ]
         ]
-
-
-viewNotifs : Config msg -> Html msg
-viewNotifs { session, clearNotif } =
-    session.notifs
-        |> List.map
-            (\notif ->
-                case notif of
-                    Session.ErrorNotif message ->
-                        div
-                            [ class "alert alert-danger a4a-notif"
-                            , attribute "role" "alert"
-                            ]
-                            [ button
-                                [ type_ "button"
-                                , class "close"
-                                , attribute "data-dismiss" "alert"
-                                , attribute "aria-label" "Close"
-                                , onClick (clearNotif notif)
-                                ]
-                                [ span [ attribute "aria-hidden" "true" ] [ text "×" ] ]
-                            , text message
-                            ]
-            )
-        |> div [ class "a4a-notifs" ]

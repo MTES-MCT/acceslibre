@@ -2,11 +2,8 @@ module Data.Autocomplete exposing
     ( BanEntry
     , Entry(..)
     , ErpEntry
-    , addBanEntries
-    , addErpEntries
     , decodeBanEntry
     , decodeErpEntry
-    , sortScore
     )
 
 import Data.Activite as Activite
@@ -23,6 +20,7 @@ type Entry
 
 type alias BanEntry =
     { label : String
+    , commune : String
     , point : Point
     , score : Float
     }
@@ -40,8 +38,9 @@ type alias ErpEntry =
 
 decodeBanEntry : Decoder BanEntry
 decodeBanEntry =
-    Decode.map3 BanEntry
+    Decode.map4 BanEntry
         (Decode.at [ "properties", "label" ] Decode.string)
+        (Decode.at [ "properties", "city" ] Decode.string)
         (Decode.at [ "geometry" ] Point.decode)
         (Decode.at [ "properties", "score" ] Decode.float)
 
@@ -55,59 +54,3 @@ decodeErpEntry =
         (Decode.at [ "data", "activite" ] (Decode.nullable (Decode.map Activite.slugFromString Decode.string)))
         (Decode.at [ "data", "score" ] Decode.float)
         (Decode.at [ "data", "url" ] Decode.string)
-
-
-addBanEntries : List BanEntry -> List Entry -> List Entry
-addBanEntries bans entries =
-    clearBanEntries entries
-        ++ List.map Ban bans
-        |> sortScore
-
-
-addErpEntries : List ErpEntry -> List Entry -> List Entry
-addErpEntries erps entries =
-    clearErpEntries entries
-        ++ List.map Erp erps
-        |> sortScore
-
-
-clearBanEntries : List Entry -> List Entry
-clearBanEntries =
-    List.filter
-        (\entry ->
-            case entry of
-                Ban _ ->
-                    False
-
-                Erp _ ->
-                    True
-        )
-
-
-clearErpEntries : List Entry -> List Entry
-clearErpEntries =
-    List.filter
-        (\entry ->
-            case entry of
-                Ban _ ->
-                    True
-
-                Erp _ ->
-                    False
-        )
-
-
-sortScore : List Entry -> List Entry
-sortScore =
-    List.map
-        (\entry ->
-            case entry of
-                Ban ban ->
-                    ( ban.score, Ban ban )
-
-                Erp erp ->
-                    ( erp.score, Erp erp )
-        )
-        >> List.sortBy Tuple.first
-        >> List.map Tuple.second
-        >> List.reverse

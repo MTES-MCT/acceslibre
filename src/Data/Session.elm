@@ -44,7 +44,8 @@ type alias Session =
     , erpSlug : Maybe Erp.Slug
     , autocomplete :
         { search : String
-        , results : List Autocomplete.Entry
+        , bans : List Autocomplete.BanEntry
+        , erps : List Autocomplete.ErpEntry
         }
     }
 
@@ -55,24 +56,12 @@ type alias Store =
 
 addBanEntries : List Autocomplete.BanEntry -> Session -> Session
 addBanEntries bans ({ autocomplete } as session) =
-    { session
-        | autocomplete =
-            { autocomplete
-                | results =
-                    autocomplete.results |> Autocomplete.addBanEntries bans
-            }
-    }
+    { session | autocomplete = { autocomplete | bans = bans } }
 
 
 addErpEntries : List Autocomplete.ErpEntry -> Session -> Session
 addErpEntries erps ({ autocomplete } as session) =
-    { session
-        | autocomplete =
-            { autocomplete
-                | results =
-                    autocomplete.results |> Autocomplete.addErpEntries erps
-            }
-    }
+    { session | autocomplete = { autocomplete | erps = erps } }
 
 
 clearNotif : Notif -> Session -> Session
@@ -94,7 +83,8 @@ default navKey clientUrl serverUrl =
     , erpSlug = Nothing
     , autocomplete =
         { search = ""
-        , results = []
+        , bans = []
+        , erps = []
         }
     }
 
@@ -136,7 +126,7 @@ notifyHttpError error session =
 
 resetAutocomplete : Session -> Session
 resetAutocomplete session =
-    { session | autocomplete = { search = "", results = [] } }
+    { session | autocomplete = { search = "", bans = [], erps = [] } }
 
 
 serializeStore : Store -> String

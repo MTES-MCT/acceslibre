@@ -28,8 +28,7 @@ ban session msg =
                     baseTerms
     in
     Http.get
-        { url =
-            UrlBuilder.crossOrigin "https://api-adresse.data.gouv.fr" [ "search" ] qs
+        { url = UrlBuilder.crossOrigin "https://api-adresse.data.gouv.fr" [ "search" ] qs
         , expect =
             Http.expectJson msg
                 (Decode.at [ "features" ]
