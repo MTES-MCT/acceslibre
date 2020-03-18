@@ -45,6 +45,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
         Erp.objects.published()
         .geolocated()
         .select_related("activite")
+        .select_related("accessibilite")
         .order_by("accessibilite")
     )
     serializer_class = ErpSerializer

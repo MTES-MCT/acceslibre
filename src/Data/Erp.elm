@@ -34,6 +34,7 @@ type alias Erp =
     , commune : String
     , codeInsee : Maybe String
     , hasAccessibilite : Bool
+    , user : Maybe String
     }
 
 
@@ -51,6 +52,7 @@ decode =
         |> Pipe.required "commune" Decode.string
         |> Pipe.required "code_insee" (Decode.nullable Decode.string)
         |> Pipe.required "has_accessibilite" Decode.bool
+        |> Pipe.required "user" (Decode.nullable Decode.string)
 
 
 toJson : (Erp -> String) -> Erp -> Encode.Value
