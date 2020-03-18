@@ -24,6 +24,7 @@ type alias Config msg =
     , autocomplete : String -> msg
     , clearNotif : Session.Notif -> msg
     , locateMap : Point -> msg
+    , search : msg
     , activePage : ActivePage
     }
 
@@ -40,7 +41,7 @@ frame config ( title, content ) =
 
 
 viewHeader : Config msg -> Html msg
-viewHeader { session, autocomplete, locateMap } =
+viewHeader { session, autocomplete, locateMap, search } =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
@@ -78,6 +79,7 @@ viewHeader { session, autocomplete, locateMap } =
                 |> ul [ class "navbar-nav mr-auto" ]
             , Html.form
                 [ class "form-inline my-2 my-lg-0 ml-1 flex-fill"
+                , onSubmit search
                 ]
                 [ div [ class "a4a-autocomplete" ]
                     [ input

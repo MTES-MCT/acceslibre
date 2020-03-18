@@ -7,6 +7,7 @@ import Data.Session as Session exposing (Session)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import RemoteData
 import Route
 
 
@@ -53,8 +54,8 @@ banListView maybeCommune locateMap =
 
 
 panel : Session -> Config msg -> Html msg
-panel { autocomplete, commune } { locateMap } =
-    if List.length autocomplete.bans > 0 || List.length autocomplete.erps > 0 then
+panel { autocomplete, commune, erps } { locateMap } =
+    if List.length autocomplete.bans > 0 || List.length autocomplete.erps > 0 && erps /= RemoteData.Loading then
         div [ class "row a4a-autocomplete-items" ]
             [ erpListView autocomplete.erps
             , banListView commune locateMap autocomplete.bans

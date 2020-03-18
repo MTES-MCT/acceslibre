@@ -16,7 +16,7 @@ import Data.Erp as Erp exposing (Erp)
 import Html exposing (Attribute)
 import Html.Attributes as Attr
 import Url exposing (Url)
-import Url.Parser as Parser exposing ((</>), Parser, s)
+import Url.Parser as Parser exposing ((</>), (<?>), Parser, s)
 
 
 type Route
@@ -27,6 +27,8 @@ type Route
     | CommuneActivite Commune Activite.Slug
     | CommuneActiviteErp Commune Activite.Slug Erp.Slug
     | CommuneErp Commune Erp.Slug
+    | CommuneSearch Commune String
+    | Search String
 
 
 parser : Parser (Route -> a) a
@@ -39,6 +41,8 @@ parser =
         , Parser.map CommuneActivite (Commune.slugParser </> s "a" </> Activite.slugParser)
         , Parser.map CommuneActiviteErp (Commune.slugParser </> s "a" </> Activite.slugParser </> s "erp" </> Erp.slugParser)
         , Parser.map CommuneErp (Commune.slugParser </> s "erp" </> Erp.slugParser)
+        , Parser.map CommuneSearch (Commune.slugParser </> s "search" </> Parser.string) -- FIXME: could contain slash
+        , Parser.map Search (s "search" </> Parser.string) -- FIXME: could contain slash
         ]
 
 
@@ -132,5 +136,11 @@ toString route =
 
                 CommuneErp commune erpSlug ->
                     [ Commune.slugToString commune.slug, "erp", Erp.slugToString erpSlug ]
+
+                CommuneSearch commune search ->
+                    [ Commune.slugToString commune.slug, "search", search ]
+
+                Search search ->
+                    [ "search", search ]
     in
     "#/" ++ String.join "/" pieces

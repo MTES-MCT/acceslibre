@@ -13,6 +13,7 @@ module Data.Session exposing
     , purgeAutocomplete
     , resetAutocomplete
     , serializeStore
+    , setSearch
     )
 
 import Browser.Navigation as Nav
@@ -117,9 +118,14 @@ notifyHttpError error session =
     session |> notifyError (Request.Error.toString error)
 
 
-purgeAutocomplete : String -> Session -> Session
-purgeAutocomplete search ({ autocomplete } as session) =
-    { session | autocomplete = { autocomplete | search = search, bans = [], erps = [] } }
+purgeAutocomplete : Session -> Session
+purgeAutocomplete ({ autocomplete } as session) =
+    { session | autocomplete = { autocomplete | bans = [], erps = [] } }
+
+
+setSearch : String -> Session -> Session
+setSearch search ({ autocomplete } as session) =
+    { session | autocomplete = { autocomplete | search = search } }
 
 
 resetAutocomplete : Session -> Session

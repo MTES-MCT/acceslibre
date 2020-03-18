@@ -28,6 +28,7 @@ type alias Model =
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
     , infiniteScroll : InfiniteScroll.Model Msg
+    , search : Maybe String
     }
 
 
@@ -41,6 +42,7 @@ type Msg
     | NextErpListPage ()
     | NextErpListReceived (WebData (Pager Erp))
     | NoOp
+    | Search
 
 
 init : Session -> Route -> ( Model, Session, Cmd Msg )
@@ -57,6 +59,7 @@ init session route =
             , activiteSlug = Nothing
             , erpSlug = Nothing
             , infiniteScroll = defaultInfiniteScroll
+            , search = Nothing
             }
 
         model =
@@ -91,6 +94,15 @@ init session route =
                         | commune = Just commune
                         , erpSlug = Just erpSlug
                     }
+
+                Route.CommuneSearch commune search ->
+                    { base
+                        | commune = Just commune
+                        , search = Just search
+                    }
+
+                Route.Search search ->
+                    { base | search = Just search }
     in
     ( model
     , { session
@@ -115,7 +127,7 @@ init session route =
                 Request.Erp.get session erpSlug ErpDetailReceived
 
             Nothing ->
-                Request.Erp.list session model.commune model.activiteSlug Nothing ErpListReceived
+                Request.Erp.list session model.commune model.activiteSlug model.search ErpListReceived
         ]
     )
 
@@ -164,6 +176,7 @@ update session msg model =
                 , loading = False
               }
             , { session | erps = RemoteData.Success erps }
+                |> Session.purgeAutocomplete
             , Cmd.batch
                 [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
 
@@ -181,7 +194,9 @@ update session msg model =
                 | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
                 , loading = False
               }
-            , session |> Session.notifyHttpError error
+            , session
+                |> Session.purgeAutocomplete
+                |> Session.notifyHttpError error
             , Cmd.none
             )
 
@@ -230,6 +245,12 @@ update session msg model =
 
         NoOp ->
             ( model, session, Cmd.none )
+
+        Search ->
+            ( { model | search = Just session.autocomplete.search }
+            , session
+            , Cmd.none
+            )
 
 
 activitesListView : Session -> Model -> Html Msg

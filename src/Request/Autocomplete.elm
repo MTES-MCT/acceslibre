@@ -25,6 +25,7 @@ ban session msg =
 
                 Nothing ->
                     baseTerms
+                        ++ [ UrlBuilder.string "q" session.autocomplete.search ]
     in
     Http.get
         { url = UrlBuilder.crossOrigin "https://api-adresse.data.gouv.fr" [ "search" ] qs

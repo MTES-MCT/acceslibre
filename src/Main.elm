@@ -43,6 +43,7 @@ type Msg
     | ClearNotif Session.Notif
     | HomeMsg Home.Msg
     | LocateMap Point
+    | Search
     | StoreChanged String
     | UrlChanged Url
     | UrlRequested Browser.UrlRequest
@@ -96,6 +97,12 @@ setRoute maybeRoute model =
                 Route.CommuneErp _ _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
+                Route.CommuneSearch _ _ ->
+                    toPage HomePage (Home.init model.session route) HomeMsg
+
+                Route.Search _ ->
+                    toPage HomePage (Home.init model.session route) HomeMsg
+
 
 init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
@@ -140,7 +147,9 @@ update msg ({ page, session } as model) =
         ( Autocomplete search, _ ) ->
             let
                 newSession =
-                    Session.purgeAutocomplete search session
+                    session
+                        |> Session.purgeAutocomplete
+                        |> Session.setSearch search
             in
             ( { model | session = newSession }
             , if String.length search > 2 then
@@ -178,6 +187,27 @@ update msg ({ page, session } as model) =
 
         ( HomeMsg homeMsg, HomePage homeModel ) ->
             toPage HomePage HomeMsg Home.update homeMsg homeModel
+
+        ( Search, HomePage homeModel ) ->
+            if String.length session.autocomplete.search > 2 then
+                let
+                    newSession =
+                        Session.purgeAutocomplete session
+
+                    searchRoute =
+                        case session.commune of
+                            Just commune ->
+                                Route.CommuneSearch commune newSession.autocomplete.search
+
+                            Nothing ->
+                                Route.Search newSession.autocomplete.search
+                in
+                ( model
+                , Nav.pushUrl newSession.navKey (Route.toString searchRoute)
+                )
+
+            else
+                ( model, Cmd.none )
 
         ( StoreChanged json, _ ) ->
             ( { model | session = { session | store = Session.deserializeStore json } }
@@ -226,7 +256,7 @@ view : Model -> Document Msg
 view { page, session } =
     let
         pageConfig =
-            Page.Config session Autocomplete ClearNotif LocateMap
+            Page.Config session Autocomplete ClearNotif LocateMap Search
 
         mapMsg msg ( title, content ) =
             ( title, content |> List.map (Html.map msg) )
