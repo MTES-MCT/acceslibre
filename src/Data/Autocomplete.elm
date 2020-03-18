@@ -1,9 +1,11 @@
 module Data.Autocomplete exposing
-    ( BanEntry
+    ( Autocomplete
+    , BanEntry
     , Entry(..)
     , ErpEntry
     , decodeBanEntry
     , decodeErpEntry
+    , default
     )
 
 import Data.Activite as Activite
@@ -11,6 +13,13 @@ import Data.Commune as Commune
 import Data.Erp as Erp
 import Data.Point as Point exposing (Point)
 import Json.Decode as Decode exposing (Decoder)
+
+
+type alias Autocomplete =
+    { search : String
+    , bans : List BanEntry
+    , erps : List ErpEntry
+    }
 
 
 type Entry
@@ -54,3 +63,8 @@ decodeErpEntry =
         (Decode.at [ "data", "activite" ] (Decode.nullable (Decode.map Activite.slugFromString Decode.string)))
         (Decode.at [ "data", "score" ] Decode.float)
         (Decode.at [ "data", "url" ] Decode.string)
+
+
+default : Autocomplete
+default =
+    { search = "", bans = [], erps = [] }

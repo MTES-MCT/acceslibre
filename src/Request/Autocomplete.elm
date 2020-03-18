@@ -5,7 +5,6 @@ import Data.Commune as Commune
 import Data.Session exposing (Session)
 import Http
 import Json.Decode as Decode
-import Task exposing (Task)
 import Url.Builder as UrlBuilder
 
 

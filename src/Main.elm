@@ -139,11 +139,8 @@ update msg ({ page, session } as model) =
     case ( msg, page ) of
         ( Autocomplete search, _ ) ->
             let
-                autocomplete =
-                    session.autocomplete
-
                 newSession =
-                    { session | autocomplete = { autocomplete | search = search, bans = [], erps = [] } }
+                    Session.purgeAutocomplete search session
             in
             ( { model | session = newSession }
             , if String.length search > 2 then

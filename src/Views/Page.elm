@@ -40,7 +40,7 @@ frame config ( title, content ) =
 
 
 viewHeader : Config msg -> Html msg
-viewHeader ({ session, autocomplete, locateMap } as config) =
+viewHeader { session, autocomplete, locateMap } =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
