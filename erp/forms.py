@@ -58,6 +58,7 @@ def get_widgets_for_accessibilite():
         # "sanitaires_adaptes",
         # "labels",
         # "labels_autre",
+        # "commentaire",
     ]
     widgets = dict([(f, bool_radios()) for f in field_names])
     widgets.update(
