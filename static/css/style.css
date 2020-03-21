@@ -116,42 +116,12 @@ h6 {
   position: fixed;
   top: 60px;
   right: 10px;
+  z-index: 1999;
 }
 
 .a4a-notif {
   min-width: 350px;
   max-width: 600px;
-}
-
-/* DEPRECATED: old autocomplete styles, to be removed eventually */
-.autocomplete-suggestions {
-  background: #fff;
-  border: 1px solid #4493ce;
-  border-top: 0;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  overflow: auto;
-  padding: 2px 0;
-  cursor: pointer;
-}
-.autocomplete-suggestion {
-  padding: 3px 12px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.autocomplete-selected {
-  background: #f0f0f0;
-}
-.autocomplete-suggestions strong {
-  font-weight: normal;
-  color: #3399ff;
-}
-.autocomplete-group {
-  padding: 2px 5px;
-}
-.autocomplete-group strong {
-  display: block;
-  border-bottom: 1px solid #000;
 }
 
 /* Loader from https://loading.io/css/ */

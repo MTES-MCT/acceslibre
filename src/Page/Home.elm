@@ -1,6 +1,7 @@
 module Page.Home exposing (Model, Msg(..), init, update, view)
 
 import Browser.Dom as Dom
+import Data.Accessibilite as Accessibilite exposing (Accessibilite)
 import Data.Activite as Activite exposing (Activite)
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
@@ -13,18 +14,21 @@ import InfiniteScroll
 import Json.Decode as Decode
 import Ports
 import RemoteData exposing (WebData)
+import Request.Accessibilite
 import Request.Activite
 import Request.Erp
 import Request.Pager as Pager exposing (Pager)
 import Route exposing (Route)
 import Task exposing (Task)
-import Views.Spinner as Spinner
+import Views.Accessibilite as AccessibiliteView
+import Views.Spinner as SpinnerView
 
 
 type alias Model =
     { loading : Bool
     , commune : Maybe Commune
     , erp : Maybe Erp
+    , accessibilite : Maybe Accessibilite
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
     , infiniteScroll : InfiniteScroll.Model Msg
@@ -33,7 +37,8 @@ type alias Model =
 
 
 type Msg
-    = ActivitesReceived (Result Http.Error (List Activite))
+    = AccessibiliteReceived (Result Http.Error Accessibilite)
+    | ActivitesReceived (Result Http.Error (List Activite))
     | Back
     | ErpDetailReceived (Result Http.Error Erp)
     | ErpListReceived (WebData (Pager Erp))
@@ -56,6 +61,7 @@ init session route =
             { loading = True
             , commune = Nothing
             , erp = Nothing
+            , accessibilite = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
             , infiniteScroll = defaultInfiniteScroll
@@ -146,6 +152,15 @@ addMapMarkers =
 update : Session -> Msg -> Model -> ( Model, Session, Cmd Msg )
 update session msg model =
     case msg of
+        AccessibiliteReceived (Ok accessibilite) ->
+            ( { model | accessibilite = Just accessibilite }
+            , session
+            , Cmd.none
+            )
+
+        AccessibiliteReceived (Err error) ->
+            ( model, session |> Session.notifyHttpError error, Cmd.none )
+
         ActivitesReceived (Ok activites) ->
             ( model
             , { session | activites = activites }
@@ -164,6 +179,12 @@ update session msg model =
             , Cmd.batch
                 [ addMapMarkers [ erp ]
                 , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
+                , case erp.accessibiliteApiUrl of
+                    Just accessibiliteApiUrl ->
+                        Request.Accessibilite.get accessibiliteApiUrl AccessibiliteReceived
+
+                    Nothing ->
+                        Cmd.none
                 ]
             )
 
@@ -324,7 +345,9 @@ headerView session model =
 
 pageTitle : Session -> Model -> String
 pageTitle session model =
-    [ model.activiteSlug
+    [ model.erp
+        |> Maybe.map .nom
+    , model.activiteSlug
         |> Maybe.andThen (\slug -> Activite.findBySlug slug session.activites)
         |> Maybe.map .nom
     , model.commune |> Maybe.map .nom |> Maybe.withDefault "Accueil" |> Just
@@ -333,212 +356,8 @@ pageTitle session model =
         |> String.join " · "
 
 
-accessibiliteView : Html Msg
-accessibiliteView =
-    div [ class "mb-2" ]
-        [ ul
-            [ attribute "aria-label" "Sections"
-            , class "nav nav-pills nav-fill mb-2"
-            , attribute "role" "tablist"
-            ]
-            [ li [ class "nav-item" ]
-                [ a
-                    [ attribute "aria-controls" "entree"
-                    , attribute "aria-selected" "true"
-                    , class "nav-link px-2 py-1 active"
-                    , attribute "data-toggle" "tab"
-                    , href "#entree"
-                    , id "entree-tab"
-                    , attribute "role" "tab"
-                    ]
-                    [ i [ class "icon icon-entrance mr-2" ]
-                        []
-                    , text "Entrée        "
-                    ]
-                ]
-            , li [ class "nav-item" ]
-                [ a
-                    [ attribute "aria-controls" "stationnement"
-                    , attribute "aria-selected" "false"
-                    , class "nav-link px-2 py-1"
-                    , attribute "data-toggle" "tab"
-                    , href "#stationnement"
-                    , id "stationnement-tab"
-                    , attribute "role" "tab"
-                    ]
-                    [ i [ class "icon icon-car mr-2" ]
-                        []
-                    , text "Stationnement        "
-                    ]
-                ]
-            , li [ class "nav-item" ]
-                [ a
-                    [ attribute "aria-controls" "accueil"
-                    , attribute "aria-selected" "false"
-                    , class "nav-link px-2 py-1"
-                    , attribute "data-toggle" "tab"
-                    , href "#accueil"
-                    , id "accueil-tab"
-                    , attribute "role" "tab"
-                    ]
-                    [ i [ class "icon icon-users mr-2" ]
-                        []
-                    , text "Accueil        "
-                    ]
-                ]
-            , li [ class "nav-item" ]
-                [ a
-                    [ attribute "aria-controls" "sanitaires"
-                    , attribute "aria-selected" "false"
-                    , class "nav-link px-2 py-1"
-                    , attribute "data-toggle" "tab"
-                    , href "#sanitaires"
-                    , id "sanitaires-tab"
-                    , attribute "role" "tab"
-                    ]
-                    [ i [ class "icon icon-male-female mr-2" ]
-                        []
-                    , text "Sanitaires        "
-                    ]
-                ]
-            ]
-        , div [ class "tab-content" ]
-            [ div [ attribute "aria-labelledby" "entree-tab", class "tab-pane active", id "entree", attribute "role" "tabpanel" ]
-                [ ul [ class "list-group list-group-flush" ]
-                    [ li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Plain-pied "
-                            , small [ class "text-muted" ]
-                                [ text "L'entrée est-elle de plain-pied ?" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Non" ]
-                                ]
-                            ]
-                        ]
-                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Repérage de l'entrée "
-                            , small [ class "text-muted" ]
-                                [ text "Présence d'éléments de répérage de l'entrée" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-check-circle text-success", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Oui" ]
-                                ]
-                            ]
-                        ]
-                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Entrée spécifique PMR "
-                            , small [ class "text-muted" ]
-                                [ text "Présence d'une entrée secondaire spécifique PMR" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Non" ]
-                                ]
-                            ]
-                        ]
-                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Dispositif d'appel "
-                            , small [ class "text-muted" ]
-                                [ text "Présence d'un dispositif d'appel (ex. interphone)" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-check-circle text-success", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Oui" ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            , div [ attribute "aria-labelledby" "stationnement-tab", class "tab-pane", id "stationnement", attribute "role" "tabpanel" ]
-                [ ul [ class "list-group list-group-flush" ]
-                    [ li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Stationnement dans l'ERP "
-                            , small [ class "text-muted" ]
-                                [ text "Présence de stationnements au sein de l'ERP" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Non" ]
-                                ]
-                            ]
-                        ]
-                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Stationnements PMR dans l'ERP "
-                            , small [ class "text-muted" ]
-                                [ text "Présence de stationnements PMR au sein de l'ERP" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-times-circle text-danger", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Non" ]
-                                ]
-                            ]
-                        ]
-                    , li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Stationnement à proximité "
-                            , small [ class "text-muted" ]
-                                [ text "Présence de stationnements à proximité (200m)" ]
-                            ]
-                        , span []
-                            [ span []
-                                [ i [ class "icon icon-check-circle text-success", attribute "style" "font-size:1.2rem" ]
-                                    []
-                                , span [ class "sr-only" ]
-                                    [ text "Oui" ]
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
-            , div [ attribute "aria-labelledby" "accueil-tab", class "tab-pane", id "accueil", attribute "role" "tabpanel" ]
-                [ ul [ class "list-group list-group-flush" ]
-                    [ li [ class "list-group-item d-flex justify-content-between align-items-center p-2" ]
-                        [ span []
-                            [ text "Équipements sourds/malentendants "
-                            , small [ class "text-muted" ]
-                                []
-                            ]
-                        , span []
-                            []
-                        ]
-                    ]
-                ]
-            , div [ attribute "aria-labelledby" "sanitaires-tab", class "tab-pane", id "sanitaires", attribute "role" "tabpanel" ]
-                [ ul [ class "list-group list-group-flush" ]
-                    []
-                ]
-            ]
-        ]
-
-
-erpDetailsView : Session -> Erp -> Html Msg
-erpDetailsView session erp =
+erpDetailsView : Session -> Maybe Accessibilite -> Erp -> Html Msg
+erpDetailsView session maybeAccessibilite erp =
     div [ class "px-3" ]
         [ p [ class "pt-2" ]
             [ a
@@ -570,8 +389,17 @@ erpDetailsView session erp =
                         text ""
                 ]
             , address [] [ em [] [ text erp.adresse ] ]
+            , case maybeAccessibilite of
+                Just accessibilite ->
+                    AccessibiliteView.view
+                        { accessibilite = accessibilite
+                        , noOp = NoOp
+                        }
 
-            -- TODO: add accessibiliteView
+                Nothing ->
+                    div [ class "alert alert-info" ]
+                        [ text "Les données d'accessibilité ne sont pas encore disponibles pour cet établissement."
+                        ]
             ]
         ]
 
@@ -643,7 +471,7 @@ erpListView session model =
                     ]
 
         _ ->
-            div [ class "p-5 text-center" ] [ Spinner.view ]
+            div [ class "p-5 text-center" ] [ SpinnerView.view ]
 
 
 view : Session -> Model -> ( String, List (Html Msg) )
@@ -667,7 +495,7 @@ view session model =
                     ]
                     [ case model.erp of
                         Just erp ->
-                            erpDetailsView session erp
+                            erpDetailsView session model.accessibilite erp
 
                         Nothing ->
                             erpListView session model
