@@ -1,10 +1,13 @@
+from django import forms
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
 from erp.models import Accessibilite, Activite, Erp
+from erp.schema import get_accessibilite_api_schema
 from .serializers import (
     AccessibiliteSerializer,
     ActiviteSerializer,
@@ -28,6 +31,17 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination
+
+    @action(detail=False, methods=["get"])
+    def help(self, request, pk=None):
+        repr = {}
+        for _, data in get_accessibilite_api_schema().items():
+            for field in data["fields"]:
+                repr[field] = {
+                    "label": getattr(Accessibilite, field).field.verbose_name,
+                    "help": getattr(Accessibilite, field).field.help_text,
+                }
+        return Response(repr)
 
 
 class ActivitePagination(PageNumberPagination):

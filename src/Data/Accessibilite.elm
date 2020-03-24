@@ -25,71 +25,71 @@ type alias Accessibilite =
 
 
 type alias Stationnement =
-    { presence : Maybe Bool
-    , pmr : Maybe Bool
-    , extPresence : Maybe Bool
-    , extPmr : Maybe Bool
+    { stationnement_presence : Maybe Bool
+    , stationnement_pmr : Maybe Bool
+    , stationnement_ext_presence : Maybe Bool
+    , stationnement_ext_pmr : Maybe Bool
     }
 
 
 type alias CheminementExt =
-    { plainPied : Maybe Bool
-    , nombreMarches : Maybe Int
-    , reperageMarches : Maybe Bool
-    , mainCourante : Maybe Bool
-    , rampe : Maybe Bool
-    , ascenseur : Maybe Bool
-    , pente : Maybe String -- TODO: enum
-    , devers : Maybe String -- TODO: enum
-    , bandeGuidage : Maybe Bool
-    , guidageSonore : Maybe Bool
-    , retrecissement : Maybe Int
+    { cheminement_ext_plain_pied : Maybe Bool
+    , cheminement_ext_nombre_marches : Maybe Int
+    , cheminement_ext_reperage_marches : Maybe Bool
+    , cheminement_ext_main_courante : Maybe Bool
+    , cheminement_ext_rampe : Maybe Bool
+    , cheminement_ext_ascenseur : Maybe Bool
+    , cheminement_ext_pente : Maybe String -- TODO: enum
+    , cheminement_ext_devers : Maybe String -- TODO: enum
+    , cheminement_ext_bande_guidage : Maybe Bool
+    , cheminement_ext_guidage_sonore : Maybe Bool
+    , cheminement_ext_retrecissement : Maybe Int
     }
 
 
 type alias Entree =
-    { reperage : Maybe Bool
-    , vitree : Maybe Bool
-    , vitrophanie : Maybe Bool
-    , plainPied : Maybe Bool
-    , marches : Maybe Int
-    , marchesReperage : Maybe Bool
-    , marchesMainCourante : Maybe Bool
-    , marchesRampe : Maybe Bool
-    , dispositifAppel : Maybe Bool
-    , aideHumaine : Maybe Bool
-    , ascenseur : Maybe Bool
-    , largeurMini : Maybe Int
-    , pmr : Maybe Bool
-    , pmrInformations : Maybe String
+    { entree_reperage : Maybe Bool
+    , entree_vitree : Maybe Bool
+    , entree_vitree_vitrophanie : Maybe Bool
+    , entree_plain_pied : Maybe Bool
+    , entree_marches : Maybe Int
+    , entree_marches_reperage : Maybe Bool
+    , entree_marches_main_courante : Maybe Bool
+    , entree_marches_rampe : Maybe Bool
+    , entree_dispositif_appel : Maybe Bool
+    , entree_aide_humaine : Maybe Bool
+    , entree_ascenseur : Maybe Bool
+    , entree_largeur_mini : Maybe Int
+    , entree_pmr : Maybe Bool
+    , entree_pmr_informations : Maybe String
     }
 
 
 type alias Accueil =
-    { visibilite : Maybe Bool
-    , personnels : Maybe String -- TODO: enum
-    , cheminementPlainPied : Maybe Bool
-    , cheminementNombreMarches : Maybe Int
-    , cheminementReperageMarches : Maybe Bool
-    , cheminementMainCourante : Maybe Bool
-    , cheminementRampe : Maybe String --TODO: enum
-    , cheminementAscenseur : Maybe Bool
-    , retrecissement : Maybe Bool
-    , prestations : Maybe String
-    , equipementsMalentendants : List String
+    { accueil_visibilite : Maybe Bool
+    , accueil_personnels : Maybe String -- TODO: enum
+    , accueil_cheminement_plain_pied : Maybe Bool
+    , accueil_cheminement_nombre_marches : Maybe Int
+    , accueil_cheminement_reperage_marches : Maybe Bool
+    , accueil_cheminement_main_courante : Maybe Bool
+    , accueil_cheminement_rampe : Maybe String --TODO: enum
+    , accueil_cheminement_ascenseur : Maybe Bool
+    , accueil_retrecissement : Maybe Bool
+    , accueil_prestations : Maybe String
+    , accueil_equipements_malentendants : List String
     }
 
 
 type alias Sanitaires =
-    { presence : Maybe Bool
-    , adaptes : Maybe Int
+    { sanitaires_presence : Maybe Bool
+    , sanitaires_adaptes : Maybe Int
     }
 
 
 type alias Labels =
-    { noms : List String
-    , famillesHandicap : List String
-    , autre : Maybe String
+    { labels : List String
+    , labels_familles_handicap : List String
+    , labels_autre : Maybe String
     }
 
 

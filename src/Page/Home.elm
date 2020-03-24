@@ -15,6 +15,7 @@ import Json.Decode as Decode
 import Ports
 import RemoteData exposing (WebData)
 import Request.Accessibilite
+import Request.Accessibilite.Help
 import Request.Activite
 import Request.Erp
 import Request.Pager as Pager exposing (Pager)
@@ -394,6 +395,7 @@ erpDetailsView session maybeAccessibilite erp =
                     AccessibiliteView.view
                         { accessibilite = accessibilite
                         , noOp = NoOp
+                        , session = session
                         }
 
                 Nothing ->

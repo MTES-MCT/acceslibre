@@ -795,6 +795,7 @@ class Accessibilite(models.Model):
         default=list,
         null=True,
         blank=True,
+        help_text="Liste des familles de handicaps couverts par l'obtention de ce label",
     )
     labels_autre = models.CharField(
         max_length=255,
