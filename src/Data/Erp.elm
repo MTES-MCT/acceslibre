@@ -15,7 +15,6 @@ import Data.Point as Point exposing (Point)
 import Json.Decode as Decode exposing (Decoder)
 import Json.Decode.Pipeline as Pipe
 import Json.Encode as Encode
-import RemoteData exposing (WebData)
 import Url.Parser as Parser exposing (Parser)
 
 

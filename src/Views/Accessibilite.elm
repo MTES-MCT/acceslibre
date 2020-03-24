@@ -10,22 +10,18 @@ import Data.Accessibilite as Accessibilite
         , Sanitaires
         , Stationnement
         )
-import Data.Accessibilite.Help exposing (Help)
 import Data.Session as Session exposing (Session)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-
-
-type alias Model =
-    { accessibilite : Accessibilite
-    , activeTab : Tab
-    }
+import Html.Events exposing (..)
 
 
 type alias Config msg =
     { accessibilite : Accessibilite
+    , activeTab : Tab
     , noOp : msg
     , session : Session
+    , switchTab : Tab -> msg
     }
 
 
@@ -36,123 +32,117 @@ type Tab
     | LabelsTab Labels
     | SanitairesTab Sanitaires
     | StationnementTab Stationnement
-    | CommentaireTab String
+    | CommentaireTab (Maybe String)
 
 
-tabLabel : Tab -> String
-tabLabel tab =
+tabInfo : Tab -> ( String, String )
+tabInfo tab =
     case tab of
         AccueilTab _ ->
-            "Accueil"
+            ( "Accueil", "users" )
 
         CheminementExtTab _ ->
-            "Cheminement extérieur"
+            ( "Cheminement extérieur", "path" )
 
         EntreeTab _ ->
-            "Entrée"
+            ( "Entrée", "entrance" )
 
         LabelsTab _ ->
-            "Labels"
+            ( "Labels", "star-o" )
 
         SanitairesTab _ ->
-            "Sanitaires"
+            ( "Sanitaires", "male-female" )
 
         StationnementTab _ ->
-            "Stationnement"
+            ( "Stationnement", "car" )
 
         CommentaireTab _ ->
-            "Commentaire"
+            ( "Commentaire", "info-circled" )
 
 
-tabStationnement : Stationnement -> Html msg
+tabStationnement : Stationnement -> List (Html msg)
 tabStationnement stationnement =
-    div [ attribute "aria-labelledby" "stationnement-tab", class "tab-pane", id "stationnement", attribute "role" "tabpanel" ]
-        [ ul [ class "list-group list-group-flush" ]
-            [ booleanField
-                { name = "Stationnement dans l'ERP"
-                , help = "Présence de stationnements au sein de l'ERP"
-                , maybeValue = stationnement.stationnement_presence
-                }
-            , booleanField
-                { name = "Stationnements adaptés dans l'ERP"
-                , help = "Présence de stationnements PMR au sein de l'ERP"
-                , maybeValue = stationnement.stationnement_pmr
-                }
-            , booleanField
-                { name = "Stationnement à proximité"
-                , help = "Présence de stationnements à proximité immédiate de l'ERP (200m)"
-                , maybeValue = stationnement.stationnement_ext_presence
-                }
-            , booleanField
-                { name = "Stationnement PMR à proximité"
-                , help = "Présence de stationnements adaptés à proximité immédiate de l'ERP (200m)"
-                , maybeValue = stationnement.stationnement_ext_pmr
-                }
-            ]
-        ]
+    [ booleanField
+        { name = "Stationnement dans l'ERP"
+        , help = "Présence de stationnements au sein de l'ERP"
+        , maybeValue = stationnement.stationnement_presence
+        }
+    , booleanField
+        { name = "Stationnements adaptés dans l'ERP"
+        , help = "Présence de stationnements PMR au sein de l'ERP"
+        , maybeValue = stationnement.stationnement_pmr
+        }
+    , booleanField
+        { name = "Stationnement à proximité"
+        , help = "Présence de stationnements à proximité immédiate de l'ERP (200m)"
+        , maybeValue = stationnement.stationnement_ext_presence
+        }
+    , booleanField
+        { name = "Stationnement PMR à proximité"
+        , help = "Présence de stationnements adaptés à proximité immédiate de l'ERP (200m)"
+        , maybeValue = stationnement.stationnement_ext_pmr
+        }
+    ]
 
 
-tabAccueil : Accueil -> Html msg
+tabAccueil : Accueil -> List (Html msg)
 tabAccueil accueil =
-    div [ attribute "aria-labelledby" "entree-tab", class "tab-pane active", id "entree", attribute "role" "tabpanel" ]
-        [ ul [ class "list-group list-group-flush" ]
-            [ booleanField
-                { name = "Visibilité directe de la zone d'accueil depuis l'entrée"
-                , help = "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée ?"
-                , maybeValue = accueil.accueil_visibilite
-                }
-            , charField
-                { name = "Personnel d'accueil"
-                , help = "Présence et sensibilisation du personnel d'accueil"
-                , maybeValue = accueil.accueil_personnels
-                }
-            , stringListField
-                { name = "Équipements sourds/malentendants"
-                , help = "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes françaises, solution de traduction à distance, etc)"
-                , maybeValue = accueil.accueil_equipements_malentendants
-                }
-            , booleanField
-                { name = "Cheminement de plain pied"
-                , help = "Le cheminement entre l’entrée et l’accueil est-il de plain-pied ?"
-                , maybeValue = accueil.accueil_cheminement_plain_pied
-                }
-            , intField (marches accueil.accueil_cheminement_nombre_marches)
-                { name = "Nombre de marches"
-                , help = "Indiquez 0 s’il n’y a ni marche ni escalier"
-                , maybeValue = accueil.accueil_cheminement_nombre_marches
-                }
-            , booleanField
-                { name = "Repérage des marches ou de l’escalier"
-                , help = "Nez de marche contrasté, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches de l'escalier contrastées"
-                , maybeValue = accueil.accueil_cheminement_reperage_marches
-                }
-            , booleanField
-                { name = "Main courante"
-                , help = "Présence d'une main courante d'escalier"
-                , maybeValue = accueil.accueil_cheminement_main_courante
-                }
-            , charField
-                { name = "Rampe"
-                , help = "Présence et type de rampe"
-                , maybeValue = accueil.accueil_cheminement_rampe
-                }
-            , booleanField
-                { name = "Ascenseur/élévateur"
-                , help = "Présence d'un ascenseur ou d'un élévateur"
-                , maybeValue = accueil.accueil_cheminement_ascenseur
-                }
-            , booleanField
-                { name = "Rétrécissement du cheminement"
-                , help = "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre la zone d’accueil ?"
-                , maybeValue = accueil.accueil_retrecissement
-                }
-            , textField
-                { name = "Prestations d'accueil adapté supplémentaires"
-                , help = "Veuillez indiquer ici les prestations spécifiques supplémentaires proposées par l'établissement"
-                , maybeValue = accueil.accueil_prestations
-                }
-            ]
-        ]
+    [ booleanField
+        { name = "Visibilité directe de la zone d'accueil depuis l'entrée"
+        , help = "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée ?"
+        , maybeValue = accueil.accueil_visibilite
+        }
+    , charField
+        { name = "Personnel d'accueil"
+        , help = "Présence et sensibilisation du personnel d'accueil"
+        , maybeValue = accueil.accueil_personnels
+        }
+    , stringListField
+        { name = "Équipements sourds/malentendants"
+        , help = "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes françaises, solution de traduction à distance, etc)"
+        , maybeValue = accueil.accueil_equipements_malentendants
+        }
+    , booleanField
+        { name = "Cheminement de plain pied"
+        , help = "Le cheminement entre l’entrée et l’accueil est-il de plain-pied ?"
+        , maybeValue = accueil.accueil_cheminement_plain_pied
+        }
+    , intField (marches accueil.accueil_cheminement_nombre_marches)
+        { name = "Nombre de marches"
+        , help = "Indiquez 0 s’il n’y a ni marche ni escalier"
+        , maybeValue = accueil.accueil_cheminement_nombre_marches
+        }
+    , booleanField
+        { name = "Repérage des marches ou de l’escalier"
+        , help = "Nez de marche contrasté, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches de l'escalier contrastées"
+        , maybeValue = accueil.accueil_cheminement_reperage_marches
+        }
+    , booleanField
+        { name = "Main courante"
+        , help = "Présence d'une main courante d'escalier"
+        , maybeValue = accueil.accueil_cheminement_main_courante
+        }
+    , charField
+        { name = "Rampe"
+        , help = "Présence et type de rampe"
+        , maybeValue = accueil.accueil_cheminement_rampe
+        }
+    , booleanField
+        { name = "Ascenseur/élévateur"
+        , help = "Présence d'un ascenseur ou d'un élévateur"
+        , maybeValue = accueil.accueil_cheminement_ascenseur
+        }
+    , booleanField
+        { name = "Rétrécissement du cheminement"
+        , help = "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre la zone d’accueil ?"
+        , maybeValue = accueil.accueil_retrecissement
+        }
+    , textField
+        { name = "Prestations d'accueil adapté supplémentaires"
+        , help = "Veuillez indiquer ici les prestations spécifiques supplémentaires proposées par l'établissement"
+        , maybeValue = accueil.accueil_prestations
+        }
+    ]
 
 
 marches : Maybe Int -> String
@@ -171,116 +161,175 @@ marches maybeInt =
             ""
 
 
-tabEntree : Entree -> Html msg
+tabEntree : Entree -> List (Html msg)
 tabEntree entree =
-    div [ attribute "aria-labelledby" "entree-tab", class "tab-pane active", id "entree", attribute "role" "tabpanel" ]
-        [ ul [ class "list-group list-group-flush" ]
-            [ booleanField
-                { name = "Entrée facilement repérable"
-                , help = "Y a-t-il des éléments de repérage de l'entrée (numéro de rue à proximité, enseigne, etc)"
-                , maybeValue = entree.entree_reperage
-                }
-            , booleanField
-                { name = "Entrée vitrée"
-                , help = "La porte d'entrée est-elle vitrée ?"
-                , maybeValue = entree.entree_vitree
-                }
-            , booleanField
-                { name = "Plain-pied"
-                , help = "L'entrée est-elle de plain-pied ?"
-                , maybeValue = entree.entree_plain_pied
-                }
-            , intField (marches entree.entree_marches)
-                { name = "Marches d'escalier"
-                , help = "Nombre de marches d'escalier"
-                , maybeValue = entree.entree_marches
-                }
-            , booleanField
-                { name = "Repérage de l'escalier"
-                , help = "Nez de marche contrasté, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches de l'escalier contrastées"
-                , maybeValue = entree.entree_marches_reperage
-                }
-            , booleanField
-                { name = "Main courante"
-                , help = "Présence d'une main courante pour franchir les marches"
-                , maybeValue = entree.entree_marches_main_courante
-                }
-            , booleanField
-                { name = "Rampe"
-                , help = "Présence et type de rampe"
-                , maybeValue = entree.entree_marches_rampe
-                }
-            , booleanField
-                { name = "Dispositif d'appel"
-                , help = "Existe-t-il un dispositif comme une sonnette pour permettre à quelqu'un ayant besoin de la rampe de signaler sa présence ?"
-                , maybeValue = entree.entree_dispositif_appel
-                }
-            , booleanField
-                { name = "Aide humaine"
-                , help = "Présence ou possibilité d'une aide humaine au déplacement"
-                , maybeValue = entree.entree_aide_humaine
-                }
-            , booleanField
-                { name = "Ascenseur/élévateur"
-                , help = "Présence d'un ascenseur ou d'un élévateur"
-                , maybeValue = entree.entree_ascenseur
-                }
-            , intField "cm"
-                { name = "Largeur minimale"
-                , help = "Si la largeur n’est pas précisément connue, indiquez une valeur minimum. Exemple : ma largeur se situe entre 90 et 100 cm ; indiquez 90."
-                , maybeValue = entree.entree_largeur_mini
-                }
-            , booleanField
-                { name = "Entrée spécifique PMR"
-                , help = "Présence d'une entrée secondaire spécifique PMR"
-                , maybeValue = entree.entree_pmr
-                }
-            , textField
-                { name = "Infos entrée spécifique PMR"
-                , help = "Précisions sur les modalités d'accès de l'entrée spécifique PMR"
-                , maybeValue = entree.entree_pmr_informations
-                }
-            ]
-        ]
+    [ booleanField
+        { name = "Entrée facilement repérable"
+        , help = "Y a-t-il des éléments de repérage de l'entrée (numéro de rue à proximité, enseigne, etc)"
+        , maybeValue = entree.entree_reperage
+        }
+    , booleanField
+        { name = "Entrée vitrée"
+        , help = "La porte d'entrée est-elle vitrée ?"
+        , maybeValue = entree.entree_vitree
+        }
+    , booleanField
+        { name = "Plain-pied"
+        , help = "L'entrée est-elle de plain-pied ?"
+        , maybeValue = entree.entree_plain_pied
+        }
+    , intField (marches entree.entree_marches)
+        { name = "Marches d'escalier"
+        , help = "Nombre de marches d'escalier"
+        , maybeValue = entree.entree_marches
+        }
+    , booleanField
+        { name = "Repérage de l'escalier"
+        , help = "Nez de marche contrasté, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches de l'escalier contrastées"
+        , maybeValue = entree.entree_marches_reperage
+        }
+    , booleanField
+        { name = "Main courante"
+        , help = "Présence d'une main courante pour franchir les marches"
+        , maybeValue = entree.entree_marches_main_courante
+        }
+    , booleanField
+        { name = "Rampe"
+        , help = "Présence et type de rampe"
+        , maybeValue = entree.entree_marches_rampe
+        }
+    , booleanField
+        { name = "Dispositif d'appel"
+        , help = "Existe-t-il un dispositif comme une sonnette pour permettre à quelqu'un ayant besoin de la rampe de signaler sa présence ?"
+        , maybeValue = entree.entree_dispositif_appel
+        }
+    , booleanField
+        { name = "Aide humaine"
+        , help = "Présence ou possibilité d'une aide humaine au déplacement"
+        , maybeValue = entree.entree_aide_humaine
+        }
+    , booleanField
+        { name = "Ascenseur/élévateur"
+        , help = "Présence d'un ascenseur ou d'un élévateur"
+        , maybeValue = entree.entree_ascenseur
+        }
+    , intField "cm"
+        { name = "Largeur minimale"
+        , help = "Si la largeur n’est pas précisément connue, indiquez une valeur minimum. Exemple : ma largeur se situe entre 90 et 100 cm ; indiquez 90."
+        , maybeValue = entree.entree_largeur_mini
+        }
+    , booleanField
+        { name = "Entrée spécifique PMR"
+        , help = "Présence d'une entrée secondaire spécifique PMR"
+        , maybeValue = entree.entree_pmr
+        }
+    , textField
+        { name = "Infos entrée spécifique PMR"
+        , help = "Précisions sur les modalités d'accès de l'entrée spécifique PMR"
+        , maybeValue = entree.entree_pmr_informations
+        }
+    ]
 
 
-tabCheminementExt : CheminementExt -> Html msg
+tabCheminementExt : CheminementExt -> List (Html msg)
 tabCheminementExt cheminementExt =
-    div [ attribute "aria-labelledby" "chemeinement-ext-tab", class "tab-pane", id "cheminementExt", attribute "role" "tabpanel" ]
-        [ ul [ class "list-group list-group-flush" ]
-            [ text "XXX"
-            ]
-        ]
+    [ booleanField
+        { name = "Cheminement de plain-pied"
+        , help = "Le cheminement est-il de plain-pied ou existe-t-il une rupture de niveau entraînant la présence de marches ou d'un équipement type ascenseur ?"
+        , maybeValue = cheminementExt.cheminement_ext_plain_pied
+        }
+    , intField (marches cheminementExt.cheminement_ext_nombre_marches)
+        { name = "Nombre de marches"
+        , help = "Indiquez 0 s’il n’y a ni marche ni escalier"
+        , maybeValue = cheminementExt.cheminement_ext_nombre_marches
+        }
+    , booleanField
+        { name = "Repérage des marches ou de l’escalier"
+        , help = "Nez de marche contrasté, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches de l'escalier contrastées"
+        , maybeValue = cheminementExt.cheminement_ext_reperage_marches
+        }
+    , booleanField
+        { name = "Main courante"
+        , help = "Présence d'une main courante d'escalier"
+        , maybeValue = cheminementExt.cheminement_ext_main_courante
+        }
+    , booleanField
+        { name = "Rampe"
+        , help = "Présence et type de rampe"
+        , maybeValue = cheminementExt.cheminement_ext_rampe
+        }
+    , booleanField
+        { name = "Ascenseur/élévateur"
+        , help = "Présence d'un ascenseur ou d'un élévateur"
+        , maybeValue = cheminementExt.cheminement_ext_ascenseur
+        }
+    , charField
+        { name = "Pente"
+        , help = "Présence et type de pente"
+        , maybeValue = cheminementExt.cheminement_ext_pente
+        }
+    , charField
+        { name = "Dévers"
+        , help = "Inclinaison transversale du cheminement"
+        , maybeValue = cheminementExt.cheminement_ext_devers
+        }
+    ]
 
 
-tabSanitaires : Sanitaires -> Html msg
+tabLabels : Labels -> List (Html msg)
+tabLabels labels =
+    [ stringListField
+        { name = "Labels d'accessibilité"
+        , help = "Labels d'accessibilité obtenus par l'ERP"
+        , maybeValue = labels.labels
+        }
+    , stringListField
+        { name = "Famille(s) de handicap concernées(s)"
+        , help = "Liste des familles de handicaps couverts par l'obtention de ce label"
+        , maybeValue = labels.labels_familles_handicap
+        }
+    , charField
+        { name = "Autre label"
+        , help = "Si autre, précisez le nom du label"
+        , maybeValue = labels.labels_autre
+        }
+    ]
+
+
+tabSanitaires : Sanitaires -> List (Html msg)
 tabSanitaires sanitaires =
-    div [ attribute "aria-labelledby" "sanitaires-tab", class "tab-pane", id "sanitaires", attribute "role" "tabpanel" ]
-        [ ul [ class "list-group list-group-flush" ]
-            [ text "XXX"
-            ]
-        ]
+    [ booleanField
+        { name = "Sanitaires"
+        , help = "Présence de sanitaires dans l'établissement"
+        , maybeValue = sanitaires.sanitaires_presence
+        }
+    , intField " wc"
+        { name = "Nombre de sanitaires adaptés"
+        , help = "Nombre de sanitaires adaptés dans l'établissement"
+        , maybeValue = sanitaires.sanitaires_adaptes
+        }
+    ]
 
 
-tabCommentaire : Maybe String -> Html msg
+tabCommentaire : Maybe String -> List (Html msg)
 tabCommentaire maybeCommentaire =
-    div [ attribute "aria-labelledby" "sanitaires-tab", class "tab-pane", id "sanitaires", attribute "role" "tabpanel" ]
-        [ ul [ class "list-group list-group-flush" ]
-            [ textField
-                { name = "Commentaire libre"
-                , help = "Indiquez tout autre information qui vous semble pertinente pour décrire l’accessibilité du bâtiment"
-                , maybeValue = maybeCommentaire
-                }
-            ]
-        ]
+    [ textField
+        { name = "Commentaire libre"
+        , help = "Indiquez tout autre information qui vous semble pertinente pour décrire l’accessibilité du bâtiment"
+        , maybeValue = maybeCommentaire
+        }
+    ]
 
 
-tabMenuEntry : Bool -> Tab -> Html msg
-tabMenuEntry active tab =
-    li [ class "nav-item" ]
+tabMenuEntry : Config msg -> Tab -> Html msg
+tabMenuEntry config tab =
+    let
+        active =
+            config.activeTab == tab
+    in
+    li [ class "nav-item a4a-accessibilite-tab" ]
         [ button
             [ type_ "button"
-            , attribute "aria-controls" "entree"
             , attribute "aria-selected"
                 (if active then
                     "true"
@@ -290,19 +339,53 @@ tabMenuEntry active tab =
                 )
             , class "btn btn-sm btn-link nav-link px-2 py-1"
             , classList [ ( "active", active ) ]
-
-            -- , href "#entree"
-            -- , id "entree-tab"
             , attribute "role" "tab"
+            , onClick (config.switchTab tab)
             ]
-            [ i [ class "icon icon-entrance mr-2" ] []
-            , text (tabLabel tab)
+            [ i [ class <| "icon icon-" ++ (tabInfo tab |> Tuple.second) ++ " mr-2" ] []
+            , tabInfo tab |> Tuple.first |> text
             ]
         ]
 
 
-tabMenu : Config msg -> Html msg
-tabMenu { accessibilite } =
+tabContent : Config msg -> Html msg
+tabContent config =
+    div
+        [ class "tab-pane active"
+        , attribute "role" "tabpanel"
+        ]
+        [ tabContentFields config.activeTab
+            |> ul [ class "list-group list-group-flush" ]
+        ]
+
+
+tabContentFields : Tab -> List (Html msg)
+tabContentFields tab =
+    case tab of
+        AccueilTab accueil ->
+            tabAccueil accueil
+
+        CheminementExtTab cheminementExt ->
+            tabCheminementExt cheminementExt
+
+        EntreeTab entree ->
+            tabEntree entree
+
+        LabelsTab labels ->
+            tabLabels labels
+
+        SanitairesTab sanitaires ->
+            tabSanitaires sanitaires
+
+        StationnementTab stationnement ->
+            tabStationnement stationnement
+
+        CommentaireTab commentaire ->
+            tabCommentaire commentaire
+
+
+tabList : Accessibilite -> List Tab
+tabList accessibilite =
     let
         { stationnement, cheminementExt, entree, accueil, sanitaires, labels, commentaire } =
             accessibilite
@@ -313,11 +396,18 @@ tabMenu { accessibilite } =
     , AccueilTab accueil
     , LabelsTab labels
     , SanitairesTab sanitaires
+    , CommentaireTab commentaire
     ]
-        |> List.map (tabMenuEntry False)
+
+
+tabMenu : Config msg -> Html msg
+tabMenu config =
+    tabList config.accessibilite
+        |> List.filter (tabContentFields >> List.all ((==) (text "")) >> not)
+        |> List.map (tabMenuEntry config)
         |> ul
             [ attribute "aria-label" "Sections"
-            , class "nav nav-tabs nav-fill mb-2"
+            , class "nav nav-pills mb-2"
             , attribute "role" "tablist"
             ]
 
@@ -391,14 +481,23 @@ intField unit { name, help, maybeValue } =
 
 stringListField : { name : String, help : String, maybeValue : List String } -> Html msg
 stringListField { name, help, maybeValue } =
-    maybeValue
-        |> List.map (\v -> span [ class "label label-info" ] [ text v ])
-        |> vFieldWrapper name help
+    case maybeValue of
+        [] ->
+            text ""
+
+        strings ->
+            strings
+                |> List.map (\v -> span [ class "badge badge-info" ] [ text v ])
+                |> List.intersperse (text " ")
+                |> vFieldWrapper name help
 
 
 textField : { name : String, help : String, maybeValue : Maybe String } -> Html msg
 textField { name, help, maybeValue } =
     case maybeValue of
+        Just "" ->
+            text ""
+
         Just value ->
             hFieldWrapper name help [ div [ class "lead mb-0 my-1" ] [ text value ] ]
 
@@ -411,11 +510,6 @@ view config =
     div [ class "mb-2" ]
         [ tabMenu config
         , div [ class "tab-content" ]
-            [ tabEntree config.accessibilite.entree
-            , tabStationnement config.accessibilite.stationnement
-            , tabCheminementExt config.accessibilite.cheminementExt
-            , tabAccueil config.accessibilite.accueil
-            , tabSanitaires config.accessibilite.sanitaires
-            , tabCommentaire config.accessibilite.commentaire
+            [ tabContent config
             ]
         ]

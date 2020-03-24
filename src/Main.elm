@@ -3,7 +3,6 @@ module Main exposing (main)
 import Browser exposing (Document)
 import Browser.Events as BE
 import Browser.Navigation as Nav
-import Data.Accessibilite.Help as Help exposing (Help)
 import Data.Autocomplete as Autocomplete
 import Data.Point as Point exposing (Point)
 import Data.Session as Session exposing (Session)
@@ -12,8 +11,6 @@ import Http
 import Json.Decode as Decode
 import Page.Home as Home
 import Ports
-import RemoteData exposing (WebData)
-import Request.Accessibilite.Help
 import Request.Autocomplete
 import Route exposing (Route)
 import Url exposing (Url)
@@ -44,7 +41,6 @@ type Msg
     | AutocompleteErpReceived (Result Http.Error (List Autocomplete.ErpEntry))
     | AutocompleteClose
     | ClearNotif Session.Notif
-    | HelpReceived (WebData Help)
     | HomeMsg Home.Msg
     | LocateMap Point
     | Search
@@ -189,13 +185,10 @@ update msg ({ page, session } as model) =
             , Ports.locateMap (Point.encode point)
             )
 
-        ( HelpReceived remoteData, _ ) ->
-            ( { model | session = { session | help = remoteData } }, Cmd.none )
-
         ( HomeMsg homeMsg, HomePage homeModel ) ->
             toPage HomePage HomeMsg Home.update homeMsg homeModel
 
-        ( Search, HomePage homeModel ) ->
+        ( Search, HomePage _ ) ->
             if String.length session.autocomplete.search > 2 then
                 let
                     newSession =

@@ -15,7 +15,6 @@ import Json.Decode as Decode
 import Ports
 import RemoteData exposing (WebData)
 import Request.Accessibilite
-import Request.Accessibilite.Help
 import Request.Activite
 import Request.Erp
 import Request.Pager as Pager exposing (Pager)
@@ -30,6 +29,7 @@ type alias Model =
     , commune : Maybe Commune
     , erp : Maybe Erp
     , accessibilite : Maybe Accessibilite
+    , accessibiliteTab : Maybe AccessibiliteView.Tab
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
     , infiniteScroll : InfiniteScroll.Model Msg
@@ -49,6 +49,7 @@ type Msg
     | NextErpListReceived (WebData (Pager Erp))
     | NoOp
     | Search
+    | SwitchAccessibiliteTab AccessibiliteView.Tab
 
 
 init : Session -> Route -> ( Model, Session, Cmd Msg )
@@ -63,6 +64,7 @@ init session route =
             , commune = Nothing
             , erp = Nothing
             , accessibilite = Nothing
+            , accessibiliteTab = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
             , infiniteScroll = defaultInfiniteScroll
@@ -274,6 +276,9 @@ update session msg model =
             , Cmd.none
             )
 
+        SwitchAccessibiliteTab tab ->
+            ( { model | accessibiliteTab = Just tab }, session, Cmd.none )
+
 
 activitesListView : Session -> Model -> Html Msg
 activitesListView session model =
@@ -357,8 +362,8 @@ pageTitle session model =
         |> String.join " · "
 
 
-erpDetailsView : Session -> Maybe Accessibilite -> Erp -> Html Msg
-erpDetailsView session maybeAccessibilite erp =
+erpDetailsView : Session -> Model -> Erp -> Html Msg
+erpDetailsView session model erp =
     div [ class "px-3" ]
         [ p [ class "pt-2" ]
             [ a
@@ -390,12 +395,14 @@ erpDetailsView session maybeAccessibilite erp =
                         text ""
                 ]
             , address [] [ em [] [ text erp.adresse ] ]
-            , case maybeAccessibilite of
+            , case model.accessibilite of
                 Just accessibilite ->
                     AccessibiliteView.view
                         { accessibilite = accessibilite
+                        , activeTab = model.accessibiliteTab |> Maybe.withDefault (AccessibiliteView.EntreeTab accessibilite.entree)
                         , noOp = NoOp
                         , session = session
+                        , switchTab = SwitchAccessibiliteTab
                         }
 
                 Nothing ->
@@ -497,7 +504,7 @@ view session model =
                     ]
                     [ case model.erp of
                         Just erp ->
-                            erpDetailsView session model.accessibilite erp
+                            erpDetailsView session model erp
 
                         Nothing ->
                             erpListView session model

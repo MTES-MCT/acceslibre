@@ -93,6 +93,8 @@ h6 {
   opacity: 0.5;
 }
 
+/* Autocomplete */
+
 .a4a-autocomplete {
   position: relative;
   display: inline-block;
@@ -111,6 +113,8 @@ h6 {
   right: 0;
   margin: 0; /* overrides bootstrap row margins */
 }
+
+/* Notifs */
 
 .a4a-notifs {
   position: fixed;

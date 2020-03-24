@@ -1,7 +1,6 @@
 module Request.Accessibilite exposing (get)
 
 import Data.Accessibilite as Accessibilite exposing (Accessibilite)
-import Data.Session as Session exposing (Session)
 import Http
 
 
