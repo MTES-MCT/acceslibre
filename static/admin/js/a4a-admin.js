@@ -78,6 +78,8 @@ window.addEventListener("DOMContentLoaded", function() {
         classes.add("indented");
         if (rule.condition && selectedSource.value !== "True") {
           classes.add("hidden");
+        } else if (!rule.condition && selectedSource.value !== "False") {
+          classes.add("hidden");
         }
       });
       // register conditional behaviors
