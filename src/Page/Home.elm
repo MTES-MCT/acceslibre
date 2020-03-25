@@ -27,7 +27,7 @@ import Views.Spinner as SpinnerView
 type alias Model =
     { loading : Bool
     , commune : Maybe Commune
-    , erp : Maybe Erp
+    , erp : WebData Erp
     , accessibilite : WebData Accessibilite
     , accessibiliteTab : Maybe AccessibiliteView.Tab
     , activiteSlug : Maybe Activite.Slug
@@ -41,7 +41,7 @@ type Msg
     = AccessibiliteReceived (WebData Accessibilite)
     | ActivitesReceived (Result Http.Error (List Activite))
     | Back
-    | ErpDetailReceived (Result Http.Error Erp)
+    | ErpDetailReceived (WebData Erp)
     | ErpListReceived (WebData (Pager Erp))
     | InfiniteScrollMsg InfiniteScroll.Msg
     | LocateOnMap Erp
@@ -62,7 +62,7 @@ init session route =
         base =
             { loading = True
             , commune = Nothing
-            , erp = Nothing
+            , erp = RemoteData.NotAsked
             , accessibilite = RemoteData.NotAsked
             , accessibiliteTab = Nothing
             , activiteSlug = Nothing
@@ -155,11 +155,8 @@ addMapMarkers =
 update : Session -> Msg -> Model -> ( Model, Session, Cmd Msg )
 update session msg model =
     case msg of
-        AccessibiliteReceived (RemoteData.Failure error) ->
-            ( model, session |> Session.notifyHttpError error, Cmd.none )
-
-        AccessibiliteReceived accessibilite ->
-            ( { model | accessibilite = accessibilite }, session, Cmd.none )
+        AccessibiliteReceived webData ->
+            ( { model | accessibilite = webData }, session, Cmd.none )
 
         ActivitesReceived (Ok activites) ->
             ( model
@@ -171,43 +168,26 @@ update session msg model =
             ( model, session |> Session.notifyHttpError error, Cmd.none )
 
         Back ->
-            ( { model | erp = Nothing }, session, Cmd.none )
+            ( { model | erp = RemoteData.NotAsked }, session, Cmd.none )
 
-        ErpDetailReceived (Ok erp) ->
-            ( { model | erp = Just erp }
+        ErpDetailReceived webData ->
+            ( { model | erp = webData }
             , session
-            , Cmd.batch
-                [ addMapMarkers [ erp ]
-                , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
-                , case erp.accessibiliteApiUrl of
-                    Just accessibiliteApiUrl ->
-                        Request.Accessibilite.get accessibiliteApiUrl AccessibiliteReceived
+            , case webData of
+                RemoteData.Success erp ->
+                    Cmd.batch
+                        [ addMapMarkers [ erp ]
+                        , Ports.openMapErpMarker (Route.toString (Route.forErp erp))
+                        , case erp.accessibiliteApiUrl of
+                            Just accessibiliteApiUrl ->
+                                Request.Accessibilite.get accessibiliteApiUrl AccessibiliteReceived
 
-                    Nothing ->
-                        Cmd.none
-                ]
-            )
+                            Nothing ->
+                                Cmd.none
+                        ]
 
-        ErpDetailReceived (Err error) ->
-            ( model, session |> Session.notifyHttpError error, Cmd.none )
-
-        ErpListReceived (RemoteData.Success erps) ->
-            ( { model
-                | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
-                , loading = False
-              }
-            , { session | erps = RemoteData.Success erps }
-                |> Session.purgeAutocomplete
-            , Cmd.batch
-                [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
-
-                -- only add erp list markers to map when an erp is not opened
-                , if model.erp == Nothing then
-                    addMapMarkers erps.results
-
-                  else
+                _ ->
                     Cmd.none
-                ]
             )
 
         ErpListReceived (RemoteData.Failure error) ->
@@ -221,10 +201,27 @@ update session msg model =
             , Cmd.none
             )
 
-        ErpListReceived RemoteData.NotAsked ->
-            ( model, session, Cmd.none )
+        ErpListReceived (RemoteData.Success erps) ->
+            ( { model
+                | infiniteScroll = InfiniteScroll.stopLoading model.infiniteScroll
+                , loading = False
+              }
+            , { session | erps = RemoteData.Success erps }
+                |> Session.purgeAutocomplete
+            , Cmd.batch
+                [ scrollTop "a4a-erp-list" |> Task.attempt (always NoOp)
 
-        ErpListReceived RemoteData.Loading ->
+                -- only add erp list markers to map when an erp is not opened
+                , case model.erp of
+                    RemoteData.Success _ ->
+                        Cmd.none
+
+                    _ ->
+                        addMapMarkers erps.results
+                ]
+            )
+
+        ErpListReceived _ ->
             ( model, session, Cmd.none )
 
         LocateOnMap erp ->
@@ -289,8 +286,8 @@ activitesListView session model =
                           , model.activiteSlug
                                 == Just activite.slug
                                 || (model.erp
-                                        |> Maybe.andThen .activite
-                                        |> Maybe.map (.slug >> (==) activite.slug)
+                                        |> RemoteData.map (.activite >> Maybe.map (.slug >> (==) activite.slug) >> Maybe.withDefault False)
+                                        |> RemoteData.toMaybe
                                         |> Maybe.withDefault False
                                    )
                           )
@@ -348,8 +345,12 @@ headerView session model =
 
 pageTitle : Session -> Model -> String
 pageTitle session model =
-    [ model.erp
-        |> Maybe.map .nom
+    [ case model.erp of
+        RemoteData.Success erp ->
+            Just erp.nom
+
+        _ ->
+            Nothing
     , model.activiteSlug
         |> Maybe.andThen (\slug -> Activite.findBySlug slug session.activites)
         |> Maybe.map .nom
@@ -512,10 +513,19 @@ view session model =
                     , InfiniteScroll.infiniteScroll InfiniteScrollMsg
                     ]
                     [ case model.erp of
-                        Just erp ->
+                        RemoteData.Success erp ->
                             erpDetailsView session model erp
 
-                        Nothing ->
+                        RemoteData.Loading ->
+                            div [ class "text-center" ] [ SpinnerView.view ]
+
+                        RemoteData.Failure _ ->
+                            div [ class "alert alert-danger" ]
+                                [ text "Les données de cet établissement n'ont pas pu être récupérées."
+                                ]
+
+                        RemoteData.NotAsked ->
+                            -- when an erp is not asked, we render the erp list
                             erpListView session model
                     ]
                 , div [ class "a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0" ]
