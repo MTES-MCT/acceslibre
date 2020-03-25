@@ -1,6 +1,7 @@
-module Page.Home exposing (Model, Msg(..), init, update, view)
+module Page.Home exposing (Model, Msg(..), init, subscriptions, update, view)
 
 import Browser.Dom as Dom
+import Browser.Events as BE
 import Data.Accessibilite as Accessibilite exposing (Accessibilite)
 import Data.Activite as Activite exposing (Activite)
 import Data.Commune as Commune exposing (Commune)
@@ -545,3 +546,8 @@ view session model =
             ]
       ]
     )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none

@@ -4,6 +4,7 @@ import Browser exposing (Document)
 import Browser.Events as BE
 import Browser.Navigation as Nav
 import Data.Autocomplete as Autocomplete
+import Data.Key as Key
 import Data.Point as Point exposing (Point)
 import Data.Session as Session exposing (Session)
 import Html exposing (..)
@@ -43,6 +44,7 @@ type Msg
     | ClearNotif Session.Notif
     | HomeMsg Home.Msg
     | LocateMap Point
+    | NoOp
     | Search
     | StoreChanged String
     | UrlChanged Url
@@ -226,6 +228,9 @@ update msg ({ page, session } as model) =
             { model | session = Session.resetAutocomplete session }
                 |> setRoute (Route.fromUrl url)
 
+        ( NoOp, _ ) ->
+            ( model, Cmd.none )
+
         ( _, NotFound ) ->
             ( { model | page = NotFound }, Cmd.none )
 
@@ -233,16 +238,31 @@ update msg ({ page, session } as model) =
             ( model, Cmd.none )
 
 
+onKeyUp : Key.Key -> Msg
+onKeyUp key =
+    case key of
+        Key.ControlKey Key.Esc ->
+            AutocompleteClose
+
+        _ ->
+            NoOp
+
+
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.batch
         [ Ports.storeChanged StoreChanged
 
-        -- autocomplete panel close
+        -- autocomplete panel close on click outside
         , BE.onMouseUp (Decode.succeed AutocompleteClose)
+
+        -- autocomplete close on ESC key pressed
+        , BE.onKeyUp (Key.decode |> Decode.andThen (onKeyUp >> Decode.succeed))
+
+        -- individual page subscriptions
         , case model.page of
-            HomePage _ ->
-                Sub.none
+            HomePage homeModel ->
+                Home.subscriptions homeModel |> Sub.map HomeMsg
 
             NotFound ->
                 Sub.none
