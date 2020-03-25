@@ -39,20 +39,23 @@ ban session msg =
 
 erp : Session -> (Result Http.Error (List Autocomplete.ErpEntry) -> msg) -> Cmd msg
 erp session msg =
-    case session.commune of
-        Just commune ->
-            Http.get
-                { url =
-                    UrlBuilder.crossOrigin session.serverUrl
-                        [ "app", Commune.slugToString commune.slug, "autocomplete" ]
-                        [ UrlBuilder.string "q" session.autocomplete.search
-                        ]
-                , expect =
-                    Http.expectJson msg
-                        (Decode.at [ "suggestions" ]
-                            (Decode.list Autocomplete.decodeErpEntry)
-                        )
-                }
+    let
+        baseQs =
+            [ UrlBuilder.string "q" session.autocomplete.search ]
 
-        Nothing ->
-            Cmd.none
+        qs =
+            case session.commune of
+                Just commune ->
+                    UrlBuilder.string "commune" commune.nom :: baseQs
+
+                Nothing ->
+                    baseQs
+    in
+    Http.get
+        { url = UrlBuilder.crossOrigin session.serverUrl [ "app", "autocomplete" ] qs
+        , expect =
+            Http.expectJson msg
+                (Decode.at [ "suggestions" ]
+                    (Decode.list Autocomplete.decodeErpEntry)
+                )
+        }

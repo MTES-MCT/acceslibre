@@ -190,9 +190,9 @@ window.addEventListener("DOMContentLoaded", function() {
             console.error(err);
           });
         const erpsReq = $.ajax({
-          url: "/app/" + communeSlug + "/autocomplete/",
+          url: "/app/autocomplete/",
           dataType: "json",
-          data: { q: query }
+          data: { q: query, commune: commune }
         })
           .then(function(result) {
             return result.suggestions.map(function(sugg) {

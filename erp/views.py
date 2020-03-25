@@ -51,18 +51,16 @@ def find_commune_by_slug_or_404(commune_slug):
 
 
 @cache_page(60 * 15)
-def autocomplete(request, commune):
+def autocomplete(request):
     suggestions = []
     q = request.GET.get("q", "")
-    commune_nom = find_commune_by_slug_or_404(commune)["nom"]
+    commune = request.GET.get("commune")
     if len(q) < 3:
         return JsonResponse({"suggestions": suggestions})
-    qs = (
-        Erp.objects.published()
-        .geolocated()
-        .in_commune(commune_nom)
-        .search(q)[:7]
-    )
+    qs = Erp.objects.published().geolocated()
+    if commune:
+        qs = qs.in_commune(commune)
+    qs = qs.search(q)[:7]
     for erp in qs:
         score = (erp.rank + erp.similarity - (erp.distance / 6)) * 60
         score = 10 if score > 10 else score
@@ -71,7 +69,7 @@ def autocomplete(request, commune):
                 "value": erp.nom + ", " + erp.adresse,
                 "data": {
                     "score": score,
-                    "commune": commune,
+                    "commune": erp.commune,
                     "slug": erp.slug,
                     "activite": erp.activite and erp.activite.slug,
                     "url": (
