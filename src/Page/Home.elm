@@ -325,6 +325,16 @@ headerView session model =
 
                     Nothing ->
                         text "Toutes les communes"
+                , case model.search of
+                    Just search ->
+                        small [ class "text-muted" ]
+                            [ text " » "
+                            , text "Recherche de "
+                            , em [] [ text search ]
+                            ]
+
+                    Nothing ->
+                        text ""
                 , case model.activiteSlug of
                     Just activiteSlug ->
                         small [ class "text-muted" ]
