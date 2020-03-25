@@ -28,7 +28,7 @@ type alias Model =
     { loading : Bool
     , commune : Maybe Commune
     , erp : Maybe Erp
-    , accessibilite : Maybe Accessibilite
+    , accessibilite : WebData Accessibilite
     , accessibiliteTab : Maybe AccessibiliteView.Tab
     , activiteSlug : Maybe Activite.Slug
     , erpSlug : Maybe Erp.Slug
@@ -38,7 +38,7 @@ type alias Model =
 
 
 type Msg
-    = AccessibiliteReceived (Result Http.Error Accessibilite)
+    = AccessibiliteReceived (WebData Accessibilite)
     | ActivitesReceived (Result Http.Error (List Activite))
     | Back
     | ErpDetailReceived (Result Http.Error Erp)
@@ -63,7 +63,7 @@ init session route =
             { loading = True
             , commune = Nothing
             , erp = Nothing
-            , accessibilite = Nothing
+            , accessibilite = RemoteData.NotAsked
             , accessibiliteTab = Nothing
             , activiteSlug = Nothing
             , erpSlug = Nothing
@@ -155,14 +155,11 @@ addMapMarkers =
 update : Session -> Msg -> Model -> ( Model, Session, Cmd Msg )
 update session msg model =
     case msg of
-        AccessibiliteReceived (Ok accessibilite) ->
-            ( { model | accessibilite = Just accessibilite }
-            , session
-            , Cmd.none
-            )
-
-        AccessibiliteReceived (Err error) ->
+        AccessibiliteReceived (RemoteData.Failure error) ->
             ( model, session |> Session.notifyHttpError error, Cmd.none )
+
+        AccessibiliteReceived accessibilite ->
+            ( { model | accessibilite = accessibilite }, session, Cmd.none )
 
         ActivitesReceived (Ok activites) ->
             ( model
@@ -395,20 +392,32 @@ erpDetailsView session model erp =
                         text ""
                 ]
             , address [] [ em [] [ text erp.adresse ] ]
-            , case model.accessibilite of
-                Just accessibilite ->
-                    AccessibiliteView.view
-                        { accessibilite = accessibilite
-                        , activeTab = model.accessibiliteTab |> Maybe.withDefault (AccessibiliteView.EntreeTab accessibilite.entree)
-                        , noOp = NoOp
-                        , session = session
-                        , switchTab = SwitchAccessibiliteTab
-                        }
+            , if erp.accessibiliteApiUrl /= Nothing then
+                case model.accessibilite of
+                    RemoteData.Success accessibilite ->
+                        AccessibiliteView.view
+                            { accessibilite = accessibilite
+                            , activeTab = model.accessibiliteTab |> Maybe.withDefault (AccessibiliteView.EntreeTab accessibilite.entree)
+                            , noOp = NoOp
+                            , session = session
+                            , switchTab = SwitchAccessibiliteTab
+                            }
 
-                Nothing ->
-                    div [ class "alert alert-info" ]
-                        [ text "Les données d'accessibilité ne sont pas encore disponibles pour cet établissement."
-                        ]
+                    RemoteData.Loading ->
+                        div [ class "text-center" ] [ SpinnerView.view ]
+
+                    RemoteData.NotAsked ->
+                        text ""
+
+                    RemoteData.Failure _ ->
+                        div [ class "alert alert-danger" ]
+                            [ text "Les données d'accessibilité pour cet établissement n'ont pas pu être récupérées."
+                            ]
+
+              else
+                div [ class "alert alert-info" ]
+                    [ text "Les données d'accessibilité ne sont pas encore disponibles pour cet établissement."
+                    ]
             ]
         ]
 
