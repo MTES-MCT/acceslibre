@@ -33,7 +33,8 @@ type alias Erp =
     , siteInternet : Maybe String
     , commune : String
     , codeInsee : Maybe String
-    , hasAccessibilite : Bool
+    , accessibiliteApiUrl : Maybe String
+    , user : Maybe String
     }
 
 
@@ -50,7 +51,8 @@ decode =
         |> Pipe.required "site_internet" (Decode.nullable Decode.string)
         |> Pipe.required "commune" Decode.string
         |> Pipe.required "code_insee" (Decode.nullable Decode.string)
-        |> Pipe.required "has_accessibilite" Decode.bool
+        |> Pipe.required "accessibilite" (Decode.nullable Decode.string)
+        |> Pipe.required "user" (Decode.nullable Decode.string)
 
 
 toJson : (Erp -> String) -> Erp -> Encode.Value
@@ -67,7 +69,7 @@ toJson toUrl erp =
         , ( "siteInternet", erp.siteInternet |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
         , ( "commune", Encode.string erp.commune )
         , ( "codeInsee", erp.codeInsee |> Maybe.map Encode.string |> Maybe.withDefault Encode.null )
-        , ( "hasAccessibilite", Encode.bool erp.hasAccessibilite )
+        , ( "hasAccessibilite", Encode.bool (erp.accessibiliteApiUrl /= Nothing) )
         ]
 
 

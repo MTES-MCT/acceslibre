@@ -23,6 +23,7 @@ from .models import (
     Accessibilite,
     EquipementMalentendant,
 )
+from .schema import get_accessibilite_admin_schema
 
 
 @admin.register(Activite)
@@ -62,85 +63,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
     model = Accessibilite
     form = AdminAccessibiliteForm
     autocomplete_fields = ["accueil_equipements_malentendants", "labels"]
-    fieldsets = [
-        (
-            "Stationnement",
-            {
-                "fields": [
-                    "stationnement_presence",
-                    "stationnement_pmr",
-                    "stationnement_ext_presence",
-                    "stationnement_ext_pmr",
-                ],
-            },
-        ),
-        (
-            "Cheminement extérieur",
-            {
-                "fields": [
-                    "cheminement_ext_plain_pied",
-                    "cheminement_ext_nombre_marches",
-                    "cheminement_ext_reperage_marches",
-                    "cheminement_ext_main_courante",
-                    "cheminement_ext_rampe",
-                    "cheminement_ext_ascenseur",
-                    "cheminement_ext_pente",
-                    "cheminement_ext_devers",
-                    "cheminement_ext_bande_guidage",
-                    "cheminement_ext_guidage_sonore",
-                    "cheminement_ext_retrecissement",
-                ]
-            },
-        ),
-        (
-            "Entrée",
-            {
-                "fields": [
-                    "entree_reperage",
-                    "entree_vitree",
-                    "entree_vitree_vitrophanie",
-                    "entree_plain_pied",
-                    "entree_marches",
-                    "entree_marches_reperage",
-                    "entree_marches_main_courante",
-                    "entree_marches_rampe",
-                    "entree_dispositif_appel",
-                    "entree_aide_humaine",
-                    "entree_ascenseur",
-                    "entree_largeur_mini",
-                    "entree_pmr",
-                    "entree_pmr_informations",
-                ],
-            },
-        ),
-        (
-            "Accueil et espace intérieur",
-            {
-                "fields": [
-                    "accueil_visibilite",
-                    "accueil_personnels",
-                    "accueil_equipements_malentendants",
-                    "accueil_cheminement_plain_pied",
-                    "accueil_cheminement_nombre_marches",
-                    "accueil_cheminement_reperage_marches",
-                    "accueil_cheminement_main_courante",
-                    "accueil_cheminement_rampe",
-                    "accueil_cheminement_ascenseur",
-                    "accueil_retrecissement",
-                    "accueil_prestations",
-                ],
-            },
-        ),
-        (
-            "Sanitaires",
-            {"fields": ["sanitaires_presence", "sanitaires_adaptes",]},
-        ),
-        (
-            "Labels",
-            {"fields": ["labels", "labels_familles_handicap", "labels_autre",]},
-        ),
-        ("Commentaires", {"fields": ["commentaire"]}),
-    ]
+    fieldsets = get_accessibilite_admin_schema()
 
     def get_formset(self, request, obj=None, **kwargs):
         # see https://stackoverflow.com/a/37558444/330911

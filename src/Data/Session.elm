@@ -17,6 +17,7 @@ module Data.Session exposing
     )
 
 import Browser.Navigation as Nav
+import Data.Accessibilite.Help as Help exposing (Help)
 import Data.Activite as Activite exposing (Activite)
 import Data.Autocomplete as Autocomplete exposing (Autocomplete)
 import Data.Commune as Commune exposing (Commune)
@@ -39,6 +40,7 @@ type alias Session =
     , serverUrl : String
     , store : Store
     , notifs : List Notif
+    , help : WebData Help
     , commune : Maybe Commune
     , activites : List Activite
     , erps : WebData (Pager Erp)
@@ -74,6 +76,7 @@ default navKey clientUrl serverUrl =
     , serverUrl = serverUrl
     , store = defaultStore
     , notifs = []
+    , help = RemoteData.NotAsked
     , commune = Nothing
     , activites = []
     , erps = RemoteData.NotAsked

@@ -59,6 +59,7 @@ viewHeader { session, autocomplete, locateMap, search } =
             [ span [ class "navbar-toggler-icon" ] [] ]
         , div [ class "collapse navbar-collapse", id "navbarSupportedContent" ]
             [ Dict.values Commune.communes
+                |> List.sortBy .nom
                 |> List.map
                     (\commune ->
                         li

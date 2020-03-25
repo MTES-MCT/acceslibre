@@ -188,7 +188,7 @@ update msg ({ page, session } as model) =
         ( HomeMsg homeMsg, HomePage homeModel ) ->
             toPage HomePage HomeMsg Home.update homeMsg homeModel
 
-        ( Search, HomePage homeModel ) ->
+        ( Search, HomePage _ ) ->
             if String.length session.autocomplete.search > 2 then
                 let
                     newSession =

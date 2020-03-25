@@ -11,14 +11,14 @@ import Request.Pager as Pager exposing (Pager)
 import Url.Builder as UrlBuilder
 
 
-get : Session -> Erp.Slug -> (Result Http.Error Erp -> msg) -> Cmd msg
+get : Session -> Erp.Slug -> (WebData Erp -> msg) -> Cmd msg
 get session slug msg =
     Http.get
         { url =
             UrlBuilder.crossOrigin session.serverUrl
                 [ "api", "erps", Erp.slugToString slug ]
                 []
-        , expect = Http.expectJson msg Erp.decode
+        , expect = Http.expectJson (RemoteData.fromResult >> msg) Erp.decode
         }
 
 
