@@ -2,6 +2,7 @@ module Data.Erp exposing
     ( Erp
     , Slug
     , decode
+    , formatDistance
     , slugFromString
     , slugParser
     , slugToString
@@ -35,6 +36,7 @@ type alias Erp =
     , codeInsee : Maybe String
     , accessibiliteApiUrl : Maybe String
     , user : Maybe String
+    , distance : Maybe Float
     }
 
 
@@ -53,6 +55,20 @@ decode =
         |> Pipe.required "code_insee" (Decode.nullable Decode.string)
         |> Pipe.required "accessibilite" (Decode.nullable Decode.string)
         |> Pipe.required "user" (Decode.nullable Decode.string)
+        |> Pipe.required "distance" (Decode.nullable Decode.float)
+
+
+formatDistance : Float -> String
+formatDistance distance =
+    let
+        meters =
+            round distance
+    in
+    if meters < 1000 then
+        String.fromInt meters ++ "m"
+
+    else
+        String.fromInt (meters // 1000) ++ "km"
 
 
 toJson : (Erp -> String) -> Erp -> Encode.Value

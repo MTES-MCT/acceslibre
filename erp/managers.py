@@ -60,14 +60,14 @@ class ErpQuerySet(models.QuerySet):
 
     def search(self, query):
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
-        qs = qs.annotate(distance=search.TrigramDistance("nom", query))
+        qs = qs.annotate(distance_nom=search.TrigramDistance("nom", query))
         qs = qs.annotate(
             rank=search.SearchRank(models.F("search_vector"), query)
         )
         qs = qs.filter(
             Q(search_vector=search.SearchQuery(query, config="french_unaccent"))
             | Q(nom__trigram_similar=query)
-            | Q(distance__gte=0.6)
+            | Q(distance_nom__gte=0.6)
         )
-        qs = qs.order_by("-rank", "-similarity", "distance")
+        qs = qs.order_by("-rank", "-similarity", "distance_nom")
         return qs

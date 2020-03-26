@@ -18,6 +18,7 @@ from erp.schema import get_accessibilite_api_schema
 # - relation serialization: https://www.django-rest-framework.org/api-guide/relations/#slugrelatedfield
 # - hyperlinked relation: https://www.django-rest-framework.org/api-guide/relations/#hyperlinkedidentityfield
 # - custom JSON object representation (Solution 2): https://stackoverflow.com/a/56826004/330911
+# - distance field serialization: https://stackoverflow.com/a/53307290/330911
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -99,6 +100,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "telephone",
             "site_internet",
             "accessibilite",
+            "distance",
         )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}
@@ -108,3 +110,8 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         slug_field="username", many=False, read_only=True
     )
     adresse = serializers.ReadOnlyField()
+    distance = serializers.SerializerMethodField()
+
+    def get_distance(self, obj):
+        if hasattr(obj, "distance"):
+            return obj.distance.m

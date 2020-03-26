@@ -452,7 +452,13 @@ erpListEntryView erp =
                 Route.href (Route.Erp erp.slug)
         ]
         [ span [ class "flex-fill pr-2" ]
-            [ text erp.nom
+            [ case erp.distance of
+                Just distance ->
+                    small [ class "text-muted" ] [ text <| "À " ++ Erp.formatDistance distance ++ " " ]
+
+                Nothing ->
+                    text ""
+            , text erp.nom
             , br [] []
             , small [ class "text-muted" ]
                 [ case erp.activite of

@@ -85,22 +85,27 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = self.queryset
+
         # Commune
         commune = self.request.query_params.get(
             "commune", None  # FIXME/ should use slug
         )
         if commune is not None:
             queryset = queryset.in_commune(commune)
+
         # Activité
         activite = self.request.query_params.get("activite", None)
         if activite is not None:
             queryset = queryset.having_activite(activite)
+
         # Search
         search_terms = self.request.query_params.get("q", None)
         if search_terms is not None:
             queryset = queryset.search(search_terms)
+
         # Proximity
         around = geocode.parse_coords(self.request.query_params.get("around"))
         if around is not None:
             queryset = queryset.nearest(around)
+
         return queryset
