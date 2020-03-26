@@ -21,6 +21,9 @@ import Url.Parser as Parser exposing ((</>), Parser, s)
 
 type Route
     = Home
+    | Around
+    | AroundActivite Activite.Slug
+    | AroundActiviteErp Activite.Slug Erp.Slug
     | CommuneHome Commune
     | Activite Activite.Slug
     | Erp Erp.Slug
@@ -35,6 +38,9 @@ parser : Parser (Route -> a) a
 parser =
     Parser.oneOf
         [ Parser.map Home Parser.top
+        , Parser.map Around (s "around")
+        , Parser.map AroundActivite (s "around" </> Activite.slugParser)
+        , Parser.map AroundActiviteErp (s "around" </> Activite.slugParser </> s "erp" </> Erp.slugParser)
         , Parser.map CommuneHome Commune.slugParser
         , Parser.map Activite (s "a" </> Activite.slugParser)
         , Parser.map Erp (s "erp" </> Erp.slugParser)
@@ -118,6 +124,15 @@ toString route =
             case route of
                 Home ->
                     []
+
+                Around ->
+                    [ "around" ]
+
+                AroundActivite activiteSlug ->
+                    [ "around", Activite.slugToString activiteSlug ]
+
+                AroundActiviteErp activiteSlug erpSlug ->
+                    [ "around", Activite.slugToString activiteSlug, "erp", Erp.slugToString erpSlug ]
 
                 CommuneHome commune ->
                     [ Commune.slugToString commune.slug ]

@@ -84,6 +84,15 @@ setRoute maybeRoute model =
                 Route.Home ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
+                Route.Around ->
+                    toPage HomePage (Home.init model.session route) HomeMsg
+
+                Route.AroundActivite _ ->
+                    toPage HomePage (Home.init model.session route) HomeMsg
+
+                Route.AroundActiviteErp _ _ ->
+                    toPage HomePage (Home.init model.session route) HomeMsg
+
                 Route.CommuneHome _ ->
                     toPage HomePage (Home.init model.session route) HomeMsg
 
