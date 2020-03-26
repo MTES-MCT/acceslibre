@@ -349,6 +349,12 @@ headerView session model =
 
                     Nothing ->
                         text ""
+                , case session.position of
+                    Just _ ->
+                        small [ class "text-muted" ] [ text " (à proximité de moi)" ]
+
+                    Nothing ->
+                        text ""
                 ]
             ]
         ]
@@ -549,5 +555,5 @@ view session model =
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
     Sub.none

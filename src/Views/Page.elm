@@ -23,6 +23,7 @@ type alias Config msg =
     { session : Session
     , autocomplete : String -> msg
     , clearNotif : Session.Notif -> msg
+    , getCurrentPosition : () -> msg
     , locateMap : Point -> msg
     , search : msg
     , activePage : ActivePage
@@ -41,7 +42,7 @@ frame config ( title, content ) =
 
 
 viewHeader : Config msg -> Html msg
-viewHeader { session, autocomplete, locateMap, search } =
+viewHeader { session, autocomplete, getCurrentPosition, locateMap, search } =
     -- TODO: revamp header for mobile with search always visible
     nav [ class "navbar navbar-expand-lg navbar-dark a4a-navbar" ]
         [ a
@@ -58,7 +59,26 @@ viewHeader { session, autocomplete, locateMap, search } =
             ]
             [ span [ class "navbar-toggler-icon" ] [] ]
         , div [ class "collapse navbar-collapse", id "navbarSupportedContent" ]
-            [ Dict.values Commune.communes
+            [ case session.position of
+                Just position ->
+                    button
+                        [ class "btn btn-sm btn-success"
+                        , onClick (locateMap position)
+                        ]
+                        [ i [ class "icon icon-street-view" ] []
+                        , text " Autour de moi"
+                        ]
+
+                Nothing ->
+                    button
+                        [ type_ "button"
+                        , class "btn btn-sm btn-info"
+                        , onClick (getCurrentPosition ())
+                        ]
+                        [ i [ class "icon icon-street-view" ] []
+                        , text " Autour de moi"
+                        ]
+            , Dict.values Commune.communes
                 |> List.sortBy .nom
                 |> List.map
                     (\commune ->

@@ -1,4 +1,4 @@
-module Data.Point exposing (Point, decode, encode)
+module Data.Point exposing (Point, decode, encode, toString)
 
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
@@ -27,3 +27,8 @@ decode =
 encode : Point -> Encode.Value
 encode v =
     Encode.list Encode.float [ v.lat, v.lon ]
+
+
+toString : Point -> String
+toString { lat, lon } =
+    String.fromFloat lat ++ "," ++ String.fromFloat lon

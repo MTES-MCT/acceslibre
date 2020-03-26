@@ -3,6 +3,7 @@ module Request.Erp exposing (get, list, listNext)
 import Data.Activite as Activite
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
+import Data.Point as Point exposing (Point)
 import Data.Session as Session exposing (Session)
 import Http
 import Json.Decode as Decode
@@ -44,6 +45,12 @@ list session maybeCommune maybeActiviteSlug maybeSearch msg =
                     , case maybeSearch of
                         Just search ->
                             [ UrlBuilder.string "q" search ]
+
+                        Nothing ->
+                            []
+                    , case session.position of
+                        Just position ->
+                            [ UrlBuilder.string "around" (Point.toString position) ]
 
                         Nothing ->
                             []

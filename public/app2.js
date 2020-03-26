@@ -2,7 +2,7 @@
 const storeKey = "a4a";
 
 // Mutable data
-let markers, map;
+let markers, map, positionWatcher;
 
 // Elm app
 const app = Elm.Main.init({
@@ -43,6 +43,35 @@ app.ports.franceMap.subscribe(function() {
 app.ports.locateMap.subscribe(function(point) {
   createMap().setView(point, 18);
 });
+
+// Geolocation
+
+function sendPosition(position) {
+  const coords = position.coords;
+  app.ports.positionReceived.send({
+    lat: coords.latitude,
+    lon: coords.longitude
+  });
+}
+
+function sendPositionError(error) {
+  console.log("plop");
+  app.ports.positionError.send(error.message);
+}
+
+app.ports.getCurrentPosition.subscribe(function() {
+  navigator.geolocation.getCurrentPosition(sendPosition, sendPositionError, {
+    enableHighAccuracy: true
+  });
+});
+
+// app.ports.watchPosition.subscribe(function() {
+//   navigator.geolocation.watchPosition(sendPosition, sendPositionError, {
+//     enableHighAccuracy: true
+//   });
+// });
+
+// Markers
 
 app.ports.addMapMarkers.subscribe(function(erps) {
   // Cluster

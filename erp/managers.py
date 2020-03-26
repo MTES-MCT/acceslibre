@@ -52,7 +52,8 @@ class ErpQuerySet(models.QuerySet):
         return qs
 
     def nearest(self, coords):
-        location = Point(coords[0], coords[1], srid=4326)
+        # NOTE: the Point constructor wants lon, lat
+        location = Point(coords[1], coords[0], srid=4326)
         return self.annotate(distance=Distance("geom", location)).order_by(
             "distance"
         )

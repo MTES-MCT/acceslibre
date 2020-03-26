@@ -42,9 +42,12 @@ type Msg
     | AutocompleteErpReceived (Result Http.Error (List Autocomplete.ErpEntry))
     | AutocompleteClose
     | ClearNotif Session.Notif
+    | GetCurrentPosition ()
     | HomeMsg Home.Msg
     | LocateMap Point
     | NoOp
+    | PositionReceived Point
+    | PositionError String
     | Search
     | StoreChanged String
     | UrlChanged Url
@@ -110,7 +113,7 @@ init : Flags -> Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url navKey =
     let
         serverUrl =
-            if flags.clientUrl == "http://localhost:3000/" then
+            if String.contains "localhost:3000" flags.clientUrl then
                 "http://localhost:8000"
 
             else
@@ -182,6 +185,9 @@ update msg ({ page, session } as model) =
         ( ClearNotif notif, _ ) ->
             ( { model | session = session |> Session.clearNotif notif }, Cmd.none )
 
+        ( GetCurrentPosition opts, _ ) ->
+            ( model, Ports.getCurrentPosition opts )
+
         ( LocateMap point, _ ) ->
             ( { model | session = session |> Session.resetAutocomplete }
             , Ports.locateMap (Point.encode point)
@@ -189,6 +195,12 @@ update msg ({ page, session } as model) =
 
         ( HomeMsg homeMsg, HomePage homeModel ) ->
             toPage HomePage HomeMsg Home.update homeMsg homeModel
+
+        ( PositionReceived point, _ ) ->
+            ( { model | session = { session | position = Just point } }, Cmd.none )
+
+        ( PositionError error, _ ) ->
+            ( { model | session = session |> Session.notifyError error }, Cmd.none )
 
         ( Search, HomePage _ ) ->
             if String.length session.autocomplete.search > 2 then
@@ -253,6 +265,10 @@ subscriptions model =
     Sub.batch
         [ Ports.storeChanged StoreChanged
 
+        -- geolocation
+        , Ports.positionReceived PositionReceived
+        , Ports.positionError PositionError
+
         -- autocomplete panel close on click outside
         , BE.onMouseUp (Decode.succeed AutocompleteClose)
 
@@ -276,7 +292,7 @@ view : Model -> Document Msg
 view { page, session } =
     let
         pageConfig =
-            Page.Config session Autocomplete ClearNotif LocateMap Search
+            Page.Config session Autocomplete ClearNotif GetCurrentPosition LocateMap Search
 
         mapMsg msg ( title, content ) =
             ( title, content |> List.map (Html.map msg) )

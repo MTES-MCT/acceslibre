@@ -114,7 +114,7 @@ class BaseListView(generic.ListView):
             rlon, rlat = raw.split(",")
             return (float(rlon), float(rlat))
         except (IndexError, ValueError, TypeError) as err:
-            return
+            return None
 
     @property
     def commune(self):

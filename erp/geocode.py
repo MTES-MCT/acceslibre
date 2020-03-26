@@ -56,3 +56,14 @@ def query(params):
     if res.status_code != 200:
         raise RuntimeError("Serveur de géocodage indisponible.")
     return res.json()
+
+
+def parse_coords(coords):
+    "Returns a (lat, lon) tuple or None from a string"
+    if coords is None:
+        return None
+    try:
+        rlat, rlon = coords.split(",")
+        return (float(rlat), float(rlon))
+    except (IndexError, ValueError, TypeError) as err:
+        return None

@@ -22,6 +22,7 @@ import Data.Activite as Activite exposing (Activite)
 import Data.Autocomplete as Autocomplete exposing (Autocomplete)
 import Data.Commune as Commune exposing (Commune)
 import Data.Erp as Erp exposing (Erp)
+import Data.Point exposing (Point)
 import Http
 import Json.Decode as Decode exposing (Decoder)
 import Json.Encode as Encode
@@ -40,6 +41,7 @@ type alias Session =
     , serverUrl : String
     , store : Store
     , notifs : List Notif
+    , position : Maybe Point
     , help : WebData Help
     , commune : Maybe Commune
     , activites : List Activite
@@ -76,6 +78,7 @@ default navKey clientUrl serverUrl =
     , serverUrl = serverUrl
     , store = defaultStore
     , notifs = []
+    , position = Nothing
     , help = RemoteData.NotAsked
     , commune = Nothing
     , activites = []
