@@ -77,15 +77,6 @@ init session route =
                 Route.Home ->
                     base
 
-                Route.Around ->
-                    base
-
-                Route.AroundActivite activiteSlug ->
-                    base
-
-                Route.AroundActiviteErp activiteSlug erpSlug ->
-                    base
-
                 Route.CommuneHome commune ->
                     { base | commune = Just commune }
 
