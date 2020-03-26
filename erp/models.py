@@ -284,7 +284,7 @@ class Erp(models.Model):
             raise ValidationError(
                 {"code_postal": "Le code postal doit faire 5 caractères"}
             )
-        # voie ou lieu-dit sont requis
+        # voie OU lieu-dit sont requis
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})

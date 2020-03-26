@@ -22,6 +22,16 @@ def geocode(adresse):
         feature = data["features"][0]
         # print(json.dumps(data, indent=2))
         properties = feature["properties"]
+        type = properties["type"]
+        # result type handling
+        voie = None
+        lieu_dit = None
+        if type == "street":
+            voie = properties.get("name")
+        elif type == "housenumber":
+            voie = properties.get("street")
+        elif type == "locality":
+            lieu_dit = properties.get("name")
         # score
         if properties["score"] < 0.5:
             return None
@@ -30,17 +40,14 @@ def geocode(adresse):
         return {
             "geom": Point(geometry["coordinates"]),
             "numero": properties.get("housenumber"),
-            "voie": properties.get("street"),
-            "lieu_dit": (
-                properties.get("name")
-                if properties.get("type") == "locality"
-                else None
-            ),
+            "voie": voie,
+            "lieu_dit": lieu_dit,
             "code_postal": properties.get("postcode"),
             "commune": properties.get("city"),
             "code_insee": properties.get("citycode"),
         }
     except (KeyError, IndexError, RuntimeError) as err:
+        print(f"Erreur géocodage : {err}")
         return None
 
 
