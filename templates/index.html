@@ -4,20 +4,24 @@
 
 {% block editorial_content %}
   <div class="row">
-    <div class="col-sm-8 card-columns">
-      {% for _, commune in communes.items %}
-      <div class="card mb-4 shadow-sm">
-        <a href="{% url 'commune' commune.slug %}">
-          <img class="card-img-top" alt="{{ commune.nom }}" src="{% static "img/communes/" %}{{ commune.slug }}.jpg">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title"><a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></h5>
-          <p class="card-text">
-            <small class="text-muted">Découvrez l'accessibilité des établissements de la ville.</small>
-          </p>
+    <div class="col-sm-8">
+      <div class="row row-cols-1 row-cols-md-2">
+        {% for _, commune in communes.items %}
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+            <a href="{% url 'commune' commune.slug %}">
+              <img class="card-img-top" alt="{{ commune.nom }}" src="{% static "img/communes/" %}{{ commune.slug }}.jpg">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></h5>
+              <p class="card-text">
+                <small class="text-muted">Découvrez l'accessibilité des établissements de la ville.</small>
+              </p>
+            </div>
+          </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
     <div class="col-sm-4">
       <div class="card">
