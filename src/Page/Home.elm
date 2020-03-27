@@ -138,6 +138,7 @@ init session route =
 
             Nothing ->
                 Request.Erp.list session model.commune model.activiteSlug model.search ErpListReceived
+        , Ports.getCurrentPosition ()
         ]
     )
 

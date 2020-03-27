@@ -62,7 +62,7 @@ def autocomplete(request):
         qs = qs.in_commune(commune)
     qs = qs.search(q)[:7]
     for erp in qs:
-        score = (erp.rank + erp.similarity - (erp.distance / 6)) * 60
+        score = (erp.rank + erp.similarity - (erp.distance_nom / 6)) * 60
         score = 10 if score > 10 else score
         suggestions.append(
             {
