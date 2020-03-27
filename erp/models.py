@@ -291,18 +291,18 @@ class Erp(models.Model):
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
+            Value(self.commune, output_field=models.TextField()),
+            weight="A",
+            config=FULLTEXT_CONFIG,
+        )
+        search_vector = search_vector + SearchVector(
             Value(self.nom, output_field=models.TextField()),
             weight="A",
             config=FULLTEXT_CONFIG,
         )
         search_vector = search_vector + SearchVector(
-            Value(self.commune, output_field=models.TextField()),
-            weight="D",
-            config=FULLTEXT_CONFIG,
-        )
-        search_vector = search_vector + SearchVector(
             Value(self.voie, output_field=models.TextField()),
-            weight="C",
+            weight="B",
             config=FULLTEXT_CONFIG,
         )
         search_vector = search_vector + SearchVector(
