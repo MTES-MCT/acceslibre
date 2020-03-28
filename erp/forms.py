@@ -110,10 +110,11 @@ class AdminErpForm(forms.ModelForm):
         if addr == "":
             return
         locdata = geocode(addr)
-        if locdata["geom"] is None:
+        if not locdata or locdata["geom"] is None:
             raise ValidationError({"voie": f"Adresse non localisable: {addr}."})
-        # FIXME: would be nice to allow just setting custom geom
-        self.cleaned_data["geom"] = locdata["geom"]
+        else:
+            # FIXME: would be nice to allow just setting custom geom
+            self.cleaned_data["geom"] = locdata["geom"]
         self.cleaned_data["numero"] = locdata["numero"]
         self.cleaned_data["voie"] = locdata["voie"]
         self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
