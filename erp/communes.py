@@ -5,6 +5,12 @@ COMMUNES = {
         "center": (48.9041, 2.2952),
         "zoom": 15,
     },
+    "chaussy": {
+        "nom": "Chaussy",
+        "slug": "95-chaussy",
+        "center": (49.1240, 1.6930),
+        "zoom": 16,
+    },
     "courbevoie": {
         "nom": "Courbevoie",
         "slug": "92-courbevoie",
