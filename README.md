@@ -18,9 +18,18 @@ L'environnement de développement recommandé est Ubuntu 18.04 LTS, disposant de
 
 Créez un fichier `.env` à la racine du dépôt, définissant les variables d'environnement suivantes :
 
-- `SECRET_KEY`: une chaine de caractères unique permettant de gérer les [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key).
+- `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
+- `SENTRY_DSN`: La chaine de connexion à [Sentry](https://sentry.io/), l'outil de rapport d'erreur que nous utilisons en production.
+- `EMAIL_HOST`: Host du serveur SMTP
+- `EMAIL_PORT`: Port du serveur SMTP
+- `EMAIL_HOST_USER`: Nom d'utilisateur SMTP
+- `EMAIL_HOST_PASSWORD`: Mot de passe SMTP
 
-Note: un fichier d'exemple `.env.sample` est disponible à la racine du dépôt.
+**Notes :**
+
+- Un fichier d'exemple `.env.sample` est disponible à la racine du dépôt.
+- En production, nous utilisons les services de [Mailjet](https://app.mailjet.com/) pour gérer l'envoi d'emails.
+- Pour travailler localement, l'utilisation du [backend d'email "console"](https://docs.djangoproject.com/en/3.0/topics/email/#console-backend) est recommandé.
 
 ## Installation
 
@@ -227,7 +236,12 @@ git remote add scalingo git@ssh.osc-fr1.scalingo.com:access4all.git
 Enfin, il faut positionner les variables d'environnement applicatives :
 
 ```
-$ scalingo -a access4all env-set SECRET_KEY="<insérez une chaîne de caractère arbitraire ici>"
+$ scalingo -a access4all env-set SECRET_KEY="<insérez la valeur ici>"
+$ scalingo -a access4all env-set SENTRY_DSN="<insérer la valeur ici>"
+$ scalingo -a access4all env-set EMAIL_HOST="<insérez la valeur ici>"
+$ scalingo -a access4all env-set EMAIL_PORT=<insérez la valeur ici>
+$ scalingo -a access4all env-set EMAIL_HOST_USER="<insérez la valeur ici>"
+$ scalingo -a access4all env-set EMAIL_HOST_PASSWORD="<insérez la valeur ici>"
 ```
 
 Au besoin, redémarrez le conteneur applicatif pour prendre en compte une éventuelle modification :

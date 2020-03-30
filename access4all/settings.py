@@ -17,10 +17,14 @@ import sentry_sdk
 from django.core.exceptions import ImproperlyConfigured
 
 
-def get_env_variable(var_name, required=True):
+def get_env_variable(var_name, required=True, type=str):
     if required:
         try:
-            return os.environ[var_name]
+            return type(os.environ[var_name])
+        except TypeError:
+            raise ImproperlyConfigured(
+                f"Unable to cast '{var_name}' to {type}."
+            )
         except KeyError:
             raise ImproperlyConfigured(
                 f"The '{var_name}' environment variable must be set."
@@ -162,9 +166,23 @@ USE_I18N = True
 USE_L10N = False
 USE_TZ = True
 
-# Email sending
+# Email configuration (production uses Mailjet - see README)
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = get_env_variable("EMAIL_HOST")
+EMAIL_PORT = get_env_variable("EMAIL_PORT", type=int)
+EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = "Access4all team <nicolas@perriault.net>"
+EMAIL_FILE_PATH = "/tmp/django_emails"
+EMAIL_SUBJECT_PREFIX = "[access4all]"
+EMAIL_USE_LOCALTIME = True
+
+# For now we use the admin login page for the whole app
+# We'll have proper frontend login page when we'll have end user accounts
+LOGIN_URL = "/admin/login/"
 
 # Cache
 CACHES = {
