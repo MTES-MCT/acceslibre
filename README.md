@@ -70,6 +70,12 @@ ALTER MAPPING FOR hword, hword_part, word
 WITH unaccent, french_stem;
 ```
 
+> Note: pour jouer les tests, vous devez également exécuter cette commande :
+>
+>     ALTER ROLE access4all SUPERUSER;
+>
+> Cette commande ne doit **jamais** être exécutée sur la base de production.
+
 Puis, initialisez la base de données :
 
 ```

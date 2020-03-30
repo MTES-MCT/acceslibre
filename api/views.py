@@ -6,7 +6,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
-from erp import geocode
+from erp import geocoder
 from erp.models import Accessibilite, Activite, Erp
 from erp.schema import get_accessibilite_api_schema
 from .serializers import (
@@ -104,7 +104,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
             queryset = queryset.search(search_terms)
 
         # Proximity
-        around = geocode.parse_coords(self.request.query_params.get("around"))
+        around = geocoder.parse_coords(self.request.query_params.get("around"))
         if around is not None:
             queryset = queryset.nearest(around)
 

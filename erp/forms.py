@@ -3,7 +3,7 @@ from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import fields, widgets
 
-from .geocode import geocode
+from . import geocoder
 from .models import Activite, Accessibilite, Erp
 
 
@@ -95,7 +95,15 @@ class AdminActiviteForm(forms.ModelForm):
 class AdminErpForm(forms.ModelForm):
     class Meta:
         model = Erp
-        exclude = ("pk",)
+        exclude = (
+            "pk",
+            "user",
+            "search_vector",
+        )
+
+    def __init__(self, *args, geocode=None, **kwargs):
+        self.geocode = geocode if geocode else geocoder.geocode
+        return super().__init__(*args, **kwargs)
 
     def get_adresse(self):
         parts = [
@@ -109,18 +117,18 @@ class AdminErpForm(forms.ModelForm):
         addr = self.get_adresse()
         if addr == "":
             return
-        locdata = geocode(addr)
+        locdata = self.geocode(addr)
         if not locdata or locdata["geom"] is None:
             raise ValidationError({"voie": f"Adresse non localisable: {addr}."})
         else:
             # FIXME: would be nice to allow just setting custom geom
             self.cleaned_data["geom"] = locdata["geom"]
-        self.cleaned_data["numero"] = locdata["numero"]
-        self.cleaned_data["voie"] = locdata["voie"]
-        self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
-        self.cleaned_data["code_postal"] = locdata["code_postal"]
-        self.cleaned_data["commune"] = locdata["commune"]
-        self.cleaned_data["code_insee"] = locdata["code_insee"]
+            self.cleaned_data["numero"] = locdata["numero"]
+            self.cleaned_data["voie"] = locdata["voie"]
+            self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
+            self.cleaned_data["code_postal"] = locdata["code_postal"]
+            self.cleaned_data["commune"] = locdata["commune"]
+            self.cleaned_data["code_insee"] = locdata["code_insee"]
 
 
 class ViewAccessibiliteForm(forms.ModelForm):
