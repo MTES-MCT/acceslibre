@@ -101,9 +101,17 @@ class AdminErpForm(forms.ModelForm):
             "search_vector",
         )
 
+    ban_autocomplete = forms.CharField(
+        max_length=255,
+        required=False,
+        label="Recherche de l'adresse",
+        widget=forms.TextInput(attrs={"type": "search", "class": "vTextField"}),
+        help_text="Entrez l'adresse de l'ERP et sélectionnez la suggestion correspondante dans la liste.",
+    )
+
     def __init__(self, *args, geocode=None, **kwargs):
         self.geocode = geocode if geocode else geocoder.geocode
-        return super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def get_adresse(self):
         parts = [

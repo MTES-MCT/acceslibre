@@ -105,7 +105,11 @@ class CommuneFilter(admin.SimpleListFilter):
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     class Media:
         css = {"all": ("admin/a4a-addons.css",)}
-        js = ("admin/js/a4a-admin.js",)
+        js = (
+            "js/jquery.autocomplete.min.js",
+            "admin/js/a4a-admin.js",
+            "admin/js/ban-autocomplete.js",
+        )
 
     # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
     # resource_class = ErpResource
@@ -153,6 +157,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             "Localisation",
             {
                 "fields": [
+                    "ban_autocomplete",
                     "numero",
                     "voie",
                     "lieu_dit",
