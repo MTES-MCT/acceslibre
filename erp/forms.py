@@ -101,6 +101,14 @@ class AdminErpForm(forms.ModelForm):
             "search_vector",
         )
 
+    photon_autocomplete = forms.CharField(
+        max_length=255,
+        required=False,
+        label="Recherche d'un ERP",
+        widget=forms.TextInput(attrs={"type": "search", "class": "vTextField"}),
+        help_text='Recherchez un ERP par sa raison sociale et son adresse. Ex: "Intermarché Lyon".',
+    )
+
     ban_autocomplete = forms.CharField(
         max_length=255,
         required=False,

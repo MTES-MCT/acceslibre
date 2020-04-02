@@ -108,7 +108,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         js = (
             "js/jquery.autocomplete.min.js",
             "admin/js/a4a-admin.js",
-            "admin/js/ban-autocomplete.js",
+            "admin/js/a4a-autocomplete.js",
         )
 
     # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
@@ -151,8 +151,18 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     view_on_site = True
 
     fieldsets = [
-        (None, {"fields": ["activite", "nom", "siret", "published"]}),
-        ("Contact", {"fields": ["telephone", "site_internet"],},),
+        (
+            None,
+            {
+                "fields": [
+                    "photon_autocomplete",
+                    "activite",
+                    "nom",
+                    "siret",
+                    "published",
+                ]
+            },
+        ),
         (
             "Localisation",
             {
@@ -168,6 +178,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                 ]
             },
         ),
+        ("Contact", {"fields": ["telephone", "site_internet"],},),
     ]
 
     def save_model(self, request, obj, form, change):

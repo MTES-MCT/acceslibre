@@ -12,8 +12,9 @@ ul.inline li input[type="radio"] {
 }
 
 /* autocomplete */
-#id_ban_autocomplete {
-  width: 30em;
+#id_ban_autocomplete,
+#id_photon_autocomplete {
+  width: calc(100% - 170px);
 }
 .autocomplete-suggestions {
   background: #fff;
