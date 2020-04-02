@@ -26,30 +26,23 @@ window.addEventListener("DOMContentLoaded", function() {
           }
         })
           .then(function(result) {
-            return result.features
-              .filter(function(feature) {
-                return (
-                  ["place", "boundary"].indexOf(feature.properties.osm_key) ===
-                  -1
-                );
-              })
-              .map(function(feature) {
-                return {
-                  value: [
-                    feature.properties.name,
-                    feature.properties.housenumber,
-                    feature.properties.street,
-                    feature.properties.postcode,
-                    feature.properties.city,
-                    feature.properties.osm_value
-                      ? `(${feature.properties.osm_value})`
-                      : ""
-                  ]
-                    .join(" ")
-                    .replace(/\s\s+/g, " "),
-                  data: feature.properties
-                };
-              });
+            return result.features.map(function(feature) {
+              return {
+                value: [
+                  feature.properties.name,
+                  feature.properties.housenumber,
+                  feature.properties.street,
+                  feature.properties.postcode,
+                  feature.properties.city,
+                  feature.properties.osm_key && feature.properties.osm_value
+                    ? `(${feature.properties.osm_key}:${feature.properties.osm_value})`
+                    : ""
+                ]
+                  .join(" ")
+                  .replace(/\s\s+/g, " "),
+                data: feature.properties
+              };
+            });
           })
           .fail(function(err) {
             console.error("erreur Photon autocomplete", err);
