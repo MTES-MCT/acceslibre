@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", function() {
       lookup: function(query, done) {
         const results = {};
         const req = $.ajax({
-          url: "http://photon.komoot.de/api/",
+          url: "https://photon.komoot.de/api/",
           data: {
             q: query,
             lang: "fr",
