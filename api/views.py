@@ -35,6 +35,10 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
 
     @action(detail=False, methods=["get"])
     def help(self, request, pk=None):
+        """ Documente les différents champs d'accessibilité, spécifiant pour chacun :
+            - Le libellé du champ
+            - La documentation du champ
+        """
         repr = {}
         for _, data in get_accessibilite_api_schema().items():
             for field in data["fields"]:
