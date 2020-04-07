@@ -5,6 +5,9 @@ from rest_framework.decorators import action
 from rest_framework.generics import get_object_or_404
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
+from rest_framework.schemas.openapi import AutoSchema
+from rest_framework.views import APIView
+from rest_framework.filters import BaseFilterBackend
 
 from erp import geocoder
 from erp.models import Accessibilite, Activite, Erp
@@ -21,6 +24,31 @@ from .serializers import (
 # - queryable slugs: https://stackoverflow.com/a/32209005/330911
 # - pagination style: https://www.django-rest-framework.org/api-guide/pagination/#modifying-the-pagination-style
 # - detail view queryset overriding: https://github.com/encode/django-rest-framework/blob/0407a0df8a16fdac94bbd08d49143a74a88001cd/rest_framework/generics.py#L75-L101
+# - query string parameters api documentation: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
+# - documenting your views: https://www.django-rest-framework.org/coreapi/from-documenting-your-api/#documenting-your-views
+
+
+API_DOC_SUMMARY = """
+Access4all expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation) publique
+permettant d'interroger programmatiquement sa base de données.
+
+Cette API embrasse le paradigme [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer)
+autant que possible et expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation).
+"""
+
+
+class A4aAutoSchema(AutoSchema):
+    """ A custom DRF schema allowing to define documentation for query string parameters.
+
+    see: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
+    """
+
+    def get_operation(self, path, method):
+        op = super().get_operation(path, method)
+        for param, rule in self.query_string_params.items():
+            if path in rule["paths"] and method in rule["methods"]:
+                op["parameters"].append(rule["field"])
+        return op
 
 
 class AccessibilitePagination(PageNumberPagination):
@@ -28,6 +56,18 @@ class AccessibilitePagination(PageNumberPagination):
 
 
 class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    list:
+    Ce point d'accès liste les **critères d'accessibilité** des ERP.
+
+    retrieve:
+    Ce point d'accès permet de récupérer les informations d'accessibilité d'un ERP
+    spécifique, à partir de son identifiant.
+
+    **L'obtention de cette URL s'obtient en interrogeant la propriété `acessibilité`**
+    d'un objet *Erp*.
+    """
+
     queryset = Accessibilite.objects.filter(erp__published=True)
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
@@ -53,18 +93,45 @@ class ActivitePagination(PageNumberPagination):
     page_size = 300
 
 
+class ActiviteSchema(A4aAutoSchema):
+    query_string_params = {
+        "commune": {
+            "paths": ["/activites/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "commune",
+                "in": "query",
+                "required": False,
+                "description": "Nom de la commune (ex. *Clichy*)",
+                "schema": {"type": "string"},
+            },
+        },
+    }
+
+
 class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    list:
+    Ce point d'accès liste les **activités d'ERP**. Il accepte les filtres suivants :
+
+    - `?commune=Lyon` remonte la liste des activités de l'ensemble des ERP de la ville de *Lyon*
+
+    retrieve:
+    Ce point d'accès permet de récupérer les informations liées à une **activité d'ERP**
+    spécifique, identifiée par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
+    (*slug*).
+    """
+
     queryset = Activite.objects.order_by("nom")
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = ActiviteWithCountSerializer
     lookup_field = "slug"
     pagination_class = ActivitePagination
+    schema = ActiviteSchema()
 
     def get_queryset(self):
         queryset = self.queryset
-        commune = self.request.query_params.get(
-            "commune", None  # FIXME/ should use slug
-        )
+        commune = self.request.query_params.get("commune")
         if commune is not None:
             queryset = queryset.in_commune(commune)
         return queryset.with_erp_counts()
@@ -74,7 +141,102 @@ class ErpPagination(PageNumberPagination):
     page_size = 100
 
 
+class ErpFilterBackend(BaseFilterBackend):
+    # FIXME: do NOT apply filters on details view
+    def filter_queryset(self, request, queryset, view):
+        # Commune
+        commune = request.query_params.get("commune", None)
+        if commune is not None:
+            queryset = queryset.in_commune(commune)
+
+        # Activité
+        activite = request.query_params.get("activite", None)
+        if activite is not None:
+            queryset = queryset.having_activite(activite)
+
+        # Search
+        search_terms = request.query_params.get("q", None)
+        if search_terms is not None:
+            queryset = queryset.search(search_terms)
+
+        # Proximity
+        around = geocoder.parse_coords(request.query_params.get("around"))
+        if around is not None:
+            queryset = queryset.nearest(around)
+
+        return queryset
+
+
+class ErpSchema(A4aAutoSchema):
+    query_string_params = {
+        "q": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "q",
+                "in": "query",
+                "required": False,
+                "description": "Termes de recherche",
+                "schema": {"type": "string"},
+            },
+        },
+        "commune": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "commune",
+                "in": "query",
+                "required": False,
+                "description": "Nom de la commune (ex. *Clichy*)",
+                "schema": {"type": "string"},
+            },
+        },
+        "activite": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "activite",
+                "in": "query",
+                "required": False,
+                "description": "Identifiant d'URL de l'activité (slug)",
+                "schema": {"type": "string"},
+            },
+        },
+        "around": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "around",
+                "in": "query",
+                "required": False,
+                "description": "Biais de localisation géographique, au format `latitude,longitude`",
+                "schema": {"type": "string"},
+            },
+        },
+    }
+
+
 class ErpViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    list:
+    Ce point d'accès liste les ERP. Il accepte et permet de combiner plusieurs
+    filtres via des paramètres spécifiques :
+
+    - `?q=impôts` recherche les ERP contenant le terme *impôts* dans son nom,
+      son adresse ou son activité
+    - `?commune=Lyon` remonte les ERP de la ville de *Lyon*
+    - `?activite=administration-publique` remonte les ERP ayant
+      *Administration publique* pour activité
+    - `?q=impôts&commune=Lyon&activite=administration-publique` remonte les
+      *administration publiques* contenant le terme *impôts* situés dans la ville
+      de *Lyon*
+
+    retrieve:
+    Ce point d'accès permet de récupérer les données d'un ERP spécifique, identifié
+    par son [identifiant d'URL](https://fr.wikipedia.org/wiki/Slug_(journalisme))
+    (*slug*).
+    """
+
     queryset = (
         Erp.objects.published()
         .geolocated()
@@ -86,30 +248,5 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     lookup_field = "slug"
     pagination_class = ErpPagination
-
-    def get_queryset(self):
-        queryset = self.queryset
-
-        # Commune
-        commune = self.request.query_params.get(
-            "commune", None  # FIXME/ should use slug
-        )
-        if commune is not None:
-            queryset = queryset.in_commune(commune)
-
-        # Activité
-        activite = self.request.query_params.get("activite", None)
-        if activite is not None:
-            queryset = queryset.having_activite(activite)
-
-        # Search
-        search_terms = self.request.query_params.get("q", None)
-        if search_terms is not None:
-            queryset = queryset.search(search_terms)
-
-        # Proximity
-        around = geocoder.parse_coords(self.request.query_params.get("around"))
-        if around is not None:
-            queryset = queryset.nearest(around)
-
-        return queryset
+    filter_backends = [ErpFilterBackend]
+    schema = ErpSchema()
