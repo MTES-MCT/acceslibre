@@ -219,7 +219,11 @@ class Erp(models.Model):
     code_postal = models.CharField(max_length=5, help_text="Code postal")
     commune = models.CharField(max_length=255, help_text="Nom de la commune")
     code_insee = models.CharField(
-        max_length=5, null=True, blank=True, help_text="Code INSEE"
+        max_length=5,
+        null=True,
+        blank=True,
+        verbose_name="Code INSEE",
+        help_text="Code INSEE de la commune",
     )
     # datetimes
     created_at = models.DateTimeField(
