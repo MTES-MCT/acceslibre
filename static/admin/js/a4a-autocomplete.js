@@ -18,12 +18,15 @@ window.addEventListener("DOMContentLoaded", function() {
           "limit=100",
           "bbox=-5.22,41.33,9.55,51.2",
           "osm_tag=!admin_level",
+          "osm_tag=!aerialway",
           "osm_tag=!aeroway",
           "osm_tag=!boundary",
           "osm_tag=!bridge",
           "osm_tag=!highway",
           "osm_tag=!historic",
+          "osm_tag=!man_made",
           "osm_tag=!natural",
+          "osm_tag=!place",
           "osm_tag=!railway",
           "osm_tag=!tunnel",
           "osm_tag=!waterway",
@@ -38,7 +41,6 @@ window.addEventListener("DOMContentLoaded", function() {
       deferRequestBy: 100,
       minChars: 2,
       lookup: function(query, done) {
-        const results = {};
         const req = $.ajax(buildPhotonQueryString(query))
           .then(function(result) {
             return result.features
@@ -71,7 +73,16 @@ window.addEventListener("DOMContentLoaded", function() {
             );
           })
           .done(function(res) {
-            done({ suggestions: res.slice(0, 10) });
+            // console.log(
+            //   [
+            //     ...new Set(
+            //       res.map(x => `${x.data.osm_key}:${x.data.osm_value}`)
+            //     )
+            //   ]
+            //     .sort()
+            //     .join("\n")
+            // );
+            done({ suggestions: res.slice(0, 12) });
           });
       },
       onSelect: function(suggestion) {
@@ -87,7 +98,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
     // BAN autocomplete
     const banAutocomplete = {
-      deferRequestBy: 100,
+      deferRequestBy: 30,
       minChars: 2,
       lookup: function(query, done) {
         const results = {};
