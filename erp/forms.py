@@ -129,15 +129,30 @@ class AdminErpForm(forms.ModelForm):
         ]
         return " ".join(parts).strip()
 
+    def adresse_changed(self):
+        return (
+            self.cleaned_data["numero"] != self.instance.numero
+            or self.cleaned_data["voie"] != self.instance.voie
+            or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
+            or self.cleaned_data["code_postal"] != self.instance.code_postal
+            or self.cleaned_data["commune"] != self.instance.commune
+        )
+
     def clean(self):
         addr = self.get_adresse()
         if addr == "":
             return
-        locdata = self.geocode(addr)
-        if not locdata or locdata["geom"] is None:
-            raise ValidationError({"voie": f"Adresse non localisable: {addr}."})
-        else:
-            # FIXME: would be nice to allow just setting custom geom
+        if self.cleaned_data["geom"] is None or self.adresse_changed():
+            # User hasn't set a geom point yet, or the address has been manually
+            # updated: we geocode the address
+            locdata = self.geocode(addr)
+            if not locdata or locdata["geom"] is None:
+                raise ValidationError(
+                    {
+                        "voie": f"Adresse non localisable : {addr}. "
+                        "Veuillez vérifier votre saisie ou contactez un administrateur."
+                    }
+                )
             self.cleaned_data["geom"] = locdata["geom"]
             self.cleaned_data["numero"] = locdata["numero"]
             self.cleaned_data["voie"] = locdata["voie"]
