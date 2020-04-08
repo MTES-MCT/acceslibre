@@ -10,45 +10,68 @@ window.addEventListener("DOMContentLoaded", function() {
       $("#id_code_insee").val();
     }
 
+    function buildPhotonQueryString(q) {
+      return (
+        "https://photon.komoot.de/api/?" +
+        [
+          "lang=fr",
+          "limit=100",
+          "bbox=-5.22,41.33,9.55,51.2",
+          "osm_tag=!admin_level",
+          "osm_tag=!aeroway",
+          "osm_tag=!boundary",
+          "osm_tag=!bridge",
+          "osm_tag=!highway",
+          "osm_tag=!historic",
+          "osm_tag=!natural",
+          "osm_tag=!railway",
+          "osm_tag=!tunnel",
+          "osm_tag=!waterway",
+          "osm_tag=!wikipedia",
+          "q=" + encodeURIComponent(q)
+        ].join("&")
+      );
+    }
+
     // Photon autocomplete
     const photonAutocomplete = {
       deferRequestBy: 100,
       minChars: 2,
       lookup: function(query, done) {
         const results = {};
-        const req = $.ajax({
-          url: "https://photon.komoot.de/api/",
-          data: {
-            q: query,
-            lang: "fr",
-            bbox:
-              "-5.164307602273511,40.64730356252251,9.733153335226492,52.44261787120725"
-          }
-        })
+        const req = $.ajax(buildPhotonQueryString(query))
           .then(function(result) {
-            return result.features.map(function(feature) {
-              return {
-                value: [
-                  feature.properties.name,
-                  feature.properties.housenumber,
-                  feature.properties.street,
-                  feature.properties.postcode,
-                  feature.properties.city,
-                  feature.properties.osm_key && feature.properties.osm_value
-                    ? `(${feature.properties.osm_key}:${feature.properties.osm_value})`
-                    : ""
-                ]
-                  .join(" ")
-                  .replace(/\s\s+/g, " "),
-                data: feature.properties
-              };
-            });
+            return result.features
+              .filter(function(feature) {
+                const p = feature.properties;
+                return p.country === "France";
+              })
+              .map(function(feature) {
+                return {
+                  value: [
+                    feature.properties.name,
+                    feature.properties.housenumber,
+                    feature.properties.street,
+                    feature.properties.postcode,
+                    feature.properties.city,
+                    feature.properties.osm_key && feature.properties.osm_value
+                      ? `(${feature.properties.osm_key}:${feature.properties.osm_value})`
+                      : ""
+                  ]
+                    .join(" ")
+                    .replace(/\s\s+/g, " "),
+                  data: feature.properties
+                };
+              });
           })
           .fail(function(err) {
-            console.error("erreur Photon autocomplete", err);
+            console.error(
+              "erreur Photon autocomplete: ",
+              err.responseJSON.message
+            );
           })
           .done(function(res) {
-            done({ suggestions: res });
+            done({ suggestions: res.slice(0, 10) });
           });
       },
       onSelect: function(suggestion) {
