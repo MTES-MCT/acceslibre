@@ -6,10 +6,11 @@ jobs:
       - image: circleci/postgres:12.2-postgis
 
     environment:
-      DATABASE_URL: postgres://postgres:@localhost/circle_test
+      DATABASE_URL: postgres://postgres:postgres@localhost/circle_test
       DJANGO_SECRET_KEY: test
       PIPENV_VENV_IN_PROJECT: true
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: circle_test
 
     steps:
