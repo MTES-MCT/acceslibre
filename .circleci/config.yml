@@ -16,6 +16,7 @@ jobs:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           command: |
+            apt-get update && apt install -y gdal-bin python-gdal python3-gdal
             sudo pip install pipenv
             pipenv install
       - save_cache:
