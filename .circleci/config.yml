@@ -5,7 +5,7 @@ jobs:
       - image: circleci/python:3.7.7
         environment:
           PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: postgresql://root@127.0.0.1/circle_test?sslmode=disable
+          DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
       - image: circleci/postgres:12.2-postgis
         environment:
           POSTGRES_USER: root
@@ -28,6 +28,7 @@ jobs:
       - run:
           name: Run database migrations
           command: |
+            sleep 10
             pipenv run ./manage.py migrate
       - run:
           name: Run tests
