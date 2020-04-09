@@ -5,10 +5,10 @@ jobs:
       - image: circleci/python:3.7.7
         environment:
           PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: postgresql://postgres@localhost/circle_test?sslmode=disable
+          DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
       - image: circleci/postgres:12.2-postgis-ram
         environment:
-          POSTGRES_USER: postgres
+          POSTGRES_USER: root
           POSTGRES_DB: circle_test
     steps:
       - checkout
@@ -26,6 +26,7 @@ jobs:
             - "venv"
       - run:
           command: |
+            pipenv run manage.py migrate
             pipenv run pytest
       - store_test_results:
           path: test-results
