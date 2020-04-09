@@ -5,8 +5,8 @@ jobs:
       - image: circleci/python:3.7.7
         environment:
           PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
-      - image: circleci/postgres:12.2-postgis-ram
+          DATABASE_URL: postgresql://root@postgres/circle_test?sslmode=disable
+      - image: circleci/postgres:12.2-postgis
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: circle_test
