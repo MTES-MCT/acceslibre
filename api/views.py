@@ -64,11 +64,13 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     Ce point d'accès permet de récupérer les informations d'accessibilité d'un ERP
     spécifique, à partir de son identifiant.
 
-    **L'obtention de cette URL s'obtient en interrogeant la propriété `acessibilité`**
-    d'un objet *Erp*.
+    **L'obtention de cette URL s'obtient en interrogeant la propriété `acessibilite`
+    d'un objet *Erp*.**
     """
 
-    queryset = Accessibilite.objects.filter(erp__published=True)
+    queryset = Accessibilite.objects.filter(erp__published=True).order_by(
+        "-updated_at"
+    )
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination
