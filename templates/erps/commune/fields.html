@@ -10,23 +10,20 @@
     </div>
     {% else %}
     <span>
-      {{ field.label }}&nbsp;<small class="text-muted">{{ field.help_text }}</small>
+      {{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small>
     </span>
-    <span>
-      {% if field.value is True %}
-        <span>
-          <i class="icon icon-check-circle text-success" style="font-size:1.2rem"></i>
-          <span class="sr-only">Oui</span>
-        </span>
-      {% elif field.value is False %}
-        <span>
-          <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
-          <span class="sr-only">Non</span>
-        </span>
+    <span class="a4a-badge-group">
+      {% if field.value is True or field.value is False %}
+        {% if field.value is True %}
+          <span class="badge badge-info a4a-badge" aria-current="true"><strong>Oui</strong></span>
+          <span class="badge badge-light font-weight-normal a4a-badge">Non</span>
+        {% else %}
+          <span class="badge badge-light font-weight-normal a4a-badge">Oui</span>
+          <span class="badge badge-info a4a-badge" aria-current="true"><strong>Non</strong></span>
+        {% endif %}
       {% elif field.value == "aucun" or field.value == "aucune" %}
         <span>
-          <i class="icon icon-times-circle text-danger" style="font-size:1.2rem"></i>
-          <span class="sr-only">Aucun</span>
+          <span class="badge badge-warning a4a-badge">Aucun</span>
         </span>
       {% elif field.name == "accueil_personnels" %}
         {{ erp.accessibilite.get_accueil_personnels_display }}
@@ -34,7 +31,7 @@
         {{ field.value }}cm
       {% elif field.name == "accueil_equipements_malentendants" %}
         {% for label in erp.accessibilite.accueil_equipements_malentendants.all %}
-          <span class="badge badge-info">{{ label.nom }}</span>
+          <span class="badge badge-info a4a-badge">{{ label.nom }}</span>
         {% endfor %}
       {% else %}
         {{ field.value }}
