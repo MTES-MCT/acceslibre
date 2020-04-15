@@ -67,14 +67,10 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
 
     def get_formset(self, request, obj=None, **kwargs):
         # see https://stackoverflow.com/a/37558444/330911
-        formset = super(AccessibiliteInline, self).get_formset(
-            request, obj, **kwargs
-        )
+        formset = super(AccessibiliteInline, self).get_formset(request, obj, **kwargs)
         form = formset.form
         if "accueil_equipements_malentendants" in form.base_fields:
-            widget = form.base_fields[
-                "accueil_equipements_malentendants"
-            ].widget
+            widget = form.base_fields["accueil_equipements_malentendants"].widget
             widget.can_add_related = False
             widget.can_change_related = False
             widget.can_delete_related = False
@@ -190,9 +186,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         if "apply" in request.POST:
             try:
                 queryset.update(activite_id=int(request.POST["activite"]))
-                self.message_user(
-                    request, f"{queryset.count()} ERP ont été modifiés."
-                )
+                self.message_user(request, f"{queryset.count()} ERP ont été modifiés.")
             except (KeyError, TypeError):
                 pass
             return HttpResponseRedirect(request.get_full_path())
@@ -253,9 +247,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
 
     def view_link(self, obj):
-        return mark_safe(
-            f'<a target="_blank" href="{obj.get_absolute_url()}">Voir</a>'
-        )
+        return mark_safe(f'<a target="_blank" href="{obj.get_absolute_url()}">Voir</a>')
 
     view_link.short_description = ""
 

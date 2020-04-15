@@ -40,9 +40,7 @@ class Activite(models.Model):
 
     objects = managers.ActiviteQuerySet.as_manager()
 
-    nom = models.CharField(
-        max_length=255, unique=True, help_text="Nom de l'activité"
-    )
+    nom = models.CharField(max_length=255, unique=True, help_text="Nom de l'activité")
     slug = AutoSlugField(
         default="",
         unique=True,
@@ -79,9 +77,7 @@ class Label(models.Model):
             models.Index(fields=["slug"]),
         ]
 
-    nom = models.CharField(
-        max_length=255, unique=True, help_text="Nom du label"
-    )
+    nom = models.CharField(max_length=255, unique=True, help_text="Nom du label")
     slug = AutoSlugField(
         default="",
         unique=True,
@@ -109,9 +105,7 @@ class EquipementMalentendant(models.Model):
             models.Index(fields=["slug"]),
         ]
 
-    nom = models.CharField(
-        max_length=255, unique=True, help_text="Nom de l'équipement"
-    )
+    nom = models.CharField(max_length=255, unique=True, help_text="Nom de l'équipement")
     slug = AutoSlugField(
         default="",
         unique=True,
@@ -139,9 +133,7 @@ class Erp(models.Model):
             models.Index(fields=["slug"]),
             models.Index(fields=["commune"]),
             models.Index(fields=["commune", "activite_id"]),
-            GinIndex(
-                name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]
-            ),
+            GinIndex(name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
         ]
 
@@ -210,9 +202,7 @@ class Erp(models.Model):
         verbose_name="Numéro",
         help_text="Numéro dans la voie, incluant le complément (BIS, TER, etc.)",
     )
-    voie = models.CharField(
-        max_length=255, null=True, blank=True, help_text="Voie"
-    )
+    voie = models.CharField(max_length=255, null=True, blank=True, help_text="Voie")
     lieu_dit = models.CharField(
         max_length=255, null=True, blank=True, help_text="Lieu dit"
     )
@@ -261,13 +251,7 @@ class Erp(models.Model):
     def adresse(self):
         pieces = filter(
             lambda x: x is not None,
-            [
-                self.numero,
-                self.voie,
-                self.lieu_dit,
-                self.code_postal,
-                self.commune,
-            ],
+            [self.numero, self.voie, self.lieu_dit, self.code_postal, self.commune,],
         )
         return " ".join(pieces).strip().replace("  ", " ")
 

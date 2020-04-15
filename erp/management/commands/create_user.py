@@ -24,9 +24,7 @@ class Command(BaseCommand):
         return a
 
     def random_password(self, length=15):
-        return "".join(
-            random.choice(string.ascii_letters) for i in range(length)
-        )
+        return "".join(random.choice(string.ascii_letters) for i in range(length))
 
     def handle(self, *args, **options):
         group = Group.objects.get(name="territoire")
@@ -37,6 +35,4 @@ class Command(BaseCommand):
             username=username, password=password, email=email, is_staff=True,
         )
         user.groups.add(group)
-        print(
-            f"Compte créé pour {email}: username={username}, password={password}"
-        )
+        print(f"Compte créé pour {email}: username={username}, password={password}")

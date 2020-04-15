@@ -25,9 +25,7 @@ def handler404(request, exception):
 
 
 def handler500(request):
-    return render(
-        request, "500.html", context={"communes": COMMUNES}, status=500
-    )
+    return render(request, "500.html", context={"communes": COMMUNES}, status=500)
 
 
 def home(request):
@@ -82,9 +80,7 @@ def autocomplete(request):
                 },
             }
         )
-    suggestions = sorted(
-        suggestions, key=lambda s: s["data"]["score"], reverse=True
-    )
+    suggestions = sorted(suggestions, key=lambda s: s["data"]["score"], reverse=True)
     return JsonResponse({"suggestions": suggestions})
 
 

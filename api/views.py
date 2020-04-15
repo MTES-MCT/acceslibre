@@ -68,9 +68,7 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     d'un objet *Erp*.**
     """
 
-    queryset = Accessibilite.objects.filter(erp__published=True).order_by(
-        "-updated_at"
-    )
+    queryset = Accessibilite.objects.filter(erp__published=True).order_by("-updated_at")
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination

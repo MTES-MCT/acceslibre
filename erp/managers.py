@@ -17,8 +17,7 @@ class ActiviteQuerySet(models.QuerySet):
         qs = self
         qs = qs.annotate(
             count=Count(
-                "erp__activite",
-                filter=Q(erp__published=True, erp__geom__isnull=False),
+                "erp__activite", filter=Q(erp__published=True, erp__geom__isnull=False),
             )
         )
         qs = qs.filter(count__gt=0)
@@ -54,16 +53,12 @@ class ErpQuerySet(models.QuerySet):
     def nearest(self, coords):
         # NOTE: the Point constructor wants lon, lat
         location = Point(coords[1], coords[0], srid=4326)
-        return self.annotate(distance=Distance("geom", location)).order_by(
-            "distance"
-        )
+        return self.annotate(distance=Distance("geom", location)).order_by("distance")
 
     def search(self, query):
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.annotate(distance_nom=search.TrigramDistance("nom", query))
-        qs = qs.annotate(
-            rank=search.SearchRank(models.F("search_vector"), query)
-        )
+        qs = qs.annotate(rank=search.SearchRank(models.F("search_vector"), query))
         qs = qs.filter(
             Q(search_vector=search.SearchQuery(query, config="french_unaccent"))
             | Q(nom__trigram_similar=query)

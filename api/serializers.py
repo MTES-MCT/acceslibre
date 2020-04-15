@@ -44,12 +44,8 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
 
-    erp = serializers.StringRelatedField(
-        source="erp.slug", many=False, read_only=True
-    )
-    labels = serializers.SlugRelatedField(
-        slug_field="nom", many=True, read_only=True
-    )
+    erp = serializers.StringRelatedField(source="erp.slug", many=False, read_only=True)
+    labels = serializers.SlugRelatedField(slug_field="nom", many=True, read_only=True)
     accueil_equipements_malentendants = serializers.SlugRelatedField(
         slug_field="nom", many=True, read_only=True
     )

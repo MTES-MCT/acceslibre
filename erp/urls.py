@@ -55,13 +55,9 @@ urlpatterns = [
     path("app/autocomplete/", views.autocomplete, name="autocomplete",),
     path("app/<str:commune>/", app_page(), name="commune",),
     path(
-        "app/<str:commune>/a/<str:activite_slug>/",
-        app_page(),
-        name="commune_activite",
+        "app/<str:commune>/a/<str:activite_slug>/", app_page(), name="commune_activite",
     ),
-    path(
-        "app/<str:commune>/erp/<str:erp_slug>/", app_page(), name="commune_erp",
-    ),
+    path("app/<str:commune>/erp/<str:erp_slug>/", app_page(), name="commune_erp",),
     path(
         "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
         app_page(),

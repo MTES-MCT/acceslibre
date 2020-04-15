@@ -74,9 +74,7 @@ class Command(BaseCommand):
         fields["geom"] = clean(row["geom"])
 
         # check ville
-        commune_ok = any(
-            [re.match(r, fields["commune"]) for r in VILLES_CIBLES]
-        )
+        commune_ok = any([re.match(r, fields["commune"]) for r in VILLES_CIBLES])
 
         # checks rest
         if any(
@@ -95,9 +93,7 @@ class Command(BaseCommand):
         # check doublons
         try:
             Erp.objects.get(
-                nom=fields["nom"],
-                voie=fields["voie"],
-                commune=fields["commune"],
+                nom=fields["nom"], voie=fields["voie"], commune=fields["commune"],
             )
             print(f"EXIST {fields['nom']} {fields['voie']} {fields['commune']}")
             return None
@@ -134,9 +130,7 @@ class Command(BaseCommand):
         self.stdout.write(f"Importation des ERP depuis {csv_path}")
         to_import = []
 
-        self.activites = [
-            (a.pk, a.nom.lower().strip()) for a in Activite.objects.all()
-        ]
+        self.activites = [(a.pk, a.nom.lower().strip()) for a in Activite.objects.all()]
 
         with open(csv_path, "r") as file:
             reader = csv.DictReader(file)
