@@ -50,6 +50,27 @@
     </header>
 
     <div class="row p-0 m-0">
+      {% if erp %}
+      <main class="a4a-app-main col-lg-6 col-md-8 col-sm-12 erp-list p-0 m-0 border-top overflow-auto">
+        <div class="px-3">
+          <p class="pt-2">
+            {% if erp.activite %}
+            <a href="{% url 'commune_activite' commune=commune.slug activite_slug=current_activite.slug %}">
+                &laquo; Retour à la liste des établissements de type <em>{{ current_activite.nom }}</em>
+            </a>
+            {% else %}
+            <a href="{% url 'commune_activite' commune=commune.slug activite_slug="non-categorises" %}">
+                &laquo; Retour à la liste des établissements
+            </a>
+            {% endif %}
+          </p>
+          {% include "erps/commune/erp.html" with erp=erp %}
+        </div>
+      </main>
+      <div class="a4a-app-map col-lg-6 col-md-4 d-none d-md-block map-area p-0 m-0">
+        <div id="map" class="a4a-map"></div>
+      </div>
+      {% else %}
       <nav class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto" role="navigation">
         <h3 class="sr-only">Liste des domaines d'activité</h3>
         <div class="list-group list-group-flush border-right">
@@ -66,24 +87,7 @@
           {% endfor %}
         </div>
       </nav>
-
       <main class="a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto">
-        {% if erp %}
-        <div class="px-3">
-          <p class="pt-2">
-            {% if erp.activite %}
-            <a href="{% url 'commune_activite' commune=commune.slug activite_slug=current_activite.slug %}">
-                &laquo; Retour à la liste des établissements de type <em>{{ current_activite.nom }}</em>
-            </a>
-            {% else %}
-            <a href="{% url 'commune_activite' commune=commune.slug activite_slug="non-categorises" %}">
-                &laquo; Retour à la liste des établissements
-            </a>
-            {% endif %}
-          </p>
-          {% include "erps/commune/erp.html" with erp=erp %}
-        </div>
-        {% else %}
         <div class="list-group list-group-flush">
           {% if object_list %}
           {% for erp in object_list %}
@@ -116,12 +120,11 @@
           <p class="p-2 m-2">Aucun établissement correspondant.</p>
           {% endif %}
         </div>
-        {% endif %}
       </main>
-
       <div class="a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0">
         <div id="map" class="a4a-map"></div>
       </div>
+      {% endif %}
     </div>
   </div>
 

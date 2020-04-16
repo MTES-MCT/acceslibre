@@ -7,62 +7,63 @@
   </h3>
   <address><em>{{ erp.adresse }}</em></address>
 
-  {% if accessibilite_data %}
-  {% if erp.accessibilite.labels.count > 0 %}
-  <div class="d-flex justify-content-between align-items-top">
-    <h4 class="flex-fill">Accessibilité</h4>
-    <span class="text-right">
-    {% for label in erp.accessibilite.labels.all %}
-      <big><span class="badge badge-info p-1">{{ label.nom }}</span></big>
-    {% endfor %}
-    </span>
-  </div>
-  {% endif %}
-
-  <div class="mb-2">
-    <ul class="nav nav-pills nav-fill mb-2" role="tablist" aria-label="Sections">
-    {% for section, info in accessibilite_data.items %}
-      <li class="nav-item">
-        <a class="nav-link px-2 py-1{% if forloop.first %} active{% endif %}"
-            href="#{{ info.tabid }}"
-            role="tab"
-            aria-controls="{{ info.tabid }}"
-            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-            id="{{ info.tabid }}-tab"
-            data-toggle="tab">
-          <i class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
-        </a>
-      </li>
-    {% endfor %}
-    </ul>
-    <div class="tab-content">
-    {% for section, info in accessibilite_data.items %}
-      <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}"
-          role="tabpanel" aria-labelledby="{{ info.tabid }}-tab">
-        {% if info.fields %}
-          {% include "erps/commune/fields.html" with fields=info.fields %}
-        {% elif info.sections %}
-          {% for subsection, subinfo in info.sections.items %}
-            <div class="card mb-3">
-              <div class="card-header border-bottom-0 p-2">
-                <h6 class="m-0">
-                  <i class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
-                </h6>
-              </div>
-              <div class="card-body p-0">
-                {% include "erps/commune/fields.html" with fields=subinfo.fields %}
-              </div>
-            </div>
-          {% endfor %}
-        {% endif %}
-      </div>
-    {% endfor %}
+  {% if not accessibilite_data %}
+    <div class="alert alert-info">
+      Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
     </div>
-  </div>
-
   {% else %}
-  <div class="alert alert-info">
-    Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
-  </div>
+    {% if erp.accessibilite.labels.count > 0 %}
+    <div class="d-flex justify-content-between align-items-top">
+      <h4 class="flex-fill">Accessibilité</h4>
+      <span class="text-right">
+      {% for label in erp.accessibilite.labels.all %}
+        <big><span class="badge badge-info p-1">{{ label.nom }}</span></big>
+      {% endfor %}
+      </span>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-md-4">
+        <ul class="nav flex-column nav-pills" role="tablist" aria-label="Sections">
+        {% for section, info in accessibilite_data.items %}
+          <li class="nav-item">
+            <a class="nav-link text-nowrap {% if forloop.first %} active{% endif %}"
+                href="#{{ info.tabid }}"
+                role="tab"
+                aria-controls="{{ info.tabid }}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                id="{{ info.tabid }}-tab"
+                data-toggle="tab">
+              <i class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+      <div class="col-md-8 tab-content">
+      {% for section, info in accessibilite_data.items %}
+        <div class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}"
+            role="tabpanel" aria-labelledby="{{ info.tabid }}-tab">
+          {% if info.fields %}
+            {% include "erps/commune/fields.html" with fields=info.fields %}
+          {% elif info.sections %}
+            {% for subsection, subinfo in info.sections.items %}
+              <div class="card mb-3">
+                <div class="card-header border-bottom-0 p-2">
+                  <h6 class="m-0">
+                    <i class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
+                  </h6>
+                </div>
+                <div class="card-body p-0">
+                  {% include "erps/commune/fields.html" with fields=subinfo.fields %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
   {% endif %}
 </div>
