@@ -17,18 +17,18 @@ h6 {
 
 .a4a-jumbotron {
   background: url(/static/img/undraw_coming_home.svg);
-  background-size: contain;
   background-clip: content-box;
-  background-repeat: no-repeat;
   background-origin: content-box;
   background-position-x: right;
   background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .a4a-marianne {
   background: #fff;
-  width: 50px;
   height: 30px;
+  width: 50px;
 }
 
 .a4a-editorial {
@@ -46,23 +46,20 @@ h6 {
 }
 
 .a4a-erp-list-inner.loading {
-  opacity: 0.65;
+  opacity: .65;
 }
 
 .a4a-cluster-icon {
-  height: 34px;
-  width: 34px;
-  border-radius: 50%;
   background-color: #13629a;
+  border-radius: 50%;
   color: white;
-  text-align: center;
   font-size: 13px;
+  height: 34px;
   line-height: 34px;
-  margin-top: -20px;
   margin-left: -20px;
-}
-
-.a4a-geo-link {
+  margin-top: -20px;
+  text-align: center;
+  width: 34px;
 }
 
 .a4a-app-title {
@@ -90,71 +87,71 @@ h6 {
 .a4a-center-icon {
   color: red;
   font-size: 1rem;
-  opacity: 0.5;
+  opacity: .5;
 }
 
 /* Autocomplete */
 
 .a4a-autocomplete {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: 100%;
   z-index: 2000;
 }
 .a4a-autocomplete-items {
-  position: absolute;
   background: #fff;
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
-  z-index: 99;
-  top: 100%;
   left: 0;
-  right: 0;
   margin: 0; /* overrides bootstrap row margins */
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 99;
 }
 
 /* Notifs */
 
 .a4a-notifs {
   position: fixed;
-  top: 60px;
   right: 10px;
+  top: 60px;
   z-index: 1999;
 }
 
 .a4a-notif {
-  min-width: 350px;
   max-width: 600px;
+  min-width: 350px;
 }
 
 /* Loader from https://loading.io/css/ */
 .lds-ring {
   display: inline-block;
+  height: 80px;
   position: relative;
   width: 80px;
-  height: 80px;
 }
 .lds-ring div {
+  animation: lds-ring 1.2s cubic-bezier(.5, 0, .5, 1) infinite;
+  border: 8px solid #fff;
+  border-color: #4493ce transparent transparent transparent;
+  border-radius: 50%;
   box-sizing: border-box;
   display: block;
-  position: absolute;
-  width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #4493ce transparent transparent transparent;
+  position: absolute;
+  width: 64px;
 }
 .lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
+  animation-delay: -.45s;
 }
 .lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
+  animation-delay: -.3s;
 }
 .lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
+  animation-delay: -.15s;
 }
 @keyframes lds-ring {
   0% {
@@ -169,31 +166,31 @@ h6 {
 .autocomplete-suggestions {
   background: #fff;
   border: 1px solid #4493ce;
-  border-top: 0;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  border-top: 0;
+  cursor: pointer;
   overflow: auto;
   padding: 2px 0;
-  cursor: pointer;
 }
 .autocomplete-suggestion {
+  overflow: hidden;
   padding: 3px 12px;
   white-space: nowrap;
-  overflow: hidden;
 }
 .autocomplete-selected {
   background: #f0f0f0;
 }
 .autocomplete-suggestions strong {
-  font-weight: normal;
   color: #3399ff;
+  font-weight: normal;
 }
 .autocomplete-group {
   padding: 2px 5px;
 }
 .autocomplete-group strong {
-  display: block;
   border-bottom: 1px solid #000;
+  display: block;
 }
 
 .a4a-badge-group {
