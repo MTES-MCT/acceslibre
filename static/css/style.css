@@ -49,6 +49,13 @@ h6 {
   opacity: .65;
 }
 
+.a4a-backlink {
+  border-bottom: 1px solid #ddd;
+  background: #fafafa;
+  margin-bottom: 1em;
+  padding-left: 15px;
+}
+
 .a4a-cluster-icon {
   background-color: #13629a;
   border-radius: 50%;
@@ -60,6 +67,11 @@ h6 {
   margin-top: -20px;
   text-align: center;
   width: 34px;
+}
+
+.a4a-erp-header {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1em; 
 }
 
 .a4a-app-title {

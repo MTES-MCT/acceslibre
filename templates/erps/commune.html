@@ -53,7 +53,7 @@
       {% if erp %}
       <main class="a4a-app-main col-lg-6 col-md-8 col-sm-12 erp-list p-0 m-0 border-top overflow-auto">
         <div class="px-3">
-          <p class="pt-2">
+          <p class="row py-2 a4a-backlink">
             {% if erp.activite %}
             <a href="{% url 'commune_activite' commune=commune.slug activite_slug=current_activite.slug %}">
                 &laquo; Retour à la liste des établissements de type <em>{{ current_activite.nom }}</em>
