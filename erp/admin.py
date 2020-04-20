@@ -174,7 +174,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                 ]
             },
         ),
-        ("Contact", {"fields": ["telephone", "site_internet"],},),
+        ("Contact", {"fields": ["telephone", "site_internet", "contact_email"],},),
     ]
 
     def save_model(self, request, obj, form, change):

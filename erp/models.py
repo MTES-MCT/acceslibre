@@ -194,6 +194,13 @@ class Erp(models.Model):
         blank=True,
         help_text="Adresse du site internet de l'ERP",
     )
+    contact_email = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Courriel",
+        help_text="Adresse email permettant de contacter l'ERP",
+    )
     # adresse
     numero = models.CharField(
         max_length=255,
@@ -383,7 +390,14 @@ class Accessibilite(models.Model):
         verbose_name="Établissement",
         help_text="ERP",
     )
-
+    # 0. Station de transport en commun
+    transport_station_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Desserte par transports en commun",
+        help_text="Présence d'une station de transport en commun à proximité (500 m)",
+    )
     # 1. Stationnement dans l'ERP
     stationnement_presence = models.BooleanField(
         null=True,

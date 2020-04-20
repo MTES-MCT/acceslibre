@@ -1,11 +1,23 @@
 <div class="a4a-erp-details">
-  <h3>
-    {{ erp.nom }}
-    {% if erp.activite %}
-    <small class="text-muted">{{ erp.activite.nom }}</small>
-    {% endif %}
-  </h3>
-  <address><em>{{ erp.adresse }}</em></address>
+  <div class="row">
+    <div class="col-sm-9">
+      <h3>
+        {{ erp.nom }}
+        {% if erp.activite %}
+        <small class="text-muted">{{ erp.activite.nom }}</small>
+        {% endif %}
+      </h3>
+      <address><em>{{ erp.adresse }}</em></address>
+    </div>
+    <div class="col-sm-3">
+      {% if erp.contact_email %}
+      <p class="text-right">
+        <a class="btn btn-sm btn-light"
+            href="mailto:{{ erp.contact_email }}"><i class="icon icon-mail"></i> Contacter cet ERP</a>
+      </p>
+      {% endif %}
+    </div>
+  </div>
 
   {% if not accessibilite_data %}
     <div class="alert alert-info">

@@ -95,6 +95,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "siret",
             "telephone",
             "site_internet",
+            "contact_email",
             "accessibilite",
             "distance",
         )

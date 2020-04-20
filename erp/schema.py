@@ -1,4 +1,8 @@
 ACCESSIBILITE_SCHEMA = {
+    "transport": {
+        "label": "Transports en commun",
+        "fields": ["transport_station_presence"],
+    },
     "stationnement": {
         "label": "Stationnement",
         "fields": [

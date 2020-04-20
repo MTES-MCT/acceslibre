@@ -14,6 +14,7 @@ def bool_radios():
 def get_widgets_for_accessibilite():
     # Note: commented fields are those not being custom boolean fields
     field_names = [
+        "transport_station_presence",
         "stationnement_presence",
         "stationnement_pmr",
         "stationnement_ext_presence",
@@ -187,6 +188,11 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 "entree_pmr",
                 "entree_pmr_informations",
             ],
+        },
+        "Transport en commun": {
+            "icon": "bus",
+            "tabid": "transport",
+            "fields": ["transport_station_presence",],
         },
         "Stationnement": {
             "icon": "car",
