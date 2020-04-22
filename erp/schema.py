@@ -14,6 +14,7 @@ ACCESSIBILITE_SCHEMA = {
     },
     "cheminement_ext": {
         "label": "Cheminement extérieur",
+        "description": "Cheminement entre l'entrée de la parcelle et l'entrée de l'établissement",
         "fields": [
             "cheminement_ext_plain_pied",
             "cheminement_ext_nombre_marches",
@@ -79,6 +80,8 @@ def get_accessibilite_admin_schema():
     schema = {}
     for section_id, section_data in ACCESSIBILITE_SCHEMA.items():
         schema[section_data["label"]] = {"fields": section_data["fields"]}
+    # special case: presence extérieur field just for admin
+    schema["Cheminement extérieur"]["fields"].insert(0, "presence_exterieur")
     return list(schema.items())
 
 

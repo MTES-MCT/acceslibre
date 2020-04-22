@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.forms import fields, widgets
 
 from . import geocoder
-from .models import Activite, Accessibilite, Erp
+from .models import Activite, Accessibilite, Erp, NULLABLE_OR_NA_BOOLEAN_CHOICES
 
 
 def bool_radios():
@@ -77,6 +77,14 @@ class AdminAccessibiliteForm(forms.ModelForm):
         model = Accessibilite
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
+
+    presence_exterieur = forms.ChoiceField(
+        required=False,
+        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
+        widget=bool_radios(),
+        label="Présence d'un extérieur",
+        help_text="L'ERP dispose-t-il d'un espace extérieur qui lui appartient ?",
+    )
 
 
 class AdminActiviteForm(forms.ModelForm):

@@ -9,7 +9,24 @@ window.addEventListener("DOMContentLoaded", function() {
       condition: true,
       targets: ["stationnement_ext_pmr"]
     },
-    // Cheminement extérieur
+    // Présence d'un extérieur
+    presence_exterieur: {
+      condition: true,
+      targets: [
+        "cheminement_ext_plain_pied",
+        "cheminement_ext_nombre_marches",
+        "cheminement_ext_reperage_marches",
+        "cheminement_ext_main_courante",
+        "cheminement_ext_rampe",
+        "cheminement_ext_ascenseur",
+        "cheminement_ext_pente",
+        "cheminement_ext_devers",
+        "cheminement_ext_bande_guidage",
+        "cheminement_ext_guidage_sonore",
+        "cheminement_ext_retrecissement",
+      ]
+    },
+    // Cheminement extérieur plain pied
     cheminement_ext_plain_pied: {
       condition: false,
       targets: [
