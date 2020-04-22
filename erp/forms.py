@@ -78,13 +78,40 @@ class AdminAccessibiliteForm(forms.ModelForm):
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
 
+    def __init__(self, *args, **kwargs):
+        # pre-fill presence_exterieur according to instance data, if any
+        # see https://stackoverflow.com/a/26887842/330911
+        instance = kwargs.get("instance", None)
+        if instance:
+            kwargs.update(initial={"presence_exterieur": self.has_exterieur(instance)})
+        return super().__init__(*args, **kwargs)
+
     presence_exterieur = forms.ChoiceField(
         required=False,
         choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
         widget=bool_radios(),
-        label="Présence d'un extérieur",
-        help_text="L'ERP dispose-t-il d'un espace extérieur qui lui appartient ?",
+        label="Espace extérieur",
+        help_text="L'établissement dispose-t-il d'un espace extérieur qui lui appartient ?",
     )
+
+    def has_exterieur(self, instance):
+        if not instance:
+            return None
+        return any(
+            [
+                instance.cheminement_ext_plain_pied is not None,
+                instance.cheminement_ext_nombre_marches is not None,
+                instance.cheminement_ext_reperage_marches is not None,
+                instance.cheminement_ext_main_courante is not None,
+                instance.cheminement_ext_rampe is not None,
+                instance.cheminement_ext_ascenseur is not None,
+                instance.cheminement_ext_pente is not None,
+                instance.cheminement_ext_devers is not None,
+                instance.cheminement_ext_bande_guidage is not None,
+                instance.cheminement_ext_guidage_sonore is not None,
+                instance.cheminement_ext_retrecissement is not None,
+            ]
+        )
 
 
 class AdminActiviteForm(forms.ModelForm):

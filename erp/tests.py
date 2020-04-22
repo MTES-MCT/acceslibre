@@ -3,7 +3,23 @@ import pytest
 from django.contrib.gis.geos import Point
 from unittest import mock
 
-from .forms import AdminErpForm, ViewAccessibiliteForm
+from .forms import AdminAccessibiliteForm, AdminErpForm, ViewAccessibiliteForm
+from .models import Accessibilite
+
+# AdminAccessibiliteForm
+
+
+def test_AdminAccessibiliteForm_has_exterieur():
+    form = AdminAccessibiliteForm()
+    assert form.has_exterieur(form.instance) == False
+
+    instance = Accessibilite()
+    instance.cheminement_ext_plain_pied = True
+    form = AdminAccessibiliteForm(instance=instance)
+    assert form.has_exterieur(form.instance) == True
+
+
+# AdminErpForm
 
 VALID_ADDRESS = {
     "nom": "plop",
@@ -20,9 +36,6 @@ INVALID_ADDRESS = {
     "commune": "invalid",
 }
 POINT = Point((0, 0))
-
-
-# AdminErpForm
 
 
 @pytest.fixture
