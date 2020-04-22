@@ -13,7 +13,8 @@ ACCESSIBILITE_SCHEMA = {
         ],
     },
     "cheminement_ext": {
-        "label": "Cheminement extérieur",
+        "label": "Espace extérieur et cheminement",
+        "description": "Cheminement entre l'entrée de la parcelle et l'entrée de l'établissement",
         "fields": [
             "cheminement_ext_plain_pied",
             "cheminement_ext_nombre_marches",
@@ -76,9 +77,16 @@ ACCESSIBILITE_SCHEMA = {
 
 
 def get_accessibilite_admin_schema():
+    # NOTE: copying data structures to avoid mutation of ACCESSIBILITE_SCHEMA
     schema = {}
-    for section_id, section_data in ACCESSIBILITE_SCHEMA.items():
-        schema[section_data["label"]] = {"fields": section_data["fields"]}
+    for section_id, section_data_orig in ACCESSIBILITE_SCHEMA.items():
+        section_data = section_data_orig.copy()
+        schema[section_data["label"]] = {
+            "fields": section_data["fields"].copy(),
+            "description": section_data.get("description"),
+        }
+    # special case: presence extérieur field just for admin
+    schema["Espace extérieur et cheminement"]["fields"].insert(0, "presence_exterieur")
     return list(schema.items())
 
 
