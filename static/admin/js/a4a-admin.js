@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function () {
     },
     // presence d'un extérieur et cheminement
     cheminement_ext_plain_pied: {
-      dependsOn: ["presence_exterieur"],
+      dependsOn: ["cheminement_ext_presence"],
       when: true,
       indent: 1,
     },
@@ -48,27 +48,27 @@ window.addEventListener("DOMContentLoaded", function () {
       indent: 2,
     },
     cheminement_ext_pente: {
-      dependsOn: ["presence_exterieur"],
+      dependsOn: ["cheminement_ext_presence"],
       when: true,
       indent: 1,
     },
     cheminement_ext_devers: {
-      dependsOn: ["presence_exterieur"],
+      dependsOn: ["cheminement_ext_presence"],
       when: true,
       indent: 1,
     },
     cheminement_ext_bande_guidage: {
-      dependsOn: ["presence_exterieur"],
+      dependsOn: ["cheminement_ext_presence"],
       when: true,
       indent: 1,
     },
     cheminement_ext_guidage_sonore: {
-      dependsOn: ["presence_exterieur"],
+      dependsOn: ["cheminement_ext_presence"],
       when: true,
       indent: 1,
     },
     cheminement_ext_retrecissement: {
-      dependsOn: ["presence_exterieur"],
+      dependsOn: ["cheminement_ext_presence"],
       when: true,
       indent: 1,
     },

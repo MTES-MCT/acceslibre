@@ -19,6 +19,7 @@ def get_widgets_for_accessibilite():
         "stationnement_pmr",
         "stationnement_ext_presence",
         "stationnement_ext_pmr",
+        "cheminement_ext_presence",
         "cheminement_ext_plain_pied",
         # "cheminement_ext_nombre_marches",
         "cheminement_ext_reperage_marches",
@@ -77,41 +78,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label="Famille(s) de handicap concernées(s)",
         help_text="Liste des familles de handicaps couverts par l'obtention de ce label",
     )
-
-    presence_exterieur = forms.ChoiceField(
-        required=False,
-        choices=NULLABLE_OR_NA_BOOLEAN_CHOICES,
-        widget=bool_radios(),
-        label="Espace extérieur",
-        help_text="L'établissement dispose-t-il d'un espace extérieur qui lui appartient ?",
-    )
-
-    def __init__(self, *args, **kwargs):
-        # pre-fill presence_exterieur according to instance data, if any
-        # see https://stackoverflow.com/a/26887842/330911
-        instance = kwargs.get("instance", None)
-        if instance:
-            kwargs.update(initial={"presence_exterieur": self.has_exterieur(instance)})
-        return super().__init__(*args, **kwargs)
-
-    def has_exterieur(self, instance):
-        if not instance:
-            return None
-        return any(
-            [
-                instance.cheminement_ext_plain_pied is not None,
-                instance.cheminement_ext_nombre_marches is not None,
-                instance.cheminement_ext_reperage_marches is not None,
-                instance.cheminement_ext_main_courante is not None,
-                instance.cheminement_ext_rampe is not None,
-                instance.cheminement_ext_ascenseur is not None,
-                instance.cheminement_ext_pente is not None,
-                instance.cheminement_ext_devers is not None,
-                instance.cheminement_ext_bande_guidage is not None,
-                instance.cheminement_ext_guidage_sonore is not None,
-                instance.cheminement_ext_retrecissement is not None,
-            ]
-        )
 
 
 class AdminActiviteForm(forms.ModelForm):
@@ -199,6 +165,8 @@ class AdminErpForm(forms.ModelForm):
 
 
 class ViewAccessibiliteForm(forms.ModelForm):
+    "This form is used to render Accessibilite data in Erp details pages."
+
     class Meta:
         model = Accessibilite
         exclude = ("pk", "erp", "labels")
@@ -239,10 +207,11 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 "stationnement_ext_pmr",
             ],
         },
-        "Cheminement extérieur": {
+        "Espace et cheminement extérieur": {
             "icon": "path",
             "tabid": "cheminement_ext",
             "fields": [
+                "cheminement_ext_presence",
                 "cheminement_ext_plain_pied",
                 "cheminement_ext_nombre_marches",
                 "cheminement_ext_reperage_marches",
@@ -297,4 +266,8 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 field = self[field_name]
                 # TODO: deconstruct field to make it serializable -> future API
                 data[section]["fields"].append(field)
+            # Discard empty sections to avoid rendering empty menu items
+            empty_section = all(self[f].value() is None for f in info["fields"])
+            if empty_section:
+                data.pop(section)
         return data

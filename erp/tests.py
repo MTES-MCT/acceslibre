@@ -4,20 +4,6 @@ from django.contrib.gis.geos import Point
 from unittest import mock
 
 from .forms import AdminAccessibiliteForm, AdminErpForm, ViewAccessibiliteForm
-from .models import Accessibilite
-
-# AdminAccessibiliteForm
-
-
-def test_AdminAccessibiliteForm_has_exterieur():
-    form = AdminAccessibiliteForm()
-    assert form.has_exterieur(form.instance) == False
-
-    instance = Accessibilite()
-    instance.cheminement_ext_plain_pied = True
-    form = AdminAccessibiliteForm(instance=instance)
-    assert form.has_exterieur(form.instance) == True
-
 
 # AdminErpForm
 
@@ -82,14 +68,30 @@ def test_AdminErpForm_valid_on_geocoded_results(fake_geocoder):
 # ViewAccessibiliteForm
 
 
-def test_ViewAccessibiliteForm_get_accessibilite_data():
+def test_ViewAccessibiliteForm_empty():
     form = ViewAccessibiliteForm()
+    data = form.get_accessibilite_data()
+    assert list(data.keys()) == []
+
+
+def test_ViewAccessibiliteForm_filled():
+    form = ViewAccessibiliteForm(
+        {
+            "entree_reperage": True,
+            "transport_station_presence": True,
+            "stationnement_presence": True,
+            "cheminement_ext_presence": True,
+            "accueil_visibilite": True,
+            "sanitaires_presence": True,
+            "commentaire": "plop",
+        }
+    )
     data = form.get_accessibilite_data()
     assert list(data.keys()) == [
         "Entrée",
         "Transport en commun",
         "Stationnement",
-        "Cheminement extérieur",
+        "Espace et cheminement extérieur",
         "Accueil",
         "Sanitaires",
         "Commentaire",
