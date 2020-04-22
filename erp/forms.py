@@ -61,15 +61,7 @@ def get_widgets_for_accessibilite():
         # "labels_autre",
         # "commentaire",
     ]
-    widgets = dict([(f, bool_radios()) for f in field_names])
-    widgets.update(
-        # if you've ever looked for a way to simply render a postgres ArrayField
-        # using checkboxes, this is it.
-        labels_familles_handicap=forms.CheckboxSelectMultiple(
-            choices=Accessibilite.HANDICAP_CHOICES
-        )
-    )
-    return widgets
+    return dict([(f, bool_radios()) for f in field_names])
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
@@ -78,13 +70,13 @@ class AdminAccessibiliteForm(forms.ModelForm):
         exclude = ("pk",)
         widgets = get_widgets_for_accessibilite()
 
-    def __init__(self, *args, **kwargs):
-        # pre-fill presence_exterieur according to instance data, if any
-        # see https://stackoverflow.com/a/26887842/330911
-        instance = kwargs.get("instance", None)
-        if instance:
-            kwargs.update(initial={"presence_exterieur": self.has_exterieur(instance)})
-        return super().__init__(*args, **kwargs)
+    labels_familles_handicap = forms.MultipleChoiceField(
+        required=False,
+        choices=Accessibilite.HANDICAP_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label="Famille(s) de handicap concernées(s)",
+        help_text="Liste des familles de handicaps couverts par l'obtention de ce label",
+    )
 
     presence_exterieur = forms.ChoiceField(
         required=False,
@@ -93,6 +85,14 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label="Espace extérieur",
         help_text="L'établissement dispose-t-il d'un espace extérieur qui lui appartient ?",
     )
+
+    def __init__(self, *args, **kwargs):
+        # pre-fill presence_exterieur according to instance data, if any
+        # see https://stackoverflow.com/a/26887842/330911
+        instance = kwargs.get("instance", None)
+        if instance:
+            kwargs.update(initial={"presence_exterieur": self.has_exterieur(instance)})
+        return super().__init__(*args, **kwargs)
 
     def has_exterieur(self, instance):
         if not instance:
