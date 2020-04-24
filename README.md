@@ -274,3 +274,14 @@ Téléchargez un backup [ici](https://db-osc-fr1.scalingo.com/dashboard/5e3400ce
 $ tar xvzf docs/backups/20200326230000_access4all_8677.tar.gz
 $ pg_restore --clean --if-exists --no-owner --no-privileges --dbname $DATABASE_URL 20200326230000_access4all_8677.pgsql
 ```
+
+## Générer les graphes du modèle de données
+
+Il est possible de générer les diagrammes de la structure du modèle de données métier Access4all en installant [GraphViz](https://www.graphviz.org/) sur votre machine et en exécutant la commande dédiée :
+
+```
+$ sudo apt install graphviz
+$ ./makegraphs.sh
+```
+
+Les diagrammes au format PNG sont générés dans le répertoire `graphs` à la racine du dépôt.

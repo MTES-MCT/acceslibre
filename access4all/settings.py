@@ -22,9 +22,7 @@ def get_env_variable(var_name, required=True, type=str):
         try:
             return type(os.environ[var_name])
         except TypeError:
-            raise ImproperlyConfigured(
-                f"Unable to cast '{var_name}' to {type}."
-            )
+            raise ImproperlyConfigured(f"Unable to cast '{var_name}' to {type}.")
         except KeyError:
             raise ImproperlyConfigured(
                 f"The '{var_name}' environment variable must be set."
@@ -147,12 +145,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
 
@@ -185,8 +179,12 @@ EMAIL_USE_LOCALTIME = True
 LOGIN_URL = "/admin/login/"
 
 # Cache
-CACHES = {
-    "default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",}
+CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",}}
+
+# graphviz
+GRAPH_MODELS = {
+    "all_applications": True,
+    "group_models": True,
 }
 
 # Local settings
