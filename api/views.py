@@ -30,10 +30,45 @@ from .serializers import (
 
 API_DOC_SUMMARY = """
 Access4all expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation) publique
-permettant d'interroger programmatiquement sa base de données.
+permettant d'interroger programmatiquement sa base de données. Cette API embrasse le paradigme
+[REST](https://fr.wikipedia.org/wiki/Representational_state_transfer) autant que possible et
+expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation).
 
-Cette API embrasse le paradigme [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer)
-autant que possible et expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation).
+Le point d'entrée racine de l'API est accessible à l'adresse
+[`https://access4all.beta.gouv.fr/api/`](https://access4all.beta.gouv.fr/api/),
+et une présentation HTML quand utilisée par biais d'un navigateur Web.
+
+#### Quelques exemples d'utilisation
+
+##### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
+
+```
+$ curl -X GET http://access4all.beta.gouv.fr/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json"
+```
+
+Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
+
+---
+
+##### Récupérer les détails d'un établissement particulier
+
+```
+$ curl -X GET http://access4all.beta.gouv.fr/api/erps/piscine-des-gratte-ciel/ -H "accept: application/json"
+```
+
+Notez la présence de la clé `accessbilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
+
+---
+
+##### Récupérer les détails d'accessibilité pour cet ERP
+
+```
+$ curl -X GET http://access4all.beta.gouv.fr/api/accessibilite/80/ -H "accept: application/json"
+```
+
+---
+
+Vous trouverez ci-après la documentation technique exhaustives des points d'entrée exposés par l'API.
 """
 
 
