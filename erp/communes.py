@@ -17,6 +17,12 @@ COMMUNES = {
         "center": (48.8976, 2.2574),
         "zoom": 15,
     },
+    "dunkerque": {
+        "nom": "Dunkerque",
+        "slug": "59-dunkerque",
+        "center": (51.0169448, 2.3079794),
+        "zoom": 13,
+    },
     "lorient": {
         "nom": "Lorient",
         "slug": "56-lorient",
