@@ -96,3 +96,23 @@ def test_ViewAccessibiliteForm_filled():
         "Sanitaires",
         "Commentaire",
     ]
+
+
+def test_ViewAccessibiliteForm_filled_null_comment():
+    form = ViewAccessibiliteForm({"sanitaires_presence": True, "commentaire": "",})
+    data = form.get_accessibilite_data()
+    assert list(data.keys()) == ["Sanitaires"]
+
+
+def test_ViewAccessibiliteForm_serialized():
+    form = ViewAccessibiliteForm({"entree_reperage": True,})
+    data = form.get_accessibilite_data()
+    expected = {
+        "template_name": "django/forms/widgets/select.html",
+        "name": "entree_reperage",
+        "label": "Entrée facilement repérable",
+        "help_text": "Y a-t-il des éléments de repérage de l'entrée (numéro de rue à proximité, enseigne, etc)",
+        "value": True,
+        "warning": False,
+    }
+    assert expected in data["Entrée"]["fields"]

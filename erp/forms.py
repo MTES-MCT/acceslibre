@@ -176,98 +176,153 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "icon": "entrance",
             "tabid": "entree",
             "fields": [
-                "entree_reperage",
-                "entree_vitree",
-                "entree_vitree_vitrophanie",
-                "entree_plain_pied",
-                "entree_marches",
-                "entree_marches_reperage",
-                "entree_marches_main_courante",
-                "entree_marches_rampe",
-                "entree_dispositif_appel",
-                "entree_aide_humaine",
-                "entree_ascenseur",
-                "entree_largeur_mini",
-                "entree_pmr",
-                "entree_pmr_informations",
+                {"name": "entree_reperage", "warn_if": False},
+                {"name": "entree_vitree"},
+                {"name": "entree_vitree_vitrophanie", "warn_if": False},
+                {"name": "entree_plain_pied", "warn_if": False},
+                {"name": "entree_marches", "warn_if": lambda x, i: x and x > 0},
+                {"name": "entree_marches_reperage", "warn_if": False},
+                {"name": "entree_marches_main_courante", "warn_if": False},
+                {"name": "entree_marches_rampe", "warn_if": False},
+                {"name": "entree_dispositif_appel", "warn_if": False},
+                {"name": "entree_aide_humaine", "warn_if": False},
+                {"name": "entree_ascenseur", "warn_if": False},
+                {"name": "entree_largeur_mini", "warn_if": lambda x, i: x and x < 80},
+                {"name": "entree_pmr"},
+                {"name": "entree_pmr_informations"},
             ],
         },
         "Transport en commun": {
             "icon": "bus",
             "tabid": "transport",
-            "fields": ["transport_station_presence",],
+            "fields": [{"name": "transport_station_presence"},],
         },
         "Stationnement": {
             "icon": "car",
             "tabid": "stationnement",
             "fields": [
-                "stationnement_presence",
-                "stationnement_pmr",
-                "stationnement_ext_presence",
-                "stationnement_ext_pmr",
+                {"name": "stationnement_presence", "warn_if": False},
+                {"name": "stationnement_pmr", "warn_if": False},
+                {"name": "stationnement_ext_presence", "warn_if": False},
+                {"name": "stationnement_ext_pmr", "warn_if": False},
             ],
         },
         "Espace et cheminement extérieur": {
             "icon": "path",
             "tabid": "cheminement_ext",
             "fields": [
-                "cheminement_ext_presence",
-                "cheminement_ext_plain_pied",
-                "cheminement_ext_nombre_marches",
-                "cheminement_ext_reperage_marches",
-                "cheminement_ext_main_courante",
-                "cheminement_ext_rampe",
-                "cheminement_ext_ascenseur",
-                "cheminement_ext_pente",
-                "cheminement_ext_devers",
-                "cheminement_ext_bande_guidage",
-                "cheminement_ext_guidage_sonore",
-                "cheminement_ext_retrecissement",
+                {"name": "cheminement_ext_presence"},
+                {"name": "cheminement_ext_plain_pied", "warn_if": False},
+                {
+                    "name": "cheminement_ext_nombre_marches",
+                    "warn_if": lambda x, i: x and x > 0,
+                },
+                {"name": "cheminement_ext_reperage_marches", "warn_if": False},
+                {"name": "cheminement_ext_main_courante", "warn_if": False},
+                {
+                    "name": "cheminement_ext_rampe",
+                    "warn_if": Accessibilite.RAMPE_AUCUNE,
+                },
+                {"name": "cheminement_ext_ascenseur", "warn_if": False},
+                {
+                    "name": "cheminement_ext_pente",
+                    "warn_if": lambda x, i: x
+                    and x
+                    in [Accessibilite.PENTE_LEGERE, Accessibilite.PENTE_IMPORTANTE],
+                },
+                {
+                    "name": "cheminement_ext_devers",
+                    "warn_if": lambda x, i: x
+                    and x
+                    in [Accessibilite.DEVERS_LEGER, Accessibilite.DEVERS_IMPORTANT],
+                },
+                {"name": "cheminement_ext_bande_guidage", "warn_if": False},
+                {"name": "cheminement_ext_guidage_sonore", "warn_if": False},
+                {"name": "cheminement_ext_retrecissement", "warn_if": True},
             ],
         },
         "Accueil": {
             "icon": "users",
             "tabid": "accueil",
             "fields": [
-                "accueil_visibilite",
-                "accueil_personnels",
-                "accueil_equipements_malentendants",
-                "accueil_cheminement_plain_pied",
-                "accueil_cheminement_nombre_marches",
-                "accueil_cheminement_reperage_marches",
-                "accueil_cheminement_main_courante",
-                "accueil_cheminement_rampe",
-                "accueil_cheminement_ascenseur",
-                "accueil_retrecissement",
-                "accueil_prestations",
+                {"name": "accueil_visibilite", "warn_if": False},
+                {
+                    "name": "accueil_personnels",
+                    "warn_if": lambda x, i: x
+                    and x
+                    in [
+                        Accessibilite.PERSONNELS_NON_FORMES,
+                        Accessibilite.PERSONNELS_AUCUN,
+                    ],
+                },
+                {
+                    "name": "accueil_equipements_malentendants",
+                    "warn_if": lambda x, i: i.id
+                    and "Aucun"
+                    in [eq.nom for eq in i.accueil_equipements_malentendants.all()],
+                },
+                {"name": "accueil_cheminement_plain_pied", "warn_if": False},
+                {
+                    "name": "accueil_cheminement_nombre_marches",
+                    "warn_if": lambda x, i: x and x > 0,
+                },
+                {"name": "accueil_cheminement_reperage_marches", "warn_if": False},
+                {"name": "accueil_cheminement_main_courante", "warn_if": False},
+                {"name": "accueil_cheminement_rampe", "warn_if": False},
+                {"name": "accueil_cheminement_ascenseur", "warn_if": False},
+                {"name": "accueil_retrecissement", "warn_if": True},
+                {"name": "accueil_prestations"},
             ],
         },
         "Sanitaires": {
             "icon": "male-female",
             "tabid": "sanitaires",
-            "fields": ["sanitaires_presence", "sanitaires_adaptes",],
+            "fields": [
+                {"name": "sanitaires_presence", "warn_if": False},
+                {"name": "sanitaires_adaptes", "warn_if": lambda x, i: x and x < 1},
+            ],
         },
         "Commentaire": {
             "icon": "info-circled",
             "tabid": "commentaire",
-            "fields": ["commentaire"],
+            "fields": [{"name": "commentaire"}],
         },
     }
 
     def get_accessibilite_data(self):
         data = {}
-        for section, info in self.fieldsets.items():
+        for section, section_info in self.fieldsets.items():
             data[section] = {
-                "icon": info["icon"],
-                "tabid": info["tabid"],
+                "icon": section_info["icon"],
+                "tabid": section_info["tabid"],
                 "fields": [],
             }
-            for field_name in info["fields"]:
-                field = self[field_name]
-                # TODO: deconstruct field to make it serializable -> future API
-                data[section]["fields"].append(field)
+            section_fields = section_info["fields"]
+            for field_data in section_fields:
+                field = self[field_data["name"]]
+                field_value = field.value()
+                if field_value == []:
+                    field_value = None
+                warning = False
+                if "warn_if" in field_data:
+                    if callable(field_data["warn_if"]):
+                        warning = field_data["warn_if"](field_value, self.instance)
+                    else:
+                        warning = field_value == field_data["warn_if"]
+                data[section]["fields"].append(
+                    {
+                        "template_name": field.field.widget.template_name,
+                        "name": field.name,
+                        "label": field.label,
+                        "help_text": field.help_text,
+                        "value": field_value,
+                        "warning": warning,
+                    }
+                )
             # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(self[f].value() is None for f in info["fields"])
+            empty_section = all(
+                self[f["name"]].value() in [None, "", []] for f in section_fields
+            )
             if empty_section:
                 data.pop(section)
         return data

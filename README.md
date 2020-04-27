@@ -271,7 +271,7 @@ La [procédure](https://doc.scalingo.com/databases/postgresql/dump-restore) est 
 Téléchargez un backup [ici](https://db-osc-fr1.scalingo.com/dashboard/5e3400ce987e0b6ac394c116/backups), puis :
 
 ```
-$ tar xvzf docs/backups/20200326230000_access4all_8677.tar.gz
+$ tar xvzf 20200326230000_access4all_8677.tar.gz
 $ pg_restore --clean --if-exists --no-owner --no-privileges --dbname $DATABASE_URL 20200326230000_access4all_8677.pgsql
 ```
 
