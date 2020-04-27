@@ -2,7 +2,7 @@
 <ul class="list-group list-group-flush">
 {% for field in fields %}
   {% if field.value != "" and field.value != None %}
-  <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+  <li class="list-group-item d-flex justify-content-between align-items-center p-2{% if not field.warning %} list-group-item-success{% else %} list-group-item-warning{% endif %}">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
     <div>
       <div>{{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small></div>
@@ -10,22 +10,20 @@
     </div>
     {% else %}
     <span>
-      {{ field.label }}
-      {% if field.warning %}
-        <span title="Ce critère peut s'avérer bloquant">
-          <i class="icon icon-exclamation-circle"></i>
-          <span class="sr-only">Attention</span>
+      {% if not field.warning %}
+        <span>
+          <i class="icon icon-like"></i>
+          <span class="sr-only">OK</span>
         </span>
       {% endif %}
+      {{ field.label }}
       <br><small class="text-muted">{{ field.help_text }}</small>
     </span>
     <span class="a4a-badge-group pl-2">
-      {% if field.value is True or field.value is False %}
-        {% if field.value is True %}
-          <span class="badge badge-info a4a-badge"><strong>Oui</strong></span>
-        {% else %}
-          <span class="badge badge-light font-weight-normal a4a-badge">Non</span>
-        {% endif %}
+      {% if field.value is True %}
+        <span class="badge badge-info a4a-badge"><strong>Oui</strong></span>
+      {% elif field.value is False %}
+        <span class="badge badge-light font-weight-normal a4a-badge">Non</span>
       {% elif field.value == "aucun" or field.value == "aucune" %}
         <span>
           <span class="badge badge-warning a4a-badge">Aucun</span>
