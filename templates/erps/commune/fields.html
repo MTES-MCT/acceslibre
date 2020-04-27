@@ -1,8 +1,8 @@
 {% if fields %}
 <ul class="list-group list-group-flush">
 {% for field in fields %}
-  {% if field.value != "" and field.value != None %}
-  <li class="list-group-item d-flex justify-content-between align-items-center p-2{% if not field.warning %} list-group-item-success{% else %} list-group-item-warning{% endif %}">
+  {% if field.value != "" and field.value is not None %}
+  <li class="list-group-item d-flex justify-content-between align-items-center p-2">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
     <div>
       <div>{{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small></div>
@@ -10,34 +10,38 @@
     </div>
     {% else %}
     <span>
-      {% if not field.warning %}
-        <span>
-          <i class="icon icon-like"></i>
-          <span class="sr-only">OK</span>
-        </span>
-      {% endif %}
       {{ field.label }}
       <br><small class="text-muted">{{ field.help_text }}</small>
     </span>
     <span class="a4a-badge-group pl-2">
-      {% if field.value is True %}
-        <span class="badge badge-info a4a-badge"><strong>Oui</strong></span>
-      {% elif field.value is False %}
-        <span class="badge badge-light font-weight-normal a4a-badge">Non</span>
-      {% elif field.value == "aucun" or field.value == "aucune" %}
-        <span>
-          <span class="badge badge-warning a4a-badge">Aucun</span>
-        </span>
-      {% elif field.name == "accueil_personnels" %}
-        {{ erp.accessibilite.get_accueil_personnels_display }}
-      {% elif field.name == "entree_largeur_mini" %}
-        {{ field.value }}cm
-      {% elif field.name == "accueil_equipements_malentendants" %}
-        {% for label in erp.accessibilite.accueil_equipements_malentendants.all %}
-          <span class="badge badge-info a4a-badge">{{ label.nom }}</span>
+      {% if field.name == "accueil_equipements_malentendants" %}
+        {% for equipement in erp.accessibilite.accueil_equipements_malentendants.all %}
+          {% if equipement.nom == "Aucun" %}
+          <span class="badge a4a-badge">Aucun</span>
+          {% else %}
+          <span class="badge badge-info a4a-badge">{{ equipement.nom }}</span>
+          {% endif %}
         {% endfor %}
       {% else %}
-        {{ field.value }}
+        <span class="badge {% if not field.warning %}badge-success{% endif %} a4a-badge">
+          <!-- {{ field.name }} -->
+          {% if not field.warning %}<i class="icon icon-check"></i>{% endif %}
+          {% if field.value is True %}
+            Oui
+          {% elif field.value is False %}
+            Non
+          {% elif field.value == "aucun" %}
+            Aucun
+          {% elif field.value == "aucune" %}
+            Aucune
+          {% elif field.name == "accueil_personnels" %}
+            {{ erp.accessibilite.get_accueil_personnels_display }}
+          {% elif field.name == "entree_largeur_mini" %}
+            {{ field.value }}cm
+          {% else %}
+            {{ field.value }}
+          {% endif %}
+        </span>
       {% endif %}
     </span>
     {% endif %}

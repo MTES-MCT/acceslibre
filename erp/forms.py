@@ -180,14 +180,14 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "entree_vitree"},
                 {"name": "entree_vitree_vitrophanie", "warn_if": False},
                 {"name": "entree_plain_pied", "warn_if": False},
-                {"name": "entree_marches", "warn_if": lambda x: x and x > 0},
+                {"name": "entree_marches", "warn_if": lambda x, i: x and x > 0},
                 {"name": "entree_marches_reperage", "warn_if": False},
                 {"name": "entree_marches_main_courante", "warn_if": False},
                 {"name": "entree_marches_rampe", "warn_if": False},
                 {"name": "entree_dispositif_appel", "warn_if": False},
                 {"name": "entree_aide_humaine", "warn_if": False},
                 {"name": "entree_ascenseur", "warn_if": False},
-                {"name": "entree_largeur_mini", "warn_if": lambda x: x and x < 80},
+                {"name": "entree_largeur_mini", "warn_if": lambda x, i: x and x < 80},
                 {"name": "entree_pmr"},
                 {"name": "entree_pmr_informations"},
             ],
@@ -215,21 +215,24 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "cheminement_ext_plain_pied", "warn_if": False},
                 {
                     "name": "cheminement_ext_nombre_marches",
-                    "warn_if": lambda x: x and x > 0,
+                    "warn_if": lambda x, i: x and x > 0,
                 },
                 {"name": "cheminement_ext_reperage_marches", "warn_if": False},
                 {"name": "cheminement_ext_main_courante", "warn_if": False},
-                {"name": "cheminement_ext_rampe", "warn_if": False},
+                {
+                    "name": "cheminement_ext_rampe",
+                    "warn_if": Accessibilite.RAMPE_AUCUNE,
+                },
                 {"name": "cheminement_ext_ascenseur", "warn_if": False},
                 {
                     "name": "cheminement_ext_pente",
-                    "warn_if": lambda x: x
+                    "warn_if": lambda x, i: x
                     and x
                     in [Accessibilite.PENTE_LEGERE, Accessibilite.PENTE_IMPORTANTE],
                 },
                 {
                     "name": "cheminement_ext_devers",
-                    "warn_if": lambda x: x
+                    "warn_if": lambda x, i: x
                     and x
                     in [Accessibilite.DEVERS_LEGER, Accessibilite.DEVERS_IMPORTANT],
                 },
@@ -245,18 +248,23 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "accueil_visibilite", "warn_if": False},
                 {
                     "name": "accueil_personnels",
-                    "warn_if": lambda x: x
+                    "warn_if": lambda x, i: x
                     and x
                     in [
                         Accessibilite.PERSONNELS_NON_FORMES,
                         Accessibilite.PERSONNELS_AUCUN,
                     ],
                 },
-                {"name": "accueil_equipements_malentendants", "warn_if": 1},
-                {"name": "accueil_cheminement_plain_pied", "warn_if": 1},
+                {
+                    "name": "accueil_equipements_malentendants",
+                    "warn_if": lambda x, i: i.id
+                    and "Aucun"
+                    in [eq.nom for eq in i.accueil_equipements_malentendants.all()],
+                },
+                {"name": "accueil_cheminement_plain_pied", "warn_if": False},
                 {
                     "name": "accueil_cheminement_nombre_marches",
-                    "warn_if": lambda x: x and x > 0,
+                    "warn_if": lambda x, i: x and x > 0,
                 },
                 {"name": "accueil_cheminement_reperage_marches", "warn_if": False},
                 {"name": "accueil_cheminement_main_courante", "warn_if": False},
@@ -271,7 +279,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "tabid": "sanitaires",
             "fields": [
                 {"name": "sanitaires_presence", "warn_if": False},
-                {"name": "sanitaires_adaptes", "warn_if": lambda x: x and x < 1},
+                {"name": "sanitaires_adaptes", "warn_if": lambda x, i: x and x < 1},
             ],
         },
         "Commentaire": {
@@ -293,10 +301,12 @@ class ViewAccessibiliteForm(forms.ModelForm):
             for field_data in section_fields:
                 field = self[field_data["name"]]
                 field_value = field.value()
+                if field_value == []:
+                    field_value = None
                 warning = False
                 if "warn_if" in field_data:
                     if callable(field_data["warn_if"]):
-                        warning = field_data["warn_if"](field_value)
+                        warning = field_data["warn_if"](field_value, self.instance)
                     else:
                         warning = field_value == field_data["warn_if"]
                 data[section]["fields"].append(
@@ -311,7 +321,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 )
             # Discard empty sections to avoid rendering empty menu items
             empty_section = all(
-                self[f["name"]].value() in [None, ""] for f in section_fields
+                self[f["name"]].value() in [None, "", []] for f in section_fields
             )
             if empty_section:
                 data.pop(section)
