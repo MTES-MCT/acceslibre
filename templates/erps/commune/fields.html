@@ -15,11 +15,9 @@
     <span class="a4a-badge-group">
       {% if field.value is True or field.value is False %}
         {% if field.value is True %}
-          <span class="badge badge-info a4a-badge" aria-current="true"><strong>Oui</strong></span>
-          <span class="badge badge-light font-weight-normal a4a-badge">Non</span>
+          <span class="badge badge-info a4a-badge"><strong>Oui</strong></span>
         {% else %}
-          <span class="badge badge-light font-weight-normal a4a-badge">Oui</span>
-          <span class="badge badge-info a4a-badge" aria-current="true"><strong>Non</strong></span>
+          <span class="badge badge-light font-weight-normal a4a-badge">Non</span>
         {% endif %}
       {% elif field.value == "aucun" or field.value == "aucune" %}
         <span>
