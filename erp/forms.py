@@ -176,83 +176,90 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "icon": "entrance",
             "tabid": "entree",
             "fields": [
-                "entree_reperage",
-                "entree_vitree",
-                "entree_vitree_vitrophanie",
-                "entree_plain_pied",
-                "entree_marches",
-                "entree_marches_reperage",
-                "entree_marches_main_courante",
-                "entree_marches_rampe",
-                "entree_dispositif_appel",
-                "entree_aide_humaine",
-                "entree_ascenseur",
-                "entree_largeur_mini",
-                "entree_pmr",
-                "entree_pmr_informations",
+                {"name": "entree_reperage", "score": 1},
+                {"name": "entree_vitree", "score": 0},
+                {"name": "entree_vitree_vitrophanie", "score": 1},
+                {"name": "entree_plain_pied", "score": 1},
+                {"name": "entree_marches", "score": 0},
+                {"name": "entree_marches_reperage", "score": 1},
+                {"name": "entree_marches_main_courante", "score": 1},
+                {"name": "entree_marches_rampe", "score": 1},
+                {"name": "entree_dispositif_appel", "score": 1},
+                {"name": "entree_aide_humaine", "score": 1},
+                {"name": "entree_ascenseur", "score": 1},
+                {"name": "entree_largeur_mini", "score": 0},
+                {"name": "entree_pmr", "score": 1},
+                {"name": "entree_pmr_informations", "score": 0},
             ],
         },
         "Transport en commun": {
             "icon": "bus",
             "tabid": "transport",
-            "fields": ["transport_station_presence",],
+            "fields": [{"name": "transport_station_presence", "score": 1},],
         },
         "Stationnement": {
             "icon": "car",
             "tabid": "stationnement",
             "fields": [
-                "stationnement_presence",
-                "stationnement_pmr",
-                "stationnement_ext_presence",
-                "stationnement_ext_pmr",
+                {"name": "stationnement_presence", "score": 1},
+                {"name": "stationnement_pmr", "score": 1},
+                {"name": "stationnement_ext_presence", "score": 1},
+                {"name": "stationnement_ext_pmr", "score": 1},
             ],
         },
         "Espace et cheminement extérieur": {
             "icon": "path",
             "tabid": "cheminement_ext",
             "fields": [
-                "cheminement_ext_presence",
-                "cheminement_ext_plain_pied",
-                "cheminement_ext_nombre_marches",
-                "cheminement_ext_reperage_marches",
-                "cheminement_ext_main_courante",
-                "cheminement_ext_rampe",
-                "cheminement_ext_ascenseur",
-                "cheminement_ext_pente",
-                "cheminement_ext_devers",
-                "cheminement_ext_bande_guidage",
-                "cheminement_ext_guidage_sonore",
-                "cheminement_ext_retrecissement",
+                {"name": "cheminement_ext_presence", "score": 1},
+                {"name": "cheminement_ext_plain_pied", "score": 1},
+                {"name": "cheminement_ext_nombre_marches", "score": 1},
+                {"name": "cheminement_ext_reperage_marches", "score": 1},
+                {"name": "cheminement_ext_main_courante", "score": 1},
+                {"name": "cheminement_ext_rampe", "score": 1},
+                {"name": "cheminement_ext_ascenseur", "score": 1},
+                {"name": "cheminement_ext_pente", "score": 1},
+                {"name": "cheminement_ext_devers", "score": 1},
+                {"name": "cheminement_ext_bande_guidage", "score": 1},
+                {"name": "cheminement_ext_guidage_sonore", "score": 1},
+                {"name": "cheminement_ext_retrecissement", "score": 1},
             ],
         },
         "Accueil": {
             "icon": "users",
             "tabid": "accueil",
             "fields": [
-                "accueil_visibilite",
-                "accueil_personnels",
-                "accueil_equipements_malentendants",
-                "accueil_cheminement_plain_pied",
-                "accueil_cheminement_nombre_marches",
-                "accueil_cheminement_reperage_marches",
-                "accueil_cheminement_main_courante",
-                "accueil_cheminement_rampe",
-                "accueil_cheminement_ascenseur",
-                "accueil_retrecissement",
-                "accueil_prestations",
+                {"name": "accueil_visibilite", "score": 1},
+                {"name": "accueil_personnels", "score": 1},
+                {"name": "accueil_equipements_malentendants", "score": 1},
+                {"name": "accueil_cheminement_plain_pied", "score": 1},
+                {"name": "accueil_cheminement_nombre_marches", "score": 1},
+                {"name": "accueil_cheminement_reperage_marches", "score": 1},
+                {"name": "accueil_cheminement_main_courante", "score": 1},
+                {"name": "accueil_cheminement_rampe", "score": 1},
+                {"name": "accueil_cheminement_ascenseur", "score": 1},
+                {"name": "accueil_retrecissement", "score": 1},
+                {"name": "accueil_prestations", "score": 1},
             ],
         },
         "Sanitaires": {
             "icon": "male-female",
             "tabid": "sanitaires",
-            "fields": ["sanitaires_presence", "sanitaires_adaptes",],
+            "fields": [
+                {"name": "sanitaires_presence", "score": 1},
+                {"name": "sanitaires_adaptes", "score": 1},
+            ],
         },
         "Commentaire": {
             "icon": "info-circled",
             "tabid": "commentaire",
-            "fields": ["commentaire"],
+            "fields": [{"name": "commentaire", "score": 1}],
         },
     }
+
+    def get_status(self, field, value):
+        print(self.instance)
+        return True
 
     def get_accessibilite_data(self):
         data = {}
@@ -263,8 +270,8 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 "fields": [],
             }
             section_fields = section_info["fields"]
-            for field_name in section_fields:
-                field = self[field_name]
+            for field_data in section_fields:
+                field = self[field_data["name"]]
                 data[section]["fields"].append(
                     {
                         "template_name": field.field.widget.template_name,
@@ -272,10 +279,13 @@ class ViewAccessibiliteForm(forms.ModelForm):
                         "label": field.label,
                         "help_text": field.help_text,
                         "value": field.value(),
+                        "score": field_data["score"],
                     }
                 )
             # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(self[f].value() in [None, ""] for f in section_fields)
+            empty_section = all(
+                self[f["name"]].value() in [None, ""] for f in section_fields
+            )
             if empty_section:
                 data.pop(section)
         return data
