@@ -10,9 +10,16 @@
     </div>
     {% else %}
     <span>
-      {{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small>
+      {{ field.label }}
+      {% if field.warning %}
+        <span title="Ce critère peut s'avérer bloquant">
+          <i class="icon icon-exclamation-circle"></i>
+          <span class="sr-only">Attention</span>
+        </span>
+      {% endif %}
+      <br><small class="text-muted">{{ field.help_text }}</small>
     </span>
-    <span class="a4a-badge-group">
+    <span class="a4a-badge-group pl-2">
       {% if field.value is True or field.value is False %}
         {% if field.value is True %}
           <span class="badge badge-info a4a-badge"><strong>Oui</strong></span>
@@ -25,7 +32,7 @@
         </span>
       {% elif field.name == "accueil_personnels" %}
         {{ erp.accessibilite.get_accueil_personnels_display }}
-      {% elif field.name == "largeur_mini" %}
+      {% elif field.name == "entree_largeur_mini" %}
         {{ field.value }}cm
       {% elif field.name == "accueil_equipements_malentendants" %}
         {% for label in erp.accessibilite.accueil_equipements_malentendants.all %}

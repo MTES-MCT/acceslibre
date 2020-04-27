@@ -113,5 +113,6 @@ def test_ViewAccessibiliteForm_serialized():
         "label": "Entrée facilement repérable",
         "help_text": "Y a-t-il des éléments de repérage de l'entrée (numéro de rue à proximité, enseigne, etc)",
         "value": True,
+        "warning": False,
     }
     assert expected in data["Entrée"]["fields"]

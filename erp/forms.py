@@ -176,90 +176,110 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "icon": "entrance",
             "tabid": "entree",
             "fields": [
-                {"name": "entree_reperage", "score": 1},
-                {"name": "entree_vitree", "score": 0},
-                {"name": "entree_vitree_vitrophanie", "score": 1},
-                {"name": "entree_plain_pied", "score": 1},
-                {"name": "entree_marches", "score": 0},
-                {"name": "entree_marches_reperage", "score": 1},
-                {"name": "entree_marches_main_courante", "score": 1},
-                {"name": "entree_marches_rampe", "score": 1},
-                {"name": "entree_dispositif_appel", "score": 1},
-                {"name": "entree_aide_humaine", "score": 1},
-                {"name": "entree_ascenseur", "score": 1},
-                {"name": "entree_largeur_mini", "score": 0},
-                {"name": "entree_pmr", "score": 1},
-                {"name": "entree_pmr_informations", "score": 0},
+                {"name": "entree_reperage", "warn_if": False},
+                {"name": "entree_vitree"},
+                {"name": "entree_vitree_vitrophanie", "warn_if": False},
+                {"name": "entree_plain_pied", "warn_if": False},
+                {"name": "entree_marches", "warn_if": lambda x: x and x > 0},
+                {"name": "entree_marches_reperage", "warn_if": False},
+                {"name": "entree_marches_main_courante", "warn_if": False},
+                {"name": "entree_marches_rampe", "warn_if": False},
+                {"name": "entree_dispositif_appel", "warn_if": False},
+                {"name": "entree_aide_humaine", "warn_if": False},
+                {"name": "entree_ascenseur", "warn_if": False},
+                {"name": "entree_largeur_mini", "warn_if": lambda x: x and x < 80},
+                {"name": "entree_pmr"},
+                {"name": "entree_pmr_informations"},
             ],
         },
         "Transport en commun": {
             "icon": "bus",
             "tabid": "transport",
-            "fields": [{"name": "transport_station_presence", "score": 1},],
+            "fields": [{"name": "transport_station_presence"},],
         },
         "Stationnement": {
             "icon": "car",
             "tabid": "stationnement",
             "fields": [
-                {"name": "stationnement_presence", "score": 1},
-                {"name": "stationnement_pmr", "score": 1},
-                {"name": "stationnement_ext_presence", "score": 1},
-                {"name": "stationnement_ext_pmr", "score": 1},
+                {"name": "stationnement_presence", "warn_if": False},
+                {"name": "stationnement_pmr", "warn_if": False},
+                {"name": "stationnement_ext_presence", "warn_if": False},
+                {"name": "stationnement_ext_pmr", "warn_if": False},
             ],
         },
         "Espace et cheminement extérieur": {
             "icon": "path",
             "tabid": "cheminement_ext",
             "fields": [
-                {"name": "cheminement_ext_presence", "score": 1},
-                {"name": "cheminement_ext_plain_pied", "score": 1},
-                {"name": "cheminement_ext_nombre_marches", "score": 1},
-                {"name": "cheminement_ext_reperage_marches", "score": 1},
-                {"name": "cheminement_ext_main_courante", "score": 1},
-                {"name": "cheminement_ext_rampe", "score": 1},
-                {"name": "cheminement_ext_ascenseur", "score": 1},
-                {"name": "cheminement_ext_pente", "score": 1},
-                {"name": "cheminement_ext_devers", "score": 1},
-                {"name": "cheminement_ext_bande_guidage", "score": 1},
-                {"name": "cheminement_ext_guidage_sonore", "score": 1},
-                {"name": "cheminement_ext_retrecissement", "score": 1},
+                {"name": "cheminement_ext_presence"},
+                {"name": "cheminement_ext_plain_pied", "warn_if": False},
+                {
+                    "name": "cheminement_ext_nombre_marches",
+                    "warn_if": lambda x: x and x > 0,
+                },
+                {"name": "cheminement_ext_reperage_marches", "warn_if": False},
+                {"name": "cheminement_ext_main_courante", "warn_if": False},
+                {"name": "cheminement_ext_rampe", "warn_if": False},
+                {"name": "cheminement_ext_ascenseur", "warn_if": False},
+                {
+                    "name": "cheminement_ext_pente",
+                    "warn_if": lambda x: x
+                    and x
+                    in [Accessibilite.PENTE_LEGERE, Accessibilite.PENTE_IMPORTANTE],
+                },
+                {
+                    "name": "cheminement_ext_devers",
+                    "warn_if": lambda x: x
+                    and x
+                    in [Accessibilite.DEVERS_LEGER, Accessibilite.DEVERS_IMPORTANT],
+                },
+                {"name": "cheminement_ext_bande_guidage", "warn_if": False},
+                {"name": "cheminement_ext_guidage_sonore", "warn_if": False},
+                {"name": "cheminement_ext_retrecissement", "warn_if": True},
             ],
         },
         "Accueil": {
             "icon": "users",
             "tabid": "accueil",
             "fields": [
-                {"name": "accueil_visibilite", "score": 1},
-                {"name": "accueil_personnels", "score": 1},
-                {"name": "accueil_equipements_malentendants", "score": 1},
-                {"name": "accueil_cheminement_plain_pied", "score": 1},
-                {"name": "accueil_cheminement_nombre_marches", "score": 1},
-                {"name": "accueil_cheminement_reperage_marches", "score": 1},
-                {"name": "accueil_cheminement_main_courante", "score": 1},
-                {"name": "accueil_cheminement_rampe", "score": 1},
-                {"name": "accueil_cheminement_ascenseur", "score": 1},
-                {"name": "accueil_retrecissement", "score": 1},
-                {"name": "accueil_prestations", "score": 1},
+                {"name": "accueil_visibilite", "warn_if": False},
+                {
+                    "name": "accueil_personnels",
+                    "warn_if": lambda x: x
+                    and x
+                    in [
+                        Accessibilite.PERSONNELS_NON_FORMES,
+                        Accessibilite.PERSONNELS_AUCUN,
+                    ],
+                },
+                {"name": "accueil_equipements_malentendants", "warn_if": 1},
+                {"name": "accueil_cheminement_plain_pied", "warn_if": 1},
+                {
+                    "name": "accueil_cheminement_nombre_marches",
+                    "warn_if": lambda x: x and x > 0,
+                },
+                {"name": "accueil_cheminement_reperage_marches", "warn_if": False},
+                {"name": "accueil_cheminement_main_courante", "warn_if": False},
+                {"name": "accueil_cheminement_rampe", "warn_if": False},
+                {"name": "accueil_cheminement_ascenseur", "warn_if": False},
+                {"name": "accueil_retrecissement", "warn_if": True},
+                {"name": "accueil_prestations"},
             ],
         },
         "Sanitaires": {
             "icon": "male-female",
             "tabid": "sanitaires",
             "fields": [
-                {"name": "sanitaires_presence", "score": 1},
-                {"name": "sanitaires_adaptes", "score": 1},
+                {"name": "sanitaires_presence", "warn_if": False},
+                {"name": "sanitaires_adaptes", "warn_if": lambda x: x and x < 1},
             ],
         },
         "Commentaire": {
             "icon": "info-circled",
             "tabid": "commentaire",
-            "fields": [{"name": "commentaire", "score": 1}],
+            "fields": [{"name": "commentaire"}],
         },
     }
-
-    def get_status(self, field, value):
-        print(self.instance)
-        return True
 
     def get_accessibilite_data(self):
         data = {}
@@ -272,14 +292,21 @@ class ViewAccessibiliteForm(forms.ModelForm):
             section_fields = section_info["fields"]
             for field_data in section_fields:
                 field = self[field_data["name"]]
+                field_value = field.value()
+                warning = False
+                if "warn_if" in field_data:
+                    if callable(field_data["warn_if"]):
+                        warning = field_data["warn_if"](field_value)
+                    else:
+                        warning = field_value == field_data["warn_if"]
                 data[section]["fields"].append(
                     {
                         "template_name": field.field.widget.template_name,
                         "name": field.name,
                         "label": field.label,
                         "help_text": field.help_text,
-                        "value": field.value(),
-                        "score": field_data["score"],
+                        "value": field_value,
+                        "warning": warning,
                     }
                 )
             # Discard empty sections to avoid rendering empty menu items
