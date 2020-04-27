@@ -3,9 +3,9 @@
 {% for field in fields %}
   {% if field.value != "" and field.value != None %}
   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-    {% if field.field.widget.template_name == "django/forms/widgets/textarea.html" %}
+    {% if field.template_name == "django/forms/widgets/textarea.html" %}
     <div>
-      <div>{{ field.label }}&nbsp;<small class="text-muted">{{ field.help_text }}</small></div>
+      <div>{{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small></div>
       <p class="lead mb-0 my-1">{{ field.value }}</p>
     </div>
     {% else %}

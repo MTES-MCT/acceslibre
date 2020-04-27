@@ -256,18 +256,26 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
     def get_accessibilite_data(self):
         data = {}
-        for section, info in self.fieldsets.items():
+        for section, section_info in self.fieldsets.items():
             data[section] = {
-                "icon": info["icon"],
-                "tabid": info["tabid"],
+                "icon": section_info["icon"],
+                "tabid": section_info["tabid"],
                 "fields": [],
             }
-            for field_name in info["fields"]:
+            section_fields = section_info["fields"]
+            for field_name in section_fields:
                 field = self[field_name]
-                # TODO: deconstruct field to make it serializable -> future API
-                data[section]["fields"].append(field)
+                data[section]["fields"].append(
+                    {
+                        "template_name": field.field.widget.template_name,
+                        "name": field.name,
+                        "label": field.label,
+                        "help_text": field.help_text,
+                        "value": field.value(),
+                    }
+                )
             # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(self[f].value() in [None, ""] for f in info["fields"])
+            empty_section = all(self[f].value() in [None, ""] for f in section_fields)
             if empty_section:
                 data.pop(section)
         return data
