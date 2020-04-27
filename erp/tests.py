@@ -96,3 +96,11 @@ def test_ViewAccessibiliteForm_filled():
         "Sanitaires",
         "Commentaire",
     ]
+
+
+def test_ViewAccessibiliteForm_filled_null_comment():
+    form = ViewAccessibiliteForm({"sanitaires_presence": True, "commentaire": "",})
+    data = form.get_accessibilite_data()
+    assert list(data.keys()) == [
+        "Sanitaires",
+    ]

@@ -267,7 +267,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 # TODO: deconstruct field to make it serializable -> future API
                 data[section]["fields"].append(field)
             # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(self[f].value() is None for f in info["fields"])
+            empty_section = all(self[f].value() in [None, ""] for f in info["fields"])
             if empty_section:
                 data.pop(section)
         return data
