@@ -177,7 +177,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "tabid": "entree",
             "fields": [
                 {"name": "entree_reperage", "warn_if": False},
-                {"name": "entree_vitree"},
+                {"name": "entree_vitree", "warn_if": True},
                 {"name": "entree_vitree_vitrophanie", "warn_if": False},
                 {"name": "entree_plain_pied", "warn_if": False},
                 {"name": "entree_marches", "warn_if": lambda x, i: x and x > 0},
@@ -188,7 +188,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "entree_aide_humaine", "warn_if": False},
                 {"name": "entree_ascenseur", "warn_if": False},
                 {"name": "entree_largeur_mini", "warn_if": lambda x, i: x and x < 80},
-                {"name": "entree_pmr"},
+                {"name": "entree_pmr", "warn_if": False},
                 {"name": "entree_pmr_informations"},
             ],
         },
