@@ -65,13 +65,13 @@ ACCESSIBILITE_SCHEMA = {
             "accueil_prestations",
         ],
     },
-    "labels": {
-        "label": "Labels",
-        "fields": ["labels", "labels_familles_handicap", "labels_autre",],
-    },
     "sanitaires": {
         "label": "Sanitaires",
         "fields": ["sanitaires_presence", "sanitaires_adaptes",],
+    },
+    "labels": {
+        "label": "Labels",
+        "fields": ["labels", "labels_familles_handicap", "labels_autre",],
     },
     "commentaire": {"label": "Commentaire", "fields": ["commentaire"],},
 }
