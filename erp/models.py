@@ -195,8 +195,8 @@ class Erp(models.Model):
         blank=True,
         help_text="Adresse du site internet de l'ERP",
     )
-    contact_email = models.CharField(
-        max_length=20,
+    contact_email = models.EmailField(
+        max_length=255,
         null=True,
         blank=True,
         verbose_name="Courriel",
