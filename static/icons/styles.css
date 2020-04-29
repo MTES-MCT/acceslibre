@@ -56,7 +56,7 @@
 .icon-users:before {
   content: "\66";
 }
-.icon-disability:before {
+.icon-handicap-moteur:before {
   content: "\67";
 }
 .icon-phone-square:before {
@@ -127,4 +127,19 @@
 }
 .icon-check:before {
   content: "\44";
+}
+.icon-certificate:before {
+  content: "\45";
+}
+.icon-trophy:before {
+  content: "\46";
+}
+.icon-handicap-auditif:before {
+  content: "\48";
+}
+.icon-handicap-mental:before {
+  content: "\49";
+}
+.icon-handicap-visuel:before {
+  content: "\4a";
 }

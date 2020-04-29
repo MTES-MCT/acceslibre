@@ -12,7 +12,7 @@
     <div class="col-sm-3">
       {% if erp.contact_email %}
       <p class="text-right">
-        <a class="btn btn-sm btn-light"
+        <a class="btn btn-sm btn-primary"
             href="mailto:{{ erp.contact_email }}"><i class="icon icon-mail"></i> Contacter cet ERP</a>
       </p>
       {% endif %}
@@ -24,16 +24,43 @@
       Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
     </div>
   {% else %}
-    {% if erp.accessibilite.labels.count > 0 %}
     <div class="d-flex justify-content-between align-items-top">
-      <h4 class="flex-fill">Accessibilité</h4>
+      <h4>Accessibilité</h4>
       <span class="text-right">
       {% for label in erp.accessibilite.labels.all %}
-        <big><span class="badge badge-info p-1">{{ label.nom }}</span></big>
+        {% if label.nom != "Aucun" %}
+        <span class="badge badge-light ml-2 a4a-badge-lg"
+          title="Cet établissement est labellisé {{ label.nom }}">
+          {{ label.nom }}
+          {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
+          <span title="Handicap auditif">
+            <i class="icon icon-handicap-auditif" style="font-size:120%"></i>
+            <span class="sr-only">Handicap auditif</span>
+          </span>
+          {% endif %}
+          {% if "mental" in erp.accessibilite.labels_familles_handicap %}
+          <span title="Handicap mental">
+            <i class="icon icon-handicap-mental"></i>
+            <span class="sr-only">Handicap mental</span>
+          </span>
+          {% endif %}
+          {% if "moteur" in erp.accessibilite.labels_familles_handicap %}
+          <span title="Handicap moteur">
+            <i class="icon icon-handicap-moteur" style="font-size:105%"></i>
+            <span class="sr-only">Handicap moteur</span>
+          </span>
+          {% endif %}
+          {% if "visuel" in erp.accessibilite.labels_familles_handicap %}
+          <span title="Handicap visuel">
+            <i class="icon icon-handicap-visuel"></i>
+            <span class="sr-only">Handicap visuel</span>
+          </span>
+          {% endif %}
+        </span>
+        {% endif %}
       {% endfor %}
       </span>
     </div>
-    {% endif %}
 
     <div class="row">
       <div class="col-md-4">
