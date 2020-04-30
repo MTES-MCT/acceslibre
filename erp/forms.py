@@ -189,10 +189,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "stationnement_ext_pmr", "warn_if": False},
             ],
         },
-        "Abords extérieurs": {
+        "Espace et cheminement extérieur": {
             "icon": "exterieur-target",
             "tabid": "cheminement_ext",
-            "description": "Espace et cheminement extérieurs",
+            "description": "Abords extérieurs appartenant à l'établissement",
             "fields": [
                 {"name": "cheminement_ext_presence"},
                 {"name": "cheminement_ext_plain_pied", "warn_if": False},

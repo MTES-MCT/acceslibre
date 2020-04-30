@@ -13,7 +13,7 @@ ACCESSIBILITE_SCHEMA = {
         ],
     },
     "cheminement_ext": {
-        "label": "Extérieur",
+        "label": "Espace et cheminement extérieur",
         "description": "Cheminement entre l'entrée de la parcelle et l'entrée de l'établissement",
         "fields": [
             "cheminement_ext_presence",
