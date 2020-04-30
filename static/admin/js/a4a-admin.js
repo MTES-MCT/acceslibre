@@ -5,6 +5,12 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   const rules = {
+    // transport
+    transport_information: {
+      dependsOn: ["transport_station_presence"],
+      when: true,
+      indent: 1,
+    },
     // stationnement
     stationnement_pmr: {
       dependsOn: ["stationnement_presence"],
@@ -62,11 +68,6 @@ window.addEventListener("DOMContentLoaded", function () {
       when: true,
       indent: 1,
     },
-    cheminement_ext_guidage_sonore: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
-      indent: 1,
-    },
     cheminement_ext_retrecissement: {
       dependsOn: ["cheminement_ext_presence"],
       when: true,
@@ -94,16 +95,6 @@ window.addEventListener("DOMContentLoaded", function () {
       indent: 1,
     },
     entree_marches_rampe: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    entree_dispositif_appel: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    entree_aide_humaine: {
       dependsOn: ["entree_plain_pied"],
       when: false,
       indent: 1,
@@ -206,6 +197,9 @@ window.addEventListener("DOMContentLoaded", function () {
     for (let field in rules) {
       const { dependsOn, when, indent } = rules[field];
       const fieldElement = document.querySelector(".form-row.field-" + field);
+      if (!fieldElement) {
+        console.warn("Champ introuvable", field);
+      }
       dependsOn.forEach(function (trigger) {
         // events
         const triggerInputs = getFieldInputs(trigger);

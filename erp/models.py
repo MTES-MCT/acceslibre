@@ -397,7 +397,15 @@ class Accessibilite(models.Model):
         blank=True,
         choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Desserte par transports en commun",
-        help_text="Présence d'une station de transport en commun à proximité (500 m)",
+        help_text="L'établissement est-il desservi par les transports en commun ?",
+    )
+    transport_information = models.TextField(
+        max_length=1000,
+        null=True,
+        blank=True,
+        verbose_name="Informations transports",
+        help_text="Précisions complémentaires sur la desserte de l'établissement par les transports "
+        "en commun (lignes, stations, arrêts)",
     )
     # Stationnement dans l'ERP
     stationnement_presence = models.BooleanField(
@@ -452,6 +460,15 @@ class Accessibilite(models.Model):
         verbose_name="Cheminement de plain-pied",
         help_text="Le cheminement est-il de plain-pied ou existe-t-il une rupture de "
         "niveau entraînant la présence de marches ou d'un équipement type ascenseur ?",
+    )
+    # Terrain meuble ou accidenté
+    cheminement_terrain_accidente = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Terrain meuble ou accidenté",
+        help_text="Le revêtement du cheminement extérieur est-il meuble, accidenté ou "
+        "non-praticable en fauteuil ?",
     )
     # Nombre de marches – nombre entre 0 et >10
     cheminement_ext_nombre_marches = models.PositiveSmallIntegerField(
@@ -522,16 +539,6 @@ class Accessibilite(models.Model):
         choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Bande de guidage",
         help_text="Présence d'une bande de guidage au sol facilitant le déplacement "
-        "d'une personne aveugle ou malvoyante",
-    )
-
-    # Système de guidage sonore  – oui / non / inconnu
-    cheminement_ext_guidage_sonore = models.BooleanField(
-        null=True,
-        blank=True,
-        choices=NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Système de guidage sonore",
-        help_text="Présence d'un système de guidage sonore aidant le déplacement "
         "d'une personne aveugle ou malvoyante",
     )
 
@@ -616,6 +623,15 @@ class Accessibilite(models.Model):
         verbose_name="Rampe",
         choices=RAMPE_CHOICES,
         help_text="Présence et type de rampe",
+    )
+    # Système de guidage sonore  – oui / non / inconnu
+    entree_balise_sonore = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Présence d'une balise sonore",
+        help_text="Présence d'un système de guidage sonore aidant le déplacement "
+        "d'une personne aveugle ou malvoyante",
     )
     # Dispositif d’appel
     entree_dispositif_appel = models.BooleanField(
