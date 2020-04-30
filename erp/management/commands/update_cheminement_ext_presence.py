@@ -15,7 +15,6 @@ fields = [
     "cheminement_ext_pente",
     "cheminement_ext_devers",
     "cheminement_ext_bande_guidage",
-    "cheminement_ext_guidage_sonore",
     "cheminement_ext_retrecissement",
 ]
 
