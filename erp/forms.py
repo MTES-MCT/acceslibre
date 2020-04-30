@@ -172,34 +172,16 @@ class ViewAccessibiliteForm(forms.ModelForm):
         exclude = ("pk", "erp", "labels")
 
     fieldsets = {
-        "Entrée": {
-            "icon": "entrance",
-            "tabid": "entree",
-            "fields": [
-                {"name": "entree_reperage", "warn_if": False},
-                {"name": "entree_vitree", "warn_if": True},
-                {"name": "entree_vitree_vitrophanie", "warn_if": False},
-                {"name": "entree_plain_pied", "warn_if": False},
-                {"name": "entree_marches", "warn_if": lambda x, i: x and x > 0},
-                {"name": "entree_marches_reperage", "warn_if": False},
-                {"name": "entree_marches_main_courante", "warn_if": False},
-                {"name": "entree_marches_rampe", "warn_if": False},
-                {"name": "entree_dispositif_appel", "warn_if": False},
-                {"name": "entree_aide_humaine", "warn_if": False},
-                {"name": "entree_ascenseur", "warn_if": False},
-                {"name": "entree_largeur_mini", "warn_if": lambda x, i: x and x < 80},
-                {"name": "entree_pmr", "warn_if": False},
-                {"name": "entree_pmr_informations"},
-            ],
-        },
         "Transport en commun": {
             "icon": "bus",
             "tabid": "transport",
+            "description": "Desserte par les transports en commun",
             "fields": [{"name": "transport_station_presence"},],
         },
         "Stationnement": {
             "icon": "car",
             "tabid": "stationnement",
+            "description": "Emplacements de stationnement",
             "fields": [
                 {"name": "stationnement_presence", "warn_if": False},
                 {"name": "stationnement_pmr", "warn_if": False},
@@ -207,9 +189,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "stationnement_ext_pmr", "warn_if": False},
             ],
         },
-        "Espace et cheminement extérieur": {
-            "icon": "path",
+        "Abords extérieurs": {
+            "icon": "exterieur-target",
             "tabid": "cheminement_ext",
+            "description": "Espace et cheminement extérieurs",
             "fields": [
                 {"name": "cheminement_ext_presence"},
                 {"name": "cheminement_ext_plain_pied", "warn_if": False},
@@ -241,9 +224,31 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 {"name": "cheminement_ext_retrecissement", "warn_if": True},
             ],
         },
+        "Entrée": {
+            "icon": "entrance",
+            "tabid": "entree",
+            "description": "Entrée de l'établissement",
+            "fields": [
+                {"name": "entree_reperage", "warn_if": False},
+                {"name": "entree_vitree", "warn_if": True},
+                {"name": "entree_vitree_vitrophanie", "warn_if": False},
+                {"name": "entree_plain_pied", "warn_if": False},
+                {"name": "entree_marches", "warn_if": lambda x, i: x and x > 0},
+                {"name": "entree_marches_reperage", "warn_if": False},
+                {"name": "entree_marches_main_courante", "warn_if": False},
+                {"name": "entree_marches_rampe", "warn_if": False},
+                {"name": "entree_dispositif_appel", "warn_if": False},
+                {"name": "entree_aide_humaine", "warn_if": False},
+                {"name": "entree_ascenseur", "warn_if": False},
+                {"name": "entree_largeur_mini", "warn_if": lambda x, i: x and x < 80},
+                {"name": "entree_pmr", "warn_if": False},
+                {"name": "entree_pmr_informations"},
+            ],
+        },
         "Accueil": {
             "icon": "users",
             "tabid": "accueil",
+            "description": "Zone et prestations d'accueil",
             "fields": [
                 {"name": "accueil_visibilite", "warn_if": False},
                 {
@@ -277,6 +282,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
         "Sanitaires": {
             "icon": "male-female",
             "tabid": "sanitaires",
+            "description": "Toilettes, WC",
             "fields": [
                 {"name": "sanitaires_presence", "warn_if": False},
                 {"name": "sanitaires_adaptes", "warn_if": lambda x, i: x and x < 1},
@@ -285,6 +291,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
         "Commentaire": {
             "icon": "info-circled",
             "tabid": "commentaire",
+            "description": "Informations complémentaires",
             "fields": [{"name": "commentaire"}],
         },
     }
@@ -295,6 +302,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
             data[section] = {
                 "icon": section_info["icon"],
                 "tabid": section_info["tabid"],
+                "description": section_info["description"],
                 "fields": [],
             }
             section_fields = section_info["fields"]
@@ -303,7 +311,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 field_value = field.value()
                 if field_value == []:
                     field_value = None
-                warning = False
+                warning = None
                 if "warn_if" in field_data:
                     if callable(field_data["warn_if"]):
                         warning = field_data["warn_if"](field_value, self.instance)

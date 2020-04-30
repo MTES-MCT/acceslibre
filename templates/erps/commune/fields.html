@@ -10,22 +10,27 @@
     </div>
     {% else %}
     <span>
-      {{ field.label }}
+      {{ field.label }}<!-- {{ field.name }} -->
       <br><small class="text-muted">{{ field.help_text }}</small>
     </span>
     <span class="a4a-badge-group pl-2">
       {% if field.name == "accueil_equipements_malentendants" %}
         {% for equipement in erp.accessibilite.accueil_equipements_malentendants.all %}
           {% if equipement.nom == "Aucun" %}
-          <span class="badge a4a-badge">Aucun</span>
+          <span class="badge a4a-badge">
+            <i class="icon icon-exclamation-circle a4a-warn-icon"></i> Aucun
+          </span>
           {% else %}
-          <span class="badge badge-info a4a-badge">{{ equipement.nom }}</span>
+          <span class="badge badge-success a4a-badge">
+            <i class="icon icon-check"></i>
+            {{ equipement.nom }}
+          </span>
           {% endif %}
         {% endfor %}
       {% else %}
-        <span class="badge {% if not field.warning %}badge-success{% endif %} a4a-badge">
-          <!-- {{ field.name }} -->
-          {% if not field.warning %}<i class="icon icon-check"></i>{% endif %}
+        <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
+          {% if field.warning is False %}<i class="icon icon-check"></i>{% endif %}
+          {% if field.warning is True %}<i class="icon icon-exclamation-circle a4a-warn-icon"></i>{% endif %}
           {% if field.value is True %}
             Oui
           {% elif field.value is False %}
@@ -34,6 +39,10 @@
             Aucun
           {% elif field.value == "aucune" %}
             Aucune
+          {% elif field.value == "important" %}
+            Important
+          {% elif field.value == "importante" %}
+            Importante
           {% elif field.name == "accueil_personnels" %}
             {{ erp.accessibilite.get_accueil_personnels_display }}
           {% elif field.name == "entree_largeur_mini" %}

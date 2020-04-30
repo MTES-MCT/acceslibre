@@ -88,10 +88,10 @@ def test_ViewAccessibiliteForm_filled():
     )
     data = form.get_accessibilite_data()
     assert list(data.keys()) == [
-        "Entrée",
         "Transport en commun",
         "Stationnement",
-        "Espace et cheminement extérieur",
+        "Abords extérieurs",
+        "Entrée",
         "Accueil",
         "Sanitaires",
         "Commentaire",

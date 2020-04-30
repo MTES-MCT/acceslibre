@@ -102,6 +102,11 @@ h6 {
   opacity: .5;
 }
 
+.a4a-warn-icon {
+  color: #aaa;
+  display: inline-block;
+}
+
 /* Autocomplete */
 
 .a4a-autocomplete {
@@ -174,7 +179,6 @@ h6 {
   }
 }
 
-/* DEPRECATED: old autocomplete styles, to be removed eventually */
 .autocomplete-suggestions {
   background: #fff;
   border: 1px solid #4493ce;
