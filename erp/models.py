@@ -166,7 +166,7 @@ class Erp(models.Model):
     published = models.BooleanField(
         default=True,
         verbose_name="Publié",
-        help_text="Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.",
+        help_text="Statut de publication de cet ERP: si la case est décochée, l'ERP ne sera pas listé publiquement",
     )
     geom = models.PointField(
         null=True,
@@ -630,8 +630,7 @@ class Accessibilite(models.Model):
         blank=True,
         choices=NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Présence d'une balise sonore",
-        help_text="Présence d'un système de guidage sonore aidant le déplacement "
-        "d'une personne aveugle ou malvoyante",
+        help_text="Présence d'une balise facilitant le repérage de la porte pour une personne aveugle ou malvoyante",
     )
     # Dispositif d’appel
     entree_dispositif_appel = models.BooleanField(
@@ -663,7 +662,7 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="Largeur minimale",
         help_text="Si la largeur n’est pas précisément connue, indiquez une valeur "
-        "minimum. Exemple : ma largeur se situe entre 90 et 100 cm ; indiquez 90.",
+        "minimum. Exemple : ma largeur se situe entre 90 et 100 cm ; indiquez 90",
     )
 
     # Entrée spécifique PMR
