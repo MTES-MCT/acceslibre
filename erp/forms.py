@@ -21,7 +21,7 @@ def get_widgets_for_accessibilite():
         "stationnement_ext_pmr",
         "cheminement_ext_presence",
         "cheminement_ext_plain_pied",
-        "cheminement_terrain_accidente",
+        "cheminement_ext_terrain_accidente",
         # "cheminement_ext_nombre_marches",
         "cheminement_ext_reperage_marches",
         "cheminement_ext_main_courante",
@@ -199,6 +199,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "description": "Abords extérieurs appartenant à l'établissement",
             "fields": [
                 {"name": "cheminement_ext_presence"},
+                {"name": "cheminement_ext_terrain_accidente", "warn_if": True},
                 {"name": "cheminement_ext_plain_pied", "warn_if": False},
                 {
                     "name": "cheminement_ext_nombre_marches",

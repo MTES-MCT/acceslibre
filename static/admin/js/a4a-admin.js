@@ -23,6 +23,11 @@ window.addEventListener("DOMContentLoaded", function () {
       indent: 1,
     },
     // presence d'un extérieur et cheminement
+    cheminement_ext_terrain_accidente: {
+      dependsOn: ["cheminement_ext_presence"],
+      when: true,
+      indent: 1,
+    },
     cheminement_ext_plain_pied: {
       dependsOn: ["cheminement_ext_presence"],
       when: true,

@@ -17,6 +17,7 @@ ACCESSIBILITE_SCHEMA = {
         "description": "Cheminement entre l'entrée de la parcelle et l'entrée de l'établissement",
         "fields": [
             "cheminement_ext_presence",
+            "cheminement_ext_terrain_accidente",
             "cheminement_ext_plain_pied",
             "cheminement_ext_ascenseur",
             "cheminement_ext_nombre_marches",

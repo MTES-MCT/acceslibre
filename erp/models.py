@@ -462,7 +462,7 @@ class Accessibilite(models.Model):
         "niveau entraînant la présence de marches ou d'un équipement type ascenseur ?",
     )
     # Terrain meuble ou accidenté
-    cheminement_terrain_accidente = models.BooleanField(
+    cheminement_ext_terrain_accidente = models.BooleanField(
         null=True,
         blank=True,
         choices=NULLABLE_BOOLEAN_CHOICES,
