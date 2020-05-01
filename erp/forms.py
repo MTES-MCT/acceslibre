@@ -177,7 +177,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
             "icon": "bus",
             "tabid": "transport",
             "description": "Desserte par les transports en commun",
-            "fields": [{"name": "transport_station_presence"},],
+            "fields": [
+                {"name": "transport_station_presence"},
+                {"name": "transport_information"},
+            ],
         },
         "Stationnement": {
             "icon": "car",
