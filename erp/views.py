@@ -34,10 +34,10 @@ def home(request):
         .geolocated()
         .select_related("activite")
         .having_an_accessibilite()
-        .order_by("-created_at")[:15]
+        .order_by("-created_at")[:5]
     )
     return render(
-        request, "index.html", context={"communes": COMMUNES, "latest": latest}
+        request, "index.html", context={"communes": COMMUNES, "latest": latest,},
     )
 
 

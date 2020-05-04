@@ -68,7 +68,7 @@
         </div>
       </main>
       <div class="a4a-app-map col-lg-6 col-md-4 d-none d-md-block map-area p-0 m-0">
-        <div id="map" class="a4a-map"></div>
+        <div id="app-map" class="a4a-app-map"></div>
       </div>
       {% else %}
       <nav class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto" role="navigation">
@@ -122,13 +122,13 @@
         </div>
       </main>
       <div class="a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0">
-        <div id="map" class="a4a-map"></div>
+        <div id="app-map" class="a4a-app-map"></div>
       </div>
       {% endif %}
     </div>
   </div>
 
   <script>
-    initMap({{ commune_json | safe }}, {% if erp %}{{ erp.pk }}{% else %}null{% endif %}, {{ around|default_if_none:"null" }}, {{ geojson_list | safe }});
+    initAppMap({{ commune_json | safe }}, {% if erp %}{{ erp.pk }}{% else %}null{% endif %}, {{ around|default_if_none:"null" }}, {{ geojson_list | safe }});
   </script>
 {% endblock %}

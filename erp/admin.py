@@ -87,7 +87,7 @@ class CommuneFilter(admin.SimpleListFilter):
     parameter_name = "commune"
 
     def lookups(self, request, model_admin):
-        values = Erp.objects.order_by("commune").distinct("commune")
+        values = Erp.objects.distinct_communes().order_by("commune")
         return ((v.commune, v.commune) for v in values)
 
     def queryset(self, request, queryset):

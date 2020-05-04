@@ -26,6 +26,9 @@ class ActiviteQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
+    def distinct_communes(self):
+        return self.distinct("commune")
+
     def in_commune(self, commune):
         return self.filter(commune__iexact=commune)
 

@@ -17,7 +17,7 @@ function createIcon(info) {
     iconAnchor: [16, 41],
     popupAnchor: [1, -36],
     tooltipAnchor: [16, -28],
-    shadowSize: [41, 41]
+    shadowSize: [41, 41],
   };
   return L.icon(options);
 }
@@ -33,7 +33,7 @@ function onEachFeature(feature, layer) {
     "</a></strong>",
     (properties.activite__nom && "<br>" + properties.activite__nom) || "",
     "<br>" + properties.adresse,
-    "</p>"
+    "</p>",
   ].join("");
   layer.bindPopup(content);
   layer.pk = parseInt(feature.properties.pk, 10);
@@ -42,7 +42,7 @@ function onEachFeature(feature, layer) {
 
 function pointToLayer(feature, coords) {
   return L.marker(coords, {
-    icon: createIcon(feature.properties.has_accessibilite)
+    icon: createIcon(feature.properties.has_accessibilite),
   });
 }
 
@@ -50,53 +50,66 @@ function iconCreateFunction(cluster) {
   return L.divIcon({
     html: cluster.getChildCount(),
     className: "a4a-cluster-icon",
-    iconSize: null
+    iconSize: null,
   });
 }
 
-function initMap(info, pk, around, geoJson) {
-  const tiles = L.tileLayer(
+function createTiles() {
+  return L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     {
       attribution: [
         'Cartographie &copy; contributeurs <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-        'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>'
+        'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>',
       ].join(", "),
       maxZoom: 18,
       id: "n1k0/ck7daao8i07o51ipn747gwtdq",
       tileSize: 512,
       zoomOffset: -1,
       accessToken:
-        "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
+        "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw",
     }
   );
+}
+
+function initHomeMap() {
+  const tiles = createTiles();
+  return L.map("home-map")
+    .addLayer(tiles)
+    .setZoom(6)
+    .setMinZoom(6)
+    .setView([46.227638, 2.213749], 6);
+}
+
+function initAppMap(info, pk, around, geoJson) {
+  const tiles = createTiles();
   const geoJsonLayer = L.geoJSON(geoJson, {
     onEachFeature: onEachFeature,
-    pointToLayer: pointToLayer
+    pointToLayer: pointToLayer,
   });
 
-  map = L.map("map")
+  map = L.map("app-map")
     .addLayer(tiles)
     .setMinZoom(info.zoom - 2);
 
   markers = L.markerClusterGroup({
     disableClusteringAtZoom: 17,
     showCoverageOnHover: false,
-    iconCreateFunction: iconCreateFunction
+    iconCreateFunction: iconCreateFunction,
   });
   markers.addLayer(geoJsonLayer);
   map.addLayer(markers);
 
   if (around) {
     L.marker(around, {
-      icon: L.divIcon({ className: "a4a-center-icon icon icon-target" })
+      icon: L.divIcon({ className: "a4a-center-icon icon icon-target" }),
     }).addTo(map);
     L.circle(around, {
       fillColor: "#0f0",
       fillOpacity: 0.1,
       stroke: 0,
-      radius: 400
+      radius: 400,
     }).addTo(map);
     map.setView(around, 16);
   } else if (geoJson.features.length > 0) {
@@ -108,7 +121,7 @@ function initMap(info, pk, around, geoJson) {
   L.control
     .locate({
       icon: "icon icon-street-view a4a-locate-icon",
-      strings: { title: "Localisez moi" }
+      strings: { title: "Localisez moi" },
     })
     .addTo(map);
 
@@ -122,19 +135,21 @@ function openMarkerPopup(pk) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
   }
-  layers.forEach(function(layer) {
+  layers.forEach(function (layer) {
     if (layer.pk === pk) {
-      markers.zoomToShowLayer(layer, function() {
+      markers.zoomToShowLayer(layer, function () {
         layer.openPopup();
       });
     }
   });
 }
 
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
   if (window.hasOwnProperty("$")) {
-    [].forEach.call(document.querySelectorAll(".a4a-geo-link"), function(link) {
-      link.addEventListener("click", function(event) {
+    [].forEach.call(document.querySelectorAll(".a4a-geo-link"), function (
+      link
+    ) {
+      link.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
         const pk = parseInt(link.dataset.erpId, 10);
@@ -145,7 +160,7 @@ window.addEventListener("DOMContentLoaded", function() {
     $("#q").autocomplete({
       deferRequestBy: 100,
       minChars: 2,
-      lookup: function(query, done) {
+      lookup: function (query, done) {
         const $input = $("#q");
         const commune = $input.data("commune");
         const communeSlug = $input.data("commune-slug");
@@ -158,18 +173,18 @@ window.addEventListener("DOMContentLoaded", function() {
             q: query + ", " + commune,
             type: "street",
             lat: lat,
-            lon: lon
-          }
+            lon: lon,
+          },
         })
-          .then(function(result) {
+          .then(function (result) {
             return result.features
-              .filter(function(feature) {
+              .filter(function (feature) {
                 return (
                   feature.properties.city.toLowerCase() ===
                   commune.toLowerCase()
                 );
               })
-              .map(function(feature) {
+              .map(function (feature) {
                 return {
                   value: feature.properties.label,
                   data: {
@@ -181,48 +196,48 @@ window.addEventListener("DOMContentLoaded", function() {
                       "/?around=" +
                       feature.geometry.coordinates[1] +
                       "," +
-                      feature.geometry.coordinates[0]
-                  }
+                      feature.geometry.coordinates[0],
+                  },
                 };
               });
           })
-          .fail(function(err) {
+          .fail(function (err) {
             console.error(err);
           });
         const erpsReq = $.ajax({
           url: "/app/autocomplete/",
           dataType: "json",
-          data: { q: query, commune: commune }
+          data: { q: query, commune: commune },
         })
-          .then(function(result) {
-            return result.suggestions.map(function(sugg) {
+          .then(function (result) {
+            return result.suggestions.map(function (sugg) {
               return {
                 value: sugg.value,
                 data: {
                   type: "erp",
                   score: sugg.data.score,
-                  url: sugg.data.url
-                }
+                  url: sugg.data.url,
+                },
               };
             });
           })
-          .fail(function(err) {
+          .fail(function (err) {
             console.error(err);
           });
         $.when(streetsReq, erpsReq)
-          .done(function(streets, erps) {
-            const results = [].sort.call(streets.concat(erps), function(a, b) {
+          .done(function (streets, erps) {
+            const results = [].sort.call(streets.concat(erps), function (a, b) {
               return b.data.score - a.data.score;
             });
             done({ suggestions: results });
           })
-          .fail(function(err) {
+          .fail(function (err) {
             console.error(err);
           });
       },
-      onSelect: function(suggestion) {
+      onSelect: function (suggestion) {
         document.location = suggestion.data.url;
-      }
+      },
     });
   }
 });
