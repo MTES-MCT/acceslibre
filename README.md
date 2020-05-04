@@ -183,6 +183,20 @@ $ python manage.py migrate
 
 Vous devez relancer le serveur pour que les changements soient pris en compte.
 
+## Importer les données initiales
+
+### Importer les communes
+
+```
+$ python manage.py import_communes
+```
+
+### Importer les données c-conforme
+
+```
+$ python manage.py import_cconforme 
+```
+
 ## Réinitialiser les migrations
 
 Une commande spécifique est disponible :

@@ -14,10 +14,16 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from import_export.admin import ImportExportModelAdmin
 
-from .forms import AdminActiviteForm, AdminAccessibiliteForm, AdminErpForm
+from .forms import (
+    AdminActiviteForm,
+    AdminAccessibiliteForm,
+    AdminCommuneForm,
+    AdminErpForm,
+)
 from .imports import ErpResource
 from .models import (
     Activite,
+    Commune,
     Erp,
     Label,
     Accessibilite,
@@ -41,6 +47,17 @@ class ActiviteAdmin(admin.ModelAdmin):
 
     def erp_count(self, obj):
         return obj._erp_count
+
+
+@admin.register(Commune)
+class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
+    form = AdminCommuneForm
+    point_zoom = 13
+    map_height = 300
+    list_display = ("departement", "nom", "code_postaux")
+    list_display_links = ("nom",)
+    ordering = ("nom",)
+    search_fields = ("nom",)
 
 
 @admin.register(EquipementMalentendant)

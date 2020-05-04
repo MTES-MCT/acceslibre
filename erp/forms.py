@@ -4,7 +4,13 @@ from django.core.exceptions import ValidationError
 from django.forms import fields, widgets
 
 from . import geocoder
-from .models import Activite, Accessibilite, Erp, NULLABLE_OR_NA_BOOLEAN_CHOICES
+from .models import (
+    Activite,
+    Accessibilite,
+    Commune,
+    Erp,
+    NULLABLE_OR_NA_BOOLEAN_CHOICES,
+)
 
 
 def bool_radios():
@@ -92,6 +98,20 @@ class AdminActiviteForm(forms.ModelForm):
         delimiter="\n",
         required=False,
         help_text="Un mots-clé par ligne",
+    )
+
+
+class AdminCommuneForm(forms.ModelForm):
+    class Meta:
+        model = Commune
+        exclude = ("pk",)
+
+    code_postaux = SimpleArrayField(
+        forms.CharField(),
+        widget=widgets.Textarea(),
+        delimiter="\n",
+        required=False,
+        help_text="Un code postal par ligne",
     )
 
 
