@@ -69,6 +69,62 @@ class Activite(models.Model):
         return self.nom
 
 
+def generate_commune_slug(instance):
+    return f"{instance.departement}-{instance.nom}"
+
+
+class Commune(models.Model):
+    class Meta:
+        ordering = ("nom",)
+
+    nom = models.CharField(max_length=255, help_text="Nom")
+    slug = AutoSlugField(
+        unique=True,
+        populate_from=generate_commune_slug,
+        unique_with=["departement", "nom"],
+        help_text="Identifiant d'URL (slug)",
+    )
+    departement = models.CharField(
+        max_length=3,
+        verbose_name="Département",
+        help_text="Codé sur deux ou trois caractères.",
+    )
+    superficie = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Superficie",
+        help_text="Exprimée en mètres carrés (m²)",
+    )
+    geom = models.PointField(
+        verbose_name="Localisation",
+        help_text="Coordonnées géographique du centre de la commune",
+    )
+    code_postaux = ArrayField(
+        models.CharField(max_length=5),
+        verbose_name="Codes postaux",
+        default=list,
+        help_text="Liste des codes postaux de cette commune",
+    )
+
+    def __str__(self):
+        return f"{self.nom} ({self.departement})"
+
+    def get_zoom(self):
+        # TODO: compute zoom ratio from superficie
+        # marseille 240620 12
+        # paris 105400 12
+        # perpignan 68070 13
+        # nantes 65190 12
+        # montpellier 56880 13
+        # lyon 47870 13
+        # castelnaudary 47720 13
+        # tarbes 15330 14
+        # castelnau 11180 14
+        # jacou 3430 15
+        # plessis 3430 15
+        return 12
+
+
 class Label(models.Model):
     class Meta:
         ordering = ("nom",)
