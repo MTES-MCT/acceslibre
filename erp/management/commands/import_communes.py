@@ -32,6 +32,8 @@ class Command(BaseCommand):
         else:
             code_postaux = [raw_code_postal]
         assert all(len(cp) == 5 for cp in code_postaux), code_postaux
+        code_insee = row[10]
+        assert len(code_insee) == 5, code_insee
         superficie = int(float(row[18]) * 1000)
         lon = float(row[19])
         lat = float(row[20])
@@ -39,6 +41,7 @@ class Command(BaseCommand):
         return Commune(
             departement=departement,
             nom=nom,
+            code_insee=code_insee,
             superficie=superficie,
             geom=Point(lon, lat, srid=4326),
             code_postaux=code_postaux,
@@ -61,5 +64,5 @@ class Command(BaseCommand):
         if len(to_import) == 0:
             print("Rien à importer.")
             exit(0)
-        res = Commune.objects.bulk_create(to_import)
-        print("Importation effectuée.")
+        # res = Commune.objects.bulk_create(to_import)
+        # print("Importation effectuée.")

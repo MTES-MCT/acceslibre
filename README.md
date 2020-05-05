@@ -194,7 +194,7 @@ $ python manage.py import_communes
 ### Importer les données c-conforme
 
 ```
-$ python manage.py import_cconforme 
+$ python manage.py import_cconforme
 ```
 
 ## Réinitialiser les migrations
@@ -287,6 +287,34 @@ Téléchargez un backup [ici](https://db-osc-fr1.scalingo.com/dashboard/5e3400ce
 ```
 $ tar xvzf 20200326230000_access4all_8677.tar.gz
 $ pg_restore --clean --if-exists --no-owner --no-privileges --dbname $DATABASE_URL 20200326230000_access4all_8677.pgsql
+```
+
+### Réinitialisation complète de la base et réimport d'un dump de données
+
+Il peut parfois arriver de rencontrer des erreurs si vous tentez de restaurer un dump dont le schéma diffère de vos encours de développement. Par exemple :
+
+```
+...
+pg_restore: while PROCESSING TOC:
+pg_restore: from TOC entry 5; 3079 32768 EXTENSION postgis (no owner)
+pg_restore: error: could not execute query: ERROR:  cannot drop extension postgis because other objects depend on it
+DETAIL:  column geom of table public.erp_commune depends on type public.geometry
+...
+pg_restore: warning: errors ignored on restore: 1
+```
+
+En pareil cas, une solution rapide et efficace est de supprimer complètement votre base de développement locale, de la recréer et d'y réimporter un dump de données comme montré précédemment :
+
+```
+$ sudo -u postgres dropdb access4all
+$ sudo -u postgres createdb access4all
+$ pg_restore --clean --if-exists --no-owner --no-privileges --dbname $DATABASE_URL docs/backups/20200505092251_access4all_8677.pgsql
+```
+
+Enfin, n'oubliez pas de rejouer d'éventuelles migrations non appliquées vis à vis de vos encours de développement :
+
+```
+$ python manage.py migrate
 ```
 
 ## Générer les graphes du modèle de données
