@@ -158,7 +158,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     map_height = 300
     save_on_top = True
     search_fields = ["nom", "activite__nom", "code_postal", "commune"]
-    autocomplete_fields = ["activite"]
+    autocomplete_fields = ["activite", "commune_ext"]
     scrollable = False
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = True
@@ -186,6 +186,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                     "lieu_dit",
                     "code_postal",
                     "commune",
+                    "commune_ext",
                     "code_insee",
                     "geom",
                 ]

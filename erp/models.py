@@ -89,9 +89,9 @@ class Commune(models.Model):
         verbose_name="Département",
         help_text="Codé sur deux ou trois caractères.",
     )
-    # code_insee = models.CharField(
-    #     max_length=5, verbose_name="Code INSEE", help_text="Code INSEE de la commune",
-    # )
+    code_insee = models.CharField(
+        max_length=5, verbose_name="Code INSEE", help_text="Code INSEE de la commune",
+    )
     superficie = models.PositiveIntegerField(
         null=True,
         blank=True,
@@ -205,13 +205,13 @@ class Erp(models.Model):
         verbose_name="Créateur",
         on_delete=models.SET_NULL,
     )
-    # commune_ext = models.ForeignKey(
-    #     Commune,
-    #     null=True,
-    #     verbose_name="Commune (relation)",
-    #     help_text="La commune de cet établissement",
-    #     on_delete=models.SET_NULL,
-    # )
+    commune_ext = models.ForeignKey(
+        Commune,
+        null=True,
+        verbose_name="Commune (relation)",
+        help_text="La commune de cet établissement",
+        on_delete=models.SET_NULL,
+    )
     nom = models.CharField(
         max_length=255, help_text="Nom de l'établissement ou de l'enseigne"
     )

@@ -64,5 +64,5 @@ class Command(BaseCommand):
         if len(to_import) == 0:
             print("Rien à importer.")
             exit(0)
-        # res = Commune.objects.bulk_create(to_import)
-        # print("Importation effectuée.")
+        res = Commune.objects.bulk_create(to_import)
+        print("Importation effectuée.")
