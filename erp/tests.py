@@ -4,8 +4,8 @@ from django.contrib.gis.geos import Point
 from unittest import mock
 
 from .forms import AdminAccessibiliteForm, AdminErpForm, ViewAccessibiliteForm
+from .models import Commune
 
-# AdminErpForm
 
 VALID_ADDRESS = {
     "nom": "plop",
@@ -25,6 +25,12 @@ POINT = Point((0, 0))
 
 
 @pytest.fixture
+def paris_commune():
+    c = Commune(nom="Paris", departement="75", code_insee="75111", geom=POINT)
+    c.save()
+
+
+@pytest.fixture
 def fake_geocoder():
     return lambda _: {
         "geom": POINT,
@@ -37,13 +43,15 @@ def fake_geocoder():
     }
 
 
-def test_AdminErpForm_get_adresse(fake_geocoder):
+@pytest.mark.django_db
+def test_AdminErpForm_get_adresse(fake_geocoder, paris_commune):
     form = AdminErpForm(VALID_ADDRESS, geocode=fake_geocoder,)
     form.is_valid()  # populates cleaned_data
     assert form.get_adresse() == "4 Rue de la Paix 75002 Paris"
 
 
-def test_AdminErpForm_geocode_adresse(fake_geocoder):
+@pytest.mark.django_db
+def test_AdminErpForm_geocode_adresse(fake_geocoder, paris_commune):
     form = AdminErpForm(VALID_ADDRESS, geocode=fake_geocoder,)
     form.is_valid()
     assert form.cleaned_data["geom"] == POINT
@@ -60,7 +68,8 @@ def test_AdminErpForm_invalid_on_empty_geocode_results():
     assert form.is_valid() == False
 
 
-def test_AdminErpForm_valid_on_geocoded_results(fake_geocoder):
+@pytest.mark.django_db
+def test_AdminErpForm_valid_on_geocoded_results(fake_geocoder, paris_commune):
     form = AdminErpForm(VALID_ADDRESS, geocode=fake_geocoder,)
     assert form.is_valid() == True
 

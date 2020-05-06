@@ -186,7 +186,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                     "lieu_dit",
                     "code_postal",
                     "commune",
-                    "commune_ext",
+                    # "commune_ext", # note: this field is handled on model clean()
                     "code_insee",
                     "geom",
                 ]

@@ -10,16 +10,21 @@ class Command(BaseCommand):
     def migrate_erp(self, erp):
         communes = Commune.objects.filter(
             Q(code_insee=erp.code_insee)
-            | (Q(nom__iexact=erp.commune) & Q(departement=erp.code_postal[:2]))
-            | Q(code_postaux__contains=[erp.code_postal])
+            | (
+                Q(nom__unaccent=erp.commune)
+                & Q(code_postaux__contains=[erp.code_postal])
+            )
         )
         if len(communes) == 0:
             print(f"SKIP not found: {erp.nom} à {erp.commune} ({erp.code_postal[:2]})")
+
         else:
             erp.commune_ext = communes[0]
-            # erp.save()
-            # print(f"PASS: {erp.nom}: {erp.commune} -> {communes[0].nom}")
+            if erp.commune_ext.nom != erp.commune:
+                print(f"Warning: {erp.commune_ext.nom} != {erp.commune}")
+            erp.save()
+            print(f"OK: {erp.nom}: {erp.commune} -> {communes[0].nom}")
 
     def handle(self, *args, **options):
-        for erp in Erp.objects.all():
+        for erp in Erp.objects.filter(commune_ext__isnull=True):
             self.migrate_erp(erp)

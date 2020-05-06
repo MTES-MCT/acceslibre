@@ -10,6 +10,7 @@ from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.urls import reverse
+from django.utils.text import slugify
 
 from . import managers
 from .schema import ACCESSIBILITE_SCHEMA
@@ -96,7 +97,7 @@ class Commune(models.Model):
         null=True,
         blank=True,
         verbose_name="Superficie",
-        help_text="Exprimée en mètres carrés (m²)",
+        help_text="Exprimée en hectares (ha)",
     )
     geom = models.PointField(
         verbose_name="Localisation",
@@ -208,6 +209,7 @@ class Erp(models.Model):
     commune_ext = models.ForeignKey(
         Commune,
         null=True,
+        blank=True,
         verbose_name="Commune (relation)",
         help_text="La commune de cet établissement",
         on_delete=models.SET_NULL,
@@ -303,16 +305,19 @@ class Erp(models.Model):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
 
     def get_absolute_url(self):
-        commune = f"{self.departement}-{self.commune.lower()}"
+        if self.commune_ext:
+            commune_slug = self.commune_ext.slug
+        else:
+            commune_slug = slugify(f"{self.departement}-{self.commune}")
         if self.activite is None:
             return reverse(
-                "commune_erp", kwargs=dict(commune=commune, erp_slug=self.slug),
+                "commune_erp", kwargs=dict(commune=commune_slug, erp_slug=self.slug),
             )
         else:
             return reverse(
                 "commune_activite_erp",
                 kwargs=dict(
-                    commune=commune,
+                    commune=commune_slug,
                     activite_slug=self.activite.slug,
                     erp_slug=self.slug,
                 ),
@@ -350,6 +355,21 @@ class Erp(models.Model):
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})
+        # Commune
+        try:
+            if self.code_insee:
+                self.commune_ext = Commune.objects.get(code_insee=self.code_insee)
+            elif self.commune and self.code_postal:
+                self.commune_ext = Commune.objects.get(
+                    nom__unaccent=self.commune,
+                    code_postaux__contains=[self.code_postal],
+                )
+        except Commune.DoesNotExist:
+            raise ValidationError(
+                {
+                    "commune": f"Commune {self.commune} ({self.code_postal}) introuvable. Merci de faire attention aux accents."
+                }
+            )
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
