@@ -114,19 +114,25 @@ class Commune(models.Model):
         return f"{self.nom} ({self.departement})"
 
     def get_zoom(self):
-        # TODO: compute zoom ratio from superficie
-        # marseille 240620 12
-        # paris 105400 12
-        # perpignan 68070 13
-        # nantes 65190 12
-        # montpellier 56880 13
-        # lyon 47870 13
-        # castelnaudary 47720 13
-        # tarbes 15330 14
-        # castelnau 11180 14
-        # jacou 3430 15
-        # plessis 3430 15
-        return 12
+        # ('Marseille', 24198),12
+        # ('Paris', 10528),12
+        # ('Perpignan', 6807),13
+        # ('Nantes', 6575),12
+        # ('Montpellier', 5710),13
+        # ('Lyon', 4797),13
+        # ('Castelnaudary', 4783),13
+        # ('Tarbes', 1534),14
+        # ('Castelnau-le-Lez', 1109),15
+        # ('Le Plessis-Robinson', 340),15
+        # ('Jacou', 335), 15
+        if self.superficie > 8000:
+            return 12
+        elif self.superficie > 6000:
+            return 13
+        elif self.superficie > 1500:
+            return 14
+        else:
+            return 15
 
 
 class Label(models.Model):
