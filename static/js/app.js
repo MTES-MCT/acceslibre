@@ -170,7 +170,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const streetsReq = $.ajax({
           url: "https://api-adresse.data.gouv.fr/search",
           data: {
-            q: query + ", " + commune,
+            q: query + (commune ? ", " + commune : ""),
             type: "street",
             lat: lat,
             lon: lon,
@@ -180,8 +180,10 @@ window.addEventListener("DOMContentLoaded", function () {
             return result.features
               .filter(function (feature) {
                 return (
-                  feature.properties.city.toLowerCase() ===
-                  commune.toLowerCase()
+                  (commune &&
+                    feature.properties.city.toLowerCase() ===
+                      commune.toLowerCase()) ||
+                  true
                 );
               })
               .map(function (feature) {

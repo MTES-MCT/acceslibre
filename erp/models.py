@@ -404,7 +404,7 @@ class Erp(models.Model):
         )
         search_vector = search_vector + SearchVector(
             Value(self.nom, output_field=models.TextField()),
-            weight="A",
+            weight="B",
             config=FULLTEXT_CONFIG,
         )
         search_vector = search_vector + SearchVector(

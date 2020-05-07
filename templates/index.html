@@ -3,34 +3,37 @@
 {% load static %}
 
 {% block editorial_content %}
+  <div class="mb-4">
+    <form action="">
+      <input type="search" name="q" class="form-control form-control-lg" placeholder="Rechercher un établissement"
+        aria-label="Rechercher un établissement" autocomplete="off">
+    </form>
+  </div>
   <div class="row">
     <div class="col-sm-8">
-      <div id="home-map" class="a4a-home-map"></div>
-      <script>
-        const homeMap = initHomeMap();
-        {% for _, commune in communes.items %}
-        L.marker([{{ commune.center.0 }}, {{ commune.center.1 }}])
-          .bindPopup("{{ commune.nom }}")
-          .addTo(homeMap);
-        {% endfor %}
-      </script>
+      {% if search_results %}
+      <h2>Résultats</h2>
+      {% for result in search_results %}
+      <p>{{ result.nom }}</p>
+      {% empty %}
+      <p>Aucun résultat.</p>
+      {% endfor %}
+      {% else %}
       <div class="row row-cols-1 row-cols-md-2">
-        {% for _, commune in communes.items %}
+        {% for commune in communes %}
         <div class="col mb-4">
           <div class="card shadow-sm">
-            <a href="{% url 'commune' commune.slug %}">
-              <img class="card-img-top" alt="{{ commune.nom }}" src="{% static "img/communes/" %}{{ commune.slug }}.jpg">
-            </a>
             <div class="card-body">
-              <h5 class="card-title"><a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></h5>
-              <p class="card-text">
-                <small class="text-muted">Découvrez l'accessibilité des établissements de la ville.</small>
-              </p>
+              <h5 class="card-title mb-0 d-flex justify-content-between">
+                <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
+                <span class="badge badge-primary">{{ commune.erp_count}}</span>
+              </h5>
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
+      {% endif %}
     </div>
     <div class="col-sm-4">
       <div class="card">
@@ -38,7 +41,7 @@
         <div class="list-group list-group-flush">
           {% for erp in latest %}
           <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
-            {{ erp.commune }} &raquo; <span class="text-muted">{{ erp.activite.nom}}</span>
+            {{ erp.commune }} {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
             <br><strong>{{ erp.nom }}</strong>
           </a>
           {% endfor %}

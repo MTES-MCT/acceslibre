@@ -1,5 +1,6 @@
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
+from django.db.models import Count, Q
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
@@ -26,6 +27,12 @@ def handler500(request):
 
 
 def home(request):
+    communes_qs = Commune.objects.annotate(
+        erp_count=Count(
+            "erp", filter=Q(erp__accessibilite__isnull=False), distinct=True
+        )
+    )
+    communes_qs = communes_qs.order_by("-erp_count")[:12]
     latest = (
         Erp.objects.published()
         .geolocated()
@@ -33,8 +40,18 @@ def home(request):
         .having_an_accessibilite()
         .order_by("-created_at")[:5]
     )
+    search_results = None
+    search = request.GET.get("q")
+    if search and len(search) > 1:
+        search_results = Erp.objects.search(search)[:10]
     return render(
-        request, "index.html", context={"communes": COMMUNES, "latest": latest,},
+        request,
+        "index.html",
+        context={
+            "communes": communes_qs,
+            "latest": latest,
+            "search_results": search_results,
+        },
     )
 
 

@@ -11,7 +11,7 @@ from django.contrib import admin
 from django.contrib.admin.models import ADDITION, LogEntry
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
-from django.db.models import Count, Q
+from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
