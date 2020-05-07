@@ -2,13 +2,16 @@ import nested_admin
 
 from datetime import datetime
 from django import forms
-from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from django_admin_listfilter_dropdown.filters import (
+    DropdownFilter,
+    RelatedDropdownFilter,
+)
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin.models import ADDITION, LogEntry
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.core.exceptions import ValidationError
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
@@ -49,15 +52,57 @@ class ActiviteAdmin(admin.ModelAdmin):
         return obj._erp_count
 
 
+class HavingErpsFilter(admin.SimpleListFilter):
+    title = "renseignement d'ERP"
+    parameter_name = "having_erp"
+
+    def lookups(self, request, model_admin):
+        return [(1, "Avec ERP"), (0, "Sans ERP")]
+
+    def queryset(self, request, queryset):
+        communes = queryset.prefetch_related("erp_set").annotate(erp_count=Count("erp"))
+        if self.value() == "1":
+            return communes.filter(erp_count__gt=0)
+        elif self.value() == "0":
+            return communes.filter(erp_count=0)
+        else:
+            return queryset
+
+
+class DepartementFilter(admin.SimpleListFilter):
+    title = "Département"
+    parameter_name = "departement"
+    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
+
+    def lookups(self, request, model_admin):
+        values = Commune.objects.distinct("departement").order_by("departement")
+        return ((v.departement, v.departement) for v in values)
+
+    def queryset(self, request, queryset):
+        if self.value() is None:
+            return queryset
+        else:
+            return queryset.filter(departement=self.value())
+
+
 @admin.register(Commune)
 class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     form = AdminCommuneForm
     point_zoom = 13
     map_height = 300
-    list_display = ("departement", "nom", "code_postaux")
+    list_display = ("departement", "nom", "erp_count", "code_insee", "code_postaux")
     list_display_links = ("nom",)
     ordering = ("nom",)
-    search_fields = ("nom",)
+    search_fields = ("nom", "code_insee", "code_postaux")
+    list_filter = [
+        HavingErpsFilter,
+        DepartementFilter,
+    ]
+
+    def erp_count(self, instance):
+        return instance.erp_set.count()
+
+    erp_count.short_description = "ERPs"
 
 
 @admin.register(EquipementMalentendant)

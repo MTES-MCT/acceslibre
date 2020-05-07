@@ -97,6 +97,12 @@ Créez un superutilisateur :
 $ python manage.py createsuperuser
 ```
 
+Charger les jeux de données initiaux :
+
+```
+$ python manage.py loaddata erp/fixtures/communes.json
+```
+
 ## Lancer le serveur
 
 ```
