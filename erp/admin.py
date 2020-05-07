@@ -149,14 +149,21 @@ class CommuneFilter(admin.SimpleListFilter):
     parameter_name = "commune"
 
     def lookups(self, request, model_admin):
-        values = Erp.objects.distinct_communes().order_by("commune")
-        return ((v.commune, v.commune) for v in values)
+        values = (
+            Erp.objects.prefetch_related("commune_ext")
+            .distinct("commune_ext__nom")
+            .order_by("commune_ext__nom")
+        )
+        return (
+            (v.commune_ext.id, f"{v.commune_ext.nom} ({v.commune_ext.departement})")
+            for v in values
+        )
 
     def queryset(self, request, queryset):
         if self.value() is None:
             return queryset
         else:
-            return queryset.filter(commune=self.value())
+            return queryset.filter(commune_ext__pk=self.value())
 
 
 @admin.register(Erp)

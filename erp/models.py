@@ -113,6 +113,9 @@ class Commune(models.Model):
     def __str__(self):
         return f"{self.nom} ({self.departement})"
 
+    def get_absolute_url(self):
+        return reverse("commune", kwargs=dict(commune=self.slug))
+
     def get_zoom(self):
         # ('Marseille', 24198),12
         # ('Paris', 10528),12
@@ -133,6 +136,16 @@ class Commune(models.Model):
             return 14
         else:
             return 15
+
+    def toTemplateJson(self):
+        return json.dumps(
+            {
+                "nom": self.nom,
+                "slug": self.slug,
+                "center": [self.geom.coords[1], self.geom.coords[0]],
+                "zoom": self.get_zoom(),
+            }
+        )
 
 
 class Label(models.Model):
@@ -336,7 +349,13 @@ class Erp(models.Model):
     def adresse(self):
         pieces = filter(
             lambda x: x is not None,
-            [self.numero, self.voie, self.lieu_dit, self.code_postal, self.commune,],
+            [
+                self.numero,
+                self.voie,
+                self.lieu_dit,
+                self.code_postal,
+                self.commune_ext.nom if self.commune_ext else self.commune,
+            ],
         )
         return " ".join(pieces).strip().replace("  ", " ")
 

@@ -207,7 +207,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const erpsReq = $.ajax({
           url: "/app/autocomplete/",
           dataType: "json",
-          data: { q: query, commune: commune },
+          data: { q: query, commune_slug: communeSlug },
         })
           .then(function (result) {
             return result.suggestions.map(function (sugg) {

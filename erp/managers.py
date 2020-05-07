@@ -8,7 +8,7 @@ from django.db.models.aggregates import Count
 
 class ActiviteQuerySet(models.QuerySet):
     def in_commune(self, commune):
-        return self.filter(erp__commune__iexact=commune)
+        return self.filter(erp__commune_ext=commune)
 
     def with_erp_counts(self):
         """ Note: this should come last when chained, otherwise you'll have
@@ -26,11 +26,8 @@ class ActiviteQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
-    def distinct_communes(self):
-        return self.distinct("commune")
-
     def in_commune(self, commune):
-        return self.filter(commune__iexact=commune)
+        return self.filter(commune_ext=commune)
 
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)
