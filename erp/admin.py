@@ -45,11 +45,11 @@ class ActiviteAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        queryset = queryset.annotate(_erp_count=Count("erp", distinct=True),)
+        queryset = queryset.annotate(erp_count=Count("erp", distinct=True),)
         return queryset
 
     def erp_count(self, obj):
-        return obj._erp_count
+        return obj.erp_count
 
 
 class HavingErpsFilter(admin.SimpleListFilter):
@@ -60,7 +60,7 @@ class HavingErpsFilter(admin.SimpleListFilter):
         return [(1, "Avec ERP"), (0, "Sans ERP")]
 
     def queryset(self, request, queryset):
-        communes = queryset.prefetch_related("erp_set").annotate(erp_count=Count("erp"))
+        communes = queryset.annotate(erp_count=Count("erp", distinct=True))
         if self.value() == "1":
             return communes.filter(erp_count__gt=0)
         elif self.value() == "0":
@@ -99,8 +99,13 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
         DepartementFilter,
     ]
 
-    def erp_count(self, instance):
-        return instance.erp_set.count()
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.annotate(erp_count=Count("erp", distinct=True),)
+        return queryset
+
+    def erp_count(self, obj):
+        return obj.erp_count
 
     erp_count.short_description = "ERPs"
 
@@ -147,6 +152,7 @@ class CommuneFilter(admin.SimpleListFilter):
     # see https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter
     title = "Commune"
     parameter_name = "commune"
+    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
 
     def lookups(self, request, model_admin):
         values = (
@@ -246,6 +252,11 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         ),
         ("Contact", {"fields": ["telephone", "site_internet", "contact_email"],},),
     ]
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.prefetch_related("commune_ext")
+        return queryset
 
     def save_model(self, request, obj, form, change):
         if not change:
