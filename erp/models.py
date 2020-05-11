@@ -13,6 +13,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 from . import managers
+from .departements import DEPARTEMENTS
 from .schema import ACCESSIBILITE_SCHEMA
 
 
@@ -116,18 +117,11 @@ class Commune(models.Model):
     def get_absolute_url(self):
         return reverse("commune", kwargs=dict(commune=self.slug))
 
+    def departement_nom(self):
+        nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
+        return f"{nom} ({self.departement})"
+
     def get_zoom(self):
-        # ('Marseille', 24198),12
-        # ('Paris', 10528),12
-        # ('Perpignan', 6807),13
-        # ('Nantes', 6575),12
-        # ('Montpellier', 5710),13
-        # ('Lyon', 4797),13
-        # ('Castelnaudary', 4783),13
-        # ('Tarbes', 1534),14
-        # ('Castelnau-le-Lez', 1109),15
-        # ('Le Plessis-Robinson', 340),15
-        # ('Jacou', 335), 15
         if self.superficie > 8000:
             return 12
         elif self.superficie > 6000:

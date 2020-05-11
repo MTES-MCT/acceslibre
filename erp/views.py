@@ -38,16 +38,32 @@ def home(request):
         .geolocated()
         .select_related("activite", "commune_ext")
         .having_an_accessibilite()
-        .order_by("-created_at")[:5]
+        .order_by("-created_at")[:7]
     )
     search_results = None
     search = request.GET.get("q")
     if search and len(search) > 1:
-        search_results = Erp.objects.search(search)[:10]
+        terms = search.strip().split(" ")
+        clauses = Q()
+        for term in terms:
+            if term.isdigit() and len(term) == 5:
+                clauses = clauses | Q(code_postaux__contains=[term])
+            if len(term) > 2:
+                clauses = clauses | Q(nom__unaccent__icontains=term)
+        search_results = {
+            "communes": Commune.objects.filter(clauses).order_by("-superficie")[:4],
+            "erps": (
+                Erp.objects.published()
+                .geolocated()
+                .select_related("activite", "commune_ext")
+                .search(search)[:10]
+            ),
+        }
     return render(
         request,
         "index.html",
         context={
+            "search": search,
             "communes": communes_qs,
             "latest": latest,
             "search_results": search_results,
