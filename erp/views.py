@@ -28,11 +28,12 @@ def handler500(request):
 
 def home(request):
     communes_qs = Commune.objects.annotate(
-        erp_count=Count(
+        erp_count=Count("erp"),
+        erp_access_count=Count(
             "erp", filter=Q(erp__accessibilite__isnull=False), distinct=True
-        )
+        ),
     )
-    communes_qs = communes_qs.order_by("-erp_count")[:12]
+    communes_qs = communes_qs.order_by("-erp_access_count")[:12]
     latest = (
         Erp.objects.published()
         .geolocated()

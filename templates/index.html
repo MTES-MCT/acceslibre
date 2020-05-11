@@ -67,10 +67,10 @@
                   <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
                 </h5>
               </div>
-              <span class="badge badge-primary a4a-badge"
-                title="{{ commune.erp_count }} établissement{{ commune.erp_count|pluralize:"s" }} dont l'accessibilité est renseignée">
-                {{ commune.erp_count }}
-              </span>
+              <a class="btn btn-sm btn-primary px-1 py-0" href="{% url 'commune' commune.slug %}"
+                title="{{ commune.erp_access_count }} établissement{{ commune.erp_access_count|pluralize:"s" }} dont l'accessibilité est renseignée sur {{ commune.erp_count }}">
+                <strong>{{ commune.erp_access_count }}</strong><small>/{{ commune.erp_count }}</small>
+              </a>
             </div>
           </div>
         </div>
