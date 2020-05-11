@@ -333,3 +333,18 @@ $ ./makegraphs.sh
 ```
 
 Les diagrammes au format PNG sont générés dans le répertoire `graphs` à la racine du dépôt.
+
+## Astuces de développement
+
+### Shell interactif
+
+```
+$ ./manage.py shell_plus
+```
+
+Pour activer le rechargement automatique :
+
+```
+%load_ext autoreload
+%autoreload 2
+```
