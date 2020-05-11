@@ -75,7 +75,7 @@ Vous trouverez ci-après la documentation technique exhaustives des points d'ent
 class A4aAutoSchema(AutoSchema):
     """ A custom DRF schema allowing to define documentation for query string parameters.
 
-    see: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
+        see: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
     """
 
     def get_operation(self, path, method):
@@ -179,10 +179,22 @@ class ErpPagination(PageNumberPagination):
 class ErpFilterBackend(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
     def filter_queryset(self, request, queryset, view):
-        # Commune
+        # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:
-            queryset = queryset.in_commune(commune)
+            queryset = queryset.filter(commune__unaccent__icontains=commune)
+
+        # Code postal
+        code_postal = request.query_params.get("code_postal", None)
+        if code_postal is not None:
+            queryset = queryset.filter(
+                commune_ext__code_postaux__contains=[code_postal]
+            )
+
+        # Code INSEE
+        code_insee = request.query_params.get("code_insee", None)
+        if code_insee is not None:
+            queryset = queryset.filter(commune_ext__code_insee=code_insee)
 
         # Activité
         activite = request.query_params.get("activite", None)
@@ -226,6 +238,28 @@ class ErpSchema(A4aAutoSchema):
                 "schema": {"type": "string"},
             },
         },
+        "code_postal": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "code_postal",
+                "in": "query",
+                "required": False,
+                "description": "Code postal de la commune (ex. *92120*)",
+                "schema": {"type": "string"},
+            },
+        },
+        "code_insee": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "code_insee",
+                "in": "query",
+                "required": False,
+                "description": "Code INSEE de la commune (ex. *59359*)",
+                "schema": {"type": "string"},
+            },
+        },
         "activite": {
             "paths": ["/erps/"],
             "methods": ["GET"],
@@ -264,7 +298,8 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
       *Administration publique* pour activité
     - `?q=impôts&commune=Lyon&activite=administration-publique` remonte les
       *administration publiques* contenant le terme *impôts* situés dans la ville
-      de *Lyon*
+      de *Lyon*. Vous pouvez également filtrer par ville en utilisant au choix
+      les champs `code_postal` ou `code_insee`.
 
     retrieve:
     Ce point d'accès permet de récupérer les données d'un ERP spécifique, identifié
@@ -275,8 +310,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = (
         Erp.objects.published()
         .geolocated()
-        .select_related("activite")
-        .select_related("accessibilite")
+        .select_related("activite", "accessibilite", "commune_ext", "user")
         .order_by("accessibilite")
     )
     serializer_class = ErpSerializer

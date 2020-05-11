@@ -108,7 +108,21 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     )
     adresse = serializers.ReadOnlyField()
     distance = serializers.SerializerMethodField()
+    commune = serializers.SerializerMethodField()
+    code_insee = serializers.SerializerMethodField()
 
     def get_distance(self, obj):
         if hasattr(obj, "distance"):
             return obj.distance.m
+
+    def get_commune(self, obj):
+        if obj.commune_ext:
+            return obj.commune_ext.nom
+        else:
+            return obj.commune
+
+    def get_code_insee(self, obj):
+        if obj.commune_ext:
+            return obj.commune_ext.code_insee
+        else:
+            return obj.code_insee
