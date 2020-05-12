@@ -348,3 +348,11 @@ Pour activer le rechargement automatique :
 %load_ext autoreload
 %autoreload 2
 ```
+
+### Astuce Postgres
+
+Lancer psql en local:
+
+```
+$ sudo -u postgres psql
+```
