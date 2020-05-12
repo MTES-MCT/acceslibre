@@ -7,33 +7,21 @@ from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
-from .communes import COMMUNES
 from .forms import ViewAccessibiliteForm
 from .models import Accessibilite, Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
 
 
 def handler404(request, exception):
-    return render(
-        request,
-        "404.html",
-        context={"communes": COMMUNES, "exception": exception},
-        status=404,
-    )
+    return render(request, "404.html", context={"exception": exception}, status=404,)
 
 
 def handler500(request):
-    return render(request, "500.html", context={"communes": COMMUNES}, status=500)
+    return render(request, "500.html", context={}, status=500)
 
 
 def home(request):
-    communes_qs = Commune.objects.annotate(
-        erp_count=Count("erp"),
-        erp_access_count=Count(
-            "erp", filter=Q(erp__accessibilite__isnull=False), distinct=True
-        ),
-    )
-    communes_qs = communes_qs.order_by("-erp_access_count")[:12]
+    communes_qs = Commune.objects.erp_stats()[:12]
     latest = (
         Erp.objects.published()
         .geolocated()
@@ -111,7 +99,6 @@ class EditorialView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["communes"] = COMMUNES
         return context
 
 
@@ -176,7 +163,6 @@ class App(BaseListView):
             list(self.around) if self.around is not None else self.around
         )
         context["commune"] = self.commune
-        context["communes"] = COMMUNES
         context["commune_json"] = self.commune.toTemplateJson()
         context["search_terms"] = self.search_terms
         context["activites"] = Activite.objects.in_commune(

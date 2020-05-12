@@ -14,11 +14,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        {% for _, commune_entry in communes.items %}
-        <li class="nav-item{% if commune_entry.slug == commune.slug %} active{% endif %}">
-          <a class="nav-link" href="{% url "commune" commune=commune_entry.slug %}">{{ commune_entry.nom }}</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "home" %}">Accueil</a>
         </li>
-        {% endfor %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "contact" %}">Contact</a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-1 flex-fill" action="{% url "commune" commune=commune.slug %}" method="get">
         <input class="form-control mr-sm-2 w-100" name="q" id="q" type="search"

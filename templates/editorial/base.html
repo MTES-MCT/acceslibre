@@ -21,39 +21,40 @@
       </div>
     </section>
   </header>
-  <main class="container a4a-editorial mb-5">
+  <main class="container a4a-editorial mb-4">
     {% block editorial_content %}{% endblock%}
   </main>
   <footer class="container-fluid bg-dark text-light pt-4 pb-5">
     <div class="container">
-      <div class="row">
+      <div class="row mt-4">
         <div class="col-sm">
           <h2><a class="text-white text-decoration-none" href="{% url "home" %}">access4all</a></h2>
           <nav>
             <div><a class="text-white" href="{% url "home" %}">Accueil</a></div>
             <div><a class="text-white" href="https://beta.gouv.fr/startups/access4all.html">À propos</a></div>
+            <div><a class="text-white" href="{% url "accessibilite" %}">Accessibilité</a></div>
             <div><a class="text-white" href="{% url "donnees_personnelles" %}">Données personnelles</a></div>
             <div><a class="text-white" href="{% url "mentions_legales" %}">Mentions légales</a></div>
-            <div><a class="text-white" href="{% url "accessibilite" %}">Accessibilité</a></div>
-            <div><a class="text-white" href="{% url "apidocs" %}">API</a></div>
-            <div><a class="text-white" href="{% url "contact" %}">Contact</a></div>
-            <div><a class="text-white" href="{% url "stats_home" %}">Statistiques</a></div>
-            <div><a class="text-white" href="https://github.com/MTES-MCT/access4all" target="_blank">Code source</a></div>
           </nav>
         </div>
         <div class="col-sm">
-          <h2>Communes</h2>
+          <h2>Services</h2>
           <nav>
-          {% for _, commune in communes.items %}
-            <div><a class="text-white" href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a></div>
-          {% endfor %}
+            <div><a class="text-white" href="{% url "apidocs" %}">API</a></div>
+            <div><a class="text-white" href="{% url "stats_home" %}">Statistiques</a></div>
+            <div><a class="text-white" href="https://updown.io/bosm" target="_blank">Statut du serveur</a></div>
+            <div><a class="text-white" href="{% url "contact" %}">Contact</a></div>
+            <div><a class="text-white" href="https://github.com/MTES-MCT/access4all" target="_blank">Code source</a></div>
           </nav>
         </div>
         <div class="col-sm d-inline-flex justify-content-center align-items-center">
           <a href="https://www.ecologique-solidaire.gouv.fr/fabrique-numerique" target="_blank">
-            <img width="200" height="200" alt="Logo : la Fabrique Numérique" src="{% static "img/logo-fabriquenumerique.svg" %}">
+            <img width="180" height="180" alt="Logo : la Fabrique Numérique" src="{% static "img/logo-fabriquenumerique.svg" %}">
           </a>
-          <img width="90" height="200" alt="Logo : Ministère de la transition écologique et solidaire, Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" src="{% static "img/MTES_MCTRCT.svg" %}">
+          &nbsp;
+          <a href="https://www.ecologique-solidaire.gouv.fr/" target="_blank">
+            <img width="80" height="180" alt="Logo : Ministère de la transition écologique et solidaire, Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" src="{% static "img/MTES_MCTRCT.svg" %}">
+          </a>
         </div>
       </div>
     </div>

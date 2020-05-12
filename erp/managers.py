@@ -2,7 +2,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.db.models.aggregates import Count
 
 
@@ -23,6 +23,16 @@ class ActiviteQuerySet(models.QuerySet):
         qs = qs.filter(count__gt=0)
         qs = qs.order_by("nom")
         return qs
+
+
+class CommuneQuerySet(models.QuerySet):
+    def erp_stats(self):
+        return self.annotate(
+            erp_count=Count("erp", filter=Q(erp__published=True), distinct=True),
+            erp_access_count=Count(
+                "erp", filter=Q(erp__accessibilite__isnull=False), distinct=True
+            ),
+        ).order_by("-erp_access_count")
 
 
 class ErpQuerySet(models.QuerySet):

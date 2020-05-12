@@ -79,6 +79,8 @@ class Commune(models.Model):
     class Meta:
         ordering = ("nom",)
 
+    objects = managers.CommuneQuerySet.as_manager()
+
     nom = models.CharField(max_length=255, help_text="Nom")
     slug = AutoSlugField(
         unique=True,
