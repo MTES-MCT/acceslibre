@@ -53,7 +53,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 ##### Récupérer les détails d'un établissement particulier
 
 ```
-$ curl -X GET http://access4all.beta.gouv.fr/api/erps/piscine-des-gratte-ciel/ -H "accept: application/json"
+$ curl -X GET http://access4all.beta.gouv.fr/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
 ```
 
 Notez la présence de la clé `accessbilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
@@ -173,7 +173,7 @@ class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class ErpPagination(PageNumberPagination):
-    page_size = 100
+    page_size = 20
 
 
 class ErpFilterBackend(BaseFilterBackend):
