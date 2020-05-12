@@ -102,6 +102,12 @@ class Commune(models.Model):
         verbose_name="Superficie",
         help_text="Exprimée en hectares (ha)",
     )
+    population = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Population",
+        help_text="Nombre d'habitants estimé",
+    )
     geom = models.PointField(
         verbose_name="Localisation",
         help_text="Coordonnées géographique du centre de la commune",

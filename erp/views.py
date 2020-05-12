@@ -33,14 +33,17 @@ def home(request):
     search_results = None
     search = request.GET.get("q")
     if search and len(search) > 0:
+        erp_qs = (
+            Erp.objects.published()
+            .geolocated()
+            .select_related("accessibilite", "activite", "commune_ext")
+            .search(search)
+        )
+        if request.GET.get("access") == "1":
+            erp_qs = erp_qs.having_an_accessibilite()
         search_results = {
-            "communes": Commune.objects.search(search).order_by("-superficie")[:4],
-            "erps": (
-                Erp.objects.published()
-                .geolocated()
-                .select_related("activite", "commune_ext")
-                .search(search)[:10]
-            ),
+            "communes": Commune.objects.search(search).order_by("-population")[:4],
+            "erps": erp_qs[:10],
         }
     return render(
         request,
