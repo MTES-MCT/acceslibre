@@ -2,7 +2,10 @@ import nested_admin
 
 from datetime import datetime
 from django import forms
-from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
+from django_admin_listfilter_dropdown.filters import (
+    DropdownFilter,
+    RelatedDropdownFilter,
+)
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.admin.models import ADDITION, LogEntry
@@ -14,10 +17,16 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from import_export.admin import ImportExportModelAdmin
 
-from .forms import AdminActiviteForm, AdminAccessibiliteForm, AdminErpForm
+from .forms import (
+    AdminActiviteForm,
+    AdminAccessibiliteForm,
+    AdminCommuneForm,
+    AdminErpForm,
+)
 from .imports import ErpResource
 from .models import (
     Activite,
+    Commune,
     Erp,
     Label,
     Accessibilite,
@@ -36,11 +45,69 @@ class ActiviteAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        queryset = queryset.annotate(_erp_count=Count("erp", distinct=True),)
+        queryset = queryset.annotate(erp_count=Count("erp", distinct=True),)
         return queryset
 
     def erp_count(self, obj):
-        return obj._erp_count
+        return obj.erp_count
+
+
+class HavingErpsFilter(admin.SimpleListFilter):
+    title = "renseignement d'ERP"
+    parameter_name = "having_erp"
+
+    def lookups(self, request, model_admin):
+        return [(1, "Avec ERP"), (0, "Sans ERP")]
+
+    def queryset(self, request, queryset):
+        communes = queryset.annotate(erp_count=Count("erp", distinct=True))
+        if self.value() == "1":
+            return communes.filter(erp_count__gt=0)
+        elif self.value() == "0":
+            return communes.filter(erp_count=0)
+        else:
+            return queryset
+
+
+class DepartementFilter(admin.SimpleListFilter):
+    title = "Département"
+    parameter_name = "departement"
+    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
+
+    def lookups(self, request, model_admin):
+        values = Commune.objects.distinct("departement").order_by("departement")
+        return ((v.departement, v.departement) for v in values)
+
+    def queryset(self, request, queryset):
+        if self.value() is None:
+            return queryset
+        else:
+            return queryset.filter(departement=self.value())
+
+
+@admin.register(Commune)
+class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
+    form = AdminCommuneForm
+    point_zoom = 13
+    map_height = 300
+    list_display = ("departement", "nom", "erp_count", "code_insee", "code_postaux")
+    list_display_links = ("nom",)
+    ordering = ("nom",)
+    search_fields = ("nom", "code_insee", "code_postaux")
+    list_filter = [
+        HavingErpsFilter,
+        DepartementFilter,
+    ]
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.annotate(erp_count=Count("erp", distinct=True),)
+        return queryset
+
+    def erp_count(self, obj):
+        return obj.erp_count
+
+    erp_count.short_description = "ERPs"
 
 
 @admin.register(EquipementMalentendant)
@@ -85,16 +152,24 @@ class CommuneFilter(admin.SimpleListFilter):
     # see https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter
     title = "Commune"
     parameter_name = "commune"
+    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
 
     def lookups(self, request, model_admin):
-        values = Erp.objects.order_by("commune").distinct("commune")
-        return ((v.commune, v.commune) for v in values)
+        values = (
+            Erp.objects.prefetch_related("commune_ext")
+            .distinct("commune_ext__nom")
+            .order_by("commune_ext__nom")
+        )
+        return (
+            (v.commune_ext.id, f"{v.commune_ext.nom} ({v.commune_ext.departement})")
+            for v in values
+        )
 
     def queryset(self, request, queryset):
         if self.value() is None:
             return queryset
         else:
-            return queryset.filter(commune=self.value())
+            return queryset.filter(commune_ext__pk=self.value())
 
 
 @admin.register(Erp)
@@ -141,7 +216,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     map_height = 300
     save_on_top = True
     search_fields = ["nom", "activite__nom", "code_postal", "commune"]
-    autocomplete_fields = ["activite"]
+    autocomplete_fields = ["activite", "commune_ext"]
     scrollable = False
     sortable_by = ("nom", "activite__nom", "code_postal", "commune")
     view_on_site = True
@@ -169,6 +244,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                     "lieu_dit",
                     "code_postal",
                     "commune",
+                    # "commune_ext", # note: this field is handled on model clean()
                     "code_insee",
                     "geom",
                 ]
@@ -176,6 +252,11 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         ),
         ("Contact", {"fields": ["telephone", "site_internet", "contact_email"],},),
     ]
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.prefetch_related("commune_ext")
+        return queryset
 
     def save_model(self, request, obj, form, change):
         if not change:

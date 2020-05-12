@@ -7,29 +7,29 @@
   <div class="card-columns">
     <div class="card">
       <div class="card-body text-center">
-        <h3 class="display-2">{{ nb_published_erps }}</h3>
-        <p class="card-text">ERP publié{{ nb_published_erps|pluriel }} au total</p>
+        <h3 class="display-2"><strong>{{ nb_filled_erps }}</strong></h3>
+        <p class="card-text">fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}</p>
       </div>
     </div>
     <div class="card">
       <div class="card-body text-center">
-        <h3 class="display-3">{{ nb_filled_erps }}</h3>
-        <p class="card-text">fiche{{ nb_filled_erps|pluriel }} accessibilité renseignée{{ nb_filled_erps|pluriel }} au total</p>
+        <h3 class="display-3">{{ nb_published_erps }}</h3>
+        <p class="card-text">ERP publié{{ nb_published_erps|pluralize:"s" }} au total</p>
       </div>
     </div>
-    {% for _, commune in communes.items %}
-    <div class="card">
-      <div class="card-body text-center">
-        <h3 class="display-4">{{ commune.nb_filled_erps }}<small> /{{ commune.nb_erps }}</small></h3>
-        <p class="card-text">fiche{{ commune.nb_filled_erps|pluriel }} renseignée{{ commune.nb_filled_erps|pluriel }} pour <strong>{{ commune.nom }}</strong></p>
-      </div>
-    </div>
-    {% endfor %}
     <div class="card">
       <div class="card-body text-center">
         <h3 class="display-3">{{ nb_contributors }}</h3>
-        <p class="card-text">contributeur{{ nb_contributors|pluriel }}</p>
+        <p class="card-text">contributeur{{ nb_contributors|pluralize:"s" }}</p>
       </div>
     </div>
+    {% for commune in communes %}
+    <div class="card">
+      <div class="card-body text-center">
+        <h3 class="display-4">{{ commune.erp_access_count }}<small> /{{ commune.erp_count }}</small></h3>
+        <p class="card-text">fiche{{ commune.erp_access_count|pluralize:"s" }} renseignée{{ commune.erp_access_count|pluralize:"s" }} pour <strong>{{ commune.nom }}</strong></p>
+      </div>
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}

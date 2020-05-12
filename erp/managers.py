@@ -2,13 +2,13 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.db.models.aggregates import Count
 
 
 class ActiviteQuerySet(models.QuerySet):
     def in_commune(self, commune):
-        return self.filter(erp__commune__iexact=commune)
+        return self.filter(erp__commune_ext=commune)
 
     def with_erp_counts(self):
         """ Note: this should come last when chained, otherwise you'll have
@@ -25,9 +25,38 @@ class ActiviteQuerySet(models.QuerySet):
         return qs
 
 
+class CommuneQuerySet(models.QuerySet):
+    def erp_stats(self):
+        return self.annotate(
+            erp_count=Count("erp", filter=Q(erp__published=True), distinct=True),
+            erp_access_count=Count(
+                "erp", filter=Q(erp__accessibilite__isnull=False), distinct=True
+            ),
+        ).order_by("-erp_access_count")
+
+    def search(self, query):
+        qs = self
+        terms = query.strip().split(" ")
+        clauses = Q()
+        for index, term in enumerate(terms):
+            if term.isdigit() and len(term) == 5:
+                clauses = clauses | Q(code_postaux__contains=[term])
+            if len(term) > 2:
+                similarity_field = f"similarity_{index}"
+                qs = qs.annotate(
+                    **{similarity_field: search.TrigramSimilarity("nom", term)}
+                )
+                clauses = (
+                    clauses
+                    | Q(nom__unaccent__icontains=term)
+                    | Q(**{f"{similarity_field}__gte": 0.6})
+                )
+        return qs.filter(clauses)
+
+
 class ErpQuerySet(models.QuerySet):
     def in_commune(self, commune):
-        return self.filter(commune__iexact=commune)
+        return self.filter(commune_ext=commune)
 
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)
@@ -56,13 +85,18 @@ class ErpQuerySet(models.QuerySet):
         return self.annotate(distance=Distance("geom", location)).order_by("distance")
 
     def search(self, query):
+        terms = query.strip().split(" ")
+
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.annotate(distance_nom=search.TrigramDistance("nom", query))
         qs = qs.annotate(rank=search.SearchRank(models.F("search_vector"), query))
-        qs = qs.filter(
-            Q(search_vector=search.SearchQuery(query, config="french_unaccent"))
-            | Q(nom__trigram_similar=query)
-            | Q(distance_nom__gte=0.6)
+
+        clauses = Q()
+        clauses = clauses | Q(
+            search_vector=search.SearchQuery(query, config="french_unaccent")
         )
-        qs = qs.order_by("-rank", "-similarity", "distance_nom")
+        clauses = clauses | Q(nom__trigram_similar=query) & Q(distance_nom__gte=0.6)
+
+        qs = qs.filter(clauses).order_by("-rank", "-similarity", "distance_nom")
+
         return qs

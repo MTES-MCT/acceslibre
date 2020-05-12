@@ -50,7 +50,6 @@ urlpatterns = [
     ),
     ############################################################################
     # HTML app
-    # Note: these will probably eventually disappear if we move to full Elm app.
     ############################################################################
     path("app/autocomplete/", views.autocomplete, name="autocomplete",),
     path("app/<str:commune>/", app_page(), name="commune",),

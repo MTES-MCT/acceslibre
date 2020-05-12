@@ -1,13 +1,15 @@
 window.addEventListener("DOMContentLoaded", function() {
   (function($) {
     function resetAutocompleted() {
-      $("#id_nom").val();
-      $("#id_numero").val();
-      $("#id_voie").val();
-      $("#id_lieu_dit").val();
-      $("#id_code_postal").val();
-      $("#id_commune").val();
-      $("#id_code_insee").val();
+      $("#id_nom").val("");
+      $("#id_numero").val("");
+      $("#id_voie").val("");
+      $("#id_lieu_dit").val("");
+      $("#id_code_postal").val("");
+      $("#id_commune").val("");
+      $("#id_code_insee").val("");
+      $("#id_ban_autocomplete").val("");
+      $("#id_photon_autocomplete").val("");
     }
 
     function buildPhotonQueryString(q) {

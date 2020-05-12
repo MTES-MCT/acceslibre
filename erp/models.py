@@ -10,8 +10,10 @@ from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.urls import reverse
+from django.utils.text import slugify
 
 from . import managers
+from .departements import DEPARTEMENTS
 from .schema import ACCESSIBILITE_SCHEMA
 
 
@@ -67,6 +69,85 @@ class Activite(models.Model):
 
     def __str__(self):
         return self.nom
+
+
+def generate_commune_slug(instance):
+    return f"{instance.departement}-{instance.nom}"
+
+
+class Commune(models.Model):
+    class Meta:
+        ordering = ("nom",)
+
+    objects = managers.CommuneQuerySet.as_manager()
+
+    nom = models.CharField(max_length=255, help_text="Nom")
+    slug = AutoSlugField(
+        unique=True,
+        populate_from=generate_commune_slug,
+        unique_with=["departement", "nom"],
+        help_text="Identifiant d'URL (slug)",
+    )
+    departement = models.CharField(
+        max_length=3,
+        verbose_name="Département",
+        help_text="Codé sur deux ou trois caractères.",
+    )
+    code_insee = models.CharField(
+        max_length=5, verbose_name="Code INSEE", help_text="Code INSEE de la commune",
+    )
+    superficie = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Superficie",
+        help_text="Exprimée en hectares (ha)",
+    )
+    population = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Population",
+        help_text="Nombre d'habitants estimé",
+    )
+    geom = models.PointField(
+        verbose_name="Localisation",
+        help_text="Coordonnées géographique du centre de la commune",
+    )
+    code_postaux = ArrayField(
+        models.CharField(max_length=5),
+        verbose_name="Codes postaux",
+        default=list,
+        help_text="Liste des codes postaux de cette commune",
+    )
+
+    def __str__(self):
+        return f"{self.nom} ({self.departement})"
+
+    def get_absolute_url(self):
+        return reverse("commune", kwargs=dict(commune=self.slug))
+
+    def departement_nom(self):
+        nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
+        return f"{nom} ({self.departement})"
+
+    def get_zoom(self):
+        if self.superficie > 8000:
+            return 12
+        elif self.superficie > 6000:
+            return 13
+        elif self.superficie > 1500:
+            return 14
+        else:
+            return 15
+
+    def toTemplateJson(self):
+        return json.dumps(
+            {
+                "nom": self.nom,
+                "slug": self.slug,
+                "center": [self.geom.coords[1], self.geom.coords[0]],
+                "zoom": self.get_zoom(),
+            }
+        )
 
 
 class Label(models.Model):
@@ -144,6 +225,14 @@ class Erp(models.Model):
         settings.AUTH_USER_MODEL,
         null=True,
         verbose_name="Créateur",
+        on_delete=models.SET_NULL,
+    )
+    commune_ext = models.ForeignKey(
+        Commune,
+        null=True,
+        blank=True,
+        verbose_name="Commune (relation)",
+        help_text="La commune de cet établissement",
         on_delete=models.SET_NULL,
     )
     nom = models.CharField(
@@ -237,16 +326,19 @@ class Erp(models.Model):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
 
     def get_absolute_url(self):
-        commune = f"{self.departement}-{self.commune.lower()}"
+        if self.commune_ext:
+            commune_slug = self.commune_ext.slug
+        else:
+            commune_slug = slugify(f"{self.departement}-{self.commune}")
         if self.activite is None:
             return reverse(
-                "commune_erp", kwargs=dict(commune=commune, erp_slug=self.slug),
+                "commune_erp", kwargs=dict(commune=commune_slug, erp_slug=self.slug),
             )
         else:
             return reverse(
                 "commune_activite_erp",
                 kwargs=dict(
-                    commune=commune,
+                    commune=commune_slug,
                     activite_slug=self.activite.slug,
                     erp_slug=self.slug,
                 ),
@@ -259,7 +351,13 @@ class Erp(models.Model):
     def adresse(self):
         pieces = filter(
             lambda x: x is not None,
-            [self.numero, self.voie, self.lieu_dit, self.code_postal, self.commune,],
+            [
+                self.numero,
+                self.voie,
+                self.lieu_dit,
+                self.code_postal,
+                self.commune_ext.nom if self.commune_ext else self.commune,
+            ],
         )
         return " ".join(pieces).strip().replace("  ", " ")
 
@@ -284,6 +382,21 @@ class Erp(models.Model):
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})
+        # Commune
+        try:
+            if self.code_insee:
+                self.commune_ext = Commune.objects.get(code_insee=self.code_insee)
+            elif self.commune and self.code_postal:
+                self.commune_ext = Commune.objects.get(
+                    nom__unaccent=self.commune,
+                    code_postaux__contains=[self.code_postal],
+                )
+        except Commune.DoesNotExist:
+            raise ValidationError(
+                {
+                    "commune": f"Commune {self.commune} ({self.code_postal}) introuvable. Merci de faire attention aux accents."
+                }
+            )
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
@@ -293,7 +406,7 @@ class Erp(models.Model):
         )
         search_vector = search_vector + SearchVector(
             Value(self.nom, output_field=models.TextField()),
-            weight="A",
+            weight="B",
             config=FULLTEXT_CONFIG,
         )
         search_vector = search_vector + SearchVector(

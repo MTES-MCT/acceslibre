@@ -67,3 +67,16 @@ def parse_coords(coords):
         return (float(rlat), float(rlon))
     except (IndexError, ValueError, TypeError) as err:
         return None
+
+
+def geocode_commune(code_insee):
+    res = requests.get(
+        "https://geo.api.gouv.fr/communes",
+        {
+            "fields": "code,nom,departement,centre,surface,population,codesPostaux",
+            "limit": "1",
+            "code": code_insee,
+        },
+    )
+    json = res.json()
+    return json[0] if len(json) > 0 else None

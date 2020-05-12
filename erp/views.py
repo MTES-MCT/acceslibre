@@ -1,63 +1,73 @@
-import json
-
-
 from django.contrib.gis.geos import Point
 from django.core.serializers import serialize
+from django.db.models import Count, Q
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
-from .communes import COMMUNES
 from .forms import ViewAccessibiliteForm
-from .models import Accessibilite, Activite, Erp
+from .models import Accessibilite, Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
 
 
 def handler404(request, exception):
-    return render(
-        request,
-        "404.html",
-        context={"communes": COMMUNES, "exception": exception},
-        status=404,
-    )
+    return render(request, "404.html", context={"exception": exception}, status=404,)
 
 
 def handler500(request):
-    return render(request, "500.html", context={"communes": COMMUNES}, status=500)
+    return render(request, "500.html", context={}, status=500)
 
 
 def home(request):
+    communes_qs = Commune.objects.erp_stats()[:12]
     latest = (
         Erp.objects.published()
         .geolocated()
-        .select_related("activite")
+        .select_related("activite", "commune_ext")
         .having_an_accessibilite()
-        .order_by("-created_at")[:15]
+        .order_by("-created_at")[:7]
     )
+    search_results = None
+    search = request.GET.get("q")
+    if search and len(search) > 0:
+        erp_qs = (
+            Erp.objects.published()
+            .geolocated()
+            .select_related("accessibilite", "activite", "commune_ext")
+            .search(search)
+        )
+        if request.GET.get("access") == "1":
+            erp_qs = erp_qs.having_an_accessibilite()
+        search_results = {
+            "communes": Commune.objects.search(search).order_by("-population")[:4],
+            "erps": erp_qs[:10],
+        }
     return render(
-        request, "index.html", context={"communes": COMMUNES, "latest": latest}
+        request,
+        "index.html",
+        context={
+            "empty_query": "q" in request.GET and not search,
+            "search": search,
+            "communes": communes_qs,
+            "latest": latest,
+            "search_results": search_results,
+        },
     )
-
-
-def find_commune_by_slug_or_404(commune_slug):
-    for key, commune in COMMUNES.items():
-        if commune_slug == commune["slug"]:
-            return COMMUNES[key]
-    raise Http404(f"Cette commune est introuvable ({commune}).")
 
 
 @cache_page(60 * 15)
 def autocomplete(request):
     suggestions = []
     q = request.GET.get("q", "")
-    commune = request.GET.get("commune")
+    commune_slug = request.GET.get("commune_slug")
     if len(q) < 3:
         return JsonResponse({"suggestions": suggestions})
     qs = Erp.objects.published().geolocated()
-    if commune:
-        qs = qs.in_commune(commune)
+    if commune_slug:
+        qs = qs.filter(commune_ext__slug=commune_slug)
     qs = qs.search(q)[:7]
     for erp in qs:
         score = (erp.rank + erp.similarity - (erp.distance_nom / 6)) * 60
@@ -67,8 +77,6 @@ def autocomplete(request):
                 "value": erp.nom + ", " + erp.adresse,
                 "data": {
                     "score": score,
-                    "commune": erp.commune,
-                    "slug": erp.slug,
                     "activite": erp.activite and erp.activite.slug,
                     "url": (
                         erp.get_absolute_url()
@@ -89,16 +97,15 @@ class EditorialView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["communes"] = COMMUNES
         return context
 
 
 class BaseListView(generic.ListView):
     model = Erp
     queryset = (
-        Erp.objects.published().geolocated()
-        # .having_an_activite()
-        .select_related("activite", "accessibilite")
+        Erp.objects.published()
+        .select_related("activite", "accessibilite", "commune_ext")
+        .geolocated()
     )
 
     @property
@@ -114,7 +121,7 @@ class BaseListView(generic.ListView):
 
     @property
     def commune(self):
-        return find_commune_by_slug_or_404(self.kwargs["commune"])
+        return get_object_or_404(Commune, slug=self.kwargs["commune"])
 
     @property
     def search_terms(self):
@@ -124,7 +131,7 @@ class BaseListView(generic.ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.in_commune(self.commune["nom"])
+        queryset = queryset.in_commune(self.commune)
         if self.search_terms is not None:
             queryset = queryset.search(self.search_terms)
         else:
@@ -154,11 +161,10 @@ class App(BaseListView):
             list(self.around) if self.around is not None else self.around
         )
         context["commune"] = self.commune
-        context["communes"] = COMMUNES
-        context["commune_json"] = json.dumps(self.commune)
+        context["commune_json"] = self.commune.toTemplateJson()
         context["search_terms"] = self.search_terms
         context["activites"] = Activite.objects.in_commune(
-            self.commune["nom"]
+            self.commune
         ).with_erp_counts()
         if (
             "activite_slug" in self.kwargs
