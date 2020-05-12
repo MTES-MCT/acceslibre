@@ -17,6 +17,7 @@ from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from import_export.admin import ImportExportModelAdmin
 
+from .departements import DEPARTEMENTS
 from .forms import (
     AdminActiviteForm,
     AdminAccessibiliteForm,
@@ -76,7 +77,10 @@ class DepartementFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         values = Commune.objects.distinct("departement").order_by("departement")
-        return ((v.departement, v.departement) for v in values)
+        return (
+            (v.departement, f"{v.departement} - {DEPARTEMENTS[v.departement]['nom']}")
+            for v in values
+        )
 
     def queryset(self, request, queryset):
         if self.value() is None:
@@ -157,6 +161,7 @@ class CommuneFilter(admin.SimpleListFilter):
     def lookups(self, request, model_admin):
         values = (
             Erp.objects.prefetch_related("commune_ext")
+            .filter(commune_ext__isnull=False)
             .distinct("commune_ext__nom")
             .order_by("commune_ext__nom")
         )
