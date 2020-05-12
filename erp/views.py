@@ -3,6 +3,7 @@ from django.core.serializers import serialize
 from django.db.models import Count, Q
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
@@ -31,7 +32,7 @@ def home(request):
     )
     search_results = None
     search = request.GET.get("q")
-    if search and len(search) > 1:
+    if search and len(search) > 0:
         search_results = {
             "communes": Commune.objects.search(search).order_by("-superficie")[:4],
             "erps": (
@@ -45,6 +46,7 @@ def home(request):
         request,
         "index.html",
         context={
+            "empty_query": "q" in request.GET and not search,
             "search": search,
             "communes": communes_qs,
             "latest": latest,
