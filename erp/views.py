@@ -32,15 +32,8 @@ def home(request):
     search_results = None
     search = request.GET.get("q")
     if search and len(search) > 1:
-        terms = search.strip().split(" ")
-        clauses = Q()
-        for term in terms:
-            if term.isdigit() and len(term) == 5:
-                clauses = clauses | Q(code_postaux__contains=[term])
-            if len(term) > 2:
-                clauses = clauses | Q(nom__unaccent__icontains=term)
         search_results = {
-            "communes": Commune.objects.filter(clauses).order_by("-superficie")[:4],
+            "communes": Commune.objects.search(search).order_by("-superficie")[:4],
             "erps": (
                 Erp.objects.published()
                 .geolocated()

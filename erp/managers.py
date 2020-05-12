@@ -34,6 +34,25 @@ class CommuneQuerySet(models.QuerySet):
             ),
         ).order_by("-erp_access_count")
 
+    def search(self, query):
+        qs = self
+        terms = query.strip().split(" ")
+        clauses = Q()
+        for index, term in enumerate(terms):
+            if term.isdigit() and len(term) == 5:
+                clauses = clauses | Q(code_postaux__contains=[term])
+            if len(term) > 2:
+                similarity_field = f"similarity_{index}"
+                qs = qs.annotate(
+                    **{similarity_field: search.TrigramSimilarity("nom", term)}
+                )
+                clauses = (
+                    clauses
+                    | Q(nom__unaccent__icontains=term)
+                    | Q(**{f"{similarity_field}__gte": 0.6})
+                )
+        return qs.filter(clauses)
+
 
 class ErpQuerySet(models.QuerySet):
     def in_commune(self, commune):
@@ -66,12 +85,18 @@ class ErpQuerySet(models.QuerySet):
         return self.annotate(distance=Distance("geom", location)).order_by("distance")
 
     def search(self, query):
+        terms = query.strip().split(" ")
+
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.annotate(distance_nom=search.TrigramDistance("nom", query))
         qs = qs.annotate(rank=search.SearchRank(models.F("search_vector"), query))
-        qs = qs.filter(
-            (Q(search_vector=search.SearchQuery(query, config="french_unaccent")))
-            | (Q(nom__trigram_similar=query) & Q(distance_nom__gte=0.7))
+
+        clauses = Q()
+        clauses = clauses | Q(
+            search_vector=search.SearchQuery(query, config="french_unaccent")
         )
-        qs = qs.order_by("-rank", "-similarity", "distance_nom")
+        clauses = clauses | Q(nom__trigram_similar=query) & Q(distance_nom__gte=0.6)
+
+        qs = qs.filter(clauses).order_by("-rank", "-similarity", "distance_nom")
+
         return qs
