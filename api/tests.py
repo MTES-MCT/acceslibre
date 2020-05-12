@@ -13,15 +13,16 @@ def api_client():
 @pytest.mark.parametrize(
     "url, status_code",
     [
-        ("openapi-schema", 200),
-        ("apidocs", 200),
-        ("api-root", 200),
-        ("accessibilite-list", 200),
-        ("accessibilite-help", 200),
-        ("activite-list", 200),
-        ("erp-list", 200),
+        (reverse("openapi-schema"), 200),
+        (reverse("apidocs"), 200),
+        (reverse("api-root"), 200),
+        (reverse("accessibilite-list"), 200),
+        (reverse("accessibilite-help"), 200),
+        (reverse("activite-list"), 200),
+        (reverse("activite-list") + "?commune=Foo", 200),
+        (reverse("erp-list"), 200),
     ],
 )
 def test_api_urls_ok(url, status_code, api_client):
-    response = api_client.get(reverse(url))
+    response = api_client.get(url)
     assert response.status_code == status_code

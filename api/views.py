@@ -128,6 +128,16 @@ class ActivitePagination(PageNumberPagination):
     page_size = 300
 
 
+class ActiviteFilterBackend(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        # Commune (legacy)
+        commune = request.query_params.get("commune", None)
+        if commune is not None:
+            queryset = queryset.filter(erp__commune_ext__nom__unaccent__iexact=commune)
+
+        return queryset.with_erp_counts()
+
+
 class ActiviteSchema(A4aAutoSchema):
     query_string_params = {
         "commune": {
@@ -162,14 +172,8 @@ class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ActiviteWithCountSerializer
     lookup_field = "slug"
     pagination_class = ActivitePagination
+    filter_backends = [ActiviteFilterBackend]
     schema = ActiviteSchema()
-
-    def get_queryset(self):
-        queryset = self.queryset
-        commune = self.request.query_params.get("commune")
-        if commune is not None:
-            queryset = queryset.in_commune(commune)
-        return queryset.with_erp_counts()
 
 
 class ErpPagination(PageNumberPagination):
