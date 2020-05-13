@@ -9,12 +9,25 @@
       </h3>
       <address><em>{{ erp.adresse }}</em></address>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3 text-right">
+      {% if erp.contact_email or erp.site_internet or erp.telephone %}
+      <div class="btn-group-vertical a4a-contact-btn-group" role="group" aria-label="Contact">
       {% if erp.contact_email %}
-      <p class="text-right">
-        <a class="btn btn-sm btn-primary"
-            href="mailto:{{ erp.contact_email }}"><i class="icon icon-mail"></i> Contacter cet ERP</a>
-      </p>
+        <a class="btn btn-sm btn-light" href="mailto:{{ erp.contact_email }}">
+          <i class="icon icon-mail"></i> Contacter cet ERP
+        </a>
+      {% endif %}
+      {% if erp.site_internet %}
+        <a class="btn btn-sm btn-light" href="{{ erp.site_internet }}">
+          <i class="icon icon-globe"></i> Site internet
+        </a>
+      {% endif %}
+      {% if erp.telephone %}
+        <a class="btn btn-sm btn-light" href="tel:{{ erp.telephone }}">
+          <i class="icon icon-phone"></i> {{ erp.telephone }}
+        </a>
+      {% endif %}
+      </div>
       {% endif %}
     </div>
   </div>
