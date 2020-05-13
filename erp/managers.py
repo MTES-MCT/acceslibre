@@ -30,7 +30,9 @@ class CommuneQuerySet(models.QuerySet):
         return self.annotate(
             erp_count=Count("erp", filter=Q(erp__published=True), distinct=True),
             erp_access_count=Count(
-                "erp", filter=Q(erp__accessibilite__isnull=False), distinct=True
+                "erp",
+                filter=Q(erp__accessibilite__isnull=False, erp__published=True),
+                distinct=True,
             ),
         ).order_by("-erp_access_count")
 
