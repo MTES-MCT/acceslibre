@@ -925,8 +925,8 @@ class Accessibilite(models.Model):
     labels = models.ManyToManyField(
         Label,
         blank=True,
-        verbose_name="Labels d'accessibilité",
-        help_text="Labels d'accessibilité obtenus par l'ERP",
+        verbose_name="Marques ou labels",
+        help_text="Marques ou labels d'accessibilité obtenus par l'ERP",
     )
     labels_familles_handicap = ArrayField(
         models.CharField(max_length=255, blank=True, choices=HANDICAP_CHOICES),
