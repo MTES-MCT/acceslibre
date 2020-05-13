@@ -153,13 +153,16 @@ class AdminErpForm(forms.ModelForm):
         return " ".join(parts).strip()
 
     def adresse_changed(self):
-        return (
-            self.cleaned_data["numero"] != self.instance.numero
-            or self.cleaned_data["voie"] != self.instance.voie
-            or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
-            or self.cleaned_data["code_postal"] != self.instance.code_postal
-            or self.cleaned_data["commune"] != self.instance.commune
-        )
+        try:
+            return (
+                self.cleaned_data["numero"] != self.instance.numero
+                or self.cleaned_data["voie"] != self.instance.voie
+                or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
+                or self.cleaned_data["code_postal"] != self.instance.code_postal
+                or self.cleaned_data["commune"] != self.instance.commune
+            )
+        except KeyError:
+            return True
 
     def clean(self):
         addr = self.get_adresse()

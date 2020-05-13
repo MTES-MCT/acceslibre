@@ -373,30 +373,33 @@ class Erp(models.Model):
         return self.code_postal[:2]
 
     def clean(self):
-        # code postal
+        # Code postal
         if len(self.code_postal) != 5:
             raise ValidationError(
                 {"code_postal": "Le code postal doit faire 5 caractères"}
             )
-        # voie OU lieu-dit sont requis
+
+        # Voie OU lieu-dit sont requis
         if self.voie is None and self.lieu_dit is None:
             error = "Veuillez entrer une voie ou un lieu-dit"
             raise ValidationError({"voie": error, "lieu_dit": error})
+
         # Commune
-        try:
-            if self.code_insee:
-                self.commune_ext = Commune.objects.get(code_insee=self.code_insee)
-            elif self.commune and self.code_postal:
-                self.commune_ext = Commune.objects.get(
-                    nom__unaccent=self.commune,
-                    code_postaux__contains=[self.code_postal],
-                )
-        except Commune.DoesNotExist:
+        matches = Commune.objects.filter(
+            nom__unaccent__iexact=self.commune,
+            code_postaux__contains=[self.code_postal],
+        )
+        if len(matches) == 0:
+            matches = Commune.objects.filter(code_insee=self.code_insee)
+        if len(matches) == 0:
             raise ValidationError(
                 {
-                    "commune": f"Commune {self.commune} ({self.code_postal}) introuvable. Merci de faire attention aux accents."
+                    "commune": f"Commune {self.commune} (code postal : {self.code_postal}) introuvable. "
+                    "Merci de faire attention aux accents."
                 }
             )
+        else:
+            self.commune_ext = matches[0]
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
