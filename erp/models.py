@@ -130,7 +130,7 @@ class Commune(models.Model):
         return f"{nom} ({self.departement})"
 
     def get_zoom(self):
-        if self.superficie > 8000:
+        if not self.superficie or self.superficie > 8000:
             return 12
         elif self.superficie > 6000:
             return 13
