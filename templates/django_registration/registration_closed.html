@@ -1,0 +1,11 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block editorial_content %}
+<div class="text-center">
+  <h3>Les inscriptions sont closes</h3>
+  <p>Il est temporairement impossible de créer un nouveau compte sur la plateforme.</p>
+  <p><a href="{% url "home" %}">Retour à l'accueil</a></p>
+</div>
+{% endblock %}
