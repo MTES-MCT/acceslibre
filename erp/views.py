@@ -14,6 +14,10 @@ from .models import Accessibilite, Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
 
 
+def handler403(request, exception):
+    return render(request, "403.html", context={"exception": exception}, status=403,)
+
+
 def handler404(request, exception):
     return render(request, "404.html", context={"exception": exception}, status=404,)
 

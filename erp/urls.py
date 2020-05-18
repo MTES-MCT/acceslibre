@@ -9,6 +9,7 @@ APP_CACHE_TTL = 60 * 5
 EDITORIAL_CACHE_TTL = 60 * 60
 
 
+handler403 = views.handler403
 handler404 = views.handler404
 handler500 = views.handler500
 
