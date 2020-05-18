@@ -1,4 +1,5 @@
 from django.contrib.gis.geos import Point
+from django.core.exceptions import PermissionDenied
 from django.core.serializers import serialize
 from django.db.models import Count, Q
 from django.http import Http404, JsonResponse
@@ -198,6 +199,22 @@ class App(BaseListView):
             ],
         )
         return context
+
+
+def mon_compte(request):
+    if not request.user.is_authenticated:
+        raise PermissionDenied
+    return render(request, "compte/index.html",)
+
+
+def mes_erps(request):
+    if not request.user.is_authenticated:
+        raise PermissionDenied
+    return render(
+        request,
+        "compte/mes_erps.html",
+        context={"erps": Erp.objects.filter(user_id=request.user.pk)},
+    )
 
 
 def to_betagouv(self):

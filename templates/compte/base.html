@@ -1,0 +1,30 @@
+{% extends "editorial/base.html" %}
+
+
+{% block editorial_content %}
+<div class="row">
+  <nav class="col-sm-5 col-md-4 mb-4">
+    <ul class="nav flex-column nav-pills" role="tablist" aria-label="Sections">
+      <li class="nav-item">
+        <a class="nav-link text-nowrap{% if request.path == "/mon_compte/" %} active{% endif %}" href="{% url "mon_compte" %}" role="tab">
+          Mon compte
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap{% if request.path == "/mon_compte/erps/" %} active{% endif %}" href="{% url "mes_erps" %}" role="tab">
+          Mes établissements
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap{% if request.path == "/accounts/password_change/" %} active{% endif %}" href="{% url "password_change" %}" role="tab">
+          Mot de passe
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="col-sm-7 col-md-8">
+    <!-- {{request.path }} -->
+    {% block compte_content %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

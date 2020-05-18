@@ -9,6 +9,7 @@
         <p class="text-right">
           {% if user.is_authenticated %}
             Connecté en tant que <strong>{{ user.username }}</strong> ·
+            <a href="{% url "mon_compte" %}">Mon compte</a> ·
             {% if user.is_staff %}
             <a href="{% url "admin:index" %}">Admin</a> ·
             {% endif %}
