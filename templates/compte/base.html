@@ -1,0 +1,38 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+
+{% block editorial_content %}
+<div class="row">
+  <nav class="col-sm-5 col-md-4 mb-4">
+    <ul class="nav flex-column nav-pills" role="tablist" aria-label="Sections">
+      <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mon_compte" }}"
+          href="{% url "mon_compte" %}" role="tab">
+          Mon compte
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mes_erps" }}"
+          href="{% url "mes_erps" %}" role="tab">
+          Mes établissements
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mot_de_passe" }}"
+          href="{% url "password_change" %}" role="tab">
+          Mot de passe
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap" href="{% url "admin:index" %}" role="tab">
+          Admin
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="col-sm-7 col-md-8">
+    {% block compte_content %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

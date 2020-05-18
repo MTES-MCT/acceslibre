@@ -9,6 +9,7 @@ APP_CACHE_TTL = 60 * 5
 EDITORIAL_CACHE_TTL = 60 * 60
 
 
+handler403 = views.handler403
 handler404 = views.handler404
 handler500 = views.handler500
 
@@ -63,6 +64,11 @@ urlpatterns = [
         name="commune_activite_erp",
     ),
     ############################################################################
+    # Account
+    ############################################################################
+    path("mon_compte/", views.mon_compte, name="mon_compte"),
+    path("mon_compte/erps/", views.mes_erps, name="mes_erps"),
+    ############################################################################
     # Admin stuff
     ############################################################################
     path(
@@ -73,17 +79,17 @@ urlpatterns = [
     path(
         "admin/password_reset/done/",
         auth_views.PasswordResetDoneView.as_view(),
-        name="password_reset_done",
+        name="admin_password_reset_done",
     ),
     path(
         "reset/<uidb64>/<token>/",
         auth_views.PasswordResetConfirmView.as_view(),
-        name="password_reset_confirm",
+        name="admin_password_reset_confirm",
     ),
     path(
         "reset/done/",
         auth_views.PasswordResetCompleteView.as_view(),
-        name="password_reset_complete",
+        name="admin_password_reset_complete",
     ),
     path("nested_admin/", include("nested_admin.urls")),
 ]

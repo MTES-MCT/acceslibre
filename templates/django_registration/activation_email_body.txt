@@ -1,0 +1,13 @@
+Bonjour {{ user.username }},
+
+Merci d'avoir créé un compte sur Access4all, la plateforme collaborative de l'accessibilité.
+
+Vous devez maintenant activer votre compte pour pouvoir vous y connecter, en suivant le lien ci-dessous :
+
+https://access4all.beta.gouv.fr{% url "django_registration_activate" activation_key=activation_key %}
+
+À très vite !
+
+--
+L'équipe access4all
+https://access4all.beta.gouv.fr/

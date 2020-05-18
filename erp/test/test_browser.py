@@ -1,5 +1,6 @@
 import pytest
 
+from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
@@ -14,11 +15,18 @@ def client():
 
 @pytest.fixture
 def data(db):
+    niko = User.objects.create_user(
+        username="niko",
+        password="Abc12345!",
+        email="niko@niko.tld",
+        is_staff=True,
+        is_active=True,
+    )
     jacou = Commune.objects.create(
         nom="Jacou", departement="34", geom=Point((3.9047933, 43.6648217))
     )
     boulangerie = Activite.objects.create(nom="Boulangerie")
-    return Erp.objects.create(
+    erp = Erp.objects.create(
         nom="Aux bons croissants",
         numero="4",
         voie="grand rue",
@@ -28,6 +36,7 @@ def data(db):
         geom=Point((3.9047933, 43.6648217)),
         activite=boulangerie,
         published=True,
+        user=niko,
     )
 
 
@@ -60,6 +69,15 @@ def test_home_search(data, client):
         reverse("contact"),
         reverse("donnees_personnelles"),
         reverse("mentions_legales"),
+        # Auth
+        reverse("login"),
+        reverse("django_registration_activation_complete"),
+        reverse("password_reset"),
+        reverse("password_reset_done"),
+        reverse("django_registration_register"),
+        reverse("django_registration_disallowed"),
+        reverse("django_registration_complete"),
+        reverse("password_reset_complete"),
         # App
         reverse("commune", kwargs=dict(commune="34-jacou")),
         reverse(
@@ -97,3 +115,32 @@ def test_urls_ok(data, url, client):
 def test_urls_404(data, url, client):
     response = client.get(url)
     assert response.status_code == 404
+
+
+def test_auth(data, client, capsys):
+    response = client.post(
+        reverse("login"), data={"username": "niko", "password": "Abc12345!"},
+    )
+    assert response.status_code == 302
+    assert response.wsgi_request.user.username == "niko"
+
+    response = client.get(reverse("mon_compte"))
+    assert response.status_code == 200
+
+    response = client.get(reverse("mes_erps"))
+    assert response.status_code == 200
+    assert response.context["erps"][0].nom == "Aux bons croissants"
+
+
+def test_registration(data, client, capsys):
+    response = client.post(
+        reverse("django_registration_register"),
+        data={
+            "username": "julia",
+            "email": "julia@julia.tld",
+            "password1": "Abc12345!",
+            "password2": "Abc12345!",
+        },
+    )
+    assert response.status_code == 302
+    assert User.objects.filter(username="julia").count() == 1

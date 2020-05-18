@@ -1,0 +1,61 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+{% load a4a %}
+
+{% block editorial_content %}
+{% if user.is_authenticated %}
+<p class="alert alert-warning">
+  Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
+  vous ne pouvez donc pas vous authentifier avec un nouveau compte.
+  Veuillez <a href="{% url "logout" %}">d'abord vous déconnecter</a>
+  ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
+</p>
+{% else %}
+<h3 class="text-center mb-4">Je me connecte</h3>
+<div class="row justify-content-md-center">
+  <form action="" method="POST" class="col-md-6 col-lg-5 mb-4">
+    <input type="hidden" name="next" value="{{ next }}">
+    {% csrf_token %}
+
+    {% for error in form.non_field_errors %}
+      <p class="form-text text-danger">{{ error }}</p>
+    {% endfor %}
+
+      <div class="form-group has-error">
+        {{ form.username.label_tag }}
+        {{ form.username|addclass:"form-control" }}
+        {% for error in form.username.errors %}
+          <div class="form-text text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="form-group has-error">
+        {{ form.password.label_tag }}
+        {{ form.password|addclass:"form-control" }}
+        {% for error in form.password.errors %}
+          <div class="form-text text-danger">{{ error }}</div>
+        {% endfor %}
+        <p class="text-right">
+          <small><a href="{% url "password_reset" %}">J'ai oublié mon mot de passe !</a></small>
+        </p>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+      </div>
+  </form>
+  <div class="col-md-6 col-lg-5">
+    <div class="card p-4">
+      <h5><i class="icon icon-info-circled"></i> Je ne possède pas de compte</h5>
+      <p>Créer son compte ne prend que quelques minutes et permettra bientôt de contribuer au site&nbsp;:</p>
+      <ul>
+        <li>Revendiquer un établissement et mettre à jour ses informations</li>
+        <li>Mémoriser vos préférences de recherche</li>
+      </ul>
+      <a href="{% url "django_registration_register" %}" class="btn btn-success btn-block">Je crée mon compte</a>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

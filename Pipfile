@@ -8,7 +8,7 @@ pylint = "*"
 black = "*"
 
 [packages]
-django = "*"
+django = "==3.0.6"
 requests = "*"
 django-reset-migrations = "*"
 django-import-export = "*"
@@ -34,6 +34,7 @@ pygments = "*"
 pytest-django = "*"
 pyparsing = "*"
 pydot = "*"
+django-registration = "*"
 
 [requires]
 python_version = "3.7"
