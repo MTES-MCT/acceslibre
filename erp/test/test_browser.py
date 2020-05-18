@@ -130,3 +130,17 @@ def test_auth(data, client, capsys):
     response = client.get(reverse("mes_erps"))
     assert response.status_code == 200
     assert response.context["erps"][0].nom == "Aux bons croissants"
+
+
+def test_registration(data, client, capsys):
+    response = client.post(
+        reverse("django_registration_register"),
+        data={
+            "username": "julia",
+            "email": "julia@julia.tld",
+            "password1": "Abc12345!",
+            "password2": "Abc12345!",
+        },
+    )
+    assert response.status_code == 302
+    assert User.objects.filter(username="julia").count() == 1
