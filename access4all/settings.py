@@ -174,9 +174,12 @@ EMAIL_FILE_PATH = "/tmp/django_emails"
 EMAIL_SUBJECT_PREFIX = "[access4all]"
 EMAIL_USE_LOCALTIME = True
 
-# For now we use the admin login page for the whole app
-# We'll have proper frontend login page when we'll have end user accounts
-LOGIN_URL = "/admin/login/"
+LOGIN_URL = "/accounts/login/"
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/"
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_OPEN = True
+REGISTRATION_SALT = "a4a-registration"
 
 # Cache
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",}}

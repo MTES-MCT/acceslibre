@@ -1,0 +1,62 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+{% load a4a %}
+
+{% block editorial_content %}
+{% if user.is_authenticated %}
+<p class="alert alert-warning">
+  Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
+  vous ne pouvez donc pas créer un nouveau compte.
+  Veuillez <a href="{% url "logout" %}">vous déconnecter</a>
+  ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
+</p>
+{% else %}
+<h3 class="text-center mb-4">Créer un compte utilisateur</h3>
+<div class="row justify-content-md-center">
+  <form action="" method="POST" class="col-md-6 col-lg-5 mb-4" id="registration">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+      {{ form.username.errors }}
+      {{ form.username.label_tag }}
+      {{ form.username|addclass:"form-control" }}
+      <span class="form-text text-muted">{{ form.username.help_text }}</span>
+    </div>
+    <div class="form-group">
+      {{ form.email.errors }}
+      {{ form.email.label_tag }}
+      {{ form.email|addclass:"form-control" }}
+      <span class="form-text text-muted">{{ form.email.help_text }}</span>
+    </div>
+    <div class="form-group">
+      {{ form.password1.errors }}
+      {{ form.password1.label_tag }}
+      {{ form.password1|addclass:"form-control" }}
+      <span class="form-text text-muted">{{ form.password1.help_text }}</span>
+    </div>
+    <div class="form-group">
+      {{ form.password2.errors }}
+      {{ form.password2.label_tag }}
+      {{ form.password2|addclass:"form-control" }}
+      <span class="form-text text-muted">{{ form.password2.help_text }}</span>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
+  </form>
+  <div class="col-md-6 col-lg-5 ml-3">
+    <div class="alert alert-info">
+      <p>Créer son compte ne prend que quelques minutes et permettra bientôt de contribuer au site&nbsp;:</p>
+      <ul>
+        <li>Revendiquer un établissement et mettre à jour ses informations</li>
+        <li>Mémoriser vos préférences de recherche</li>
+      </ul>
+    </div>
+    <div class="card p-4">
+      <h5><i class="icon icon-info-circled"></i> J'ai déjà créé mon compte</h5>
+      <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
+      <p><a href="{% url "login" %}" class="btn btn-success btn-block">Je me connecte</a></p>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
