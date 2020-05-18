@@ -19,14 +19,14 @@
     {% csrf_token %}
 
     {% for error in form.non_field_errors %}
-      <p class="error">{{ error }}</p>
+      <p class="form-text text-danger">{{ error }}</p>
     {% endfor %}
 
       <div class="form-group has-error">
         {{ form.username.label_tag }}
         {{ form.username|addclass:"form-control" }}
         {% for error in form.username.errors %}
-          <span class="help-block">{{ error }}</span>
+          <div class="form-text text-danger">{{ error }}</div>
         {% endfor %}
       </div>
 
@@ -34,7 +34,7 @@
         {{ form.password.label_tag }}
         {{ form.password|addclass:"form-control" }}
         {% for error in form.password.errors %}
-          <span class="help-block">{{ error }}</span>
+          <div class="form-text text-danger">{{ error }}</div>
         {% endfor %}
         <p class="text-right">
           <small><a href="{% url "password_reset" %}">J'ai oublié mon mot de passe !</a></small>
@@ -45,7 +45,7 @@
         <button type="submit" class="btn btn-primary btn-block">Connexion</button>
       </div>
   </form>
-  <div class="col-md-6 col-lg-5 ml-3">
+  <div class="col-md-6 col-lg-5">
     <div class="card p-4">
       <h5><i class="icon icon-info-circled"></i> Je ne possède pas de compte</h5>
       <p>Créer son compte ne prend que quelques minutes et permettra bientôt de contribuer au site&nbsp;:</p>
