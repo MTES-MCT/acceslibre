@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% block page_title %}{% if erp %}{{ erp.nom }} | {% endif %}{% if current_activite %}{{ current_activite.nom }} | {% endif %}{{ commune.nom }}{% endblock%}
+
 {% block content %}
   <nav class="navbar navbar-expand-lg navbar-dark a4a-navbar">
     <a class="navbar-brand" href="{% url "home" %}">access4all</a>

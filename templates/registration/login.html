@@ -3,6 +3,8 @@
 {% load static %}
 {% load a4a %}
 
+{% block page_title %}Connexion{% endblock%}
+
 {% block editorial_content %}
 {% if user.is_authenticated %}
 <p class="alert alert-warning">
