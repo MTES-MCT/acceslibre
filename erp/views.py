@@ -214,11 +214,10 @@ def mon_compte(request):
 def mes_erps(request):
     if not request.user.is_authenticated:
         raise PermissionDenied
-    return render(
-        request,
-        "compte/mes_erps.html",
-        context={"erps": Erp.objects.filter(user_id=request.user.pk)},
-    )
+    erps = Erp.objects.select_related(
+        "accessibilite", "activite", "commune_ext"
+    ).filter(user_id=request.user.pk)
+    return render(request, "compte/mes_erps.html", context={"erps": erps},)
 
 
 def to_betagouv(self):
