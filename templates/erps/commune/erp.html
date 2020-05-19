@@ -7,25 +7,28 @@
       {% endif %}
     </h3>
     <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
-    {% if erp.contact_email or erp.site_internet or erp.telephone %}
     <div>
       {% if erp.contact_email %}
-        <a class="mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
+        <a class="d-inline-block mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
           <i class="icon icon-mail"></i> Contacter cet ERP
         </a>
       {% endif %}
       {% if erp.site_internet %}
-        <a class="mr-2" href="{{ erp.site_internet }}" target="_blank">
+        <a class="d-inline-block mr-2" href="{{ erp.site_internet }}" target="_blank">
           <i class="icon icon-globe"></i> Site internet
         </a>
       {% endif %}
       {% if erp.telephone %}
-        <a class="d-inline-block" href="tel:{{ erp.telephone }}">
+        <a class="d-inline-block mr-2" href="tel:{{ erp.telephone }}">
           <i class="icon icon-phone"></i> {{ erp.telephone }}
         </a>
       {% endif %}
+      {% if user.is_superuser %}
+        <a class="d-inline-block mr-2" href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
+          <i class="icon icon-pencil"></i> Éditer dans l'admin
+        </a>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
 
   {% if not accessibilite_data %}
