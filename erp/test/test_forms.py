@@ -3,7 +3,12 @@ import pytest
 from django.contrib.gis.geos import Point
 from unittest import mock
 
-from ..forms import AdminAccessibiliteForm, AdminErpForm, ViewAccessibiliteForm
+from ..forms import (
+    ACCESSIBILITE_HELP_TEXTS,
+    AdminAccessibiliteForm,
+    AdminErpForm,
+    ViewAccessibiliteForm,
+)
 from ..models import Commune
 
 
@@ -120,7 +125,7 @@ def test_ViewAccessibiliteForm_serialized():
         "template_name": "django/forms/widgets/select.html",
         "name": "entree_reperage",
         "label": "Entrée facilement repérable",
-        "help_text": "Y a-t-il des éléments de repérage de l'entrée (numéro de rue à proximité, enseigne, etc)",
+        "help_text": ACCESSIBILITE_HELP_TEXTS["entree_reperage"],
         "value": True,
         "warning": False,
     }
