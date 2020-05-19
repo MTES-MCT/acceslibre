@@ -1,35 +1,31 @@
 <div class="a4a-erp-details">
-  <div class="row a4a-erp-header">
-    <div class="col-sm-9">
-      <h3>
-        {{ erp.nom }}
-        {% if erp.activite %}
-        <small class="text-muted">{{ erp.activite.nom }}</small>
-        {% endif %}
-      </h3>
-      <address><em>{{ erp.adresse }}</em></address>
-    </div>
-    <div class="col-sm-3 text-right">
-      {% if erp.contact_email or erp.site_internet or erp.telephone %}
-      <div class="btn-group-vertical a4a-contact-btn-group" role="group" aria-label="Contact">
+  <div class="a4a-erp-header">
+    <h3>
+      {{ erp.nom }}
+      {% if erp.activite %}
+      <small class="text-muted">{{ erp.activite.nom }}</small>
+      {% endif %}
+    </h3>
+    <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
+    {% if erp.contact_email or erp.site_internet or erp.telephone %}
+    <div>
       {% if erp.contact_email %}
-        <a class="btn btn-sm btn-light" href="mailto:{{ erp.contact_email }}">
+        <a class="mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
           <i class="icon icon-mail"></i> Contacter cet ERP
         </a>
       {% endif %}
       {% if erp.site_internet %}
-        <a class="btn btn-sm btn-light" href="{{ erp.site_internet }}" target="_blank">
+        <a class="mr-2" href="{{ erp.site_internet }}" target="_blank">
           <i class="icon icon-globe"></i> Site internet
         </a>
       {% endif %}
       {% if erp.telephone %}
-        <a class="btn btn-sm btn-light" href="tel:{{ erp.telephone }}">
+        <a class="d-inline-block" href="tel:{{ erp.telephone }}">
           <i class="icon icon-phone"></i> {{ erp.telephone }}
         </a>
       {% endif %}
-      </div>
-      {% endif %}
     </div>
+    {% endif %}
   </div>
 
   {% if not accessibilite_data %}
