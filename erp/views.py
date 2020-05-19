@@ -112,6 +112,7 @@ class BaseListView(generic.ListView):
         .select_related("activite", "accessibilite", "commune_ext")
         .geolocated()
     )
+    _commune = None
 
     @property
     def around(self):
@@ -126,7 +127,11 @@ class BaseListView(generic.ListView):
 
     @property
     def commune(self):
-        return get_object_or_404(Commune, slug=self.kwargs["commune"])
+        if self._commune is None:
+            self._commune = get_object_or_404(
+                Commune.objects.select_related(), slug=self.kwargs["commune"]
+            )
+        return self._commune
 
     @property
     def search_terms(self):
@@ -180,8 +185,7 @@ class App(BaseListView):
             )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp.objects.select_related("accessibilite"),
-                published=True,
+                Erp.objects.select_related("accessibilite").published(),
                 slug=self.kwargs["erp_slug"],
             )
             context["erp"] = erp
