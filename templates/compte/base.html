@@ -5,27 +5,27 @@
 {% block editorial_content %}
 <div class="row">
   <nav class="col-sm-5 col-md-4 mb-4">
-    <ul class="nav flex-column nav-pills" role="tablist" aria-label="Sections">
+    <ul class="nav flex-column nav-pills" aria-label="Menu">
       <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mon_compte" }}"
-          href="{% url "mon_compte" %}" role="tab">
+          href="{% url "mon_compte" %}">
           Mon compte
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mes_erps" }}"
-          href="{% url "mes_erps" %}" role="tab">
+          href="{% url "mes_erps" %}">
           Mes établissements
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mot_de_passe" }}"
-          href="{% url "password_change" %}" role="tab">
+          href="{% url "password_change" %}">
           Mot de passe
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-nowrap" href="{% url "admin:index" %}" role="tab">
+        <a class="nav-link text-nowrap" href="{% url "admin:index" %}">
           Admin
         </a>
       </li>
