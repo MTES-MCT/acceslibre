@@ -10,8 +10,8 @@ from rest_framework.views import APIView
 from rest_framework.filters import BaseFilterBackend
 
 from erp import geocoder
+from erp import schema
 from erp.models import Accessibilite, Activite, Erp
-from erp.schema import get_accessibilite_api_schema
 from .serializers import (
     AccessibiliteSerializer,
     ActiviteSerializer,
@@ -115,7 +115,7 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
             - La documentation du champ
         """
         repr = {}
-        for _, data in get_accessibilite_api_schema().items():
+        for _, data in schema.get_api_fieldsets().items():
             for field in data["fields"]:
                 repr[field] = {
                     "label": getattr(Accessibilite, field).field.verbose_name,

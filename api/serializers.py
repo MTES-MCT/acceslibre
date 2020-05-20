@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
-from erp.schema import ACCESSIBILITE_SCHEMA
+from erp import schema
 from erp.models import (
     Activite,
     Erp,
@@ -10,7 +10,6 @@ from erp.models import (
     Label,
     EquipementMalentendant,
 )
-from erp.schema import get_accessibilite_api_schema
 
 # Useful docs:
 # - extra fields: https://stackoverflow.com/a/36697562/330911
@@ -54,7 +53,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         # see https://stackoverflow.com/a/56826004/330911
         source = super().to_representation(instance)
         repr = {"url": source["url"]}
-        for section, data in get_accessibilite_api_schema().items():
+        for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
                 repr[section][field] = source[field]

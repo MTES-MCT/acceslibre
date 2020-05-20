@@ -15,29 +15,40 @@ def client():
 
 @pytest.fixture
 def data(db):
-    niko = User.objects.create_user(
-        username="niko",
-        password="Abc12345!",
-        email="niko@niko.tld",
-        is_staff=True,
-        is_active=True,
-    )
-    jacou = Commune.objects.create(
-        nom="Jacou", departement="34", geom=Point((3.9047933, 43.6648217))
-    )
-    boulangerie = Activite.objects.create(nom="Boulangerie")
-    erp = Erp.objects.create(
-        nom="Aux bons croissants",
-        numero="4",
-        voie="grand rue",
-        code_postal="34830",
-        commune="Jacou",
-        commune_ext=jacou,
-        geom=Point((3.9047933, 43.6648217)),
-        activite=boulangerie,
-        published=True,
-        user=niko,
-    )
+    class Data:
+        admin = User.objects.create_user(
+            username="admin",
+            password="Abc12345!",
+            email="niko@niko.tld",
+            is_staff=True,
+            is_superuser=True,
+            is_active=True,
+        )
+        niko = User.objects.create_user(
+            username="niko",
+            password="Abc12345!",
+            email="niko@niko.tld",
+            is_staff=True,
+            is_active=True,
+        )
+        jacou = Commune.objects.create(
+            nom="Jacou", departement="34", geom=Point((3.9047933, 43.6648217))
+        )
+        boulangerie = Activite.objects.create(nom="Boulangerie")
+        erp = Erp.objects.create(
+            nom="Aux bons croissants",
+            numero="4",
+            voie="grand rue",
+            code_postal="34830",
+            commune="Jacou",
+            commune_ext=jacou,
+            geom=Point((3.9047933, 43.6648217)),
+            activite=boulangerie,
+            published=True,
+            user=niko,
+        )
+
+    return Data()
 
 
 def test_home_communes(data, client):
@@ -143,4 +154,45 @@ def test_registration(data, client, capsys):
         },
     )
     assert response.status_code == 302
-    assert User.objects.filter(username="julia").count() == 1
+    # TODO: test activation link
+    assert User.objects.filter(username="julia", is_active=False).count() == 1
+
+
+def test_admin_with_regular_user(data, client, capsys):
+    # test that regular frontend user don't have access to the admin
+    client.login(username="julia", password="Abc12345!")
+
+    response = client.get(reverse("admin:index"), follow=True)
+    # ensure user is redirected to admin login page
+    assert ("/admin/login/?next=/admin/", 302) in response.redirect_chain
+    assert response.status_code == 200
+    assert "admin/login.html" in [t.name for t in response.templates]
+
+
+def test_admin_with_staff_user(data, client, capsys):
+    # the staff flag is for partners (gestionnaire ou territoire)
+    client.login(username="niko", password="Abc12345!")
+
+    response = client.get(reverse("admin:index"))
+    assert response.status_code == 200
+
+    response = client.get(reverse("admin:erp_erp_changelist"))
+    assert response.status_code == 403
+
+
+def test_admin_with_admin_user(data, client, capsys):
+    client.login(username="admin", password="Abc12345!")
+
+    response = client.get(reverse("admin:index"))
+    assert response.status_code == 200
+
+    response = client.get(reverse("admin:erp_erp_changelist"))
+    assert response.status_code == 200
+
+    response = client.get(reverse("admin:erp_erp_add"))
+    assert response.status_code == 200
+
+    response = client.get(
+        reverse("admin:erp_erp_change", kwargs=dict(object_id=data.erp.pk))
+    )
+    assert response.status_code == 200

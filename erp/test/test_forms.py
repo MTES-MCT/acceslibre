@@ -3,8 +3,8 @@ import pytest
 from django.contrib.gis.geos import Point
 from unittest import mock
 
+from .. import schema
 from ..forms import (
-    ACCESSIBILITE_HELP_TEXTS,
     AdminAccessibiliteForm,
     AdminErpForm,
     ViewAccessibiliteForm,
@@ -102,7 +102,7 @@ def test_ViewAccessibiliteForm_filled():
     )
     data = form.get_accessibilite_data()
     assert list(data.keys()) == [
-        "Transport en commun",
+        "Transports en commun",
         "Stationnement",
         "Espace et cheminement extérieur",
         "Entrée",
@@ -121,12 +121,11 @@ def test_ViewAccessibiliteForm_filled_null_comment():
 def test_ViewAccessibiliteForm_serialized():
     form = ViewAccessibiliteForm({"entree_reperage": True,})
     data = form.get_accessibilite_data()
-    expected = {
-        "template_name": "django/forms/widgets/select.html",
-        "name": "entree_reperage",
-        "label": "Entrée facilement repérable",
-        "help_text": ACCESSIBILITE_HELP_TEXTS["entree_reperage"],
-        "value": True,
-        "warning": False,
-    }
-    assert expected in data["Entrée"]["fields"]
+    field = data["Entrée"]["fields"][0]
+
+    assert field["template_name"] == "django/forms/widgets/select.html"
+    assert field["name"] == "entree_reperage"
+    assert field["label"] == schema.get_label("entree_reperage")
+    assert field["help_text"] == schema.get_help_text("entree_reperage")
+    assert field["value"] == True
+    assert field["warning"] == False
