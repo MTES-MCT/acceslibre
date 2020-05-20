@@ -33,7 +33,7 @@ from .models import (
     Accessibilite,
     EquipementMalentendant,
 )
-from .schema import get_accessibilite_admin_schema
+from . import schema
 
 
 @admin.register(Activite)
@@ -134,7 +134,7 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
     model = Accessibilite
     form = AdminAccessibiliteForm
     autocomplete_fields = ["accueil_equipements_malentendants", "labels"]
-    fieldsets = get_accessibilite_admin_schema()
+    fieldsets = schema.get_admin_fieldsets()
 
     def get_formset(self, request, obj=None, **kwargs):
         # see https://stackoverflow.com/a/37558444/330911
