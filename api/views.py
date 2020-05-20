@@ -118,8 +118,8 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
         for _, data in schema.get_api_fieldsets().items():
             for field in data["fields"]:
                 repr[field] = {
-                    "label": getattr(Accessibilite, field).field.verbose_name,
-                    "help": getattr(Accessibilite, field).field.help_text,
+                    "label": schema.get_label(field),
+                    "help": schema.get_help_text(field),
                 }
         return Response(repr)
 

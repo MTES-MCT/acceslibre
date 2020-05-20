@@ -443,36 +443,36 @@ class Accessibilite(models.Model):
         verbose_name="Établissement",
         help_text="ERP",
     )
+
+    ###################################
+    # Transports en commun            #
+    ###################################
     # Station de transport en commun
     transport_station_presence = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Desserte par transports en commun",
-        help_text="L'établissement est-il desservi par les transports en commun ?",
     )
     transport_information = models.TextField(
-        max_length=1000,
-        null=True,
-        blank=True,
-        verbose_name="Informations transports",
-        help_text="Précisions complémentaires sur la desserte de l'établissement par les transports "
-        "en commun (lignes, stations, arrêts)",
+        max_length=1000, null=True, blank=True, verbose_name="Informations transports",
     )
+
+    ###################################
+    # Stationnement                   #
+    ###################################
     # Stationnement dans l'ERP
     stationnement_presence = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnement dans l'ERP",
-        help_text="Existe-t-il une ou plusieurs places de stationnement au sein de la parcelle de l'ERP ?",
     )
     stationnement_pmr = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnements PMR dans l'ERP",
-        help_text="Existe-t-il une ou plusieurs places de stationnement adaptées ?",
     )
 
     # Stationnement à proximité
@@ -481,27 +481,22 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnement à proximité de l'ERP",
-        help_text="Présence de stationnements à proximité de l'ERP (200m)",
     )
     stationnement_ext_pmr = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Stationnements PMR à proximité de l'ERP",
-        help_text="Existe-t-il une ou plusieurs places de stationnement en voirie ou "
-        "en parking à proximité de l'ERP (200m) ?",
     )
 
     ###################################
     # Espace et Cheminement extérieur #
     ###################################
-
     cheminement_ext_presence = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Espace extérieur",
-        help_text="L'établissement dispose-t-il d'un espace extérieur qui lui appartient ?",
     )
 
     # Cheminement de plain-pied – oui / non / inconnu
@@ -510,8 +505,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Cheminement de plain-pied",
-        help_text="Le cheminement est-il de plain-pied ou existe-t-il une rupture de "
-        "niveau entraînant la présence de marches ou d'un équipement type ascenseur ?",
     )
     # Terrain meuble ou accidenté
     cheminement_ext_terrain_accidente = models.BooleanField(
@@ -519,15 +512,10 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Terrain meuble ou accidenté",
-        help_text="Le revêtement du cheminement extérieur est-il meuble, accidenté ou "
-        "non-praticable en fauteuil ?",
     )
     # Nombre de marches – nombre entre 0 et >10
     cheminement_ext_nombre_marches = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Nombre de marches",
-        help_text="Indiquez 0 s’il n’y a ni marche ni escalier",
+        null=True, blank=True, verbose_name="Nombre de marches",
     )
     # Repérage des marches ou de l’escalier – oui / non / inconnu / sans objet
     cheminement_ext_reperage_marches = models.BooleanField(
@@ -535,8 +523,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Repérage des marches ou de l’escalier",
-        help_text="Nez de marche contrasté, bande d'éveil à la vigilance en haut "
-        "de l'escalier, première et dernière contremarches de l'escalier contrastées",
     )
     # Main courante - oui / non / inconnu / sans objet
     cheminement_ext_main_courante = models.BooleanField(
@@ -544,7 +530,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Main courante",
-        help_text="Présence d'une main courante d'escalier",
     )
     # Rampe – oui / non / inconnu / sans objet
     cheminement_ext_rampe = models.CharField(
@@ -553,7 +538,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.RAMPE_CHOICES,
         verbose_name="Rampe",
-        help_text="Présence et type de rampe",
     )
     # Ascenseur / élévateur : oui / non / inconnu / sans objet
     cheminement_ext_ascenseur = models.BooleanField(
@@ -561,7 +545,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Ascenseur/élévateur",
-        help_text="Présence d'un ascenseur ou d'un élévateur",
     )
 
     # Pente - Aucune, légère, importante, inconnu
@@ -571,7 +554,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.PENTE_CHOICES,
         verbose_name="Pente",
-        help_text="Présence et type de pente",
     )
 
     # Dévers - Aucun, léger, important, inconnu
@@ -581,7 +563,6 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="Dévers",
         choices=schema.DEVERS_CHOICES,
-        help_text="Inclinaison transversale du cheminement",
     )
 
     # Bande de guidage – oui / non / inconnu
@@ -590,8 +571,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Bande de guidage",
-        help_text="Présence d'une bande de guidage au sol facilitant le déplacement "
-        "d'une personne aveugle ou malvoyante",
     )
 
     # Rétrécissement du cheminement  – oui / non / inconnu
@@ -600,22 +579,17 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Rétrécissement du cheminement",
-        help_text="Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) "
-        "du chemin emprunté par le public pour atteindre l'entrée ?",
     )
 
     ##########
     # Entrée #
     ##########
-
     # Entrée facilement repérable  – oui / non / inconnu
     entree_reperage = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Entrée facilement repérable",
-        help_text="Y a-t-il des éléments de repérage de l'entrée (numéro de rue à "
-        "proximité, enseigne, etc)",
     )
 
     # Entrée vitrée
@@ -624,15 +598,12 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Entrée vitrée",
-        help_text="La porte d'entrée est-elle vitrée ?",
     )
     entree_vitree_vitrophanie = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Vitrophanie",
-        help_text="Si l'entrée est vitrée, présence d'éléments contrastés permettant "
-        "de visualiser l'entrée ?",
     )
 
     # Entrée de plain-pied
@@ -641,14 +612,10 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Entrée de plain-pied",
-        help_text="L'entrée est-elle de plain-pied ?",
     )
     # Nombre de marches
     entree_marches = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Marches d'escalier",
-        help_text="Nombre de marches d'escalier",
+        null=True, blank=True, verbose_name="Marches d'escalier",
     )
     # Repérage des marches ou de l'escalier
     entree_marches_reperage = models.BooleanField(
@@ -656,8 +623,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Repérage de l'escalier",
-        help_text="Nez de marche contrasté, bande d'éveil à la vigilance en haut "
-        "de l'escalier, première et dernière contremarches de l'escalier contrastées",
     )
     # Main courante
     entree_marches_main_courante = models.BooleanField(
@@ -665,7 +630,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Main courante",
-        help_text="Présence d'une main courante pour franchir les marches",
     )
     # Rampe
     entree_marches_rampe = models.CharField(
@@ -674,7 +638,6 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="Rampe",
         choices=schema.RAMPE_CHOICES,
-        help_text="Présence et type de rampe",
     )
     # Système de guidage sonore  – oui / non / inconnu
     entree_balise_sonore = models.BooleanField(
@@ -682,7 +645,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Présence d'une balise sonore",
-        help_text="Présence d'une balise facilitant le repérage de la porte pour une personne aveugle ou malvoyante",
     )
     # Dispositif d’appel
     entree_dispositif_appel = models.BooleanField(
@@ -690,31 +652,23 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Dispositif d'appel",
-        help_text="Existe-t-il un dispositif comme une sonnette pour permettre à "
-        "quelqu'un ayant besoin de la rampe de signaler sa présence ?",
     )
     entree_aide_humaine = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Aide humaine",
-        help_text="Présence ou possibilité d'une aide humaine au déplacement",
     )
     entree_ascenseur = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Ascenseur/élévateur",
-        help_text="Présence d'un ascenseur ou d'un élévateur",
     )
 
     # Largeur minimale
     entree_largeur_mini = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Largeur minimale",
-        help_text="Si la largeur n’est pas précisément connue, indiquez une valeur "
-        "minimum. Exemple : ma largeur se situe entre 90 et 100 cm ; indiquez 90",
+        null=True, blank=True, verbose_name="Largeur minimale",
     )
 
     # Entrée spécifique PMR
@@ -723,7 +677,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Entrée spécifique PMR",
-        help_text="Présence d'une entrée secondaire spécifique PMR",
     )
 
     # Informations sur l’entrée spécifique
@@ -732,21 +685,17 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Infos entrée spécifique PMR",
-        help_text="Précisions sur les modalités d'accès de l'entrée spécifique PMR",
     )
 
     ###########
     # Accueil #
     ###########
-
     # Visibilité directe de la zone d'accueil depuis l’entrée
     accueil_visibilite = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Visibilité directe de la zone d'accueil depuis l'entrée",
-        help_text="La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) "
-        "est-elle visible depuis l'entrée ?",
     )
 
     # Personnel d’accueil
@@ -756,7 +705,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.PERSONNELS_CHOICES,
         verbose_name="Personnel d'accueil",
-        help_text="Présence et sensibilisation du personnel d'accueil",
     )
 
     # Équipements pour personnes sourdes ou malentendantes
@@ -764,9 +712,6 @@ class Accessibilite(models.Model):
         EquipementMalentendant,
         blank=True,
         verbose_name="Équipements sourds/malentendants",
-        help_text="L'accueil est-il équipé de produits ou prestations dédiés aux personnes "
-        "sourdes ou malentendantes (boucle à induction magnétique, langue des signes "
-        "françaises, solution de traduction à distance, etc)",
     )
 
     # Cheminement de plain pied entre l’entrée et l’accueil
@@ -775,14 +720,10 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Cheminement de plain pied",
-        help_text="Le cheminement entre l’entrée et l’accueil est-il de plain-pied ?",
     )
     # Présence de marches entre l’entrée et l’accueil – nombre entre 0 et >10
     accueil_cheminement_nombre_marches = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Nombre de marches",
-        help_text="Indiquez 0 s’il n’y a ni marche ni escalier",
+        null=True, blank=True, verbose_name="Nombre de marches",
     )
     # Repérage des marches ou de l’escalier
     accueil_cheminement_reperage_marches = models.BooleanField(
@@ -790,8 +731,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Repérage des marches ou de l’escalier",
-        help_text="Nez de marche contrasté, bande d'éveil à la vigilance en haut "
-        "de l'escalier, première et dernière contremarches de l'escalier contrastées",
     )
     # Main courante
     accueil_cheminement_main_courante = models.BooleanField(
@@ -799,7 +738,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Main courante",
-        help_text="Présence d'une main courante d'escalier",
     )
     # Rampe – aucune / fixe / amovible / inconnu
     accueil_cheminement_rampe = models.CharField(
@@ -808,7 +746,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.RAMPE_CHOICES,
         verbose_name="Rampe",
-        help_text="Présence et type de rampe",
     )
     # Ascenseur / élévateur
     accueil_cheminement_ascenseur = models.BooleanField(
@@ -816,7 +753,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Ascenseur/élévateur",
-        help_text="Présence d'un ascenseur ou d'un élévateur",
     )
 
     # Rétrécissement du cheminement
@@ -825,8 +761,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Rétrécissement du cheminement",
-        help_text="Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) "
-        "du chemin emprunté par le public pour atteindre la zone d’accueil ?",
     )
 
     # Prestations d'accueil adapté supplémentaires
@@ -835,37 +769,26 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Prestations d'accueil adapté supplémentaires",
-        help_text="Veuillez indiquer ici les prestations spécifiques supplémentaires "
-        "proposées par l'établissement",
     )
 
     ##############
     # Sanitaires #
     ##############
-
     sanitaires_presence = models.BooleanField(
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Sanitaires",
-        help_text="Présence de sanitaires dans l'établissement",
     )
     sanitaires_adaptes = models.PositiveSmallIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Nombre de sanitaires adaptés",
-        help_text="Nombre de sanitaires adaptés dans l'établissement",
+        null=True, blank=True, verbose_name="Nombre de sanitaires adaptés",
     )
 
     ##########
     # labels #
     ##########
-
     labels = models.ManyToManyField(
-        Label,
-        blank=True,
-        verbose_name="Marques ou labels",
-        help_text="Marques ou labels d'accessibilité obtenus par l'ERP",
+        Label, blank=True, verbose_name="Marques ou labels",
     )
     labels_familles_handicap = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.HANDICAP_CHOICES),
@@ -873,26 +796,16 @@ class Accessibilite(models.Model):
         default=list,
         null=True,
         blank=True,
-        help_text="Liste des familles de handicaps couverts par l'obtention de ce label",
     )
     labels_autre = models.CharField(
-        max_length=255,
-        null=True,
-        blank=True,
-        verbose_name="Autre label",
-        help_text="Si autre, précisez le nom du label",
+        max_length=255, null=True, blank=True, verbose_name="Autre label",
     )
 
     #####################
     # Commentaire libre #
     #####################
     commentaire = models.TextField(
-        max_length=1000,
-        null=True,
-        blank=True,
-        verbose_name="Commentaire libre",
-        help_text="Indiquez tout autre information qui vous semble pertinente pour "
-        "décrire l’accessibilité du bâtiment",
+        max_length=1000, null=True, blank=True, verbose_name="Commentaire libre",
     )
 
     # Datetimes
