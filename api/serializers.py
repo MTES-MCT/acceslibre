@@ -56,7 +56,8 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
-                repr[section][field] = source[field]
+                if source[field] is not None:
+                    repr[section][field] = source[field]
         return repr
 
 
