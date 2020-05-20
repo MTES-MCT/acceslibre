@@ -43,7 +43,9 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
 
-    erp = serializers.StringRelatedField(source="erp.slug", many=False, read_only=True)
+    erp = serializers.HyperlinkedRelatedField(
+        lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
+    )
     labels = serializers.SlugRelatedField(slug_field="nom", many=True, read_only=True)
     accueil_equipements_malentendants = serializers.SlugRelatedField(
         slug_field="nom", many=True, read_only=True
@@ -52,12 +54,14 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
     def to_representation(self, instance):
         # see https://stackoverflow.com/a/56826004/330911
         source = super().to_representation(instance)
-        repr = {"url": source["url"]}
+        repr = {"url": source["url"], "erp": source["erp"]}
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
-                if source[field] is not None:
+                if source[field] is not None and source[field] != []:
                     repr[section][field] = source[field]
+        # move/un-nest commentaire field
+        repr["commentaire"] = repr["commentaire"]["commentaire"]
         return repr
 
 
@@ -84,6 +88,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         model = Erp
         fields = (
             "url",
+            "web_url",
             "activite",
             "user",
             "nom",
@@ -110,6 +115,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     distance = serializers.SerializerMethodField()
     commune = serializers.SerializerMethodField()
     code_insee = serializers.SerializerMethodField()
+    web_url = serializers.SerializerMethodField()
 
     def get_distance(self, obj):
         if hasattr(obj, "distance"):
@@ -126,3 +132,6 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             return obj.commune_ext.code_insee
         else:
             return obj.code_insee
+
+    def get_web_url(self, obj):
+        return self.context["request"].build_absolute_uri(obj.get_absolute_url())
