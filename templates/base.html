@@ -16,13 +16,15 @@
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" crossorigin="">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.css" crossorigin="">
+    <link rel="stylesheet" href="{% static "icons/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% block stylesheet_extras %}{% endblock %}
+    <script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js"
+        integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.js" crossorigin=""></script>
-    <link rel="stylesheet" href="{% static "icons/styles.css" %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    {% block stylesheet_extras %}{% endblock %}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"></script>
@@ -39,5 +41,6 @@
     </a>
     {% block content %}{% endblock %}
     {% include "common/matomo.html" %}
+    <script>Sentry.init({ dsn: "https://ed89c4bb2914496dbb608cc348fedca2:9e9898f0ba714c2cb31941be9bca1082@sentry.data.gouv.fr/49" });</script>
   </body>
 </html>
