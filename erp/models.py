@@ -166,34 +166,6 @@ class Label(models.Model):
         return self.nom
 
 
-class EquipementMalentendant(models.Model):
-    class Meta:
-        ordering = ("nom",)
-        verbose_name = "Équipement sourd/malentendant"
-        verbose_name_plural = "Équipements sourd/malentendant"
-        indexes = [
-            models.Index(fields=["slug"]),
-        ]
-
-    nom = models.CharField(max_length=255, unique=True, help_text="Nom de l'équipement")
-    slug = AutoSlugField(
-        default="",
-        unique=True,
-        populate_from="nom",
-        help_text="Identifiant d'URL (slug)",
-    )
-    # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
-
-    def __str__(self):
-        return self.nom
-
-
 class Erp(models.Model):
     class Meta:
         ordering = ("nom",)
@@ -725,10 +697,14 @@ class Accessibilite(models.Model):
     )
 
     # Équipements pour personnes sourdes ou malentendantes
-    accueil_equipements_malentendants = models.ManyToManyField(
-        EquipementMalentendant,
+    accueil_equipements_malentendants = ArrayField(
+        models.CharField(
+            max_length=255, blank=True, choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES
+        ),
+        verbose_name="Équipement(s) sourd/malentendant",
+        default=list,
+        null=True,
         blank=True,
-        verbose_name="Équipements sourds/malentendants",
     )
 
     # Cheminement de plain pied entre l’entrée et l’accueil

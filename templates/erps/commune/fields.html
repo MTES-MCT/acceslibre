@@ -1,3 +1,5 @@
+{% load a4a %}
+
 {% if fields %}
 <ul class="list-group list-group-flush">
 {% for field in fields %}
@@ -15,15 +17,15 @@
     </span>
     <span class="a4a-badge-group pl-2">
       {% if field.name == "accueil_equipements_malentendants" %}
-        {% for equipement in erp.accessibilite.accueil_equipements_malentendants.all %}
-          {% if equipement.nom == "Aucun" %}
+        {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
+          {% if equipement == "aucun" %}
           <span class="badge a4a-badge">
             <i class="icon icon-exclamation-circle a4a-warn-icon"></i> Aucun
           </span>
           {% else %}
           <span class="badge badge-success a4a-badge">
             <i class="icon icon-check"></i>
-            {{ equipement.nom }}
+            {{ equipement|get_equipement_label }}
           </span>
           {% endif %}
         {% endfor %}
