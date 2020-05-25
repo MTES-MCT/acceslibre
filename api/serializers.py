@@ -8,7 +8,6 @@ from erp.models import (
     Erp,
     Accessibilite,
     Label,
-    EquipementMalentendant,
 )
 
 # Useful docs:
@@ -26,12 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["username"]
 
 
-class EquipementMalentendantSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = EquipementMalentendant
-        fields = ["nom"]
-
-
 class LabelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Label
@@ -47,9 +40,6 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
     )
     labels = serializers.SlugRelatedField(slug_field="nom", many=True, read_only=True)
-    accueil_equipements_malentendants = serializers.SlugRelatedField(
-        slug_field="nom", many=True, read_only=True
-    )
 
     def to_representation(self, instance):
         # see https://stackoverflow.com/a/56826004/330911
@@ -58,10 +48,15 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
-                if source[field] is not None and source[field] != []:
-                    repr[section][field] = source[field]
-        # move/un-nest commentaire field
-        repr["commentaire"] = repr["commentaire"]["commentaire"]
+                # clean up empty fields
+                if source[field] is None or source[field] == [] or source[field] == "":
+                    continue
+                repr[section][field] = source[field]
+        # move/un-nest/clean "commentaire" field if it exists
+        try:
+            repr["commentaire"] = repr["commentaire"]["commentaire"]
+        except KeyError:
+            del repr["commentaire"]
         return repr
 
 

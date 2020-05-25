@@ -30,12 +30,20 @@ class AdminAccessibiliteForm(forms.ModelForm):
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
 
+    accueil_equipements_malentendants = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
+        label="Équipement(s) sourd/malentendant",  # FIXME: use get_label
+        help_text=schema.get_help_text("accueil_equipements_malentendants"),
+    )
     labels_familles_handicap = forms.MultipleChoiceField(
         required=False,
         choices=schema.HANDICAP_CHOICES,
         widget=forms.CheckboxSelectMultiple,
         # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
-        label="Famille(s) de handicap concernées(s)",
+        label="Famille(s) de handicap concernées(s)",  # FIXME: use get_label
         help_text=schema.get_help_text("labels_familles_handicap"),
     )
 

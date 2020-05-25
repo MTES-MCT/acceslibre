@@ -25,6 +25,19 @@ DEVERS_CHOICES = [
     (None, UNKNOWN_OR_NA),
 ]
 
+EQUIPEMENT_MALENTENDANT_AUCUN = "aucun"
+EQUIPEMENT_MALENTENDANT_AUTRES = "autres"
+EQUIPEMENT_MALENTENDANT_BIM = "bim"
+EQUIPEMENT_MALENTENDANT_LSF = "lsf"
+EQUIPEMENT_MALENTENDANT_SCD = "scd"
+EQUIPEMENT_MALENTENDANT_CHOICES = [
+    (EQUIPEMENT_MALENTENDANT_AUCUN, "Aucun"),
+    (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
+    (EQUIPEMENT_MALENTENDANT_BIM, "BIM"),
+    (EQUIPEMENT_MALENTENDANT_LSF, "LSF"),
+    (EQUIPEMENT_MALENTENDANT_SCD, "Service de communication à distance"),
+]
+
 HANDICAP_AUDITIF = "auditif"
 HANDICAP_MENTAL = "mental"
 HANDICAP_MOTEUR = "moteur"
@@ -375,10 +388,7 @@ FIELDS = {
         "help_text": "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes françaises, solution de traduction à distance, etc)",
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
-        "warn_if": lambda x, i: i.id
-        and "Aucun" in [eq.nom for eq in i.accueil_equipements_malentendants.all()]
-        if i
-        else False,
+        "warn_if": lambda x, i: x and "aucun" in x,
     },
     "accueil_cheminement_plain_pied": {
         "label": "Cheminement de plain pied",

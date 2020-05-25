@@ -1,5 +1,7 @@
 from django import template
 
+from erp import schema
+
 register = template.Library()
 
 
@@ -30,3 +32,8 @@ def active_compte_section(path, test):
 @register.filter(name="addclass")
 def addclass(value, arg):
     return value.as_widget(attrs={"class": arg})
+
+
+@register.filter(name="get_equipement_label")
+def get_equipement_label(value):
+    return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
