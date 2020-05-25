@@ -48,10 +48,15 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
-                if source[field] is not None and source[field] != []:
-                    repr[section][field] = source[field]
-        # move/un-nest commentaire field
-        repr["commentaire"] = repr["commentaire"]["commentaire"]
+                # clean up empty fields
+                if source[field] is None or source[field] == [] or source[field] == "":
+                    continue
+                repr[section][field] = source[field]
+        # move/un-nest/clean "commentaire" field if it exists
+        try:
+            repr["commentaire"] = repr["commentaire"]["commentaire"]
+        except KeyError:
+            del repr["commentaire"]
         return repr
 
 
