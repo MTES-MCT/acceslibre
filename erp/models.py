@@ -212,7 +212,7 @@ class Erp(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
-        verbose_name="Créateur",
+        verbose_name="Utilisateur",
         on_delete=models.SET_NULL,
     )
     commune_ext = models.ForeignKey(
@@ -312,6 +312,23 @@ class Erp(models.Model):
 
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
+
+    def editable_by(self, user):
+        if not user.is_active:
+            return False
+        # admins can do whatever they want
+        if user.is_superuser:
+            return True
+        # intrapreneurs can update any erps
+        if "intrapreneurs" in list(user.groups.values_list("name")):
+            return True
+        # users can take over erps with no owner
+        if not self.user:
+            return True
+        # check ownership
+        if user.id != self.user.id:
+            return False
+        return True
 
     def get_absolute_url(self):
         if self.commune_ext:

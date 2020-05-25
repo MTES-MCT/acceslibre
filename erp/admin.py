@@ -217,6 +217,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "created_at",
         "updated_at",
     ]
+    readonly_fields = ["user"]
     point_zoom = 18
     map_height = 300
     save_on_top = True
@@ -235,6 +236,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                     "activite",
                     "nom",
                     "siret",
+                    "user",
                     "published",
                 ]
             },
@@ -263,9 +265,21 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         queryset = queryset.prefetch_related("commune_ext")
         return queryset
 
+    def has_change_permission(self, request, obj=None):
+        # see https://www.b-list.org/weblog/2008/dec/24/admin/
+        # initial perm checks (including group ones, eg observateurs)
+        allow = super().has_change_permission(request, obj)
+        if not allow:
+            return False
+        # every staff user with create perm can create new erps
+        if obj is None:
+            return True
+        return obj.editable_by(request.user)
+
     def save_model(self, request, obj, form, change):
-        if not change:
+        if not change or obj.user is None:
             obj.user = request.user
+
         super().save_model(request, obj, form, change)
 
     def assign_activite(self, request, queryset):
@@ -297,7 +311,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         # see https://code.djangoproject.com/ticket/9071#comment:24
-        form = super(ErpAdmin, self).get_form(request, obj, **kwargs)
+        form = super().get_form(request, obj, **kwargs)
         if "activite" in form.base_fields:
             form.base_fields["activite"].widget.can_add_related = False
             form.base_fields["activite"].widget.can_change_related = False
