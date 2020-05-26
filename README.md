@@ -171,6 +171,9 @@ MIDDLEWARE = [
 CACHES = {
     "default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache",}
 }
+
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
 ```
 
 ## Générer et appliquer les migrations du modèle de données
