@@ -1,7 +1,7 @@
 import sys
 import time
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 from erp.models import Commune
 from erp.geocoder import geocode_commune
@@ -27,7 +27,7 @@ class Command(BaseCommand):
         for commune in Commune.objects.all():
             try:
                 self.import_commune(commune)
-            except SkipImport as err:
+            except SkipImport:
                 sys.stdout.write("S")
                 sys.stdout.flush()
             else:

@@ -3,7 +3,6 @@ from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
 from django.db.models import Count, Q
-from django.db.models.aggregates import Count
 
 
 class ActiviteQuerySet(models.QuerySet):
@@ -87,8 +86,6 @@ class ErpQuerySet(models.QuerySet):
         return self.annotate(distance=Distance("geom", location)).order_by("distance")
 
     def search(self, query):
-        terms = query.strip().split(" ")
-
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.annotate(distance_nom=search.TrigramDistance("nom", query))
         qs = qs.annotate(rank=search.SearchRank(models.F("search_vector"), query))

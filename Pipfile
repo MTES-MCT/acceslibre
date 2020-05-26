@@ -36,6 +36,7 @@ pyparsing = "*"
 pydot = "*"
 django-registration = "*"
 splinter = {extras = ["django"],version = "*"}
+flake8 = "*"
 
 [requires]
 python_version = "3.7"

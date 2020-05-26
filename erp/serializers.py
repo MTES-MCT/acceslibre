@@ -1,12 +1,10 @@
 from django.contrib.gis.serializers import geojson
 
-from .models import Activite, Erp
-
 
 class SpecialErpSerializer(geojson.Serializer):
     # see https://stackoverflow.com/a/56557206/330911
 
-    def end_object(self, obj):
+    def end_object(self, obj):  # noqa
         for field in self.selected_fields:
             if field == "pk":
                 continue

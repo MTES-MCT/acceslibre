@@ -3,7 +3,7 @@ import string
 import unicodedata
 
 from django.contrib.auth.models import User, Group
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 
 def strip_accents(nom):

@@ -1,8 +1,9 @@
 import csv
 import os
 import re
+import sys
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 from erp.models import Activite, Erp
 
@@ -140,9 +141,9 @@ class Command(BaseCommand):
                     if erp is not None:
                         to_import.append(erp)
             except csv.Error as err:
-                sys.exit(f"file {filename}, line {reader.line_num}: {err}")
+                sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
         if len(to_import) == 0:
             print("Rien à importer.")
             exit(0)
-        res = Erp.objects.bulk_create(to_import)
+        Erp.objects.bulk_create(to_import)
         print("Importation effectuée.")

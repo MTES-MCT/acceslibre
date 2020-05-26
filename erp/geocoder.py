@@ -1,7 +1,5 @@
-import json
 import requests
 
-from django.core.exceptions import ValidationError
 from django.contrib.gis.geos import Point
 
 GEOCODER_URL = "https://api-adresse.data.gouv.fr/search/"
@@ -65,7 +63,7 @@ def parse_coords(coords):
     try:
         rlat, rlon = coords.split(",")
         return (float(rlat), float(rlon))
-    except (IndexError, ValueError, TypeError) as err:
+    except (IndexError, ValueError, TypeError):
         return None
 
 

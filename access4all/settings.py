@@ -196,6 +196,6 @@ GRAPH_MODELS = {
 
 # Local settings
 try:
-    from .local_settings import *
-except ImportError as e:
+    from .local_settings import *  # noqa
+except ImportError:
     pass

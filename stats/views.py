@@ -1,8 +1,5 @@
-import copy
-
 from django.contrib.admin.models import LogEntry, ADDITION
 from django.views.generic import TemplateView
-from django.utils import timezone
 
 from erp.models import Commune, Erp
 

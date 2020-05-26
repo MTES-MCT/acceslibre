@@ -1,9 +1,5 @@
-import random
-import string
-import unicodedata
-
 from erp.models import Accessibilite
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 fields = [
     "cheminement_ext_plain_pied",

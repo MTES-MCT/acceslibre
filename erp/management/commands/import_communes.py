@@ -4,7 +4,7 @@ import sys
 import time
 
 from django.contrib.gis.geos import Point
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 from erp.models import Commune
 from erp.geocoder import geocode_commune
@@ -95,7 +95,7 @@ class Command(BaseCommand):
                         )
                         sys.stdout.write("E")
                         sys.stdout.flush()
-                    except SkipImport as err:
+                    except SkipImport:
                         sys.stdout.write("S")
                         sys.stdout.flush()
                     else:

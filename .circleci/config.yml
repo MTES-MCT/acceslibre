@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/access4all
     docker:
       - image: circleci/python:3.7.7
         environment:
@@ -33,6 +34,10 @@ jobs:
           name: Run database migrations
           command: |
             pipenv run ./manage.py migrate
+      - run:
+          name: Run Flake8
+          command: |
+            pipenv run flake8 ~/access4all
       - run:
           name: Run tests
           command: |

@@ -1,0 +1,15 @@
+[flake8]
+ignore =
+    E231,
+    E501,
+    W503
+exclude =
+    .git,
+    .venv,
+    __pycache__,
+    data,
+    docs,
+    erp/migrations,
+    test_*
+max-line-length = 88
+max-complexity = 10
