@@ -41,7 +41,7 @@ def test_home_search(data, client):
         # Editorial
         reverse("accessibilite"),
         reverse("autocomplete"),
-        reverse("contact"),
+        reverse("contact_form"),
         reverse("donnees_personnelles"),
         reverse("mentions_legales"),
         # Auth

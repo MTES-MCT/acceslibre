@@ -1,0 +1,61 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+{% load a4a %}
+
+{% block page_title %}Contact{% endblock%}
+
+{% block editorial_content %}
+<h3 class="text-center mb-4">Contactez-nous</h3>
+<div class="row justify-content-md-center">
+  <form action="" method="POST" class="col-md-6 col-lg-7 mb-4">
+    {% csrf_token %}
+
+    {% for error in form.non_field_errors %}
+      <p class="form-text text-danger">{{ error }}</p>
+    {% endfor %}
+
+      <div class="form-group has-error">
+        <label for="id_name">Votre nom&nbsp;:</label>
+        {{ form.name|addclass:"form-control" }}
+        {% for error in form.name.errors %}
+          <div class="form-text text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="form-group has-error">
+        <label for="id_email">Votre adresse email&nbsp;:</label>
+        {{ form.email|addclass:"form-control" }}
+        {% for error in form.email.errors %}
+          <div class="form-text text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="form-group has-error">
+        <label for="id_body">Votre message&nbsp;:</label>
+        {{ form.body|addclass:"form-control" }}
+        {% for error in form.body.errors %}
+          <div class="form-text text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+      </div>
+  </form>
+  <div class="col-md-6 col-lg-5 mb-4">
+    <div class="alert alert-info">
+      <h5><i class="icon icon-info-circled"></i> Problèmes techniques & rapport de bug</h5>
+
+      <section>
+        <p>Le code source de l'application est open source et
+          <a href="https://github.com/MTES-MCT/access4all">intégralement publié sur Github</a>,
+          vous pouvez donc si vous le souhaitez remonter les problèmes techniques que vous
+          rencontrez à l'utilisation du service sur
+          <a href="https://github.com/MTES-MCT/access4all/issues/new">l'outil de rapport de bug dédié</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+{% endblock %}

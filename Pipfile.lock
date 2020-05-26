@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "384f7037d9a9208b1b5ad804e66a20e5709758da886d2f82f0c7cafbd976a12d"
+            "sha256": "ef39b171a09b29ba76254ea78be577fdf4837f5261fbf2275212f8893f5c3ed7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -144,6 +144,14 @@
             ],
             "index": "pypi",
             "version": "==1.1.0"
+        },
+        "django-contact-form": {
+            "hashes": [
+                "sha256:1a6f5479d8f70a7c6040926ec68567d5d0741a9d94ad81357b62bcec245b67ff",
+                "sha256:e1329c409c28e722da7c2bdc69cbe074dc51c1681311cb67bba0218d68a853da"
+            ],
+            "index": "pypi",
+            "version": "==1.8.1"
         },
         "django-cors-headers": {
             "hashes": [
