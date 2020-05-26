@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Run Flake8
           command: |
-            pipenv run flake8 ./${CIRCLE_WORKING_DIRECTORY}
+            pipenv run flake8 ${CIRCLE_WORKING_DIRECTORY}
       - run:
           name: Run tests
           command: |
