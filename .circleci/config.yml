@@ -34,6 +34,10 @@ jobs:
           command: |
             pipenv run ./manage.py migrate
       - run:
+          name: Run Flake8
+          command: |
+            pipenv run flake8
+      - run:
           name: Run tests
           command: |
             pipenv run pytest

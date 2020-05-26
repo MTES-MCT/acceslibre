@@ -1,5 +1,4 @@
 import json
-import requests
 
 from autoslug import AutoSlugField
 from django.conf import settings
@@ -810,8 +809,8 @@ class Accessibilite(models.Model):
     )
 
     def __str__(self):
-        return f"Caractéristiques d'accessibilité de cet ERP"
+        return "Caractéristiques d'accessibilité de cet ERP"
 
     def has_cheminement_ext(self):
-        fields = get_section_fields(schema.SECTION_CHEMINEMENT_EXT)
+        fields = schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT)
         return any(getattr(f) is not None for f in fields)

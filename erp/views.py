@@ -1,16 +1,12 @@
-from django.contrib.gis.geos import Point
 from django.core.exceptions import PermissionDenied
-from django.core.serializers import serialize
-from django.db.models import Count, Q
-from django.http import Http404, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
 from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
 from .forms import ViewAccessibiliteForm
-from .models import Accessibilite, Activite, Commune, Erp
+from .models import Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
 
 
@@ -122,7 +118,7 @@ class BaseListView(generic.ListView):
         try:
             rlon, rlat = raw.split(",")
             return (float(rlon), float(rlat))
-        except (IndexError, ValueError, TypeError) as err:
+        except (IndexError, ValueError, TypeError):
             return None
 
     @property

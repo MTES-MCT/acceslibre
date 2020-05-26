@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from rest_framework_gis.serializers import GeoFeatureModelSerializer
+
 
 from erp import schema
 from erp.models import (

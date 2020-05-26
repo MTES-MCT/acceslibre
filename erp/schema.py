@@ -577,4 +577,4 @@ def get_section_fields(section_id):
 
 
 def get_nullable_bool_fields():
-    return [k for (k, v) in FIELDS.items() if v["nullable_bool"] == True]
+    return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]

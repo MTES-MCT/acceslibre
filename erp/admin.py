@@ -1,21 +1,16 @@
 import nested_admin
 
-from datetime import datetime
 from django import forms
-from django_admin_listfilter_dropdown.filters import (
-    DropdownFilter,
-    RelatedDropdownFilter,
-)
+from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.admin.models import ADDITION, LogEntry
 from django.contrib.gis.admin import OSMGeoAdmin
-from django.core.exceptions import ValidationError
 from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
-from import_export.admin import ImportExportModelAdmin
+
+# from import_export.admin import ImportExportModelAdmin
 
 from .departements import DEPARTEMENTS
 from .forms import (
@@ -24,7 +19,8 @@ from .forms import (
     AdminCommuneForm,
     AdminErpForm,
 )
-from .imports import ErpResource
+
+# from .imports import ErpResource
 from .models import (
     Activite,
     Commune,

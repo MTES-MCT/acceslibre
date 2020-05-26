@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
-from django.forms import fields, widgets
+from django.forms import widgets
 
 from . import schema
 from . import geocoder
