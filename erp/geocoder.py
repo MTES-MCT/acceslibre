@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 from django.contrib.gis.geos import Point
