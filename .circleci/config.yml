@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/access4all
     docker:
       - image: circleci/python:3.7.7
         environment:
@@ -36,7 +37,7 @@ jobs:
       - run:
           name: Run Flake8
           command: |
-            pipenv run flake8 ${CIRCLE_WORKING_DIRECTORY}
+            pipenv run flake8 .
       - run:
           name: Run tests
           command: |
