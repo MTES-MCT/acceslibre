@@ -42,7 +42,6 @@ urlpatterns = [
         editorial_page("editorial/accessibilite.html"),
         name="accessibilite",
     ),
-    path("contact", editorial_page("editorial/contact.html"), name="contact",),
     path(
         "donnees-personnelles",
         editorial_page("editorial/donnees_personnelles.html"),
