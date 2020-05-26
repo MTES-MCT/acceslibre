@@ -5,6 +5,7 @@ ignore =
     W503
 exclude =
     .git,
+    .venv,
     __pycache__,
     data,
     docs,
