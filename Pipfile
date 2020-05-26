@@ -35,6 +35,7 @@ pytest-django = "*"
 pyparsing = "*"
 pydot = "*"
 django-registration = "*"
+splinter = {extras = ["django"],version = "*"}
 
 [requires]
 python_version = "3.7"

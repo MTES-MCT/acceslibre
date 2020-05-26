@@ -78,7 +78,7 @@
         </div>
       </section>
       {% else %}
-      <div class="row row-cols-1 row-cols-md-2">
+      <div class="row row-cols-1 row-cols-md-2" id="home-communes-list">
         {% for commune in communes %}
         <div class="col mb-4">
           <div class="card shadow-sm">
@@ -107,7 +107,7 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-header">Derniers établissements renseignés</div>
-        <div class="list-group list-group-flush">
+        <div class="list-group list-group-flush" id="home-latest-erps-list">
           {% for erp in latest %}
           <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
             {{ erp.commune }} {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}

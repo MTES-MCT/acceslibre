@@ -20,7 +20,7 @@ def test_home_communes(data, client):
     assert response.context["search"] is None
     assert len(response.context["communes"]) == 1
     assert response.context["communes"][0].nom == "Jacou"
-    assert len(response.context["latest"]) == 0  # note: car accessibilité absente
+    assert len(response.context["latest"]) == 1
     assert response.context["search_results"] == None
 
 
