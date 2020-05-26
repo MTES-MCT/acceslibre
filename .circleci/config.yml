@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Run Flake8
           command: |
-            pipenv run flake8 .
+            pipenv run flake8 ~/access4all
       - run:
           name: Run tests
           command: |
