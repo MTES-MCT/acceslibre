@@ -1,5 +1,14 @@
+{% load static %}
+
 <div class="a4a-erp-details">
   <div class="a4a-erp-header">
+    {% for label in erp.accessibilite.labels.all %}
+      {% if label.nom != "Aucun" and label.nom != "Autre" %}
+      <img class="a4a-label-logo" src="{% static "img/labels" %}/{{ label.slug }}.jpg"
+        alt="{{ label.nom }}" title="Cet établissement a obtenu le label {{ label.nom }}"
+        aria-label="Cet établissement a obtenu le label {{ label.nom }}" />
+      {% endif %}
+    {% endfor %}
     <h3>
       {{ erp.nom }}
       {% if erp.activite %}
