@@ -1,4 +1,4 @@
-Bonjour {{ user.username }},
+{% autoescape off %}Bonjour {{ user.username }},
 
 Merci d'avoir créé un compte sur Access4all, la plateforme collaborative de l'accessibilité.
 
@@ -11,3 +11,4 @@ https://access4all.beta.gouv.fr{% url "django_registration_activate" activation_
 --
 L'équipe access4all
 https://access4all.beta.gouv.fr/
+{% endautoescape %}
