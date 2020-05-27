@@ -83,6 +83,8 @@ class AdminErpForm(forms.ModelForm):
             "pk",
             "user",
             "search_vector",
+            "source",
+            "source_id",
         )
 
     photon_autocomplete = forms.CharField(

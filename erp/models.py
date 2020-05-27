@@ -171,6 +171,7 @@ class Erp(models.Model):
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
         indexes = [
+            models.Index(fields=["source", "source_id"]),
             models.Index(fields=["slug"]),
             models.Index(fields=["commune"]),
             models.Index(fields=["commune", "activite_id"]),
@@ -180,6 +181,19 @@ class Erp(models.Model):
 
     objects = managers.ErpQuerySet.as_manager()
 
+    source = models.CharField(
+        max_length=100,
+        null=True,
+        verbose_name="Source",
+        default="access4all",
+        help_text="Nom de la source de données dont est issu cet ERP",
+    )
+    source_id = models.CharField(
+        max_length=255,
+        null=True,
+        verbose_name="Source ID",
+        help_text="Identifiant de l'ERP dans la source initiale de données",
+    )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
