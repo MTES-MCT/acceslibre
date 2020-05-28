@@ -185,6 +185,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "geolocalise",
         "renseignee",
         "user",
+        "source",
         "updated_at",
         "view_search",
         "view_link",
@@ -242,28 +243,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         ("Contact", {"fields": ["telephone", "site_internet", "contact_email"],},),
     ]
 
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related("commune_ext")
-        return queryset
-
-    def has_change_permission(self, request, obj=None):
-        # see https://www.b-list.org/weblog/2008/dec/24/admin/
-        # initial perm checks (including group ones, eg observateurs)
-        allow = super().has_change_permission(request, obj)
-        if not allow:
-            return False
-        # every staff user with create perm can create new erps
-        if obj is None:
-            return True
-        return obj.editable_by(request.user)
-
-    def save_model(self, request, obj, form, change):
-        if not change or obj.user is None:
-            obj.user = request.user
-
-        super().save_model(request, obj, form, change)
-
     def assign_activite(self, request, queryset):
         if "apply" in request.POST:
             try:
@@ -281,15 +260,11 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
     assign_activite.short_description = "Assigner une nouvelle catégorie"
 
-    def publish(self, request, queryset):
-        queryset.update(published=True)
+    def geolocalise(self, instance):
+        return instance.geom is not None
 
-    publish.short_description = "Publier"
-
-    def unpublish(self, request, queryset):
-        queryset.update(published=False)
-
-    unpublish.short_description = "Mettre hors ligne"
+    geolocalise.boolean = True
+    geolocalise.short_description = "Géo"
 
     def get_form(self, request, obj=None, **kwargs):
         # see https://code.djangoproject.com/ticket/9071#comment:24
@@ -303,11 +278,32 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             form.base_fields["geom"].widget = forms.HiddenInput()
         return form
 
-    def geolocalise(self, instance):
-        return instance.geom is not None
+    def get_list_display(self, request):
+        list_display = super().get_list_display(request)
+        if not request.user.is_superuser:
+            return (f for f in list_display if f != "source")
+        return list_display
 
-    geolocalise.boolean = True
-    geolocalise.short_description = "Géolocalisé"
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.prefetch_related("commune_ext")
+        return queryset
+
+    def has_change_permission(self, request, obj=None):
+        # see https://www.b-list.org/weblog/2008/dec/24/admin/
+        # initial perm checks (including group ones, eg observateurs)
+        allow = super().has_change_permission(request, obj)
+        if not allow:
+            return False
+        # every staff user with create perm can create new erps
+        if obj is None:
+            return True
+        return obj.editable_by(request.user)
+
+    def publish(self, request, queryset):
+        queryset.update(published=True)
+
+    publish.short_description = "Publier"
 
     def renseignee(self, instance):
         return instance.accessibilite is not None
@@ -315,18 +311,16 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     renseignee.boolean = True
     renseignee.short_description = "Renseignée"
 
-    def voie_ou_lieu_dit(self, instance):
-        if instance.voie is not None:
-            num = ""
-            if instance.numero is not None:
-                num = instance.numero
-            return (num + " " + instance.voie).strip()
-        elif instance.lieu_dit is not None:
-            return instance.lieu_dit
-        else:
-            return "Inconnu"
+    def save_model(self, request, obj, form, change):
+        if not change or obj.user is None:
+            obj.user = request.user
 
-    voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
+        super().save_model(request, obj, form, change)
+
+    def unpublish(self, request, queryset):
+        queryset.update(published=False)
+
+    unpublish.short_description = "Mettre hors ligne"
 
     def view_link(self, obj):
         return mark_safe(f'<a target="_blank" href="{obj.get_absolute_url()}">Voir</a>')
@@ -340,6 +334,19 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         )
 
     view_search.short_description = ""
+
+    def voie_ou_lieu_dit(self, instance):
+        if instance.voie is not None:
+            num = ""
+            if instance.numero is not None:
+                num = instance.numero
+            return (num + " " + instance.voie).strip()
+        elif instance.lieu_dit is not None:
+            return instance.lieu_dit
+        else:
+            return "Inconnu"
+
+    voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
 
 
 # General admin heading & labels
