@@ -1,87 +1,85 @@
 {% load static %}
 
 <div class="a4a-erp-details">
-  <div class="a4a-erp-header">
-    {% for label in erp.accessibilite.labels.all %}
-      {% if label.nom != "Aucun" and label.nom != "Autre" %}
-      <img class="a4a-label-logo" src="{% static "img/labels" %}/{{ label.slug }}.jpg"
-        alt="{{ label.nom }}" title="Cet établissement a obtenu le label {{ label.nom }}"
-        aria-label="Cet établissement a obtenu le label {{ label.nom }}" />
-      {% endif %}
-    {% endfor %}
-    <h3>
-      {{ erp.nom }}
-      {% if erp.activite %}
-      <small class="text-muted">{{ erp.activite.nom }}</small>
-      {% endif %}
-    </h3>
-    <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
-    <div>
-      {% if erp.contact_email %}
-        <a class="d-inline-block mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
-          <i class="icon icon-mail"></i> Contacter cet ERP
-        </a>
-      {% endif %}
-      {% if erp.site_internet %}
-        <a class="d-inline-block mr-2" href="{{ erp.site_internet }}" target="_blank">
-          <i class="icon icon-globe"></i> Site internet
-        </a>
-      {% endif %}
-      {% if erp.telephone %}
-        <a class="d-inline-block mr-2" href="tel:{{ erp.telephone }}">
-          <i class="icon icon-phone"></i> {{ erp.telephone }}
-        </a>
-      {% endif %}
-      {% if user.is_superuser %}
-        <a class="d-inline-block mr-2" href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
-          <i class="icon icon-pencil"></i> Éditer dans l'admin
-        </a>
-      {% endif %}
+  <header class="a4a-erp-header row">
+    <div class="col-sm-8">
+      <h3>
+        {{ erp.nom }}
+        {% if erp.activite %}
+        <small class="text-muted">{{ erp.activite.nom }}</small>
+        {% endif %}
+      </h3>
+      <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
+      <div>
+        {% if erp.contact_email %}
+          <a class="d-inline-block mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
+            <i class="icon icon-mail"></i> Contacter cet ERP
+          </a>
+        {% endif %}
+        {% if erp.site_internet %}
+          <a class="d-inline-block mr-2" href="{{ erp.site_internet }}" target="_blank">
+            <i class="icon icon-globe"></i> Site internet
+          </a>
+        {% endif %}
+        {% if erp.telephone %}
+          <a class="d-inline-block mr-2" href="tel:{{ erp.telephone }}">
+            <i class="icon icon-phone"></i> {{ erp.telephone }}
+          </a>
+        {% endif %}
+        {% if user.is_superuser %}
+          <a class="d-inline-block mr-2" href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
+            <i class="icon icon-pencil"></i> Éditer dans l'admin
+          </a>
+        {% endif %}
+      </div>
     </div>
-  </div>
+    <div class="col-sm-4">
+      <div class="a4a-accessibility-group d-flex justify-content-end align-center">
+      {% for label in erp.accessibilite.labels.all %}
+        {% if label.nom != "Aucun" and label.nom != "Autre" %}
+        <div class="a4a-accessibility-label">
+          <img class="a4a-accessibility-label-logo" src="{% static "img/labels" %}/{{ label.slug }}.jpg"
+            alt="{{ label.nom }}" title="Cet établissement a obtenu le label {{ label.nom }}"
+            aria-label="Cet établissement a obtenu le label {{ label.nom }}" />
+          <div class="text-center">
+            {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
+            <span title="Handicap auditif">
+              <i class="icon icon-handicap-auditif" style="font-size:120%"></i>
+              <span class="sr-only">Handicap auditif</span>
+            </span>
+            {% endif %}
+            {% if "mental" in erp.accessibilite.labels_familles_handicap %}
+            <span title="Handicap mental">
+              <img class="a4a-handicap-mental" src="{% static "img/handicap_mental.svg" %}" alt="Handicap mental"/>
+              <span class="sr-only">Handicap mental</span>
+            </span>
+            {% endif %}
+            {% if "moteur" in erp.accessibilite.labels_familles_handicap %}
+            <span title="Handicap moteur">
+              <i class="icon icon-handicap-moteur" style="font-size:105%"></i>
+              <span class="sr-only">Handicap moteur</span>
+            </span>
+            {% endif %}
+            {% if "visuel" in erp.accessibilite.labels_familles_handicap %}
+            <span title="Handicap visuel">
+              <i class="icon icon-handicap-visuel"></i>
+              <span class="sr-only">Handicap visuel</span>
+            </span>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </header>
 
   {% if not accessibilite_data %}
     <div class="alert alert-info">
       Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
     </div>
   {% else %}
-    <div class="d-flex justify-content-between align-items-top">
-      <h4>Accessibilité</h4>
-      <span class="text-right">
-      {% for label in erp.accessibilite.labels.all %}
-        {% if label.nom != "Aucun" %}
-        <span class="badge badge-light ml-2 a4a-badge-lg"
-          title="Cet établissement est labellisé {{ label.nom }}">
-          {{ label.nom }}
-          {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
-          <span title="Handicap auditif">
-            <i class="icon icon-handicap-auditif" style="font-size:120%"></i>
-            <span class="sr-only">Handicap auditif</span>
-          </span>
-          {% endif %}
-          {% if "mental" in erp.accessibilite.labels_familles_handicap %}
-          <span title="Handicap mental">
-            <i class="icon icon-handicap-mental"></i>
-            <span class="sr-only">Handicap mental</span>
-          </span>
-          {% endif %}
-          {% if "moteur" in erp.accessibilite.labels_familles_handicap %}
-          <span title="Handicap moteur">
-            <i class="icon icon-handicap-moteur" style="font-size:105%"></i>
-            <span class="sr-only">Handicap moteur</span>
-          </span>
-          {% endif %}
-          {% if "visuel" in erp.accessibilite.labels_familles_handicap %}
-          <span title="Handicap visuel">
-            <i class="icon icon-handicap-visuel"></i>
-            <span class="sr-only">Handicap visuel</span>
-          </span>
-          {% endif %}
-        </span>
-        {% endif %}
-      {% endfor %}
-      </span>
-    </div>
+    <h4>Accessibilité</h4>
 
     <div class="row">
       <div class="col-md-4">

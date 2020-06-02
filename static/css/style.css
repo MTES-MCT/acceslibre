@@ -78,15 +78,28 @@ h6 {
   width: 34px;
 }
 
+.a4a-handicap-mental {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
 .a4a-erp-header {
   border-bottom: 1px solid #ddd;
   margin-bottom: 1em;
 }
 
-.a4a-label-logo {
-  border-radius: 8px;
-  float: right;
+.a4a-accessibility-group {
+  background: #fff;
+}
+
+.a4a-accessibility-label {
+  text-align: center;
   margin-left: 2px;
+}
+
+.a4a-accessibility-label-logo {
+  border-radius: 8px;
   width: 80px;
   height: 80px;
 }
