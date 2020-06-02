@@ -44,26 +44,22 @@
           <div class="text-center">
             {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
             <span title="Handicap auditif">
-              <i class="icon icon-handicap-auditif" style="font-size:120%"></i>
-              <span class="sr-only">Handicap auditif</span>
+              <img class="a4a-handicap-icon" src="{% static "img/handicap/auditif.svg" %}" alt="Handicap auditif" />
             </span>
             {% endif %}
             {% if "mental" in erp.accessibilite.labels_familles_handicap %}
             <span title="Handicap mental">
-              <img class="a4a-handicap-mental" src="{% static "img/handicap_mental.svg" %}" alt="Handicap mental"/>
-              <span class="sr-only">Handicap mental</span>
+              <img class="a4a-handicap-icon" src="{% static "img/handicap/mental.svg" %}" alt="Handicap mental"/>
             </span>
             {% endif %}
             {% if "moteur" in erp.accessibilite.labels_familles_handicap %}
             <span title="Handicap moteur">
-              <i class="icon icon-handicap-moteur" style="font-size:105%"></i>
-              <span class="sr-only">Handicap moteur</span>
+              <img class="a4a-handicap-icon" src="{% static "img/handicap/moteur.svg" %}" alt="Handicap moteur" />
             </span>
             {% endif %}
             {% if "visuel" in erp.accessibilite.labels_familles_handicap %}
             <span title="Handicap visuel">
-              <i class="icon icon-handicap-visuel"></i>
-              <span class="sr-only">Handicap visuel</span>
+              <img class="a4a-handicap-icon" src="{% static "img/handicap/visuel.svg" %}" alt="Handicap visuel" />
             </span>
             {% endif %}
           </div>
