@@ -67,6 +67,11 @@ urlpatterns = [
     path("mon_compte/", views.mon_compte, name="mon_compte"),
     path("mon_compte/erps/", views.mes_erps, name="mes_erps"),
     ############################################################################
+    # Ajout ERP
+    ############################################################################
+    path("contrib/start/", views.contrib_start, name="contrib_start"),
+    path("contrib/find/", views.contrib_find, name="contrib_find"),
+    ############################################################################
     # Admin stuff
     ############################################################################
     path(

@@ -222,3 +222,11 @@ def mes_erps(request):
 
 def to_betagouv(self):
     return redirect("https://beta.gouv.fr/startups/access4all.html")
+
+
+def contrib_start(request):
+    return render(request, template_name="contrib/0-start.html")
+
+
+def contrib_find(request):
+    return render(request, template_name="contrib/1-find.html")

@@ -257,3 +257,85 @@ h6 {
   white-space: nowrap;
   text-align: left;
 }
+
+/* Steps progress */
+
+.StepProgress {
+  position: relative;
+  padding-left: 45px;
+  list-style: none;
+}
+.StepProgress::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 10px;
+  height: 100%;
+  border-left: 2px solid #ccc;
+}
+.StepProgress-item {
+  position: relative;
+  counter-increment: list;
+  padding-top: 4px;
+}
+.StepProgress-item:not(:last-child) {
+  padding-bottom: 20px;
+}
+.StepProgress-item::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  left: -30px;
+  height: 100%;
+  width: 10px;
+}
+.StepProgress-item::after {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  color: #999;
+  content: counter(list);
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  height: 32px;
+  left: -45px;
+  line-height: 26px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 32px;
+}
+.StepProgress-item.is-done::before {
+  border-left: 2px solid green;
+}
+.StepProgress-item.is-done::after {
+  background-color: green;
+  border: 2px solid green;
+  color: #fff;
+  content: "\44";
+  font-family: "access4all" !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  speak: none;
+  text-align: center;
+  text-transform: none !important;
+  vertical-align: middle;
+}
+.StepProgress-item.current {
+  font-weight: bold;
+}
+.StepProgress-item.current::before {
+  border-left: 2px solid green;
+}
+.StepProgress-item.current::after {
+  color: blue;
+  border: 2px solid blue;
+}
+.StepProgress strong {
+  display: block;
+}
