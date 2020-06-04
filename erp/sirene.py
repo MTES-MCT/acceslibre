@@ -35,7 +35,11 @@ SIRET_API_REQUEST_FIELDS = [
     CODE_INSEE,
 ]
 
-api = ApiInsee(key=settings.INSEE_API_CLIENT_KEY, secret=settings.INSEE_API_SECRET_KEY,)
+
+def get_client():
+    return ApiInsee(
+        key=settings.INSEE_API_CLIENT_KEY, secret=settings.INSEE_API_SECRET_KEY,
+    )
 
 
 def base64_decode_etablissement(data):
@@ -94,7 +98,9 @@ def find_etablissements(nom, code_postal=None, limit=5):
     if code_postal is not None:
         q = q & Field(CODE_POSTAL, code_postal)
     try:
-        response = api.siret(q=q, nombre=limit, masquerValeursNulles=True,).get()
+        response = (
+            get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,).get()
+        )
     except HTTPError as err:
         if err.code == 404:
             raise RuntimeError("Aucun résultat")
@@ -109,7 +115,7 @@ def find_etablissements(nom, code_postal=None, limit=5):
 
 def get_siret_info(value):
     try:
-        response = api.siret(value, champs=SIRET_API_REQUEST_FIELDS,).get()
+        response = get_client().siret(value, champs=SIRET_API_REQUEST_FIELDS,).get()
     except HTTPError:
         raise RuntimeError("Le service INSEE est indisponible")
     assert "etablissement" in response
