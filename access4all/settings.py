@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "logentry_admin",
     "rest_framework",
     "rest_framework_gis",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -164,6 +165,10 @@ USE_I18N = True
 USE_L10N = False
 USE_TZ = True
 
+# Crispy forms
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 # Email configuration (production uses Mailjet - see README)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -199,6 +204,13 @@ GRAPH_MODELS = {
     "all_applications": True,
     "group_models": True,
 }
+
+# Insee API
+# Vous pouvez obtenir vos clés ici :
+# https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee
+
+INSEE_API_CLIENT_KEY = get_env_variable("INSEE_API_CLIENT_KEY")
+INSEE_API_SECRET_KEY = get_env_variable("INSEE_API_SECRET_KEY")
 
 # Local settings
 try:

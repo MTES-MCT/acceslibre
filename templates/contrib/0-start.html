@@ -1,7 +1,62 @@
 {% extends "contrib/base.html" %}
 
+{% load a4a %}
+{% load crispy_forms_tags %}
+
 {% block page_title %}Ajouter un établissement{% endblock%}
 
 {% block contrib_content %}
-  <h3>Ajouter un établissement</h3<
+  {% if name_search_results %}
+  <h3 class="mb-3">Sélectionner mon établissement</h3>
+  {% for result in name_search_results %}
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <strong>{{ result.nom }}</strong><br>
+        {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
+        {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
+        {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+      </div>
+      <div class="">
+        <a class="btn btn-primary" href="{% url "contrib_admin_infos" %}?data={{ result|encode_etablissement_data }}">
+          Sélectionner<br>cet établissement
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <h3 class="mb-3">Trouver mon établissement</h3>
+  <div class="row">
+    <div class="col-sm-6">
+      <form method="post" class="card p-3 mb-3">
+        <p><strong>Je recherche mon établissement</strong></p>
+        <input type="hidden" name="type" value="by-name">
+        {% csrf_token %}
+        {% if name_search_error %}
+          <div class="alert alert-danger">{{ name_search_error }}</div>
+        {% endif %}
+        {{ name_form|crispy }}
+        <button type="submit" class="btn btn-primary">Rechercher mon établissement</button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <form method="post" class="card p-3 mb-3">
+        <input type="hidden" name="type" value="by-siret">
+        <p><strong>Mon établissement dispose d'un numéro SIRET</strong></p>
+        {% csrf_token %}
+        {% if siret_search_error %}
+          <div class="alert alert-danger">{{ siret_search_error }}</div>
+        {% endif %}
+        {{ siret_form|crispy }}
+        <button type="submit" class="btn btn-primary">Rechercher mon établissement</button>
+      </form>
+      <div class="text-center mt-4">
+        <a href="{% url "contrib_admin_infos" %}">
+          Je préfère saisir les données<br>de mon établissement manuellement
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 {% endblock %}

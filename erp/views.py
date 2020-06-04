@@ -1,13 +1,22 @@
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.db.models import F
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.views import generic
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
-from .forms import ViewAccessibiliteForm
+from .forms import (
+    PublicErpForm,
+    PublicEtablissementSearchForm,
+    PublicSiretSearchForm,
+    ViewAccessibiliteForm,
+)
 from .models import Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
+from . import sirene
 
 
 def handler403(request, exception):
@@ -43,7 +52,9 @@ def home(request):
         if request.GET.get("access") == "1":
             erp_qs = erp_qs.having_an_accessibilite()
         search_results = {
-            "communes": Commune.objects.search(search).order_by("-population")[:4],
+            "communes": Commune.objects.search(search).order_by(
+                F("population").desc(nulls_last=True)
+            )[:4],
             "erps": erp_qs[:10],
         }
     return render(
@@ -224,9 +235,66 @@ def to_betagouv(self):
     return redirect("https://beta.gouv.fr/startups/access4all.html")
 
 
+@login_required
 def contrib_start(request):
-    return render(request, template_name="contrib/0-start.html")
+    siret_search_error = None
+    name_search_error = None
+    name_search_results = None
+    siret_form = PublicSiretSearchForm()
+    name_form = PublicEtablissementSearchForm()
+    if request.method == "POST":
+        if request.POST.get("type") == "by-name":
+            name_form = PublicEtablissementSearchForm(request.POST)
+            if name_form.is_valid():
+                try:
+                    name_search_results = sirene.find_etablissements(
+                        name_form.cleaned_data["nom"],
+                        name_form.cleaned_data["code_postal"],
+                    )
+                except RuntimeError as err:
+                    name_search_error = str(err)
+        elif request.POST.get("type") == "by-siret":
+            siret_form = PublicSiretSearchForm(request.POST)
+            if siret_form.is_valid():
+                try:
+                    siret_info = sirene.get_siret_info(siret_form.cleaned_data["siret"])
+                    data = sirene.base64_encode_etablissement(siret_info)
+                    return redirect(reverse("contrib_admin_infos") + "?data=" + data)
+                except RuntimeError as err:
+                    siret_search_error = err
+        else:
+            raise RuntimeError("Unsupported action type")
+    return render(
+        request,
+        template_name="contrib/0-start.html",
+        context={
+            "name_form": name_form,
+            "name_search_results": name_search_results,
+            "siret_form": siret_form,
+            "name_search_error": name_search_error,
+            "siret_search_error": siret_search_error,
+        },
+    )
 
 
-def contrib_find(request):
-    return render(request, template_name="contrib/1-find.html")
+@login_required
+def contrib_admin_infos(request):
+    data_error = None
+    if request.method == "POST":
+        form = PublicErpForm(request.POST)
+        if form.is_valid():
+            raise RuntimeError("TODO: form is ok, what next?")
+    else:
+        data = request.GET.get("data")
+        if data is not None:
+            try:
+                data = sirene.base64_decode_etablissement(data)
+            except RuntimeError as err:
+                data = None
+                data_error = err
+        form = PublicErpForm(data)
+    return render(
+        request,
+        template_name="contrib/1-admin-infos.html",
+        context={"form": form, "data_error": data_error},
+    )

@@ -70,7 +70,7 @@ urlpatterns = [
     # Ajout ERP
     ############################################################################
     path("contrib/start/", views.contrib_start, name="contrib_start"),
-    path("contrib/find/", views.contrib_find, name="contrib_find"),
+    path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),
     ############################################################################
     # Admin stuff
     ############################################################################

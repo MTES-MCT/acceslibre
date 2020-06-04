@@ -5,6 +5,7 @@ from django.forms import widgets
 
 from . import schema
 from . import geocoder
+from . import sirene
 from .models import (
     Activite,
     Accessibilite,
@@ -198,3 +199,35 @@ class ViewAccessibiliteForm(forms.ModelForm):
             if empty_section:
                 data.pop(section)
         return data
+
+
+class PublicErpForm(forms.ModelForm):
+    class Meta:
+        model = Erp
+        fields = (
+            "nom",
+            "activite",
+            "numero",
+            "voie",
+            "lieu_dit",
+            "code_postal",
+            "commune",
+            "siret",
+        )
+
+
+class PublicEtablissementSearchForm(forms.Form):
+    nom = forms.CharField(label="Nom de l'établissement", required=False)
+    code_postal = forms.CharField(label="Code postal de la commune", required=False)
+
+
+class PublicSiretSearchForm(forms.Form):
+    siret = forms.CharField(label="Numéro SIRET", required=False)
+
+    def clean_siret(self):
+        # XXX: should also be used at the model level
+        siret = sirene.validate_siret(self.cleaned_data["siret"])
+        if not siret:
+            raise ValidationError("Ce numéro SIRET est invalide")
+        self.cleaned_data["siret"] = siret
+        return self.cleaned_data["siret"]

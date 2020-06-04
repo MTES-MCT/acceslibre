@@ -38,6 +38,9 @@ django-registration = "*"
 splinter = {extras = ["django"],version = "*"}
 flake8 = "*"
 django-contact-form = "*"
+django-crispy-forms = "*"
+python-stdnum = "*"
+api-insee = "*"
 
 [requires]
 python_version = "3.7"

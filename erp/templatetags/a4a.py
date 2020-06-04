@@ -1,6 +1,7 @@
 from django import template
 
 from erp import schema
+from erp import sirene
 
 register = template.Library()
 
@@ -37,3 +38,8 @@ def addclass(value, arg):
 @register.filter(name="get_equipement_label")
 def get_equipement_label(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
+
+
+@register.filter(name="encode_etablissement_data")
+def encode_etablissement_data(value):
+    return sirene.base64_encode_etablissement(value)

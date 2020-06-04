@@ -14,7 +14,7 @@ from django.utils.text import slugify
 from . import managers
 from . import schema
 from .departements import DEPARTEMENTS
-
+from .sirene import validate_siret
 
 FULLTEXT_CONFIG = "french_unaccent"
 
@@ -390,6 +390,13 @@ class Erp(models.Model):
             )
         else:
             self.commune_ext = matches[0]
+
+        # SIRET
+        if self.siret is not None:
+            siret = validate_siret(self.siret)
+            if siret is None:
+                raise ValidationError({"siret": "Ce numéro SIRET est invalide."})
+            self.siret = siret
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
