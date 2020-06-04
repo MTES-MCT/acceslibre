@@ -3,11 +3,10 @@ import logging
 import json
 
 from api_insee import ApiInsee
-from api_insee.criteria import Field
+from api_insee.criteria import Field, Periodic
 from django.conf import settings
 from stdnum.fr import siret
 from stdnum import exceptions as stdnum_ex
-from urllib.parse import quote_plus
 from urllib.error import HTTPError
 
 
@@ -17,6 +16,8 @@ COMMUNE = "libelleCommuneEtablissement"
 COMPLEMENT = "complementAdresseEtablissement"
 INDICE = "indiceRepetitionEtablissement"
 NUMERO = "numeroVoieEtablissement"
+NOM_ENSEIGNE = "denominationUsuelleEtablissement"
+PERIODES_ETABLISSEMENT = "periodesEtablissement"
 PERSONNE_NOM = "nomUniteLegale"
 PERSONNE_PRENOM = "prenomUsuelUniteLegale"
 RAISON_SOCIALE = "denominationUniteLegale"
@@ -26,19 +27,20 @@ TYPE_VOIE = "typeVoieEtablissement"
 VOIE = "libelleVoieEtablissement"
 
 SIRET_API_REQUEST_FIELDS = [
-    STATUT,
-    RAISON_SOCIALE,
-    PERSONNE_NOM,
-    PERSONNE_PRENOM,
-    SIRET,
-    COMPLEMENT,
-    NUMERO,
-    INDICE,
-    TYPE_VOIE,
-    VOIE,
+    CODE_INSEE,
     CODE_POSTAL,
     COMMUNE,
-    CODE_INSEE,
+    COMPLEMENT,
+    INDICE,
+    NOM_ENSEIGNE,
+    NUMERO,
+    PERSONNE_NOM,
+    PERSONNE_PRENOM,
+    RAISON_SOCIALE,
+    SIRET,
+    STATUT,
+    TYPE_VOIE,
+    VOIE,
 ]
 
 logger = logging.getLogger(__name__)
@@ -73,18 +75,21 @@ def format_siret(value):
 
 
 def parse_etablissement(etablissement):
-    # To the reader: I'm so sorry.
-    assert "uniteLegale" in etablissement
+    # unité légale
     uniteLegale = etablissement.get("uniteLegale")
-    assert SIRET in etablissement
     siret = etablissement.get(SIRET)
-    assert "adresseEtablissement" in etablissement
+    # adresse
     adresseEtablissement = etablissement.get("adresseEtablissement")
     numeroVoieEtablissement = adresseEtablissement.get(NUMERO)
     indiceRepetitionEtablissement = adresseEtablissement.get(INDICE)
     typeVoieEtablissement = adresseEtablissement.get(TYPE_VOIE)
     libelleVoieEtablissement = adresseEtablissement.get(VOIE)
-    nom = uniteLegale.get(RAISON_SOCIALE)
+    # périodes et résolution du nom
+    periodesEtablissement = etablissement.get(PERIODES_ETABLISSEMENT, [])
+    if len(periodesEtablissement) > 0:
+        nom = periodesEtablissement[0].get(NOM_ENSEIGNE)
+    if not nom:
+        nom = uniteLegale.get(RAISON_SOCIALE)
     if not nom:
         nom = " ".join(
             [
@@ -112,15 +117,21 @@ def parse_etablissement(etablissement):
 
 
 def find_etablissements(nom, code_postal=None, limit=5):
-    q = Field(RAISON_SOCIALE, f"{quote_plus(nom)}~") | Field(
-        PERSONNE_NOM, f"{quote_plus(nom)}~"
-    )
+    # FIXME: grouping with parens
     if code_postal is not None:
-        q = q & Field(CODE_POSTAL, code_postal)
+        q = Field(CODE_POSTAL, code_postal)
+    q = q & (
+        Field(RAISON_SOCIALE, f'"{nom}"~')
+        | Field(PERSONNE_NOM, f'"{nom}"~')
+        | Periodic(Field(NOM_ENSEIGNE, f'"{nom}"'))
+    )
     try:
-        response = (
-            get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,).get()
+        request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
+        # FIXME: ugly temporary workaround for https://github.com/ln-nicolas/api_insee/issues/3
+        request._url_params["q"] = (
+            request._url_params["q"].replace(" AND ", " AND (") + ")"
         )
+        response = request.get()
     except HTTPError as err:
         if err.code == 404:
             raise RuntimeError("Aucun résultat")
