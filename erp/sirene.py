@@ -4,12 +4,14 @@ import json
 
 from api_insee import ApiInsee
 from api_insee.criteria import Field, Periodic
+from api_insee.exeptions.request_exeption import RequestExeption
 from django.conf import settings
 from stdnum.fr import siret
 from stdnum import exceptions as stdnum_ex
 from urllib.error import HTTPError
 
 
+ACTIVITE_NAF = "activitePrincipaleUniteLegale"
 CODE_INSEE = "codeCommuneEtablissement"
 CODE_POSTAL = "codePostalEtablissement"
 COMMUNE = "libelleCommuneEtablissement"
@@ -27,6 +29,7 @@ TYPE_VOIE = "typeVoieEtablissement"
 VOIE = "libelleVoieEtablissement"
 
 SIRET_API_REQUEST_FIELDS = [
+    ACTIVITE_NAF,
     CODE_INSEE,
     CODE_POSTAL,
     COMMUNE,
@@ -75,9 +78,10 @@ def format_siret(value):
 
 
 def parse_etablissement(etablissement):
+    siret = etablissement.get(SIRET)
     # unité légale
     uniteLegale = etablissement.get("uniteLegale")
-    siret = etablissement.get(SIRET)
+    naf = uniteLegale.get(ACTIVITE_NAF)
     # adresse
     adresseEtablissement = etablissement.get("adresseEtablissement")
     numeroVoieEtablissement = adresseEtablissement.get(NUMERO)
@@ -99,6 +103,7 @@ def parse_etablissement(etablissement):
         ).strip()
     return dict(
         actif=uniteLegale.get(STATUT) == "A",
+        naf=naf,
         nom=nom,
         siret=siret,
         numero=" ".join(
@@ -116,8 +121,25 @@ def parse_etablissement(etablissement):
     )
 
 
+def execute_request(request):
+    try:
+        return request.get()
+    except RequestExeption as err:
+        logger.error(err)
+        raise RuntimeError("Recherche impossible.")
+    except HTTPError as err:
+        if err.code == 404:
+            raise RuntimeError("Aucun résultat")
+        elif err.code == 400:
+            logger.error(err)
+            raise RuntimeError("Recherche malformée")
+        else:
+            logger.error(err)
+            raise RuntimeError("Le service INSEE est indisponible.")
+
+
 def find_etablissements(nom, code_postal=None, limit=5):
-    # FIXME: grouping with parens
+    nom = nom.replace('"', "")
     if code_postal is not None:
         q = Field(CODE_POSTAL, code_postal)
     q = q & (
@@ -125,35 +147,22 @@ def find_etablissements(nom, code_postal=None, limit=5):
         | Field(PERSONNE_NOM, f'"{nom}"~')
         | Periodic(Field(NOM_ENSEIGNE, f'"{nom}"'))
     )
-    try:
-        request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
-        # FIXME: ugly temporary workaround for https://github.com/ln-nicolas/api_insee/issues/3
-        request._url_params["q"] = (
-            request._url_params["q"].replace(" AND ", " AND (") + ")"
-        )
-        response = request.get()
-    except HTTPError as err:
-        if err.code == 404:
-            raise RuntimeError("Aucun résultat")
-        else:
-            logger.error(err)
-            raise RuntimeError("Le service INSEE est indisponible.")
-    assert "etablissements" in response
+    request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
+    # FIXME: ugly temporary workaround for https://github.com/ln-nicolas/api_insee/issues/3
+    request._url_params["q"] = request._url_params["q"].replace(" AND ", " AND (") + ")"
+    response = execute_request(request)
     results = []
-    for etablissement in response["etablissements"]:
+    for etablissement in response.get("etablissements", []):
         results.append(parse_etablissement(etablissement))
+    if len(results) == 0:
+        raise RuntimeError("Aucun résultat")
     return results
 
 
 def get_siret_info(value):
-    try:
-        response = get_client().siret(value, champs=SIRET_API_REQUEST_FIELDS,).get()
-        print(response)
-    except HTTPError as err:
-        logger.error(err)
-        raise RuntimeError("Le service INSEE est indisponible")
-    assert "etablissement" in response
-    return parse_etablissement(response["etablissement"])
+    request = get_client().siret(value, champs=SIRET_API_REQUEST_FIELDS,)
+    response = execute_request(request)
+    return parse_etablissement(response.get("etablissement"))
 
 
 def validate_siret(value):

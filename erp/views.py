@@ -38,7 +38,7 @@ def home(request):
         .geolocated()
         .select_related("activite", "commune_ext")
         .having_an_accessibilite()
-        .order_by("-created_at")[:18]
+        .order_by("-created_at")[:17]
     )
     search_results = None
     search = request.GET.get("q")
