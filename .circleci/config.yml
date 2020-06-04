@@ -7,6 +7,8 @@ jobs:
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DATABASE_URL: postgres://root:password@localhost/circle_test
+          INSEE_API_CLIENT_KEY: fake-insee-api-client-key
+          INSEE_API_SECRET_KEY: fake-insee-api-secret-key
       - image: circleci/postgres:12.2-postgis
         environment:
           POSTGRES_USER: root
