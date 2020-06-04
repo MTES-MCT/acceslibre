@@ -13,6 +13,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div>
         <strong>{{ result.nom }}</strong><br>
+        Siret: {{ result.siret }}<br>
         {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
         {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
         {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
