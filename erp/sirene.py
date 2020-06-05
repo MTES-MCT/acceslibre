@@ -18,7 +18,9 @@ COMMUNE = "libelleCommuneEtablissement"
 COMPLEMENT = "complementAdresseEtablissement"
 INDICE = "indiceRepetitionEtablissement"
 NUMERO = "numeroVoieEtablissement"
-NOM_ENSEIGNE = "denominationUsuelleEtablissement"
+NOM_ENSEIGNE1 = "enseigne1Etablissement"
+NOM_ENSEIGNE2 = "denominationUsuelleEtablissement"
+NOM_ENSEIGNE3 = "denominationUsuelle1UniteLegale"
 PERIODES_ETABLISSEMENT = "periodesEtablissement"
 PERSONNE_NOM = "nomUniteLegale"
 PERSONNE_PRENOM = "prenomUsuelUniteLegale"
@@ -35,7 +37,9 @@ SIRET_API_REQUEST_FIELDS = [
     COMMUNE,
     COMPLEMENT,
     INDICE,
-    NOM_ENSEIGNE,
+    NOM_ENSEIGNE1,
+    NOM_ENSEIGNE2,
+    NOM_ENSEIGNE3,
     NUMERO,
     PERSONNE_NOM,
     PERSONNE_PRENOM,
@@ -45,6 +49,51 @@ SIRET_API_REQUEST_FIELDS = [
     TYPE_VOIE,
     VOIE,
 ]
+
+SIRENE_VOIES = {
+    "ALL": "Allée",
+    "AV": "Avenue",
+    "BD": "Boulevard",
+    "CAR": "Carrefour",
+    "CHE": "Chemin",
+    "CHS": "Chaussée",
+    "CITE": "Cité",
+    "COR": "Corniche",
+    "CRS": "Cours",
+    "DOM": "Domaine",
+    "DSC": "Descente",
+    "ECA": "Ecart",
+    "ESP": "Esplanade",
+    "FG": "Faubourg",
+    "GR": "Grande Rue",
+    "HAM": "Hameau",
+    "HLE": "Halle",
+    "IMP": "Impasse",
+    "LD": "Lieu dit",
+    "LOT": "Lotissement",
+    "MAR": "Marché",
+    "MTE": "Montée",
+    "PAS": "Passage",
+    "PL": "Place",
+    "PLN": "Plaine",
+    "PLT": "Plateau",
+    "PRO": "Promenade",
+    "PRV": "Parvis",
+    "QUA": "Quartier",
+    "QUAI": "Quai",
+    "RES": "Résidence",
+    "RLE": "Ruelle",
+    "ROC": "Rocade",
+    "RPT": "Rond Point",
+    "RTE": "Route",
+    "RUE": "Rue",
+    "SEN": "Sentier",
+    "SQ": "Square",
+    "TPL": "Terre-plein",
+    "TRA": "Traverse",
+    "VLA": "Villa",
+    "VLGE": "Village",
+}
 
 logger = logging.getLogger(__name__)
 
@@ -77,6 +126,28 @@ def format_siret(value):
     return siret.format(value, separator="")
 
 
+def extract_etablissement_nom(etablissement):
+    nom = None
+    uniteLegale = etablissement.get("uniteLegale")
+    # périodes et résolution du nom
+    # TODO: NOM_ENSEIGNE3, concat infos
+    periodesEtablissement = etablissement.get(PERIODES_ETABLISSEMENT, [])
+    if len(periodesEtablissement) > 0:
+        nom = periodesEtablissement[0].get(NOM_ENSEIGNE1)
+        if not nom:
+            nom = periodesEtablissement[0].get(NOM_ENSEIGNE2)
+    if not nom:
+        nom = uniteLegale.get(RAISON_SOCIALE)
+    if not nom:
+        nom = " ".join(
+            [
+                uniteLegale.get(PERSONNE_NOM) or "",
+                uniteLegale.get(PERSONNE_PRENOM) or "",
+            ]
+        ).strip()
+    return nom
+
+
 def parse_etablissement(etablissement):
     siret = etablissement.get(SIRET)
     # unité légale
@@ -87,24 +158,13 @@ def parse_etablissement(etablissement):
     numeroVoieEtablissement = adresseEtablissement.get(NUMERO)
     indiceRepetitionEtablissement = adresseEtablissement.get(INDICE)
     typeVoieEtablissement = adresseEtablissement.get(TYPE_VOIE)
+    if typeVoieEtablissement and typeVoieEtablissement in SIRENE_VOIES:
+        typeVoieEtablissement = SIRENE_VOIES.get(typeVoieEtablissement)
     libelleVoieEtablissement = adresseEtablissement.get(VOIE)
-    # périodes et résolution du nom
-    periodesEtablissement = etablissement.get(PERIODES_ETABLISSEMENT, [])
-    if len(periodesEtablissement) > 0:
-        nom = periodesEtablissement[0].get(NOM_ENSEIGNE)
-    if not nom:
-        nom = uniteLegale.get(RAISON_SOCIALE)
-    if not nom:
-        nom = " ".join(
-            [
-                uniteLegale.get(PERSONNE_NOM) or "",
-                uniteLegale.get(PERSONNE_PRENOM) or "",
-            ]
-        ).strip()
     return dict(
         actif=uniteLegale.get(STATUT) == "A",
         naf=naf,
-        nom=nom,
+        nom=extract_etablissement_nom(etablissement),
         siret=siret,
         numero=" ".join(
             [numeroVoieEtablissement or "", indiceRepetitionEtablissement or "",]
@@ -122,6 +182,7 @@ def parse_etablissement(etablissement):
 
 
 def execute_request(request):
+    print(request.url)
     try:
         return request.get()
     except RequestExeption as err:
@@ -140,12 +201,15 @@ def execute_request(request):
 
 def find_etablissements(nom, code_postal=None, limit=5):
     nom = nom.replace('"', "")
+    nom_search = f'"{nom}"~'
     if code_postal is not None:
         q = Field(CODE_POSTAL, code_postal)
     q = q & (
-        Field(RAISON_SOCIALE, f'"{nom}"~')
-        | Field(PERSONNE_NOM, f'"{nom}"~')
-        | Periodic(Field(NOM_ENSEIGNE, f'"{nom}"'))
+        Field(RAISON_SOCIALE, nom_search)
+        | Field(NOM_ENSEIGNE3, nom_search)
+        | Field(PERSONNE_NOM, nom_search)
+        | Periodic(Field(NOM_ENSEIGNE1, nom_search))
+        | Periodic(Field(NOM_ENSEIGNE2, nom_search))
     )
     request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
     # FIXME: ugly temporary workaround for https://github.com/ln-nicolas/api_insee/issues/3

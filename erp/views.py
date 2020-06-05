@@ -250,6 +250,7 @@ def contrib_start(request):
                     name_search_results = sirene.find_etablissements(
                         name_form.cleaned_data["nom"],
                         name_form.cleaned_data["code_postal"],
+                        limit=10,
                     )
                 except RuntimeError as err:
                     name_search_error = str(err)
