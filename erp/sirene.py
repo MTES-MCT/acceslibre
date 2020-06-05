@@ -99,9 +99,12 @@ logger = logging.getLogger(__name__)
 
 
 def get_client():
-    return ApiInsee(
-        key=settings.INSEE_API_CLIENT_KEY, secret=settings.INSEE_API_SECRET_KEY,
-    )
+    try:
+        return ApiInsee(
+            key=settings.INSEE_API_CLIENT_KEY, secret=settings.INSEE_API_SECRET_KEY,
+        )
+    except HTTPError:
+        raise RuntimeError("Le service INSEE est indisponible.")
 
 
 def base64_decode_etablissement(data):
@@ -127,25 +130,26 @@ def format_siret(value):
 
 
 def extract_etablissement_nom(etablissement):
-    nom = None
+    nom_parts = []
     uniteLegale = etablissement.get("uniteLegale")
+    nom_parts.append(uniteLegale.get(NOM_ENSEIGNE3))
     # périodes et résolution du nom
-    # TODO: NOM_ENSEIGNE3, concat infos
     periodesEtablissement = etablissement.get(PERIODES_ETABLISSEMENT, [])
     if len(periodesEtablissement) > 0:
-        nom = periodesEtablissement[0].get(NOM_ENSEIGNE1)
-        if not nom:
-            nom = periodesEtablissement[0].get(NOM_ENSEIGNE2)
-    if not nom:
-        nom = uniteLegale.get(RAISON_SOCIALE)
-    if not nom:
-        nom = " ".join(
+        nom_parts.append(periodesEtablissement[0].get(NOM_ENSEIGNE1))
+        nom_parts.append(periodesEtablissement[0].get(NOM_ENSEIGNE2))
+    nom_parts.append(uniteLegale.get(RAISON_SOCIALE))
+    nom_parts.append(
+        " ".join(
             [
                 uniteLegale.get(PERSONNE_NOM) or "",
                 uniteLegale.get(PERSONNE_PRENOM) or "",
             ]
         ).strip()
-    return nom
+    )
+    return " ".join(
+        set([part for part in nom_parts if part is not None and part != ""])
+    )
 
 
 def parse_etablissement(etablissement):
@@ -182,7 +186,6 @@ def parse_etablissement(etablissement):
 
 
 def execute_request(request):
-    print(request.url)
     try:
         return request.get()
     except RequestExeption as err:
@@ -200,9 +203,13 @@ def execute_request(request):
 
 
 def find_etablissements(nom, code_postal=None, limit=5):
-    nom = nom.replace('"', "")
-    nom_search = f'"{nom}"~'
+    nom = nom.replace('"', "").strip()
+    if " " in nom:
+        nom_search = f'"{nom}"~2'
+    else:
+        nom_search = f"{nom}~"
     if code_postal is not None:
+        # FIXME: commune ou code postal
         q = Field(CODE_POSTAL, code_postal)
     q = q & (
         Field(RAISON_SOCIALE, nom_search)
