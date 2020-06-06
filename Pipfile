@@ -8,7 +8,7 @@ pylint = "*"
 black = "*"
 
 [packages]
-django = "==3.0.6"
+django = "==3.0.7"
 requests = "*"
 django-reset-migrations = "*"
 django-import-export = "*"
@@ -43,7 +43,7 @@ python-stdnum = "*"
 api-insee = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true
