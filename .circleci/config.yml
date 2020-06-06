@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/access4all
     docker:
-      - image: circleci/python:3.7.7
+      - image: circleci/python:3.8.2
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DATABASE_URL: postgres://root:password@localhost/circle_test
