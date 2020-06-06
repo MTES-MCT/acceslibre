@@ -107,6 +107,7 @@ h6 {
 .a4a-app-title {
   max-height: 58px;
 }
+
 .a4a-app-title h2 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -122,6 +123,7 @@ h6 {
 .icon {
   vertical-align: middle;
 }
+
 .a4a-locate-icon::before {
   line-height: inherit !important;
 }
@@ -145,6 +147,7 @@ h6 {
   width: 100%;
   z-index: 2000;
 }
+
 .a4a-autocomplete-items {
   background: #fff;
   border: 1px solid #d4d4d4;
@@ -179,6 +182,7 @@ h6 {
   position: relative;
   width: 80px;
 }
+
 .lds-ring div {
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   border: 8px solid #fff;
@@ -191,19 +195,24 @@ h6 {
   position: absolute;
   width: 64px;
 }
+
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
 }
+
 .lds-ring div:nth-child(2) {
   animation-delay: -0.3s;
 }
+
 .lds-ring div:nth-child(3) {
   animation-delay: -0.15s;
 }
+
 @keyframes lds-ring {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -219,21 +228,26 @@ h6 {
   overflow: auto;
   padding: 2px 0;
 }
+
 .autocomplete-suggestion {
   overflow: hidden;
   padding: 3px 12px;
   white-space: nowrap;
 }
+
 .autocomplete-selected {
   background: #f0f0f0;
 }
+
 .autocomplete-suggestions strong {
-  color: #3399ff;
+  color: #39f;
   font-weight: normal;
 }
+
 .autocomplete-group {
   padding: 2px 5px;
 }
+
 .autocomplete-group strong {
   border-bottom: 1px solid #000;
   display: block;
@@ -265,6 +279,7 @@ h6 {
   padding-left: 45px;
   list-style: none;
 }
+
 .StepProgress::before {
   display: inline-block;
   content: "";
@@ -275,14 +290,17 @@ h6 {
   height: 100%;
   border-left: 2px solid #ccc;
 }
+
 .StepProgress-item {
   position: relative;
   counter-increment: list;
   padding-top: 4px;
 }
+
 .StepProgress-item:not(:last-child) {
   padding-bottom: 20px;
 }
+
 .StepProgress-item::before {
   display: inline-block;
   content: "";
@@ -291,6 +309,7 @@ h6 {
   height: 100%;
   width: 10px;
 }
+
 .StepProgress-item::after {
   background-color: #fff;
   border-radius: 50%;
@@ -309,15 +328,17 @@ h6 {
   top: 0;
   width: 32px;
 }
+
 .StepProgress-item.is-done::before {
   border-left: 2px solid green;
 }
+
 .StepProgress-item.is-done::after {
   background-color: green;
   border: 2px solid green;
   color: #fff;
   content: "\44";
-  font-family: "access4all" !important;
+  font-family: "access4all", sans-serif !important;
   font-style: normal !important;
   font-variant: normal !important;
   font-weight: normal !important;
@@ -326,16 +347,20 @@ h6 {
   text-transform: none !important;
   vertical-align: middle;
 }
+
 .StepProgress-item.current {
   font-weight: bold;
 }
+
 .StepProgress-item.current::before {
   border-left: 2px solid green;
 }
+
 .StepProgress-item.current::after {
   color: blue;
   border: 2px solid blue;
 }
+
 .StepProgress strong {
   display: block;
 }
