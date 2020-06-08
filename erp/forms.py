@@ -215,6 +215,10 @@ class PublicErpForm(forms.ModelForm):
             "siret",
         )
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["activite"].required = True
+
 
 class PublicEtablissementSearchForm(forms.Form):
     nom = forms.CharField(label="Nom de l'établissement", required=False)
