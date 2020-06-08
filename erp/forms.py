@@ -257,8 +257,8 @@ class PublicErpAdminInfosForm(BaseErpForm):
 
 
 class PublicLocalisationForm(forms.Form):
-    lat = forms.CharField(widget=forms.HiddenInput)
-    lon = forms.CharField(widget=forms.HiddenInput)
+    lat = forms.DecimalField(widget=forms.HiddenInput)
+    lon = forms.DecimalField(widget=forms.HiddenInput)
 
     def clean(self):
         try:

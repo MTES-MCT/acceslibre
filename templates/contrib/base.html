@@ -6,14 +6,30 @@
 <div class="row">
   <div class="col-md-3 mb-3">
     <ul class="StepProgress">
-      <li class="StepProgress-item current">Trouver mon établissement</li>
-      <li class="StepProgress-item">Venir dans l'établissement</li>
-      <li class="StepProgress-item">Atteindre l'entrée</li>
-      <li class="StepProgress-item">Entrée</li>
-      <li class="StepProgress-item">Accueil</li>
-      <li class="StepProgress-item">Intérieur</li>
-      <li class="StepProgress-item">Autre</li>
-      <li class="StepProgress-item">Publier</li>
+      <li class="StepProgress-item{% if step == 1 %} current{% endif %}{% if step > 1 %} is-done{% endif %}">
+        Trouver mon établissement
+      </li>
+      <li class="StepProgress-item{% if step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}">
+        Venir dans l'établissement
+      </li>
+      <li class="StepProgress-item{% if step == 3 %} current{% endif %}{% if step > 3 %} is-done{% endif %}">
+        Atteindre l'entrée
+      </li>
+      <li class="StepProgress-item{% if step == 4 %} current{% endif %}{% if step > 4 %} is-done{% endif %}">
+        Entrée
+      </li>
+      <li class="StepProgress-item{% if step == 5 %} current{% endif %}{% if step > 5 %} is-done{% endif %}">
+        Accueil
+      </li>
+      <li class="StepProgress-item{% if step == 6 %} current{% endif %}{% if step > 6 %} is-done{% endif %}">
+        Intérieur
+      </li>
+      <li class="StepProgress-item{% if step == 7 %} current{% endif %}{% if step > 7 %} is-done{% endif %}">
+        Autre
+      </li>
+      <li class="StepProgress-item{% if step == 8 %} current{% endif %}{% if step > 8 %} is-done{% endif %}">
+        Publier
+      </li>
     </ul>
   </div>
   <div class="col-md-9">

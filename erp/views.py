@@ -271,6 +271,7 @@ def contrib_start(request):
         request,
         template_name="contrib/0-start.html",
         context={
+            "step": 1,
             "name_form": name_form,
             "name_search_results": name_search_results,
             "siret_form": siret_form,
@@ -305,7 +306,12 @@ def contrib_admin_infos(request):
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
-        context={"form": form, "has_data": data is not None, "data_error": data_error},
+        context={
+            "step": 1,
+            "form": form,
+            "has_data": data is not None,
+            "data_error": data_error,
+        },
     )
 
 
@@ -317,7 +323,7 @@ def contrib_localisation(request, erp_slug):
         if form.is_valid():
             lat = form.cleaned_data.get("lat")
             lon = form.cleaned_data.get("lon")
-            erp.geom = Point((lat, lon), srid=4326,)
+            erp.geom = Point(x=lon, y=lat, srid=4326)
             erp.save()
             return redirect(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
         else:
@@ -329,7 +335,7 @@ def contrib_localisation(request, erp_slug):
     return render(
         request,
         template_name="contrib/2-localisation.html",
-        context={"erp": erp, "form": form,},
+        context={"step": 1, "erp": erp, "form": form,},
     )
 
 
@@ -337,5 +343,7 @@ def contrib_localisation(request, erp_slug):
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, published=False, user=request.user)
     return render(
-        request, template_name="contrib/3-transport.html", context={"erp": erp},
+        request,
+        template_name="contrib/3-transport.html",
+        context={"step": 2, "erp": erp},
     )
