@@ -77,7 +77,51 @@ class AdminCommuneForm(forms.ModelForm):
     )
 
 
-class AdminErpForm(forms.ModelForm):
+class BaseErpForm(forms.ModelForm):
+    def __init__(self, *args, geocode=None, **kwargs):
+        self.do_geocode = geocode if geocode else geocoder.geocode
+        super().__init__(*args, **kwargs)
+
+    def get_adresse(self):
+        parts = [
+            self.cleaned_data[f]
+            for f in ["numero", "voie", "lieu_dit", "code_postal", "commune",]
+            if f in self.cleaned_data and self.cleaned_data[f] is not None
+        ]
+        return " ".join(parts).strip()
+
+    def adresse_changed(self):
+        try:
+            return (
+                self.cleaned_data["numero"] != self.instance.numero
+                or self.cleaned_data["voie"] != self.instance.voie
+                or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
+                or self.cleaned_data["code_postal"] != self.instance.code_postal
+                or self.cleaned_data["commune"] != self.instance.commune
+            )
+        except KeyError:
+            return True
+
+    def geocode(self):
+        adresse = self.get_adresse()
+        locdata = self.do_geocode(adresse)
+        if not locdata or locdata["geom"] is None:
+            raise ValidationError(
+                {
+                    "voie": f"Adresse non localisable : {adresse}. "
+                    "Veuillez vérifier votre saisie ou contactez un administrateur."
+                }
+            )
+        self.cleaned_data["geom"] = locdata["geom"]
+        self.cleaned_data["numero"] = locdata["numero"]
+        self.cleaned_data["voie"] = locdata["voie"]
+        self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
+        self.cleaned_data["code_postal"] = locdata["code_postal"]
+        self.cleaned_data["commune"] = locdata["commune"]
+        self.cleaned_data["code_insee"] = locdata["code_insee"]
+
+
+class AdminErpForm(BaseErpForm):
     class Meta:
         model = Erp
         exclude = (
@@ -104,52 +148,9 @@ class AdminErpForm(forms.ModelForm):
         help_text="Entrez l'adresse de l'ERP et sélectionnez la suggestion correspondante dans la liste.",
     )
 
-    def __init__(self, *args, geocode=None, **kwargs):
-        self.geocode = geocode if geocode else geocoder.geocode
-        super().__init__(*args, **kwargs)
-
-    def get_adresse(self):
-        parts = [
-            self.cleaned_data[f]
-            for f in ["numero", "voie", "lieu_dit", "code_postal", "commune",]
-            if f in self.cleaned_data and self.cleaned_data[f] is not None
-        ]
-        return " ".join(parts).strip()
-
-    def adresse_changed(self):
-        try:
-            return (
-                self.cleaned_data["numero"] != self.instance.numero
-                or self.cleaned_data["voie"] != self.instance.voie
-                or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
-                or self.cleaned_data["code_postal"] != self.instance.code_postal
-                or self.cleaned_data["commune"] != self.instance.commune
-            )
-        except KeyError:
-            return True
-
     def clean(self):
-        addr = self.get_adresse()
-        if addr == "":
-            return
         if self.cleaned_data["geom"] is None or self.adresse_changed():
-            # User hasn't set a geom point yet, or the address has been manually
-            # updated: we geocode the address
-            locdata = self.geocode(addr)
-            if not locdata or locdata["geom"] is None:
-                raise ValidationError(
-                    {
-                        "voie": f"Adresse non localisable : {addr}. "
-                        "Veuillez vérifier votre saisie ou contactez un administrateur."
-                    }
-                )
-            self.cleaned_data["geom"] = locdata["geom"]
-            self.cleaned_data["numero"] = locdata["numero"]
-            self.cleaned_data["voie"] = locdata["voie"]
-            self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
-            self.cleaned_data["code_postal"] = locdata["code_postal"]
-            self.cleaned_data["commune"] = locdata["commune"]
-            self.cleaned_data["code_insee"] = locdata["code_insee"]
+            self.geocode()
 
 
 class ViewAccessibiliteForm(forms.ModelForm):
@@ -201,7 +202,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
         return data
 
 
-class PublicErpForm(forms.ModelForm):
+class PublicErpAdminInfosForm(BaseErpForm):
     class Meta:
         model = Erp
         fields = (
@@ -213,12 +214,58 @@ class PublicErpForm(forms.ModelForm):
             "code_postal",
             "commune",
             "siret",
+            "geom",
         )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["activite"].required = True
         self.fields["activite"].help_text = "Domaine d'activité de l'établissement"
+
+    def clean(self):
+        # geom
+        self.geocode()
+
+        # Unicité du numéro SIRET
+        # FIXME: should be enforced in model
+        siret = self.cleaned_data["siret"]
+        if siret and Erp.objects.filter(siret=siret).count() > 0:
+            raise ValidationError(
+                {
+                    "siret": f"Un établissement disposant du numéro SIRET {siret} "
+                    "existe déjà dans la base de données."
+                }
+            )
+        # Unicité du nom et de l'adresse
+        nom = self.cleaned_data.get("nom")
+        voie = self.cleaned_data.get("voie")
+        lieu_dit = self.cleaned_data.get("lieu_dit")
+        code_postal = self.cleaned_data.get("code_postal")
+        commune = self.cleaned_data.get("commune")
+        exists = Erp.objects.filter(
+            nom=nom,
+            voie=voie,
+            lieu_dit=lieu_dit,
+            code_postal=code_postal,
+            commune=commune,
+        ).count()
+        if exists > 0:
+            raise ValidationError(
+                "Un établissement dont le nom et l'adresse correspondent à "
+                "ces informations existe déjà dans la base de données."
+            )
+
+
+class PublicLocalisationForm(forms.Form):
+    lat = forms.CharField(widget=forms.HiddenInput)
+    lon = forms.CharField(widget=forms.HiddenInput)
+
+    def clean(self):
+        try:
+            self.cleaned_data["lat"] = float(self.cleaned_data["lat"])
+            self.cleaned_data["lon"] = float(self.cleaned_data["lon"])
+        except (TypeError, ValueError):
+            raise ValidationError("Données de localisation invalides.")
 
 
 class PublicEtablissementSearchForm(forms.Form):

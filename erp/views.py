@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.gis.geos import Point
 from django.core.exceptions import PermissionDenied
 from django.db.models import F
 from django.http import JsonResponse
@@ -9,8 +10,9 @@ from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
 from .forms import (
-    PublicErpForm,
+    PublicErpAdminInfosForm,
     PublicEtablissementSearchForm,
+    PublicLocalisationForm,
     PublicSiretSearchForm,
     ViewAccessibiliteForm,
 )
@@ -283,9 +285,15 @@ def contrib_admin_infos(request):
     data = None
     data_error = None
     if request.method == "POST":
-        form = PublicErpForm(request.POST)
+        form = PublicErpAdminInfosForm(request.POST)
         if form.is_valid():
-            raise RuntimeError("TODO: form is ok, what next?")
+            erp = form.save(commit=False)
+            erp.published = False
+            erp.user = request.user
+            erp.save()
+            return redirect(
+                reverse("contrib_localisation", kwargs={"erp_slug": erp.slug})
+            )
     else:
         data = request.GET.get("data")
         if data is not None:
@@ -293,9 +301,41 @@ def contrib_admin_infos(request):
                 data = sirene.base64_decode_etablissement(data)
             except RuntimeError as err:
                 data_error = err
-        form = PublicErpForm(data)
+        form = PublicErpAdminInfosForm(data)
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
         context={"form": form, "has_data": data is not None, "data_error": data_error},
+    )
+
+
+@login_required
+def contrib_localisation(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, published=False, user=request.user)
+    if request.method == "POST":
+        form = PublicLocalisationForm(request.POST)
+        if form.is_valid():
+            lat = form.cleaned_data.get("lat")
+            lon = form.cleaned_data.get("lon")
+            erp.geom = Point((lat, lon), srid=4326,)
+            erp.save()
+            return redirect(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
+        else:
+            raise RuntimeError("plop")
+    elif erp.geom is not None:
+        form = PublicLocalisationForm(
+            {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
+        )
+    return render(
+        request,
+        template_name="contrib/2-localisation.html",
+        context={"erp": erp, "form": form,},
+    )
+
+
+@login_required
+def contrib_transport(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, published=False, user=request.user)
+    return render(
+        request, template_name="contrib/3-transport.html", context={"erp": erp},
     )

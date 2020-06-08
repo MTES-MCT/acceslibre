@@ -9,15 +9,33 @@
   <h3 class="mb-3">Ajouter mon établissement</h3>
 
   {% if has_data %}
-  <div class="alert alert-info">
+  <div class="alert alert-success">
     <i class="icon icon-info-circled"></i> Le formulaire ci-dessous est prérempli avec
     les informations que nous avons pu récupérer depuis le registre Sirene de l'INSEE.
-    N'hésitez pas compléter ou mettre à jour les informations qu'il contient.
+    <strong>N'hésitez pas à les mettre à jour si elles s'avéraient imprécises ou erronées.</strong>
   </div>
   {% endif %}
 
   <form action="" method="POST" class="mb-4">
     {% csrf_token %}
+
+    {% if form.non_field_errors %}
+    <div class="alert alert-warning">
+      <i class="icon icon-exclamation-circle"></i>
+      Attention, des erreurs ont été rencontrées.
+      <ul class="mt-1">
+        {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <p class="text-muted"><small>
+      Les champs marqué d'une astérisque (*) sont obligatoires. Pour l'adresse,
+      le renseignement d'une voie ou d'un lieu dit est obligatoire.
+    </small></p>
+
     {% if data_error %}
       <div class="alert alert-danger">{{ data_error }}</div>
     {% endif %}
@@ -29,6 +47,7 @@
         {{ form.activite|as_crispy_field }}
       </div>
     </div>
+    {{ form.siret|as_crispy_field }}
     <div class="row">
       <div class="col-sm-3">
         {{ form.numero|as_crispy_field }}
@@ -46,7 +65,6 @@
         {{ form.commune|as_crispy_field }}
       </div>
     </div>
-    {{ form.siret|as_crispy_field }}
     <button type="submit" class="btn btn-primary mr-2">Suivant</button>
     ou <a href="javascript:history.go(-1)">revenir en arrière</a>
   </form>
