@@ -280,6 +280,7 @@ def contrib_start(request):
 
 @login_required
 def contrib_admin_infos(request):
+    data = None
     data_error = None
     if request.method == "POST":
         form = PublicErpForm(request.POST)
@@ -291,11 +292,10 @@ def contrib_admin_infos(request):
             try:
                 data = sirene.base64_decode_etablissement(data)
             except RuntimeError as err:
-                data = None
                 data_error = err
         form = PublicErpForm(data)
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
-        context={"form": form, "data_error": data_error},
+        context={"form": form, "has_data": data is not None, "data_error": data_error},
     )

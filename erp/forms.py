@@ -201,17 +201,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
         return data
 
 
-class SiretFieldMixin(forms.ModelForm):
-    def clean_siret(self):
-        # XXX: should also be used at the model level
-        siret = sirene.validate_siret(self.cleaned_data["siret"])
-        if not siret:
-            raise ValidationError("Ce numéro SIRET est invalide")
-        self.cleaned_data["siret"] = siret
-        return self.cleaned_data["siret"]
-
-
-class PublicErpForm(SiretFieldMixin, forms.ModelForm):
+class PublicErpForm(forms.ModelForm):
     class Meta:
         model = Erp
         fields = (
@@ -228,6 +218,7 @@ class PublicErpForm(SiretFieldMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["activite"].required = True
+        self.fields["activite"].help_text = "Domaine d'activité de l'établissement"
 
 
 class PublicEtablissementSearchForm(forms.Form):
@@ -235,11 +226,10 @@ class PublicEtablissementSearchForm(forms.Form):
     code_postal = forms.CharField(label="Code postal de la commune", required=False)
 
 
-class PublicSiretSearchForm(SiretFieldMixin, forms.Form):
+class PublicSiretSearchForm(forms.Form):
     siret = forms.CharField(label="Numéro SIRET", required=False)
 
     def clean_siret(self):
-        # XXX: should also be used at the model level
         siret = sirene.validate_siret(self.cleaned_data["siret"])
         if not siret:
             raise ValidationError("Ce numéro SIRET est invalide")
