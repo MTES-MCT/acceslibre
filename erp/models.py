@@ -13,8 +13,8 @@ from django.utils.text import slugify
 
 from . import managers
 from . import schema
+from . import sirene
 from .departements import DEPARTEMENTS
-from .sirene import validate_siret
 
 FULLTEXT_CONFIG = "french_unaccent"
 
@@ -225,13 +225,6 @@ class Erp(models.Model):
         help_text="Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées",
         on_delete=models.SET_NULL,
     )
-    # code_naf = models.CharField(
-    #     max_length=5,
-    #     null=True,
-    #     blank=True,
-    #     verbose_name="Code NAF",
-    #     help_text="Code NAF de l'établissement, si applicable",
-    # )
     published = models.BooleanField(
         default=True,
         verbose_name="Publié",
@@ -400,7 +393,7 @@ class Erp(models.Model):
 
         # SIRET
         if self.siret is not None:
-            siret = validate_siret(self.siret)
+            siret = sirene.validate_siret(self.siret)
             if siret is None:
                 raise ValidationError({"siret": "Ce numéro SIRET est invalide."})
             self.siret = siret
