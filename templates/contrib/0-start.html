@@ -21,15 +21,17 @@
             <span class="badge badge-warning">Fermé</span>
             {% endif %}
             <br>
-            Siret: {{ result.siret }}<br>
-            {% if result.naf %}Code NAF: {{ result.naf }}<br>{% endif %}
-            {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-            {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-            {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+            <small>
+              SIRET: {{ result.siret }}{% if result.naf %} - NAF: {{ result.naf }}{% endif %}<br>
+              {% if result.naf %}{{ result.naf|get_naf_label }}<br>{% endif %}
+              {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
+              {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
+              {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+            </small>
           </div>
           {% if result.actif %}
           <div>
-            <a class="btn btn-primary btn-block"
+            <a class="btn btn-primary btn-sm btn-block"
               href="{% url "contrib_admin_infos" %}?data={{ result|encode_etablissement_data }}">
               Sélectionner<br>cet établissement
             </a>

@@ -225,6 +225,13 @@ class Erp(models.Model):
         help_text="Domaine d'activité de l'ERP. Attention, la recherche se fait sur les lettres accentuées",
         on_delete=models.SET_NULL,
     )
+    # code_naf = models.CharField(
+    #     max_length=5,
+    #     null=True,
+    #     blank=True,
+    #     verbose_name="Code NAF",
+    #     help_text="Code NAF de l'établissement, si applicable",
+    # )
     published = models.BooleanField(
         default=True,
         verbose_name="Publié",

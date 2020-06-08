@@ -1,5 +1,6 @@
 from django import template
 
+from erp import naf
 from erp import schema
 from erp import sirene
 
@@ -43,3 +44,8 @@ def get_equipement_label(value):
 @register.filter(name="encode_etablissement_data")
 def encode_etablissement_data(value):
     return sirene.base64_encode_etablissement(value)
+
+
+@register.filter(name="get_naf_label")
+def get_naf_label(value):
+    return naf.get_naf_label(value, "inconnu")
