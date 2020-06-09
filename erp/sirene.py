@@ -105,6 +105,9 @@ def get_client():
         )
     except HTTPError:
         raise RuntimeError("Le service INSEE est indisponible.")
+    except Exception:
+        # api_insee raise standard exceptions when unable to connect to the auth service ;(
+        raise RuntimeError("Le service INSEE est inaccessible.")
 
 
 def base64_decode_etablissement(data):

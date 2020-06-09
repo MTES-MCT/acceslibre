@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import widgets
+from django.utils.safestring import mark_safe
 
 from . import schema
 from . import geocoder
@@ -216,6 +217,15 @@ class PublicErpAdminInfosForm(BaseErpForm):
             "siret",
             "geom",
         )
+        labels = {"siret": "Numéro SIRET"}
+        help_texts = {
+            "lieu_dit": "Lieu-dit ou complément d'adresse",
+            "siret": mark_safe(
+                'Le numéro <a href="https://fr.wikipedia.org/wiki/SIRET" '
+                'target="_blank">SIRET</a> à 14 chiffres de l\'établissement.'
+            ),
+            "voie": "Le type et le nom de la voie, par exemple: rue Charles Péguy, ou place Jean Jaurès",
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
