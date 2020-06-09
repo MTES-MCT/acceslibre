@@ -18,6 +18,7 @@ L'environnement de développement recommandé est Ubuntu 18.04 LTS, disposant de
 
 Créez un fichier `.env` à la racine du dépôt, définissant les variables d'environnement suivantes :
 
+- `DJANGO_SETTINGS_MODULE`: Le nom du module Python définissant la configuration Django. Sa valeur peut être `access4all.settings_prod` pour l'environnement de production, ou `access4all.settings_dev` pour l'environnement de développement local.
 - `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
 - `SENTRY_DSN`: La chaine de connexion à [Sentry](https://sentry.io/), l'outil de rapport d'erreur que nous utilisons en production.
 - `EMAIL_HOST`: Host du serveur SMTP
@@ -34,6 +35,9 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 - En production, nous utilisons les services de [Mailjet](https://app.mailjet.com/) pour gérer l'envoi d'emails.
 - Pour travailler localement, l'utilisation du [backend d'email "console"](https://docs.djangoproject.com/en/3.0/topics/email/#console-backend) est recommandée.
 - La prise en compte de l'assignation des variables d'environnement définies dans ce fichier `.env` ne sont effectives qu'après avoir activé l'environnement virtuel de développement Python, au moyen de la commande `pipenv shell`. L'exécution de cette commande est également nécessaire pour prendre en compte chaque modification de leur valeur.
+- Vous pouvez lancer un serveur de développement en positionnant la variable d'environnement `DJANGO_SETTINGS_MODULE` manuellement à l'appel de la ligne de commande :
+
+      $ DJANGO_SETTINGS_MODULE=access4all.settings_prod ./manage.py runserver
 
 ## Installation
 
@@ -117,68 +121,7 @@ L'application est alors accessible à l'adresse [http://127.0.0.1:8000/](http://
 
 ## Configuration locale (développement)
 
-La configuration de production des paramètres applicatifs se fait dans le fichier `access4all/settings.py`. Il est cependant possible de surcharger les paramètres en créant un fichier `local_settings.py` dans le même répertoire, qui sera alors interprété localement pour servir l'application.
-
-Par exemple :
-
-```python
-DEBUG = True
-
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-]
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-INSTALLED_APPS = [
-    "django_extensions",
-    "nested_admin",
-    "import_export",
-    "reset_migrations",
-    "django_admin_listfilter_dropdown",
-    "erp.apps.ErpConfig",
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "django.contrib.gis",
-    "django.contrib.postgres",
-    "corsheaders",
-    "logentry_admin",
-    "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
-    "rest_framework",
-    "rest_framework_gis",
-    "debug_toolbar",
-]
-
-CORS_ORIGIN_ALLOW_ALL = True
-
-MIDDLEWARE = [
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
-
-CACHES = {
-    "default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache",}
-}
-
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
-```
+La configuration de production des paramètres applicatifs se fait dans le fichier `access4all/settings_dev.py`. Vous pouvez également définir votre propre module sur le même modèle et l'importer par le biais de la variable d'environnement `DJANGO_SETTINGS_MODULE`.
 
 ## Générer et appliquer les migrations du modèle de données
 

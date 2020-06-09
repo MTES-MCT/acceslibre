@@ -45,12 +45,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = False
 
-# FIXME: this should eventually be provided by some env var
-ALLOWED_HOSTS = [
-    "access4all.osc-fr1.scalingo.io",
-    "access4all.beta.gouv.fr",
-]
-
 # Static files
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "staticfiles"))
 STATIC_URL = "/static/"
@@ -73,7 +67,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.gis",
     "django.contrib.postgres",
+    "corsheaders",
     "logentry_admin",
+    "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
     "rest_framework",
     "rest_framework_gis",
     "crispy_forms",
@@ -90,16 +86,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = [
-    "https://access4all.beta.gouv.fr",
-    "http://localhost:8000",
-    "http://localhost:3000",
-]
-CORS_ALLOW_METHODS = [
-    "GET",
-    "OPTIONS",
-]
+CORS_ORIGIN_ALLOW_ALL = True
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
@@ -196,9 +183,6 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_OPEN = True
 REGISTRATION_SALT = "a4a-registration"
 
-# Cache
-CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",}}
-
 # graphviz
 GRAPH_MODELS = {
     "all_applications": True,
@@ -211,9 +195,3 @@ GRAPH_MODELS = {
 
 INSEE_API_CLIENT_KEY = get_env_variable("INSEE_API_CLIENT_KEY")
 INSEE_API_SECRET_KEY = get_env_variable("INSEE_API_SECRET_KEY")
-
-# Local settings
-try:
-    from .local_settings import *  # noqa
-except ImportError:
-    pass
