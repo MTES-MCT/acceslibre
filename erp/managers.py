@@ -56,6 +56,16 @@ class CommuneQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
+    def exists_by_siret(self, siret):
+        if not siret:
+            return False
+        return self.filter(siret=siret).count() > 0
+
+    def exists_by_name_adresse(self, **kwargs):
+        if len(kwargs.keys()) == 0:
+            return False
+        return self.filter(**kwargs).count() > 0
+
     def in_commune(self, commune):
         return self.filter(commune_ext=commune)
 

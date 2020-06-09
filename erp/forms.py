@@ -239,7 +239,7 @@ class PublicErpAdminInfosForm(BaseErpForm):
         # Unicité du numéro SIRET
         # FIXME: should be enforced in model
         siret = self.cleaned_data["siret"]
-        if siret and Erp.objects.filter(siret=siret).count() > 0:
+        if siret and Erp.objects.exists_by_siret(siret):
             raise ValidationError(
                 {
                     "siret": f"Un établissement disposant du numéro SIRET {siret} "
@@ -248,21 +248,20 @@ class PublicErpAdminInfosForm(BaseErpForm):
             )
         # Unicité du nom et de l'adresse
         nom = self.cleaned_data.get("nom")
-        voie = self.cleaned_data.get("voie")
-        lieu_dit = self.cleaned_data.get("lieu_dit")
-        code_postal = self.cleaned_data.get("code_postal")
-        commune = self.cleaned_data.get("commune")
-        exists = Erp.objects.filter(
-            nom=nom,
-            voie=voie,
-            lieu_dit=lieu_dit,
-            code_postal=code_postal,
-            commune=commune,
-        ).count()
+        adresse = self.get_adresse()
+        exists = Erp.objects.exists_by_name_adresse(
+            nom__iexact=self.cleaned_data.get("nom"),
+            voie__iexact=self.cleaned_data.get("voie"),
+            lieu_dit__iexact=self.cleaned_data.get("lieu_dit"),
+            code_postal__iexact=self.cleaned_data.get("code_postal"),
+            commune__iexact=self.cleaned_data.get("commune"),
+        )
         if exists > 0:
             raise ValidationError(
-                "Un établissement dont le nom et l'adresse correspondent à "
-                "ces informations existe déjà dans la base de données."
+                mark_safe(
+                    f"L'établissement <b>{nom} - {adresse}</b> "
+                    "existe déjà dans la base de données."
+                )
             )
 
 
