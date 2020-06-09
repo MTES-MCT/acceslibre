@@ -81,6 +81,11 @@ urlpatterns = [
         views.contrib_transport,
         name="contrib_transport",
     ),
+    path(
+        "contrib/contrib_stationnement/<str:erp_slug>/",
+        views.contrib_stationnement,
+        name="contrib_stationnement",
+    ),
     ############################################################################
     # Admin stuff
     ############################################################################

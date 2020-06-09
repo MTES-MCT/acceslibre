@@ -25,13 +25,6 @@ def get_widgets_for_accessibilite():
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
-    class Meta:
-        model = Accessibilite
-        exclude = ("pk",)
-        widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels()
-        help_texts = schema.get_help_texts()
-
     accueil_equipements_malentendants = forms.MultipleChoiceField(
         required=False,
         choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
@@ -48,6 +41,16 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label="Famille(s) de handicap concernées(s)",  # FIXME: use get_label
         help_text=schema.get_help_text("labels_familles_handicap"),
     )
+    # transport_station_presence = forms.ChoiceField(
+    #     choices=schema.NULLABLE_BOOLEAN_CHOICES, required=False, widget=bool_radios()
+    # )
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels()
+        help_texts = schema.get_help_texts()
 
 
 class AdminActiviteForm(forms.ModelForm):

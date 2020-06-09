@@ -10,13 +10,14 @@ from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 
 from .forms import (
+    AdminAccessibiliteForm,
     PublicErpAdminInfosForm,
     PublicEtablissementSearchForm,
     PublicLocalisationForm,
     PublicSiretSearchForm,
     ViewAccessibiliteForm,
 )
-from .models import Activite, Commune, Erp
+from .models import Accessibilite, Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
 from . import sirene
 
@@ -294,9 +295,7 @@ def contrib_admin_infos(request):
             erp.published = False
             erp.user = request.user
             erp.save()
-            return redirect(
-                reverse("contrib_localisation", kwargs={"erp_slug": erp.slug})
-            )
+            return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         data = request.GET.get("data")
         if data is not None:
@@ -327,9 +326,7 @@ def contrib_localisation(request, erp_slug):
             lon = form.cleaned_data.get("lon")
             erp.geom = Point(x=lon, y=lat, srid=4326)
             erp.save()
-            return redirect(reverse("contrib_transport", kwargs={"erp_slug": erp.slug}))
-        else:
-            raise RuntimeError("plop")
+            return redirect("contrib_transport", erp_slug=erp.slug)
     elif erp.geom is not None:
         form = PublicLocalisationForm(
             {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
@@ -343,9 +340,39 @@ def contrib_localisation(request, erp_slug):
 
 @login_required
 def contrib_transport(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, published=False, user=request.user)
+    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
+    if request.method == "POST":
+        form = AdminAccessibiliteForm(request.POST, instance=accessibilite)
+        if form.is_valid():
+            accessibilite = form.save(commit=False)
+            accessibilite.erp = erp
+            accessibilite.save()
+            return redirect("contrib_stationnement", erp_slug=erp.slug)
+    else:
+        form = AdminAccessibiliteForm(instance=accessibilite)
+
     return render(
         request,
         template_name="contrib/3-transport.html",
-        context={"step": 2, "erp": erp},
+        context={"step": 2, "erp": erp, "form": form},
+    )
+
+
+@login_required
+def contrib_stationnement(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    accessibilite = get_object_or_404(Accessibilite, erp__slug=erp_slug)
+    if request.method == "POST":
+        form = AdminAccessibiliteForm(request.POST, instance=accessibilite)
+        if form.is_valid():
+            form.save()
+            return redirect("contrib_stationnement", erp_slug=erp.slug)
+    else:
+        form = AdminAccessibiliteForm(instance=accessibilite)
+
+    return render(
+        request,
+        template_name="contrib/4-stationnement.html",
+        context={"step": 2, "erp": erp, "form": form},
     )

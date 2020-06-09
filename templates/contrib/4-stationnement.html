@@ -11,7 +11,7 @@
 
 {% block contrib_content %}
   <form action="" method="POST" class="a4a-form mb-4">
-    <h3>Venir dans l'établissement</h3>
+    <h3>Stationner dans l'établissement</h3>
 
     <h5 class="mb-3">
       {{ erp.nom }}
@@ -41,10 +41,16 @@
     {% endif %}
 
     <div class="card px-3 pt-3 pb-0 mb-3">
-      {{ form.transport_station_presence }}
+      {{ form.stationnement_presence }}
     </div>
     <div class="card px-3 pt-3 pb-0 mb-3">
-      {{ form.transport_information }}
+      {{ form.stationnement_pmr }}
+    </div>
+    <div class="card px-3 pt-3 pb-0 mb-3">
+      {{ form.stationnement_ext_presence }}
+    </div>
+    <div class="card px-3 pt-3 pb-0 mb-3">
+      {{ form.stationnement_ext_pmr }}
     </div>
 
     <button type="submit" class="btn btn-primary mr-2">Suivant</button>
