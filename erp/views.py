@@ -227,9 +227,11 @@ def mon_compte(request):
 def mes_erps(request):
     if not request.user.is_authenticated:
         raise PermissionDenied
-    erps = Erp.objects.select_related(
-        "accessibilite", "activite", "commune_ext"
-    ).filter(user_id=request.user.pk)
+    erps = (
+        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+        .filter(user_id=request.user.pk)
+        .order_by("-updated_at")
+    )
     return render(request, "compte/mes_erps.html", context={"erps": erps},)
 
 
@@ -237,23 +239,25 @@ def to_betagouv(self):
     return redirect("https://beta.gouv.fr/startups/access4all.html")
 
 
+def find_sirene_etablissements(name_form):
+    results = sirene.find_etablissements(
+        name_form.cleaned_data["nom"], name_form.cleaned_data["code_postal"], limit=10,
+    )
+    for result in results:
+        result["exists"] = Erp.objects.exists_by_siret(result["siret"])
+    return results
+
+
 @login_required
 def contrib_start(request):
-    siret_search_error = None
-    name_search_error = None
-    name_search_results = None
-    siret_form = PublicSiretSearchForm()
-    name_form = PublicEtablissementSearchForm()
+    siret_search_error = name_search_error = name_search_results = None
+    (siret_form, name_form) = (PublicSiretSearchForm(), PublicEtablissementSearchForm())
     if request.method == "POST":
         if request.POST.get("type") == "by-name":
             name_form = PublicEtablissementSearchForm(request.POST)
             if name_form.is_valid():
                 try:
-                    name_search_results = sirene.find_etablissements(
-                        name_form.cleaned_data["nom"],
-                        name_form.cleaned_data["code_postal"],
-                        limit=10,
-                    )
+                    name_search_results = find_sirene_etablissements(name_form)
                 except RuntimeError as err:
                     name_search_error = str(err)
         elif request.POST.get("type") == "by-siret":
@@ -265,8 +269,6 @@ def contrib_start(request):
                     return redirect(reverse("contrib_admin_infos") + "?data=" + data)
                 except RuntimeError as err:
                     siret_search_error = err
-        else:
-            raise RuntimeError("Unsupported action type")
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -317,7 +319,7 @@ def contrib_admin_infos(request):
 
 @login_required
 def contrib_localisation(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, published=False, user=request.user)
+    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
         form = PublicLocalisationForm(request.POST)
         if form.is_valid():

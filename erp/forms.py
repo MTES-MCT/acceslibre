@@ -291,3 +291,13 @@ class PublicSiretSearchForm(forms.Form):
             raise ValidationError("Ce numéro SIRET est invalide")
         self.cleaned_data["siret"] = siret
         return self.cleaned_data["siret"]
+
+    def clean(self):
+        siret = self.cleaned_data.get("siret")
+        if siret and Erp.objects.exists_by_siret(siret):
+            raise ValidationError(
+                {
+                    "siret": f"Un établissement disposant du numéro SIRET {siret} "
+                    "existe déjà dans la base de données."
+                }
+            )
