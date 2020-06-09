@@ -10,16 +10,32 @@
         Trouver mon établissement
       </li>
       <li class="StepProgress-item{% if step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}">
+        {% if erp and step > 2 %}
+        <a href="{% url "contrib_transport" erp_slug=erp.slug %}">Venir dans l'établissement</a>
+        {% else %}
         Venir dans l'établissement
+        {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 3 %} current{% endif %}{% if step > 3 %} is-done{% endif %}">
+        {% if erp and step > 3 %}
+        <a href="{% url "contrib_exterieur" erp_slug=erp.slug %}">Atteindre l'entrée</a>
+        {% else %}
         Atteindre l'entrée
+        {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 4 %} current{% endif %}{% if step > 4 %} is-done{% endif %}">
+        {% if erp and step > 4 %}
+        <a href="{% url "contrib_entree" erp_slug=erp.slug %}">Entrée</a>
+        {% else %}
         Entrée
+        {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 5 %} current{% endif %}{% if step > 5 %} is-done{% endif %}">
+        {% if erp and step > 5 %}
+        <a href="{% url "contrib_accueil" erp_slug=erp.slug %}">Accueil</a>
+        {% else %}
         Accueil
+        {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 6 %} current{% endif %}{% if step > 6 %} is-done{% endif %}">
         Sanitaires
