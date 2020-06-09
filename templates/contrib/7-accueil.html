@@ -1,0 +1,20 @@
+{% extends "contrib/base_access_form.html" %}
+
+{% load a4a %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}L'accueil de l'établissement{% endblock%}
+
+{% block fields_content %}
+  {% include "fields/boolradio.html" with field=form.accueil_visibilite %}
+  {% include "fields/boolradio.html" with field=form.accueil_personnels %}
+  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_nombre_marches %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe %}
+  {% include "fields/boolradio.html" with field=form.accueil_retrecissement %}
+  {% include "fields/boolradio.html" with field=form.accueil_prestations %}
+{% endblock %}

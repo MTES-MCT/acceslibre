@@ -198,12 +198,11 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   function processRules() {
-    // const triggers = {};
     for (let field in rules) {
       const { dependsOn, when, indent } = rules[field];
       const fieldElement = document.querySelector(".form-row.field-" + field);
       if (!fieldElement) {
-        console.warn("Champ introuvable", field);
+        continue;
       }
       dependsOn.forEach(function (trigger) {
         // events

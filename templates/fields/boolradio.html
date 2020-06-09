@@ -1,0 +1,18 @@
+{% load a4a %}
+
+<div class="card mb-3">
+  <div class="card-header">
+    <label for="{{ field.id_for_label }}" class="mb-0">
+      <strong>{{ field.label }}</strong><br>
+    </label>
+  </div>
+  <div class="card-body form-group has-error mb-0 pb-0">
+    <p>{{ field.help_text|safe }}</p>
+    <div class="a4a-form-inline-choices">
+      {{ field }}
+    </div>
+    {% for error in form.name.errors %}
+    <div class="form-text text-danger">{{ error }}</div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{% extends "contrib/base_access_form.html" %}
+
+{% load a4a %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Les sanitaires{% endblock%}
+
+{% block fields_content %}
+  {% include "fields/boolradio.html" with field=form.sanitaires_presence %}
+  {% include "fields/boolradio.html" with field=form.sanitaires_adaptes %}
+{% endblock %}

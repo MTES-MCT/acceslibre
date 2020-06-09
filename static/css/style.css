@@ -272,6 +272,19 @@ h6 {
   text-align: left;
 }
 
+/* Forms */
+
+.a4a-form-inline-choices ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.a4a-form-inline-choices ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 /* Steps progress */
 
 .StepProgress {

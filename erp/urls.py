@@ -77,14 +77,32 @@ urlpatterns = [
         name="contrib_localisation",
     ),
     path(
-        "contrib/contrib_transport/<str:erp_slug>/",
+        "contrib/transport/<str:erp_slug>/",
         views.contrib_transport,
         name="contrib_transport",
     ),
     path(
-        "contrib/contrib_stationnement/<str:erp_slug>/",
+        "contrib/stationnement/<str:erp_slug>/",
         views.contrib_stationnement,
         name="contrib_stationnement",
+    ),
+    path(
+        "contrib/exterieur/<str:erp_slug>/",
+        views.contrib_exterieur,
+        name="contrib_exterieur",
+    ),
+    path(
+        "contrib/entree/<str:erp_slug>/", views.contrib_entree, name="contrib_entree",
+    ),
+    path(
+        "contrib/accueil/<str:erp_slug>/",
+        views.contrib_accueil,
+        name="contrib_accueil",
+    ),
+    path(
+        "contrib/sanitaires/<str:erp_slug>/",
+        views.contrib_sanitaires,
+        name="contrib_sanitaires",
     ),
     ############################################################################
     # Admin stuff

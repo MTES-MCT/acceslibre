@@ -1,59 +1,13 @@
-{% extends "contrib/base.html" %}
+{% extends "contrib/base_access_form.html" %}
 
 {% load a4a %}
 {% load crispy_forms_tags %}
 
-{% block page_title %}Venir dans l'établissement{% endblock%}
+{% block page_title %}Stationner dans l'établissement{% endblock%}
 
-{% block javascript_extras %}
-<!-- TODO: sans doute des trucs de dévoilement progressif ici -->
-{% endblock %}
-
-{% block contrib_content %}
-  <form action="" method="POST" class="a4a-form mb-4">
-    <h3>Stationner dans l'établissement</h3>
-
-    <h5 class="mb-3">
-      {{ erp.nom }}
-      <small class="text-muted">
-        {% if erp.activite %} - {{ erp.activite.nom }}{% endif %}
-        - <em>{{ erp.adresse }}</em>
-      </small>
-    </h5>
-
-    {% csrf_token %}
-
-    <p><small class="text-muted">
-      <i class="icon icon-info-circled"></i> Aucun champ n'est obligatoire. Si
-      vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>.
-    </small></p>
-
-    {% if form.non_field_errors %}
-    <div class="alert alert-warning">
-      <i class="icon icon-exclamation-circle"></i>
-      Attention, des erreurs ont été rencontrées.
-      <ul class="my-1">
-        {% for error in form.non_field_errors %}
-        <li>{{ error }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    <div class="card px-3 pt-3 pb-0 mb-3">
-      {{ form.stationnement_presence }}
-    </div>
-    <div class="card px-3 pt-3 pb-0 mb-3">
-      {{ form.stationnement_pmr }}
-    </div>
-    <div class="card px-3 pt-3 pb-0 mb-3">
-      {{ form.stationnement_ext_presence }}
-    </div>
-    <div class="card px-3 pt-3 pb-0 mb-3">
-      {{ form.stationnement_ext_pmr }}
-    </div>
-
-    <button type="submit" class="btn btn-primary mr-2">Suivant</button>
-    ou <a href="javascript:history.go(-1)">revenir en arrière</a>
-  </form>
+{% block fields_content %}
+  {% include "fields/boolradio.html" with field=form.stationnement_presence %}
+  {% include "fields/boolradio.html" with field=form.stationnement_pmr %}
+  {% include "fields/boolradio.html" with field=form.stationnement_ext_presence %}
+  {% include "fields/boolradio.html" with field=form.stationnement_ext_pmr %}
 {% endblock %}

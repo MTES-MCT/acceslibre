@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load crispy_forms_tags %}
 
-{% block page_title %}Ajouter un établissement{% endblock%}
+{% block page_title %}Localiser mon établissement{% endblock%}
 
 {% block javascript_extras %}
 <script src="https://unpkg.com/leaflet-center-cross@0.0.8/dist/leaflet.CenterCross.js"></script>
@@ -21,10 +21,14 @@
 
   <form action="" method="POST" class="mb-4">
     {% csrf_token %}
-    <div class="card p-3 mb-3">
-      <h5>{{ erp.nom }}</h5>
-      <address class="m-0"><em>{{ erp.adresse }}</em></address>
-    </div>
+
+    <h5 class="mb-3">
+      {{ erp.nom }}
+      <small class="text-muted">
+        {% if erp.activite %} - {{ erp.activite.nom }}{% endif %}
+        - <em>{{ erp.adresse }}</em>
+      </small>
+    </h5>
 
     <div id="erpmap" style="width:100%;height:400px"></div>
 

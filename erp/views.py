@@ -17,7 +17,7 @@ from .forms import (
     PublicSiretSearchForm,
     ViewAccessibiliteForm,
 )
-from .models import Accessibilite, Activite, Commune, Erp
+from .models import Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
 from . import sirene
 
@@ -338,8 +338,9 @@ def contrib_localisation(request, erp_slug):
     )
 
 
-@login_required
-def contrib_transport(request, erp_slug):
+def process_accessibilite_form(request, erp_slug, step, template_name, redirect_route):
+    "Traitement générique des requêtes sur les formulaires d'accessibilité"
+
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     if request.method == "POST":
@@ -348,31 +349,54 @@ def contrib_transport(request, erp_slug):
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
-            return redirect("contrib_stationnement", erp_slug=erp.slug)
+            return redirect(redirect_route, erp_slug=erp.slug)
     else:
         form = AdminAccessibiliteForm(instance=accessibilite)
 
     return render(
         request,
-        template_name="contrib/3-transport.html",
-        context={"step": 2, "erp": erp, "form": form},
+        template_name=template_name,
+        context={"step": step, "erp": erp, "form": form},
+    )
+
+
+@login_required
+def contrib_transport(request, erp_slug):
+    return process_accessibilite_form(
+        request, erp_slug, 2, "contrib/3-transport.html", "contrib_stationnement"
     )
 
 
 @login_required
 def contrib_stationnement(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
-    accessibilite = get_object_or_404(Accessibilite, erp__slug=erp_slug)
-    if request.method == "POST":
-        form = AdminAccessibiliteForm(request.POST, instance=accessibilite)
-        if form.is_valid():
-            form.save()
-            return redirect("contrib_stationnement", erp_slug=erp.slug)
-    else:
-        form = AdminAccessibiliteForm(instance=accessibilite)
+    return process_accessibilite_form(
+        request, erp_slug, 2, "contrib/4-stationnement.html", "contrib_exterieur"
+    )
 
-    return render(
-        request,
-        template_name="contrib/4-stationnement.html",
-        context={"step": 2, "erp": erp, "form": form},
+
+@login_required
+def contrib_exterieur(request, erp_slug):
+    return process_accessibilite_form(
+        request, erp_slug, 3, "contrib/5-exterieur.html", "contrib_entree"
+    )
+
+
+@login_required
+def contrib_entree(request, erp_slug):
+    return process_accessibilite_form(
+        request, erp_slug, 4, "contrib/6-entree.html", "contrib_accueil"
+    )
+
+
+@login_required
+def contrib_accueil(request, erp_slug):
+    return process_accessibilite_form(
+        request, erp_slug, 5, "contrib/7-accueil.html", "contrib_sanitaires"
+    )
+
+
+@login_required
+def contrib_sanitaires(request, erp_slug):
+    return process_accessibilite_form(
+        request, erp_slug, 6, "contrib/8-sanitaires.html", "contrib_autre"
     )
