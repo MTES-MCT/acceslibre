@@ -360,6 +360,7 @@ def process_accessibilite_form(
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
+            form.save_m2m()
             return redirect(redirect_route, erp_slug=erp.slug)
     else:
         form = AdminAccessibiliteForm(instance=accessibilite)

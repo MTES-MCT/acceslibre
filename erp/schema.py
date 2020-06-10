@@ -1,4 +1,6 @@
-# This module is dedicated to describe, expose and handle accessibility fields data
+from django.utils.safestring import mark_safe
+
+# This module describes and handles accessibility fields data
 
 UNKNOWN = "Inconnu"
 UNKNOWN_OR_NA = "Inconnu ou sans objet"
@@ -135,14 +137,18 @@ FIELDS = {
     # Transport
     "transport_station_presence": {
         "label": "Desserte par transports en commun",
-        "help_text": "L'établissement est-il desservi par les transports en commun ?",
+        "help_text": mark_safe(
+            "L'établissement est-il desservi par les transports en commun&nbsp;?"
+        ),
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": None,
     },
     "transport_information": {
         "label": "Informations transports",
-        "help_text": "Préciser ici les informations supplémentaires sur ces transports (type de transport, ligne, nom de l'arrêt, etc) et éventuellement des informations jugées importantes sur le cheminement qui relie le point d'arrêt à l'établissement.",
+        "help_text": mark_safe(
+            "Préciser ici les informations supplémentaires sur ces transports (type de transport, ligne, nom de l'arrêt, etc) et éventuellement des informations jugées importantes sur le cheminement qui relie le point d'arrêt à l'établissement."
+        ),
         "section": SECTION_TRANSPORT,
         "nullable_bool": False,
         "warn_if": None,
@@ -150,28 +156,36 @@ FIELDS = {
     # Stationnement
     "stationnement_presence": {
         "label": "Stationnement dans l'ERP",
-        "help_text": "Existe-t-il une ou plusieurs places de stationnement dans l’établissement ou au sein de la parcelle de l’établissement ?",
+        "help_text": mark_safe(
+            "Existe-t-il une ou plusieurs places de stationnement dans l’établissement ou au sein de la parcelle de l’établissement&nbsp;?"
+        ),
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "stationnement_pmr": {
         "label": "Stationnements PMR dans l'ERP",
-        "help_text": "Existe-t-il une ou plusieurs places de stationnement adaptées dans l’établissement ou au sein de la parcelle de l'établissement ?",
+        "help_text": mark_safe(
+            "Existe-t-il une ou plusieurs places de stationnement adaptées dans l’établissement ou au sein de la parcelle de l'établissement&nbsp;?"
+        ),
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "stationnement_ext_presence": {
         "label": "Stationnement à proximité de l'ERP",
-        "help_text": "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à proximité de l'établissement (200 m) ?",
+        "help_text": mark_safe(
+            "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à proximité de l'établissement (200 m)&nbsp;?"
+        ),
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "stationnement_ext_pmr": {
         "label": "Stationnements PMR à proximité de l'ERP",
-        "help_text": "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à proximité de l’établissement (200 m) ?",
+        "help_text": mark_safe(
+            "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à proximité de l’établissement (200 m)&nbsp;?"
+        ),
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
@@ -179,84 +193,102 @@ FIELDS = {
     # Cheminement extérieur
     "cheminement_ext_presence": {
         "label": "Espace extérieur",
-        "help_text": "L'établissement dispose-t-il d'un espace extérieur qui lui appartient ?",
+        "help_text": mark_safe(
+            "L'établissement dispose-t-il d'un espace extérieur qui lui appartient&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": None,
     },
     "cheminement_ext_terrain_accidente": {
         "label": "Terrain meuble ou accidenté",
-        "help_text": "Le revêtement du cheminement extérieur (entre l’entrée de la parcelle et l’entrée de l’établissement) est-il meuble ou accidenté (pavés, gravillons, terre, herbe, ou toute surface non stabilisée) ?",
+        "help_text": mark_safe(
+            "Le revêtement du cheminement extérieur (entre l’entrée de la parcelle et l’entrée de l’établissement) est-il meuble ou accidenté (pavés, gravillons, terre, herbe, ou toute surface non stabilisée)&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
     },
     "cheminement_ext_plain_pied": {
         "label": "Cheminement de plain-pied",
-        "help_text": "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm ?  Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau.",
+        "help_text": mark_safe(
+            "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;?  Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "cheminement_ext_ascenseur": {
         "label": "Ascenseur/élévateur",
-        "help_text": "Existe-t-il un ascenseur ou un élévateur ?",
+        "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "cheminement_ext_nombre_marches": {
         "label": "Nombre de marches",
-        "help_text": "Indiquer 0 s'il n'y a ni marche ni escalier",
+        "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
     "cheminement_ext_reperage_marches": {
         "label": "Repérage des marches ou de l’escalier",
-        "help_text": "L'escalier est-il sécurisé : nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées ?",
+        "help_text": mark_safe(
+            "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "cheminement_ext_main_courante": {
         "label": "Main courante",
-        "help_text": "L'escalier est-il équipé d'une main courante ?",
+        "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "cheminement_ext_rampe": {
         "label": "Rampe",
-        "help_text": "S'il existe une rampe, est-elle fixe ou amovible ?",
+        "help_text": mark_safe(
+            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": RAMPE_AUCUNE,
     },
     "cheminement_ext_pente": {
         "label": "Pente",
-        "help_text": "S'il existe une pente, quel est son degré de difficulté ?",
+        "help_text": mark_safe(
+            "S'il existe une pente, quel est son degré de difficulté&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
     },
     "cheminement_ext_devers": {
         "label": "Dévers",
-        "help_text": "Un dévers est une inclinaison transversale du cheminement. S'il en existe un, quel est son degré de difficulté ?",
+        "help_text": mark_safe(
+            "Un dévers est une inclinaison transversale du cheminement. S'il en existe un, quel est son degré de difficulté&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [DEVERS_LEGER, DEVERS_IMPORTANT],
     },
     "cheminement_ext_bande_guidage": {
         "label": "Bande de guidage",
-        "help_text": "Présence d'une bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante",
+        "help_text": mark_safe(
+            "Présence d'une bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
     },
     "cheminement_ext_retrecissement": {
         "label": "Rétrécissement du cheminement",
-        "help_text": "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre l'entrée ?",
+        "help_text": mark_safe(
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
+        ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
@@ -264,105 +296,127 @@ FIELDS = {
     # Entrée
     "entree_reperage": {
         "label": "Entrée facilement repérable",
-        "help_text": "Y a-t-il des éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, etc) ?",
+        "help_text": mark_safe(
+            "Y a-t-il des éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, etc)&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_vitree": {
         "label": "Entrée vitrée",
-        "help_text": "La porte d'entrée est-elle vitrée ?",
+        "help_text": mark_safe("La porte d'entrée est-elle vitrée&nbsp;?"),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": True,
     },
     "entree_vitree_vitrophanie": {
         "label": "Vitrophanie",
-        "help_text": "Si l'entrée est vitrée, y a-t-il des éléments contrastés permettant de visualiser les parties vitrées de l'entrée ? ",
+        "help_text": mark_safe(
+            "Si l'entrée est vitrée, y a-t-il des éléments contrastés permettant de visualiser les parties vitrées de l'entrée&nbsp;? "
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_plain_pied": {
         "label": "Entrée de plain-pied",
-        "help_text": "L'entrée est-elle de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm ?",
+        "help_text": mark_safe(
+            "L'entrée est-elle de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_ascenseur": {
         "label": "Ascenseur/élévateur",
-        "help_text": "Existe-t-il un ascenseur ou un élévateur ?",
+        "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_marches": {
         "label": "Marches ou escalier",
-        "help_text": "Indiquer 0 s'il n'y a ni marche ni escalier",
+        "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
     "entree_marches_reperage": {
         "label": "Repérage des marches",
-        "help_text": "L'escalier est-il sécurisé : nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées ?",
+        "help_text": mark_safe(
+            "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_marches_main_courante": {
         "label": "Main courante",
-        "help_text": "L'escalier est-il équipé d'une main courante ?",
+        "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_marches_rampe": {
         "label": "Rampe",
-        "help_text": "S'il existe une rampe, est-elle fixe ou amovible ?",
+        "help_text": mark_safe(
+            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_balise_sonore": {
         "label": "Balise sonore",
-        "help_text": "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante ?",
+        "help_text": mark_safe(
+            "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_dispositif_appel": {
         "label": "Dispositif d'appel",
-        "help_text": "Existe-t-il un dispositif comme une sonnette pour permettre à quelqu'un ayant besoin de la rampe ou d'une aide humaine de signaler sa présence ?",
+        "help_text": mark_safe(
+            "Existe-t-il un dispositif comme une sonnette pour permettre à quelqu'un ayant besoin de la rampe ou d'une aide humaine de signaler sa présence&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_aide_humaine": {
         "label": "Aide humaine",
-        "help_text": "Présence ou possibilité d'une aide humaine au déplacement",
+        "help_text": mark_safe(
+            "Présence ou possibilité d'une aide humaine au déplacement"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_largeur_mini": {
-        "label": "Largeur minimale",
-        "help_text": "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple : la largeur se situe entre 90 et 100 cm ; indiquer 90",
+        "label": "Largeur minimale en cm",
+        "help_text": mark_safe(
+            "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 cm&nbsp;; indiquer 90."
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
     },
     "entree_pmr": {
         "label": "Entrée spécifique PMR",
-        "help_text": "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite ?",
+        "help_text": mark_safe(
+            "Existe-t-il une entrée secondaire spécifique dédiée aux personnes à mobilité réduite&nbsp;?"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_pmr_informations": {
         "label": "Infos entrée spécifique PMR",
-        "help_text": "Préciser ici les modalités d'accès de l'entrée spécifique PMR",
+        "help_text": mark_safe(
+            "Préciser ici les modalités d'accès de l'entrée spécifique PMR"
+        ),
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
@@ -370,14 +424,18 @@ FIELDS = {
     # Accueil
     "accueil_visibilite": {
         "label": "Visibilité de la zone d'accueil",
-        "help_text": "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée ?",
+        "help_text": mark_safe(
+            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée&nbsp;?"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
     "accueil_personnels": {
         "label": "Personnel d'accueil",
-        "help_text": "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées ?",
+        "help_text": mark_safe(
+            "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None
@@ -385,63 +443,75 @@ FIELDS = {
     },
     "accueil_equipements_malentendants": {
         "label": "Équipements sourds/malentendants",
-        "help_text": "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes françaises, solution de traduction à distance, etc)",
+        "help_text": mark_safe(
+            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes françaises, solution de traduction à distance, etc)"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": lambda x, i: x and "aucun" in x,
     },
     "accueil_cheminement_plain_pied": {
         "label": "Cheminement de plain pied",
-        "help_text": "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm ? Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau.",
+        "help_text": mark_safe(
+            "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
     "accueil_cheminement_ascenseur": {
         "label": "Ascenseur/élévateur",
-        "help_text": "Existe-t-il un ascenseur ou un élévateur ?",
+        "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
     "accueil_cheminement_nombre_marches": {
         "label": "Nombre de marches",
-        "help_text": "Indiquer 0 s'il n'y a ni marche ni escalier",
+        "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
     "accueil_cheminement_reperage_marches": {
         "label": "Repérage des marches ou de l’escalier",
-        "help_text": "L'escalier est-il sécurisé : nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées ?",
+        "help_text": mark_safe(
+            "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
     "accueil_cheminement_main_courante": {
         "label": "Main courante",
-        "help_text": "L'escalier est-il équipé d'une main courante ?",
+        "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
     "accueil_cheminement_rampe": {
         "label": "Rampe",
-        "help_text": "S'il existe une rampe, est-elle fixe ou amovible ?",
+        "help_text": mark_safe(
+            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
     "accueil_retrecissement": {
         "label": "Rétrécissement du cheminement",
-        "help_text": "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre la zone d’accueil ?",
+        "help_text": mark_safe(
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre la zone d’accueil&nbsp;?"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
     },
     "accueil_prestations": {
         "label": "Prestations d'accueil adapté supplémentaires",
-        "help_text": "Prestations spécifiques supplémentaires proposées par l'établissement",
+        "help_text": mark_safe(
+            "Prestations spécifiques supplémentaires proposées par l'établissement"
+        ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": None,
@@ -449,14 +519,16 @@ FIELDS = {
     # Sanitaires
     "sanitaires_presence": {
         "label": "Sanitaires",
-        "help_text": "Y a-t-il des sanitaires mis à disposition du public ?",
+        "help_text": mark_safe(
+            "Y a-t-il des sanitaires mis à disposition du public&nbsp;?"
+        ),
         "section": SECTION_SANITAIRES,
         "nullable_bool": True,
         "warn_if": False,
     },
     "sanitaires_adaptes": {
         "label": "Nombre de sanitaires adaptés",
-        "help_text": "Combien y a-t-il de sanitaires adaptés ?",
+        "help_text": mark_safe("Combien y a-t-il de sanitaires adaptés&nbsp;?"),
         "section": SECTION_SANITAIRES,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 1,
@@ -464,21 +536,25 @@ FIELDS = {
     # Labels
     "labels": {
         "label": "Marques ou labels",
-        "help_text": "Si l’établissement est entré dans une démarche volontaire de labellisation, quelle marque ou quel label a-t-il obtenu ?",
+        "help_text": mark_safe(
+            "Si l’établissement est entré dans une démarche volontaire de labellisation, quelle marques ou quels labels a-t-il obtenu&nbsp;?"
+        ),
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
     },
     "labels_familles_handicap": {
         "label": "Famille(s) de handicap concernées(s)",
-        "help_text": "Quelle(s) famille(s) de handicap sont couvertes par la marque ou le label ?",
+        "help_text": mark_safe(
+            "Quelle(s) famille(s) de handicap sont couvertes par ces marques et labels&nbsp;?"
+        ),
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
     },
     "labels_autre": {
         "label": "Autre label",
-        "help_text": "Si autre, préciser le nom du label",
+        "help_text": mark_safe("Si autre, préciser le nom du label"),
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
@@ -486,7 +562,9 @@ FIELDS = {
     # Commentaire
     "commentaire": {
         "label": "Commentaire libre",
-        "help_text": "Indiquer ici toute autre information qui semble pertinente pour décrire l'accessibilité du bâtiment",
+        "help_text": mark_safe(
+            "Indiquer ici toute autre information qui semble pertinente pour décrire l'accessibilité du bâtiment"
+        ),
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
