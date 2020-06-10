@@ -205,16 +205,13 @@ def execute_request(request):
             raise RuntimeError("Le service INSEE est indisponible.")
 
 
-def find_etablissements(nom, code_postal=None, limit=5):
+def find_etablissements(nom, code_postal, limit=5):
     nom = nom.replace('"', "").strip()
     if " " in nom:
         nom_search = f'"{nom}"~2'
     else:
         nom_search = f"{nom}~"
-    if code_postal is not None:
-        # FIXME: commune ou code postal
-        q = Field(CODE_POSTAL, code_postal)
-    q = q & (
+    q = Field(CODE_POSTAL, code_postal) & (
         Field(RAISON_SOCIALE, nom_search)
         | Field(NOM_ENSEIGNE3, nom_search)
         | Field(PERSONNE_NOM, nom_search)

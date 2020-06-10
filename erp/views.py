@@ -244,7 +244,9 @@ def to_betagouv(self):
 
 def find_sirene_etablissements(name_form):
     results = sirene.find_etablissements(
-        name_form.cleaned_data["nom"], name_form.cleaned_data["code_postal"], limit=10,
+        name_form.cleaned_data.get("nom"),
+        name_form.cleaned_data.get("code_postal"),
+        limit=10,
     )
     for result in results:
         result["exists"] = Erp.objects.exists_by_siret(result["siret"])

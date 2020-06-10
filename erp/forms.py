@@ -278,19 +278,53 @@ class PublicLocalisationForm(forms.Form):
 
 
 class PublicEtablissementSearchForm(forms.Form):
-    nom = forms.CharField(label="Nom de l'établissement", required=False)
-    code_postal = forms.CharField(label="Code postal de la commune", required=False)
+    nom = forms.CharField(
+        label="Nom de l'établissement",
+        required=True,
+        widget=forms.TextInput(attrs={"placeholder": "ex. Bistro Brooklyn"}),
+    )
+    code_postal = forms.CharField(
+        label="Code postal de la commune",
+        required=True,
+        widget=forms.TextInput(attrs={"placeholder": "ex. 34830"}),
+    )
+
+    def clean_code_postal(self):
+        cp = self.cleaned_data.get("code_postal", "").strip().replace(" ", "").upper()
+        try:
+            valid = all(
+                [
+                    len(cp) == 5,
+                    cp[0].isalnum(),
+                    cp[1].isdigit() or cp[1] in ["A", "B"],
+                    cp[2].isalnum(),
+                    cp[3].isalnum(),
+                    cp[4].isalnum(),
+                ]
+            )
+        except IndexError:
+            valid = False
+        if not valid:
+            raise ValidationError("Le format de ce code postal est invalide")
+        self.cleaned_data["code_postal"] = cp
+        return cp
 
 
 class PublicSiretSearchForm(forms.Form):
-    siret = forms.CharField(label="Numéro SIRET", required=False)
+    siret = forms.CharField(
+        label="Numéro SIRET",
+        required=True,
+        widget=forms.TextInput(attrs={"placeholder": "ex. 88076068100010"}),
+    )
 
     def clean_siret(self):
         siret = sirene.validate_siret(self.cleaned_data["siret"])
         if not siret:
-            raise ValidationError("Ce numéro SIRET est invalide")
+            raise ValidationError(
+                "Ce numéro SIRET est invalide, veuillez vérifier le format."
+            )
         self.cleaned_data["siret"] = siret
-        return self.cleaned_data["siret"]
+        return siret
 
     def clean(self):
         siret = self.cleaned_data.get("siret")
