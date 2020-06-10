@@ -49,3 +49,13 @@ def encode_etablissement_data(value):
 @register.filter(name="get_naf_label")
 def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")
+
+
+@register.filter(name="typo")
+def typo(value):
+    return (
+        value.replace(" ;", "&nbsp;;")
+        .replace(" ?", "&nbsp;?")
+        .replace(" !", "&nbsp;!")
+        .replace(" :", "&nbsp;:")
+    )
