@@ -41,9 +41,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label="Famille(s) de handicap concernées(s)",  # FIXME: use get_label
         help_text=schema.get_help_text("labels_familles_handicap"),
     )
-    # transport_station_presence = forms.ChoiceField(
-    #     choices=schema.NULLABLE_BOOLEAN_CHOICES, required=False, widget=bool_radios()
-    # )
 
     class Meta:
         model = Accessibilite

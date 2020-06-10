@@ -8,6 +8,7 @@ from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
+from django.forms.models import model_to_dict
 from django.urls import reverse
 from django.utils.text import slugify
 
@@ -831,6 +832,16 @@ class Accessibilite(models.Model):
 
     def __str__(self):
         return "Caractéristiques d'accessibilité de cet ERP"
+
+    def to_debug(self):
+        cleaned = dict(
+            [
+                (k, v)
+                for (k, v) in model_to_dict(self).copy().items()
+                if v is not None and v != "" and v != []
+            ]
+        )
+        return json.dumps(cleaned, indent=2)
 
     def has_cheminement_ext(self):
         fields = schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT)

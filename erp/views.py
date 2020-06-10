@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
 from django.core.exceptions import PermissionDenied
 from django.db.models import F
+from django.forms import modelform_factory
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -17,8 +18,9 @@ from .forms import (
     PublicSiretSearchForm,
     ViewAccessibiliteForm,
 )
-from .models import Activite, Commune, Erp
+from .models import Accessibilite, Activite, Commune, Erp
 from .serializers import SpecialErpSerializer
+from . import schema
 from . import sirene
 
 
@@ -338,13 +340,20 @@ def contrib_localisation(request, erp_slug):
     )
 
 
-def process_accessibilite_form(request, erp_slug, step, template_name, redirect_route):
+def process_accessibilite_form(
+    request, erp_slug, step, form_fields, template_name, redirect_route
+):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
-    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    erp = get_object_or_404(
+        Erp.objects.select_related("accessibilite"), slug=erp_slug, user=request.user,
+    )
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     if request.method == "POST":
-        form = AdminAccessibiliteForm(request.POST, instance=accessibilite)
+        Form = modelform_factory(
+            Accessibilite, form=AdminAccessibiliteForm, fields=form_fields
+        )
+        form = Form(request.POST, instance=accessibilite)
         if form.is_valid():
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
@@ -356,47 +365,82 @@ def process_accessibilite_form(request, erp_slug, step, template_name, redirect_
     return render(
         request,
         template_name=template_name,
-        context={"step": step, "erp": erp, "form": form},
+        context={
+            "step": step,
+            "erp": erp,
+            "form": form,
+            "accessibilite": accessibilite,
+        },
     )
 
 
 @login_required
 def contrib_transport(request, erp_slug):
     return process_accessibilite_form(
-        request, erp_slug, 2, "contrib/3-transport.html", "contrib_stationnement"
+        request,
+        erp_slug,
+        2,
+        schema.get_section_fields(schema.SECTION_TRANSPORT),
+        "contrib/3-transport.html",
+        "contrib_stationnement",
     )
 
 
 @login_required
 def contrib_stationnement(request, erp_slug):
     return process_accessibilite_form(
-        request, erp_slug, 2, "contrib/4-stationnement.html", "contrib_exterieur"
+        request,
+        erp_slug,
+        2,
+        schema.get_section_fields(schema.SECTION_STATIONNEMENT),
+        "contrib/4-stationnement.html",
+        "contrib_exterieur",
     )
 
 
 @login_required
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
-        request, erp_slug, 3, "contrib/5-exterieur.html", "contrib_entree"
+        request,
+        erp_slug,
+        3,
+        schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT),
+        "contrib/5-exterieur.html",
+        "contrib_entree",
     )
 
 
 @login_required
 def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
-        request, erp_slug, 4, "contrib/6-entree.html", "contrib_accueil"
+        request,
+        erp_slug,
+        4,
+        schema.get_section_fields(schema.SECTION_ENTREE),
+        "contrib/6-entree.html",
+        "contrib_accueil",
     )
 
 
 @login_required
 def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
-        request, erp_slug, 5, "contrib/7-accueil.html", "contrib_sanitaires"
+        request,
+        erp_slug,
+        5,
+        schema.get_section_fields(schema.SECTION_ACCUEIL),
+        "contrib/7-accueil.html",
+        "contrib_sanitaires",
     )
 
 
 @login_required
 def contrib_sanitaires(request, erp_slug):
     return process_accessibilite_form(
-        request, erp_slug, 6, "contrib/8-sanitaires.html", "contrib_autre"
+        request,
+        erp_slug,
+        6,
+        schema.get_section_fields(schema.SECTION_SANITAIRES),
+        "contrib/8-sanitaires.html",
+        "contrib_autre",
     )
