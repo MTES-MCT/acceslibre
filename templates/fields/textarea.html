@@ -1,14 +1,12 @@
 {% load a4a %}
 
-<div class="field-{{ field.name }}">
+<div class="form-group field-{{ field.name }}">
   <label for="{{ field.id_for_label }}" class="mb-0">
     <strong>{{ field.label }}</strong><br>
   </label>
   <div class="form-group">
     <p>{{ field.help_text|safe }}</p>
-    <div class="a4a-form-inline-choices">
-      {{ field }}
-    </div>
+    {{ field|addclass:"form-control" }}
     {% for error in form.name.errors %}
     <div class="form-text text-danger">{{ error }}</div>
     {% endfor %}

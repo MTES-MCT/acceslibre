@@ -1,9 +1,10 @@
 {% extends "contrib/base.html" %}
 
 {% load a4a %}
+{% load static %}
 
 {% block javascript_extras %}
-<!-- TODO: sans doute des trucs de dévoilement progressif ici -->
+<script src="{% static "js/forms.js" %}"></script>
 {% endblock %}
 
 {% block contrib_content %}
@@ -42,4 +43,12 @@
     <button type="submit" class="btn btn-primary mr-2">Suivant</button>
     ou <a href="javascript:history.go(-1)">revenir en arrière</a>
   </form>
+  <script>
+  window.addEventListener("DOMContentLoaded", function() {
+    window.a4aForms.run({
+      fieldSelectorPrefix: ".field-",
+      inputNamePrefix: ""
+    });
+  });
+  </script>
 {% endblock %}

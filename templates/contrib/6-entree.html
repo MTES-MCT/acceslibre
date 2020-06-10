@@ -11,14 +11,14 @@
   {% include "fields/boolradio.html" with field=form.entree_vitree_vitrophanie %}
   {% include "fields/boolradio.html" with field=form.entree_plain_pied %}
   {% include "fields/boolradio.html" with field=form.entree_ascenseur %}
-  {% include "fields/boolradio.html" with field=form.entree_marches %}
+  {% include "fields/number.html" with field=form.entree_marches %}
   {% include "fields/boolradio.html" with field=form.entree_marches_reperage %}
   {% include "fields/boolradio.html" with field=form.entree_marches_main_courante %}
   {% include "fields/boolradio.html" with field=form.entree_marches_rampe %}
   {% include "fields/boolradio.html" with field=form.entree_balise_sonore %}
   {% include "fields/boolradio.html" with field=form.entree_dispositif_appel %}
   {% include "fields/boolradio.html" with field=form.entree_aide_humaine %}
-  {% include "fields/boolradio.html" with field=form.entree_largeur_mini %}
+  {% include "fields/number.html" with field=form.entree_largeur_mini %}
   {% include "fields/boolradio.html" with field=form.entree_pmr %}
-  {% include "fields/boolradio.html" with field=form.entree_pmr_informations %}
+  {% include "fields/textarea.html" with field=form.entree_pmr_informations %}
 {% endblock %}

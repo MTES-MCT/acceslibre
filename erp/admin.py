@@ -165,6 +165,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         css = {"all": ("admin/a4a-addons.css",)}
         js = (
             "js/jquery.autocomplete.min.js",
+            "js/forms.js",
             "admin/js/a4a-admin.js",
             "admin/js/a4a-autocomplete.js",
         )

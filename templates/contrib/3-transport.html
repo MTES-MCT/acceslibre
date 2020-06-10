@@ -7,7 +7,5 @@
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.transport_station_presence %}
-  <div class="card px-3 pt-3 pb-0 mb-3">
-    {{ form.transport_information|as_crispy_field }}
-  </div>
+  {% include "fields/textarea.html" with field=form.transport_information %}
 {% endblock %}
