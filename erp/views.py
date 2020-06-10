@@ -446,3 +446,16 @@ def contrib_sanitaires(request, erp_slug):
         "contrib/8-sanitaires.html",
         "contrib_autre",
     )
+
+
+@login_required
+def contrib_autre(request, erp_slug):
+    return process_accessibilite_form(
+        request,
+        erp_slug,
+        7,
+        schema.get_section_fields(schema.SECTION_LABELS)
+        + schema.get_section_fields(schema.SECTION_COMMENTAIRE),
+        "contrib/9-autre.html",
+        "contrib_publication",
+    )

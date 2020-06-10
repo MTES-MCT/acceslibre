@@ -104,6 +104,7 @@ urlpatterns = [
         views.contrib_sanitaires,
         name="contrib_sanitaires",
     ),
+    path("contrib/autre/<str:erp_slug>/", views.contrib_autre, name="contrib_autre",),
     ############################################################################
     # Admin stuff
     ############################################################################
