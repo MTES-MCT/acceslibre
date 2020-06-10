@@ -105,6 +105,11 @@ urlpatterns = [
         name="contrib_sanitaires",
     ),
     path("contrib/autre/<str:erp_slug>/", views.contrib_autre, name="contrib_autre",),
+    path(
+        "contrib/publication/<str:erp_slug>/",
+        views.contrib_publication,
+        name="contrib_publication",
+    ),
     ############################################################################
     # Admin stuff
     ############################################################################

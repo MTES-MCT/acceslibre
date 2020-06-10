@@ -60,7 +60,7 @@ def test_get_help_texts():
 
 def test_get_help_text():
     result = schema.get_help_text("cheminement_ext_rampe")
-    assert result == "S'il existe une rampe, est-elle fixe ou amovible ?"
+    assert result == "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
 
     result = schema.get_help_text("invalid", "yolo")
     assert result == "yolo"

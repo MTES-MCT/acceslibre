@@ -47,6 +47,7 @@ class AdminAccessibiliteForm(forms.ModelForm):
         help_text=schema.get_help_text("labels"),
         queryset=Label.objects,
         widget=forms.CheckboxSelectMultiple,
+        required=False,
     )
 
     class Meta:
@@ -342,3 +343,17 @@ class PublicSiretSearchForm(forms.Form):
                     "existe déjà dans la base de données."
                 }
             )
+
+
+class PublicPublicationForm(forms.Form):
+    certif = forms.BooleanField(
+        label="Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur Access4ll.",
+        required=False,
+    )
+
+    def clean_certif(self):
+        if not self.cleaned_data.get("certif", False):
+            raise ValidationError(
+                "Publication impossible sans ces garanties de votre part"
+            )
+        return True

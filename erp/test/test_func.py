@@ -1,4 +1,5 @@
 import pytest
+import html
 
 from django.urls import reverse
 from splinter import Browser
@@ -33,5 +34,9 @@ def test_erp_details(data, browser):
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
     assert browser.is_text_present("Sanitaires")
-    assert browser.is_text_present(schema.get_help_text("sanitaires_presence"))
-    assert browser.is_text_present(schema.get_help_text("sanitaires_adaptes"))
+    assert browser.is_text_present(
+        html.unescape(schema.get_help_text("sanitaires_presence"))
+    )
+    assert browser.is_text_present(
+        html.unescape(schema.get_help_text("sanitaires_adaptes"))
+    )

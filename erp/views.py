@@ -15,6 +15,7 @@ from .forms import (
     PublicErpAdminInfosForm,
     PublicEtablissementSearchForm,
     PublicLocalisationForm,
+    PublicPublicationForm,
     PublicSiretSearchForm,
     ViewAccessibiliteForm,
 )
@@ -459,4 +460,22 @@ def contrib_autre(request, erp_slug):
         + schema.get_section_fields(schema.SECTION_COMMENTAIRE),
         "contrib/9-autre.html",
         "contrib_publication",
+    )
+
+
+@login_required
+def contrib_publication(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    if request.method == "POST":
+        form = PublicPublicationForm(request.POST)
+        if form.is_valid():
+            erp.published = True
+            erp.save()
+            return redirect("mes_erps")
+    else:
+        form = PublicPublicationForm()
+    return render(
+        request,
+        template_name="contrib/10-publication.html",
+        context={"step": 1, "erp": erp, "form": form,},
     )

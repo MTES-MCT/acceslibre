@@ -1,0 +1,10 @@
+{% extends "contrib/base_access_form.html" %}
+
+{% load a4a %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Publication{% endblock%}
+
+{% block fields_content %}
+{{ form|crispy }}
+{% endblock %}

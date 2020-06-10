@@ -14,15 +14,23 @@
     {% for erp in erps %}
     <li class="list-group-item d-flex justify-content-between align-items-center">
       <div class="flex-fill">
+        {% if not erp.published %}
+        {{ erp.nom }}
+        {% else %}
         <a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+        {% endif %}
         {% if erp.activite %}
           <small class="text-muted">({{ erp.activite.nom }})</small>
         {% endif %}
+        <br>
         {% if not erp.published %}
-          <br>
-          <small class="text-warning">
-            <i class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
-          </small>
+        <small class="text-warning">
+          <i class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
+        </small>
+        {% else %}
+        <small class="text-success">
+          <i class="icon icon-check"></i> La fiche est publiée
+        </small>
         {% endif %}
         {% if not erp.accessibilite %}
           <br>
