@@ -3,7 +3,7 @@ import logging
 import json
 
 from api_insee import ApiInsee
-from api_insee.criteria import Field, Periodic
+from api_insee import criteria
 from api_insee.exeptions.request_exeption import RequestExeption
 from django.conf import settings
 from stdnum.fr import siret
@@ -96,6 +96,17 @@ SIRENE_VOIES = {
 }
 
 logger = logging.getLogger(__name__)
+
+
+class OrGroup(criteria.Base):
+    "See https://github.com/ln-nicolas/api_insee/issues/3"
+
+    def __init__(self, *criteria, **kwargs):
+        self.criteria_list = criteria
+
+    def toURLParams(self):
+        inner = " OR ".join([ct.toURLParams() for ct in self.criteria_list])
+        return f"({inner})"
 
 
 def get_client():
@@ -205,22 +216,28 @@ def execute_request(request):
             raise RuntimeError("Le service INSEE est indisponible.")
 
 
-def find_etablissements(nom, code_postal, limit=5):
+def create_find_query(nom, code_postal, limit):
     nom = nom.replace('"', "").strip()
     if " " in nom:
         nom_search = f'"{nom}"~2'
     else:
         nom_search = f"{nom}~"
-    q = Field(CODE_POSTAL, code_postal) & (
-        Field(RAISON_SOCIALE, nom_search)
-        | Field(NOM_ENSEIGNE3, nom_search)
-        | Field(PERSONNE_NOM, nom_search)
-        | Periodic(Field(NOM_ENSEIGNE1, nom_search))
-        | Periodic(Field(NOM_ENSEIGNE2, nom_search))
+    return (
+        criteria.Field(CODE_POSTAL, code_postal)
+        & criteria.Field(STATUT, "A")
+        & OrGroup(
+            criteria.Field(RAISON_SOCIALE, nom_search),
+            criteria.Field(NOM_ENSEIGNE3, nom_search),
+            criteria.Field(PERSONNE_NOM, nom_search),
+            criteria.Periodic(criteria.Field(NOM_ENSEIGNE1, nom_search)),
+            criteria.Periodic(criteria.Field(NOM_ENSEIGNE2, nom_search)),
+        )
     )
+
+
+def find_etablissements(nom, code_postal, limit=5):
+    q = create_find_query(nom, code_postal, limit)
     request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
-    # FIXME: ugly temporary workaround for https://github.com/ln-nicolas/api_insee/issues/3
-    request._url_params["q"] = request._url_params["q"].replace(" AND ", " AND (") + ")"
     response = execute_request(request)
     results = []
     for etablissement in response.get("etablissements", []):
