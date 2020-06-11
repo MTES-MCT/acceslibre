@@ -7,7 +7,11 @@
   <div class="col-md-3 mb-3">
     <ul class="StepProgress">
       <li class="StepProgress-item{% if step == 1 %} current{% endif %}{% if step > 1 %} is-done{% endif %}">
+        {% if erp %}
+        <a href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Informations</a>
+        {% else %}
         Trouver mon établissement
+        {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}">
         {% if erp %}
