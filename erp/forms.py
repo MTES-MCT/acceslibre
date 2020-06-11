@@ -114,7 +114,7 @@ class BaseErpForm(forms.ModelForm):
     def geocode(self):
         adresse = self.get_adresse()
         locdata = self.do_geocode(adresse)
-        if not locdata or locdata["geom"] is None:
+        if not locdata or locdata.get("geom") is None:
             raise ValidationError(
                 {
                     "voie": f"Adresse non localisable : {adresse}. "
