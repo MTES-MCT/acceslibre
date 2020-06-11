@@ -13,6 +13,7 @@ from django.views.generic.base import TemplateView
 from .forms import (
     AdminAccessibiliteForm,
     PublicErpAdminInfosForm,
+    PublicErpEditInfosForm,
     PublicEtablissementSearchForm,
     PublicLocalisationForm,
     PublicPublicationForm,
@@ -302,10 +303,10 @@ def contrib_admin_infos(request):
             erp.save()
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
-        data = request.GET.get("data")
-        if data is not None:
+        encoded_data = request.GET.get("data")
+        if encoded_data is not None:
             try:
-                data = sirene.base64_decode_etablissement(data)
+                data = sirene.base64_decode_etablissement(encoded_data)
             except RuntimeError as err:
                 data_error = err
         form = PublicErpAdminInfosForm(data)
@@ -318,6 +319,23 @@ def contrib_admin_infos(request):
             "has_data": data is not None,
             "data_error": data_error,
         },
+    )
+
+
+@login_required
+def contrib_edit_infos(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    if request.method == "POST":
+        form = PublicErpEditInfosForm(request.POST, instance=erp)
+        if form.is_valid():
+            erp = form.save()
+            return redirect("contrib_localisation", erp_slug=erp.slug)
+    else:
+        form = PublicErpAdminInfosForm(instance=erp)
+    return render(
+        request,
+        template_name="contrib/1-admin-infos.html",
+        context={"step": 1, "erp": erp, "form": form, "has_data": False,},
     )
 
 
@@ -477,5 +495,5 @@ def contrib_publication(request, erp_slug):
     return render(
         request,
         template_name="contrib/10-publication.html",
-        context={"step": 1, "erp": erp, "form": form,},
+        context={"step": 8, "erp": erp, "form": form,},
     )

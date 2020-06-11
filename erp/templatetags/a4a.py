@@ -36,14 +36,14 @@ def addclass(value, arg):
     return value.as_widget(attrs={"class": arg})
 
 
-@register.filter(name="get_equipement_label")
-def get_equipement_label(value):
-    return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
-
-
 @register.filter(name="encode_etablissement_data")
 def encode_etablissement_data(value):
     return sirene.base64_encode_etablissement(value)
+
+
+@register.filter(name="get_equipement_label")
+def get_equipement_label(value):
+    return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
 
 
 @register.filter(name="get_naf_label")

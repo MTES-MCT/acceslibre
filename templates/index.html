@@ -107,8 +107,9 @@
     <div class="col-sm-4">
       <a href="{% url "contrib_start" %}" class="btn btn-primary btn-block mb-3">Ajouter mon établissement</a>
       <div class="card">
-        <div class="card-header">Derniers établissements renseignés</div>
-        <div class="list-group list-group-flush" id="home-latest-erps-list">
+        <div class="card-header"><h6 class="m-0">Derniers établissements renseignés</h6></div>
+        {# FIXME: list-group class should be needed here but adds a 2px top border on first element #}
+        <div class="list-group-flush" id="home-latest-erps-list">
           {% for erp in latest %}
           <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
             {{ erp.commune }} {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}

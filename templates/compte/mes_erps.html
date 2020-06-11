@@ -42,7 +42,7 @@
         {{ erp.adresse }}
       </div>
       <div>
-        <a class="btn btn-sm btn-success" href="{% url "contrib_localisation" erp_slug=erp.slug %}">Éditer</a>
+        <a class="btn btn-sm btn-success" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Éditer</a>
         {% if request.user.is_staff %}
           <a class="btn btn-sm btn-primary" target="_blank" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
         {% endif %}

@@ -27,12 +27,12 @@
       vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>.
     </small></p>
 
-    {% if form.errors %}
+    {% if form.non_field_errors %}
     <div class="alert alert-warning">
       <i class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">
-        {% for field_name, message in form.errors.items %}
+        {% for field_name, message in form.non_field_errors.items %}
         <li>{{ field_name }}: {{ message }}</li>
         {% endfor %}
       </ul>

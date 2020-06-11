@@ -211,7 +211,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
         return data
 
 
-class PublicErpAdminInfosForm(BaseErpForm):
+class BasePublicErpInfosForm(BaseErpForm):
     class Meta:
         model = Erp
         fields = (
@@ -237,9 +237,15 @@ class PublicErpAdminInfosForm(BaseErpForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # Les contributions publiques rendent obligatoire le renseignement de l'activité
         self.fields["activite"].required = True
         self.fields["activite"].help_text = "Domaine d'activité de l'établissement"
+        # Les contributions publiques rendent obligatoire le renseignement du SIRET
+        self.fields["siret"].required = True
+        self.fields["siret"].help_text = "Domaine d'activité de l'établissement"
 
+
+class PublicErpAdminInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # geom
         self.geocode()
@@ -271,6 +277,14 @@ class PublicErpAdminInfosForm(BaseErpForm):
                     "existe déjà dans la base de données."
                 )
             )
+
+
+class PublicErpEditInfosForm(BasePublicErpInfosForm):
+    def clean(self):
+        # En édition publique d'un ERP, on ne met à jour la localisation que si
+        # elle est absente ou que l'adresse a été modifiée
+        if self.cleaned_data["geom"] is None or self.adresse_changed():
+            self.geocode()
 
 
 class PublicLocalisationForm(forms.Form):

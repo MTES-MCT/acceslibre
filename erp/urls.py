@@ -72,6 +72,11 @@ urlpatterns = [
     path("contrib/start/", views.contrib_start, name="contrib_start"),
     path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),
     path(
+        "contrib/edit-infos/<str:erp_slug>",
+        views.contrib_edit_infos,
+        name="contrib_edit_infos",
+    ),
+    path(
         "contrib/localisation/<str:erp_slug>/",
         views.contrib_localisation,
         name="contrib_localisation",
