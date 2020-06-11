@@ -224,15 +224,35 @@ class BasePublicErpInfosForm(BaseErpForm):
             "commune",
             "siret",
             "geom",
+            "contact_email",
+            "site_internet",
+            "telephone",
         )
         labels = {"siret": "Numéro SIRET"}
         help_texts = {
             "lieu_dit": "Lieu-dit ou complément d'adresse",
             "siret": mark_safe(
                 'Le numéro <a href="https://fr.wikipedia.org/wiki/SIRET" '
-                'target="_blank">SIRET</a> à 14 chiffres de l\'établissement.'
+                'target="_blank">SIRET</a> à 14 chiffres de l\'établissement, '
+                "si l'établissement en dispose."
             ),
             "voie": "Le type et le nom de la voie, par exemple: rue Charles Péguy, ou place Jean Jaurès",
+        }
+        widgets = {
+            "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
+            "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
+            "voie": forms.TextInput(attrs={"placeholder": "ex: rue des prés"}),
+            "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
+            "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
+            "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
+            "siret": forms.TextInput(attrs={"placeholder": "ex: 88076068100010"}),
+            "contact_email": forms.EmailInput(
+                attrs={"placeholder": "ex: nom@domain.tld"}
+            ),
+            "site_internet": forms.URLInput(
+                attrs={"placeholder": "ex: http://etablissement.com"}
+            ),
+            "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -240,9 +260,6 @@ class BasePublicErpInfosForm(BaseErpForm):
         # Les contributions publiques rendent obligatoire le renseignement de l'activité
         self.fields["activite"].required = True
         self.fields["activite"].help_text = "Domaine d'activité de l'établissement"
-        # Les contributions publiques rendent obligatoire le renseignement du SIRET
-        self.fields["siret"].required = True
-        self.fields["siret"].help_text = "Domaine d'activité de l'établissement"
 
 
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
