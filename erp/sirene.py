@@ -241,7 +241,6 @@ def create_find_query(nom, lieu, limit):
 
 def find_etablissements(nom, code_postal, limit=10):
     q = create_find_query(nom, code_postal, limit)
-    print(q.toURLParams())
     request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
     response = execute_request(request)
     results = []

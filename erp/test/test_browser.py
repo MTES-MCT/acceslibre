@@ -28,7 +28,6 @@ def test_home_communes(data, client):
 def test_home_search(data, client):
     response = client.get(reverse("home") + "?q=croissant%20jacou")
     assert response.context["search"] == "croissant jacou"
-    print(response.context["search_results"])
     assert len(response.context["search_results"]["erps"]) == 1
     assert response.context["search_results"]["erps"][0].nom == "Aux bons croissants"
 
