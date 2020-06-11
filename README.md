@@ -19,14 +19,14 @@ L'environnement de développement recommandé est Ubuntu 18.04 LTS, disposant de
 Créez un fichier `.env` à la racine du dépôt, définissant les variables d'environnement suivantes :
 
 - `DJANGO_SETTINGS_MODULE`: Le nom du module Python définissant la configuration Django. Sa valeur peut être `access4all.settings_prod` pour l'environnement de production, ou `access4all.settings_dev` pour l'environnement de développement local.
-- `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
-- `SENTRY_DSN`: La chaine de connexion à [Sentry](https://sentry.io/), l'outil de rapport d'erreur que nous utilisons en production.
 - `EMAIL_HOST`: Host du serveur SMTP
 - `EMAIL_PORT`: Port du serveur SMTP
 - `EMAIL_HOST_USER`: Nom d'utilisateur SMTP
 - `EMAIL_HOST_PASSWORD`: Mot de passe SMTP
 - `INSEE_API_CLIENT_KEY`: Clé client d'[API INSEE Sirene](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee)
 - `INSEE_API_SECRET_KEY`: Clé secrète d'API INSEE Sirene
+- `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
+- `SENTRY_DSN`: La chaine de connexion à [Sentry](https://sentry.io/), l'outil de rapport d'erreur que nous utilisons en production.
 
 **Notes :**
 

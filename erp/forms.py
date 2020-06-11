@@ -322,31 +322,11 @@ class PublicEtablissementSearchForm(forms.Form):
         required=True,
         widget=forms.TextInput(attrs={"placeholder": "ex. Bistro Brooklyn"}),
     )
-    code_postal = forms.CharField(
-        label="Code postal de la commune",
+    lieu = forms.CharField(
+        label="Code postal ou nom de la commune",
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "ex. 34830"}),
+        widget=forms.TextInput(attrs={"placeholder": "ex. 75010 ou Paris"}),
     )
-
-    def clean_code_postal(self):
-        cp = self.cleaned_data.get("code_postal", "").strip().replace(" ", "").upper()
-        try:
-            valid = all(
-                [
-                    len(cp) == 5,
-                    cp[0].isalnum(),
-                    cp[1].isdigit() or cp[1] in ["A", "B"],
-                    cp[2].isalnum(),
-                    cp[3].isalnum(),
-                    cp[4].isalnum(),
-                ]
-            )
-        except IndexError:
-            valid = False
-        if not valid:
-            raise ValidationError("Le format de ce code postal est invalide")
-        self.cleaned_data["code_postal"] = cp
-        return cp
 
 
 class PublicSiretSearchForm(forms.Form):

@@ -98,6 +98,15 @@ SIRENE_VOIES = {
 logger = logging.getLogger(__name__)
 
 
+class Fuzzy(criteria.Field):
+    @property
+    def representation(self):
+        term = str(self.value).replace('"', "").strip()
+        if " " in term:
+            return f'{self.name}:"{term}"~'
+        return f"{self.name}:{term}~"
+
+
 class OrGroup(criteria.Base):
     "See https://github.com/ln-nicolas/api_insee/issues/3"
 
@@ -204,7 +213,7 @@ def execute_request(request):
         return request.get()
     except RequestExeption as err:
         logger.error(err)
-        raise RuntimeError("Recherche impossible.")
+        raise RuntimeError(f"Recherche impossible: {err}")
     except HTTPError as err:
         if err.code == 404:
             raise RuntimeError("Aucun résultat")
@@ -216,27 +225,23 @@ def execute_request(request):
             raise RuntimeError("Le service INSEE est indisponible.")
 
 
-def create_find_query(nom, code_postal, limit):
-    nom = nom.replace('"', "").strip()
-    if " " in nom:
-        nom_search = f'"{nom}"~2'
-    else:
-        nom_search = f"{nom}~"
+def create_find_query(nom, lieu, limit):
     return (
-        criteria.Field(CODE_POSTAL, code_postal)
-        & criteria.Field(STATUT, "A")
+        criteria.Field(STATUT, "A")
+        & OrGroup(criteria.FieldExact(CODE_POSTAL, lieu), Fuzzy(COMMUNE, lieu),)
         & OrGroup(
-            criteria.Field(RAISON_SOCIALE, nom_search),
-            criteria.Field(NOM_ENSEIGNE3, nom_search),
-            criteria.Field(PERSONNE_NOM, nom_search),
-            criteria.Periodic(criteria.Field(NOM_ENSEIGNE1, nom_search)),
-            criteria.Periodic(criteria.Field(NOM_ENSEIGNE2, nom_search)),
+            Fuzzy(RAISON_SOCIALE, nom),
+            Fuzzy(NOM_ENSEIGNE3, nom),
+            Fuzzy(PERSONNE_NOM, nom),
+            criteria.Periodic(Fuzzy(NOM_ENSEIGNE1, nom)),
+            criteria.Periodic(Fuzzy(NOM_ENSEIGNE2, nom)),
         )
     )
 
 
-def find_etablissements(nom, code_postal, limit=5):
+def find_etablissements(nom, code_postal, limit=10):
     q = create_find_query(nom, code_postal, limit)
+    print(q.toURLParams())
     request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
     response = execute_request(request)
     results = []
