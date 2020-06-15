@@ -3,12 +3,23 @@
 {% block page_title %}Mes établissements{% endblock%}
 
 {% block compte_content %}
-  <h3>Mes établissements</h3>
-  <p class="text-right">
-    <a class="btn btn-primary" href="{% url "contrib_start" %}">
-      Ajouter un nouvel établissement
-    </a>
-  </p>
+  <div class="row mb-3">
+    <h3 class="col-sm-6">Mes établissements</h3>
+    <div class="col-sm-6 text-right">
+      <a class="btn btn-primary" href="{% url "contrib_start" %}">
+        Ajouter un nouvel établissement
+      </a>
+    </div>
+  </div>
+
+  <nav class="nav nav-pills nav-fill mb-3">
+    <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}" href=".">Tous</a>
+    <a class="nav-item nav-link{% if filter_published == "1" %} active{% endif %}" href="./?published=1">Publiés</a>
+    <a class="nav-item nav-link{% if filter_published == "0" %} active{% endif %}" href="./?published=0">Non-publiés</a>
+    <a class="nav-item nav-link{% if filter_filled == "1" %} active{% endif %}" href="./?filled=1">Renseignés</a>
+    <a class="nav-item nav-link{% if filter_filled == "0" %} active{% endif %}" href="./?filled=0">Non-renseignés</a>
+  </nav>
+
   {% if erps %}
   <ul class="list-group">
     {% for erp in erps %}
@@ -17,7 +28,7 @@
         {% if not erp.published %}
         {{ erp.nom }}
         {% else %}
-        <a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
+        <a href="{{ erp.get_absolute_url }}" target="_blank">{{ erp.nom }}</a>
         {% endif %}
         {% if erp.activite %}
           <small class="text-muted">({{ erp.activite.nom }})</small>

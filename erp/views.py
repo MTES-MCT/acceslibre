@@ -232,12 +232,23 @@ def mon_compte(request):
 def mes_erps(request):
     if not request.user.is_authenticated:
         raise PermissionDenied
-    erps = (
-        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-        .filter(user_id=request.user.pk)
-        .order_by("-updated_at")
+    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+    published = request.GET.get("published")
+    if published == "1":
+        qs = qs.filter(published=True)
+    elif published == "0":
+        qs = qs.filter(published=False)
+    filled = request.GET.get("filled")
+    if filled == "1":
+        qs = qs.filter(accessibilite__isnull=False)
+    elif filled == "0":
+        qs = qs.filter(accessibilite__isnull=True)
+    erps = qs.filter(user_id=request.user.pk).order_by("-updated_at")
+    return render(
+        request,
+        "compte/mes_erps.html",
+        context={"erps": erps, "filter_published": published, "filter_filled": filled},
     )
-    return render(request, "compte/mes_erps.html", context={"erps": erps},)
 
 
 def to_betagouv(self):
