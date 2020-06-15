@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
 from django.core.exceptions import PermissionDenied
+from django.core.paginator import Paginator
 from django.db.models import F
 from django.forms import modelform_factory
 from django.http import JsonResponse
@@ -243,11 +244,18 @@ def mes_erps(request):
         qs = qs.filter(accessibilite__isnull=False)
     elif filled == "0":
         qs = qs.filter(accessibilite__isnull=True)
-    erps = qs.filter(user_id=request.user.pk).order_by("-updated_at")
+    qs = qs.filter(user_id=request.user.pk).order_by("-updated_at")
+    paginator = Paginator(qs, 10)
+    page_number = request.GET.get("page", 1)
+    pager = paginator.get_page(page_number)
     return render(
         request,
         "compte/mes_erps.html",
-        context={"erps": erps, "filter_published": published, "filter_filled": filled},
+        context={
+            "pager": pager,
+            "filter_published": published,
+            "filter_filled": filled,
+        },
     )
 
 

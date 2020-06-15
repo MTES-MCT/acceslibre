@@ -104,7 +104,7 @@ def test_auth(data, client, capsys):
 
     response = client.get(reverse("mes_erps"))
     assert response.status_code == 200
-    assert response.context["erps"][0].nom == "Aux bons croissants"
+    assert response.context["pager"][0].nom == "Aux bons croissants"
 
 
 def test_registration(data, client, capsys):

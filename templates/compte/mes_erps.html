@@ -6,13 +6,15 @@
   <div class="row mb-3">
     <h3 class="col-sm-6">Mes établissements</h3>
     <div class="col-sm-6 text-right">
-      <a class="btn btn-primary" href="{% url "contrib_start" %}">
+      <a class="btn btn-primary" href="{% url "contrib_start" %}" style="padding-bottom: 3px">
+        <i class="icon icon-plus-circle" style="vertical-align:text-top"></i>
         Ajouter un nouvel établissement
       </a>
     </div>
   </div>
 
-  <nav class="nav nav-pills nav-fill mb-3">
+  {% if pager %}
+  <nav class="nav nav-tabs nav-fill">
     <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}" href=".">Tous</a>
     <a class="nav-item nav-link{% if filter_published == "1" %} active{% endif %}" href="./?published=1">Publiés</a>
     <a class="nav-item nav-link{% if filter_published == "0" %} active{% endif %}" href="./?published=0">Non-publiés</a>
@@ -20,10 +22,9 @@
     <a class="nav-item nav-link{% if filter_filled == "0" %} active{% endif %}" href="./?filled=0">Non-renseignés</a>
   </nav>
 
-  {% if erps %}
   <ul class="list-group">
-    {% for erp in erps %}
-    <li class="list-group-item d-flex justify-content-between align-items-center">
+    {% for erp in pager %}
+    <li class="list-group-item d-flex justify-content-between align-items-center border-top-0 rounded-0">
       <div class="flex-fill">
         {% if not erp.published %}
         {{ erp.nom }}
@@ -50,18 +51,18 @@
           </small>
         {% endif %}
         <br>
-        {{ erp.adresse }}
+        <address class="mb-0">{{ erp.adresse }}</address>
       </div>
       <div>
         <a class="btn btn-sm btn-success" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Éditer</a>
         {% if request.user.is_staff %}
           <a class="btn btn-sm btn-primary" target="_blank" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
         {% endif %}
-
       </div>
     </li>
     {% endfor %}
   </ul>
+  {% include "common/pager.html" with pager=pager %}
   {% else %}
   <p class="alert alert-info">Vous n'avez renseigné aucun établissement pour le moment.</p>
   {% endif %}
