@@ -13,13 +13,27 @@
     </div>
   </div>
 
-  {% if pager %}
+  {% if erp_total_count > 0 %}
   <nav class="nav nav-tabs nav-fill">
-    <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}" href=".">Tous</a>
-    <a class="nav-item nav-link{% if filter_published == "1" %} active{% endif %}" href="./?published=1">Publiés</a>
-    <a class="nav-item nav-link{% if filter_published == "0" %} active{% endif %}" href="./?published=0">Non-publiés</a>
-    <a class="nav-item nav-link{% if filter_filled == "1" %} active{% endif %}" href="./?filled=1">Renseignés</a>
-    <a class="nav-item nav-link{% if filter_filled == "0" %} active{% endif %}" href="./?filled=0">Non-renseignés</a>
+    <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}" href=".">
+      Tous <span class="badge badge-pill badge-primary">{{ erp_total_count }}</span>
+    </a>
+    <a class="nav-item nav-link{% if filter_published == "1" %} active{% endif %}{% if erp_published_count == 0 %} disabled{% endif %}"
+      href="./?published=1">
+      Publiés <span class="badge badge-pill badge-primary">{{ erp_published_count }}</span>
+    </a>
+    <a class="nav-item nav-link{% if filter_published == "0" %} active{% endif %}{% if erp_non_published_count == 0 %} disabled{% endif %}"
+      href="./?published=0">
+      Non-publiés <span class="badge badge-pill badge-primary">{{ erp_non_published_count }}</span>
+    </a>
+    <a class="nav-item nav-link{% if filter_filled == "1" %} active{% endif %}{% if erp_filled_count == 0 %} disabled{% endif %}"
+      href="./?filled=1">
+      Renseignés <span class="badge badge-pill badge-primary">{{ erp_filled_count }}</span>
+    </a>
+    <a class="nav-item nav-link{% if filter_filled == "0" %} active{% endif %}{% if erp_non_filled_count == 0 %} disabled{% endif %}"
+      href="./?filled=0">
+      Non-renseignés <span class="badge badge-pill badge-primary">{{ erp_non_filled_count }}</span>
+    </a>
   </nav>
 
   <ul class="list-group">
@@ -60,6 +74,8 @@
         {% endif %}
       </div>
     </li>
+    {% empty %}
+    <li class="list-group-item border-top-0 rounded-0">La liste est vide.</li>
     {% endfor %}
   </ul>
   {% include "common/pager.html" with pager=pager %}

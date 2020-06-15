@@ -233,7 +233,14 @@ def mon_compte(request):
 def mes_erps(request):
     if not request.user.is_authenticated:
         raise PermissionDenied
-    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
+        user_id=request.user.pk
+    )
+    erp_total_count = qs.count()
+    erp_published_count = qs.filter(published=True).count()
+    erp_non_published_count = qs.filter(published=False).count()
+    erp_filled_count = qs.filter(accessibilite__isnull=False).count()
+    erp_non_filled_count = qs.filter(accessibilite__isnull=True).count()
     published = request.GET.get("published")
     if published == "1":
         qs = qs.filter(published=True)
@@ -252,6 +259,11 @@ def mes_erps(request):
         request,
         "compte/mes_erps.html",
         context={
+            "erp_total_count": erp_total_count,
+            "erp_published_count": erp_published_count,
+            "erp_non_published_count": erp_non_published_count,
+            "erp_filled_count": erp_filled_count,
+            "erp_non_filled_count": erp_non_filled_count,
             "pager": pager,
             "filter_published": published,
             "filter_filled": filled,
