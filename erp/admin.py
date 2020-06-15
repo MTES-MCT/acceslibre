@@ -198,6 +198,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         ("activite", RelatedDropdownFilter),
         ("user", RelatedDropdownFilter),
         CommuneFilter,
+        "source",
         "created_at",
         "updated_at",
     ]
@@ -208,7 +209,15 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     search_fields = ["nom", "activite__nom", "code_postal", "commune"]
     autocomplete_fields = ["activite", "commune_ext"]
     scrollable = False
-    sortable_by = ("nom", "activite__nom", "code_postal", "commune")
+    sortable_by = (
+        "nom",
+        "activite__nom",
+        "code_postal",
+        "commune",
+        "source",
+        "updated_at",
+        "user",
+    )
     view_on_site = True
 
     fieldsets = [
