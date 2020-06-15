@@ -4,6 +4,8 @@ from django import forms
 from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.db.models import Count
 from django.http import HttpResponseRedirect
@@ -29,6 +31,27 @@ from .models import (
     Accessibilite,
 )
 from . import schema
+
+
+class CustomUserAdmin(UserAdmin):
+    ordering = (
+        "-date_joined",
+        "username",
+    )
+    list_display = (
+        "username",
+        "email",
+        "date_joined",
+        "first_name",
+        "last_name",
+        "is_active",
+        "is_staff",
+    )
+
+
+# replace the default UserAdmin with yours
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
 
 
 @admin.register(Activite)
