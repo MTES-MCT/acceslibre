@@ -1,9 +1,10 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.utils.safestring import mark_safe
-
+from django_registration.forms import RegistrationFormUniqueEmail
 from . import schema
 from . import geocoder
 from . import sirene
@@ -23,6 +24,22 @@ def bool_radios():
 def get_widgets_for_accessibilite():
     field_names = schema.get_nullable_bool_fields()
     return dict([(f, bool_radios()) for f in field_names])
+
+
+class CustomRegistrationForm(RegistrationFormUniqueEmail):
+    class Meta(RegistrationFormUniqueEmail.Meta):
+        model = User
+        fields = [
+            "first_name",
+            "last_name",
+            "username",
+            "email",
+            "password1",
+            "password2",
+        ]
+
+    # first_name = forms.CharField(label="Prénom", widget=forms.TextInput())
+    # last_name = forms.CharField(label="Nom", widget=forms.TextInput())
 
 
 class AdminAccessibiliteForm(forms.ModelForm):

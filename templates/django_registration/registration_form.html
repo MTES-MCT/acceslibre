@@ -1,7 +1,8 @@
 {% extends "editorial/base.html" %}
 
-{% load static %}
 {% load a4a %}
+{% load crispy_forms_tags %}
+{% load static %}
 
 {% block editorial_content %}
 {% if user.is_authenticated %}
@@ -19,41 +20,18 @@
 
     {{ form.non_field_errors }}
 
-    <div class="form-group">
-      {{ form.username.label_tag }}
-      {{ form.username|addclass:"form-control" }}
-      {% for error in form.username.errors %}
-        <div class="form-text text-danger">{{ error }}</div>
-      {% endfor %}
-      <span class="form-text text-muted">{{ form.username.help_text }}</span>
+    {{ form.username|as_crispy_field }}
+    <div class="row">
+      <div class="col-sm-6">
+        {{ form.first_name|as_crispy_field }}
+      </div>
+      <div class="col-sm-6">
+        {{ form.last_name|as_crispy_field }}
+      </div>
     </div>
-
-    <div class="form-group">
-      {{ form.email.label_tag }}
-      {{ form.email|addclass:"form-control" }}
-      {% for error in form.email.errors %}
-        <div class="form-text text-danger">{{ error }}</div>
-      {% endfor %}
-      <span class="form-text text-muted">{{ form.email.help_text }}</span>
-    </div>
-
-    <div class="form-group">
-      {{ form.password1.label_tag }}
-      {{ form.password1|addclass:"form-control" }}
-      {% for error in form.password1.errors %}
-        <div class="form-text text-danger">{{ error }}</div>
-      {% endfor %}
-      <span class="form-text text-muted">{{ form.password1.help_text }}</span>
-    </div>
-
-    <div class="form-group">
-      {{ form.password2.label_tag }}
-      {{ form.password2|addclass:"form-control" }}
-      {% for error in form.password2.errors %}
-        <div class="form-text text-danger">{{ error }}</div>
-      {% endfor %}
-      <span class="form-text text-muted">{{ form.password2.help_text }}</span>
-    </div>
+    {{ form.email|as_crispy_field }}
+    {{ form.password1|as_crispy_field }}
+    {{ form.password2|as_crispy_field }}
 
     <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
   </form>
