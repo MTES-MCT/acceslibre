@@ -19,19 +19,19 @@
       Tous <span class="badge badge-pill badge-primary">{{ erp_total_count }}</span>
     </a>
     <a class="nav-item nav-link{% if filter_published == "1" %} active{% endif %}{% if erp_published_count == 0 %} disabled{% endif %}"
-      href="./?published=1">
+      href="./?published=1"{% if erp_published_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
       Publiés <span class="badge badge-pill badge-primary">{{ erp_published_count }}</span>
     </a>
     <a class="nav-item nav-link{% if filter_published == "0" %} active{% endif %}{% if erp_non_published_count == 0 %} disabled{% endif %}"
-      href="./?published=0">
+      href="./?published=0"{% if erp_non_published_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
       Non-publiés <span class="badge badge-pill badge-primary">{{ erp_non_published_count }}</span>
     </a>
     <a class="nav-item nav-link{% if filter_filled == "1" %} active{% endif %}{% if erp_filled_count == 0 %} disabled{% endif %}"
-      href="./?filled=1">
+      href="./?filled=1"{% if erp_filled_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
       Renseignés <span class="badge badge-pill badge-primary">{{ erp_filled_count }}</span>
     </a>
     <a class="nav-item nav-link{% if filter_filled == "0" %} active{% endif %}{% if erp_non_filled_count == 0 %} disabled{% endif %}"
-      href="./?filled=0">
+      href="./?filled=0"{% if erp_non_filled_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
       Non-renseignés <span class="badge badge-pill badge-primary">{{ erp_non_filled_count }}</span>
     </a>
   </nav>
