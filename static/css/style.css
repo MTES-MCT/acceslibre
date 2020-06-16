@@ -15,34 +15,6 @@ h6 {
   font-weight: 400;
 }
 
-.asteriskField {
-  color: darkorange;
-  font-size: 1.1em;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-}
-
-input[type="checkbox"] + label .asteriskField {
-  left: -15px;
-}
-
-.indented1 {
-  margin-left: 60px;
-}
-
-.indented2 {
-  margin-left: 120px;
-}
-
-.hidden {
-  display: none;
-}
-
-.form-text.text-muted {
-  font-size: 0.8em;
-}
-
 .a4a-logo {
   font-size: 3.5em;
 }
@@ -305,6 +277,38 @@ input[type="checkbox"] + label .asteriskField {
 }
 
 /* Forms */
+
+.asteriskField {
+  color: darkorange;
+  font-size: 1.1em;
+  font-weight: bold;
+  position: absolute;
+  left: 5px;
+}
+
+input[type="checkbox"] + .form-check-label.requiredField {
+  display: flex;
+}
+
+input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
+  left: -10px;
+}
+
+.indented1 {
+  margin-left: 60px;
+}
+
+.indented2 {
+  margin-left: 120px;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-text.text-muted {
+  font-size: 0.8em;
+}
 
 .a4a-form-inline-choices ul {
   list-style-type: none;
