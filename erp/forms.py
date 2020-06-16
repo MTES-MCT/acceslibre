@@ -38,9 +38,6 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "password2",
         ]
 
-    # first_name = forms.CharField(label="Prénom", widget=forms.TextInput())
-    # last_name = forms.CharField(label="Nom", widget=forms.TextInput())
-
 
 class AdminAccessibiliteForm(forms.ModelForm):
     accueil_equipements_malentendants = forms.MultipleChoiceField(
