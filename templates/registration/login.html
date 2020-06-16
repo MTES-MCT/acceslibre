@@ -1,5 +1,6 @@
 {% extends "editorial/base.html" %}
 
+{% load crispy_forms_tags %}
 {% load static %}
 {% load a4a %}
 
@@ -20,31 +21,24 @@
     <input type="hidden" name="next" value="{{ next }}">
     {% csrf_token %}
 
+    <p><small class="text-muted">
+      <i class="icon icon-info-circled"></i>
+      Les champs marqué d'une astérique (*) sont obligatoires.
+    </small></p>
+
     {% for error in form.non_field_errors %}
       <p class="form-text text-danger">{{ error }}</p>
     {% endfor %}
 
-      <div class="form-group has-error">
-        {{ form.username.label_tag }}
-        {{ form.username|addclass:"form-control" }}
-        {% for error in form.username.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
-      </div>
-
-      <div class="form-group has-error">
-        {{ form.password.label_tag }}
-        {{ form.password|addclass:"form-control" }}
-        {% for error in form.password.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
-        <p class="text-right">
-          <small><a href="{% url "password_reset" %}">J'ai oublié mon mot de passe !</a></small>
-        </p>
-      </div>
+      {{ form.username|as_crispy_field }}
+      {{ form.password|as_crispy_field }}
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+      </div>
+
+      <div class="text-center">
+        <a href="{% url "password_reset" %}">J'ai oublié mon mot de passe !</a>
       </div>
   </form>
   <div class="col-md-6 col-lg-5">

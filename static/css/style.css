@@ -15,6 +15,18 @@ h6 {
   font-weight: 400;
 }
 
+.asteriskField {
+  color: darkorange;
+  font-size: 1.1em;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+input[type="checkbox"] + label .asteriskField {
+  left: -15px;
+}
+
 .indented1 {
   margin-left: 60px;
 }

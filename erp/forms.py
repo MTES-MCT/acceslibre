@@ -397,7 +397,7 @@ class PublicPublicationForm(forms.ModelForm):
     )
     certif = forms.BooleanField(
         label="Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur Access4all.",
-        required=False,
+        required=True,
     )
 
     def clean_certif(self):
