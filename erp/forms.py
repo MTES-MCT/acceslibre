@@ -274,7 +274,10 @@ class BasePublicErpInfosForm(BaseErpForm):
 
     recevant_du_public = forms.BooleanField(
         label="Cet établissement reçoit du public",
-        help_text="Seuls les établissements recevant du public peuventt être ajoutés à cette base de données.",
+        help_text=mark_safe(
+            'Seuls les <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32351" target="_blank">'
+            "établissements recevant du public</a> peuvent être ajoutés à cette base de données."
+        ),
     )
 
     def __init__(self, *args, **kwargs):
@@ -384,7 +387,7 @@ class PublicPublicationForm(forms.ModelForm):
         fields = ("user_type",)
 
     user_type = forms.ChoiceField(
-        label="Mon profil de contributeur",
+        label="Mon profil",
         choices=[
             (Erp.USER_ROLE_PUBLIC, "Je fréquente cet établissement",),
             (Erp.USER_ROLE_GESTIONNAIRE, "Je gère cet établissement",),
