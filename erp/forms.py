@@ -245,7 +245,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "site_internet",
             "telephone",
         )
-        labels = {"siret": "Numéro SIRET"}
+        labels = {"siret": "Numéro SIRET", "user_type": "Saisie en qualité de"}
         help_texts = {
             "lieu_dit": "Lieu-dit ou complément d'adresse",
             "siret": mark_safe(
@@ -271,6 +271,11 @@ class BasePublicErpInfosForm(BaseErpForm):
             ),
             "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
         }
+
+    recevant_du_public = forms.BooleanField(
+        label="Cet établissement reçoit du public",
+        help_text="Seuls les établissements recevant du public peuventt être ajoutés à cette base de données.",
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -373,9 +378,22 @@ class PublicSiretSearchForm(forms.Form):
             )
 
 
-class PublicPublicationForm(forms.Form):
+class PublicPublicationForm(forms.ModelForm):
+    class Meta:
+        model = Erp
+        fields = ("user_type",)
+
+    user_type = forms.ChoiceField(
+        label="Mon profil de contributeur",
+        choices=[
+            (Erp.USER_ROLE_PUBLIC, "Je fréquente cet établissement",),
+            (Erp.USER_ROLE_GESTIONNAIRE, "Je gère cet établissement",),
+            (Erp.USER_ROLE_ADMIN, "Je représente une administration publique",),
+        ],
+        widget=forms.RadioSelect(attrs={"class": "inline"}),
+    )
     certif = forms.BooleanField(
-        label="Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur Access4ll.",
+        label="Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur Access4all.",
         required=False,
     )
 

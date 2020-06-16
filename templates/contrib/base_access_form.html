@@ -22,10 +22,12 @@
 
     {% csrf_token %}
 
+    {% if step != 8 %}
     <p><small class="text-muted">
       <i class="icon icon-info-circled"></i> Aucun champ n'est obligatoire. Si
       vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>.
     </small></p>
+    {% endif %}
 
     {% if form.non_field_errors %}
     <div class="alert alert-warning">

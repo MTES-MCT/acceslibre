@@ -514,13 +514,14 @@ def contrib_autre(request, erp_slug):
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
-        form = PublicPublicationForm(request.POST)
+        form = PublicPublicationForm(request.POST, instance=erp)
         if form.is_valid():
+            erp = form.save(commit=False)
             erp.published = True
             erp.save()
             return redirect("mes_erps")
     else:
-        form = PublicPublicationForm()
+        form = PublicPublicationForm(instance=erp)
     return render(
         request,
         template_name="contrib/10-publication.html",

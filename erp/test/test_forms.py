@@ -13,6 +13,7 @@ from ..models import Commune
 
 
 VALID_ADDRESS = {
+    "user_type": "public",
     "nom": "plop",
     "numero": "4",
     "voie": "rue de la paix",
@@ -21,6 +22,7 @@ VALID_ADDRESS = {
     "commune": "Paris",
 }
 INVALID_ADDRESS = {
+    "user_type": "public",
     "nom": "plop",
     "voie": "invalid",
     "code_postal": "XXXXX",

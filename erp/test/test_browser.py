@@ -250,6 +250,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         reverse("contrib_admin_infos"),
         data={
             "nom": "Test ERP",
+            "recevant_du_public": True,
             "activite": data.boulangerie.pk,
             "siret": "",
             "numero": "12",
@@ -452,12 +453,23 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert response.status_code == 200
 
     # Publication
+    # Public user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={"certif": True,},
+        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": True,},
         follow=True,
     )
-    erp = Erp.objects.get(slug=erp.slug)
+    erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
+    assert erp.published == True
+    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert response.status_code == 200
+    # Administrative user
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
+        data={"user_type": Erp.USER_ROLE_ADMIN, "certif": True,},
+        follow=True,
+    )
+    erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
     assert erp.published == True
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200

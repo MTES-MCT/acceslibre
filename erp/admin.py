@@ -209,6 +209,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "geolocalise",
         "renseignee",
         "user",
+        "user_type",
         "source",
         "updated_at",
         "view_search",
@@ -220,6 +221,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     list_filter = [
         ("activite", RelatedDropdownFilter),
         ("user", RelatedDropdownFilter),
+        "user_type",
         CommuneFilter,
         "source",
         "created_at",
@@ -240,6 +242,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "source",
         "updated_at",
         "user",
+        "user_type",
     )
     view_on_site = True
 
@@ -253,6 +256,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
                     "nom",
                     "siret",
                     "user",
+                    "user_type",
                     "published",
                 ]
             },

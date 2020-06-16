@@ -48,7 +48,14 @@
         {{ form.activite|as_crispy_field }}
       </div>
     </div>
-    {{ form.siret|as_crispy_field }}
+    <div class="row">
+      <div class="col-sm-6">
+        {{ form.recevant_du_public|as_crispy_field }}
+      </div>
+      <div class="col-sm-6">
+        {{ form.siret|as_crispy_field }}
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-3">
         {{ form.numero|as_crispy_field }}

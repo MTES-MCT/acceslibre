@@ -167,6 +167,17 @@ class Label(models.Model):
 
 
 class Erp(models.Model):
+    USER_ROLE_ADMIN = "admin"
+    USER_ROLE_GESTIONNAIRE = "gestionnaire"
+    USER_ROLE_PUBLIC = "public"
+    USER_ROLE_SYSTEM = "system"
+    USER_ROLES = (
+        (USER_ROLE_ADMIN, "Administration"),
+        (USER_ROLE_GESTIONNAIRE, "Gestionnaire"),
+        (USER_ROLE_PUBLIC, "Utilisateur public"),
+        (USER_ROLE_SYSTEM, "Système"),
+    )
+
     class Meta:
         ordering = ("nom",)
         verbose_name = "Établissement"
@@ -176,6 +187,7 @@ class Erp(models.Model):
             models.Index(fields=["slug"]),
             models.Index(fields=["commune"]),
             models.Index(fields=["commune", "activite_id"]),
+            models.Index(fields=["user_type"]),
             GinIndex(name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
         ]
@@ -198,9 +210,16 @@ class Erp(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         null=True,
-        verbose_name="Utilisateur",
+        verbose_name="Contributeur",
         on_delete=models.SET_NULL,
     )
+    user_type = models.CharField(
+        max_length=50,
+        choices=USER_ROLES,
+        verbose_name="Profil de contributeur",
+        default=USER_ROLE_SYSTEM,
+    )
+
     commune_ext = models.ForeignKey(
         Commune,
         null=True,
