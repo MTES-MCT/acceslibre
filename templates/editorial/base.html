@@ -6,23 +6,26 @@
   <header class="container-fluid p-0 m-0">
     <section class="jumbotron jumbotron-fluid p-4">
       <div class="container">
-        <p class="text-right">
-          {% if user.is_authenticated %}
-            Connecté en tant que <strong>{{ user.username }}</strong> ·
-            <a href="{% url "mon_compte" %}">Mon compte</a> ·
-            {% if user.is_staff %}
-            <a href="{% url "admin:index" %}">Admin</a> ·
+        <div>
+          <p class="text-right">
+            {% if user.is_authenticated %}
+              <span class="d-none d-sm-inline">Connecté en tant que </span><strong>{{ user.username }}</strong> ·
+              <a href="{% url "mon_compte" %}">Mon compte</a> ·
+              {% if user.is_staff %}
+              <a href="{% url "admin:index" %}">Admin</a> ·
+              {% endif %}
+              <a href="{% url "logout" %}">Déconnexion</a>
+            {% else %}
+              <a href="{% url "login" %}">Identifiez-vous</a>
+              ou
+              <a href="{% url "django_registration_register" %}">créez un compte</a>
             {% endif %}
-            <a href="{% url "logout" %}">Déconnexion</a>
-          {% else %}
-            <a href="{% url "login" %}">Identifiez-vous</a>
-            ou
-            <a href="{% url "django_registration_register" %}">créez un compte</a>
-          {% endif %}
-        </p>
+          </p>
+        </div>
         <div class="row">
           <div class="col-md-8">
-            <h1 class="display-4" id="content">
+            <h1 class="display-4 a4a-logo" id="content">
+              <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" width="80" class="d-none d-sm-inline">
               <a class="text-body text-decoration-none" href="{% url "home" %}">access4all</a>
             </h1>
             <p class="lead">
