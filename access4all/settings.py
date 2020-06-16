@@ -183,6 +183,11 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_OPEN = True
 REGISTRATION_SALT = "a4a-registration"
 
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "erp.auth.EmailOrUsernameModelBackend",
+)
+
 # graphviz
 GRAPH_MODELS = {
     "all_applications": True,

@@ -107,6 +107,14 @@ def test_auth(data, client, capsys):
     assert response.context["pager"][0].nom == "Aux bons croissants"
 
 
+def test_auth_using_email(data, client, capsys):
+    response = client.post(
+        reverse("login"), data={"username": "niko@niko.tld", "password": "Abc12345!"},
+    )
+    assert response.status_code == 302
+    assert response.wsgi_request.user.username == "niko"
+
+
 def test_registration(data, client, capsys):
     response = client.post(
         reverse("django_registration_register"),

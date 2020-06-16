@@ -11,7 +11,7 @@ def data(db):
     obj_admin = User.objects.create_user(
         username="admin",
         password="Abc12345!",
-        email="niko@niko.tld",
+        email="admin@admin.tld",
         is_staff=True,
         is_superuser=True,
         is_active=True,
