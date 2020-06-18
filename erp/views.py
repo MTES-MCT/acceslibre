@@ -503,8 +503,7 @@ def contrib_autre(request, erp_slug):
         request,
         erp_slug,
         7,
-        schema.get_section_fields(schema.SECTION_LABELS)
-        + schema.get_section_fields(schema.SECTION_COMMENTAIRE),
+        schema.get_section_fields(schema.SECTION_LABELS),
         "contrib/9-autre.html",
         "contrib_publication",
     )
@@ -513,15 +512,20 @@ def contrib_autre(request, erp_slug):
 @login_required
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    initial = (
+        {"commentaire": erp.accessibilite.commentaire} if erp.accessibilite else {}
+    )
     if request.method == "POST":
-        form = PublicPublicationForm(request.POST, instance=erp)
+        form = PublicPublicationForm(request.POST, instance=erp, initial=initial)
         if form.is_valid():
             erp = form.save(commit=False)
             erp.published = True
             erp.save()
+            erp.accessibilite.commentaire = form.data.get("commentaire")
+            erp.accessibilite.save()
             return redirect("mes_erps")
     else:
-        form = PublicPublicationForm(instance=erp)
+        form = PublicPublicationForm(instance=erp, initial=initial)
     return render(
         request,
         template_name="contrib/10-publication.html",

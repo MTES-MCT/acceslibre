@@ -447,7 +447,6 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "labels": [],
             "labels_familles_handicap": ["visuel", "auditif"],
             "labels_autre": "X",
-            "commentaire": "Y",
         },
         follow=True,
     )
@@ -456,7 +455,6 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.labels.count() == 0
     assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
     assert accessibilite.labels_autre == "X"
-    assert accessibilite.commentaire == "Y"
     assert ("/contrib/publication/test-erp/", 302) in response.redirect_chain
     assert response.status_code == 200
 
@@ -464,11 +462,16 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Public user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": True,},
+        data={
+            "user_type": Erp.USER_ROLE_PUBLIC,
+            "commentaire": "test commentaire",
+            "certif": True,
+        },
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
     assert erp.published == True
+    assert erp.accessibilite.commentaire == "test commentaire"
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
     # Administrative user

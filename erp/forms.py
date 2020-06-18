@@ -383,6 +383,12 @@ class PublicPublicationForm(forms.ModelForm):
         model = Erp
         fields = ("user_type",)
 
+    commentaire = forms.CharField(
+        label=schema.get_label("commentaire"),
+        widget=widgets.Textarea(),
+        help_text=schema.get_help_text("commentaire"),
+        required=False,
+    )
     user_type = forms.ChoiceField(
         label="Mon profil",
         choices=[

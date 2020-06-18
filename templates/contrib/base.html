@@ -50,9 +50,9 @@
       </li>
       <li class="StepProgress-item{% if step == 7 %} current{% endif %}{% if step > 7 %} is-done{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_autre" erp_slug=erp.slug %}">Autre</a>
+        <a href="{% url "contrib_autre" erp_slug=erp.slug %}">Labellisation</a>
         {% else %}
-        Autre
+        Labellisation
         {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 8 %} current{% endif %}">

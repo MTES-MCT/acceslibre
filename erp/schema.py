@@ -563,7 +563,8 @@ FIELDS = {
     "commentaire": {
         "label": "Commentaire libre",
         "help_text": mark_safe(
-            "Indiquer ici toute autre information qui semble pertinente pour décrire l'accessibilité du bâtiment"
+            "Indiquez ici toute information supplémentaire qui vous semble pertinente pour décrire l'accessibilité du bâtiment."
+            "<br><strong>Note&nbsp;:</strong> ce commentaire sera affiché sur la fiche publique de l'établissement."
         ),
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,

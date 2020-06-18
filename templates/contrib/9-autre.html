@@ -2,11 +2,10 @@
 
 {% load a4a %}
 
-{% block page_title %}Autre éléments{% endblock%}
+{% block page_title %}Labellisation{% endblock%}
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.labels %}
   {% include "fields/boolradio.html" with field=form.labels_familles_handicap %}
   {% include "fields/textarea.html" with field=form.labels_autre %}
-  {% include "fields/textarea.html" with field=form.commentaire %}
 {% endblock %}
