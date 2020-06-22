@@ -43,6 +43,8 @@ def encode_etablissement_data(value):
 
 @register.filter(name="format_distance")
 def format_distance(value):
+    if isinstance(value, str):
+        return value
     if value.km < 3:
         return f"{value.m:.2f}m"
     else:

@@ -78,7 +78,7 @@
     <li class="list-group-item border-top-0 rounded-0">La liste est vide.</li>
     {% endfor %}
   </ul>
-  {% include "common/pager.html" with pager=pager %}
+  {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
   {% else %}
   <p class="alert alert-info">Vous n'avez renseigné aucun établissement pour le moment.</p>
   {% endif %}

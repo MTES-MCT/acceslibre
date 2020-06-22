@@ -3,21 +3,27 @@
   <ul class="pagination justify-content-end mt-3">
     {% if pager.has_previous %}
     <li class="page-item">
-      <a class="page-link" href="?published={{ filter_published }}&filled={{ filter_filled }}&page={{ pager.previous_page_number }}">&laquo; Page précédente</a>
+      <a class="page-link" href="{{ pager_base_url }}&page={{ pager.previous_page_number }}">&laquo; Page précédente</a>
     </li>
     {% else %}
     <li class="page-item disabled">
       <a class="page-link" href="#">&laquo; Page précédente</a>
     </li>
     {% endif %}
+    {% if pager.paginator.num_pages > 5 %}
+    <li class="page-item disabled">
+      <span class="page-link">page {{ pager.number }}/{{ pager.paginator.num_pages }}</span>
+    </li>
+    {% else %}
     {% for i in pager.paginator.page_range %}
     <li class="page-item{% if pager.number == i %} active{% endif %}">
-      <a class="page-link" href="?published={{ filter_published }}&filled={{ filter_filled }}&page={{ i }}">{{ i }}</a>
+      <a class="page-link" href="{{ pager_base_url }}&page={{ i }}">{{ i }}</a>
     </li>
     {% endfor %}
+    {% endif %}
     {% if pager.has_next %}
     <li class="page-item">
-      <a class="page-link" href="?published={{ filter_published }}&filled={{ filter_filled }}&page={{ pager.next_page_number }}">Page suivante &raquo;</a>
+      <a class="page-link" href="{{ pager_base_url }}&page={{ pager.next_page_number }}">Page suivante &raquo;</a>
     </li>
     {% else %}
     <li class="page-item disabled">

@@ -50,6 +50,12 @@ def home(request):
     )
     search_results = None
     search = request.GET.get("q")
+    localize = request.GET.get("localize")
+    pager = None
+    pager_base_url = None
+    page_number = 1
+    lat = None
+    lon = None
     if search and len(search) > 0:
         erp_qs = (
             Erp.objects.published()
@@ -59,23 +65,36 @@ def home(request):
         )
         if request.GET.get("access") == "1":
             erp_qs = erp_qs.having_an_accessibilite()
-        (lat, lon) = (request.GET.get("lat"), request.GET.get("lon"))
-        if request.GET.get("localize") == "1" and lat and lon:
+        if localize == "1":
             try:
-                erp_qs = erp_qs.nearest((float(lat), float(lon))).order_by("distance")
+                (lat, lon) = (
+                    float(request.GET.get("lat")),
+                    float(request.GET.get("lon")),
+                )
+                erp_qs = erp_qs.nearest((lat, lon,)).order_by("distance")
             except ValueError:
                 pass
+        paginator = Paginator(erp_qs, 10)
+        page_number = request.GET.get("page", 1)
+        pager = paginator.get_page(page_number)
+        pager_base_url = f"?q={search or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
         search_results = {
             "communes": Commune.objects.search(search).order_by(
                 F("population").desc(nulls_last=True)
             )[:4],
-            "erps": erp_qs[:10],
+            "pager": pager,
         }
     return render(
         request,
         "index.html",
         context={
             "empty_query": "q" in request.GET and not search,
+            "pager": pager,
+            "pager_base_url": pager_base_url,
+            "page_number": page_number,
+            "localize": localize,
+            "lat": request.GET.get("lat"),
+            "lon": request.GET.get("lon"),
             "search": search,
             "communes": communes_qs,
             "latest": latest,
@@ -271,6 +290,7 @@ def mes_erps(request):
             "erp_filled_count": erp_filled_count,
             "erp_non_filled_count": erp_non_filled_count,
             "pager": pager,
+            "pager_base_url": f"?published={published or ''}&filled={filled or ''}",
             "filter_published": published,
             "filter_filled": filled,
         },
