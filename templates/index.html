@@ -65,6 +65,9 @@
                   document.querySelector("input[name=lat]").value = lat;
                   document.querySelector("input[name=lon]").value = lon;
                 })
+                .catch(function(err) {
+                  console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
+                });
             }, function(err) {
               alert("Nous n'avons pas pu déterminer votre position géographique.")
             });
