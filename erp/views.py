@@ -59,6 +59,12 @@ def home(request):
         )
         if request.GET.get("access") == "1":
             erp_qs = erp_qs.having_an_accessibilite()
+        (lat, lon) = (request.GET.get("lat"), request.GET.get("lon"))
+        if request.GET.get("localize") == "1" and lat and lon:
+            try:
+                erp_qs = erp_qs.nearest((float(lat), float(lon))).order_by("distance")
+            except ValueError:
+                pass
         search_results = {
             "communes": Commune.objects.search(search).order_by(
                 F("population").desc(nulls_last=True)

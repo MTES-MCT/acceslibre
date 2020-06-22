@@ -30,6 +30,17 @@ def test_home_search(data, client):
     assert response.context["search"] == "croissant jacou"
     assert len(response.context["search_results"]["erps"]) == 1
     assert response.context["search_results"]["erps"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["search_results"]["erps"][0], "distance") == False
+
+
+def test_home_localized(data, client):
+    response = client.get(
+        reverse("home") + "?q=croissant%20jacou&localize=1&lat=1&lon=2"
+    )
+    assert response.context["search"] == "croissant jacou"
+    assert len(response.context["search_results"]["erps"]) == 1
+    assert response.context["search_results"]["erps"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["search_results"]["erps"][0], "distance")
 
 
 @pytest.mark.parametrize(

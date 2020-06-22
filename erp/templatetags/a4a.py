@@ -41,6 +41,14 @@ def encode_etablissement_data(value):
     return sirene.base64_encode_etablissement(value)
 
 
+@register.filter(name="format_distance")
+def format_distance(value):
+    if value.km < 3:
+        return f"{value.m:.2f}m"
+    else:
+        return f"{value.km:.2f}km"
+
+
 @register.filter(name="get_equipement_label")
 def get_equipement_label(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
