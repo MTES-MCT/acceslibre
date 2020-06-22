@@ -1,5 +1,4 @@
 from django import template
-from math import modf
 
 from erp import naf
 from erp import schema
@@ -44,7 +43,7 @@ def encode_etablissement_data(value):
 
 @register.filter(name="format_distance")
 def format_distance(value):
-    if value.km < 1:
+    if value.km < 3:
         return f"{value.m:.2f}m"
     else:
         return f"{value.km:.2f}km"
