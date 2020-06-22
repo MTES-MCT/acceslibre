@@ -1,4 +1,5 @@
 from django import template
+from math import modf
 
 from erp import naf
 from erp import schema
@@ -39,6 +40,14 @@ def addclass(value, arg):
 @register.filter(name="encode_etablissement_data")
 def encode_etablissement_data(value):
     return sirene.base64_encode_etablissement(value)
+
+
+@register.filter(name="format_distance")
+def format_distance(value):
+    if value.km < 1:
+        return f"{value.m:.2f}m"
+    else:
+        return f"{value.km:.2f}km"
 
 
 @register.filter(name="get_equipement_label")
