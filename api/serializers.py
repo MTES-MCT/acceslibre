@@ -32,6 +32,9 @@ class LabelSerializer(serializers.ModelSerializer):
 
 
 class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
+    """ This is neat.
+    """
+
     class Meta:
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
@@ -42,14 +45,19 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
     labels = serializers.SlugRelatedField(slug_field="nom", many=True, read_only=True)
 
     def to_representation(self, instance):
+        request = self.context.get("request")
+        clean = request and request.GET.get("clean") == "true"
         # see https://stackoverflow.com/a/56826004/330911
+        # TODO: option pour filtrer les valeurs nulles
         source = super().to_representation(instance)
         repr = {"url": source["url"], "erp": source["erp"]}
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
                 # clean up empty fields
-                if source[field] is None or source[field] == [] or source[field] == "":
+                if clean and (
+                    source[field] is None or source[field] == [] or source[field] == ""
+                ):
                     continue
                 repr[section][field] = source[field]
         # move/un-nest/clean "commentaire" field if it exists
@@ -57,7 +65,13 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             repr["commentaire"] = repr["commentaire"]["commentaire"]
         except KeyError:
             del repr["commentaire"]
-        return repr
+        # remove section if entirely empty
+        if clean:
+            return dict(
+                (key, section) for (key, section) in repr.items() if section != {}
+            )
+        else:
+            return repr
 
 
 class ActiviteSerializer(serializers.HyperlinkedModelSerializer):

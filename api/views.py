@@ -82,6 +82,27 @@ class A4aAutoSchema(AutoSchema):
         return op
 
 
+class AccessibiliteFilterBackend(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        return queryset
+
+
+class AccessibiliteSchema(A4aAutoSchema):
+    query_string_params = {
+        "clean": {
+            "paths": ["/accessibilite/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "clean",
+                "in": "query",
+                "required": False,
+                "description": "Écarter les valeurs nulles ou non-renseignées",
+                "schema": {"type": "boolean"},
+            },
+        },
+    }
+
+
 class AccessibilitePagination(PageNumberPagination):
     page_size = 20
 
@@ -108,6 +129,8 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination
+    filter_backends = [AccessibiliteFilterBackend]
+    schema = AccessibiliteSchema()
 
     @action(detail=False, methods=["get"])
     def help(self, request, pk=None):
@@ -299,7 +322,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "around",
                 "in": "query",
                 "required": False,
-                "description": "Biais de localisation géographique, au format `latitude,longitude`",
+                "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=43.22,3.83`)",
                 "schema": {"type": "string"},
             },
         },
