@@ -48,6 +48,9 @@
         {% if erp.activite %}
           <small class="text-muted">({{ erp.activite.nom }})</small>
         {% endif %}
+        {% if erp.siret %}
+          <br><small class="text-muted">Numéro SIRET : {{ erp.siret }}</small>
+        {% endif %}
         <br>
         {% if not erp.published %}
         <small class="text-warning">

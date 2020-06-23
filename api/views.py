@@ -206,6 +206,11 @@ class ErpFilterBackend(BaseFilterBackend):
         if activite is not None:
             queryset = queryset.having_activite(activite)
 
+        # SIRET
+        siret = request.query_params.get("siret", None)
+        if siret is not None:
+            queryset = queryset.filter(siret=siret)
+
         # Search
         search_terms = request.query_params.get("q", None)
         if search_terms is not None:
@@ -273,6 +278,17 @@ class ErpSchema(A4aAutoSchema):
                 "in": "query",
                 "required": False,
                 "description": "Identifiant d'URL de l'activité (slug)",
+                "schema": {"type": "string"},
+            },
+        },
+        "siret": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "siret",
+                "in": "query",
+                "required": False,
+                "description": "Numéro SIRET de l'établissement",
                 "schema": {"type": "string"},
             },
         },
