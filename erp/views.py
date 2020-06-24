@@ -13,6 +13,7 @@ from django.views.generic.base import TemplateView
 
 from .forms import (
     AdminAccessibiliteForm,
+    PublicClaimForm,
     PublicErpAdminInfosForm,
     PublicErpEditInfosForm,
     PublicEtablissementSearchForm,
@@ -556,4 +557,20 @@ def contrib_publication(request, erp_slug):
         request,
         template_name="contrib/10-publication.html",
         context={"step": 8, "erp": erp, "form": form,},
+    )
+
+
+@login_required
+def contrib_claim(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, user__isnull=True, published=True)
+    if request.method == "POST":
+        form = PublicClaimForm(request.POST)
+        if form.is_valid():
+            erp.user = request.user
+            erp.save()
+            return redirect("contrib_localisation", erp_slug=erp.slug)
+    else:
+        form = PublicClaimForm()
+    return render(
+        request, template_name="contrib/claim.html", context={"erp": erp, "form": form}
     )

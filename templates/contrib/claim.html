@@ -1,0 +1,40 @@
+{% extends "editorial/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block page_title %}Renseigner un établissement{% endblock%}
+
+{% block editorial_content %}
+<h3 class="mb-3">Renseigner un établissement</h3>
+
+<p>Vous vous apprêtez à compléter les informations d'accessibilité pour l'établissement suivant&nbsp;:</p>
+
+<div class="card shadow-m mb-3">
+  <div class="card-header">
+    <strong>{{ erp.nom }}</strong>
+  </div>
+  <div class="card-body">
+    <address class="m-0">{{ erp.adresse }}</adresse>
+  </div>
+</div>
+
+<form action="" method="POST" class="a4a-form">
+  {% csrf_token %}
+
+  {% if form.non_field_errors %}
+  <div class="alert alert-warning">
+    <i class="icon icon-exclamation-circle"></i>
+    Attention, des erreurs ont été rencontrées.
+    <ul class="my-1">
+      {% for field_name, message in form.non_field_errors.items %}
+      <li>{{ field_name }}: {{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {{ form.ok|as_crispy_field }}
+
+  <button class="btn btn-primary">Accepter et continuer</button>
+</form>
+{% endblock %}
