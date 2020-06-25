@@ -19,7 +19,7 @@ def browser():
 def test_home(data, browser, capsys):
     browser.visit(reverse("home"))
 
-    assert browser.title == "Accueil | Access4all"
+    assert browser.title.startswith("Accueil")
     assert len(browser.find_by_css("#home-communes-list .card")) == 1
 
     assert data.erp.geom is not None
@@ -31,7 +31,7 @@ def test_home(data, browser, capsys):
 def test_erp_details(data, browser):
     browser.visit(data.erp.get_absolute_url())
 
-    assert browser.title == "Aux bons croissants | Boulangerie | Jacou | Access4all"
+    assert browser.title.startswith("Aux bons croissants | Boulangerie | Jacou")
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
