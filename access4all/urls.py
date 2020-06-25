@@ -2,17 +2,34 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
-from django_registration.backends.activation.views import RegistrationView
-
 from erp.forms import CustomRegistrationForm
+from erp.views import (
+    CustomActivationView,
+    CustomActivationCompleteView,
+    CustomRegistrationView,
+)
+
 
 urlpatterns = [
     path("", include("erp.urls")),
     path("api/", include("api.urls")),
     path("stats/", include("stats.urls")),
+    # django-registration overrides, handling `next` query string param
+    path(
+        "accounts/activate/complete/",
+        CustomActivationCompleteView.as_view(
+            template_name="django_registration/activation_complete.html",
+        ),
+        name="django_registration_activation_complete",
+    ),
+    path(
+        "accounts/activate/<str:activation_key>/",
+        CustomActivationView.as_view(),
+        name="django_registration_activate",
+    ),
     path(
         "accounts/register/",
-        RegistrationView.as_view(form_class=CustomRegistrationForm),
+        CustomRegistrationView.as_view(form_class=CustomRegistrationForm),
         name="django_registration_register",
     ),
     path("accounts/", include("django_registration.backends.activation.urls")),

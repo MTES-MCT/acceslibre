@@ -9,7 +9,11 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views import generic
 from django.views.decorators.cache import cache_page
-from django.views.generic.base import TemplateView
+from django.views.generic import TemplateView
+from django_registration.backends.activation.views import (
+    ActivationView,
+    RegistrationView,
+)
 
 from .forms import (
     AdminAccessibiliteForm,
@@ -102,6 +106,32 @@ def home(request):
             "search_results": search_results,
         },
     )
+
+
+class CustomActivationCompleteView(TemplateView):
+    def get_context_data(self, **kwargs):
+        "Spread the next redirect value from qs param to template context key."
+        context = super().get_context_data(**kwargs)
+        context["next"] = self.request.GET.get("next", "")
+        return context
+
+
+class CustomRegistrationView(RegistrationView):
+    def get_email_context(self, activation_key):
+        "Add the next redirect value to the email template context."
+        context = super().get_email_context(activation_key)
+        context["next"] = self.request.GET.get("next", "")
+        return context
+
+
+class CustomActivationView(ActivationView):
+    def get_success_url(self, user=None):
+        "Add the next redirect path to the success redirect url"
+        url = super().get_success_url(user)
+        next = self.request.GET.get("next", "")
+        if not next and self.extra_context and "next" in self.extra_context:
+            next = self.extra_context.get("next", "")
+        return f"{url}?next={next}"
 
 
 @cache_page(60 * 15)
