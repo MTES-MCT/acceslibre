@@ -36,7 +36,10 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "email",
             "password1",
             "password2",
+            "next",
         ]
+
+    next = forms.CharField(required=False)
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
@@ -409,3 +412,10 @@ class PublicPublicationForm(forms.ModelForm):
                 "Publication impossible sans ces garanties de votre part"
             )
         return True
+
+
+class PublicClaimForm(forms.Form):
+    ok = forms.BooleanField(
+        required=True,
+        label="Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement.",
+    )

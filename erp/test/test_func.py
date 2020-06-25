@@ -1,6 +1,8 @@
 import pytest
 import html
 
+from django.contrib.auth.models import User
+from django.core import mail
 from django.urls import reverse
 from splinter import Browser
 
@@ -40,3 +42,48 @@ def test_erp_details(data, browser):
     assert browser.is_text_present(
         html.unescape(schema.get_help_text("sanitaires_adaptes"))
     )
+
+
+def test_registration_flow(data, browser):
+    browser.visit(reverse("django_registration_register") + "?next=/contactez-nous/")
+    browser.fill("username", "johndoe")
+    browser.fill("first_name", "John")
+    browser.fill("last_name", "Doe")
+    browser.fill("email", "john@doe.com")
+    browser.fill("password1", "Abcdef123!")
+    browser.fill("password2", "Abcdef123!")
+    button = browser.find_by_css("form button[type=submit]")
+    button.click()
+
+    user = User.objects.get(username="johndoe")
+    assert user.is_active == False
+
+    assert len(mail.outbox) == 1
+    assert "Activation de votre compte" in mail.outbox[0].subject
+    assert "johndoe" in mail.outbox[0].body
+    assert "http://testserver/accounts/activate" in mail.outbox[0].body
+    assert "?next=/contactez-nous/" in mail.outbox[0].body
+
+    activation_url = [
+        line
+        for line in mail.outbox[0].body.split("\n")
+        if line.startswith("http") and "/activate/" in line
+    ][0].strip()
+    browser.visit(activation_url)
+
+    assert browser.is_text_present("Votre compte est désormais actif")
+    user = User.objects.get(username="johndoe")
+    assert user.is_active == True
+
+    connect_link = browser.find_by_text("Je me connecte")
+    connect_link.click()
+
+    assert browser.is_text_present("Nom d’utilisateur")
+    browser.fill("username", "johndoe")
+    browser.fill("password", "Abcdef123!")
+    button = browser.find_by_css("form button[type=submit]")
+    button.click()
+
+    # ensure we've been redirected to where we registered initially from
+    assert browser.url == "/contactez-nous/"
+    assert browser.is_text_present("Contactez-nous")

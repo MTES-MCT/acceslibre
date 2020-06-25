@@ -51,6 +51,11 @@ def format_distance(value):
         return f"{value.km:.2f}km"
 
 
+@register.filter(name="format_siret")
+def format_siret(value):
+    return sirene.format_siret(value, separator=" ")
+
+
 @register.filter(name="get_equipement_label")
 def get_equipement_label(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")

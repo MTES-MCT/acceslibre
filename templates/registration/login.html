@@ -45,7 +45,7 @@
     <div class="card p-4">
       <h5><i class="icon icon-exclamation-circle"></i> Je ne possède pas de compte</h5>
       <p>Créer son compte ne prend que quelques minutes et vous permet de contribuer au site.</p>
-      <a href="{% url "django_registration_register" %}" class="btn btn-success btn-block">Je crée mon compte</a>
+      <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-success btn-block">Je crée mon compte</a>
     </div>
   </div>
 </div>

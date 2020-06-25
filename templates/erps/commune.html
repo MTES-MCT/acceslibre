@@ -40,6 +40,20 @@
             placeholder="Rue, restaurant, café, poste, pharmacie... à {{ commune.nom }}"
             value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
       </form>
+      <ul class="navbar-nav mr-auto">
+      {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "mon_compte" %}">Mon compte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "logout" %}?next={{ request.path }}">Déconnexion</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "login" %}?next={{ request.path }}">Connexion</a>
+        </li>
+      {% endif %}
+      </ul>
     </div>
   </nav>
 

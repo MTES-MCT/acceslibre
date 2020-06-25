@@ -16,7 +16,7 @@
               {% endif %}
               <a href="{% url "logout" %}">Déconnexion</a>
             {% else %}
-              <a href="{% url "login" %}">Identifiez-vous</a>
+              <a href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
               ou
               <a href="{% url "django_registration_register" %}">créez un compte</a>
             {% endif %}

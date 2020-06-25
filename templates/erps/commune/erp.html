@@ -1,3 +1,4 @@
+{% load a4a %}
 {% load static %}
 
 <div class="a4a-erp-details">
@@ -11,6 +12,11 @@
       </h3>
       <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
       <div>
+        {% if erp.siret %}
+          <span class="d-inline-block mr-2" title="Numéro SIRET de l'établissement">
+            <i class="icon icon-commercial"></i> {{ erp.siret|format_siret }}
+          </span>
+        {% endif %}
         {% if erp.contact_email %}
           <a class="d-inline-block mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
             <i class="icon icon-mail"></i> Contacter cet ERP
@@ -71,9 +77,21 @@
   </header>
 
   {% if not accessibilite_data %}
-    <div class="alert alert-info">
+    <div class="alert alert-info mb-3">
       Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
     </div>
+    {% if not erp.user %}
+      <p class="text-center">
+        <a class="btn btn-primary" href="{% url "contrib_claim" erp_slug=erp.slug %}">
+          Je souhaite renseigner les informations d'accessibilité pour cet établissement
+        </a>
+      </p>
+    {% elif erp.user and erp.user.username != user.username %}
+      <div class="alert alert-info">
+        Si vous assurez la gestion de cet établissement et que vous souhaitez apporter des corrections
+        aux informations mentionnées, merci de <a href="{% url "contact_form" %}">nous contacter</a>.
+      </div>
+    {% endif %}
   {% else %}
     <h4>Accessibilité</h4>
 

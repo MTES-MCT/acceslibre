@@ -4,6 +4,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block page_title %}Créer un compte{% endblock%}
+
 {% block editorial_content %}
 {% if user.is_authenticated %}
 <p class="alert alert-warning">
@@ -18,6 +20,8 @@
 <div class="row justify-content-md-center">
   <form action="" method="POST" class="col-md-6 col-lg-5 mb-4" id="registration">
     {% csrf_token %}
+
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
 
     <p><small class="text-muted">
       <i class="icon icon-info-circled"></i>
@@ -50,7 +54,7 @@
     <div class="card p-4">
       <h5><i class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h5>
       <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
-      <p><a href="{% url "login" %}" class="btn btn-success btn-block">Je me connecte</a></p>
+      <p><a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-success btn-block">Je me connecte</a></p>
     </div>
   </div>
 </div>
