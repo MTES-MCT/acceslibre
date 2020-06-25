@@ -1,3 +1,4 @@
+{% load a4a %}
 {% load static %}
 
 <div class="a4a-erp-details">
@@ -11,6 +12,11 @@
       </h3>
       <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
       <div>
+        {% if erp.siret %}
+          <span class="d-inline-block mr-2" title="Numéro SIRET de l'établissement">
+            <i class="icon icon-commercial"></i> {{ erp.siret|format_siret }}
+          </span>
+        {% endif %}
         {% if erp.contact_email %}
           <a class="d-inline-block mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
             <i class="icon icon-mail"></i> Contacter cet ERP

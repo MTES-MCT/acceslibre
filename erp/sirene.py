@@ -148,8 +148,8 @@ def base64_encode_etablissement(etablissement):
         raise RuntimeError("Impossible d'encoder les informations de l'établissement")
 
 
-def format_siret(value):
-    return siret.format(value, separator="")
+def format_siret(value, separator=""):
+    return siret.format(value, separator=separator)
 
 
 def extract_etablissement_nom(etablissement):
