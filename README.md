@@ -8,7 +8,7 @@ L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant de
 
 - Python 3.8+
 - [Pipenv](https://pipenv.kennethreitz.org/en/latest/)
-- PostgreSQL 10.11+
+- PostgreSQL 12.2+
 - `postgresql-12-postgis-3`
 - `postgresql-12-postgis-3-scripts`
 - `libpq-dev`
