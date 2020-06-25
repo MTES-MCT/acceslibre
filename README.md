@@ -4,15 +4,16 @@ Référencement de l'accessibilité des ERP (Établissements Recevant du Public)
 
 ## Prérequis
 
-L'environnement de développement recommandé est Ubuntu 18.04 LTS, disposant des outils et paquets suivants :
+L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant des outils et paquets suivants :
 
-- Python 3.7+
+- Python 3.8+
 - [Pipenv](https://pipenv.kennethreitz.org/en/latest/)
 - PostgreSQL 10.11+
-- `postgresql-10-postgis-3`
-- `postgresql-10-postgis-3-scripts`
+- `postgresql-12-postgis-3`
+- `postgresql-12-postgis-3-scripts`
 - `libpq-dev`
-- `python3.7-dev`
+- `python3.8-dev`
+- `Django` en version 3 ou supérieure
 
 ## Configurer les variables d'environnement
 
@@ -307,6 +308,6 @@ Lancer psql en local:
 $ sudo -u postgres psql
 ```
 
-## License
+## Licence
 
 Le code source du logiciel est publié sous licence [MIT](https://fr.wikipedia.org/wiki/Licence_MIT).
