@@ -306,3 +306,7 @@ Lancer psql en local:
 ```
 $ sudo -u postgres psql
 ```
+
+## License
+
+Le code source du logiciel est publié sous licence [MIT](https://fr.wikipedia.org/wiki/Licence_MIT).
