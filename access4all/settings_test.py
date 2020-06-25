@@ -17,5 +17,10 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 CACHES = {"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache",}}
 
+TEMPLATES[0]["OPTIONS"]["debug"] = True
+TEMPLATES[0]["OPTIONS"]["context_processors"].insert(
+    0, "django.template.context_processors.debug"
+)
+
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
