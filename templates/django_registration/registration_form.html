@@ -4,6 +4,8 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block page_title %}Créer un compte{% endblock%}
+
 {% block editorial_content %}
 {% if user.is_authenticated %}
 <p class="alert alert-warning">
