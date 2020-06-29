@@ -2,6 +2,8 @@
 
 Référencement de l'accessibilité des ERP (Établissements Recevant du Public) en France.
 
+**Note:** Ce projet a historiquement été créé et conçu sous le nom _access4all_, avant d'être rebaptisé _acceslibre_. Le nom technique _access4all_ reste utilisé dans la base de code et doit être perçu comme équivalent, même s'il n'apparâit plus sur l'interface publique du site.
+
 ## Prérequis
 
 L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant des outils et paquets suivants :
