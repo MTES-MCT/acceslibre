@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import widgets
+from django.conf import settings
 from django.utils.safestring import mark_safe
 from django_registration.forms import RegistrationFormUniqueEmail
 from . import schema
@@ -402,7 +403,7 @@ class PublicPublicationForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
     )
     certif = forms.BooleanField(
-        label="Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur Access4all.",
+        label=f"Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur {settings.SITE_NAME}.",
         required=True,
     )
 

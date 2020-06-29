@@ -1,4 +1,4 @@
-# Access4all
+# Acceslibre
 
 Référencement de l'accessibilité des ERP (Établissements Recevant du Public) en France.
 
@@ -276,7 +276,7 @@ $ python manage.py migrate
 
 ## Générer les graphes du modèle de données
 
-Il est possible de générer les diagrammes de la structure du modèle de données métier Access4all en installant [GraphViz](https://www.graphviz.org/) sur votre machine et en exécutant la commande dédiée :
+Il est possible de générer les diagrammes de la structure du modèle de données métier Acceslibre en installant [GraphViz](https://www.graphviz.org/) sur votre machine et en exécutant la commande dédiée :
 
 ```
 $ sudo apt install graphviz

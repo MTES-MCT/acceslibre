@@ -31,7 +31,9 @@ def get_env_variable(var_name, required=True, type=str):
         return os.environ.get(var_name)
 
 
-SITE_NAME = "access4all"
+SITE_NAME = "acceslibre"
+SITE_HOST = "access4all.beta.gouv.fr"
+SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
 
 # Sentry integration
@@ -97,8 +99,19 @@ REST_FRAMEWORK = {
 ROOT_URLCONF = "access4all.urls"
 
 
-def expose_site_name(request):
-    return {"SITE_NAME": SITE_NAME}
+def expose_site_context(request):
+    """ Expose generic site related static values to all templates.
+
+        Note: we load these values from django.conf.settings so we can retrieve
+        those defined/overriden in env-specific settings module (eg. dev/prod).
+    """
+    from django.conf import settings
+
+    return {
+        "SITE_NAME": settings.SITE_NAME,
+        "SITE_HOST": settings.SITE_HOST,
+        "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+    }
 
 
 TEMPLATES = [
@@ -109,7 +122,7 @@ TEMPLATES = [
         "OPTIONS": {
             "debug": False,
             "context_processors": [
-                "access4all.settings.expose_site_name",
+                "access4all.settings.expose_site_context",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",

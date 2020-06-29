@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
 from rest_framework.filters import BaseFilterBackend
 
+from django.conf import settings
 from erp import geocoder
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
@@ -24,22 +25,23 @@ from .serializers import (
 # - documenting your views: https://www.django-rest-framework.org/coreapi/from-documenting-your-api/#documenting-your-views
 
 
-API_DOC_SUMMARY = """
-Access4all expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation) publique
-permettant d'interroger programmatiquement sa base de données. Cette API embrasse le paradigme
+API_DOC_SUMMARY = f"""
+{settings.SITE_NAME.title()} expose une [API](https://fr.wikipedia.org/wiki/Interface_de_programmation)
+publique permettant d'interroger programmatiquement sa base de données. Cette API embrasse le paradigme
 [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer) autant que possible et
 expose les résultats au format [JSON](https://fr.wikipedia.org/wiki/JavaScript_Object_Notation).
 
 Le point d'entrée racine de l'API est accessible à l'adresse
-[`https://access4all.beta.gouv.fr/api/`](https://access4all.beta.gouv.fr/api/),
-et une présentation HTML quand utilisée par biais d'un navigateur Web.
+[`{settings.SITE_ROOT_URL}/api/`]({settings.SITE_ROOT_URL}/api/):
+- Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
+- Une réponse de type `application/json` est restituée si explicitement demandée par le client.
 
 #### Quelques exemples d'utilisation
 
 ##### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
 
 ```
-$ curl -X GET http://access4all.beta.gouv.fr/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json"
 ```
 
 Notez que chaque résultat expose une clé `url`, qui est un point de récupération des informations de l'établissement.
@@ -49,7 +51,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 ##### Récupérer les détails d'un établissement particulier
 
 ```
-$ curl -X GET http://access4all.beta.gouv.fr/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
 ```
 
 Notez la présence de la clé `accessbilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
@@ -59,7 +61,7 @@ Notez la présence de la clé `accessbilite` qui expose l'URL du point de récup
 ##### Récupérer les détails d'accessibilité pour cet ERP
 
 ```
-$ curl -X GET http://access4all.beta.gouv.fr/api/accessibilite/80/ -H "accept: application/json"
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: application/json"
 ```
 
 ---

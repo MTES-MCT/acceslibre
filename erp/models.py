@@ -167,6 +167,16 @@ class Label(models.Model):
 
 
 class Erp(models.Model):
+    SOURCE_ADMIN = "admin"
+    SOURCE_API = "api"
+    SOURCE_PUBLIC = "public"
+    SOURCE_CCONFORME = "cconforme"
+    SOURCE_CHOICES = (
+        (SOURCE_ADMIN, "Back-office"),
+        (SOURCE_API, "API"),
+        (SOURCE_PUBLIC, "Application publique"),
+        (SOURCE_CCONFORME, "cconforme"),
+    )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
     USER_ROLE_PUBLIC = "public"
@@ -198,7 +208,8 @@ class Erp(models.Model):
         max_length=100,
         null=True,
         verbose_name="Source",
-        default="access4all",
+        default=SOURCE_PUBLIC,
+        choices=SOURCE_CHOICES,
         help_text="Nom de la source de données dont est issu cet ERP",
     )
     source_id = models.CharField(

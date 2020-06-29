@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.db.models import Count
 from django.http import HttpResponseRedirect
+from django.conf import settings
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 
@@ -388,6 +389,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 
 # General admin heading & labels
 warn = " (LOCAL)" if settings.DEBUG else ""
-admin.site.site_title = f"Access4all admin{warn}"
-admin.site.site_header = f"Access4all admin{warn}"
-admin.site.index_title = f"Access4all administration{warn}"
+admin.site.site_title = f"{settings.SITE_NAME.title()} admin{warn}"
+admin.site.site_header = f"{settings.SITE_NAME.title()} admin{warn}"
+admin.site.index_title = f"{settings.SITE_NAME.title()} administration{warn}"

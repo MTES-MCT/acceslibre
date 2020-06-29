@@ -1,1 +1,1 @@
-{% autoescape off %}Activation de votre compte Access4all{% endautoescape %}
+{% autoescape off %}Activation de votre compte {{ SITE_NAME.title }}{% endautoescape %}

@@ -1,1 +1,1 @@
-{% autoescape off %}[Access4all] Nouveau message de {{ name }}{% endautoescape %}
+{% autoescape off %}[{{ SITE_NAME.title }}] Nouveau message de {{ name }}{% endautoescape %}

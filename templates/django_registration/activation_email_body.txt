@@ -1,6 +1,6 @@
 {% autoescape off %}Bonjour {{ user.username }},
 
-Merci d'avoir créé un compte sur Access4all, la plateforme collaborative de l'accessibilité.
+Merci d'avoir créé un compte sur {{ SITE_NAME.title }}, la plateforme collaborative de l'accessibilité.
 
 Vous devez maintenant activer votre compte pour pouvoir vous y connecter{% if next %} et poursuivre votre démarche{% endif %}, en suivant le lien ci-dessous :
 
@@ -9,6 +9,6 @@ Vous devez maintenant activer votre compte pour pouvoir vous y connecter{% if ne
 À très vite !
 
 --
-L'équipe access4all
-https://access4all.beta.gouv.fr/
+L'équipe {{ SITE_NAME.title }}
+{{ SITE_ROOT_URL }}
 {% endautoescape %}
