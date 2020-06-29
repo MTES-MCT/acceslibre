@@ -32,7 +32,7 @@ def get_env_variable(var_name, required=True, type=str):
 
 
 SITE_NAME = "acceslibre"
-SITE_HOST = "access4all.beta.gouv.fr"
+SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
 

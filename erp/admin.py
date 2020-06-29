@@ -9,7 +9,6 @@ from django.contrib.auth.models import User
 from django.contrib.gis.admin import OSMGeoAdmin
 from django.db.models import Count
 from django.http import HttpResponseRedirect
-from django.conf import settings
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 
