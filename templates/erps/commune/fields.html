@@ -33,8 +33,12 @@
         {% endfor %}
       {% else %}
         <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
-          {% if field.warning is False %}<i class="icon icon-check"></i>{% endif %}
-          {% if field.warning is True %}<i class="icon icon-exclamation-circle a4a-warn-icon"></i>{% endif %}
+          {% if field.warning is False %}
+          <i class="icon icon-check"></i>
+          {% elif field.warning is True %}
+          <i class="icon icon-times-circle a4a-warn-icon"></i>
+          <strong>
+          {% endif %}
           {% if field.value is True %}
             Oui
           {% elif field.value is False %}
@@ -53,6 +57,9 @@
             {{ field.value }}cm
           {% else %}
             {{ field.value }}
+          {% endif %}
+          {% if field.warning is True %}
+          </strong>
           {% endif %}
         </span>
       {% endif %}

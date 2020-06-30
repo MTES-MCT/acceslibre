@@ -142,7 +142,7 @@ FIELDS = {
         ),
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
-        "warn_if": None,
+        "warn_if": False,
     },
     "transport_information": {
         "label": "Informations transports",
