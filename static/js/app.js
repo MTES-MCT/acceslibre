@@ -26,14 +26,14 @@ function createIcon(info) {
 function onEachFeature(feature, layer) {
   const properties = feature.properties;
   const content = [
-    '<p><strong><a href="',
+    '<div class="a4a-map-popup-content"><strong><a class="text-primary" href="',
     properties.absolute_url,
     '">',
     properties.nom,
     "</a></strong>",
     (properties.activite__nom && "<br>" + properties.activite__nom) || "",
     "<br>" + properties.adresse,
-    "</p>",
+    "</div>",
   ].join("");
   layer.bindPopup(content);
   layer.pk = parseInt(feature.properties.pk, 10);
