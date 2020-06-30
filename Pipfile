@@ -4,8 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+black = "==19.10b0"
+flake8 = "*"
 pylint = "*"
-black = "*"
 
 [packages]
 django = "==3.0.7"
@@ -35,15 +36,18 @@ pytest-django = "*"
 pyparsing = "*"
 pydot = "*"
 django-registration = "*"
-splinter = {extras = ["django"],version = "*"}
-flake8 = "*"
 django-contact-form = "*"
 django-crispy-forms = "*"
 python-stdnum = "*"
 api-insee = "*"
+django-sass = "*"
 
 [requires]
 python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true
+
+[packages.splinter]
+extras = [ "django",]
+version = "*"
