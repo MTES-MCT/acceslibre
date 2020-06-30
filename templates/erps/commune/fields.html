@@ -8,7 +8,9 @@
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
     <div>
       <div>{{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small></div>
-      <p class="lead mb-0 my-1">{{ field.value }}</p>
+      <blockquote class="lead mb-0 my-1">
+        {{ field.value|linebreaks }}
+      </blockquote>
     </div>
     {% else %}
     <span>
