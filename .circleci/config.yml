@@ -42,6 +42,10 @@ jobs:
           command: |
             pipenv run flake8 ~/access4all
       - run:
+          name: Check SASS stylesheets
+          command: |
+            pipenv run ./manage.py sass static/scss/style.scss static/css/style.css
+      - run:
           name: Run tests
           command: |
             pipenv run pytest

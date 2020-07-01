@@ -18,7 +18,6 @@ INTERNAL_IPS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-INSTALLED_APPS.append("django_sass")
 INSTALLED_APPS.append("debug_toolbar")
 
 MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
