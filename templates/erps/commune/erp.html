@@ -14,27 +14,27 @@
       <div>
         {% if erp.siret %}
           <span class="d-inline-block mr-2" title="Numéro SIRET de l'établissement">
-            <i class="icon icon-commercial"></i> {{ erp.siret|format_siret }}
+            <i aria-hidden="true" class="icon icon-commercial"></i> {{ erp.siret|format_siret }}
           </span>
         {% endif %}
         {% if erp.contact_email %}
           <a class="d-inline-block mr-2" href="mailto:{{ erp.contact_email }}" target="_blank">
-            <i class="icon icon-mail"></i> Contacter cet ERP
+            <i aria-hidden="true" class="icon icon-mail"></i> Contacter cet ERP
           </a>
         {% endif %}
         {% if erp.site_internet %}
           <a class="d-inline-block mr-2" href="{{ erp.site_internet }}" target="_blank">
-            <i class="icon icon-globe"></i> Site internet
+            <i aria-hidden="true" class="icon icon-globe"></i> Site internet
           </a>
         {% endif %}
         {% if erp.telephone %}
           <a class="d-inline-block mr-2" href="tel:{{ erp.telephone }}">
-            <i class="icon icon-phone"></i> {{ erp.telephone }}
+            <i aria-hidden="true" class="icon icon-phone"></i> {{ erp.telephone }}
           </a>
         {% endif %}
         {% if user.is_superuser %}
           <a class="d-inline-block mr-2" href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
-            <i class="icon icon-pencil"></i> Éditer dans l'admin
+            <i aria-hidden="true" class="icon icon-pencil"></i> Éditer dans l'admin
           </a>
         {% endif %}
       </div>
@@ -107,7 +107,7 @@
               aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
               id="{{ info.tabid }}-tab"
               data-toggle="tab">
-            <i class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
+            <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
           </a>
         {% endfor %}
         </ul>
@@ -124,7 +124,7 @@
               <div class="card mb-3">
                 <div class="card-header border-bottom-0 p-2">
                   <h6 class="m-0">
-                    <i class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
+                    <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
                   </h6>
                 </div>
                 <div class="card-body p-0">

@@ -7,7 +7,7 @@
     <h3 class="col-sm-6">Mes établissements</h3>
     <div class="col-sm-6 text-right">
       <a class="btn btn-primary" href="{% url "contrib_start" %}" style="padding-bottom: 3px">
-        <i class="icon icon-plus-circle" style="vertical-align:text-top"></i>
+        <i aria-hidden="true" class="icon icon-plus-circle" style="vertical-align:text-top"></i>
         Ajouter un nouvel établissement
       </a>
     </div>
@@ -54,17 +54,17 @@
         <br>
         {% if not erp.published %}
         <small class="text-warning">
-          <i class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
+          <i aria-hidden="true" class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
         </small>
         {% else %}
         <small class="text-success">
-          <i class="icon icon-check"></i> La fiche est publiée
+          <i aria-hidden="true" class="icon icon-check"></i> La fiche est publiée
         </small>
         {% endif %}
         {% if not erp.accessibilite %}
           <br>
           <small class="text-info">
-            <i class="icon icon-exclamation-circle"></i> Les informations d'accessibilité ne sont pas renseignées
+            <i aria-hidden="true" class="icon icon-exclamation-circle"></i> Les informations d'accessibilité ne sont pas renseignées
           </small>
         {% endif %}
         <br>

@@ -30,7 +30,7 @@
   {% if user.is_staff %}
   <li class="list-group-item d-flex justify-content-between align-items-center text-success">
     <span>
-      <i class="icon icon-check"></i> L'accès à la console d'administration vous est accordé
+      <i aria-hidden="true" class="icon icon-check"></i> L'accès à la console d'administration vous est accordé
     </span>
     <span>
       <a class="btn btn-sm btn-success" target="_blank" href="{% url "admin:index" %}">Accéder à l'admin</a>

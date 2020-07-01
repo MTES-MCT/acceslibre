@@ -24,19 +24,19 @@
 
     {% if step == 8 %}
     <p><small class="text-muted">
-      <i class="icon icon-info-circled"></i>
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
       Les champs marqué d'une astérique (*) sont obligatoires.
     </small></p>
     {% else %}
     <p><small class="text-muted">
-      <i class="icon icon-info-circled"></i> Aucun champ n'est obligatoire. Si
+      <i aria-hidden="true" class="icon icon-info-circled"></i> Aucun champ n'est obligatoire. Si
       vous ne disposez pas des informations demandées, cliquez sur <em>Suivant</em>.
     </small></p>
     {% endif %}
 
     {% if form.non_field_errors %}
     <div class="alert alert-warning">
-      <i class="icon icon-exclamation-circle"></i>
+      <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">
         {% for field_name, message in form.non_field_errors.items %}

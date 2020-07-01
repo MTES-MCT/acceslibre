@@ -129,13 +129,13 @@
             </span>
             {% if erp.accessibilite %}
             <button class="btn btn-sm btn-outline-success mr-2 a4a-icon-btn" title="Les informations d'accessibilités sont disponibles">
-              <i class="icon icon-checklist"></i>
+              <i aria-hidden="true" class="icon icon-checklist"></i>
               <span class="sr-only">Les informations d'accessibilités sont disponibles</span>
             </button>
             {% endif %}
             <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link"
                 title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
-              <i class="icon icon-target"></i>
+              <i aria-hidden="true" class="icon icon-target"></i>
             </button>
           </a>
           {% endfor %}

@@ -10,7 +10,7 @@
 
   {% if has_data %}
   <div class="alert alert-success">
-    <i class="icon icon-info-circled"></i> Le formulaire ci-dessous est prérempli avec
+    <i aria-hidden="true" class="icon icon-info-circled"></i> Le formulaire ci-dessous est prérempli avec
     les informations que nous avons pu récupérer depuis le registre Sirene de l'INSEE.<br>
     <strong>N'hésitez pas à les modifier ou les compléter si elles s'avéraient imprécises
       ou erronées.</strong>
@@ -22,7 +22,7 @@
 
     {% if form.non_field_errors %}
     <div class="alert alert-warning">
-      <i class="icon icon-exclamation-circle"></i>
+      <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">
         {% for error in form.non_field_errors %}

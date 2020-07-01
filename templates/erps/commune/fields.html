@@ -7,26 +7,27 @@
   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
     <div>
-      <div>{{ field.label }}<br><small class="text-muted">{{ field.help_text }}</small></div>
+      <div>
+        <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+        <small class="text-muted">{{ field.help_text }}</small>
+      </div>
       <blockquote class="lead mb-0 my-1">
         {{ field.value|linebreaks }}
       </blockquote>
     </div>
     {% else %}
-    <span>
-      {{ field.label }}<!-- {{ field.name }} -->
-      <br><small class="text-muted">{{ field.help_text }}</small>
+    <span><!-- {{ field.name }} -->
+      <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+      <small class="text-muted">{{ field.help_text }}</small>
     </span>
     <span class="a4a-badge-group pl-2">
       {% if field.name == "accueil_equipements_malentendants" %}
         {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
           {% if equipement == "aucun" %}
-          <span class="badge a4a-badge">
-            <i class="icon icon-exclamation-circle a4a-warn-icon"></i> Aucun
-          </span>
+          <span class="badge a4a-badge">Aucun</span>
           {% else %}
           <span class="badge badge-success a4a-badge">
-            <i class="icon icon-check"></i>
+            <i aria-hidden="true" class="icon icon-check"></i>
             {{ equipement|get_equipement_label }}
           </span>
           {% endif %}
@@ -34,9 +35,8 @@
       {% else %}
         <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
           {% if field.warning is False %}
-          <i class="icon icon-check"></i>
+          <i aria-hidden="true" class="icon icon-check"></i>
           {% elif field.warning is True %}
-          <i class="icon icon-times-circle a4a-warn-icon"></i>
           <strong>
           {% endif %}
           {% if field.value is True %}
@@ -54,7 +54,9 @@
           {% elif field.name == "accueil_personnels" %}
             {{ erp.accessibilite.get_accueil_personnels_display }}
           {% elif field.name == "entree_largeur_mini" %}
-            {{ field.value }}cm
+            {{ field.value }}&nbsp;cm
+          {% elif field.name == "cheminement_ext_nombre_marches" or field.name == "accueil_cheminement_nombre_marches" or field.name == "entree_marches" %}
+            {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
           {% else %}
             {{ field.value }}
           {% endif %}

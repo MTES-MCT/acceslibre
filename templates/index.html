@@ -34,7 +34,7 @@
     </div>
     <div class="col-md-4 col-lg-3 form-group">
       <button type="submit" class="btn btn-primary btn-block btn-lg text-nowrap">
-        <i class="icon icon-magnifying-glass"></i> Rechercher
+        <i aria-hidden="true" class="icon icon-magnifying-glass"></i> Rechercher
       </button>
     </div>
   </form>
@@ -121,7 +121,7 @@
             <div class="card shadow-sm mb-2">
               <div class="card-body p-3">
                 {% if erp.has_accessibilite %}
-                <i class="icon icon-checklist text-success" title="accessibilité renseignée"></i>
+                <i aria-hidden="true" class="icon icon-checklist text-success" title="accessibilité renseignée"></i>
                 <span class="sr-only">accessibilité renseignée</span>
                 {% endif %}
                 <a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>

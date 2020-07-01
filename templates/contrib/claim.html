@@ -23,7 +23,7 @@
 
   {% if form.non_field_errors %}
   <div class="alert alert-warning">
-    <i class="icon icon-exclamation-circle"></i>
+    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
     Attention, des erreurs ont été rencontrées.
     <ul class="my-1">
       {% for field_name, message in form.non_field_errors.items %}

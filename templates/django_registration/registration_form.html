@@ -24,7 +24,7 @@
     <input type="hidden" name="next" value="{{ request.GET.next }}">
 
     <p><small class="text-muted">
-      <i class="icon icon-info-circled"></i>
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
       Les champs marqué d'une astérique (*) sont obligatoires.
     </small></p>
 
@@ -48,11 +48,11 @@
 
   <div class="col-md-6 col-lg-5">
     <div class="alert alert-info">
-      <i class="icon icon-info-circled"></i>
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
       Créer son compte ne prend que quelques minutes et vous permet de contribuer au site.
     </div>
     <div class="card p-4">
-      <h5><i class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h5>
+      <h5><i aria-hidden="true" class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h5>
       <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
       <p><a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-success btn-block">Je me connecte</a></p>
     </div>
