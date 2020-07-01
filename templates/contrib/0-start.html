@@ -7,7 +7,7 @@
 
 {% block contrib_content %}
   {% if name_search_results %}
-  <h3 class="mb-3">Sélectionner mon établissement</h3>
+  <h2 class="h3 mb-3">Sélectionner mon établissement</h2>
   <div class="row">
     <div class="col-lg-8">
       {% for result in name_search_results %}
@@ -46,7 +46,10 @@
     <div class="col-lg-4">
       <div class="card text-center">
         <div class="card-body">
-          <h5><i aria-hidden="true" class="icon icon-info-circled"></i> Votre établissement ne figure pas dans la liste&nbsp;?</h5>
+          <h2 class="h5">
+            <i aria-hidden="true" class="icon icon-info-circled"></i>
+            Votre établissement ne figure pas dans la liste&nbsp;?
+          </h2>
           <div class="d-flex flex-column mt-3">
             <a class="btn btn-primary mb-2" href="{% url "contrib_admin_infos" %}">Saisie manuelle</a>
             <a class="btn btn-primary mb-2" href="{% url "contrib_start" %}">Nouvelle recherche</a>
@@ -57,7 +60,7 @@
     </div>
   </div>
   {% else %}
-  <h3 class="mb-3">Rechercher un Établissement Recevant du Public</h3>
+  <h2 class="h3">Rechercher un Établissement Recevant du Public</h2>
   <p><small class="text-muted">
     <i aria-hidden="true" class="icon icon-info-circled"></i> La recherche se faisant sur les serveurs de l'INSEE,
     une certaine latence de réponse peut être parfois constatée. Les champs marqués d'une astérisque (<code>*</code>)

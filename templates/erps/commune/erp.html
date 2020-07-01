@@ -117,7 +117,7 @@
         <section class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}"
             role="tabpanel" aria-labelledby="{{ info.tabid }}-tab">
           {% if info.fields %}
-            <h5 class="sr-only">{{ info.description }}</h5>
+            <h3 class="sr-only">{{ info.description }}</h3>
             {% include "erps/commune/fields.html" with fields=info.fields %}
           {% elif info.sections %}
             {% for subsection, subinfo in info.sections.items %}

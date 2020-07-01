@@ -4,7 +4,7 @@
 
 {% block editorial_content %}
 <div class="row">
-  <div class="col-md-3 mb-3">
+  <nav class="col-md-3 mb-3">
     <ul class="StepProgress">
       <li class="StepProgress-item{% if step == 1 %} current{% endif %}{% if step > 1 %} is-done{% endif %}">
         {% if erp %}
@@ -63,7 +63,7 @@
         {% endif %}
       </li>
     </ul>
-  </div>
+  </nav>
   <div class="col-md-9">
     {% block contrib_content %}{% endblock %}
   </div>

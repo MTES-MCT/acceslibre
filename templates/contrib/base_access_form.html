@@ -10,15 +10,15 @@
 {% block contrib_content %}
   {# <div class="alert alert-success"><pre>{{ accessibilite.to_debug }}</pre></div> #}
   <form action="" method="POST" class="a4a-form mb-4">
-    <h3>{% block page_title %}{% endblock%}</h3>
+    <h2 class="h3 mb-3">{% block page_title %}{% endblock%}</h2>
 
-    <h5 class="mb-3">
+    <h3 class="h5 mb-3">
       {{ erp.nom }}
       <small class="text-muted">
         {% if erp.activite %} - {{ erp.activite.nom }}{% endif %}
         - <em>{{ erp.adresse }}</em>
       </small>
-    </h5>
+    </h3>
 
     {% csrf_token %}
 
