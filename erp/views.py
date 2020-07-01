@@ -570,7 +570,9 @@ def contrib_autre(request, erp_slug):
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     initial = (
-        {"commentaire": erp.accessibilite.commentaire} if erp.accessibilite else {}
+        {"commentaire": erp.accessibilite.commentaire}
+        if hasattr(erp, "accessibilite")
+        else {}
     )
     if request.method == "POST":
         form = PublicPublicationForm(request.POST, instance=erp, initial=initial)
@@ -578,6 +580,9 @@ def contrib_publication(request, erp_slug):
             erp = form.save(commit=False)
             erp.published = True
             erp.save()
+            erp.accessibilite = (
+                erp.accessibilite if hasattr(erp, "accessibilite") else Accessibilite()
+            )
             erp.accessibilite.commentaire = form.data.get("commentaire")
             erp.accessibilite.save()
             return redirect("mes_erps")
