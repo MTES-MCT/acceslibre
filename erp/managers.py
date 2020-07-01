@@ -27,7 +27,6 @@ class ActiviteQuerySet(models.QuerySet):
 class CommuneQuerySet(models.QuerySet):
     def erp_stats(self):
         return self.annotate(
-            erp_count=Count("erp", filter=Q(erp__published=True), distinct=True),
             erp_access_count=Count(
                 "erp",
                 filter=Q(erp__accessibilite__isnull=False, erp__published=True),
