@@ -4,12 +4,12 @@
 <div class="a4a-erp-details">
   <header class="a4a-erp-header row">
     <div class="col-sm-8">
-      <h3>
+      <h2>
         {{ erp.nom }}
         {% if erp.activite %}
         <small class="text-muted">{{ erp.activite.nom }}</small>
         {% endif %}
-      </h3>
+      </h2>
       <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
       <div>
         {% if erp.siret %}
@@ -93,7 +93,7 @@
       </div>
     {% endif %}
   {% else %}
-    <h4>Accessibilité</h4>
+    <h3 class="h4 font-weight-normal">Accessibilité</h3>
 
     <div class="row">
       <div class="col-md-4">
