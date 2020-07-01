@@ -93,7 +93,7 @@
         </div>
       </main>
       <div class="a4a-app-map col-lg-6 col-md-4 d-none d-md-block map-area p-0 m-0">
-        <div id="app-map" class="a4a-app-map"></div>
+        {% include "common/map.html" %}
       </div>
       {% else %}
       <nav class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto">
@@ -147,7 +147,7 @@
         </div>
       </main>
       <div class="a4a-app-map col-lg-5 col-md-4 d-none d-md-block map-area p-0 m-0">
-        <div id="app-map" class="a4a-app-map"></div>
+        {% include "common/map.html" %}
       </div>
       {% endif %}
     </div>
