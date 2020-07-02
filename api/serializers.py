@@ -99,7 +99,6 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "url",
             "web_url",
             "activite",
-            "user",
             "nom",
             "slug",
             "adresse",
@@ -117,9 +116,6 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {"url": {"lookup_field": "slug"}}
 
     activite = ActiviteSerializer(many=False, read_only=True)
-    user = serializers.SlugRelatedField(
-        slug_field="username", many=False, read_only=True
-    )
     adresse = serializers.ReadOnlyField()
     distance = serializers.SerializerMethodField()
     commune = serializers.SerializerMethodField()
