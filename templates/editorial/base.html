@@ -25,9 +25,9 @@
         <div class="row">
           <div class="col-md-8">
             <h1 class="display-4 a4a-logo" id="content">
-              <a class="text-body text-decoration-none" href="{% url "home" %}">
-                <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" width="80" class="d-none d-sm-inline">
-                {{ SITE_NAME }}
+              <a class="d-inline-flex flex-row-reverse align-items-center text-body text-decoration-none" href="{% url "home" %}">
+                <span>{{ SITE_NAME }}</span>
+                <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" class="mr-3 d-none d-sm-inline">
               </a>
             </h1>
             <aside class="lead">
