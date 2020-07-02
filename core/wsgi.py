@@ -1,5 +1,5 @@
 """
-WSGI config for access4all project.
+WSGI config.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -13,6 +13,6 @@ from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
 
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "access4all.settings_prod")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings_prod")
 
 application = Cling(get_wsgi_application())

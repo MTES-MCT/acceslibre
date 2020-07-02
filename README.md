@@ -21,7 +21,7 @@ L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant de
 
 Créez un fichier `.env` à la racine du dépôt, définissant les variables d'environnement suivantes :
 
-- `DJANGO_SETTINGS_MODULE`: Le nom du module Python définissant la configuration Django. Sa valeur peut être `access4all.settings_prod` pour l'environnement de production, ou `access4all.settings_dev` pour l'environnement de développement local.
+- `DJANGO_SETTINGS_MODULE`: Le nom du module Python définissant la configuration Django. Sa valeur peut être `core.settings_prod` pour l'environnement de production, ou `core.settings_dev` pour l'environnement de développement local.
 - `EMAIL_HOST`: Host du serveur SMTP
 - `EMAIL_PORT`: Port du serveur SMTP
 - `EMAIL_HOST_USER`: Nom d'utilisateur SMTP
@@ -40,7 +40,7 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 - La prise en compte de l'assignation des variables d'environnement définies dans ce fichier `.env` ne sont effectives qu'après avoir activé l'environnement virtuel de développement Python, au moyen de la commande `pipenv shell`. L'exécution de cette commande est également nécessaire pour prendre en compte chaque modification de leur valeur.
 - Vous pouvez lancer un serveur de développement en positionnant la variable d'environnement `DJANGO_SETTINGS_MODULE` manuellement à l'appel de la ligne de commande :
 
-      $ DJANGO_SETTINGS_MODULE=access4all.settings_prod ./run-dev.sh
+      $ DJANGO_SETTINGS_MODULE=core.settings_prod ./run-dev.sh
 
 ## Installation
 
@@ -126,7 +126,7 @@ L'application est alors accessible à l'adresse [http://localhost:8000/](http://
 
 ## Configuration locale de dévelopement
 
-La configuration de développement des paramètres applicatifs se fait dans le fichier `access4all/settings_dev.py`. Vous pouvez également définir votre propre module sur le même modèle et l'importer par le biais de la variable d'environnement `DJANGO_SETTINGS_MODULE`.
+La configuration de développement des paramètres applicatifs se fait dans le fichier `core/settings_dev.py`. Vous pouvez également définir votre propre module sur le même modèle et l'importer par le biais de la variable d'environnement `DJANGO_SETTINGS_MODULE`.
 
 N'oubliez pas de relancer `./run-dev.sh` pour prendre en compte tout changement effectué à ce niveau.
 
@@ -207,7 +207,7 @@ $ scalingo login
 Ensuite, il faut ajouter le remote git suivant :
 
 ```
-git remote add scalingo git@ssh.osc-fr1.scalingo.com:access4all.git
+git remote add scalingo git@ssh.osc-fr1.scalingo.com:acceslibre.git
 ```
 
 Enfin, il faut positionner les variables d'environnement applicatives :

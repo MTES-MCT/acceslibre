@@ -328,10 +328,6 @@ def mes_erps(request):
     )
 
 
-def to_betagouv(self):
-    return redirect("https://beta.gouv.fr/startups/access4all.html")
-
-
 def find_sirene_etablissements(name_form):
     results = sirene.find_etablissements(
         name_form.cleaned_data.get("nom"), name_form.cleaned_data.get("lieu"), limit=15,
