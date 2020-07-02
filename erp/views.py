@@ -61,13 +61,14 @@ def home(request):
     page_number = 1
     lat = None
     lon = None
-    if search and len(search) > 0:
+    if "q" in request.GET:
         erp_qs = (
             Erp.objects.published()
             .geolocated()
             .select_related("accessibilite", "activite", "commune_ext")
-            .search(search)
         )
+        if len(search) > 0:
+            erp_qs = erp_qs.search(search)
         if request.GET.get("access") == "1":
             erp_qs = erp_qs.having_an_accessibilite()
         if localize == "1":
@@ -93,7 +94,6 @@ def home(request):
         request,
         "index.html",
         context={
-            "empty_query": "q" in request.GET and not search,
             "pager": pager,
             "pager_base_url": pager_base_url,
             "page_number": page_number,

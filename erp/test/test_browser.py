@@ -16,7 +16,7 @@ def client():
     return Client()
 
 
-def test_home_communes(data, client):
+def test_home(data, client):
     response = client.get(reverse("home"))
     assert response.context["search"] is None
     assert len(response.context["communes"]) == 1
@@ -28,6 +28,14 @@ def test_home_communes(data, client):
 def test_home_search(data, client):
     response = client.get(reverse("home") + "?q=croissant%20jacou")
     assert response.context["search"] == "croissant jacou"
+    assert len(response.context["search_results"]["pager"]) == 1
+    assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["search_results"]["pager"][0], "distance") == False
+
+
+def test_home_search_empty_text_query(data, client):
+    response = client.get(reverse("home") + "?q=")
+    assert response.context["search"] == ""
     assert len(response.context["search_results"]["pager"]) == 1
     assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["search_results"]["pager"][0], "distance") == False
