@@ -207,7 +207,7 @@ $ scalingo login
 Ensuite, il faut ajouter le remote git suivant :
 
 ```
-git remote add scalingo git@ssh.osc-fr1.scalingo.com:acceslibre.git
+git remote add scalingo git@ssh.osc-fr1.scalingo.com:access4all.git
 ```
 
 Enfin, il faut positionner les variables d'environnement applicatives :
