@@ -33,7 +33,10 @@ def active_compte_section(path, test):
 
 @register.filter(name="addclass")
 def addclass(value, arg):
-    return value.as_widget(attrs={"class": arg})
+    try:
+        return value.as_widget(attrs={"class": arg})
+    except (AttributeError, TypeError, ValueError):
+        return value
 
 
 @register.filter(name="encode_etablissement_data")
