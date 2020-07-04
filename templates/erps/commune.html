@@ -106,7 +106,7 @@
           <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
               href="{{ erp.get_absolute_url }}">
             <span class="flex-fill">
-              {{ erp.nom }}<br>
+              <h3 class="h6 m-0">{{ erp.nom }}</h3>
               <small class="text-muted">
                 {% if erp.activite %}<strong>{{ erp.activite.nom }}</strong> &raquo; {% endif %}
                 {{ erp.numero|default_if_none:"" }}
