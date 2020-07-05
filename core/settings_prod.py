@@ -8,4 +8,9 @@ ALLOWED_HOSTS = [
     "access4all.osc-fr1.scalingo.io",
 ]
 
-CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache",}}
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": "/var/tmp/django_cache",
+    }
+}

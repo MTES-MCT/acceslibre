@@ -13,12 +13,6 @@
     </div>
     <div class="card">
       <div class="card-body text-center">
-        <h3 class="display-3">{{ nb_published_erps }}</h3>
-        <p class="card-text">ERP publié{{ nb_published_erps|pluralize:"s" }} au total</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
         <h3 class="display-3">{{ nb_contributors }}</h3>
         <p class="card-text">contributeur{{ nb_contributors|pluralize:"s" }}</p>
       </div>
@@ -26,7 +20,7 @@
     {% for commune in communes %}
     <div class="card">
       <div class="card-body text-center">
-        <h3 class="display-4">{{ commune.erp_access_count }}<small> /{{ commune.erp_count }}</small></h3>
+        <h3 class="display-4">{{ commune.erp_access_count }}</h3>
         <p class="card-text">fiche{{ commune.erp_access_count|pluralize:"s" }} renseignée{{ commune.erp_access_count|pluralize:"s" }} pour <strong>{{ commune.nom }}</strong></p>
       </div>
     </div>

@@ -2,6 +2,7 @@ from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from django.views.decorators.cache import cache_page
 
+from core.cache import cache_per_user_function
 from . import views
 
 APP_CACHE_TTL = 60 * 5
@@ -14,7 +15,7 @@ handler500 = views.handler500
 
 
 def app_page():
-    return cache_page(APP_CACHE_TTL)(views.App.as_view())
+    return cache_per_user_function(APP_CACHE_TTL)(views.App.as_view())
 
 
 def editorial_page(template_name):
@@ -27,7 +28,7 @@ urlpatterns = [
     ############################################################################
     # Editorial
     ############################################################################
-    path("", views.home, name="home"),
+    path("", cache_per_user_function(APP_CACHE_TTL)(views.home), name="home"),
     path(
         "mentions-legales",
         editorial_page("editorial/mentions_legales.html"),

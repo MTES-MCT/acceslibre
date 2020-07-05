@@ -21,7 +21,7 @@ class StatsView(TemplateView):
 
         context["nb_published_erps"] = erp_qs.count()
         context["nb_filled_erps"] = erp_qs.having_an_accessibilite().count()
-        context["communes"] = Commune.objects.erp_stats()[:8]
+        context["communes"] = Commune.objects.erp_stats()[:10]
         context["nb_contributors"] = self.get_nb_contributors()
 
         return context
