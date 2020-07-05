@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import Distance
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.db.models import F
@@ -256,13 +257,21 @@ class App(BaseListView):
             )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp.objects.select_related("accessibilite").published(),
+                Erp.objects.select_related("accessibilite").published().geolocated(),
                 slug=self.kwargs["erp_slug"],
             )
             context["erp"] = erp
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
+            context["nearest_erps"] = (
+                Erp.objects.select_related("commune_ext", "activite")
+                .published()
+                .geolocated()
+                .exclude(pk=erp.pk)
+                .nearest([erp.geom.coords[1], erp.geom.coords[0]])
+                .filter(distance__lt=Distance(km=20))[:5]
+            )
         serializer = SpecialErpSerializer()
         context["geojson_list"] = serializer.serialize(
             context["object_list"],

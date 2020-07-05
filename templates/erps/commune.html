@@ -61,7 +61,7 @@
     <aside class="a4a-app-title row p-0 m-0">
       <div class="col pt-2 pb-1">
         <big id="content" class="display-4" style="font-size:32px">
-          Commune de <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a>
+          <a href="{% url "commune" commune.slug %}">{{ commune.nom}}</a>
           {% if current_activite %}
           <small class="text-muted">
             &raquo; <a href="{% url 'commune_activite' commune=commune.slug activite_slug=current_activite.slug %}">{{ current_activite.nom }}</a>
