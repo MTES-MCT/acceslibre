@@ -39,6 +39,10 @@ def cache_per_user(ttl=None, prefix=None, cache_post=False):
 
     def decorator(function):
         def apply_cache(request, *args, **kwargs):
+            # Apply cache for GET and POST requests only
+            if request.method not in ["GET", "POST"]:
+                return function(request, *args, **kwargs)
+
             CACHE_KEY = cache_key(request)
             if prefix:
                 CACHE_KEY = "%s_%s" % (prefix, CACHE_KEY)
