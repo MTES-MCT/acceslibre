@@ -216,9 +216,7 @@ class BaseListView(generic.ListView):
                     queryset = queryset.filter(
                         activite__slug=self.kwargs["activite_slug"]
                     )
-            # FIXME: find a better trick to list erps having an accessibilite first,
-            # so we can keep name ordering
-            queryset = queryset.order_by("accessibilite")
+            queryset = queryset.order_by("nom")
         if self.around is not None:
             queryset = queryset.nearest(self.around)
         # We can't hammer the pages with too many entries, hard-limiting here
@@ -240,6 +238,7 @@ class App(BaseListView):
         context["activites"] = Activite.objects.in_commune(
             self.commune
         ).with_erp_counts()
+        context["activite_slug"] = self.kwargs.get("activite_slug")
         if (
             "activite_slug" in self.kwargs
             and self.kwargs["activite_slug"] != "non-categorises"

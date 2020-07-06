@@ -139,9 +139,10 @@
     </div>
   {% endif %}
 </div>
+{% if nearest_erps|length > 0 %}
 <hr noshade="noshade">
 <section class="mt-3">
-  <h3 class="h4">À proximité</h2>
+  <h3 class="h4">À proximité <small class="text-muted">(moins de 20 km)</small></h2>
   {% for nearest_erp in nearest_erps %}
   <div>
     <small class="text-muted">à {{ nearest_erp.distance|format_distance }}</small>
@@ -152,3 +153,4 @@
   </div>
   {% endfor %}
 </section>
+{% endif %}
