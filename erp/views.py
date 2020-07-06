@@ -292,21 +292,16 @@ def mes_erps(request):
     qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
         user_id=request.user.pk
     )
+    published_qs = qs.published()
+    non_published_qs = qs.not_published()
     erp_total_count = qs.count()
-    erp_published_count = qs.filter(published=True).count()
-    erp_non_published_count = qs.filter(published=False).count()
-    erp_filled_count = qs.filter(accessibilite__isnull=False).count()
-    erp_non_filled_count = qs.filter(accessibilite__isnull=True).count()
+    erp_published_count = published_qs.count()
+    erp_non_published_count = non_published_qs.count()
     published = request.GET.get("published")
     if published == "1":
-        qs = qs.filter(published=True)
+        qs = published_qs
     elif published == "0":
-        qs = qs.filter(published=False)
-    filled = request.GET.get("filled")
-    if filled == "1":
-        qs = qs.filter(accessibilite__isnull=False)
-    elif filled == "0":
-        qs = qs.filter(accessibilite__isnull=True)
+        qs = non_published_qs
     qs = qs.filter(user_id=request.user.pk).order_by("-updated_at")
     paginator = Paginator(qs, 10)
     page_number = request.GET.get("page", 1)
@@ -318,12 +313,9 @@ def mes_erps(request):
             "erp_total_count": erp_total_count,
             "erp_published_count": erp_published_count,
             "erp_non_published_count": erp_non_published_count,
-            "erp_filled_count": erp_filled_count,
-            "erp_non_filled_count": erp_non_filled_count,
             "pager": pager,
-            "pager_base_url": f"?published={published or ''}&filled={filled or ''}",
+            "pager_base_url": f"?published={published or ''}",
             "filter_published": published,
-            "filter_filled": filled,
         },
     )
 

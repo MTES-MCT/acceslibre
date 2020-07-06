@@ -26,21 +26,13 @@
       href="./?published=0"{% if erp_non_published_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
       Non-publiés <span class="badge badge-pill badge-primary">{{ erp_non_published_count }}</span>
     </a>
-    <a class="nav-item nav-link{% if filter_filled == "1" %} active{% endif %}{% if erp_filled_count == 0 %} disabled{% endif %}"
-      href="./?filled=1"{% if erp_filled_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
-      Renseignés <span class="badge badge-pill badge-primary">{{ erp_filled_count }}</span>
-    </a>
-    <a class="nav-item nav-link{% if filter_filled == "0" %} active{% endif %}{% if erp_non_filled_count == 0 %} disabled{% endif %}"
-      href="./?filled=0"{% if erp_non_filled_count == 0 %} tabindex="-1" aria-disabled="true"{% endif %}>
-      Non-renseignés <span class="badge badge-pill badge-primary">{{ erp_non_filled_count }}</span>
-    </a>
   </nav>
 
   <ul class="list-group">
     {% for erp in pager %}
     <li class="list-group-item d-flex justify-content-between align-items-center border-top-0 rounded-0">
       <div class="flex-fill">
-        {% if not erp.published %}
+        {% if not erp.published or not erp.geom or not erp.accessibilite %}
         {{ erp.nom }}
         {% else %}
         <a href="{{ erp.get_absolute_url }}" target="_blank">{{ erp.nom }}</a>
@@ -52,7 +44,7 @@
           <br><small class="text-muted">Numéro SIRET : {{ erp.siret }}</small>
         {% endif %}
         <br>
-        {% if not erp.published %}
+        {% if not erp.published or not erp.geom or not erp.accessibilite %}
         <small class="text-warning">
           <i aria-hidden="true" class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
         </small>

@@ -88,6 +88,11 @@ class ErpQuerySet(models.QuerySet):
     def published(self):
         return self.filter(published=True).geolocated().having_an_accessibilite()
 
+    def not_published(self):
+        return self.filter(
+            Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True)
+        )
+
     def autocomplete(self, query):
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
         qs = qs.having_an_accessibilite().filter(nom__trigram_similar=query)
