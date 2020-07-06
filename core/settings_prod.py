@@ -14,3 +14,9 @@ CACHES = {
         "LOCATION": "/var/tmp/django_cache",
     }
 }
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+#         "LOCATION": "cache_acceslibre",
+#     }
+# }
