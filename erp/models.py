@@ -436,6 +436,18 @@ class Erp(models.Model):
             config=FULLTEXT_CONFIG,
         )
         search_vector = search_vector + SearchVector(
+            Value(self.code_postal, output_field=models.TextField()),
+            weight="A",
+            config=FULLTEXT_CONFIG,
+        )
+        if self.commune_ext:
+            for code_postal in self.commune_ext.code_postaux:
+                search_vector = search_vector + SearchVector(
+                    Value(code_postal, output_field=models.TextField()),
+                    weight="C",
+                    config=FULLTEXT_CONFIG,
+                )
+        search_vector = search_vector + SearchVector(
             Value(self.nom, output_field=models.TextField()),
             weight="B",
             config=FULLTEXT_CONFIG,

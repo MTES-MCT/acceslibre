@@ -9,6 +9,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print("Réindexation...")
-        for erp in Erp.objects.all():
+        for erp in Erp.objects.published():
             erp.save()
         print("Réindexation effectuée.")
