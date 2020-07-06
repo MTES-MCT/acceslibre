@@ -248,18 +248,20 @@ class App(BaseListView):
             )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp.objects.select_related("accessibilite").published(),
+                Erp.objects.select_related(
+                    "accessibilite", "activite", "commune_ext"
+                ).published(),
                 slug=self.kwargs["erp_slug"],
             )
             context["erp"] = erp
             if erp.has_accessibilite():
                 form = ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
-            context["nearest_erps"] = (
-                Erp.objects.select_related("commune_ext", "activite")
-                .exclude(pk=erp.pk)
+            context["object_list"] = (
+                Erp.objects.select_related("accessibilite", "commune_ext", "activite")
+                .published()
                 .nearest([erp.geom.coords[1], erp.geom.coords[0]])
-                .filter(distance__lt=Distance(km=20))[:10]
+                .filter(distance__lt=Distance(km=20))[:16]
             )
         serializer = SpecialErpSerializer()
         context["geojson_list"] = serializer.serialize(

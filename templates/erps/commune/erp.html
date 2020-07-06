@@ -139,18 +139,26 @@
     </div>
   {% endif %}
 </div>
-{% if nearest_erps|length > 0 %}
+{% if object_list|length > 0 %}
 <hr noshade="noshade">
 <section class="mt-3">
-  <h3 class="h4">À proximité <small class="text-muted">(moins de 20 km)</small></h2>
-  {% for nearest_erp in nearest_erps %}
-  <div>
-    <small class="text-muted">à {{ nearest_erp.distance|format_distance }}</small>
-    <a href="{{ nearest_erp.get_absolute_url }}">{{ nearest_erp.nom }}</a>
-    {% if nearest_erp.activite %}
-    <small class="text-muted">({{ nearest_erp.activite.nom }})</small>
+  <h3 class="h4 mb-3">À proximité <small class="text-muted">(moins de 20 km)</small></h3>
+  <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+  {% for nearest_erp in object_list %}
+    {% if nearest_erp.id != erp.id %}
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body px-3 py-2">
+          <div class="card-title m-0 h-100 d-flex flex-column">
+            <small class="text-muted mb-1">À {{ nearest_erp.distance|format_distance }}{% if nearest_erp.activite %}, {{ nearest_erp.activite.nom }}{% endif %}</small>
+            <h4 class="h6"><a href="{{ nearest_erp.get_absolute_url }}">{{ nearest_erp.nom }}</a></h4>
+            <adress class="mt-auto"><small class="text-muted"><em>{{ nearest_erp.adresse }}</em></small></adress>
+          </div>
+        </div>
+      </div>
+    </div>
     {% endif %}
-  </div>
   {% endfor %}
+</div>
 </section>
 {% endif %}
