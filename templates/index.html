@@ -16,13 +16,6 @@
           aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
       </div>
       <div class="form-group custom-control custom-switch ml-3">
-        <input type="checkbox" class="custom-control-input" name="access" id="access" value="1"
-          {% if request.GET.access == "1" %}checked{% endif %}>
-        <label class="custom-control-label" for="access">
-          N'afficher que les établissements dont les données d'accessibilité sont disponibles
-        </label>
-      </div>
-      <div class="form-group custom-control custom-switch ml-3">
         <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
           {% if localize == "1" %}checked{% endif %}>
         <label class="custom-control-label" for="localize">

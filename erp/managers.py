@@ -16,7 +16,12 @@ class ActiviteQuerySet(models.QuerySet):
         qs = self
         qs = qs.annotate(
             count=Count(
-                "erp__activite", filter=Q(erp__published=True, erp__geom__isnull=False),
+                "erp__activite",
+                filter=Q(
+                    erp__published=True,
+                    erp__accessibilite__isnull=False,
+                    erp__geom__isnull=False,
+                ),
             )
         )
         qs = qs.filter(count__gt=0)
@@ -81,18 +86,22 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(geom__isnull=False)
 
     def published(self):
-        return self.filter(published=True)
+        return self.filter(published=True).geolocated().having_an_accessibilite()
 
     def autocomplete(self, query):
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
-        qs = qs.filter(nom__trigram_similar=query)
+        qs = qs.having_an_accessibilite().filter(nom__trigram_similar=query)
         qs = qs.order_by("-similarity")
         return qs
 
     def nearest(self, coords):
         # NOTE: the Point constructor wants lon, lat
         location = Point(coords[1], coords[0], srid=4326)
-        return self.annotate(distance=Distance("geom", location)).order_by("distance")
+        return (
+            self.published()
+            .annotate(distance=Distance("geom", location))
+            .order_by("distance")
+        )
 
     def search(self, query):
         qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))

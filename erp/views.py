@@ -48,10 +48,8 @@ def handler500(request):
 def home(request):
     communes_qs = Commune.objects.erp_stats()[:12]
     latest = (
-        Erp.objects.published()
-        .geolocated()
-        .select_related("activite", "commune_ext")
-        .having_an_accessibilite()
+        Erp.objects.select_related("activite", "commune_ext")
+        .published()
         .order_by("-created_at")[:17]
     )
     search_results = None
@@ -63,15 +61,11 @@ def home(request):
     lat = None
     lon = None
     if "q" in request.GET:
-        erp_qs = (
-            Erp.objects.published()
-            .geolocated()
-            .select_related("accessibilite", "activite", "commune_ext")
-        )
+        erp_qs = Erp.objects.select_related(
+            "accessibilite", "activite", "commune_ext"
+        ).published()
         if len(search) > 0:
             erp_qs = erp_qs.search(search)
-        if request.GET.get("access") == "1":
-            erp_qs = erp_qs.having_an_accessibilite()
         if localize == "1":
             try:
                 (lat, lon) = (
@@ -142,7 +136,7 @@ def autocomplete(request):
     commune_slug = request.GET.get("commune_slug")
     if len(q) < 3:
         return JsonResponse({"suggestions": suggestions})
-    qs = Erp.objects.published().geolocated()
+    qs = Erp.objects.published()
     if commune_slug:
         qs = qs.filter(commune_ext__slug=commune_slug)
     qs = qs.search(q)[:7]
@@ -179,11 +173,9 @@ class EditorialView(TemplateView):
 
 class BaseListView(generic.ListView):
     model = Erp
-    queryset = (
-        Erp.objects.published()
-        .select_related("activite", "accessibilite", "commune_ext")
-        .geolocated()
-    )
+    queryset = Erp.objects.select_related(
+        "activite", "accessibilite", "commune_ext"
+    ).published()
     _commune = None
 
     @property
@@ -257,7 +249,7 @@ class App(BaseListView):
             )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp.objects.select_related("accessibilite").published().geolocated(),
+                Erp.objects.select_related("accessibilite").published(),
                 slug=self.kwargs["erp_slug"],
             )
             context["erp"] = erp
@@ -266,11 +258,9 @@ class App(BaseListView):
                 context["accessibilite_data"] = form.get_accessibilite_data()
             context["nearest_erps"] = (
                 Erp.objects.select_related("commune_ext", "activite")
-                .published()
-                .geolocated()
                 .exclude(pk=erp.pk)
                 .nearest([erp.geom.coords[1], erp.geom.coords[0]])
-                .filter(distance__lt=Distance(km=20))[:5]
+                .filter(distance__lt=Distance(km=20))[:10]
             )
         serializer = SpecialErpSerializer()
         context["geojson_list"] = serializer.serialize(

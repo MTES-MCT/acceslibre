@@ -88,7 +88,7 @@ hr[noshade] {
 }
 
 .a4a-cluster-icon {
-  background-color: #13629a;
+  background-color: #22762b;
   border-radius: 50%;
   color: white;
   font-size: 13px;
@@ -98,6 +98,17 @@ hr[noshade] {
   margin-top: -20px;
   text-align: center;
   width: 34px;
+}
+
+.a4a-large-breadcrumb {
+  font-size: 32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media only screen and (max-width: 576px) {
+    font-size: 24px;
+  }
 }
 
 .a4a-handicap-icon {
