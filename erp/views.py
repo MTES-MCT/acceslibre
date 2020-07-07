@@ -139,23 +139,15 @@ def autocomplete(request):
     qs = Erp.objects.published()
     if commune_slug:
         qs = qs.filter(commune_ext__slug=commune_slug)
-    qs = qs.search(q)[:7]
+    qs = qs.autocomplete(q)[:7]
     for erp in qs:
-        score = (erp.rank + erp.similarity - (erp.distance_nom / 6)) * 60
-        score = 10 if score > 10 else score
         suggestions.append(
             {
                 "value": erp.nom + ", " + erp.adresse,
                 "data": {
-                    "score": score,
+                    "score": erp.similarity,
                     "activite": erp.activite and erp.activite.slug,
-                    "url": (
-                        erp.get_absolute_url()
-                        + "?around="
-                        + str(erp.geom.coords[1])
-                        + ","
-                        + str(erp.geom.coords[0])
-                    ),
+                    "url": erp.get_absolute_url(),
                 },
             }
         )
