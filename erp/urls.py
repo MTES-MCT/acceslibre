@@ -66,11 +66,12 @@ urlpatterns = [
     ############################################################################
     # Ajout ERP
     ############################################################################
+    path("contrib/delete/<str:erp_slug>/", views.contrib_delete, name="contrib_delete"),
     path("contrib/start/", views.contrib_start, name="contrib_start"),
-    path("contrib/claim/<str:erp_slug>", views.contrib_claim, name="contrib_claim"),
+    path("contrib/claim/<str:erp_slug>/", views.contrib_claim, name="contrib_claim"),
     path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),
     path(
-        "contrib/edit-infos/<str:erp_slug>",
+        "contrib/edit-infos/<str:erp_slug>/",
         views.contrib_edit_infos,
         name="contrib_edit_infos",
     ),
