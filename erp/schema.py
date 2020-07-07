@@ -444,7 +444,7 @@ FIELDS = {
     "accueil_equipements_malentendants": {
         "label": "Équipements sourds/malentendants",
         "help_text": mark_safe(
-            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes françaises, solution de traduction à distance, etc)"
+            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes française, solution de traduction à distance, etc)"
         ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
