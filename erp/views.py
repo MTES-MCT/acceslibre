@@ -19,6 +19,7 @@ from django_registration.backends.activation.views import (
 from .forms import (
     AdminAccessibiliteForm,
     PublicClaimForm,
+    PublicErpDeleteForm,
     PublicErpAdminInfosForm,
     PublicErpEditInfosForm,
     PublicEtablissementSearchForm,
@@ -319,6 +320,24 @@ def find_sirene_etablissements(name_form):
     for result in results:
         result["exists"] = Erp.objects.exists_by_siret(result["siret"])
     return results
+
+
+@login_required
+def contrib_delete(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    if request.method == "POST":
+        form = PublicErpDeleteForm(request.POST)
+        if form.is_valid():
+            erp.delete()
+            # TODO: flash message
+            return redirect("mes_erps")
+    else:
+        form = PublicErpDeleteForm()
+    return render(
+        request,
+        template_name="contrib/delete.html",
+        context={"erp": erp, "form": form},
+    )
 
 
 @login_required

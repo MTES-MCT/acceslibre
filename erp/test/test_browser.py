@@ -520,3 +520,38 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert erp.published == True
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
+
+
+def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
+    client.login(username="sophie", password="Abc12345!")
+
+    response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
+    assert response.status_code == 404
+
+
+def test_delete_erp_owner(data, client, monkeypatch, capsys):
+    client.login(username="niko", password="Abc12345!")
+
+    response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
+    assert response.status_code == 200
+
+    assert Erp.objects.filter(slug=data.erp.slug).count() == 1
+
+    # non-confirmed submission
+    response = client.post(
+        reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}),
+        data={"confirm": False},
+    )
+
+    assert response.status_code == 200
+    assert "confirm" in response.context["form"].errors
+
+    # confirmed submission
+    response = client.post(
+        reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}),
+        data={"confirm": True},
+        follow=True,
+    )
+    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert response.status_code == 200
+    assert Erp.objects.filter(slug=data.erp.slug).count() == 0

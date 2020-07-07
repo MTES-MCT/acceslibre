@@ -322,6 +322,21 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
             )
 
 
+class PublicErpDeleteForm(forms.Form):
+    confirm = forms.BooleanField(
+        label="Supprimer cet établissement de la base de données (cette opération est irrémédiable)",
+        required=True,
+    )
+
+    def clean_confirm(self):
+        confirm = self.cleaned_data["confirm"]
+        if confirm is not True:
+            raise ValidationError(
+                "Vous devez confirmer la suppression pour la rendre effective."
+            )
+        return confirm
+
+
 class PublicErpEditInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # En édition publique d'un ERP, on ne met à jour la localisation que si
