@@ -394,6 +394,11 @@ def contrib_admin_infos(request):
                 data = sirene.base64_decode_etablissement(encoded_data)
             except RuntimeError as err:
                 data_error = err
+            if data.get("naf"):
+                naf_lookup = data.get("naf")[:5]
+                activites = Activite.objects.filter(codes_naf__contains=[naf_lookup])
+                if len(activites) > 0:
+                    data["activite"] = activites[0]
         form = PublicErpAdminInfosForm(data)
     return render(
         request,

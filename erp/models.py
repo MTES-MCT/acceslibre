@@ -47,6 +47,15 @@ class Activite(models.Model):
         help_text="Liste de mots-clés apparentés à cette activité",
     )
 
+    codes_naf = ArrayField(
+        models.CharField(max_length=5, blank=True),
+        verbose_name="Codes NAF",
+        default=list,
+        null=True,
+        blank=True,
+        help_text="Liste des codes NAF associés à cette activité",
+    )
+
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"

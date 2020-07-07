@@ -89,6 +89,14 @@ class AdminActiviteForm(forms.ModelForm):
         help_text="Un mots-clé par ligne",
     )
 
+    codes_naf = SimpleArrayField(
+        forms.CharField(),
+        widget=widgets.Textarea(),
+        delimiter="\n",
+        required=False,
+        help_text="Un code NAF par ligne",
+    )
+
 
 class AdminCommuneForm(forms.ModelForm):
     class Meta:
