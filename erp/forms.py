@@ -324,7 +324,8 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
 class PublicErpDeleteForm(forms.Form):
     confirm = forms.BooleanField(
-        label="Supprimer cet établissement de la base de données", required=True
+        label="Supprimer cet établissement de la base de données (cette opération est irrémédiable)",
+        required=True,
     )
 
     def clean_confirm(self):
