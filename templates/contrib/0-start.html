@@ -76,7 +76,10 @@
           <div class="alert alert-danger">{{ name_search_error }}</div>
         {% endif %}
         {{ name_form|crispy }}
-        <button type="submit" class="btn btn-primary">Rechercher mon établissement</button>
+        <button type="submit" class="btn btn-primary">
+          <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+          Rechercher mon établissement
+        </button>
       </form>
     </div>
     <div class="col-sm-6">
@@ -88,7 +91,10 @@
           <div class="alert alert-danger">{{ siret_search_error }}</div>
         {% endif %}
         {{ siret_form|crispy }}
-        <button type="submit" class="btn btn-primary">Rechercher mon établissement</button>
+        <button type="submit" class="btn btn-primary">
+          <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+          Rechercher mon établissement
+        </button>
       </form>
       <div class="text-center mt-4">
         <a href="{% url "contrib_admin_infos" %}">
