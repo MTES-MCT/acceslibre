@@ -6,11 +6,11 @@
   <h2 class="mb-3">Conditions générales d'utilisation</h2>
 
   <main>
-    <p><strong>Acceslibre est un service numérique du Ministère de la transition écologique et solidaire et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales.</strong></p>
+    <p><strong>{{ SITE_NAME.title }} est un service numérique du Ministère de la transition écologique et solidaire et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales.</strong></p>
 
     <h3 class="h4">Présentation du service</h3>
 
-    <p>Accelibre est un service numérique du Ministère de la Transition écologique et solidaire. Ce service est destiné aux gestionnaires d’établissements recevant du public (ERP), publics ou privés, ainsi qu’aux particuliers en situation de handicap ou non. Acceslibre a pour objectif principal de permettre à l’usager en situation de handicap d’avoir accès aux informations indispensables pour savoir s’il pourra accéder à tel ou tel établissement.</p>
+    <p>Accelibre est un service numérique du Ministère de la Transition écologique et solidaire. Ce service est destiné aux gestionnaires d’établissements recevant du public (ERP), publics ou privés, ainsi qu’aux particuliers en situation de handicap ou non. {{ SITE_NAME.title }} a pour objectif principal de permettre à l’usager en situation de handicap d’avoir accès aux informations indispensables pour savoir s’il pourra accéder à tel ou tel établissement.</p>
 
     <p>Le présent document a pour objet de régler les relations entre les différents intervenants sur le service. Il définit les conditions et modalités d’utilisation des services.
     Le service est développé et opéré par le Ministère de la Transition Écologique et Solidaire et le Ministère de la Cohésion des Territoires et des Relations avec les Collectivités Territoriales.</p>
@@ -23,7 +23,7 @@
     <ul>
       <li><q>Nous</q> se réfère à l’éditeur du service.</li>
       <li><q>Vous</q> se réfère à un utilisateur du service.</li>
-      <li><q>Le service</q> se réfère indistinctement à l’application web et à l’interface de programmation applicative (API).</li>
+      <li><q>Le service</q> se réfère indistinctement à l’application Web et à l’interface de programmation applicative (API).</li>
       <li><q>ERP</q> se réfère aux Établissements Recevant du Public.</li>
     </ul>
 
@@ -31,14 +31,14 @@
 
     <h3 class="h4">Objet</h3>
 
-    <p>Le service est composé, d’une part, d’une application web qui vous permet de&nbsp;:</p>
+    <p>Le service est composé, d’une part, d’une <a href="{% url "home" %}">application Web</a> qui vous permet de&nbsp;:</p>
 
     <ol>
       <li>Renseigner un formulaire décrivant l’accessibilité d’un ERP via l’interface dédiée aux contributeurs</li>
       <li>Consulter ces informations d’accessibilité via l’interface utilisateur</li>
     </ol>
 
-    <p>D’autre part, une interface de programmation applicative (API) qui vous permet de&nbsp;:</p>
+    <p>D’autre part, une <a href="{% url "apidocs" %}">interface de programmation applicative (API)</a> qui vous permet de&nbsp;:</p>
 
     <ol>
       <li>Obtenir une liste des ERP et leurs informations d’accessibilité à partir de différents critères de recherche.</li>
@@ -49,7 +49,7 @@
 
     <h3 class="h4">Qualité des données publiées</h3>
 
-    <p>Nous publions sur Acceslibre des données publiques à titre informatif. Seules les publications légales font foi, notamment au Journal officiel de la République française ou aux recueils des actes administratifs des préfectures.</p>
+    <p>Nous publions sur {{ SITE_NAME.title }} des données publiques à titre informatif. Seules les publications légales font foi, notamment au Journal officiel de la République française ou aux recueils des actes administratifs des préfectures.</p>
 
     <p>Par conséquent, les informations publiées sur Accelibre ne sauraient engager la responsabilité de leur éditeur ou d’un quelconque service de l’État, l’utilisateur y ayant recours en ayant conscience des potentielles erreurs ou omissions qu’elles peuvent comporter.</p>
 
@@ -75,11 +75,11 @@
 
     <h4 class="h5">Code source</h4>
 
-    <p>Le code source de l’application web et de l’interface de programmation applicative (API) sont libres et peuvent donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a href="https://spdx.org/licenses/MIT.html">licence MIT</a>. Ils sont disponibles sur Github à l'adresse <a href="https://github.com/MTES-MCT/acceslibre">github.com/MTES-MCT/acceslibre</a>.</p>
+    <p>Le code source de l’application Web et de l’interface de programmation applicative (API) sont libres et peuvent donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a href="https://spdx.org/licenses/MIT.html">licence MIT</a>. Ils sont disponibles sur Github à l'adresse <a href="https://github.com/MTES-MCT/acceslibre">github.com/MTES-MCT/acceslibre</a>.</p>
 
     <h4 class="h5">Données administratives publiques relatives</h4>
 
-    <p>Les informations publiques délivrées par le service le sont sous Licence Ouverte V 2.0. Vous êtes donc libres de réutiliser ces informations sous réserve de mentionner la paternité de l’information et la date de dernière mise à jour de l’information utilisée. Par exemple, sur la forme « Ministère de la Transition écologique et solidaire et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales – Téléchargées sur acceslibre.beta.gouv.fr mise à jour du &lt;date&gt; ».</p>
+    <p>Les informations publiques délivrées par le service le sont sous Licence Ouverte V 2.0. Vous êtes donc libres de réutiliser ces informations sous réserve de mentionner la paternité de l’information et la date de dernière mise à jour de l’information utilisée. Par exemple, sur la forme <q>Ministère de la Transition écologique et solidaire et Ministère de la cohésion des territoires et des relations avec les collectivités territoriales – Téléchargées sur acceslibre.beta.gouv.fr mise à jour du &lt;date&gt;</q>.</p>
 
     <hr noshade="noshade">
 
@@ -99,7 +99,7 @@
       <address>
         Le Ministère de la Transition écologique et solidaire - Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales<br>
         Délégation ministérielle à l’accessibilité<br>
-        Acceslibre<br>
+        {{ SITE_NAME.title }}<br>
         Julia ZUCKER<br>
         Grande Arche<br>
         92055 La Défense Cedex
@@ -137,7 +137,7 @@
           <blockquote class="bl-highlight">
             Ministère de la Transition écologique et solidaire<br>
           	Délégation ministérielle à l’accessibilité<br>
-          	Acceslibre<br>
+          	{{ SITE_NAME.title }}<br>
           	Grande Arche <br>
             92055 La Défense Cedex
           </blockquote>
@@ -154,6 +154,7 @@
 
     <blockquote class="bl-highlight">
       <address>
+        CNIL<br>
         3 place de Fontenoy<br>
         TSA 80715<br>
         75334 PARIS CEDEX 07
@@ -170,7 +171,7 @@
 
     <h4 class="h5">Cookies</h4>
 
-    <p>Nous déposons des cookies de mesure d’audience (nombre de visites, pages consultées), respectant les conditions d’exemption du consentement de l’internaute définies par la recommandation « Cookies » de la Commission nationale informatique et libertés (CNIL). Cela signifie, notamment, que ces cookies ne servent qu’à la production de statistiques anonymes et ne permettent pas de suivre votre navigation sur d’autres sites.</p>
+    <p>Nous déposons des cookies de mesure d’audience (nombre de visites, pages consultées), respectant les conditions d’exemption du consentement de l’internaute définies par la recommandation <q>Cookies</q> de la <a href="https://www.cnil.fr/">Commission nationale informatique et libertés (CNIL)</a>. Cela signifie, notamment, que ces cookies ne servent qu’à la production de statistiques anonymes et ne permettent pas de suivre votre navigation sur d’autres sites.</p>
 
     <p>Nous déposons également des cookies de navigation, aux fins strictement techniques, qui ne sont pas conservés (mémorisation, pendant la durée de la session, des paramètres de filtrage et de préférence de fond cartographique). La consultation de la plateforme n’est pas affectée lorsque les utilisateurs utilisent des navigateurs désactivant les cookies.</p>
 
@@ -180,15 +181,15 @@
 
     <h3 class="h4">Evolution du service</h3>
 
-    <p>Nous pouvons faire évoluer Acceslibre sans information préalable ou préavis. Nous ajoutons régulièrement des données, retravaillons l’interface et modifions les formulations sur la base de vos retours et des évolutions réglementaires et législatives.</p>
+    <p>Nous pouvons faire évoluer {{ SITE_NAME.title }} sans information préalable ou préavis. Nous ajoutons régulièrement des données, retravaillons l’interface et modifions les formulations sur la base de vos retours et des évolutions réglementaires et législatives.</p>
 
     <hr noshade="noshade">
 
     <h3 class="h4">Disponibilité du service</h3>
 
-    <p>Nous pouvons suspendre l’accès à Acceslibre sans information préalable ni préavis, notamment pour des raisons de maintenance. Nous mettons l’application à jour régulièrement. L’indisponibilité ne dépasse généralement pas une dizaine de secondes.</p>
+    <p>Nous pouvons suspendre l’accès à {{ SITE_NAME.title }} sans information préalable ni préavis, notamment pour des raisons de maintenance. Nous mettons l’application à jour régulièrement. L’indisponibilité ne dépasse généralement pas une dizaine de secondes.</p>
 
-    <p>Nous mettons Acceslibre à disposition sans garantie sur sa disponibilité. Même si nous nous faisons en sorte que le service soit toujours opérationnel, cela signifie que d’éventuelles indisponibilités n’ouvriront pas droit à compensation financière.</p>
+    <p>Nous mettons {{ SITE_NAME.title }} à disposition sans garantie sur sa disponibilité. Même si nous nous faisons en sorte que le service soit toujours opérationnel, cela signifie que d’éventuelles indisponibilités n’ouvriront pas droit à compensation financière.</p>
 
     <p>Nous nous réservons également le droit de bloquer, sans information préalable ni compensation financière, les usages mettant en péril l’utilisation du logiciel par d’autres usagers. Cela nous permet d’anticiper d’éventuelles attaques par déni de service.</p>
 
@@ -196,7 +197,7 @@
 
     <h3 class="h4 mb-3">Hébergement du service</h3>
 
-    <p>Acceslibre est hébergé en France sur l'infrastructure <a href="https://scalingo.com/fr">Scalingo</a>.</p>
+    <p>{{ SITE_NAME.title }} est hébergé en France sur l'infrastructure <a href="https://scalingo.com/fr">Scalingo</a>.</p>
 
     <section>
       <blockquote class="bl-highlight">
