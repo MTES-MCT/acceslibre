@@ -30,6 +30,11 @@ urlpatterns = [
     ############################################################################
     path("", cache_per_user(APP_CACHE_TTL)(views.home), name="home"),
     path(
+        "conditions-generales-d-utilisation",
+        editorial_page("editorial/cgu.html"),
+        name="cgu",
+    ),
+    path(
         "mentions-legales",
         editorial_page("editorial/mentions_legales.html"),
         name="mentions_legales",
