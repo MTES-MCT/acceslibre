@@ -60,9 +60,8 @@ def test_home_localized(data, client):
         # Editorial
         reverse("accessibilite"),
         reverse("autocomplete"),
+        reverse("cgu"),
         reverse("contact_form"),
-        reverse("donnees_personnelles"),
-        reverse("mentions_legales"),
         # Auth
         reverse("login"),
         reverse("django_registration_activation_complete"),

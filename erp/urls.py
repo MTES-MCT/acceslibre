@@ -35,19 +35,9 @@ urlpatterns = [
         name="cgu",
     ),
     path(
-        "mentions-legales",
-        editorial_page("editorial/mentions_legales.html"),
-        name="mentions_legales",
-    ),
-    path(
         "accessibilite",
         editorial_page("editorial/accessibilite.html"),
         name="accessibilite",
-    ),
-    path(
-        "donnees-personnelles",
-        editorial_page("editorial/donnees_personnelles.html"),
-        name="donnees_personnelles",
     ),
     ############################################################################
     # HTML app
