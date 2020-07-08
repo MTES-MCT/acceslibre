@@ -185,13 +185,9 @@ EMAIL_HOST = get_env_variable("EMAIL_HOST")
 EMAIL_PORT = get_env_variable("EMAIL_PORT", type=int)
 EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = f"{SITE_NAME} team <nicolas@perriault.net>"  # FIXME: proper email
-MANAGERS = [
-    ("Émile", "e.ledure@gmail.com"),
-    ("Julia", "julia.zucker@developpement-durable.gouv.fr"),
-    ("Nicolas", "nicolas@perriault.net"),
-    ("Sophie", "sophie.tcheng@developpement-durable.gouv.fr"),
-]
+DEFAULT_EMAIL = "acceslibre@beta.gouv.fr"
+DEFAULT_FROM_EMAIL = f"L'équipe {SITE_NAME} <{DEFAULT_EMAIL}>"
+MANAGERS = [("Acceslibre", DEFAULT_EMAIL)]
 EMAIL_FILE_PATH = "/tmp/django_emails"
 EMAIL_SUBJECT_PREFIX = f"[{SITE_NAME}]"
 EMAIL_USE_LOCALTIME = True
