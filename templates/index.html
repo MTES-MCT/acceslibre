@@ -159,7 +159,7 @@
           <div class="card shadow-sm">
             <a class="d-none d-md-block" href="{% url 'commune' commune.slug %}" tabindex="-1">
               <img class="card-img-top" alt="{{ commune.nom }}"
-                src="https://api.mapbox.com/styles/v1/mapbox/light-v10/static/{{ commune.geom.coords.0 }},{{ commune.geom.coords.1 }},11,0,50/348x139@2x?access_token=pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw">
+                src="https://api.mapbox.com/styles/v1/mapbox/light-v10/static/{{ commune.geom.coords.0 }},{{ commune.geom.coords.1 }},11,0,50/348x139?access_token=pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw">
             </a>
             <div class="card-body p-3">
               <small class="text-muted">{{ commune.departement_nom }}</small>
