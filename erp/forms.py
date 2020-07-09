@@ -5,7 +5,10 @@ from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.conf import settings
 from django.utils.safestring import mark_safe
+
+from contact_form.forms import ContactForm
 from django_registration.forms import RegistrationFormUniqueEmail
+
 from . import schema
 from . import geocoder
 from . import sirene
@@ -25,6 +28,19 @@ def bool_radios():
 def get_widgets_for_accessibilite():
     field_names = schema.get_nullable_bool_fields()
     return dict([(f, bool_radios()) for f in field_names])
+
+
+class CustomContactForm(ContactForm):
+    "Prefills authenticated user first and last name, email adress in the contact form."
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.get("request").user
+        if user.is_authenticated:
+            kwargs["initial"] = {
+                "name": f"{user.first_name} {user.last_name}".strip(),
+                "email": user.email,
+            }
+        return super().__init__(*args, **kwargs)
 
 
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
