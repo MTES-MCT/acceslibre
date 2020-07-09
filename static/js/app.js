@@ -99,7 +99,7 @@ window.a4a = (function () {
       .setMinZoom(info.zoom - 2);
 
     markers = L.markerClusterGroup({
-      disableClusteringAtZoom: 16,
+      maxClusterRadius: 20,
       showCoverageOnHover: false,
       iconCreateFunction: iconCreateFunction,
     });
