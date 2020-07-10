@@ -32,9 +32,14 @@
           <i aria-hidden="true" class="icon icon-phone"></i> {{ erp.telephone }}
         </a>
       {% endif %}
+      {% if user.id == erp.user.id %}
+        <a class="d-inline-block mr-2" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}" target="_blank">
+          <i aria-hidden="true" class="icon icon-pencil"></i> Modifier ces informations
+        </a>
+      {% endif %}
       {% if user.is_superuser %}
         <a class="d-inline-block mr-2" href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
-          <i aria-hidden="true" class="icon icon-pencil"></i> Éditer dans l'admin
+          <i aria-hidden="true" class="icon icon-pencil"></i> Admin
         </a>
       {% endif %}
       </div>
