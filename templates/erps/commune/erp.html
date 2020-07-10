@@ -32,7 +32,7 @@
           <i aria-hidden="true" class="icon icon-phone"></i> {{ erp.telephone }}
         </a>
       {% endif %}
-      {% if user.id == erp.user.id %}
+      {% if erp.user and user.id == erp.user.id %}
         <a class="d-inline-block mr-2" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}" target="_blank">
           <i aria-hidden="true" class="icon icon-pencil"></i> Modifier ces informations
         </a>

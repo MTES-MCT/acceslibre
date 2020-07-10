@@ -16,6 +16,15 @@ def browser():
     return Browser("django")
 
 
+def login(browser, username, password, next=None):
+    next_qs = f"?next={next}" if next else ""
+    browser.visit(reverse("login") + next_qs)
+    browser.fill("username", username)
+    browser.fill("password", password)
+    button = browser.find_by_css("form button[type=submit]")
+    button.click()
+
+
 def test_home(data, browser, capsys):
     browser.visit(reverse("home"))
 
@@ -42,6 +51,18 @@ def test_erp_details(data, browser):
     assert browser.is_text_present(
         html.unescape(schema.get_help_text("sanitaires_adaptes"))
     )
+
+
+def test_erp_details_edit_links(data, browser, capsys):
+    browser.visit(data.erp.get_absolute_url())
+
+    assert browser.title.startswith(data.erp.nom)
+    assert browser.is_text_not_present("Modifier ces informations")
+
+    login(browser, "niko", "Abc12345!", next=data.erp.get_absolute_url())
+
+    assert browser.title.startswith(data.erp.nom)
+    assert browser.is_text_present("Modifier ces informations")
 
 
 def test_registration_flow(data, browser):
