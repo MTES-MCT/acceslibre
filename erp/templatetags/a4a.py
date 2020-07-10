@@ -48,10 +48,10 @@ def encode_etablissement_data(value):
 def format_distance(value):
     if isinstance(value, str):
         return value
-    if value.km < 3:
-        return f"{round(value.m)} m"
-    else:
+    if value.m > 999:
         return f"{value.km:.2f} km"
+    else:
+        return f"{round(value.m)} m"
 
 
 @register.filter(name="format_siret")
