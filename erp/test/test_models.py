@@ -2,9 +2,51 @@ import pytest
 
 from django.core.exceptions import ValidationError
 
-from ..models import Erp
+from ..models import Accessibilite, Erp
 
+from erp import schema
 from .fixtures import data
+
+
+def test_accessibilite_clean_gestionnaire(data):
+    data.erp.accessibilite.delete()
+    data.erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
+    data.erp.save()
+    acc = Accessibilite(
+        erp=data.erp,
+        registre_url="http://test-registre-url/",
+        conformite_type=schema.CONFORMITE_ADAP,
+    )
+    acc.save()
+
+    assert acc.registre_url == "http://test-registre-url/"
+    assert acc.conformite_type == None
+
+    data.erp.accessibilite.delete()
+    data.erp.user_type = Erp.USER_ROLE_ADMIN
+    data.erp.save()
+    acc = Accessibilite(
+        erp=data.erp,
+        registre_url="http://test-registre-url/",
+        conformite_type=schema.CONFORMITE_ADAP,
+    )
+    acc.save()
+
+    assert acc.registre_url == None
+    assert acc.conformite_type == schema.CONFORMITE_ADAP
+
+    data.erp.accessibilite.delete()
+    data.erp.user_type = Erp.USER_ROLE_PUBLIC
+    data.erp.save()
+    acc = Accessibilite(
+        erp=data.erp,
+        registre_url="http://test-registre-url/",
+        conformite_type=schema.CONFORMITE_ADAP,
+    )
+    acc.save()
+
+    assert acc.registre_url == None
+    assert acc.conformite_type == None
 
 
 def test_Erp_clean_validates_code_postal(data, capsys):
