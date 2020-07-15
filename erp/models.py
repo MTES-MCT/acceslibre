@@ -864,6 +864,27 @@ class Accessibilite(models.Model):
         max_length=1000, null=True, blank=True, verbose_name="Commentaire libre",
     )
 
+    ##########################
+    # Registre               #
+    ##########################
+    registre_url = models.URLField(
+        max_length=255, null=True, blank=True, verbose_name="URL du registre",
+    )
+
+    ##########################
+    # Conformité             #
+    ##########################
+    conformite_type = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        choices=schema.CONFORMITE_CHOICES,
+        verbose_name="Conformité",
+    )
+    conformite_adap_fin = models.DateField(
+        null=True, blank=True, verbose_name="Date de fin Ad'AP"
+    )
+
     # Datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"

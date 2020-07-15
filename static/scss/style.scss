@@ -344,19 +344,23 @@ input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
   font-size: 0.8em;
 }
 
-.a4a-form-inline-choices ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.a4a-form-choices {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.inline {
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
 }
 
 .a4a-form-field {
   border-bottom: 1px solid #ddd;
-}
-
-.a4a-form-inline-choices ul li {
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .a4a-form-input-number {

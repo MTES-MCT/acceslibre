@@ -1,10 +1,10 @@
 {% extends "contrib/base_access_form.html" %}
 
-{% block page_title %}Stationner dans l'établissement{% endblock%}
+{% block page_title %}Stationner autour de l'établissement{% endblock%}
 
 {% block fields_content %}
-  {% include "fields/boolradio.html" with field=form.stationnement_presence %}
-  {% include "fields/boolradio.html" with field=form.stationnement_pmr %}
-  {% include "fields/boolradio.html" with field=form.stationnement_ext_presence %}
-  {% include "fields/boolradio.html" with field=form.stationnement_ext_pmr %}
+  {% include "fields/boolradio.html" with field=form.stationnement_presence inline=True %}
+  {% include "fields/boolradio.html" with field=form.stationnement_pmr inline=True %}
+  {% include "fields/boolradio.html" with field=form.stationnement_ext_presence inline=True %}
+  {% include "fields/boolradio.html" with field=form.stationnement_ext_pmr inline=True %}
 {% endblock %}

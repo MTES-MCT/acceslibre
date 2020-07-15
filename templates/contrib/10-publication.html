@@ -6,5 +6,10 @@
 {% block page_title %}Publication{% endblock%}
 
 {% block fields_content %}
-{{ form|crispy }}
+  {% include "fields/boolradio.html" with field=form.user_type inline=False %}
+  {% include "fields/textarea.html" with field=form.registre_url %}
+  {% include "fields/boolradio.html" with field=form.conformite_type inline=False %}
+  {% include "fields/textarea.html" with field=form.conformite_adap_fin %}
+  {{ form.commentaire|as_crispy_field }}
+  {{ form.certif|as_crispy_field }}
 {% endblock %}

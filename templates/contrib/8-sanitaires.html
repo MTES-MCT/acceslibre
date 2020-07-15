@@ -3,6 +3,6 @@
 {% block page_title %}Les sanitaires{% endblock%}
 
 {% block fields_content %}
-  {% include "fields/boolradio.html" with field=form.sanitaires_presence %}
+  {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
   {% include "fields/number.html" with field=form.sanitaires_adaptes %}
 {% endblock %}

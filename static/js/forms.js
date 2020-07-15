@@ -4,149 +4,134 @@ window.a4aForms = (function () {
     inputNamePrefix: "accessibilite-0-",
   };
 
-  const rules = {
-    // transport
-    transport_information: {
-      dependsOn: ["transport_station_presence"],
-      when: true,
+  const rules = [
+    // Transport
+    {
+      source: "transport_station_presence",
+      values: ["True"],
+      targets: ["transport_information"],
       indent: 1,
     },
-    // stationnement
-    stationnement_pmr: {
-      dependsOn: ["stationnement_presence"],
-      when: true,
+
+    // Stationnement
+    {
+      source: "stationnement_presence",
+      values: ["True"],
+      targets: ["stationnement_pmr"],
       indent: 1,
     },
-    stationnement_ext_pmr: {
-      dependsOn: ["stationnement_ext_presence"],
-      when: true,
+    {
+      source: "stationnement_ext_presence",
+      values: ["True"],
+      targets: ["stationnement_ext_pmr"],
       indent: 1,
     },
-    // presence d'un extérieur et cheminement
-    cheminement_ext_terrain_accidente: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
+
+    // Presence d'un extérieur et cheminement
+    {
+      source: "cheminement_ext_presence",
+      values: ["True"],
+      targets: [
+        "cheminement_ext_terrain_accidente",
+        "cheminement_ext_plain_pied",
+        "cheminement_ext_nombre_marches",
+        "cheminement_ext_reperage_marches",
+        "cheminement_ext_main_courante",
+        "cheminement_ext_rampe",
+        "cheminement_ext_ascenseur",
+        "cheminement_ext_pente",
+        "cheminement_ext_devers",
+        "cheminement_ext_bande_guidage",
+        "cheminement_ext_retrecissement",
+      ],
       indent: 1,
     },
-    cheminement_ext_plain_pied: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
-      indent: 1,
-    },
-    cheminement_ext_nombre_marches: {
-      dependsOn: ["cheminement_ext_plain_pied"],
-      when: false,
+    {
+      source: "cheminement_ext_plain_pied",
+      values: ["False"],
+      targets: [
+        "cheminement_ext_nombre_marches",
+        "cheminement_ext_reperage_marches",
+        "cheminement_ext_main_courante",
+        "cheminement_ext_rampe",
+        "cheminement_ext_ascenseur",
+      ],
       indent: 2,
     },
-    cheminement_ext_reperage_marches: {
-      dependsOn: ["cheminement_ext_plain_pied"],
-      when: false,
-      indent: 2,
-    },
-    cheminement_ext_main_courante: {
-      dependsOn: ["cheminement_ext_plain_pied"],
-      when: false,
-      indent: 2,
-    },
-    cheminement_ext_rampe: {
-      dependsOn: ["cheminement_ext_plain_pied"],
-      when: false,
-      indent: 2,
-    },
-    cheminement_ext_ascenseur: {
-      dependsOn: ["cheminement_ext_plain_pied"],
-      when: false,
-      indent: 2,
-    },
-    cheminement_ext_pente: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
+
+    // Entrée
+    {
+      source: "entree_vitree",
+      values: ["True"],
+      targets: ["entree_vitree_vitrophanie"],
       indent: 1,
     },
-    cheminement_ext_devers: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
+    {
+      source: "entree_plain_pied",
+      values: ["False"],
+      targets: [
+        "entree_marches",
+        "entree_marches_reperage",
+        "entree_marches_main_courante",
+        "entree_marches_rampe",
+        "entree_ascenseur",
+      ],
       indent: 1,
     },
-    cheminement_ext_bande_guidage: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
+    {
+      source: "entree_pmr",
+      values: ["True"],
+      targets: ["entree_pmr_informations"],
       indent: 1,
     },
-    cheminement_ext_retrecissement: {
-      dependsOn: ["cheminement_ext_presence"],
-      when: true,
+
+    // Accueil
+    {
+      source: "accueil_cheminement_plain_pied",
+      values: ["False"],
+      targets: [
+        "accueil_cheminement_nombre_marches",
+        "accueil_cheminement_reperage_marches",
+        "accueil_cheminement_main_courante",
+        "accueil_cheminement_rampe",
+        "accueil_cheminement_ascenseur",
+      ],
       indent: 1,
     },
-    // entrée
-    entree_vitree_vitrophanie: {
-      dependsOn: ["entree_vitree"],
-      when: true,
+
+    // Sanitaires
+    {
+      source: "sanitaires_presence",
+      values: ["True"],
+      targets: ["sanitaires_adaptes"],
       indent: 1,
     },
-    entree_marches: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
+
+    // Labels
+    // TODO
+
+    // Publication: registre et conformité
+    // a. afficher registre si gestionnaire
+    {
+      source: "user_type",
+      values: ["gestionnaire"],
+      targets: ["registre_url"],
       indent: 1,
     },
-    entree_marches_reperage: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
+    // b. afficher conformité si administration
+    {
+      source: "user_type",
+      values: ["admin"],
+      targets: ["conformite_type", "conformite_adap_fin"],
       indent: 1,
     },
-    entree_marches_main_courante: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
+    {
+      source: "conformite_type",
+      values: ["adap"],
+      targets: ["conformite_adap_fin"],
       indent: 1,
     },
-    entree_marches_rampe: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    entree_ascenseur: {
-      dependsOn: ["entree_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    entree_pmr_informations: {
-      dependsOn: ["entree_pmr"],
-      when: true,
-      indent: 1,
-    },
-    // accueil
-    accueil_cheminement_nombre_marches: {
-      dependsOn: ["accueil_cheminement_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    accueil_cheminement_reperage_marches: {
-      dependsOn: ["accueil_cheminement_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    accueil_cheminement_main_courante: {
-      dependsOn: ["accueil_cheminement_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    accueil_cheminement_rampe: {
-      dependsOn: ["accueil_cheminement_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    accueil_cheminement_ascenseur: {
-      dependsOn: ["accueil_cheminement_plain_pied"],
-      when: false,
-      indent: 1,
-    },
-    // sanitaires
-    sanitaires_adaptes: {
-      dependsOn: ["sanitaires_presence"],
-      when: true,
-      indent: 1,
-    },
-  };
+  ];
 
   function getFieldInputs(field) {
     const sourceSelector =
@@ -154,74 +139,96 @@ window.a4aForms = (function () {
     return [].slice.call(document.querySelectorAll(sourceSelector));
   }
 
-  function handleClick(field, style) {
-    return function () {
-      // reinit value for custom boolean radio choices
-      const radioNone = field.querySelector("input[type=radio][value='']");
-      if (radioNone) {
-        radioNone.click();
-      }
-      // reinit value for textareas
-      const textarea = field.querySelector("textarea");
-      if (textarea) {
-        textarea.value = "";
-      }
-      // reinit value for number inputs
-      const numberInput = field.querySelector("input[type=number]");
-      if (numberInput) {
-        numberInput.value = "";
-      }
-      // apply style
-      field.style.display = style;
-    };
-  }
-
-  function condition(when, inputs, target) {
-    if (when) {
-      inputs[0].addEventListener("click", handleClick(target, "block"));
-      inputs[1].addEventListener("click", handleClick(target, "none"));
-      inputs[2].addEventListener("click", handleClick(target, "none"));
-    } else {
-      inputs[0].addEventListener("click", handleClick(target, "none"));
-      inputs[1].addEventListener("click", handleClick(target, "block"));
-      inputs[2].addEventListener("click", handleClick(target, "none"));
-    }
-  }
-
   function getValue(field) {
-    const fieldInput = getFieldInputs(field).filter(function (input) {
+    const inputs = getFieldInputs(field);
+    if (inputs.length === 0) {
+      // field has not been found in the page, skipping
+      return;
+    }
+    const selectedInput = inputs.filter(function (input) {
       return input.checked;
     })[0];
-    if (fieldInput.length === 0) {
-      throw new Error("Couldn't find source input element for field: " + field);
+    if (!selectedInput) {
+      return;
     }
-    return fieldInput.value;
+    return selectedInput.value;
+  }
+
+  function resetField(field) {
+    const radioNone = field.querySelector("input[type=radio][value='']");
+    if (radioNone) {
+      radioNone.click();
+    }
+    const textarea = field.querySelector("textarea");
+    if (textarea) {
+      textarea.value = "";
+    }
+    const textField = field.querySelector("input[type=text]");
+    if (textField) {
+      textField.value = "";
+    }
+    const urlField = field.querySelector("input[type=url]");
+    if (urlField) {
+      urlField.value = "";
+    }
+    const dateField = field.querySelector("input[type=date]");
+    if (dateField) {
+      dateField.value = "";
+    }
+    const numberInput = field.querySelector("input[type=number]");
+    if (numberInput) {
+      numberInput.value = "";
+    }
+  }
+
+  function processTargets(rule, value) {
+    const { source, values, targets, indent } = rule;
+    for (const target of targets) {
+      const el = document.querySelector(
+        (_config.fieldSelectorPrefix || "") + target
+      );
+      if (!el) {
+        continue;
+      }
+      if (values.indexOf(value) !== -1) {
+        el.classList.add("indented" + indent);
+        el.classList.remove("hidden");
+      } else {
+        el.classList.add("hidden");
+        resetField(el);
+      }
+    }
+  }
+
+  function processRule(rule) {
+    const { source, values, targets, indent } = rule;
+    // grab the source field input elements
+    const inputs = getFieldInputs(source);
+    if (inputs.length === 0) {
+      // field has not been found in the page, skipping
+      return;
+    }
+
+    inputs.forEach(function (input) {
+      input.addEventListener("change", function (event) {
+        processTargets(rule, event.target.value);
+        for (const child of rule.targets) {
+          childRule = rules.find((x) => x.source === child);
+          if (childRule) {
+            processTargets(childRule, getValue(child));
+          }
+        }
+      });
+    });
+
+    processTargets(rule, getValue(source));
   }
 
   function run(config = {}) {
     _config = Object.assign({}, _config, config);
 
-    for (let field in rules) {
-      const { dependsOn, when, indent } = rules[field];
-      const fieldElement = document.querySelector(
-        (_config.fieldSelectorPrefix || "") + field
-      );
-      if (!fieldElement) {
-        continue;
-      }
-      dependsOn.forEach(function (trigger) {
-        // events
-        const triggerInputs = getFieldInputs(trigger);
-        condition(when, triggerInputs, fieldElement);
-        // rendering
-        const classes = fieldElement.classList;
-        if (when && getValue(trigger) !== "True") {
-          classes.add("hidden");
-        } else if (!when && getValue(trigger) !== "False") {
-          classes.add("hidden");
-        }
-        classes.add("indented" + indent);
-      });
+    for (const rule of rules) {
+      processRule(rule);
     }
   }
 

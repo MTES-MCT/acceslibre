@@ -568,25 +568,21 @@ def contrib_autre(request, erp_slug):
 @login_required
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
-    initial = (
-        {"commentaire": erp.accessibilite.commentaire}
-        if hasattr(erp, "accessibilite")
-        else {}
-    )
+    accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
+    initial = {"user_type": erp.user_type}
+
     if request.method == "POST":
-        form = PublicPublicationForm(request.POST, instance=erp, initial=initial)
+        form = PublicPublicationForm(
+            request.POST, instance=accessibilite, initial=initial
+        )
         if form.is_valid():
-            erp = form.save(commit=False)
+            accessibilite = form.save()
+            erp.user_type = form.cleaned_data.get("user_type")
             erp.published = True
-            erp.save()
-            erp.accessibilite = (
-                erp.accessibilite if hasattr(erp, "accessibilite") else Accessibilite()
-            )
-            erp.accessibilite.commentaire = form.data.get("commentaire")
-            erp.accessibilite.save()
+            erp = erp.save()
             return redirect("mes_erps")
     else:
-        form = PublicPublicationForm(instance=erp, initial=initial)
+        form = PublicPublicationForm(instance=accessibilite, initial=initial)
     return render(
         request,
         template_name="contrib/10-publication.html",

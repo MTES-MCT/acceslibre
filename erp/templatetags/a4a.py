@@ -67,3 +67,10 @@ def get_equipement_label(value):
 @register.filter(name="get_naf_label")
 def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")
+
+
+@register.filter("startswith")
+def startswith(value, starts):
+    if isinstance(value, str):
+        return value.startswith(starts)
+    return False
