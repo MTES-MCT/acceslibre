@@ -896,23 +896,6 @@ class Accessibilite(models.Model):
     def __str__(self):
         return "Caractéristiques d'accessibilité de cet ERP"
 
-    def save(self, *args, **kwargs):
-        if not self.erp:
-            return
-
-        # Garantie de cohérence des champs en fonction du rôle de contributeur
-        if self.erp.user_type == Erp.USER_ROLE_GESTIONNAIRE:
-            self.conformite_type = None
-            self.conformite_adap_fin = None
-        elif self.erp.user_type == Erp.USER_ROLE_ADMIN:
-            self.registre_url = None
-        elif self.erp.user_type == Erp.USER_ROLE_PUBLIC:
-            self.registre_url = None
-            self.conformite_type = None
-            self.conformite_adap_fin = None
-
-        return super().save(*args, **kwargs)
-
     def to_debug(self):
         cleaned = dict(
             [
