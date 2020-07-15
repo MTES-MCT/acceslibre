@@ -1,5 +1,7 @@
 import pytest
 
+from datetime import date
+
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
@@ -474,11 +476,10 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert ("/contrib/autre/test-erp/", 302) in response.redirect_chain
     assert response.status_code == 200
 
-    # Autre
+    # Labels
     response = client.post(
         reverse("contrib_autre", kwargs={"erp_slug": erp.slug}),
         data={
-            "sanitaires_adaptes": 42,
             "labels": [],
             "labels_familles_handicap": ["visuel", "auditif"],
             "labels_autre": "X",
@@ -486,7 +487,6 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
-    assert accessibilite.sanitaires_adaptes == 42
     assert accessibilite.labels.count() == 0
     assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
     assert accessibilite.labels_autre == "X"
@@ -509,14 +509,41 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert erp.accessibilite.commentaire == "test commentaire"
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
+
+    # Gestionnaire user
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
+        data={
+            "user_type": Erp.USER_ROLE_GESTIONNAIRE,
+            "registre_url": "http://registre.url/",
+            "commentaire": "test commentaire gestionnaire",
+            "certif": True,
+        },
+        follow=True,
+    )
+    erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_GESTIONNAIRE)
+    assert erp.published == True
+    assert erp.accessibilite.commentaire == "test commentaire gestionnaire"
+    assert erp.accessibilite.registre_url == "http://registre.url/"
+    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert response.status_code == 200
+
     # Administrative user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={"user_type": Erp.USER_ROLE_ADMIN, "certif": True,},
+        data={
+            "user_type": Erp.USER_ROLE_ADMIN,
+            "conformite_type": "adap",
+            "conformite_adap_fin": "2020-01-01",
+            "commentaire": "test commentaire administration",
+            "certif": True,
+        },
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
     assert erp.published == True
+    assert erp.accessibilite.commentaire == "test commentaire administration"
+    assert erp.accessibilite.conformite_adap_fin == date(2020, 1, 1)
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
 
