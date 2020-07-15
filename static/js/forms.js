@@ -182,16 +182,15 @@ window.a4aForms = (function () {
   }
 
   function processTargets(rule, value) {
-    const { source, values, targets, indent } = rule;
-    for (const target of targets) {
+    for (const target of rule.targets) {
       const el = document.querySelector(
         (_config.fieldSelectorPrefix || "") + target
       );
       if (!el) {
         continue;
       }
-      if (values.indexOf(value) !== -1) {
-        el.classList.add("indented" + indent);
+      if (rule.values.indexOf(value) !== -1) {
+        el.classList.add("indented" + rule.indent);
         el.classList.remove("hidden");
       } else {
         el.classList.add("hidden");
@@ -201,9 +200,8 @@ window.a4aForms = (function () {
   }
 
   function processRule(rule) {
-    const { source, values, targets, indent } = rule;
     // grab the source field input elements
-    const inputs = getFieldInputs(source);
+    const inputs = getFieldInputs(rule.source);
     if (inputs.length === 0) {
       // field has not been found in the page, skipping
       return;
@@ -213,7 +211,9 @@ window.a4aForms = (function () {
       input.addEventListener("change", function (event) {
         processTargets(rule, event.target.value);
         for (const child of rule.targets) {
-          childRule = rules.find((x) => x.source === child);
+          childRule = rules.filter(function (r) {
+            return r.source === child;
+          })[0];
           if (childRule) {
             processTargets(childRule, getValue(child));
           }
@@ -221,7 +221,7 @@ window.a4aForms = (function () {
       });
     });
 
-    processTargets(rule, getValue(source));
+    processTargets(rule, getValue(rule.source));
   }
 
   function run(config = {}) {
