@@ -145,12 +145,12 @@ SECTIONS = {
         "description": "Marques ou labels d'accessibilité",
     },
     SECTION_REGISTRE: {
-        "icon": "info-circled",
+        "icon": "registre",
         "label": "Registre",
         "description": "Registre d'accessibilité de l'établissement",
     },
     SECTION_CONFORMITE: {
-        "icon": "info-circled",
+        "icon": "conformite",
         "label": "Conformité",
         "description": "Conformité",
     },
@@ -622,10 +622,13 @@ FIELDS = {
     },
     "conformite_adap_fin": {
         "label": "Fin d'Ad'AP",
-        "help_text": mark_safe("Date de fin d'Ad'AP"),
+        "help_text": mark_safe(
+            "Si un <a href='https://www.ecologique-solidaire.gouv.fr/ladap-agenda-daccessibilite-programmee' target='_blank'>dossier Ad'AP</a> "
+            "est enregistré pour l'établissement, précisez sa date de fin"
+        ),
         "section": SECTION_CONFORMITE,
         "nullable_bool": False,
-        "warn_if": lambda x, i: x == CONFORMITE_KO,
+        "warn_if": None,
     },
 }
 
