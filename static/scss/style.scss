@@ -35,6 +35,12 @@ hr[noshade] {
   padding-left: 1em;
 }
 
+.form-group {
+  > label {
+    font-weight: 600;
+  }
+}
+
 .a4a-map-popup-content {
   font-size: 1.2em;
 }
