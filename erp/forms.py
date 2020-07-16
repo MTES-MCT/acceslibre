@@ -434,6 +434,7 @@ class PublicPublicationForm(forms.ModelForm):
 
     user_type = forms.ChoiceField(
         label="Mon profil",
+        help_text="À quel titre contribuez vous les informations pour cet établissement ?",
         choices=[
             (Erp.USER_ROLE_PUBLIC, "Je fréquente cet établissement",),
             (Erp.USER_ROLE_GESTIONNAIRE, "Je gère cet établissement",),
@@ -458,7 +459,6 @@ class PublicPublicationForm(forms.ModelForm):
     conformite_adap_fin = forms.DateField(
         label="Date de fin d'Ad'AP",
         help_text=schema.get_help_text("conformite_adap_fin"),
-        widget=forms.DateInput(attrs={"type": "date"}),
         required=False,
     )
     certif = forms.BooleanField(

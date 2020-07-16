@@ -5,6 +5,13 @@
 
 {% block page_title %}Publication{% endblock%}
 
+{% block javascript_extras %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.fr.min.js"></script>
+{{ block.super }}
+{% endblock %}
+
+
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.user_type inline=False %}
   {% include "fields/textarea.html" with field=form.registre_url %}
@@ -12,4 +19,13 @@
   {% include "fields/textarea.html" with field=form.conformite_adap_fin %}
   {{ form.commentaire|as_crispy_field }}
   {{ form.certif|as_crispy_field }}
+  <script>
+  $(document).ready(function() {
+    $('#id_conformite_adap_fin').datepicker({
+        format: "yyyy-mm-dd",
+        clearBtn: true,
+        language: "fr"
+    });
+  });
+  </script>
 {% endblock %}
