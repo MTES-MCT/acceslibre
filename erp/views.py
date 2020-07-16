@@ -560,7 +560,7 @@ def contrib_autre(request, erp_slug):
         erp_slug,
         7,
         schema.get_section_fields(schema.SECTION_LABELS),
-        "contrib/9-autre.html",
+        "contrib/9-labellisation.html",
         "contrib_publication",
     )
 
