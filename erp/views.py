@@ -570,23 +570,28 @@ def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     initial = {"user_type": erp.user_type}
-
+    empty_a11y = False
     if request.method == "POST":
         form = PublicPublicationForm(
             request.POST, instance=accessibilite, initial=initial
         )
         if form.is_valid():
             accessibilite = form.save()
-            erp.user_type = form.cleaned_data.get("user_type")
-            erp.published = True
-            erp = erp.save()
-            return redirect("mes_erps")
+            if not accessibilite.has_data():
+                erp.published = False
+                erp.save()
+                empty_a11y = True
+            else:
+                erp.user_type = form.cleaned_data.get("user_type")
+                erp.published = True
+                erp = erp.save()
+                return redirect("mes_erps")
     else:
         form = PublicPublicationForm(instance=accessibilite, initial=initial)
     return render(
         request,
         template_name="contrib/10-publication.html",
-        context={"step": 8, "erp": erp, "form": form,},
+        context={"step": 8, "erp": erp, "form": form, "empty_a11y": empty_a11y},
     )
 
 

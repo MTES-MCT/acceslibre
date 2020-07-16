@@ -8,6 +8,14 @@ from erp import schema
 from .fixtures import data
 
 
+def test_Accessibilite_has_data(data):
+    acc = Accessibilite(id=1337, erp=data.erp)
+    assert acc.has_data() is False
+
+    acc = Accessibilite(id=1337, erp=data.erp, stationnement_presence=True)
+    assert acc.has_data() is True
+
+
 def test_Erp_clean_validates_code_postal(data, capsys):
     erp = Erp.objects.create(nom="x", code_postal="1234")
     with pytest.raises(ValidationError) as excinfo:

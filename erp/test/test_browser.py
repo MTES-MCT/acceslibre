@@ -550,6 +550,29 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert response.status_code == 200
 
 
+def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
+    client.login(username="niko", password="Abc12345!")
+
+    # empty a11y data
+    data.erp.accessibilite.sanitaires_presence = None
+    data.erp.accessibilite.sanitaires_adaptes = None
+    data.erp.accessibilite.save()
+    data.erp.save()
+
+    assert data.erp.accessibilite.has_data() == False
+
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        data={"user_type": Erp.USER_ROLE_PUBLIC, "commentaire": "boo", "certif": True,},
+    )
+
+    assert response.status_code == 200
+    erp = Erp.objects.get(slug=data.erp.slug)
+    assert erp.accessibilite.has_data() == False
+    assert erp.accessibilite.commentaire == "boo"
+    assert erp.published == False
+
+
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
     client.login(username="sophie", password="Abc12345!")
 

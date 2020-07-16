@@ -13,6 +13,12 @@
 
 
 {% block fields_content %}
+  {% if empty_a11y %}
+  <div class="alert alert-danger">
+    Vous n'avez rempli aucune donnée d'accessibilité lors des étapes précédentes. La publication est impossible.
+  </div>
+  {% endif %}
+
   {% include "fields/boolradio.html" with field=form.user_type inline=False %}
   {% include "fields/textarea.html" with field=form.registre_url %}
   {% include "fields/boolradio.html" with field=form.conformite_type inline=False %}
