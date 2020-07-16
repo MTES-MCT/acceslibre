@@ -446,7 +446,9 @@ class PublicPublicationForm(forms.ModelForm):
     registre_url = forms.URLField(
         label="Registre d'accessibilité",
         help_text=schema.get_help_text("registre_url"),
-        widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://"}),
+        widget=forms.TextInput(
+            attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}
+        ),
         required=False,
     )
     conformite_type = forms.ChoiceField(
@@ -459,6 +461,9 @@ class PublicPublicationForm(forms.ModelForm):
     conformite_adap_fin = forms.DateField(
         label="Date de fin d'Ad'AP",
         help_text=schema.get_help_text("conformite_adap_fin"),
+        widget=forms.TextInput(
+            attrs={"placeholder": "AAAA-MM-JJ", "autocomplete": "off"}
+        ),
         required=False,
     )
     certif = forms.BooleanField(
