@@ -182,12 +182,12 @@ window.a4aForms = (function () {
   }
 
   function processTargets(rule, value) {
-    for (const target of rule.targets) {
+    rule.targets.forEach(function (target) {
       const el = document.querySelector(
         (_config.fieldSelectorPrefix || "") + target
       );
       if (!el) {
-        continue;
+        return;
       }
       if (rule.values.indexOf(value) !== -1) {
         el.classList.add("indented" + rule.indent);
@@ -196,7 +196,7 @@ window.a4aForms = (function () {
         el.classList.add("hidden");
         resetField(el);
       }
-    }
+    });
   }
 
   function processRule(rule) {
@@ -210,26 +210,28 @@ window.a4aForms = (function () {
     inputs.forEach(function (input) {
       input.addEventListener("change", function (event) {
         processTargets(rule, event.target.value);
-        for (const child of rule.targets) {
+        rule.targets.forEach(function (child) {
           childRule = rules.filter(function (r) {
             return r.source === child;
           })[0];
           if (childRule) {
             processTargets(childRule, getValue(child));
           }
-        }
+        });
       });
     });
 
     processTargets(rule, getValue(rule.source));
   }
 
-  function run(config = {}) {
-    _config = Object.assign({}, _config, config);
-
-    for (const rule of rules) {
-      processRule(rule);
+  function run(config) {
+    for (let key in config || {}) {
+      _config[key] = config[key];
     }
+
+    rules.forEach(function (rule) {
+      processRule(rule);
+    });
   }
 
   return { run: run };
