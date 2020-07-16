@@ -83,6 +83,13 @@ class AdminAccessibiliteForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=False,
     )
+    conformite_type = forms.ChoiceField(
+        label="Conformité",
+        help_text=schema.get_help_text("conformite_type"),
+        choices=schema.CONFORMITE_CHOICES,
+        widget=forms.RadioSelect(),
+        required=False,
+    )
 
     class Meta:
         model = Accessibilite
@@ -415,23 +422,44 @@ class PublicSiretSearchForm(forms.Form):
 
 class PublicPublicationForm(forms.ModelForm):
     class Meta:
-        model = Erp
-        fields = ("user_type",)
+        model = Accessibilite
+        fields = (
+            "user_type",
+            "registre_url",
+            "conformite_type",
+            "conformite_adap_fin",
+            "commentaire",
+        )
+        help_texts = schema.get_help_texts()
 
-    commentaire = forms.CharField(
-        label=schema.get_label("commentaire"),
-        widget=widgets.Textarea(),
-        help_text=schema.get_help_text("commentaire"),
-        required=False,
-    )
     user_type = forms.ChoiceField(
         label="Mon profil",
+        help_text="À quel titre contribuez vous les informations pour cet établissement ?",
         choices=[
             (Erp.USER_ROLE_PUBLIC, "Je fréquente cet établissement",),
             (Erp.USER_ROLE_GESTIONNAIRE, "Je gère cet établissement",),
             (Erp.USER_ROLE_ADMIN, "Je représente une administration publique",),
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
+        required=True,
+    )
+    registre_url = forms.URLField(
+        label="Registre d'accessibilité",
+        help_text=schema.get_help_text("registre_url"),
+        widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://"}),
+        required=False,
+    )
+    conformite_type = forms.ChoiceField(
+        label="Conformité",
+        help_text=schema.get_help_text("conformite_type"),
+        choices=schema.CONFORMITE_CHOICES,
+        widget=forms.RadioSelect(attrs={"class": "inline"}),
+        required=False,
+    )
+    conformite_adap_fin = forms.DateField(
+        label="Date de fin d'Ad'AP",
+        help_text=schema.get_help_text("conformite_adap_fin"),
+        required=False,
     )
     certif = forms.BooleanField(
         label=f"Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur {settings.SITE_NAME}.",

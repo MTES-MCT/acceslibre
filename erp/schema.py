@@ -17,6 +17,20 @@ NULLABLE_OR_NA_BOOLEAN_CHOICES = (
     (None, UNKNOWN_OR_NA),
 )
 
+CONFORMITE_INCONNUE = None
+CONFORMITE_KO = "non-conforme"
+CONFORMITE_ATTESTATION = "attestation"
+CONFORMITE_ADAP = "adap"
+CONFORMITE_CHOICES = [
+    (CONFORMITE_INCONNUE, "Conformité inconnue"),
+    (CONFORMITE_KO, "L'établissement est non-conforme"),
+    (
+        CONFORMITE_ATTESTATION,
+        "L'établissement a envoyé une attestation d’accessibilité",
+    ),
+    (CONFORMITE_ADAP, "Un dossier Ad'AP a été ouvert"),
+]
+
 DEVERS_AUCUN = "aucun"
 DEVERS_LEGER = "léger"
 DEVERS_IMPORTANT = "important"
@@ -82,6 +96,8 @@ RAMPE_CHOICES = [
     (None, UNKNOWN),
 ]
 
+REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
+
 SECTION_TRANSPORT = "transport"
 SECTION_STATIONNEMENT = "stationnement"
 SECTION_CHEMINEMENT_EXT = "cheminement_ext"
@@ -89,6 +105,8 @@ SECTION_ENTREE = "entree"
 SECTION_ACCUEIL = "accueil"
 SECTION_SANITAIRES = "sanitaires"
 SECTION_LABELS = "labels"
+SECTION_REGISTRE = "registre"
+SECTION_CONFORMITE = "conformite"
 SECTION_COMMENTAIRE = "commentaire"
 SECTIONS = {
     SECTION_TRANSPORT: {
@@ -125,6 +143,16 @@ SECTIONS = {
         "icon": "tag",
         "label": "Marques ou labels d'accessibilité",
         "description": "Marques ou labels d'accessibilité",
+    },
+    SECTION_REGISTRE: {
+        "icon": "registre",
+        "label": "Registre",
+        "description": "Registre d'accessibilité de l'établissement",
+    },
+    SECTION_CONFORMITE: {
+        "icon": "conformite",
+        "label": "Conformité",
+        "description": "Conformité",
     },
     SECTION_COMMENTAIRE: {
         "icon": "info-circled",
@@ -448,7 +476,7 @@ FIELDS = {
         ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
-        "warn_if": lambda x, i: x and "aucun" in x,
+        "warn_if": lambda x, i: x and EQUIPEMENT_MALENTENDANT_AUCUN in x,
     },
     "accueil_cheminement_plain_pied": {
         "label": "Cheminement de plain pied",
@@ -567,6 +595,38 @@ FIELDS = {
             "<br><strong>Note&nbsp;:</strong> ce commentaire sera affiché sur la fiche publique de l'établissement."
         ),
         "section": SECTION_COMMENTAIRE,
+        "nullable_bool": False,
+        "warn_if": None,
+    },
+    # Registre
+    "registre_url": {
+        "label": "Registre",
+        "help_text": mark_safe(
+            "Si l'établissement en dispose, adresse internet (URL) à laquelle le "
+            f'<a href="{REGISTRE_INFO_URL}" target="_blank">registre d\'accessibilité</a> '
+            "de l'établissement est consultable.",
+        ),
+        "section": SECTION_REGISTRE,
+        "nullable_bool": False,
+        "warn_if": lambda x, i: x is None,
+    },
+    # Conformité
+    "conformite_type": {
+        "label": "Conformité",
+        "help_text": mark_safe(
+            "Statut de conformité de l'établissement (réservé à l'administration)."
+        ),
+        "section": SECTION_CONFORMITE,
+        "nullable_bool": True,
+        "warn_if": lambda x, i: x == CONFORMITE_KO,
+    },
+    "conformite_adap_fin": {
+        "label": "Fin d'Ad'AP",
+        "help_text": mark_safe(
+            "Si un <a href='https://www.ecologique-solidaire.gouv.fr/ladap-agenda-daccessibilite-programmee' target='_blank'>dossier Ad'AP</a> "
+            "est enregistré pour l'établissement, précisez sa date de fin"
+        ),
+        "section": SECTION_CONFORMITE,
         "nullable_bool": False,
         "warn_if": None,
     },

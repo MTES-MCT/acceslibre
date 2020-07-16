@@ -35,6 +35,12 @@ hr[noshade] {
   padding-left: 1em;
 }
 
+.form-group {
+  > label {
+    font-weight: 600;
+  }
+}
+
 .a4a-map-popup-content {
   font-size: 1.2em;
 }
@@ -58,7 +64,7 @@ hr[noshade] {
 }
 
 .a4a-marianne {
-  background: #fff;
+  background: $white;
   height: 30px;
   width: 50px;
 }
@@ -128,7 +134,7 @@ hr[noshade] {
 }
 
 .a4a-accessibility-group {
-  background: #fff;
+  background: $white;
 }
 
 .a4a-accessibility-label {
@@ -187,7 +193,7 @@ hr[noshade] {
 }
 
 .a4a-autocomplete-items {
-  background: #fff;
+  background: $white;
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
@@ -223,7 +229,7 @@ hr[noshade] {
 
 .lds-ring div {
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border: 8px solid #fff;
+  border: 8px solid $white;
   border-color: #4493ce transparent transparent transparent;
   border-radius: 50%;
   box-sizing: border-box;
@@ -257,7 +263,7 @@ hr[noshade] {
 }
 
 .autocomplete-suggestions {
-  background: #fff;
+  background: $white;
   border: 1px solid #4493ce;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -344,19 +350,23 @@ input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
   font-size: 0.8em;
 }
 
-.a4a-form-inline-choices ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.a4a-form-choices {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.inline {
+    li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
 }
 
 .a4a-form-field {
   border-bottom: 1px solid #ddd;
-}
-
-.a4a-form-inline-choices ul li {
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .a4a-form-input-number {
@@ -402,7 +412,7 @@ input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
 }
 
 .StepProgress-item::after {
-  background-color: #fff;
+  background-color: $white;
   border-radius: 50%;
   border: 2px solid #ccc;
   color: #999;
@@ -421,13 +431,13 @@ input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
 }
 
 .StepProgress-item.is-done::before {
-  border-left: 2px solid green;
+  border-left: 2px solid $success;
 }
 
 .StepProgress-item.is-done::after {
-  background-color: green;
-  border: 2px solid green;
-  color: #fff;
+  background-color: $success;
+  border: 2px solid $success;
+  color: $white;
   content: "\44";
   font-family: "access4all", sans-serif !important;
   font-style: normal !important;
@@ -444,14 +454,54 @@ input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
 }
 
 .StepProgress-item.current::before {
-  border-left: 2px solid green;
+  border-left: 2px solid $success;
 }
 
 .StepProgress-item.current::after {
-  color: blue;
-  border: 2px solid blue;
+  color: $primary;
+  border: 2px solid $primary;
 }
 
 .StepProgress strong {
   display: block;
+}
+
+/* Datepicker */
+.datepicker {
+  padding: 5px 10px;
+
+  th {
+    text-align: center;
+
+    &.clear,
+    &.next,
+    &.prev {
+      cursor: pointer;
+    }
+  }
+
+  td {
+    padding: 3px 10px 1px;
+    text-align: center;
+
+    &.dow {
+      font-variant: small-caps;
+    }
+
+    &.day {
+      cursor: pointer;
+      font-size: 14px;
+
+      &.new,
+      &.old {
+        color: #575757;
+      }
+
+      &.active {
+        background: $primary;
+        border-radius: 3px;
+        color: $white;
+      }
+    }
+  }
 }

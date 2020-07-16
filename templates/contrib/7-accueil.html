@@ -3,15 +3,15 @@
 {% block page_title %}L'accueil de l'établissement{% endblock%}
 
 {% block fields_content %}
-  {% include "fields/boolradio.html" with field=form.accueil_visibilite %}
-  {% include "fields/boolradio.html" with field=form.accueil_personnels %}
-  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur %}
+  {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True %}
   {% include "fields/number.html" with field=form.accueil_cheminement_nombre_marches %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante %}
-  {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe %}
-  {% include "fields/boolradio.html" with field=form.accueil_retrecissement %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_reperage_marches inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True %}
   {% include "fields/textarea.html" with field=form.accueil_prestations %}
 {% endblock %}

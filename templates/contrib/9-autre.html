@@ -5,7 +5,7 @@
 {% block page_title %}Labellisation{% endblock%}
 
 {% block fields_content %}
-  {% include "fields/boolradio.html" with field=form.labels %}
-  {% include "fields/boolradio.html" with field=form.labels_familles_handicap %}
+  {% include "fields/boolradio.html" with field=form.labels inline=True %}
+  {% include "fields/boolradio.html" with field=form.labels_familles_handicap inline=True %}
   {% include "fields/textarea.html" with field=form.labels_autre %}
 {% endblock %}

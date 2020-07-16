@@ -3,6 +3,6 @@
 {% block page_title %}Venir dans l'établissement{% endblock%}
 
 {% block fields_content %}
-  {% include "fields/boolradio.html" with field=form.transport_station_presence %}
+  {% include "fields/boolradio.html" with field=form.transport_station_presence inline=True %}
   {% include "fields/textarea.html" with field=form.transport_information %}
 {% endblock %}

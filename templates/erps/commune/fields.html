@@ -57,6 +57,12 @@
             {{ field.value }}&nbsp;cm
           {% elif field.name == "cheminement_ext_nombre_marches" or field.name == "accueil_cheminement_nombre_marches" or field.name == "entree_marches" %}
             {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
+          {% elif field.name == "registre_url" %}
+            <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
+          {% elif field.name == "conformite_type" %}
+            {{ erp.accessibilite.get_conformite_type_display }}
+          {% elif field.name == "conformite_adap_fin" %}
+            {{ field.value|date:"d/m/Y"|lower }}
           {% else %}
             {{ field.value }}
           {% endif %}

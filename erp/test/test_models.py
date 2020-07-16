@@ -2,8 +2,9 @@ import pytest
 
 from django.core.exceptions import ValidationError
 
-from ..models import Erp
+from ..models import Accessibilite, Erp
 
+from erp import schema
 from .fixtures import data
 
 
