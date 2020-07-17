@@ -15,7 +15,7 @@
         <input type="search" name="q" class="form-control form-control-lg" placeholder="Rechercher un établissement, une ville, une activité"
           aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
       </div>
-      <div class="form-group custom-control custom-switch ml-3">
+      <div id="loc-field" class="form-group custom-control custom-switch ml-3">
         <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
           {% if localize == "1" %}checked{% endif %}>
         <label class="custom-control-label" for="localize">
@@ -30,7 +30,16 @@
     </div>
   </form>
   <script>
-  (function() {
+  (function(geolocation) {
+    if (!geolocation) {
+      document.querySelector("#loc-field").innerHTML = [
+        '<div class="text-danger">',
+          '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
+          "La géolocalisation n'est pas disponible sur votre navigateur.",
+        '</div>',
+      ].join("");
+      return;
+    }
     function listenToLocCheckboxChange() {
       return function(event) {
         processLocCheckbox(event.target);
@@ -42,7 +51,7 @@
         document.querySelector("input[name=lat]").value = null;
         document.querySelector("input[name=lon]").value = null;
       } else {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        geolocation.getCurrentPosition(function(position) {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
           fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
@@ -78,7 +87,7 @@
         processLocCheckbox(locCheckbox);
       }, 10);
     });
-  })();
+  })(navigator.geolocation);
   </script>
   <div class="row">
     <div class="col-md-8">
