@@ -5,6 +5,7 @@
 {% load a4a %}
 
 {% block page_title %}Connexion{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
 {% if user.is_authenticated %}

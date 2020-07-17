@@ -4,12 +4,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block page_title %}{% endblock%} | {{ SITE_NAME|default_if_none:"acceslibre" }}</title>
     <meta name="description" content="{% block page_description %}La plateforme collaborative de l'accessibilité{% endblock %}">
-    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.ico" %}"/>
-    <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}" />
+    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.ico" %}">
+    <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" crossorigin="">

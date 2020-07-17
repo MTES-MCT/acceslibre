@@ -1,6 +1,7 @@
 {% extends "contrib/base_access_form.html" %}
 
 {% block page_title %}Stationner autour de l'établissement{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.stationnement_presence inline=True %}

@@ -3,6 +3,7 @@
 {% load a4a %}
 
 {% block page_title %}Labellisation{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.labels inline=True %}

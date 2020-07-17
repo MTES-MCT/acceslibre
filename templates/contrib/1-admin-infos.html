@@ -4,6 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block page_title %}{% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
   <h2 class="h3 mb-3">{% if erp %}Modifier{% else %}Ajouter{% endif %} un Établissement Recevant du Public</h2>

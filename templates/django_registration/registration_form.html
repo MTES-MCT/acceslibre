@@ -5,6 +5,7 @@
 {% load static %}
 
 {% block page_title %}Créer un compte{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
 {% if user.is_authenticated %}
