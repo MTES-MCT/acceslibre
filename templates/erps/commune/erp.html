@@ -1,6 +1,11 @@
 {% load a4a %}
 {% load static %}
 
+<div class="row py-2 pl-2 a4a-backlink">
+  <a href="javascript:history.go(-1)">
+    &laquo; Retour à la page précédente
+  </a>
+</div>
 <div class="a4a-erp-details">
   <header class="a4a-erp-header d-flex justify-content-between">
     <div>
@@ -43,6 +48,36 @@
         </a>
         {% endif %}
       </div>
+      <form class="mt-1" action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
+        <span>Ces informations sont-elles utiles&nbsp;?</span>
+        <span class="text-nowrap">
+          {% csrf_token %}
+          <button type="submit" name="action" value="UP"
+            class="btn btn-sm btn-light"{% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% endif %}>
+            <i aria-hidden="true"
+              class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
+            <small><span class="sr-only">Votes positifs: </span>{{ erp.count_positives|default_if_none:"0" }}</small>
+          </button>
+          <button type="button" name="action" value="DOWN" class="btn btn-sm btn-light"
+            {% if user.is_authenticated %}onclick="$('#vote_comment').toggle();return false"{% else %}disabled title="Vous devez vous connecter pour voter"{% endif %}>
+            <i aria-hidden="true"
+              class="icon icon-downvote{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
+            <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
+          </button>
+          <script>
+              // todo
+          </script>
+        </span>
+        <div class="form-group" id="vote_comment" style="display:none">
+          <label for="vote_comment_input" class="sr-only">Commentaire</label>
+          <textarea class="form-control mt-2" id="vote_comment_input" name="comment" rows="3"
+            placeholder="Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."></textarea>
+          <div class="mt-2">
+            <button type="submit" name="action" value="DOWN" class="btn btn-sm btn-primary">Envoyer</button>
+            <button type="button" class="btn btn-sm btn-link" onclick="$('#vote_comment').hide()">Annuler</button>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="a4a-accessibility-group d-flex justify-content-end align-center">
       {% for label in erp.accessibilite.labels.all %}
@@ -98,41 +133,7 @@
   </div>
   {% endif %}
   {% else %}
-  <div class="row pb-1">
-    <h3 class="col-lg-4 h4 font-weight-normal">Accessibilité</h3>
-
-    <form class="col-lg-8" action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
-      <div class="d-flex justify-content-between align-center">
-        <span class="pt-1">Ces informations sont-elles utiles&nbsp;?</span>
-        <div class="text-nowrap">
-          {% csrf_token %}
-          <button type="submit" name="action" value="UP" class="btn btn-sm btn-light">
-            <i aria-hidden="true"
-              class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
-            <small><span class="sr-only">Votes positifs: </span>{{ erp.count_positives|default_if_none:"0" }}</small>
-          </button>
-          <button type="button" name="action" value="DOWN" class="btn btn-sm btn-light"
-            onclick="$('#vote_comment').show();return false">
-            <i aria-hidden="true"
-              class="icon icon-downvote{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
-            <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
-          </button>
-          <script>
-            // todo
-          </script>
-        </div>
-      </div>
-      <div class="form-group" id="vote_comment" style="display:none">
-        <label for="vote_comment_input" class="sr-only">Commentaire</label>
-        <textarea class="form-control mt-2" id="vote_comment_input" name="comment"
-          placeholder="Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."></textarea>
-        <div class="mt-2">
-          <button type="submit" name="action" value="DOWN" class="btn btn-sm btn-primary">Envoyer</button>
-          <button type="button" class="btn btn-sm btn-link" onclick="$('#vote_comment').hide()">Annuler</button>
-        </div>
-      </div>
-    </form>
-  </div>
+  <h3 class="h4 font-weight-normal">Accessibilité</h3>
 
   <div class="row">
     <div class="col-md-4">
