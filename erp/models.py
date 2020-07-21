@@ -470,6 +470,7 @@ class Erp(models.Model):
         vote.value = 1 if action == "UP" else -1
         vote.comment = comment if action == "DOWN" else None
         vote.save()
+        return vote
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
