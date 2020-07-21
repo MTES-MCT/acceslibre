@@ -166,6 +166,38 @@ class Label(models.Model):
         return self.nom
 
 
+class Vote(models.Model):
+    class Meta:
+        indexes = [
+            models.Index(fields=["value"]),
+            models.Index(fields=["erp", "value"]),
+            models.Index(fields=["erp", "user", "value"]),
+        ]
+
+    erp = models.ForeignKey(
+        "Erp", verbose_name="Établissemet", on_delete=models.CASCADE,
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE,
+    )
+    value = models.SmallIntegerField(
+        verbose_name="Valeur", choices=[(-1, "-1"), (1, "+1")], default=1,
+    )
+    comment = models.TextField(
+        max_length=5000, null=True, blank=True, verbose_name="Commentaire",
+    )
+    # datetimes
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Date de création"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True, verbose_name="Dernière modification"
+    )
+
+    def __str__(self):
+        return f"Vote {self.value} de {self.user.username} pour {self.erp.nom}"
+
+
 class Erp(models.Model):
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
@@ -428,6 +460,16 @@ class Erp(models.Model):
             if siret is None:
                 raise ValidationError({"siret": "Ce numéro SIRET est invalide."})
             self.siret = siret
+
+    def vote(self, user, action, comment=None):
+        votes = Vote.objects.filter(erp=self, user=user)
+        if votes.count() > 0:
+            vote = votes.first()
+        else:
+            vote = Vote(erp=self, user=user)
+        vote.value = 1 if action == "UP" else -1
+        vote.comment = comment if action == "DOWN" else None
+        vote.save()
 
     def save(self, *args, **kwargs):
         search_vector = SearchVector(
@@ -923,33 +965,3 @@ class Accessibilite(models.Model):
                 elif field_value not in [None, "", []]:
                     return True
         return False
-
-
-class Vote(models.Model):
-    class Meta:
-        indexes = [
-            models.Index(fields=["value"]),
-            models.Index(fields=["erp", "value"]),
-            models.Index(fields=["erp", "user", "value"]),
-        ]
-
-    erp = models.ForeignKey(Erp, verbose_name="Établissemet", on_delete=models.CASCADE,)
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE,
-    )
-    value = models.SmallIntegerField(
-        verbose_name="Valeur", choices=[(-1, "-1"), (1, "+1")], default=1,
-    )
-    comment = models.TextField(
-        max_length=5000, null=True, blank=True, verbose_name="Commentaire",
-    )
-    # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
-
-    def __str__(self):
-        return f"Vote {self.valeur} de {self.user.username} pour {self.erp.nom}"
