@@ -173,6 +173,7 @@ class Vote(models.Model):
             models.Index(fields=["erp", "value"]),
             models.Index(fields=["erp", "user", "value"]),
         ]
+        unique_together = [["erp", "user"]]
 
     erp = models.ForeignKey(
         "Erp", verbose_name="Établissemet", on_delete=models.CASCADE,
