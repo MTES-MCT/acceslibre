@@ -176,7 +176,7 @@ class Vote(models.Model):
         unique_together = [["erp", "user"]]
 
     erp = models.ForeignKey(
-        "Erp", verbose_name="Établissemet", on_delete=models.CASCADE,
+        "Erp", verbose_name="Établissement", on_delete=models.CASCADE,
     )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE,

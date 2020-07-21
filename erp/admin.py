@@ -24,11 +24,12 @@ from .forms import (
 
 # from .imports import ErpResource
 from .models import (
+    Accessibilite,
     Activite,
     Commune,
     Erp,
     Label,
-    Accessibilite,
+    Vote,
 )
 from . import schema
 
@@ -384,6 +385,24 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             return "Inconnu"
 
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
+
+
+@admin.register(Vote)
+class VoteAdmin(admin.ModelAdmin):
+    list_display = (
+        "__str__",
+        "erp",
+        # "erp__commune_ext",
+        "user",
+        "value",
+        "comment",
+        "created_at",
+        "updated_at",
+    )
+    list_select_related = ("erp", "user")
+    # list_display_links = ("nom",)
+    ordering = ("-updated_at",)
+    # search_fields = ("nom",)
 
 
 # General admin heading & labels
