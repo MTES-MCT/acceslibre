@@ -60,6 +60,12 @@ class CommuneQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
+    def autocomplete(self, query):
+        qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
+        qs = qs.having_an_accessibilite().filter(nom__trigram_similar=query)
+        qs = qs.order_by("-similarity")
+        return qs
+
     def exists_by_siret(self, siret):
         if not siret:
             return False
@@ -85,20 +91,6 @@ class ErpQuerySet(models.QuerySet):
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
-    def published(self):
-        return self.filter(published=True).geolocated().having_an_accessibilite()
-
-    def not_published(self):
-        return self.filter(
-            Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True)
-        )
-
-    def autocomplete(self, query):
-        qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
-        qs = qs.having_an_accessibilite().filter(nom__trigram_similar=query)
-        qs = qs.order_by("-similarity")
-        return qs
-
     def nearest(self, coords):
         # NOTE: the Point constructor wants lon, lat
         location = Point(coords[1], coords[0], srid=4326)
@@ -108,9 +100,25 @@ class ErpQuerySet(models.QuerySet):
             .order_by("distance")
         )
 
+    def not_published(self):
+        return self.filter(
+            Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True)
+        )
+
+    def published(self):
+        return self.filter(published=True).geolocated().having_an_accessibilite()
+
     def search(self, query):
         return (
             self.annotate(rank=search.SearchRank(models.F("search_vector"), query))
             .filter(search_vector=search.SearchQuery(query, config="french_unaccent"))
             .order_by("-rank")
+        )
+
+    def with_votes(self):
+        return self.annotate(
+            count_positives=models.Count("vote__value", filter=models.Q(vote__value=1)),
+            count_negatives=models.Count(
+                "vote__value", filter=models.Q(vote__value=-1)
+            ),
         )

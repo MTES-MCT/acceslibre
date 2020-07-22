@@ -2,7 +2,7 @@
 
 {% if fields %}
 <ul class="list-group list-group-flush">
-{% for field in fields %}
+  {% for field in fields %}
   {% if field.value != "" and field.value is not None %}
   <li class="list-group-item d-flex justify-content-between align-items-center p-2">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
@@ -16,66 +16,67 @@
       </blockquote>
     </div>
     {% else %}
-    <span><!-- {{ field.name }} -->
+    <span>
+      <!-- {{ field.name }} -->
       <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
       <small class="text-muted">{{ field.help_text }}</small>
     </span>
     <span class="a4a-badge-group pl-2">
       {% if field.name == "accueil_equipements_malentendants" %}
-        {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
-          {% if equipement == "aucun" %}
-          <span class="badge a4a-badge">Aucun</span>
-          {% else %}
-          <span class="badge badge-success a4a-badge">
-            <i aria-hidden="true" class="icon icon-check"></i>
-            {{ equipement|get_equipement_label }}
-          </span>
-          {% endif %}
-        {% endfor %}
+      {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
+      {% if equipement == "aucun" %}
+      <span class="badge a4a-badge">Aucun</span>
       {% else %}
-        <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
-          {% if field.warning is False %}
-          <i aria-hidden="true" class="icon icon-check"></i>
-          {% elif field.warning is True %}
-          <strong>
+      <span class="badge badge-success a4a-badge">
+        <i aria-hidden="true" class="icon icon-check"></i>
+        {{ equipement|get_equipement_label }}
+      </span>
+      {% endif %}
+      {% endfor %}
+      {% else %}
+      <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
+        {% if field.warning is False %}
+        <i aria-hidden="true" class="icon icon-check"></i>
+        {% elif field.warning is True %}
+        <strong>
           {% endif %}
           {% if field.value is True %}
-            Oui
+          Oui
           {% elif field.value is False %}
-            Non
+          Non
           {% elif field.value == "aucun" %}
-            Aucun
+          Aucun
           {% elif field.value == "aucune" %}
-            Aucune
+          Aucune
           {% elif field.value == "important" %}
-            Important
+          Important
           {% elif field.value == "importante" %}
-            Importante
+          Importante
           {% elif field.name == "accueil_personnels" %}
-            {{ erp.accessibilite.get_accueil_personnels_display }}
+          {{ erp.accessibilite.get_accueil_personnels_display }}
           {% elif field.name == "entree_largeur_mini" %}
-            {{ field.value }}&nbsp;cm
+          {{ field.value }}&nbsp;cm
           {% elif field.name == "cheminement_ext_nombre_marches" or field.name == "accueil_cheminement_nombre_marches" or field.name == "entree_marches" %}
-            {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
+          {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
           {% elif field.name == "registre_url" %}
-            <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
+          <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
           {% elif field.name == "conformite_type" %}
-            {{ erp.accessibilite.get_conformite_type_display }}
+          {{ erp.accessibilite.get_conformite_type_display }}
           {% elif field.name == "conformite_adap_fin" %}
-            {{ field.value|date:"d/m/Y"|lower }}
+          {{ field.value|date:"d/m/Y"|lower }}
           {% else %}
-            {{ field.value }}
+          {{ field.value }}
           {% endif %}
           {% if field.warning is True %}
-          </strong>
-          {% endif %}
-        </span>
+        </strong>
+        {% endif %}
+      </span>
       {% endif %}
     </span>
     {% endif %}
   </li>
   {% endif %}
-{% endfor %}
+  {% endfor %}
 </ul>
 {% else %}
 <p>Aucune information.</p>

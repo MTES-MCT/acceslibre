@@ -27,6 +27,7 @@ h6,
 
 hr[noshade] {
   border-top: 1px solid #ddd;
+  margin: .5em 0;
 }
 
 .bl-highlight {
@@ -96,8 +97,11 @@ hr[noshade] {
 .a4a-backlink {
   border-bottom: 1px solid #ddd;
   background: #fafafa;
-  margin-bottom: 1em;
-  padding-left: 15px;
+  margin-bottom: .5em;
+}
+
+.a4a-slightly-smaller {
+  font-size: .87em;
 }
 
 .a4a-cluster-icon {
@@ -128,10 +132,6 @@ hr[noshade] {
   width: 16px;
   height: 16px;
   vertical-align: middle;
-}
-
-.a4a-erp-header {
-  margin-bottom: 1em;
 }
 
 .a4a-accessibility-group {
