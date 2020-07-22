@@ -390,19 +390,61 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = (
-        "__str__",
-        "erp",
-        # "erp__commune_ext",
+        # "__str__",
+        "get_erp_nom",
+        "get_erp_activite",
+        "get_erp_commune",
         "user",
-        "value",
+        "get_bool_vote",
         "comment",
         "created_at",
         "updated_at",
     )
-    list_select_related = ("erp", "user")
-    # list_display_links = ("nom",)
+    list_select_related = ("erp", "user", "erp__commune_ext")
+    list_filter = [
+        "value",
+        ("user", RelatedDropdownFilter),
+        CommuneFilter,
+        "created_at",
+        "updated_at",
+    ]
+    list_display_links = ("get_erp_nom",)
     ordering = ("-updated_at",)
-    # search_fields = ("nom",)
+    search_fields = (
+        "erp__nom",
+        "erp__activite__nom",
+        "erp__commune_ext__nom",
+        "user__username",
+    )
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.prefetch_related("erp", "erp__commune_ext")
+        return queryset
+
+    def get_bool_vote(self, obj):
+        return obj.value == 1
+
+    get_bool_vote.boolean = True
+    get_bool_vote.short_description = "Positif"
+
+    def get_erp_activite(self, obj):
+        return obj.erp.activite.nom
+
+    get_erp_activite.admin_order_field = "activite"
+    get_erp_activite.short_description = "Activité"
+
+    def get_erp_commune(self, obj):
+        return obj.erp.commune_ext.nom
+
+    get_erp_commune.admin_order_field = "activite"
+    get_erp_commune.short_description = "Commune"
+
+    def get_erp_nom(self, obj):
+        return obj.erp.nom
+
+    get_erp_nom.admin_order_field = "erp"
+    get_erp_nom.short_description = "Établissement"
 
 
 # General admin heading & labels
