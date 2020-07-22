@@ -653,3 +653,38 @@ def test_erp_vote_logged_in(data, client):
     assert data.niko.username in mail.outbox[0].body
     assert data.niko.email in mail.outbox[0].body
     assert "bouh" in mail.outbox[0].body
+
+
+def test_erp_vote_counts(data, client):
+    client.login(username="niko", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "DOWN", "comment": "bouh niko"},
+        follow=True,
+    )
+
+    assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
+
+    client.login(username="sophie", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "DOWN", "comment": "bouh sophie"},
+        follow=True,
+    )
+
+    assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
+
+    client.login(username="admin", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "UP"},
+        follow=True,
+    )
+
+    assert Vote.objects.filter(erp=data.erp, value=1).count() == 1
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
