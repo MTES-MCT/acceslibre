@@ -53,6 +53,7 @@ urlpatterns = [
         app_page(),
         name="commune_activite_erp",
     ),
+    path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
     ############################################################################
     # Account
     ############################################################################

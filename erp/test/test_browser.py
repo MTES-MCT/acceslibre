@@ -4,12 +4,13 @@ from datetime import date
 
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
+from django.core import mail
 from django.test import Client
 from django.urls import reverse
 
 from .. import geocoder
 from .. import schema
-from ..models import Accessibilite, Activite, Commune, Erp
+from ..models import Accessibilite, Activite, Commune, Erp, Vote
 
 from .fixtures import data
 
@@ -230,8 +231,6 @@ def test_autocomplete(data, client):
 
 
 def test_contact(data, client):
-    from django.core import mail
-
     response = client.post(
         reverse("contact_form"),
         {"name": "Joe Test", "email": "joe@test.com", "body": "C'est un test"},
@@ -606,3 +605,86 @@ def test_delete_erp_owner(data, client, monkeypatch, capsys):
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
     assert Erp.objects.filter(slug=data.erp.slug).count() == 0
+
+
+def test_erp_vote_anonymous(data, client):
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "DOWN", "comment": "bouh"},
+        follow=True,
+    )
+
+    # ensure user is redirected to login page
+    assert (
+        "/accounts/login/?next=/app/aux-bons-croissants/vote/",
+        302,
+    ) in response.redirect_chain
+    assert response.status_code == 200
+    assert "registration/login.html" in [t.name for t in response.templates]
+
+
+def test_erp_vote_logged_in(data, client):
+    client.login(username="niko", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "DOWN", "comment": "bouh"},
+        follow=True,
+    )
+
+    # ensure user is redirected to login page
+    assert (
+        "/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
+        302,
+    ) in response.redirect_chain
+    assert response.status_code == 200
+
+    # Ensure votes are counted
+    assert (
+        Vote.objects.filter(
+            erp=data.erp, user=data.niko, value=-1, comment="bouh"
+        ).count()
+        == 1
+    )
+
+    # test email notification sent
+    assert len(mail.outbox) == 1
+    assert mail.outbox[0].subject == "Vote négatif pour Aux bons croissants (Jacou)"
+    assert data.niko.username in mail.outbox[0].body
+    assert data.niko.email in mail.outbox[0].body
+    assert "bouh" in mail.outbox[0].body
+
+
+def test_erp_vote_counts(data, client):
+    client.login(username="niko", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "DOWN", "comment": "bouh niko"},
+        follow=True,
+    )
+
+    assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
+
+    client.login(username="sophie", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "DOWN", "comment": "bouh sophie"},
+        follow=True,
+    )
+
+    assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
+
+    client.login(username="admin", password="Abc12345!")
+
+    response = client.post(
+        reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
+        {"action": "UP"},
+        follow=True,
+    )
+
+    assert Vote.objects.filter(erp=data.erp, value=1).count() == 1
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2

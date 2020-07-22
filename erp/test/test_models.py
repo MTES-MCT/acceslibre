@@ -2,7 +2,7 @@ import pytest
 
 from django.core.exceptions import ValidationError
 
-from ..models import Accessibilite, Erp
+from ..models import Accessibilite, Erp, Vote
 
 from erp import schema
 from .fixtures import data
@@ -60,3 +60,19 @@ def test_Erp_clean_validates_voie(data, capsys):
 def test_Erp_editable_by(data):
     assert data.erp.editable_by(data.niko) == True
     assert data.erp.editable_by(data.sophie) == False
+
+
+def test_Erp_vote(data):
+    assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
+
+    vote = data.erp.vote(data.niko, action="UP")
+    assert vote.value == 1
+    assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
+
+    vote = data.erp.vote(data.niko, action="DOWN")
+    assert vote.value == -1
+    assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
+
+    vote = data.erp.vote(data.niko, action="DOWN", comment="gna")
+    assert vote.value == -1
+    assert Vote.objects.filter(erp=data.erp, user=data.niko, comment="gna").count() == 1
