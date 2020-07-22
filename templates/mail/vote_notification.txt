@@ -3,6 +3,7 @@
 {{ erp.nom }}
 {% if erp.activite %}{{ erp.activite.nom }}{% endif %}
 {{ erp.adresse }}
+URL: {{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}
 
 {% if vote.value == -1 and vote.comment %}
 Le vote étant négatif et l'utilisateur ayant souhaité apporter un commentaire à son évaluation, le voici :
