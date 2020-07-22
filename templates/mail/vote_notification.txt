@@ -1,4 +1,4 @@
-{% autoescape off %}Une nouvelle évaluation {% if vote.value == 1 %}positive{% else %}négative{% endif %} a été effectuée par {{ vote.user.username }} pour l'ERP suivant :
+{% autoescape off %}Une nouvelle évaluation {% if vote.value == 1 %}positive{% else %}négative{% endif %} a été effectuée par {% if vote.user.get_full_name %}{{ vote.user.get_full_name }} ({{ vote.user.username }}){% else %}{{ vote.user.username }}{% endif%} pour l'ERP suivant :
 
 {{ erp.nom }}
 {% if erp.activite %}{{ erp.activite.nom }}{% endif %}
