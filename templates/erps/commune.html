@@ -2,8 +2,7 @@
 
 {% load static %}
 
-{% block page_title %}{% if erp %}{{ erp.nom }} | {% endif %}{% if current_activite %}{{ current_activite.nom }} |
-{% endif %}{{ commune.nom }}{% endblock%}
+{% block page_title %}{% if erp %}{{ erp.nom }} | {% endif %}{% if current_activite %}{{ current_activite.nom }} | {% endif %}{{ commune.nom }}{% endblock%}
 
 {% block page_description %}{% spaceless %}
 {% if erp %}
