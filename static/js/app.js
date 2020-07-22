@@ -4,22 +4,22 @@ window.a4a = (function () {
     markers,
     map;
 
-  function createIcon(highlight) {
-    let iconUrl = "/static/img/markers/common-access.png";
-    let iconRetinaUrl = "/static/img/markers/common-access-2x.png";
-    if (highlight) {
-      iconUrl = "/static/img/markers/info.png";
-      iconRetinaUrl = "/static/img/markers/info-2x.png";
-    }
+  function createIcon(highlight, features) {
+    const iconName = features.activite__icon || "amenity_public_building";
+    const iconPathPrefix = "/static/activites/png/" + iconName;
+    const size = highlight ? 32 : 24;
+    const iconUrl = iconPathPrefix + ".n." + size + ".png";
+    const iconRetinaUrl = iconPathPrefix + ".n." + size + ".png";
     const options = {
       iconUrl: iconUrl,
       iconRetinaUrl: iconRetinaUrl,
       shadowUrl: "/static/img/markers/shadow.png",
-      iconSize: [34, 41],
-      iconAnchor: [16, 41],
-      popupAnchor: [1, -36],
-      tooltipAnchor: [16, -28],
-      shadowSize: [41, 41],
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size],
+      popupAnchor: [0, -size],
+      tooltipAnchor: [size / 2, -28],
+      shadowSize: [size, size],
+      className: highlight && "highlighted" || "",
     };
     return L.icon(options);
   }
@@ -43,9 +43,13 @@ window.a4a = (function () {
   }
 
   function pointToLayer(feature, coords) {
+    const props = feature.properties;
     return L.marker(coords, {
+      alt: props.nom,
+      title: (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
       icon: createIcon(
-        currentPk && Number(feature.properties.pk) === currentPk
+        currentPk && Number(props.pk) === currentPk,
+        props
       ),
     });
   }

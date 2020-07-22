@@ -272,6 +272,7 @@ class App(BaseListView):
                 "pk",
                 "nom",
                 "activite__nom",
+                "activite__icon",
                 "adresse",
                 "absolute_url",
                 "has_accessibilite",

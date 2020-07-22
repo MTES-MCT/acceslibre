@@ -58,7 +58,7 @@ admin.site.register(User, CustomUserAdmin)
 @admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
     form = AdminActiviteForm
-    list_display = ("nom", "erp_count", "created_at", "updated_at")
+    list_display = ("icon_img", "nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
     search_fields = ("nom",)
@@ -70,6 +70,10 @@ class ActiviteAdmin(admin.ModelAdmin):
 
     def erp_count(self, obj):
         return obj.erp_count
+
+    def icon_img(self, obj):
+        icon = obj.icon if obj.icon else "amenity_public_building"
+        return mark_safe(f'<img src="/static/activites/png/{icon}.p.20.png"/>')
 
 
 class HavingErpsFilter(admin.SimpleListFilter):

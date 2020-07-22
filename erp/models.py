@@ -10,6 +10,7 @@ from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.forms.models import model_to_dict
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 
 from . import managers
@@ -45,6 +46,17 @@ class Activite(models.Model):
         null=True,
         blank=True,
         help_text="Liste de mots-clés apparentés à cette activité",
+    )
+    icon = models.CharField(
+        max_length=120,
+        null=True,
+        blank=True,
+        verbose_name="Icône",
+        help_text=mark_safe(
+            "Chemin de l'icône "
+            '<a href="http://www.sjjb.co.uk/mapicons/contactsheet" target="_blank">SSJB</a> '
+            "(ex. <code>sport_motorracing</code>)"
+        ),
     )
 
     # datetimes

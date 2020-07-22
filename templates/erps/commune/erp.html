@@ -10,6 +10,10 @@
   <header class="d-flex justify-content-between">
     <div>
       <h2>
+        {% if erp.activite %}
+        <img alt title="{{ erp.activite.nom }}" style="margin-bottom: 5px;"
+          src="{% static "/activites/png/" %}{{ erp.activite.icon|default_if_none:"amenity_public_building" }}.n.32.png">
+        {% endif %}
         {{ erp.nom }}
         {% if erp.activite %}
         <small class="text-muted">{{ erp.activite.nom }}</small>
