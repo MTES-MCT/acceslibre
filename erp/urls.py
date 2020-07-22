@@ -14,7 +14,7 @@ handler404 = views.handler404
 handler500 = views.handler500
 
 
-def app_page():
+def cache_app_page():
     return cache_per_user(APP_CACHE_TTL)(views.App.as_view())
 
 
@@ -43,14 +43,20 @@ urlpatterns = [
     # HTML app
     ############################################################################
     path("app/autocomplete/", views.autocomplete, name="autocomplete",),
-    path("app/<str:commune>/", app_page(), name="commune",),
+    path("app/<str:commune>/", cache_app_page(), name="commune",),
     path(
-        "app/<str:commune>/a/<str:activite_slug>/", app_page(), name="commune_activite",
+        "app/<str:commune>/a/<str:activite_slug>/",
+        cache_app_page(),
+        name="commune_activite",
     ),
-    path("app/<str:commune>/erp/<str:erp_slug>/", app_page(), name="commune_erp",),
+    path(
+        "app/<str:commune>/erp/<str:erp_slug>/",
+        views.App.as_view(),  # avoid caching details page
+        name="commune_erp",
+    ),
     path(
         "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
-        app_page(),
+        views.App.as_view(),  # avoid caching details page
         name="commune_activite_erp",
     ),
     path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
