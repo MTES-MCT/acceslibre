@@ -374,6 +374,12 @@ class Erp(models.Model):
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
 
+    def get_activite_icon(self):
+        default = "amenity_public_building"
+        if self.activite and self.activite.icon:
+            return self.activite.icon
+        return default
+
     def editable_by(self, user):
         if not user.is_active:
             return False

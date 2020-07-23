@@ -94,7 +94,11 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
           href="{{ erp.get_absolute_url }}">
           <span class="flex-fill">
-            <h3 class="h6 m-0">{{ erp.nom }}</h3>
+            <h3 class="h6 m-0">
+              <img alt="" class="mb-1 mr-1"
+                src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+              {{ erp.nom }}
+            </h3>
             <small class="text-muted">
               {% if erp.activite %}<strong>{{ erp.activite.nom }}</strong> &raquo; {% endif %}
               {{ erp.numero|default_if_none:"" }}
@@ -127,7 +131,11 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         {% for activite in activites %}
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
           href="{% url 'commune_activite' commune=commune.slug activite_slug=activite.slug %}">
-          {{ activite.nom }}
+          <span>
+            <img alt="" class="mb-1 mr-1"
+              src="{% static "/img/activites/png/" %}{{ activite.icon|default_if_none:"amenity_public_building" }}.n.16.png">
+            {{ activite.nom }}
+          </span>
           <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
         </a>
         {% endfor %}
