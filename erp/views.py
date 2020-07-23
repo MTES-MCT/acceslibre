@@ -244,7 +244,9 @@ class App(BaseListView):
             )
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+                Erp.objects.select_related(
+                    "accessibilite", "activite", "commune_ext", "user"
+                )
                 .published()
                 .with_votes(),
                 slug=self.kwargs["erp_slug"],
@@ -272,6 +274,7 @@ class App(BaseListView):
                 "pk",
                 "nom",
                 "activite__nom",
+                "activite__icon",
                 "adresse",
                 "absolute_url",
                 "has_accessibilite",

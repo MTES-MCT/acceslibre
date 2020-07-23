@@ -1,5 +1,7 @@
 {% extends "compte/base.html" %}
 
+{% load static %}
+
 {% block page_title %}Mes établissements{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
@@ -34,9 +36,15 @@
     <li class="list-group-item d-flex justify-content-between align-items-center border-top-0 rounded-0">
       <div class="flex-fill">
         {% if not erp.published or not erp.geom or not erp.accessibilite %}
+        <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
+          src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
         {{ erp.nom }}
         {% else %}
-        <a href="{{ erp.get_absolute_url }}" target="_blank">{{ erp.nom }}</a>
+        <a href="{{ erp.get_absolute_url }}" target="_blank">
+          <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
+            src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+          {{ erp.nom }}
+        </a>
         {% endif %}
         {% if erp.activite %}
           <small class="text-muted">({{ erp.activite.nom }})</small>

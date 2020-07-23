@@ -58,7 +58,7 @@ admin.site.register(User, CustomUserAdmin)
 @admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
     form = AdminActiviteForm
-    list_display = ("nom", "erp_count", "created_at", "updated_at")
+    list_display = ("icon_img", "nom", "erp_count", "created_at", "updated_at")
     list_display_links = ("nom",)
     ordering = ("nom",)
     search_fields = ("nom",)
@@ -70,6 +70,10 @@ class ActiviteAdmin(admin.ModelAdmin):
 
     def erp_count(self, obj):
         return obj.erp_count
+
+    def icon_img(self, obj):
+        icon = obj.icon if obj.icon else "amenity_public_building"
+        return mark_safe(f'<img src="/static/img/activites/png/{icon}.p.20.png">')
 
 
 class HavingErpsFilter(admin.SimpleListFilter):
@@ -202,7 +206,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     inlines = [AccessibiliteInline]
     list_display = (
         "nom",
-        "activite",
+        "iconized_activite",
         "voie_ou_lieu_dit",
         "code_postal",
         "commune",
@@ -297,6 +301,13 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         )
 
     assign_activite.short_description = "Assigner une nouvelle catégorie"
+
+    def iconized_activite(self, obj):
+        if not obj.activite:
+            return
+        return mark_safe(
+            f'<img src="/static/img/activites/png/{obj.get_activite_icon()}.p.16.png" style="margin-bottom:5px"> {obj.activite.nom}'
+        )
 
     def geolocalise(self, instance):
         return instance.geom is not None
