@@ -361,10 +361,10 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     renseignee.short_description = "Renseignée"
 
     def save_model(self, request, obj, form, change):
-        if not change or obj.user is None:
+        if not request.user.is_staff and (not change or obj.user is None):
             obj.user = request.user
 
-        super().save_model(request, obj, form, change)
+        return super().save_model(request, obj, form, change)
 
     def unpublish(self, request, queryset):
         queryset.update(published=False)
