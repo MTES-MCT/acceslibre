@@ -639,7 +639,7 @@ FIELDS = {
     # Commentaire
     "commentaire": {
         "is_a11y": False,
-        "label": "Commentaire libre",
+        "label": "Commentaire libre (précisions utiles concernant l'accessibilité du bâtiment)",
         "help_text": mark_safe(
             "Indiquez ici toute information supplémentaire qui vous semble pertinente pour décrire l'accessibilité du bâtiment."
             "<br><strong>Note&nbsp;:</strong> ce commentaire sera affiché sur la fiche publique de l'établissement."

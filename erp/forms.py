@@ -428,7 +428,6 @@ class PublicPublicationForm(forms.ModelForm):
             "registre_url",
             "conformite_type",
             "conformite_adap_fin",
-            "commentaire",
         )
         help_texts = schema.get_help_texts()
 

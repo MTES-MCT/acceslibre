@@ -110,7 +110,16 @@ urlpatterns = [
         views.contrib_sanitaires,
         name="contrib_sanitaires",
     ),
-    path("contrib/autre/<str:erp_slug>/", views.contrib_autre, name="contrib_autre",),
+    path(
+        "contrib/labellisation/<str:erp_slug>/",
+        views.contrib_labellisation,
+        name="contrib_labellisation",
+    ),
+    path(
+        "contrib/commentaire/<str:erp_slug>/",
+        views.contrib_commentaire,
+        name="contrib_commentaire",
+    ),
     path(
         "contrib/publication/<str:erp_slug>/",
         views.contrib_publication,

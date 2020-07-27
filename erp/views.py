@@ -588,18 +588,30 @@ def contrib_sanitaires(request, erp_slug):
         6,
         schema.get_section_fields(schema.SECTION_SANITAIRES),
         "contrib/8-sanitaires.html",
-        "contrib_autre",
+        "contrib_labellisation",
     )
 
 
 @login_required
-def contrib_autre(request, erp_slug):
+def contrib_labellisation(request, erp_slug):
     return process_accessibilite_form(
         request,
         erp_slug,
         7,
         schema.get_section_fields(schema.SECTION_LABELS),
         "contrib/9-labellisation.html",
+        "contrib_commentaire",
+    )
+
+
+@login_required
+def contrib_commentaire(request, erp_slug):
+    return process_accessibilite_form(
+        request,
+        erp_slug,
+        8,
+        schema.get_section_fields(schema.SECTION_COMMENTAIRE),
+        "contrib/10-commentaire.html",
         "contrib_publication",
     )
 
@@ -629,8 +641,8 @@ def contrib_publication(request, erp_slug):
         form = PublicPublicationForm(instance=accessibilite, initial=initial)
     return render(
         request,
-        template_name="contrib/10-publication.html",
-        context={"step": 8, "erp": erp, "form": form, "empty_a11y": empty_a11y},
+        template_name="contrib/11-publication.html",
+        context={"step": 9, "erp": erp, "form": form, "empty_a11y": empty_a11y},
     )
 
 
