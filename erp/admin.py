@@ -187,6 +187,23 @@ class CommuneFilter(admin.SimpleListFilter):
             return queryset.filter(commune_ext__pk=self.value())
 
 
+class ErpUserFilter(admin.SimpleListFilter):
+    title = "Contributeur"
+    parameter_name = "username"
+    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
+
+    def lookups(self, request, model_admin):
+        values = Erp.objects.select_related("user").distinct("user").order_by("user")
+        return [
+            (v.user.username, v.user.username) for v in values if v.user is not None
+        ]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(user__username=self.value())
+        return queryset
+
+
 @admin.register(Erp)
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     class Media:
@@ -225,7 +242,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     list_per_page = 20
     list_filter = [
         ("activite", RelatedDropdownFilter),
-        ("user", RelatedDropdownFilter),
+        ErpUserFilter,
         "user_type",
         CommuneFilter,
         "source",
@@ -398,6 +415,21 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
 
 
+class VoteUserFilter(admin.SimpleListFilter):
+    title = "Utilisateur"
+    parameter_name = "username"
+    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
+
+    def lookups(self, request, model_admin):
+        values = Vote.objects.select_related("user").distinct("user").order_by("user")
+        return [(v.user.username, v.user.username) for v in values]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(user__username=self.value())
+        return queryset
+
+
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = (
@@ -414,7 +446,7 @@ class VoteAdmin(admin.ModelAdmin):
     list_select_related = ("erp", "user", "erp__commune_ext")
     list_filter = [
         "value",
-        ("user", RelatedDropdownFilter),
+        VoteUserFilter,
         CommuneFilter,
         "created_at",
         "updated_at",
