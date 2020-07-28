@@ -105,10 +105,14 @@
           class="icon icon-downvote{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
         <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
       </button>
-      <script>
-          // todo
-      </script>
     </span>
+    {% if not user.is_authenticated %}
+    <small class="text-muted">
+      <a href="{% url "login" %}">Connectez-vous</a> ou
+      <a href="{% url "django_registration_register" %}">créez un compte</a>
+      pour pouvoir évaluer ces informations
+    </small>
+    {% endif %}
     <div class="form-group" id="vote_comment" style="display:none">
       <label for="vote_comment_input" class="sr-only">Commentaire</label>
       <textarea class="form-control mt-2" id="vote_comment_input" name="comment" rows="3"
