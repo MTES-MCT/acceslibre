@@ -114,7 +114,7 @@ window.a4aForms = (function () {
     // a. afficher registre si gestionnaire
     {
       source: "user_type",
-      values: ["gestionnaire"],
+      values: ["gestionnaire", "admin"],
       targets: ["registre_url"],
       indent: 1,
     },
