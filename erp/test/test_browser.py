@@ -535,18 +535,12 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Administrative user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={
-            "user_type": Erp.USER_ROLE_ADMIN,
-            "conformite_type": schema.CONFORMITE_ADAP,
-            "conformite_adap_fin": "2020-01-01",
-            "certif": True,
-        },
+        data={"user_type": Erp.USER_ROLE_ADMIN, "conformite": True, "certif": True,},
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
     assert erp.published == True
-    assert erp.accessibilite.conformite_type == schema.CONFORMITE_ADAP
-    assert erp.accessibilite.conformite_adap_fin == date(2020, 1, 1)
+    assert erp.accessibilite.conformite is True
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
 

@@ -83,13 +83,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=False,
     )
-    conformite_type = forms.ChoiceField(
-        label="Conformité",
-        help_text=schema.get_help_text("conformite_type"),
-        choices=schema.CONFORMITE_CHOICES,
-        widget=forms.RadioSelect(),
-        required=False,
-    )
 
     class Meta:
         model = Accessibilite
@@ -426,8 +419,7 @@ class PublicPublicationForm(forms.ModelForm):
         fields = (
             "user_type",
             "registre_url",
-            "conformite_type",
-            "conformite_adap_fin",
+            "conformite",
         )
         help_texts = schema.get_help_texts()
 
@@ -450,19 +442,11 @@ class PublicPublicationForm(forms.ModelForm):
         ),
         required=False,
     )
-    conformite_type = forms.ChoiceField(
+    conformite = forms.ChoiceField(
         label="Conformité",
-        help_text=schema.get_help_text("conformite_type"),
-        choices=schema.CONFORMITE_CHOICES,
+        help_text=schema.get_help_text("conformite"),
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
         widget=forms.RadioSelect(attrs={"class": "inline"}),
-        required=False,
-    )
-    conformite_adap_fin = forms.DateField(
-        label="Date de fin d'Ad'AP",
-        help_text=schema.get_help_text("conformite_adap_fin"),
-        widget=forms.TextInput(
-            attrs={"placeholder": "AAAA-MM-JJ", "autocomplete": "off"}
-        ),
         required=False,
     )
     certif = forms.BooleanField(
