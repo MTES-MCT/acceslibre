@@ -936,15 +936,11 @@ class Accessibilite(models.Model):
     ##########################
     # Conformité             #
     ##########################
-    conformite_type = models.CharField(
-        max_length=255,
+    conformite = models.NullBooleanField(
+        verbose_name="Conformité",
         null=True,
         blank=True,
-        choices=schema.CONFORMITE_CHOICES,
-        verbose_name="Conformité",
-    )
-    conformite_adap_fin = models.DateField(
-        null=True, blank=True, verbose_name="Date de fin Ad'AP"
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
     )
 
     # Datetimes

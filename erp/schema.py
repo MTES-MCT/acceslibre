@@ -17,20 +17,6 @@ NULLABLE_OR_NA_BOOLEAN_CHOICES = (
     (None, UNKNOWN_OR_NA),
 )
 
-CONFORMITE_INCONNUE = None
-CONFORMITE_KO = "non-conforme"
-CONFORMITE_ATTESTATION = "attestation"
-CONFORMITE_ADAP = "adap"
-CONFORMITE_CHOICES = [
-    (CONFORMITE_INCONNUE, "Conformité inconnue"),
-    (CONFORMITE_KO, "L'établissement est non-conforme"),
-    (
-        CONFORMITE_ATTESTATION,
-        "L'établissement a envoyé une attestation d’accessibilité",
-    ),
-    (CONFORMITE_ADAP, "Un dossier Ad'AP a été ouvert"),
-]
-
 DEVERS_AUCUN = "aucun"
 DEVERS_LEGER = "léger"
 DEVERS_IMPORTANT = "important"
@@ -662,26 +648,15 @@ FIELDS = {
         "warn_if": lambda x, i: x is None,
     },
     # Conformité
-    "conformite_type": {
+    "conformite": {
         "is_a11y": False,
         "label": "Conformité",
         "help_text": mark_safe(
-            "Statut de conformité de l'établissement (réservé à l'administration)."
+            "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
         ),
         "section": SECTION_CONFORMITE,
         "nullable_bool": True,
-        "warn_if": lambda x, i: x == CONFORMITE_KO,
-    },
-    "conformite_adap_fin": {
-        "is_a11y": False,
-        "label": "Fin d'Ad'AP",
-        "help_text": mark_safe(
-            "Si un <a href='https://www.ecologique-solidaire.gouv.fr/ladap-agenda-daccessibilite-programmee' target='_blank'>dossier Ad'AP</a> "
-            "est enregistré pour l'établissement, précisez sa date de fin"
-        ),
-        "section": SECTION_CONFORMITE,
-        "nullable_bool": False,
-        "warn_if": None,
+        "warn_if": False,
     },
 }
 

@@ -114,7 +114,7 @@ window.a4aForms = (function () {
     // a. afficher registre si gestionnaire
     {
       source: "user_type",
-      values: ["gestionnaire"],
+      values: ["gestionnaire", "admin"],
       targets: ["registre_url"],
       indent: 1,
     },
@@ -122,13 +122,7 @@ window.a4aForms = (function () {
     {
       source: "user_type",
       values: ["admin"],
-      targets: ["conformite_type", "conformite_adap_fin"],
-      indent: 1,
-    },
-    {
-      source: "conformite_type",
-      values: ["adap"],
-      targets: ["conformite_adap_fin"],
+      targets: ["conformite"],
       indent: 1,
     },
   ];
