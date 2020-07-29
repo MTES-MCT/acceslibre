@@ -34,7 +34,10 @@
       <i aria-hidden="true" class="icon icon-check"></i> L'accès à la console d'administration vous est accordé
     </span>
     <span>
-      <a class="btn btn-sm btn-success" target="_blank" href="{% url "admin:index" %}">Accéder à l'admin</a>
+      <a class="btn btn-sm btn-success text-nowrap" target="_blank" href="{% url "admin:index" %}">
+        <i aria-hidden="true" class="icon icon-unlock"></i>
+        Accéder à l'admin
+      </a>
     </span>
   </li>
   {% endif %}

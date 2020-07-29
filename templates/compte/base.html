@@ -7,25 +7,35 @@
   <nav class="col-sm-5 col-md-4 mb-4">
     <ul class="nav flex-column nav-pills" aria-label="Menu">
       <li class="nav-item">
+        <a class="nav-link text-nowrap" href="{% url "home" %}">
+          <i aria-hidden="true" class="icon icon-arrow-left mr-1"></i>
+          Retour à l'accueil
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mon_compte" }}"
           href="{% url "mon_compte" %}">
+          <i aria-hidden="true" class="icon icon-identity mr-1"></i>
           Mon compte
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mes_erps" }}"
-          href="{% url "mes_erps" %}">
-          Mes établissements
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mot_de_passe" }}"
-          href="{% url "password_change" %}">
+        href="{% url "mes_erps" %}">
+        <i aria-hidden="true" class="icon icon-commercial mr-1"></i>
+        Mes établissements
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mot_de_passe" }}"
+      href="{% url "password_change" %}">
+          <i aria-hidden="true" class="icon icon-key mr-1"></i>
           Mot de passe
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-nowrap" href="{% url "admin:index" %}">
+          <i aria-hidden="true" class="icon icon-lock mr-1"></i>
           Admin
         </a>
       </li>
