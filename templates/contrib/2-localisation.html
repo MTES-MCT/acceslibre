@@ -36,7 +36,10 @@
     {{ form.lat|as_crispy_field }}
     {{ form.lon|as_crispy_field }}
 
-    <p><button type="submit" class="btn btn-primary mt-3">Suivant</button></p>
+    <p class="mt-3">
+      <button type="submit" class="btn btn-primary">Suivant</button>
+      <a class="btn btn-link" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Précédent</a>
+    </p>
   </form>
 
   <script>

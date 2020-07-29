@@ -486,7 +486,7 @@ def contrib_localisation(request, erp_slug):
 
 
 def process_accessibilite_form(
-    request, erp_slug, step, form_fields, template_name, redirect_route
+    request, erp_slug, step, form_fields, template_name, redirect_route, prev_route=None
 ):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
@@ -516,6 +516,9 @@ def process_accessibilite_form(
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
+            "prev_route": reverse(prev_route, kwargs={"erp_slug": erp.slug})
+            if prev_route
+            else None,
         },
     )
 
@@ -529,6 +532,7 @@ def contrib_transport(request, erp_slug):
         schema.get_section_fields(schema.SECTION_TRANSPORT),
         "contrib/3-transport.html",
         "contrib_stationnement",
+        prev_route="contrib_localisation",
     )
 
 
@@ -541,6 +545,7 @@ def contrib_stationnement(request, erp_slug):
         schema.get_section_fields(schema.SECTION_STATIONNEMENT),
         "contrib/4-stationnement.html",
         "contrib_exterieur",
+        prev_route="contrib_transport",
     )
 
 
@@ -553,6 +558,7 @@ def contrib_exterieur(request, erp_slug):
         schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT),
         "contrib/5-exterieur.html",
         "contrib_entree",
+        prev_route="contrib_stationnement",
     )
 
 
@@ -565,6 +571,7 @@ def contrib_entree(request, erp_slug):
         schema.get_section_fields(schema.SECTION_ENTREE),
         "contrib/6-entree.html",
         "contrib_accueil",
+        prev_route="contrib_exterieur",
     )
 
 
@@ -577,6 +584,7 @@ def contrib_accueil(request, erp_slug):
         schema.get_section_fields(schema.SECTION_ACCUEIL),
         "contrib/7-accueil.html",
         "contrib_sanitaires",
+        prev_route="contrib_entree",
     )
 
 
@@ -589,6 +597,7 @@ def contrib_sanitaires(request, erp_slug):
         schema.get_section_fields(schema.SECTION_SANITAIRES),
         "contrib/8-sanitaires.html",
         "contrib_labellisation",
+        prev_route="contrib_accueil",
     )
 
 
@@ -601,6 +610,7 @@ def contrib_labellisation(request, erp_slug):
         schema.get_section_fields(schema.SECTION_LABELS),
         "contrib/9-labellisation.html",
         "contrib_commentaire",
+        prev_route="contrib_sanitaires",
     )
 
 
@@ -613,6 +623,7 @@ def contrib_commentaire(request, erp_slug):
         schema.get_section_fields(schema.SECTION_COMMENTAIRE),
         "contrib/10-commentaire.html",
         "contrib_publication",
+        prev_route="contrib_labellisation",
     )
 
 
@@ -642,7 +653,13 @@ def contrib_publication(request, erp_slug):
     return render(
         request,
         template_name="contrib/11-publication.html",
-        context={"step": 9, "erp": erp, "form": form, "empty_a11y": empty_a11y},
+        context={
+            "step": 9,
+            "erp": erp,
+            "form": form,
+            "empty_a11y": empty_a11y,
+            "prev_route": reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
+        },
     )
 
 
