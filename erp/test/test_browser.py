@@ -521,14 +521,15 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
         data={
             "user_type": Erp.USER_ROLE_GESTIONNAIRE,
-            "registre_url": "http://registre.url/",
+            "registre_url": "http://www.google.com/",
             "certif": True,
         },
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_GESTIONNAIRE)
     assert erp.published == True
-    assert erp.accessibilite.registre_url == "http://registre.url/"
+    # FIXME: this performs an actual query, we should use a mock
+    assert erp.accessibilite.registre_url == "http://www.google.com/"
     assert ("/mon_compte/erps/", 302) in response.redirect_chain
     assert response.status_code == 200
 
