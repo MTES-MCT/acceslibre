@@ -1,3 +1,5 @@
+import requests
+
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.postgres.forms import SimpleArrayField
@@ -8,6 +10,7 @@ from django.utils.safestring import mark_safe
 
 from contact_form.forms import ContactForm
 from django_registration.forms import RegistrationFormUniqueEmail
+from requests.exceptions import RequestException
 
 from . import schema
 from . import geocoder
@@ -460,6 +463,22 @@ class PublicPublicationForm(forms.ModelForm):
                 "Publication impossible sans ces garanties de votre part"
             )
         return True
+
+    def clean_registre_url(self):
+        url = self.cleaned_data.get("registre_url")
+        if not url:
+            return None
+        try:
+            req = requests.head(self.cleaned_data["registre_url"])
+            if not req.ok:
+                raise ValidationError(
+                    f"Cette URL est en erreur HTTP {req.status_code}, veuillez vérifier votre saisie."
+                )
+        except RequestException:
+            raise ValidationError(
+                "Cette URL n'aboutit pas, veuillez vérifier votre saisie."
+            )
+        return url
 
 
 class PublicClaimForm(forms.Form):
