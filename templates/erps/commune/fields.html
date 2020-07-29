@@ -12,7 +12,7 @@
         <small class="text-muted">{{ field.help_text }}</small>
       </div>
       <blockquote class="lead mb-0 my-1">
-        {{ field.value|linebreaks }}
+        {{ field.value|urlize|linebreaks }}
       </blockquote>
     </div>
     {% else %}
