@@ -10,6 +10,7 @@ from django.contrib.gis.admin import OSMGeoAdmin
 from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 # from import_export.admin import ImportExportModelAdmin
@@ -117,7 +118,14 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     form = AdminCommuneForm
     point_zoom = 13
     map_height = 300
-    list_display = ("departement", "nom", "erp_count", "code_insee", "code_postaux")
+    list_display = (
+        "departement",
+        "nom",
+        "code_insee",
+        "code_postaux",
+        "erp_count",
+        "voir_les_erps",
+    )
     list_display_links = ("nom",)
     ordering = ("nom",)
     search_fields = ("nom", "code_insee", "code_postaux")
@@ -135,6 +143,16 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
         return obj.erp_count
 
     erp_count.short_description = "ERPs"
+    erp_count.admin_order_field = "erp_count"
+
+    def voir_les_erps(self, obj):
+        if obj.erp_count > 0:
+            url = reverse("admin:erp_erp_changelist")
+            return mark_safe(f'<a href="{url}?commune={obj.pk}">Voir les ERP</a>')
+        else:
+            return "-"
+
+    voir_les_erps.short_description = "Action"
 
 
 @admin.register(Label)
