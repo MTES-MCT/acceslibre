@@ -197,7 +197,7 @@
       <div class="card h-100">
         <div class="card-body px-3 py-2">
           <div class="card-title m-0 h-100 d-flex flex-column">
-            <small class="text-muted mb-1">À {{ nearest_erp.distance|format_distance }}{% if nearest_erp.activite %},
+            <small class="text-muted mb-1">{{ nearest_erp.distance|format_distance }}{% if nearest_erp.activite %},
               {{ nearest_erp.activite.nom }}{% endif %}</small>
             <h4 class="h6">
               <img alt="" title="{{ nearest_erp.activite.nom }}" class="mb-1"

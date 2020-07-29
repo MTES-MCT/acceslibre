@@ -109,7 +109,7 @@
                 </h3>
                 {% if localize == "1" and erp.distance %}
                   <small class="text-muted" aria-label="Distance de votre position géographique">
-                    <em>(à {{ erp.distance|format_distance }})</em>
+                    <em>({{ erp.distance|format_distance }})</em>
                   </small>
                 {% endif %}
                 {# <small>rank: {{ erp.rank }}, sim: {{ erp.similarity }}, dist: {{ erp.distance_nom }}</small><br> #}

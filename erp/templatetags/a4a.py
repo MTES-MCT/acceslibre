@@ -48,10 +48,12 @@ def encode_etablissement_data(value):
 def format_distance(value):
     if isinstance(value, str):
         return value
-    if value.m > 999:
-        return f"{value.km:.2f} km"
+    if value.m == 0:
+        return "Au même endroit"
+    elif value.m > 999:
+        return f"À {value.km:.2f} km"
     else:
-        return f"{round(value.m)} m"
+        return f"À {round(value.m)} m"
 
 
 @register.filter(name="format_siret")
