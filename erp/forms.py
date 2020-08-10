@@ -233,8 +233,8 @@ class ViewAccessibiliteForm(forms.ModelForm):
                     {
                         "template_name": field.field.widget.template_name,
                         "name": field.name,
-                        "label": field.label,
-                        "help_text": schema.get_help_text(field.name, field.help_text),
+                        "label": schema.get_label(field.name, field.label),
+                        "help_text_ui": schema.get_help_text_ui(field.name),
                         "value": field_value,
                         "warning": warning,
                     }
