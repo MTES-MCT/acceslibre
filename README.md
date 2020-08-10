@@ -51,12 +51,12 @@ $ pipenv install
 
 ## Configurer la base de données
 
-:warning: Assurez-vous de disposer des paquets `libpq-dev` et `python3.7-dev`:
+:warning: Assurez-vous de disposer des paquets `libpq-dev` et `python3.8-dev`:
 
 :bulb: Cette étape est inutile dans l'environnement de production Scalingo.
 
 ```
-sudo apt install libpq-dev python3.7-dev
+sudo apt install libpq-dev python3.8-dev
 ```
 
 Connectez-vous à postgres en ligne de commande :
