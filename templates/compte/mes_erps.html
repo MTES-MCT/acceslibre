@@ -73,7 +73,7 @@
       </div>
       <div>
         <div class="btn-group" role="group" aria-label="Actions">
-          <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Modifier</a>
+          <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_publication" erp_slug=erp.slug %}">Modifier</a>
           {% if user.is_staff %}
             <a class="btn btn-sm btn-outline-primary" target="_blank" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
           {% endif %}

@@ -631,7 +631,7 @@ def contrib_commentaire(request, erp_slug):
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
-    initial = {"user_type": erp.user_type}
+    initial = {"user_type": erp.user_type, "published": erp.published}
     empty_a11y = False
     if request.method == "POST":
         form = PublicPublicationForm(
@@ -645,7 +645,7 @@ def contrib_publication(request, erp_slug):
                 empty_a11y = True
             else:
                 erp.user_type = form.cleaned_data.get("user_type")
-                erp.published = True
+                erp.published = form.cleaned_data.get("published")
                 erp = erp.save()
                 return redirect("mes_erps")
     else:

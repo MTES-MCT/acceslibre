@@ -508,7 +508,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Public user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": True,},
+        data={"user_type": Erp.USER_ROLE_PUBLIC, "published": "on", "certif": "on",},
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
@@ -522,7 +522,8 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         data={
             "user_type": Erp.USER_ROLE_GESTIONNAIRE,
             "registre_url": "http://www.google.com/",
-            "certif": True,
+            "published": "on",
+            "certif": "on",
         },
         follow=True,
     )
@@ -536,7 +537,12 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Administrative user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={"user_type": Erp.USER_ROLE_ADMIN, "conformite": True, "certif": True,},
+        data={
+            "user_type": Erp.USER_ROLE_ADMIN,
+            "conformite": True,
+            "published": "on",
+            "certif": "on",
+        },
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
@@ -559,7 +565,7 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
 
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": True,},
+        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": "on",},
     )
 
     assert response.status_code == 200

@@ -472,6 +472,10 @@ class PublicPublicationForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=False,
     )
+    published = forms.BooleanField(
+        label="Je souhaite mettre en ligne cette fiche d'établissement immédiatement",
+        required=False,
+    )
     certif = forms.BooleanField(
         label=f"Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur {settings.SITE_NAME}.",
         required=True,
