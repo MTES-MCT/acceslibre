@@ -446,7 +446,7 @@ class Erp(models.Model):
 
     def clean(self):
         # Code postal
-        if len(self.code_postal) != 5:
+        if self.code_postal and len(self.code_postal) != 5:
             raise ValidationError(
                 {"code_postal": "Le code postal doit faire 5 caractères"}
             )
@@ -457,24 +457,29 @@ class Erp(models.Model):
             raise ValidationError({"voie": error, "lieu_dit": error})
 
         # Commune
-        matches = Commune.objects.filter(
-            nom__unaccent__iexact=self.commune,
-            code_postaux__contains=[self.code_postal],
-        )
-        if len(matches) == 0:
-            matches = Commune.objects.filter(code_insee=self.code_insee)
-        if len(matches) == 0:
-            raise ValidationError(
-                {
-                    "commune": f"Commune {self.commune} (code postal : {self.code_postal}) introuvable. "
-                    "Merci de faire attention aux accents."
-                }
+        if self.commune and self.code_postal:
+            matches = Commune.objects.filter(
+                nom__unaccent__iexact=self.commune,
+                code_postaux__contains=[self.code_postal],
             )
-        else:
-            self.commune_ext = matches[0]
+            if len(matches) == 0:
+                matches = Commune.objects.filter(
+                    code_postaux__contains=[self.code_postal]
+                )
+            if len(matches) == 0:
+                matches = Commune.objects.filter(code_insee=self.code_insee)
+            if len(matches) == 0:
+                raise ValidationError(
+                    {
+                        "commune": f"Commune {self.commune} (code postal : {self.code_postal}) introuvable. "
+                        "Merci de faire attention aux accents."
+                    }
+                )
+            else:
+                self.commune_ext = matches[0]
 
         # SIRET
-        if self.siret is not None:
+        if self.siret:
             siret = sirene.validate_siret(self.siret)
             if siret is None:
                 raise ValidationError({"siret": "Ce numéro SIRET est invalide."})

@@ -155,7 +155,27 @@ class BaseErpForm(forms.ModelForm):
             raise ValidationError(
                 {
                     "voie": f"Adresse non localisable : {adresse}. "
-                    "Veuillez vérifier votre saisie ou contactez un administrateur."
+                    "Veuillez vérifier votre saisie ou contacter un administrateur."
+                }
+            )
+        if (
+            self.cleaned_data["code_postal"]
+            and self.cleaned_data["code_postal"] != locdata["code_postal"]
+        ):
+            raise ValidationError(
+                {
+                    "code_postal": f"Cette adresse n'est pas localisable au code postal {self.cleaned_data['code_postal']}. "
+                    "Veuillez vérifier votre saisie ou contacter un administrateur."
+                }
+            )
+        if (
+            self.cleaned_data.get("code_insee")
+            and self.cleaned_data["code_insee"] != locdata["code_insee"]
+        ):
+            raise ValidationError(
+                {
+                    "code_insee": f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}. "
+                    "Veuillez vérifier votre saisie ou contacter un administrateur."
                 }
             )
         self.cleaned_data["geom"] = locdata["geom"]

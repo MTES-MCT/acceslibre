@@ -18,7 +18,7 @@ VALID_ADDRESS = {
     "numero": "4",
     "voie": "rue de la paix",
     "lieu_dit": "blah",
-    "code_postal": "75000",
+    "code_postal": "75002",
     "commune": "Paris",
 }
 INVALID_ADDRESS = {
