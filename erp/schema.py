@@ -255,9 +255,9 @@ FIELDS = {
     },
     "cheminement_ext_plain_pied": {
         "is_a11y": True,
-        "label": "Cheminement de plain-pied",
+        "label": "Cheminement extérieur de plain-pied",
         "help_text": mark_safe(
-            "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;?  Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
+            "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
         ),
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
@@ -576,7 +576,7 @@ FIELDS = {
     },
     "accueil_cheminement_plain_pied": {
         "is_a11y": True,
-        "label": "Cheminement de plain-pied",
+        "label": "Cheminement de plain-pied entre l'entrée et l'accueil",
         "help_text": mark_safe(
             "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
         ),
