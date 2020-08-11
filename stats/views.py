@@ -1,4 +1,3 @@
-from django.contrib.admin.models import LogEntry, ADDITION
 from django.views.generic import TemplateView
 
 from erp.models import Commune, Erp
@@ -9,8 +8,8 @@ class StatsView(TemplateView):
 
     def get_nb_contributors(self):
         return (
-            LogEntry.objects.order_by("user")
-            .filter(action_flag=ADDITION, content_type__model="erp")
+            Erp.objects.filter(accessibilite__isnull=False)
+            .order_by("user")
             .distinct("user")
             .count()
         )
