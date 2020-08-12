@@ -89,7 +89,7 @@
   {% if accessibilite_data %}
   <hr noshade="noshade">
 
-  <div class="row">
+  <div class="row d-flex align-items-center">
     <form class="col-xl-6" action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
       <small style="font-size:.9em">Ces informations sont-elles utiles&nbsp;?</small>
       <span class="text-nowrap">
@@ -117,7 +117,7 @@
         </div>
       </div>
     </form>
-    <small class="col-xl-6 text-muted pt-1">
+    <small class="col-xl-6 text-muted">
       {% if erp.user_type == "gestionnaire" %}
       <i aria-hidden="true" class="icon icon-gestionnaire"></i>
       Ces informations sont fournies par le ou la gestionnaire de l'établissement
