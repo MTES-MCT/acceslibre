@@ -33,8 +33,8 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
       <div class="input-group w-100">
         <label for="q" class="sr-only">Rechercher</label>
         <input class="input-group-prepend form-control w-50 rounded-left" name="q" id="q" type="search" data-commune="{{ commune.nom }}"
-          data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.center.1 }}" data-lon="{{ commune.center.0 }}"
-          placeholder="Rue, restaurant, café, poste, pharmacie..."
+          data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.geom.coords.1 }}" data-lon="{{ commune.geom.coords.0 }}"
+          data-code-insee="{{ commune.code_insee }}" placeholder="Rue, restaurant, café, poste, pharmacie..."
           value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
         <select class="custom-select" name="scope">
           <option value="city" selected>À {{ commune.nom }}</option>

@@ -60,12 +60,6 @@ class CommuneQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
-    def autocomplete(self, query):
-        qs = self.annotate(similarity=search.TrigramSimilarity("nom", query))
-        qs = qs.having_an_accessibilite().filter(nom__trigram_similar=query)
-        qs = qs.order_by("-similarity")
-        return qs
-
     def exists_by_siret(self, siret):
         if not siret:
             return False

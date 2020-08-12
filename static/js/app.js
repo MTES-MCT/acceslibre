@@ -183,6 +183,7 @@ window.a4a = (function () {
               type: "street",
               lat: lat,
               lon: lon,
+              citycode: $input.data("code-insee")
             },
           })
             .then(function (result) {
@@ -241,7 +242,7 @@ window.a4a = (function () {
                 a,
                 b
               ) {
-                return b.data.score - a.data.score;
+                return a.data.score - b.data.score;
               });
               done({ suggestions: results });
             })
