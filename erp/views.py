@@ -223,6 +223,11 @@ class App(BaseListView):
     "Static, template-based Web application views."
     template_name = "erps/commune.html"
 
+    def get(self, request, *args, **kwargs):
+        if self.search_terms is not None and self.request.GET.get("scope") == "country":
+            return redirect(reverse("home") + "?q=" + self.search_terms)
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["around"] = (

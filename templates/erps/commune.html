@@ -30,14 +30,22 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
     </ul>
     <form class="form-inline my-2 my-lg-0 ml-1 flex-fill" action="{% url "commune" commune=commune.slug %}"
       method="get">
-      <input class="form-control mr-sm-2 w-100" name="q" id="q" type="search" data-commune="{{ commune.nom }}"
-        data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.center.1 }}" data-lon="{{ commune.center.0 }}"
-        placeholder="Rue, restaurant, café, poste, pharmacie... à {{ commune.nom }}"
-        value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
+      <div class="input-group w-100">
+        <label for="q" class="sr-only">Rechercher</label>
+        <input class="input-group-prepend form-control w-50 rounded-left" name="q" id="q" type="search" data-commune="{{ commune.nom }}"
+          data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.center.1 }}" data-lon="{{ commune.center.0 }}"
+          placeholder="Rue, restaurant, café, poste, pharmacie..."
+          value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
+        <select class="custom-select" name="scope">
+          <option value="city" selected>À {{ commune.nom }}</option>
+          <option value="country">France entière</option>
+        </select>
+        <button type="submit" class="btn btn-outline-light input-group-append a4a-inline-submit-end">Rechercher</button>
+      </div>
     </form>
     <ul class="navbar-nav mr-auto">
       <li>
-        <a class="nav-link" href="{% url "contrib_start" %}">Ajouter un établissement</a>
+        <a class="nav-link text-truncate" href="{% url "contrib_start" %}">Ajouter un établissement</a>
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item">

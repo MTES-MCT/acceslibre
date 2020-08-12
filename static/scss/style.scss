@@ -374,6 +374,11 @@ input[type="checkbox"] + .form-check-label.requiredField .asteriskField {
   width: 100px;
 }
 
+.a4a-inline-submit-end {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
 /* Steps progress */
 
 .StepProgress {
