@@ -636,7 +636,11 @@ def contrib_commentaire(request, erp_slug):
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
-    initial = {"user_type": erp.user_type, "published": erp.published}
+    initial = {
+        "user_type": erp.user_type,
+        "published": erp.published,
+        "certif": erp.published,
+    }
     empty_a11y = False
     if request.method == "POST":
         form = PublicPublicationForm(
@@ -644,7 +648,9 @@ def contrib_publication(request, erp_slug):
         )
         if form.is_valid():
             accessibilite = form.save()
-            if not accessibilite.has_data():
+            if not accessibilite.has_data() and form.cleaned_data.get(
+                "published", False
+            ):
                 erp.published = False
                 erp.save()
                 empty_a11y = True

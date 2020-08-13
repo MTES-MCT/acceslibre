@@ -563,14 +563,27 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
 
     assert data.erp.accessibilite.has_data() == False
 
+    # published field on
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": "on",},
+        data={"user_type": Erp.USER_ROLE_PUBLIC, "published": "on", "certif": "on",},
     )
 
     assert response.status_code == 200
+    assert response.context.get("empty_a11y") is True
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.accessibilite.has_data() == False
+    assert erp.published == False
+
+    # published field off
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": "on",},
+        follow=True,
+    )
+
+    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.published == False
 
 
