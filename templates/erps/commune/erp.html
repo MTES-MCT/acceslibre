@@ -100,12 +100,19 @@
             class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
           <small><span class="sr-only">Votes positifs: </span>{{ erp.count_positives|default_if_none:"0" }}</small>
         </button>
+        {% if user.is_authenticated and user_vote and user_vote.value == -1 %}
+        <button type="submit" name="action" value="DOWN" arial-label="Non" title="Non" class="btn btn-sm btn-light">
+          <i aria-hidden="true" class="icon icon-downvote text-primary"></i>
+          <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
+        </button>
+        {% else %}
         <button type="button" name="action" value="DOWN" arial-label="Non" title="Non" class="btn btn-sm btn-light"
           {% if user.is_authenticated %}onclick="$('#vote_comment').toggle();return false"{% else %}disabled title="Vous devez vous connecter pour voter"{% endif %}>
           <i aria-hidden="true"
             class="icon icon-downvote{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
           <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
         </button>
+        {% endif %}
       </span>
       <div class="form-group" id="vote_comment" style="display:none">
         <label for="vote_comment_input" class="sr-only">Commentaire</label>

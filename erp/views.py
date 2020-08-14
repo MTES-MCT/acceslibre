@@ -299,21 +299,22 @@ def vote(request, erp_slug):
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
         vote = erp.vote(request.user, action, comment=comment)
-        send_mail(
-            f"Vote {'positif' if vote.value == 1 else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
-            render_to_string(
-                "mail/vote_notification.txt",
-                {
-                    "erp": erp,
-                    "vote": vote,
-                    "SITE_NAME": settings.SITE_NAME,
-                    "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-                },
-            ),
-            settings.DEFAULT_FROM_EMAIL,
-            [settings.DEFAULT_FROM_EMAIL],
-            fail_silently=True,
-        )
+        if vote:
+            send_mail(
+                f"Vote {'positif' if vote.value == 1 else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
+                render_to_string(
+                    "mail/vote_notification.txt",
+                    {
+                        "erp": erp,
+                        "vote": vote,
+                        "SITE_NAME": settings.SITE_NAME,
+                        "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+                    },
+                ),
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.DEFAULT_FROM_EMAIL],
+                fail_silently=True,
+            )
     return redirect(erp.get_absolute_url())
 
 

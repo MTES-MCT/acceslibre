@@ -65,14 +65,26 @@ def test_Erp_editable_by(data):
 def test_Erp_vote(data):
     assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
 
-    vote = data.erp.vote(data.niko, action="UP")
-    assert vote.value == 1
-    assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
-
     vote = data.erp.vote(data.niko, action="DOWN")
     assert vote.value == -1
     assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
 
+    # user cancels his downvote
+    vote = data.erp.vote(data.niko, action="DOWN")
+    assert vote is None
+    assert Vote.objects.filter(erp=data.erp, user=data.niko, comment="gna").count() == 0
+
+    # user downvote with a comment
     vote = data.erp.vote(data.niko, action="DOWN", comment="gna")
     assert vote.value == -1
     assert Vote.objects.filter(erp=data.erp, user=data.niko, comment="gna").count() == 1
+
+    # user now upvotes
+    vote = data.erp.vote(data.niko, action="UP")
+    assert vote.value == 1
+    assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 1
+
+    # user cancels his previous upvote
+    vote = data.erp.vote(data.niko, action="UP")
+    assert vote is None
+    assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0

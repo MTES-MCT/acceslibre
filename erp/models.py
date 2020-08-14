@@ -489,6 +489,12 @@ class Erp(models.Model):
         votes = Vote.objects.filter(erp=self, user=user)
         if votes.count() > 0:
             vote = votes.first()
+            # check for vote cancellation
+            if (action == "UP" and vote.value == 1) or (
+                action == "DOWN" and vote.value == -1 and not comment
+            ):
+                vote.delete()
+                return None
         else:
             vote = Vote(erp=self, user=user)
         vote.value = 1 if action == "UP" else -1
