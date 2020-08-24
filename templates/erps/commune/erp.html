@@ -1,10 +1,15 @@
 {% load a4a %}
 {% load static %}
 
-<div class="row py-2 pl-2 a4a-backlink">
-  <a href="javascript:history.go(-1)">
+<div class="row py-2 a4a-backlink">
+  <a class="col-sm-6" href="javascript:history.go(-1)">
     &laquo; Retour à la page précédente
   </a>
+  <div class="col-sm-6 text-right">
+    <small class="text-muted">
+      Dernière mise à jour effectuée le {{ erp.updated_at|date:"j F Y à H:i"|lower }}
+    </small>
+  </div>
 </div>
 <div class="a4a-erp-details">
   <header class="d-flex justify-content-between">
