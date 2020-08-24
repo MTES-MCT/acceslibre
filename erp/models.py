@@ -364,6 +364,7 @@ class Erp(models.Model):
         verbose_name="Code INSEE",
         help_text="Code INSEE de la commune",
     )
+
     # datetimes
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de création"
@@ -371,6 +372,7 @@ class Erp(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True, verbose_name="Dernière modification"
     )
+
     # search vector
     search_vector = SearchVectorField("Search vector", null=True)
 
@@ -556,6 +558,20 @@ class Erp(models.Model):
 
         self.search_vector = search_vector
         super().save(*args, **kwargs)
+
+
+class StatusCheck(models.Model):
+    class Meta:
+        verbose_name = "Vérification de statut"
+        verbose_name_plural = "Vérifications de statut"
+
+    erp = models.OneToOneField(
+        Erp, on_delete=models.CASCADE, verbose_name="Établissement",
+    )
+    active = models.BooleanField(verbose_name="Toujours en activité",)
+    last_checked = models.DateTimeField(
+        auto_now=True, verbose_name="Dernière vérification"
+    )
 
 
 class Accessibilite(models.Model):
