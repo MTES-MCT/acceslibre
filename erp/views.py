@@ -424,14 +424,19 @@ def contrib_start(request):
 def contrib_admin_infos(request):
     data = None
     data_error = None
+    existing_matches = None
     if request.method == "POST":
         form = PublicErpAdminInfosForm(request.POST)
         if form.is_valid():
-            erp = form.save(commit=False)
-            erp.published = False
-            erp.user = request.user
-            erp.save()
-            return redirect("contrib_localisation", erp_slug=erp.slug)
+            existing_matches = Erp.objects.find_existing_matches(
+                form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
+            )
+            if len(existing_matches) == 0 or request.POST.get("force") == "1":
+                erp = form.save(commit=False)
+                erp.published = False
+                erp.user = request.user
+                erp.save()
+                return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         encoded_data = request.GET.get("data")
         if encoded_data is not None:
@@ -448,6 +453,7 @@ def contrib_admin_infos(request):
             "form": form,
             "has_data": data is not None,
             "data_error": data_error,
+            "existing_matches": existing_matches,
         },
     )
 

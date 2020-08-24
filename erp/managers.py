@@ -1,4 +1,5 @@
 from django.contrib.gis.db.models.functions import Distance
+from django.contrib.gis import measure
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
@@ -69,6 +70,12 @@ class ErpQuerySet(models.QuerySet):
         if len(kwargs.keys()) == 0:
             return False
         return self.filter(**kwargs).count() > 0
+
+    def find_existing_matches(self, nom, geom):
+        return self.nearest([geom.coords[1], geom.coords[0]]).filter(
+            nom__unaccent__lower__trigram_similar=nom,
+            distance__lt=measure.Distance(m=200),
+        )
 
     def in_commune(self, commune):
         return self.filter(commune_ext=commune)

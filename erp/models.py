@@ -8,6 +8,7 @@ from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
 from django.db.models import Value
+from django.db.models.functions import Lower
 from django.forms.models import model_to_dict
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -19,6 +20,8 @@ from . import sirene
 from .departements import DEPARTEMENTS
 
 FULLTEXT_CONFIG = "french_unaccent"
+
+models.CharField.register_lookup(Lower)
 
 
 class Activite(models.Model):
