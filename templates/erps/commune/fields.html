@@ -61,7 +61,11 @@
           {% elif field.name == "entree_largeur_mini" %}
           {{ field.value }}&nbsp;cm
           {% elif field.name == "cheminement_ext_nombre_marches" or field.name == "accueil_cheminement_nombre_marches" or field.name == "entree_marches" %}
-          {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
+            {% if field.value == 0 %}
+            Aucune marche
+            {% else %}
+            {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
+            {% endif %}
           {% elif field.name == "registre_url" %}
           <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
           {% else %}
