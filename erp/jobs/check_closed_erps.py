@@ -14,9 +14,6 @@ SIRENE_API_SLEEP = 0.5  # stay way under 500 req/s, which is our rate limit
 
 
 def send_notification(erp):
-    print(
-        f"{erp.nom} à {erp.commune_ext.nom} est désormais fermé, envoi d'un email de notification"
-    )
     send_mail(
         f"[{settings.SITE_NAME}] Établissement fermé : {erp.nom} à {erp.commune_ext.nom}",
         "\n\n".join(
@@ -60,7 +57,7 @@ def job(*args, **kwargs):
         check.active = infos.get("actif", True)
         check.save()
         if not check.active:
-            log("[WARN] {erp.nom} is closed, sending notification")
+            log(f"[WARN] {erp.nom} is closed, sending notification")
             send_notification(erp)
         else:
             log(f"[PASS] {erp.nom} is active")
