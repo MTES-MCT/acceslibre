@@ -39,6 +39,7 @@ def data(db):
     obj_boulangerie = Activite.objects.create(nom="Boulangerie")
     obj_erp = Erp.objects.create(
         nom="Aux bons croissants",
+        siret="52128577500016",
         numero="4",
         voie="grand rue",
         code_postal="34830",

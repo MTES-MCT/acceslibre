@@ -46,7 +46,7 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 
 ```
 $ pipenv shell
-$ pipenv install
+$ pipenv install -d
 ```
 
 ## Configurer la base de données
