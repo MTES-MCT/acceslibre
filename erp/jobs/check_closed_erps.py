@@ -4,6 +4,7 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.core.mail import send_mail
+from django.urls import reverse
 from django.utils import timezone
 
 from erp.models import Erp, StatusCheck
@@ -14,13 +15,16 @@ SIRENE_API_SLEEP = 0.5  # stay way under 500 req/s, which is our rate limit
 
 
 def send_notification(erp):
+    admin_path = reverse("admin:erp_erp_change", kwargs={"object_id": erp.pk})
     send_mail(
         f"[{settings.SITE_NAME}] Établissement fermé : {erp.nom} à {erp.commune_ext.nom}",
-        "\n\n".join(
+        "\n".join(
             [
-                f"Le registre SIRENE indique que l'établissement {erp.nom} à {erp.commune_ext.nom} est désormais fermé.",
-                f"Fiche de l'établissement : {settings.SITE_ROOT_URL}{erp.get_absolute_url()}",
-                "--\nLe gentil serveur Acceslibre",
+                f"Le registre SIRENE indique que l'établissement {erp.nom} à {erp.commune_ext.nom} est désormais fermé.\n",
+                f"Fiche publique de l'établissement : {settings.SITE_ROOT_URL}{erp.get_absolute_url()}",
+                f"Fiche société : https://www.societe.com/cgi-bin/search?champs={erp.siret}",
+                f"Administration de la fiche : {settings.SITE_ROOT_URL}{admin_path}",
+                "\n--\nLe gentil serveur Acceslibre",
             ]
         ),
         settings.DEFAULT_FROM_EMAIL,
