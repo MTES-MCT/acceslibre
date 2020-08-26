@@ -551,7 +551,9 @@ class StatusCheckAdmin(admin.ModelAdmin):
     get_erp_nom.short_description = "Établissement"
 
     def get_erp_siret(self, obj):
-        return obj.erp.siret
+        return mark_safe(
+            f'<a href="https://www.societe.com/cgi-bin/search?champs={obj.erp.siret}" target="_blank">{obj.erp.siret}</a>'
+        )
 
     get_erp_siret.short_description = "SIRET"
 
