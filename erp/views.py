@@ -170,7 +170,7 @@ class EditorialView(TemplateView):
 class BaseListView(generic.ListView):
     model = Erp
     queryset = Erp.objects.select_related(
-        "activite", "accessibilite", "commune_ext"
+        "activite", "accessibilite", "commune_ext", "statuscheck"
     ).published()
     _commune = None
 
@@ -250,7 +250,7 @@ class App(BaseListView):
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
                 Erp.objects.select_related(
-                    "accessibilite", "activite", "commune_ext", "user"
+                    "accessibilite", "activite", "commune_ext", "user", "statuscheck"
                 )
                 .published()
                 .with_votes(),
