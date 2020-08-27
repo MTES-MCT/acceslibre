@@ -31,7 +31,7 @@
       {% if equipement == "aucun" %}
       <span class="badge a4a-badge">Aucun</span>
       {% else %}
-      <span class="badge badge-success a4a-badge">
+      <span class="badge badge-success a4a-badge" title="{{ equipement|get_equipement_description }}" style="cursor:help">
         <i aria-hidden="true" class="icon icon-check"></i>
         {{ equipement|get_equipement_label }}
       </span>

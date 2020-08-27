@@ -268,6 +268,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "created_at",
         "updated_at",
     ]
+    ordering = ("-updated_at",)
     readonly_fields = ["user"]
     point_zoom = 18
     map_height = 300

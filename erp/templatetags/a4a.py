@@ -66,6 +66,11 @@ def get_equipement_label(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
 
 
+@register.filter(name="get_equipement_description")
+def get_equipement_description(value):
+    return dict(schema.EQUIPEMENT_MALENTENDANT_DESCRIPTIONS).get(value, "")
+
+
 @register.filter(name="get_naf_label")
 def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")
