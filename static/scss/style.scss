@@ -48,6 +48,10 @@ $navbar-dark-color: rgba($white, 0.8);
     vertical-align: middle;
   }
 
+  .leaflet-marker-icon {
+    box-shadow: 2px 2px 5px #aaa;
+  }
+
   &-map-popup-content {
     font-size: 1.2em;
   }
