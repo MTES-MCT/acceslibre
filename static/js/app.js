@@ -7,18 +7,17 @@ window.a4a = (function () {
   function createIcon(highlight, features) {
     const iconName = features.activite__icon || "amenity_public_building";
     const iconPathPrefix = "/static/img/activites/png/" + iconName;
-    const size = highlight ? 32 : 24;
-    const iconUrl = iconPathPrefix + ".n." + size + ".png";
-    const iconRetinaUrl = iconPathPrefix + ".n." + size + ".png";
+    const size = highlight ? 48 : 24;
+    const variant = highlight ? ".p." : ".n.";
+    const iconUrl = iconPathPrefix + variant + size + ".png";
+    const iconRetinaUrl = iconPathPrefix + variant + size + ".png";
     const options = {
       iconUrl: iconUrl,
       iconRetinaUrl: iconRetinaUrl,
-      shadowUrl: "/static/img/markers/shadow.png",
       iconSize: [size, size],
       iconAnchor: [size / 2, size],
       popupAnchor: [0, -size],
       tooltipAnchor: [size / 2, -28],
-      shadowSize: [size, size],
       className: highlight && " highlighted" || "",
     };
     return L.icon(options);

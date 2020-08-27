@@ -50,6 +50,12 @@ $navbar-dark-color: rgba($white, 0.8);
 
   .leaflet-marker-icon {
     box-shadow: 2px 2px 5px #aaa;
+
+    &.highlighted {
+      background-color: #fff;
+      border-radius: 50px;
+      border: 4px solid #fff;
+    }
   }
 
   &-map-popup-content {
