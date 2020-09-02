@@ -471,7 +471,7 @@ FIELDS = {
         "help_text_ui": None,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
-        "warn_if": False,
+        "warn_if": lambda x, i: x is False or x == RAMPE_AUCUNE,
     },
     "entree_balise_sonore": {
         "is_a11y": True,
