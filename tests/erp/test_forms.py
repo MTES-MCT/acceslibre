@@ -3,13 +3,13 @@ import pytest
 from django.contrib.gis.geos import Point
 from unittest import mock
 
-from .. import schema
-from ..forms import (
+from erp import schema
+from erp.forms import (
     AdminAccessibiliteForm,
     AdminErpForm,
     ViewAccessibiliteForm,
 )
-from ..models import Commune
+from erp.models import Commune
 
 
 VALID_ADDRESS = {

@@ -8,11 +8,11 @@ from django.core import mail
 from django.test import Client
 from django.urls import reverse
 
-from .. import geocoder
-from .. import schema
-from ..models import Accessibilite, Activite, Commune, Erp, Vote
+from erp import geocoder
+from erp import schema
+from erp.models import Accessibilite, Activite, Commune, Erp, Vote
 
-from .fixtures import data
+from tests.fixtures import data
 
 
 @pytest.fixture

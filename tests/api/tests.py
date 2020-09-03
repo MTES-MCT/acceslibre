@@ -4,7 +4,7 @@ import pytest
 from django.urls import reverse
 from rest_framework.test import APIClient
 
-from erp.test import fixtures
+from tests import fixtures
 
 # This is due to an odd behavior from flake8 where you can't expose data directly
 # without receiving "unused import" errors

@@ -2,10 +2,10 @@ import pytest
 
 from django.core.exceptions import ValidationError
 
-from ..models import Accessibilite, Erp, Vote
-
 from erp import schema
-from .fixtures import data
+from erp.models import Accessibilite, Erp, Vote
+
+from tests.fixtures import data
 
 
 def test_Accessibilite_has_data(data):

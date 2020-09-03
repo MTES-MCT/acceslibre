@@ -3,7 +3,7 @@ import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 
-from ..models import Accessibilite, Activite, Commune, Erp
+from erp.models import Accessibilite, Activite, Commune, Erp
 
 
 @pytest.fixture

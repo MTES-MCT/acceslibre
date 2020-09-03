@@ -1,6 +1,6 @@
 import pytest
 
-from .. import schema
+from erp import schema
 
 
 def test_get_api_fieldsets():
