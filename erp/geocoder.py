@@ -15,8 +15,8 @@ def autocomplete(q, postcode=None, limit=5):
 
 def geocode(adresse):
     # retrieve geolocoder data
-    data = query({"q": adresse, "limit": 1})
     try:
+        data = query({"q": adresse, "limit": 1})
         feature = data["features"][0]
         # print(json.dumps(data, indent=2))
         properties = feature["properties"]
@@ -44,16 +44,21 @@ def geocode(adresse):
             "commune": properties.get("city"),
             "code_insee": properties.get("citycode"),
         }
-    except (KeyError, IndexError, RuntimeError) as err:
+    except (KeyError, IndexError, RuntimeError, TypeError) as err:
         print(f"Erreur géocodage : {err}")
         return None
 
 
 def query(params):
-    res = requests.get(GEOCODER_URL, params)
-    if res.status_code != 200:
+    try:
+        res = requests.get(GEOCODER_URL, params)
+        if res.status_code != 200:
+            raise RuntimeError(
+                f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse."
+            )
+        return res.json()
+    except requests.exceptions.RequestException:
         raise RuntimeError("Serveur de géocodage indisponible.")
-    return res.json()
 
 
 def parse_coords(coords):
