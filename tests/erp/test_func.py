@@ -6,9 +6,10 @@ from django.core import mail
 from django.urls import reverse
 from splinter import Browser
 
-from .fixtures import data
 from erp.models import Erp
 from erp import schema
+
+from tests.fixtures import data
 
 
 @pytest.fixture
