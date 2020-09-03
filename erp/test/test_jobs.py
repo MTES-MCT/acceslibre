@@ -19,5 +19,19 @@ def test_check_closed_erps_job(data, capsys, mocker):
 
     # test email notification sent
     assert len(mail.outbox) == 1
-    assert "Établissement fermé : Aux bons croissants à Jacou" in mail.outbox[0].subject
+    assert "Rapport quotidien" in mail.outbox[0].subject
+    assert "Aux bons croissants" in mail.outbox[0].body
     assert data.erp.get_absolute_url() in mail.outbox[0].body
+    assert data.erp.get_admin_url() in mail.outbox[0].body
+
+
+def test_check_no_closed_erps_job(data, capsys, mocker):
+    assert StatusCheck.objects.filter(erp=data.erp).count() == 0
+
+    mocker.patch("erp.sirene.get_siret_info", return_value={"actif": True})
+
+    check_closed_erps.job(verbose=True)
+
+    assert len(mail.outbox) == 1
+    assert "Rapport quotidien" in mail.outbox[0].subject
+    assert "Aucun établissement" in mail.outbox[0].body

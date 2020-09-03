@@ -207,9 +207,7 @@ def test_admin_with_admin_user(data, client, capsys):
     response = client.get(reverse("admin:erp_erp_add"))
     assert response.status_code == 200
 
-    response = client.get(
-        reverse("admin:erp_erp_change", kwargs=dict(object_id=data.erp.pk))
-    )
+    response = client.get(data.erp.get_admin_url())
     assert response.status_code == 200
 
 

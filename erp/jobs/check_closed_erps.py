@@ -4,7 +4,7 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.core.mail import send_mail
-from django.urls import reverse
+from django.template.loader import render_to_string
 from django.utils import timezone
 
 from erp.models import Erp, StatusCheck
@@ -14,18 +14,16 @@ CHECK_DAYS = 7  # recheck activity status every 7 days
 SIRENE_API_SLEEP = 0.5  # stay way under 500 req/s, which is our rate limit
 
 
-def send_notification(erp):
-    admin_path = reverse("admin:erp_erp_change", kwargs={"object_id": erp.pk})
+def send_mail_report(closed_erps):
     send_mail(
-        f"[{settings.SITE_NAME}] Établissement fermé : {erp.nom} à {erp.commune_ext.nom}",
-        "\n".join(
-            [
-                f"Le registre SIRENE indique que l'établissement {erp.nom} à {erp.commune_ext.nom} est désormais fermé.\n",
-                f"Fiche publique de l'établissement : {settings.SITE_ROOT_URL}{erp.get_absolute_url()}",
-                f"Fiche société : https://www.societe.com/cgi-bin/search?champs={erp.siret}",
-                f"Administration de la fiche : {settings.SITE_ROOT_URL}{admin_path}",
-                "\n--\nLe gentil serveur Acceslibre",
-            ]
+        f"[{settings.SITE_NAME}] Rapport quotidien de vérification de statut d'activité SIRENE",
+        render_to_string(
+            "mail/closed_erps_notification.txt",
+            {
+                "closed_erps": closed_erps,
+                "SITE_NAME": settings.SITE_NAME,
+                "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+            },
         ),
         settings.DEFAULT_FROM_EMAIL,
         [settings.DEFAULT_FROM_EMAIL],
@@ -38,6 +36,7 @@ def job(*args, **kwargs):
         if kwargs.get("verbose", False):
             print(msg)
 
+    closed_erps = []
     erps_to_check = (
         Erp.objects.published().filter(siret__isnull=False).order_by("updated_at")
     )
@@ -45,7 +44,7 @@ def job(*args, **kwargs):
     for erp in erps_to_check:
         # discard invalid sirets
         if sirene.validate_siret(erp.siret) is None:
-            log(f"[SKIP] invalid siret {erp.nom} {erp.siret}")
+            log(f"[SKIP] Invalid siret {erp.nom} {erp.siret}")
             continue
         check = StatusCheck.objects.filter(erp=erp).first()
         # check last check timestamp
@@ -62,8 +61,9 @@ def job(*args, **kwargs):
         check.save()
         if not check.active:
             log(f"[WARN] {erp.nom} is closed, sending notification")
-            send_notification(erp)
+            closed_erps.append(erp)
         else:
             log(f"[PASS] {erp.nom} is active")
         time.sleep(SIRENE_API_SLEEP)
-    log("[DONE] Check complete.")
+    log("[DONE] Check complete, sending report.")
+    send_mail_report(closed_erps)

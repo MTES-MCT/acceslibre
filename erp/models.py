@@ -421,6 +421,13 @@ class Erp(models.Model):
                 ),
             )
 
+    def get_admin_url(self):
+        return (
+            reverse("admin:erp_erp_change", kwargs={"object_id": self.pk})
+            if self.pk
+            else None
+        )
+
     def has_accessibilite(self):
         return hasattr(self, "accessibilite") and self.accessibilite is not None
 
