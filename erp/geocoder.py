@@ -10,13 +10,14 @@ def autocomplete(q, postcode=None, limit=5):
     if postcode is not None:
         params["postcode"] = postcode
     data = query(params)
-    return data["features"]
+    return data.get("features") if data else None
 
 
 def geocode(adresse):
     # retrieve geolocoder data
     try:
         data = query({"q": adresse, "limit": 1})
+        print("here")
         feature = data["features"][0]
         # print(json.dumps(data, indent=2))
         properties = feature["properties"]
@@ -44,9 +45,8 @@ def geocode(adresse):
             "commune": properties.get("city"),
             "code_insee": properties.get("citycode"),
         }
-    except (KeyError, IndexError, RuntimeError, TypeError) as err:
-        print(f"Erreur géocodage : {err}")
-        return None
+    except (KeyError, IndexError, TypeError) as err:
+        raise RuntimeError("Erreur lors du géocodage de l'adresse") from err
 
 
 def query(params):
