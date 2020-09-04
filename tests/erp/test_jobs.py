@@ -20,7 +20,9 @@ def test_check_closed_erps_job(data, capsys, mocker):
     # test email notification sent
     assert len(mail.outbox) == 1
     assert "Rapport quotidien" in mail.outbox[0].subject
-    assert "Aux bons croissants" in mail.outbox[0].body
+    assert data.erp.nom in mail.outbox[0].body
+    assert data.erp.activite.nom in mail.outbox[0].body
+    assert data.erp.siret in mail.outbox[0].body
     assert data.erp.get_absolute_url() in mail.outbox[0].body
     assert data.erp.get_admin_url() in mail.outbox[0].body
 
