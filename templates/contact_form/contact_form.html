@@ -13,6 +13,11 @@
   <form action="" method="POST" class="col-md-6 col-lg-7 mb-4">
     {% csrf_token %}
 
+    <p><small class="text-muted">
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
+      Les champs marqué d'une astérique (*) sont obligatoires.
+    </small></p>
+
     {% for error in form.non_field_errors %}
       <p class="form-text text-danger">{{ error }}</p>
     {% endfor %}
@@ -26,11 +31,11 @@
       </div>
     </div>
 
-    {{ form.subject|as_crispy_field }}
+    {{ form.topic|as_crispy_field }}
     {{ form.body|as_crispy_field }}
-    {{ form.verif|as_crispy_field }}
-    {{ form.username|as_crispy_field }}
-    {{ form.erp_id|as_crispy_field }}
+    {{ form.robot|as_crispy_field }}
+    {{ form.user|as_crispy_field }}
+    {{ form.erp|as_crispy_field }}
     {{ form.next|as_crispy_field }}
 
     <div class="form-group">

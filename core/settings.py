@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "reset_migrations",
     "django_admin_listfilter_dropdown",
     "erp.apps.ErpConfig",
+    "contact.apps.ContactConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
