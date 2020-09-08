@@ -5,13 +5,19 @@ from erp.models import Erp
 
 
 class Message(models.Model):
+    TOPIC_BUG = "bug"
+    TOPIC_SUPPORT = "support"
+    TOPIC_CONTACT = "contact"
+    TOPIC_PARTENARIAT = "partenariat"
+    TOPIC_SIGNALEMENT = "signalement"
+    TOPIC_AUTRE = "autre"
     TOPICS = [
-        ("bug", "Rapport de bug"),
-        ("support", "Demande d'aide"),
-        ("contact", "Prise de contact"),
-        ("partenariat", "Proposition de partenariat"),
-        ("signalement", "Signalement d'un problème de données"),
-        ("autre", "Autre demande"),
+        (TOPIC_BUG, "Rapport de bug"),
+        (TOPIC_SUPPORT, "Demande d'aide"),
+        (TOPIC_CONTACT, "Prise de contact"),
+        (TOPIC_PARTENARIAT, "Proposition de partenariat"),
+        (TOPIC_SIGNALEMENT, "Signalement d'un problème de données"),
+        (TOPIC_AUTRE, "Autre demande"),
     ]
 
     class Meta:
@@ -20,7 +26,9 @@ class Message(models.Model):
             models.Index(fields=["topic"]),
         ]
 
-    topic = models.CharField(max_length=50, verbose_name="Sujet", choices=TOPICS)
+    topic = models.CharField(
+        max_length=50, verbose_name="Sujet", choices=TOPICS, default=TOPIC_CONTACT
+    )
     name = models.CharField(
         max_length=255, verbose_name="Votre nom", null=True, blank=True
     )
@@ -34,7 +42,7 @@ class Message(models.Model):
         on_delete=models.SET_NULL,
     )
     erp = models.ForeignKey(Erp, null=True, blank=False, on_delete=models.SET_NULL)
-    sent_ok = models.BooleanField(verbose_name="Envoi OK")
+    sent_ok = models.BooleanField(verbose_name="Envoi OK", default=False)
 
     # Datetimes
     created_at = models.DateTimeField(

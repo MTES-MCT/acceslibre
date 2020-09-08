@@ -4,6 +4,7 @@ from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
+
 from django.core.paginator import Paginator
 from django.db.models import F
 from django.forms import modelform_factory

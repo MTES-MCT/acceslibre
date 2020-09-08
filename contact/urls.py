@@ -5,9 +5,9 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.contact, name="contact_form"),
-    path("<str:subject>/", views.contact, name="contact_subject"),
-    path("<str:subject>/<str:erp_slug>/", views.contact, name="contact_subject_erp"),
+    path("", views.contact, name="contact_form"),  # XXX: rename to contact
+    path("<str:topic>/", views.contact, name="contact_topic"),
+    path("<str:topic>/<str:erp_slug>/", views.contact, name="contact_topic_erp"),
     path(
         "sent",
         TemplateView.as_view(template_name="contact_form/contact_form_sent.html"),

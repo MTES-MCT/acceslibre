@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.utils.safestring import mark_safe
 
+from erp.models import Erp
 from .models import Message
 
 
@@ -19,7 +20,7 @@ class ContactForm(forms.ModelForm):
     user = forms.ModelChoiceField(
         queryset=get_user_model().objects, widget=forms.HiddenInput
     )
-    erp = forms.IntegerField(required=False, widget=forms.HiddenInput)
+    erp = forms.ModelChoiceField(queryset=Erp.objects, widget=forms.HiddenInput)
 
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
@@ -27,26 +28,21 @@ class ContactForm(forms.ModelForm):
         label="Je suis un robot",
         help_text="Afin de lutter contre le spam, assurez-vous de décocher cette case pour envoyer votre message",
         initial=True,
+        required=False,
     )
 
     def __init__(self, *args, **kwargs):
         request = kwargs.pop("request")
         initial = kwargs.get("initial", {})
 
-        # retrieve user information
+        # prefill initial form data
         user = request.user
         if user.is_authenticated:
             initial["name"] = f"{user.first_name} {user.last_name}".strip()
             initial["email"] = user.email
             initial["user"] = user
-
-        # retrieve erp information
-        erp = kwargs.pop("erp")
-        if erp:
-            initial["body"] = f"Mon message concerne cet établissement : {erp.nom}\n\n"
-
-        # prefill initial form data
         kwargs["initial"] = initial
+
         return super().__init__(*args, **kwargs)
 
     def clean_robot(self):
