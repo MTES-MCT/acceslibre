@@ -15,7 +15,6 @@ def contact(request, topic=None, erp_slug=None):
     erp = Erp.objects.filter(slug=erp_slug).first() if erp_slug else None
     initial = initial = {"topic": topic, "erp": erp}
     if request.method == "POST":
-        print(request.POST)
         form = ContactForm(request.POST, request=request, initial=initial)
         if form.is_valid():
             message = form.save()
