@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load a4a %}
+{% load crispy_forms_tags %}
 
 {% block page_title %}Contact{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
@@ -16,33 +17,25 @@
       <p class="form-text text-danger">{{ error }}</p>
     {% endfor %}
 
-      <div class="form-group has-error">
-        <label for="id_name">Votre nom&nbsp;:</label>
-        {{ form.name|addclass:"form-control" }}
-        {% for error in form.name.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
+    <div class="row">
+      <div class="col-lg-6">
+        {{ form.email|as_crispy_field }}
       </div>
+      <div class="col-lg-6">
+        {{ form.name|as_crispy_field }}
+      </div>
+    </div>
 
-      <div class="form-group has-error">
-        <label for="id_email">Votre adresse email&nbsp;:</label>
-        {{ form.email|addclass:"form-control" }}
-        {% for error in form.email.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
-      </div>
+    {{ form.subject|as_crispy_field }}
+    {{ form.body|as_crispy_field }}
+    {{ form.verif|as_crispy_field }}
+    {{ form.username|as_crispy_field }}
+    {{ form.erp_id|as_crispy_field }}
+    {{ form.next|as_crispy_field }}
 
-      <div class="form-group has-error">
-        <label for="id_body">Votre message&nbsp;:</label>
-        {{ form.body|addclass:"form-control" }}
-        {% for error in form.body.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
-      </div>
-
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
-      </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+    </div>
   </form>
   <div class="col-md-6 col-lg-5 mb-4">
     <div class="alert alert-info">

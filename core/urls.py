@@ -2,9 +2,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
-from contact_form.views import ContactFormView
-
-from erp.forms import CustomRegistrationForm, CustomContactForm
+from erp.forms import CustomRegistrationForm
 from erp.views import (
     CustomActivationView,
     CustomActivationCompleteView,
@@ -15,6 +13,7 @@ from erp.views import (
 urlpatterns = [
     path("", include("erp.urls")),
     path("api/", include("api.urls")),
+    path("contact/", include("contact.urls")),
     path("stats/", include("stats.urls")),
     # django-registration overrides, handling `next` query string param
     path(
@@ -36,12 +35,12 @@ urlpatterns = [
     ),
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
-    path(
-        "contactez-nous/",
-        ContactFormView.as_view(form_class=CustomContactForm),
-        name="contact_form",
-    ),
-    path("contactez-nous/", include("contact_form.urls")),
+    # path(
+    #     "contactez-nous/",
+    #     ContactFormView.as_view(form_class=CustomContactForm),
+    #     name="contact_form",
+    # ),
+    # path("contactez-nous/", include("contact_form.urls")),
     path("admin/", admin.site.urls),
 ]
 

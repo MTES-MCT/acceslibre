@@ -1,8 +1,9 @@
-{% autoescape off %}Coucou,
+{% autoescape off %}Bonjour,
 
 Nouveau message reçu par l'intermédiaire du formulaire de contact sur le site {{ SITE_NAME.title }}.
 
 Expéditeur : {{ name }}
+Sujet : {{ subject }}
 Adresse email : {{ email }}
 Message: {{ body }}
 
