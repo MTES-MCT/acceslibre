@@ -28,7 +28,7 @@ class ContactForm(forms.ModelForm):
     next = forms.CharField(required=False, widget=forms.HiddenInput)
     robot = forms.BooleanField(
         label="Je suis un robot",
-        help_text="Afin de lutter contre le spam, assurez-vous de décocher cette case pour envoyer votre message",
+        help_text="Merci de décocher cette case pour envoyer votre message",
         initial=True,
         required=False,
     )
