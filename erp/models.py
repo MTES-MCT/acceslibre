@@ -973,7 +973,7 @@ class Accessibilite(models.Model):
     ##########################
     # Conformité             #
     ##########################
-    conformite = models.NullBooleanField(
+    conformite = models.BooleanField(
         verbose_name="Conformité",
         null=True,
         blank=True,
