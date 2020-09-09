@@ -35,10 +35,12 @@
 
     {{ form.topic|as_crispy_field }}
     {{ form.body|as_crispy_field }}
-    {{ form.robot|as_crispy_field }}
     {{ form.user|as_crispy_field }}
     {{ form.erp|as_crispy_field }}
     {{ form.next|as_crispy_field }}
+    {% if not user.is_authenticated %}
+    {{ form.robot|as_crispy_field }}
+    {% endif %}
 
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
