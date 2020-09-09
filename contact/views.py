@@ -13,7 +13,7 @@ def contact(request, topic=None, erp_slug=None):
     if topic and topic not in dict(Message.TOPICS):
         raise Http404("invalid subject")
     erp = Erp.objects.filter(slug=erp_slug).first() if erp_slug else None
-    initial = initial = {"topic": topic, "erp": erp}
+    initial = initial = {"topic": topic or Message.TOPIC_CONTACT, "erp": erp}
     if request.method == "POST":
         form = ContactForm(request.POST, request=request, initial=initial)
         if form.is_valid():
