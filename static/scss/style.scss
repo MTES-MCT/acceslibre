@@ -45,7 +45,15 @@ $navbar-dark-color: rgba($white, 0.8);
   }
 
   .icon {
-    vertical-align: text-top;
+    vertical-align: middle;
+  }
+
+  &-erp-details-link {
+    font-size: .9em;
+    padding-bottom: 1px;
+    .icon {
+      vertical-align: text-top;
+    }
   }
 
   .leaflet-marker-icon {
