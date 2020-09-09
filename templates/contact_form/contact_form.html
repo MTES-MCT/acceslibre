@@ -34,9 +34,12 @@
     </div>
 
     {{ form.topic|as_crispy_field }}
+    {{ form.erp|as_crispy_field }}
+    {% if erp %}
+    <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
+    {% endif %}
     {{ form.body|as_crispy_field }}
     {{ form.user|as_crispy_field }}
-    {{ form.erp|as_crispy_field }}
     {{ form.next|as_crispy_field }}
     {% if not user.is_authenticated %}
     {{ form.robot|as_crispy_field }}

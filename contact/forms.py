@@ -43,6 +43,7 @@ class ContactForm(forms.ModelForm):
             initial["name"] = f"{user.first_name} {user.last_name}".strip()
             initial["email"] = user.email
             initial["user"] = user
+
         kwargs["initial"] = initial
 
         return super().__init__(*args, **kwargs)

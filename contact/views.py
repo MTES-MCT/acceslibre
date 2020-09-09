@@ -31,4 +31,6 @@ def contact(request, topic=None, erp_slug=None):
             return redirect(reverse("contact_form_sent"))
     else:
         form = ContactForm(request=request, initial=initial)
-    return render(request, "contact_form/contact_form.html", context={"form": form})
+    return render(
+        request, "contact_form/contact_form.html", context={"form": form, "erp": erp}
+    )

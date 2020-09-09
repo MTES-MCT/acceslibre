@@ -5,6 +5,7 @@ from erp.models import Erp
 
 
 class Message(models.Model):
+    TOPIC_A11Y = "a11y"
     TOPIC_BUG = "bug"
     TOPIC_SUPPORT = "support"
     TOPIC_CONTACT = "contact"
@@ -12,6 +13,7 @@ class Message(models.Model):
     TOPIC_SIGNALEMENT = "signalement"
     TOPIC_AUTRE = "autre"
     TOPICS = [
+        (TOPIC_A11Y, "Problème d'accessibilité"),
         (TOPIC_BUG, "Rapport de bug"),
         (TOPIC_SUPPORT, "Demande d'aide"),
         (TOPIC_CONTACT, "Prise de contact"),
