@@ -66,6 +66,12 @@ def test_contact_antispam(data, client):
 
 
 def test_contact_authenticated(data, client):
+    client.login(username="niko", password="Abc12345!")
+
+    response = client.get(reverse("contact_form"))
+    assert response.context["form"].initial["user"] == data.niko
+    assert b'value="niko@niko.tld"' in response.content
+
     response = client.post(
         reverse("contact_form"),
         {
