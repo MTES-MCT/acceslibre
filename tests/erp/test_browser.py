@@ -228,20 +228,6 @@ def test_autocomplete(data, client):
     assert data.erp.adresse in sugg["value"]
 
 
-def test_contact(data, client):
-    response = client.post(
-        reverse("contact_form"),
-        {"name": "Joe Test", "email": "joe@test.com", "body": "C'est un test"},
-    )
-
-    assert response.status_code == 302
-    assert len(mail.outbox) == 1
-    assert "Nouveau message" in mail.outbox[0].subject
-    assert "Joe Test" in mail.outbox[0].body
-    assert "joe@test.com" in mail.outbox[0].body
-    assert "C'est un test" in mail.outbox[0].body
-
-
 def test_ajout_erp_requires_auth(data, client):
     response = client.get(reverse("contrib_start"), follow=True)
 

@@ -15,7 +15,7 @@
 <small class="row alert alert-warning rounded-0 px-3 py-2 mb-0">
   <i aria-hidden="true" class="icon icon-exclamation-circle"></i>&nbsp;
   Cet établissement semble fermé.&nbsp;
-  <a href="{% url "contact_form" %}">Signaler une erreur</a>
+  <a href="{% url "contact_topic" topic="signalement" %}">Signaler une erreur</a>
 </small>
 {% endif %}
 <div class="a4a-erp-details mt-2">
@@ -61,6 +61,9 @@
           <i aria-hidden="true" class="icon icon-pencil"></i> Admin
         </a>
         {% endif %}
+        <a class="d-inline-block mr-2" href="{% url "contact_topic_erp" topic="signalement" erp_slug=erp.slug %}">
+          <i aria-hidden="true" class="icon icon-exclamation-circle"></i> Signaler une erreur
+        </a>
       </div>
     </div>
     <div class="a4a-accessibility-group d-flex justify-content-end align-center">
@@ -171,7 +174,7 @@
   {% elif erp.user and erp.user.username != user.username %}
   <div class="alert alert-info">
     Si vous assurez la gestion de cet établissement et que vous souhaitez apporter des corrections
-    aux informations mentionnées, merci de <a href="{% url "contact_form" %}">nous contacter</a>.
+    aux informations mentionnées, merci de <a href="{% url "contact_topic" topic="signalement" %}">nous contacter</a>.
   </div>
   {% endif %}
   {% else %}

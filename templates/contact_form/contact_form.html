@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load a4a %}
+{% load crispy_forms_tags %}
 
 {% block page_title %}Contact{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
@@ -12,37 +13,41 @@
   <form action="" method="POST" class="col-md-6 col-lg-7 mb-4">
     {% csrf_token %}
 
-    {% for error in form.non_field_errors %}
-      <p class="form-text text-danger">{{ error }}</p>
-    {% endfor %}
+    <p><small class="text-muted">
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
+      Les champs marqué d'une astérique (*) sont obligatoires.
+    </small></p>
 
-      <div class="form-group has-error">
-        <label for="id_name">Votre nom&nbsp;:</label>
-        {{ form.name|addclass:"form-control" }}
-        {% for error in form.name.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {{ form.non_field_errors }}
       </div>
+    {% endif %}
 
-      <div class="form-group has-error">
-        <label for="id_email">Votre adresse email&nbsp;:</label>
-        {{ form.email|addclass:"form-control" }}
-        {% for error in form.email.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
+    <div class="row">
+      <div class="col-lg-6">
+        {{ form.email|as_crispy_field }}
       </div>
+      <div class="col-lg-6">
+        {{ form.name|as_crispy_field }}
+      </div>
+    </div>
 
-      <div class="form-group has-error">
-        <label for="id_body">Votre message&nbsp;:</label>
-        {{ form.body|addclass:"form-control" }}
-        {% for error in form.body.errors %}
-          <div class="form-text text-danger">{{ error }}</div>
-        {% endfor %}
-      </div>
+    {{ form.topic|as_crispy_field }}
+    {{ form.erp|as_crispy_field }}
+    {% if erp %}
+    <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
+    {% endif %}
+    {{ form.body|as_crispy_field }}
+    {{ form.user|as_crispy_field }}
+    {{ form.next|as_crispy_field }}
+    {% if not user.is_authenticated %}
+    {{ form.robot|as_crispy_field }}
+    {% endif %}
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
-      </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+    </div>
   </form>
   <div class="col-md-6 col-lg-5 mb-4">
     <div class="alert alert-info">

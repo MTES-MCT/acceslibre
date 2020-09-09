@@ -1,0 +1,12 @@
+{% autoescape off %}Nouveau message reçu depuis le formulaire de contact du site Acceslibre.
+
+Expéditeur : {{ message.name }} <{{ message.email }}>{% if message.user %} ({{ message.user.username }}){% endif %}
+Sujet: {{ message.get_topic_display }}
+{% if message.erp %}ERP concerné : {{ message.erp.nom }} - {{ message.erp.adresse}} {{ SITE_ROOT_URL }}{{ message.erp.get_absolute_url }}{% endif %}
+Message :
+{{ message.body }}
+
+--
+L'équipe {{ SITE_NAME.title }}
+{{ SITE_ROOT_URL }}
+{% endautoescape %}
