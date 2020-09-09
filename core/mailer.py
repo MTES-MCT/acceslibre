@@ -4,7 +4,6 @@ from django.template.loader import render_to_string
 
 
 def mail_admins(subject, template, context=None, reply_to=None):
-    # XXX reply-to
     context = context if context else {}
     context["SITE_NAME"] = settings.SITE_NAME
     context["SITE_ROOT_URL"] = settings.SITE_ROOT_URL

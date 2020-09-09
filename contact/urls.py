@@ -5,7 +5,7 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.contact, name="contact_form"),  # XXX: rename to contact
+    path("", views.contact, name="contact_form"),
     path("<str:topic>/", views.contact, name="contact_topic"),
     path("<str:topic>/<str:erp_slug>/", views.contact, name="contact_topic_erp"),
     path(
