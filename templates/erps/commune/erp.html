@@ -15,7 +15,7 @@
 <small class="row alert alert-warning rounded-0 px-3 py-2 mb-0">
   <i aria-hidden="true" class="icon icon-exclamation-circle"></i>&nbsp;
   Cet établissement semble fermé.&nbsp;
-  <a href="{% url "contact_topic" topic="signalement" %}">Signaler une erreur</a>
+  <a href="{% url "contact_topic_erp" topic="signalement" erp_slug=erp.slug %}">Signaler une erreur</a>
 </small>
 {% endif %}
 <div class="a4a-erp-details mt-2">
