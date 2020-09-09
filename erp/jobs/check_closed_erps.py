@@ -3,9 +3,9 @@ import time
 from datetime import timedelta
 
 from django.conf import settings
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
 from django.utils import timezone
+
+from core import mailer
 
 from erp.models import Erp, StatusCheck
 from erp import sirene
@@ -14,20 +14,15 @@ CHECK_DAYS = 7  # recheck activity status every 7 days
 SIRENE_API_SLEEP = 0.5  # stay way under 500 req/s, which is our rate limit
 
 
-def send_mail_report(closed_erps):
-    send_mail(
+def send_report(closed_erps):
+    mailer.mail_admins(
         f"[{settings.SITE_NAME}] Rapport quotidien de vérification de statut d'activité SIRENE",
-        render_to_string(
-            "mail/closed_erps_notification.txt",
-            {
-                "closed_erps": closed_erps,
-                "SITE_NAME": settings.SITE_NAME,
-                "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-            },
-        ),
-        settings.DEFAULT_FROM_EMAIL,
-        [settings.DEFAULT_FROM_EMAIL],
-        fail_silently=True,
+        "mail/closed_erps_notification.txt",
+        {
+            "closed_erps": closed_erps,
+            "SITE_NAME": settings.SITE_NAME,
+            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        },
     )
 
 
@@ -66,4 +61,4 @@ def job(*args, **kwargs):
             log(f"[PASS] {erp.nom} is active")
         time.sleep(SIRENE_API_SLEEP)
     log("[DONE] Check complete, sending report.")
-    send_mail_report(closed_erps)
+    send_report(closed_erps)

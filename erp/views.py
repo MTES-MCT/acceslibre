@@ -3,14 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.exceptions import PermissionDenied
-from django.core.mail import send_mail
 
 from django.core.paginator import Paginator
 from django.db.models import F
 from django.forms import modelform_factory
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.template.loader import render_to_string
 from django.urls import reverse
 from django.views import generic
 from django.views.decorators.cache import cache_page
@@ -19,6 +17,8 @@ from django_registration.backends.activation.views import (
     ActivationView,
     RegistrationView,
 )
+
+from core import mailer
 
 from .forms import (
     AdminAccessibiliteForm,
@@ -301,20 +301,15 @@ def vote(request, erp_slug):
         comment = request.POST.get("comment") if action == "DOWN" else None
         vote = erp.vote(request.user, action, comment=comment)
         if vote:
-            send_mail(
+            mailer.mail_admins(
                 f"Vote {'positif' if vote.value == 1 else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
-                render_to_string(
-                    "mail/vote_notification.txt",
-                    {
-                        "erp": erp,
-                        "vote": vote,
-                        "SITE_NAME": settings.SITE_NAME,
-                        "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-                    },
-                ),
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],
-                fail_silently=True,
+                "mail/vote_notification.txt",
+                {
+                    "erp": erp,
+                    "vote": vote,
+                    "SITE_NAME": settings.SITE_NAME,
+                    "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+                },
             )
     return redirect(erp.get_absolute_url())
 
