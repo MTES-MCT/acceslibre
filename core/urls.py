@@ -35,12 +35,6 @@ urlpatterns = [
     ),
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
-    # path(
-    #     "contactez-nous/",
-    #     ContactFormView.as_view(form_class=CustomContactForm),
-    #     name="contact_form",
-    # ),
-    # path("contactez-nous/", include("contact_form.urls")),
     path("admin/", admin.site.urls),
 ]
 
