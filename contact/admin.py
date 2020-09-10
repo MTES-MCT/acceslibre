@@ -25,6 +25,16 @@ class MessageAdmin(admin.ModelAdmin):
     ordering = ("-created_at",)
     search_fields = ("name", "topic", "user__username", "email", "erp__nom")
     autocomplete_fields = ["erp", "user"]
+    readonly_fields = [
+        "created_at",
+        "user",
+        "name",
+        "email",
+        "topic",
+        "erp",
+        "body",
+        "sent_ok",
+    ]
 
     def get_erp(self, obj):
         if obj.erp:
