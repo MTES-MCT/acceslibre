@@ -183,7 +183,6 @@ class AdminErpForm(BaseErpForm):
         model = Erp
         exclude = (
             "pk",
-            "user",
             "search_vector",
             "source",
             "source_id",

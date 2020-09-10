@@ -269,12 +269,11 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
         "updated_at",
     ]
     ordering = ("-updated_at",)
-    readonly_fields = ["user"]
     point_zoom = 18
     map_height = 300
     save_on_top = True
     search_fields = ["nom", "activite__nom", "code_postal", "commune"]
-    autocomplete_fields = ["activite", "commune_ext"]
+    autocomplete_fields = ["activite", "commune_ext", "user"]
     scrollable = False
     sortable_by = (
         "nom",
@@ -359,6 +358,10 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             form.base_fields["activite"].widget.can_add_related = False
             form.base_fields["activite"].widget.can_change_related = False
             form.base_fields["activite"].widget.can_delete_related = False
+        if "user" in form.base_fields:
+            form.base_fields["user"].widget.can_add_related = False
+            form.base_fields["user"].widget.can_change_related = False
+            form.base_fields["user"].widget.can_delete_related = False
         # hide geom field on new obj
         if "geom" in form.base_fields and obj is None:
             form.base_fields["geom"].widget = forms.HiddenInput()
