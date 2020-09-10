@@ -11,23 +11,9 @@ from erp.forms import (
 )
 from erp.models import Commune
 
+from tests.fixtures import data
 
-VALID_ADDRESS = {
-    "user_type": "public",
-    "nom": "plop",
-    "numero": "4",
-    "voie": "rue de la paix",
-    "lieu_dit": "blah",
-    "code_postal": "75002",
-    "commune": "Paris",
-}
-INVALID_ADDRESS = {
-    "user_type": "public",
-    "nom": "plop",
-    "voie": "invalid",
-    "code_postal": "XXXXX",
-    "commune": "invalid",
-}
+
 POINT = Point((0, 0))
 
 
@@ -35,6 +21,20 @@ POINT = Point((0, 0))
 def paris_commune():
     c = Commune(nom="Paris", departement="75", code_insee="75111", geom=POINT)
     c.save()
+
+
+@pytest.fixture
+def form_data(data):
+    return {
+        "user": data.niko,
+        "user_type": "public",
+        "nom": "plop",
+        "numero": "4",
+        "voie": "rue de la paix",
+        "lieu_dit": "blah",
+        "code_postal": "75002",
+        "commune": "Paris",
+    }
 
 
 @pytest.fixture
@@ -51,15 +51,15 @@ def fake_geocoder():
 
 
 @pytest.mark.django_db
-def test_AdminErpForm_get_adresse(fake_geocoder, paris_commune):
-    form = AdminErpForm(VALID_ADDRESS, geocode=fake_geocoder,)
+def test_AdminErpForm_get_adresse(form_data, fake_geocoder, paris_commune):
+    form = AdminErpForm(form_data, geocode=fake_geocoder,)
     form.is_valid()  # populates cleaned_data
     assert form.get_adresse() == "4 Rue de la Paix 75002 Paris"
 
 
 @pytest.mark.django_db
-def test_AdminErpForm_geocode_adresse(fake_geocoder, paris_commune):
-    form = AdminErpForm(VALID_ADDRESS, geocode=fake_geocoder,)
+def test_AdminErpForm_geocode_adresse(form_data, fake_geocoder, paris_commune):
+    form = AdminErpForm(form_data, geocode=fake_geocoder,)
     form.is_valid()
     assert form.cleaned_data["geom"] == POINT
     assert form.cleaned_data["numero"] == "4"
@@ -70,15 +70,17 @@ def test_AdminErpForm_geocode_adresse(fake_geocoder, paris_commune):
     assert form.cleaned_data["code_insee"] == "75111"
 
 
-def test_AdminErpForm_invalid_on_empty_geocode_results():
-    form = AdminErpForm(INVALID_ADDRESS, geocode=lambda _: None,)
-    assert form.is_valid() == False
+def test_AdminErpForm_invalid_on_empty_geocode_results(form_data):
+    form = AdminErpForm(form_data, geocode=lambda _: None,)
+    assert form.is_valid() is False
 
 
 @pytest.mark.django_db
-def test_AdminErpForm_valid_on_geocoded_results(fake_geocoder, paris_commune):
-    form = AdminErpForm(VALID_ADDRESS, geocode=fake_geocoder,)
-    assert form.is_valid() == True
+def test_AdminErpForm_valid_on_geocoded_results(
+    form_data, fake_geocoder, paris_commune
+):
+    form = AdminErpForm(form_data, geocode=fake_geocoder,)
+    assert form.is_valid() is True
 
 
 # ViewAccessibiliteForm
