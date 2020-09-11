@@ -458,12 +458,16 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
-        form = PublicErpEditInfosForm(request.POST, instance=erp)
+        form = PublicErpEditInfosForm(
+            request.POST, instance=erp, initial={"recevant_du_public": True}
+        )
         if form.is_valid():
             erp = form.save()
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
-        form = PublicErpAdminInfosForm(instance=erp)
+        form = PublicErpAdminInfosForm(
+            instance=erp, initial={"recevant_du_public": True}
+        )
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
