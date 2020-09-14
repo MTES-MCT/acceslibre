@@ -28,6 +28,7 @@ RAISON_SOCIALE = "denominationUniteLegale"
 STATUT = "etatAdministratifUniteLegale"
 SIRET = "siret"
 TYPE_VOIE = "typeVoieEtablissement"
+UNITE_LEGALE = "uniteLegale"
 VOIE = "libelleVoieEtablissement"
 
 SIRET_API_REQUEST_FIELDS = [
@@ -152,9 +153,13 @@ def format_siret(value, separator=""):
     return siret.format(value, separator=separator)
 
 
+def humanize_nom(nom):
+    return nom.title()
+
+
 def extract_etablissement_nom(etablissement):
     nom_parts = []
-    uniteLegale = etablissement.get("uniteLegale")
+    uniteLegale = etablissement.get(UNITE_LEGALE, {})
     nom_parts.append(uniteLegale.get(NOM_ENSEIGNE3))
     # périodes et résolution du nom
     periodesEtablissement = etablissement.get(PERIODES_ETABLISSEMENT, [])
@@ -168,17 +173,21 @@ def extract_etablissement_nom(etablissement):
                 uniteLegale.get(PERSONNE_NOM) or "",
                 uniteLegale.get(PERSONNE_PRENOM) or "",
             ]
-        ).strip()
+        )
+        .strip()
+        .title()
     )
     return " ".join(
-        set([part for part in nom_parts if part is not None and part != ""])
+        sorted(  # required as a set might come randomly sorted
+            set([part.title() for part in nom_parts if part is not None and part != ""])
+        )
     )
 
 
 def parse_etablissement(etablissement):
     siret = etablissement.get(SIRET)
     # unité légale
-    uniteLegale = etablissement.get("uniteLegale")
+    uniteLegale = etablissement.get(UNITE_LEGALE)
     naf = uniteLegale.get(ACTIVITE_NAF)
     # adresse
     adresseEtablissement = etablissement.get("adresseEtablissement")
