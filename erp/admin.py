@@ -13,7 +13,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
-# from import_export.admin import ImportExportModelAdmin
+from reversion.admin import VersionAdmin
 
 from .departements import DEPARTEMENTS
 from .forms import (
@@ -224,7 +224,7 @@ class ErpUserFilter(admin.SimpleListFilter):
 
 
 @admin.register(Erp)
-class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
+class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     class Media:
         css = {"all": ("admin/a4a-addons.css",)}
         js = (
@@ -234,8 +234,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin):
             "admin/js/a4a-autocomplete.js",
         )
 
-    # note: add ImportExportModelAdmin as a first mixin to handle imports/exports
-    # resource_class = ErpResource
     form = AdminErpForm
 
     actions = ["assign_activite", "publish", "unpublish"]

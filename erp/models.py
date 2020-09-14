@@ -1,4 +1,5 @@
 import json
+import reversion
 
 from autoslug import AutoSlugField
 from django.conf import settings
@@ -214,6 +215,7 @@ class Vote(models.Model):
         return f"Vote {self.value} de {self.user.username} pour {self.erp.nom}"
 
 
+@reversion.register()
 class Erp(models.Model):
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
@@ -581,6 +583,7 @@ class StatusCheck(models.Model):
     )
 
 
+@reversion.register()
 class Accessibilite(models.Model):
     class Meta:
         verbose_name = "Accessibilité"

@@ -102,6 +102,12 @@ Puis, initialisez la base de données :
 $ python manage.py migrate
 ```
 
+Chargez les [révisions](https://django-reversion.readthedocs.io/) initiales de modèles :
+
+```
+$ python manage.py createinitialrevisions
+```
+
 Créez un superutilisateur :
 
 ```

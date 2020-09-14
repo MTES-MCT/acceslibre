@@ -78,6 +78,7 @@ INSTALLED_APPS = [
     "rest_framework_gis",
     "crispy_forms",
     "django_sass",
+    "reversion",
 ]
 
 MIDDLEWARE = [
