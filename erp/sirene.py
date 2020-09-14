@@ -103,7 +103,7 @@ class Fuzzy(criteria.Field):
     @property
     def representation(self):
         term = str(self.value).replace('"', "").strip()
-        if " " in term:
+        if " " in term or "'" in term:
             return f'{self.name}:"{term}"~'
         return f"{self.name}:{term}~"
 

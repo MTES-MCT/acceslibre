@@ -21,6 +21,15 @@ def test_create_find_query_multiple_words():
     )
 
 
+def test_create_find_query_apostrophe():
+    q = sirene.create_find_query("l'insolent", "34830", limit=10)
+
+    assert (
+        q.toURLParams()
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:"l\'insolent"~ OR denominationUsuelle1UniteLegale:"l\'insolent"~ OR nomUniteLegale:"l\'insolent"~ OR periode(enseigne1Etablissement:"l\'insolent"~) OR periode(denominationUsuelleEtablissement:"l\'insolent"~))'
+    )
+
+
 def test_extract_etablissement_nom_empty():
     nom = sirene.extract_etablissement_nom({})
 
