@@ -108,7 +108,7 @@ def test_ViewAccessibiliteForm_filled():
     assert list(data.keys()) == [
         "Transports en commun",
         "Stationnement",
-        "Espace et cheminement extérieur",
+        "Cheminement extérieur",
         "Entrée",
         "Accueil",
         "Sanitaires",

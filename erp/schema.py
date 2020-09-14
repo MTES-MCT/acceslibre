@@ -115,8 +115,8 @@ SECTIONS = {
     },
     SECTION_CHEMINEMENT_EXT: {
         "icon": "exterieur-target",
-        "label": "Espace et cheminement extérieur",
-        "description": "Abords extérieurs appartenant à l'établissement (hors voirie)",
+        "label": "Cheminement extérieur",
+        "description": "Cheminement extérieur depuis la voirie jusqu'à l'entrée",
     },
     SECTION_ENTREE: {
         "icon": "entrance",
@@ -237,12 +237,12 @@ FIELDS = {
     # Cheminement extérieur
     "cheminement_ext_presence": {
         "is_a11y": True,
-        "label": "Espace extérieur appartenant à l'établissement",
+        "label": "Cheminement extérieur",
         "help_text": mark_safe(
-            "L'établissement dispose-t-il d'un espace extérieur qui lui appartient&nbsp;?"
+            "L'accès à l'entrée depuis la voirie se fait-il par un cheminement extérieur&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "Cet établissement dispose d'un espace extérieur qui lui appartient"
+            "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur"
         ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
