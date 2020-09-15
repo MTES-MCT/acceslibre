@@ -49,10 +49,10 @@
     {% block fields_content %}{% endblock %}
 
     <p>
-      <button type="submit" class="btn btn-primary">Suivant</button>
       {% if prev_route %}
       <a class="btn btn-link" href="{{ prev_route }}">Précédent</a>
       {% endif %}
+      <button type="submit" class="btn btn-primary">Suivant</button>
     </p>
   </form>
   <script>
