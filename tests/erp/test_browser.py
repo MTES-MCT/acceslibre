@@ -687,3 +687,28 @@ def test_erp_vote_counts(data, client):
 
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 1
     assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
+
+
+def test_accessibilite_history(data, client):
+    accessibilite = Accessibilite.objects.get(erp__slug=data.erp.slug)
+
+    assert 0 == len(accessibilite.get_history())
+
+    client.login(username="niko", password="Abc12345!")
+    response = client.post(
+        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
+        data={"sanitaires_presence": True, "sanitaires_adaptes": 42,},
+    )
+    response = client.post(
+        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
+        data={"sanitaires_presence": False, "sanitaires_adaptes": "",},
+    )
+    accessibilite.refresh_from_db()
+    history = accessibilite.get_history()
+
+    assert 2 == len(history)
+    assert history[0]["user"] == data.niko
+    assert history[0]["diff"] == [
+        {"field": "Sanitaires", "new": False, "old": True},
+        {"field": "Nombre de sanitaires adaptés", "new": None, "old": 42},
+    ]

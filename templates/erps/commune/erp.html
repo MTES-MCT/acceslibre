@@ -233,8 +233,15 @@
         <h3 class="sr-only">Historique des modifications</h3>
         <div class="list-group list-group-flush">
           {% for entry in erp.accessibilite.get_history %}
+          {% if not entry.user and not entry.diff %}
+          <div class="list-group-item list-group-item-action">
+            Création initiale le {{ erp.accessibilite.created_at|date:"j/m/Y à H:i"|lower }}
+          </div>
+          {% else %}
           <details class="list-group-item list-group-item-action">
-            <summary style="outline:none">Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}</summary>
+            <summary style="outline:none">
+              Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
+            </summary>
             {% if entry.diff %}
               <table class="table mt-3 mb-0">
                 <tr>
@@ -252,6 +259,7 @@
               </table>
             {% endif %}
           </details>
+          {% endif %}
           {% endfor %}
         </div>
       </section>
