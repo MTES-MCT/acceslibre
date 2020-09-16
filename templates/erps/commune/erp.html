@@ -185,6 +185,11 @@
   </div>
   {% endif %}
   {% else %}
+  <h3 class="h4 font-weight-normal">Historique</h3>
+  {% for version in erp.accessibilite.get_versions %}
+  <p>{{ version.field_dict }} {{ version.revision.user }} {{ version.revision.date_created }} {{ version.revision.get_comment }}</p>
+  {% endfor %}
+
   <h3 class="h4 font-weight-normal">Accessibilité</h3>
 
   <div class="row">

@@ -365,8 +365,8 @@ def find_sirene_etablissements(name_form):
     return results
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_delete(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
@@ -419,8 +419,8 @@ def contrib_start(request):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_admin_infos(request):
     data = None
     data_error = None
@@ -458,8 +458,8 @@ def contrib_admin_infos(request):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
@@ -480,8 +480,8 @@ def contrib_edit_infos(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_localisation(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
@@ -541,8 +541,8 @@ def process_accessibilite_form(
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_transport(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -555,8 +555,8 @@ def contrib_transport(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_stationnement(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -569,8 +569,8 @@ def contrib_stationnement(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -583,8 +583,8 @@ def contrib_exterieur(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -597,8 +597,8 @@ def contrib_entree(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -611,8 +611,8 @@ def contrib_accueil(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_sanitaires(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -625,8 +625,8 @@ def contrib_sanitaires(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_labellisation(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -639,8 +639,8 @@ def contrib_labellisation(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -653,8 +653,8 @@ def contrib_commentaire(request, erp_slug):
     )
 
 
-@reversion.views.create_revision()
 @login_required
+@reversion.views.create_revision()
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None

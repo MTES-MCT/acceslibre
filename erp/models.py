@@ -15,6 +15,8 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 
+from reversion.models import Version
+
 from . import managers
 from . import schema
 from . import sirene
@@ -993,6 +995,9 @@ class Accessibilite(models.Model):
 
     def __str__(self):
         return "Caractéristiques d'accessibilité de cet ERP"
+
+    def get_versions(self):
+        return Version.objects.get_for_object(self)
 
     def to_debug(self):
         cleaned = dict(
