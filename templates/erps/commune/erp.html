@@ -185,15 +185,6 @@
   </div>
   {% endif %}
   {% else %}
-  <h3 class="h4 font-weight-normal">Historique</h3>
-  <ul>
-  {% for entry in erp.accessibilite.get_history %}
-    <li>modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }} :
-      {{ entry.diff|join:", " }}
-    </li>
-  {% endfor %}
-  </ul>
-
   <h3 class="h4 font-weight-normal">Accessibilité</h3>
 
   <div class="row">
@@ -207,7 +198,13 @@
           <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
         </a>
         {% endfor %}
-        </ul>
+        <a class="nav-link text-nowrap" href="#history"
+          title="Historique des modifications" role="tab" aria-controls="history"
+          aria-selected="false" id="history-tab"
+          data-toggle="tab">
+          <i aria-hidden="true" class="icon icon-clock mr-2"></i>Historique
+        </a>
+      </nav>
     </div>
     <div class="col-md-8 tab-content">
       {% for section, info in accessibilite_data.items %}
@@ -232,6 +229,32 @@
         {% endif %}
       </section>
       {% endfor %}
+      <section class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
+        <h3 class="sr-only">Historique des modifications</h3>
+        <div class="list-group list-group-flush">
+          {% for entry in erp.accessibilite.get_history %}
+          <details class="list-group-item list-group-item-action">
+            <summary style="outline:none">Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}</summary>
+            {% if entry.diff %}
+              <table class="table mt-3 mb-0">
+                <tr>
+                  <th>Champ</th>
+                  <th>Ancienne valeur</th>
+                  <th>Nouvelle valeur</th>
+                </tr>
+                {% for field in entry.diff %}
+                <tr>
+                  <td style="">{{ field.field }}</td>
+                  <td class="text-danger">{{ field.old|default_if_none:"Aucune" }}</td>
+                  <td class="text-success">{{ field.new }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            {% endif %}
+          </details>
+          {% endfor %}
+        </div>
+      </section>
     </div>
   </div>
   {% endif %}

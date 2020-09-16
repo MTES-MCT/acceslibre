@@ -27,11 +27,12 @@ FULLTEXT_CONFIG = "french_unaccent"
 models.CharField.register_lookup(Lower)
 
 
-def dict_diff_keys(a, b):
+def dict_diff_keys(old, new):
     diff = []
-    for key, val in a.items():
-        if b.get(key) != val:
-            diff.append(key)
+    for key, oldval in old.items():
+        newval = new.get(key)
+        if newval != oldval:
+            diff.append({"field": key, "old": oldval, "new": newval})
     return diff
 
 
@@ -40,15 +41,15 @@ def _get_history(versions):
     current_fields_dict = {}
     versions_reversed = versions.reverse()
     for version in versions_reversed:
+        diff = dict_diff_keys(current_fields_dict, version.field_dict)
+        for entry in diff:
+            entry["field"] = schema.get_label(entry["field"])
         history.append(
             {
                 "user": version.revision.user,
                 "date": version.revision.date_created,
                 "comment": version.revision.get_comment(),
-                "diff": [
-                    schema.get_label(f)
-                    for f in dict_diff_keys(current_fields_dict, version.field_dict)
-                ],
+                "diff": diff,
             }
         )
         current_fields_dict = version.field_dict
