@@ -116,14 +116,13 @@
       <small style="font-size:.9em">Ces informations sont-elles fiables&nbsp;?</small>
       <span class="text-nowrap">
         {% csrf_token %}
-        <button type="submit" name="action" value="UP" arial-label="Oui" title="Oui"
+        <button type="submit" name="action" value="UP" title="Oui"
           class="btn btn-sm btn-light"{% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% endif %}>
-          <i aria-hidden="true"
-            class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
+          <i aria-hidden="true" class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
           <small><span class="sr-only">Votes positifs: </span>{{ erp.count_positives|default_if_none:"0" }}</small>
         </button>
         {% if user.is_authenticated and user_vote and user_vote.value == -1 %}
-        <button type="submit" name="action" value="DOWN" arial-label="Non" title="Non" class="btn btn-sm btn-light">
+        <button type="submit" name="action" value="DOWN" title="Non" class="btn btn-sm btn-light">
           <i aria-hidden="true" class="icon icon-downvote text-primary"></i>
           <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
         </button>
@@ -288,7 +287,7 @@
                 src="{% static "/img/activites/png/" %}{{ nearest_erp.get_activite_icon }}.n.16.png">
               <a href="{{ nearest_erp.get_absolute_url }}">{{ nearest_erp.nom }}</a>
             </h4>
-            <adress class="mt-auto"><small class="text-muted"><em>{{ nearest_erp.adresse }}</em></small></adress>
+            <address class="mt-auto"><small class="text-muted"><em>{{ nearest_erp.adresse }}</em></small></address>
           </div>
         </div>
       </div>
