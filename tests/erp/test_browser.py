@@ -706,7 +706,7 @@ def test_accessibilite_history(data, client):
     accessibilite.refresh_from_db()
     history = accessibilite.get_history()
 
-    assert 2 == len(history)
+    assert 1 == len(history)
     assert history[0]["user"] == data.niko
     assert history[0]["diff"] == [
         {"field": "Sanitaires", "new": False, "old": True},

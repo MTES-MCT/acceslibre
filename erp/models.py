@@ -39,8 +39,7 @@ def dict_diff_keys(old, new):
 def _get_history(versions):
     history = []
     current_fields_dict = {}
-    versions_reversed = versions.reverse()
-    for version in versions_reversed:
+    for version in versions:
         diff = dict_diff_keys(current_fields_dict, version.field_dict)
         for entry in diff:
             entry["field"] = schema.get_label(entry["field"])
@@ -54,7 +53,7 @@ def _get_history(versions):
         )
         current_fields_dict = version.field_dict
     history.reverse()
-    return history
+    return list(filter(lambda x: x["diff"] != [], history))
 
 
 class Activite(models.Model):
@@ -621,6 +620,8 @@ class StatusCheck(models.Model):
     ignore_duplicates=True, exclude=["id", "erp_id", "created_at", "updated_at"],
 )
 class Accessibilite(models.Model):
+    HISTORY_MAX_LATEST_ITEMS = 25
+
     class Meta:
         verbose_name = "Accessibilité"
         verbose_name_plural = "Accessibilité"
@@ -1034,7 +1035,18 @@ class Accessibilite(models.Model):
         return _get_history(self.get_versions())
 
     def get_versions(self):
-        return Version.objects.get_for_object(self).select_related("revision__user")
+        # take the last n revisions
+        qs = (
+            Version.objects.get_for_object(self)
+            .select_related("revision__user")
+            .order_by("-revision__date_created")[: self.HISTORY_MAX_LATEST_ITEMS + 1]
+        )
+
+        # make it a list, so it's reversable
+        versions = list(qs)
+        # reorder the slice by date_created ASC
+        versions.reverse()
+        return versions
 
     def to_debug(self):
         cleaned = dict(

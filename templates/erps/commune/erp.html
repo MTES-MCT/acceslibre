@@ -233,17 +233,12 @@
         <h3 class="sr-only">Historique des modifications</h3>
         <div class="list-group list-group-flush">
           {% for entry in erp.accessibilite.get_history %}
-          {% if not entry.user and not entry.diff %}
-          <div class="list-group-item list-group-item-action">
-            Création initiale le {{ erp.accessibilite.created_at|date:"j/m/Y à H:i"|lower }}
-          </div>
-          {% else %}
           <details class="list-group-item list-group-item-action">
             <summary style="outline:none">
               Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
             </summary>
             {% if entry.diff %}
-              <table class="table mt-3 mb-0">
+              <table class="table table-sm table-striped mt-3 mb-0">
                 <tr>
                   <th>Champ</th>
                   <th>Ancienne valeur</th>
@@ -251,7 +246,7 @@
                 </tr>
                 {% for field in entry.diff %}
                 <tr>
-                  <td style="">{{ field.field }}</td>
+                  <td>{{ field.field }}</td>
                   <td class="text-danger">{{ field.old|default_if_none:"Aucune" }}</td>
                   <td class="text-success">{{ field.new }}</td>
                 </tr>
@@ -259,7 +254,11 @@
               </table>
             {% endif %}
           </details>
-          {% endif %}
+          {% empty %}
+          <p class="alert alert-info">
+            <i aria-hidden="true" class="icon icon-info-circled"></i>
+            Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
+          </p>
           {% endfor %}
         </div>
       </section>
