@@ -186,9 +186,13 @@
   {% endif %}
   {% else %}
   <h3 class="h4 font-weight-normal">Historique</h3>
-  {% for version in erp.accessibilite.get_versions %}
-  <p>{{ version.field_dict }} {{ version.revision.user }} {{ version.revision.date_created }} {{ version.revision.get_comment }}</p>
+  <ul>
+  {% for entry in erp.accessibilite.get_history %}
+    <li>modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }} :
+      {{ entry.diff|join:", " }}
+    </li>
   {% endfor %}
+  </ul>
 
   <h3 class="h4 font-weight-normal">Accessibilité</h3>
 

@@ -27,6 +27,35 @@ FULLTEXT_CONFIG = "french_unaccent"
 models.CharField.register_lookup(Lower)
 
 
+def dict_diff_keys(a, b):
+    diff = []
+    for key, val in a.items():
+        if b.get(key) != val:
+            diff.append(key)
+    return diff
+
+
+def _get_history(versions):
+    history = []
+    current_fields_dict = {}
+    versions_reversed = versions.reverse()
+    for version in versions_reversed:
+        history.append(
+            {
+                "user": version.revision.user,
+                "date": version.revision.date_created,
+                "comment": version.revision.get_comment(),
+                "diff": [
+                    schema.get_label(f)
+                    for f in dict_diff_keys(current_fields_dict, version.field_dict)
+                ],
+            }
+        )
+        current_fields_dict = version.field_dict
+    history.reverse()
+    return history
+
+
 class Activite(models.Model):
     class Meta:
         ordering = ("nom",)
@@ -217,7 +246,9 @@ class Vote(models.Model):
         return f"Vote {self.value} de {self.user.username} pour {self.erp.nom}"
 
 
-@reversion.register()
+@reversion.register(
+    ignore_duplicates=True, exclude=["id", "created_at", "updated_at", "search_vector"]
+)
 class Erp(models.Model):
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
@@ -585,7 +616,9 @@ class StatusCheck(models.Model):
     )
 
 
-@reversion.register()
+@reversion.register(
+    ignore_duplicates=True, exclude=["id", "erp_id", "created_at", "updated_at"],
+)
 class Accessibilite(models.Model):
     class Meta:
         verbose_name = "Accessibilité"
@@ -996,8 +1029,11 @@ class Accessibilite(models.Model):
     def __str__(self):
         return "Caractéristiques d'accessibilité de cet ERP"
 
+    def get_history(self):
+        return _get_history(self.get_versions())
+
     def get_versions(self):
-        return Version.objects.get_for_object(self)
+        return Version.objects.get_for_object(self).select_related("revision__user")
 
     def to_debug(self):
         cleaned = dict(
