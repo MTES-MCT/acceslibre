@@ -709,6 +709,16 @@ def test_accessibilite_history(data, client):
     assert 1 == len(history)
     assert history[0]["user"] == data.niko
     assert history[0]["diff"] == [
-        {"field": "Sanitaires", "new": False, "old": True},
-        {"field": "Nombre de sanitaires adaptés", "new": None, "old": 42},
+        {
+            "field": "sanitaires_presence",
+            "label": "Sanitaires",
+            "new": False,
+            "old": True,
+        },
+        {
+            "field": "sanitaires_adaptes",
+            "label": "Nombre de sanitaires adaptés",
+            "new": None,
+            "old": 42,
+        },
     ]

@@ -42,7 +42,7 @@ def _get_history(versions):
     for version in versions:
         diff = dict_diff_keys(current_fields_dict, version.field_dict)
         for entry in diff:
-            entry["field"] = schema.get_label(entry["field"])
+            entry["label"] = schema.get_label(entry["field"])
         history.append(
             {
                 "user": version.revision.user,

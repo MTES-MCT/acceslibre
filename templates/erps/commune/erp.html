@@ -246,9 +246,13 @@
                 </tr>
                 {% for field in entry.diff %}
                 <tr>
-                  <td>{{ field.field }}</td>
-                  <td class="text-danger">{{ field.old|default_if_none:"Aucune" }}</td>
-                  <td class="text-success">{{ field.new }}</td>
+                  <td>{{ field.label }}</td>
+                  <td class="text-danger">
+                    {% include "fields/diff_value.html" with name=field.field value=field.old %}
+                  </td>
+                  <td class="text-success">
+                    {% include "fields/diff_value.html" with name=field.field value=field.new %}
+                  </td>
                 </tr>
                 {% endfor %}
               </table>

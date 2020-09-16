@@ -76,6 +76,16 @@ def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")
 
 
+@register.filter("isemptylist")
+def isemptylist(value):
+    return value == []
+
+
+@register.filter("isnonemptylist")
+def isnonemptylist(value):
+    return isinstance(value, list) and len(value) > 0
+
+
 @register.filter("startswith")
 def startswith(value, starts):
     if isinstance(value, str):
