@@ -231,7 +231,7 @@
       <section class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
         <h3 class="sr-only">Historique des modifications</h3>
         <div class="list-group list-group-flush">
-          {% for entry in erp.accessibilite.get_history %}
+          {% for entry in erp.get_history %}
           <details class="list-group-item list-group-item-action">
             <summary style="outline:none">
               Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}

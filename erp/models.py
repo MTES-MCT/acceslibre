@@ -4,6 +4,7 @@ import reversion
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
+from django.contrib.gis.geos import Point
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
@@ -31,6 +32,11 @@ def dict_diff_keys(old, new):
     diff = []
     for key, oldval in old.items():
         newval = new.get(key)
+        # Convert points to tuples of float to avoid GEOS ParseException
+        if isinstance(oldval, Point):
+            oldval = oldval.coords
+        if isinstance(newval, Point):
+            newval = newval.coords
         if newval != oldval:
             diff.append({"field": key, "old": oldval, "new": newval})
     return diff
@@ -42,7 +48,7 @@ def _get_history(versions):
     for version in versions:
         diff = dict_diff_keys(current_fields_dict, version.field_dict)
         for entry in diff:
-            entry["label"] = schema.get_label(entry["field"])
+            entry["label"] = schema.get_label(entry["field"], entry["field"])
         history.append(
             {
                 "user": version.revision.user,
@@ -247,9 +253,11 @@ class Vote(models.Model):
 
 
 @reversion.register(
-    ignore_duplicates=True, exclude=["id", "created_at", "updated_at", "search_vector"]
+    ignore_duplicates=True, exclude=["id", "created_at", "updated_at", "search_vector"],
 )
 class Erp(models.Model):
+    HISTORY_MAX_LATEST_ITEMS = 25
+
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
     SOURCE_PUBLIC = "public"
@@ -419,6 +427,28 @@ class Erp(models.Model):
         if self.activite and self.activite.icon:
             return self.activite.icon
         return default
+
+    def get_history(self):
+        "Combines erp and related accessibilite histories."
+        erp_history = _get_history(self.get_versions())
+        accessibilite_history = self.accessibilite.get_history()
+        global_history = erp_history + accessibilite_history
+        global_history.sort(key=lambda x: x["date"], reverse=True)
+        return global_history
+
+    def get_versions(self):
+        # take the last n revisions
+        qs = (
+            Version.objects.get_for_object(self)
+            .select_related("revision__user")
+            .order_by("-revision__date_created")[: self.HISTORY_MAX_LATEST_ITEMS + 1]
+        )
+
+        # make it a list, so it's reversable
+        versions = list(qs)
+        # reorder the slice by date_created ASC
+        versions.reverse()
+        return versions
 
     def editable_by(self, user):
         if not user.is_active:
