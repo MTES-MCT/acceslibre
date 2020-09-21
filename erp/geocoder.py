@@ -17,7 +17,6 @@ def geocode(adresse):
     # retrieve geolocoder data
     try:
         data = query({"q": adresse, "limit": 1})
-        print("here")
         feature = data["features"][0]
         # print(json.dumps(data, indent=2))
         properties = feature["properties"]

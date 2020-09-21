@@ -33,6 +33,7 @@ def data(db):
     obj_jacou = Commune.objects.create(
         nom="Jacou",
         code_postaux=["34830"],
+        code_insee="34120",
         departement="34",
         geom=Point((3.9047933, 43.6648217)),
     )

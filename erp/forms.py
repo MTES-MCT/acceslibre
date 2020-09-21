@@ -1,11 +1,12 @@
 import requests
 
 from django import forms
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import widgets
-from django.conf import settings
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from django_registration.forms import RegistrationFormUniqueEmail
@@ -134,6 +135,15 @@ class BaseErpForm(forms.ModelForm):
         except KeyError:
             return True
 
+    def format_error(self, message):
+        signalement_url = reverse("contact_topic", kwargs={"topic": "support"})
+        return mark_safe(
+            f'{message}. Veuillez vérifier votre saisie ou <a href="{signalement_url}" target="_blank">signaler une erreur</a>.'
+        )
+
+    def raise_validation_error(self, field, message):
+        raise ValidationError({field: self.format_error(message)})
+
     def geocode(self):
         adresse = self.get_adresse()
         locdata = None
@@ -143,31 +153,29 @@ class BaseErpForm(forms.ModelForm):
             raise ValidationError(err)
 
         if not locdata or locdata.get("geom") is None:
-            raise ValidationError(
-                {
-                    "voie": f"Adresse non localisable : {adresse}. "
-                    "Veuillez vérifier votre saisie ou contacter un administrateur."
-                }
+            self.raise_validation_error(
+                "voie", self.format_error(f"Adresse non localisable : {adresse}")
             )
         if (
             self.cleaned_data["code_postal"]
             and self.cleaned_data["code_postal"] != locdata["code_postal"]
         ):
-            raise ValidationError(
-                {
-                    "code_postal": f"Cette adresse n'est pas localisable au code postal {self.cleaned_data['code_postal']}. "
-                    "Veuillez vérifier votre saisie ou contacter un administrateur."
-                }
+            self.raise_validation_error(
+                "code_postal",
+                f"Cette adresse n'est pas localisable au code postal {self.cleaned_data['code_postal']}",
             )
         if (
             self.cleaned_data.get("code_insee")
             and self.cleaned_data["code_insee"] != locdata["code_insee"]
         ):
-            raise ValidationError(
-                {
-                    "code_insee": f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}. "
-                    "Veuillez vérifier votre saisie ou contacter un administrateur."
-                }
+            self.raise_validation_error(
+                "code_insee",
+                f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}",
+            )
+        if self.cleaned_data.get("numero") and not locdata["numero"]:
+            self.raise_validation_error(
+                "numero",
+                f"Le numéro {self.cleaned_data.get('numero')} n'a pu être trouvé dans cette voie",
             )
         self.cleaned_data["geom"] = locdata["geom"]
         self.cleaned_data["numero"] = locdata["numero"]
