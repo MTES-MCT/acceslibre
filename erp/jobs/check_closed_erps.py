@@ -26,11 +26,7 @@ def send_report(closed_erps):
     )
 
 
-def job(*args, **kwargs):
-    def log(msg):
-        if kwargs.get("verbose", False):
-            print(msg)
-
+def get_closed_erps(log):
     closed_erps = []
     erps_to_check = (
         Erp.objects.published().filter(siret__isnull=False).order_by("updated_at")
@@ -60,5 +56,17 @@ def job(*args, **kwargs):
         else:
             log(f"[PASS] {erp.nom} is active")
         time.sleep(SIRENE_API_SLEEP)
-    log("[DONE] Check complete, sending report.")
-    send_report(closed_erps)
+    return closed_erps
+
+
+def job(*args, **kwargs):
+    def log(msg):
+        if kwargs.get("verbose", False):
+            print(msg)
+
+    closed_erps = get_closed_erps(log)
+    if len(closed_erps) > 0:
+        log("[DONE] Check complete, sending a report.")
+        send_report(closed_erps)
+    else:
+        log("[DONE] Check complete, no reports to send.")

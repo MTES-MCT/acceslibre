@@ -34,6 +34,4 @@ def test_check_no_closed_erps_job(data, capsys, mocker):
 
     check_closed_erps.job(verbose=True)
 
-    assert len(mail.outbox) == 1
-    assert "Rapport quotidien" in mail.outbox[0].subject
-    assert "Aucun établissement" in mail.outbox[0].body
+    assert len(mail.outbox) == 0
