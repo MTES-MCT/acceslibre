@@ -480,10 +480,20 @@ class VoteAdmin(admin.ModelAdmin):
         "erp__commune_ext__nom",
         "user__username",
     )
+    readonly_fields = [
+        "erp",
+        "user",
+        "value",
+        "comment",
+        "created_at",
+        "updated_at",
+    ]
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related("erp", "erp__commune_ext")
+        queryset = queryset.select_related("erp__activite", "user").prefetch_related(
+            "erp", "erp__commune_ext"
+        )
         return queryset
 
     def get_bool_vote(self, obj):
@@ -493,7 +503,7 @@ class VoteAdmin(admin.ModelAdmin):
     get_bool_vote.short_description = "Positif"
 
     def get_erp_activite(self, obj):
-        return obj.erp.activite.nom
+        return obj.erp.activite.nom if obj.erp.activite else "-"
 
     get_erp_activite.admin_order_field = "activite"
     get_erp_activite.short_description = "Activité"
