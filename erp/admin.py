@@ -271,11 +271,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     actions = ["assign_activite", "publish", "unpublish"]
     inlines = [AccessibiliteInline]
     list_display = (
-        "nom",
-        "iconized_activite",
-        "voie_ou_lieu_dit",
-        "code_postal",
-        "commune",
+        "get_nom",
         "published",
         "geolocalise",
         "renseignee",
@@ -355,6 +351,19 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         ("Contact", {"fields": ["telephone", "site_internet", "contact_email"],},),
     ]
 
+    def get_nom(self, obj):
+        icon = ""
+        if obj.activite:
+            icon = mark_safe(
+                f'<img src="/static/img/activites/png/{obj.get_activite_icon()}.p.16.png" style="margin-bottom:5px"> {obj.activite.nom} &raquo;'
+            )
+        edit_url = reverse("admin:erp_erp_change", kwargs={"object_id": obj.pk})
+        return mark_safe(
+            f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>'
+        )
+
+    get_nom.short_description = "Établissement"
+
     def assign_activite(self, request, queryset):
         if "apply" in request.POST:
             try:
@@ -371,13 +380,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         )
 
     assign_activite.short_description = "Assigner une nouvelle catégorie"
-
-    def iconized_activite(self, obj):
-        if not obj.activite:
-            return
-        return mark_safe(
-            f'<img src="/static/img/activites/png/{obj.get_activite_icon()}.p.16.png" style="margin-bottom:5px"> {obj.activite.nom}'
-        )
 
     def geolocalise(self, instance):
         return instance.geom is not None
