@@ -223,6 +223,38 @@ class ErpUserFilter(admin.SimpleListFilter):
         return queryset
 
 
+class ErpOnlineFilter(admin.SimpleListFilter):
+    title = "En ligne"
+    parameter_name = "online"
+
+    def lookups(self, request, model_admin):
+        return [(True, "Oui"), (False, "Non")]
+
+    def queryset(self, request, queryset):
+        if self.value() == "True":
+            queryset = queryset.published()
+            print("job done")
+        elif self.value() == "False":
+            queryset = queryset.not_published()
+        return queryset
+
+
+class ErpRenseigneFilter(admin.SimpleListFilter):
+    title = "Renseigné"
+    parameter_name = "renseigne"
+
+    def lookups(self, request, model_admin):
+        return [(True, "Oui"), (False, "Non")]
+
+    def queryset(self, request, queryset):
+        if self.value() == "True":
+            queryset = queryset.filter(accessibilite__isnull=False)
+            print("job done")
+        elif self.value() == "False":
+            queryset = queryset.filter(accessibilite__isnull=True)
+        return queryset
+
+
 @admin.register(Erp)
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     class Media:
@@ -263,6 +295,10 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         "user_type",
         CommuneFilter,
         "source",
+        ("activite", RelatedDropdownFilter),
+        ErpOnlineFilter,
+        "published",
+        ErpRenseigneFilter,
         "created_at",
         "updated_at",
     ]
