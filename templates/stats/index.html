@@ -7,6 +7,17 @@
   <div class="card-columns">
     <div class="card">
       <div class="card-body text-center">
+        <h3 class="display-2">
+          <strong>{{ north_star.positive }}<small class="text-muted">/{{ north_star.total }}</small></strong>
+        </h3>
+        <p class="card-text">
+          fiche{{ north_star.positive|pluralize:"s" }}
+          évaluée{{ north_star.positive|pluralize:"s" }} positivement
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body text-center">
         <h3 class="display-2"><strong>{{ nb_filled_erps }}</strong></h3>
         <p class="card-text">fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}</p>
       </div>

@@ -99,6 +99,28 @@ def test_urls_ok(data, url, client):
 @pytest.mark.parametrize(
     "url",
     [
+        reverse("admin:index"),
+        reverse("admin:admin_logentry_changelist"),
+        reverse("admin:auth_group_changelist"),
+        reverse("admin:auth_user_changelist"),
+        reverse("admin:contact_message_changelist"),
+        reverse("admin:erp_activite_changelist"),
+        reverse("admin:erp_commune_changelist"),
+        reverse("admin:erp_erp_changelist"),
+        reverse("admin:erp_label_changelist"),
+        reverse("admin:erp_statuscheck_changelist"),
+        reverse("admin:erp_vote_changelist"),
+    ],
+)
+def test_admin_urls_ok(data, url, client):
+    client.login(username="admin", password="Abc12345!")
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
         reverse("commune", kwargs=dict(commune="invalid")),
         reverse(
             "commune_activite", kwargs=dict(commune="invalid", activite_slug="invalid")
