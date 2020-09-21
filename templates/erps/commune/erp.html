@@ -207,7 +207,7 @@
     </div>
     <div class="col-md-8 tab-content">
       {% for section, info in accessibilite_data.items %}
-      <section class="tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
+      <section class="a4a-tab-content-section tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
         aria-labelledby="{{ info.tabid }}-tab">
         {% if info.fields %}
         <h3 class="sr-only">{{ info.description }}</h3>
