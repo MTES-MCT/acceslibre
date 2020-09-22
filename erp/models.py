@@ -742,7 +742,7 @@ class Accessibilite(models.Model):
     cheminement_ext_reperage_marches = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        choices=schema.NULLABLE_OR_NA_BOOLEAN_CHOICES,
         verbose_name="Repérage des marches ou de l’escalier",
     )
     # Main courante - oui / non / inconnu / sans objet
