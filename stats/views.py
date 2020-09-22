@@ -19,13 +19,18 @@ class StatsView(TemplateView):
         erp_qs = Erp.objects.published()
         vote_qs = Vote.objects
 
+        positive = vote_qs.filter(value=1).count()
+        total = vote_qs.count()
+        percent = (positive / total * 100) if total > 0 else 100
+
         context["north_star"] = {
-            "positive": vote_qs.filter(value=1).count(),
-            "total": vote_qs.count(),
+            "positive": positive,
+            "total": total,
+            "percent": percent,
         }
         context["nb_published_erps"] = erp_qs.count()
         context["nb_filled_erps"] = erp_qs.having_an_accessibilite().count()
-        context["communes"] = Commune.objects.erp_stats()[:10]
+        context["communes"] = Commune.objects.erp_stats()[:12]
         context["nb_contributors"] = self.get_nb_contributors()
 
         return context
