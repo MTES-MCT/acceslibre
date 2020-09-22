@@ -86,30 +86,33 @@
   <div class="card shadow-sm my-3">
     <div class="card-header">Évolution du nombre d'évaluations</div>
     <div class="card-body">
-      <canvas id="voteChart" width="100%" height="25"></canvas>
+      <canvas id="voteChart" width="100%" height="250"></canvas>
       <script>
       var voteChart = new Chart("voteChart", {
-        "type": "line",
-        "data": {
-          "labels": {{ votes_histogram_labels|safe }},
-          "datasets": [
+        type: "line",
+        data: {
+          labels: {{ votes_histogram_labels|safe }},
+          datasets: [
             {
-              "label":"Ensemble des évaluations",
-              "data": {{ votes_histogram_totals|safe }},
-              "fill": false,
-              "borderColor": "#075ea2",
-              "lineTension": 0.1
+              label: "Ensemble des évaluations",
+              data: {{ votes_histogram_totals|safe }},
+              fill: false,
+              borderColor: "#075ea2",
+              lineTension: 0.1
             },
             {
-              "label":"Évaluations positives",
-              "data": {{ votes_histogram_positives|safe }},
-              "fill": false,
-              "borderColor": "#167d2e",
-              "lineTension": 0.1
+              label: "Évaluations positives",
+              data: {{ votes_histogram_positives|safe }},
+              fill: false,
+              borderColor: "#167d2e",
+              lineTension: 0.1
             }
           ]
         },
-        "options":{}
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
       });
       </script>
     </div>
