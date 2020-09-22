@@ -2,6 +2,14 @@
 
 {% block page_title %}Statistiques{% endblock%}
 
+{% block stylesheet_extras %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" crossorigin="">
+{% endblock %}
+
+{% block javascript_extras %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+{% endblock %}
+
 {% block editorial_content %}
   <h2 class="my-3">Statistiques</h2>
   <div class="card-deck">
@@ -73,6 +81,37 @@
         {% endfor %}
         </ol>
       </div>
+    </div>
+  </div>
+  <div class="card shadow-sm my-3">
+    <div class="card-header">Évolution du nombre d'évaluations</div>
+    <div class="card-body">
+      <canvas id="voteChart" width="100%" height="25"></canvas>
+      <script>
+      var voteChart = new Chart("voteChart", {
+        "type": "line",
+        "data": {
+          "labels": {{ votes_histogram_labels|safe }},
+          "datasets": [
+            {
+              "label":"Ensemble des évaluations",
+              "data": {{ votes_histogram_totals|safe }},
+              "fill": false,
+              "borderColor": "#075ea2",
+              "lineTension": 0.1
+            },
+            {
+              "label":"Évaluations positives",
+              "data": {{ votes_histogram_positives|safe }},
+              "fill": false,
+              "borderColor": "#167d2e",
+              "lineTension": 0.1
+            }
+          ]
+        },
+        "options":{}
+      });
+      </script>
     </div>
   </div>
   <h2 class="my-3">Fréquentation</h2>
