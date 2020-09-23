@@ -11,6 +11,12 @@ from erp.models import Commune, Erp, Vote
 class StatsView(TemplateView):
     template_name = "stats/index.html"
 
+    def get_date_range(self):
+        base = timezone.now()
+        lst = [base - datetime.timedelta(days=x) for x in range(30)]
+        lst.reverse()
+        return lst
+
     def get_nb_contributors(self):
         return (
             Erp.objects.filter(accessibilite__isnull=False)
@@ -63,11 +69,36 @@ class StatsView(TemplateView):
             "positives": positives,
         }
 
-    def get_date_range(self):
-        base = timezone.now()
-        lst = [base - datetime.timedelta(days=x) for x in range(30)]
-        lst.reverse()
-        return lst
+    def get_erp_counts_histogram(self):
+        # YES, this performs one COUNT query per day in a range of 30 days
+        # (so 30 queries), but I think this is just fine for now.
+        labels = []
+        totals = []
+        for date in self.get_date_range():
+            labels.append(date.strftime("%Y-%m-%d"))
+            totals.append(Erp.objects.published().filter(created_at__lt=date).count())
+        return {
+            "labels": labels,
+            "totals": totals,
+        }
+
+    def get_contributors_histogram(self):
+        # YES, this performs one COUNT query per day in a range of 30 days
+        # (so 30 queries), but I think this is just fine for now.
+        labels = []
+        totals = []
+        for date in self.get_date_range():
+            labels.append(date.strftime("%Y-%m-%d"))
+            totals.append(
+                Erp.objects.filter(accessibilite__isnull=False, created_at__lte=date)
+                .order_by("user")
+                .distinct("user")
+                .count()
+            )
+        return {
+            "labels": labels,
+            "totals": totals,
+        }
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -80,5 +111,7 @@ class StatsView(TemplateView):
         context["top_contributors"] = self.get_top_contributors()
         context["top_voters"] = self.get_top_voters()
         context["votes_histogram"] = self.get_votes_histogram()
+        context["erp_counts_histogram"] = self.get_erp_counts_histogram()
+        context["contributors_histogram"] = self.get_contributors_histogram()
 
         return context

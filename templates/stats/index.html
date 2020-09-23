@@ -81,6 +81,64 @@
     </div>
   </div>
 
+  <div class="card-group">
+    <div class="card shadow-sm my-3">
+      <div class="card-header">
+        Évolution du nombre de contributeurs <small class="text-muted">sur les 30 derniers jours</small>
+      </div>
+      <div class="card-body p-2">
+        <canvas id="contributorsChart" width="100%" height="250"></canvas>
+        <script>
+        var contributorsChart = new Chart("contributorsChart", {
+          type: "bar",
+          data: {
+            labels: {{ contributors_histogram.labels|safe }},
+            datasets: [
+              {
+                label: "Nombre de contributeurs",
+                data: {{ contributors_histogram.totals|escapejs }},
+                backgroundColor: "#075ea2",
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
+        });
+        </script>
+      </div>
+    </div>
+
+    <div class="card shadow-sm my-3">
+      <div class="card-header">
+        Évolution du nombre d'établissements renseignés <small class="text-muted">sur les 30 derniers jours</small>
+      </div>
+      <div class="card-body p-2">
+        <canvas id="erpCountChart" width="100%" height="250"></canvas>
+        <script>
+        var erpCountChart = new Chart("erpCountChart", {
+          type: "bar",
+          data: {
+            labels: {{ erp_counts_histogram.labels|safe }},
+            datasets: [
+              {
+                label: "Nombre d'établissements renseignés et publiés",
+                data: {{ erp_counts_histogram.totals|escapejs }},
+                backgroundColor: "#075ea2",
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
+        });
+        </script>
+      </div>
+    </div>
+  </div>
+
   <div class="card-deck mt-3">
     <div class="card shadow-sm">
       <div class="card-header">Top évaluateurs</div>
