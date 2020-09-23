@@ -12,6 +12,7 @@
 
 {% block editorial_content %}
   <h2 class="my-3">Statistiques</h2>
+
   <div class="card-deck">
     <div class="card shadow-sm">
       <div class="card-body text-center">
@@ -42,6 +43,44 @@
       </div>
     </div>
   </div>
+
+  <div class="card shadow-sm my-3">
+    <div class="card-header">
+      Évolution du nombre d'évaluations <small class="text-muted">sur les 30 derniers jours</small>
+    </div>
+    <div class="card-body">
+      <canvas id="voteChart" width="100%" height="250"></canvas>
+      <script>
+      var voteChart = new Chart("voteChart", {
+        type: "line",
+        data: {
+          labels: {{ votes_histogram.labels|safe }},
+          datasets: [
+            {
+              label: "Ensemble des évaluations",
+              data: {{ votes_histogram.totals|escapejs }},
+              fill: false,
+              borderColor: "#075ea2",
+              lineTension: 0.1
+            },
+            {
+              label: "Évaluations positives",
+              data: {{ votes_histogram.positives|escapejs }},
+              fill: false,
+              borderColor: "#167d2e",
+              lineTension: 0.1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+      </script>
+    </div>
+  </div>
+
   <div class="card-deck mt-3">
     <div class="card shadow-sm">
       <div class="card-header">Top évaluateurs</div>
@@ -62,7 +101,7 @@
         <ol class="mb-0">
         {% for commune in communes %}
           <li>
-            <strong>{{ commune.nom }}</strong>
+            <strong><a href="{% url "commune" commune=commune.slug %}">{{ commune.nom }}</a></strong>
             <small class="text-muted">({{ commune.erp_access_count }} fiche{{ commune.erp_access_count|pluralize:"s" }})</small>
           </li>
         {% endfor %}
@@ -83,41 +122,9 @@
       </div>
     </div>
   </div>
-  <div class="card shadow-sm my-3">
-    <div class="card-header">Évolution du nombre d'évaluations</div>
-    <div class="card-body">
-      <canvas id="voteChart" width="100%" height="250"></canvas>
-      <script>
-      var voteChart = new Chart("voteChart", {
-        type: "line",
-        data: {
-          labels: {{ votes_histogram_labels|safe }},
-          datasets: [
-            {
-              label: "Ensemble des évaluations",
-              data: {{ votes_histogram_totals|safe }},
-              fill: false,
-              borderColor: "#075ea2",
-              lineTension: 0.1
-            },
-            {
-              label: "Évaluations positives",
-              data: {{ votes_histogram_positives|safe }},
-              fill: false,
-              borderColor: "#167d2e",
-              lineTension: 0.1
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false
-        }
-      });
-      </script>
-    </div>
-  </div>
+
   <h2 class="my-3">Fréquentation</h2>
+
   <div id="widgetIframe">
     <iframe width="100%" height="300" style="overflow:hidden" src="https://stats.data.gouv.fr/index.php?module=Widgetize&action=iframe&forceView=1&viewDataTable=graphEvolution&disableLink=0&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=getEvolutionGraph&idSite=118&period=day&date=yesterday&disableLink=1&widget=1"
       scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
