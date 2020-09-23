@@ -1,11 +1,25 @@
 import datetime
 
 from django.contrib.auth import get_user_model
+from django.db import connection
 from django.db.models import Count
 from django.utils import timezone
 from django.views.generic import TemplateView
 
 from erp.models import Commune, Erp, Vote
+
+
+def dictfetchall(cursor):
+    "Return all rows from a cursor as a dict"
+    # https://docs.djangoproject.com/en/3.1/topics/db/sql/#executing-custom-sql-directly
+    columns = [col[0] for col in cursor.description]
+    return [dict(zip(columns, row)) for row in cursor.fetchall()]
+
+
+def run_sql(sql):
+    with connection.cursor() as cursor:
+        cursor.execute(sql)
+        return dictfetchall(cursor)
 
 
 class StatsView(TemplateView):
@@ -18,12 +32,14 @@ class StatsView(TemplateView):
         return lst
 
     def get_nb_contributors(self):
-        return (
-            Erp.objects.filter(accessibilite__isnull=False)
-            .order_by("user")
-            .distinct("user")
-            .count()
-        )
+        return run_sql(
+            """--sql
+            select count(distinct e.user_id)
+            from erp_erp e
+            left join erp_accessibilite a on a.erp_id = e.id
+            where e.geom is not null and a.id is not null;
+            """
+        )[0].get("count", 0)
 
     def get_top_contributors(self):
         return (
@@ -45,7 +61,7 @@ class StatsView(TemplateView):
         vote_qs = Vote.objects
         positive = vote_qs.filter(value=1).count()
         total = vote_qs.count()
-        percent = (positive / total * 100) if total > 0 else 100
+        percent = (positive / total * 100) if total != 0 else 100
         return {
             "positive": positive,
             "total": total,
@@ -53,51 +69,73 @@ class StatsView(TemplateView):
         }
 
     def get_votes_histogram(self):
-        # YES, this performs one COUNT query per day in a range of 30 days
-        # (so 30 queries), but I think this is just fine for now.
-        labels = []
-        totals = []
-        positives = []
-        for date in self.get_date_range():
-            labels.append(date.strftime("%Y-%m-%d"))
-            votes = Vote.objects.filter(created_at__lt=date)
-            totals.append(len(votes))
-            positives.append(len([1 for v in votes if v.value == 1]))
+        results = run_sql(
+            """--sql
+            select
+                count(erp_vote.id) as total,
+                count(erp_vote.id) filter (where erp_vote.value = 1) as positive,
+                date
+            from
+                erp_vote,
+                generate_series(current_date - interval '30 day', current_date, interval '1 day') as date
+            where erp_vote.created_at <= date
+            group by date
+            order by date ASC;
+            """
+        )
         return {
-            "labels": labels,
-            "totals": totals,
-            "positives": positives,
+            "labels": [r["date"].strftime("%Y-%m-%d") for r in results],
+            "totals": [r["total"] for r in results],
+            "positives": [r["positive"] for r in results],
         }
 
     def get_erp_counts_histogram(self):
-        # YES, this performs one COUNT query per day in a range of 30 days
-        # (so 30 queries), but I think this is just fine for now.
-        labels = []
-        totals = []
-        for date in self.get_date_range():
-            labels.append(date.strftime("%Y-%m-%d"))
-            totals.append(Erp.objects.published().filter(created_at__lt=date).count())
+        results = run_sql(
+            """--sql
+            select
+                date,
+                count(a.id) filter (
+                    where e.created_at <= date
+                    and e.geom is not null
+                    and e.published
+                ) as total
+            from
+                generate_series(current_date - interval '30 day', current_date, interval '1 day') as date
+            cross join
+                erp_accessibilite a
+            left join
+                erp_erp e on e.id = a.erp_id
+            group by date
+            order by date asc;
+            """
+        )
         return {
-            "labels": labels,
-            "totals": totals,
+            "labels": [r["date"].strftime("%Y-%m-%d") for r in results],
+            "totals": [r["total"] for r in results],
         }
 
     def get_contributors_histogram(self):
-        # YES, this performs one COUNT query per day in a range of 30 days
-        # (so 30 queries), but I think this is just fine for now.
-        labels = []
-        totals = []
-        for date in self.get_date_range():
-            labels.append(date.strftime("%Y-%m-%d"))
-            totals.append(
-                Erp.objects.filter(accessibilite__isnull=False, created_at__lte=date)
-                .order_by("user")
-                .distinct("user")
-                .count()
-            )
+        results = run_sql(
+            """--sql
+            select
+                date,
+                count(distinct e.user_id) filter (
+                    where e.created_at <= date
+                ) as total
+            from
+                generate_series(current_date - interval '30 day', current_date, interval '1 day') as date
+            cross join
+                erp_accessibilite a
+            left join
+                erp_erp e on e.id = a.erp_id
+            where e.geom is not null
+            group by date
+            order by date asc;
+            """
+        )
         return {
-            "labels": labels,
-            "totals": totals,
+            "labels": [r["date"].strftime("%Y-%m-%d") for r in results],
+            "totals": [r["total"] for r in results],
         }
 
     def get_context_data(self, **kwargs):
