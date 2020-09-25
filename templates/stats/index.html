@@ -15,7 +15,7 @@
 
   <div class="card-deck">
     <div class="card shadow-sm">
-      <div class="card-body text-center">
+      <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-3">
           <strong>{{ north_star.percent|floatformat }}<small class="text-muted">%</small></strong>
         </h3>
@@ -31,13 +31,13 @@
       </div>
     </div>
     <div class="card shadow-sm">
-      <div class="card-body text-center">
+      <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-3"><strong>{{ nb_filled_erps }}</strong></h3>
         <p class="card-text mb-0">fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}</p>
       </div>
     </div>
     <div class="card shadow-sm">
-      <div class="card-body text-center">
+      <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-3"><strong>{{ nb_contributors }}</strong></h3>
         <p class="card-text mb-0">contributeur{{ nb_contributors|pluralize:"s" }}</p>
       </div>
