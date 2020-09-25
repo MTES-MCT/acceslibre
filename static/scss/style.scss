@@ -24,6 +24,14 @@ $h6-font-size: 1em;
     font-size: .95rem;
   }
 
+  @media only screen and (max-width: 568px) {
+    font-size: .9rem;
+  }
+
+  .btn  {
+    font-size: 1rem;
+  }
+
   h1, .h1,
   h2, .h2,
   h3, .h3,
@@ -104,10 +112,6 @@ $h6-font-size: 1em;
     background: $white;
     height: 30px;
     width: 50px;
-  }
-
-  &-editorial {
-    font-size: 16px;
   }
 
   &-home-map {
