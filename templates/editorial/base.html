@@ -19,12 +19,12 @@
           {% if user.is_authenticated %}
             <span>Bonjour <strong>{{ user.username }}</strong></span>
             <a class="text-light ml-4" href="{% url "mon_compte" %}">Mon&nbsp;compte</a>
-            <a class="text-light ml-4" href="{% url "logout" %}">Déconnexion</a>
+            <a class="btn btn-sm btn-light ml-4" href="{% url "logout" %}">Déconnexion</a>
           {% else %}
             <div class="text-right">
-              <a class="btn btn-sm btn-info ml-2" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
+              <a class="btn btn-sm btn-light ml-2" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
               <span class="ml-2">ou</span>
-              <a class="btn btn-sm btn-success ml-2" href="{% url "django_registration_register" %}">créez un compte</a>
+              <a class="btn btn-sm btn-light ml-2" href="{% url "django_registration_register" %}">créez un compte</a>
             </div>
           {% endif %}
         </div>
