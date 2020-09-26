@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <h2 class="text-light"><strong>Découvrez l'accessibilité des établissements autour de vous</strong></h2>
+          <h2 class="text-light">Découvrez l'accessibilité des établissements autour de vous</h2>
           <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux <strong>informations essentielles d'accessibilité</strong> des établissements recevant du public en France.</p>
           <form action="{% url "home" %}#results">
             <input type="hidden" name="lat">
@@ -30,7 +30,7 @@
                 </button>
               </div>
             </div>
-            <div id="loc-field" class="form-group custom-control custom-switch mt-3 ml-2">
+            <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
               <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
                 {% if localize == "1" %}checked{% endif %}>
               <label class="custom-control-label text-light" for="localize">
@@ -100,7 +100,7 @@
           </script>
         </div>
         <div class="col-lg-6 p-3 d-none d-lg-inline text-center">
-          <img src="{% static "/img/home2.svg" %}" width="85%"
+          <img src="{% static "/img/home.svg" %}" width="100%"
             alt="Illustration présentant des personnages en situation de handicap dans un paysage urbain">
         </div>
       </div>
@@ -111,12 +111,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 p-3 d-none d-lg-inline text-center">
-          <img src="{% static "/img/home.svg" %}" width="100%"
+          <img src="{% static "/img/home2.svg" %}" width="100%"
             alt="Illustration présentant des personnages en situation de handicap dans un paysage urbain">
         </div>
         <div class="col-lg-6">
-          <h2><strong>Participez à l'enrichissement des données d'accessibilité</strong></h2>
-          <p class="py-2">
+          <h2>Participez à l'enrichissement des données d'accessibilité</h2>
+          <p class="pt-2 pb-1">
             {{ SITE_NAME.title }} est une <strong>plateforme citoyenne collaborative ouverte à tous</strong>.
             Usagers, gestionnaires d'établissements et agents territoriaux contribuent et <strong>enrichissent
             continuellement les informations</strong>.
