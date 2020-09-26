@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-lg-6">
           <h2 class="text-light"><strong>Découvrez l'accessibilité des établissements autour de vous</strong></h2>
-          <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux informations essentielles d'accessibilité des établissements recevant du public en France.</p>
+          <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux <strong>informations essentielles d'accessibilité</strong> des établissements recevant du public en France.</p>
           <form action="{% url "home" %}#results">
             <input type="hidden" name="lat">
             <input type="hidden" name="lon">
@@ -99,8 +99,34 @@
           })(navigator.geolocation);
           </script>
         </div>
-        <div class="col-lg-6 p-3 d-none d-lg-inline">
-          <img src="{% static "/img/home.svg" %}" width="100%" alt="Illustration présentant des personnages en situation de handicap dans un paysage urbain">
+        <div class="col-lg-6 p-3 d-none d-lg-inline text-center">
+          <img src="{% static "/img/home2.svg" %}" width="85%"
+            alt="Illustration présentant des personnages en situation de handicap dans un paysage urbain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 p-3 d-none d-lg-inline text-center">
+          <img src="{% static "/img/home.svg" %}" width="100%"
+            alt="Illustration présentant des personnages en situation de handicap dans un paysage urbain">
+        </div>
+        <div class="col-lg-6">
+          <h2><strong>Participez à l'enrichissement des données d'accessibilité</strong></h2>
+          <p class="py-2">
+            {{ SITE_NAME.title }} est une <strong>plateforme citoyenne collaborative ouverte à tous</strong>.
+            Usagers, gestionnaires d'établissements et agents territoriaux contribuent et <strong>enrichissent
+            continuellement les informations</strong>.
+          </p>
+          <p class="pb-2"><em>10 minutes suffisent pour créer votre compte et ajouter un établissement&nbsp;!</em></p>
+          <p>
+            <a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary btn-block mb-3">
+              Ajouter un établissement
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -202,10 +228,6 @@
       {% endif %}
     </div>
     <div class="col-md-4">
-      <h2 class="sr-only">Ajouter ou reseigner un établissement</h2>
-      <a href="{% url "contrib_start" %}" class="btn btn-primary btn-block mb-3">
-        Ajouter un établissement
-      </a>
       <aside class="card">
         <div class="card-header">
           <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>

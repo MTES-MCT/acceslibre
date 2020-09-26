@@ -19,9 +19,8 @@
           <a class="btn btn-light ml-4" href="{% url "logout" %}">Déconnexion</a>
         {% else %}
           <div class="text-right">
-            <a class="btn btn-light ml-2" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
-            <span class="ml-2">ou</span>
-            <a class="btn btn-light ml-2" href="{% url "django_registration_register" %}">créez un compte</a>
+            <a class="btn btn-{% if dark %}light{% else %}link{% endif %} ml-2" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
+            <a class="btn btn-{% if dark %}light{% else %}primary{% endif %} ml-2" href="{% url "django_registration_register" %}">Créez un compte</a>
           </div>
         {% endif %}
       </div>
