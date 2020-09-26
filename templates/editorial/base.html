@@ -3,38 +3,16 @@
 {% load static %}
 
 {% block content %}
-  <div class="container-fluid bg-primary text-light">
-    <div class="container py-3">
-      <nav class="row">
-        <div class="col-md-5 col-lg-6 col-xl-7 my-1">
-          <h1 class="h3 m-0 p-0" id="content">
-            <a class="text-decoration-none text-light" href="{% url "home" %}">
-              <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" height="50"
-                class="mr-2" style="background:#fff;border:1px solid #fff">
-              <span>{{ SITE_NAME }}</span>
-            </a>
-          </h1>
-        </div>
-        <div class="col-md-7 col-lg-6 col-xl-5 my-1 d-flex justify-content-end align-items-center">
-          {% if user.is_authenticated %}
-            <span>Bonjour <strong>{{ user.username }}</strong></span>
-            <a class="text-light ml-4" href="{% url "mon_compte" %}">Mon&nbsp;compte</a>
-            <a class="btn btn-sm btn-light ml-4" href="{% url "logout" %}">Déconnexion</a>
-          {% else %}
-            <div class="text-right">
-              <a class="btn btn-sm btn-light ml-2" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
-              <span class="ml-2">ou</span>
-              <a class="btn btn-sm btn-light ml-2" href="{% url "django_registration_register" %}">créez un compte</a>
-            </div>
-          {% endif %}
-        </div>
-      </nav>
-    </div>
-  </div>
-  {% block large_header_content %}{% endblock %}
+  {% block header %}
+    {% include "editorial/header.html" with dark=True %}
+  {% endblock %}
+
+  {% block top_fluid_content %}{% endblock %}
+
   <main class="container a4a-editorial mt-3 mb-4">
     {% block editorial_content %}{% endblock%}
   </main>
+
   <footer class="container-fluid bg-dark text-light pt-4 pb-5">
     <div class="container">
       <div class="row mt-4">

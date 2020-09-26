@@ -5,22 +5,27 @@
 
 {% block page_title %}Accueil{% endblock%}
 
-{% block large_header_content %}
-  <header class="container-fluid p-0 m-0">
-    <section class="jumbotron jumbotron-fluid p-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <aside class="lead">
-              La plateforme collaborative pour l’accessibilité
-              <small class="text-muted"><a href="https://beta.gouv.fr/startups/acceslibre.html">(en savoir plus)</a></small>
-            </aside>
-          </div>
-          <div class="col-4 d-none d-md-block a4a-jumbotron"></div>
+{% block header %}
+    {% include "editorial/header.html" with dark=False %}
+  {% endblock %}
+
+{% block top_fluid_content %}
+  <section class="container-fluid p-4 bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2 class="text-light mt-5">La plateforme collective de l'accessibilité</h2>
+          <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p class="mb-0 text-right">
+            <a class="btn btn-light">Lorem ipsum</a>
+          </p>
+        </div>
+        <div class="col-lg-6 d-none d-lg-inline">
+          <img src="{% static "/img/home.svg" %}" width="100%" alt="Illustration présentant des personnages en situation de handicap">
         </div>
       </div>
-    </section>
-  </header>
+    </div>
+  </section>
 {% endblock %}
 
 {% block editorial_content %}

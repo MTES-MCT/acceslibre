@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="container-fluid{% if dark %} bg-primary text-light{% endif %}">
+  <div class="container py-3">
+    <nav class="row">
+      <div class="col-md-5 col-lg-6 col-xl-7 my-1">
+        <h1 class="h3 m-0 p-0" id="content">
+          <a class="text-decoration-none{% if dark %} text-light{% endif %}" href="{% url "home" %}">
+            <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" height="50"
+              class="border border-light bg-light mr-2">
+            <span>{{ SITE_NAME }}</span>
+          </a>
+        </h1>
+      </div>
+      <div class="col-md-7 col-lg-6 col-xl-5 my-1 d-flex justify-content-end align-items-center">
+        {% if user.is_authenticated %}
+          <span>Bonjour <strong>{{ user.username }}</strong></span>
+          <a class="{% if dark %}text-light {% endif %}ml-4" href="{% url "mon_compte" %}">Mon compte</a>
+          <a class="btn btn-light ml-4" href="{% url "logout" %}">Déconnexion</a>
+        {% else %}
+          <div class="text-right">
+            <a class="btn btn-light ml-2" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
+            <span class="ml-2">ou</span>
+            <a class="btn btn-light ml-2" href="{% url "django_registration_register" %}">créez un compte</a>
+          </div>
+        {% endif %}
+      </div>
+    </nav>
+  </div>
+</div>
