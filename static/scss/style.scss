@@ -25,6 +25,10 @@ $h6-font-size: 1em;
     color: #444;
   }
 
+  &-bg-primary-gradient {
+    background: linear-gradient(15deg, #054a80, #3576a9);
+  }
+
   h1, .h1,
   h2, .h2,
   h3, .h3,
