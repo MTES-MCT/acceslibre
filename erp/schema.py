@@ -107,51 +107,61 @@ SECTIONS = {
         "icon": "bus",
         "label": "Transports en commun",
         "description": "Desserte par les transports en commun",
+        "edit_route": "contrib_transport",
     },
     SECTION_STATIONNEMENT: {
         "icon": "car",
         "label": "Stationnement",
         "description": "Emplacements de stationnement",
+        "edit_route": "contrib_stationnement",
     },
     SECTION_CHEMINEMENT_EXT: {
         "icon": "exterieur-target",
         "label": "Cheminement extérieur",
         "description": "Cheminement extérieur depuis la voirie jusqu'à l'entrée",
+        "edit_route": "contrib_exterieur",
     },
     SECTION_ENTREE: {
         "icon": "entrance",
         "label": "Entrée",
         "description": "Entrée de l'établissement",
+        "edit_route": "contrib_entree",
     },
     SECTION_ACCUEIL: {
         "icon": "users",
         "label": "Accueil",
         "description": "Zone et prestations d'accueil",
+        "edit_route": "contrib_accueil",
     },
     SECTION_SANITAIRES: {
         "icon": "male-female",
         "label": "Sanitaires",
         "description": "Toilettes, WC",
+        "edit_route": "contrib_sanitaires",
     },
     SECTION_LABELS: {
         "icon": "tag",
         "label": "Marques ou labels d'accessibilité",
         "description": "Marques ou labels d'accessibilité",
+        "edit_route": "contrib_labellisation",
     },
     SECTION_REGISTRE: {
         "icon": "registre",
         "label": "Registre",
         "description": "Registre d'accessibilité de l'établissement",
+        "edit_route": None,
     },
     SECTION_CONFORMITE: {
         "icon": "conformite",
         "label": "Conformité",
         "description": "Conformité",
+        "edit_route": None,
     },
     SECTION_COMMENTAIRE: {
         "icon": "info-circled",
         "label": "Commentaire",
         "description": "Informations complémentaires",
+        "edit_route": "contrib_commentaire",
     },
 }
 
@@ -805,6 +815,7 @@ def get_form_fieldsets(exclude_sections=None):
     #   "icon": "icon_name",
     #   "tabid": "section_id",
     #   "description": "Description de la section",
+    #   "edit_route": "nom_de_la_route_d_edition",
     #   "fields": [
     #     {"id": "id_champ1", "warn_if": Bool,},
     #     {"id": "id_champ2", "warn_if": Bool,},
@@ -819,6 +830,7 @@ def get_form_fieldsets(exclude_sections=None):
             "icon": section.get("icon"),
             "tabid": section_id,
             "description": section.get("description"),
+            "edit_route": section.get("edit_route"),
             "fields": [
                 dict(id=f, warn_if=FIELDS.get(f).get("warn_if"))
                 for f in get_section_fields(section_id)

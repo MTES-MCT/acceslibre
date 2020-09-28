@@ -13,12 +13,20 @@
     <h2 class="h3 mb-3">{% block page_title %}{% endblock%}</h2>
 
     <h3 class="h5 mb-0">
-      {{ erp.nom }}
+      {% if erp.published %}<a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>{% else %}{{ erp.nom }}{% endif %}
       {% if erp.activite %} <small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
     </h3>
     <address class="text-muted mb-2">
       <em>{{ erp.adresse }}</em>
     </address>
+
+    {% if erp.user != user %}
+    <div class="alert alert-info">
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
+      Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>.
+      Veuillez vous assurer de la fiabilité des informations que vous contribuez.
+    </div>
+    {% endif %}
 
     {% csrf_token %}
 
@@ -49,10 +57,14 @@
     {% block fields_content %}{% endblock %}
 
     <p>
+    {% if erp.user == request.user %}
       {% if prev_route %}
       <a class="btn btn-link" href="{{ prev_route }}">Précédent</a>
       {% endif %}
       <button type="submit" class="btn btn-primary">Suivant</button>
+    {% else %}
+      <button type="submit" name="action" value="contribute" class="btn btn-primary">Publier les modifications</button>
+    {% endif %}
     </p>
   </form>
   <script>

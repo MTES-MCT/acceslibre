@@ -1,0 +1,92 @@
+<h3 class="h4 font-weight-normal">Accessibilité</h3>
+
+<div class="row">
+  <div class="col-md-4">
+    <nav class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
+      {% for section, info in accessibilite_data.items %}
+      <a class="nav-link text-nowrap {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
+        title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
+        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" id="{{ info.tabid }}-tab"
+        data-toggle="tab">
+        <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
+      </a>
+      {% endfor %}
+      <a class="nav-link text-nowrap" href="#history"
+        title="Historique des modifications" role="tab" aria-controls="history"
+        aria-selected="false" id="history-tab"
+        data-toggle="tab">
+        <i aria-hidden="true" class="icon icon-clock mr-2"></i>Historique
+      </a>
+    </nav>
+  </div>
+  <div class="col-md-8 tab-content">
+    {% for section, info in accessibilite_data.items %}
+    <section class="a4a-tab-content-section tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
+      aria-labelledby="{{ info.tabid }}-tab">
+      {% if info.fields %}
+      <h3 class="sr-only">{{ info.description }}</h3>
+
+      {% include "erps/commune/fields.html" with fields=info.fields %}
+      {% elif info.sections %}
+      {% for subsection, subinfo in info.sections.items %}
+      <div class="card mb-3">
+        <div class="card-header border-bottom-0 p-2">
+          <h6 class="m-0">
+            <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
+          </h6>
+        </div>
+        <div class="card-body p-0">
+          {% include "erps/commune/fields.html" with fields=subinfo.fields %}
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+      <p class="mt-1 text-center">
+        <a href="{% url info.edit_route erp_slug=erp.slug %}" class="btn btn-primary"
+          title="Modifier les informations de la section &laquo;&nbsp;{{section}}&nbsp;&raquo;">
+          <i aria-hidden="true" class="icon icon-pencil"></i>
+          Modifier ces informations
+        </a>
+      </p>
+    </section>
+    {% endfor %}
+    <section class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
+      <h3 class="sr-only">Historique des modifications</h3>
+      <div class="list-group list-group-flush">
+        {% for entry in erp.get_history %}
+        <details class="list-group-item list-group-item-action">
+          <summary style="outline:none">
+            Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
+          </summary>
+          {% if entry.diff %}
+            <table class="table table-sm table-striped mt-3 mb-0">
+              <tr>
+                <th>Champ</th>
+                <th>Ancienne valeur</th>
+                <th>Nouvelle valeur</th>
+              </tr>
+              {% for field in entry.diff %}
+              <tr>
+                <td>{{ field.label }}</td>
+                <td class="text-danger">
+                  {% include "fields/diff_value.html" with name=field.field value=field.old %}
+                </td>
+                <td class="text-success">
+                  {% include "fields/diff_value.html" with name=field.field value=field.new %}
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          {% endif %}
+        </details>
+        {% empty %}
+        <p class="alert alert-info">
+          <i aria-hidden="true" class="icon icon-info-circled"></i>
+          Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
+        </p>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>

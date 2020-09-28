@@ -461,7 +461,7 @@ def contrib_admin_infos(request):
 @login_required
 @reversion.views.create_revision()
 def contrib_edit_infos(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    erp = get_object_or_404(Erp, slug=erp_slug)
     if request.method == "POST":
         form = PublicErpEditInfosForm(
             request.POST, instance=erp, initial={"recevant_du_public": True}
@@ -483,7 +483,7 @@ def contrib_edit_infos(request, erp_slug):
 @login_required
 @reversion.views.create_revision()
 def contrib_localisation(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    erp = get_object_or_404(Erp, slug=erp_slug)
     if request.method == "POST":
         form = PublicLocalisationForm(request.POST)
         if form.is_valid():
@@ -491,7 +491,11 @@ def contrib_localisation(request, erp_slug):
             lon = form.cleaned_data.get("lon")
             erp.geom = Point(x=lon, y=lat, srid=4326)
             erp.save()
-            return redirect("contrib_transport", erp_slug=erp.slug)
+            action = request.POST.get("action")
+            if action == "contribute":
+                return redirect(erp.get_absolute_url())
+            else:
+                return redirect("contrib_transport", erp_slug=erp.slug)
     elif erp.geom is not None:
         form = PublicLocalisationForm(
             {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
@@ -508,9 +512,7 @@ def process_accessibilite_form(
 ):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
-    erp = get_object_or_404(
-        Erp.objects.select_related("accessibilite"), slug=erp_slug, user=request.user,
-    )
+    erp = get_object_or_404(Erp.objects.select_related("accessibilite"), slug=erp_slug,)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     if request.method == "POST":
         Form = modelform_factory(
@@ -522,7 +524,11 @@ def process_accessibilite_form(
             accessibilite.erp = erp
             accessibilite.save()
             form.save_m2m()
-            return redirect(redirect_route, erp_slug=erp.slug)
+            action = request.POST.get("action")
+            if action == "contribute":
+                return redirect(erp.get_absolute_url())
+            else:
+                return redirect(redirect_route, erp_slug=erp.slug)
     else:
         form = AdminAccessibiliteForm(instance=accessibilite)
 

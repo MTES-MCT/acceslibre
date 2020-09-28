@@ -16,7 +16,7 @@ Important
 {% elif value == "importante" %}
 Importante
 {% elif name == "geom" %}
-{{ value.1|floatformat:3 }}, {{ value.0|floatformat:3 }}
+{{ value.1|floatformat:4 }}, {{ value.0|floatformat:4 }}
 {% elif value|isnonemptylist %}
 {{ value|join:", " }}
 {% else %}

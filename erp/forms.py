@@ -233,6 +233,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 "icon": section_info["icon"],
                 "tabid": section_info["tabid"],
                 "description": section_info["description"],
+                "edit_route": section_info["edit_route"],
                 "fields": [],
             }
             section_fields = section_info["fields"]

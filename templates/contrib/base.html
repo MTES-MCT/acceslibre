@@ -63,10 +63,10 @@
         {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 9 %} current{% endif %}">
-        {% if erp %}
+        {% if erp and erp.user == request.user %}
         <a href="{% url "contrib_publication" erp_slug=erp.slug %}">Publication</a>
         {% else %}
-        Publication
+        <span class="text-muted">Publication</span>
         {% endif %}
       </li>
     </ul>
