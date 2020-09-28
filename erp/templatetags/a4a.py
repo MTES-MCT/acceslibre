@@ -15,6 +15,7 @@ def active_compte_section(path, test):
         [
             test == "mon_compte" and path == "/mon_compte/",
             test == "mes_erps" and path == "/mon_compte/erps/",
+            test == "mes_contributions" and path == "/mon_compte/contributions/",
             test == "mot_de_passe"
             and path
             in [

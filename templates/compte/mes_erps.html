@@ -40,7 +40,7 @@
           src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
         {{ erp.nom }}
         {% else %}
-        <a href="{{ erp.get_absolute_url }}" target="_blank">
+        <a href="{{ erp.get_absolute_url }}">
           <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
             src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
           {{ erp.nom }}
@@ -75,7 +75,7 @@
         <div class="btn-group" role="group" aria-label="Actions">
           <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_publication" erp_slug=erp.slug %}">Modifier</a>
           {% if user.is_staff %}
-            <a class="btn btn-sm btn-outline-primary" target="_blank" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
+            <a class="btn btn-sm btn-outline-primary" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
           {% endif %}
           <a class="btn btn-sm btn-danger" href="{% url "contrib_delete" erp_slug=erp.slug %}">Supprimer</a>
         </div>

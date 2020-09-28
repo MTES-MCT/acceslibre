@@ -1,0 +1,36 @@
+{% extends "compte/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Mes contributions{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block compte_content %}
+  <h3 class="mb-3">Mes contributions</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <th scope="col">Date</th>
+      <th scope="col">Modifications</th>
+    </thead>
+    <tbody>
+      {% for version in pager %}
+      <tr>
+        <td class="text-right">{{ version.revision.date_created|date:"j F Y"|lower }}<br>{{ version.revision.date_created|date:"à H:i"|lower }}</td>
+        <td>
+          {% if version.content_type.model == "accessibilite" %}
+            <strong>Informations d'accessibilité</strong><br>
+            {% include "compte/erp_info.html" with erp=version.object.erp %}
+          {% elif version.content_type.model == "erp" %}
+            <strong>Informations administratives</strong><br>
+            {% include "compte/erp_info.html" with erp=version.object %}
+          {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+        <tr><td colspan="2">La liste est vide.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "common/pager.html" with pager=pager pager_base_url="" %}
+{% endblock %}

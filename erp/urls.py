@@ -65,6 +65,9 @@ urlpatterns = [
     ############################################################################
     path("mon_compte/", views.mon_compte, name="mon_compte"),
     path("mon_compte/erps/", views.mes_erps, name="mes_erps"),
+    path(
+        "mon_compte/contributions/", views.mes_contributions, name="mes_contributions"
+    ),
     ############################################################################
     # Ajout ERP
     ############################################################################

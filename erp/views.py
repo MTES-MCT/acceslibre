@@ -2,12 +2,11 @@ import reversion
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
-from django.core.exceptions import PermissionDenied
-
 from django.core.paginator import Paginator
-from django.db.models import F
+from django.db.models import F, Q
 from django.forms import modelform_factory
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -19,6 +18,8 @@ from django_registration.backends.activation.views import (
     ActivationView,
     RegistrationView,
 )
+
+from reversion.models import Version
 
 from core import mailer
 
@@ -316,15 +317,13 @@ def vote(request, erp_slug):
     return redirect(erp.get_absolute_url())
 
 
+@login_required
 def mon_compte(request):
-    if not request.user.is_authenticated:
-        raise PermissionDenied
     return render(request, "compte/index.html",)
 
 
+@login_required
 def mes_erps(request):
-    if not request.user.is_authenticated:
-        raise PermissionDenied
     qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
         user_id=request.user.pk
     )
@@ -354,6 +353,24 @@ def mes_erps(request):
             "filter_published": published,
         },
     )
+
+
+@login_required
+def mes_contributions(request):
+    erp_type = ContentType.objects.get_for_model(Erp)
+    accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
+    qs = (
+        Version.objects.select_related("revision")
+        .filter(
+            Q(revision__user=request.user),
+            Q(content_type=erp_type) | Q(content_type=accessibilite_type),
+        )
+        .prefetch_related("object")
+    )
+    paginator = Paginator(qs, 10)
+    page_number = request.GET.get("page", 1)
+    pager = paginator.get_page(page_number)
+    return render(request, "compte/mes_contributions.html", context={"pager": pager,},)
 
 
 def find_sirene_etablissements(name_form):
