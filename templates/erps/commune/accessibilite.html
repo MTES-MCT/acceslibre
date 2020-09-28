@@ -42,6 +42,7 @@
       {% endfor %}
       {% endif %}
 
+      {% if info.edit_route %}
       <p class="mt-1 text-center">
         <a href="{% url info.edit_route erp_slug=erp.slug %}" class="btn btn-primary"
           title="Modifier les informations de la section &laquo;&nbsp;{{section}}&nbsp;&raquo;">
@@ -49,6 +50,7 @@
           Modifier ces informations
         </a>
       </p>
+      {% endif %}
     </section>
     {% endfor %}
     <section class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
