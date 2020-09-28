@@ -1,4 +1,5 @@
 /* Acceslibre styles
+   viewports: xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px
 */
 
 $white: #fff;
@@ -20,20 +21,12 @@ $h6-font-size: 1em;
 @import "bootstrap/bootstrap.scss";
 
 .a4a {
-  @media only screen and (max-width: 768px) {
-    font-size: .95rem;
-  }
-
-  @media only screen and (max-width: 568px) {
-    font-size: .9rem;
-  }
-
-  .btn  {
-    font-size: 1rem;
-  }
-
   .cgu p, .cgu li {
     color: #444;
+  }
+
+  &-bg-primary-gradient {
+    background: linear-gradient(15deg, #054a80, #3576a9);
   }
 
   h1, .h1,

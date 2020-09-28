@@ -5,48 +5,57 @@
 
 {% block page_title %}Accueil{% endblock%}
 
-{% block large_header_content %}
-  <header class="container-fluid p-0 m-0">
-    <section class="jumbotron jumbotron-fluid p-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <aside class="lead">
-              La plateforme collaborative pour l’accessibilité
-              <small class="text-muted"><a href="https://beta.gouv.fr/startups/acceslibre.html">(en savoir plus)</a></small>
-            </aside>
-          </div>
-          <div class="col-4 d-none d-md-block a4a-jumbotron"></div>
+{% block header %}
+    {% include "editorial/header.html" with dark=False %}
+  {% endblock %}
+
+{% block top_fluid_content %}
+  <section class="container-fluid py-5 a4a-bg-primary-gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 p-4">
+          <h2 class="h3 text-light font-weight-bold">Découvrez l'accessibilité des établissements autour de vous</h2>
+          <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux <strong>informations essentielles d'accessibilité</strong> des établissements recevant du public en France.</p>
+          <form action="{% url "home" %}#results">
+            <input type="hidden" name="lat">
+            <input type="hidden" name="lon">
+            <label for="q" class="sr-only">Recherchez un établissement, une ville, etc...</label>
+            <div class="input-group py-1">
+              <input type="search" is="q" name="q" class="form-control form-control-lg border-0" placeholder="Rechercher un restaurant, une ville, etc..."
+                aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-lg btn-light border-left text-nowrap">
+                  <i aria-hidden="true" class="icon icon-magnifying-glass" style="vertical-align:text-top;font-size:.9em"></i>
+                  <span class="sr-only">Rechercher</span>
+                </button>
+              </div>
+            </div>
+            <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
+              <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
+                {% if localize == "1" %}checked{% endif %}>
+              <label class="custom-control-label text-light" for="localize">
+                Rechercher autour de ma position géographique actuelle <strong id="loc" aria-label="Mon emplacement"></strong>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-6 p-4 text-center bg-light rounded">
+          <h2 class="h3 font-weight-bold">Participez à l'enrichissement des données d'accessibilité</h2>
+          <p class="pt-2 pb-1">
+            {{ SITE_NAME.title }} est une <strong>plateforme citoyenne collaborative ouverte à tous</strong>.
+            Usagers, gestionnaires d'établissements et agents territoriaux contribuent et <strong>enrichissent
+            continuellement les informations</strong>.
+          </p>
+          <p>
+            <a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary btn-block mb-3">
+              Ajouter un établissement
+            </a>
+          </p>
+          <p class="pb-2 mb-0"><em>10 minutes suffisent pour créer votre compte et ajouter un établissement&nbsp;!</em></p>
         </div>
       </div>
-    </section>
-  </header>
-{% endblock %}
-
-{% block editorial_content %}
-  <h2 class="sr-only">Rechercher un établissement</h2>
-  <form class="row mt-5 mb-4" action="{% url "home" %}">
-    <input type="hidden" name="lat">
-    <input type="hidden" name="lon">
-    <div class="col-md-8 col-lg-9">
-      <div class="form-group">
-        <input type="search" name="q" class="form-control form-control-lg" placeholder="Rechercher un établissement, une ville, une activité"
-          aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
-      </div>
-      <div id="loc-field" class="form-group custom-control custom-switch ml-3">
-        <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
-          {% if localize == "1" %}checked{% endif %}>
-        <label class="custom-control-label" for="localize">
-          Rechercher autour de ma position géographique actuelle <strong id="loc" aria-label="Mon emplacement"></strong>
-        </label>
-      </div>
     </div>
-    <div class="col-md-4 col-lg-3 form-group">
-      <button type="submit" class="btn btn-primary btn-block btn-lg text-nowrap">
-        <i aria-hidden="true" class="icon icon-magnifying-glass"></i> Rechercher
-      </button>
-    </div>
-  </form>
+  </section>
   <script>
   (function(geolocation) {
     if (!geolocation) {
@@ -107,10 +116,15 @@
     });
   })(navigator.geolocation);
   </script>
-  <div class="row">
+{% endblock %}
+
+{% block editorial_content %}
+  <h2 class="sr-only">Rechercher un établissement</h2>
+
+  <div class="row mt-4">
     <div class="col-md-8">
       {% if search_results %}
-      <section class="mt-2">
+      <section class="pt-2" id="results">
         <h2 class="h4 mb-3">
           Établissements {% if localize == "1" %}proches de moi{% endif %}
           <small class="text-muted"> correspondant à votre recherche</small>
@@ -199,10 +213,6 @@
       {% endif %}
     </div>
     <div class="col-md-4">
-      <h2 class="sr-only">Ajouter ou reseigner un établissement</h2>
-      <a href="{% url "contrib_start" %}" class="btn btn-primary btn-block mb-3">
-        Ajouter un établissement
-      </a>
       <aside class="card">
         <div class="card-header">
           <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>

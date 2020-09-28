@@ -1,0 +1,29 @@
+{% load static %}
+
+<div class="container-fluid{% if dark %} a4a-bg-primary-gradient text-light{% endif %}">
+  <div class="container py-3">
+    <nav class="row">
+      <div class="col-md-5 col-lg-6 col-xl-7 my-1">
+        <h1 class="h3 m-0 p-0" id="content">
+          <a class="text-decoration-none{% if dark %} text-light{% endif %}" href="{% url "home" %}">
+            <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" height="50"
+              class="border border-light bg-light mr-2">
+            <span>{{ SITE_NAME }}</span>
+          </a>
+        </h1>
+      </div>
+      <div class="col-md-7 col-lg-6 col-xl-5 my-1 d-flex justify-content-end align-items-center">
+        {% if user.is_authenticated %}
+          <span>Bonjour <strong>{{ user.username }}</strong></span>
+          <a class="btn btn-link {% if dark %}text-light {% endif %}" href="{% url "mon_compte" %}">Mon compte</a>
+          <a class="btn btn-light" href="{% url "logout" %}">Déconnexion</a>
+        {% else %}
+          <div class="text-right">
+            <a class="btn btn-link {% if dark %}text-light{% endif %}" href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a>
+            <a class="btn btn-{% if dark %}light{% else %}primary{% endif %}" href="{% url "django_registration_register" %}">Créez un compte</a>
+          </div>
+        {% endif %}
+      </div>
+    </nav>
+  </div>
+</div>
