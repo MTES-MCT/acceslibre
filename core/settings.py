@@ -14,6 +14,7 @@ import dj_database_url
 import os
 import sentry_sdk
 
+from django.contrib.messages import constants as message_constants
 from django.core.exceptions import ImproperlyConfigured
 
 
@@ -52,6 +53,17 @@ DEBUG = False
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "staticfiles"))
 STATIC_URL = "/static/"
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# Messages
+
+MESSAGE_TAGS = {
+    message_constants.DEBUG: "debug",
+    message_constants.INFO: "info",
+    message_constants.SUCCESS: "success",
+    message_constants.WARNING: "warning",
+    message_constants.ERROR: "danger",
+}
+
 
 # Application definition
 

@@ -36,6 +36,23 @@
     <a class="skippy sr-only sr-only-focusable" href="#content">
       <span class="skippy-text">Aller au contenu principal</span>
     </a>
+    <div style="position:fixed;top:60px;left:0;width:100%;padding:10px;z-index:9999">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible shadow-sm mb-2 fade show" style="margin:0 auto;max-width:700px"
+        role="alert" aria-live="polite" aria-atomic="true">
+        {% if messages.tags == "debug" %}<strong>DEBUG</strong>&nbsp;:
+        {% elif message.tags == "info" %}<strong>INFO</strong>&nbsp;:
+        {% elif message.tags == "success" %}<strong>SUCCÈS</strong>&nbsp;:
+        {% elif message.tags == "warning" %}<strong>AVERTISSEMENT</strong>&nbsp;:
+        {% elif message.tags == "danger" %}<strong>ERREUR</strong>&nbsp;:
+        {% endif %}
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+    </div>
     {% block content %}{% endblock %}
     {% include "common/matomo.html" %}
     {% include "common/sentry.html" %}

@@ -1,6 +1,7 @@
 import reversion
 
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.gis.geos import Point
@@ -459,6 +460,9 @@ def contrib_admin_infos(request):
                 erp.published = False
                 erp.user = request.user
                 erp.save()
+                messages.add_message(
+                    request, messages.SUCCESS, "Les données ont été enregistrées."
+                )
                 return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         encoded_data = request.GET.get("data")
@@ -491,6 +495,9 @@ def contrib_edit_infos(request, erp_slug):
         )
         if form.is_valid():
             erp = form.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Les données ont été enregistrées."
+            )
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         form = PublicErpAdminInfosForm(
@@ -514,6 +521,9 @@ def contrib_localisation(request, erp_slug):
             lon = form.cleaned_data.get("lon")
             erp.geom = Point(x=lon, y=lat, srid=4326)
             erp.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Les données ont été enregistrées."
+            )
             action = request.POST.get("action")
             if action == "contribute":
                 return redirect(erp.get_absolute_url())
@@ -547,6 +557,9 @@ def process_accessibilite_form(
             accessibilite.erp = erp
             accessibilite.save()
             form.save_m2m()
+            messages.add_message(
+                request, messages.SUCCESS, "Les données ont été enregistrées."
+            )
             action = request.POST.get("action")
             if action == "contribute":
                 return redirect(erp.get_absolute_url())
@@ -709,6 +722,9 @@ def contrib_publication(request, erp_slug):
                 erp.user_type = form.cleaned_data.get("user_type")
                 erp.published = form.cleaned_data.get("published")
                 erp = erp.save()
+                messages.add_message(
+                    request, messages.SUCCESS, "Les données ont été sauvegardées."
+                )
                 return redirect("mes_erps")
     else:
         form = PublicPublicationForm(instance=accessibilite, initial=initial)
@@ -733,6 +749,9 @@ def contrib_claim(request, erp_slug):
         if form.is_valid():
             erp.user = request.user
             erp.save()
+            messages.add_message(
+                request, messages.SUCCESS, "L'établissement a été revendiqué."
+            )
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         form = PublicClaimForm()
