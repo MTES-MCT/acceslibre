@@ -10,7 +10,7 @@
 
   <p class="text-muted">
     <i aria-hidden="true" class="icon icon-info-circled"></i>
-    Cette page liste vos contributions sur les établissements renseignés par d'autres utilisateurs.
+    Cette page liste les modifications que vous avez effectué sur les établissements initialement renseignés par d'autres utilisateurs.
   </p>
 
   <table class="table table-striped">
@@ -29,6 +29,9 @@
           {% elif version.content_type.model == "erp" %}
             <strong>Informations administratives</strong><br>
             {% include "compte/erp_info.html" with erp=version.object %}
+          {% else %}
+            <strong>{{ version }}</strong><br>
+            <span class="text-danger">La ressource n'existe plus dans la base de données.</span>
           {% endif %}
         </td>
       </tr>
@@ -37,5 +40,5 @@
       {% endfor %}
     </tbody>
   </table>
-  {% include "common/pager.html" with pager=pager pager_base_url="" %}
+  {% include "common/pager.html" with pager=pager pager_base_url="?1" %}
 {% endblock %}

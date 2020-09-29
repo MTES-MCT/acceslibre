@@ -397,7 +397,9 @@ def contrib_delete(request, erp_slug):
         form = PublicErpDeleteForm(request.POST)
         if form.is_valid():
             erp.delete()
-            # TODO: flash message
+            messages.add_message(
+                request, messages.SUCCESS, "L'établissement a été supprimé."
+            )
             return redirect("mes_erps")
     else:
         form = PublicErpDeleteForm()
