@@ -359,8 +359,14 @@ def mes_erps(request):
 def mes_contributions(request):
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
+    user_erps = Erp.objects.filter(user=request.user).values("id")
+    user_erps = [f["id"] for f in user_erps]
+    user_accesses = Accessibilite.objects.filter(erp__user=request.user).values("id")
+    user_accesses = [f["id"] for f in user_accesses]
     qs = (
         Version.objects.select_related("revision")
+        .exclude(content_type=erp_type, object_id__in=user_erps)
+        .exclude(content_type=accessibilite_type, object_id__in=user_accesses)
         .filter(
             Q(revision__user=request.user),
             Q(content_type=erp_type) | Q(content_type=accessibilite_type),
