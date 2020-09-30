@@ -55,7 +55,6 @@ def test_erp_details(data, browser):
 
 
 def test_erp_details_edit_links(data, browser, capsys):
-    # TODO improve test to check for dedicated section edit links
     browser.visit(data.erp.get_absolute_url())
 
     assert browser.title.startswith(data.erp.nom)
@@ -66,9 +65,6 @@ def test_erp_details_edit_links(data, browser, capsys):
     for edit_url in edit_urls:
         matches = browser.links.find_by_href(edit_url)
         assert len(matches) > 0, f'Edit url "{edit_url}" not found'
-
-
-# TODO: contribution workflow
 
 
 def test_registration_flow(data, browser):

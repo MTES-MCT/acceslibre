@@ -756,3 +756,66 @@ def test_accessibilite_history(data, client):
             "old": 42,
         },
     ]
+
+
+def test_contribution_flow_administrative_data(data, client):
+    client.login(username="sophie", password="Abc12345!")
+    response = client.get(
+        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug})
+    )
+
+    assert response.status_code == 200
+
+    response = client.post(
+        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        data={
+            "nom": "Test contribution",
+            "recevant_du_public": True,
+            "activite": data.boulangerie.pk,
+            "siret": "21690266800013",
+            "numero": "12",
+            "voie": "GRAND RUE",
+            "lieu_dit": "",
+            "code_postal": "34830",
+            "commune": "JACOU",
+            "site_internet": "http://google.com/",
+            "action": "contribute",
+        },
+        follow=True,
+    )
+
+    updated_erp = Erp.objects.get(slug=data.erp.slug)
+    assert response.context["form"].errors == {}
+    assert updated_erp.nom == "Test contribution"
+    assert updated_erp.user == data.erp.user  # original owner is preserved
+    assert (
+        "/contrib/localisation/aux-bons-croissants/",
+        302,
+    ) in response.redirect_chain
+    assert response.status_code == 200
+
+
+def test_contribution_flow_accessibilite_data(data, client):
+    client.login(username="sophie", password="Abc12345!")
+    response = client.get(
+        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug})
+    )
+
+    assert response.status_code == 200
+
+    response = client.post(
+        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
+        data={
+            "sanitaires_presence": "False",
+            "sanitaires_adaptes": "",
+            "action": "contribute",
+        },
+        follow=True,
+    )
+
+    updated_erp = Erp.objects.get(slug=data.erp.slug)
+    assert updated_erp.user == data.erp.user  # original owner is preserved
+    assert updated_erp.accessibilite.sanitaires_presence is False
+    assert updated_erp.accessibilite.sanitaires_adaptes is None
+    assert (updated_erp.get_absolute_url(), 302,) in response.redirect_chain
+    assert response.status_code == 200
