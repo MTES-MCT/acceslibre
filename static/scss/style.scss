@@ -46,6 +46,15 @@ $viewport-xl: 1200px;
     font-weight: bold;
   }
 
+  &-notifications {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 9999;
+  }
+
   &-bg-primary-gradient {
     background: linear-gradient(15deg, #054a80, #3576a9);
   }
