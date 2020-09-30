@@ -63,6 +63,7 @@
       {% endif %}
       <button type="submit" class="btn btn-primary">Suivant</button>
     {% else %}
+      <a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a>
       <button type="submit" name="action" value="contribute" class="btn btn-primary">Publier les modifications</button>
     {% endif %}
     </p>

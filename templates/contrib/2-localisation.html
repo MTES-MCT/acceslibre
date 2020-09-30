@@ -41,6 +41,7 @@
       {% if erp.user == request.user %}
       <button type="submit" class="btn btn-primary mr-2">Suivant</button>
       {% else %}
+      <a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a>
       <button type="submit" name="action" value="contribute" class="btn btn-primary mr-2">Publier les modifications</button>
       {% endif %}
     </p>

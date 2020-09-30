@@ -54,17 +54,21 @@ def test_erp_details(data, browser):
     )
 
 
-# TODO improve test to check for dedicated section edit links
-# def test_erp_details_edit_links(data, browser, capsys):
-#     browser.visit(data.erp.get_absolute_url())
+def test_erp_details_edit_links(data, browser, capsys):
+    # TODO improve test to check for dedicated section edit links
+    browser.visit(data.erp.get_absolute_url())
 
-#     assert browser.title.startswith(data.erp.nom)
-#     assert browser.is_text_not_present("Modifier ces informations")
+    assert browser.title.startswith(data.erp.nom)
+    edit_urls = [
+        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
+    ]
+    for edit_url in edit_urls:
+        matches = browser.links.find_by_href(edit_url)
+        assert len(matches) > 0, f'Edit url "{edit_url}" not found'
 
-#     login(browser, "niko", "Abc12345!", next=data.erp.get_absolute_url())
 
-#     assert browser.title.startswith(data.erp.nom)
-#     assert browser.is_text_present("Modifier ces informations")
+# TODO: contribution workflow
 
 
 def test_registration_flow(data, browser):

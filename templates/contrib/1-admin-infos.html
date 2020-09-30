@@ -113,6 +113,9 @@
         {{ form.contact_email|as_crispy_field }}
       </div>
     </div>
+    {% if erp and erp.user != request.user %}
+      <a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a>
+    {% endif %}
     <button type="submit" class="btn btn-primary mr-2">Suivant</button>
   </form>
 {% endblock %}
