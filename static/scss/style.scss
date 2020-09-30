@@ -33,6 +33,10 @@ $text-muted: rgb(104, 104, 104);
     color: #444;
   }
 
+  .navbar-brand {
+    padding-bottom: 1px;
+  }
+
   .nav-tabs .active {
     font-weight: bold;
   }
