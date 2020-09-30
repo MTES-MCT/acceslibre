@@ -18,6 +18,8 @@ $h4-font-size: 1.5em;
 $h5-font-size: 1.25em;
 $h6-font-size: 1em;
 
+$text-muted: rgb(104, 104, 104);
+
 @import "bootstrap/bootstrap.scss";
 
 .a4a {
@@ -29,6 +31,10 @@ $h6-font-size: 1em;
 
   .cgu p, .cgu li {
     color: #444;
+  }
+
+  .nav-tabs .active {
+    font-weight: bold;
   }
 
   &-bg-primary-gradient {

@@ -68,6 +68,11 @@ urlpatterns = [
     path(
         "mon_compte/contributions/", views.mes_contributions, name="mes_contributions"
     ),
+    path(
+        "mon_compte/contributions/recues/",
+        views.mes_contributions_recues,
+        name="mes_contributions_recues",
+    ),
     ############################################################################
     # Ajout ERP
     ############################################################################

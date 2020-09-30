@@ -365,7 +365,7 @@ def mes_contributions(request):
     user_accesses = Accessibilite.objects.filter(erp__user=request.user).values("id")
     user_accesses = [f["id"] for f in user_accesses]
     qs = (
-        Version.objects.select_related("revision")
+        Version.objects.select_related("revision", "revision__user")
         .exclude(content_type=erp_type, object_id__in=user_erps)
         .exclude(content_type=accessibilite_type, object_id__in=user_accesses)
         .filter(
@@ -377,7 +377,39 @@ def mes_contributions(request):
     paginator = Paginator(qs, 10)
     page_number = request.GET.get("page", 1)
     pager = paginator.get_page(page_number)
-    return render(request, "compte/mes_contributions.html", context={"pager": pager,},)
+    return render(
+        request,
+        "compte/mes_contributions.html",
+        context={"pager": pager, "recues": False},
+    )
+
+
+@login_required
+def mes_contributions_recues(request):
+    erp_type = ContentType.objects.get_for_model(Erp)
+    accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
+    user_erps = Erp.objects.filter(user=request.user).values("id")
+    user_erps = [f["id"] for f in user_erps]
+    user_accesses = Accessibilite.objects.filter(erp__user=request.user).values("id")
+    user_accesses = [f["id"] for f in user_accesses]
+    qs = (
+        Version.objects.select_related("revision", "revision__user")
+        .exclude(Q(revision__user=request.user) | Q(revision__user__isnull=True))
+        .filter(
+            Q(content_type=erp_type) | Q(content_type=accessibilite_type),
+            Q(content_type=erp_type, object_id__in=user_erps)
+            | Q(content_type=accessibilite_type, object_id__in=user_accesses),
+        )
+        .prefetch_related("object")
+    )
+    paginator = Paginator(qs, 10)
+    page_number = request.GET.get("page", 1)
+    pager = paginator.get_page(page_number)
+    return render(
+        request,
+        "compte/mes_contributions.html",
+        context={"pager": pager, "recues": True},
+    )
 
 
 def find_sirene_etablissements(name_form):
