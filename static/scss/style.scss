@@ -1,5 +1,4 @@
 /* Acceslibre styles
-   viewports: xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px
 */
 
 $white: #fff;
@@ -19,6 +18,12 @@ $h5-font-size: 1.25em;
 $h6-font-size: 1em;
 
 $text-muted: rgb(104, 104, 104);
+
+$viewport-xs: 0;
+$viewport-sm: 576px;
+$viewport-md: 768px;
+$viewport-lg: 992px;
+$viewport-xl: 1200px;
 
 @import "bootstrap/bootstrap.scss";
 
@@ -129,7 +134,9 @@ $text-muted: rgb(104, 104, 104);
   &-app-nav,
   &-app-main,
   &-app-map {
-    height: calc(100vh - 58px - 57px);
+    @media screen and (min-width: $viewport-lg) {
+      height: calc(100vh - 58px - 57px);
+    }
   }
 
   &-erp-list-inner.loading {
@@ -164,7 +171,7 @@ $text-muted: rgb(104, 104, 104);
     overflow: hidden;
     text-overflow: ellipsis;
 
-    @media only screen and (max-width: 576px) {
+    @media only screen and (max-width: $viewport-sm) {
       font-size: 24px;
     }
   }
@@ -191,6 +198,9 @@ $text-muted: rgb(104, 104, 104);
   }
 
   &-app-title {
+    @media screen and (min-width: $viewport-lg) {
+      max-height: 58px;
+    }
     h2 {
       overflow: hidden;
       text-overflow: ellipsis;
