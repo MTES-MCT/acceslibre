@@ -191,13 +191,11 @@ $text-muted: rgb(104, 104, 104);
   }
 
   &-app-title {
-    max-height: 58px;
-  }
-
-  &-app-title h2 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    h2 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   &-icon-btn {

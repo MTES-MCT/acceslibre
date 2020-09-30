@@ -44,9 +44,6 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
       </div>
     </form>
     <ul class="navbar-nav mr-auto">
-      <li>
-        <a class="nav-link text-truncate" href="{% url "contrib_start" %}">Ajouter un établissement</a>
-      </li>
       {% if user.is_authenticated %}
       <li class="nav-item">
         <a class="nav-link" href="{% url "mon_compte" %}">Mon compte</a>
@@ -64,8 +61,8 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
 </nav>
 
 <div class="container-fluid p-0 m-0 a4a-app-content">
-  <aside class="a4a-app-title row p-0 m-0">
-    <div class="col pt-2 pb-1">
+  <aside class="row px-3 py-2">
+    <div class="col-md-8">
       <div class="display-4 a4a-large-breadcrumb">
         <a href="{% url "commune" commune.slug %}">{{ commune.nom }}</a>
         {% if current_activite %}
@@ -78,6 +75,9 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         <small class="text-muted">&raquo; Recherche de <em>{{ search_terms }}</em></small>
         {% endif %}
       </div>
+    </div>
+    <div class="col-md-4">
+      <a class="btn btn-primary w-100" href="{% url "contrib_start" %}">Ajouter un établissement</a>
     </div>
   </aside>
 
