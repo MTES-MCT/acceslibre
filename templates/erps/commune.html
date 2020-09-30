@@ -36,7 +36,7 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
           data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.geom.coords.1 }}" data-lon="{{ commune.geom.coords.0 }}"
           data-code-insee="{{ commune.code_insee }}" placeholder="Rue, restaurant, café, poste, pharmacie..."
           value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
-        <select class="custom-select" name="scope">
+        <select class="custom-select" name="scope" aria-label="Étendue de la recherche" title="Étendue de la recherche">
           <option value="city" selected>À {{ commune.nom }}</option>
           <option value="country">France entière</option>
         </select>
