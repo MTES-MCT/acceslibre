@@ -33,7 +33,7 @@
 
   <ul class="list-group">
     {% for erp in pager %}
-    <li class="list-group-item d-flex justify-content-between align-items-center border-top-0 rounded-0">
+    <li class="list-group-item d-lg-flex justify-content-between align-items-center border-top-0 rounded-0">
       <div class="flex-fill">
         {% if not erp.published or not erp.geom or not erp.accessibilite %}
         <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
@@ -71,14 +71,12 @@
         <br>
         <address class="mb-0">{{ erp.adresse }}</address>
       </div>
-      <div>
-        <div class="btn-group" role="group" aria-label="Actions">
-          <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_publication" erp_slug=erp.slug %}">Modifier</a>
-          {% if user.is_staff %}
-            <a class="btn btn-sm btn-outline-primary" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
-          {% endif %}
-          <a class="btn btn-sm btn-danger" href="{% url "contrib_delete" erp_slug=erp.slug %}">Supprimer</a>
-        </div>
+      <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="Actions">
+        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_publication" erp_slug=erp.slug %}">Modifier</a>
+        {% if user.is_staff %}
+          <a class="btn btn-sm btn-outline-primary" href="{% url "admin:erp_erp_change" object_id=erp.pk %}">Admin</a>
+        {% endif %}
+        <a class="btn btn-sm btn-danger" href="{% url "contrib_delete" erp_slug=erp.slug %}">Supprimer</a>
       </div>
     </li>
     {% empty %}
