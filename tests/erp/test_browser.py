@@ -121,6 +121,21 @@ def test_admin_urls_ok(data, url, client):
 @pytest.mark.parametrize(
     "url",
     [
+        reverse("mon_compte"),
+        reverse("mes_erps"),
+        reverse("mes_contributions"),
+        reverse("mes_contributions_recues"),
+    ],
+)
+def test_admin_urls_ok(data, url, client):
+    client.login(username="niko", password="Abc12345!")
+    response = client.get(url)
+    assert response.status_code == 200
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
         reverse("commune", kwargs=dict(commune="invalid")),
         reverse(
             "commune_activite", kwargs=dict(commune="invalid", activite_slug="invalid")
