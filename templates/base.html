@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block page_title %}{% endblock%} | {{ SITE_NAME|default_if_none:"acceslibre" }}</title>
     <meta name="description" content="{% block page_description %}La plateforme collaborative de l'accessibilité{% endblock %}">
-    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.ico" %}">
+    <link rel="manifest" href="{% static "manifest.webmanifest" %}">
+    <meta name="theme-color" content="#075ea2">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
+    <link rel="apple-touch-icon" href="{% static "/img/apple-touch-icon.png" %}">
     <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin=""
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==">
