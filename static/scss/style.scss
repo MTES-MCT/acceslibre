@@ -59,6 +59,18 @@ $viewport-xl: 1200px;
     background: linear-gradient(15deg, #054a80, #3576a9);
   }
 
+  &-cta-search {
+    @media screen and (max-width: $viewport-sm) {
+      padding: 0 0 1em 0 !important;
+    }
+  }
+
+  &-cta-contribute {
+    @media screen and (max-width: $viewport-sm) {
+      padding: 1em !important;
+    }
+  }
+
   h1, .h1,
   h2, .h2,
   h3, .h3,
