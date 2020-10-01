@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% load static %}
-
 {% block content %}
   {% block header %}
     {% include "editorial/header.html" with dark=True %}
@@ -13,38 +11,6 @@
     {% block editorial_content %}{% endblock%}
   </main>
 
-  <footer class="container-fluid bg-dark text-light pt-4 pb-5">
-    <div class="container">
-      <div class="row mt-4">
-        <div class="col-sm">
-          <h2 class="h4"><a class="text-white text-decoration-none" href="{% url "home" %}">{{ SITE_NAME }}</a></h2>
-          <nav>
-            <div><a class="text-white" href="{% url "home" %}">Accueil</a></div>
-            <div><a class="text-white" href="https://beta.gouv.fr/startups/acceslibre.html">À propos</a></div>
-            <div><a class="text-white" href="{% url "accessibilite" %}">Accessibilité</a></div>
-            <div><a class="text-white" href="{% url "cgu" %}">Conditions générales d'utilisation</a></div>
-          </nav>
-        </div>
-        <div class="col-sm">
-          <h2 class="h4">Services</h2>
-          <nav>
-            <div><a class="text-white" href="{% url "apidocs" %}">API</a></div>
-            <div><a class="text-white" href="{% url "stats_home" %}">Statistiques</a></div>
-            <div><a class="text-white" href="https://updown.io/9wqh" target="_blank">Statut du serveur</a></div>
-            <div><a class="text-white" href="{% url "contact_form" %}">Contactez-nous</a></div>
-            <div><a class="text-white" href="https://github.com/MTES-MCT/acceslibre" target="_blank">Code source</a></div>
-          </nav>
-        </div>
-        <div class="col-sm d-inline-flex justify-content-center align-items-center">
-          <a href="https://www.ecologique-solidaire.gouv.fr/fabrique-numerique" target="_blank">
-            <img width="180" height="180" alt="Logo : la Fabrique Numérique" src="{% static "img/logo-fabriquenumerique.svg" %}">
-          </a>
-          &nbsp;
-          <a href="https://www.ecologique-solidaire.gouv.fr/" target="_blank">
-            <img width="80" height="180" alt="Logo : Ministère de la transition écologique et solidaire, Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" src="{% static "img/MTES_MCTRCT.svg" %}">
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+
+  {% include "editorial/footer.html" %}
 {% endblock %}
