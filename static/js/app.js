@@ -18,7 +18,7 @@ window.a4a = (function () {
       iconAnchor: [size / 2, size],
       popupAnchor: [0, -size],
       tooltipAnchor: [size / 2, -28],
-      className: highlight && " highlighted" || "",
+      className: "a4a-map-activite-icon" + (highlight && " highlighted" || ""),
     };
     return L.icon(options);
   }
@@ -257,6 +257,7 @@ window.a4a = (function () {
   });
 
   return {
+    createTiles: createTiles,
     initAppMap: initAppMap,
   };
 })();

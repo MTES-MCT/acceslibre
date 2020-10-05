@@ -115,8 +115,8 @@ $viewport-xl: 1200px;
     }
   }
 
-  .leaflet-marker-icon {
-    box-shadow: 2px 2px 5px #aaa;
+  &-map-activite-icon {
+    box-shadow: 2px 2px 5px #777;
 
     &.highlighted {
       background-color: #fff;

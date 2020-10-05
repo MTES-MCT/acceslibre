@@ -53,9 +53,7 @@
       lat: {{ form.lat.value }},
       lon: {{ form.lon.value }}
     }, 18);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(erpmap);
+    a4a.createTiles().addTo(erpmap);
     const control = L.control.centerCross({show: true, position: "topright"});
     erpmap.addControl(control);
     erpmap.on("move", function(event) {
