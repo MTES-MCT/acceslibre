@@ -5,9 +5,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
 from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+
 
 from django_registration.forms import RegistrationFormUniqueEmail
 from requests.exceptions import RequestException
@@ -34,6 +36,10 @@ def get_widgets_for_accessibilite():
 
 
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
+    USERNAME_RULES = (
+        "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
+    )
+
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = User
         fields = [
@@ -46,6 +52,13 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "next",
         ]
 
+    username = forms.CharField(
+        max_length=32,
+        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
+        required=True,
+        label="Nom d’utilisateur",
+        validators=[RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES,)],
+    )
     next = forms.CharField(required=False)
 
 

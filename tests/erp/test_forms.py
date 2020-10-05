@@ -7,6 +7,7 @@ from erp import schema
 from erp.forms import (
     AdminAccessibiliteForm,
     AdminErpForm,
+    CustomRegistrationForm,
     PublicErpEditInfosForm,
     ViewAccessibiliteForm,
 )
@@ -48,6 +49,32 @@ def fake_geocoder():
         "commune": "Paris",
         "code_insee": "75111",
     }
+
+
+@pytest.mark.django_db
+def test_CustomRegistrationForm():
+    form = CustomRegistrationForm()
+    assert form.is_valid() is False
+
+    form = CustomRegistrationForm({"username": "toto@toto.com"})
+    assert form.is_valid() is False
+    assert CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
+
+    form = CustomRegistrationForm({"username": "toto+toto"})
+    assert form.is_valid() is False
+    assert CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
+
+    form = CustomRegistrationForm(
+        {"username": "".join(map(lambda _: "x", range(0, 33)))}
+    )  # 33c length string
+    assert form.is_valid() is False
+    assert (
+        "Assurez-vous que cette valeur comporte au plus 32 caractères (actuellement 33)."
+        in form.errors["username"]
+    )
+
+    form = CustomRegistrationForm({"username": "jean-pierre.timbault_42"})
+    assert "username" not in form.errors
 
 
 @pytest.mark.django_db
