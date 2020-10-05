@@ -98,17 +98,24 @@
   </div>
 </div>
 <script>
-window.addEventListener("DOMContentLoaded", function() {
-  // If we have a url hash, open the matching tab content
-  if (location.hash && $(location.hash + "-tab").get(0)) {
-    $(location.hash + "-tab").tab("show");
-    // Handle special case of history where we open the first entry.
-    if (location.hash === "#history") {
-      const firstEntry = document.querySelector("details");
-      if (firstEntry) {
-        firstEntry.open = true;
+(function() {
+  function onHashChanged() {
+    // If we have a url hash, open the matching tab content
+    if (location.hash && $(location.hash + "-tab").get(0)) {
+      $(location.hash + "-tab").tab("show");
+      // Handle special case of history where we open the first entry.
+      if (location.hash === "#history") {
+        const firstEntry = document.querySelector("details");
+        if (firstEntry) {
+          firstEntry.open = true;
+        }
       }
+    } else {
+      $("[data-toggle=tab]").first().tab("show");
     }
   }
-})
+
+  window.addEventListener("DOMContentLoaded", onHashChanged);
+  window.addEventListener("hashchange", onHashChanged);
+})();
 </script>
