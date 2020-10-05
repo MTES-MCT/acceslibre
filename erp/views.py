@@ -540,7 +540,14 @@ def contrib_localisation(request, erp_slug):
 
 
 def process_accessibilite_form(
-    request, erp_slug, step, form_fields, template_name, redirect_route, prev_route=None
+    request,
+    erp_slug,
+    step,
+    form_fields,
+    template_name,
+    redirect_route,
+    prev_route=None,
+    redirect_hash=None,
 ):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
@@ -561,7 +568,8 @@ def process_accessibilite_form(
             )
             action = request.POST.get("action")
             if action == "contribute":
-                return redirect(erp.get_absolute_url())
+                hash = "#" + redirect_hash if redirect_hash else ""
+                return redirect(erp.get_absolute_url() + hash)
             else:
                 return redirect(redirect_route, erp_slug=erp.slug)
     else:
@@ -593,6 +601,7 @@ def contrib_transport(request, erp_slug):
         "contrib/3-transport.html",
         "contrib_stationnement",
         prev_route="contrib_localisation",
+        redirect_hash=schema.SECTION_TRANSPORT,
     )
 
 
@@ -607,6 +616,7 @@ def contrib_stationnement(request, erp_slug):
         "contrib/4-stationnement.html",
         "contrib_exterieur",
         prev_route="contrib_transport",
+        redirect_hash=schema.SECTION_STATIONNEMENT,
     )
 
 
@@ -621,6 +631,7 @@ def contrib_exterieur(request, erp_slug):
         "contrib/5-exterieur.html",
         "contrib_entree",
         prev_route="contrib_stationnement",
+        redirect_hash=schema.SECTION_CHEMINEMENT_EXT,
     )
 
 
@@ -635,6 +646,7 @@ def contrib_entree(request, erp_slug):
         "contrib/6-entree.html",
         "contrib_accueil",
         prev_route="contrib_exterieur",
+        redirect_hash=schema.SECTION_ENTREE,
     )
 
 
@@ -649,6 +661,7 @@ def contrib_accueil(request, erp_slug):
         "contrib/7-accueil.html",
         "contrib_sanitaires",
         prev_route="contrib_entree",
+        redirect_hash=schema.SECTION_ACCUEIL,
     )
 
 
@@ -663,6 +676,7 @@ def contrib_sanitaires(request, erp_slug):
         "contrib/8-sanitaires.html",
         "contrib_labellisation",
         prev_route="contrib_accueil",
+        redirect_hash=schema.SECTION_SANITAIRES,
     )
 
 
@@ -677,6 +691,7 @@ def contrib_labellisation(request, erp_slug):
         "contrib/9-labellisation.html",
         "contrib_commentaire",
         prev_route="contrib_sanitaires",
+        redirect_hash=schema.SECTION_LABELS,
     )
 
 
@@ -691,6 +706,7 @@ def contrib_commentaire(request, erp_slug):
         "contrib/10-commentaire.html",
         "contrib_publication",
         prev_route="contrib_labellisation",
+        redirect_hash=schema.SECTION_COMMENTAIRE,
     )
 
 
