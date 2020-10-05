@@ -88,6 +88,14 @@ def isnonemptylist(value):
     return isinstance(value, list) and len(value) > 0
 
 
+@register.filter("safe_username")
+def safe_username(value):
+    if "@" in value:
+        username = value.split("@")[0]
+        return username + "@..." if username else value.replace("@", "")
+    return value
+
+
 @register.filter("startswith")
 def startswith(value, starts):
     if isinstance(value, str):

@@ -146,13 +146,25 @@
     <small class="col-xl-6 text-muted">
       {% if erp.user_type == "gestionnaire" %}
       <i aria-hidden="true" class="icon icon-gestionnaire"></i>
-      Informations initialement fournies par les gestionnaires de l'établissement
       {% elif erp.user_type == "admin" %}
       <i aria-hidden="true" class="icon icon-administration"></i>
-      Informations initialement fournies par une administration
       {% else %}
       <i aria-hidden="true" class="icon icon-simple-utilisateur"></i>
-      Informations initialement fournies par un usager de l'établissement
+      {% endif %}
+      Informations initialement fournies
+      {% if erp.user %}
+      par <strong>{{ erp.user.username|safe_username }}</strong>
+      {% endif %}
+      le {{ erp.created_at|date:"j/m/Y" }}
+      {% if erp.user_type == "gestionnaire" %}
+      en tant que gestionnaire de l'établissement
+      {% elif erp.user_type == "admin" %}
+      en tant qu'administration
+      {% elif erp.user_type == "public" %}
+      en tant qu'usager de l'établissement
+      {% endif %}
+      {% if erp.created_at != erp.updated_at %}
+      et mises à jour le {{ erp.updated_at|date:"j/m/Y" }}
       {% endif %}
       {% if not user.is_authenticated %}
       <br>
