@@ -8,17 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block page_title %}{% endblock%} | {{ SITE_NAME|default_if_none:"acceslibre" }}</title>
     <meta name="description" content="{% block page_description %}La plateforme collaborative de l'accessibilité{% endblock %}">
-    <link rel="manifest" href="{% static "manifest.webmanifest" %}?{{ SITE_TIMESTAMP }}">
+    <link rel="manifest" href="{% static "manifest.webmanifest" %}">
     <meta name="theme-color" content="#075ea2">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}?{{ SITE_TIMESTAMP }}">
-    <link rel="apple-touch-icon" href="{% static "/img/apple-touch-icon.png" %}?{{ SITE_TIMESTAMP }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
+    {% comment %} <link rel="apple-touch-icon" href="{% static "/img/apple-touch-icon.png" %}"> {% endcomment %}
     <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin=""
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" crossorigin="">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.css" crossorigin="">
-    <link rel="stylesheet" href="{% static "icons/styles.css" %}?{{ SITE_TIMESTAMP }}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}?{{ SITE_TIMESTAMP }}">
+    <link rel="stylesheet" href="{% static "icons/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
     {% block stylesheet_extras %}{% endblock %}
     <script src="https://browser.sentry-cdn.com/5.15.5/bundle.min.js"
         integrity="sha384-wF7Jc4ZlWVxe/L8Ji3hOIBeTgo/HwFuaeEfjGmS3EXAG7Y+7Kjjr91gJpJtr+PAT" crossorigin="anonymous"></script>
@@ -29,9 +29,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"></script>
-    <script src="{% static "js/bootstrap.min.js" %}?{{ SITE_TIMESTAMP }}"></script>
-    <script src="{% static "js/jquery.autocomplete.min.js" %}?{{ SITE_TIMESTAMP }}"></script>
-    <script src="{% static "js/app.js" %}?{{ SITE_TIMESTAMP }}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/jquery.autocomplete.min.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
     {% block javascript_extras %}{% endblock %}
   </head>
 

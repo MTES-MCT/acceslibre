@@ -3,10 +3,7 @@ from .settings import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    SITE_HOST,
-    "access4all.osc-fr1.scalingo.io",
-]
+ALLOWED_HOSTS = [SITE_HOST, "access4all.osc-fr1.scalingo.io", "localhost"]
 
 CACHES = {
     "default": {
@@ -20,3 +17,5 @@ CACHES = {
 #         "LOCATION": "cache_acceslibre",
 #     }
 # }
+
+STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
