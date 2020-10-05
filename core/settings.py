@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import dj_database_url
 import os
 import sentry_sdk
+import time
 
 from django.contrib.messages import constants as message_constants
 from django.core.exceptions import ImproperlyConfigured
@@ -35,6 +36,7 @@ def get_env_variable(var_name, required=True, type=str):
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
+SITE_TIMESTAMP = str(round(time.time()))
 SECRET_KEY = get_env_variable("SECRET_KEY")
 
 # Sentry integration
@@ -123,6 +125,7 @@ def expose_site_context(request):
     from django.conf import settings
 
     return {
+        "SITE_TIMESTAMP": settings.SITE_TIMESTAMP,
         "SITE_NAME": settings.SITE_NAME,
         "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,
