@@ -45,11 +45,14 @@
   <div class="col-md-6 col-lg-5">
     <div class="card p-4">
       <h3 class="h5">
-        <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-        Je ne possède pas de compte
+        <i aria-hidden="true" class="icon icon-info-circled"></i>
+        Pourquoi créer un compte&nbsp;?
       </h3>
-      <p>Créer son compte ne prend que quelques minutes et vous permet de contribuer au site.</p>
-      <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-success btn-block">Je crée mon compte</a>
+      <p>Créer son compte ne prend que quelques minutes et vous <strong>permet de contribuer au site</strong>.</p>
+      <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-primary btn-block">
+        <i aria-hidden="true" class="icon icon-user"></i>
+        Je crée mon compte
+      </a>
     </div>
   </div>
 </div>

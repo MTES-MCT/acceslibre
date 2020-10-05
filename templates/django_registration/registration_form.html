@@ -55,7 +55,12 @@
     <div class="card p-4">
       <h3 class="h5"><i aria-hidden="true" class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h3>
       <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
-      <p><a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-success btn-block">Je me connecte</a></p>
+      <p class="mb-0">
+        <a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-primary btn-block">
+          <i aria-hidden="true" class="icon icon-key"></i>
+          Je me connecte
+        </a>
+      </p>
     </div>
   </div>
 </div>
