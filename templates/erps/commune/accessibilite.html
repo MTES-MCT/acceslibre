@@ -4,14 +4,14 @@
   <div class="col-md-4">
     <nav class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
       {% for section, info in accessibilite_data.items %}
-      <a class="nav-link text-nowrap {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
+      <a class="nav-link text-truncate {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
         title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
         aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" id="{{ info.tabid }}-tab"
         data-toggle="tab" onclick="document.location='#{{ info.tabid }}'">
         <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
       </a>
       {% endfor %}
-      <a class="nav-link text-nowrap" href="#history"
+      <a class="nav-link text-truncate" href="#history"
         title="Historique des modifications" role="tab" aria-controls="history"
         aria-selected="false" id="history-tab"
         data-toggle="tab"  onclick="document.location='#history'">
@@ -53,7 +53,7 @@
       {% endif %}
     </section>
     {% endfor %}
-    <section class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
+    <section class="a4a-tab-content-section tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
       <h3 class="sr-only">Historique des modifications</h3>
       <div class="list-group list-group-flush">
         {% for entry in erp.get_history %}
@@ -97,6 +97,13 @@ window.addEventListener("DOMContentLoaded", function() {
   // If we have a url hash, open the matching tab content
   if (location.hash && $(location.hash + "-tab").get(0)) {
     $(location.hash + "-tab").tab("show");
+    // Handle special case of history where we open the first entry.
+    if (location.hash === "#history") {
+      const firstEntry = document.querySelector("details");
+      if (firstEntry) {
+        firstEntry.open = true;
+      }
+    }
   }
 })
 </script>

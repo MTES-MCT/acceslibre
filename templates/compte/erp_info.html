@@ -5,7 +5,7 @@
       src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
   {{ erp.nom }}
 {% else %}
-  <a href="{{ erp.get_absolute_url }}">
+  <a href="{{ erp.get_absolute_url }}#history">
     <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
     src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
     {{ erp.nom }}
