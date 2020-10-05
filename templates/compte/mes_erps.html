@@ -35,41 +35,48 @@
     {% for erp in pager %}
     <li class="list-group-item d-lg-flex justify-content-between align-items-center border-top-0 rounded-0">
       <div class="flex-fill">
-        {% if not erp.published or not erp.geom or not erp.accessibilite %}
-        <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
-          src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
-        {{ erp.nom }}
-        {% else %}
-        <a href="{{ erp.get_absolute_url }}">
+        <div class="font-weight-bold">
+          {% if not erp.published or not erp.geom or not erp.accessibilite %}
           <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
             src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
-          {{ erp.nom }}
-        </a>
-        {% endif %}
-        {% if erp.activite %}
-          <small class="text-muted">({{ erp.activite.nom }})</small>
-        {% endif %}
+          <span class="text-muted">{{ erp.nom }}</span>
+          {% else %}
+          <a href="{{ erp.get_absolute_url }}">
+            <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
+              src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+            {{ erp.nom }}
+          </a>
+          {% endif %}
+          {% if erp.activite %}
+            <small class="text-muted">({{ erp.activite.nom }})</small>
+          {% endif %}
+        </div>
+        <div>
+          <address class="mb-0"><small class="text-muted">{{ erp.adresse }}</small></address>
+        </div>
         {% if erp.siret %}
-          <br><small class="text-muted">Numéro SIRET : {{ erp.siret }}</small>
+          <div>
+            <small class="text-muted">Numéro SIRET : {{ erp.siret }}</small>
+          </div>
         {% endif %}
-        <br>
+        <div>
         {% if not erp.published or not erp.geom or not erp.accessibilite %}
-        <small class="text-warning">
-          <i aria-hidden="true" class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
-        </small>
+          <small class="text-secondary">
+            <i aria-hidden="true" class="icon icon-exclamation-circle"></i> La fiche n'est pas publiée
+          </small>
         {% else %}
-        <small class="text-success">
-          <i aria-hidden="true" class="icon icon-check"></i> La fiche est publiée
-        </small>
-        {% endif %}
-        {% if not erp.accessibilite %}
-          <br>
-          <small class="text-info">
-            <i aria-hidden="true" class="icon icon-exclamation-circle"></i> Les informations d'accessibilité ne sont pas renseignées
+          <small class="text-success">
+            <i aria-hidden="true" class="icon icon-check"></i> La fiche est publiée
           </small>
         {% endif %}
-        <br>
-        <address class="mb-0">{{ erp.adresse }}</address>
+        </div>
+        {% if not erp.accessibilite %}
+          <div>
+            <small class="text-info">
+              <i aria-hidden="true" class="icon icon-exclamation-circle"></i> Les informations d'accessibilité ne sont pas renseignées
+            </small>
+          </div>
+        {% endif %}
       </div>
       <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="Actions">
         <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_publication" erp_slug=erp.slug %}">Modifier</a>
