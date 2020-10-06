@@ -191,9 +191,9 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
             "commune": "Jacou",
         }
     )
-    assert form.is_valid() is False
-    assert "numero" in form.errors
-    assert "Le numéro 4 n'a pu être trouvé" in form.errors["numero"][0]
+    assert form.is_valid() is True
+    assert "numero" not in form.errors
+    assert form.cleaned_data["numero"] == "4"
 
 
 def test_BaseErpForm_invalid_on_empty_geocode_results(form_data):

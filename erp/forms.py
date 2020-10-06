@@ -185,13 +185,11 @@ class BaseErpForm(forms.ModelForm):
                 "code_insee",
                 f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}",
             )
-        if self.cleaned_data.get("numero") and not locdata["numero"]:
-            self.raise_validation_error(
-                "numero",
-                f"Le numéro {self.cleaned_data.get('numero')} n'a pu être trouvé dans cette voie",
-            )
+        if self.cleaned_data.get("numero"):
+            if locdata["numero"]:
+                self.cleaned_data["numero"] = locdata["numero"]
+
         self.cleaned_data["geom"] = locdata["geom"]
-        self.cleaned_data["numero"] = locdata["numero"]
         self.cleaned_data["voie"] = locdata["voie"]
         self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
         self.cleaned_data["code_postal"] = locdata["code_postal"]
