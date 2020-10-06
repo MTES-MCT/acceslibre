@@ -124,7 +124,8 @@ def get_client():
         return ApiInsee(
             key=settings.INSEE_API_CLIENT_KEY, secret=settings.INSEE_API_SECRET_KEY,
         )
-    except HTTPError:
+    except HTTPError as err:
+        print(err)  # XXX find a way to log this somewhere
         raise RuntimeError("Le service INSEE est indisponible.")
     except Exception:
         # api_insee raise standard exceptions when unable to connect to the auth service ;(
@@ -234,8 +235,8 @@ def execute_request(request):
             raise RuntimeError("Le service INSEE est indisponible.")
 
 
-def create_find_query(nom, lieu, limit):
-    return (
+def create_find_query(nom, lieu, naf=None):
+    base_query = (
         criteria.Field(STATUT, "A")
         & OrGroup(criteria.FieldExact(CODE_POSTAL, lieu), Fuzzy(COMMUNE, lieu),)
         & OrGroup(
@@ -246,11 +247,15 @@ def create_find_query(nom, lieu, limit):
             criteria.Periodic(Fuzzy(NOM_ENSEIGNE2, nom)),
         )
     )
+    if naf:
+        base_query = base_query & criteria.Field(ACTIVITE_NAF, f"{naf}~")
+    return base_query
 
 
-def find_etablissements(nom, code_postal, limit=10):
-    q = create_find_query(nom, code_postal, limit)
+def find_etablissements(nom, code_postal, naf=None, limit=10):
+    q = create_find_query(nom, code_postal, naf=naf)
     request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
+    print(request.url)
     response = execute_request(request)
     results = []
     for etablissement in response.get("etablissements", []):

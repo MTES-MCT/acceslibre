@@ -417,6 +417,11 @@ class PublicEtablissementSearchForm(forms.Form):
         required=True,
         widget=forms.TextInput(attrs={"placeholder": "ex. 75010 ou Paris"}),
     )
+    naf = forms.CharField(
+        label="Activité (NAF)",
+        required=False,
+        widget=forms.TextInput(attrs={"list": "nafs"}),
+    )
 
 
 class PublicSiretSearchForm(forms.Form):

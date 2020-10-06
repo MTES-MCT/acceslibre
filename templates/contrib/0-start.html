@@ -80,6 +80,11 @@
           <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
           Rechercher mon établissement
         </button>
+        <datalist id="nafs">
+          {% for naf, label in nafs.items %}
+          <option value="{{ naf }}">{{ label }}</option>
+          {% endfor %}
+        </datalist>
       </form>
     </div>
     <div class="col-sm-6">
