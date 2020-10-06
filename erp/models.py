@@ -218,6 +218,9 @@ class Label(models.Model):
     def __str__(self):
         return self.nom
 
+    def get_static_image(self):
+        return f"img/labels/{self.slug}.jpg"
+
 
 class Vote(models.Model):
     class Meta:

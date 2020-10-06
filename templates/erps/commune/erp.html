@@ -75,7 +75,7 @@
       {% for label in erp.accessibilite.labels.all %}
       {% if label.nom != "Aucun" and label.nom != "Autre" %}
       <div class="a4a-accessibility-label">
-        <img class="a4a-accessibility-label-logo" src="{% static "img/labels" %}/{{ label.slug }}.jpg"
+        <img class="a4a-accessibility-label-logo" src="{% static label.get_static_image %}"
           alt="{{ label.nom }}" title="Cet établissement a obtenu le label {{ label.nom }}"
           aria-label="Cet établissement a obtenu le label {{ label.nom }}" />
         <div class="text-center">
