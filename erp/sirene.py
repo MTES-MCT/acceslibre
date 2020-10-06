@@ -236,7 +236,7 @@ def execute_request(request):
 
 
 def create_find_query(nom, lieu, naf=None):
-    base_query = (
+    query = (
         criteria.Field(STATUT, "A")
         & OrGroup(criteria.FieldExact(CODE_POSTAL, lieu), Fuzzy(COMMUNE, lieu),)
         & OrGroup(
@@ -248,14 +248,13 @@ def create_find_query(nom, lieu, naf=None):
         )
     )
     if naf:
-        base_query = base_query & criteria.Field(ACTIVITE_NAF, f"{naf}~")
-    return base_query
+        query = query & criteria.Field(ACTIVITE_NAF, f"{naf}~")
+    return query
 
 
 def find_etablissements(nom, code_postal, naf=None, limit=10):
     q = create_find_query(nom, code_postal, naf=naf)
     request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
-    print(request.url)
     response = execute_request(request)
     results = []
     for etablissement in response.get("etablissements", []):
