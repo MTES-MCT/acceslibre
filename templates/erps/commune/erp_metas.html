@@ -1,0 +1,37 @@
+{% load a4a %}
+
+<div class="d-flex justify-content-start align-content-center">
+  {% if erp.user_type == "gestionnaire" %}
+    <i aria-hidden="true" class="icon icon-gestionnaire"></i>
+  {% elif erp.user_type == "admin" %}
+    <i aria-hidden="true" class="icon icon-administration"></i>
+  {% else %}
+    <i aria-hidden="true" class="icon icon-simple-utilisateur"></i>
+  {% endif %}
+  <span class="ml-1">
+    Informations initialement fournies
+    {% if erp.user %}
+      par <strong>{{ erp.user.username|safe_username }}</strong>
+    {% endif %}
+    le {{ erp.get_global_timestamps.created_at|date:"j/m/Y" }}
+    {% if erp.user_type == "gestionnaire" %}
+      en tant que gestionnaire de l'établissement
+    {% elif erp.user_type == "admin" %}
+      en tant qu'administration
+    {% elif erp.user_type == "public" %}
+      en tant qu'usager de l'établissement
+    {% endif %}
+    {% if erp.get_global_timestamps.created_at != erp.get_global_timestamps.updated_at %}
+      et mises à jour le {{ erp.get_global_timestamps.updated_at|date:"j/m/Y" }}
+    {% endif %}
+  </span>
+</div>
+
+{% if not user.is_authenticated %}
+  <div class="d-flex justify-content-start align-content-center">
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    <span class="ml-1">
+      <a href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a> pour évaluer ces informations
+    </span>
+  </div>
+{% endif %}

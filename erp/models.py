@@ -496,6 +496,22 @@ class Erp(models.Model):
             else None
         )
 
+    def get_global_timestamps(self):
+        (created_at, updated_at) = (self.created_at, self.updated_at)
+        if self.has_accessibilite():
+            (a_created_at, a_updated_at) = (
+                self.accessibilite.created_at,
+                self.accessibilite.updated_at,
+            )
+            (created_at, updated_at) = (
+                a_created_at if a_created_at > created_at else created_at,
+                a_updated_at if a_updated_at > updated_at else updated_at,
+            )
+        return {
+            "created_at": created_at,
+            "updated_at": updated_at,
+        }
+
     def has_accessibilite(self):
         return hasattr(self, "accessibilite") and self.accessibilite is not None
 
