@@ -127,20 +127,30 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         {% endif %}
       </div>
     </main>
-    <nav
-      class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 order-first d-none d-sm-block bg-light activites-list p-0 m-0 border-top overflow-auto">
+
+    <nav class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 order-first bg-light activites-list p-0 m-0 border-top overflow-auto">
       <h2 class="sr-only">Domaines d'activité à {{ commune.nom }}</h2>
-      <div class="list-group list-group-flush border-right">
+      <div class="d-block d-sm-none d-xl-none">
+        <label class="sr-only" for="select_activite">Sélectionnez une activité</label>
+        <select id="select_activite" class="form-control w-100 rounded-0 border-0" onchange="location.href=this.value">
+          <option value="{% url "commune" commune=commune.slug %}">Sélectionnez une activité</option>
+          {% for activite in activites %}
+          <option value="{% url "commune_activite" commune=commune.slug activite_slug=activite.slug %}"{% if current_activite and current_activite.pk == activite.pk %} selected="selected"{% endif %}>
+            {{ activite.nom }} ({{ activite.count }})
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="list-group list-group-flush border-right d-none d-sm-block">
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if not current_activite and activite_slug != "non-categorises" %} active{% endif %}"
           title="Toutes les activités"
-          href="{% url 'commune' commune=commune.slug %}">
+          href="{% url "commune" commune=commune.slug %}">
           <span class="w-100 text-truncate">Toutes les activités</span>
-          {# <span class="badge badge-primary badge-pill">{{ activite.count }}</span> #}
         </a>
         {% for activite in activites %}
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
           title="{{ activite.nom }}"
-          href="{% url 'commune_activite' commune=commune.slug activite_slug=activite.slug %}">
+          href="{% url "commune_activite" commune=commune.slug activite_slug=activite.slug %}">
           <img alt="" class="mb-1 mr-1"
               src="{% static "/img/activites/png/" %}{{ activite.icon|default_if_none:"amenity_public_building" }}.n.16.png">
           <span class="w-100 text-truncate">{{ activite.nom }}</span>
@@ -149,14 +159,15 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         {% endfor %}
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if activite_slug == "non-categorises" %} active{% endif %}"
           title="Activité indéterminée"
-          href="{% url 'commune_activite' commune=commune.slug activite_slug="non-categorises" %}">
+          href="{% url "commune_activite" commune=commune.slug activite_slug="non-categorises" %}">
           <span class="w-100 text-truncate">Activité indéterminée</span>
         </a>
       </div>
     </nav>
-    <div class="a4a-app-map col-lg-5 col-md-4 order-last d-none d-md-block map-area p-0 m-0">
+
+    <aside class="a4a-app-map col-lg-5 col-md-4 order-last d-none d-md-block map-area p-0 m-0">
       {% include "common/map.html" %}
-    </div>
+    </aside>
     {% endif %}
   </div>
 </div>

@@ -19,7 +19,7 @@ $h6-font-size: 1em;
 
 $text-muted: rgb(104, 104, 104);
 
-$viewport-xs: 0;
+$viewport-xs: 320px;
 $viewport-sm: 576px;
 $viewport-md: 768px;
 $viewport-lg: 992px;
@@ -155,7 +155,7 @@ $viewport-xl: 1200px;
   &-app-nav,
   &-app-main,
   &-app-map {
-    @media screen and (min-width: $viewport-lg) {
+    @media screen and (min-width: $viewport-md) {
       height: calc(100vh - 58px - 57px);
     }
   }
