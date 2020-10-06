@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import dj_database_url
 import os
 import sentry_sdk
-import time
 
 from django.contrib.messages import constants as message_constants
 from django.core.exceptions import ImproperlyConfigured
