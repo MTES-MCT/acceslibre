@@ -1,0 +1,19 @@
+{% autoescape off %}Bonjour {{ owner.username }},
+
+Des utilisateurs ont récemment contribué de nouvelles informations à des établissements que vous avez ajouté sur la plateforme :
+
+{% for change in changes %}
+- {{ change.contributor }} sur {{ change.erp.nom }} ({{ change.erp.commune }}):
+  {{ SITE_ROOT_URL }}{{ change.erp.get_absolute_url }}#history
+{% endfor %}
+
+Pour information, vous pouvez à tout moment retrouver l'intégralité
+des contributions effectuées sur vos établissements à cette adresse :
+{{ SITE_ROOT_URL }}{% url "mes_contributions_recues" %}
+
+Bonne journée.
+
+--
+L'équipe {{ SITE_NAME.title }}
+{{ SITE_ROOT_URL }}
+{% endautoescape %}
