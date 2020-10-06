@@ -11,7 +11,7 @@ from erp.forms import (
     PublicErpEditInfosForm,
     ViewAccessibiliteForm,
 )
-from erp.models import Commune
+from erp.models import Commune, Erp
 
 from tests.fixtures import data
 
@@ -194,6 +194,8 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
     assert form.is_valid() is True
     assert "numero" not in form.errors
     assert form.cleaned_data["numero"] == "4"
+    form.save()
+    erp = Erp.objects.get(slug="test-erp").numero == "4"
 
 
 def test_BaseErpForm_invalid_on_empty_geocode_results(form_data):
