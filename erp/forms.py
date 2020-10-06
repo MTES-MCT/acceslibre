@@ -418,9 +418,19 @@ class PublicEtablissementSearchForm(forms.Form):
         widget=forms.TextInput(attrs={"placeholder": "ex. 75010 ou Paris"}),
     )
     naf = forms.CharField(
-        label="Activité (NAF)",
+        label="Activité (optionnel)",
         required=False,
-        widget=forms.TextInput(attrs={"list": "nafs"}),
+        help_text=mark_safe(
+            "Rechercher une activité par son nom ou son "
+            '<a href="https://www.insee.fr/fr/information/2579599" target="_blank">code NAF</a>.'
+        ),
+        widget=forms.TextInput(
+            attrs={
+                "type": "search",
+                "list": "nafs",
+                "placeholder": "Code NAF ou nom d'activité",
+            }
+        ),
     )
 
 

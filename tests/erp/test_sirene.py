@@ -4,7 +4,7 @@ from erp import sirene
 
 
 def test_create_find_query_single_word():
-    q = sirene.create_find_query("akei", "34830", limit=10)
+    q = sirene.create_find_query("akei", "34830")
 
     assert (
         q.toURLParams()
@@ -13,7 +13,7 @@ def test_create_find_query_single_word():
 
 
 def test_create_find_query_multiple_words():
-    q = sirene.create_find_query("bistro brooklyn", "34830", limit=10)
+    q = sirene.create_find_query("bistro brooklyn", "34830")
 
     assert (
         q.toURLParams()
@@ -22,11 +22,20 @@ def test_create_find_query_multiple_words():
 
 
 def test_create_find_query_apostrophe():
-    q = sirene.create_find_query("l'insolent", "34830", limit=10)
+    q = sirene.create_find_query("l'insolent", "34830")
 
     assert (
         q.toURLParams()
         == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:"l\'insolent"~ OR denominationUsuelle1UniteLegale:"l\'insolent"~ OR nomUniteLegale:"l\'insolent"~ OR periode(enseigne1Etablissement:"l\'insolent"~) OR periode(denominationUsuelleEtablissement:"l\'insolent"~))'
+    )
+
+
+def test_create_find_query_with_naf():
+    q = sirene.create_find_query("akei", "34830", naf="32.01")
+
+    assert (
+        q.toURLParams()
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:akei~ OR denominationUsuelle1UniteLegale:akei~ OR nomUniteLegale:akei~ OR periode(enseigne1Etablissement:akei~) OR periode(denominationUsuelleEtablissement:akei~)) AND activitePrincipaleUniteLegale:32.01~'
     )
 
 

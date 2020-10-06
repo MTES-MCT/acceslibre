@@ -68,38 +68,42 @@
   </small></p>
   <div class="row">
     <div class="col-sm-6">
-      <form method="post" class="card p-3 mb-3">
-        <p><strong>Je recherche mon établissement</strong></p>
-        <input type="hidden" name="type" value="by-name">
-        {% csrf_token %}
-        {% if name_search_error %}
-          <div class="alert alert-danger">{{ name_search_error }}</div>
-        {% endif %}
-        {{ name_form|crispy }}
-        <button type="submit" class="btn btn-primary">
-          <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
-          Rechercher mon établissement
-        </button>
-        <datalist id="nafs">
-          {% for naf, label in nafs.items %}
-          <option value="{{ naf }}">{{ label }}</option>
-          {% endfor %}
-        </datalist>
+      <form method="post" class="card">
+        <div class="card-header"><strong>Je recherche mon établissement</strong></div>
+        <div class="card-body">
+          <input type="hidden" name="type" value="by-name">
+          {% csrf_token %}
+          {% if name_search_error %}
+            <div class="alert alert-danger">{{ name_search_error }}</div>
+          {% endif %}
+          {{ name_form|crispy }}
+          <button type="submit" class="btn btn-primary w-100">
+            <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+            Rechercher mon établissement
+          </button>
+          <datalist id="nafs">
+            {% for naf, label in nafs.items %}
+            <option value="{{ naf }}">{{ label }}</option>
+            {% endfor %}
+          </datalist>
+        </div>
       </form>
     </div>
     <div class="col-sm-6">
-      <form method="post" class="card p-3 mb-3">
+      <form method="post" class="card">
         <input type="hidden" name="type" value="by-siret">
-        <p><strong>Mon établissement dispose d'un numéro SIRET</strong></p>
-        {% csrf_token %}
-        {% if siret_search_error %}
-          <div class="alert alert-danger">{{ siret_search_error }}</div>
-        {% endif %}
-        {{ siret_form|crispy }}
-        <button type="submit" class="btn btn-primary">
-          <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
-          Rechercher mon établissement
-        </button>
+        <div class="card-header"><strong>Mon établissement dispose d'un numéro SIRET</strong></div>
+        <div class="card-body">
+          {% csrf_token %}
+          {% if siret_search_error %}
+            <div class="alert alert-danger">{{ siret_search_error }}</div>
+          {% endif %}
+          {{ siret_form|crispy }}
+          <button type="submit" class="btn btn-primary w-100">
+            <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+            Rechercher mon établissement
+          </button>
+        </div>
       </form>
       <div class="text-center mt-4">
         <a href="{% url "contrib_admin_infos" %}">
