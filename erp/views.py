@@ -35,6 +35,7 @@ from .forms import (
 )
 from .models import Accessibilite, Activite, Commune, Erp, Vote
 from .serializers import SpecialErpSerializer
+from . import naf
 from . import schema
 from . import sirene
 from . import versioning
@@ -379,7 +380,10 @@ def mes_contributions_recues(request):
 
 def find_sirene_etablissements(name_form):
     results = sirene.find_etablissements(
-        name_form.cleaned_data.get("nom"), name_form.cleaned_data.get("lieu"), limit=15,
+        name_form.cleaned_data.get("nom"),
+        name_form.cleaned_data.get("lieu"),
+        naf=name_form.cleaned_data.get("naf"),
+        limit=15,
     )
     for result in results:
         result["exists"] = Erp.objects.exists_by_siret(result["siret"])
@@ -433,6 +437,7 @@ def contrib_start(request):
         template_name="contrib/0-start.html",
         context={
             "step": 1,
+            "nafs": naf.NAF,
             "name_form": name_form,
             "name_search_results": name_search_results,
             "siret_form": siret_form,
