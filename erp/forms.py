@@ -413,9 +413,11 @@ class PublicEtablissementSearchForm(forms.Form):
         widget=forms.TextInput(attrs={"placeholder": "ex. Bistro Brooklyn"}),
     )
     lieu = forms.CharField(
-        label="Code postal ou nom de la commune",
+        label="Nom de la commune",
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "ex. 75010 ou Paris"}),
+        widget=forms.TextInput(
+            attrs={"type": "search", "placeholder": "ex. 75010 ou Paris"}
+        ),
     )
     naf = forms.CharField(
         label="Activité (optionnel)",
