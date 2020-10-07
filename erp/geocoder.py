@@ -31,6 +31,9 @@ def geocode(adresse):
             voie = properties.get("street")
         elif type == "locality":
             lieu_dit = properties.get("name")
+        # score
+        if properties["score"] < 0.5:
+            return None
         # coordinates
         geometry = feature["geometry"]
         return {
