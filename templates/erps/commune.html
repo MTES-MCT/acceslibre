@@ -14,7 +14,9 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
 
 {% block content %}
 <nav class="navbar navbar-expand-lg navbar-dark a4a-navbar">
-  <h1 class="h3"><a class="navbar-brand" href="{% url "home" %}">{{ SITE_NAME }}</a></h1>
+  <h1 class="h3">
+    <a class="navbar-brand" href="{% url "home" %}" title="Accès libre">acces<strong>libre</strong></a>
+  </h1>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
