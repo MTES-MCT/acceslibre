@@ -128,13 +128,16 @@ class BaseErpForm(forms.ModelForm):
         self.do_geocode = geocode if geocode else geocoder.geocode
         super().__init__(*args, **kwargs)
 
-    def get_adresse(self):
+    def get_adresse_query(self):
         parts = [
-            self.cleaned_data[f]
-            for f in ["numero", "voie", "lieu_dit", "code_postal", "commune",]
-            if f in self.cleaned_data and self.cleaned_data[f] is not None
+            self.cleaned_data.get("numero") or "",
+            self.cleaned_data.get("voie") or "",
+            self.cleaned_data.get("lieu_dit") or "",
+            # strip out often erroneous postal codes, so we just keep the departement bits
+            self.cleaned_data.get("code_postal")[:2] or "",
+            self.cleaned_data.get("commune") or "",
         ]
-        return " ".join(parts).strip()
+        return " ".join([p for p in parts if p != ""]).strip()
 
     def adresse_changed(self):
         try:
@@ -158,7 +161,7 @@ class BaseErpForm(forms.ModelForm):
         raise ValidationError({field: self.format_error(message)})
 
     def geocode(self):
-        adresse = self.get_adresse()
+        adresse = self.get_adresse_query()
         locdata = None
         try:
             locdata = self.do_geocode(adresse)
@@ -166,16 +169,20 @@ class BaseErpForm(forms.ModelForm):
             raise ValidationError(err)
 
         if not locdata or locdata.get("geom") is None:
-            self.raise_validation_error(
-                "voie", self.format_error(f"Adresse non localisable : {adresse}")
-            )
+            self.raise_validation_error("voie", f"Adresse non localisable : {adresse}")
         if (
             self.cleaned_data["code_postal"]
             and self.cleaned_data["code_postal"] != locdata["code_postal"]
         ):
             self.raise_validation_error(
                 "code_postal",
-                f"Cette adresse n'est pas localisable au code postal {self.cleaned_data['code_postal']}",
+                mark_safe(
+                    f"""
+                    Cette adresse n'est pas localisable au code postal
+                    <a href="https://www.code-postal.com/{self.cleaned_data["code_postal"]}.html" target="_blank"
+                      title="Voir les communes pour ce code postal">
+                        {self.cleaned_data["code_postal"]}</a>"""
+                ),
             )
         if (
             self.cleaned_data.get("code_insee")
@@ -354,7 +361,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
             )
         # Unicité du nom et de l'adresse
         nom = self.cleaned_data.get("nom")
-        adresse = self.get_adresse()
+        adresse = self.get_adresse_query()
         exists = Erp.objects.exists_by_name_adresse(
             nom__iexact=self.cleaned_data.get("nom"),
             voie__iexact=self.cleaned_data.get("voie"),

@@ -1,5 +1,6 @@
 import requests
 
+from django.conf import settings
 from django.contrib.gis.geos import Point
 
 GEOCODER_URL = "https://api-adresse.data.gouv.fr/search/"
@@ -30,9 +31,6 @@ def geocode(adresse):
             voie = properties.get("street")
         elif type == "locality":
             lieu_dit = properties.get("name")
-        # score
-        if properties["score"] < 0.5:
-            return None
         # coordinates
         geometry = feature["geometry"]
         return {
@@ -51,6 +49,8 @@ def geocode(adresse):
 def query(params):
     try:
         res = requests.get(GEOCODER_URL, params)
+        if settings.DEBUG:
+            print("Geocoder URL", res.url)
         if res.status_code != 200:
             raise RuntimeError(
                 f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse."
