@@ -48,11 +48,24 @@ $viewport-xl: 1200px;
 
   &-notifications {
     position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
+    bottom: 0;
+    right: 0;
     padding: 10px;
     z-index: 9999;
+
+    @media screen and (max-width: $viewport-md) {
+      left: 0;
+    }
+
+    &-item {
+      min-width: 320px;
+      max-width: 600px;
+
+      @media screen and (max-width: $viewport-md) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   }
 
   &-bg-primary-gradient {
