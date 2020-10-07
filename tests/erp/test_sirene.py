@@ -8,16 +8,16 @@ def test_create_find_query_single_word():
 
     assert (
         q.toURLParams()
-        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:akei~ OR denominationUsuelle1UniteLegale:akei~ OR nomUniteLegale:akei~ OR periode(enseigne1Etablissement:akei~) OR periode(denominationUsuelleEtablissement:akei~))'
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:AKEI~ OR denominationUsuelle1UniteLegale:AKEI~ OR nomUniteLegale:AKEI~ OR periode(enseigne1Etablissement:AKEI~) OR periode(denominationUsuelleEtablissement:AKEI~))'
     )
 
 
 def test_create_find_query_multiple_words():
-    q = sirene.create_find_query("bistro brooklyn", "34830")
+    q = sirene.create_find_query("BISTRO BROOKLYN", "34830")
 
     assert (
         q.toURLParams()
-        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:"bistro brooklyn"~ OR denominationUsuelle1UniteLegale:"bistro brooklyn"~ OR nomUniteLegale:"bistro brooklyn"~ OR periode(enseigne1Etablissement:"bistro brooklyn"~) OR periode(denominationUsuelleEtablissement:"bistro brooklyn"~))'
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:"BISTRO BROOKLYN"~ OR denominationUsuelle1UniteLegale:"BISTRO BROOKLYN"~ OR nomUniteLegale:"BISTRO BROOKLYN"~ OR periode(enseigne1Etablissement:"BISTRO BROOKLYN"~) OR periode(denominationUsuelleEtablissement:"BISTRO BROOKLYN"~))'
     )
 
 
@@ -26,7 +26,7 @@ def test_create_find_query_apostrophe():
 
     assert (
         q.toURLParams()
-        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:"l\'insolent"~ OR denominationUsuelle1UniteLegale:"l\'insolent"~ OR nomUniteLegale:"l\'insolent"~ OR periode(enseigne1Etablissement:"l\'insolent"~) OR periode(denominationUsuelleEtablissement:"l\'insolent"~))'
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:"L\'INSOLENT"~ OR denominationUsuelle1UniteLegale:"L\'INSOLENT"~ OR nomUniteLegale:"L\'INSOLENT"~ OR periode(enseigne1Etablissement:"L\'INSOLENT"~) OR periode(denominationUsuelleEtablissement:"L\'INSOLENT"~))'
     )
 
 
@@ -35,7 +35,7 @@ def test_create_find_query_with_naf():
 
     assert (
         q.toURLParams()
-        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:akei~ OR denominationUsuelle1UniteLegale:akei~ OR nomUniteLegale:akei~ OR periode(enseigne1Etablissement:akei~) OR periode(denominationUsuelleEtablissement:akei~)) AND activitePrincipaleUniteLegale:32.01~'
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"34830" OR libelleCommuneEtablissement:34830~) AND (denominationUniteLegale:AKEI~ OR denominationUsuelle1UniteLegale:AKEI~ OR nomUniteLegale:AKEI~ OR periode(enseigne1Etablissement:AKEI~) OR periode(denominationUsuelleEtablissement:AKEI~)) AND activitePrincipaleUniteLegale:32.01~'
     )
 
 
@@ -44,7 +44,7 @@ def test_create_find_query_commune_with_dashes():
 
     assert (
         q.toURLParams()
-        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"Vaulx-en-Velin" OR libelleCommuneEtablissement:"Vaulx-en-Velin"~) AND (denominationUniteLegale:akei~ OR denominationUsuelle1UniteLegale:akei~ OR nomUniteLegale:akei~ OR periode(enseigne1Etablissement:akei~) OR periode(denominationUsuelleEtablissement:akei~)) AND activitePrincipaleUniteLegale:32.01~'
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"Vaulx-en-Velin" OR libelleCommuneEtablissement:"Vaulx-en-Velin"~) AND (denominationUniteLegale:AKEI~ OR denominationUsuelle1UniteLegale:AKEI~ OR nomUniteLegale:AKEI~ OR periode(enseigne1Etablissement:AKEI~) OR periode(denominationUsuelleEtablissement:AKEI~)) AND activitePrincipaleUniteLegale:32.01~'
     )
 
 

@@ -242,11 +242,11 @@ def create_find_query(nom, lieu, naf=None):
         criteria.Field(STATUT, "A")
         & OrGroup(criteria.FieldExact(CODE_POSTAL, lieu), Fuzzy(COMMUNE, lieu),)
         & OrGroup(
-            Fuzzy(RAISON_SOCIALE, nom),
-            Fuzzy(NOM_ENSEIGNE3, nom),
-            Fuzzy(PERSONNE_NOM, nom),
-            criteria.Periodic(Fuzzy(NOM_ENSEIGNE1, nom)),
-            criteria.Periodic(Fuzzy(NOM_ENSEIGNE2, nom)),
+            Fuzzy(RAISON_SOCIALE, nom.upper()),
+            Fuzzy(NOM_ENSEIGNE3, nom.upper()),
+            Fuzzy(PERSONNE_NOM, nom.upper()),
+            criteria.Periodic(Fuzzy(NOM_ENSEIGNE1, nom.upper())),
+            criteria.Periodic(Fuzzy(NOM_ENSEIGNE2, nom.upper())),
         )
     )
     if naf:
