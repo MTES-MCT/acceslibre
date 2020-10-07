@@ -160,7 +160,8 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
     )
     assert form.is_valid() is False
     assert "code_postal" in form.errors
-    assert "pas localisable au code postal 75002" in form.errors["code_postal"][0]
+    assert "pas localisable au code postal" in form.errors["code_postal"][0]
+    assert "75002" in form.errors["code_postal"][0]
 
 
 @pytest.mark.django_db
