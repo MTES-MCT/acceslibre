@@ -102,8 +102,8 @@ logger = logging.getLogger(__name__)
 class Fuzzy(criteria.Field):
     @property
     def representation(self):
-        term = str(self.value).replace('"', "").replace("-", " ").strip()
-        if " " in term or "'" in term:
+        term = str(self.value).replace('"', "").strip()
+        if " " in term or "'" in term or "-" in term:
             return f'{self.name}:"{term}"~'
         return f"{self.name}:{term}~"
 

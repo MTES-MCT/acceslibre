@@ -39,6 +39,15 @@ def test_create_find_query_with_naf():
     )
 
 
+def test_create_find_query_commune_with_dashes():
+    q = sirene.create_find_query("akei", "Vaulx-en-Velin", naf="32.01")
+
+    assert (
+        q.toURLParams()
+        == 'etatAdministratifUniteLegale:A AND (codePostalEtablissement:"Vaulx-en-Velin" OR libelleCommuneEtablissement:"Vaulx-en-Velin"~) AND (denominationUniteLegale:akei~ OR denominationUsuelle1UniteLegale:akei~ OR nomUniteLegale:akei~ OR periode(enseigne1Etablissement:akei~) OR periode(denominationUsuelleEtablissement:akei~)) AND activitePrincipaleUniteLegale:32.01~'
+    )
+
+
 def test_extract_etablissement_nom_empty():
     nom = sirene.extract_etablissement_nom({})
 
