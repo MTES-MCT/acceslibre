@@ -177,11 +177,7 @@ class BaseErpForm(forms.ModelForm):
             self.raise_validation_error(
                 "code_postal",
                 mark_safe(
-                    f"""
-                    Cette adresse n'est pas localisable au code postal
-                    <a href="https://www.code-postal.com/{self.cleaned_data["code_postal"]}.html" target="_blank"
-                      title="Voir les communes pour ce code postal">
-                        {self.cleaned_data["code_postal"]}</a>"""
+                    f"Cette adresse n'est pas localisable au code postal {self.cleaned_data['code_postal']} (mais l'est au code {locdata['code_postal']})"
                 ),
             )
         if (
