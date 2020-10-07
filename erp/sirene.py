@@ -102,7 +102,7 @@ logger = logging.getLogger(__name__)
 class Fuzzy(criteria.Field):
     @property
     def representation(self):
-        term = str(self.value).replace('"', "").strip()
+        term = str(self.value).replace('"', "").replace("-", " ").strip()
         if " " in term or "'" in term:
             return f'{self.name}:"{term}"~'
         return f"{self.name}:{term}~"
@@ -219,6 +219,8 @@ def parse_etablissement(etablissement):
 
 
 def execute_request(request):
+    if settings.DEBUG:
+        print("Sirene query", request.url)
     try:
         return request.get()
     except RequestExeption as err:
