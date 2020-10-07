@@ -31,12 +31,6 @@
       </h2>
       <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
       <div>
-        {% if erp.siret %}
-        <span class="a4a-erp-details-link btn btn-sm btn-light d-inline-block mr-1 mb-1" title="Numéro SIRET de l'établissement">
-          <i aria-hidden="true" class="icon icon-commercial"></i>
-          <span>{{ erp.siret|format_siret }}</span>
-        </span>
-        {% endif %}
         {% if erp.contact_email %}
         <a class="a4a-erp-details-link btn btn-sm btn-light d-inline-block mr-1 mb-1" href="mailto:{{ erp.contact_email }}" target="_blank">
           <i aria-hidden="true" class="icon icon-mail"></i>
