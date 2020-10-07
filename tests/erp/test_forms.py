@@ -78,10 +78,10 @@ def test_CustomRegistrationForm():
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_get_adresse(form_data, fake_geocoder, paris_commune):
+def test_BaseErpForm_get_adresse_query(form_data, fake_geocoder, paris_commune):
     form = AdminErpForm(form_data, geocode=fake_geocoder,)
     form.is_valid()  # populates cleaned_data
-    assert form.get_adresse() == "4 Rue de la Paix 75002 Paris"
+    assert form.get_adresse_query() == "4 Rue de la Paix 75 Paris"
 
 
 @pytest.mark.django_db
