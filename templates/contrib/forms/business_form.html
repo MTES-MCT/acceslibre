@@ -1,0 +1,58 @@
+{% load crispy_forms_tags %}
+
+<form action="{% url "contrib_start" %}" method="post" class="card">
+  <div class="card-header">
+    <strong>Je recherche une entreprise</strong>
+  </div>
+  <div class="card-body">
+    {% csrf_token %}
+    {% if name_search_error %}
+      <div class="alert alert-danger">{{ name_search_error }}</div>
+    {% endif %}
+    {{ name_form|crispy }}
+    <button type="submit" name="search_type" value="by-business" class="btn btn-primary w-100">
+      <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+      Rechercher une entreprise
+    </button>
+    <script>
+    $("#id_lieu").autocomplete({
+      deferRequestBy: 100,
+      minChars: 2,
+      onSelect: function(suggestion) {
+        $(this).val(suggestion.data.nom);
+      },
+      lookup: function (query, done) {
+        const req = $.ajax({
+          url: "https://geo.api.gouv.fr/communes",
+          data: {
+            nom: query,
+            fields: "departement",
+            boost: "population",
+            limit: 5
+          }
+        })
+          .then(function(results) {
+            done({
+              suggestions: results.map(function(result) {
+                return {
+                  value: result.nom + " (" + result.departement.code + ")",
+                  data: {
+                    nom: result.nom
+                  }
+                };
+              })
+            });
+          })
+          .fail(function (err) {
+            console.error(err);
+          });
+      }
+    });
+    </script>
+    <datalist id="nafs">
+      {% for naf, label in nafs.items %}
+      <option value="{{ naf }}">{{ label }}</option>
+      {% endfor %}
+    </datalist>
+  </div>
+</form>

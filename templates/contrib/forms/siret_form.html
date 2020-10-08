@@ -1,0 +1,18 @@
+{% load crispy_forms_tags %}
+
+<form action="{% url "contrib_start" %}" method="post" class="card mt-4">
+  <div class="card-header">
+    <strong>Je connais le numéro SIRET de l'établissement</strong>
+  </div>
+  <div class="card-body">
+    {% csrf_token %}
+    {% if siret_search_error %}
+      <div class="alert alert-danger">{{ siret_search_error }}</div>
+    {% endif %}
+    {{ siret_form|crispy }}
+    <button type="submit" name="search_type" value="by-siret" class="btn btn-primary w-100">
+      <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+      Rechercher un numéro SIRET
+    </button>
+  </div>
+</form>

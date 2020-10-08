@@ -38,6 +38,7 @@ def data(db):
         geom=Point((3.9047933, 43.6648217)),
     )
     obj_boulangerie = Activite.objects.create(nom="Boulangerie")
+    obj_administration_publique = Activite.objects.create(nom="Administration Publique")
     obj_erp = Erp.objects.create(
         nom="Aux bons croissants",
         siret="52128577500016",
@@ -61,6 +62,7 @@ def data(db):
         sophie = obj_sophie
         jacou = obj_jacou
         boulangerie = obj_boulangerie
+        administration_publique = obj_administration_publique
         accessibilite = obj_accessibilite
         erp = obj_erp
 
