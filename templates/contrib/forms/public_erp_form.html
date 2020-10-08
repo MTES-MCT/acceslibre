@@ -1,0 +1,59 @@
+{% load crispy_forms_tags %}
+
+<form action="{% url "contrib_start" %}" method="post" class="card">
+  <div class="card-header">
+    <strong>Je recherche un établissement public</strong>
+  </div>
+  <div class="card-body">
+    {% csrf_token %}
+    {% if public_erp_search_error %}
+      <div class="alert alert-danger">{{ public_erp_search_error }}</div>
+    {% endif %}
+    {{ public_erp_form|crispy }}
+    <button type="submit" name="search_type" value="by-public-erp" class="btn btn-primary w-100">
+      <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
+      Rechercher un établissement public
+    </button>
+  </div>
+  <script>
+  $("#id_commune").autocomplete({
+    deferRequestBy: 100,
+    minChars: 2,
+    onSelect: function(suggestion) {
+      $(this).val(suggestion.value);
+      $("#id_code_insee").val(suggestion.data.code);
+    },
+    lookup: function (query, done) {
+      const req = $.ajax({
+        url: "https://geo.api.gouv.fr/communes",
+        data: {
+          nom: query,
+          fields: "departement",
+          boost: "population",
+          limit: 5
+        }
+      })
+        .then(function(results) {
+          done({
+            suggestions: results.map(function(result) {
+              return {
+                value: result.nom + " (" + result.departement.code + ")",
+                data: {
+                  code: result.code
+                }
+              };
+            })
+          });
+        })
+        .fail(function (err) {
+          console.error(err);
+        });
+    }
+  });
+  </script>
+  <datalist id="public_erp_types">
+    {% for type, label in public_erp_types.items %}
+    <option value="{{ type }}">{{ label }}</option>
+    {% endfor %}
+  </datalist>
+</form>

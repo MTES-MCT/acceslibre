@@ -343,7 +343,8 @@ class BasePublicErpInfosForm(BaseErpForm):
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # geom
-        self.geocode()
+        if not self.cleaned_data["geom"]:
+            self.geocode()
 
         # Unicité du numéro SIRET
         # FIXME: should be enforced in model
@@ -413,13 +414,13 @@ class PublicEtablissementSearchForm(forms.Form):
     nom = forms.CharField(
         label="Nom de l'établissement",
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "ex. Bistro Brooklyn"}),
+        widget=forms.TextInput(attrs={"placeholder": "ex. Hotel"}),
     )
     lieu = forms.CharField(
         label="Nom de la commune",
         required=True,
         widget=forms.TextInput(
-            attrs={"type": "search", "placeholder": "ex. 75010 ou Paris"}
+            attrs={"type": "search", "placeholder": "ex. Montrouge"}
         ),
     )
     naf = forms.CharField(
@@ -430,10 +431,28 @@ class PublicEtablissementSearchForm(forms.Form):
             '<a href="https://www.insee.fr/fr/information/2579599" target="_blank">code NAF</a>.'
         ),
         widget=forms.TextInput(
+            attrs={"type": "search", "list": "nafs", "placeholder": "ex. Restaurant",}
+        ),
+    )
+
+
+class PublicPublicErpSearchForm(forms.Form):
+    commune = forms.CharField(
+        label="Nom de la commune",
+        required=True,
+        widget=forms.TextInput(
+            attrs={"type": "search", "placeholder": "ex. Montrouge"}
+        ),
+    )
+    code_insee = forms.CharField(widget=forms.HiddenInput)
+    type = forms.CharField(
+        label="Type d'établissement public",
+        required=True,
+        widget=forms.TextInput(
             attrs={
                 "type": "search",
-                "list": "nafs",
-                "placeholder": "Code NAF ou nom d'activité",
+                "list": "public_erp_types",
+                "placeholder": "ex. Mairie",
             }
         ),
     )

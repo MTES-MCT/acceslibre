@@ -134,7 +134,12 @@ def get_client():
 
 def base64_decode_etablissement(data):
     try:
-        return json.loads(base64.urlsafe_b64decode(data).decode())
+        decoded = json.loads(base64.urlsafe_b64decode(data).decode())
+        if "coordonnees" in decoded:
+            from django.contrib.gis.geos import Point
+
+            decoded["geom"] = Point(decoded["coordonnees"])
+        return decoded
     except Exception as err:
         logger.error(err)
         raise RuntimeError("Impossible de décoder les informations de l'établissement")
@@ -199,8 +204,12 @@ def parse_etablissement(etablissement):
         typeVoieEtablissement = SIRENE_VOIES.get(typeVoieEtablissement)
     libelleVoieEtablissement = adresseEtablissement.get(VOIE)
     return dict(
+        source="sirene",
+        source_id=f"sirene-{siret}",
         actif=uniteLegale.get(STATUT) == "A",
+        coordonnees=None,
         naf=naf,
+        activite=None,
         nom=extract_etablissement_nom(etablissement),
         siret=siret,
         numero=" ".join(
@@ -215,6 +224,9 @@ def parse_etablissement(etablissement):
         code_postal=adresseEtablissement.get(CODE_POSTAL),
         commune=adresseEtablissement.get(COMMUNE),
         code_insee=adresseEtablissement.get(CODE_INSEE),
+        contact_email=None,
+        telephone=None,
+        site_internet=None,
     )
 
 

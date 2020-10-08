@@ -1,47 +1,75 @@
 {% extends "contrib/base.html" %}
 
 {% load a4a %}
-{% load crispy_forms_tags %}
 
 {% block page_title %}Ajouter un établissement{% endblock%}
 
 {% block contrib_content %}
-  {% if name_search_results %}
+  {% if public_erp_results or name_search_results %}
   <h2 class="h3 mb-3">Sélectionner mon établissement</h2>
   <div class="row">
     <div class="col-lg-8">
-      {% for result in name_search_results %}
-      <div class="card mb-3">
-        <div class="card-body row">
-          <div class="col-sm-8">
-            <strong>{{ result.nom }}</strong>
-            {% if result.exists %}
-            <span class="badge badge-danger">Existe dans la base</span>
-            {% elif result.actif %}
-            <span class="badge badge-success">En activité</span>
-            {% else %}
-            <span class="badge badge-warning">Fermé</span>
-            {% endif %}
-            <br>
-            <small>
-              SIRET: {{ result.siret }}{% if result.naf %}{% endif %}<br>
-              {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
-              {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-              {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-              {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
-            </small>
+      {% if public_erp_results %}
+        {% for result in public_erp_results %}
+          <div class="card mb-3">
+            <div class="card-body row">
+              <div class="col-sm-8">
+                <strong>{{ result.nom }}</strong>
+                {% if result.exists %}
+                <span class="badge badge-danger">Existe dans la base</span>
+                {% endif %}
+                <br>
+                <small>
+                  {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
+                  {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
+                  {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+                </small>
+              </div>
+              <div class="col-sm-4">
+                {% if not result.exists %}
+                <a class="btn btn-primary btn-sm btn-block"
+                  href="{% url "contrib_admin_infos" %}?data={{ result|encode_public_erp_data }}">
+                  Sélectionner cet établissement public
+                </a>
+                {% endif %}
+              </div>
+            </div>
           </div>
-          <div class="col-sm-4">
-            {% if result.actif and not result.exists %}
-            <a class="btn btn-primary btn-sm btn-block"
-              href="{% url "contrib_admin_infos" %}?data={{ result|encode_etablissement_data }}">
-              Sélectionner cet établissement
-            </a>
-            {% endif %}
+        {% endfor %}
+      {% elif name_search_results %}
+        {% for result in name_search_results %}
+        <div class="card mb-3">
+          <div class="card-body row">
+            <div class="col-sm-8">
+              <strong>{{ result.nom }}</strong>
+              {% if result.exists %}
+              <span class="badge badge-danger">Existe dans la base</span>
+              {% elif result.actif %}
+              <span class="badge badge-success">En activité</span>
+              {% else %}
+              <span class="badge badge-warning">Fermé</span>
+              {% endif %}
+              <br>
+              <small>
+                SIRET: {{ result.siret }}{% if result.naf %}{% endif %}<br>
+                {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
+                {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
+                {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
+                {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+              </small>
+            </div>
+            <div class="col-sm-4">
+              {% if result.actif and not result.exists %}
+              <a class="btn btn-primary btn-sm btn-block"
+                href="{% url "contrib_admin_infos" %}?data={{ result|encode_etablissement_data }}">
+                Sélectionner cet établissement
+              </a>
+              {% endif %}
+            </div>
           </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+      {% endif %}
     </div>
     <div class="col-lg-4">
       <div class="card text-center">
@@ -68,83 +96,19 @@
   </small></p>
   <div class="row">
     <div class="col-sm-6">
-      <form method="post" class="card">
-        <div class="card-header"><strong>Je recherche mon établissement</strong></div>
-        <div class="card-body">
-          <input type="hidden" name="type" value="by-name">
-          {% csrf_token %}
-          {% if name_search_error %}
-            <div class="alert alert-danger">{{ name_search_error }}</div>
-          {% endif %}
-          {{ name_form|crispy }}
-          <button type="submit" class="btn btn-primary w-100">
-            <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
-            Rechercher mon établissement
-          </button>
-          <script>
-          $("#id_lieu").autocomplete({
-            deferRequestBy: 100,
-            minChars: 2,
-            onSelect: function(suggestion) {
-              $(this).val(suggestion.data.nom);
-            },
-            lookup: function (query, done) {
-              const req = $.ajax({
-                url: "https://geo.api.gouv.fr/communes",
-                data: {
-                  nom: query,
-                  fields: "departement",
-                  boost: "population",
-                  limit: 5
-                }
-              })
-                .then(function(results) {
-                  done({
-                    suggestions: results.map(function(result) {
-                      return {
-                        value: result.nom + " (" + result.departement.code + ")",
-                        data: {
-                          nom: result.nom
-                        }
-                      };
-                    })
-                  });
-                })
-                .fail(function (err) {
-                  console.error(err);
-                });
-            }
-          });
-          </script>
-          <datalist id="nafs">
-            {% for naf, label in nafs.items %}
-            <option value="{{ naf }}">{{ label }}</option>
-            {% endfor %}
-          </datalist>
-        </div>
-      </form>
-    </div>
-    <div class="col-sm-6">
-      <form method="post" class="card">
-        <input type="hidden" name="type" value="by-siret">
-        <div class="card-header"><strong>Mon établissement dispose d'un numéro SIRET</strong></div>
-        <div class="card-body">
-          {% csrf_token %}
-          {% if siret_search_error %}
-            <div class="alert alert-danger">{{ siret_search_error }}</div>
-          {% endif %}
-          {{ siret_form|crispy }}
-          <button type="submit" class="btn btn-primary w-100">
-            <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
-            Rechercher mon établissement
-          </button>
-        </div>
-      </form>
+      {% include "contrib/forms/business_form.html" %}
+
       <div class="text-center mt-4">
-        <a href="{% url "contrib_admin_infos" %}">
+        <a class="btn btn-info w-100" href="{% url "contrib_admin_infos" %}">
+          <i aria-hidden="true" class="icon icon-bulb"></i>
           Je préfère saisir les données<br>de mon établissement manuellement
         </a>
       </div>
+    </div>
+    <div class="col-sm-6">
+      {% include "contrib/forms/public_erp_form.html" %}
+
+      {% include "contrib/forms/siret_form.html" %}
     </div>
   </div>
   {% endif %}

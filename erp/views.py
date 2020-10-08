@@ -30,12 +30,14 @@ from .forms import (
     PublicEtablissementSearchForm,
     PublicLocalisationForm,
     PublicPublicationForm,
+    PublicPublicErpSearchForm,
     PublicSiretSearchForm,
     ViewAccessibiliteForm,
 )
 from .models import Accessibilite, Activite, Commune, Erp, Vote
 from .serializers import SpecialErpSerializer
 from . import naf
+from . import public_erp
 from . import schema
 from . import sirene
 from . import versioning
@@ -412,18 +414,26 @@ def contrib_delete(request, erp_slug):
 
 
 @login_required
-def contrib_start(request):
-    siret_search_error = name_search_error = name_search_results = None
-    (siret_form, name_form) = (PublicSiretSearchForm(), PublicEtablissementSearchForm())
+def contrib_start(request):  # noqa
+    siret_search_error = None
+    name_search_error = None
+    name_search_results = None
+    public_erp_results = None
+    public_erp_search_error = None
+    (siret_form, name_form, public_erp_form) = (
+        PublicSiretSearchForm(),
+        PublicEtablissementSearchForm(),
+        PublicPublicErpSearchForm(),
+    )
     if request.method == "POST":
-        if request.POST.get("type") == "by-name":
+        if request.POST.get("search_type") == "by-business":
             name_form = PublicEtablissementSearchForm(request.POST)
             if name_form.is_valid():
                 try:
                     name_search_results = find_sirene_etablissements(name_form)
                 except RuntimeError as err:
                     name_search_error = str(err)
-        elif request.POST.get("type") == "by-siret":
+        elif request.POST.get("search_type") == "by-siret":
             siret_form = PublicSiretSearchForm(request.POST)
             if siret_form.is_valid():
                 try:
@@ -432,6 +442,16 @@ def contrib_start(request):
                     return redirect(reverse("contrib_admin_infos") + "?data=" + data)
                 except RuntimeError as err:
                     siret_search_error = err
+        elif request.POST.get("search_type") == "by-public-erp":
+            public_erp_form = PublicPublicErpSearchForm(request.POST)
+            if public_erp_form.is_valid():
+                try:
+                    public_erp_results = public_erp.get_code_insee_type(
+                        public_erp_form.cleaned_data.get("code_insee"),
+                        public_erp_form.cleaned_data.get("type"),
+                    )
+                except RuntimeError as err:
+                    public_erp_search_error = err
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -439,10 +459,14 @@ def contrib_start(request):
             "step": 1,
             "nafs": naf.NAF,
             "name_form": name_form,
+            "name_search_error": name_search_error,
             "name_search_results": name_search_results,
             "siret_form": siret_form,
-            "name_search_error": name_search_error,
             "siret_search_error": siret_search_error,
+            "public_erp_form": public_erp_form,
+            "public_erp_results": public_erp_results,
+            "public_erp_types": public_erp.TYPES,
+            "public_erp_search_error": public_erp_search_error,
         },
     )
 
@@ -472,7 +496,12 @@ def contrib_admin_infos(request):
         encoded_data = request.GET.get("data")
         if encoded_data is not None:
             try:
-                data = sirene.base64_decode_etablissement(encoded_data)
+                data = sirene.base64_decode_etablissement(
+                    encoded_data
+                )  # XXX: move this to generic utils so we can use it for public erp data
+                from pprint import pprint
+
+                pprint(data)
             except RuntimeError as err:
                 data_error = err
         form = PublicErpAdminInfosForm(data)
