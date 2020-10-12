@@ -206,7 +206,7 @@ def parse_etablissement(etablissement):
 
 
 def execute_request(request):
-    logger.debug(f"Sirene query: {request.url}")
+    logger.info(f"Sirene query: {request.url}")
     try:
         return request.get()
     except RequestExeption as err:

@@ -55,7 +55,7 @@ def geocode(adresse):
 def query(params):
     try:
         res = requests.get(GEOCODER_URL, params)
-        logger.debug(f"Geocoder call: {res.url}")
+        logger.info(f"Geocoder call: {res.url}")
         if res.status_code != 200:
             raise RuntimeError(
                 f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse."
