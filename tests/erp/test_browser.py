@@ -327,6 +327,8 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     response = client.post(
         reverse("contrib_admin_infos"),
         data={
+            "source": "sirene",
+            "source_id": "xxx",
             "nom": "Test ERP",
             "recevant_du_public": True,
             "activite": data.boulangerie.pk,
@@ -784,6 +786,8 @@ def test_contribution_flow_administrative_data(data, client):
     response = client.post(
         reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
         data={
+            "source": "sirene",
+            "source_id": "xxx",
             "nom": "Test contribution",
             "recevant_du_public": True,
             "activite": data.boulangerie.pk,

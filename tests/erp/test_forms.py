@@ -27,6 +27,8 @@ def paris_commune():
 @pytest.fixture
 def form_data(data):
     return {
+        "source": "sirene",
+        "source_id": "xxx",
         "user": data.niko,
         "user_type": "public",
         "nom": "plop",
@@ -113,6 +115,8 @@ def test_BaseErpForm_clean_geom_missing(data, mocker):
     )
     form = PublicErpEditInfosForm(
         {
+            "source": "sirene",
+            "source_id": "xxx",
             "user": data.niko,
             "user_type": "public",
             "activite": str(data.boulangerie.pk),
@@ -146,6 +150,8 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
     )
     form = PublicErpEditInfosForm(
         {
+            "source": "sirene",
+            "source_id": "xxx",
             "user": data.niko,
             "user_type": "public",
             "activite": str(data.boulangerie.pk),
@@ -179,6 +185,8 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
     )
     form = PublicErpEditInfosForm(
         {
+            "source": "sirene",
+            "source_id": "xxx",
             "user": data.niko,
             "user_type": "public",
             "activite": str(data.boulangerie.pk),

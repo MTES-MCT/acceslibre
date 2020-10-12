@@ -37,3 +37,10 @@ TEMPLATES[0]["OPTIONS"]["context_processors"].insert(
 
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler",},},
+    "root": {"handlers": ["console"], "level": "DEBUG",},
+}

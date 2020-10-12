@@ -1,8 +1,6 @@
 import logging
 import requests
 
-from django.conf import settings
-
 from .models import Activite, Commune
 
 logger = logging.getLogger(__name__)
@@ -156,11 +154,6 @@ TYPES = {
 }
 
 
-def log(message):
-    if settings.DEBUG:
-        print("Erreur public_erp.py", message)
-
-
 def clean_commune(string):
     try:
         return string.split("Cedex", 1)[0].strip()
@@ -185,7 +178,7 @@ def parse_feature(feature):
     # Coordonnées géographiques
     geometry = feature.get("geometry")
     if not geometry:
-        log("L'enregistrement ne possède pas de coordonnées géographiques")
+        logger.error("L'enregistrement ne possède pas de coordonnées géographiques")
         return None
     coordonnees = geometry.get("coordinates")
 
@@ -223,7 +216,7 @@ def parse_feature(feature):
 
     return dict(
         source="public_erp",
-        source_id=f"public_erp-{properties.get('id')}",
+        source_id=properties.get("id"),
         actif=True,
         coordonnees=coordonnees,
         naf=None,
@@ -252,21 +245,20 @@ def get_code_insee_type(code_insee, type):
             try:
                 results.append(parse_feature(feature))
             except RuntimeError as err:
-                log(err)
+                logger.error(err)
                 continue
         if len(results) == 0:
             raise RuntimeError("Aucun résultat.")
         return results
     except (KeyError, IndexError, TypeError) as err:
-        log(err)
+        logger.error(err)
         raise RuntimeError("Impossible de récupérer les résultats.")
 
 
 def get(url, params=None):
     try:
         res = requests.get(url, params)
-        if settings.DEBUG:
-            print("Public ERP url", res.url)
+        logger.debug(f"Public ERP api call: {res.url}")
         if res.status_code != 200:
             raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
         return res.json()

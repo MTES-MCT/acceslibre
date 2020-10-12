@@ -175,7 +175,6 @@ AUTH_PASSWORD_VALIDATORS = [
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 

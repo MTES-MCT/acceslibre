@@ -161,7 +161,6 @@ class BaseErpForm(forms.ModelForm):
         raise ValidationError({field: self.format_error(message)})
 
     def geocode(self):
-        print("GEOCODING")
         adresse = self.get_adresse_query()
         locdata = None
         try:
@@ -299,6 +298,9 @@ class BasePublicErpInfosForm(BaseErpForm):
     class Meta:
         model = Erp
         fields = (
+            "source",
+            "source_id",
+            "geom",
             "nom",
             "activite",
             "numero",
@@ -307,7 +309,6 @@ class BasePublicErpInfosForm(BaseErpForm):
             "code_postal",
             "commune",
             "siret",
-            "geom",
             "contact_email",
             "site_internet",
             "telephone",
@@ -323,6 +324,8 @@ class BasePublicErpInfosForm(BaseErpForm):
             "voie": "Le type et le nom de la voie, par exemple: rue Charles Péguy, ou place Jean Jaurès",
         }
         widgets = {
+            "source": forms.HiddenInput(),
+            "source_id": forms.HiddenInput(),
             "geom": forms.HiddenInput(),
             "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
             "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
@@ -359,9 +362,6 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # geom
         if not self.cleaned_data["geom"]:
-            # from pprint import pprint
-
-            # pprint(self.cleaned_data)
             self.geocode()
 
         # Unicité du numéro SIRET
