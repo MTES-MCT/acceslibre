@@ -1,4 +1,12 @@
+import base64
+import json
+import logging
+
+from django.contrib.gis.geos import Point
 from django.contrib.gis.serializers import geojson
+
+
+logger = logging.getLogger(__name__)
 
 
 class SpecialErpSerializer(geojson.Serializer):
@@ -28,3 +36,28 @@ class SpecialErpSerializer(geojson.Serializer):
                 except AttributeError:
                     pass
         super().end_object(obj)
+
+
+def decode_provider_data(data):
+    try:
+        decoded = json.loads(base64.urlsafe_b64decode(data).decode())
+        if "coordonnees" in decoded:
+            decoded["geom"] = Point(decoded["coordonnees"])
+        return decoded
+    except Exception as err:
+        logger.error(err)
+        raise RuntimeError(
+            "Impossible de décoder les informations du fournisseur de données"
+        )
+
+
+def encode_provider_data(etablissement):
+    try:
+        return base64.urlsafe_b64encode(json.dumps(etablissement).encode()).decode(
+            "utf-8"
+        )
+    except Exception as err:
+        logger.error(err)
+        raise RuntimeError(
+            "Impossible d'encoder les informations du fournisseur de données"
+        )

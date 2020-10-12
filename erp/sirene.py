@@ -1,6 +1,4 @@
-import base64
 import logging
-import json
 
 from api_insee import ApiInsee
 from api_insee import criteria
@@ -130,29 +128,6 @@ def get_client():
     except Exception:
         # api_insee raise standard exceptions when unable to connect to the auth service ;(
         raise RuntimeError("Le service INSEE est inaccessible.")
-
-
-def base64_decode_etablissement(data):
-    try:
-        decoded = json.loads(base64.urlsafe_b64decode(data).decode())
-        if "coordonnees" in decoded:
-            from django.contrib.gis.geos import Point
-
-            decoded["geom"] = Point(decoded["coordonnees"])
-        return decoded
-    except Exception as err:
-        logger.error(err)
-        raise RuntimeError("Impossible de décoder les informations de l'établissement")
-
-
-def base64_encode_etablissement(etablissement):
-    try:
-        return base64.urlsafe_b64encode(json.dumps(etablissement).encode()).decode(
-            "utf-8"
-        )
-    except Exception as err:
-        logger.error(err)
-        raise RuntimeError("Impossible d'encoder les informations de l'établissement")
 
 
 def format_siret(value, separator=""):

@@ -1,8 +1,8 @@
 from django import template
 
 from erp import naf
-from erp import public_erp
 from erp import schema
+from erp import serializers
 from erp import sirene
 
 register = template.Library()
@@ -42,14 +42,9 @@ def addclass(value, arg):
         return value
 
 
-@register.filter(name="encode_etablissement_data")
-def encode_etablissement_data(value):
-    return sirene.base64_encode_etablissement(value)
-
-
-@register.filter(name="encode_public_erp_data")
-def encode_public_erp_data(value):
-    return public_erp.base64_encode_etablissement(value)
+@register.filter(name="encode_provider_data")
+def encode_provider_data(value):
+    return serializers.encode_provider_data(value)
 
 
 @register.filter(name="format_distance")

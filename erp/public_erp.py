@@ -1,5 +1,3 @@
-import base64
-import json
 import logging
 import requests
 
@@ -172,16 +170,6 @@ def clean_commune(string):
 
 def contains_numbers(string):
     return any(i.isdigit() for i in string)
-
-
-def base64_encode_etablissement(etablissement):
-    try:
-        return base64.urlsafe_b64encode(json.dumps(etablissement).encode()).decode(
-            "utf-8"
-        )
-    except Exception as err:
-        logger.error(err)
-        raise RuntimeError("Impossible d'encoder les informations de l'établissement")
 
 
 def extract_numero_voie(string):

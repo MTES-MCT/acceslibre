@@ -28,7 +28,7 @@
               <div class="col-sm-4">
                 {% if not result.exists %}
                 <a class="btn btn-primary btn-sm btn-block"
-                  href="{% url "contrib_admin_infos" %}?data={{ result|encode_public_erp_data }}">
+                  href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
                   Sélectionner cet établissement public
                 </a>
                 {% endif %}
@@ -61,7 +61,7 @@
             <div class="col-sm-4">
               {% if result.actif and not result.exists %}
               <a class="btn btn-primary btn-sm btn-block"
-                href="{% url "contrib_admin_infos" %}?data={{ result|encode_etablissement_data }}">
+                href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
                 Sélectionner cet établissement
               </a>
               {% endif %}
