@@ -215,8 +215,13 @@ def parse_feature(feature):
     email = email if "@" in email else None
 
     # Activité
-    activite = Activite.objects.filter(slug="administration-publique").first()
+    activite = Activite.objects.filter(
+        slug="mairie"
+        if properties.get("pivotLocal") == "mairie"
+        else "administration-publique"
+    ).first()
     activite_id = activite.pk if activite else None
+
     return dict(
         source="public_erp",
         source_id=properties.get("id"),

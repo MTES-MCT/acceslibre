@@ -39,6 +39,7 @@ def data(db):
     )
     obj_boulangerie = Activite.objects.create(nom="Boulangerie")
     obj_administration_publique = Activite.objects.create(nom="Administration Publique")
+    obj_mairie = Activite.objects.create(nom="Mairie")
     obj_erp = Erp.objects.create(
         nom="Aux bons croissants",
         siret="52128577500016",
@@ -64,6 +65,7 @@ def data(db):
         boulangerie = obj_boulangerie
         administration_publique = obj_administration_publique
         accessibilite = obj_accessibilite
+        mairie = obj_mairie
         erp = obj_erp
 
     return Data()
