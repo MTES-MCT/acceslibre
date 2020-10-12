@@ -565,10 +565,11 @@ class Erp(models.Model):
             if len(matches) == 0:
                 matches = Commune.objects.filter(code_insee=self.code_insee)
             if len(matches) == 0:
+                matches = Commune.objects.filter(nom__unaccent__iexact=self.commune,)
+            if len(matches) == 0:
                 raise ValidationError(
                     {
-                        "commune": f"Commune {self.commune} (code postal : {self.code_postal}) introuvable. "
-                        "Merci de faire attention aux accents."
+                        "commune": f"Commune {self.commune} introuvable, veuillez vérifier votre saisie."
                     }
                 )
             else:

@@ -5,7 +5,7 @@ import requests
 
 from django.conf import settings
 
-from .models import Activite
+from .models import Activite, Commune
 
 logger = logging.getLogger(__name__)
 
@@ -163,6 +163,13 @@ def log(message):
         print("Erreur public_erp.py", message)
 
 
+def clean_commune(string):
+    try:
+        return string.split("Cedex", 1)[0].strip()
+    except Exception:
+        return string
+
+
 def contains_numbers(string):
     return any(i.isdigit() for i in string)
 
@@ -197,16 +204,20 @@ def parse_feature(feature):
     # Adresses et lignes d'adresse
     adresses = properties.get("adresses", [])
     if len(adresses) == 0:
-        log("L'enregistrement ne possède aucune adresse")
-        return None
+        raise RuntimeError("L'enregistrement ne possède aucune adresse")
     adresse = adresses[0]
-    code_postal = adresse.get("codePostal")
-    commune = adresse.get("commune")
+    code_insee = properties.get("codeInsee")
+    commune = Commune.objects.filter(code_insee=code_insee).first()
+    if commune:
+        commune_nom = commune.nom
+        commune_code_postal = commune.code_postaux[0]
+    else:
+        commune_nom = clean_commune(adresse.get("commune"))
+        commune_code_postal = adresse.get("codePostal")
 
     lignes = adresse.get("lignes", [])
     if len(lignes) == 0:
-        log("L'enregistrement ne possède aucune ligne d'adresse")
-        return None
+        raise RuntimeError("L'enregistrement ne possède aucune ligne d'adresse")
 
     (numero, voie) = extract_numero_voie(lignes[0])
 
@@ -234,9 +245,9 @@ def parse_feature(feature):
         numero=numero.strip().replace(",", "") if numero else None,
         voie=voie.strip(),
         lieu_dit=lignes[1] if len(lignes) > 1 else None,
-        code_postal=code_postal,
-        commune=commune,
-        code_insee=properties.get("codeInsee"),
+        code_postal=commune_code_postal,
+        commune=commune_nom,
+        code_insee=code_insee,
         contact_email=email,
         telephone=properties.get("telephone"),
         site_internet=properties.get("url"),
@@ -250,7 +261,11 @@ def get_code_insee_type(code_insee, type):
     results = []
     try:
         for feature in response["features"]:
-            results.append(parse_feature(feature))
+            try:
+                results.append(parse_feature(feature))
+            except RuntimeError as err:
+                log(err)
+                continue
         if len(results) == 0:
             raise RuntimeError("Aucun résultat.")
         return results

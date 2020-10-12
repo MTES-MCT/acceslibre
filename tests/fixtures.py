@@ -7,6 +7,49 @@ from erp.models import Accessibilite, Activite, Commune, Erp
 
 
 @pytest.fixture
+def activite_administration_publique():
+    return Activite.objects.create(nom="Administration Publique")
+
+
+@pytest.fixture
+def activite_mairie():
+    return Activite.objects.create(nom="Mairie")
+
+
+@pytest.fixture
+def commune_castelnau():
+    return Commune.objects.create(
+        nom="Castelnau-le-Lez",
+        code_postaux=["34170"],
+        code_insee="34057",
+        departement="93",
+        geom=Point(0, 0),
+    )
+
+
+@pytest.fixture
+def commune_montpellier():
+    return Commune.objects.create(
+        nom="Montpellier",
+        code_postaux=["34000"],
+        code_insee="34172",
+        departement="34",
+        geom=Point(0, 0),
+    )
+
+
+@pytest.fixture
+def commune_montreuil():
+    return Commune.objects.create(
+        nom="Montreuil",
+        code_postaux=["93100"],
+        code_insee="93048",
+        departement="93",
+        geom=Point(0, 0),
+    )
+
+
+@pytest.fixture
 def data(db):
     obj_admin = User.objects.create_user(
         username="admin",
@@ -38,8 +81,6 @@ def data(db):
         geom=Point((3.9047933, 43.6648217)),
     )
     obj_boulangerie = Activite.objects.create(nom="Boulangerie")
-    obj_administration_publique = Activite.objects.create(nom="Administration Publique")
-    obj_mairie = Activite.objects.create(nom="Mairie")
     obj_erp = Erp.objects.create(
         nom="Aux bons croissants",
         siret="52128577500016",
@@ -63,9 +104,7 @@ def data(db):
         sophie = obj_sophie
         jacou = obj_jacou
         boulangerie = obj_boulangerie
-        administration_publique = obj_administration_publique
         accessibilite = obj_accessibilite
-        mairie = obj_mairie
         erp = obj_erp
 
     return Data()

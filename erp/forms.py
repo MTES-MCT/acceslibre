@@ -161,6 +161,7 @@ class BaseErpForm(forms.ModelForm):
         raise ValidationError({field: self.format_error(message)})
 
     def geocode(self):
+        print("GEOCODING")
         adresse = self.get_adresse_query()
         locdata = None
         try:
@@ -168,18 +169,28 @@ class BaseErpForm(forms.ModelForm):
         except RuntimeError as err:
             raise ValidationError(err)
 
+        # Check for geocoded results
         if not locdata or locdata.get("geom") is None:
             self.raise_validation_error("voie", f"Adresse non localisable : {adresse}")
+
+        # Ensure picking the right postcode
         if (
             self.cleaned_data["code_postal"]
             and self.cleaned_data["code_postal"] != locdata["code_postal"]
         ):
-            self.raise_validation_error(
-                "code_postal",
-                mark_safe(
-                    f"Cette adresse n'est pas localisable au code postal {self.cleaned_data['code_postal']} (mais l'est au code {locdata['code_postal']})"
-                ),
-            )
+            dpt_input = self.cleaned_data["code_postal"][:2]
+            dpt_result = locdata["code_postal"][:2]
+            if dpt_input != dpt_result:
+                # Different departement, too risky to consider it valid; raise an error
+                self.raise_validation_error(
+                    "code_postal",
+                    mark_safe(
+                        "Cette adresse n'est pas localisable au code postal "
+                        f"{self.cleaned_data['code_postal']} (mais l'est au code {locdata['code_postal']})"
+                    ),
+                )
+
+        # Validate code insee
         if (
             self.cleaned_data.get("code_insee")
             and self.cleaned_data["code_insee"] != locdata["code_insee"]
@@ -188,10 +199,13 @@ class BaseErpForm(forms.ModelForm):
                 "code_insee",
                 f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}",
             )
+
+        # Validate house number, if any
         if self.cleaned_data.get("numero"):
             if locdata["numero"]:
                 self.cleaned_data["numero"] = locdata["numero"]
 
+        # Apply changes
         self.cleaned_data["geom"] = locdata["geom"]
         self.cleaned_data["voie"] = locdata["voie"]
         self.cleaned_data["lieu_dit"] = locdata["lieu_dit"]
@@ -309,6 +323,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "voie": "Le type et le nom de la voie, par exemple: rue Charles Péguy, ou place Jean Jaurès",
         }
         widgets = {
+            "geom": forms.HiddenInput(),
             "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
             "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
             "voie": forms.TextInput(attrs={"placeholder": "ex: rue des prés"}),
@@ -344,6 +359,9 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # geom
         if not self.cleaned_data["geom"]:
+            # from pprint import pprint
+
+            # pprint(self.cleaned_data)
             self.geocode()
 
         # Unicité du numéro SIRET
@@ -437,13 +455,6 @@ class PublicEtablissementSearchForm(forms.Form):
 
 
 class PublicPublicErpSearchForm(forms.Form):
-    commune = forms.CharField(
-        label="Nom de la commune",
-        required=True,
-        widget=forms.TextInput(
-            attrs={"type": "search", "placeholder": "ex. Montrouge"}
-        ),
-    )
     code_insee = forms.CharField(widget=forms.HiddenInput)
     type = forms.CharField(
         label="Type d'établissement public",
@@ -454,6 +465,13 @@ class PublicPublicErpSearchForm(forms.Form):
                 "list": "public_erp_types",
                 "placeholder": "ex. Mairie",
             }
+        ),
+    )
+    commune = forms.CharField(
+        label="Nom de la commune",
+        required=True,
+        widget=forms.TextInput(
+            attrs={"type": "search", "placeholder": "ex. Montrouge"}
         ),
     )
 
