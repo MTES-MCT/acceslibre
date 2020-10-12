@@ -7,7 +7,9 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
-  <h2 class="h3 mb-3">{% if erp %}Modifier{% else %}Ajouter{% endif %} un Établissement Recevant du Public</h2>
+  <h2 class="h3 mb-3">
+    {% if erp %}Modifier{% else %}Ajouter{% endif %} un Établissement Recevant du Public
+  </h2>
 
   {% if erp and erp.user != user %}
   <div class="alert alert-info">
@@ -36,6 +38,8 @@
   <form action="" method="POST" class="mb-4">
     {% csrf_token %}
     {{ form.geom|as_crispy_field }}
+    {{ form.source|as_crispy_field }}
+    {{ form.source_id|as_crispy_field }}
 
     {% if form.non_field_errors %}
     <div class="alert alert-warning">

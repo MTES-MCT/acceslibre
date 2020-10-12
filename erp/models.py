@@ -263,13 +263,17 @@ class Erp(models.Model):
 
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
-    SOURCE_PUBLIC = "public"
     SOURCE_CCONFORME = "cconforme"
+    SOURCE_PUBLIC = "public"
+    SOURCE_PUBLIC_ERP = "public_erp"
+    SOURCE_SIRENE = "sirene"
     SOURCE_CHOICES = (
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
-        (SOURCE_PUBLIC, "Application publique"),
         (SOURCE_CCONFORME, "cconforme"),
+        (SOURCE_PUBLIC, "Saisie manuelle publique"),
+        (SOURCE_PUBLIC_ERP, "API des établissements publics"),
+        (SOURCE_SIRENE, "API Sirene INSEE"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"

@@ -180,7 +180,7 @@ def parse_etablissement(etablissement):
     libelleVoieEtablissement = adresseEtablissement.get(VOIE)
     return dict(
         source="sirene",
-        source_id=f"sirene-{siret}",
+        source_id=siret,
         actif=uniteLegale.get(STATUT) == "A",
         coordonnees=None,
         naf=naf,
@@ -206,8 +206,7 @@ def parse_etablissement(etablissement):
 
 
 def execute_request(request):
-    if settings.DEBUG:
-        print("Sirene query", request.url)
+    logger.debug(f"Sirene query: {request.url}")
     try:
         return request.get()
     except RequestExeption as err:
