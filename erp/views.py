@@ -35,10 +35,10 @@ from .forms import (
     ViewAccessibiliteForm,
 )
 from .models import Accessibilite, Activite, Commune, Erp, Vote
-from .serializers import SpecialErpSerializer
 from . import naf
 from . import public_erp
 from . import schema
+from . import serializers
 from . import sirene
 from . import versioning
 
@@ -276,7 +276,7 @@ class App(BaseListView):
                 .nearest([erp.geom.coords[1], erp.geom.coords[0]])
                 .filter(distance__lt=Distance(km=20))[:16]
             )
-        serializer = SpecialErpSerializer()
+        serializer = serializers.SpecialErpSerializer()
         context["geojson_list"] = serializer.serialize(
             context["object_list"],
             geometry_field="geom",
@@ -438,7 +438,7 @@ def contrib_start(request):  # noqa
             if siret_form.is_valid():
                 try:
                     siret_info = sirene.get_siret_info(siret_form.cleaned_data["siret"])
-                    data = sirene.base64_encode_etablissement(siret_info)
+                    data = serializers.decode_provider_data(siret_info)
                     return redirect(reverse("contrib_admin_infos") + "?data=" + data)
                 except RuntimeError as err:
                     siret_search_error = err
@@ -496,12 +496,7 @@ def contrib_admin_infos(request):
         encoded_data = request.GET.get("data")
         if encoded_data is not None:
             try:
-                data = sirene.base64_decode_etablissement(
-                    encoded_data
-                )  # XXX: move this to generic utils so we can use it for public erp data
-                # from pprint import pprint
-
-                # pprint(data)
+                data = serializers.decode_provider_data(encoded_data)
             except RuntimeError as err:
                 data_error = err
         form = PublicErpAdminInfosForm(data)
