@@ -212,7 +212,7 @@ def parse_feature(feature):
 
     # Validation de la valeur d'adresse email
     email = properties.get("email")
-    email = email if "@" in email else None
+    email = email if email and "@" in email else None
 
     # Activité
     activite = Activite.objects.filter(
@@ -224,14 +224,14 @@ def parse_feature(feature):
 
     return dict(
         source="public_erp",
-        source_id=properties.get("id"),
+        source_id=f"public_erp-{properties.get('id')}",
         actif=True,
         coordonnees=coordonnees,
         naf=None,
         activite=activite_id,
         nom=properties.get("nom"),
         siret=None,
-        numero=numero.strip() if numero else None,
+        numero=numero.strip().replace(",", "") if numero else None,
         voie=voie.strip(),
         lieu_dit=lignes[1] if len(lignes) > 1 else None,
         code_postal=code_postal,
