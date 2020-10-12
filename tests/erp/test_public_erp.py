@@ -1,9 +1,19 @@
 import json
 import pytest
 
-from erp import public_erp
+from django.contrib.gis.geos import Point
 
-from tests.fixtures import data
+from erp import public_erp
+from erp.models import Activite, Commune
+
+from tests.fixtures import (
+    data,
+    activite_administration_publique,
+    activite_mairie,
+    commune_castelnau,
+    commune_montpellier,
+    commune_montreuil,
+)
 
 
 def test_extract_numero_voie():
@@ -17,7 +27,7 @@ def test_extract_numero_voie():
         assert public_erp.extract_numero_voie(case[0]) == case[1]
 
 
-def test_parse_feature_jacou(data):
+def test_parse_feature_jacou(data, activite_mairie):
     json_feature = json.loads(
         """
         {
@@ -50,22 +60,24 @@ def test_parse_feature_jacou(data):
         "actif": True,
         "coordonnees": [3.9106014, 43.6609939],
         "naf": None,
-        "activite": data.mairie.pk,
+        "activite": activite_mairie.pk,
         "nom": "Mairie - Jacou",
         "siret": None,
         "numero": "4",
         "voie": "rue de l'Hôtel-de-Ville",
         "lieu_dit": None,
-        "code_postal": "34830",
-        "commune": "Jacou",
-        "code_insee": "34120",
+        "code_postal": data.jacou.code_postaux[0],
+        "commune": data.jacou.nom,
+        "code_insee": data.jacou.code_insee,
         "contact_email": "mairie@ville-jacou.fr",
         "telephone": "04 67 55 88 55",
         "site_internet": "http://www.ville-jacou.fr",
     }
 
 
-def test_parse_feature_gendarmerie(data):
+def test_parse_feature_gendarmerie_castelnau(
+    data, commune_castelnau, activite_administration_publique
+):
     json_feature = json.loads(
         """
         {
@@ -98,15 +110,7 @@ def test_parse_feature_gendarmerie(data):
                 ],
                 "email":"https://www.contacterlagendarmerie.fr",
                 "telephone":"04 99 74 29 50",
-                "url":"http://www.gendarmerie.interieur.gouv.fr",
-                "zonage":{
-                    "communes":[
-                        "34169 Montferrier-sur-Lez",
-                        "34057 Castelnau-le-Lez",
-                        "34120 Jacou",
-                        "34077 Clapiers"
-                    ]
-                }
+                "url":"http://www.gendarmerie.interieur.gouv.fr"
             }
         }"""
     )
@@ -116,22 +120,22 @@ def test_parse_feature_gendarmerie(data):
         "actif": True,
         "coordonnees": [3.91375272, 43.64536644],
         "naf": None,
-        "activite": data.administration_publique.pk,
+        "activite": activite_administration_publique.pk,
         "nom": "Brigade de gendarmerie - Castelnau-le-Lez",
         "siret": None,
         "numero": "635",
         "voie": "Avenue de la Monnaie",
         "lieu_dit": None,
-        "code_postal": "34170",
-        "commune": "Castelnau-le-Lez",
-        "code_insee": "34057",
+        "code_postal": commune_castelnau.code_postaux[0],
+        "commune": commune_castelnau.nom,
+        "code_insee": commune_castelnau.code_insee,
         "contact_email": None,
         "telephone": "04 99 74 29 50",
         "site_internet": "http://www.gendarmerie.interieur.gouv.fr",
     }
 
 
-def test_parse_feature_montreuil(data):
+def test_parse_feature_montreuil(data, commune_montreuil, activite_mairie):
     json_feature = json.loads(
         """
         {
@@ -176,22 +180,24 @@ def test_parse_feature_montreuil(data):
         "actif": True,
         "coordonnees": [2.441878, 48.860395],
         "naf": None,
-        "activite": data.mairie.pk,
+        "activite": activite_mairie.pk,
         "nom": "Mairie - Montreuil",
         "siret": None,
         "numero": "1",
         "voie": "place Aimé Césaire",
         "lieu_dit": "Centre administratif - Tour Altaïs",
-        "code_postal": "93100",
-        "commune": "Montreuil",
-        "code_insee": "93048",
+        "code_postal": commune_montreuil.code_postaux[0],
+        "commune": commune_montreuil.nom,
+        "code_insee": commune_montreuil.code_insee,
         "contact_email": None,
         "telephone": "01 48 70 60 00",
         "site_internet": "http://www.montreuil.fr",
     }
 
 
-def test_parse_prefecture_montpellier(data):
+def test_parse_prefecture_montpellier(
+    data, commune_montpellier, activite_administration_publique
+):
     json_feature = json.loads(
         """
         {
@@ -233,15 +239,15 @@ def test_parse_prefecture_montpellier(data):
         "actif": True,
         "coordonnees": [3.87658905983, 43.6109542847],
         "naf": None,
-        "activite": data.administration_publique.pk,
+        "activite": activite_administration_publique.pk,
         "nom": "Préfecture de l'Hérault",
         "siret": None,
         "numero": "34",
         "voie": "place des Martyrs-de-la-Résistance",
         "lieu_dit": None,
-        "code_postal": "34062",
-        "commune": "Montpellier Cedex 2",
-        "code_insee": "34172",
+        "code_postal": commune_montpellier.code_postaux[0],
+        "commune": commune_montpellier.nom,
+        "code_insee": commune_montpellier.code_insee,
         "contact_email": None,
         "telephone": "04 67 61 61 61",
         "site_internet": "http://www.herault.gouv.fr",

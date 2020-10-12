@@ -499,9 +499,9 @@ def contrib_admin_infos(request):
                 data = sirene.base64_decode_etablissement(
                     encoded_data
                 )  # XXX: move this to generic utils so we can use it for public erp data
-                from pprint import pprint
+                # from pprint import pprint
 
-                pprint(data)
+                # pprint(data)
             except RuntimeError as err:
                 data_error = err
         form = PublicErpAdminInfosForm(data)
