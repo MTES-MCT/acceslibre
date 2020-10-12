@@ -46,7 +46,7 @@ def test_parse_feature_jacou(data):
     )
     assert public_erp.parse_feature(json_feature) == {
         "source": "public_erp",
-        "source_id": "mairie-34120-01",
+        "source_id": "public_erp-mairie-34120-01",
         "actif": True,
         "coordonnees": [3.9106014, 43.6609939],
         "naf": None,
@@ -112,7 +112,7 @@ def test_parse_feature_gendarmerie(data):
     )
     assert public_erp.parse_feature(json_feature) == {
         "source": "public_erp",
-        "source_id": "gendarmerie-34057-01",
+        "source_id": "public_erp-gendarmerie-34057-01",
         "actif": True,
         "coordonnees": [3.91375272, 43.64536644],
         "naf": None,
@@ -172,7 +172,7 @@ def test_parse_feature_montreuil(data):
     )
     assert public_erp.parse_feature(json_feature) == {
         "source": "public_erp",
-        "source_id": "mairie-93048-01",
+        "source_id": "public_erp-mairie-93048-01",
         "actif": True,
         "coordonnees": [2.441878, 48.860395],
         "naf": None,
@@ -188,4 +188,61 @@ def test_parse_feature_montreuil(data):
         "contact_email": None,
         "telephone": "01 48 70 60 00",
         "site_internet": "http://www.montreuil.fr",
+    }
+
+
+def test_parse_prefecture_montpellier(data):
+    json_feature = json.loads(
+        """
+        {
+            "type": "Feature",
+            "geometry":{
+                "type": "Point",
+                "coordinates":[
+                    3.87658905983,
+                    43.6109542847
+                ]
+            },
+            "properties":{
+                "id": "prefecture-34172-01",
+                "codeInsee": "34172",
+                "pivotLocal": "prefecture",
+                "nom": "Préfecture de l'Hérault",
+                "adresses":[
+                    {
+                        "type": "géopostale",
+                        "lignes":[
+                            "34, place des Martyrs-de-la-Résistance"
+                        ],
+                        "codePostal": "34062",
+                        "commune": "Montpellier Cedex 2",
+                        "coordonnees":[
+                            3.87658905983,
+                            43.6109542847
+                        ]
+                    }
+                ],
+                "telephone": "04 67 61 61 61",
+                "url": "http://www.herault.gouv.fr"
+            }
+        }"""
+    )
+    assert public_erp.parse_feature(json_feature) == {
+        "source": "public_erp",
+        "source_id": "public_erp-prefecture-34172-01",
+        "actif": True,
+        "coordonnees": [3.87658905983, 43.6109542847],
+        "naf": None,
+        "activite": data.administration_publique.pk,
+        "nom": "Préfecture de l'Hérault",
+        "siret": None,
+        "numero": "34",
+        "voie": "place des Martyrs-de-la-Résistance",
+        "lieu_dit": None,
+        "code_postal": "34062",
+        "commune": "Montpellier Cedex 2",
+        "code_insee": "34172",
+        "contact_email": None,
+        "telephone": "04 67 61 61 61",
+        "site_internet": "http://www.herault.gouv.fr",
     }
