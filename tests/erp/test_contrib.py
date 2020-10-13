@@ -33,7 +33,7 @@ def akei_result():
     return dict(
         source="sirene",
         source_id=AKEI_SIRET,
-        actif="A",
+        actif=True,
         coordonnees=None,
         naf="62.02A",
         activite=None,
@@ -48,6 +48,29 @@ def akei_result():
         contact_email=None,
         telephone=None,
         site_internet=None,
+    )
+
+
+@pytest.fixture
+def mairie_jacou_result():
+    return dict(
+        source="public_erp",
+        source_id="mairie-jacou-34120-01",
+        actif=True,
+        coordonnees=[3, 42],
+        naf=None,
+        activite=None,
+        nom="Marie - Jacou",
+        siret=None,
+        numero="2",
+        voie="Place de la Mairie",
+        lieu_dit=None,
+        code_postal="34830",
+        commune="Jacou",
+        code_insee="34120",
+        contact_email="jacou@jacou.fr",
+        telephone="01 02 03 04 05",
+        site_internet="https://ville-jacou.fr/",
     )
 
 
@@ -69,7 +92,7 @@ def test_contrib_start_siret_search_validate_siret(client):
     assert "siret" in response.context["siret_form"].errors
 
 
-def test_contrib_start_siret_execute_search(client, mocker, akei_result):
+def test_contrib_start_search_by_siret(client, mocker, akei_result):
     # Mock SIRENE api results
     mocker.patch(
         "erp.sirene.get_siret_info", return_value=akei_result,
@@ -111,3 +134,45 @@ def test_contrib_start_siret_execute_search(client, mocker, akei_result):
     assert form_data["contact_email"] is None
     assert form_data["site_internet"] is None
     assert form_data["telephone"] is None
+
+
+def test_contrib_start_search_by_business(client, mocker, akei_result):
+    # Mock SIRENE api results (list)
+    mocker.patch(
+        "erp.views.find_sirene_businesses", return_value=[akei_result],
+    )
+
+    response = client.post(
+        reverse("contrib_start"),
+        data={
+            "search_type": "by-business",
+            "nom": "akei",
+            "lieu": "Jacou",
+            "naf": "62.02A",
+        },
+        follow=True,
+    )
+
+    assert response.status_code == 200
+    assert response.context["name_search_results"] == [akei_result]
+
+
+def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
+    # Mock SIRENE api results (list)
+    mocker.patch(
+        "erp.views.find_public_erps", return_value=[mairie_jacou_result],
+    )
+
+    response = client.post(
+        reverse("contrib_start"),
+        data={
+            "search_type": "by-public-erp",
+            "type": "mairie",
+            "commune": "Jacou (34)",
+            "code_insee": "34120",
+        },
+        follow=True,
+    )
+
+    assert response.status_code == 200
+    assert response.context["public_erp_results"] == [mairie_jacou_result]
