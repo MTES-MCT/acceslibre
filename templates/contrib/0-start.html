@@ -10,65 +10,9 @@
   <div class="row">
     <div class="col-lg-8">
       {% if public_erp_results %}
-        {% for result in public_erp_results %}
-          <div class="card mb-3">
-            <div class="card-body row">
-              <div class="col-sm-8">
-                <strong>{{ result.nom }}</strong>
-                {% if result.exists %}
-                <span class="badge badge-danger">Existe dans la base</span>
-                {% endif %}
-                <br>
-                <small>
-                  {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-                  {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-                  {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
-                </small>
-              </div>
-              <div class="col-sm-4">
-                {% if not result.exists %}
-                <a class="btn btn-primary btn-sm btn-block"
-                  href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
-                  Sélectionner cet établissement public
-                </a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
+        {% include "contrib/results/public_erp.html" with results=public_erp_results %}
       {% elif name_search_results %}
-        {% for result in name_search_results %}
-        <div class="card mb-3">
-          <div class="card-body row">
-            <div class="col-sm-8">
-              <strong>{{ result.nom }}</strong>
-              {% if result.exists %}
-              <span class="badge badge-danger">Existe dans la base</span>
-              {% elif result.actif %}
-              <span class="badge badge-success">En activité</span>
-              {% else %}
-              <span class="badge badge-warning">Fermé</span>
-              {% endif %}
-              <br>
-              <small>
-                SIRET: {{ result.siret }}{% if result.naf %}{% endif %}<br>
-                {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
-                {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-                {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-                {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
-              </small>
-            </div>
-            <div class="col-sm-4">
-              {% if result.actif and not result.exists %}
-              <a class="btn btn-primary btn-sm btn-block"
-                href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
-                Sélectionner cet établissement
-              </a>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+        {% include "contrib/results/sirene.html" with results=name_search_results %}
       {% endif %}
     </div>
     <div class="col-lg-4">
@@ -79,8 +23,8 @@
             Votre établissement ne figure pas dans la liste&nbsp;?
           </h2>
           <div class="d-flex flex-column mt-3">
-            <a class="btn btn-primary mb-2" href="{% url "contrib_admin_infos" %}">Saisie manuelle</a>
             <a class="btn btn-primary mb-2" href="{% url "contrib_start" %}">Nouvelle recherche</a>
+            <a class="btn btn-link mb-2" href="{% url "contrib_admin_infos" %}">Saisie manuelle</a>
             <a class="btn btn-link" href="javascript:history.go(-1)">Retour</a>
           </div>
         </div>

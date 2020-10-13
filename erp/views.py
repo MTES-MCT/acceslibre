@@ -380,7 +380,7 @@ def mes_contributions_recues(request):
     return _mes_contributions_view(request, qs, recues=True)
 
 
-def find_sirene_etablissements(name_form):
+def find_sirene_businesses(name_form):
     results = sirene.find_etablissements(
         name_form.cleaned_data.get("nom"),
         name_form.cleaned_data.get("lieu"),
@@ -388,7 +388,19 @@ def find_sirene_etablissements(name_form):
         limit=15,
     )
     for result in results:
-        result["exists"] = Erp.objects.exists_by_siret(result["siret"])
+        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+    return results
+
+
+def find_public_erps(public_erp_form):
+    results = public_erp.get_code_insee_type(
+        public_erp_form.cleaned_data.get("code_insee"),
+        public_erp_form.cleaned_data.get("type"),
+    )
+    for result in results:
+        result["exists"] = Erp.objects.find_by_source_id(
+            result["source"], result["source_id"]
+        )
     return results
 
 
@@ -430,7 +442,7 @@ def contrib_start(request):  # noqa
             name_form = PublicEtablissementSearchForm(request.POST)
             if name_form.is_valid():
                 try:
-                    name_search_results = find_sirene_etablissements(name_form)
+                    name_search_results = find_sirene_businesses(name_form)
                 except RuntimeError as err:
                     name_search_error = str(err)
         elif request.POST.get("search_type") == "by-siret":
@@ -446,10 +458,7 @@ def contrib_start(request):  # noqa
             public_erp_form = PublicPublicErpSearchForm(request.POST)
             if public_erp_form.is_valid():
                 try:
-                    public_erp_results = public_erp.get_code_insee_type(
-                        public_erp_form.cleaned_data.get("code_insee"),
-                        public_erp_form.cleaned_data.get("type"),
-                    )
+                    public_erp_results = find_public_erps(public_erp_form)
                 except RuntimeError as err:
                     public_erp_search_error = err
     return render(
