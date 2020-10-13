@@ -34,9 +34,10 @@
   {% else %}
   <h2 class="h3">Rechercher un Établissement Recevant du Public</h2>
   <p><small class="text-muted">
-    <i aria-hidden="true" class="icon icon-info-circled"></i> La recherche se faisant sur les serveurs de l'INSEE,
-    une certaine latence de réponse peut être parfois constatée. Les champs marqués d'une astérisque (<code>*</code>)
-    sont obligatoires.
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    La recherche se faisant sur les serveurs des services numériques de l'État,
+    une certaine latence de réponse peut être parfois constatée. Les champs marqués
+    d'une astérisque (<code>*</code>) sont obligatoires.
   </small></p>
   <p class="text-center mb-0">
     <a class="btn btn-outline-primary btn-lg w-100" href="{% url "contrib_admin_infos" %}">
@@ -47,11 +48,11 @@
   <div class="row">
     <div class="col-sm-6">
       {% include "contrib/forms/business_form.html" %}
-      {% include "contrib/forms/siret_form.html" %}
     </div>
     <div class="col-sm-6">
       {% include "contrib/forms/public_erp_form.html" %}
     </div>
   </div>
+  {% include "contrib/forms/siret_form.html" %}
   {% endif %}
 {% endblock %}

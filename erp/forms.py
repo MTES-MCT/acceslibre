@@ -459,6 +459,7 @@ class PublicPublicErpSearchForm(forms.Form):
     type = forms.CharField(
         label="Type d'établissement public",
         required=True,
+        help_text="Commencez à saisir le type d'établissement puis sélectionnez une entrée parmis la liste proposée.",
         widget=forms.TextInput(
             attrs={
                 "type": "search",
@@ -470,6 +471,7 @@ class PublicPublicErpSearchForm(forms.Form):
     commune = forms.CharField(
         label="Nom de la commune",
         required=True,
+        help_text="Commencez à saisir le nom de la commune recherchée, puis cliquez sur la proposition correspondante.",
         widget=forms.TextInput(
             attrs={"type": "search", "placeholder": "ex. Montrouge"}
         ),
