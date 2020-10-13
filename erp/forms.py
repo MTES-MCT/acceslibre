@@ -365,7 +365,6 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
             self.geocode()
 
         # Unicité du numéro SIRET
-        # FIXME: should be enforced in model
         siret = self.cleaned_data["siret"]
         if siret and Erp.objects.find_by_siret(siret):
             raise ValidationError(
