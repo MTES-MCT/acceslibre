@@ -1,5 +1,5 @@
-from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis import measure
+from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
@@ -61,15 +61,20 @@ class CommuneQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
-    def exists_by_siret(self, siret):
-        if not siret:
-            return False
-        return self.filter(siret=siret).count() > 0
-
     def exists_by_name_adresse(self, **kwargs):
-        if len(kwargs.keys()) == 0:
+        if len(kwargs) == 0:
             return False
         return self.filter(**kwargs).count() > 0
+
+    def find_by_siret(self, siret):
+        if not siret:
+            return False
+        return self.filter(siret=siret).first()
+
+    def find_by_source_id(self, source, source_id):
+        if not source or not source_id:
+            return False
+        return self.filter(source=source, source_id=source_id).first()
 
     def find_existing_matches(self, nom, geom):
         return self.nearest([geom.coords[1], geom.coords[0]]).filter(

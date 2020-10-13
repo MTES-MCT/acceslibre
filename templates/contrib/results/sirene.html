@@ -1,0 +1,40 @@
+{% load a4a %}
+
+{% for result in name_search_results %}
+<div class="card mb-3">
+  <div class="card-body row">
+    <div class="col-sm-8">
+      <strong>
+        {% if result.exists and result.exists.is_online %}
+        <a href="{{ result.exists.get_absolute_url }}" target="_blank">{{ result.nom }}</a>
+        {% else %}
+        {{ result.nom }}
+        {% endif %}
+      </strong>
+      {% if result.exists %}
+      <span class="badge badge-danger">Existe dans la base</span>
+      {% elif result.actif %}
+      <span class="badge badge-success">En activité</span>
+      {% else %}
+      <span class="badge badge-warning">Fermé</span>
+      {% endif %}
+      <br>
+      <small>
+        SIRET: {{ result.siret }}{% if result.naf %}{% endif %}<br>
+        {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
+        {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
+        {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
+        {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+      </small>
+    </div>
+    <div class="col-sm-4">
+      {% if result.actif and not result.exists %}
+      <a class="btn btn-primary btn-sm btn-block"
+        href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
+        Sélectionner cet établissement
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
