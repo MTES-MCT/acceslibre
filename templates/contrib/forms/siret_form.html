@@ -1,8 +1,8 @@
 {% load crispy_forms_tags %}
 
-<form action="{% url "contrib_start" %}" method="post" class="card mt-4">
+<form action="{% url "contrib_start" %}" method="post" class="card mb-4">
   <div class="card-header">
-    <strong>Je connais le numéro SIRET de l'établissement</strong>
+    Je connais <strong>le numéro SIRET</strong> de l'établissement
   </div>
   <div class="card-body">
     {% csrf_token %}

@@ -1,8 +1,8 @@
 {% load crispy_forms_tags %}
 
-<form action="{% url "contrib_start" %}" method="post" class="card">
+<form action="{% url "contrib_start" %}" method="post" class="card mb-4">
   <div class="card-header">
-    <strong>Je recherche une entreprise</strong>
+    Je recherche <strong>une entreprise</strong>
   </div>
   <div class="card-body">
     {% csrf_token %}
