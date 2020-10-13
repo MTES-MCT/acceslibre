@@ -450,7 +450,7 @@ def contrib_start(request):  # noqa
             if siret_form.is_valid():
                 try:
                     siret_info = sirene.get_siret_info(siret_form.cleaned_data["siret"])
-                    data = serializers.decode_provider_data(siret_info)
+                    data = serializers.encode_provider_data(siret_info)
                     return redirect(reverse("contrib_admin_infos") + "?data=" + data)
                 except RuntimeError as err:
                     siret_search_error = err

@@ -67,14 +67,12 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(**kwargs).count() > 0
 
     def find_by_siret(self, siret):
-        if not siret:
-            return False
-        return self.filter(siret=siret).first()
+        if siret:
+            return self.filter(siret=siret).first()
 
     def find_by_source_id(self, source, source_id):
-        if not source or not source_id:
-            return False
-        return self.filter(source=source, source_id=source_id).first()
+        if source and source_id:
+            return self.filter(source=source, source_id=source_id).first()
 
     def find_existing_matches(self, nom, geom):
         return self.nearest([geom.coords[1], geom.coords[0]]).filter(

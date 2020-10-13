@@ -367,7 +367,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         # Unicité du numéro SIRET
         # FIXME: should be enforced in model
         siret = self.cleaned_data["siret"]
-        if siret and Erp.objects.exists_by_siret(siret):
+        if siret and Erp.objects.find_by_siret(siret):
             raise ValidationError(
                 {
                     "siret": f"Un établissement disposant du numéro SIRET {siret} "
@@ -494,7 +494,7 @@ class PublicSiretSearchForm(forms.Form):
 
     def clean(self):
         siret = self.cleaned_data.get("siret")
-        if siret and Erp.objects.exists_by_siret(siret):
+        if siret and Erp.objects.find_by_siret(siret):
             raise ValidationError(
                 {
                     "siret": f"Un établissement disposant du numéro SIRET {siret} "
