@@ -1,6 +1,13 @@
-/* Acceslibre styles
-*/
+// Acceslibre styles
 
+// Vendor imports (imports non-suffixed with .css have their contents included in the resulting compiled asset)
+@import "../vendor/leaflet@1.7.1/leaflet";
+@import "../vendor/leaflet.markercluster@1.4.1/MarkerCluster.Default";
+@import "../vendor/leaflet.locatecontrol@0.70.0/L.Control.Locate.min";
+@import "../static/vendor/Chart.js%402.9.3/Chart.min";
+
+
+// Bootstrap
 $white: #fff;
 $primary: #075ea2;
 $success: #167d2e;
@@ -25,7 +32,9 @@ $viewport-md: 768px;
 $viewport-lg: 992px;
 $viewport-xl: 1200px;
 
-@import "bootstrap/bootstrap.scss";
+@import "../vendor/bootstrap@4.5.3/scss/bootstrap.scss";
+
+// App specific styles
 
 .a4a {
   .btn {
