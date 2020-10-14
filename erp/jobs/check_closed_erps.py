@@ -8,7 +8,7 @@ from django.utils import timezone
 from core import mailer
 
 from erp.models import Erp, StatusCheck
-from erp import sirene
+from erp.provider import sirene
 
 CHECK_DAYS = 7  # recheck activity status every 7 days
 SIRENE_API_SLEEP = 0.5  # stay way under 500 req/s, which is our rate limit

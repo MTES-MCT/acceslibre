@@ -1,6 +1,6 @@
 import pytest
 
-from erp import sirene
+from erp.provider import sirene
 
 
 def test_create_find_query_single_word():
