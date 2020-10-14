@@ -3,7 +3,7 @@ from django import template
 from erp import naf
 from erp import schema
 from erp import serializers
-from erp import sirene
+from erp.provider import sirene
 
 register = template.Library()
 

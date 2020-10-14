@@ -11,7 +11,7 @@ from tests.fixtures import data
 def test_check_closed_erps_job(data, capsys, mocker):
     assert StatusCheck.objects.filter(erp=data.erp).count() == 0
 
-    mocker.patch("erp.sirene.get_siret_info", return_value={"actif": False})
+    mocker.patch("erp.provider.sirene.get_siret_info", return_value={"actif": False})
 
     check_closed_erps.job(verbose=True)
 
@@ -30,7 +30,7 @@ def test_check_closed_erps_job(data, capsys, mocker):
 def test_check_no_closed_erps_job(data, capsys, mocker):
     assert StatusCheck.objects.filter(erp=data.erp).count() == 0
 
-    mocker.patch("erp.sirene.get_siret_info", return_value={"actif": True})
+    mocker.patch("erp.provider.sirene.get_siret_info", return_value={"actif": True})
 
     check_closed_erps.job(verbose=True)
 

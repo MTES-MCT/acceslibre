@@ -95,7 +95,7 @@ def test_contrib_start_siret_search_validate_siret(client):
 def test_contrib_start_search_by_siret(client, mocker, akei_result):
     # Mock SIRENE api results
     mocker.patch(
-        "erp.sirene.get_siret_info", return_value=akei_result,
+        "erp.provider.sirene.get_siret_info", return_value=akei_result,
     )
 
     # Mock Geocoder results

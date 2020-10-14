@@ -20,8 +20,8 @@ from reversion.models import Version
 
 from . import managers
 from . import schema
-from . import sirene
 from .departements import DEPARTEMENTS
+from .provider import sirene
 
 FULLTEXT_CONFIG = "french_unaccent"
 

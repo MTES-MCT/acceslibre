@@ -16,7 +16,6 @@ from requests.exceptions import RequestException
 
 from . import schema
 from . import geocoder
-from . import sirene
 from .models import (
     Activite,
     Accessibilite,
@@ -24,6 +23,7 @@ from .models import (
     Erp,
     Label,
 )
+from .provider import sirene
 
 
 def bool_radios():
