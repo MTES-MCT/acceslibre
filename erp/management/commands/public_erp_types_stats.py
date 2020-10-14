@@ -4,7 +4,7 @@ from pprint import pprint
 
 from django.core.management.base import BaseCommand
 
-from erp import public_erp
+from erp.provider import public_erp
 
 
 class Command(BaseCommand):

@@ -3,7 +3,7 @@ import pytest
 
 from django.contrib.gis.geos import Point
 
-from erp import public_erp
+from erp.provider import public_erp
 from erp.models import Activite, Commune
 
 from tests.fixtures import (
