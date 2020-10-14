@@ -13,6 +13,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
     <link rel="apple-touch-icon" href="{% static "img/apple-touch-icon.png" %}">
     <link rel="canonical" href="{{ SITE_ROOT_URL }}{{ request.path }}">
+    <link rel="stylesheet" href="{% static "vendor/leaflet@1.7.1/leaflet.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/leaflet.markercluster@1.4.1/MarkerCluster.Default.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/leaflet.locatecontrol@0.70.0/L.Control.Locate.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/Chart.js@2.9.3/Chart.min.css" %}">
     <link rel="stylesheet" href="{% static "icons/styles.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     {% block stylesheet_extras %}{% endblock %}
