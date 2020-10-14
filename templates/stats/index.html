@@ -1,13 +1,11 @@
 {% extends "editorial/base.html" %}
 
+{% load static %}
+
 {% block page_title %}Statistiques{% endblock%}
 
-{% block stylesheet_extras %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" crossorigin="">
-{% endblock %}
-
 {% block javascript_extras %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="{% static "vendor/Chart.js@2.9.3/Chart.bundle.min.js" %}"></script>
 {% endblock %}
 
 {% block editorial_content %}
