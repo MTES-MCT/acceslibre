@@ -1,5 +1,6 @@
 import logging
 import requests
+import unicodedata
 
 from erp.models import Commune
 
@@ -7,6 +8,18 @@ logger = logging.getLogger(__name__)
 
 BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
 MAX_PER_PAGE = 20
+
+
+def remove_accents(input_str):
+    # see https://stackoverflow.com/a/517974/330911
+    nfkd_form = unicodedata.normalize("NFKD", input_str)
+    return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
+
+def clean_search_terms(string):
+    # Note: search doesn't work well with accented letters...
+    string = str(string).strip()
+    return remove_accents(string.replace("/", " ")).upper()
 
 
 def format_naf(string):
@@ -19,7 +32,11 @@ def format_naf(string):
 
 def query(terms, code_insee=None):
     try:
-        params = {"per_page": MAX_PER_PAGE, "page": 1, "code_commune": code_insee}
+        params = {
+            "per_page": MAX_PER_PAGE,
+            "page": 1,
+            "code_commune": code_insee,
+        }
         res = requests.get(f"{BASE_URL}/full_text/{terms}", params)
         logger.info(f"entreprise api call: {res.url}")
         if res.status_code == 404:
@@ -57,7 +74,12 @@ def parse_etablissement(record):
     code_insee = code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
 
     # Raison sociale
-    nom = record.get("nom_raison_sociale") or record.get("l1_normalisee") or None
+    nom = (
+        record.get("enseigne")
+        or record.get("l1_normalisee")
+        or record.get("nom_raison_sociale")
+        or None
+    )
 
     # Code NAF
     naf = format_naf(record.get("activite_principale_entreprise"))
@@ -95,7 +117,8 @@ def parse_etablissement(record):
 
 
 def search(terms, code_insee=None):
-    if not terms.strip():
+    terms = clean_search_terms(terms)
+    if not terms:
         raise RuntimeError("La recherche est vide.")
     response = query(terms, code_insee=code_insee)
     results = []
