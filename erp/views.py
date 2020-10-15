@@ -35,8 +35,7 @@ from .forms import (
     ViewAccessibiliteForm,
 )
 from .models import Accessibilite, Activite, Commune, Erp, Vote
-from .provider import public_erp, sirene
-from . import naf
+from .provider import naf, public_erp, sirene
 from . import schema
 from . import serializers
 from . import versioning

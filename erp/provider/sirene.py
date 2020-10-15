@@ -184,7 +184,7 @@ def parse_etablissement(etablissement):
         actif=uniteLegale.get(STATUT) == "A",
         coordonnees=None,
         naf=naf,
-        activite=None,
+        activite=None,  # XXX would be nice to infer an activity from naf code
         nom=extract_etablissement_nom(etablissement),
         siret=siret,
         numero=" ".join(
