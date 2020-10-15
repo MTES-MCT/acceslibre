@@ -21,21 +21,9 @@ from django_registration.backends.activation.views import (
 
 from core import mailer
 
-from .forms import (
-    AdminAccessibiliteForm,
-    PublicClaimForm,
-    PublicErpDeleteForm,
-    PublicErpAdminInfosForm,
-    PublicErpEditInfosForm,
-    ProviderSireneSearchForm,
-    PublicLocalisationForm,
-    PublicPublicationForm,
-    ProviderPublicErpSearchForm,
-    ProviderSiretSearchForm,
-    ViewAccessibiliteForm,
-)
 from .models import Accessibilite, Activite, Commune, Erp, Vote
-from .provider import naf, public_erp, sirene
+from .provider import naf, entreprise, public_erp, sirene
+from . import forms
 from . import schema
 from . import serializers
 from . import versioning
@@ -262,7 +250,7 @@ class App(BaseListView):
             )
             context["erp"] = erp
             if erp.has_accessibilite():
-                form = ViewAccessibiliteForm(instance=erp.accessibilite)
+                form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
             if self.request.user.is_authenticated:
                 context["user_vote"] = Vote.objects.filter(
@@ -390,6 +378,13 @@ def find_sirene_businesses(name_form):
     return results
 
 
+def find_entreprise_businesses(name_form):
+    results = entreprise.search(name_form.cleaned_data.get("search"))
+    for result in results:
+        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+    return results
+
+
 def find_public_erps(public_erp_form):
     results = public_erp.get_code_insee_type(
         public_erp_form.cleaned_data.get("code_insee"),
@@ -407,7 +402,7 @@ def find_public_erps(public_erp_form):
 def contrib_delete(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
-        form = PublicErpDeleteForm(request.POST)
+        form = forms.PublicErpDeleteForm(request.POST)
         if form.is_valid():
             erp.delete()
             messages.add_message(
@@ -415,7 +410,7 @@ def contrib_delete(request, erp_slug):
             )
             return redirect("mes_erps")
     else:
-        form = PublicErpDeleteForm()
+        form = forms.PublicErpDeleteForm()
     return render(
         request,
         template_name="contrib/delete.html",
@@ -431,20 +426,26 @@ def contrib_start(request):  # noqa
     public_erp_results = None
     public_erp_search_error = None
     (siret_form, name_form, public_erp_form) = (
-        ProviderSiretSearchForm(),
-        ProviderSireneSearchForm(),
-        ProviderPublicErpSearchForm(),
+        forms.ProviderSiretSearchForm(),
+        forms.ProviderEntrepriseSearchForm(),
+        forms.ProviderPublicErpSearchForm(),
     )
     if request.method == "POST":
         if request.POST.get("search_type") == "by-business":
-            name_form = ProviderSireneSearchForm(request.POST)
+            # name_form = ProviderSireneSearchForm(request.POST)
+            # if name_form.is_valid():
+            #     try:
+            #         name_search_results = find_sirene_businesses(name_form)
+            #     except RuntimeError as err:
+            #         name_search_error = str(err)
+            name_form = forms.ProviderEntrepriseSearchForm(request.POST)
             if name_form.is_valid():
                 try:
-                    name_search_results = find_sirene_businesses(name_form)
+                    name_search_results = find_entreprise_businesses(name_form)
                 except RuntimeError as err:
                     name_search_error = str(err)
         elif request.POST.get("search_type") == "by-siret":
-            siret_form = ProviderSiretSearchForm(request.POST)
+            siret_form = forms.ProviderSiretSearchForm(request.POST)
             if siret_form.is_valid():
                 try:
                     siret_info = sirene.get_siret_info(siret_form.cleaned_data["siret"])
@@ -453,7 +454,7 @@ def contrib_start(request):  # noqa
                 except RuntimeError as err:
                     siret_search_error = err
         elif request.POST.get("search_type") == "by-public-erp":
-            public_erp_form = ProviderPublicErpSearchForm(request.POST)
+            public_erp_form = forms.ProviderPublicErpSearchForm(request.POST)
             if public_erp_form.is_valid():
                 try:
                     public_erp_results = find_public_erps(public_erp_form)
@@ -485,7 +486,7 @@ def contrib_admin_infos(request):
     data_error = None
     existing_matches = None
     if request.method == "POST":
-        form = PublicErpAdminInfosForm(request.POST)
+        form = forms.PublicErpAdminInfosForm(request.POST)
         if form.is_valid():
             existing_matches = Erp.objects.find_existing_matches(
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
@@ -506,7 +507,7 @@ def contrib_admin_infos(request):
                 data = serializers.decode_provider_data(encoded_data)
             except RuntimeError as err:
                 data_error = err
-        form = PublicErpAdminInfosForm(data)
+        form = forms.PublicErpAdminInfosForm(data)
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -525,7 +526,7 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     if request.method == "POST":
-        form = PublicErpEditInfosForm(
+        form = forms.PublicErpEditInfosForm(
             request.POST, instance=erp, initial={"recevant_du_public": True}
         )
         if form.is_valid():
@@ -535,7 +536,7 @@ def contrib_edit_infos(request, erp_slug):
             )
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
-        form = PublicErpAdminInfosForm(
+        form = forms.PublicErpAdminInfosForm(
             instance=erp, initial={"recevant_du_public": True}
         )
     return render(
@@ -550,7 +551,7 @@ def contrib_edit_infos(request, erp_slug):
 def contrib_localisation(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     if request.method == "POST":
-        form = PublicLocalisationForm(request.POST)
+        form = forms.PublicLocalisationForm(request.POST)
         if form.is_valid():
             lat = form.cleaned_data.get("lat")
             lon = form.cleaned_data.get("lon")
@@ -565,7 +566,7 @@ def contrib_localisation(request, erp_slug):
             else:
                 return redirect("contrib_transport", erp_slug=erp.slug)
     elif erp.geom is not None:
-        form = PublicLocalisationForm(
+        form = forms.PublicLocalisationForm(
             {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
         )
     return render(
@@ -591,7 +592,7 @@ def process_accessibilite_form(
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     if request.method == "POST":
         Form = modelform_factory(
-            Accessibilite, form=AdminAccessibiliteForm, fields=form_fields
+            Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields
         )
         form = Form(request.POST, instance=accessibilite)
         if form.is_valid():
@@ -609,7 +610,7 @@ def process_accessibilite_form(
             else:
                 return redirect(redirect_route, erp_slug=erp.slug)
     else:
-        form = AdminAccessibiliteForm(instance=accessibilite)
+        form = forms.AdminAccessibiliteForm(instance=accessibilite)
 
     return render(
         request,
@@ -758,7 +759,7 @@ def contrib_publication(request, erp_slug):
     }
     empty_a11y = False
     if request.method == "POST":
-        form = PublicPublicationForm(
+        form = forms.PublicPublicationForm(
             request.POST, instance=accessibilite, initial=initial
         )
         if form.is_valid():
@@ -778,7 +779,7 @@ def contrib_publication(request, erp_slug):
                 )
                 return redirect("mes_erps")
     else:
-        form = PublicPublicationForm(instance=accessibilite, initial=initial)
+        form = forms.PublicPublicationForm(instance=accessibilite, initial=initial)
     return render(
         request,
         template_name="contrib/11-publication.html",
@@ -796,7 +797,7 @@ def contrib_publication(request, erp_slug):
 def contrib_claim(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user__isnull=True, published=True)
     if request.method == "POST":
-        form = PublicClaimForm(request.POST)
+        form = forms.PublicClaimForm(request.POST)
         if form.is_valid():
             erp.user = request.user
             erp.save()
@@ -805,7 +806,7 @@ def contrib_claim(request, erp_slug):
             )
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
-        form = PublicClaimForm()
+        form = forms.PublicClaimForm()
     return render(
         request, template_name="contrib/claim.html", context={"erp": erp, "form": form}
     )

@@ -429,6 +429,15 @@ class PublicLocalisationForm(forms.Form):
             raise ValidationError("Données de localisation invalides.")
 
 
+class ProviderEntrepriseSearchForm(forms.Form):
+    search = forms.CharField(
+        label="Recherche",
+        help_text="Recherche plein-texte d'un établissement d'entreprise",
+        required=True,
+        widget=forms.TextInput(attrs={"placeholder": "ex. Fleuriste Lyon"}),
+    )
+
+
 class ProviderSireneSearchForm(forms.Form):
     nom = forms.CharField(
         label="Nom de l'établissement",
