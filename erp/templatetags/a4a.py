@@ -1,9 +1,8 @@
 from django import template
 
-from erp import naf
 from erp import schema
 from erp import serializers
-from erp.provider import sirene
+from erp.provider import naf, sirene
 
 register = template.Library()
 
