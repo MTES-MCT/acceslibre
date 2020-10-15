@@ -139,17 +139,12 @@ def test_contrib_start_search_by_siret(client, mocker, akei_result):
 def test_contrib_start_search_by_business(client, mocker, akei_result):
     # Mock SIRENE api results (list)
     mocker.patch(
-        "erp.views.find_sirene_businesses", return_value=[akei_result],
+        "erp.views.find_entreprise_businesses", return_value=[akei_result],
     )
 
     response = client.post(
         reverse("contrib_start"),
-        data={
-            "search_type": "by-business",
-            "nom": "akei",
-            "lieu": "Jacou",
-            "naf": "62.02A",
-        },
+        data={"search_type": "by-business", "search": "akei jacou",},
         follow=True,
     )
 
