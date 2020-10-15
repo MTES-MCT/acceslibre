@@ -429,7 +429,7 @@ class PublicLocalisationForm(forms.Form):
             raise ValidationError("Données de localisation invalides.")
 
 
-class PublicEtablissementSearchForm(forms.Form):
+class ProviderSireneSearchForm(forms.Form):
     nom = forms.CharField(
         label="Nom de l'établissement",
         required=True,
@@ -455,7 +455,7 @@ class PublicEtablissementSearchForm(forms.Form):
     )
 
 
-class PublicPublicErpSearchForm(forms.Form):
+class ProviderPublicErpSearchForm(forms.Form):
     code_insee = forms.CharField(widget=forms.HiddenInput)
     type = forms.CharField(
         label="Type d'établissement public",
@@ -479,7 +479,7 @@ class PublicPublicErpSearchForm(forms.Form):
     )
 
 
-class PublicSiretSearchForm(forms.Form):
+class ProviderSiretSearchForm(forms.Form):
     siret = forms.CharField(
         label="Numéro SIRET",
         required=True,

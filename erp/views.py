@@ -27,11 +27,11 @@ from .forms import (
     PublicErpDeleteForm,
     PublicErpAdminInfosForm,
     PublicErpEditInfosForm,
-    PublicEtablissementSearchForm,
+    ProviderSireneSearchForm,
     PublicLocalisationForm,
     PublicPublicationForm,
-    PublicPublicErpSearchForm,
-    PublicSiretSearchForm,
+    ProviderPublicErpSearchForm,
+    ProviderSiretSearchForm,
     ViewAccessibiliteForm,
 )
 from .models import Accessibilite, Activite, Commune, Erp, Vote
@@ -431,20 +431,20 @@ def contrib_start(request):  # noqa
     public_erp_results = None
     public_erp_search_error = None
     (siret_form, name_form, public_erp_form) = (
-        PublicSiretSearchForm(),
-        PublicEtablissementSearchForm(),
-        PublicPublicErpSearchForm(),
+        ProviderSiretSearchForm(),
+        ProviderSireneSearchForm(),
+        ProviderPublicErpSearchForm(),
     )
     if request.method == "POST":
         if request.POST.get("search_type") == "by-business":
-            name_form = PublicEtablissementSearchForm(request.POST)
+            name_form = ProviderSireneSearchForm(request.POST)
             if name_form.is_valid():
                 try:
                     name_search_results = find_sirene_businesses(name_form)
                 except RuntimeError as err:
                     name_search_error = str(err)
         elif request.POST.get("search_type") == "by-siret":
-            siret_form = PublicSiretSearchForm(request.POST)
+            siret_form = ProviderSiretSearchForm(request.POST)
             if siret_form.is_valid():
                 try:
                     siret_info = sirene.get_siret_info(siret_form.cleaned_data["siret"])
@@ -453,7 +453,7 @@ def contrib_start(request):  # noqa
                 except RuntimeError as err:
                     siret_search_error = err
         elif request.POST.get("search_type") == "by-public-erp":
-            public_erp_form = PublicPublicErpSearchForm(request.POST)
+            public_erp_form = ProviderPublicErpSearchForm(request.POST)
             if public_erp_form.is_valid():
                 try:
                     public_erp_results = find_public_erps(public_erp_form)
