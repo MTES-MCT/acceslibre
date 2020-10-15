@@ -379,7 +379,10 @@ def find_sirene_businesses(name_form):
 
 
 def find_entreprise_businesses(name_form):
-    results = entreprise.search(name_form.cleaned_data.get("search"))
+    results = entreprise.search(
+        name_form.cleaned_data.get("search"),
+        code_insee=name_form.cleaned_data.get("entreprise_code_insee"),
+    )
     for result in results:
         result["exists"] = Erp.objects.find_by_siret(result["siret"])
     return results
