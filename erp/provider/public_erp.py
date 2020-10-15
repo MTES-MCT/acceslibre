@@ -213,7 +213,7 @@ def parse_feature(feature):
 def get_code_insee_type(code_insee, type):
     if type not in TYPES:
         raise RuntimeError(f'Le type "{type}" est invalide.')
-    response = get(f"{BASE_URL}/communes/{code_insee}/{type}")
+    response = get(f"communes/{code_insee}/{type}")
     results = []
     try:
         for feature in response["features"]:
@@ -225,17 +225,18 @@ def get_code_insee_type(code_insee, type):
         if len(results) == 0:
             raise RuntimeError("Aucun résultat.")
         return results
-    except (KeyError, IndexError, TypeError) as err:
+    except (AttributeError, KeyError, IndexError, TypeError) as err:
         logger.error(err)
         raise RuntimeError("Impossible de récupérer les résultats.")
 
 
-def get(url, params=None):
+def get(path, params=None):
     try:
-        res = requests.get(url, params)
-        logger.info(f"Public ERP api call: {res.url}")
+        res = requests.get(f"{BASE_URL}/{path}", params)
+        logger.info(f"public_erp api call: {res.url}")
         if res.status_code != 200:
             raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
         return res.json()
-    except requests.exceptions.RequestException:
+    except requests.exceptions.RequestException as err:
+        logger.error(f"public_erp api error: {err}")
         raise RuntimeError("Annuaire des établissements publics indisponible.")
