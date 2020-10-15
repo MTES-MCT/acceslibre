@@ -431,10 +431,14 @@ class PublicLocalisationForm(forms.Form):
 
 class ProviderEntrepriseSearchForm(forms.Form):
     search = forms.CharField(
-        label="Recherche",
-        help_text="Recherche plein-texte d'un établissement d'entreprise",
+        label="Recherche libre",
+        help_text=mark_safe(
+            "Recherche <em>plein texte</em> sur le nom de l'entreprise, la voie, le code postal, l'activité et la commune."
+        ),
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "ex. Fleuriste Lyon"}),
+        widget=forms.TextInput(
+            attrs={"placeholder": "ex. Fleuriste Lyon", "autocomplete": "off"}
+        ),
     )
 
 
@@ -442,13 +446,19 @@ class ProviderSireneSearchForm(forms.Form):
     nom = forms.CharField(
         label="Nom de l'établissement",
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "ex. Hotel"}),
+        widget=forms.TextInput(
+            attrs={"placeholder": "ex. Hotel", "autocomplete": "off"}
+        ),
     )
     lieu = forms.CharField(
         label="Nom de la commune",
         required=True,
         widget=forms.TextInput(
-            attrs={"type": "search", "placeholder": "ex. Montrouge"}
+            attrs={
+                "type": "search",
+                "placeholder": "ex. Montrouge",
+                "autocomplete": "off",
+            }
         ),
     )
     naf = forms.CharField(
@@ -459,7 +469,12 @@ class ProviderSireneSearchForm(forms.Form):
             '<a href="https://www.insee.fr/fr/information/2579599" target="_blank">code NAF</a>.'
         ),
         widget=forms.TextInput(
-            attrs={"type": "search", "list": "nafs", "placeholder": "ex. Restaurant",}
+            attrs={
+                "type": "search",
+                "list": "nafs",
+                "placeholder": "ex. Restaurant",
+                "autocomplete": "off",
+            }
         ),
     )
 
@@ -475,6 +490,7 @@ class ProviderPublicErpSearchForm(forms.Form):
                 "type": "search",
                 "list": "public_erp_types",
                 "placeholder": "ex. Mairie",
+                "autocomplete": "off",
             }
         ),
     )
@@ -483,7 +499,11 @@ class ProviderPublicErpSearchForm(forms.Form):
         required=True,
         help_text="Commencez à saisir le nom de la commune recherchée, puis cliquez sur la proposition correspondante.",
         widget=forms.TextInput(
-            attrs={"type": "search", "placeholder": "ex. Montrouge"}
+            attrs={
+                "type": "search",
+                "placeholder": "ex. Montrouge",
+                "autocomplete": "off",
+            }
         ),
     )
 
@@ -492,7 +512,9 @@ class ProviderSiretSearchForm(forms.Form):
     siret = forms.CharField(
         label="Numéro SIRET",
         required=True,
-        widget=forms.TextInput(attrs={"placeholder": "ex. 88076068100010"}),
+        widget=forms.TextInput(
+            attrs={"placeholder": "ex. 88076068100010", "autocomplete": "off"}
+        ),
     )
 
     def clean_siret(self):
