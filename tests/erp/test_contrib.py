@@ -77,11 +77,11 @@ def mairie_jacou_result():
 def test_contrib_start_home(client):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
-    assert response.context["siret_search_error"] is None
-    assert response.context["name_search_error"] is None
-    assert response.context["name_search_results"] is None
+    assert response.context["siret_error"] is None
+    assert response.context["entreprise_error"] is None
+    assert response.context["entreprise_results"] is None
     assert response.context["public_erp_results"] is None
-    assert response.context["public_erp_search_error"] is None
+    assert response.context["public_erp_error"] is None
 
 
 def test_contrib_start_siret_search_validate_siret(client):
@@ -144,12 +144,12 @@ def test_contrib_start_search_by_business(client, mocker, akei_result):
 
     response = client.post(
         reverse("contrib_start"),
-        data={"search_type": "by-business", "search": "akei jacou",},
+        data={"search_type": "by-entreprise", "search": "akei jacou",},
         follow=True,
     )
 
     assert response.status_code == 200
-    assert response.context["name_search_results"] == [akei_result]
+    assert response.context["entreprise_results"] == [akei_result]
 
 
 def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):

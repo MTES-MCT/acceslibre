@@ -6,8 +6,8 @@
   </div>
   <div class="card-body">
     {% csrf_token %}
-    {% if public_erp_search_error %}
-      <div class="alert alert-danger">{{ public_erp_search_error }}</div>
+    {% if public_erp_error %}
+      <div class="alert alert-danger">{{ public_erp_error }}</div>
     {% endif %}
     {{ public_erp_form|crispy }}
     <button type="submit" name="search_type" value="by-public-erp" class="btn btn-primary w-100">

@@ -378,20 +378,19 @@ def find_sirene_businesses(name_form):
     return results
 
 
-def find_entreprise_businesses(name_form):
+def find_entreprise_businesses(form):
     results = entreprise.search(
-        name_form.cleaned_data.get("search"),
-        code_insee=name_form.cleaned_data.get("entreprise_code_insee"),
+        form.cleaned_data.get("search"),
+        code_insee=form.cleaned_data.get("entreprise_code_insee"),
     )
     for result in results:
         result["exists"] = Erp.objects.find_by_siret(result["siret"])
     return results
 
 
-def find_public_erps(public_erp_form):
+def find_public_erps(form):
     results = public_erp.get_code_insee_type(
-        public_erp_form.cleaned_data.get("code_insee"),
-        public_erp_form.cleaned_data.get("type"),
+        form.cleaned_data.get("code_insee"), form.cleaned_data.get("type"),
     )
     for result in results:
         result["exists"] = Erp.objects.find_by_source_id(
@@ -423,30 +422,24 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):  # noqa
-    siret_search_error = None
-    name_search_error = None
-    name_search_results = None
+    siret_error = None
+    entreprise_error = None
+    entreprise_results = None
     public_erp_results = None
-    public_erp_search_error = None
-    (siret_form, name_form, public_erp_form) = (
+    public_erp_error = None
+    (siret_form, entreprise_form, public_erp_form) = (
         forms.ProviderSiretSearchForm(),
         forms.ProviderEntrepriseSearchForm(),
         forms.ProviderPublicErpSearchForm(),
     )
     if request.method == "POST":
-        if request.POST.get("search_type") == "by-business":
-            # name_form = ProviderSireneSearchForm(request.POST)
-            # if name_form.is_valid():
-            #     try:
-            #         name_search_results = find_sirene_businesses(name_form)
-            #     except RuntimeError as err:
-            #         name_search_error = str(err)
-            name_form = forms.ProviderEntrepriseSearchForm(request.POST)
-            if name_form.is_valid():
+        if request.POST.get("search_type") == "by-entreprise":
+            entreprise_form = forms.ProviderEntrepriseSearchForm(request.POST)
+            if entreprise_form.is_valid():
                 try:
-                    name_search_results = find_entreprise_businesses(name_form)
+                    entreprise_results = find_entreprise_businesses(entreprise_form)
                 except RuntimeError as err:
-                    name_search_error = str(err)
+                    entreprise_error = str(err)
         elif request.POST.get("search_type") == "by-siret":
             siret_form = forms.ProviderSiretSearchForm(request.POST)
             if siret_form.is_valid():
@@ -455,29 +448,29 @@ def contrib_start(request):  # noqa
                     data = serializers.encode_provider_data(siret_info)
                     return redirect(reverse("contrib_admin_infos") + "?data=" + data)
                 except RuntimeError as err:
-                    siret_search_error = err
+                    siret_error = err
         elif request.POST.get("search_type") == "by-public-erp":
             public_erp_form = forms.ProviderPublicErpSearchForm(request.POST)
             if public_erp_form.is_valid():
                 try:
                     public_erp_results = find_public_erps(public_erp_form)
                 except RuntimeError as err:
-                    public_erp_search_error = err
+                    public_erp_error = err
     return render(
         request,
         template_name="contrib/0-start.html",
         context={
             "step": 1,
             "nafs": naf.NAF,
-            "name_form": name_form,
-            "name_search_error": name_search_error,
-            "name_search_results": name_search_results,
+            "entreprise_form": entreprise_form,
+            "entreprise_error": entreprise_error,
+            "entreprise_results": entreprise_results,
             "siret_form": siret_form,
-            "siret_search_error": siret_search_error,
+            "siret_error": siret_error,
             "public_erp_form": public_erp_form,
             "public_erp_results": public_erp_results,
             "public_erp_types": public_erp.TYPES,
-            "public_erp_search_error": public_erp_search_error,
+            "public_erp_error": public_erp_error,
         },
     )
 

@@ -6,7 +6,7 @@
   </div>
   <div class="card-body">
     {% csrf_token %}
-    {% if siret_search_error %}
+    {% if siret_error %}
       <div class="alert alert-danger">{{ siret_search_error }}</div>
     {% endif %}
     {{ siret_form|crispy }}
