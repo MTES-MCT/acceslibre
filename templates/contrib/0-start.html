@@ -8,14 +8,14 @@
   {% if public_erp_results or entreprise_results %}
   <h2 class="h3 mb-3">Sélectionner mon établissement</h2>
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-7">
       {% if public_erp_results %}
         {% include "contrib/results/public_erp.html" with results=public_erp_results %}
       {% elif entreprise_results %}
         {% include "contrib/results/entreprise.html" with results=entreprise_results %}
       {% endif %}
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-5">
       <div class="card text-center">
         <div class="card-body">
           <h2 class="h5">

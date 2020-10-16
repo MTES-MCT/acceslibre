@@ -2,15 +2,17 @@
 
 {% for result in entreprise_results %}
 <div class="card mb-3">
-  <div class="card-body row">
-    <div class="col-sm-8">
-      <strong>
-        {% if result.exists and result.exists.is_online %}
-        <a href="{{ result.exists.get_absolute_url }}" target="_blank">{{ result.nom }}</a>
-        {% else %}
-        {{ result.nom }}
-        {% endif %}
-      </strong>
+  {% if result.coordonnees %}
+  <img class="card-img-top" alt="Coordonnées GPS : {{ result.coordonnees }}"
+    src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/{{ result.coordonnees.0 }},{{ result.coordonnees.1 }},17,0,50/500x150?access_token=pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw">
+  {% endif %}
+  <div class="card-body">
+    <h3 class="h6 card-title font-weight-bold">
+      {% if result.exists and result.exists.is_online %}
+      <a href="{{ result.exists.get_absolute_url }}" target="_blank">{{ result.nom }}</a>
+      {% else %}
+      {{ result.nom }}
+      {% endif %}
       {% if result.exists %}
       <span class="badge badge-danger">Existe dans la base</span>
       {% elif result.actif %}
@@ -18,7 +20,8 @@
       {% else %}
       <span class="badge badge-warning">Fermé</span>
       {% endif %}
-      <br>
+    </h3>
+    <p class="card-text">
       <small>
         SIRET: {{ result.siret }}{% if result.naf %}{% endif %}<br>
         {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
@@ -26,15 +29,13 @@
         {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
         {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
       </small>
-    </div>
-    <div class="col-sm-4">
-      {% if result.actif and not result.exists %}
-      <a class="btn btn-primary btn-sm btn-block"
+    </p>
+    {% if result.actif and not result.exists %}
+      <a class="btn btn-primary btn-block mt-2"
         href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
         Sélectionner cet établissement
       </a>
-      {% endif %}
-    </div>
+    {% endif %}
   </div>
 </div>
 {% endfor %}
