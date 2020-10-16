@@ -77,10 +77,9 @@ def mairie_jacou_result():
 def test_contrib_start_home(client):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
+    assert response.context["results"] is None
     assert response.context["siret_error"] is None
     assert response.context["entreprise_error"] is None
-    assert response.context["entreprise_results"] is None
-    assert response.context["public_erp_results"] is None
     assert response.context["public_erp_error"] is None
 
 
@@ -149,7 +148,7 @@ def test_contrib_start_search_by_business(client, mocker, akei_result):
     )
 
     assert response.status_code == 200
-    assert response.context["entreprise_results"] == [akei_result]
+    assert response.context["results"] == [akei_result]
 
 
 def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
@@ -170,4 +169,4 @@ def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
     )
 
     assert response.status_code == 200
-    assert response.context["public_erp_results"] == [mairie_jacou_result]
+    assert response.context["results"] == [mairie_jacou_result]
