@@ -424,8 +424,7 @@ def contrib_delete(request, erp_slug):
 def contrib_start(request):  # noqa
     siret_error = None
     entreprise_error = None
-    entreprise_results = None
-    public_erp_results = None
+    results = None
     public_erp_error = None
     (siret_form, entreprise_form, public_erp_form) = (
         forms.ProviderSiretSearchForm(),
@@ -437,7 +436,7 @@ def contrib_start(request):  # noqa
             entreprise_form = forms.ProviderEntrepriseSearchForm(request.POST)
             if entreprise_form.is_valid():
                 try:
-                    entreprise_results = find_entreprise_businesses(entreprise_form)
+                    results = find_entreprise_businesses(entreprise_form)
                 except RuntimeError as err:
                     entreprise_error = str(err)
         elif request.POST.get("search_type") == "by-siret":
@@ -453,7 +452,7 @@ def contrib_start(request):  # noqa
             public_erp_form = forms.ProviderPublicErpSearchForm(request.POST)
             if public_erp_form.is_valid():
                 try:
-                    public_erp_results = find_public_erps(public_erp_form)
+                    results = find_public_erps(public_erp_form)
                 except RuntimeError as err:
                     public_erp_error = err
     return render(
@@ -462,13 +461,12 @@ def contrib_start(request):  # noqa
         context={
             "step": 1,
             "nafs": naf.NAF,
+            "results": results,
             "entreprise_form": entreprise_form,
             "entreprise_error": entreprise_error,
-            "entreprise_results": entreprise_results,
             "siret_form": siret_form,
             "siret_error": siret_error,
             "public_erp_form": public_erp_form,
-            "public_erp_results": public_erp_results,
             "public_erp_types": public_erp.TYPES,
             "public_erp_error": public_erp_error,
         },
