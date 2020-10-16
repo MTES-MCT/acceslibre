@@ -68,10 +68,18 @@ def parse_etablissement(record):
     # if not code_postal or not commune:
     #     logger.error(f"Résultat invalide: {record}")
     #     raise RuntimeError("Pas d'adresse valide pour ce résultat")
-    code_insee_list = Commune.objects.filter(
-        code_postaux__contains=[code_postal], nom__iexact=commune
-    ).values("code_insee")
-    code_insee = code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
+    code_insee = record.get("departement_commune_siege")
+    if not code_insee:
+        code_insee_list = Commune.objects.filter(
+            code_postaux__contains=[code_postal], nom__iexact=commune
+        ).values("code_insee")
+        code_insee = (
+            code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
+        )
+    else:
+        # FIXME: arrondissements pas pris en compte
+        commune_ext = Commune.objects.filter(code_insee=code_insee).first()
+        commune = commune_ext.nom if commune_ext else commune
 
     # Raison sociale
     nom = (

@@ -2,6 +2,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 
+# FIXME: move to core
+
 
 class EmailOrUsernameModelBackend(ModelBackend):
     """ https://stackoverflow.com/a/35836674/330911

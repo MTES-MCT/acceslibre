@@ -3,6 +3,7 @@ import requests
 
 from django.contrib.gis.geos import Point
 
+# FIXME: move as a provider module
 
 logger = logging.getLogger(__name__)
 

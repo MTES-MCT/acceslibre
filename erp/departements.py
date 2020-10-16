@@ -1,4 +1,5 @@
 # données sources extraites de https://api.gouv.fr/les-api/api-geo
+# FIXME: move as a provider module
 DEPARTEMENTS = {
     "01": {"nom": "Ain", "region": "Auvergne-Rhône-Alpes",},
     "02": {"nom": "Aisne", "region": "Hauts-de-France",},
