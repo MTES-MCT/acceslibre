@@ -58,8 +58,8 @@ def test_Erp_clean_validates_voie(data, capsys):
 
 
 def test_Erp_editable_by(data):
-    assert data.erp.editable_by(data.niko) == True
-    assert data.erp.editable_by(data.sophie) == False
+    assert data.erp.editable_by(data.niko) is True
+    assert data.erp.editable_by(data.sophie) is False
 
 
 def test_Erp_vote(data):

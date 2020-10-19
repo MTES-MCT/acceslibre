@@ -33,7 +33,7 @@ def test_home(data, browser, capsys):
     assert len(browser.find_by_css("#home-communes-list .card")) == 1
 
     assert data.erp.geom is not None
-    assert data.erp.published == True
+    assert data.erp.published is True
     assert data.erp.accessibilite is not None
     assert len(browser.find_by_css("#home-latest-erps-list a")) == 1
 
@@ -79,7 +79,7 @@ def test_registration_flow(data, browser):
     button.click()
 
     user = User.objects.get(username="johndoe")
-    assert user.is_active == False
+    assert user.is_active is False
 
     assert len(mail.outbox) == 1
     assert "Activation de votre compte" in mail.outbox[0].subject
@@ -96,7 +96,7 @@ def test_registration_flow(data, browser):
 
     assert browser.is_text_present("Votre compte est désormais actif")
     user = User.objects.get(username="johndoe")
-    assert user.is_active == True
+    assert user.is_active is True
 
     connect_link = browser.find_by_text("Je me connecte")
     connect_link.click()

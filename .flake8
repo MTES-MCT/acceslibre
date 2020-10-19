@@ -9,7 +9,8 @@ exclude =
     __pycache__,
     data,
     docs,
-    erp/migrations,
-    test_*
+    erp/migrations
 max-line-length = 88
 max-complexity = 10
+per-file-ignores =
+    test_*.py: F401,F811
