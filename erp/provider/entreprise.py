@@ -75,7 +75,7 @@ def format_source_id(record, fields=None):
     if not source_id and isinstance(fields, list) and len(fields) > 0:
         source_id = "-".join(str(x).lower() for x in fields if x is not None)
     if not source_id:
-        raise RuntimeError("No source id")
+        raise RuntimeError(f"Impossible de générer une source_id: {record}")
     return source_id
 
 
@@ -100,19 +100,21 @@ def parse_etablissement(record):
     # Coordonnées geographiques
     coordonnees = format_coordonnees(record)
 
-    # Numéro, type de voie et voie
+    # Adresse
     numero = record.get("numero_voie")
     type_voie = record.get("type_voie")
     voie = record.get("libelle_voie")
     if type_voie and voie:
         voie = f"{type_voie} {voie}"
 
-    # Commune, code postal, code insee
-    commune = record.get("libelle_commune")
     code_postal = record.get("code_postal")
-    # if not code_postal or not commune:
-    #     logger.error(f"Résultat invalide: {record}")
-    #     raise RuntimeError("Pas d'adresse valide pour ce résultat")
+    if not code_postal:
+        raise RuntimeError(f"Code postal manquant: {record}")
+
+    commune = record.get("libelle_commune")
+    if not commune:
+        raise RuntimeError(f"Commune manquante: {record}")
+
     code_insee = retrieve_code_insee(record)
     if code_insee:
         # FIXME: arrondissements pas pris en compte
