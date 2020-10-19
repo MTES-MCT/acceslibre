@@ -31,8 +31,8 @@ def client(user):
 @pytest.fixture
 def akei_result():
     return dict(
-        source="sirene",
-        source_id=AKEI_SIRET,
+        source="entreprise_api",
+        source_id="12345",
         actif=True,
         coordonnees=None,
         naf="62.02A",
@@ -94,7 +94,7 @@ def test_contrib_start_siret_search_validate_siret(client):
 def test_contrib_start_search_by_siret(client, mocker, akei_result):
     # Mock SIRENE api results
     mocker.patch(
-        "erp.provider.sirene.get_siret_info", return_value=akei_result,
+        "erp.provider.entreprise.search_siret", return_value=akei_result,
     )
 
     # Mock Geocoder results
@@ -120,8 +120,8 @@ def test_contrib_start_search_by_siret(client, mocker, akei_result):
     assert response.status_code == 200
     form_data = response.context["form"].cleaned_data
     assert form_data["siret"] == AKEI_SIRET
-    assert form_data["source"] == "sirene"
-    assert form_data["source_id"] == AKEI_SIRET
+    assert form_data["source"] == akei_result["source"]
+    assert form_data["source_id"] == akei_result["source_id"]
     assert form_data["geom"].coords == (3, 42)
     assert form_data["nom"] == "AKEI"
     assert form_data["numero"] == "4"

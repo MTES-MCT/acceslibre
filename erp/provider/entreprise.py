@@ -182,3 +182,17 @@ def search(terms, code_insee=None):
     except (AttributeError, KeyError, IndexError, TypeError) as err:
         logger.error(err)
         raise RuntimeError("Impossible de récupérer les résultats.")
+
+
+def search_siret(siret):
+    try:
+        res = requests.get(f"{BASE_URL}/siret/{siret}")
+        logger.info(f"entreprise api siret search call: {res.url}")
+        if res.status_code == 404:
+            raise RuntimeError("Aucun résultat.")
+        elif res.status_code != 200:
+            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
+        return parse_etablissement(res.json()["etablissement"])
+    except requests.exceptions.RequestException as err:
+        logger.error(f"entreprise api error: {err}")
+        raise RuntimeError("Annuaire des entreprise indisponible.")
