@@ -22,14 +22,6 @@ def clean_search_terms(string):
     return remove_accents(string.replace("/", " ")).upper()
 
 
-def format_naf(string):
-    if not string:
-        return None
-    lst = list(string)
-    lst.insert(2, ".")
-    return "".join(lst)
-
-
 def query(terms, code_insee=None):
     try:
         params = {
@@ -49,11 +41,64 @@ def query(terms, code_insee=None):
         raise RuntimeError("Annuaire des entreprise indisponible.")
 
 
-def parse_etablissement(record):
-    # Coordonnées geographiques
+def format_coordonnees(record):
     lat = record.get("latitude")
     lon = record.get("longitude")
-    coordonnees = [float(lon), float(lat)] if lat and lon else None
+    return [float(lon), float(lat)] if lat and lon else None
+
+
+def format_email(record):
+    email = record.get("email")
+    return email if email and "@" in email else None
+
+
+def format_naf(record):
+    naf = record.get("activite_principale_entreprise")
+    if not naf:
+        return None
+    lst = list(naf)
+    lst.insert(2, ".")
+    return "".join(lst)
+
+
+def format_nom(record):
+    return (
+        record.get("enseigne")
+        or record.get("l1_normalisee")
+        or record.get("nom_raison_sociale")
+        or None
+    )
+
+
+def format_source_id(record, fields=None):
+    source_id = str(record.get("id")) if record.get("id") else None
+    if not source_id and isinstance(fields, list) and len(fields) > 0:
+        source_id = "-".join(str(x).lower() for x in fields if x is not None)
+    if not source_id:
+        raise RuntimeError("No source id")
+    return source_id
+
+
+def retrieve_code_insee(record):
+    code_insee = record.get("departement_commune_siege")
+    if code_insee:
+        return code_insee
+
+    commune = record.get("libelle_commune")
+    code_postal = record.get("code_postal")
+    if not commune or not code_postal:
+        return None
+
+    code_insee_list = Commune.objects.filter(
+        code_postaux__contains=[code_postal], nom__iexact=commune
+    ).values("code_insee")
+
+    return code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
+
+
+def parse_etablissement(record):
+    # Coordonnées geographiques
+    coordonnees = format_coordonnees(record)
 
     # Numéro, type de voie et voie
     numero = record.get("numero_voie")
@@ -68,40 +113,16 @@ def parse_etablissement(record):
     # if not code_postal or not commune:
     #     logger.error(f"Résultat invalide: {record}")
     #     raise RuntimeError("Pas d'adresse valide pour ce résultat")
-    code_insee = record.get("departement_commune_siege")
-    if not code_insee:
-        code_insee_list = Commune.objects.filter(
-            code_postaux__contains=[code_postal], nom__iexact=commune
-        ).values("code_insee")
-        code_insee = (
-            code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
-        )
-    else:
+    code_insee = retrieve_code_insee(record)
+    if code_insee:
         # FIXME: arrondissements pas pris en compte
         commune_ext = Commune.objects.filter(code_insee=code_insee).first()
         commune = commune_ext.nom if commune_ext else commune
 
-    # Raison sociale
-    nom = (
-        record.get("enseigne")
-        or record.get("l1_normalisee")
-        or record.get("nom_raison_sociale")
-        or None
-    )
-
-    # Code NAF
-    naf = format_naf(record.get("activite_principale_entreprise"))
-
-    # Email
-    email = record.get("email")
-    email = email if email and "@" in email else None
-
-    # Indentifiant dans la source
-    source_id = str(record.get("id"))
-    if not source_id:
-        source_id = "-".join(
-            str(x) for x in [code_postal, nom, naf, commune] if x is not None
-        )
+    nom = format_nom(record)
+    naf = format_naf(record)
+    email = format_email(record)
+    source_id = format_source_id(record, [code_postal, nom, naf, commune])
 
     return dict(
         source="entreprise_api",
