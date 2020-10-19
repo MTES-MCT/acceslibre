@@ -192,7 +192,10 @@ def search_siret(siret):
             raise RuntimeError("Aucun résultat.")
         elif res.status_code != 200:
             raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
-        return parse_etablissement(res.json()["etablissement"])
+        json_value = res.json()
+        if not json_value or "etablissement" not in json_value:
+            raise RuntimeError("Résultat invalide.")
+        return parse_etablissement(json_value["etablissement"])
     except requests.exceptions.RequestException as err:
         logger.error(f"entreprise api error: {err}")
         raise RuntimeError("Annuaire des entreprise indisponible.")
