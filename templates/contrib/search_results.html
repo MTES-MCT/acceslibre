@@ -1,14 +1,24 @@
 {% load a4a %}
 
-<h2 class="h3 mb-3">Sélectionner mon établissement</h2>
-<div class="row">
-  <div class="col-lg-7">
-    {% for result in results %}
-    <div class="card mb-3">
-      {% if result.coordonnees %}
-      <img class="card-img-top" alt="Coordonnées GPS : {{ result.coordonnees }}"
-        src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/{{ result.coordonnees.0 }},{{ result.coordonnees.1 }},17,0,50/500x150?access_token=pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw">
-      {% endif %}
+<h2 class="h3 mb-3">Sélectionner un établissement</h2>
+
+<div class="alert alert-info">
+  <p>
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    Si l'établissement recherché ne figure pas dans cette liste, vous pouvez&nbsp;:
+  </p>
+  <ul class="mb-0">
+    <li><a href="{% url "contrib_start" %}">Effectuer une nouvelle recherche</a></li>
+    <li><a href="{% url "contrib_admin_infos" %}">Saisir les informations de l'établissement manuellement</a></li>
+  </ul>
+</div>
+
+{% for result in results %}
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-5 a4a-result-map"{% if result.coordonnees %} style="min-height:100px;background-image: url('{% result_map_img result.coordonnees %}')"{% endif %}>
+    </div>
+    <div class="col-md-7">
       <div class="card-body">
         <h3 class="h6 card-title font-weight-bold">
           {% if result.exists and result.exists.is_online %}
@@ -33,29 +43,17 @@
             {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
           </small>
         </p>
-        {% if result.actif and not result.exists %}
-          <a class="btn btn-primary btn-block mt-2"
-            href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}">
+        <p class="card-text mb-0">
+          <a class="btn btn-primary btn-block {% if not result.actif or result.exists %}disabled{% endif%}"
+            href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}"
+            {% if not result.actif or result.exists %}disabled{% endif%}>
             Sélectionner cet établissement
           </a>
-        {% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  <div class="col-lg-5">
-    <div class="card text-center">
-      <div class="card-body">
-        <h2 class="h5">
-          <i aria-hidden="true" class="icon icon-info-circled"></i>
-          Votre établissement ne figure pas dans la liste&nbsp;?
-        </h2>
-        <div class="d-flex flex-column mt-3">
-          <a class="btn btn-primary mb-2" href="{% url "contrib_start" %}">Nouvelle recherche</a>
-          <a class="btn btn-link mb-2" href="{% url "contrib_admin_infos" %}">Saisie manuelle</a>
-          <a class="btn btn-link" href="javascript:history.go(-1)">Retour</a>
-        </div>
+        </p>
       </div>
     </div>
   </div>
 </div>
+{% endfor %}
+
+<p><a href="{% url "contrib_start" %}">&laquo; Retour à la page précédente</a></p>

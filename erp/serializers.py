@@ -53,6 +53,8 @@ def decode_provider_data(data):
 
 def encode_provider_data(data):
     try:
+        if "exists" in data:
+            del data["exists"]
         return base64.urlsafe_b64encode(json.dumps(data).encode()).decode("utf-8")
     except Exception as err:
         logger.error(f"encode_provider_data error: {err}\ndata: {data}")
