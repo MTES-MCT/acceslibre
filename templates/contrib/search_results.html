@@ -16,7 +16,7 @@
 {% for result in results %}
 <div class="card mb-3">
   <div class="row no-gutters">
-    <div class="col-md-5 a4a-result-map"{% if result.coordonnees %} style="min-height:100px;background-image: url('{% result_map_img result.coordonnees %}')"{% endif %}>
+    <div class="col-md-5 a4a-result-map"{% if result.coordonnees %} style="background-image: url('{% result_map_img result.coordonnees %}')"{% endif %}>
     </div>
     <div class="col-md-7">
       <div class="card-body">
