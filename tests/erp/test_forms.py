@@ -93,7 +93,7 @@ def test_BaseErpForm_geocode_adresse(form_data, fake_geocoder, paris_commune):
     assert form.cleaned_data["geom"] == POINT
     assert form.cleaned_data["numero"] == "4"
     assert form.cleaned_data["voie"] == "Rue de la Paix"
-    assert form.cleaned_data["lieu_dit"] == None
+    assert form.cleaned_data["lieu_dit"] is None
     assert form.cleaned_data["code_postal"] == "75002"
     assert form.cleaned_data["commune"] == "Paris"
     assert form.cleaned_data["code_insee"] == "75111"
@@ -203,7 +203,7 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
     assert "numero" not in form.errors
     assert form.cleaned_data["numero"] == "4"
     form.save()
-    erp = Erp.objects.get(slug="test-erp").numero == "4"
+    Erp.objects.get(slug="test-erp").numero == "4"
 
 
 def test_BaseErpForm_invalid_on_empty_geocode_results(form_data):
@@ -265,5 +265,5 @@ def test_ViewAccessibiliteForm_serialized():
     assert field["name"] == "entree_reperage"
     assert field["label"] == schema.get_label("entree_reperage")
     assert field["help_text_ui"] == schema.get_help_text_ui("entree_reperage")
-    assert field["value"] == True
-    assert field["warning"] == False
+    assert field["value"] is True
+    assert field["warning"] is False

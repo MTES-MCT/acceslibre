@@ -147,6 +147,22 @@ def parse_etablissement(record):
     )
 
 
+def reorder_results(results, terms):
+    # The idea is to reorder results with entries having the city name or postcode
+    # in the initial search terms
+    lower_rank = []
+    higher_rank = []
+    parts = [p.lower() for p in terms.split(" ")]
+    for result in results:
+        commune = result["commune"].lower()
+        code_postal = result["code_postal"].lower()
+        if any([part == commune or part == code_postal for part in parts]):
+            higher_rank.append(result)
+        else:
+            lower_rank.append(result)
+    return higher_rank + lower_rank
+
+
 def search(terms, code_insee=None):
     terms = clean_search_terms(terms)
     if not terms:
@@ -162,7 +178,7 @@ def search(terms, code_insee=None):
                 continue
         if len(results) == 0:
             raise RuntimeError("Aucun résultat.")
-        return results
+        return reorder_results(results, terms)
     except (AttributeError, KeyError, IndexError, TypeError) as err:
         logger.error(err)
         raise RuntimeError("Impossible de récupérer les résultats.")

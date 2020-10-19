@@ -1,10 +1,6 @@
-import json
 import pytest
 
-from django.contrib.gis.geos import Point
-
 from erp.provider import entreprise
-from erp.models import Activite, Commune
 
 from tests.fixtures import data
 
@@ -23,7 +19,7 @@ def test_format_coordonnees():
 def test_format_email():
     assert entreprise.format_email({"email": None}) is None
     assert entreprise.format_email({"email": "https://plop"}) is None
-    assert entreprise.format_email({"email": "toto@toto.com"}) is "toto@toto.com"
+    assert entreprise.format_email({"email": "toto@toto.com"}) == "toto@toto.com"
 
 
 def test_format_naf():
@@ -42,7 +38,7 @@ def test_format_source_id():
 def test_retrieve_code_insee(data):
     assert entreprise.retrieve_code_insee({}) is None
 
-    # Note: Jacou Commune record is provided by data
+    # Note: Jacou Commune record is provided by the data fixture
     assert (
         entreprise.retrieve_code_insee({"departement_commune_siege": "34120"})
         == "34120"
@@ -96,3 +92,14 @@ def test_parse_etablissement_jacou(db):
         "telephone": None,
         "site_internet": None,
     }
+
+
+def test_reorder_results():
+    sample_results = [
+        {"commune": "NIMES", "code_postal": "30000"},
+        {"commune": "JACOU", "code_postal": "34830"},
+    ]
+    assert entreprise.reorder_results(sample_results, "restaurants jacou") == [
+        {"commune": "JACOU", "code_postal": "34830"},
+        {"commune": "NIMES", "code_postal": "30000"},
+    ]
