@@ -37,6 +37,10 @@ SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
 
+# Mapbox
+# Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
+MAPBOX_TOKEN = "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
+
 # Sentry integration
 SENTRY_DSN = get_env_variable("SENTRY_DSN", required=False)
 if SENTRY_DSN is not None:
@@ -123,6 +127,7 @@ def expose_site_context(request):
     from django.conf import settings
 
     return {
+        "MAPBOX_TOKEN": settings.MAPBOX_TOKEN,
         "SITE_NAME": settings.SITE_NAME,
         "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,

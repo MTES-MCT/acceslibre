@@ -144,6 +144,12 @@ $viewport-xl: 1200px;
     font-size: 1.2em;
   }
 
+  &-result-map {
+    background-color: #eee;
+    background-position: center;
+    background-size: cover;
+  }
+
   &-logo {
     font-size: 3.5em;
   }
