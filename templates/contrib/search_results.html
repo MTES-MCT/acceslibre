@@ -16,9 +16,9 @@
 {% for result in results %}
 <div class="card mb-3">
   <div class="row no-gutters">
-    <div class="col-md-5 a4a-result-map"{% if result.coordonnees %} style="background-image: url('{% result_map_img result.coordonnees %}')"{% endif %}>
+    <div class="col-lg-5 a4a-result-map"{% if result.coordonnees %} style="background-image: url('{% result_map_img result.coordonnees %}')"{% endif %}>
     </div>
-    <div class="col-md-7">
+    <div class="col-lg-7">
       <div class="card-body">
         <h3 class="h6 card-title font-weight-bold">
           {% if result.exists and result.exists.is_online %}
