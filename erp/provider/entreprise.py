@@ -3,6 +3,8 @@ import requests
 import unicodedata
 
 from erp.models import Commune
+from erp.provider import arrondissements
+
 
 logger = logging.getLogger(__name__)
 
@@ -96,6 +98,16 @@ def retrieve_code_insee(record):
     return code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
 
 
+def normalize_commune(code_insee):
+    # First, a cheap check if code_insee is an arrondissement
+    arrondissement = arrondissements.get_by_code_insee(code_insee)
+    if arrondissement:
+        return arrondissement["nom"].split(" ")[0] if arrondissement else None
+    # Else, a db check to retrieve the normalized commune name
+    commune_ext = Commune.objects.filter(code_insee=code_insee).first()
+    return commune_ext.nom if commune_ext else None
+
+
 def parse_etablissement(record):
     # Coordonnées geographiques
     coordonnees = format_coordonnees(record)
@@ -117,9 +129,7 @@ def parse_etablissement(record):
 
     code_insee = retrieve_code_insee(record)
     if code_insee:
-        # FIXME: arrondissements pas pris en compte
-        commune_ext = Commune.objects.filter(code_insee=code_insee).first()
-        commune = commune_ext.nom if commune_ext else commune
+        commune = normalize_commune(code_insee) or commune
 
     nom = format_nom(record)
     naf = format_naf(record)

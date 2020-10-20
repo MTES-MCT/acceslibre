@@ -109,6 +109,14 @@ def test_parse_etablissement_jacou_missing_data(db, sample_feature):
     assert entreprise.parse_etablissement(feature_with_missing_commune) is None
 
 
+def test_normalize_commune_ext(data):
+    assert entreprise.normalize_commune("34120") == "Jacou"
+
+
+def test_normalize_commune_arrondissement():
+    assert entreprise.normalize_commune("75104") == "Paris"
+
+
 def test_reorder_results():
     sample_features = [
         {"commune": "NIMES", "code_postal": "30000"},
