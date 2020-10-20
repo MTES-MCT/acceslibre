@@ -10,7 +10,7 @@
         {% if erp %}
         <a href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Informations</a>
         {% else %}
-        Trouver un établissement
+        <a href="{% url "contrib_start" %}">Trouver un établissement</a>
         {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}">

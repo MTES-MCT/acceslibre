@@ -5,9 +5,6 @@
 {% block page_title %}Ajouter un établissement{% endblock%}
 
 {% block contrib_content %}
-  {% if results %}
-    {% include "contrib/search_results.html" %}
-  {% else %}
   <h2 class="h3">Rechercher un Établissement Recevant du Public</h2>
   <p><small class="text-muted">
     <i aria-hidden="true" class="icon icon-info-circled"></i>
@@ -23,12 +20,11 @@
   <p class="text-center text-muted my-2">ou</p>
   <div class="row">
     <div class="col-lg-6">
-      {% include "contrib/forms/entreprise_form.html" %}
-      {% include "contrib/forms/siret_form.html" %}
+      {% include "contrib/forms/entreprise_form.html" with form=entreprise_form %}
+      {% include "contrib/forms/siret_form.html" with form=siret_form %}
     </div>
     <div class="col-lg-6">
-      {% include "contrib/forms/public_erp_form.html" %}
+      {% include "contrib/forms/public_erp_form.html" with form=public_erp_form %}
     </div>
   </div>
-  {% endif %}
 {% endblock %}
