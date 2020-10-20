@@ -13,6 +13,7 @@ from erp import schema
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
 
 from tests.fixtures import data
+from tests.utils import assert_redirect
 
 
 @pytest.fixture
@@ -216,7 +217,7 @@ def test_admin_with_regular_user(data, client, capsys):
 
     response = client.get(reverse("admin:index"), follow=True)
     # ensure user is redirected to admin login page
-    assert ("/admin/login/?next=/admin/", 302) in response.redirect_chain
+    assert_redirect(response, "/admin/login/?next=/admin/")
     assert response.status_code == 200
     assert "admin/login.html" in [t.name for t in response.templates]
 
@@ -268,7 +269,7 @@ def test_autocomplete(data, client):
 def test_ajout_erp_requires_auth(data, client):
     response = client.get(reverse("contrib_start"), follow=True)
 
-    assert ("/accounts/login/?next=/contrib/start/", 302) in response.redirect_chain
+    assert_redirect(response, "/accounts/login/?next=/contrib/start/")
     assert response.status_code == 200
     assert "registration/login.html" in [t.name for t in response.templates]
 
@@ -278,10 +279,9 @@ def test_erp_edit_can_be_contributed(data, client):
     response = client.get(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True
     )
-    assert (
-        "/accounts/login/?next=/contrib/transport/aux-bons-croissants/",
-        302,
-    ) in response.redirect_chain
+    assert_redirect(
+        response, "/accounts/login/?next=/contrib/transport/aux-bons-croissants/"
+    )
     assert response.status_code == 200
 
     # owners can edit their erp
@@ -344,7 +344,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     erp = Erp.objects.get(nom="Test ERP")
     assert erp.user == data.niko
     assert erp.published is False
-    assert (f"/contrib/localisation/{erp.slug}/", 302) in response.redirect_chain
+    assert_redirect(response, f"/contrib/localisation/{erp.slug}/")
     assert response.status_code == 200
 
     # Localisation
@@ -356,7 +356,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     erp = Erp.objects.get(nom="Test ERP")
     assert erp.geom.x == 3
     assert erp.geom.y == 43
-    assert ("/contrib/transport/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/transport/test-erp/")
     assert response.status_code == 200
 
     # Transport
@@ -368,7 +368,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.transport_station_presence is True
     assert accessibilite.transport_information == "blah"
-    assert ("/contrib/stationnement/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/stationnement/test-erp/")
     assert response.status_code == 200
 
     # Stationnement
@@ -387,7 +387,8 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.stationnement_pmr is True
     assert accessibilite.stationnement_ext_presence is True
     assert accessibilite.stationnement_ext_pmr is True
-    assert ("/contrib/exterieur/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/exterieur/test-erp/")
+
     assert response.status_code == 200
 
     # Extérieur
@@ -422,7 +423,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
-    assert ("/contrib/entree/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/entree/test-erp/")
     assert response.status_code == 200
 
     # Entree
@@ -463,7 +464,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.entree_largeur_mini == 80
     assert accessibilite.entree_pmr is True
     assert accessibilite.entree_pmr_informations == "blah"
-    assert ("/contrib/accueil/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/accueil/test-erp/")
     assert response.status_code == 200
 
     # Accueil
@@ -496,7 +497,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.accueil_cheminement_rampe == "aucune"
     assert accessibilite.accueil_retrecissement is True
     assert accessibilite.accueil_prestations == "blah"
-    assert ("/contrib/sanitaires/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/sanitaires/test-erp/")
     assert response.status_code == 200
 
     # Sanitaires
@@ -508,7 +509,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.sanitaires_presence is True
     assert accessibilite.sanitaires_adaptes == 42
-    assert ("/contrib/labellisation/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/labellisation/test-erp/")
     assert response.status_code == 200
 
     # Labels
@@ -525,7 +526,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.labels.count() == 0
     assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
     assert accessibilite.labels_autre == "X"
-    assert ("/contrib/commentaire/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/commentaire/test-erp/")
     assert response.status_code == 200
 
     # Commentaire
@@ -536,7 +537,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.commentaire == "test commentaire"
-    assert ("/contrib/publication/test-erp/", 302) in response.redirect_chain
+    assert_redirect(response, "/contrib/publication/test-erp/")
     assert response.status_code == 200
 
     # Publication
@@ -548,7 +549,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
     assert erp.published is True
-    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert_redirect(response, "/mon_compte/erps/")
     assert response.status_code == 200
 
     # Gestionnaire user
@@ -566,7 +567,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert erp.published is True
     # FIXME: this performs an actual query, we should use a mock
     assert erp.accessibilite.registre_url == "http://www.google.com/"
-    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert_redirect(response, "/mon_compte/erps/")
     assert response.status_code == 200
 
     # Administrative user
@@ -583,7 +584,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
     assert erp.published is True
     assert erp.accessibilite.conformite is True
-    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert_redirect(response, "/mon_compte/erps/")
     assert response.status_code == 200
 
 
@@ -617,7 +618,7 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
         follow=True,
     )
 
-    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert_redirect(response, "/mon_compte/erps/")
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.published is False
 
@@ -652,7 +653,7 @@ def test_delete_erp_owner(data, client, monkeypatch, capsys):
         data={"confirm": True},
         follow=True,
     )
-    assert ("/mon_compte/erps/", 302) in response.redirect_chain
+    assert_redirect(response, "/mon_compte/erps/")
     assert response.status_code == 200
     assert Erp.objects.filter(slug=data.erp.slug).count() == 0
 
@@ -665,10 +666,7 @@ def test_erp_vote_anonymous(data, client):
     )
 
     # ensure user is redirected to login page
-    assert (
-        "/accounts/login/?next=/app/aux-bons-croissants/vote/",
-        302,
-    ) in response.redirect_chain
+    assert_redirect(response, "/accounts/login/?next=/app/aux-bons-croissants/vote/")
     assert response.status_code == 200
     assert "registration/login.html" in [t.name for t in response.templates]
 
@@ -683,10 +681,7 @@ def test_erp_vote_logged_in(data, client):
     )
 
     # ensure user is redirected to login page
-    assert (
-        "/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/",
-        302,
-    ) in response.redirect_chain
+    assert_redirect(response, "/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/")
     assert response.status_code == 200
 
     # Ensure votes are counted
@@ -807,10 +802,7 @@ def test_contribution_flow_administrative_data(data, client):
     assert response.context["form"].errors == {}
     assert updated_erp.nom == "Test contribution"
     assert updated_erp.user == data.erp.user  # original owner is preserved
-    assert (
-        "/contrib/localisation/aux-bons-croissants/",
-        302,
-    ) in response.redirect_chain
+    assert_redirect(response, "/contrib/localisation/aux-bons-croissants/")
     assert response.status_code == 200
 
 
@@ -836,8 +828,5 @@ def test_contribution_flow_accessibilite_data(data, client):
     assert updated_erp.user == data.erp.user  # original owner is preserved
     assert updated_erp.accessibilite.sanitaires_presence is False
     assert updated_erp.accessibilite.sanitaires_adaptes is None
-    assert (
-        updated_erp.get_absolute_url() + "#sanitaires",
-        302,
-    ) in response.redirect_chain
+    assert_redirect(response, updated_erp.get_absolute_url() + "#sanitaires")
     assert response.status_code == 200
