@@ -53,7 +53,7 @@
           </p>
           <p class="card-text mb-0">
             <a class="btn btn-primary btn-block {% if not result.actif or result.exists %}disabled{% endif%}"
-              href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}"
+              href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content"
               {% if not result.actif or result.exists %}disabled{% endif%}>
               Sélectionner cet établissement
             </a>

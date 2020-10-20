@@ -6,9 +6,9 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<div class="text-center">
+<main id="content" class="text-center">
   <h3>Votre compte est désormais actif</h3>
   <p>Vous pouvez dès à présent vous y connecter.</p>
   <p><a href="{% url "login" %}?next={{ next }}" class="btn btn-primary">Je me connecte</a></p>
-</div>
+</main>
 {% endblock %}

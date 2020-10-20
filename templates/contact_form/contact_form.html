@@ -8,68 +8,70 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<h2 class="h3 text-center mb-4">Contactez-nous</h2>
-<div class="row justify-content-md-center">
-  <form action="" method="POST" class="col-md-6 col-lg-7 mb-4">
-    {% csrf_token %}
+<main id="content">
+  <h2 class="h3 text-center mb-4">Contactez-nous</h2>
+  <div class="row justify-content-md-center">
+    <form action="" method="POST" class="col-md-6 col-lg-7 mb-4">
+      {% csrf_token %}
 
-    <p><small class="text-muted">
-      <i aria-hidden="true" class="icon icon-info-circled"></i>
-      Les champs marqué d'une astérique (*) sont obligatoires.
-    </small></p>
-
-    {% if form.non_field_errors %}
-      <div class="alert alert-danger">
-        {{ form.non_field_errors }}
-      </div>
-    {% endif %}
-
-    <div class="row">
-      <div class="col-lg-6">
-        {{ form.email|as_crispy_field }}
-      </div>
-      <div class="col-lg-6">
-        {{ form.name|as_crispy_field }}
-      </div>
-    </div>
-
-    {{ form.topic|as_crispy_field }}
-    {{ form.erp|as_crispy_field }}
-    {% if erp %}
-    <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
-    {% endif %}
-    {{ form.body|as_crispy_field }}
-    {{ form.user|as_crispy_field }}
-    {{ form.next|as_crispy_field }}
-    {% if not user.is_authenticated %}
-    {{ form.robot|as_crispy_field }}
-    {% endif %}
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
-    </div>
-  </form>
-  <div class="col-md-6 col-lg-5 mb-4">
-    <div class="alert alert-info">
-      <h2 class="h5">
+      <p><small class="text-muted">
         <i aria-hidden="true" class="icon icon-info-circled"></i>
-        Problèmes techniques & rapport de bug
-      </h5>
+        Les champs marqué d'une astérique (*) sont obligatoires.
+      </small></p>
 
-      <section>
-        <p>Le code source de l'application est open source et
-          <a href="https://github.com/MTES-MCT/acceslibre">intégralement publié sur Github</a>,
-          vous pouvez donc si vous le souhaitez remonter les problèmes techniques que vous
-          rencontrez à l'utilisation du service sur
-          <a href="https://github.com/MTES-MCT/acceslibre/issues/new">l'outil de rapport de bug dédié</a>.
-        </p>
-      </section>
-    </div>
-    <div class="d-flex justify-content-between">
-      <i aria-hidden="true" class="icon icon-bulb"></i>
-      <span class="ml-2">Vous pouvez également nous envoyer directement un mail à
-      <a href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a>.</span>
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+          {{ form.non_field_errors }}
+        </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="col-lg-6">
+          {{ form.email|as_crispy_field }}
+        </div>
+        <div class="col-lg-6">
+          {{ form.name|as_crispy_field }}
+        </div>
+      </div>
+
+      {{ form.topic|as_crispy_field }}
+      {{ form.erp|as_crispy_field }}
+      {% if erp %}
+      <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
+      {% endif %}
+      {{ form.body|as_crispy_field }}
+      {{ form.user|as_crispy_field }}
+      {{ form.next|as_crispy_field }}
+      {% if not user.is_authenticated %}
+      {{ form.robot|as_crispy_field }}
+      {% endif %}
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+      </div>
+    </form>
+    <div class="col-md-6 col-lg-5 mb-4">
+      <div class="alert alert-info">
+        <h2 class="h5">
+          <i aria-hidden="true" class="icon icon-info-circled"></i>
+          Problèmes techniques & rapport de bug
+        </h5>
+
+        <section>
+          <p>Le code source de l'application est open source et
+            <a href="https://github.com/MTES-MCT/acceslibre">intégralement publié sur Github</a>,
+            vous pouvez donc si vous le souhaitez remonter les problèmes techniques que vous
+            rencontrez à l'utilisation du service sur
+            <a href="https://github.com/MTES-MCT/acceslibre/issues/new">l'outil de rapport de bug dédié</a>.
+          </p>
+        </section>
+      </div>
+      <div class="d-flex justify-content-between">
+        <i aria-hidden="true" class="icon icon-bulb"></i>
+        <span class="ml-2">Vous pouvez également nous envoyer directement un mail à
+        <a href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a>.</span>
+      </div>
     </div>
   </div>
-</div>
+</main>
 {% endblock %}

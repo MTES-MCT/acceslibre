@@ -8,61 +8,63 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-{% if user.is_authenticated %}
-<p class="alert alert-warning">
-  Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
-  vous ne pouvez donc pas créer un nouveau compte.
-  Veuillez <a href="{% url "logout" %}">vous déconnecter</a>
-  ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
-</p>
-{% else %}
-<h2 class="h3 text-center mb-4">Créer un compte utilisateur</h2>
+<main id="content">
+  {% if user.is_authenticated %}
+  <p class="alert alert-warning">
+    Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
+    vous ne pouvez donc pas créer un nouveau compte.
+    Veuillez <a href="{% url "logout" %}">vous déconnecter</a>
+    ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
+  </p>
+  {% else %}
+  <h2 class="h3 text-center mb-4">Créer un compte utilisateur</h2>
 
-<div class="row justify-content-md-center">
-  <form action="" method="POST" class="col-md-6 col-lg-5 mb-4" id="registration">
-    {% csrf_token %}
+  <div class="row justify-content-md-center">
+    <form action="" method="POST" class="col-md-6 col-lg-5 mb-4" id="registration">
+      {% csrf_token %}
 
-    <input type="hidden" name="next" value="{{ request.GET.next }}">
+      <input type="hidden" name="next" value="{{ request.GET.next }}">
 
-    <p><small class="text-muted">
-      <i aria-hidden="true" class="icon icon-info-circled"></i>
-      Les champs marqué d'une astérique (*) sont obligatoires.
-    </small></p>
+      <p><small class="text-muted">
+        <i aria-hidden="true" class="icon icon-info-circled"></i>
+        Les champs marqué d'une astérique (*) sont obligatoires.
+      </small></p>
 
-    {{ form.non_field_errors }}
+      {{ form.non_field_errors }}
 
-    {{ form.username|as_crispy_field }}
-    <div class="row">
-      <div class="col-sm-6">
-        {{ form.first_name|as_crispy_field }}
+      {{ form.username|as_crispy_field }}
+      <div class="row">
+        <div class="col-sm-6">
+          {{ form.first_name|as_crispy_field }}
+        </div>
+        <div class="col-sm-6">
+          {{ form.last_name|as_crispy_field }}
+        </div>
       </div>
-      <div class="col-sm-6">
-        {{ form.last_name|as_crispy_field }}
+      {{ form.email|as_crispy_field }}
+      {{ form.password1|as_crispy_field }}
+      {{ form.password2|as_crispy_field }}
+
+      <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
+    </form>
+
+    <div class="col-md-6 col-lg-5">
+      <div class="alert alert-info">
+        <i aria-hidden="true" class="icon icon-info-circled"></i>
+        Créer son compte ne prend que quelques minutes et vous permet de contribuer au site.
       </div>
-    </div>
-    {{ form.email|as_crispy_field }}
-    {{ form.password1|as_crispy_field }}
-    {{ form.password2|as_crispy_field }}
-
-    <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
-  </form>
-
-  <div class="col-md-6 col-lg-5">
-    <div class="alert alert-info">
-      <i aria-hidden="true" class="icon icon-info-circled"></i>
-      Créer son compte ne prend que quelques minutes et vous permet de contribuer au site.
-    </div>
-    <div class="card p-4">
-      <h3 class="h5"><i aria-hidden="true" class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h3>
-      <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
-      <p class="mb-0">
-        <a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-primary btn-block">
-          <i aria-hidden="true" class="icon icon-key"></i>
-          Je me connecte
-        </a>
-      </p>
+      <div class="card p-4">
+        <h3 class="h5"><i aria-hidden="true" class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h3>
+        <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
+        <p class="mb-0">
+          <a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-primary btn-block">
+            <i aria-hidden="true" class="icon icon-key"></i>
+            Je me connecte
+          </a>
+        </p>
+      </div>
     </div>
   </div>
-</div>
-{% endif %}
+  {% endif %}
+</main>
 {% endblock %}

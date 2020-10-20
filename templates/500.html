@@ -5,19 +5,19 @@
 {% block page_title %}Erreur{% endblock%}
 
 {% block editorial_content %}
-  <div class="text-center">
-    <h2 class="display-4">Oups... Le serveur a crashé</h2>
-    <div class="my-4">
-      <img class="w-50" src="{% static "img/undraw_server_down.svg" %}" alt="Page non trouvée">
-    </div>
-    <p>Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
-      requête. L'erreur a vraisemblablement déjà été automatiquement notifiée
-      à l'équipe technique, qui s'efforcera de corriger le problème dans les plus
-      brefs délais.
-    </p>
-    <p>En attendant, vous pouvez tenter de revenir à <a href="{% url "home" %}">l'accueil</a>
-      ou de nous <a href="{% url "contact_topic" topic="bug" %}">contacter spécifiquement à ce sujet</a>
-      si vous l'estimez nécessaire.
-    </p>
+<main id="content" class="text-center">
+  <h2 class="display-4">Oups... Le serveur a crashé</h2>
+  <div class="my-4">
+    <img class="w-50" src="{% static "img/undraw_server_down.svg" %}" alt="Page non trouvée">
   </div>
+  <p>Une erreur est survenue au niveau du serveur, qui n'a pu traiter votre
+    requête. L'erreur a vraisemblablement déjà été automatiquement notifiée
+    à l'équipe technique, qui s'efforcera de corriger le problème dans les plus
+    brefs délais.
+  </p>
+  <p>En attendant, vous pouvez tenter de revenir à <a href="{% url "home" %}">l'accueil</a>
+    ou de nous <a href="{% url "contact_topic" topic="bug" %}">contacter spécifiquement à ce sujet</a>
+    si vous l'estimez nécessaire.
+  </p>
+</main>
 {% endblock %}

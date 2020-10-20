@@ -435,7 +435,9 @@ def contrib_start(request):
             try:
                 siret_info = entreprise.search_siret(siret_form.cleaned_data["siret"])
                 data = serializers.encode_provider_data(siret_info)
-                return redirect(reverse("contrib_admin_infos") + "?data=" + data)
+                return redirect(
+                    reverse("contrib_admin_infos") + "?data=" + data + "#content"
+                )
             except RuntimeError as err:
                 siret_error = err
     return render(
@@ -631,7 +633,9 @@ def process_accessibilite_form(
                 hash = "#" + redirect_hash if redirect_hash else ""
                 return redirect(erp.get_absolute_url() + hash)
             else:
-                return redirect(redirect_route, erp_slug=erp.slug)
+                return redirect(
+                    reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
+                )
     else:
         form = forms.AdminAccessibiliteForm(instance=accessibilite)
 
