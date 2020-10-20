@@ -421,42 +421,23 @@ def contrib_delete(request, erp_slug):
 
 
 @login_required
-def contrib_start(request):  # noqa
+def contrib_start(request):
     siret_error = None
-    entreprise_error = None
     results = None
-    public_erp_error = None
     (siret_form, entreprise_form, public_erp_form) = (
         forms.ProviderSiretSearchForm(),
         forms.ProviderEntrepriseSearchForm(),
         forms.ProviderPublicErpSearchForm(),
     )
-    if request.method == "POST":
-        if request.POST.get("search_type") == "by-entreprise":
-            entreprise_form = forms.ProviderEntrepriseSearchForm(request.POST)
-            if entreprise_form.is_valid():
-                try:
-                    results = find_entreprise_businesses(entreprise_form)
-                except RuntimeError as err:
-                    entreprise_error = str(err)
-        elif request.POST.get("search_type") == "by-siret":
-            siret_form = forms.ProviderSiretSearchForm(request.POST)
-            if siret_form.is_valid():
-                try:
-                    siret_info = entreprise.search_siret(
-                        siret_form.cleaned_data["siret"]
-                    )
-                    data = serializers.encode_provider_data(siret_info)
-                    return redirect(reverse("contrib_admin_infos") + "?data=" + data)
-                except RuntimeError as err:
-                    siret_error = err
-        elif request.POST.get("search_type") == "by-public-erp":
-            public_erp_form = forms.ProviderPublicErpSearchForm(request.POST)
-            if public_erp_form.is_valid():
-                try:
-                    results = find_public_erps(public_erp_form)
-                except RuntimeError as err:
-                    public_erp_error = err
+    if request.method == "POST" and request.POST.get("search_type") == "by-siret":
+        siret_form = forms.ProviderSiretSearchForm(request.POST)
+        if siret_form.is_valid():
+            try:
+                siret_info = entreprise.search_siret(siret_form.cleaned_data["siret"])
+                data = serializers.encode_provider_data(siret_info)
+                return redirect(reverse("contrib_admin_infos") + "?data=" + data)
+            except RuntimeError as err:
+                siret_error = err
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -464,13 +445,59 @@ def contrib_start(request):  # noqa
             "step": 1,
             "nafs": naf.NAF,
             "results": results,
-            "entreprise_form": entreprise_form,
-            "entreprise_error": entreprise_error,
             "siret_form": siret_form,
             "siret_error": siret_error,
+            "siret_form": siret_form,
+            "entreprise_form": entreprise_form,
             "public_erp_form": public_erp_form,
             "public_erp_types": public_erp.TYPES,
-            "public_erp_error": public_erp_error,
+        },
+    )
+
+
+@login_required
+def contrib_search_entreprise(request):
+    results = error = None
+    form = forms.ProviderEntrepriseSearchForm(request.GET if request.GET else None)
+    if form.is_valid():
+        try:
+            results = find_entreprise_businesses(form)
+        except RuntimeError as err:
+            error = str(err)
+    return render(
+        request,
+        template_name="contrib/0a-search_results.html",
+        context={
+            "step": 1,
+            "nafs": naf.NAF,
+            "results": results,
+            "form": form,
+            "form_type": "entreprise",
+            "error": error,
+        },
+    )
+
+
+@login_required
+def contrib_search_public(request):
+    results = error = None
+    form = forms.ProviderPublicErpSearchForm(request.GET if request.GET else None)
+    if form.is_valid():
+        try:
+            results = find_public_erps(form)
+        except RuntimeError as err:
+            error = err
+    return render(
+        request,
+        template_name="contrib/0a-search_results.html",
+        context={
+            "step": 1,
+            "nafs": naf.NAF,
+            "results": results,
+            "form": form,
+            "form_type": "public_erp",
+            "error": error,
+            "public_erp_types": public_erp.TYPES,
         },
     )
 

@@ -1,16 +1,15 @@
 {% load crispy_forms_tags %}
 
-<form action="{% url "contrib_start" %}" method="post" class="card mb-4">
+<form action="{% url "contrib_search_entreprise" %}" method="get" class="card mb-4">
   <div class="card-header">
     <h3 class="h6 mb-0">Je recherche <strong>une entreprise</strong></h3>
   </div>
   <div class="card-body">
-    {% csrf_token %}
-    {% if entreprise_error %}
-      <div class="alert alert-danger">{{ entreprise_error }}</div>
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
     {% endif %}
-    {{ entreprise_form|crispy }}
-    <button type="submit" name="search_type" value="by-entreprise" class="btn btn-primary w-100">
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary w-100">
       <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
       Rechercher une entreprise
     </button>

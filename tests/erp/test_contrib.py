@@ -77,10 +77,7 @@ def mairie_jacou_result():
 def test_contrib_start_home(client):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
-    assert response.context["results"] is None
     assert response.context["siret_error"] is None
-    assert response.context["entreprise_error"] is None
-    assert response.context["public_erp_error"] is None
 
 
 def test_contrib_start_siret_search_validate_siret(client):
@@ -135,15 +132,15 @@ def test_contrib_start_search_by_siret(client, mocker, akei_result):
     assert form_data["telephone"] is None
 
 
-def test_contrib_start_search_by_business(client, mocker, akei_result):
+def test_contrib_start_search_entreprise(client, mocker, akei_result):
     # Mock SIRENE api results (list)
     mocker.patch(
         "erp.views.find_entreprise_businesses", return_value=[akei_result],
     )
 
-    response = client.post(
-        reverse("contrib_start"),
-        data={"search_type": "by-entreprise", "search": "akei jacou",},
+    response = client.get(
+        reverse("contrib_search_entreprise"),
+        data={"search": "akei jacou",},
         follow=True,
     )
 
@@ -157,14 +154,9 @@ def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
         "erp.views.find_public_erps", return_value=[mairie_jacou_result],
     )
 
-    response = client.post(
-        reverse("contrib_start"),
-        data={
-            "search_type": "by-public-erp",
-            "type": "mairie",
-            "commune": "Jacou (34)",
-            "code_insee": "34120",
-        },
+    response = client.get(
+        reverse("contrib_search_public"),
+        data={"type": "mairie", "commune": "Jacou (34)", "code_insee": "34120",},
         follow=True,
     )
 
