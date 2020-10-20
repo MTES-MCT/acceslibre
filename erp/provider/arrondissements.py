@@ -62,7 +62,7 @@ PARIS = [
 
 def get_by_code_insee(code_insee):
     all = LYON + MARSEILLE + PARIS
-    return next((x for x in all if x["code_insee"] == str(code_insee)), None)
+    return next((x for x in all if x["code"] == str(code_insee)), None)
 
 
 def to_json():

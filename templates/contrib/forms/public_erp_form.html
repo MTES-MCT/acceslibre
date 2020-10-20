@@ -27,8 +27,9 @@
     } else if (results.some(function(r) { return r.nom === "Paris" })) {
       arrondissements = arrondissementsData["paris"];
     }
-    // FIXME: insert results AFTER the found entry
-    return arrondissements.concat(results);
+    // Insert results AFTER the found entry
+    results.splice.apply(results, [1, 0].concat(arrondissements));
+    return results;
   }
 
   $("#id_commune").autocomplete({
