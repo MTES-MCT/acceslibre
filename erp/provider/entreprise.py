@@ -109,11 +109,11 @@ def parse_etablissement(record):
 
     code_postal = record.get("code_postal")
     if not code_postal:
-        raise RuntimeError(f"Code postal manquant: {record}")
+        return None
 
     commune = record.get("libelle_commune")
     if not commune:
-        raise RuntimeError(f"Commune manquante: {record}")
+        return None
 
     code_insee = retrieve_code_insee(record)
     if code_insee:
@@ -172,7 +172,9 @@ def search(terms, code_insee=None):
     try:
         for etablissement in response["etablissement"]:
             try:
-                results.append(parse_etablissement(etablissement))
+                parsed = parse_etablissement(etablissement)
+                if parsed:
+                    results.append(parsed)
             except RuntimeError as err:
                 logger.error(err)
                 continue
