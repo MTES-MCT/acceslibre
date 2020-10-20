@@ -1,12 +1,13 @@
 import json
 
-from django.conf import settings
 from django import template
+from django.conf import settings
+from django.utils.safestring import mark_safe
 from urllib.parse import quote
 
 from erp import schema
 from erp import serializers
-from erp.provider import naf, sirene
+from erp.provider import arrondissements, naf, sirene
 
 register = template.Library()
 
@@ -43,6 +44,11 @@ def addclass(value, arg):
         return value.as_widget(attrs={"class": arg})
     except (AttributeError, TypeError, ValueError):
         return value
+
+
+@register.simple_tag
+def arrondissements_json_data():
+    return mark_safe(arrondissements.to_json())
 
 
 @register.filter(name="encode_provider_data")
