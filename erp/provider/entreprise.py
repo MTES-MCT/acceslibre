@@ -3,7 +3,7 @@ import requests
 import unicodedata
 
 from erp.models import Commune
-from erp.provider import arrondissements
+from erp.provider import arrondissements, sirene
 
 
 logger = logging.getLogger(__name__)
@@ -24,13 +24,9 @@ def clean_search_terms(string):
     return remove_accents(string.replace("/", " ")).upper()
 
 
-def query(terms, code_insee=None):
+def query(terms):
     try:
-        params = {
-            "per_page": MAX_PER_PAGE,
-            "page": 1,
-            "code_commune": code_insee,
-        }
+        params = {"per_page": MAX_PER_PAGE, "page": 1}
         res = requests.get(f"{BASE_URL}/full_text/{terms}", params)
         logger.info(f"entreprise api call: {res.url}")
         if res.status_code == 404:
@@ -173,11 +169,33 @@ def reorder_results(results, terms):
     return higher_rank + lower_rank
 
 
-def search(terms, code_insee=None):
+def search(terms):
     terms = clean_search_terms(terms)
     if not terms:
         raise RuntimeError("La recherche est vide.")
-    response = query(terms, code_insee=code_insee)
+
+    # search for siret, if any provided
+    siret = next((x for x in terms.split(" ") if sirene.validate_siret(x)), None)
+    if siret:
+        try:
+            siret_result = search_siret(siret)
+        except RuntimeError as err:
+            logger.debug(f"Pas de résultat pour siret={siret} ({err})")
+        terms = terms.replace(siret, "").strip()
+        if siret_result:
+            return [siret_result]
+
+    # search for remaining terms, if any
+    results = []
+    if terms:
+        results = results + search_fulltext(terms)
+    if len(results) == 0:
+        raise RuntimeError("Aucun résultat.")
+    return results
+
+
+def search_fulltext(terms):
+    response = query(terms)
     results = []
     try:
         for etablissement in response["etablissement"]:
@@ -188,8 +206,6 @@ def search(terms, code_insee=None):
             except RuntimeError as err:
                 logger.error(err)
                 continue
-        if len(results) == 0:
-            raise RuntimeError("Aucun résultat.")
         return reorder_results(results, terms)
     except (AttributeError, KeyError, IndexError, TypeError) as err:
         logger.error(err)

@@ -17,8 +17,6 @@
     {% include "contrib/forms/entreprise_form.html" %}
   {% elif form_type == "public_erp" %}
     {% include "contrib/forms/public_erp_form.html" %}
-  {% elif form_type == "siret" %}
-    {% include "contrib/forms/siret_form.html" %}
   {% endif %}
 
   {% for result in results %}
