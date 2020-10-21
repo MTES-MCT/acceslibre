@@ -508,6 +508,14 @@ class ProviderPublicErpSearchForm(forms.Form):
         ),
     )
 
+    def clean(self):
+        if not self.cleaned_data.get("code_insee"):
+            raise ValidationError(
+                {
+                    "commune": "Vous devez sélectionner une entrée parmi les choix proposés"
+                }
+            )
+
 
 class PublicPublicationForm(forms.ModelForm):
     class Meta:
