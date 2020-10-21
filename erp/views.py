@@ -379,10 +379,7 @@ def find_sirene_businesses(name_form):
 
 
 def find_entreprise_businesses(form):
-    results = entreprise.search(
-        form.cleaned_data.get("search"),
-        code_insee=form.cleaned_data.get("entreprise_code_insee"),
-    )
+    results = entreprise.search(form.cleaned_data.get("search"))
     for result in results:
         result["exists"] = Erp.objects.find_by_siret(result["siret"])
     return results
@@ -422,24 +419,11 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):
-    siret_error = None
     results = None
-    (siret_form, entreprise_form, public_erp_form) = (
-        forms.ProviderSiretSearchForm(),
+    (entreprise_form, public_erp_form) = (
         forms.ProviderEntrepriseSearchForm(),
         forms.ProviderPublicErpSearchForm(),
     )
-    if request.method == "POST" and request.POST.get("search_type") == "by-siret":
-        siret_form = forms.ProviderSiretSearchForm(request.POST)
-        if siret_form.is_valid():
-            try:
-                siret_info = entreprise.search_siret(siret_form.cleaned_data["siret"])
-                data = serializers.encode_provider_data(siret_info)
-                return redirect(
-                    reverse("contrib_admin_infos") + "?data=" + data + "#content"
-                )
-            except RuntimeError as err:
-                siret_error = err
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -447,9 +431,6 @@ def contrib_start(request):
             "step": 1,
             "nafs": naf.NAF,
             "results": results,
-            "siret_form": siret_form,
-            "siret_error": siret_error,
-            "siret_form": siret_form,
             "entreprise_form": entreprise_form,
             "public_erp_form": public_erp_form,
             "public_erp_types": public_erp.TYPES,

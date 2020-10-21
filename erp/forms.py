@@ -23,7 +23,6 @@ from .models import (
     Erp,
     Label,
 )
-from .provider import sirene
 
 
 def bool_radios():
@@ -433,7 +432,9 @@ class ProviderEntrepriseSearchForm(forms.Form):
     search = forms.CharField(
         label="Recherche libre",
         help_text=mark_safe(
-            "Recherche <em>plein texte</em> sur le nom de l'entreprise, la voie, le code postal, l'activité et la commune."
+            "Recherche <em>plein texte</em> sur le nom de l'entreprise, le "
+            '<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" target="_blank">numéro SIRET</a>'
+            ", la voie, le code postal, l'activité et la commune."
         ),
         required=True,
         widget=forms.TextInput(
@@ -506,35 +507,6 @@ class ProviderPublicErpSearchForm(forms.Form):
             }
         ),
     )
-
-
-class ProviderSiretSearchForm(forms.Form):
-    siret = forms.CharField(
-        label="Numéro SIRET",
-        required=True,
-        widget=forms.TextInput(
-            attrs={"placeholder": "ex. 88076068100010", "autocomplete": "off"}
-        ),
-    )
-
-    def clean_siret(self):
-        siret = sirene.validate_siret(self.cleaned_data["siret"])
-        if not siret:
-            raise ValidationError(
-                "Ce numéro SIRET est invalide, veuillez vérifier le format."
-            )
-        self.cleaned_data["siret"] = siret
-        return siret
-
-    def clean(self):
-        siret = self.cleaned_data.get("siret")
-        if siret and Erp.objects.find_by_siret(siret):
-            raise ValidationError(
-                {
-                    "siret": f"Un établissement disposant du numéro SIRET {siret} "
-                    "existe déjà dans la base de données."
-                }
-            )
 
 
 class PublicPublicationForm(forms.ModelForm):

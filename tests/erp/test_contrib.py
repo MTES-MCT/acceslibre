@@ -77,59 +77,6 @@ def mairie_jacou_result():
 def test_contrib_start_home(client):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
-    assert response.context["siret_error"] is None
-
-
-def test_contrib_start_siret_search_validate_siret(client):
-    response = client.post(
-        reverse("contrib_start"), data={"search_type": "by-siret", "siret": "xxx"}
-    )
-    assert response.status_code == 200
-    assert "siret" in response.context["siret_form"].errors
-
-
-def test_contrib_start_search_by_siret(client, mocker, akei_result):
-    # Mock SIRENE api results
-    mocker.patch(
-        "erp.provider.entreprise.search_siret", return_value=akei_result,
-    )
-
-    # Mock Geocoder results
-    mocker.patch(
-        "erp.geocoder.geocode",
-        return_value={
-            "geom": Point(3, 42),
-            "numero": "4",
-            "voie": "Grand Rue",
-            "lieu_dit": None,
-            "code_postal": "34830",
-            "commune": "Jacou",
-            "code_insee": "34120",
-        },
-    )
-
-    response = client.post(
-        reverse("contrib_start"),
-        data={"search_type": "by-siret", "siret": AKEI_SIRET},
-        follow=True,
-    )
-    # Contrib admin-infos form page
-    assert response.status_code == 200
-    form_data = response.context["form"].cleaned_data
-    assert form_data["siret"] == AKEI_SIRET
-    assert form_data["source"] == akei_result["source"]
-    assert form_data["source_id"] == akei_result["source_id"]
-    assert form_data["geom"].coords == (3, 42)
-    assert form_data["nom"] == "AKEI"
-    assert form_data["numero"] == "4"
-    assert form_data["voie"] == "Grand Rue"
-    assert form_data["lieu_dit"] is None
-    assert form_data["code_postal"] == "34830"
-    # XXX investigate why this is failing in test env
-    # assert form_data["commune"] == "Jacou"
-    assert form_data["contact_email"] is None
-    assert form_data["site_internet"] is None
-    assert form_data["telephone"] is None
 
 
 def test_contrib_start_search_entreprise(client, mocker, akei_result):
