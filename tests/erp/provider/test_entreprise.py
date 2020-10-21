@@ -85,7 +85,7 @@ def test_parse_etablissement_jacou_data_ok(data, sample_feature):
         "coordonnees": [3.913557, 43.657028],
         "naf": "62.02A",
         "activite": None,
-        "nom": "AKEI",
+        "nom": "Akei",
         "siret": "88076068100010",
         "numero": "4",
         "voie": "Grand Rue",
@@ -209,6 +209,18 @@ def test_extract_geo_adresse_common_failures():
     assert (
         entreprise.extract_geo_adresse("4 rue droite 33000 Bordeaux", "99999") is None
     )
+
+
+def test_format_nom():
+    tests = [
+        ("LE BOUGNAT", "Le Bougnat"),
+        ("BEL'AIR", "Bel'Air"),
+        ("BILLIG & CARABIN", "Billig & Carabin"),
+        ("FLEURS DE SEL", "Fleurs de Sel"),
+        ("A LA BONNE HEURE", "A la Bonne Heure"),
+    ]
+    for (test, expected) in tests:
+        assert entreprise.format_nom({"enseigne": test}) == expected
 
 
 def test_normalize_commune_arrondissement():

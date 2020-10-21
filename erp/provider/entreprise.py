@@ -11,6 +11,8 @@ logger = logging.getLogger(__name__)
 BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
 MAX_PER_PAGE = 20
 
+FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
+
 
 def clean_search_terms(string):
     # Note: search doesn't work well with accented letters...
@@ -26,6 +28,10 @@ def remove_accents(input_str):
     # see https://stackoverflow.com/a/517974/330911
     nfkd_form = unicodedata.normalize("NFKD", input_str)
     return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
+
+def ucfirst(string):
+    return string[0].upper() + string[1:]
 
 
 def strip_list(lst):
@@ -68,12 +74,19 @@ def format_naf(record):
 
 
 def format_nom(record):
-    return (
+    nom = (
         record.get("enseigne")
         or record.get("l1_normalisee")
         or record.get("nom_raison_sociale")
         or None
     )
+    if nom:
+        parts = map(
+            lambda x: x.title() if x not in FRENCH_STOPWORDS else x,
+            nom.lower().split(" "),
+        )
+        return ucfirst(" ".join(parts))
+    return nom
 
 
 def format_source_id(record, fields=None):
