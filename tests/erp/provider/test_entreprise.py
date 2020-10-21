@@ -113,64 +113,96 @@ def test_normalize_commune_ext(data):
     assert entreprise.normalize_commune("34120") == "Jacou"
 
 
-def test_extract_geo_adresse_success():
-    tests = [
-        (
-            "9 Boulevard Édouard Rey 38000 Grenoble",
-            "38000",
-            {
-                "numero": "9",
-                "voie": "Boulevard Édouard Rey",
-                "code_postal": "38000",
-                "commune": "Grenoble",
-            },
-        ),
-        (
-            "911TER Allée Jean-Paul Belmondo 34170 Castelnau le Lez",
-            "34170",
-            {
-                "numero": "911TER",
-                "voie": "Allée Jean-Paul Belmondo",
-                "code_postal": "34170",
-                "commune": "Castelnau le Lez",
-            },
-        ),
-        (
-            "Place Carnot 33000 Bordeaux",
-            "33000",
-            {
-                "numero": None,
-                "voie": "Place Carnot",
-                "code_postal": "33000",
-                "commune": "Bordeaux",
-            },
-        ),
-        (
-            "28 Route Departementale 71 78125 Mittainville",
-            "78125",
-            {
-                "numero": "28",
-                "voie": "Route Departementale 71",
-                "code_postal": "78125",
-                "commune": "Mittainville",
-            },
-        ),
-        (
-            "Aeroport Saint-exupéry 69124 Colombier-Saugnieu",
-            "69124",
-            {
-                "numero": None,
-                "voie": "Aeroport Saint-exupéry",
-                "code_postal": "69124",
-                "commune": "Colombier-Saugnieu",
-            },
-        ),
-    ]
-    for (adresse, code_postal, expected) in tests:
-        assert entreprise.extract_geo_adresse(adresse, code_postal) == expected
+def test_extract_geo_adresse_simple():
+    assert entreprise.extract_geo_adresse(
+        "9 Boulevard Édouard Rey 38000 Grenoble", "38000"
+    ) == (
+        {
+            "numero": "9",
+            "voie": "Boulevard Édouard Rey",
+            "code_postal": "38000",
+            "commune": "Grenoble",
+        }
+    )
 
 
-def test_extract_geo_adresse_failures():
+def test_extract_geo_adresse_glued_ter():
+    assert entreprise.extract_geo_adresse(
+        "911Ter Allée Jean-Paul Belmondo 34170 Castelnau le Lez", "34170"
+    ) == (
+        {
+            "numero": "911Ter",
+            "voie": "Allée Jean-Paul Belmondo",
+            "code_postal": "34170",
+            "commune": "Castelnau le Lez",
+        }
+    )
+
+
+def test_extract_geo_adresse_no_numero():
+    assert entreprise.extract_geo_adresse("Place Carnot 33000 Bordeaux", "33000") == (
+        {
+            "numero": None,
+            "voie": "Place Carnot",
+            "code_postal": "33000",
+            "commune": "Bordeaux",
+        }
+    )
+
+
+def test_extract_geo_adresse_numbers_in_voie():
+    assert entreprise.extract_geo_adresse(
+        "28 Route Departementale 71 78125 Mittainville", "78125"
+    ) == (
+        {
+            "numero": "28",
+            "voie": "Route Departementale 71",
+            "code_postal": "78125",
+            "commune": "Mittainville",
+        }
+    )
+
+
+def test_extract_geo_adresse_missing_numero():
+    assert entreprise.extract_geo_adresse(
+        "Aeroport Saint-exupéry 69124 Colombier-Saugnieu", "69124"
+    ) == (
+        {
+            "numero": None,
+            "voie": "Aeroport Saint-exupéry",
+            "code_postal": "69124",
+            "commune": "Colombier-Saugnieu",
+        }
+    )
+
+
+def test_extract_geo_adresse_bis_after_space():
+    assert entreprise.extract_geo_adresse(
+        "19 Bis Rue Joannés Beaulieu 42170 Saint-Just-Saint-Rambert", "42170"
+    ) == (
+        {
+            "numero": "19 Bis",
+            "voie": "Rue Joannés Beaulieu",
+            "code_postal": "42170",
+            "commune": "Saint-Just-Saint-Rambert",
+        }
+    )
+
+
+def test_extract_geo_adresse_bis_short_form():
+    assert entreprise.extract_geo_adresse(
+        "19 B Rue Joannés Beaulieu 42170 Saint-Just-Saint-Rambert", "42170"
+    ) == (
+        {
+            "numero": "19 B",
+            "voie": "Rue Joannés Beaulieu",
+            "code_postal": "42170",
+            "commune": "Saint-Just-Saint-Rambert",
+        }
+    )
+
+
+def test_extract_geo_adresse_common_failures():
     assert entreprise.extract_geo_adresse("", "34200") is None
     assert entreprise.extract_geo_adresse("xxx", "34200") is None
     assert entreprise.extract_geo_adresse("6 xxx xxx", "34200") is None

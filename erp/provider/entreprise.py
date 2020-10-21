@@ -105,24 +105,32 @@ def retrieve_code_insee(record):
 def extract_geo_adresse(geo_adresse, code_postal):
     if not geo_adresse:
         return None
-    parts = strip_list(geo_adresse.split(code_postal))
-    if len(parts) < 2:
+    try:
+        parts = strip_list(geo_adresse.split(code_postal))
+        if len(parts) < 2:
+            return None
+        addr_parts = strip_list(parts[0].split(" "))
+        if has_numbers(addr_parts[0]):
+            numero = addr_parts[0]
+            rest = addr_parts[1:]
+            if rest[0].lower() in ["b", "bis", "t", "ter", "q", "quater"]:
+                numero = f"{numero} {rest[0]}"
+                voie = " ".join(rest[1:])
+            else:
+                voie = " ".join(rest)
+        else:
+            numero = None
+            voie = parts[0]
+        if parts[1]:
+            commune = parts[1]
+        return {
+            "numero": numero,
+            "voie": voie,
+            "code_postal": code_postal,
+            "commune": commune,
+        }
+    except (ValueError, IndexError, TypeError, AttributeError):
         return None
-    addr_parts = strip_list(parts[0].split(" "))
-    if has_numbers(addr_parts[0]):
-        numero = addr_parts[0]
-        voie = " ".join(addr_parts[1:])
-    else:
-        numero = None
-        voie = parts[0]
-    if parts[1]:
-        commune = parts[1]
-    return {
-        "numero": numero,
-        "voie": voie,
-        "code_postal": code_postal,
-        "commune": commune,
-    }
 
 
 def normalize_commune(code_insee):
