@@ -88,7 +88,7 @@ def test_parse_etablissement_jacou_data_ok(data, sample_feature):
         "nom": "AKEI",
         "siret": "88076068100010",
         "numero": "4",
-        "voie": "GRAND RUE",
+        "voie": "Grand Rue",
         "lieu_dit": None,
         "code_postal": "34830",
         "commune": "Jacou",
@@ -111,6 +111,72 @@ def test_parse_etablissement_jacou_missing_data(db, sample_feature):
 
 def test_normalize_commune_ext(data):
     assert entreprise.normalize_commune("34120") == "Jacou"
+
+
+def test_extract_geo_adresse_success():
+    tests = [
+        (
+            "9 Boulevard Édouard Rey 38000 Grenoble",
+            "38000",
+            {
+                "numero": "9",
+                "voie": "Boulevard Édouard Rey",
+                "code_postal": "38000",
+                "commune": "Grenoble",
+            },
+        ),
+        (
+            "911TER Allée Jean-Paul Belmondo 34170 Castelnau le Lez",
+            "34170",
+            {
+                "numero": "911TER",
+                "voie": "Allée Jean-Paul Belmondo",
+                "code_postal": "34170",
+                "commune": "Castelnau le Lez",
+            },
+        ),
+        (
+            "Place Carnot 33000 Bordeaux",
+            "33000",
+            {
+                "numero": None,
+                "voie": "Place Carnot",
+                "code_postal": "33000",
+                "commune": "Bordeaux",
+            },
+        ),
+        (
+            "28 Route Departementale 71 78125 Mittainville",
+            "78125",
+            {
+                "numero": "28",
+                "voie": "Route Departementale 71",
+                "code_postal": "78125",
+                "commune": "Mittainville",
+            },
+        ),
+        (
+            "Aeroport Saint-exupéry 69124 Colombier-Saugnieu",
+            "69124",
+            {
+                "numero": None,
+                "voie": "Aeroport Saint-exupéry",
+                "code_postal": "69124",
+                "commune": "Colombier-Saugnieu",
+            },
+        ),
+    ]
+    for (adresse, code_postal, expected) in tests:
+        assert entreprise.extract_geo_adresse(adresse, code_postal) == expected
+
+
+def test_extract_geo_adresse_failures():
+    assert entreprise.extract_geo_adresse("", "34200") is None
+    assert entreprise.extract_geo_adresse("xxx", "34200") is None
+    assert entreprise.extract_geo_adresse("6 xxx xxx", "34200") is None
+    assert (
+        entreprise.extract_geo_adresse("4 rue droite 33000 Bordeaux", "99999") is None
+    )
 
 
 def test_normalize_commune_arrondissement():

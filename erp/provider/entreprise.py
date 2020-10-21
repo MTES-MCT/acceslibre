@@ -3,7 +3,7 @@ import requests
 import unicodedata
 
 from erp.models import Commune
-from erp.provider import arrondissements, sirene
+from erp.provider import arrondissements, sirene, voies
 
 
 logger = logging.getLogger(__name__)
@@ -12,16 +12,24 @@ BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
 MAX_PER_PAGE = 20
 
 
+def clean_search_terms(string):
+    # Note: search doesn't work well with accented letters...
+    string = str(string).strip()
+    return remove_accents(string.replace("/", " ")).upper()
+
+
+def has_numbers(string):
+    return any(char.isdigit() for char in string)
+
+
 def remove_accents(input_str):
     # see https://stackoverflow.com/a/517974/330911
     nfkd_form = unicodedata.normalize("NFKD", input_str)
     return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
-def clean_search_terms(string):
-    # Note: search doesn't work well with accented letters...
-    string = str(string).strip()
-    return remove_accents(string.replace("/", " ")).upper()
+def strip_list(lst):
+    return [x for x in list(map(lambda x: x.strip(), lst)) if x != ""]
 
 
 def query(terms):
@@ -94,6 +102,29 @@ def retrieve_code_insee(record):
     return code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
 
 
+def extract_geo_adresse(geo_adresse, code_postal):
+    if not geo_adresse:
+        return None
+    parts = strip_list(geo_adresse.split(code_postal))
+    if len(parts) < 2:
+        return None
+    addr_parts = strip_list(parts[0].split(" "))
+    if has_numbers(addr_parts[0]):
+        numero = addr_parts[0]
+        voie = " ".join(addr_parts[1:])
+    else:
+        numero = None
+        voie = parts[0]
+    if parts[1]:
+        commune = parts[1]
+    return {
+        "numero": numero,
+        "voie": voie,
+        "code_postal": code_postal,
+        "commune": commune,
+    }
+
+
 def normalize_commune(code_insee):
     # First, a cheap check if code_insee is an arrondissement
     arrondissement = arrondissements.get_by_code_insee(code_insee)
@@ -104,17 +135,30 @@ def normalize_commune(code_insee):
     return commune_ext.nom if commune_ext else None
 
 
+def normalize_sirene_adresse(record, code_insee):
+    numero = record.get("numero_voie")
+    type_voie = record.get("type_voie")
+    voie = record.get("libelle_voie")
+    code_postal = record.get("code_postal")
+    commune = record.get("libelle_commune")
+    if type_voie and voie:
+        type_voie = voies.TYPES_VOIE.get(type_voie) or type_voie
+        voie = f"{type_voie} {voie}"
+    if code_insee:
+        commune = normalize_commune(code_insee) or commune
+    return {
+        "numero": numero,
+        "voie": voie,
+        "code_postal": code_postal,
+        "commune": commune,
+    }
+
+
 def parse_etablissement(record):
     # Coordonnées geographiques
     coordonnees = format_coordonnees(record)
 
     # Adresse
-    numero = record.get("numero_voie")
-    type_voie = record.get("type_voie")
-    voie = record.get("libelle_voie")
-    if type_voie and voie:
-        voie = f"{type_voie} {voie}"
-
     code_postal = record.get("code_postal")
     if not code_postal:
         return None
@@ -124,8 +168,15 @@ def parse_etablissement(record):
         return None
 
     code_insee = retrieve_code_insee(record)
-    if code_insee:
-        commune = normalize_commune(code_insee) or commune
+
+    adresse_data = None
+    geo_adresse = record.get("geo_adresse")
+    if geo_adresse:
+        adresse_data = extract_geo_adresse(geo_adresse, code_postal)
+    if not adresse_data:
+        adresse_data = normalize_sirene_adresse(record, code_insee)
+    if not adresse_data:
+        return None
 
     nom = format_nom(record)
     naf = format_naf(record)
@@ -141,11 +192,11 @@ def parse_etablissement(record):
         activite=None,  # Would be nice to infer activite from NAF
         nom=nom,
         siret=record.get("siret"),
-        numero=numero,
-        voie=voie,
+        numero=adresse_data.get("numero"),
+        voie=adresse_data.get("voie"),
         lieu_dit=None,  # Note: this API doesn't expose this data in an actionable fashion
-        code_postal=code_postal,
-        commune=commune,
+        code_postal=adresse_data.get("code_postal"),
+        commune=adresse_data.get("commune"),
         code_insee=code_insee,
         contact_email=email,
         telephone=None,
