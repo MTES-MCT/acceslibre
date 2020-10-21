@@ -72,6 +72,7 @@ MESSAGE_TAGS = {
 # Application definition
 
 INSTALLED_APPS = [
+    "admin_auto_filters",
     "django_extensions",
     "nested_admin",
     "import_export",

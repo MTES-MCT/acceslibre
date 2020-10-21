@@ -13,6 +13,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
+from admin_auto_filters.filters import AutocompleteFilter
 from reversion.admin import VersionAdmin
 
 from .departements import DEPARTEMENTS
@@ -206,20 +207,37 @@ class CommuneFilter(admin.SimpleListFilter):
             return queryset.filter(commune_ext__pk=self.value())
 
 
-class ErpUserFilter(admin.SimpleListFilter):
-    title = "Contributeur"
-    parameter_name = "username"
-    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
+class ErpActiviteAutocompleteFilter(AutocompleteFilter):
+    title = "Activité"
+    field_name = "activite"
 
     def lookups(self, request, model_admin):
-        values = Erp.objects.select_related("user").distinct("user").order_by("user")
+        values = (
+            Erp.objects.select_related("activite")
+            .distinct("activite_id")
+            .order_by("activite_id")
+        )
         return [
-            (v.user.username, v.user.username) for v in values if v.user is not None
+            (v.activite.pk, v.activite.nom) for v in values if v.activite is not None
         ]
 
     def queryset(self, request, queryset):
         if self.value():
-            return queryset.filter(user__username=self.value())
+            return queryset.filter(activite__id=self.value())
+        return queryset
+
+
+class ErpUserAutocompleteFilter(AutocompleteFilter):
+    title = "Contributeur"
+    field_name = "user"
+
+    def lookups(self, request, model_admin):
+        values = Erp.objects.select_related("user").distinct("user").order_by("user")
+        return [(v.user.pk, v.user.username) for v in values if v.user is not None]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(user__id=self.value())
         return queryset
 
 
@@ -286,8 +304,8 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     list_display_links = ("nom",)
     list_per_page = 20
     list_filter = [
-        ("activite", RelatedDropdownFilter),
-        ErpUserFilter,
+        ErpActiviteAutocompleteFilter,
+        ErpUserAutocompleteFilter,
         "user_type",
         CommuneFilter,
         "source",
@@ -474,21 +492,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
 
 
-class VoteUserFilter(admin.SimpleListFilter):
-    title = "Utilisateur"
-    parameter_name = "username"
-    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
-
-    def lookups(self, request, model_admin):
-        values = Vote.objects.select_related("user").distinct("user").order_by("user")
-        return [(v.user.username, v.user.username) for v in values]
-
-    def queryset(self, request, queryset):
-        if self.value():
-            return queryset.filter(user__username=self.value())
-        return queryset
-
-
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = (
@@ -505,7 +508,7 @@ class VoteAdmin(admin.ModelAdmin):
     list_select_related = ("erp", "user", "erp__commune_ext")
     list_filter = [
         "value",
-        VoteUserFilter,
+        ErpUserAutocompleteFilter,
         CommuneFilter,
         "created_at",
         "updated_at",
