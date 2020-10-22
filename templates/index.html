@@ -6,231 +6,168 @@
 {% block page_title %}Accueil{% endblock%}
 
 {% block header %}
-    {% include "editorial/header.html" with dark=False %}
-  {% endblock %}
+  {% include "editorial/header.html" with dark=False %}
+{% endblock %}
 
 {% block top_fluid_content %}
-  <main id="content">
-    <section class="container-fluid py-5 a4a-bg-primary-gradient">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 p-4 a4a-cta-search">
-            <h2 class="h3 text-light font-weight-bold">Découvrez l'accessibilité des établissements autour de vous</h2>
-            <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux <strong>informations essentielles d'accessibilité</strong> des établissements recevant du public en France.</p>
-            <form action="{% url "home" %}#results">
-              <input type="hidden" name="lat">
-              <input type="hidden" name="lon">
-              <label for="q" class="sr-only">Recherchez un établissement, une ville, etc...</label>
-              <div class="input-group py-1">
-                <input type="search" is="q" name="q" class="form-control form-control-lg border-0" placeholder="Rechercher un restaurant, une ville, etc..."
-                  aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-lg btn-light border-left text-nowrap">
-                    <i aria-hidden="true" class="icon icon-magnifying-glass" style="vertical-align:text-top;font-size:.9em"></i>
-                    <span class="sr-only">Rechercher</span>
-                  </button>
-                </div>
+<main id="content">
+  <section class="container-fluid py-5 a4a-bg-primary-gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 p-4 a4a-cta-search">
+          <h2 class="h3 text-light font-weight-bold">Découvrez l'accessibilité des établissements autour de vous</h2>
+          <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux <strong>informations essentielles d'accessibilité</strong> des établissements recevant du public en France.</p>
+          <form action="{% url "home" %}#results">
+            <input type="hidden" name="lat">
+            <input type="hidden" name="lon">
+            <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
+            <div class="input-group py-1">
+              <input type="search" id="search" name="q" class="form-control form-control-lg border-0" placeholder="Rechercher un restaurant, une ville, etc..."
+                aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-lg btn-light border-left text-nowrap">
+                  <i aria-hidden="true" class="icon icon-magnifying-glass" style="vertical-align:text-top;font-size:.9em"></i>
+                  <span class="sr-only">Rechercher</span>
+                </button>
               </div>
-              <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
-                <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
-                  {% if localize == "1" %}checked{% endif %}>
-                <label class="custom-control-label text-light" for="localize">
-                  Rechercher autour de ma position géographique actuelle <strong id="loc" aria-label="Mon emplacement"></strong>
-                </label>
-              </div>
-            </form>
-          </div>
-          <div class="col-lg-6 p-4 text-center bg-light rounded a4a-cta-contribute">
-            <h2 class="h3 font-weight-bold">Participez à l'enrichissement des données d'accessibilité</h2>
-            <p class="pt-2 pb-1">
-              {{ SITE_NAME.title }} est une <strong>plateforme citoyenne collaborative ouverte à tous</strong>.
-              Usagers, gestionnaires d'établissements et agents territoriaux contribuent et <strong>enrichissent
-              continuellement les informations</strong>.
-            </p>
-            <p>
-              <a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary btn-block mb-3">
-                Ajouter un établissement
-              </a>
-            </p>
-            <p class="pb-2 mb-0"><em>10 minutes suffisent pour créer votre compte et ajouter un établissement&nbsp;!</em></p>
-          </div>
+            </div>
+            <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
+              <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
+                {% if localize == "1" %}checked{% endif %}>
+              <label class="custom-control-label text-light" for="localize">
+                Rechercher autour de ma position géographique actuelle <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
+              </label>
+            </div>
+          </form>
         </div>
-      </div>
-    </section>
-    <script>
-    (function(geolocation) {
-      if (!geolocation) {
-        document.querySelector("#loc-field").innerHTML = [
-          '<div class="text-danger">',
-            '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
-            "La géolocalisation n'est pas disponible sur votre navigateur.",
-          '</div>',
-        ].join("");
-        return;
-      }
-      function listenToLocCheckboxChange() {
-        return function(event) {
-          processLocCheckbox(event.target);
-        }
-      }
-      function processLocCheckbox(node) {
-        if (!node.checked) {
-          document.querySelector("#loc").innerText = "";
-          document.querySelector("input[name=lat]").value = null;
-          document.querySelector("input[name=lon]").value = null;
-        } else {
-          geolocation.getCurrentPosition(function(position) {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
-              .then(function(response) {
-                return response.json()
-              })
-              .then(function(json) {
-                let label;
-                try {
-                  label = "(" + json.features[0].properties.label + ")"
-                } catch (e) {
-                  label = "(" + lat + ", " + lon + ")";
-                }
-                const loc = document.querySelector("#loc");
-                loc.innerText = label;
-                loc.setAttribute("role", "status");
-                document.querySelector("input[name=lat]").value = lat;
-                document.querySelector("input[name=lon]").value = lon;
-              })
-              .catch(function(err) {
-                console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
-              });
-          }, function(err) {
-            alert("Nous n'avons pas pu déterminer votre position géographique.")
-          });
-        }
-      }
-      window.addEventListener("DOMContentLoaded", function() {
-        const locCheckbox = document.querySelector("#localize");
-        locCheckbox.addEventListener("change", listenToLocCheckboxChange());
-        setTimeout(function() {
-          // Note: a timeout is required in order to reprocess the form state after navigating back
-          processLocCheckbox(locCheckbox);
-        }, 10);
-      });
-    })(navigator.geolocation);
-    </script>
-  {% endblock %}
-
-  {% block editorial_content %}
-    <h2 class="sr-only">Rechercher un établissement</h2>
-
-    <div class="row mt-4">
-      <div class="col-md-8">
-        {% if search_results %}
-        <section class="pt-2" id="results">
-          <h2 class="h4 mb-3">
-            Établissements {% if localize == "1" %}proches de moi{% endif %}
-            <small class="text-muted"> correspondant à votre recherche</small>
-          </h2>
-          <div class="row row-cols-1 row-cols-md-2">
-            {% for erp in search_results.pager %}
-            <div class="col mb-4">
-              <div class="card shadow-sm mb-2">
-                <div class="card-body p-3">
-                  <h3 class="h6 m-0">
-                    <img alt="" class="mb-1 mr-1"
-                      src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
-                    <a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
-                  </h3>
-                  {% if localize == "1" and erp.distance %}
-                    <small class="text-muted" aria-label="Distance de votre position géographique">
-                      <em>({{ erp.distance|format_distance }})</em>
-                    </small>
-                  {% endif %}
-                  {# <small>rank: {{ erp.rank }}, sim: {{ erp.similarity }}, dist: {{ erp.distance_nom }}</small><br> #}
-                  {% if erp.activite %}<small>{{ erp.activite }}</small>{% endif %}
-                  <address class="mb-0">
-                    <em>
-                      <small class="text-muted">
-                        {{ erp.short_adresse }} {{ erp.code_postal }}
-                        <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
-                      </small>
-                    </em>
-                  </address>
-                </div>
-              </div>
-            </div>
-            {% empty %}
-            <p class="col">Aucun résultat.</p>
-            {% endfor %}
-          </div>
-          {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url %}
-        </section>
-        {% if localize != "1" %}
-        <section>
-          {% if search_results.communes %}
-          <h2 class="h4 mb-3">
-            Villes <small class="text-muted">correspondant à votre recherche</small>
-          </h2>
-          {% endif %}
-          <div class="row row-cols-1 row-cols-md-2">
-            {% for commune in search_results.communes %}
-            <div class="col mb-4">
-              <div class="card shadow-sm">
-                <div class="card-body p-3 d-flex justify-content-between align-items-center">
-                  <div>
-                    <small class="text-muted">{{ commune.departement_nom }}</small>
-                    <h3 class="h5 card-title mb-0">
-                      <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
-        </section>
-        {% endif %}
-
-        {% else %}
-
-        <h2 class="sr-only">Communes renseignées</h2>
-        <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
-          {% for commune in communes %}
-          <div class="col mb-4">
-            <div class="card shadow-sm">
-              <a class="d-none d-md-block" href="{% url 'commune' commune.slug %}" tabindex="-1">
-                <img class="card-img-top" alt="{{ commune.nom }}"
-                  src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">
-              </a>
-              <div class="card-body p-3">
-                <small class="text-muted">{{ commune.departement_nom }}</small>
-                <h3 class="h5 card-title mb-0 mr-1">
-                  <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
-                </h3>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-        {% endif %}
-      </div>
-      <div class="col-md-4">
-        <aside class="card">
-          <div class="card-header">
-            <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>
-          </div>
-          {# FIXME: list-group class should be needed here but adds a 2px top border on first element #}
-          <div class="list-group-flush" id="home-latest-erps-list">
-            {% for erp in latest %}
-            <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
-              <img alt="" class="mb-1 mr-1"
-                src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
-              {{ erp.commune }} {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
-              <br><strong>{{ erp.nom }}</strong>
+        <div class="col-lg-6 p-4 text-center bg-light rounded a4a-cta-contribute">
+          <h2 class="h3 font-weight-bold">Participez à l'enrichissement des données d'accessibilité</h2>
+          <p class="pt-2 pb-1">
+            {{ SITE_NAME.title }} est une <strong>plateforme citoyenne collaborative ouverte à tous</strong>.
+            Usagers, gestionnaires d'établissements et agents territoriaux contribuent et <strong>enrichissent
+            continuellement les informations</strong>.
+          </p>
+          <p>
+            <a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary btn-block mb-3">
+              Ajouter un établissement
             </a>
-            {% endfor %}
-          </div>
-        </aside>
+          </p>
+          <p class="pb-2 mb-0"><em>10 minutes suffisent pour créer votre compte et ajouter un établissement&nbsp;!</em></p>
+        </div>
       </div>
     </div>
-  </main>
+  </section>
+  <script>
+  (function(geolocation) {
+    if (!geolocation) {
+      document.querySelector("#loc-field").innerHTML = [
+        '<div class="text-danger">',
+          '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
+          "La géolocalisation n'est pas disponible sur votre navigateur.",
+        '</div>',
+      ].join("");
+      return;
+    }
+    function listenToLocCheckboxChange() {
+      return function(event) {
+        processLocCheckbox(event.target);
+      }
+    }
+    function processLocCheckbox(node) {
+      if (!node.checked) {
+        document.querySelector("#loc").innerText = "";
+        document.querySelector("input[name=lat]").value = null;
+        document.querySelector("input[name=lon]").value = null;
+      } else {
+        geolocation.getCurrentPosition(function(position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
+            .then(function(response) {
+              return response.json()
+            })
+            .then(function(json) {
+              let label;
+              try {
+                label = "(" + json.features[0].properties.label + ")"
+              } catch (e) {
+                label = "(" + lat + ", " + lon + ")";
+              }
+              const loc = document.querySelector("#loc");
+              loc.innerText = label;
+              loc.setAttribute("role", "status");
+              document.querySelector("input[name=lat]").value = lat;
+              document.querySelector("input[name=lon]").value = lon;
+            })
+            .catch(function(err) {
+              console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
+            });
+        }, function(err) {
+          alert("Nous n'avons pas pu déterminer votre position géographique.")
+        });
+      }
+    }
+    window.addEventListener("DOMContentLoaded", function() {
+      const locCheckbox = document.querySelector("#localize");
+      locCheckbox.addEventListener("change", listenToLocCheckboxChange());
+      setTimeout(function() {
+        // Note: a timeout is required in order to reprocess the form state after navigating back
+        processLocCheckbox(locCheckbox);
+      }, 10);
+    });
+  })(navigator.geolocation);
+  </script>
+</main>
+{% endblock %}
+
+{% block editorial_content %}
+<section>
+  <h2 class="sr-only">Rechercher un établissement</h2>
+
+  <div class="row mt-4">
+    <div class="col-md-8">
+      {% if search_results %}
+      {% include "search-results.html" %}
+      {% else %}
+      <h2 class="sr-only">Communes renseignées</h2>
+      <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
+        {% for commune in communes %}
+        <div class="col mb-4">
+          <div class="card shadow-sm">
+            <a class="d-none d-md-block" href="{% url 'commune' commune.slug %}" tabindex="-1">
+              <img class="card-img-top" alt="{{ commune.nom }}"
+                src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">
+            </a>
+            <div class="card-body p-3">
+              <small class="text-muted">{{ commune.departement_nom }}</small>
+              <h3 class="h5 card-title mb-0 mr-1">
+                <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-md-4">
+      <aside class="card">
+        <div class="card-header">
+          <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>
+        </div>
+        {# FIXME: list-group class should be needed here but adds a 2px top border on first element #}
+        <div class="list-group-flush" id="home-latest-erps-list">
+          {% for erp in latest %}
+          <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
+            <img alt="" class="mb-1 mr-1"
+              src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+            {{ erp.commune }} {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
+            <br><strong>{{ erp.nom }}</strong>
+          </a>
+          {% endfor %}
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 {% endblock %}
