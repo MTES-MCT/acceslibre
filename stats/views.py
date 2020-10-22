@@ -2,7 +2,7 @@ import datetime
 
 from django.contrib.auth import get_user_model
 from django.db import connection
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.utils import timezone
 from django.views.generic import TemplateView
 
@@ -44,9 +44,20 @@ class StatsView(TemplateView):
     def get_top_contributors(self):
         return (
             get_user_model()
-            .objects.annotate(erp_count=Count("erp", distinct=True))
+            .objects.annotate(
+                erp_count_published=Count(
+                    "erp",
+                    filter=Q(
+                        erp__published=True,
+                        erp__accessibilite__isnull=False,
+                        erp__geom__isnull=False,
+                    ),
+                    distinct=True,
+                ),
+                erp_count_total=Count("erp", distinct=True,),
+            )
             .filter(erp__accessibilite__isnull=False)
-            .order_by("-erp_count")[:10]
+            .order_by("-erp_count_published")[:10]
         )
 
     def get_top_voters(self):

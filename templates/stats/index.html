@@ -159,7 +159,11 @@
         {% for commune in communes %}
           <li>
             <strong><a href="{% url "commune" commune=commune.slug %}">{{ commune.nom }}</a></strong>
-            <small class="text-muted">({{ commune.erp_access_count }} fiche{{ commune.erp_access_count|pluralize:"s" }})</small>
+            <small class="text-muted">
+              {{ commune.erp_access_count }}
+              fiche{{ commune.erp_access_count|pluralize:"s" }}
+              publiée{{ commune.erp_access_count|pluralize:"s" }}
+            </small>
           </li>
         {% endfor %}
         </ol>
@@ -172,7 +176,11 @@
         {% for contributor in top_contributors %}
           <li>
             <strong>{{ contributor.username }}</strong>
-            <small class="text-muted">({{ contributor.erp_count }} fiche{{ contributor.erp_count|pluralize:"s" }})</small>
+            <small class="text-muted">
+              {{ contributor.erp_count_published }}{% if contributor.erp_count_published != contributor.erp_count_total %}/{{ contributor.erp_count_total }}{% endif %}
+              fiche{{ contributor.erp_count_published|pluralize:"s" }}
+              publiée{{ contributor.erp_count_published|pluralize:"s" }}
+            </small>
           </li>
         {% endfor %}
         </ol>
