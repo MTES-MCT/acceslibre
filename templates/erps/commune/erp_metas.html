@@ -1,6 +1,6 @@
 {% load a4a %}
 
-<div class="d-flex justify-content-start align-content-center">
+<small class="d-flex justify-content-start align-content-center">
   {% if erp.user_type == "gestionnaire" %}
     <i aria-hidden="true" class="icon icon-gestionnaire"></i>
   {% elif erp.user_type == "admin" %}
@@ -25,13 +25,13 @@
       et mises à jour le {{ erp.get_global_timestamps.updated_at|date:"j/m/Y" }}
     {% endif %}
   </span>
-</div>
+</small>
 
 {% if not user.is_authenticated %}
-  <div class="d-flex justify-content-start align-content-center">
+  <small class="d-flex justify-content-start align-content-center">
     <i aria-hidden="true" class="icon icon-info-circled"></i>
     <span class="ml-1">
       <a href="{% url "login" %}?next={{ request.path }}">Identifiez-vous</a> pour évaluer ces informations
     </span>
-  </div>
+  </small>
 {% endif %}

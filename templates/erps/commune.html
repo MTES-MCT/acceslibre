@@ -37,7 +37,7 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         <input class="input-group-prepend form-control w-50 rounded-left" name="q" id="q" type="search" data-commune="{{ commune.nom }}"
           data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.geom.coords.1 }}" data-lon="{{ commune.geom.coords.0 }}"
           data-code-insee="{{ commune.code_insee }}" placeholder="Rue, restaurant, café, poste, pharmacie..."
-          value="{{ search_terms|default_if_none:"" }}" aria-label="Rechercher" autocomplete="off">
+          value="{{ search_terms|default_if_none:"" }}" title="Rechercher" autocomplete="off">
         <select class="custom-select" name="scope" aria-label="Étendue de la recherche" title="Étendue de la recherche">
           <option value="city" selected>À {{ commune.nom }}</option>
           <option value="country">France entière</option>
@@ -105,7 +105,7 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         {% for erp in object_list %}
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center a4a-erp-list-item"
           href="{{ erp.get_absolute_url }}">
-          <span class="flex-fill">
+          <div class="flex-fill">
             <h3 class="h6 m-0">
               <img alt="" class="mb-1 mr-1"
                 src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
@@ -117,11 +117,11 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
               {{ erp.voie|default_if_none:"" }}
               {{ erp.lieu_dit|default_if_none:"" }}
             </small>
-          </span>
-          <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+          </div>
+          <div class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
             title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
             <i aria-hidden="true" class="icon icon-target"></i>
-          </button>
+          </div>
         </a>
         {% endfor %}
         {% elif search_terms %}

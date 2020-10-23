@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <nav class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
+    <div class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
       {% for section, info in accessibilite_data.items %}
       <a class="nav-link text-truncate {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
         title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
@@ -17,7 +17,7 @@
         data-toggle="tab"  onclick="location.replace('#history')">
         <i aria-hidden="true" class="icon icon-clock mr-2"></i>Historique
       </a>
-    </nav>
+    </div>
   </div>
   <div class="col-md-8 tab-content">
     {% for section, info in accessibilite_data.items %}

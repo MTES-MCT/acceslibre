@@ -101,26 +101,26 @@
   </header>
 
   {% if accessibilite_data %}
-  <hr noshade="noshade">
+  <hr>
 
   <div class="row d-flex align-items-center">
     <form class="col-xl-6" action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
       <small style="font-size:.9em">Ces informations sont-elles fiables&nbsp;?</small>
       <span class="text-nowrap">
         {% csrf_token %}
-        <button type="submit" name="action" value="UP" title="Oui"
-          class="btn btn-sm btn-light"{% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% endif %}>
+        <button type="submit" name="action" value="UP" class="btn btn-sm btn-light"
+          {% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% else %}title="Oui"{% endif %}>
           <i aria-hidden="true" class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
           <small><span class="sr-only">Votes positifs: </span>{{ erp.count_positives|default_if_none:"0" }}</small>
         </button>
         {% if user.is_authenticated and user_vote and user_vote.value == -1 %}
-        <button type="submit" name="action" value="DOWN" title="Non" class="btn btn-sm btn-light">
+        <button type="submit" name="action" value="DOWN" class="btn btn-sm btn-light" title="Non">
           <i aria-hidden="true" class="icon icon-downvote text-primary"></i>
           <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
         </button>
         {% else %}
-        <button type="button" name="action" value="DOWN" arial-label="Non" title="Non" class="btn btn-sm btn-light"
-          {% if user.is_authenticated %}onclick="$('#vote_comment').toggle();return false"{% else %}disabled title="Vous devez vous connecter pour voter"{% endif %}>
+        <button type="button" name="action" value="DOWN" class="btn btn-sm btn-light"
+          {% if user.is_authenticated %}title="Non" onclick="$('#vote_comment').toggle();return false"{% else %}disabled title="Vous devez vous connecter pour voter"{% endif %}>
           <i aria-hidden="true"
             class="icon icon-downvote{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
           <small><span class="sr-only">Votes négatifs: </span>{{ erp.count_negatives|default_if_none:"0" }}</small>
@@ -137,13 +137,13 @@
         </div>
       </div>
     </form>
-    <small class="col-xl-6 text-muted">
+    <div class="col-xl-6 text-muted">
       {% include "erps/commune/erp_metas.html" %}
-    </small>
+    </div>
   </div>
   {% endif %}
 
-  <hr noshade="noshade">
+  <hr>
 
   {% if accessibilite_data %}
     {% include "erps/commune/accessibilite.html" with erp=erp %}
@@ -166,7 +166,7 @@
   {% endif %}
 </div>
 {% if object_list|length > 1 %}
-<hr noshade="noshade">
+<hr>
 <section class="mt-3">
   <h3 class="h4 mb-3">À proximité <small class="text-muted">(moins de 20 km)</small></h3>
   <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
