@@ -108,7 +108,6 @@ def test_urls_ok(data, url, client):
         reverse("admin:erp_activite_changelist"),
         reverse("admin:erp_commune_changelist"),
         reverse("admin:erp_erp_changelist"),
-        reverse("admin:erp_label_changelist"),
         reverse("admin:erp_statuscheck_changelist"),
         reverse("admin:erp_vote_changelist"),
     ],
@@ -516,14 +515,14 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     response = client.post(
         reverse("contrib_labellisation", kwargs={"erp_slug": erp.slug}),
         data={
-            "labels": [],
+            "labels": ["th"],
             "labels_familles_handicap": ["visuel", "auditif"],
             "labels_autre": "X",
         },
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
-    assert accessibilite.labels.count() == 0
+    assert accessibilite.labels == ["th"]
     assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
     assert accessibilite.labels_autre == "X"
     assert_redirect(response, "/contrib/commentaire/test-erp/")

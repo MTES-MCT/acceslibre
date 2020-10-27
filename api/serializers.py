@@ -7,7 +7,6 @@ from erp.models import (
     Activite,
     Erp,
     Accessibilite,
-    Label,
 )
 
 # Useful docs:
@@ -25,12 +24,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["username"]
 
 
-class LabelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Label
-        fields = ["nom"]
-
-
 class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
     """ This is neat.
     """
@@ -42,7 +35,6 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
     erp = serializers.HyperlinkedRelatedField(
         lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
     )
-    labels = serializers.SlugRelatedField(slug_field="nom", many=True, read_only=True)
 
     def to_representation(self, instance):
         request = self.context.get("request")

@@ -59,6 +59,15 @@ HANDICAP_CHOICES = [
     (HANDICAP_VISUEL, "Visuel"),
 ]
 
+LABEL_AUTRE = "autre"
+LABEL_DPT = "dpt"
+LABEL_TH = "th"
+LABEL_CHOICES = [
+    (LABEL_AUTRE, "Autre"),
+    (LABEL_DPT, "Destination pour Tous"),
+    (LABEL_TH, "Tourisme & Handicap"),
+]
+
 PENTE_AUCUNE = "aucune"
 PENTE_LEGERE = "légère"
 PENTE_IMPORTANTE = "importante"

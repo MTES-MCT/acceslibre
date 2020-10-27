@@ -66,12 +66,12 @@
       </div>
     </div>
     <div class="a4a-accessibility-group d-flex justify-content-end align-center">
-      {% for label in erp.accessibilite.labels.all %}
-      {% if label.nom != "Aucun" and label.nom != "Autre" %}
+      {% for label in erp.accessibilite.labels %}
+      {% if label != "autre" %}
       <div class="a4a-accessibility-label">
-        <img class="a4a-accessibility-label-logo" src="{% static label.get_static_image %}"
-          alt="{{ label.nom }}" title="Cet établissement a obtenu le label {{ label.nom }}"
-          aria-label="Cet établissement a obtenu le label {{ label.nom }}" />
+        <img class="a4a-accessibility-label-logo" src="{% get_static_prefix %}img/labels/{{ label }}.jpg"
+          alt="{{ label }}" title="Cet établissement est labellisé {{ label }}"
+          aria-label="Cet établissement est labellisé {{ label }}" />
         <div class="text-center">
           {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
           <span title="Handicap auditif">
