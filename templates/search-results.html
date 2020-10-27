@@ -3,7 +3,7 @@
 
 <section class="pt-2" id="results">
   <h2 class="h4 mb-3">
-    Établissements {% if localize == "1" %}proches de moi{% endif %}
+    Établissements {% if localize == "1" %}proches de vous{% endif %}
     <small class="text-muted"> correspondant à votre recherche</small>
   </h2>
   <div class="row row-cols-1 row-cols-md-2">
@@ -26,7 +26,11 @@
             <em>
               <small class="text-muted">
                 {{ erp.short_adresse }} {{ erp.code_postal }}
+                {% if erp.commune_ext %}
                 <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
+                {% else %}
+                {{ erp.commune }}
+                {% endif %}
               </small>
             </em>
           </address>
