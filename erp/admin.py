@@ -1,7 +1,6 @@
 import nested_admin
 
 from django import forms
-from django_admin_listfilter_dropdown.filters import RelatedDropdownFilter
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
@@ -356,7 +355,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         "user_type",
         CommuneFilter,
         "source",
-        ("activite", RelatedDropdownFilter),
         ErpOnlineFilter,
         "published",
         ErpRenseigneFilter,
