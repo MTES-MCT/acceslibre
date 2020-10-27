@@ -69,9 +69,10 @@
       {% for label in erp.accessibilite.labels %}
       {% if label != "autre" %}
       <div class="a4a-accessibility-label">
-        <img class="a4a-accessibility-label-logo" src="{% get_static_prefix %}img/labels/{{ label }}.jpg"
-          alt="{{ label }}" title="Cet établissement est labellisé {{ label }}"
-          aria-label="Cet établissement est labellisé {{ label }}" />
+        <img class="a4a-accessibility-label-logo"
+          src="{% with "img/labels/"|add:label|add:".jpg" as label_img %}{% static label_img %}{% endwith %}"
+          alt="{{ label|get_label_name }}" title="Cet établissement est labellisé {{ label|get_label_name }}"
+          aria-label="Cet établissement est labellisé {{ label|get_label_name }}" />
         <div class="text-center">
           {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
           <span title="Handicap auditif">
