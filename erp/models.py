@@ -268,6 +268,7 @@ class Erp(models.Model):
     SOURCE_PUBLIC = "public"
     SOURCE_PUBLIC_ERP = "public_erp"
     SOURCE_SIRENE = "sirene"
+    SOURCE_TH = "tourisme-handicap"
     SOURCE_CHOICES = (
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
@@ -276,6 +277,7 @@ class Erp(models.Model):
         (SOURCE_PUBLIC, "Saisie manuelle publique"),
         (SOURCE_PUBLIC_ERP, "API des établissements publics"),
         (SOURCE_SIRENE, "API Sirene INSEE"),
+        (SOURCE_TH, "Tourisme & Handicap"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
