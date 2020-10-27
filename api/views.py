@@ -124,7 +124,6 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = (
         Accessibilite.objects.select_related("erp")
-        .prefetch_related("labels")
         .filter(erp__published=True)
         .order_by("-updated_at")
     )

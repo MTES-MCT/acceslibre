@@ -29,7 +29,6 @@ from .models import (
     Activite,
     Commune,
     Erp,
-    Label,
     StatusCheck,
     Vote,
 )
@@ -203,29 +202,10 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     voir_les_erps.short_description = "Action"
 
 
-@admin.register(Label)
-class LabelAdmin(admin.ModelAdmin):
-    list_display = ("nom", "created_at", "updated_at")
-    list_display_links = ("nom",)
-    ordering = ("nom",)
-    search_fields = ("nom",)
-
-
 class AccessibiliteInline(nested_admin.NestedStackedInline):
     model = Accessibilite
     form = AdminAccessibiliteForm
-    autocomplete_fields = ["labels"]
     fieldsets = schema.get_admin_fieldsets()
-
-    def get_formset(self, request, obj=None, **kwargs):
-        # see https://stackoverflow.com/a/37558444/330911
-        formset = super(AccessibiliteInline, self).get_formset(request, obj, **kwargs)
-        form = formset.form
-        if "labels" in form.base_fields:
-            form.base_fields["labels"].widget.can_add_related = False
-            form.base_fields["labels"].widget.can_change_related = False
-            form.base_fields["labels"].widget.can_delete_related = False
-        return formset
 
 
 class CommuneFilter(admin.SimpleListFilter):

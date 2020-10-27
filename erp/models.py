@@ -191,37 +191,6 @@ class Commune(models.Model):
         )
 
 
-class Label(models.Model):
-    class Meta:
-        ordering = ("nom",)
-        verbose_name = "Label d'accessibilité"
-        verbose_name_plural = "Labels d'accessibilité"
-        indexes = [
-            models.Index(fields=["slug"]),
-        ]
-
-    nom = models.CharField(max_length=255, unique=True, help_text="Nom du label")
-    slug = AutoSlugField(
-        default="",
-        unique=True,
-        populate_from="nom",
-        help_text="Identifiant d'URL (slug)",
-    )
-    # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
-
-    def __str__(self):
-        return self.nom
-
-    def get_static_image(self):
-        return f"img/labels/{self.slug}.jpg"
-
-
 class Vote(models.Model):
     class Meta:
         indexes = [
@@ -1043,8 +1012,12 @@ class Accessibilite(models.Model):
     ##########
     # labels #
     ##########
-    labels = models.ManyToManyField(
-        Label, blank=True, verbose_name="Marques ou labels",
+    labels = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.LABEL_CHOICES),
+        verbose_name="Marques ou labels",
+        default=list,
+        null=True,
+        blank=True,
     )
     labels_familles_handicap = ArrayField(
         models.CharField(max_length=255, blank=True, choices=schema.HANDICAP_CHOICES),

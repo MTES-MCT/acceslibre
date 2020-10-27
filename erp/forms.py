@@ -21,7 +21,6 @@ from .models import (
     Accessibilite,
     Commune,
     Erp,
-    Label,
 )
 
 
@@ -78,12 +77,13 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label="Famille(s) de handicap concernées(s)",  # FIXME: use get_label
         help_text=schema.get_help_text("labels_familles_handicap"),
     )
-    labels = forms.ModelMultipleChoiceField(
-        label="Labels d'accessibilité",
-        help_text=schema.get_help_text("labels"),
-        queryset=Label.objects,
-        widget=forms.CheckboxSelectMultiple,
+    labels = forms.MultipleChoiceField(
         required=False,
+        choices=schema.LABEL_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
+        label="Marques et labels",  # FIXME: use get_label
+        help_text=schema.get_help_text("labels"),
     )
 
     class Meta:
