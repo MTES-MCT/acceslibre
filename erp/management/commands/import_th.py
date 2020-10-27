@@ -3,19 +3,42 @@ import os
 import sys
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand
+from django.core.validators import URLValidator
+from django.db.models import Q
 
 from erp.geocoder import geocode
-from erp.models import Activite, Commune, Erp
+from erp.models import Accessibilite, Activite, Commune, Erp, Label
 from erp.provider import sirene
 
 VALEURS_VIDES = ["-", "https://", "http://"]
 
 ACTIVITES_MAP = {
+    "Café, bar, brasserie": "Café, bar, brasserie",
+    "Camping": "Camping caravaning",
+    "Chambre d'hôtes": "Chambres d'hôtes",
+    "Etablissement de loisir": "Centre de loisirs",
+    "Hébergement collectif": "Hôtel",
+    "Hébergement insolite": "Hôtel",
     "Hébergement": "Hôtel",
+    "Hôtel": "Hôtel",
     "Information Touristique": "Information Touristique",
+    "Lieu de visite": "Lieu de visite",
+    "Loisir éducatif": "Sports et loisirs",
     "Loisir": "Centre de loisirs",
+    "Meublé de tourisme": "Chambres d'hôtes",
+    "Office de tourisme": "Office du tourisme",
+    "Parc à thème": "Parc d’attraction",
+    "Parc de loisir": "Centre de loisirs",
+    "Piscine": "Piscine",
+    "Résidence de tourisme": "Hôtel",
+    "Restaurant": "Restaurant",
     "Restauration": "Restaurant",
+    "Sport de nature": "Sports et loisirs",
+    "Village de vacances": "Centre de vacances",
+    "Visite d'entreprise": "Lieu de visite",
+    "Visite guidée": "Lieu de visite",
 }
 
 FIELDS = {
@@ -54,25 +77,40 @@ class Command(BaseCommand):
         if siret:
             return siret
 
+    def validate_site_internet(self, site_internet):
+        if not site_internet:
+            return
+        validate = URLValidator()
+        try:
+            validate(clean(site_internet))
+            return site_internet
+        except ValidationError:
+            return None
+
+    def get_familles(self, source):
+        if not source:
+            return None
+        return source.split(";")
+
     def map_row(self, row):
         mapped = {}
         for orig_key, target_key in FIELDS.items():
-            mapped[target_key] = row.get(orig_key)
+            mapped[target_key] = row.get(orig_key).strip()
         return mapped
 
     def find_activite(self, row):
         # Activité
         found_activite = None
-        th_activite = row.get("activite")
-        if th_activite:
-            pass
-
-        # XXX find activite
+        th_activites = row.get("activite", "").split(";")
+        if len(th_activites) > 0:
+            th_activite = th_activites[0].strip()
+            if th_activite:
+                found_activite = self.activites.get(th_activite)
 
         if found_activite:
             return found_activite
 
-        # Fallback to filiere
+        # Fallback to filière
         filiere = row.get("filiere")
         if not filiere:
             return None
@@ -83,7 +121,8 @@ class Command(BaseCommand):
 
     def prepare_fields(self, row):
         row = self.map_row(row)
-        if not row:
+        siret = self.handle_siret(row["siret"])
+        if not row or not siret or not row.get("adresse") or not row.get("code_postal"):
             return
 
         try:
@@ -99,21 +138,27 @@ class Command(BaseCommand):
 
         activite = self.find_activite(row)
 
+        commune_ext = (
+            Commune.objects.filter(code_insee=code_insee).first()
+            if code_insee
+            else None
+        )
+
         return {
+            "source": Erp.SOURCE_TH,
+            "source_id": f"th-{siret}",
             "nom": clean(row["nom"]).replace('"', ""),
-            "siret": self.handle_siret(row["siret"]),
+            "siret": siret,
             "numero": geo_info.get("numero"),
             "voie": geo_info.get("voie"),
             "lieu_dit": geo_info.get("lieu_dit"),
             "code_postal": geo_info.get("code_postal"),
             "commune": geo_info.get("commune"),
             "code_insee": geo_info.get("code_insee"),
-            "site_internet": clean(row.get("site_internet")) or None,
+            "site_internet": self.validate_site_internet(row.get("site_internet")),
             "telephone": clean(row.get("telephone")) or None,
             "geom": geo_info.get("geom"),
-            "commune_ext": Commune.objects.get(code_insee=code_insee)
-            if code_insee
-            else None,
+            "commune_ext": commune_ext,
             "activite": activite,
         }
 
@@ -121,7 +166,8 @@ class Command(BaseCommand):
         # check doublons
         try:
             Erp.objects.get(
-                nom=fields["nom"], voie=fields["voie"], commune=fields["commune"],
+                Q(siret=fields["siret"])
+                | Q(nom=fields["nom"], voie=fields["voie"], commune=fields["commune"]),
             )
             print(f"EXIST {fields['nom']} {fields['voie']} {fields['commune']}")
             return True
@@ -136,10 +182,14 @@ class Command(BaseCommand):
         if not fields or self.check_existing(fields):
             return
 
-        print(fields)
-        return
+        familles_handicaps = self.get_familles(row.get("handicaps"))
 
-        erp = Erp(**fields)
+        # FIXME: migrate labels to be an array field (same one as for families)
+        accessibilite = Accessibilite(labels_familles_handicap=familles_handicaps)
+        accessibilite.labels.set([self.label])
+
+        erp = Erp(accessibilite=accessibilite, **fields,)
+
         if erp.activite is not None:
             act = f"\n    {erp.activite.nom}"
         else:
@@ -149,25 +199,34 @@ class Command(BaseCommand):
         return erp
 
     def handle(self, *args, **options):
-        csv_path = os.path.join(settings.BASE_DIR, "data", "th-20200505.csv")
-        self.stdout.write(f"Importation des ERP depuis {csv_path}")
-        to_import = []
+        try:
+            csv_path = os.path.join(settings.BASE_DIR, "data", "th-20200505.csv")
+            self.stdout.write(f"Importation des ERP depuis {csv_path}")
+            to_import = []
 
-        self.activites = dict(
-            [(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP.items()]
-        )
+            self.label = Label.objects.get(nom="Tourisme & Handicap")
+            self.activites = dict(
+                [
+                    (key, Activite.objects.get(nom=val))
+                    for key, val in ACTIVITES_MAP.items()
+                ]
+            )
 
-        with open(csv_path, "r") as file:
-            reader = csv.DictReader(file)
-            try:
-                for row in reader:
-                    erp = self.import_row(row)
-                    if erp is not None:
-                        to_import.append(erp)
-            except csv.Error as err:
-                sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
-        if len(to_import) == 0:
-            print("Rien à importer.")
-            exit(0)
-        # Erp.objects.bulk_create(to_import)
-        print("Importation effectuée.")
+            with open(csv_path, "r") as file:
+                reader = csv.DictReader(file)
+                try:
+                    for row in reader:
+                        erp = self.import_row(row)
+                        if erp is not None:
+                            to_import.append(erp)
+                except csv.Error as err:
+                    sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
+            if len(to_import) == 0:
+                print("Rien à importer.")
+                exit(0)
+            else:
+                print(f"Importing {len(to_import)} erps")
+            # Erp.objects.bulk_create(to_import)
+            print("Importation effectuée.")
+        except KeyboardInterrupt:
+            print("\nInterrompu.")
