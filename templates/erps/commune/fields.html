@@ -1,4 +1,5 @@
 {% load a4a %}
+{% load static %}
 
 {% if fields %}
 <ul class="list-group list-group-flush">
@@ -27,16 +28,49 @@
     </div>
     <span class="a4a-badge-group pl-2 text-right">
       {% if field.name == "accueil_equipements_malentendants" %}
-      {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
-      {% if equipement == "aucun" %}
-      <span class="badge a4a-badge">Aucun</span>
-      {% else %}
-      <span class="badge badge-success a4a-badge mb-1" title="{{ equipement|get_equipement_description }}" style="cursor:help">
-        <i aria-hidden="true" class="icon icon-check"></i>
-        {{ equipement|get_equipement_label }}
-      </span><br>
-      {% endif %}
-      {% endfor %}
+        {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
+        {% if equipement == "aucun" %}
+        <span class="badge a4a-badge">Aucun</span>
+        {% else %}
+        <span class="badge badge-success a4a-badge mb-1" title="{{ equipement|get_equipement_description }}" style="cursor:help">
+          <i aria-hidden="true" class="icon icon-check"></i>
+          {{ equipement|get_equipement_label }}
+        </span><br>
+        {% endif %}
+        {% endfor %}
+      {% elif field.name == "labels" %}
+        {% for label in erp.accessibilite.labels %}
+        {% if label == "aucun" %}
+        <span class="badge a4a-badge">Aucun</span>
+        {% else %}
+        <span class="badge badge-success a4a-badge mb-1">
+          <i aria-hidden="true" class="icon icon-check"></i>
+          {{ label|get_label_name }}
+        </span><br>
+        {% endif %}
+        {% endfor %}
+      {% elif field.name == "labels_familles_handicap" %}
+        {% for famille in erp.accessibilite.labels_familles_handicap %}
+        <span class="badge badge-light a4a-badge mb-1">
+          {% if famille == "auditif" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/auditif.svg" %}" alt="Handicap auditif">
+          {% endif %}
+          {% if famille == "mental" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/mental.svg" %}" alt="Handicap mental">
+          {% endif %}
+          {% if famille == "moteur" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/moteur.svg" %}" alt="Handicap moteur">
+          {% endif %}
+          {% if famille == "visuel" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/visuel.svg" %}" alt="Handicap visuel">
+          {% endif %}
+          {{ famille.title }}
+        </span><br>
+        {% endfor %}
+      {% elif field.name == "labels_autre" %}
+        <span class="badge badge-success a4a-badge pb-2 mb-1">
+          {{ field.value }}
+        </span>
       {% else %}
       <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
         {% if field.warning is False %}

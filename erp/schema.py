@@ -149,8 +149,8 @@ SECTIONS = {
         "edit_route": "contrib_sanitaires",
     },
     SECTION_LABELS: {
-        "icon": "tag",
-        "label": "Marques ou labels d'accessibilité",
+        "icon": "trophy",
+        "label": "Marques ou labels",
         "description": "Marques ou labels d'accessibilité",
         "edit_route": "contrib_labellisation",
     },
