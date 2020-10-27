@@ -72,26 +72,26 @@
         <img class="a4a-accessibility-label-logo"
           src="{% with "img/labels/"|add:label|add:".jpg" as label_img %}{% static label_img %}{% endwith %}"
           alt="{{ label|get_label_name }}" title="Cet établissement est labellisé {{ label|get_label_name }}"
-          aria-label="Cet établissement est labellisé {{ label|get_label_name }}" />
+          aria-label="Cet établissement est labellisé {{ label|get_label_name }}">
         <div class="text-center">
           {% if "auditif" in erp.accessibilite.labels_familles_handicap %}
           <span title="Handicap auditif">
-            <img class="a4a-handicap-icon" src="{% static "img/handicap/auditif.svg" %}" alt="Handicap auditif" />
+            <img class="a4a-handicap-icon" src="{% static "img/handicap/auditif.svg" %}" alt="Handicap auditif">
           </span>
           {% endif %}
           {% if "mental" in erp.accessibilite.labels_familles_handicap %}
           <span title="Handicap mental">
-            <img class="a4a-handicap-icon" src="{% static "img/handicap/mental.svg" %}" alt="Handicap mental" />
+            <img class="a4a-handicap-icon" src="{% static "img/handicap/mental.svg" %}" alt="Handicap mental">
           </span>
           {% endif %}
           {% if "moteur" in erp.accessibilite.labels_familles_handicap %}
           <span title="Handicap moteur">
-            <img class="a4a-handicap-icon" src="{% static "img/handicap/moteur.svg" %}" alt="Handicap moteur" />
+            <img class="a4a-handicap-icon" src="{% static "img/handicap/moteur.svg" %}" alt="Handicap moteur">
           </span>
           {% endif %}
           {% if "visuel" in erp.accessibilite.labels_familles_handicap %}
           <span title="Handicap visuel">
-            <img class="a4a-handicap-icon" src="{% static "img/handicap/visuel.svg" %}" alt="Handicap visuel" />
+            <img class="a4a-handicap-icon" src="{% static "img/handicap/visuel.svg" %}" alt="Handicap visuel">
           </span>
           {% endif %}
         </div>
