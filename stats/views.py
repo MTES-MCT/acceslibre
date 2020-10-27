@@ -89,7 +89,7 @@ class StatsView(TemplateView):
             from
                 erp_vote,
                 generate_series(current_date - interval '30 day', current_date, interval '1 day') as date
-            where erp_vote.created_at <= date
+            where erp_vote.created_at <= date + interval '1 day'
             group by date
             order by date ASC;
             """
@@ -106,7 +106,7 @@ class StatsView(TemplateView):
             select
                 date,
                 count(a.id) filter (
-                    where e.created_at <= date
+                    where e.created_at <= date + interval '1 day'
                     and e.geom is not null
                     and e.published
                 ) as total
@@ -131,7 +131,7 @@ class StatsView(TemplateView):
             select
                 date,
                 count(distinct e.user_id) filter (
-                    where e.created_at <= date
+                    where e.created_at <= date + interval '1 day'
                 ) as total
             from
                 generate_series(current_date - interval '30 day', current_date, interval '1 day') as date

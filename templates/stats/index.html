@@ -56,17 +56,17 @@
           labels: {{ votes_histogram.labels|safe }},
           datasets: [
             {
-              label: "Ensemble des évaluations",
-              data: {{ votes_histogram.totals|escapejs }},
-              fill: false,
-              borderColor: "#075ea2",
-              lineTension: 0.1
-            },
-            {
               label: "Évaluations positives",
               data: {{ votes_histogram.positives|escapejs }},
               fill: false,
               borderColor: "#167d2e",
+              lineTension: 0.1
+            },
+            {
+              label: "Ensemble des évaluations",
+              data: {{ votes_histogram.totals|escapejs }},
+              fill: false,
+              borderColor: "#075ea2",
               lineTension: 0.1
             }
           ]
