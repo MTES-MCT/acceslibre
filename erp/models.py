@@ -1100,15 +1100,10 @@ class Accessibilite(models.Model):
         return any(getattr(f) is not None for f in fields)
 
     def has_data(self):
-        # IDEA: count the number of filled fields to provide more validation
+        # count the number of filled fields to provide more validation
         for field_name in schema.get_a11y_fields():
             if hasattr(self, field_name):
                 field_value = getattr(self, field_name)
-                # This is the "simplest" way I've found for checking if a field is a
-                # relation...
-                if field_value.__class__.__name__ == "ManyRelatedManager":
-                    if field_value.count() > 0:
-                        return True
-                elif field_value not in [None, "", []]:
+                if field_value not in [None, "", []]:
                     return True
         return False

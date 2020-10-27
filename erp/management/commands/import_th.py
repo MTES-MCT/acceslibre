@@ -6,10 +6,12 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand
 from django.core.validators import URLValidator
+from django.db import transaction, IntegrityError
 from django.db.models import Q
+from django.utils.text import slugify
 
 from erp.geocoder import geocode
-from erp.models import Accessibilite, Activite, Commune, Erp, Label
+from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import sirene
 
 VALEURS_VIDES = ["-", "https://", "http://"]
@@ -17,17 +19,18 @@ VALEURS_VIDES = ["-", "https://", "http://"]
 ACTIVITES_MAP = {
     "Café, bar, brasserie": "Café, bar, brasserie",
     "Camping": "Camping caravaning",
-    "Chambre d'hôtes": "Chambres d'hôtes",
+    "Chambre d'hôtes": "Pension, gîte, chambres d'hôtes",
     "Etablissement de loisir": "Centre de loisirs",
     "Hébergement collectif": "Hôtel",
     "Hébergement insolite": "Hôtel",
     "Hébergement": "Hôtel",
     "Hôtel": "Hôtel",
     "Information Touristique": "Information Touristique",
+    "Information touristique": "Information Touristique",
     "Lieu de visite": "Lieu de visite",
     "Loisir éducatif": "Sports et loisirs",
     "Loisir": "Centre de loisirs",
-    "Meublé de tourisme": "Chambres d'hôtes",
+    "Meublé de tourisme": "Pension, gîte, chambres d'hôtes",
     "Office de tourisme": "Office du tourisme",
     "Parc à thème": "Parc d’attraction",
     "Parc de loisir": "Centre de loisirs",
@@ -36,9 +39,27 @@ ACTIVITES_MAP = {
     "Restaurant": "Restaurant",
     "Restauration": "Restaurant",
     "Sport de nature": "Sports et loisirs",
+    "Sortie nature": "Lieu de visite",
     "Village de vacances": "Centre de vacances",
     "Visite d'entreprise": "Lieu de visite",
     "Visite guidée": "Lieu de visite",
+}
+
+ACTIVITES_MAP_SEARCH = {
+    "bibliotheque": "Bibliothèque médiathèque",
+    "camping": "Camping caravaning",
+    "chambre": "Pension, gîte, chambres d'hôtes",
+    "chambres": "Pension, gîte, chambres d'hôtes",
+    "gite": "Pension, gîte, chambres d'hôtes",
+    "gites": "Pension, gîte, chambres d'hôtes",
+    "hotel": "Hôtel",
+    "mediatheque": "Bibliothèque médiathèque",
+    "meuble": "Pension, gîte, chambres d'hôtes",
+    "meubles": "Pension, gîte, chambres d'hôtes",
+    "musee": "Musée",
+    "musees": "Musée",
+    "piscine": "Piscine",
+    "restaurant": "Restaurant",
 }
 
 FIELDS = {
@@ -53,6 +74,18 @@ FIELDS = {
     "HANDICAPS": "handicaps",
     "SIRET": "siret",
 }
+
+
+class IncompleteError(Exception):
+    pass
+
+
+class GeoError(Exception):
+    pass
+
+
+class ExistError(Exception):
+    pass
 
 
 def clean(string):
@@ -99,40 +132,48 @@ class Command(BaseCommand):
         return mapped
 
     def find_activite(self, row):
-        # Activité
-        found_activite = None
+        # Présence de termes équivoques dans le nom
+        for search, activite in ACTIVITES_MAP_SEARCH.items():
+            if search in slugify(row["nom"]).split("-"):
+                return Activite.objects.get(nom=activite)
+
+        # Activité du CSV
         th_activites = row.get("activite", "").split(";")
         if len(th_activites) > 0:
             th_activite = th_activites[0].strip()
             if th_activite:
-                found_activite = self.activites.get(th_activite)
+                return self.activites.get(th_activite)
 
-        if found_activite:
-            return found_activite
-
-        # Fallback to filière
+        # Fallback filière dans le CSV
         filiere = row.get("filiere")
+        print(filiere)
         if not filiere:
             return None
         filieres = filiere.split(";")
         if len(filieres) == 0:
-            return
+            return None
         return self.activites.get(filieres[0])
+
+    def compute_source_id(self, fields):
+        parts = [fields["nom"], fields["voie"], fields["code_postal"]]
+        parts = map(lambda x: slugify(x), parts)
+        return "-".join(parts)
 
     def prepare_fields(self, row):
         row = self.map_row(row)
         siret = self.handle_siret(row["siret"])
-        if not row or not siret or not row.get("adresse") or not row.get("code_postal"):
-            return
+        if not row or not row.get("adresse") or not row.get("code_postal"):
+            raise IncompleteError(f"Données manquantes: {row}")
 
         try:
             geo_info = geocode(row["adresse"], postcode=row["code_postal"])
         except RuntimeError as err:
-            print(f"SKIP: {err}")
-            return
+            raise GeoError(
+                f"Impossible de localiser cette adresse: {row.get('adresse')}: {err}"
+            )
 
         if not geo_info:
-            return
+            raise GeoError("Données de géolocalisation manquantes ou insatisfaisantes.")
 
         code_insee = geo_info.get("code_insee")
 
@@ -144,9 +185,9 @@ class Command(BaseCommand):
             else None
         )
 
-        return {
+        fields = {
+            "published": True,
             "source": Erp.SOURCE_TH,
-            "source_id": f"th-{siret}",
             "nom": clean(row["nom"]).replace('"', ""),
             "siret": siret,
             "numero": geo_info.get("numero"),
@@ -161,72 +202,89 @@ class Command(BaseCommand):
             "commune_ext": commune_ext,
             "activite": activite,
         }
+        fields["source_id"] = self.compute_source_id(fields)
+        return fields
 
     def check_existing(self, fields):
         # check doublons
-        try:
-            Erp.objects.get(
-                Q(siret=fields["siret"])
-                | Q(nom=fields["nom"], voie=fields["voie"], commune=fields["commune"]),
-            )
-            print(f"EXIST {fields['nom']} {fields['voie']} {fields['commune']}")
-            return True
-        except Erp.MultipleObjectsReturned:
-            # des doublons existent déjà malheureusement :(
-            return True
-        except Erp.DoesNotExist:
-            return False
+        erpstr = f"{fields['nom']} {fields['voie']} {fields['commune']}"
+        count = Erp.objects.filter(
+            Q(source=Erp.SOURCE_TH, source_id=fields["source_id"])
+            | Q(nom=fields["nom"], voie=fields["voie"], commune=fields["commune"])
+        ).count()
+        if count > 0:
+            raise ExistError(f"Existe dans la base: {erpstr}")
 
     def import_row(self, row, **kwargs):
+        familles_handicaps = self.get_familles(row.get("HANDICAPS"))
         fields = self.prepare_fields(row)
         if not fields or self.check_existing(fields):
             return
 
-        familles_handicaps = self.get_familles(row.get("handicaps"))
+        erp = Erp(**fields)
+        erp.save()
 
-        # FIXME: migrate labels to be an array field (same one as for families)
-        accessibilite = Accessibilite(labels_familles_handicap=familles_handicaps)
-        accessibilite.labels.set([self.label])
-
-        erp = Erp(accessibilite=accessibilite, **fields,)
+        accessibilite = Accessibilite(
+            erp=erp,
+            labels=["th"],
+            labels_familles_handicap=familles_handicaps,
+            commentaire="Ces informations ont été importées depuis data.gouv.fr: https://www.data.gouv.fr/en/datasets/marque-detat-tourisme-handicap/",
+        )
+        accessibilite.save()
 
         if erp.activite is not None:
             act = f"\n    {erp.activite.nom}"
         else:
             act = ""
 
-        print(f"ADD {erp.nom}{act}\n    {erp.adresse}")
+        print(f"ADD {erp.nom}{act} - {erp.adresse}")
         return erp
 
-    def handle(self, *args, **options):
+    def handle(self, *args, **options):  # noqa
+        report = {
+            "imported": 0,
+            "geo_errors": 0,
+            "exists": 0,
+            "incompletes": 0,
+        }
+
+        self.activites = dict(
+            [(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP.items()]
+        )
+        self.activites_search = dict(
+            [
+                (key, Activite.objects.get(nom=val))
+                for key, val in ACTIVITES_MAP_SEARCH.items()
+            ]
+        )
+
         try:
-            csv_path = os.path.join(settings.BASE_DIR, "data", "th-20200505.csv")
-            self.stdout.write(f"Importation des ERP depuis {csv_path}")
-            to_import = []
+            with transaction.atomic():
+                csv_path = os.path.join(settings.BASE_DIR, "data", "th-20200505.csv")
+                self.stdout.write(f"Importation des ERP depuis {csv_path}")
 
-            self.label = Label.objects.get(nom="Tourisme & Handicap")
-            self.activites = dict(
-                [
-                    (key, Activite.objects.get(nom=val))
-                    for key, val in ACTIVITES_MAP.items()
-                ]
-            )
-
-            with open(csv_path, "r") as file:
-                reader = csv.DictReader(file)
-                try:
-                    for row in reader:
-                        erp = self.import_row(row)
-                        if erp is not None:
-                            to_import.append(erp)
-                except csv.Error as err:
-                    sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
-            if len(to_import) == 0:
-                print("Rien à importer.")
-                exit(0)
-            else:
-                print(f"Importing {len(to_import)} erps")
-            # Erp.objects.bulk_create(to_import)
-            print("Importation effectuée.")
+                with open(csv_path, "r") as file:
+                    reader = csv.DictReader(file)
+                    try:
+                        for row in reader:
+                            try:
+                                self.import_row(row)
+                                report["imported"] += 1
+                            except GeoError:
+                                report["geo_errors"] += 1
+                            except ExistError:
+                                report["exists"] += 1
+                            except IncompleteError:
+                                report["incompletes"] += 1
+                    except csv.Error as err:
+                        sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
+                print(f"{report['imported']} erps importés.")
+                print(f"{report['geo_errors']} erreurs de géolocalisation.")
+                print(f"{report['exists']} erps déjà existants.")
+                print(f"{report['incompletes']} erps incomplets.")
         except KeyboardInterrupt:
             print("\nInterrompu.")
+        except IntegrityError as err:
+            print(f"Erreurs d'intégrité rencontré : {err}")
+        except Exception as err:
+            print(f"Erreurs rencontrées, aucune donnée importée: {err}")
