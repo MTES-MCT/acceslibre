@@ -95,6 +95,10 @@ $viewport-xl: 1200px;
     font-weight: 400;
   }
 
+  &-text-smaller {
+    font-size: 0.9em;
+  }
+
   hr[noshade] {
     border-top: 1px solid #ddd;
     margin: .5em 0;

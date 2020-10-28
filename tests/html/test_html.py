@@ -91,5 +91,9 @@ def test_editorial_cgu(data, client):
     validate_url_get(client, reverse("cgu"))
 
 
+def test_editorial_partenaires(data, client):
+    validate_url_get(client, reverse("partenaires"))
+
+
 def test_login(data, client):
     validate_url_get(client, reverse("login"))

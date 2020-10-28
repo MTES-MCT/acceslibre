@@ -39,6 +39,9 @@ urlpatterns = [
         editorial_page("editorial/accessibilite.html"),
         name="accessibilite",
     ),
+    path(
+        "partenaires", editorial_page("editorial/partenaires.html"), name="partenaires",
+    ),
     ############################################################################
     # HTML app
     ############################################################################

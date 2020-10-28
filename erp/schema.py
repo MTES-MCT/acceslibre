@@ -61,10 +61,12 @@ HANDICAP_CHOICES = [
 
 LABEL_AUTRE = "autre"
 LABEL_DPT = "dpt"
+LABEL_MOBALIB = "mobalib"
 LABEL_TH = "th"
 LABEL_CHOICES = [
     (LABEL_AUTRE, "Autre"),
     (LABEL_DPT, "Destination pour Tous"),
+    (LABEL_MOBALIB, "Mobalib"),
     (LABEL_TH, "Tourisme & Handicap"),
 ]
 

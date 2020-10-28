@@ -66,6 +66,7 @@ def test_home_localized(data, client):
         reverse("accessibilite"),
         reverse("autocomplete"),
         reverse("cgu"),
+        reverse("partenaires"),
         reverse("contact_form"),
         # Auth
         reverse("login"),
