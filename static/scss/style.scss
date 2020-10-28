@@ -51,21 +51,54 @@ $viewport-xl: 1200px;
   &-notifications {
     position: fixed;
     bottom: 0;
-    right: 0;
-    padding: 10px;
+    right: 10px;
+    padding: 0;
     z-index: 9999;
 
     @media screen and (max-width: $viewport-md) {
       left: 0;
+      right: 0;
     }
 
     &-item {
       min-width: 320px;
       max-width: 600px;
+      animation: fadeInOut 6s;
+      animation-fill-mode: forwards;
+      opacity: 1;
+      margin: 10px;
+      right: 0;
+      height: auto;
 
       @media screen and (max-width: $viewport-md) {
-        width: 100%;
-        max-width: 100%;
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+      }
+
+      @keyframes fadeInOut {
+        0% {
+          height: auto;
+          opacity: 0;
+          right: 0;
+        }
+        5% {
+          height: auto;
+          opacity: 1;
+          right: 0;
+        }
+        90% {
+          height: auto;
+          opacity: 1;
+          right: 0;
+        }
+        100% {
+          height: 0px;
+          opacity: 0;
+          right: -1000px;
+          z-index: -1;
+        }
       }
     }
   }
