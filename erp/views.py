@@ -433,7 +433,6 @@ def contrib_start(request):
             "results": results,
             "entreprise_form": entreprise_form,
             "public_erp_form": public_erp_form,
-            "public_erp_types": public_erp.TYPES,
         },
     )
 
@@ -480,7 +479,6 @@ def contrib_search_public(request):
             "form": form,
             "form_type": "public_erp",
             "error": error,
-            "public_erp_types": public_erp.TYPES,
         },
     )
 
