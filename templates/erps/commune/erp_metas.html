@@ -11,7 +11,7 @@
   <span class="ml-1">
     Informations initialement fournies
     {% if erp.user %}
-      par <strong>{{ erp.user.username|safe_username }}</strong>
+      <strong>{{ erp.user.username|format_username }}</strong>
     {% endif %}
     le {{ erp.get_global_timestamps.created_at|date:"j/m/Y" }}
     {% if erp.user_type == "gestionnaire" %}

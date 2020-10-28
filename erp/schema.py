@@ -103,6 +103,8 @@ RAMPE_CHOICES = [
 
 REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
 
+PARTENAIRES = {"MOBALIB": {"avatar": "mobalib_avatar.jpg"}}
+
 SECTION_TRANSPORT = "transport"
 SECTION_STATIONNEMENT = "stationnement"
 SECTION_CHEMINEMENT_EXT = "cheminement_ext"

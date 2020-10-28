@@ -1,9 +1,11 @@
 import json
 
+from urllib.parse import quote
+
 from django import template
 from django.conf import settings
+from django.urls import reverse
 from django.utils.safestring import mark_safe
-from urllib.parse import quote
 
 from erp import schema
 from erp import serializers
@@ -66,6 +68,23 @@ def format_distance(value):
         return f"À {value.km:.2f} km"
     else:
         return f"À {round(value.m)} m"
+
+
+@register.filter(name="format_username")
+def format_username(value):
+    username = safe_username(value)
+    if username in schema.PARTENAIRES:
+        info = schema.PARTENAIRES[username]
+        avatar = f"/static/img/partenaires/{info['avatar']}"
+        url = reverse("partenaires") + f"#{username}"
+        return mark_safe(
+            f"""
+            <a href="{url}" title="En savoir plus sur {username}">
+              <img src="{avatar}" alt="" width="16" height="16">&nbsp;{username}</a>
+            </a>
+            """
+        )
+    return username
 
 
 @register.filter(name="format_siret")
