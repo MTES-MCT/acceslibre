@@ -18,4 +18,4 @@ def remove_accents(input_str):
 
 
 def ucfirst(string):
-    return string[0].upper() + string[1:]
+    return string if not string else string[0].upper() + string[1:]
