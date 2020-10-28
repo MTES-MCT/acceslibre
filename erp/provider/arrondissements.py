@@ -66,4 +66,4 @@ def get_by_code_insee(code_insee):
 
 
 def to_json():
-    return json.dumps({"paris": PARIS, "marseille": MARSEILLE, "lyon": LYON})
+    return json.dumps({"Paris": PARIS, "Marseille": MARSEILLE, "Lyon": LYON})

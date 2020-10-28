@@ -103,7 +103,7 @@ def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
 
     response = client.get(
         reverse("contrib_search_public"),
-        data={"type": "mairie", "commune": "Jacou (34)", "code_insee": "34120",},
+        data={"type": "mairie", "commune_search": "Jacou (34)", "code_insee": "34120",},
         follow=True,
     )
 

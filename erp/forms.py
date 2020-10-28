@@ -444,71 +444,20 @@ class ProviderEntrepriseSearchForm(forms.Form):
     )
 
 
-class ProviderSireneSearchForm(forms.Form):
-    nom = forms.CharField(
-        label="Nom de l'établissement",
-        required=True,
-        widget=forms.TextInput(
-            attrs={"placeholder": "ex. Hotel", "autocomplete": "off"}
-        ),
-    )
-    lieu = forms.CharField(
-        label="Nom de la commune",
-        required=True,
-        widget=forms.TextInput(
-            attrs={
-                "type": "search",
-                "placeholder": "ex. Montrouge",
-                "autocomplete": "off",
-            }
-        ),
-    )
-    naf = forms.CharField(
-        label="Activité (optionnel)",
-        required=False,
-        help_text=mark_safe(
-            "Rechercher une activité par son nom ou son "
-            '<a href="https://www.insee.fr/fr/information/2579599" target="_blank">code NAF</a>.'
-        ),
-        widget=forms.TextInput(
-            attrs={
-                "type": "search",
-                "list": "nafs",
-                "placeholder": "ex. Restaurant",
-                "autocomplete": "off",
-            }
-        ),
-    )
-
-
 class ProviderPublicErpSearchForm(forms.Form):
-    code_insee = forms.CharField(widget=forms.HiddenInput)
+    commune_search = forms.CharField(widget=forms.HiddenInput)
     type = forms.ChoiceField(
         label="Type d'établissement public",
         choices=public_erp.get_type_choices(),
         required=True,
         help_text="Commencez à saisir le type d'établissement puis sélectionnez une entrée parmis la liste proposée.",
     )
-    commune = forms.CharField(
-        label="Nom de la commune",
+    code_insee = forms.CharField(
+        label="Commune",
         required=True,
         help_text="Commencez à saisir le nom de la commune recherchée, puis cliquez sur la proposition correspondante.",
-        widget=forms.TextInput(
-            attrs={
-                "type": "search",
-                "placeholder": "ex. Montrouge",
-                "autocomplete": "off",
-            }
-        ),
+        widget=forms.Select(),
     )
-
-    def clean(self):
-        if not self.cleaned_data.get("code_insee"):
-            raise ValidationError(
-                {
-                    "commune": "Vous devez sélectionner une entrée parmi les choix proposés"
-                }
-            )
 
 
 class PublicPublicationForm(forms.ModelForm):

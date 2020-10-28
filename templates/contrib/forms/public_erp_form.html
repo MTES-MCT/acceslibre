@@ -17,66 +17,85 @@
   </div>
   <script>
   $(document).ready(function() {
+    // Type d'établissement
     $("#id_type").select2({
       allowClear: true,
-      theme: "bootstrap4",
-      placeholder: "Rechercher un type d'établissement"
+      language: "fr",
+      placeholder: "Rechercher un type d'établissement",
+      theme: "bootstrap4"
     });
-  });
 
-  const arrondissementsData = {% arrondissements_json_data %};
-  function addArrondissements(results) {
-    let arrondissements = [];
-    if (results.some(function(r) { return r.nom === "Lyon" })) {
-      arrondissements = arrondissementsData["lyon"];
-    } else if (results.some(function(r) { return r.nom === "Marseille" })) {
-      arrondissements = arrondissementsData["marseille"];
-    } else if (results.some(function(r) { return r.nom === "Paris" })) {
-      arrondissements = arrondissementsData["paris"];
-    }
-    // Insert results AFTER the found entry
-    results.splice.apply(results, [1, 0].concat(arrondissements));
-    return results;
-  }
+    // Commune & arrondissements
+    const arrondissementsData = {% arrondissements_json_data %};
+    function addArrondissements(results) {
+      if (results.length === 0) {
+        return results;
+      }
 
-  $("#id_commune").autocomplete({
-    deferRequestBy: 100,
-    minChars: 1,
-    onSelect: function(suggestion) {
-      $(this).val(suggestion.value);
-      $("#id_code_insee").val(suggestion.data.code);
-    },
-    lookup: function (query, done) {
-      const req = $.ajax({
-        url: "https://geo.api.gouv.fr/communes",
-        data: {
-          nom: query,
-          fields: "departement",
-          boost: "population",
-          limit: 5
+      let arrondissements = [], atIndex = -1;
+
+      for (let i=0; i<results.length; i++) {
+        let result = results[i];
+        if (result.nom in arrondissementsData) {
+          arrondissements = arrondissementsData[result.nom];
+          atIndex = i;
+          break;
         }
-      })
-        .then(function(results) {
-          done({
-            suggestions: addArrondissements(results).map(function(result) {
+      }
+
+      // Insert results AFTER the found entry
+      results.splice.apply(results, [atIndex + 1, 0].concat(arrondissements));
+      return results;
+    }
+
+    const codeInseeSelect = $("#id_code_insee");
+
+    codeInseeSelect.select2({
+      language: "fr",
+      placeholder: "Rechercher une commune",
+      theme: "bootstrap4",
+      ajax: {
+        cache: true,
+        delay: 100,
+        url: "https://geo.api.gouv.fr/communes",
+        dataType: "json",
+        data: function (params) {
+          return {
+            nom: params.term,
+            fields: "departement",
+            boost: "population",
+            limit: 5
+          };
+        },
+        processResults: function (results) {
+          return {
+            results: addArrondissements(results).map(function(result) {
               return {
-                value: result.nom + " (" + result.departement.code + ", " + result.departement.nom + ")",
-                data: {
-                  code: result.code
-                }
+                id: result.code,
+                text: result.nom + " (" + result.departement.code + ", " + result.departement.nom + ")",
               };
             })
-          });
-        })
-        .fail(function (err) {
-          console.error(err);
-        });
+          };
+        }
+      }
+    });
+
+    codeInseeSelect.on("select2:select", function(event) {
+      try {
+        const communeSearch = event.params.data.text;
+        $("#id_commune_search").val(communeSearch);
+      } catch(err) {
+        console.warn("Impossible de récupérer le nom de la commune : " + err);
+      }
+    });
+
+    // Initialisation et vérification de la présence d'une valeur pré-sélectionnée
+    const commune_search = $("#id_commune_search").val();
+    const code_insee = "{{ form.code_insee.value }}";
+    if (commune_search && code_insee) {
+      let option = new Option(commune_search, code_insee, false, false);
+      $('#id_code_insee').append(option).trigger("change");
     }
   });
   </script>
-  <datalist id="public_erp_types">
-    {% for type, label in public_erp_types.items %}
-    <option value="{{ type }}">{{ label }}</option>
-    {% endfor %}
-  </datalist>
 </form>
