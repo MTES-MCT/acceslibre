@@ -22,6 +22,7 @@ from .models import (
     Commune,
     Erp,
 )
+from .provider import public_erp
 
 
 def bool_radios():
@@ -482,18 +483,11 @@ class ProviderSireneSearchForm(forms.Form):
 
 class ProviderPublicErpSearchForm(forms.Form):
     code_insee = forms.CharField(widget=forms.HiddenInput)
-    type = forms.CharField(
+    type = forms.ChoiceField(
         label="Type d'établissement public",
+        choices=public_erp.get_type_choices(),
         required=True,
         help_text="Commencez à saisir le type d'établissement puis sélectionnez une entrée parmis la liste proposée.",
-        widget=forms.TextInput(
-            attrs={
-                "type": "search",
-                "list": "public_erp_types",
-                "placeholder": "ex. Mairie",
-                "autocomplete": "off",
-            }
-        ),
     )
     commune = forms.CharField(
         label="Nom de la commune",

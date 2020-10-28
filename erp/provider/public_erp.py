@@ -9,12 +9,17 @@ logger = logging.getLogger(__name__)
 BASE_URL = "https://etablissements-publics.api.gouv.fr/v3"
 
 TYPES = {
-    "accompagnement_personnes_agees": "Plateforme d'accompagnement et de répit "
-    "pour les aidants de personnes âgées",
-    "adil": "Information sur le logement (agenceAgence départementale pour "
-    "l'information sur le logement (ADIL) départementale, Adil)",
-    "afpa": "Association nationale pour la formation professionnelle des adultes "
-    "(AFPA), réseau local",
+    "mairie": "Mairie",
+    "commissariat_police": "Commissariat de police",
+    "maison_arret": "Maison d'arrêt",
+    "maison_handicapees": "Maison départementale des personnes handicapées (MDPH)",
+    "pmi": "Centre de protection maternelle et infantile (PMI)",
+    "pole_emploi": "Pôle emploi",
+    "prefecture": "Préfecture",
+    "sous_pref": "Sous-préfecture",
+    "accompagnement_personnes_agees": "Plateforme d'accompagnement et de répit pour les aidants de personnes âgées",
+    "adil": "Information sur le logement (agenceAgence départementale pour l'information sur le logement (ADIL) départementale, Adil)",
+    "afpa": "Association nationale pour la formation professionnelle des adultes (AFPA), réseau local",
     "anah": "Agence nationale de l'habitat (ANAH), réseau local",
     "apec": "Association pour l'emploi des cadres (APEC)",
     "apecita": "Association pour l'emploi des cadres, ingénieurs et techniciens "
@@ -43,9 +48,7 @@ TYPES = {
     "cio": "Centre d'information et d'orientation (CIO)",
     "civi": "Commission d'indemnisation des victimes d'infraction",
     "clic": "Point d'information local dédié aux personnes âgées",
-    "cnfpt": "Centre national de la fonction publique territoriale (CNFPT), "
-    "réseau local",
-    "commissariat_police": "Commissariat de police",
+    "cnfpt": "Centre national de la fonction publique territoriale (CNFPT), réseau local",
     "commission_conciliation": "Commission départementale de conciliation",
     "conciliateur_fiscal": "Conciliateur fiscal",
     "cour_appel": "Cour d'appel",
@@ -55,48 +58,35 @@ TYPES = {
     "crous": "CROUS et ses antennes",
     "csl": "Centre de semi-liberté",
     "ddcs": "Direction départementale de la cohésion sociale (DDCS)",
-    "ddcspp": "Direction départementale de la cohésion sociale et de la "
-    "protection des populations (DDCSPP)",
+    "ddcspp": "Direction départementale de la cohésion sociale et de la protection des populations (DDCSPP)",
     "ddpp": "Protection des populations (direction départementale, DDPP)",
     "ddt": "Direction départementale des territoires -et de la mer- (DDT)",
-    "direccte_ut": "Unité territoriale - Direction régionale des entreprises, de "
-    "la concurrence, de la consommation, du travail et de l'emploi",
+    "direccte_ut": "Unité territoriale - Direction régionale des entreprises, de la concurrence, de la consommation, du travail et de l'emploi",
     "dml": "Délégation à la mer et au littoral",
     "drac": "Direction régionale des affaires culturelles (DRAC)",
-    "draf": "Direction régionale de l'alimentation, de l'agriculture et de la "
-    "forêt (DRAAF)",
+    "draf": "Direction régionale de l'alimentation, de l'agriculture et de la forêt (DRAAF)",
     "drddi": "Direction interrégionale et régionale des douanes",
-    "dreal": "Direction régionale de l'environnement, de l'aménagement et du "
-    "logement (DREAL)",
-    "dreal_ut": "Unité territoriale - Direction régionale de l'environnement, de "
-    "l'aménagement et du logement (DREAL)",
-    "driea_ut": "Unité territoriale - Direction régionale et interdépartementale "
-    "de l'équipement et de l'aménagement (DRIEA)",
+    "dreal": "Direction régionale de l'environnement, de l'aménagement et du logement (DREAL)",
+    "dreal_ut": "Unité territoriale - Direction régionale de l'environnement, de l'aménagement et du logement (DREAL)",
+    "driea_ut": "Unité territoriale - Direction régionale et interdépartementale de l'équipement et de l'aménagement (DRIEA)",
     "edas": "Établissement départemental d'actions sociales",
     "epci": "Intercommunalité",
     "esm": "Etablissement spécialisé pour mineurs",
-    "fdapp": "Fédération départementale pour la pêche et la protection du milieu "
-    "aquatique",
+    "fdapp": "Fédération départementale pour la pêche et la protection du milieu aquatique",
     "fdc": "Fédération départementale des chasseurs",
     "gendarmerie": "Brigade de gendarmerie",
     "greta": "Greta",
     "hypotheque": "Service de publicité foncière ex-conservation des hypothèques",
-    "inspection_academique": "Direction des services départementaux de "
-    "l'Éducation nationale",
+    "inspection_academique": "Direction des services départementaux de l'Éducation nationale",
     "maia": "Mission d'accueil et d'information des associations (MAIA)",
-    "mairie": "Mairie",
     "mairie_com": "Mairie des collectivités d'outre-mer",
     "mairie_mobile": "Mairie mobile de la ville de Paris",
-    "maison_arret": "Maison d'arrêt",
     "maison_centrale": "Maison centrale",
-    "maison_handicapees": "Maison départementale des personnes handicapées (MDPH)",
     "mds": "Maison départementale des solidarités",
-    "mission_locale": "Mission locale et Permanence d'accueil, d'information et "
-    "d'orientation (PAIO)",
+    "mission_locale": "Mission locale et Permanence d'accueil, d'information et d'orientation (PAIO)",
     "mjd": "Maison de justice et du droit",
     "msa": "Mutualité sociale agricole (MSA), réseau local",
-    "ofii": "Office français de l'immigration et de l'intégration (ex ANAEM), "
-    "réseau local",
+    "ofii": "Office français de l'immigration et de l'intégration (ex ANAEM), réseau local",
     "onac": "Office national des anciens combattants (ONAC), réseau local",
     "paris_mairie": "Mairie de Paris, Hôtel de Ville",
     "paris_ppp": "Préfecture de police de Paris",
@@ -107,9 +97,6 @@ TYPES = {
     "paris_ppp_permis_conduire": "Préfecture de police de Paris, permis de " "conduire",
     "permanence_juridique": "Permanence juridique",
     "pif": "Point info famille",
-    "pmi": "Centre de protection maternelle et infantile (PMI)",
-    "pole_emploi": "Pôle emploi",
-    "prefecture": "Préfecture",
     "prefecture_greffe_associations": "Greffe des associations",
     "prefecture_region": "Préfecture de région",
     "prudhommes": "Conseil de prud'hommes",
@@ -117,7 +104,6 @@ TYPES = {
     "sdsei": "Services départementaux des solidarités et de l'insertion",
     "sie": "Service des impôts des entreprises du Centre des finances publiques",
     "sip": "Service des impôts des particuliers du Centre des finances publiques",
-    "sous_pref": "Sous-préfecture",
     "spip": "Service pénitentiaire d'insertion et de probation",
     "suio": "Service universitaire d'information et d'orientation",
     "ta": "Tribunal administratif",
@@ -142,6 +128,10 @@ def extract_numero_voie(string):
         return tuple(string.split(" ", maxsplit=1))
     else:
         return (None, string)
+
+
+def get_type_choices():
+    return list(TYPES.items())
 
 
 def parse_feature(feature):

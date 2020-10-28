@@ -92,6 +92,15 @@
       </div>
       <div class="col-sm-6">
         {{ form.activite|as_crispy_field }}
+        <script>
+        $(document).ready(function() {
+          $("#id_activite").select2({
+            allowClear: true,
+            theme: "bootstrap4",
+            placeholder: "Rechercher une activité"
+          });
+        });
+        </script>
       </div>
     </div>
     <div class="row">

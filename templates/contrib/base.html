@@ -1,6 +1,17 @@
 {% extends "editorial/base.html" %}
 
+{% load static %}
+
 {% block page_title %}Renseigner un établissement{% endblock%}
+
+{% block stylesheet_extras %}
+<link rel="stylesheet" href="{% static "vendor/select2@4.1.0-beta.1/css/select2.min.css" %}">
+<link rel="stylesheet" href="{% static "vendor/select2@4.1.0-beta.1/css/select2-bootstrap4.min.css" %}">
+{% endblock %}
+
+{% block javascript_extras %}
+<script src="{% static "vendor/select2@4.1.0-beta.1/js/select2.min.js" %}"></script>
+{% endblock %}
 
 {% block editorial_content %}
 <div class="row">

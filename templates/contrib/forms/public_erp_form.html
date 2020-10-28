@@ -16,6 +16,14 @@
     </button>
   </div>
   <script>
+  $(document).ready(function() {
+    $("#id_type").select2({
+      allowClear: true,
+      theme: "bootstrap4",
+      placeholder: "Rechercher un type d'établissement"
+    });
+  });
+
   const arrondissementsData = {% arrondissements_json_data %};
   function addArrondissements(results) {
     let arrondissements = [];
