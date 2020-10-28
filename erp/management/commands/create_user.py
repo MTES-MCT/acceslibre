@@ -1,17 +1,7 @@
-import random
-import string
-import unicodedata
-
 from django.contrib.auth.models import User, Group
 from django.core.management.base import BaseCommand
 
-
-def strip_accents(nom):
-    return "".join(
-        char
-        for char in unicodedata.normalize("NFD", nom)
-        if unicodedata.category(char) != "Mn"
-    )
+from core.lib import text
 
 
 class Command(BaseCommand):
@@ -23,13 +13,10 @@ class Command(BaseCommand):
         a, *_ = email.split("@")
         return a
 
-    def random_password(self, length=15):
-        return "".join(random.choice(string.ascii_letters) for i in range(length))
-
     def handle(self, *args, **options):
         group = Group.objects.get(name="territoire")
-        password = self.random_password()
-        email = strip_accents(options["email"]).lower()
+        password = text.random_string(15)
+        email = text.remove_accents(options["email"]).lower()
         username = self.generate_username(email)
         user = User.objects.create_user(
             username=username, password=password, email=email, is_staff=True,

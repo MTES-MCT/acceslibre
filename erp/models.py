@@ -4,7 +4,6 @@ import reversion
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
-from django.contrib.gis.geos import Point
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
@@ -18,6 +17,7 @@ from django.utils.text import slugify
 
 from reversion.models import Version
 
+from core.lib import diff as diffutils
 from . import managers
 from . import schema
 from .departements import DEPARTEMENTS
@@ -28,25 +28,11 @@ FULLTEXT_CONFIG = "french_unaccent"
 models.CharField.register_lookup(Lower)
 
 
-def dict_diff_keys(old, new):
-    diff = []
-    for key, oldval in old.items():
-        newval = new.get(key)
-        # Convert points to tuples of float to avoid GEOS ParseException
-        if isinstance(oldval, Point):
-            oldval = oldval.coords
-        if isinstance(newval, Point):
-            newval = newval.coords
-        if newval != oldval:
-            diff.append({"field": key, "old": oldval, "new": newval})
-    return diff
-
-
 def _get_history(versions):
     history = []
     current_fields_dict = {}
     for version in versions:
-        diff = dict_diff_keys(current_fields_dict, version.field_dict)
+        diff = diffutils.dict_diff_keys(current_fields_dict, version.field_dict)
         for entry in diff:
             entry["label"] = schema.get_label(entry["field"], entry["field"])
         history.append(

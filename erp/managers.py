@@ -5,6 +5,8 @@ from django.contrib.postgres import search
 from django.db import models
 from django.db.models import Count, Q
 
+from core.lib import text
+
 
 class ActiviteQuerySet(models.QuerySet):
     def in_commune(self, commune):
@@ -49,7 +51,7 @@ class CommuneQuerySet(models.QuerySet):
         terms = query.strip().split(" ")
         clauses = Q()
         for index, term in enumerate(terms):
-            if term.isdigit() and len(term) == 5:
+            if text.contains_digits(term) and len(term) == 5:
                 clauses = clauses | Q(code_postaux__contains=[term])
             if len(term) > 2:
                 similarity_field = f"similarity_{index}"

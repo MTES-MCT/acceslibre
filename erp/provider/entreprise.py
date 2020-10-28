@@ -1,7 +1,7 @@
 import logging
 import requests
-import unicodedata
 
+from core.lib import text
 from erp.models import Commune
 from erp.provider import arrondissements, sirene, voies
 
@@ -17,21 +17,7 @@ FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
 def clean_search_terms(string):
     # Note: search doesn't work well with accented letters...
     string = str(string).strip()
-    return remove_accents(string.replace("/", " ")).upper()
-
-
-def has_numbers(string):
-    return any(char.isdigit() for char in string)
-
-
-def remove_accents(input_str):
-    # see https://stackoverflow.com/a/517974/330911
-    nfkd_form = unicodedata.normalize("NFKD", input_str)
-    return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
-
-
-def ucfirst(string):
-    return string[0].upper() + string[1:]
+    return text.remove_accents(string.replace("/", " ")).upper()
 
 
 def strip_list(lst):
@@ -85,7 +71,7 @@ def format_nom(record):
             lambda x: x.title() if x not in FRENCH_STOPWORDS else x,
             nom.lower().split(" "),
         )
-        return ucfirst(" ".join(parts))
+        return text.ucfirst(" ".join(parts))
     return nom
 
 
@@ -123,7 +109,7 @@ def extract_geo_adresse(geo_adresse, code_postal):
         if len(parts) < 2:
             return None
         addr_parts = strip_list(parts[0].split(" "))
-        if has_numbers(addr_parts[0]):
+        if text.contains_digits(addr_parts[0]):
             numero = addr_parts[0]
             rest = addr_parts[1:]
             if rest[0].lower() in ["b", "bis", "t", "ter", "q", "quater"]:

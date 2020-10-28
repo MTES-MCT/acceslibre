@@ -1,7 +1,8 @@
 import logging
 import requests
 
-from ..models import Activite, Commune
+from core.lib import text
+from erp.models import Activite, Commune
 
 logger = logging.getLogger(__name__)
 
@@ -136,12 +137,8 @@ def clean_commune(string):
         return string
 
 
-def contains_numbers(string):
-    return any(i.isdigit() for i in string)
-
-
 def extract_numero_voie(string):
-    if contains_numbers(string):
+    if text.contains_digits(string):
         return tuple(string.split(" ", maxsplit=1))
     else:
         return (None, string)

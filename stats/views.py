@@ -1,25 +1,12 @@
 import datetime
 
 from django.contrib.auth import get_user_model
-from django.db import connection
 from django.db.models import Count, Q
 from django.utils import timezone
 from django.views.generic import TemplateView
 
+from core.lib import sql
 from erp.models import Commune, Erp, Vote
-
-
-def dictfetchall(cursor):
-    "Return all rows from a cursor as a dict"
-    # https://docs.djangoproject.com/en/3.1/topics/db/sql/#executing-custom-sql-directly
-    columns = [col[0] for col in cursor.description]
-    return [dict(zip(columns, row)) for row in cursor.fetchall()]
-
-
-def run_sql(sql):
-    with connection.cursor() as cursor:
-        cursor.execute(sql)
-        return dictfetchall(cursor)
 
 
 class StatsView(TemplateView):
@@ -32,7 +19,7 @@ class StatsView(TemplateView):
         return lst
 
     def get_nb_contributors(self):
-        return run_sql(
+        return sql.run_sql(
             """--sql
             select count(distinct e.user_id)
             from erp_erp e
@@ -80,7 +67,7 @@ class StatsView(TemplateView):
         }
 
     def get_votes_histogram(self):
-        results = run_sql(
+        results = sql.run_sql(
             """--sql
             select
                 count(erp_vote.id) as total,
@@ -101,7 +88,7 @@ class StatsView(TemplateView):
         }
 
     def get_erp_counts_histogram(self):
-        results = run_sql(
+        results = sql.run_sql(
             """--sql
             select
                 date,
@@ -126,7 +113,7 @@ class StatsView(TemplateView):
         }
 
     def get_contributors_histogram(self):
-        results = run_sql(
+        results = sql.run_sql(
             """--sql
             select
                 date,

@@ -91,10 +91,6 @@ def format_siret(value, separator=""):
     return siret.format(value, separator=separator)
 
 
-def humanize_nom(nom):
-    return nom.title()
-
-
 def extract_etablissement_nom(etablissement):
     nom_parts = []
     uniteLegale = etablissement.get(UNITE_LEGALE, {})
