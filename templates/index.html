@@ -23,7 +23,7 @@
             <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
             <div class="input-group py-1">
               <input type="search" id="search" name="q" class="form-control form-control-lg border-0" placeholder="Rechercher un restaurant, une ville, etc..."
-                aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}">
+                aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
               <div class="input-group-append">
                 <button type="submit" class="btn btn-lg btn-light border-left text-nowrap">
                   <i aria-hidden="true" class="icon icon-magnifying-glass" style="vertical-align:text-top;font-size:.9em"></i>
