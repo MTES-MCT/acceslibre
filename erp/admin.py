@@ -12,7 +12,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
-from admin_auto_filters.filters import AutocompleteFilter
+from admin_auto_filters.filters import AutocompleteFilterFactory
 from reversion.admin import VersionAdmin
 
 from .departements import DEPARTEMENTS
@@ -208,55 +208,6 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
     fieldsets = schema.get_admin_fieldsets()
 
 
-class CommuneAutocompleteFilter(AutocompleteFilter):
-    title = "Commune"
-    field_name = "commune_ext"
-
-    def lookups(self, request, model_admin):
-        values = Commune.objects.all()
-        return ((v.id, f"{v.nom} ({v.departement})") for v in values)
-
-    def queryset(self, request, queryset):
-        if self.value() is None:
-            return queryset
-        else:
-            return queryset.filter(pk=self.value())
-
-
-class ErpActiviteAutocompleteFilter(AutocompleteFilter):
-    title = "Activité"
-    field_name = "activite"
-
-    def lookups(self, request, model_admin):
-        values = (
-            Erp.objects.select_related("activite")
-            .distinct("activite_id")
-            .order_by("activite_id")
-        )
-        return [
-            (v.activite.pk, v.activite.nom) for v in values if v.activite is not None
-        ]
-
-    def queryset(self, request, queryset):
-        if self.value():
-            return queryset.filter(activite__id=self.value())
-        return queryset
-
-
-class ErpUserAutocompleteFilter(AutocompleteFilter):
-    title = "Contributeur"
-    field_name = "user"
-
-    def lookups(self, request, model_admin):
-        values = Erp.objects.select_related("user").distinct("user").order_by("user")
-        return [(v.user.pk, v.user.username) for v in values if v.user is not None]
-
-    def queryset(self, request, queryset):
-        if self.value():
-            return queryset.filter(user__id=self.value())
-        return queryset
-
-
 class ErpOnlineFilter(admin.SimpleListFilter):
     title = "En ligne"
     parameter_name = "online"
@@ -320,9 +271,9 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     list_display_links = ("nom",)
     list_per_page = 20
     list_filter = [
-        ErpActiviteAutocompleteFilter,
-        ErpUserAutocompleteFilter,
-        CommuneAutocompleteFilter,
+        AutocompleteFilterFactory("Activité", "activite"),
+        AutocompleteFilterFactory("Contributeur", "user"),
+        AutocompleteFilterFactory("Commune", "commune_ext"),
         "user_type",
         "source",
         ErpOnlineFilter,
@@ -507,6 +458,16 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
 
 
+# class VoteErpCommuneAutocompleteFilter(AutocompleteFilter):
+#     title = "Commune"
+#     field_name = "erp__commune_ext"
+
+#     def queryset(self, request, queryset):
+#         if self.value():
+#             return queryset.filter(erp__commune_ext__id=self.value())
+#         return queryset
+
+
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = (
@@ -523,7 +484,8 @@ class VoteAdmin(admin.ModelAdmin):
     list_select_related = ("erp", "user", "erp__commune_ext")
     list_filter = [
         "value",
-        ErpUserAutocompleteFilter,
+        AutocompleteFilterFactory("Votant", "user"),
+        AutocompleteFilterFactory("Commune de l'ERP évalué", "erp__commune_ext"),
         "created_at",
         "updated_at",
     ]
