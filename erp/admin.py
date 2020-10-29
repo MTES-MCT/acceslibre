@@ -195,7 +195,7 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     def voir_les_erps(self, obj):
         if obj.erp_count > 0:
             url = reverse("admin:erp_erp_changelist")
-            return mark_safe(f'<a href="{url}?commune={obj.pk}">Voir les ERP</a>')
+            return mark_safe(f'<a href="{url}?commune_ext={obj.pk}">Voir les ERP</a>')
         else:
             return "-"
 
@@ -456,16 +456,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
             return "Inconnu"
 
     voie_ou_lieu_dit.short_description = "Voie ou lieu-dit"
-
-
-# class VoteErpCommuneAutocompleteFilter(AutocompleteFilter):
-#     title = "Commune"
-#     field_name = "erp__commune_ext"
-
-#     def queryset(self, request, queryset):
-#         if self.value():
-#             return queryset.filter(erp__commune_ext__id=self.value())
-#         return queryset
 
 
 @admin.register(Vote)
