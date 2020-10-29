@@ -32,13 +32,19 @@
     <div class="card shadow-sm">
       <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-3"><strong>{{ nb_filled_erps }}</strong></h3>
-        <p class="card-text mb-0">fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}</p>
+        <p class="card-text mb-0">
+          fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}<br>
+          <small class="text-muted">dont <strong>{{ nb_filled_erps_by_users }}</strong> par les utilisateurs de la plateforme</small>
+        </p>
       </div>
     </div>
     <div class="card shadow-sm">
       <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-3"><strong>{{ nb_contributors }}</strong></h3>
-        <p class="card-text mb-0">contributeur{{ nb_contributors|pluralize:"s" }}</p>
+        <p class="card-text mb-0">
+          contributeur{{ nb_contributors|pluralize:"s" }}<br>
+          <small class="text-muted">sur <strong>{{ nb_users }}</strong> utilisateurs inscrits</small>
+        </p>
       </div>
     </div>
   </div>

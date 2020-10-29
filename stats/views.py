@@ -142,7 +142,9 @@ class StatsView(TemplateView):
 
         context["north_star"] = self.get_north_star()
         context["nb_filled_erps"] = erp_qs.count()
+        context["nb_filled_erps_by_users"] = erp_qs.filter(user__isnull=False).count()
         context["communes"] = Commune.objects.erp_stats()[:10]
+        context["nb_users"] = get_user_model().objects.filter(is_active=True).count()
         context["nb_contributors"] = self.get_nb_contributors()
         context["top_contributors"] = self.get_top_contributors()
         context["top_voters"] = self.get_top_voters()
