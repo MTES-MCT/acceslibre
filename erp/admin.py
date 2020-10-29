@@ -208,29 +208,19 @@ class AccessibiliteInline(nested_admin.NestedStackedInline):
     fieldsets = schema.get_admin_fieldsets()
 
 
-class CommuneFilter(admin.SimpleListFilter):
-    # see https://docs.djangoproject.com/en/3.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter
+class CommuneAutocompleteFilter(AutocompleteFilter):
     title = "Commune"
-    parameter_name = "commune"
-    template = "django_admin_listfilter_dropdown/dropdown_filter.html"
+    field_name = "commune_ext"
 
     def lookups(self, request, model_admin):
-        values = (
-            Erp.objects.prefetch_related("commune_ext")
-            .filter(commune_ext__isnull=False)
-            .distinct("commune_ext__nom")
-            .order_by("commune_ext__nom")
-        )
-        return (
-            (v.commune_ext.id, f"{v.commune_ext.nom} ({v.commune_ext.departement})")
-            for v in values
-        )
+        values = Commune.objects.all()
+        return ((v.id, f"{v.nom} ({v.departement})") for v in values)
 
     def queryset(self, request, queryset):
         if self.value() is None:
             return queryset
         else:
-            return queryset.filter(commune_ext__pk=self.value())
+            return queryset.filter(pk=self.value())
 
 
 class ErpActiviteAutocompleteFilter(AutocompleteFilter):
@@ -332,8 +322,8 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     list_filter = [
         ErpActiviteAutocompleteFilter,
         ErpUserAutocompleteFilter,
+        CommuneAutocompleteFilter,
         "user_type",
-        CommuneFilter,
         "source",
         ErpOnlineFilter,
         "published",
@@ -534,7 +524,6 @@ class VoteAdmin(admin.ModelAdmin):
     list_filter = [
         "value",
         ErpUserAutocompleteFilter,
-        CommuneFilter,
         "created_at",
         "updated_at",
     ]
