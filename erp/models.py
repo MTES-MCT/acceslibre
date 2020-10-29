@@ -105,6 +105,14 @@ def generate_commune_slug(instance):
 class Commune(models.Model):
     class Meta:
         ordering = ("nom",)
+        indexes = [
+            models.Index(fields=["nom"]),
+            models.Index(fields=["slug"]),
+            models.Index(fields=["code_insee"]),
+            models.Index(fields=["departement"]),
+            models.Index(fields=["nom", "departement"]),
+            models.Index(fields=["nom", "code_postaux"]),
+        ]
 
     objects = managers.CommuneQuerySet.as_manager()
 
