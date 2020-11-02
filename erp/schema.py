@@ -496,17 +496,6 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": lambda x, i: x is False or x == RAMPE_AUCUNE,
     },
-    "entree_balise_sonore": {
-        "is_a11y": True,
-        "label": "Balise sonore à l'entrée",
-        "help_text": mark_safe(
-            "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
-        ),
-        "help_text_ui": None,
-        "section": SECTION_ENTREE,
-        "nullable_bool": True,
-        "warn_if": False,
-    },
     "entree_dispositif_appel": {
         "is_a11y": True,
         "label": "Dispositif d'appel à l'entrée",
@@ -516,6 +505,17 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence d'un dispositif comme une sonnette pour signaler sa présence"
         ),
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": False,
+    },
+    "entree_balise_sonore": {
+        "is_a11y": True,
+        "label": "Balise sonore à l'entrée",
+        "help_text": mark_safe(
+            "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
+        ),
+        "help_text_ui": None,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,

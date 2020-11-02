@@ -75,6 +75,7 @@ window.a4aForms = (function () {
         "entree_marches_main_courante",
         "entree_marches_rampe",
         "entree_ascenseur",
+        "entree_dispositif_appel"
       ],
       indent: 1,
     },
@@ -94,7 +95,7 @@ window.a4aForms = (function () {
         "accueil_cheminement_reperage_marches",
         "accueil_cheminement_main_courante",
         "accueil_cheminement_rampe",
-        "accueil_cheminement_ascenseur",
+        "accueil_cheminement_ascenseur"
       ],
       indent: 1,
     },
