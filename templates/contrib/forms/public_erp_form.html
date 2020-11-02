@@ -15,7 +15,7 @@
       Rechercher un établissement public
     </button>
   </div>
-  <script>
+  <script nonce="{{ request.csp_nonce }}">
   $(document).ready(function() {
     // Type d'établissement
     $("#id_type").select2({

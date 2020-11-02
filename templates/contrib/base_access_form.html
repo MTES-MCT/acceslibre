@@ -68,7 +68,7 @@
     {% endif %}
     </p>
   </form>
-  <script>
+  <script nonce="{{ request.csp_nonce }}">
   window.addEventListener("DOMContentLoaded", function() {
     window.a4aForms.run({
       fieldSelectorPrefix: ".field-",

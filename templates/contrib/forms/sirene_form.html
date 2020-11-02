@@ -14,7 +14,7 @@
       <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
       Rechercher une entreprise
     </button>
-    <script>
+    <script nonce="{{ request.csp_nonce }}">
     $("#id_lieu").autocomplete({
       deferRequestBy: 100,
       minChars: 2,

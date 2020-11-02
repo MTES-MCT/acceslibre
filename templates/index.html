@@ -26,7 +26,7 @@
                 aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
               <div class="input-group-append">
                 <button type="submit" class="btn btn-lg btn-light border-left text-nowrap">
-                  <i aria-hidden="true" class="icon icon-magnifying-glass" style="vertical-align:text-top;font-size:.9em"></i>
+                  <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
                   <span class="sr-only">Rechercher</span>
                 </button>
               </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
   </section>
-  <script>
+  <script nonce="{{ request.csp_nonce }}">
   (function(geolocation) {
     if (!geolocation) {
       document.querySelector("#loc-field").innerHTML = [
