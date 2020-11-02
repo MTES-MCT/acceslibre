@@ -128,10 +128,7 @@
         </button>
         {% endif %}
       </span>
-      <style nonce="{{ request.csp_nonce }}">
-        #vote_comment { display: none }
-      </style>
-      <div class="form-group" id="vote_comment">
+      <div class="form-group" id="vote_comment" style="display: none">
         <label for="vote_comment_input" class="sr-only">Commentaire</label>
         <textarea class="form-control mt-2" id="vote_comment_input" name="comment" rows="3"
           placeholder="Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."></textarea>

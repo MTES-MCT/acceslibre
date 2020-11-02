@@ -46,6 +46,7 @@ CSP_DEFAULT_SRC = (
     "*.mapbox.com",
     "*.gouv.fr",
 )
+CSP_STYLE_SRC_ATTR = ("'unsafe-inline'",)
 CSP_EXCLUDE_URL_PREFIXES = "/admin"  # unfortunately, the Django admin is not CSP ready
 
 # Mapbox

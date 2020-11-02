@@ -22,12 +22,10 @@
   {% for result in results %}
   <div class="card mb-3">
     <div class="row no-gutters">
-      <style nonce="{{ request.csp_nonce }}">
-        .map-img{{ forloop.counter }} {
-          background-image: url('{% result_map_img result.coordonnees size="400x300" %}');
-        }
-      </style>
-      <div class="col-lg-5 a4a-result-map {% if result.coordonnees %}map-img{{ forloop.counter }}{% endif %}"></div>
+      <div class="col-lg-5 a4a-result-map"
+        {% if result.coordonnees %}
+          style="background-image: url('{% result_map_img result.coordonnees size="400x300" %}')"
+        {% endif %}></div>
       <div class="col-lg-7">
         <div class="card-body">
           <h3 class="h6 card-title font-weight-bold">
