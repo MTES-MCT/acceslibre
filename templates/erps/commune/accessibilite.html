@@ -99,15 +99,27 @@
 </div>
 <script>
 (function() {
-  function onHashChanged() {
+  function handleTabFromHash() {
     // If we have a url hash, open the matching tab content
-    if (location.hash && $(location.hash + "-tab").get(0)) {
-      $(location.hash + "-tab").tab("show");
+    if (!location.hash || location.hash === "#") {
+      return;
+    }
+
+    const tabLocationHashId = location.hash + "-tab";
+    let $tabElem;
+    try {
+      $tabElem = $(location.hash + "-tab");
+    } catch (e) {
+      console.warn("Unable to retrieve tab with id = " + tabLocationHashId);
+    }
+
+    if ($tabElem) {
+      $tabElem.tab("show");
       // Handle special case of history where we open the first entry.
       if (location.hash === "#history") {
-        const firstEntry = document.querySelector("details");
-        if (firstEntry) {
-          firstEntry.open = true;
+        const firstHistoryEntry = document.querySelector("details");
+        if (firstHistoryEntry) {
+          firstHistoryEntry.open = true;
         }
       }
     } else {
@@ -115,7 +127,7 @@
     }
   }
 
-  window.addEventListener("DOMContentLoaded", onHashChanged);
-  window.addEventListener("hashchange", onHashChanged);
+  window.addEventListener("DOMContentLoaded", handleTabFromHash);
+  window.addEventListener("hashchange", handleTabFromHash);
 })();
 </script>
