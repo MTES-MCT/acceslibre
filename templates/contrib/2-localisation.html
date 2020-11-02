@@ -32,7 +32,7 @@
       </small>
     </h3>
 
-    <div id="erpmap" style="width:100%;height:400px"></div>
+    <div id="erpmap" class="a4a-localisation-map"></div>
 
     {{ form.lat|as_crispy_field }}
     {{ form.lon|as_crispy_field }}
@@ -48,7 +48,7 @@
     </p>
   </form>
 
-  <script>
+  <script nonce="{{ request.csp_nonce }}">
   window.addEventListener("DOMContentLoaded", function() {
     const erpmap = L.map("erpmap", { scrollWheelZoom: false }).setView({
       lat: {{ form.lat.value }},
