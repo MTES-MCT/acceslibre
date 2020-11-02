@@ -47,7 +47,10 @@ CSP_DEFAULT_SRC = (
     "*.gouv.fr",
 )
 CSP_STYLE_SRC_ATTR = ("'unsafe-inline'",)
-CSP_EXCLUDE_URL_PREFIXES = "/admin"  # unfortunately, the Django admin is not CSP ready
+CSP_EXCLUDE_URL_PREFIXES = (
+    "/admin",  # unfortunately, the Django admin is not CSP ready
+    "/api",  # swagger uses scripts from remote cdns
+)
 
 # Mapbox
 # Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
