@@ -41,8 +41,8 @@ def form_data(data):
 
 
 @pytest.fixture
-def fake_geocoder():
-    return lambda _: {
+def geocoder_result_ok():
+    return {
         "geom": POINT,
         "numero": "4",
         "voie": "Rue de la Paix",
@@ -80,15 +80,21 @@ def test_CustomRegistrationForm():
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_get_adresse_query(form_data, fake_geocoder, paris_commune):
-    form = AdminErpForm(form_data, geocode=fake_geocoder,)
+def test_BaseErpForm_get_adresse_query(
+    form_data, mocker, geocoder_result_ok, paris_commune
+):
+    mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
+    form = AdminErpForm(form_data)
     form.is_valid()  # populates cleaned_data
-    assert form.get_adresse_query() == "4 Rue de la Paix 75 Paris"
+    assert form.get_adresse_query() == "4 Rue de la Paix, Paris"
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_geocode_adresse(form_data, fake_geocoder, paris_commune):
-    form = AdminErpForm(form_data, geocode=fake_geocoder,)
+def test_BaseErpForm_geocode_adresse(
+    form_data, mocker, geocoder_result_ok, paris_commune
+):
+    mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
+    form = AdminErpForm(form_data)
     form.is_valid()
     assert form.cleaned_data["geom"] == POINT
     assert form.cleaned_data["numero"] == "4"
@@ -206,14 +212,18 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
     Erp.objects.get(slug="test-erp").numero == "4"
 
 
-def test_BaseErpForm_invalid_on_empty_geocode_results(form_data):
-    form = AdminErpForm(form_data, geocode=lambda _: None,)
+def test_BaseErpForm_invalid_on_empty_geocode_results(form_data, mocker):
+    mocker.patch("erp.geocoder.geocode", return_value=None)
+    form = AdminErpForm(form_data)
     assert form.is_valid() is False
 
 
 @pytest.mark.django_db
-def test_BaseErpForm_valid_on_geocoded_results(form_data, fake_geocoder, paris_commune):
-    form = AdminErpForm(form_data, geocode=fake_geocoder,)
+def test_BaseErpForm_valid_on_geocoded_results(
+    form_data, mocker, geocoder_result_ok, paris_commune
+):
+    mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
+    form = AdminErpForm(form_data)
     assert form.is_valid() is True
 
 

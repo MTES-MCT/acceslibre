@@ -133,11 +133,9 @@ class BaseErpForm(forms.ModelForm):
             self.cleaned_data.get("numero") or "",
             self.cleaned_data.get("voie") or "",
             self.cleaned_data.get("lieu_dit") or "",
-            # strip out often erroneous postal codes, so we just keep the departement bits
-            self.cleaned_data.get("code_postal")[:2] or "",
-            self.cleaned_data.get("commune") or "",
         ]
-        return " ".join([p for p in parts if p != ""]).strip()
+        voie_ville = " ".join([p for p in parts if p != ""]).strip()
+        return ", ".join([voie_ville, self.cleaned_data.get("commune") or ""])
 
     def adresse_changed(self):
         try:
@@ -162,21 +160,21 @@ class BaseErpForm(forms.ModelForm):
 
     def geocode(self):
         adresse = self.get_adresse_query()
+        code_postal = self.cleaned_data.get("code_postal")
         locdata = None
         try:
-            locdata = self.do_geocode(adresse)
+            locdata = self.do_geocode(adresse, postcode=code_postal)
         except RuntimeError as err:
             raise ValidationError(err)
 
         # Check for geocoded results
         if not locdata or locdata.get("geom") is None:
-            self.raise_validation_error("voie", f"Adresse non localisable : {adresse}")
+            self.raise_validation_error(
+                "voie", f"Adresse non localisable : {adresse} ({code_postal})"
+            )
 
         # Ensure picking the right postcode
-        if (
-            self.cleaned_data["code_postal"]
-            and self.cleaned_data["code_postal"] != locdata["code_postal"]
-        ):
+        if code_postal and code_postal != locdata["code_postal"]:
             dpt_input = self.cleaned_data["code_postal"][:2]
             dpt_result = locdata["code_postal"][:2]
             if dpt_input != dpt_result:
@@ -185,7 +183,7 @@ class BaseErpForm(forms.ModelForm):
                     "code_postal",
                     mark_safe(
                         "Cette adresse n'est pas localisable au code postal "
-                        f"{self.cleaned_data['code_postal']} (mais l'est au code {locdata['code_postal']})"
+                        f"{code_postal} (mais l'est au code {locdata['code_postal']})"
                     ),
                 )
 
