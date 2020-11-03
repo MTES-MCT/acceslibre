@@ -11,13 +11,20 @@ class StaticViewSitemap(Sitemap):
     changefreq = "daily"
 
     def items(self):
-        return ["home", "cgu", "accessibilite", "partenaires"]
+        return [
+            ("home", 1),
+            ("apidocs", 0.8),
+            ("cgu", 0.5),
+            ("accessibilite", 0.5),
+            ("partenaires", 0.4),
+            ("stats", 0.1),
+        ]
 
     def location(self, item):
-        return reverse(item)
+        return reverse(item[0])
 
     def priority(self, item):
-        return 1 if item == "home" else 0.5
+        return item[1]
 
 
 class CommuneSitemap(Sitemap):
