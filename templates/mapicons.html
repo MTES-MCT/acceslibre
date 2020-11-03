@@ -1,0 +1,21 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Map icons{% endblock%}
+
+{% block editorial_content %}
+<h2 class="mb-4">Map icons</h2>
+<div class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list">
+  {% for icon in mapicons %}
+  <div class="text-center mb-4">
+    <img class="act-icon" alt="" src="{% static "img/mapicons.svg" %}#{{ icon }}">
+    <img class="act-icon act-icon-32" alt="" src="{% static "img/mapicons.svg" %}#{{ icon }}">
+    <img class="act-icon act-icon-24" alt="" src="{% static "img/mapicons.svg" %}#{{ icon }}">
+    <img class="act-icon act-icon-16" alt="" src="{% static "img/mapicons.svg" %}#{{ icon }}">
+    <br>
+    <small class="text-muted">{{ icon }}</small>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -36,6 +36,45 @@ $viewport-xl: 1200px;
     }
   }
 
+  .act-icon {
+    background: $primary;
+    border-radius: 25%;
+    color: currentColor;
+    width: 48px;
+    height: 48px;
+    padding: 6px;
+  }
+
+  .act-icon-squared {
+    border-radius: 0%;
+  }
+
+  .act-icon-rounded {
+    border-radius: 50%;
+  }
+
+  .act-icon-16 {
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+  }
+
+  .act-icon-24 {
+    width: 24px;
+    height: 24px;
+    padding: 3px;
+  }
+
+  .act-icon-32 {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+
   .cgu p, .cgu li {
     color: #444;
   }

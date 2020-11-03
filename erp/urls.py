@@ -25,6 +25,7 @@ def editorial_page(template_name):
 
 
 urlpatterns = [
+    path("mapicons", views.mapicons, name="mapicons"),
     ############################################################################
     # Editorial
     ############################################################################
