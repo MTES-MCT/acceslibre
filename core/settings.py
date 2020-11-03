@@ -103,6 +103,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.gis",
     "django.contrib.postgres",
+    "django.contrib.sitemaps",
+    "django.contrib.sites",
     "corsheaders",
     "logentry_admin",
     "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",
@@ -124,6 +126,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+SITE_ID = 1
 
 CORS_ORIGIN_ALLOW_ALL = True
 

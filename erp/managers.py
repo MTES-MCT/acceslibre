@@ -3,7 +3,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Count, Q
+from django.db.models import Count, Max, Q
 
 from core.lib import text
 
@@ -33,6 +33,24 @@ class ActiviteQuerySet(models.QuerySet):
 
 
 class CommuneQuerySet(models.QuerySet):
+    def having_published_erps(self):
+        return (
+            self.annotate(
+                erp_access_count=Count(
+                    "erp",
+                    filter=Q(
+                        erp__accessibilite__isnull=False,
+                        erp__geom__isnull=False,
+                        erp__published=True,
+                    ),
+                    distinct=True,
+                ),
+                updated_at=Max("erp__updated_at"),
+            )
+            .filter(erp_access_count__gt=0)
+            .order_by("-erp__updated_at")
+        )
+
     def erp_stats(self):
         return self.annotate(
             erp_access_count=Count(
