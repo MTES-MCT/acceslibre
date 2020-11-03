@@ -9,6 +9,7 @@ from erp.models import Commune, Erp
 class StaticViewSitemap(Sitemap):
     priority = 0.5
     changefreq = "daily"
+    protocol = "https"
 
     def items(self):
         return [
@@ -29,6 +30,7 @@ class StaticViewSitemap(Sitemap):
 
 class CommuneSitemap(Sitemap):
     changefreq = "weekly"
+    protocol = "https"
     priority = 0.6
     limit = 10000
 
@@ -41,6 +43,7 @@ class CommuneSitemap(Sitemap):
 
 class ErpSitemap(Sitemap):
     changefreq = "daily"
+    protocol = "https"
     priority = 0.8
     limit = 10000
 
