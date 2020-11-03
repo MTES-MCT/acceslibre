@@ -1,6 +1,10 @@
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path
+from django.views.decorators.cache import cache_page
+
+from core.sitemaps import SITEMAPS
 
 from erp.forms import CustomRegistrationForm
 from erp.views import (
@@ -9,6 +13,8 @@ from erp.views import (
     CustomRegistrationView,
 )
 
+
+SITEMAP_CACHE_TTL = 86400
 
 urlpatterns = [
     path("", include("erp.urls")),
@@ -36,6 +42,17 @@ urlpatterns = [
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("admin/", admin.site.urls),
+    path(
+        "sitemap.xml",
+        cache_page(SITEMAP_CACHE_TTL)(sitemap_views.index),
+        {"sitemaps": SITEMAPS, "sitemap_url_name": "sitemap"},
+    ),
+    path(
+        "sitemap-<section>.xml",
+        cache_page(SITEMAP_CACHE_TTL)(sitemap_views.sitemap),
+        {"sitemaps": SITEMAPS},
+        name="sitemap",
+    ),
 ]
 
 if settings.DEBUG:
