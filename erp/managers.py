@@ -48,7 +48,7 @@ class CommuneQuerySet(models.QuerySet):
                 updated_at=Max("erp__updated_at"),
             )
             .filter(erp_access_count__gt=0)
-            .order_by("-erp__updated_at")
+            .order_by("-updated_at")
         )
 
     def erp_stats(self):
