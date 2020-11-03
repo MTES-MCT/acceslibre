@@ -45,8 +45,8 @@ CSP_DEFAULT_SRC = (
     "data:",  # used for Leaflet CenterCross plugin.
     "*.mapbox.com",
     "*.gouv.fr",
+    "'unsafe-inline'",  # unfortunately, Firefox doesn't use nonce from default-src
 )
-CSP_STYLE_SRC_ATTR = ("'unsafe-inline'",)
 CSP_EXCLUDE_URL_PREFIXES = (
     "/admin",  # unfortunately, the Django admin is not CSP ready
     "/api",  # swagger uses scripts from remote cdns
