@@ -41,7 +41,8 @@ def validate_html(html):
             },
         )
     if res.status_code != 200:
-        raise AssertionError("Validator is unavailable")
+        pytest.skip("Validator is unavailable.")
+        return
     results = res.json()
     errors = [format_error(m) for m in results["messages"] if m["type"] == "error"]
     if len(errors) > 0:
