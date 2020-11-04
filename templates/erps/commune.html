@@ -107,8 +107,8 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
           href="{{ erp.get_absolute_url }}">
           <div class="flex-fill">
             <h3 class="h6 m-0">
-              <img alt="" class="mb-1 mr-1"
-                src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+              <img alt="" class="act-icon act-icon-20 mb-1"
+                src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
               {{ erp.nom }}
             </h3>
             <small class="text-muted">
@@ -155,8 +155,8 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
           title="{{ activite.nom }}"
           href="{% url "commune_activite" commune=commune.slug activite_slug=activite.slug %}">
-          <img alt="" class="mb-1 mr-1"
-              src="{% static "/img/activites/png/" %}{{ activite.icon|default_if_none:"amenity_public_building" }}.n.16.png">
+          <img alt="" class="act-icon act-icon-20 mb-1 mr-1"
+            src="{% static "img/mapicons.svg" %}#{{ activite.vector_icon }}">
           <span class="w-100 text-truncate">{{ activite.nom }}</span>
           <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
         </a>

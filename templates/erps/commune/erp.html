@@ -22,8 +22,8 @@
   <header class="d-flex justify-content-between">
     <div>
       <h2>
-        <img alt="" title="{{ erp.activite.nom }}" class="mb-2"
-          src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.32.png">
+        <img alt="" class="act-icon act-icon-32 mb-2"
+          src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
         {{ erp.nom }}
         {% if erp.activite %}
         <small class="text-muted">{{ erp.activite.nom }}</small>
@@ -190,8 +190,8 @@
             <small class="text-muted mb-1">{{ nearest_erp.distance|format_distance }}{% if nearest_erp.activite %},
               {{ nearest_erp.activite.nom }}{% endif %}</small>
             <h4 class="h6">
-              <img alt="" title="{{ nearest_erp.activite.nom }}" class="mb-1"
-                src="{% static "/img/activites/png/" %}{{ nearest_erp.get_activite_icon }}.n.16.png">
+              <img alt="" class="act-icon act-icon-16 mb-1"
+                src="{% static "img/mapicons.svg" %}#{{ nearest_erp.get_activite_vector_icon }}">
               <a href="{{ nearest_erp.get_absolute_url }}">{{ nearest_erp.nom }}</a>
             </h4>
             <address class="mt-auto mb-0"><small class="text-muted"><em>{{ nearest_erp.adresse }}</em></small></address>

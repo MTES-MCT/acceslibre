@@ -413,6 +413,12 @@ class Erp(models.Model):
             return self.activite.icon
         return default
 
+    def get_activite_vector_icon(self):
+        default = "building"
+        if self.activite and self.activite.vector_icon:
+            return self.activite.vector_icon
+        return default
+
     def get_history(self):
         "Combines erp and related accessibilite histories."
         erp_history = _get_history(self.get_versions())

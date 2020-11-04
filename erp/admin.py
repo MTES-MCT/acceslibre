@@ -120,8 +120,10 @@ class ActiviteAdmin(admin.ModelAdmin):
         return obj.erp_count
 
     def icon_img(self, obj):
-        icon = obj.icon if obj.icon else "amenity_public_building"
-        return mark_safe(f'<img src="/static/img/activites/png/{icon}.p.20.png">')
+        icon = obj.vector_icon if obj.vector_icon else "building"
+        return mark_safe(
+            f'<img src="/static/img/mapicons.svg#{icon}" style="width:16px;height:16px;background:#075ea2;padding:3px;border-radius:25%">'
+        )
 
 
 class HavingErpsFilter(admin.SimpleListFilter):
@@ -339,7 +341,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         icon = ""
         if obj.activite:
             icon = mark_safe(
-                f'<img src="/static/img/activites/png/{obj.get_activite_icon()}.p.16.png" style="margin-bottom:5px"> {obj.activite.nom} &raquo;'
+                f'<img src="/static/img/mapicons.svg#{obj.get_activite_vector_icon()}" style="width:16px;height:16px;background:#075ea2;padding:3px;margin-bottom:5px;border-radius:25%"> {obj.activite.nom} &raquo;'
             )
         edit_url = reverse("admin:erp_erp_change", kwargs={"object_id": obj.pk})
         return mark_safe(

@@ -159,8 +159,8 @@
         <div class="list-group-flush" id="home-latest-erps-list">
           {% for erp in latest %}
           <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
-            <img alt="" class="mb-1 mr-1"
-              src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+            <img alt="" class="act-icon act-icon-20 mb-1"
+              src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
             {{ erp.commune }} {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
             <br><strong>{{ erp.nom }}</strong>
           </a>

@@ -37,13 +37,13 @@
       <div class="flex-fill">
         <div class="font-weight-bold">
           {% if not erp.published or not erp.geom or not erp.accessibilite %}
-          <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
-            src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+          <img alt="" class="act-icon act-icon-20 mb-1"
+            src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
           <span class="text-muted">{{ erp.nom }}</span>
           {% else %}
           <a href="{{ erp.get_absolute_url }}">
-            <img alt="" title="{{ erp.activite.nom }}" class="mb-1"
-              src="{% static "/img/activites/png/" %}{{ erp.get_activite_icon }}.n.16.png">
+            <img alt="" class="act-icon act-icon-20 mb-1"
+              src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
             {{ erp.nom }}
           </a>
           {% endif %}
