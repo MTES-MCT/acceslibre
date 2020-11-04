@@ -137,7 +137,7 @@
           <button type="button" class="btn btn-sm btn-link btn-vote-no-cancel">Annuler</button>
         </div>
       </div>
-      <script nonce="{{ request.csp_nonce }}">
+      <script>
         $(document).ready(function() {
           $(".btn-vote-no").on("click", function() {
             $('#vote_comment').toggle();

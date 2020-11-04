@@ -176,7 +176,7 @@ Découvrez l'accessibilité des établissements recevant du public de la ville d
   </div>
 </div>
 
-<script nonce="{{ request.csp_nonce }}">
+<script>
   a4a.initAppMap({{ commune_json | safe }}, {% if erp %}{{ erp.pk }}{% else %}null{% endif %}, {{ around | default_if_none:"null" }}, {{ geojson_list | safe }});
 </script>
 {% endblock %}

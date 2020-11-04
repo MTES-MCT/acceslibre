@@ -55,7 +55,7 @@
     </div>
     <div class="card-body">
       <canvas id="voteChart" width="100%" height="250"></canvas>
-      <script nonce="{{ request.csp_nonce }}">
+      <script>
       var voteChart = new Chart("voteChart", {
         type: "line",
         data: {
@@ -93,7 +93,7 @@
       </div>
       <div class="card-body p-2">
         <canvas id="contributorsChart" width="100%" height="250"></canvas>
-        <script nonce="{{ request.csp_nonce }}">
+        <script>
         var contributorsChart = new Chart("contributorsChart", {
           type: "bar",
           data: {
@@ -121,7 +121,7 @@
       </div>
       <div class="card-body p-2">
         <canvas id="erpCountChart" width="100%" height="250"></canvas>
-        <script nonce="{{ request.csp_nonce }}">
+        <script>
         var erpCountChart = new Chart("erpCountChart", {
           type: "bar",
           data: {

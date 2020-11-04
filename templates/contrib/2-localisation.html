@@ -48,7 +48,7 @@
     </p>
   </form>
 
-  <script nonce="{{ request.csp_nonce }}">
+  <script>
   window.addEventListener("DOMContentLoaded", function() {
     const erpmap = L.map("erpmap", { scrollWheelZoom: false }).setView({
       lat: {{ form.lat.value }},

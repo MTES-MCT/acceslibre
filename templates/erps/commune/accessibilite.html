@@ -18,7 +18,7 @@
         <i aria-hidden="true" class="icon icon-clock mr-2"></i>Historique
       </a>
     </div>
-    <script nonce="{{ request.csp_nonce }}">
+    <script>
       $(document).ready(function() {
         $(".nav .nav-link").on("click", function(event) {
           location.replace(event.target.href);
@@ -105,7 +105,7 @@
     </section>
   </div>
 </div>
-<script nonce="{{ request.csp_nonce }}">
+<script>
 (function() {
   function handleTabFromHash() {
     // If we have a url hash, open the matching tab content

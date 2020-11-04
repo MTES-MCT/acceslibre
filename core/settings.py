@@ -40,17 +40,6 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 # Security
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
-CSP_DEFAULT_SRC = (
-    "'self'",
-    "data:",  # used for Leaflet CenterCross plugin.
-    "*.mapbox.com",
-    "*.gouv.fr",
-    "'unsafe-inline'",  # unfortunately, Firefox doesn't use nonce from default-src
-)
-CSP_EXCLUDE_URL_PREFIXES = (
-    "/admin",  # unfortunately, the Django admin is not CSP ready
-    "/api",  # swagger uses scripts from remote cdns
-)
 
 # Mapbox
 # Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
@@ -116,7 +105,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "csp.middleware.CSPMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",

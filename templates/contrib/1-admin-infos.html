@@ -92,7 +92,7 @@
       </div>
       <div class="col-sm-6">
         {{ form.activite|as_crispy_field }}
-        <script nonce="{{ request.csp_nonce }}">
+        <script>
         $(document).ready(function() {
           $("#id_activite").select2({
             allowClear: true,

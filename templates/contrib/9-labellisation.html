@@ -9,7 +9,7 @@
   {% include "fields/boolradio.html" with field=form.labels inline=True %}
   {% include "fields/textarea.html" with field=form.labels_autre %}
   {% include "fields/boolradio.html" with field=form.labels_familles_handicap inline=True %}
-  <script nonce="{{ request.csp_nonce }}">
+  <script>
   $(document).ready(function() {
     const $fieldFamilles = $(".field-labels_familles_handicap");
     $fieldFamilles.hide();
