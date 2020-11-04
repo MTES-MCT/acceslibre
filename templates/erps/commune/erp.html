@@ -190,7 +190,7 @@
             <small class="text-muted mb-1">{{ nearest_erp.distance|format_distance }}{% if nearest_erp.activite %},
               {{ nearest_erp.activite.nom }}{% endif %}</small>
             <h4 class="h6">
-              <img alt="" class="act-icon act-icon-16 mb-1"
+              <img alt="" class="act-icon act-icon-20 mb-1"
                 src="{% static "img/mapicons.svg" %}#{{ nearest_erp.get_activite_vector_icon }}">
               <a href="{{ nearest_erp.get_absolute_url }}">{{ nearest_erp.nom }}</a>
             </h4>
