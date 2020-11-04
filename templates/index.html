@@ -35,7 +35,9 @@
               <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
                 {% if localize == "1" %}checked{% endif %}>
               <label class="custom-control-label text-light" for="localize">
-                Rechercher autour de ma position géographique actuelle <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
+                Rechercher autour de ma position géographique actuelle
+                <div id="geoloader" class="loader"></div>
+                <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
               </label>
             </div>
           </form>
@@ -80,6 +82,7 @@
         document.querySelector("input[name=lon]").value = null;
       } else {
         geolocation.getCurrentPosition(function(position) {
+          $("#geoloader").show();
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
           fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
@@ -98,9 +101,11 @@
               loc.setAttribute("role", "status");
               document.querySelector("input[name=lat]").value = lat;
               document.querySelector("input[name=lon]").value = lon;
+              $("#geoloader").hide();
             })
             .catch(function(err) {
               console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
+              $("#geoloader").hide();
             });
         }, function(err) {
           alert("Nous n'avons pas pu déterminer votre position géographique.")
@@ -108,6 +113,7 @@
       }
     }
     window.addEventListener("DOMContentLoaded", function() {
+      $("#geoloader").hide();
       const locCheckbox = document.querySelector("#localize");
       locCheckbox.addEventListener("change", listenToLocCheckboxChange());
       setTimeout(function() {
