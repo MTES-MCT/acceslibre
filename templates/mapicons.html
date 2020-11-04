@@ -2,19 +2,46 @@
 
 {% load static %}
 
+{% block robots %}noindex, nofollow{% endblock %}
+
 {% block page_title %}Map icons{% endblock%}
 
 {% block editorial_content %}
 <h2 class="mb-4">Map icons</h2>
 
-<div class="mb-3">
+<div class="mb-4">
   <div id="map-demo" style="width:100%;height:400px"></div>
   <script>
-  var map = L.map("map-demo").setView([51.505, -0.09], 13);
+  var map = L.map("map-demo", {
+    zoomControl: false
+  }).setView([43.6580058, 3.911346], 16);
 
   a4a.createTiles().addTo(map);
 
-  L.marker([51.5, -0.09]).addTo(map)
+  function createIcon(iconName, highlight) {
+    const size = highlight ? 48 : 24;
+    const options = {
+      iconUrl: "/static/img/mapicons.svg#" + iconName,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size],
+      popupAnchor: [0, -size],
+      tooltipAnchor: [size / 2, -28],
+      className: "act-icon act-icon-" + size + (highlight && " highlighted" || ""),
+    };
+    return L.icon(options);
+  }
+
+  L.marker([43.6570572, 3.9115263], {
+    icon: createIcon("bakery", false)
+  }).addTo(map)
+      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+      .openPopup();
+  L.marker([43.6580058, 3.911346], {
+    icon: createIcon("car-learn", true)
+  }).addTo(map)
+      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+      .openPopup();
+  L.marker([43.6592167, 3.9093397]).addTo(map)
       .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
       .openPopup();
   </script>
