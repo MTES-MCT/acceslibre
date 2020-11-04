@@ -85,6 +85,17 @@ class Activite(models.Model):
             "(ex. <code>sport_motorracing</code>)"
         ),
     )
+    vector_icon = models.CharField(
+        max_length=120,
+        null=True,
+        blank=True,
+        default="building",
+        verbose_name="Icône vectorielle",
+        help_text=mark_safe(
+            "Nom de l'icône dans "
+            '<a href="/mapicons" target="_blank">le catalogue</a>.'
+        ),
+    )
 
     # datetimes
     created_at = models.DateTimeField(
