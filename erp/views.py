@@ -302,6 +302,9 @@ def vote(request, erp_slug):
                     "SITE_ROOT_URL": settings.SITE_ROOT_URL,
                 },
             )
+            messages.add_message(
+                request, messages.SUCCESS, "Votre vote a été enregistré."
+            )
     return redirect(erp.get_absolute_url())
 
 
