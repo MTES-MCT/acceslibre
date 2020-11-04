@@ -953,6 +953,7 @@ def mapicons(request):
         "musique",
         "natural-feature",
         "night-club",
+        "office-tourisme",
         "open-captioning",
         "optique",
         "painter",
