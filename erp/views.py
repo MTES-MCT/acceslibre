@@ -940,6 +940,7 @@ def mapicons(request):
         "lodging",
         "low-vision-access",
         "male",
+        "mairie",
         "makeup",
         "market",
         "marina",
