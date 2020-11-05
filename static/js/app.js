@@ -6,14 +6,14 @@ window.a4a = (function () {
 
   function createIcon(highlight, features) {
     const iconName = features.activite__vector_icon || "building";
-    const size = highlight ? 32 : 24;
+    const size = highlight ? 48 : 32;
     const options = {
       iconUrl: "/static/img/mapicons.svg#" + iconName,
       iconSize: [size, size],
       iconAnchor: [size / 2, size],
       popupAnchor: [0, -size],
       tooltipAnchor: [size / 2, -28],
-      className: "shadow-sm act-icon act-icon-" + size + (highlight && " invert" || ""),
+      className: "shadow-sm act-icon act-icon-rounded act-icon-" + size + (highlight && " invert" || ""),
     };
     return L.icon(options);
   }

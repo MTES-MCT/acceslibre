@@ -54,6 +54,8 @@ $viewport-xl: 1200px;
   }
 
   .act-icon-rounded {
+    // border: 5px solid $primary;
+    padding: 0;
     border-radius: 50%;
   }
 
@@ -308,12 +310,13 @@ $viewport-xl: 1200px;
     border-radius: 50%;
     color: white;
     font-size: 12px;
-    height: 26px;
-    line-height: 26px;
-    margin-left: -20px;
-    margin-top: -20px;
+    font-weight: 600;
+    height: 32px;
+    line-height: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
     text-align: center;
-    width: 26px;
+    width: 32px;
   }
 
   &-large-breadcrumb {
