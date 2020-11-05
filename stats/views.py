@@ -144,6 +144,9 @@ class StatsView(TemplateView):
         context["nb_filled_erps"] = erp_qs.count()
         context["nb_filled_erps_by_users"] = erp_qs.filter(user__isnull=False).count()
         context["communes"] = Commune.objects.erp_stats()[:10]
+        context["nb_communes"] = (
+            Commune.objects.erp_stats().filter(erp_access_count__gt=0).count()
+        )
         context["nb_users"] = get_user_model().objects.filter(is_active=True).count()
         context["nb_contributors"] = self.get_nb_contributors()
         context["top_contributors"] = self.get_top_contributors()
