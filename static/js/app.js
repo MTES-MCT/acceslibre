@@ -65,7 +65,7 @@ window.a4a = (function () {
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
           'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>',
         ].join(", "),
-        maxZoom: 18,
+        maxZoom: 22,
         id: "n1k0/ck7daao8i07o51ipn747gwtdq",
         tileSize: 512,
         zoomOffset: -1,
