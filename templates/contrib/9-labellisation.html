@@ -17,7 +17,7 @@
     const $fieldAutre = $(".field-labels_autre")
     $fieldAutre.hide();
 
-    const $labelsInputs = $("ul#id_labels input[type=checkbox");
+    const $labelsInputs = $("ul#id_labels input[type=checkbox]");
 
     function getCheckedLabels() {
       return $labelsInputs.get().reduce(function(acc, input) {
@@ -32,17 +32,17 @@
       const checkedLabels = getCheckedLabels();
       if (checkedLabels.indexOf("autre") !== -1) {
         $fieldAutre.show();
-        $fieldAutre.find("input[type=text").attr("required", "required");
+        $fieldAutre.find("input[type=text]").attr("required", "required");
       } else {
         $fieldAutre.hide();
-        $fieldAutre.find("input[type=text").val("");
-        $fieldAutre.find("input[type=text").removeAttr("required");
+        $fieldAutre.find("input[type=text]").val("");
+        $fieldAutre.find("input[type=text]").removeAttr("required");
       }
       if (checkedLabels.length > 0) {
         $fieldFamilles.show();
       } else {
         $fieldFamilles.hide();
-        $fieldFamilles.find("input[type=checkbox").each(function(i, input) {
+        $fieldFamilles.find("input[type=checkbox]").each(function(i, input) {
           input.checked = false;
         });
       }
