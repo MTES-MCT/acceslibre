@@ -12,11 +12,16 @@
   </h2>
 
   {% if erp and erp.user != user %}
-  <div class="alert alert-info">
-    <i aria-hidden="true" class="icon icon-info-circled"></i>
-    Vous vous apprêtez à modifier les informations initialement fournies par <strong>{{ erp.user }}</strong>.
-    Veuillez vous assurer de la fiabilité des informations que vous contribuez.
-  </div>
+    <div class="alert alert-info">
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
+      Vous vous apprêtez à modifier les informations
+      {% if erp.user %}
+        initialement fournies par <strong>{{ erp.user }}</strong>
+      {% else %}
+        existantes pour cet établissement
+      {% endif %}.
+      Veuillez vous assurer de la fiabilité des informations que vous contribuez.
+    </div>
   {% endif %}
 
   {% if has_data %}
