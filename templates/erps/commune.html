@@ -2,13 +2,13 @@
 
 {% load static %}
 
-{% block page_title %}{% if erp %}{{ erp.nom }} | {% endif %}{% if current_activite %}{{ current_activite.nom }} | {% endif %}{{ commune.nom }}{% endblock%}
+{% block page_title %}{% if erp %}{{ erp.nom }}, {% endif %}{% if current_activite %}{{ current_activite.nom }}, {% endif %}{{ commune.nom }} | Accessibilité{% endblock%}
 
 {% block page_description %}{% spaceless %}
 {% if erp %}
 Découvrez l'accessibilité de l'établissement {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom}}
 {% else %}
-Découvrez l'accessibilité des établissements recevant du public de la ville de {{ commune.nom }}
+Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 {% endif %}
 {% endspaceless %}{% endblock %}
 

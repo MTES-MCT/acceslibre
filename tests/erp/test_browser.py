@@ -290,7 +290,7 @@ def test_erp_edit_can_be_contributed(data, client):
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
     assert response.status_code == 200
-    assert b"modifier les informations initialement fournies" not in response.content
+    assert b"initialement fournies par" not in response.content
 
     # non-owner can't
     client.login(username="sophie", password="Abc12345!")
@@ -298,7 +298,7 @@ def test_erp_edit_can_be_contributed(data, client):
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
     assert response.status_code == 200
-    assert b"modifier les informations initialement fournies" in response.content
+    assert b"initialement fournies par" in response.content
 
 
 def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):

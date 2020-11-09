@@ -41,7 +41,9 @@ def test_home(data, browser, capsys):
 def test_erp_details(data, browser):
     browser.visit(data.erp.get_absolute_url())
 
-    assert browser.title.startswith("Aux bons croissants | Boulangerie | Jacou")
+    assert "Aux bons croissants" in browser.title
+    assert "Boulangerie" in browser.title
+    assert "Jacou" in browser.title
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
