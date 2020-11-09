@@ -274,6 +274,7 @@ class App(BaseListView):
                 "activite__vector_icon",
                 "adresse",
                 "absolute_url",
+                "contrib_localisation_url",
                 "has_accessibilite",
             ],
         )

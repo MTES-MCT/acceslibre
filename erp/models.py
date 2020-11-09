@@ -477,6 +477,9 @@ class Erp(models.Model):
                 ),
             )
 
+    def get_contrib_localisation_url(self):
+        return reverse("contrib_localisation", kwargs={"erp_slug": self.slug})
+
     def get_admin_url(self):
         return (
             reverse("admin:erp_erp_change", kwargs={"object_id": self.pk})
