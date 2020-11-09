@@ -14,12 +14,10 @@
 <div class="mb-4">
   <div id="map-demo" style="width:100%;height:400px"></div>
   <script>
-  var map = L.map("map-demo", {
+  const map = a4a.createMap("map-demo", {
     dragging: false,
     scrollWheelZoom: false
   }).setView([43.6580058, 3.911346], 16);
-
-  a4a.createTiles().addTo(map);
 
   function createIcon(iconName, highlight) {
     const size = highlight ? 48 : 32;
