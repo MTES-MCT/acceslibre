@@ -79,7 +79,42 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
       </div>
     </div>
     <div class="col-md-4 px-3 py-2">
-      <a class="btn btn-outline-primary w-100" href="{% url "contrib_start" %}">
+      <div class="d-flex d-md-none justify-content-between">
+        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_start" %}">Ajouter un établissement</a>
+        <div class="btn-group" role="group" aria-label="Affichage">
+          <button type="button" class="link-display-infos btn btn-sm btn-primary">Infos</button><button type="button" class="link-display-map btn btn-sm btn-outline-primary">Carte</button>
+        </div>
+        <script>
+        $(document).ready(function() {
+          $infosBtn = $(".link-display-infos");
+          $mapBtn = $(".link-display-map");
+
+          function activateBtn($on, $off) {
+            $on.addClass("btn-primary").removeClass("btn-outline-primary");
+            $off.addClass("btn-outline-primary").removeClass("btn-primary");
+          }
+
+          $infosBtn.on("click", function() {
+            activateBtn($infosBtn, $mapBtn);
+            $(".a4a-app-map").removeClass("visible");
+            $("#content").show();
+          });
+
+          $mapBtn.on("click", function() {
+            activateBtn($mapBtn, $infosBtn);
+            $(".a4a-app-map").addClass("visible");
+            $("#content").hide();
+          });
+
+          $(window).on("resize", function() {
+            activateBtn($infosBtn, $mapBtn);
+            $(".a4a-app-map").addClass("visible");
+            $("#content").show();
+          })
+        });
+        </script>
+      </div>
+      <a class="d-none d-md-block btn btn-outline-primary w-100" href="{% url "contrib_start" %}">
         Ajouter un établissement
       </a>
     </div>

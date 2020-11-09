@@ -287,10 +287,22 @@ $viewport-xl: 1200px;
   }
 
   &-app-nav,
-  &-app-main,
+  &-app-main {
+    @media screen and (min-width: $viewport-md) {
+      height: calc(100vh - 58px - 57px);
+    }
+  }
+
   &-app-map {
     @media screen and (min-width: $viewport-md) {
       height: calc(100vh - 58px - 57px);
+    }
+    @media screen and (max-width: $viewport-md) {
+      display: none;
+      &.visible {
+        display: block;
+        height: calc(100vh - 148px);
+      }
     }
   }
 
