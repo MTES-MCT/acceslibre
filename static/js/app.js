@@ -31,7 +31,9 @@ window.a4a = (function () {
       "</a></strong>",
       (properties.activite__nom && "<br>" + properties.activite__nom) || "",
       "<br>" + properties.adresse,
-      '<br><a href="' + properties.contrib_localisation_url + '">Affiner la localisation</a>',
+      '<br><a href="' + properties.contrib_localisation_url + '">',
+      '<i aria-hidden="true" class="icon icon-pencil a4a-icon-small-top"></i>',
+      " Affiner la localisation</a>",
       "</div>",
     ].join("");
     layer.bindPopup(content);
