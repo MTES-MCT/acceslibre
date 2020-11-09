@@ -70,7 +70,7 @@
       <h3 class="sr-only">Historique des modifications</h3>
       <div class="list-group list-group-flush">
         {% for entry in erp.get_history %}
-        <details class="list-group-item list-group-item-action">
+        <details class="list-group-item list-group-item-action text-overlay">
           <summary class="no-ouline">
             Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
           </summary>

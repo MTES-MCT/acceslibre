@@ -189,6 +189,10 @@ $viewport-xl: 1200px;
     outline: none;
   }
 
+  .text-overlay {
+    overflow: overlay;
+  }
+
   &-text-smaller {
     font-size: 0.9em;
   }
