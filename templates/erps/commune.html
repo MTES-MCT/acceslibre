@@ -92,7 +92,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         {% include "erps/commune/erp.html" with erp=erp %}
       </div>
     </main>
-    <div class="a4a-app-map col-lg-6 col-md-4 d-none d-md-block map-area p-0 m-0">
+    <div class="a4a-app-map col-lg-6 col-md-4 p-0 m-0">
       {% include "common/map.html" %}
     </div>
 
@@ -169,14 +169,10 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
       </div>
     </nav>
 
-    <aside class="a4a-app-map col-lg-5 col-md-4 order-last d-none d-md-block map-area p-0 m-0">
+    <aside class="a4a-app-map col-lg-5 col-md-4 order-last p-0 m-0">
       {% include "common/map.html" %}
     </aside>
     {% endif %}
   </div>
 </div>
-
-<script>
-  a4a.initAppMap({{ commune_json | safe }}, {% if erp %}{{ erp.pk }}{% else %}null{% endif %}, {{ around | default_if_none:"null" }}, {{ geojson_list | safe }});
-</script>
 {% endblock %}
