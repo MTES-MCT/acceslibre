@@ -2,7 +2,9 @@ window.a4a = (function () {
   let currentPk,
     layers = [],
     markers,
-    map;
+    map,
+    satelliteTiles,
+    streetTiles;
 
   function createIcon(highlight, features) {
     const iconName = features.activite__vector_icon || "building";
@@ -56,17 +58,17 @@ window.a4a = (function () {
     });
   }
 
-  function createTiles() {
+  function createTiles(styleId) {
     return L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
       {
+        id: styleId,
         attribution: [
           'Cartographie &copy; contributeurs <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
           'Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>',
         ].join(", "),
-        maxZoom: 22,
-        id: "n1k0/ck7daao8i07o51ipn747gwtdq",
+        maxZoom: 20,
         tileSize: 512,
         zoomOffset: -1,
         accessToken:
@@ -84,18 +86,41 @@ window.a4a = (function () {
       .setView([46.227638, 2.213749], 6);
   }
 
+  function getStreetsTiles() {
+    if (!streetTiles) {
+      streetTiles = createTiles("n1k0/ck7daao8i07o51ipn747gwtdq");
+    }
+    return streetTiles;
+  }
+
+  function getSatelliteTiles() {
+    if (!satelliteTiles) {
+      satelliteTiles = createTiles("n1k0/ckh8z9k2q2gbj19mw0x32efym");
+    }
+    return satelliteTiles;
+  }
+
+  function createMap(id, options) {
+    options = options || {};
+    const defaults = { layers: [ getStreetsTiles() ] };
+    const _options = Object.assign({}, defaults, options);
+    const map = L.map(id, _options);
+    L.control.layers({
+      "Plan des rues": getStreetsTiles(),
+      "Vue satellite": getSatelliteTiles()
+    }).addTo(map);
+    return map;
+  }
+
   function initAppMap(info, pk, around, geoJson) {
     currentPk = pk;
-    const tiles = createTiles();
     const geoJsonLayer = L.geoJSON(geoJson, {
       onEachFeature: onEachFeature,
       pointToLayer: pointToLayer,
     });
+    map = createMap("app-map").setMinZoom(info.zoom - 2);
 
-    map = L.map("app-map")
-      .addLayer(tiles)
-      .setMinZoom(info.zoom - 2);
-
+    // markers
     markers = L.markerClusterGroup({
       maxClusterRadius: 30,
       showCoverageOnHover: false,
@@ -252,6 +277,7 @@ window.a4a = (function () {
   });
 
   return {
+    createMap: createMap,
     createTiles: createTiles,
     initAppMap: initAppMap,
   };

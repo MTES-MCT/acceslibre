@@ -50,11 +50,10 @@
 
   <script>
   window.addEventListener("DOMContentLoaded", function() {
-    const erpmap = L.map("erpmap", { scrollWheelZoom: false }).setView({
+    const erpmap = a4a.createMap("erpmap", { scrollWheelZoom: false }).setView({
       lat: {{ form.lat.value }},
       lon: {{ form.lon.value }}
     }, 18);
-    a4a.createTiles().addTo(erpmap);
     const control = L.control.centerCross({show: true, position: "topright"});
     erpmap.addControl(control);
     erpmap.on("move", function(event) {
