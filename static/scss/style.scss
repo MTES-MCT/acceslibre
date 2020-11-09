@@ -299,9 +299,9 @@ $viewport-xl: 1200px;
     }
     @media screen and (max-width: $viewport-md) {
       height: calc(100vh - 148px);
-      display: none;
+      visibility: hidden;
       &.visible {
-        display: block;
+        visibility: visible;
       }
     }
   }
