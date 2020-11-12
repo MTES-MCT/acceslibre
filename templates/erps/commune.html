@@ -88,6 +88,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         $(document).ready(function() {
           $infosBtn = $(".link-display-infos");
           $mapBtn = $(".link-display-map");
+          $mapWrapper = $(".a4a-app-map-wrapper");
 
           function activateBtn($on, $off) {
             $on.addClass("btn-primary").removeClass("btn-outline-primary");
@@ -96,19 +97,20 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 
           $infosBtn.on("click", function() {
             activateBtn($infosBtn, $mapBtn);
-            $(".a4a-app-map").removeClass("visible");
+            $mapWrapper.removeClass("visible");
             $("#content").show();
           });
 
           $mapBtn.on("click", function() {
             activateBtn($mapBtn, $infosBtn);
-            $(".a4a-app-map").addClass("visible");
+            $mapWrapper.addClass("visible");
             $("#content").hide();
+            a4a.recalculateMapSize();
           });
 
           $(window).on("resize", function() {
             activateBtn($infosBtn, $mapBtn);
-            $(".a4a-app-map").addClass("visible");
+            $mapWrapper.addClass("visible");
             $("#content").show();
           })
         });
@@ -127,7 +129,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         {% include "erps/commune/erp.html" with erp=erp %}
       </div>
     </main>
-    <div class="a4a-app-map col-lg-6 col-md-4 p-0 m-0">
+    <div class="a4a-app-map-wrapper col-lg-6 col-md-4 p-0 m-0">
       {% include "common/map.html" %}
     </div>
 
@@ -204,7 +206,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
       </div>
     </nav>
 
-    <aside class="a4a-app-map col-lg-5 col-md-4 order-last p-0 m-0">
+    <aside class="a4a-app-map-wrapper col-lg-5 col-md-4 order-last p-0 m-0">
       {% include "common/map.html" %}
     </aside>
     {% endif %}

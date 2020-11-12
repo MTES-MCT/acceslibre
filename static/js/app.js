@@ -6,6 +6,19 @@ window.a4a = (function () {
     satelliteTiles,
     streetTiles;
 
+  function recalculateMapSize() {
+    if (!map) {
+      return;
+    }
+    map.invalidateSize(false);
+    // ensure repositioning any opened popup
+    // see https://stackoverflow.com/a/38172374
+    const currentPopup = map._popup;
+    if (currentPopup) {
+      currentPopup.update();
+    }
+  }
+
   function createIcon(highlight, features) {
     const iconName = features.activite__vector_icon || "building";
     const size = highlight ? 48 : 32;
@@ -282,6 +295,7 @@ window.a4a = (function () {
   return {
     createMap: createMap,
     createTiles: createTiles,
+    recalculateMapSize: recalculateMapSize,
     initAppMap: initAppMap,
   };
 })();

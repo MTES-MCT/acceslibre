@@ -293,16 +293,25 @@ $viewport-xl: 1200px;
     }
   }
 
+  &-app-map-wrapper {
+    @media screen and (min-width: $viewport-md) {
+      display: block;
+    }
+
+    @media screen and (max-width: $viewport-md) {
+      display: none;
+      &.visible {
+        display: block;
+      }
+    }
+  }
+
   &-app-map {
     @media screen and (min-width: $viewport-md) {
       height: calc(100vh - 58px - 57px);
     }
     @media screen and (max-width: $viewport-md) {
       height: calc(100vh - 148px);
-      visibility: hidden;
-      &.visible {
-        visibility: visible;
-      }
     }
   }
 
