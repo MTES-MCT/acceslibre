@@ -235,6 +235,7 @@ def search(terms):
     # search for siret, if any provided
     siret = next((x for x in terms.split(" ") if sirene.validate_siret(x)), None)
     if siret:
+        siret_result = None
         try:
             siret_result = search_siret(siret)
         except RuntimeError as err:
