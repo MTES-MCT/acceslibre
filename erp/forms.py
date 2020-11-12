@@ -133,6 +133,18 @@ class BaseErpForm(forms.ModelForm):
         self.do_geocode = geocode if geocode else geocoder.geocode
         super().__init__(*args, **kwargs)
 
+    def adresse_changed(self):
+        try:
+            return (
+                self.cleaned_data["numero"] != self.instance.numero
+                or self.cleaned_data["voie"] != self.instance.voie
+                or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
+                or self.cleaned_data["code_postal"] != self.instance.code_postal
+                or self.cleaned_data["commune"] != self.instance.commune
+            )
+        except KeyError:
+            return True
+
     def get_adresse_query(self):
         parts = [
             self.cleaned_data.get("numero") or "",
@@ -146,18 +158,6 @@ class BaseErpForm(forms.ModelForm):
         ]
         return ", ".join([p for p in adresse_parts if p != ""])
 
-    def adresse_changed(self):
-        try:
-            return (
-                self.cleaned_data["numero"] != self.instance.numero
-                or self.cleaned_data["voie"] != self.instance.voie
-                or self.cleaned_data["lieu_dit"] != self.instance.lieu_dit
-                or self.cleaned_data["code_postal"] != self.instance.code_postal
-                or self.cleaned_data["commune"] != self.instance.commune
-            )
-        except KeyError:
-            return True
-
     def format_error(self, message):
         signalement_url = reverse("contact_topic", kwargs={"topic": "support"})
         return mark_safe(
@@ -170,9 +170,16 @@ class BaseErpForm(forms.ModelForm):
     def geocode(self):
         adresse = self.get_adresse_query()
         code_postal = self.cleaned_data.get("code_postal")
+        departement = code_postal[:2]
+        commune_input = self.cleaned_data.get("commune")
+        commune = Commune.objects.search_by_nom_code_postal(
+            commune_input, code_postal
+        ).first()
         locdata = None
         try:
-            locdata = self.do_geocode(adresse)
+            locdata = self.do_geocode(
+                adresse, citycode=commune.code_insee if commune else None
+            )
         except RuntimeError as err:
             raise ValidationError(err)
 
@@ -184,9 +191,8 @@ class BaseErpForm(forms.ModelForm):
 
         # Ensure picking the right postcode
         if code_postal and code_postal != locdata["code_postal"]:
-            dpt_input = self.cleaned_data["code_postal"][:2]
             dpt_result = locdata["code_postal"][:2]
-            if dpt_input != dpt_result:
+            if departement != dpt_result:
                 # Different departement, too risky to consider it valid; raise an error
                 self.raise_validation_error(
                     "code_postal",
@@ -385,18 +391,23 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         # Unicité du nom et de l'adresse
         nom = self.cleaned_data.get("nom")
         adresse = self.get_adresse_query()
-        exists = Erp.objects.exists_by_name_adresse(
+        existing = Erp.objects.filter(
             nom__iexact=self.cleaned_data.get("nom"),
             voie__iexact=self.cleaned_data.get("voie"),
             lieu_dit__iexact=self.cleaned_data.get("lieu_dit"),
             code_postal__iexact=self.cleaned_data.get("code_postal"),
             commune__iexact=self.cleaned_data.get("commune"),
-        )
-        if exists > 0:
+        ).first()
+        if existing:
+            if existing.is_online():
+                erp_display = (
+                    f'<a href="{existing.get_absolute_url()}">{nom} - {adresse}</a>'
+                )
+            else:
+                erp_display = f"{nom} - {adresse}"
             raise ValidationError(
                 mark_safe(
-                    f"L'établissement <b>{nom} - {adresse}</b> "
-                    "existe déjà dans la base de données."
+                    f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
                 )
             )
 

@@ -30,11 +30,21 @@ from . import versioning
 
 
 def handler403(request, exception):
-    return render(request, "403.html", context={"exception": exception}, status=403,)
+    return render(
+        request,
+        "403.html",
+        context={"exception": exception},
+        status=403,
+    )
 
 
 def handler404(request, exception):
-    return render(request, "404.html", context={"exception": exception}, status=404,)
+    return render(
+        request,
+        "404.html",
+        context={"exception": exception},
+        status=404,
+    )
 
 
 def handler500(request):
@@ -68,7 +78,12 @@ def home(request):
                     float(request.GET.get("lat")),
                     float(request.GET.get("lon")),
                 )
-                erp_qs = erp_qs.nearest((lat, lon,)).order_by("distance")
+                erp_qs = erp_qs.nearest(
+                    (
+                        lat,
+                        lon,
+                    )
+                ).order_by("distance")
             except ValueError:
                 pass
         paginator = Paginator(erp_qs, 10)
@@ -311,7 +326,10 @@ def vote(request, erp_slug):
 
 @login_required
 def mon_compte(request):
-    return render(request, "compte/index.html",)
+    return render(
+        request,
+        "compte/index.html",
+    )
 
 
 @login_required
@@ -391,7 +409,8 @@ def find_entreprise_businesses(form):
 
 def find_public_erps(form):
     results = public_erp.get_code_insee_type(
-        form.cleaned_data.get("code_insee"), form.cleaned_data.get("type"),
+        form.cleaned_data.get("code_insee"),
+        form.cleaned_data.get("type"),
     )
     for result in results:
         result["exists"] = Erp.objects.find_by_source_id(
@@ -550,7 +569,12 @@ def contrib_edit_infos(request, erp_slug):
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
-        context={"step": 1, "erp": erp, "form": form, "has_data": False,},
+        context={
+            "step": 1,
+            "erp": erp,
+            "form": form,
+            "has_data": False,
+        },
     )
 
 
@@ -580,7 +604,11 @@ def contrib_localisation(request, erp_slug):
     return render(
         request,
         template_name="contrib/2-localisation.html",
-        context={"step": 1, "erp": erp, "form": form,},
+        context={
+            "step": 1,
+            "erp": erp,
+            "form": form,
+        },
     )
 
 
@@ -596,7 +624,10 @@ def process_accessibilite_form(
 ):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
-    erp = get_object_or_404(Erp.objects.select_related("accessibilite"), slug=erp_slug,)
+    erp = get_object_or_404(
+        Erp.objects.select_related("accessibilite"),
+        slug=erp_slug,
+    )
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     if request.method == "POST":
         Form = modelform_factory(

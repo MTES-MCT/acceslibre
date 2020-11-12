@@ -10,18 +10,26 @@ logger = logging.getLogger(__name__)
 GEOCODER_URL = "https://api-adresse.data.gouv.fr/search/"
 
 
-def autocomplete(q, postcode=None, limit=5):
-    params = {"q": q, "limit": limit, "autocomplete": 1}
+def autocomplete(q, postcode=None, citycode=None, limit=5):
+    params = {
+        "q": q,
+        "postcode": postcode,
+        "citycode": citycode,
+        "autocomplete": 1,
+        "limit": limit,
+    }
     if postcode is not None:
         params["postcode"] = postcode
     data = query(params)
     return data.get("features") if data else None
 
 
-def geocode(adresse, postcode=None):
+def geocode(adresse, postcode=None, citycode=None):
     # retrieve geolocoder data
     try:
-        data = query({"q": adresse, "postcode": postcode, "limit": 1})
+        data = query(
+            {"q": adresse, "postcode": postcode, "citycode": citycode, "limit": 1}
+        )
         feature = data["features"][0]
         # print(json.dumps(data, indent=2))
         properties = feature["properties"]
