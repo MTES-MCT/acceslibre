@@ -8,14 +8,7 @@ $info: #097182;
 
 $navbar-dark-color: rgba($white, 0.8);
 
-// Redefine heading sizes using `em` instead of `rem` in order to
-// allow scaling proportionnaly to body base size.
-$h1-font-size: 2.5em;
-$h2-font-size: 2em;
-$h3-font-size: 1.75em;
-$h4-font-size: 1.5em;
-$h5-font-size: 1.25em;
-$h6-font-size: 1em;
+$enable-responsive-font-sizes: true;
 
 $text-muted: rgb(104, 104, 104);
 
