@@ -56,7 +56,12 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
         required=True,
         label="Nom d’utilisateur",
-        validators=[RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES,)],
+        validators=[
+            RegexValidator(
+                r"^[\w.-]+\Z",
+                message=USERNAME_RULES,
+            )
+        ],
     )
     next = forms.CharField(required=False)
 
@@ -132,10 +137,14 @@ class BaseErpForm(forms.ModelForm):
         parts = [
             self.cleaned_data.get("numero") or "",
             self.cleaned_data.get("voie") or "",
-            self.cleaned_data.get("lieu_dit") or "",
         ]
         voie_ville = " ".join([p for p in parts if p != ""]).strip()
-        return ", ".join([voie_ville, self.cleaned_data.get("commune") or ""])
+        adresse_parts = [
+            voie_ville,
+            self.cleaned_data.get("lieu_dit") or "",
+            self.cleaned_data.get("commune") or "",
+        ]
+        return ", ".join([p for p in adresse_parts if p != ""])
 
     def adresse_changed(self):
         try:
@@ -163,7 +172,7 @@ class BaseErpForm(forms.ModelForm):
         code_postal = self.cleaned_data.get("code_postal")
         locdata = None
         try:
-            locdata = self.do_geocode(adresse, postcode=code_postal)
+            locdata = self.do_geocode(adresse)
         except RuntimeError as err:
             raise ValidationError(err)
 
@@ -472,9 +481,18 @@ class PublicPublicationForm(forms.ModelForm):
         label="Mon profil",
         help_text="À quel titre contribuez vous les informations pour cet établissement ?",
         choices=[
-            (Erp.USER_ROLE_PUBLIC, "Je fréquente cet établissement",),
-            (Erp.USER_ROLE_GESTIONNAIRE, "Je gère cet établissement",),
-            (Erp.USER_ROLE_ADMIN, "Je représente une administration publique",),
+            (
+                Erp.USER_ROLE_PUBLIC,
+                "Je fréquente cet établissement",
+            ),
+            (
+                Erp.USER_ROLE_GESTIONNAIRE,
+                "Je gère cet établissement",
+            ),
+            (
+                Erp.USER_ROLE_ADMIN,
+                "Je représente une administration publique",
+            ),
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=True,
