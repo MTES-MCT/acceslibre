@@ -44,12 +44,17 @@ window.a4a = (function () {
     if (!map) {
       return;
     }
+    // store current pk before it gets destroyed for unclear reasons
+    _pk = currentPk;
     map.invalidateSize(false);
     // ensure repositioning any opened popup
     // see https://stackoverflow.com/a/38172374
     const currentPopup = map._popup;
     if (currentPopup) {
-      currentPopup.update();
+      currentPopup.update().openOn(map);
+    }
+    if (_pk) {
+      openMarkerPopup(_pk);
     }
   }
 
