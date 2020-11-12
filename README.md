@@ -28,6 +28,7 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 - `EMAIL_HOST_PASSWORD`: Mot de passe SMTP
 - `INSEE_API_CLIENT_KEY`: Clé client d'[API INSEE Sirene](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee)
 - `INSEE_API_SECRET_KEY`: Clé secrète d'API INSEE Sirene
+- `SCALINGO_APP`: Le nom de l'application Scalingo, toujours `access4all`
 - `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
 - `SENTRY_DSN`: La chaine de connexion à [Sentry](https://sentry.io/), l'outil de rapport d'erreur que nous utilisons en production.
 
@@ -323,3 +324,59 @@ $ sudo -u postgres psql
 ## Licence
 
 Le code source du logiciel est publié sous licence [MIT](https://fr.wikipedia.org/wiki/Licence_MIT).
+
+## Annexe 1
+
+### Installation de l'environnement de développement sur Mac OS X
+
+Installez [homebrew](https://brew.sh/), puis :
+
+```
+$ brew install python@3.8 pipenv gdal
+```
+
+Vous devriez obtenir une notice spécifiant le chemin vers l'executable Python installé :
+
+```
+Python has been installed as
+  /usr/local/opt/python@3.8/bin/python3
+````
+
+Créez un virtualenv avec cette version spécifique de Python :
+
+```
+$ pipenv --python /usr/local/opt/python@3.8/bin/python3
+```
+
+Configurez votre fichier `.env` comme spécifié plus haut, puis activez le virtualenv et installez les paquets :
+
+```
+$ pipenv shell
+$ pipenv install
+```
+
+Installer [Postgres.app](https://postgresapp.com/), sans oublier de linker les exécutables :
+
+```
+$ sudo mkdir -p /etc/paths.d
+$ echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp
+```
+
+Executez les commandes d'initialisation SQL :
+
+```
+$ psql postgres -f bin/create_db.sql
+$ echo "ALTER ROLE access4all SUPERUSER;" | psql postgres
+```
+
+Idéalement, récupérez un dump de la base de données de production via l'interface Scalingo et importez-le :
+
+```
+$ pg_restore --clean --if-exists --no-owner --no-privileges --dbname $DATABASE_URL 20201111163942_access4all_8677.pgsql
+```
+
+Vous pouvez lancer le serveur de développement :
+
+```
+$ ./run-dev.sh
+```

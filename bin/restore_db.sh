@@ -3,7 +3,7 @@
 DUMP_PATH="/tmp/dump.pgsql"
 
 # TODO check if scalingo cli is available
-SCALINGO_POSTGRESQL_URL=`scalingo env | grep 'postgres://' | awk -F '=' '{ print $2 }'`
+SCALINGO_POSTGRESQL_URL=`scalingo env --app access4all | grep 'postgres://' | awk -F '=' '{ print $2 }'`
 PARTS=$(echo "$SCALINGO_POSTGRESQL_URL" | grep -oP '\w+')
 USERNAME=$(echo $PARTS | awk '{ print $2 }')
 PASSWORD=$(echo $PARTS | awk '{ print $3 }')
