@@ -51,9 +51,8 @@ window.a4a = (function () {
     // see https://stackoverflow.com/a/38172374
     const currentPopup = map._popup;
     if (currentPopup) {
-      currentPopup.update().openOn(map);
-    }
-    if (_pk) {
+      currentPopup.update();
+    } else if (_pk) {
       openMarkerPopup(_pk);
     }
   }
