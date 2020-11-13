@@ -192,7 +192,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center{% if current_activite and current_activite.pk == activite.pk %} active{% endif %}"
           title="{{ activite.nom }}"
           href="{% url "commune_activite" commune=commune.slug activite_slug=activite.slug %}">
-          <img alt="" class="act-icon act-icon-20 mb-1 mr-1"
+          <img alt="" class="act-icon act-icon-20 mr-1"
             src="{% static "img/mapicons.svg" %}#{{ activite.vector_icon }}">
           <span class="w-100 text-truncate">{{ activite.nom }}</span>
           <span class="badge badge-primary badge-pill">{{ activite.count }}</span>
