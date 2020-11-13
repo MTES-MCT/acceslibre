@@ -35,9 +35,7 @@ def get_widgets_for_accessibilite():
 
 
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
-    USERNAME_RULES = (
-        "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
-    )
+    USERNAME_RULES = "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
 
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = User
@@ -172,22 +170,16 @@ class BaseErpForm(forms.ModelForm):
         code_postal = self.cleaned_data.get("code_postal", "").strip() or None
         departement = code_postal[:2] if code_postal and len(code_postal) == 5 else None
         commune_input = self.cleaned_data.get("commune")
-        commune = Commune.objects.search_by_nom_code_postal(
-            commune_input, code_postal
-        ).first()
+        commune = Commune.objects.search_by_nom_code_postal(commune_input, code_postal).first()
         locdata = None
         try:
-            locdata = self.do_geocode(
-                adresse, citycode=commune.code_insee if commune else None
-            )
+            locdata = self.do_geocode(adresse, citycode=commune.code_insee if commune else None)
         except RuntimeError as err:
             raise ValidationError(err)
 
         # Check for geocoded results
         if not locdata or locdata.get("geom") is None:
-            self.raise_validation_error(
-                "voie", f"Adresse non localisable : {adresse} ({code_postal})"
-            )
+            self.raise_validation_error("voie", f"Adresse non localisable : {adresse} ({code_postal})")
 
         # Ensure picking the right postcode
         if code_postal and code_postal != locdata["code_postal"]:
@@ -203,10 +195,7 @@ class BaseErpForm(forms.ModelForm):
                 )
 
         # Validate code insee
-        if (
-            self.cleaned_data.get("code_insee")
-            and self.cleaned_data["code_insee"] != locdata["code_insee"]
-        ):
+        if self.cleaned_data.get("code_insee") and self.cleaned_data["code_insee"] != locdata["code_insee"]:
             self.raise_validation_error(
                 "code_insee",
                 f"Cette adresse n'est pas localisable au code INSEE {self.cleaned_data['code_insee']}",
@@ -299,9 +288,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
                     }
                 )
             # Discard empty sections to avoid rendering empty menu items
-            empty_section = all(
-                self[f["id"]].value() in [None, "", []] for f in section_fields
-            )
+            empty_section = all(self[f["id"]].value() in [None, "", []] for f in section_fields)
             if empty_section:
                 data.pop(section)
         return data
@@ -347,12 +334,8 @@ class BasePublicErpInfosForm(BaseErpForm):
             "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
             "siret": forms.TextInput(attrs={"placeholder": "ex: 88076068100010"}),
-            "contact_email": forms.EmailInput(
-                attrs={"placeholder": "ex: nom@domain.tld"}
-            ),
-            "site_internet": forms.URLInput(
-                attrs={"placeholder": "ex: http://etablissement.com"}
-            ),
+            "contact_email": forms.EmailInput(attrs={"placeholder": "ex: nom@domain.tld"}),
+            "site_internet": forms.URLInput(attrs={"placeholder": "ex: http://etablissement.com"}),
             "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
         }
 
@@ -383,10 +366,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         siret = self.cleaned_data["siret"]
         if siret and Erp.objects.find_by_siret(siret):
             raise ValidationError(
-                {
-                    "siret": f"Un établissement disposant du numéro SIRET {siret} "
-                    "existe déjà dans la base de données."
-                }
+                {"siret": f"Un établissement disposant du numéro SIRET {siret} existe déjà dans la base de données."}
             )
         # Unicité du nom et de l'adresse
         nom = self.cleaned_data.get("nom")
@@ -400,15 +380,11 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         ).first()
         if existing:
             if existing.is_online():
-                erp_display = (
-                    f'<a href="{existing.get_absolute_url()}">{nom} - {adresse}</a>'
-                )
+                erp_display = f'<a href="{existing.get_absolute_url()}">{nom} - {adresse}</a>'
             else:
                 erp_display = f"{nom} - {adresse}"
             raise ValidationError(
-                mark_safe(
-                    f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données."
-                )
+                mark_safe(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données.")
             )
 
 
@@ -421,9 +397,7 @@ class PublicErpDeleteForm(forms.Form):
     def clean_confirm(self):
         confirm = self.cleaned_data["confirm"]
         if confirm is not True:
-            raise ValidationError(
-                "Vous devez confirmer la suppression pour la rendre effective."
-            )
+            raise ValidationError("Vous devez confirmer la suppression pour la rendre effective.")
         return confirm
 
 
@@ -456,9 +430,7 @@ class ProviderEntrepriseSearchForm(forms.Form):
             ", la voie, le code postal, l'activité et la commune."
         ),
         required=True,
-        widget=forms.TextInput(
-            attrs={"placeholder": "ex. Fleuriste Lyon", "autocomplete": "off"}
-        ),
+        widget=forms.TextInput(attrs={"placeholder": "ex. Fleuriste Lyon", "autocomplete": "off"}),
     )
 
 
@@ -511,9 +483,7 @@ class PublicPublicationForm(forms.ModelForm):
     registre_url = forms.URLField(
         label="Registre d'accessibilité",
         help_text=schema.get_help_text("registre_url"),
-        widget=forms.TextInput(
-            attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}
-        ),
+        widget=forms.TextInput(attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}),
         required=False,
     )
     conformite = forms.ChoiceField(
@@ -534,9 +504,7 @@ class PublicPublicationForm(forms.ModelForm):
 
     def clean_certif(self):
         if not self.cleaned_data.get("certif", False):
-            raise ValidationError(
-                "Publication impossible sans ces garanties de votre part"
-            )
+            raise ValidationError("Publication impossible sans ces garanties de votre part")
         return True
 
     def clean_registre_url(self):
@@ -550,9 +518,7 @@ class PublicPublicationForm(forms.ModelForm):
                     f"Cette URL est en erreur HTTP {req.status_code}, veuillez vérifier votre saisie."
                 )
         except RequestException:
-            raise ValidationError(
-                "Cette URL n'aboutit pas, veuillez vérifier votre saisie."
-            )
+            raise ValidationError("Cette URL n'aboutit pas, veuillez vérifier votre saisie.")
         return url
 
 

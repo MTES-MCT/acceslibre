@@ -53,11 +53,7 @@ def handler500(request):
 
 def home(request):
     communes_qs = Commune.objects.erp_stats()[:12]
-    latest = (
-        Erp.objects.select_related("activite", "commune_ext")
-        .published()
-        .order_by("-created_at")[:17]
-    )
+    latest = Erp.objects.select_related("activite", "commune_ext").published().order_by("-created_at")[:17]
     search_results = None
     search = request.GET.get("q")
     localize = request.GET.get("localize")
@@ -67,9 +63,7 @@ def home(request):
     lat = None
     lon = None
     if "q" in request.GET:
-        erp_qs = Erp.objects.select_related(
-            "accessibilite", "activite", "commune_ext"
-        ).published()
+        erp_qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published()
         if len(search) > 0:
             erp_qs = erp_qs.search(search)
         if localize == "1":
@@ -91,9 +85,7 @@ def home(request):
         pager = paginator.get_page(page_number)
         pager_base_url = f"?q={search or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
         search_results = {
-            "communes": Commune.objects.search(search).order_by(
-                F("population").desc(nulls_last=True)
-            )[:4],
+            "communes": Commune.objects.search(search).order_by(F("population").desc(nulls_last=True))[:4],
             "pager": pager,
         }
     return render(
@@ -176,9 +168,7 @@ class EditorialView(TemplateView):
 
 class BaseListView(generic.ListView):
     model = Erp
-    queryset = Erp.objects.select_related(
-        "activite", "accessibilite", "commune_ext", "statuscheck"
-    ).published()
+    queryset = Erp.objects.select_related("activite", "accessibilite", "commune_ext", "statuscheck").published()
     _commune = None
 
     @property
@@ -195,9 +185,7 @@ class BaseListView(generic.ListView):
     @property
     def commune(self):
         if self._commune is None:
-            self._commune = get_object_or_404(
-                Commune.objects.select_related(), slug=self.kwargs["commune"]
-            )
+            self._commune = get_object_or_404(Commune.objects.select_related(), slug=self.kwargs["commune"])
         return self._commune
 
     @property
@@ -216,9 +204,7 @@ class BaseListView(generic.ListView):
                 if self.kwargs["activite_slug"] == "non-categorises":
                     queryset = queryset.filter(activite__isnull=True)
                 else:
-                    queryset = queryset.filter(
-                        activite__slug=self.kwargs["activite_slug"]
-                    )
+                    queryset = queryset.filter(activite__slug=self.kwargs["activite_slug"])
             queryset = queryset.order_by("nom")
         if self.around is not None:
             queryset = queryset.nearest(self.around)
@@ -237,28 +223,17 @@ class App(BaseListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["around"] = (
-            list(self.around) if self.around is not None else self.around
-        )
+        context["around"] = list(self.around) if self.around is not None else self.around
         context["commune"] = self.commune
         context["commune_json"] = self.commune.toTemplateJson()
         context["search_terms"] = self.search_terms
-        context["activites"] = Activite.objects.in_commune(
-            self.commune
-        ).with_erp_counts()
+        context["activites"] = Activite.objects.in_commune(self.commune).with_erp_counts()
         context["activite_slug"] = self.kwargs.get("activite_slug")
-        if (
-            "activite_slug" in self.kwargs
-            and self.kwargs["activite_slug"] != "non-categorises"
-        ):
-            context["current_activite"] = get_object_or_404(
-                Activite, slug=self.kwargs["activite_slug"]
-            )
+        if "activite_slug" in self.kwargs and self.kwargs["activite_slug"] != "non-categorises":
+            context["current_activite"] = get_object_or_404(Activite, slug=self.kwargs["activite_slug"])
         if "erp_slug" in self.kwargs:
             erp = get_object_or_404(
-                Erp.objects.select_related(
-                    "accessibilite", "activite", "commune_ext", "user", "statuscheck"
-                )
+                Erp.objects.select_related("accessibilite", "activite", "commune_ext", "user", "statuscheck")
                 .published()
                 .with_votes(),
                 slug=self.kwargs["erp_slug"],
@@ -268,9 +243,7 @@ class App(BaseListView):
                 form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
             if self.request.user.is_authenticated:
-                context["user_vote"] = Vote.objects.filter(
-                    user=self.request.user, erp=erp
-                ).first()
+                context["user_vote"] = Vote.objects.filter(user=self.request.user, erp=erp).first()
             context["object_list"] = (
                 Erp.objects.select_related("accessibilite", "commune_ext", "activite")
                 .published()
@@ -300,9 +273,7 @@ class App(BaseListView):
 def vote(request, erp_slug):
     if not request.user.is_active:
         raise Http404("Only active users can vote")
-    erp = get_object_or_404(
-        Erp, slug=erp_slug, published=True, accessibilite__isnull=False
-    )
+    erp = get_object_or_404(Erp, slug=erp_slug, published=True, accessibilite__isnull=False)
     if request.method == "POST":
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
@@ -318,9 +289,7 @@ def vote(request, erp_slug):
                     "SITE_ROOT_URL": settings.SITE_ROOT_URL,
                 },
             )
-            messages.add_message(
-                request, messages.SUCCESS, "Votre vote a été enregistré."
-            )
+            messages.add_message(request, messages.SUCCESS, "Votre vote a été enregistré.")
     return redirect(erp.get_absolute_url())
 
 
@@ -334,9 +303,7 @@ def mon_compte(request):
 
 @login_required
 def mes_erps(request):
-    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
-        user_id=request.user.pk
-    )
+    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(user_id=request.user.pk)
     published_qs = qs.published()
     non_published_qs = qs.not_published()
     erp_total_count = qs.count()
@@ -413,9 +380,7 @@ def find_public_erps(form):
         form.cleaned_data.get("type"),
     )
     for result in results:
-        result["exists"] = Erp.objects.find_by_source_id(
-            result["source"], result["source_id"]
-        )
+        result["exists"] = Erp.objects.find_by_source_id(result["source"], result["source_id"])
     return results
 
 
@@ -427,9 +392,7 @@ def contrib_delete(request, erp_slug):
         form = forms.PublicErpDeleteForm(request.POST)
         if form.is_valid():
             erp.delete()
-            messages.add_message(
-                request, messages.SUCCESS, "L'établissement a été supprimé."
-            )
+            messages.add_message(request, messages.SUCCESS, "L'établissement a été supprimé.")
             return redirect("mes_erps")
     else:
         form = forms.PublicErpDeleteForm()
@@ -523,9 +486,7 @@ def contrib_admin_infos(request):
                 erp.published = False
                 erp.user = request.user
                 erp.save()
-                messages.add_message(
-                    request, messages.SUCCESS, "Les données ont été enregistrées."
-                )
+                messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
                 return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         encoded_data = request.GET.get("data")
@@ -553,19 +514,13 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     if request.method == "POST":
-        form = forms.PublicErpEditInfosForm(
-            request.POST, instance=erp, initial={"recevant_du_public": True}
-        )
+        form = forms.PublicErpEditInfosForm(request.POST, instance=erp, initial={"recevant_du_public": True})
         if form.is_valid():
             erp = form.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
+            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
-        form = forms.PublicErpAdminInfosForm(
-            instance=erp, initial={"recevant_du_public": True}
-        )
+        form = forms.PublicErpAdminInfosForm(instance=erp, initial={"recevant_du_public": True})
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -589,18 +544,14 @@ def contrib_localisation(request, erp_slug):
             lon = form.cleaned_data.get("lon")
             erp.geom = Point(x=lon, y=lat, srid=4326)
             erp.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
+            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
             action = request.POST.get("action")
             if action == "contribute":
                 return redirect(erp.get_absolute_url())
             else:
                 return redirect("contrib_transport", erp_slug=erp.slug)
     elif erp.geom is not None:
-        form = forms.PublicLocalisationForm(
-            {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
-        )
+        form = forms.PublicLocalisationForm({"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]})
     return render(
         request,
         template_name="contrib/2-localisation.html",
@@ -630,26 +581,20 @@ def process_accessibilite_form(
     )
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     if request.method == "POST":
-        Form = modelform_factory(
-            Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields
-        )
+        Form = modelform_factory(Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields)
         form = Form(request.POST, instance=accessibilite)
         if form.is_valid():
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
             form.save_m2m()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
+            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
             action = request.POST.get("action")
             if action == "contribute":
                 hash = "#" + redirect_hash if redirect_hash else ""
                 return redirect(erp.get_absolute_url() + hash)
             else:
-                return redirect(
-                    reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
-                )
+                return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
     else:
         form = forms.AdminAccessibiliteForm(instance=accessibilite)
 
@@ -661,9 +606,7 @@ def process_accessibilite_form(
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
-            "prev_route": reverse(prev_route, kwargs={"erp_slug": erp.slug})
-            if prev_route
-            else None,
+            "prev_route": reverse(prev_route, kwargs={"erp_slug": erp.slug}) if prev_route else None,
         },
     )
 
@@ -800,14 +743,10 @@ def contrib_publication(request, erp_slug):
     }
     empty_a11y = False
     if request.method == "POST":
-        form = forms.PublicPublicationForm(
-            request.POST, instance=accessibilite, initial=initial
-        )
+        form = forms.PublicPublicationForm(request.POST, instance=accessibilite, initial=initial)
         if form.is_valid():
             accessibilite = form.save()
-            if not accessibilite.has_data() and form.cleaned_data.get(
-                "published", False
-            ):
+            if not accessibilite.has_data() and form.cleaned_data.get("published", False):
                 erp.published = False
                 erp.save()
                 empty_a11y = True
@@ -815,9 +754,7 @@ def contrib_publication(request, erp_slug):
                 erp.user_type = form.cleaned_data.get("user_type")
                 erp.published = form.cleaned_data.get("published")
                 erp = erp.save()
-                messages.add_message(
-                    request, messages.SUCCESS, "Les données ont été sauvegardées."
-                )
+                messages.add_message(request, messages.SUCCESS, "Les données ont été sauvegardées.")
                 return redirect("mes_erps")
     else:
         form = forms.PublicPublicationForm(instance=accessibilite, initial=initial)
@@ -842,15 +779,11 @@ def contrib_claim(request, erp_slug):
         if form.is_valid():
             erp.user = request.user
             erp.save()
-            messages.add_message(
-                request, messages.SUCCESS, "L'établissement a été revendiqué."
-            )
+            messages.add_message(request, messages.SUCCESS, "L'établissement a été revendiqué.")
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
         form = forms.PublicClaimForm()
-    return render(
-        request, template_name="contrib/claim.html", context={"erp": erp, "form": form}
-    )
+    return render(request, template_name="contrib/claim.html", context={"erp": erp, "form": form})
 
 
 @login_required
