@@ -41,13 +41,23 @@ urlpatterns = [
         name="accessibilite",
     ),
     path(
-        "partenaires", editorial_page("editorial/partenaires.html"), name="partenaires",
+        "partenaires",
+        editorial_page("editorial/partenaires.html"),
+        name="partenaires",
     ),
     ############################################################################
     # HTML app
     ############################################################################
-    path("app/autocomplete/", views.autocomplete, name="autocomplete",),
-    path("app/<str:commune>/", cache_app_page(), name="commune",),
+    path(
+        "app/autocomplete/",
+        views.autocomplete,
+        name="autocomplete",
+    ),
+    path(
+        "app/<str:commune>/",
+        cache_app_page(),
+        name="commune",
+    ),
     path(
         "app/<str:commune>/a/<str:activite_slug>/",
         cache_app_page(),
@@ -120,7 +130,9 @@ urlpatterns = [
         name="contrib_exterieur",
     ),
     path(
-        "contrib/entree/<str:erp_slug>/", views.contrib_entree, name="contrib_entree",
+        "contrib/entree/<str:erp_slug>/",
+        views.contrib_entree,
+        name="contrib_entree",
     ),
     path(
         "contrib/accueil/<str:erp_slug>/",

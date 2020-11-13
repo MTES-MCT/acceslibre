@@ -154,7 +154,8 @@ def test_urls_404(data, url, client):
 
 def test_auth(data, client, capsys):
     response = client.post(
-        reverse("login"), data={"username": "niko", "password": "Abc12345!"},
+        reverse("login"),
+        data={"username": "niko", "password": "Abc12345!"},
     )
     assert response.status_code == 302
     assert response.wsgi_request.user.username == "niko"
@@ -169,7 +170,8 @@ def test_auth(data, client, capsys):
 
 def test_auth_using_email(data, client, capsys):
     response = client.post(
-        reverse("login"), data={"username": "niko@niko.tld", "password": "Abc12345!"},
+        reverse("login"),
+        data={"username": "niko@niko.tld", "password": "Abc12345!"},
     )
     assert response.status_code == 302
     assert response.wsgi_request.user.username == "niko"
@@ -503,7 +505,10 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Sanitaires
     response = client.post(
         reverse("contrib_sanitaires", kwargs={"erp_slug": erp.slug}),
-        data={"sanitaires_presence": True, "sanitaires_adaptes": 42,},
+        data={
+            "sanitaires_presence": True,
+            "sanitaires_adaptes": 42,
+        },
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
@@ -532,7 +537,9 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Commentaire
     response = client.post(
         reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
-        data={"commentaire": "test commentaire",},
+        data={
+            "commentaire": "test commentaire",
+        },
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
@@ -544,7 +551,11 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     # Public user
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "published": "on", "certif": "on",},
+        data={
+            "user_type": Erp.USER_ROLE_PUBLIC,
+            "published": "on",
+            "certif": "on",
+        },
         follow=True,
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
@@ -602,7 +613,11 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
     # published field on
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "published": "on", "certif": "on",},
+        data={
+            "user_type": Erp.USER_ROLE_PUBLIC,
+            "published": "on",
+            "certif": "on",
+        },
     )
 
     assert response.status_code == 200
@@ -614,7 +629,10 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
     # published field off
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
-        data={"user_type": Erp.USER_ROLE_PUBLIC, "certif": "on",},
+        data={
+            "user_type": Erp.USER_ROLE_PUBLIC,
+            "certif": "on",
+        },
         follow=True,
     )
 
@@ -743,11 +761,17 @@ def test_accessibilite_history(data, client):
     client.login(username="niko", password="Abc12345!")
     client.post(
         reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
-        data={"sanitaires_presence": True, "sanitaires_adaptes": 42,},
+        data={
+            "sanitaires_presence": True,
+            "sanitaires_adaptes": 42,
+        },
     )
     client.post(
         reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
-        data={"sanitaires_presence": False, "sanitaires_adaptes": "",},
+        data={
+            "sanitaires_presence": False,
+            "sanitaires_adaptes": "",
+        },
     )
     accessibilite.refresh_from_db()
     history = accessibilite.get_history()

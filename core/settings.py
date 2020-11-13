@@ -128,10 +128,10 @@ ROOT_URLCONF = "core.urls"
 
 
 def expose_site_context(request):
-    """ Expose generic site related static values to all templates.
+    """Expose generic site related static values to all templates.
 
-        Note: we load these values from django.conf.settings so we can retrieve
-        those defined/overriden in env-specific settings module (eg. dev/prod).
+    Note: we load these values from django.conf.settings so we can retrieve
+    those defined/overriden in env-specific settings module (eg. dev/prod).
     """
     from django.conf import settings
 
@@ -180,9 +180,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},
-    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",},
-    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
 ]
 
 # Cookie security

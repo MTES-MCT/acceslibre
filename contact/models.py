@@ -34,8 +34,14 @@ class Message(models.Model):
     name = models.CharField(
         max_length=255, verbose_name="Votre nom", null=True, blank=True
     )
-    email = models.EmailField(max_length=255, verbose_name="Adresse email",)
-    body = models.TextField(max_length=5000, verbose_name="Message",)
+    email = models.EmailField(
+        max_length=255,
+        verbose_name="Adresse email",
+    )
+    body = models.TextField(
+        max_length=5000,
+        verbose_name="Message",
+    )
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name="Utilisateur",

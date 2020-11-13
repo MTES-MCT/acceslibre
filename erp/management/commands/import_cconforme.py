@@ -94,7 +94,9 @@ class Command(BaseCommand):
         # check doublons
         try:
             Erp.objects.get(
-                nom=fields["nom"], voie=fields["voie"], commune=fields["commune"],
+                nom=fields["nom"],
+                voie=fields["voie"],
+                commune=fields["commune"],
             )
             print(f"EXIST {fields['nom']} {fields['voie']} {fields['commune']}")
             return None
@@ -124,7 +126,11 @@ class Command(BaseCommand):
         here = os.path.abspath(
             os.path.join(os.path.abspath(__file__), "..", "..", "..")
         )
-        return os.path.join(os.path.dirname(here), "data", "source.csv",)
+        return os.path.join(
+            os.path.dirname(here),
+            "data",
+            "source.csv",
+        )
 
     def handle(self, *args, **options):
         csv_path = self.get_csv_path()

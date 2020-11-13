@@ -590,7 +590,11 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None
-        and x in [PERSONNELS_NON_FORMES, PERSONNELS_AUCUN,],
+        and x
+        in [
+            PERSONNELS_NON_FORMES,
+            PERSONNELS_AUCUN,
+        ],
     },
     "accueil_equipements_malentendants": {
         "is_a11y": True,

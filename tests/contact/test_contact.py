@@ -92,7 +92,10 @@ def test_contact_authenticated(data, client):
     assert (
         1
         == Message.objects.filter(
-            topic="signalement", user=data.erp.user, body=TEST_BODY, sent_ok=True,
+            topic="signalement",
+            user=data.erp.user,
+            body=TEST_BODY,
+            sent_ok=True,
         ).count()
     )
 
@@ -100,7 +103,12 @@ def test_contact_authenticated(data, client):
 def test_contact_topic(data, client):
     response = client.post(
         reverse("contact_topic", kwargs={"topic": "a11y"}),
-        {"name": TEST_NAME, "email": TEST_EMAIL, "topic": "a11y", "body": TEST_BODY,},
+        {
+            "name": TEST_NAME,
+            "email": TEST_EMAIL,
+            "topic": "a11y",
+            "body": TEST_BODY,
+        },
     )
 
     assert response.status_code == 302

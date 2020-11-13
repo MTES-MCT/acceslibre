@@ -25,8 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
-    """ This is neat.
-    """
+    """This is neat."""
 
     class Meta:
         model = Accessibilite

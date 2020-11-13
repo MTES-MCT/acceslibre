@@ -19,7 +19,10 @@ class Command(BaseCommand):
         email = text.remove_accents(options["email"]).lower()
         username = self.generate_username(email)
         user = User.objects.create_user(
-            username=username, password=password, email=email, is_staff=True,
+            username=username,
+            password=password,
+            email=email,
+            is_staff=True,
         )
         user.groups.add(group)
         print(f"Compte créé pour {email}: username={username}, password={password}")

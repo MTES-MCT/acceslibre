@@ -62,15 +62,23 @@ def test_extract_etablissement_nom():
                 sirene.RAISON_SOCIALE: "raison",
             },
             sirene.PERIODES_ETABLISSEMENT: [
-                {sirene.NOM_ENSEIGNE1: "nom1", sirene.NOM_ENSEIGNE2: "nom2",}
+                {
+                    sirene.NOM_ENSEIGNE1: "nom1",
+                    sirene.NOM_ENSEIGNE2: "nom2",
+                }
             ],
         }
     )
     assert "Nom1 Nom2 Raison" == sirene.extract_etablissement_nom(
         {
-            sirene.UNITE_LEGALE: {sirene.RAISON_SOCIALE: "raison",},
+            sirene.UNITE_LEGALE: {
+                sirene.RAISON_SOCIALE: "raison",
+            },
             sirene.PERIODES_ETABLISSEMENT: [
-                {sirene.NOM_ENSEIGNE1: "nom1", sirene.NOM_ENSEIGNE2: "nom2",}
+                {
+                    sirene.NOM_ENSEIGNE1: "nom1",
+                    sirene.NOM_ENSEIGNE2: "nom2",
+                }
             ],
         }
     )
@@ -78,7 +86,10 @@ def test_extract_etablissement_nom():
         {
             sirene.UNITE_LEGALE: {},
             sirene.PERIODES_ETABLISSEMENT: [
-                {sirene.NOM_ENSEIGNE1: "nom1", sirene.NOM_ENSEIGNE2: "nom2",}
+                {
+                    sirene.NOM_ENSEIGNE1: "nom1",
+                    sirene.NOM_ENSEIGNE2: "nom2",
+                }
             ],
         }
     )
@@ -99,5 +110,9 @@ def test_extract_etablissement_nom():
         }
     )
     assert "Foo B.A.R" == sirene.extract_etablissement_nom(
-        {sirene.UNITE_LEGALE: {sirene.RAISON_SOCIALE: "FOO B.A.R",},}
+        {
+            sirene.UNITE_LEGALE: {
+                sirene.RAISON_SOCIALE: "FOO B.A.R",
+            },
+        }
     )

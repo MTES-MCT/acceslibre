@@ -26,7 +26,11 @@ class Command(BaseCommand):
         here = os.path.abspath(
             os.path.join(os.path.abspath(__file__), "..", "..", "..")
         )
-        return os.path.join(os.path.dirname(here), "data", "villes_france.csv",)
+        return os.path.join(
+            os.path.dirname(here),
+            "data",
+            "villes_france.csv",
+        )
 
     def import_row(self, row):
         # TODO: check if exists
@@ -63,7 +67,11 @@ class Command(BaseCommand):
                 nom=nom,
                 code_insee=code_insee,
                 superficie=superficie,  # hectares
-                geom=Point(lon, lat, srid=4326,),
+                geom=Point(
+                    lon,
+                    lat,
+                    srid=4326,
+                ),
                 code_postaux=code_postaux,
             )
         except KeyError as err:

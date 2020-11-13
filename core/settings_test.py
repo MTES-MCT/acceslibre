@@ -18,7 +18,11 @@ INTERNAL_IPS = [
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-CACHES = {"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache",}}
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+    }
+}
 
 TEMPLATES[0]["OPTIONS"]["debug"] = True
 TEMPLATES[0]["OPTIONS"]["context_processors"].insert(
