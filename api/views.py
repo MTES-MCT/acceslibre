@@ -7,7 +7,7 @@ from rest_framework.schemas.openapi import AutoSchema
 from rest_framework.filters import BaseFilterBackend
 
 from django.conf import settings
-from erp import geocoder
+from erp.provider import geocoder
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from .serializers import (

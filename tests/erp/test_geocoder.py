@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-from erp import geocoder
+from erp.provider import geocoder
 
 
 def test_geocoder_error(mocker):

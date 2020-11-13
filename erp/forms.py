@@ -14,15 +14,14 @@ from django.utils.safestring import mark_safe
 from django_registration.forms import RegistrationFormUniqueEmail
 from requests.exceptions import RequestException
 
-from . import schema
-from . import geocoder
-from .models import (
+from erp import schema
+from erp.models import (
     Activite,
     Accessibilite,
     Commune,
     Erp,
 )
-from .provider import public_erp
+from erp.provider import geocoder, public_erp
 
 
 def bool_radios():

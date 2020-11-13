@@ -6,7 +6,7 @@ from unittest import mock
 from erp import schema
 from erp import forms
 from erp.models import Commune, Erp
-from erp import geocoder
+from erp.provider import geocoder
 
 from tests.fixtures import data
 
@@ -78,7 +78,7 @@ def test_CustomRegistrationForm():
 def test_BaseErpForm_get_adresse_query(
     form_data, mocker, geocoder_result_ok, paris_commune
 ):
-    mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
+    mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     form.is_valid()  # populates cleaned_data
     assert form.get_adresse_query() == "4 Rue de la Paix, Paris"
@@ -88,7 +88,7 @@ def test_BaseErpForm_get_adresse_query(
 def test_BaseErpForm_geocode_adresse(
     form_data, mocker, geocoder_result_ok, paris_commune
 ):
-    mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
+    mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     form.is_valid()
     assert form.cleaned_data["geom"] == POINT
@@ -103,7 +103,7 @@ def test_BaseErpForm_geocode_adresse(
 @pytest.mark.django_db
 def test_BaseErpForm_clean_geom_missing(data, mocker):
     mocker.patch(
-        "erp.geocoder.geocode",
+        "erp.provider.geocoder.geocode",
         return_value={
             "geom": None,
             "numero": None,
@@ -138,7 +138,7 @@ def test_BaseErpForm_clean_geom_missing(data, mocker):
 @pytest.mark.django_db
 def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
     mocker.patch(
-        "erp.geocoder.geocode",
+        "erp.provider.geocoder.geocode",
         return_value={
             "geom": POINT,
             "numero": None,
@@ -173,7 +173,7 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
 @pytest.mark.django_db
 def test_BaseErpForm_clean_numero_mismatch(data, mocker):
     mocker.patch(
-        "erp.geocoder.geocode",
+        "erp.provider.geocoder.geocode",
         return_value={
             "geom": POINT,
             "numero": None,
@@ -208,7 +208,7 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
 
 
 def test_BaseErpForm_invalid_on_empty_geocode_results(form_data, mocker):
-    mocker.patch("erp.geocoder.geocode", return_value=None)
+    mocker.patch("erp.provider.geocoder.geocode", return_value=None)
     form = forms.AdminErpForm(form_data)
     assert form.is_valid() is False
 
@@ -217,7 +217,7 @@ def test_BaseErpForm_invalid_on_empty_geocode_results(form_data, mocker):
 def test_BaseErpForm_valid_on_geocoded_results(
     form_data, mocker, geocoder_result_ok, paris_commune
 ):
-    mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
+    mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     assert form.is_valid() is True
 
@@ -226,7 +226,7 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(
     data, mocker, geocoder_result_ok
 ):
     mocker.patch(
-        "erp.geocoder.geocode",
+        "erp.provider.geocoder.geocode",
         return_value={
             "geom": POINT,
             "numero": "12",

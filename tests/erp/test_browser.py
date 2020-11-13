@@ -8,9 +8,9 @@ from django.core import mail
 from django.test import Client
 from django.urls import reverse
 
-from erp import geocoder
 from erp import schema
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
+from erp.provider import geocoder
 
 from tests.fixtures import data
 from tests.utils import assert_redirect
