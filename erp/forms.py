@@ -169,8 +169,8 @@ class BaseErpForm(forms.ModelForm):
 
     def geocode(self):
         adresse = self.get_adresse_query()
-        code_postal = self.cleaned_data.get("code_postal")
-        departement = code_postal[:2]
+        code_postal = self.cleaned_data.get("code_postal", "").strip() or None
+        departement = code_postal[:2] if code_postal and len(code_postal) == 5 else None
         commune_input = self.cleaned_data.get("commune")
         commune = Commune.objects.search_by_nom_code_postal(
             commune_input, code_postal

@@ -4,14 +4,9 @@ from django.contrib.gis.geos import Point
 from unittest import mock
 
 from erp import schema
-from erp.forms import (
-    AdminAccessibiliteForm,
-    AdminErpForm,
-    CustomRegistrationForm,
-    PublicErpEditInfosForm,
-    ViewAccessibiliteForm,
-)
+from erp import forms
 from erp.models import Commune, Erp
+from erp import geocoder
 
 from tests.fixtures import data
 
@@ -55,18 +50,18 @@ def geocoder_result_ok():
 
 @pytest.mark.django_db
 def test_CustomRegistrationForm():
-    form = CustomRegistrationForm()
+    form = forms.CustomRegistrationForm()
     assert form.is_valid() is False
 
-    form = CustomRegistrationForm({"username": "toto@toto.com"})
+    form = forms.CustomRegistrationForm({"username": "toto@toto.com"})
     assert form.is_valid() is False
-    assert CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
+    assert forms.CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
 
-    form = CustomRegistrationForm({"username": "toto+toto"})
+    form = forms.CustomRegistrationForm({"username": "toto+toto"})
     assert form.is_valid() is False
-    assert CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
+    assert forms.CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
 
-    form = CustomRegistrationForm(
+    form = forms.CustomRegistrationForm(
         {"username": "".join(map(lambda _: "x", range(0, 33)))}
     )  # 33c length string
     assert form.is_valid() is False
@@ -75,7 +70,7 @@ def test_CustomRegistrationForm():
         in form.errors["username"]
     )
 
-    form = CustomRegistrationForm({"username": "jean-pierre.timbault_42"})
+    form = forms.CustomRegistrationForm({"username": "jean-pierre.timbault_42"})
     assert "username" not in form.errors
 
 
@@ -84,7 +79,7 @@ def test_BaseErpForm_get_adresse_query(
     form_data, mocker, geocoder_result_ok, paris_commune
 ):
     mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
-    form = AdminErpForm(form_data)
+    form = forms.AdminErpForm(form_data)
     form.is_valid()  # populates cleaned_data
     assert form.get_adresse_query() == "4 Rue de la Paix, Paris"
 
@@ -94,7 +89,7 @@ def test_BaseErpForm_geocode_adresse(
     form_data, mocker, geocoder_result_ok, paris_commune
 ):
     mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
-    form = AdminErpForm(form_data)
+    form = forms.AdminErpForm(form_data)
     form.is_valid()
     assert form.cleaned_data["geom"] == POINT
     assert form.cleaned_data["numero"] == "4"
@@ -119,7 +114,7 @@ def test_BaseErpForm_clean_geom_missing(data, mocker):
             "code_insee": "34120",
         },
     )
-    form = PublicErpEditInfosForm(
+    form = forms.PublicErpEditInfosForm(
         {
             "source": "sirene",
             "source_id": "xxx",
@@ -154,7 +149,7 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
             "code_insee": "34120",
         },
     )
-    form = PublicErpEditInfosForm(
+    form = forms.PublicErpEditInfosForm(
         {
             "source": "sirene",
             "source_id": "xxx",
@@ -189,7 +184,7 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
             "code_insee": "12345",
         },
     )
-    form = PublicErpEditInfosForm(
+    form = forms.PublicErpEditInfosForm(
         {
             "source": "sirene",
             "source_id": "xxx",
@@ -214,7 +209,7 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
 
 def test_BaseErpForm_invalid_on_empty_geocode_results(form_data, mocker):
     mocker.patch("erp.geocoder.geocode", return_value=None)
-    form = AdminErpForm(form_data)
+    form = forms.AdminErpForm(form_data)
     assert form.is_valid() is False
 
 
@@ -223,21 +218,60 @@ def test_BaseErpForm_valid_on_geocoded_results(
     form_data, mocker, geocoder_result_ok, paris_commune
 ):
     mocker.patch("erp.geocoder.geocode", return_value=geocoder_result_ok)
-    form = AdminErpForm(form_data)
+    form = forms.AdminErpForm(form_data)
     assert form.is_valid() is True
+
+
+def test_BaseErpForm_retrieve_code_insee_from_manual_input(
+    data, mocker, geocoder_result_ok
+):
+    mocker.patch(
+        "erp.geocoder.geocode",
+        return_value={
+            "geom": POINT,
+            "numero": "12",
+            "voie": "Grand Rue",
+            "lieu_dit": None,
+            "code_postal": "34830",
+            "commune": "Jacou",
+            "code_insee": "34120",
+        },
+    )
+    geocode = mocker.spy(geocoder, "geocode")
+    form = forms.PublicErpAdminInfosForm(
+        {
+            "source": Erp.SOURCE_PUBLIC,
+            "source_id": "",
+            "geom": None,
+            "nom": "xxx jacou",
+            "activite": data.boulangerie.pk,
+            "numero": "12",
+            "voie": "grand rue",
+            "lieu_dit": "",
+            "code_postal": "34830",
+            "commune": "jacou",
+            "siret": "",
+            "contact_email": "",
+            "site_internet": "",
+            "telephone": "",
+            "recevant_du_public": "on",
+        }
+    )
+    assert form.is_valid() is True
+    geocode.assert_called_with("12 grand rue, jacou", citycode="34120")
 
 
 # ViewAccessibiliteForm
 
 
 def test_ViewAccessibiliteForm_empty():
-    form = ViewAccessibiliteForm()
+    form = forms.ViewAccessibiliteForm()
     data = form.get_accessibilite_data()
     assert list(data.keys()) == []
 
 
 def test_ViewAccessibiliteForm_filled():
-    form = ViewAccessibiliteForm(
+    form = forms.ViewAccessibiliteForm(
         {
             "entree_reperage": True,
             "transport_station_presence": True,
@@ -261,13 +295,22 @@ def test_ViewAccessibiliteForm_filled():
 
 
 def test_ViewAccessibiliteForm_filled_null_comment():
-    form = ViewAccessibiliteForm({"sanitaires_presence": True, "commentaire": "",})
+    form = forms.ViewAccessibiliteForm(
+        {
+            "sanitaires_presence": True,
+            "commentaire": "",
+        }
+    )
     data = form.get_accessibilite_data()
     assert list(data.keys()) == ["Sanitaires"]
 
 
 def test_ViewAccessibiliteForm_serialized():
-    form = ViewAccessibiliteForm({"entree_reperage": True,})
+    form = forms.ViewAccessibiliteForm(
+        {
+            "entree_reperage": True,
+        }
+    )
     data = form.get_accessibilite_data()
     field = data["Entrée"]["fields"][0]
 
