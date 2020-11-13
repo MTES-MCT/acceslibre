@@ -6,8 +6,7 @@ from django.db.models import Q
 
 
 class EmailOrUsernameModelBackend(ModelBackend):
-    """ https://stackoverflow.com/a/35836674/330911
-    """
+    """https://stackoverflow.com/a/35836674/330911"""
 
     def authenticate(self, request, username=None, password=None, **kwargs):
         User = get_user_model()

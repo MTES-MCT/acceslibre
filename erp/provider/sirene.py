@@ -77,7 +77,8 @@ class OrGroup(criteria.Base):
 def get_client():
     try:
         return ApiInsee(
-            key=settings.INSEE_API_CLIENT_KEY, secret=settings.INSEE_API_SECRET_KEY,
+            key=settings.INSEE_API_CLIENT_KEY,
+            secret=settings.INSEE_API_SECRET_KEY,
         )
     except HTTPError as err:
         print(err)  # XXX find a way to log this somewhere
@@ -141,11 +142,17 @@ def parse_etablissement(etablissement):
         nom=extract_etablissement_nom(etablissement),
         siret=siret,
         numero=" ".join(
-            [numeroVoieEtablissement or "", indiceRepetitionEtablissement or "",]
+            [
+                numeroVoieEtablissement or "",
+                indiceRepetitionEtablissement or "",
+            ]
         ).strip()
         or None,
         voie=" ".join(
-            [typeVoieEtablissement or "", libelleVoieEtablissement or "",]
+            [
+                typeVoieEtablissement or "",
+                libelleVoieEtablissement or "",
+            ]
         ).strip()
         or None,
         lieu_dit=adresseEtablissement.get(COMPLEMENT),
@@ -179,7 +186,10 @@ def execute_request(request):
 def create_find_query(nom, lieu, naf=None):
     query = (
         criteria.Field(STATUT, "A")
-        & OrGroup(criteria.FieldExact(CODE_POSTAL, lieu), Fuzzy(COMMUNE, lieu),)
+        & OrGroup(
+            criteria.FieldExact(CODE_POSTAL, lieu),
+            Fuzzy(COMMUNE, lieu),
+        )
         & OrGroup(
             Fuzzy(RAISON_SOCIALE, nom.upper()),
             Fuzzy(NOM_ENSEIGNE3, nom.upper()),
@@ -195,7 +205,11 @@ def create_find_query(nom, lieu, naf=None):
 
 def find_etablissements(nom, code_postal, naf=None, limit=10):
     q = create_find_query(nom, code_postal, naf=naf)
-    request = get_client().siret(q=q, nombre=limit, masquerValeursNulles=True,)
+    request = get_client().siret(
+        q=q,
+        nombre=limit,
+        masquerValeursNulles=True,
+    )
     response = execute_request(request)
     results = []
     for etablissement in response.get("etablissements", []):
@@ -206,7 +220,10 @@ def find_etablissements(nom, code_postal, naf=None, limit=10):
 
 
 def get_siret_info(value):
-    request = get_client().siret(value, champs=SIRET_API_REQUEST_FIELDS,)
+    request = get_client().siret(
+        value,
+        champs=SIRET_API_REQUEST_FIELDS,
+    )
     response = execute_request(request)
     return parse_etablissement(response.get("etablissement"))
 

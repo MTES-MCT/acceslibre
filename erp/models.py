@@ -18,10 +18,10 @@ from django.utils.text import slugify
 from reversion.models import Version
 
 from core.lib import diff as diffutils
-from . import managers
-from . import schema
-from .departements import DEPARTEMENTS
-from .provider import sirene
+from erp import managers
+from erp import schema
+from erp.provider import sirene
+from erp.provider.departements import DEPARTEMENTS
 
 FULLTEXT_CONFIG = "french_unaccent"
 
@@ -140,7 +140,9 @@ class Commune(models.Model):
         help_text="Codé sur deux ou trois caractères.",
     )
     code_insee = models.CharField(
-        max_length=5, verbose_name="Code INSEE", help_text="Code INSEE de la commune",
+        max_length=5,
+        verbose_name="Code INSEE",
+        help_text="Code INSEE de la commune",
     )
     superficie = models.PositiveIntegerField(
         null=True,
@@ -206,16 +208,25 @@ class Vote(models.Model):
         unique_together = [["erp", "user"]]
 
     erp = models.ForeignKey(
-        "Erp", verbose_name="Établissement", on_delete=models.CASCADE,
+        "Erp",
+        verbose_name="Établissement",
+        on_delete=models.CASCADE,
     )
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE,
+        settings.AUTH_USER_MODEL,
+        verbose_name="Utilisateur",
+        on_delete=models.CASCADE,
     )
     value = models.SmallIntegerField(
-        verbose_name="Valeur", choices=[(-1, "-1"), (1, "+1")], default=1,
+        verbose_name="Valeur",
+        choices=[(-1, "-1"), (1, "+1")],
+        default=1,
     )
     comment = models.TextField(
-        max_length=5000, null=True, blank=True, verbose_name="Commentaire",
+        max_length=5000,
+        null=True,
+        blank=True,
+        verbose_name="Commentaire",
     )
     # datetimes
     created_at = models.DateTimeField(
@@ -230,7 +241,8 @@ class Vote(models.Model):
 
 
 @reversion.register(
-    ignore_duplicates=True, exclude=["id", "created_at", "updated_at", "search_vector"],
+    ignore_duplicates=True,
+    exclude=["id", "created_at", "updated_at", "search_vector"],
 )
 class Erp(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25
@@ -465,7 +477,8 @@ class Erp(models.Model):
             commune_slug = slugify(f"{self.departement}-{self.commune}")
         if self.activite is None:
             return reverse(
-                "commune_erp", kwargs=dict(commune=commune_slug, erp_slug=self.slug),
+                "commune_erp",
+                kwargs=dict(commune=commune_slug, erp_slug=self.slug),
             )
         else:
             return reverse(
@@ -526,7 +539,12 @@ class Erp(models.Model):
     @property
     def short_adresse(self):
         pieces = filter(
-            lambda x: x is not None, [self.numero, self.voie, self.lieu_dit,],
+            lambda x: x is not None,
+            [
+                self.numero,
+                self.voie,
+                self.lieu_dit,
+            ],
         )
         return " ".join(pieces).strip().replace("  ", " ")
 
@@ -559,7 +577,9 @@ class Erp(models.Model):
             if len(matches) == 0:
                 matches = Commune.objects.filter(code_insee=self.code_insee)
             if len(matches) == 0:
-                matches = Commune.objects.filter(nom__unaccent__iexact=self.commune,)
+                matches = Commune.objects.filter(
+                    nom__unaccent__iexact=self.commune,
+                )
             if len(matches) == 0:
                 raise ValidationError(
                     {
@@ -628,7 +648,10 @@ class Erp(models.Model):
         )
         if self.activite is not None:
             search_vector = search_vector + SearchVector(
-                Value(self.activite.nom, output_field=models.TextField(),),
+                Value(
+                    self.activite.nom,
+                    output_field=models.TextField(),
+                ),
                 weight="B",
                 config=FULLTEXT_CONFIG,
             )
@@ -652,16 +675,21 @@ class StatusCheck(models.Model):
         verbose_name_plural = "Vérifications de statut"
 
     erp = models.OneToOneField(
-        Erp, on_delete=models.CASCADE, verbose_name="Établissement",
+        Erp,
+        on_delete=models.CASCADE,
+        verbose_name="Établissement",
     )
-    active = models.BooleanField(verbose_name="Toujours en activité",)
+    active = models.BooleanField(
+        verbose_name="Toujours en activité",
+    )
     last_checked = models.DateTimeField(
         auto_now=True, verbose_name="Dernière vérification"
     )
 
 
 @reversion.register(
-    ignore_duplicates=True, exclude=["id", "erp_id", "created_at", "updated_at"],
+    ignore_duplicates=True,
+    exclude=["id", "erp_id", "created_at", "updated_at"],
 )
 class Accessibilite(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25
@@ -690,7 +718,10 @@ class Accessibilite(models.Model):
         verbose_name="Desserte par transports en commun",
     )
     transport_information = models.TextField(
-        max_length=1000, null=True, blank=True, verbose_name="Informations transports",
+        max_length=1000,
+        null=True,
+        blank=True,
+        verbose_name="Informations transports",
     )
 
     ###################################
@@ -750,7 +781,9 @@ class Accessibilite(models.Model):
     )
     # Nombre de marches – nombre entre 0 et >10
     cheminement_ext_nombre_marches = models.PositiveSmallIntegerField(
-        null=True, blank=True, verbose_name="Nombre de marches",
+        null=True,
+        blank=True,
+        verbose_name="Nombre de marches",
     )
     # Repérage des marches ou de l’escalier – oui / non / inconnu / sans objet
     cheminement_ext_reperage_marches = models.BooleanField(
@@ -850,7 +883,9 @@ class Accessibilite(models.Model):
     )
     # Nombre de marches
     entree_marches = models.PositiveSmallIntegerField(
-        null=True, blank=True, verbose_name="Marches d'escalier",
+        null=True,
+        blank=True,
+        verbose_name="Marches d'escalier",
     )
     # Repérage des marches ou de l'escalier
     entree_marches_reperage = models.BooleanField(
@@ -903,7 +938,9 @@ class Accessibilite(models.Model):
 
     # Largeur minimale
     entree_largeur_mini = models.PositiveSmallIntegerField(
-        null=True, blank=True, verbose_name="Largeur minimale",
+        null=True,
+        blank=True,
+        verbose_name="Largeur minimale",
     )
 
     # Entrée spécifique PMR
@@ -962,7 +999,9 @@ class Accessibilite(models.Model):
     )
     # Présence de marches entre l’entrée et l’accueil – nombre entre 0 et >10
     accueil_cheminement_nombre_marches = models.PositiveSmallIntegerField(
-        null=True, blank=True, verbose_name="Nombre de marches",
+        null=True,
+        blank=True,
+        verbose_name="Nombre de marches",
     )
     # Repérage des marches ou de l’escalier
     accueil_cheminement_reperage_marches = models.BooleanField(
@@ -1020,7 +1059,9 @@ class Accessibilite(models.Model):
         verbose_name="Sanitaires",
     )
     sanitaires_adaptes = models.PositiveSmallIntegerField(
-        null=True, blank=True, verbose_name="Nombre de sanitaires adaptés",
+        null=True,
+        blank=True,
+        verbose_name="Nombre de sanitaires adaptés",
     )
 
     ##########
@@ -1041,21 +1082,30 @@ class Accessibilite(models.Model):
         blank=True,
     )
     labels_autre = models.CharField(
-        max_length=255, null=True, blank=True, verbose_name="Autre label",
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Autre label",
     )
 
     #####################
     # Commentaire libre #
     #####################
     commentaire = models.TextField(
-        max_length=1000, null=True, blank=True, verbose_name="Commentaire libre",
+        max_length=1000,
+        null=True,
+        blank=True,
+        verbose_name="Commentaire libre",
     )
 
     ##########################
     # Registre               #
     ##########################
     registre_url = models.URLField(
-        max_length=255, null=True, blank=True, verbose_name="URL du registre",
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="URL du registre",
     )
 
     ##########################

@@ -71,9 +71,9 @@ Vous trouverez ci-après la documentation technique exhaustives des points d'ent
 
 
 class A4aAutoSchema(AutoSchema):
-    """ A custom DRF schema allowing to define documentation for query string parameters.
+    """A custom DRF schema allowing to define documentation for query string parameters.
 
-        see: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
+    see: https://github.com/encode/django-rest-framework/issues/6992#issuecomment-541711632
     """
 
     def get_operation(self, path, method):
@@ -135,9 +135,9 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
 
     @action(detail=False, methods=["get"])
     def help(self, request, pk=None):
-        """ Documente les différents champs d'accessibilité, spécifiant pour chacun :
-            - Le libellé du champ
-            - La documentation du champ
+        """Documente les différents champs d'accessibilité, spécifiant pour chacun :
+        - Le libellé du champ
+        - La documentation du champ
         """
         repr = {}
         for _, data in schema.get_api_fieldsets().items():

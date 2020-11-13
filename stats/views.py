@@ -41,7 +41,10 @@ class StatsView(TemplateView):
                     ),
                     distinct=True,
                 ),
-                erp_count_total=Count("erp", distinct=True,),
+                erp_count_total=Count(
+                    "erp",
+                    distinct=True,
+                ),
             )
             .filter(erp__accessibilite__isnull=False)
             .order_by("-erp_count_published")[:10]

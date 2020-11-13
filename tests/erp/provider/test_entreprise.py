@@ -36,9 +36,10 @@ def test_format_coordonnees():
         entreprise.format_coordonnees({"latitude": "43.2", "longitude": None}) is None
     )
     assert entreprise.format_coordonnees({"latitude": None, "longitude": "3.1"}) is None
-    assert [3.1, 43.2,] == entreprise.format_coordonnees(
-        {"latitude": "43.2", "longitude": "3.1"}
-    )
+    assert [
+        3.1,
+        43.2,
+    ] == entreprise.format_coordonnees({"latitude": "43.2", "longitude": "3.1"})
 
 
 def test_format_email():

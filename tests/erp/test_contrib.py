@@ -82,12 +82,15 @@ def test_contrib_start_home(client):
 def test_contrib_start_search_entreprise(client, mocker, akei_result):
     # Mock SIRENE api results (list)
     mocker.patch(
-        "erp.views.find_entreprise_businesses", return_value=[akei_result],
+        "erp.views.find_entreprise_businesses",
+        return_value=[akei_result],
     )
 
     response = client.get(
         reverse("contrib_search_entreprise"),
-        data={"search": "akei jacou",},
+        data={
+            "search": "akei jacou",
+        },
         follow=True,
     )
 
@@ -98,12 +101,17 @@ def test_contrib_start_search_entreprise(client, mocker, akei_result):
 def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
     # Mock SIRENE api results (list)
     mocker.patch(
-        "erp.views.find_public_erps", return_value=[mairie_jacou_result],
+        "erp.views.find_public_erps",
+        return_value=[mairie_jacou_result],
     )
 
     response = client.get(
         reverse("contrib_search_public"),
-        data={"type": "mairie", "commune_search": "Jacou (34)", "code_insee": "34120",},
+        data={
+            "type": "mairie",
+            "commune_search": "Jacou (34)",
+            "code_insee": "34120",
+        },
         follow=True,
     )
 
