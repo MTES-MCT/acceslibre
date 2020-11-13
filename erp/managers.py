@@ -13,8 +13,8 @@ class ActiviteQuerySet(models.QuerySet):
         return self.filter(erp__commune_ext=commune)
 
     def with_erp_counts(self):
-        """ Note: this should come last when chained, otherwise you'll have
-            erroneous counts.
+        """Note: this should come last when chained, otherwise you'll have
+        erroneous counts.
         """
         qs = self
         qs = qs.annotate(
@@ -83,13 +83,13 @@ class CommuneQuerySet(models.QuerySet):
                 )
         return qs.filter(clauses)
 
+    def search_by_nom_code_postal(self, nom, code_postal):
+        return self.filter(
+            nom__unaccent__iexact=nom, code_postaux__contains=[code_postal]
+        )
+
 
 class ErpQuerySet(models.QuerySet):
-    def exists_by_name_adresse(self, **kwargs):
-        if len(kwargs) == 0:
-            return False
-        return self.filter(**kwargs).count() > 0
-
     def find_by_siret(self, siret):
         if siret:
             return self.filter(siret=siret).first()
