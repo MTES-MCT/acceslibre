@@ -42,13 +42,17 @@ jobs:
           command: |
             pipenv run flake8 ~/access4all
       - run:
-          name: Check Django templates
+          name: Check production security
           command: |
-            pipenv run ./manage.py validate_templates --ignore-app nested_admin
+            DJANGO_SETTINGS_MODULE=core.settings_prod pipenv run ./manage.py check --deploy
       - run:
           name: Check SASS stylesheets
           command: |
             pipenv run ./manage.py sass static/scss/style.scss static/css/style.css
+      - run:
+          name: Check Django templates
+          command: |
+            pipenv run ./manage.py validate_templates --ignore-app nested_admin
       - run:
           name: Run tests
           command: |
