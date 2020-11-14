@@ -22,3 +22,9 @@ CACHES = {
 # }
 
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
+
+# https://docs.djangoproject.com/fr/3.1/ref/middleware/#http-strict-transport-security
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 3600
