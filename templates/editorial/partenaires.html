@@ -8,24 +8,21 @@
 <main id="content" class="mt-5">
   <h2 class="text-center mb-5">Nos partenaires</h2>
 
+  <div class="card-deck">
   {% for pid, partenaire in partenaires.items %}
     <div class="card mb-3" id="{{ pid }}">
-    <div class="row no-gutters">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="{{ partenaire.url }}">
-          <img src="{% static partenaire.logo %}" class="card-img"
-            alt="{{ partenaire.short_description }}">
-        </a>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><a href="{{ partenaire.url }}">{{ partenaire.name }}</a></h5>
-          {% include partenaire.template %}
-        </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ partenaire.url }}">
+            <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
+              alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
+          </a>
+        </h5>
+        {% include partenaire.template %}
       </div>
     </div>
-  </div>
   {% endfor %}
+  </div>
 
   <p><a href="{% url "home" %}">&laquo; Retour à l'accueil</a></p>
 </main>
