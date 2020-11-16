@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.views.decorators.cache import cache_page
 
 from core.cache import cache_per_user
-from . import views
+from erp import schema, views
 
 APP_CACHE_TTL = 60 * 5
 EDITORIAL_CACHE_TTL = 60 * 60
@@ -18,9 +18,9 @@ def cache_app_page():
     return cache_per_user(APP_CACHE_TTL)(views.App.as_view())
 
 
-def editorial_page(template_name):
+def editorial_page(template_name, context=None):
     return cache_page(EDITORIAL_CACHE_TTL)(
-        views.EditorialView.as_view(template_name=template_name)
+        views.EditorialView.as_view(template_name=template_name, extra_context=context)
     )
 
 
@@ -42,7 +42,9 @@ urlpatterns = [
     ),
     path(
         "partenaires",
-        editorial_page("editorial/partenaires.html"),
+        editorial_page(
+            "editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}
+        ),
         name="partenaires",
     ),
     ############################################################################

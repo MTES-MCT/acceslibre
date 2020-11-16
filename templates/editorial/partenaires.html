@@ -7,36 +7,26 @@
 {% block editorial_content %}
 <main id="content" class="mt-5">
   <h2 class="text-center mb-5">Nos partenaires</h2>
-  <div class="card mb-3" id="MOBALIB">
+
+  {% for pid, partenaire in partenaires.items %}
+    <div class="card mb-3" id="{{ pid }}">
     <div class="row no-gutters">
       <div class="col-md-4 d-flex align-items-center">
-        <a href="https://www.mobalib.com/">
-          <img src="{% static "img/partenaires/mobalib.png" %}" class="card-img"
-            alt="Mobalib, l'expert du handicap">
+        <a href="{{ partenaire.url }}">
+          <img src="{% static partenaire.logo %}" class="card-img"
+            alt="{{ partenaire.short_description }}">
         </a>
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><a href="https://www.mobalib.com/">Mobalib</a></h5>
-          <p class="card-text a4a-text-smaller">MOBALIB souhaite rendre l’expérience du monde accessible à toutes et tous. Pour y arriver nous avons trois missions&nbsp;:</p>
-          <ul class="a4a-text-smaller">
-            <li>
-              <strong>Innover</strong> et réaliser des outils numériques accessibles et adaptés pour faciliter l’entraide et la mobilité
-              (1ère innovation&nbsp;: <a href="https://mobalink.mobalib.com/">site</a>,
-              <a href="https://apps.apple.com/us/app/mobalink/id1468084764">application IOS</a>,
-              <a href="https://play.google.com/store/apps/details?id=com.mobalib.mobalink">Android</a>)
-            </li>
-            <li><strong>Valoriser</strong> les acteurs publics, privés et associatifs ayant un service, un lieu, un dispositif accessible (Label d’usage MobaLINK)</li>
-            <li><strong>Accompagner</strong> les acteurs publics, privés vers une démarche inclusive pour adapter leurs services, leurs dispositifs, et leurs produits.</li>
-          </ul>
-          <p class="card-text text-right a4a-text-smaller mb-0">
-            Nous écrire : <a href="mailto:contact@mobalib.com">contact@mobalib.com</a>
-            — Nous appeler : <a href="tel:06.09.81.93.71">06.09.81.93.71</a>
-          </p>
+          <h5 class="card-title"><a href="{{ partenaire.url }}">{{ partenaire.name }}</a></h5>
+          {% include partenaire.template %}
         </div>
       </div>
     </div>
   </div>
+  {% endfor %}
+
   <p><a href="{% url "home" %}">&laquo; Retour à l'accueil</a></p>
 </main>
 {% endblock %}

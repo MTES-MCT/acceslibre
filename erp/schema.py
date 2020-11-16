@@ -103,7 +103,24 @@ RAMPE_CHOICES = [
 
 REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
 
-PARTENAIRES = {"MOBALIB": {"avatar": "mobalib_avatar.jpg"}}
+PARTENAIRES = {
+    "MOBALIB": {
+        "avatar": "mobalib_avatar.jpg",
+        "logo": "img/partenaires/mobalib.png",
+        "name": "Mobalib",
+        "short_description": "Mobalib, l'expert du handicap",
+        "template": "editorial/partenaires/mobalib.html",
+        "url": "https://www.mobalib.com/",
+    },
+    "WEGOTO": {
+        "avatar": "wegoto_avatar.png",
+        "logo": "img/partenaires/wegoto.png",
+        "name": "Wegoto",
+        "short_description": "Expert en données d’accessibilité",
+        "template": "editorial/partenaires/wegoto.html",
+        "url": "https://www.wegoto.eu/",
+    },
+}
 
 SECTION_TRANSPORT = "transport"
 SECTION_STATIONNEMENT = "stationnement"
