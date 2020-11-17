@@ -91,10 +91,9 @@ TYPES = {
     "paris_mairie": "Mairie de Paris, Hôtel de Ville",
     "paris_ppp": "Préfecture de police de Paris",
     "paris_ppp_antenne": "Préfecture de police de Paris, antenne d'arrondissement",
-    "paris_ppp_certificat_immatriculation": "Préfecture de police de Paris, "
-    "certificat d'immatriculation",
+    "paris_ppp_certificat_immatriculation": "Préfecture de police de Paris, certificat d'immatriculation",
     "paris_ppp_gesvres": "Préfecture de police de Paris - Site central de Gesvres",
-    "paris_ppp_permis_conduire": "Préfecture de police de Paris, permis de " "conduire",
+    "paris_ppp_permis_conduire": "Préfecture de police de Paris, permis de conduire",
     "permanence_juridique": "Permanence juridique",
     "pif": "Point info famille",
     "prefecture_greffe_associations": "Greffe des associations",
