@@ -476,6 +476,28 @@ class ProviderPublicErpSearchForm(forms.Form):
     )
 
 
+class ProviderGlobalSearchForm(forms.Form):
+    search = forms.CharField(
+        label="Recherche libre",
+        help_text=mark_safe(
+            "Recherche <em>plein texte</em> sur le nom de l'entreprise, le "
+            '<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" target="_blank">numéro SIRET</a>'
+            ", la voie, le code postal, l'activité"
+        ),
+        required=True,
+        widget=forms.TextInput(
+            attrs={"placeholder": "ex. Fleuriste", "autocomplete": "off"}
+        ),
+    )
+    commune_search = forms.CharField(widget=forms.HiddenInput)
+    code_insee = forms.CharField(
+        label="Commune",
+        required=True,
+        help_text="Commencez à saisir le nom de la commune recherchée, puis cliquez sur la proposition correspondante.",
+        widget=forms.Select(),
+    )
+
+
 class PublicPublicationForm(forms.ModelForm):
     class Meta:
         model = Accessibilite

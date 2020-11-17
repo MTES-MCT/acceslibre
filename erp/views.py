@@ -419,6 +419,10 @@ def find_public_erps(form):
     return results
 
 
+def find_global_erps(form):
+    pass
+
+
 @login_required
 @reversion.views.create_revision()
 def contrib_delete(request, erp_slug):
@@ -442,54 +446,24 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):
-    results = None
-    (entreprise_form, public_erp_form) = (
-        forms.ProviderEntrepriseSearchForm(),
-        forms.ProviderPublicErpSearchForm(),
-    )
+    form = forms.ProviderGlobalSearchForm()
     return render(
         request,
         template_name="contrib/0-start.html",
         context={
             "step": 1,
-            "nafs": naf.NAF,
-            "results": results,
-            "entreprise_form": entreprise_form,
-            "public_erp_form": public_erp_form,
-        },
-    )
-
-
-@login_required
-def contrib_search_entreprise(request):
-    results = error = None
-    form = forms.ProviderEntrepriseSearchForm(request.GET if request.GET else None)
-    if form.is_valid():
-        try:
-            results = find_entreprise_businesses(form)
-        except RuntimeError as err:
-            error = str(err)
-    return render(
-        request,
-        template_name="contrib/0a-search_results.html",
-        context={
-            "step": 1,
-            "nafs": naf.NAF,
-            "results": results,
             "form": form,
-            "form_type": "entreprise",
-            "error": error,
         },
     )
 
 
 @login_required
-def contrib_search_public(request):
+def contrib_global_search(request):
     results = error = None
-    form = forms.ProviderPublicErpSearchForm(request.GET if request.GET else None)
+    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
     if form.is_valid():
         try:
-            results = find_public_erps(form)
+            results = find_global_erps(form)
         except RuntimeError as err:
             error = err
     return render(
@@ -500,7 +474,7 @@ def contrib_search_public(request):
             "nafs": naf.NAF,
             "results": results,
             "form": form,
-            "form_type": "public_erp",
+            "form_type": "global",
             "error": error,
         },
     )
