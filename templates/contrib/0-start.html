@@ -18,12 +18,6 @@
     </a>
   </p>
   <p class="text-center text-muted my-2">ou</p>
-  <div class="row">
-    <div class="col-lg-6">
-      {% include "contrib/forms/entreprise_form.html" with form=entreprise_form %}
-    </div>
-    <div class="col-lg-6">
-      {% include "contrib/forms/public_erp_form.html" with form=public_erp_form %}
-    </div>
-  </div>
+
+  {% include "contrib/forms/global_form.html" %}
 {% endblock %}

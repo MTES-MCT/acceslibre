@@ -13,11 +13,7 @@
     d'une astérisque (<code>*</code>) sont obligatoires.
   </small></p>
 
-  {% if form_type == "entreprise" %}
-    {% include "contrib/forms/entreprise_form.html" %}
-  {% elif form_type == "public_erp" %}
-    {% include "contrib/forms/public_erp_form.html" %}
-  {% endif %}
+  {% include "contrib/forms/global_form.html" %}
 
   {% for result in results %}
   <div class="card mb-3">

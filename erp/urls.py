@@ -95,14 +95,9 @@ urlpatterns = [
     path("contrib/delete/<str:erp_slug>/", views.contrib_delete, name="contrib_delete"),
     path("contrib/start/", views.contrib_start, name="contrib_start"),
     path(
-        "contrib/start/recherche/entreprise",
-        views.contrib_search_entreprise,
-        name="contrib_search_entreprise",
-    ),
-    path(
-        "contrib/start/recherche/public",
-        views.contrib_search_public,
-        name="contrib_search_public",
+        "contrib/start/recherche/",
+        views.contrib_global_search,
+        name="contrib_global_search",
     ),
     path("contrib/claim/<str:erp_slug>/", views.contrib_claim, name="contrib_claim"),
     path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),

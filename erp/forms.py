@@ -21,7 +21,7 @@ from erp.models import (
     Commune,
     Erp,
 )
-from erp.provider import geocoder, public_erp
+from erp.provider import geocoder
 
 
 def bool_radios():
@@ -445,29 +445,20 @@ class PublicLocalisationForm(forms.Form):
             raise ValidationError("Données de localisation invalides.")
 
 
-class ProviderEntrepriseSearchForm(forms.Form):
+class ProviderGlobalSearchForm(forms.Form):
     search = forms.CharField(
-        label="Recherche libre",
+        label="Recherche",
         help_text=mark_safe(
-            "Recherche <em>plein texte</em> sur le nom de l'entreprise, le "
-            '<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" target="_blank">numéro SIRET</a>'
-            ", la voie, le code postal, l'activité et la commune."
+            "Recherche <em>plein texte</em> sur le nom d'une administration publique, d'une entreprise, d'un "
+            '<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>'
+            ", la voie, le code postal, l'activité"
         ),
         required=True,
         widget=forms.TextInput(
-            attrs={"placeholder": "ex. Fleuriste Lyon", "autocomplete": "off"}
+            attrs={"placeholder": "ex. Fleuriste", "autocomplete": "off"}
         ),
     )
-
-
-class ProviderPublicErpSearchForm(forms.Form):
     commune_search = forms.CharField(widget=forms.HiddenInput)
-    type = forms.ChoiceField(
-        label="Type d'établissement public",
-        choices=public_erp.get_type_choices(),
-        required=True,
-        help_text="Commencez à saisir le type d'établissement puis sélectionnez une entrée parmis la liste proposée.",
-    )
     code_insee = forms.CharField(
         label="Commune",
         required=True,
