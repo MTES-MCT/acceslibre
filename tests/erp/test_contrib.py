@@ -79,41 +79,21 @@ def test_contrib_start_home(client):
     assert response.status_code == 200
 
 
-def test_contrib_start_search_entreprise(client, mocker, akei_result):
-    # Mock SIRENE api results (list)
+def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_result):
     mocker.patch(
-        "erp.views.find_entreprise_businesses",
-        return_value=[akei_result],
+        "erp.provider.search.find_global_erps",
+        return_value=[mairie_jacou_result, akei_result],
     )
 
     response = client.get(
-        reverse("contrib_search_entreprise"),
+        reverse("contrib_global_search"),
         data={
-            "search": "akei jacou",
-        },
-        follow=True,
-    )
-
-    assert response.status_code == 200
-    assert response.context["results"] == [akei_result]
-
-
-def test_contrib_start_search_public_erp(client, mocker, mairie_jacou_result):
-    # Mock SIRENE api results (list)
-    mocker.patch(
-        "erp.views.find_public_erps",
-        return_value=[mairie_jacou_result],
-    )
-
-    response = client.get(
-        reverse("contrib_search_public"),
-        data={
-            "type": "mairie",
             "commune_search": "Jacou (34)",
             "code_insee": "34120",
+            "search": "mairie",
         },
         follow=True,
     )
 
     assert response.status_code == 200
-    assert response.context["results"] == [mairie_jacou_result]
+    assert response.context["results"] == [mairie_jacou_result, akei_result]

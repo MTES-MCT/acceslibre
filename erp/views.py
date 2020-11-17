@@ -21,12 +21,12 @@ from django_registration.backends.activation.views import (
 
 from core import mailer
 
-from .models import Accessibilite, Activite, Commune, Erp, Vote
-from .provider import naf, entreprise, public_erp, sirene
-from . import forms
-from . import schema
-from . import serializers
-from . import versioning
+from erp.models import Accessibilite, Activite, Commune, Erp, Vote
+from erp.provider import naf, search, sirene
+from erp import forms
+from erp import schema
+from erp import serializers
+from erp import versioning
 
 
 def handler403(request, exception):
@@ -59,7 +59,7 @@ def home(request):
         .order_by("-created_at")[:17]
     )
     search_results = None
-    search = request.GET.get("q")
+    q = request.GET.get("q")
     localize = request.GET.get("localize")
     pager = None
     pager_base_url = None
@@ -70,28 +70,25 @@ def home(request):
         erp_qs = Erp.objects.select_related(
             "accessibilite", "activite", "commune_ext"
         ).published()
-        if len(search) > 0:
-            erp_qs = erp_qs.search(search)
+        if len(q) > 0:
+            erp_qs = erp_qs.search(q)
         if localize == "1":
             try:
                 (lat, lon) = (
                     float(request.GET.get("lat")),
                     float(request.GET.get("lon")),
                 )
-                erp_qs = erp_qs.nearest(
-                    (
-                        lat,
-                        lon,
-                    )
-                ).order_by("distance")
+                erp_qs = erp_qs.nearest((lat, lon)).order_by("distance")
             except ValueError:
                 pass
         paginator = Paginator(erp_qs, 10)
         page_number = request.GET.get("page", 1)
         pager = paginator.get_page(page_number)
-        pager_base_url = f"?q={search or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
+        pager_base_url = (
+            f"?q={q or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
+        )
         search_results = {
-            "communes": Commune.objects.search(search).order_by(
+            "communes": Commune.objects.search(q).order_by(
                 F("population").desc(nulls_last=True)
             )[:4],
             "pager": pager,
@@ -106,7 +103,7 @@ def home(request):
             "localize": localize,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
-            "search": search,
+            "search": q,
             "communes": communes_qs,
             "latest": latest,
             "search_results": search_results,
@@ -400,29 +397,6 @@ def find_sirene_businesses(name_form):
     return results
 
 
-def find_entreprise_businesses(form):
-    results = entreprise.search(form.cleaned_data.get("search"))
-    for result in results:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
-    return results
-
-
-def find_public_erps(form):
-    results = public_erp.get_code_insee_type(
-        form.cleaned_data.get("code_insee"),
-        form.cleaned_data.get("type"),
-    )
-    for result in results:
-        result["exists"] = Erp.objects.find_by_source_id(
-            result["source"], result["source_id"]
-        )
-    return results
-
-
-def find_global_erps(form):
-    pass
-
-
 @login_required
 @reversion.views.create_revision()
 def contrib_delete(request, erp_slug):
@@ -463,7 +437,7 @@ def contrib_global_search(request):
     form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
     if form.is_valid():
         try:
-            results = find_global_erps(form)
+            results = search.find_global_erps(form)
         except RuntimeError as err:
             error = err
     return render(
