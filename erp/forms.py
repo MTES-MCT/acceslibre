@@ -2,7 +2,7 @@ import requests
 
 from django import forms
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -24,6 +24,11 @@ from erp.models import (
 from erp.provider import geocoder
 
 
+USERNAME_RULES = (
+    "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
+)
+
+
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
@@ -34,9 +39,6 @@ def get_widgets_for_accessibilite():
 
 
 def define_username_field():
-    USERNAME_RULES = (
-        "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
-    )
     return forms.CharField(
         max_length=32,
         help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
@@ -48,7 +50,7 @@ def define_username_field():
 
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
-        model = User
+        model = get_user_model()
         fields = [
             "first_name",
             "last_name",
@@ -68,7 +70,7 @@ class UsernameChangeForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data["username"]
-        if User.objects.filter(username=username).count() > 0:
+        if get_user_model().objects.filter(username=username).count() > 0:
             raise ValidationError("Ce nom d'utilisateur est déjà pris.")
         return username
 

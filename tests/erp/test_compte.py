@@ -1,6 +1,6 @@
 import pytest
 
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import Client
 from django.urls import reverse
 
@@ -27,4 +27,6 @@ def test_update_username_authenticated(client, data):
     client.post(reverse("mon_identifiant"), data={"username": "coucou"}, follow=True)
 
     assert response.status_code == 200
-    assert User.objects.filter(id=data.niko.id, username="coucou").count() == 1
+
+    # this raises if not found
+    get_user_model().objects.get(id=data.niko.id, username="coucou")

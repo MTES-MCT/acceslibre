@@ -55,11 +55,11 @@ def test_CustomRegistrationForm():
 
     form = forms.CustomRegistrationForm({"username": "toto@toto.com"})
     assert form.is_valid() is False
-    assert forms.CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
+    assert forms.USERNAME_RULES in form.errors["username"]
 
     form = forms.CustomRegistrationForm({"username": "toto+toto"})
     assert form.is_valid() is False
-    assert forms.CustomRegistrationForm.USERNAME_RULES in form.errors["username"]
+    assert forms.USERNAME_RULES in form.errors["username"]
 
     form = forms.CustomRegistrationForm(
         {"username": "".join(map(lambda _: "x", range(0, 33)))}
