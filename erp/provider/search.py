@@ -42,9 +42,10 @@ def find_global_erps(form):
         try:
             result_public = public_erp.get_code_insee_type(code_insee, public_type)
             for result in result_public:
-                result["exists"] = Erp.objects.find_by_source_id(
-                    result["source"], result["source_id"]
-                )
+                if code_insee == result["code_insee"]:
+                    result["exists"] = Erp.objects.find_by_source_id(
+                        result["source"], result["source_id"]
+                    )
         except RuntimeError:
             pass
     return result_public + result_entreprises
