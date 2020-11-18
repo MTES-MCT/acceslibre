@@ -9,9 +9,10 @@ flake8 = "*"
 ipdb = "*"
 pylint = "*"
 pytest-mock = "*"
+splinter = {extras = [ "django",], version = "*"}
 
 [packages]
-Django = "==3.1.1"
+Django = "==3.1.3"
 requests = "*"
 django-reset-migrations = "*"
 django-import-export = "*"
@@ -45,13 +46,10 @@ django-sass = "*"
 schedule = "*"
 django-reversion = "*"
 django-admin-autocomplete-filter = "*"
+fuzzywuzzy = "*"
 
 [requires]
 python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true
-
-[packages.splinter]
-extras = [ "django",]
-version = "*"

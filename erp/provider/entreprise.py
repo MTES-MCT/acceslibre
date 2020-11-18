@@ -11,8 +11,6 @@ logger = logging.getLogger(__name__)
 BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
 MAX_PER_PAGE = 20
 
-FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
-
 
 def clean_search_terms(string):
     # Note: search doesn't work well with accented letters...
@@ -68,7 +66,7 @@ def format_nom(record):
     )
     if nom:
         parts = map(
-            lambda x: x.title() if x not in FRENCH_STOPWORDS else x,
+            lambda x: x.title() if x not in text.FRENCH_STOPWORDS else x,
             nom.lower().split(" "),
         )
         return text.ucfirst(" ".join(parts))
