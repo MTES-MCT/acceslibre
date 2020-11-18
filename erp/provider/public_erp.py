@@ -344,6 +344,16 @@ def clean_commune(string):
         return string
 
 
+def clean_coordonnees(coords):
+    if not coords:
+        return None
+    if len(coords) != 2:
+        return None
+    if type(coords[0]) != float or type(coords[1]) != float:
+        return None
+    return coords
+
+
 def extract_numero_voie(string):
     if text.contains_digits(string):
         return tuple(string.split(" ", maxsplit=1))
@@ -363,7 +373,11 @@ def parse_feature(feature):
     if not geometry:
         logger.error("L'enregistrement ne possède pas de coordonnées géographiques")
         return None
-    coordonnees = geometry.get("coordinates")
+
+    coordonnees = clean_coordonnees(geometry.get("coordinates"))
+    if not coordonnees:
+        logger.error("Les coordonnées géographiques sont invalides")
+        return None
 
     # Adresses et lignes d'adresse
     adresses = properties.get("adresses", [])

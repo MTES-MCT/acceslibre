@@ -24,12 +24,12 @@ def find_global_erps(form):
     search = form.cleaned_data.get("search")
     code_insee = form.cleaned_data.get("code_insee")
     commune = Commune.objects.filter(code_insee=code_insee).first()
-    search = f"{search} {commune.nom}" if commune else search
+    search_entreprise = f"{search} {commune.nom}" if commune else search
 
     # Entreprise
     result_entreprises = []
     try:
-        result_entreprises = entreprise.search(search)
+        result_entreprises = entreprise.search(search_entreprise)
         for result in result_entreprises:
             result["exists"] = Erp.objects.find_by_siret(result["siret"])
     except RuntimeError:
@@ -40,12 +40,13 @@ def find_global_erps(form):
     found_public_types = find_public_types(search)
     for public_type in found_public_types:
         try:
-            result_public = public_erp.get_code_insee_type(code_insee, public_type)
-            for result in result_public:
+            tmp_results = public_erp.get_code_insee_type(code_insee, public_type)
+            for result in tmp_results:
                 if result and code_insee == result["code_insee"]:
                     result["exists"] = Erp.objects.find_by_source_id(
                         result["source"], result["source_id"]
                     )
+                    result_public.append(result)
         except RuntimeError:
             pass
     return result_public + result_entreprises
