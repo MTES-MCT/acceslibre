@@ -3,6 +3,9 @@ import string
 import unicodedata
 
 
+FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
+
+
 def contains_digits(string):
     return any(char.isdigit() for char in string)
 

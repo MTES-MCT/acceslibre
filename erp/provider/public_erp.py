@@ -9,109 +9,331 @@ logger = logging.getLogger(__name__)
 BASE_URL = "https://etablissements-publics.api.gouv.fr/v3"
 
 TYPES = {
-    "mairie": "Mairie",
-    "commissariat_police": "Commissariat de police",
-    "maison_arret": "Maison d'arrêt",
-    "maison_handicapees": "Maison départementale des personnes handicapées (MDPH)",
-    "pmi": "Centre de protection maternelle et infantile (PMI)",
-    "pole_emploi": "Pôle emploi",
-    "prefecture": "Préfecture",
-    "sous_pref": "Sous-préfecture",
-    "accompagnement_personnes_agees": "Plateforme d'accompagnement et de répit pour les aidants de personnes âgées",
-    "adil": "Information sur le logement (agenceAgence départementale pour l'information sur le logement (ADIL) départementale, Adil)",
-    "afpa": "Association nationale pour la formation professionnelle des adultes (AFPA), réseau local",
-    "anah": "Agence nationale de l'habitat (ANAH), réseau local",
-    "apec": "Association pour l'emploi des cadres (APEC)",
-    "apecita": "Association pour l'emploi des cadres, ingénieurs et techniciens "
-    "de l'agriculture et de l'agroalimentaire (APECITA), réseau local",
-    "ars_antenne": "Délégation territoriale de l'Agence régionale de santé",
-    "banque_de_france": "Banque de France, succursale",
-    "bav": "Bureau d'aide aux victimes",
-    "bsn": "Bureau ou centre du service national",
-    "caa": "Cour administrative d'appel",
-    "caf": "Caisse d'allocations familiales (CAF)",
-    "carsat": "Caisse d'assurance retraite et de la santé au travail (CARSAT)",
-    "ccas": "Centre communal d'action sociale",
-    "cci": "Chambre de commerce et d'industrie (CCI)",
-    "cdas": "Centre départemental d'action sociale",
-    "cdg": "Centre de gestion de la fonction publique territoriale",
-    "centre_detention": "Centre de détention",
-    "centre_impots_fonciers": "Centre des impôts foncier et cadastre",
-    "centre_penitentiaire": "Centre pénitentiaire",
-    "centre_social": "Centre social",
-    "cg": "Conseil départemental",
-    "chambre_agriculture": "Chambre d'agriculture",
-    "chambre_metier": "Chambre de métiers et de l'artisanat",
-    "cicas": "Centre d'information de conseil et d'accueil des salariés (CICAS)",
-    "cidf": "Centre d'information sur les droits des femmes et des familles " "(CIDFF)",
-    "cij": "Information jeunesse, réseau local",
-    "cio": "Centre d'information et d'orientation (CIO)",
-    "civi": "Commission d'indemnisation des victimes d'infraction",
-    "clic": "Point d'information local dédié aux personnes âgées",
-    "cnfpt": "Centre national de la fonction publique territoriale (CNFPT), réseau local",
-    "commission_conciliation": "Commission départementale de conciliation",
-    "conciliateur_fiscal": "Conciliateur fiscal",
-    "cour_appel": "Cour d'appel",
-    "cpam": "Caisse primaire d'assurance maladie (CPAM)",
-    "cr": "Conseil régional",
-    "crib": "Centre de ressources et d'information des bénévoles (CRIB)",
-    "crous": "CROUS et ses antennes",
-    "csl": "Centre de semi-liberté",
-    "ddcs": "Direction départementale de la cohésion sociale (DDCS)",
-    "ddcspp": "Direction départementale de la cohésion sociale et de la protection des populations (DDCSPP)",
-    "ddpp": "Protection des populations (direction départementale, DDPP)",
-    "ddt": "Direction départementale des territoires -et de la mer- (DDT)",
-    "direccte_ut": "Unité territoriale - Direction régionale des entreprises, de la concurrence, de la consommation, du travail et de l'emploi",
-    "dml": "Délégation à la mer et au littoral",
-    "drac": "Direction régionale des affaires culturelles (DRAC)",
-    "draf": "Direction régionale de l'alimentation, de l'agriculture et de la forêt (DRAAF)",
-    "drddi": "Direction interrégionale et régionale des douanes",
-    "dreal": "Direction régionale de l'environnement, de l'aménagement et du logement (DREAL)",
-    "dreal_ut": "Unité territoriale - Direction régionale de l'environnement, de l'aménagement et du logement (DREAL)",
-    "driea_ut": "Unité territoriale - Direction régionale et interdépartementale de l'équipement et de l'aménagement (DRIEA)",
-    "edas": "Établissement départemental d'actions sociales",
-    "epci": "Intercommunalité",
-    "esm": "Etablissement spécialisé pour mineurs",
-    "fdapp": "Fédération départementale pour la pêche et la protection du milieu aquatique",
-    "fdc": "Fédération départementale des chasseurs",
-    "gendarmerie": "Brigade de gendarmerie",
-    "greta": "Greta",
-    "hypotheque": "Service de publicité foncière ex-conservation des hypothèques",
-    "inspection_academique": "Direction des services départementaux de l'Éducation nationale",
-    "maia": "Mission d'accueil et d'information des associations (MAIA)",
-    "mairie_com": "Mairie des collectivités d'outre-mer",
-    "mairie_mobile": "Mairie mobile de la ville de Paris",
-    "maison_centrale": "Maison centrale",
-    "mds": "Maison départementale des solidarités",
-    "mission_locale": "Mission locale et Permanence d'accueil, d'information et d'orientation (PAIO)",
-    "mjd": "Maison de justice et du droit",
-    "msa": "Mutualité sociale agricole (MSA), réseau local",
-    "ofii": "Office français de l'immigration et de l'intégration (ex ANAEM), réseau local",
-    "onac": "Office national des anciens combattants (ONAC), réseau local",
-    "paris_mairie": "Mairie de Paris, Hôtel de Ville",
-    "paris_ppp": "Préfecture de police de Paris",
-    "paris_ppp_antenne": "Préfecture de police de Paris, antenne d'arrondissement",
-    "paris_ppp_certificat_immatriculation": "Préfecture de police de Paris, certificat d'immatriculation",
-    "paris_ppp_gesvres": "Préfecture de police de Paris - Site central de Gesvres",
-    "paris_ppp_permis_conduire": "Préfecture de police de Paris, permis de conduire",
-    "permanence_juridique": "Permanence juridique",
-    "pif": "Point info famille",
-    "prefecture_greffe_associations": "Greffe des associations",
-    "prefecture_region": "Préfecture de région",
-    "prudhommes": "Conseil de prud'hommes",
-    "rectorat": "Rectorat",
-    "sdsei": "Services départementaux des solidarités et de l'insertion",
-    "sie": "Service des impôts des entreprises du Centre des finances publiques",
-    "sip": "Service des impôts des particuliers du Centre des finances publiques",
-    "spip": "Service pénitentiaire d'insertion et de probation",
-    "suio": "Service universitaire d'information et d'orientation",
-    "ta": "Tribunal administratif",
-    "te": "Tribunal pour enfants",
-    "tgi": "Tribunal de grande instance",
-    "ti": "Tribunal d'instance",
-    "tresorerie": "Trésorerie",
-    "tribunal_commerce": "Tribunal de commerce",
-    "urssaf": "Urssaf",
+    "mairie": {
+        "description": "Mairie",
+        "searches": ["hotel de ville"],
+    },
+    "commissariat_police": {
+        "description": "Commissariat de police",
+    },
+    "maison_arret": {
+        "description": "Maison d'arrêt",
+        "searches": ["prison", "penitencier", "prison", "detention"],
+    },
+    "maison_handicapees": {
+        "description": "Maison départementale des personnes handicapées (MDPH)",
+    },
+    "pmi": {
+        "description": "Centre de protection maternelle et infantile (PMI)",
+    },
+    "pole_emploi": {
+        "description": "Pôle emploi",
+        "searches": ["anpe", "assedic"],
+    },
+    "prefecture": {
+        "description": "Préfecture",
+        "searches": ["prefecture de police"],
+    },
+    "sous_pref": {
+        "description": "Sous-préfecture",
+    },
+    "accompagnement_personnes_agees": {
+        "description": "Plateforme d'accompagnement et de répit pour les aidants de personnes âgées",
+        "searches": ["gériatrie"],
+    },
+    "adil": {
+        "description": "Information sur le logement (Agence départementale pour l'information sur le logement, ADIL) départementale",
+    },
+    "afpa": {
+        "description": "Association nationale pour la formation professionnelle des adultes (AFPA), réseau local",
+    },
+    "anah": {
+        "description": "Agence nationale de l'habitat (ANAH), réseau local",
+    },
+    "apec": {
+        "description": "Association pour l'emploi des cadres (APEC)",
+        "searches": ["pole emploi"],
+    },
+    "apecita": {
+        "description": "Association pour l'emploi des cadres, ingénieurs et techniciens de l'agriculture et de l'agroalimentaire (APECITA), réseau local",
+    },
+    "ars_antenne": {
+        "description": "Délégation territoriale de l'Agence régionale de santé",
+        "searches": ["ars"],
+    },
+    "banque_de_france": {
+        "description": "Banque de France, succursale",
+    },
+    "bav": {
+        "description": "Bureau d'aide aux victimes",
+    },
+    "bsn": {
+        "description": "Bureau ou centre du service national",
+        "searches": ["snu", "civique"],
+    },
+    "caa": {
+        "description": "Cour administrative d'appel",
+    },
+    "caf": {
+        "description": "Caisse d'allocations familiales (CAF)",
+    },
+    "carsat": {
+        "description": "Caisse d'assurance retraite et de la santé au travail (CARSAT)",
+    },
+    "ccas": {
+        "description": "Centre communal d'action sociale",
+    },
+    "cci": {
+        "description": "Chambre de commerce et d'industrie (CCI)",
+    },
+    "cdas": {
+        "description": "Centre départemental d'action sociale",
+    },
+    "cdg": {
+        "description": "Centre de gestion de la fonction publique territoriale",
+        "searches": ["cgfpt"],
+    },
+    "centre_detention": {
+        "description": "Centre de détention",
+        "searches": ["prison", "maison d'arret", "penitencier", "detention"],
+    },
+    "centre_impots_fonciers": {
+        "description": "Centre des impôts foncier et cadastre",
+        "searches": ["impots"],
+    },
+    "centre_penitentiaire": {
+        "description": "Centre pénitentiaire",
+        "searches": ["prison", "maison d'arret", "detention"],
+    },
+    "centre_social": {
+        "description": "Centre social",
+    },
+    "cg": {
+        "description": "Conseil départemental",
+    },
+    "chambre_agriculture": {
+        "description": "Chambre d'agriculture",
+    },
+    "chambre_metier": {
+        "description": "Chambre de métiers et de l'artisanat",
+        "searches": ["cma"],
+    },
+    "cicas": {
+        "description": "Centre d'information de conseil et d'accueil des salariés (CICAS)",
+    },
+    "cidf": {
+        "description": "Centre d'information sur les droits des femmes et des familles (CIDFF)",
+    },
+    "cij": {
+        "description": "Information jeunesse, réseau local",
+    },
+    "cio": {
+        "description": "Centre d'information et d'orientation (CIO)",
+    },
+    "civi": {
+        "description": "Commission d'indemnisation des victimes d'infraction",
+    },
+    "clic": {
+        "description": "Point d'information local dédié aux personnes âgées",
+    },
+    "cnfpt": {
+        "description": "Centre national de la fonction publique territoriale (CNFPT), réseau local",
+    },
+    "commission_conciliation": {
+        "description": "Commission départementale de conciliation",
+    },
+    "conciliateur_fiscal": {
+        "description": "Conciliateur fiscal",
+    },
+    "cour_appel": {
+        "description": "Cour d'appel",
+    },
+    "cpam": {
+        "description": "Caisse primaire d'assurance maladie (CPAM)",
+    },
+    "cr": {
+        "description": "Conseil régional",
+    },
+    "crib": {
+        "description": "Centre de ressources et d'information des bénévoles (CRIB)",
+    },
+    "crous": {
+        "description": "CROUS et ses antennes",
+    },
+    "csl": {
+        "description": "Centre de semi-liberté",
+    },
+    "ddcs": {
+        "description": "Direction départementale de la cohésion sociale (DDCS)",
+    },
+    "ddcspp": {
+        "description": "Direction départementale de la cohésion sociale et de la protection des populations (DDCSPP)",
+    },
+    "ddpp": {
+        "description": "Protection des populations (direction départementale, DDPP)",
+    },
+    "ddt": {
+        "description": "Direction départementale des territoires -et de la mer- (DDT)",
+    },
+    "direccte_ut": {
+        "description": "Unité territoriale - Direction régionale des entreprises, de la concurrence, de la consommation, du travail et de l'emploi",
+        "searches": ["direccte"],
+    },
+    "dml": {
+        "description": "Délégation à la mer et au littoral",
+    },
+    "drac": {
+        "description": "Direction régionale des affaires culturelles (DRAC)",
+    },
+    "draf": {
+        "description": "Direction régionale de l'alimentation, de l'agriculture et de la forêt (DRAAF)",
+    },
+    "drddi": {
+        "description": "Direction interrégionale et régionale des douanes",
+    },
+    "dreal": {
+        "description": "Direction régionale de l'environnement, de l'aménagement et du logement (DREAL)",
+    },
+    "dreal_ut": {
+        "description": "Unité territoriale - Direction régionale de l'environnement, de l'aménagement et du logement (DREAL)",
+    },
+    "driea_ut": {
+        "description": "Unité territoriale - Direction régionale et interdépartementale de l'équipement et de l'aménagement (DRIEA)",
+    },
+    "edas": {
+        "description": "Établissement départemental d'actions sociales (EDAS)",
+    },
+    "epci": {
+        "description": "Intercommunalité",
+        "searches": ["agglomération"],
+    },
+    "esm": {
+        "description": "Etablissement spécialisé pour mineurs",
+    },
+    "fdapp": {
+        "description": "Fédération départementale pour la pêche et la protection du milieu aquatique (FDPPMA)",
+    },
+    "fdc": {
+        "description": "Fédération départementale des chasseurs",
+    },
+    "gendarmerie": {
+        "description": "Brigade de gendarmerie",
+    },
+    "greta": {
+        "description": "Greta",
+    },
+    "hypotheque": {
+        "description": "Service de publicité foncière ex-conservation des hypothèques",
+    },
+    "inspection_academique": {
+        "description": "Direction des services départementaux de l'Éducation nationale (DSDEN)",
+    },
+    "maia": {
+        "description": "Mission d'accueil et d'information des associations (MAIA)",
+    },
+    "mairie_com": {
+        "description": "Mairie des collectivités d'outre-mer",
+    },
+    "mairie_mobile": {
+        "description": "Mairie mobile de la ville de Paris",
+    },
+    "maison_centrale": {
+        "description": "Maison centrale",
+    },
+    "mds": {
+        "description": "Maison départementale des solidarités",
+    },
+    "mission_locale": {
+        "description": "Mission locale et Permanence d'accueil, d'information et d'orientation (PAIO)",
+    },
+    "mjd": {
+        "description": "Maison de justice et du droit",
+    },
+    "msa": {
+        "description": "Mutualité sociale agricole (MSA), réseau local",
+    },
+    "ofii": {
+        "description": "Office français de l'immigration et de l'intégration (ex ANAEM), réseau local",
+    },
+    "onac": {
+        "description": "Office national des anciens combattants (ONAC), réseau local",
+    },
+    "paris_mairie": {
+        "description": "Mairie de Paris, Hôtel de Ville",
+    },
+    "paris_ppp": {
+        "description": "Préfecture de police de Paris",
+    },
+    "paris_ppp_antenne": {
+        "description": "Préfecture de police de Paris, antenne d'arrondissement",
+    },
+    "paris_ppp_certificat_immatriculation": {
+        "description": "Préfecture de police de Paris, certificat d'immatriculation",
+    },
+    "paris_ppp_gesvres": {
+        "description": "Préfecture de police de Paris - Site central de Gesvres",
+    },
+    "paris_ppp_permis_conduire": {
+        "description": "Préfecture de police de Paris, permis de conduire",
+    },
+    "permanence_juridique": {
+        "description": "Permanence juridique",
+    },
+    "pif": {
+        "description": "Point info famille",
+    },
+    "prefecture_greffe_associations": {
+        "description": "Greffe des associations",
+    },
+    "prefecture_region": {
+        "description": "Préfecture de région",
+    },
+    "prudhommes": {
+        "description": "Conseil de prud'hommes",
+    },
+    "rectorat": {
+        "description": "Rectorat",
+        "searches": ["académie"],
+    },
+    "sdsei": {
+        "description": "Services départementaux des solidarités et de l'insertion",
+    },
+    "sie": {
+        "description": "Service des impôts des entreprises du Centre des finances publiques",
+        "searches": ["impots"],
+    },
+    "sip": {
+        "description": "Service des impôts des particuliers du Centre des finances publiques",
+        "searches": ["impots"],
+    },
+    "spip": {
+        "description": "Service pénitentiaire d'insertion et de probation",
+    },
+    "suio": {
+        "description": "Service universitaire d'information et d'orientation",
+    },
+    "ta": {
+        "description": "Tribunal administratif",
+    },
+    "te": {
+        "description": "Tribunal pour enfants",
+    },
+    "tgi": {
+        "description": "Tribunal de grande instance",
+    },
+    "ti": {
+        "description": "Tribunal d'instance",
+    },
+    "tresorerie": {
+        "description": "Trésorerie",
+    },
+    "tribunal_commerce": {
+        "description": "Tribunal de commerce",
+    },
+    "urssaf": {
+        "description": "Urssaf",
+        "searches": ["impots", "entreprise"],
+    },
 }
 
 
