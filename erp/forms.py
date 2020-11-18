@@ -2,7 +2,7 @@ import requests
 
 from django import forms
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -24,6 +24,11 @@ from erp.models import (
 from erp.provider import geocoder
 
 
+USERNAME_RULES = (
+    "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
+)
+
+
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
@@ -33,13 +38,19 @@ def get_widgets_for_accessibilite():
     return dict([(f, bool_radios()) for f in field_names])
 
 
-class CustomRegistrationForm(RegistrationFormUniqueEmail):
-    USERNAME_RULES = (
-        "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
+def define_username_field():
+    return forms.CharField(
+        max_length=32,
+        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
+        required=True,
+        label="Nom d’utilisateur",
+        validators=[RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES)],
     )
 
+
+class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
-        model = User
+        model = get_user_model()
         fields = [
             "first_name",
             "last_name",
@@ -50,19 +61,18 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "next",
         ]
 
-    username = forms.CharField(
-        max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
-        required=True,
-        label="Nom d’utilisateur",
-        validators=[
-            RegexValidator(
-                r"^[\w.-]+\Z",
-                message=USERNAME_RULES,
-            )
-        ],
-    )
+    username = define_username_field()
     next = forms.CharField(required=False)
+
+
+class UsernameChangeForm(forms.Form):
+    username = define_username_field()
+
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        if get_user_model().objects.filter(username=username).count() > 0:
+            raise ValidationError("Ce nom d'utilisateur est déjà pris.")
+        return username
 
 
 class AdminAccessibiliteForm(forms.ModelForm):

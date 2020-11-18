@@ -1,0 +1,23 @@
+{% extends "compte/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block page_title %}Identifiant{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block compte_content %}
+  <h3 class="mb-3">
+    Changer mon identifiant <small class="text-muted">(nom d'utilisateur)</small>
+  </h3>
+
+  <form action="{% url "mon_identifiant" %}" method="post">
+    <p>Votre identifiant (ou nom d'utilisateur) actuel est <strong>{{ request.user.username }}</strong>.</p>
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <p><button type="submit" class="btn btn-primary w-100">
+      Changer mon identifiant
+    </button></p>
+  </form>
+{% endblock %}
