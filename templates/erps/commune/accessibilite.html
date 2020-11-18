@@ -108,17 +108,19 @@
 <script>
 (function() {
   function handleTabFromHash() {
-    // If we have a url hash, open the matching tab content
     if (!location.hash || location.hash === "#") {
       return;
     }
 
-    const tabLocationHashId = location.hash + "-tab";
+    const sections = document.querySelectorAll(".a4a-tab-content-section");
+    const availableHashIds = [].reduce.call(sections, function(acc, elem) {
+      acc["#" + elem.id] = elem.id + "-tab";
+      return acc;
+    }, {});
+
     let $tabElem;
-    try {
-      $tabElem = $(location.hash + "-tab");
-    } catch (e) {
-      console.warn("Unable to retrieve tab with id = " + tabLocationHashId);
+    if (location.hash in availableHashIds) {
+      $tabElem = $(availableHashIds[location.hash]);
     }
 
     if ($tabElem) {
