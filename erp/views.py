@@ -1,7 +1,7 @@
 import reversion
-
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
@@ -323,9 +323,29 @@ def vote(request, erp_slug):
 
 @login_required
 def mon_compte(request):
+    return render(request, "compte/index.html")
+
+
+@login_required
+def mon_identifiant(request):
+    if request.method == "POST":
+        form = forms.UsernameChangeForm(request.POST)
+        if form.is_valid():
+            user = get_user_model().objects.get(id=request.user.id)
+            user.username = form.cleaned_data["username"]
+            user.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                f"Votre nom d'utilisateur a été changé en {user.username}.",
+            )
+            return redirect("mon_identifiant")
+    else:
+        form = forms.UsernameChangeForm(initial={"username": request.user.username})
     return render(
         request,
-        "compte/index.html",
+        "compte/mon_identifiant.html",
+        context={"form": form},
     )
 
 

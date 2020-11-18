@@ -33,11 +33,20 @@ def get_widgets_for_accessibilite():
     return dict([(f, bool_radios()) for f in field_names])
 
 
-class CustomRegistrationForm(RegistrationFormUniqueEmail):
+def define_username_field():
     USERNAME_RULES = (
         "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
     )
+    return forms.CharField(
+        max_length=32,
+        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
+        required=True,
+        label="Nom d’utilisateur",
+        validators=[RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES)],
+    )
 
+
+class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = User
         fields = [
@@ -50,19 +59,18 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "next",
         ]
 
-    username = forms.CharField(
-        max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
-        required=True,
-        label="Nom d’utilisateur",
-        validators=[
-            RegexValidator(
-                r"^[\w.-]+\Z",
-                message=USERNAME_RULES,
-            )
-        ],
-    )
+    username = define_username_field()
     next = forms.CharField(required=False)
+
+
+class UsernameChangeForm(forms.Form):
+    username = define_username_field()
+
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        if User.objects.filter(username=username).count() > 0:
+            raise ValidationError("Ce nom d'utilisateur est déjà pris.")
+        return username
 
 
 class AdminAccessibiliteForm(forms.ModelForm):

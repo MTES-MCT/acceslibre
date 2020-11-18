@@ -37,6 +37,13 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mon_identifiant" }}"
+        href="{% url "mon_identifiant" %}">
+          <i aria-hidden="true" class="icon icon-gestionnaire mr-1"></i>
+          Mon identifiant
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mot_de_passe" }}"
         href="{% url "password_change" %}">
           <i aria-hidden="true" class="icon icon-key mr-1"></i>
