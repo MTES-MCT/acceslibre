@@ -452,14 +452,13 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):
-    form = forms.ProviderGlobalSearchForm()
+    form = forms.ProviderGlobalSearchForm(
+        initial={"code_insee": request.GET.get("code_insee")}
+    )
     return render(
         request,
         template_name="contrib/0-start.html",
-        context={
-            "step": 1,
-            "form": form,
-        },
+        context={"step": 1, "form": form},
     )
 
 

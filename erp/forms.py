@@ -21,7 +21,7 @@ from erp.models import (
     Commune,
     Erp,
 )
-from erp.provider import geocoder
+from erp.provider import departements, geocoder
 
 
 USERNAME_RULES = (
@@ -475,6 +475,20 @@ class ProviderGlobalSearchForm(forms.Form):
         help_text="Commencez à saisir le nom de la commune recherchée, puis cliquez sur la proposition correspondante.",
         widget=forms.Select(),
     )
+
+    def __init__(self, *args, **kwargs):
+        initial = kwargs.get("initial", {})
+        code_insee = initial.get("code_insee")
+        if code_insee:
+            commune = Commune.objects.filter(code_insee=code_insee).first()
+            if commune:
+                nom_departement = departements.DEPARTEMENTS[commune.departement]["nom"]
+                commune_search = (
+                    f"{commune.nom} ({commune.departement} - {nom_departement})"
+                )
+                initial["commune_search"] = commune_search
+                initial["code_insee"] = code_insee
+        super().__init__(*args, **kwargs)
 
 
 class PublicPublicationForm(forms.ModelForm):

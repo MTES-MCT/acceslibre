@@ -116,7 +116,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         });
         </script>
       </div>
-      <a class="d-none d-md-block btn btn-outline-primary w-100" href="{% url "contrib_start" %}">
+      <a class="d-none d-md-block btn btn-outline-primary w-100" href="{% url "contrib_start" %}?code_insee={{ commune.code_insee }}">
         Ajouter un établissement
       </a>
     </div>

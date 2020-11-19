@@ -261,6 +261,15 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(
     geocode.assert_called_with("12 grand rue, jacou", citycode="34120")
 
 
+# ProviderGlobalSearchForm
+
+
+def test_ProviderGlobalSearchForm(data):
+    form = forms.ProviderGlobalSearchForm(initial={"code_insee": data.jacou.code_insee})
+
+    assert form.initial["commune_search"] == "Jacou (34 - Hérault)"
+
+
 # ViewAccessibiliteForm
 
 
