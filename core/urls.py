@@ -18,6 +18,7 @@ SITEMAP_CACHE_TTL = 86400
 
 urlpatterns = [
     path("", include("erp.urls")),
+    path("annuaire/", include("annuaire.urls")),
     path("api/", include("api.urls")),
     path("contact/", include("contact.urls")),
     path("stats/", include("stats.urls")),

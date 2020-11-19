@@ -1,0 +1,46 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Annuaire{% endblock%}
+
+{% block editorial_content %}
+<main id="content">
+  <h2 class="mb-3"><a href="{% url "annuaire_home" %}">Annuaire</a></h2>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+      <a class="list-group-item list-group-item-action text-truncate{% if not current_departement.code %} active{% endif %}"
+        href="{% url "annuaire_home" %}">
+        Tous les départements
+      </a>
+      {% for code, departement in departements.items %}
+        <a class="list-group-item list-group-item-action text-truncate{% if current_departement.code == code %} active{% endif %}"
+          href="{% url "annuaire_departement" departement=code %}">
+          {{ code }} - {{ departement.nom }}
+        </a>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-9">
+      {% if not current_departement %}
+      <p class="alert alert-info">
+        Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés.
+      </p>
+      {% else %}
+      <h3 class="mt-2 mb-3">{{ current_departement.code }} - {{ current_departement.nom }}</h2>
+      {% for commune in communes %}
+      <p>
+        {{ commune.code_postaux|join:", " }} -
+        <a href="{% url "commune" commune.slug %}">{{ commune.nom }}</a>
+        <small class="text-muted">({{ commune.erp_access_count }} établissement{{ commune.erp_access_count|pluralize }})</small>
+      </p>
+      {% empty %}
+      <p>Il n'y a pas encore de commune disposant d'établissements renseignés dans ce département.</p>
+      <p><a class="btn btn-outline-primary" href="{% url "contrib_start" %}">Ajouter un établissement</a>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -88,6 +88,19 @@ class CommuneQuerySet(models.QuerySet):
             nom__unaccent__iexact=nom, code_postaux__contains=[code_postal]
         )
 
+    def with_published_erp_count(self):
+        return self.annotate(
+            erp_access_count=Count(
+                "erp",
+                filter=Q(
+                    erp__accessibilite__isnull=False,
+                    erp__geom__isnull=False,
+                    erp__published=True,
+                ),
+                distinct=True,
+            ),
+        )
+
 
 class ErpQuerySet(models.QuerySet):
     def find_by_siret(self, siret):
