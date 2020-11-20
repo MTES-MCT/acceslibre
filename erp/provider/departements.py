@@ -76,6 +76,14 @@ DEPARTEMENTS = {
         "nom": "Corrèze",
         "region": "Nouvelle-Aquitaine",
     },
+    "2A": {
+        "nom": "Corse-du-Sud",
+        "region": "Corse",
+    },
+    "2B": {
+        "nom": "Haute-Corse",
+        "region": "Corse",
+    },
     "21": {
         "nom": "Côte-d'Or",
         "region": "Bourgogne-Franche-Comté",
@@ -111,14 +119,6 @@ DEPARTEMENTS = {
     "29": {
         "nom": "Finistère",
         "region": "Bretagne",
-    },
-    "2A": {
-        "nom": "Corse-du-Sud",
-        "region": "Corse",
-    },
-    "2B": {
-        "nom": "Haute-Corse",
-        "region": "Corse",
     },
     "30": {
         "nom": "Gard",
@@ -407,3 +407,7 @@ DEPARTEMENTS = {
 }
 
 REGIONS = sorted(list(set(d["region"] for n, d in DEPARTEMENTS.items())))
+
+
+def get_departements():
+    return DEPARTEMENTS
