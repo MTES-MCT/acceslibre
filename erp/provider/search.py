@@ -2,7 +2,7 @@ from fuzzywuzzy import process
 
 from core.lib.text import remove_accents
 from erp.models import Commune, Erp
-from erp.provider import entreprise, public_erp
+from erp.provider import arrondissements, entreprise, public_erp
 
 
 MAX_TYPES = 5
@@ -20,11 +20,19 @@ def find_public_types(search):
     return [r["type"] for r in _sorted if r["score"] > MIN_SCORE][:MAX_TYPES]
 
 
+def get_searched_commune(code_insee, search):
+    commune = Commune.objects.filter(code_insee=code_insee).first()
+    if commune:
+        return commune.nom
+    # lookup arrondissements
+    arrdt = arrondissements.get_by_code_insee(code_insee)
+    return arrdt["commune"] if arrdt else ""
+
+
 def find_global_erps(form):
     search = form.cleaned_data.get("search")
     code_insee = form.cleaned_data.get("code_insee")
-    commune = Commune.objects.filter(code_insee=code_insee).first()
-    search_entreprise = f"{search} {commune.nom}" if commune else search
+    search_entreprise = f"{search} {get_searched_commune(code_insee, search)}"
 
     # Entreprise
     result_entreprises = []
