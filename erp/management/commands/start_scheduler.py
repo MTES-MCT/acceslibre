@@ -3,7 +3,7 @@ import time
 
 from django.core.management.base import BaseCommand
 
-from erp.jobs import check_closed_erps
+from erp.jobs import check_closed_erps, notify_changed_erps
 
 
 class Command(BaseCommand):
@@ -12,6 +12,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         schedule.every().day.at("00:00").do(check_closed_erps.job, verbose=True)
+        schedule.every(notify_changed_erps.HOURS_CHECK).hours.do(
+            notify_changed_erps.job, verbose=True
+        )
         print("Scheduler started")
         while True:
             schedule.run_pending()
