@@ -261,6 +261,12 @@ $viewport-xl: 1200px;
     min-height: 100px;
   }
 
+  &-map-reverse-results {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
   &-logo {
     font-size: 3.5em;
   }

@@ -40,9 +40,9 @@ class SpecialErpSerializer(geojson.Serializer):
         super().end_object(obj)
 
 
-def decode_provider_data(data):
+def decode_provider_data(b64data):
     try:
-        decoded = json.loads(base64.urlsafe_b64decode(data).decode())
+        decoded = json.loads(base64.urlsafe_b64decode(b64data).decode("latin-1"))
         if "coordonnees" in decoded:
             decoded["geom"] = Point(decoded["coordonnees"])
         return decoded

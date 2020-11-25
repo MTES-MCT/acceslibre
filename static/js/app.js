@@ -154,6 +154,64 @@ window.a4a = (function () {
     return satelliteTiles;
   }
 
+  function b64Encode(data) {
+    return unescape(encodeURIComponent(btoa(JSON.stringify(data))));
+  }
+
+  function onMapContextMenu(event) {
+    const map = event.target;
+    // prevent imprecise locations
+    if (map.getZoom() < 16) {
+      return;
+    }
+    const latlng = event.latlng;
+    const popup = L.popup()
+      .setLatLng(latlng)
+      .setContent('<a href="#" class="a4a-map-add">Ajouter un établissement ici</a>')
+      .openOn(map);
+    $(".a4a-map-add").on("click", async function(event) {
+      event.preventDefault();
+      const {lat, lng} = latlng;
+      const req = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lng}&lat=${lat}`);
+      const res = await req.json();
+      const results = res.features.filter(function(result) {
+        return result.properties.type == "housenumber";
+      });
+      if (results.length == 0) {
+        $(this).replaceWith("Aucune adresse ne correspond à cet emplacement.");
+        return;
+      }
+      const adresses = results.map(function({ properties, geometry }) {
+        return {
+          label: properties.label,
+          data: b64Encode({
+            source: "public",
+            source_id: `ban:${properties.id}`,
+            actif: true,
+            coordonnees: [geometry.coordinates[1], geometry.coordinates[0]],
+            naf: null,
+            activite: null,
+            nom: null,
+            siret: null,
+            numero: properties.housenumber,
+            voie: properties.street,
+            lieu_dit: properties.locality,
+            code_postal: properties.postcode,
+            commune: properties.city,
+            code_insee: properties.citycode
+          })
+        };
+      }, []);
+      $(this).replaceWith(`
+      <p><b>Choisissez une adresse :</b></p>
+      <ul class="a4a-map-reverse-results">
+        ${adresses.map(function({ data, label}) {
+          return `<li><a href="/contrib/admin-infos/?data=${data}">${label}</a></li>`;
+        })}
+      </ul>`);
+    });
+  }
+
   function createMap(id, options) {
     options = options || {};
     const defaults = { layers: [ getStreetsTiles() ] };
@@ -168,11 +226,16 @@ window.a4a = (function () {
 
   function initAppMap(info, pk, around, geoJson) {
     currentPk = pk;
+
     const geoJsonLayer = L.geoJSON(geoJson, {
       onEachFeature: onEachFeature,
       pointToLayer: pointToLayer,
     });
+
     map = createMap("app-map").setMinZoom(info.zoom - 2);
+
+    // right-click menu
+    map.on("contextmenu", onMapContextMenu);
 
     // markers
     markers = L.markerClusterGroup({
