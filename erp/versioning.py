@@ -53,8 +53,7 @@ def get_recent_contribs(hours, now=None):
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
     versions = (
-        Version.objects.get_for_model(Erp)
-        .select_related("revision", "revision__user")
+        Version.objects.select_related("revision", "revision__user")
         .exclude(revision__user__isnull=True)
         .exclude(content_type__isnull=True)
         .filter(Q(content_type=erp_type) | Q(content_type=accessibilite_type))
@@ -66,14 +65,10 @@ def get_recent_contribs(hours, now=None):
         # how is this supposed to happen? because it does.
         if not hasattr(version, "content_type"):
             continue
-        erp = (
-            version.object
-            if version.content_type == erp_type
-            else version.object.accessibilite
-        )
+        erp = version.object if version.content_type == erp_type else version.object.erp
         owner = erp.user
         modified_by_other = owner and owner.id != version.revision.user_id
-        if erp and erp.user and modified_by_other and erp not in changed:
+        if erp.user and modified_by_other and erp not in changed:
             changed.append({"erp": erp, "contributor": version.revision.user})
     return changed
 
