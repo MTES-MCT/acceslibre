@@ -682,6 +682,10 @@ class StatusCheck(models.Model):
     active = models.BooleanField(
         verbose_name="Toujours en activité",
     )
+    non_diffusable = models.BooleanField(
+        default=False,
+        verbose_name="Données SIRENE non diffusables",
+    )
     last_checked = models.DateTimeField(
         auto_now=True, verbose_name="Dernière vérification"
     )
