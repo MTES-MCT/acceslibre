@@ -120,10 +120,10 @@
 
     let $tabElem;
     if (location.hash in availableHashIds) {
-      $tabElem = $(availableHashIds[location.hash]);
+      $tabElem = $("#" + availableHashIds[location.hash]);
     }
 
-    if ($tabElem) {
+    if ($tabElem.get(0)) {
       $tabElem.tab("show");
       // Handle special case of history where we open the first entry.
       if (location.hash === "#history") {
