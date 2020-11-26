@@ -8,4 +8,7 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-        check_closed_erps.job(verbose=True)
+        try:
+            check_closed_erps.job(verbose=True)
+        except KeyboardInterrupt:
+            print("Interrompu.")

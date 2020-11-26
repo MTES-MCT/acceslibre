@@ -1,15 +1,16 @@
-{% autoescape off %}Voici le rapport de vérification quotidienne de statut d'activité des ERP publiés sur {{ SITE_NAME.title }} auprès du registre SIRENE.
+{% autoescape off %}Après vérification auprès du registre SIRENE, les établissements ci-dessous sont
+administrativement fermés depuis plus d'un an et ont par conséquent été mis hors-ligne :
 
-{% for erp in closed_erps %}FERMÉ : {{ erp.nom }}{% if erp.activite %} ({{ erp.activite.nom }}){% endif %}
+{% for erp in closed_erps %}{{ erp.nom }}{% if erp.activite %} ({{ erp.activite.nom }}){% endif %}
 {{ erp.adresse }}
-- Fiche publique de l'établissement : {{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}
 - Fiche société : https://www.societe.com/cgi-bin/search?champs={{ erp.siret }}
 - Administration de la fiche : {{ SITE_ROOT_URL }}{{ erp.get_admin_url }}
 
 ---
 {% empty %}Aucun établissement administrativement fermé n'a été trouvé.
 {% endfor %}
-Note: ces vérifications ne s'opèrent que sur les ERP ayant un numéro SIRET valide renseigné.
+Note: ces vérifications ne s'opèrent que sur les ERP ayant un numéro SIRET valide renseigné
+et dont les données sont diffusables.
 
 --
 L'équipe {{ SITE_NAME.title }}

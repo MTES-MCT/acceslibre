@@ -1,3 +1,4 @@
+import json
 import logging
 
 from api_insee import ApiInsee
@@ -16,6 +17,8 @@ CODE_INSEE = "codeCommuneEtablissement"
 CODE_POSTAL = "codePostalEtablissement"
 COMMUNE = "libelleCommuneEtablissement"
 COMPLEMENT = "complementAdresseEtablissement"
+DATE_DEBUT = "dateDebut"
+ETAT_ETABLISSEMENT = "etatAdministratifEtablissement"
 INDICE = "indiceRepetitionEtablissement"
 NUMERO = "numeroVoieEtablissement"
 NOM_ENSEIGNE1 = "enseigne1Etablissement"
@@ -37,6 +40,8 @@ SIRET_API_REQUEST_FIELDS = [
     CODE_POSTAL,
     COMMUNE,
     COMPLEMENT,
+    DATE_DEBUT,
+    ETAT_ETABLISSEMENT,
     INDICE,
     NOM_ENSEIGNE1,
     NOM_ENSEIGNE2,
@@ -81,7 +86,7 @@ def get_client():
             secret=settings.INSEE_API_SECRET_KEY,
         )
     except HTTPError as err:
-        print(err)  # XXX find a way to log this somewhere
+        logger.warn(err)
         raise RuntimeError("Le service INSEE est indisponible.")
     except Exception:
         # api_insee raise standard exceptions when unable to connect to the auth service ;(
@@ -132,10 +137,21 @@ def parse_etablissement(etablissement):
     if typeVoieEtablissement and typeVoieEtablissement in TYPES_VOIE:
         typeVoieEtablissement = TYPES_VOIE.get(typeVoieEtablissement)
     libelleVoieEtablissement = adresseEtablissement.get(VOIE)
+    # état
+    actif = uniteLegale.get(STATUT) == "A"
+    closed_on = None
+    periodesEtablissement = etablissement.get(PERIODES_ETABLISSEMENT, [])
+    if len(periodesEtablissement) > 0:
+        dernierePeriode = periodesEtablissement[0]
+        if dernierePeriode.get(ETAT_ETABLISSEMENT) == "F":
+            actif = False
+            closed_on = dernierePeriode.get(DATE_DEBUT)
+
     return dict(
         source="sirene",
         source_id=siret,
-        actif=uniteLegale.get(STATUT) == "A",
+        actif=actif,
+        closed_on=closed_on,
         coordonnees=None,
         naf=naf,
         activite=None,  # XXX would be nice to infer an activity from naf code
@@ -165,22 +181,33 @@ def parse_etablissement(etablissement):
     )
 
 
+def extract_http_error_message(err):
+    try:
+        decoded = json.loads(err.read().decode())
+        return decoded["header"]["message"]
+    except (json.decoder.JSONDecodeError, KeyError):
+        return
+
+
 def execute_request(request):
     logger.info(f"Sirene query: {request.url}")
     try:
         return request.get()
+    except HTTPError as err:
+        error_msg = extract_http_error_message(err)
+        if err.code == 403:
+            raise RuntimeError(f"Interdit: {error_msg}")
+        if err.code == 404:
+            raise RuntimeError("Aucun résultat.")
+        elif err.code == 400:
+            logger.error(f"Requête SIRENE malformée : {error_msg}")
+            raise RuntimeError("Recherche malformée.")
+        else:
+            logger.error(f"Service INSEE indisponible: {error_msg}")
+            raise RuntimeError("Le service INSEE est indisponible.")
     except RequestExeption as err:
         logger.error(err)
         raise RuntimeError(f"Recherche impossible: {err}")
-    except HTTPError as err:
-        if err.code == 404:
-            raise RuntimeError("Aucun résultat")
-        elif err.code == 400:
-            logger.error(err)
-            raise RuntimeError("Recherche malformée")
-        else:
-            logger.error(err)
-            raise RuntimeError("Le service INSEE est indisponible.")
 
 
 def create_find_query(nom, lieu, naf=None):
