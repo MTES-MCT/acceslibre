@@ -1,6 +1,7 @@
 {% autoescape off %}Bonjour {{ owner.username }},
 
-Des utilisateurs ont récemment contribué de nouvelles informations à des établissements que vous avez ajouté sur la plateforme :
+Des utilisateurs ont récemment contribué de nouvelles informations à des
+établissements que vous avez ajoutés sur la plateforme :
 
 {% for change in changes %}
 - {{ change.contributor }} sur {{ change.erp.nom }} ({{ change.erp.commune }}):
