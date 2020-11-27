@@ -29,6 +29,25 @@ def get_searched_commune(code_insee, search):
     return arrdt["commune"] if arrdt else ""
 
 
+def sort_and_filter_results(code_insee, results):
+    # Exclude non-geolocalized results
+    only_geolocalized = filter(
+        lambda result: result.get("coordonnees") is not None,
+        results,
+    )
+    # Exclude results from other departements
+    same_departement = filter(
+        lambda result: result["code_insee"][:2] == code_insee[:2],
+        only_geolocalized,
+    )
+    # Sort with matching commune first
+    return sorted(
+        same_departement,
+        key=lambda result: result["code_insee"] == code_insee,
+        reverse=True,
+    )
+
+
 def find_global_erps(form):
     search = form.cleaned_data.get("search")
     code_insee = form.cleaned_data.get("code_insee")
@@ -57,4 +76,4 @@ def find_global_erps(form):
                     result_public.append(result)
         except RuntimeError:
             pass
-    return result_public + result_entreprises
+    return sort_and_filter_results(code_insee, result_public + result_entreprises)

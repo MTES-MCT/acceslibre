@@ -24,7 +24,7 @@ from django_registration.backends.activation.views import (
 from core import mailer
 
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
-from erp.provider import naf, search, sirene
+from erp.provider import search
 from erp import forms
 from erp import schema
 from erp import serializers
@@ -417,18 +417,6 @@ def mes_contributions_recues(request):
     return _mes_contributions_view(request, qs, recues=True)
 
 
-def find_sirene_businesses(name_form):
-    results = sirene.find_etablissements(
-        name_form.cleaned_data.get("nom"),
-        name_form.cleaned_data.get("lieu"),
-        naf=name_form.cleaned_data.get("naf"),
-        limit=15,
-    )
-    for result in results:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
-    return results
-
-
 @login_required
 @reversion.views.create_revision()
 def contrib_delete(request, erp_slug):
@@ -476,7 +464,6 @@ def contrib_global_search(request):
         template_name="contrib/0a-search_results.html",
         context={
             "step": 1,
-            "nafs": naf.NAF,
             "results": results,
             "form": form,
             "form_type": "global",
