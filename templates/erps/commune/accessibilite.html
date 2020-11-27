@@ -123,7 +123,7 @@
       $tabElem = $("#" + availableHashIds[location.hash]);
     }
 
-    if ($tabElem.get(0)) {
+    if ($tabElem && $tabElem.get(0)) {
       $tabElem.tab("show");
       // Handle special case of history where we open the first entry.
       if (location.hash === "#history") {
