@@ -31,18 +31,23 @@ def get_searched_commune(code_insee, search):
 
 def sort_and_filter_results(code_insee, results):
     # Exclude non-geolocalized results
-    only_geolocalized = filter(
+    results = filter(
         lambda result: result.get("coordonnees") is not None,
         results,
     )
+
+    def filter_dpt(result):
+        print(result["code_insee"][:2], code_insee[:2])
+        return result["code_insee"][:2] == code_insee[:2]
+
     # Exclude results from other departements
-    same_departement = filter(
-        lambda result: result["code_insee"][:2] == code_insee[:2],
-        only_geolocalized,
+    results = filter(
+        filter_dpt,
+        results,
     )
     # Sort with matching commune first
     return sorted(
-        same_departement,
+        results,
         key=lambda result: result["code_insee"] == code_insee,
         reverse=True,
     )

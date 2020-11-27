@@ -66,7 +66,7 @@ def test_retrieve_code_insee(data):
 
     # Note: Jacou Commune record is provided by the data fixture
     assert (
-        entreprise.retrieve_code_insee({"departement_commune_siege": "34120"})
+        entreprise.retrieve_code_insee({"departement": "34", "commune": "120"})
         == "34120"
     )
     assert (

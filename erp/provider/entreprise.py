@@ -8,6 +8,8 @@ from erp.provider import arrondissements, sirene, voies
 
 logger = logging.getLogger(__name__)
 
+# Note: Nous utilisons le endpoint v1 qui n'est pas vraiment déprécié (source Etalab).
+# C'est le seul endpoint qui permette la recherche full text.
 BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
 MAX_PER_PAGE = 20
 
@@ -83,8 +85,13 @@ def format_source_id(record, fields=None):
 
 
 def retrieve_code_insee(record):
-    code_insee = record.get("departement_commune_siege")
-    if code_insee:
+    # Le code insee de l'établissement n'est pas directement exposé par les endpoints v1.
+    # On le génère à partir de la concaténation des champs "département" et "commune" :
+    # > Le code à 5 chiffres désigne seulement la commune. Il a le format DDCCC où DD est
+    # > le numéro du département et CCC le numéro de la commune.
+    # Source: http://www.francogene.com/france/insee.php
+    code_insee = record.get("departement", "") + record.get("commune", "")
+    if len(code_insee) == 5:
         return code_insee
 
     commune = record.get("libelle_commune")
@@ -93,7 +100,7 @@ def retrieve_code_insee(record):
         return None
 
     code_insee_list = Commune.objects.filter(
-        code_postaux__contains=[code_postal], nom__iexact=commune
+        code_postaux__contains=[code_postal], nom__unaccent__iexact=commune
     ).values("code_insee")
 
     return code_insee_list[0]["code_insee"] if len(code_insee_list) > 0 else None
