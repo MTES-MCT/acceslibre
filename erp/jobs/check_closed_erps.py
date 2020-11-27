@@ -47,7 +47,18 @@ def unpublish_closed_erp(erp, closed_on):
         return
 
 
-def get_closed_erps():  # noqa
+def get_check(erp):
+    check = StatusCheck.objects.filter(erp=erp).first()
+    if check and check.non_diffusable:
+        return
+    if check and timezone.now() < check.last_checked + timedelta(days=CHECK_DAYS):
+        return
+    if not check:
+        check = StatusCheck(erp=erp)
+    return check
+
+
+def get_closed_erps():
     closed_erps = []
     erps_to_check = (
         Erp.objects.published().filter(siret__isnull=False).order_by("updated_at")
@@ -58,11 +69,8 @@ def get_closed_erps():  # noqa
         if sirene.validate_siret(erp.siret) is None:
             logger.debug(f"[SKIP] Invalid siret {erp.nom} {erp.siret}")
             continue
-        check = StatusCheck.objects.filter(erp=erp).first()
-        if check and check.non_diffusable:
-            continue
-        # check last check timestamp
-        if check and timezone.now() < check.last_checked + timedelta(days=CHECK_DAYS):
+        check = get_check(erp)
+        if not check:
             continue
         # process check
         active = True
@@ -77,18 +85,14 @@ def get_closed_erps():  # noqa
             if "non diffusable" in str(err):
                 non_diffusable = True
                 logger.debug("Les informations de cet ERP ne sont pas diffusables.")
-        if not check:
-            check = StatusCheck(erp=erp)
-        check.non_diffusable = non_diffusable
         check.active = active
+        check.non_diffusable = non_diffusable
         check.save()
         if not active:
             logger.debug(f"[WARN] {erp.nom} is closed, sending notification")
             closed_erp = unpublish_closed_erp(erp, closed_on)
             if closed_erp:
                 closed_erps.append(erp)
-        else:
-            logger.debug(f"[PASS] {erp.nom} is active")
         time.sleep(SIRENE_API_SLEEP)
     return closed_erps
 
