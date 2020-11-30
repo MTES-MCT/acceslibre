@@ -1,0 +1,12 @@
+<div class="p-5 m-2">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="card-text">
+        <p>Il n'y pas encore d'établissement renseigné pour cette commune.</p>
+        <a class="btn btn-block btn-primary" href="{% url "contrib_start" %}?code_insee={{ commune.code_insee }}">
+          Ajouter un établissement
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
