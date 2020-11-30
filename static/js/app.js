@@ -154,8 +154,8 @@ window.a4a = (function () {
     return satelliteTiles;
   }
 
-  function b64Encode(data) {
-    return unescape(encodeURIComponent(btoa(JSON.stringify(data))));
+  function safeBase64Encode(data) {
+    return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
   }
 
   function onMapContextMenu(event) {
@@ -184,11 +184,11 @@ window.a4a = (function () {
       const adresses = results.map(function({ properties, geometry }) {
         return {
           label: properties.label,
-          data: b64Encode({
+          data: safeBase64Encode({
             source: "public",
             source_id: `ban:${properties.id}`,
             actif: true,
-            coordonnees: [geometry.coordinates[1], geometry.coordinates[0]],
+            coordonnees: [geometry.coordinates[0], geometry.coordinates[1]],
             naf: null,
             activite: null,
             nom: null,
