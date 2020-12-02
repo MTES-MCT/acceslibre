@@ -27,21 +27,18 @@ DEVERS_CHOICES = [
     (None, UNKNOWN_OR_NA),
 ]
 
-EQUIPEMENT_MALENTENDANT_AUCUN = "aucun"
 EQUIPEMENT_MALENTENDANT_AUTRES = "autres"
 EQUIPEMENT_MALENTENDANT_BIM = "bim"
 EQUIPEMENT_MALENTENDANT_LSF = "lsf"
 EQUIPEMENT_MALENTENDANT_SCD = "scd"
 EQUIPEMENT_MALENTENDANT_CHOICES = [
-    (EQUIPEMENT_MALENTENDANT_AUCUN, "Aucun"),
-    (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
     (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique"),
     (EQUIPEMENT_MALENTENDANT_LSF, "Langue des signes française"),
     (EQUIPEMENT_MALENTENDANT_SCD, "Service de communication à distance"),
+    (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
 ]
 
 EQUIPEMENT_MALENTENDANT_DESCRIPTIONS = {
-    EQUIPEMENT_MALENTENDANT_AUCUN: "Aucun équipement",
     EQUIPEMENT_MALENTENDANT_AUTRES: "Autres équipements non précisés",
     EQUIPEMENT_MALENTENDANT_BIM: "La boucle à induction magnétique (BIM) permet d'entendre une source sonore en s'affranchissant de la distance (salles de spectacles), du bruit ambiant (lieux publics), des phénomènes d'échos ou de réverbérations sonores (églises, salles aux murs nus), des déformations apportées par les écouteurs (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma).",
     EQUIPEMENT_MALENTENDANT_LSF: "La langue des signes française (LSF) est la langue des signes utilisée par une partie des sourds de France et par une partie des sourds de Suisse.",
@@ -624,7 +621,7 @@ FIELDS = {
         ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
-        "warn_if": lambda x, i: x and EQUIPEMENT_MALENTENDANT_AUCUN in x,
+        "warn_if": lambda x, i: x is not None and len(x) == 0,
     },
     "accueil_cheminement_plain_pied": {
         "is_a11y": True,
