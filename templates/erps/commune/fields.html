@@ -29,14 +29,10 @@
     <span class="a4a-badge-group pl-2 text-right">
       {% if field.name == "accueil_equipements_malentendants" %}
         {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
-        {% if equipement == "aucun" %}
-        <span class="badge a4a-badge">Aucun</span>
-        {% else %}
         <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
           <i aria-hidden="true" class="icon icon-check"></i>
           {{ equipement|get_equipement_label }}
         </span><br>
-        {% endif %}
         {% endfor %}
       {% elif field.name == "labels" %}
         {% for label in erp.accessibilite.labels %}
