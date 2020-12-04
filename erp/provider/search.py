@@ -37,7 +37,6 @@ def sort_and_filter_results(code_insee, results):
     )
 
     def filter_dpt(result):
-        print(result["code_insee"][:2], code_insee[:2])
         return result["code_insee"][:2] == code_insee[:2]
 
     # Exclude results from other departements
@@ -61,7 +60,7 @@ def find_global_erps(form):
     # Entreprise
     result_entreprises = []
     try:
-        result_entreprises = entreprise.search(search_entreprise)
+        result_entreprises = entreprise.search(search_entreprise, code_insee)
         for result in result_entreprises:
             result["exists"] = Erp.objects.find_by_siret(result["siret"])
     except RuntimeError:

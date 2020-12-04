@@ -8,25 +8,23 @@ from tests.fixtures import data
 @pytest.fixture
 def sample_feature():
     return {
+        "id": 63015890,
+        "siret": "88076068100010",
         "activite_principale_entreprise": "6202A",
         "activite_principale": "6202A",
-        "code_postal": "34830",
-        "departement_commune_siege": "34120",
-        "departement": "34",
-        "email": None,
-        "enseigne": None,
         "geo_adresse": "4 Grand Rue 34830 Jacou",
-        "id": 63015890,
-        "indice_repetition": None,
-        "l1_normalisee": "AKEI",
         "latitude": "43.657028",
+        "longitude": "3.913557",
+        "departement": "34",
+        "code_commune": "34120",
+        "code_postal": "34830",
+        "numero_voie": "4",
+        "type_voie": None,
+        "indice_repetition": None,
         "libelle_commune": "JACOU",
         "libelle_voie": "GRAND RUE",
-        "longitude": "3.913557",
-        "nom_raison_sociale": "AKEI",
-        "numero_voie": "4",
-        "siret": "88076068100010",
-        "type_voie": None,
+        "email": None,
+        "unite_legale": {"denomination": "AKEI"},
     }
 
 
@@ -65,10 +63,7 @@ def test_retrieve_code_insee(data):
     assert entreprise.retrieve_code_insee({}) is None
 
     # Note: Jacou Commune record is provided by the data fixture
-    assert (
-        entreprise.retrieve_code_insee({"departement": "34", "commune": "120"})
-        == "34120"
-    )
+    assert entreprise.retrieve_code_insee({"code_commune": "34120"}) == "34120"
     assert (
         entreprise.retrieve_code_insee(
             {"code_postal": "34830", "libelle_commune": "JACOU"}
@@ -79,7 +74,7 @@ def test_retrieve_code_insee(data):
 
 def test_parse_etablissement_jacou_data_ok(data, sample_feature):
     # Note: Jacou Commune record is provided by the data fixture
-    assert entreprise.parse_etablissement(sample_feature) == {
+    assert entreprise.parse_etablissement_v3(sample_feature) == {
         "source": "entreprise_api",
         "source_id": "63015890",
         "actif": True,
@@ -103,11 +98,11 @@ def test_parse_etablissement_jacou_data_ok(data, sample_feature):
 def test_parse_etablissement_jacou_missing_data(db, sample_feature):
     feature_with_missing_code_postal = sample_feature.copy()
     feature_with_missing_code_postal.pop("code_postal")
-    assert entreprise.parse_etablissement(feature_with_missing_code_postal) is None
+    assert entreprise.parse_etablissement_v3(feature_with_missing_code_postal) is None
 
     feature_with_missing_commune = sample_feature.copy()
     feature_with_missing_commune.pop("libelle_commune")
-    assert entreprise.parse_etablissement(feature_with_missing_commune) is None
+    assert entreprise.parse_etablissement_v3(feature_with_missing_commune) is None
 
 
 def test_normalize_commune_ext(data):
@@ -214,14 +209,17 @@ def test_extract_geo_adresse_common_failures():
 
 def test_format_nom():
     tests = [
-        ("LE BOUGNAT", "Le Bougnat"),
-        ("BEL'AIR", "Bel'Air"),
-        ("BILLIG & CARABIN", "Billig & Carabin"),
-        ("FLEURS DE SEL", "Fleurs de Sel"),
-        ("A LA BONNE HEURE", "A la Bonne Heure"),
+        ({"denomination_usuelle": "LE BOUGNAT"}, "Le Bougnat"),
+        ({"denomination_usuelle": "BEL'AIR"}, "Bel'Air"),
+        ({"denomination_usuelle": "BILLIG & CARABIN"}, "Billig & Carabin"),
+        ({"denomination_usuelle": "FLEURS DE SEL"}, "Fleurs de Sel"),
+        ({"denomination_usuelle": "A LA BONNE HEURE"}, "A la Bonne Heure"),
+        ({"unite_legale": {"denomination": "Bonjour"}}, "Bonjour"),
+        ({"unite_legale": {"prenom_usuel": "Guy", "nom_usage": "Lux"}}, "Guy Lux"),
+        ({"unite_legale": {"prenom_1": "Guy", "nom": "Lux"}}, "Guy Lux"),
     ]
     for (test, expected) in tests:
-        assert entreprise.format_nom({"enseigne": test}) == expected
+        assert entreprise.format_nom(test) == expected
 
 
 def test_normalize_commune_arrondissement():

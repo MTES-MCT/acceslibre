@@ -10,8 +10,11 @@ logger = logging.getLogger(__name__)
 
 # Note: Nous utilisons le endpoint v1 qui n'est pas vraiment déprécié (source Etalab).
 # C'est le seul endpoint qui permette la recherche full text.
-BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
-MAX_PER_PAGE = 20
+BASE_URL_V1 = "https://entreprise.data.gouv.fr/api/sirene/v1"
+# Note: En revanche nous utilisons le endpoint v3 pour la qualité des données dans les
+# réponses fournies.
+BASE_URL_V3 = "https://entreprise.data.gouv.fr/api/sirene/v3"
+MAX_PER_PAGE = 15
 
 
 def clean_search_terms(string):
@@ -27,7 +30,7 @@ def strip_list(lst):
 def query(terms):
     try:
         params = {"per_page": MAX_PER_PAGE, "page": 1}
-        res = requests.get(f"{BASE_URL}/full_text/{terms}", params)
+        res = requests.get(f"{BASE_URL_V1}/full_text/{terms}", params)
         logger.info(f"entreprise api call: {res.url}")
         if res.status_code == 404:
             raise RuntimeError("Aucun résultat.")
@@ -51,19 +54,37 @@ def format_email(record):
 
 
 def format_naf(record):
-    naf = record.get("activite_principale_entreprise")
+    naf = record.get("activite_principale") or record.get(
+        "activite_principale_entreprise"
+    )
     if not naf:
         return None
-    lst = list(naf)
-    lst.insert(2, ".")
-    return "".join(lst)
+    if "." not in naf:
+        lst = list(naf)
+        lst.insert(2, ".")
+        return "".join(lst)
+    return naf
+
+
+def format_personne(unite_legale):
+    prenom = unite_legale.get("prenom_usuel") or unite_legale.get("prenom_1")
+    nom = unite_legale.get("nom_usage") or unite_legale.get("nom")
+    if prenom and nom:
+        return f"{prenom} {nom}"
 
 
 def format_nom(record):
+    unite_legale = record.get("unite_legale", {})
     nom = (
-        record.get("enseigne")
-        or record.get("l1_normalisee")
-        or record.get("nom_raison_sociale")
+        record.get("denomination_usuelle")
+        or record.get("enseigne_1")
+        or record.get("enseigne_2")
+        or record.get("enseigne_3")
+        or unite_legale.get("denomination")
+        or unite_legale.get("denomination_usuelle_1")
+        or unite_legale.get("denomination_usuelle_2")
+        or unite_legale.get("denomination_usuelle_3")
+        or format_personne(unite_legale)
         or None
     )
     if nom:
@@ -85,13 +106,8 @@ def format_source_id(record, fields=None):
 
 
 def retrieve_code_insee(record):
-    # Le code insee de l'établissement n'est pas directement exposé par les endpoints v1.
-    # On le génère à partir de la concaténation des champs "département" et "commune" :
-    # > Le code à 5 chiffres désigne seulement la commune. Il a le format DDCCC où DD est
-    # > le numéro du département et CCC le numéro de la commune.
-    # Source: http://www.francogene.com/france/insee.php
-    code_insee = record.get("departement", "") + record.get("commune", "")
-    if len(code_insee) == 5:
+    code_insee = record.get("code_commune")
+    if code_insee and len(code_insee) == 5:
         return code_insee
 
     commune = record.get("libelle_commune")
@@ -166,7 +182,14 @@ def normalize_sirene_adresse(record, code_insee):
     }
 
 
-def parse_etablissement(record):
+def parse_etablissement_v3(record):
+    siret = record.get("siret")
+
+    # Statut d'activité
+    if record.get("etat_administratif") == "F":
+        logger.info(f"Établissement fermé: {siret}")
+        return None
+
     # Coordonnées geographiques
     coordonnees = format_coordonnees(record)
 
@@ -180,6 +203,8 @@ def parse_etablissement(record):
         return None
 
     code_insee = retrieve_code_insee(record)
+    if not code_insee:
+        raise RuntimeError("plop")
 
     adresse_data = None
     geo_adresse = record.get("geo_adresse")
@@ -203,7 +228,7 @@ def parse_etablissement(record):
         naf=naf,
         activite=None,  # Would be nice to infer activite from NAF
         nom=nom,
-        siret=record.get("siret"),
+        siret=siret,
         numero=adresse_data.get("numero"),
         voie=adresse_data.get("voie"),
         lieu_dit=None,  # Note: this API doesn't expose this data in an actionable fashion
@@ -232,7 +257,7 @@ def reorder_results(results, terms):
     return higher_rank + lower_rank
 
 
-def search(terms):
+def search(terms, code_insee):
     terms = clean_search_terms(terms)
     if not terms:
         raise RuntimeError("La recherche est vide.")
@@ -242,7 +267,7 @@ def search(terms):
     if siret:
         siret_result = None
         try:
-            siret_result = search_siret(siret)
+            siret_result = search_siret_v3(siret)
         except RuntimeError as err:
             logger.debug(f"Pas de résultat pour siret={siret} ({err})")
         terms = terms.replace(siret, "").strip()
@@ -252,19 +277,23 @@ def search(terms):
     # search for remaining terms, if any
     results = []
     if terms:
-        results = results + search_fulltext(terms)
+        results = results + search_fulltext(terms, code_insee)
     if len(results) == 0:
         raise RuntimeError("Aucun résultat.")
     return results
 
 
-def search_fulltext(terms):
+def search_fulltext(terms, code_insee):
     response = query(terms)
     results = []
     try:
         for etablissement in response["etablissement"]:
+            departement = etablissement.get("departement")
+            if code_insee and departement != code_insee[:2]:
+                # skip requesting erps outside of searched departement
+                continue
             try:
-                parsed = parse_etablissement(etablissement)
+                parsed = search_siret_v3(etablissement.get("siret"))
                 if parsed:
                     results.append(parsed)
             except RuntimeError as err:
@@ -276,10 +305,10 @@ def search_fulltext(terms):
         raise RuntimeError("Impossible de récupérer les résultats.")
 
 
-def search_siret(siret):
+def search_siret_v3(siret):
     try:
-        res = requests.get(f"{BASE_URL}/siret/{siret}")
-        logger.info(f"entreprise api siret search call: {res.url}")
+        res = requests.get(f"{BASE_URL_V3}/etablissements/{siret}")
+        logger.info(f"entreprise api v3 siret search call: {res.url}")
         if res.status_code == 404:
             raise RuntimeError("Aucun résultat.")
         elif res.status_code != 200:
@@ -287,7 +316,7 @@ def search_siret(siret):
         json_value = res.json()
         if not json_value or "etablissement" not in json_value:
             raise RuntimeError("Résultat invalide.")
-        return parse_etablissement(json_value["etablissement"])
+        return parse_etablissement_v3(json_value["etablissement"])
     except requests.exceptions.RequestException as err:
         logger.error(f"entreprise api error: {err}")
         raise RuntimeError("Annuaire des entreprise indisponible.")
