@@ -6,7 +6,7 @@ from tests.fixtures import data
 
 
 @pytest.fixture
-def sample_feature():
+def sample_response():
     return {
         "id": 63015890,
         "siret": "88076068100010",
@@ -72,9 +72,9 @@ def test_retrieve_code_insee(data):
     )
 
 
-def test_parse_etablissement_jacou_data_ok(data, sample_feature):
+def test_parse_etablissement_jacou_data_ok(data, sample_response):
     # Note: Jacou Commune record is provided by the data fixture
-    assert entreprise.parse_etablissement_v3(sample_feature) == {
+    assert entreprise.parse_etablissement_v3(sample_response) == {
         "source": "entreprise_api",
         "source_id": "63015890",
         "actif": True,
@@ -95,12 +95,12 @@ def test_parse_etablissement_jacou_data_ok(data, sample_feature):
     }
 
 
-def test_parse_etablissement_jacou_missing_data(db, sample_feature):
-    feature_with_missing_code_postal = sample_feature.copy()
+def test_parse_etablissement_jacou_missing_data(db, sample_response):
+    feature_with_missing_code_postal = sample_response.copy()
     feature_with_missing_code_postal.pop("code_postal")
     assert entreprise.parse_etablissement_v3(feature_with_missing_code_postal) is None
 
-    feature_with_missing_commune = sample_feature.copy()
+    feature_with_missing_commune = sample_response.copy()
     feature_with_missing_commune.pop("libelle_commune")
     assert entreprise.parse_etablissement_v3(feature_with_missing_commune) is None
 
@@ -227,11 +227,11 @@ def test_normalize_commune_arrondissement():
 
 
 def test_reorder_results():
-    sample_features = [
+    sample_responses = [
         {"commune": "NIMES", "code_postal": "30000"},
         {"commune": "JACOU", "code_postal": "34830"},
     ]
-    assert entreprise.reorder_results(sample_features, "restaurants jacou") == [
+    assert entreprise.reorder_results(sample_responses, "restaurants jacou") == [
         {"commune": "JACOU", "code_postal": "34830"},
         {"commune": "NIMES", "code_postal": "30000"},
     ]

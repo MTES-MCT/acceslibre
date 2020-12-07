@@ -61,8 +61,9 @@ def parse_etablissement(record):
 
 
 def get_district_search(code_insee):
-    # In case we search in a district (arrondissement), prefer searching
-    # with the commune name rather than the INSEE code, for accuracy.
+    # In case we search in a global commune code insee which has districts
+    # (arrondissements: Paris, Marseille, Lyon), prefer searching with the
+    # commune name rather than the INSEE code, for accuracy.
     arrdt = arrondissements.get_by_code_insee(code_insee)
     if arrdt:
         return arrdt["commune"]
@@ -74,23 +75,29 @@ def get_district_search(code_insee):
         return "Lyon"
 
 
+def build_query_params(terms, code_insee):
+    params = {
+        "dataset": "sirene_v3",
+        "q": terms,
+        "rows": MAX_PER_PAGE,
+        "refine.etatadministratifetablissement": "Actif",
+        "sort": "datederniertraitementetablissement",
+    }
+
+    district_search = get_district_search(code_insee)
+    if district_search:
+        params["q"] = f"{terms} {district_search}"
+    else:
+        params["refine.codecommuneetablissement"] = code_insee
+
+    return params
+
+
 def query(terms, code_insee):
     try:
-        params = {
-            "dataset": "sirene_v3",
-            "q": terms,
-            "rows": MAX_PER_PAGE,
-            "refine.etatadministratifetablissement": "Actif",
-            "sort": "datederniertraitementetablissement",
-        }
-
-        district_search = get_district_search(code_insee)
-        if district_search:
-            params["q"] = f"{terms} {district_search}"
-        else:
-            params["refine.codecommuneetablissement"] = code_insee
-
-        res = requests.get(f"{BASE_API_URL}/search/", params)
+        res = requests.get(
+            f"{BASE_API_URL}/search/", build_query_params(terms, code_insee)
+        )
         logger.info(f"opendatasoft api search call: {res.url}")
         if res.status_code == 404:
             return []
