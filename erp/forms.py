@@ -459,13 +459,13 @@ class ProviderGlobalSearchForm(forms.Form):
     search = forms.CharField(
         label="Recherche",
         help_text=mark_safe(
-            "Recherche <em>plein texte</em> sur le nom d'une administration publique, d'une entreprise, d'un "
+            "Recherche sur le nom d'une administration publique, d'une entreprise, d'un "
             '<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>'
-            ", la voie, le code postal, l'activité"
+            ", la voie, le code postal, l'activité."
         ),
         required=True,
         widget=forms.TextInput(
-            attrs={"placeholder": "ex. Fleuriste", "autocomplete": "off"}
+            attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}
         ),
     )
     commune_search = forms.CharField(widget=forms.HiddenInput)

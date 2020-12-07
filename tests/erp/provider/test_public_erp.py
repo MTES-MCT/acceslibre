@@ -16,6 +16,54 @@ from tests.fixtures import (
 )
 
 
+def test_find_public_types_simple():
+    assert public_erp.find_public_types("dlfhsdjhfsjh") == []
+    assert (
+        public_erp.find_public_types("Commissariat de police")[0]
+        == "commissariat_police"
+    )
+    assert public_erp.find_public_types("commissariat")[0] == "commissariat_police"
+    assert public_erp.find_public_types("maison du handicap")[0] == "maison_handicapees"
+    assert public_erp.find_public_types("MDPH hérault")[0] == "maison_handicapees"
+    assert public_erp.find_public_types("protection enfant")[0] == "pmi"
+    assert public_erp.find_public_types("ASSEDIC castelnau le lez")[0] == "pole_emploi"
+    assert public_erp.find_public_types("préfécture à paris")[0] == "prefecture"
+    assert public_erp.find_public_types("sous prefecture")[0] == "sous_pref"
+    assert (
+        public_erp.find_public_types("accompagnement gériatrie")[0]
+        == "accompagnement_personnes_agees"
+    )
+
+    assert public_erp.find_public_types("information logement")[0] == "adil"
+    assert public_erp.find_public_types("formation pro")[0] == "afpa"
+    assert public_erp.find_public_types("ARS rhone")[0] == "ars_antenne"
+    assert public_erp.find_public_types("aide aux victimes")[0] == "bav"
+    assert public_erp.find_public_types("service civique")[0] == "bsn"
+    assert public_erp.find_public_types("cour d'appel")[0] == "cour_appel"
+    assert public_erp.find_public_types("cci montpellier")[0] == "cci"
+    assert public_erp.find_public_types("droits des femmes")[0] == "cidf"
+
+
+def test_find_public_types_multiple():
+    prisons = public_erp.find_public_types("prison de fresnes")
+    assert "centre_penitentiaire" in prisons
+    assert "centre_detention" in prisons
+    assert "maison_arret" in prisons
+
+    impots = public_erp.find_public_types("impots")
+    assert "centre_impots_fonciers" in impots
+    assert "sie" in impots
+    assert "sip" in impots
+    assert "urssaf" in impots
+
+    tribunaux = public_erp.find_public_types("tribunal")
+    assert "ta" in tribunaux
+    assert "te" in tribunaux
+    assert "tgi" in tribunaux
+    assert "ti" in tribunaux
+    assert "tribunal_commerce" in tribunaux
+
+
 def test_extract_numero_voie():
     cases = [
         ("", (None, "")),
@@ -27,7 +75,7 @@ def test_extract_numero_voie():
         assert public_erp.extract_numero_voie(case[0]) == case[1]
 
 
-def test_parse_feature_jacou(data, activite_mairie):
+def test_parse_etablissement_jacou(data, activite_mairie):
     json_feature = json.loads(
         """
         {
@@ -54,7 +102,7 @@ def test_parse_feature_jacou(data, activite_mairie):
             }
         }"""
     )
-    assert public_erp.parse_feature(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "mairie-34120-01",
         "actif": True,
@@ -75,7 +123,7 @@ def test_parse_feature_jacou(data, activite_mairie):
     }
 
 
-def test_parse_feature_gendarmerie_castelnau(
+def test_parse_etablissement_gendarmerie_castelnau(
     data, commune_castelnau, activite_administration_publique
 ):
     json_feature = json.loads(
@@ -114,7 +162,7 @@ def test_parse_feature_gendarmerie_castelnau(
             }
         }"""
     )
-    assert public_erp.parse_feature(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "gendarmerie-34057-01",
         "actif": True,
@@ -135,7 +183,7 @@ def test_parse_feature_gendarmerie_castelnau(
     }
 
 
-def test_parse_feature_montreuil(data, commune_montreuil, activite_mairie):
+def test_parse_etablissement_montreuil(data, commune_montreuil, activite_mairie):
     json_feature = json.loads(
         """
         {
@@ -174,7 +222,7 @@ def test_parse_feature_montreuil(data, commune_montreuil, activite_mairie):
             }
         }"""
     )
-    assert public_erp.parse_feature(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "mairie-93048-01",
         "actif": True,
@@ -233,7 +281,7 @@ def test_parse_prefecture_montpellier(
             }
         }"""
     )
-    assert public_erp.parse_feature(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "prefecture-34172-01",
         "actif": True,

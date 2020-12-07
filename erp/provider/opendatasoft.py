@@ -5,7 +5,7 @@ from core.lib import text
 
 logger = logging.getLogger(__name__)
 
-BASE_API_URL = "https://public.opendatasoft.com/api/records/1.0/"
+BASE_API_URL = "https://public.opendatasoft.com/api/records/1.0"
 MAX_PER_PAGE = 5
 
 
@@ -21,7 +21,8 @@ def extract_nom(etablissement):
         usage = f" ({usage})"
     return text.normalize_nom(
         (
-            etablissement.get("enseigne1etablissement")
+            etablissement.get("denominationusuelle1unitelegale")
+            or etablissement.get("enseigne1etablissement")
             or etablissement.get("denominationusuelleetablissement")
             or etablissement.get("denominationunitelegale")
             or etablissement.get("l1_adressage_unitelegale")
@@ -66,9 +67,9 @@ def query(terms, code_insee):
                 "dataset": "sirene_v3",
                 "q": terms,
                 "rows": MAX_PER_PAGE,
-                "sort": "datederniertraitementetablissement",
                 "refine.codecommuneetablissement": code_insee,
                 "refine.etatadministratifetablissement": "Actif",
+                "sort": "datederniertraitementetablissement",
             },
         )
         logger.info(f"opendatasoft api search call: {res.url}")

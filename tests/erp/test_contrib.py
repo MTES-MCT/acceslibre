@@ -81,7 +81,7 @@ def test_contrib_start_home(client):
 
 def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_result):
     mocker.patch(
-        "erp.provider.search.find_global_erps",
+        "erp.provider.search.global_search",
         return_value=[mairie_jacou_result, akei_result],
     )
 
