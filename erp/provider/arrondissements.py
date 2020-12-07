@@ -290,9 +290,5 @@ def get_by_code_insee(code_insee):
     return next((x for x in all if x["code"] == str(code_insee)), None)
 
 
-def is_arrondissement(code_insee):
-    return get_by_code_insee(code_insee) is not None
-
-
 def to_json():
     return json.dumps({"Paris": PARIS, "Marseille": MARSEILLE, "Lyon": LYON})
