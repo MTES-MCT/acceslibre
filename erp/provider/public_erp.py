@@ -1,10 +1,15 @@
 import logging
 import requests
 
+from fuzzywuzzy import process as fuzzy_process
+
 from core.lib import text
 from erp.models import Activite, Commune
 
 logger = logging.getLogger(__name__)
+
+MAX_TYPES = 5
+MIN_SCORE = 70
 
 BASE_URL = "https://etablissements-publics.api.gouv.fr/v3"
 
@@ -365,7 +370,7 @@ def get_type_choices():
     return list(TYPES.items())
 
 
-def parse_feature(feature):
+def parse_etablissement(feature):
     properties = feature.get("properties", {})
 
     # Coordonnées géographiques
@@ -432,33 +437,65 @@ def parse_feature(feature):
     )
 
 
-def get_code_insee_type(code_insee, type):
-    if type not in TYPES:
-        raise RuntimeError(f'Le type "{type}" est invalide.')
-    response = get(f"communes/{code_insee}/{type}")
-    results = []
-    try:
-        for feature in response["features"]:
-            try:
-                results.append(parse_feature(feature))
-            except RuntimeError as err:
-                logger.error(err)
-                continue
-        if len(results) == 0:
-            raise RuntimeError("Aucun résultat.")
-        return results
-    except (AttributeError, KeyError, IndexError, TypeError) as err:
-        logger.error(err)
-        raise RuntimeError("Impossible de récupérer les résultats.")
-
-
-def get(path, params=None):
+def request(path, params=None):
     try:
         res = requests.get(f"{BASE_URL}/{path}", params)
         logger.info(f"public_erp api call: {res.url}")
         if res.status_code != 200:
-            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
+            raise RuntimeError(
+                f"Erreur HTTP {res.status_code} lors de la requête: {res.url}"
+            )
         return res.json()
     except requests.exceptions.RequestException as err:
-        logger.error(f"public_erp api error: {err}")
-        raise RuntimeError("Annuaire des établissements publics indisponible.")
+        raise RuntimeError(f"public_erp api error: {err}")
+
+
+def search_types(type, code_insee):
+    if type not in TYPES:
+        raise RuntimeError(f'Le type "{type}" est invalide.')
+    response = request(f"communes/{code_insee}/{type}")
+    try:
+        results = []
+        for feature in response["features"]:
+            try:
+                results.append(parse_etablissement(feature))
+            except RuntimeError as err:
+                logger.error(err)
+                continue
+        return results
+    except (AttributeError, KeyError, IndexError, TypeError) as err:
+        raise RuntimeError(f"Impossible de récupérer les résultats: {err}")
+
+
+def find_public_types(terms):
+    results = []
+    clean = text.remove_accents(terms).lower()
+    for key, val in TYPES.items():
+        searches = [key, val["description"]] + val.get("searches", [])
+        (found, score) = fuzzy_process.extractOne(clean, searches)
+        results.append({"score": score, "type": key})
+    _sorted = sorted(results, key=lambda x: x["score"], reverse=True)
+    return [r["type"] for r in _sorted if r["score"] > MIN_SCORE][:MAX_TYPES]
+
+
+def query(terms, code_insee):
+    results = []
+    found_public_types = find_public_types(terms)
+    for public_type in found_public_types:
+        try:
+            type_results = search_types(public_type, code_insee)
+            for result in type_results:
+                if result and code_insee == result["code_insee"]:
+                    results.append(result)
+        except RuntimeError as err:
+            logger.error(err)
+            pass
+    return results
+
+
+def search(terms, code_insee):
+    try:
+        return query(terms, code_insee)
+    except RuntimeError as err:
+        logger.error(err)
+        return []

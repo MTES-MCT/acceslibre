@@ -40,6 +40,7 @@
           </h3>
           <p class="card-text">
             <small>
+              Source: {{ result.source|format_source:"Inconnue" }}<br>
               {% if result.siret %}SIRET: {{ result.siret }}<br>{% endif %}
               {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
               {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>

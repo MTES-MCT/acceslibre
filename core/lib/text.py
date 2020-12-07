@@ -10,6 +10,14 @@ def contains_digits(string):
     return any(char.isdigit() for char in string)
 
 
+def normalize_nom(nom):
+    parts = map(
+        lambda x: x.title() if x not in FRENCH_STOPWORDS else x,
+        nom.lower().split(" "),
+    )
+    return ucfirst(" ".join(parts))
+
+
 def random_string(self, length):
     return "".join(random.choice(string.ascii_letters) for i in range(length))
 

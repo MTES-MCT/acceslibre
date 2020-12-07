@@ -456,7 +456,9 @@ def contrib_global_search(request):
     form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
     if form.is_valid():
         try:
-            results = search.find_global_erps(form)
+            results = search.global_search(
+                form.cleaned_data["search"], form.cleaned_data["code_insee"]
+            )
         except RuntimeError as err:
             error = err
     return render(

@@ -9,9 +9,12 @@ from django.utils.safestring import mark_safe
 
 from erp import schema
 from erp import serializers
+from erp.models import Erp
 from erp.provider import arrondissements, naf, sirene
 
 register = template.Library()
+
+DATA_SOURCES = dict(Erp.SOURCE_CHOICES)
 
 
 @register.filter(name="active_compte_section")
@@ -69,6 +72,11 @@ def format_distance(value):
         return f"À {value.km:.2f} km"
     else:
         return f"À {round(value.m)} m"
+
+
+@register.filter(name="format_source")
+def format_source(value, default="N/A"):
+    return DATA_SOURCES.get(value, default)
 
 
 @register.filter(name="format_username")

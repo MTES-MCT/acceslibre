@@ -3,15 +3,18 @@ import requests
 
 from core.lib import text
 from erp.models import Commune
-from erp.provider import arrondissements, sirene, voies
+from erp.provider import arrondissements, voies
 
 
 logger = logging.getLogger(__name__)
 
 # Note: Nous utilisons le endpoint v1 qui n'est pas vraiment déprécié (source Etalab).
 # C'est le seul endpoint qui permette la recherche full text.
-BASE_URL = "https://entreprise.data.gouv.fr/api/sirene/v1"
-MAX_PER_PAGE = 20
+BASE_URL_V1 = "https://entreprise.data.gouv.fr/api/sirene/v1"
+# Note: En revanche nous utilisons le endpoint v3 pour la qualité des données dans les
+# réponses fournies.
+BASE_URL_V3 = "https://entreprise.data.gouv.fr/api/sirene/v3"
+MAX_PER_PAGE = 5
 
 
 def clean_search_terms(string):
@@ -22,21 +25,6 @@ def clean_search_terms(string):
 
 def strip_list(lst):
     return [x for x in list(map(lambda x: x.strip(), lst)) if x != ""]
-
-
-def query(terms):
-    try:
-        params = {"per_page": MAX_PER_PAGE, "page": 1}
-        res = requests.get(f"{BASE_URL}/full_text/{terms}", params)
-        logger.info(f"entreprise api call: {res.url}")
-        if res.status_code == 404:
-            raise RuntimeError("Aucun résultat.")
-        elif res.status_code != 200:
-            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
-        return res.json()
-    except requests.exceptions.RequestException as err:
-        logger.error(f"entreprise api error: {err}")
-        raise RuntimeError("Annuaire des entreprise indisponible.")
 
 
 def format_coordonnees(record):
@@ -51,27 +39,41 @@ def format_email(record):
 
 
 def format_naf(record):
-    naf = record.get("activite_principale_entreprise")
+    naf = record.get("activite_principale") or record.get(
+        "activite_principale_entreprise"
+    )
     if not naf:
         return None
-    lst = list(naf)
-    lst.insert(2, ".")
-    return "".join(lst)
+    if "." not in naf:
+        lst = list(naf)
+        lst.insert(2, ".")
+        return "".join(lst)
+    return naf
+
+
+def format_personne(unite_legale):
+    prenom = unite_legale.get("prenom_usuel") or unite_legale.get("prenom_1")
+    nom = unite_legale.get("nom_usage") or unite_legale.get("nom")
+    if prenom and nom:
+        return f"{prenom} {nom}"
 
 
 def format_nom(record):
+    unite_legale = record.get("unite_legale", {})
     nom = (
-        record.get("enseigne")
-        or record.get("l1_normalisee")
-        or record.get("nom_raison_sociale")
+        record.get("denomination_usuelle")
+        or record.get("enseigne_1")
+        or record.get("enseigne_2")
+        or record.get("enseigne_3")
+        or unite_legale.get("denomination")
+        or unite_legale.get("denomination_usuelle_1")
+        or unite_legale.get("denomination_usuelle_2")
+        or unite_legale.get("denomination_usuelle_3")
+        or format_personne(unite_legale)
         or None
     )
     if nom:
-        parts = map(
-            lambda x: x.title() if x not in text.FRENCH_STOPWORDS else x,
-            nom.lower().split(" "),
-        )
-        return text.ucfirst(" ".join(parts))
+        nom = text.normalize_nom(nom)
     return nom
 
 
@@ -80,18 +82,14 @@ def format_source_id(record, fields=None):
     if not source_id and isinstance(fields, list) and len(fields) > 0:
         source_id = "-".join(str(x).lower() for x in fields if x is not None)
     if not source_id:
-        raise RuntimeError(f"Impossible de générer une source_id: {record}")
+        logger.error(f"Impossible de générer une source_id: {record}")
+        raise RuntimeError("Erreur lors du traitement des résultats.")
     return source_id
 
 
 def retrieve_code_insee(record):
-    # Le code insee de l'établissement n'est pas directement exposé par les endpoints v1.
-    # On le génère à partir de la concaténation des champs "département" et "commune" :
-    # > Le code à 5 chiffres désigne seulement la commune. Il a le format DDCCC où DD est
-    # > le numéro du département et CCC le numéro de la commune.
-    # Source: http://www.francogene.com/france/insee.php
-    code_insee = record.get("departement", "") + record.get("commune", "")
-    if len(code_insee) == 5:
+    code_insee = record.get("code_commune")
+    if code_insee and len(code_insee) == 5:
         return code_insee
 
     commune = record.get("libelle_commune")
@@ -166,20 +164,23 @@ def normalize_sirene_adresse(record, code_insee):
     }
 
 
-def parse_etablissement(record):
+def parse_etablissement_v3(record):
+    siret = record.get("siret")
+
+    # Statut d'activité
+    if record.get("etat_administratif") == "F":
+        logger.info(f"Établissement fermé: {siret}")
+        return None
+
     # Coordonnées geographiques
     coordonnees = format_coordonnees(record)
 
     # Adresse
     code_postal = record.get("code_postal")
-    if not code_postal:
-        return None
-
     commune = record.get("libelle_commune")
-    if not commune:
-        return None
-
     code_insee = retrieve_code_insee(record)
+    if not code_postal or not code_insee or not commune:
+        return None
 
     adresse_data = None
     geo_adresse = record.get("geo_adresse")
@@ -203,7 +204,7 @@ def parse_etablissement(record):
         naf=naf,
         activite=None,  # Would be nice to infer activite from NAF
         nom=nom,
-        siret=record.get("siret"),
+        siret=siret,
         numero=adresse_data.get("numero"),
         voie=adresse_data.get("voie"),
         lieu_dit=None,  # Note: this API doesn't expose this data in an actionable fashion
@@ -232,54 +233,10 @@ def reorder_results(results, terms):
     return higher_rank + lower_rank
 
 
-def search(terms):
-    terms = clean_search_terms(terms)
-    if not terms:
-        raise RuntimeError("La recherche est vide.")
-
-    # search for siret, if any provided
-    siret = next((x for x in terms.split(" ") if sirene.validate_siret(x)), None)
-    if siret:
-        siret_result = None
-        try:
-            siret_result = search_siret(siret)
-        except RuntimeError as err:
-            logger.debug(f"Pas de résultat pour siret={siret} ({err})")
-        terms = terms.replace(siret, "").strip()
-        if siret_result:
-            return [siret_result]
-
-    # search for remaining terms, if any
-    results = []
-    if terms:
-        results = results + search_fulltext(terms)
-    if len(results) == 0:
-        raise RuntimeError("Aucun résultat.")
-    return results
-
-
-def search_fulltext(terms):
-    response = query(terms)
-    results = []
+def search_siret_v3(siret):
     try:
-        for etablissement in response["etablissement"]:
-            try:
-                parsed = parse_etablissement(etablissement)
-                if parsed:
-                    results.append(parsed)
-            except RuntimeError as err:
-                logger.error(err)
-                continue
-        return reorder_results(results, terms)
-    except (AttributeError, KeyError, IndexError, TypeError) as err:
-        logger.error(err)
-        raise RuntimeError("Impossible de récupérer les résultats.")
-
-
-def search_siret(siret):
-    try:
-        res = requests.get(f"{BASE_URL}/siret/{siret}")
-        logger.info(f"entreprise api siret search call: {res.url}")
+        res = requests.get(f"{BASE_URL_V3}/etablissements/{siret}")
+        logger.info(f"entreprise api v3 siret search call: {res.url}")
         if res.status_code == 404:
             raise RuntimeError("Aucun résultat.")
         elif res.status_code != 200:
@@ -287,7 +244,50 @@ def search_siret(siret):
         json_value = res.json()
         if not json_value or "etablissement" not in json_value:
             raise RuntimeError("Résultat invalide.")
-        return parse_etablissement(json_value["etablissement"])
+        return parse_etablissement_v3(json_value["etablissement"])
     except requests.exceptions.RequestException as err:
-        logger.error(f"entreprise api error: {err}")
-        raise RuntimeError("Annuaire des entreprise indisponible.")
+        raise RuntimeError(f"entreprise api error: {err}")
+
+
+def process_response(json_value, terms, code_insee):
+    results = []
+    try:
+        for etablissement in json_value["etablissement"]:
+            departement = etablissement.get("departement")
+            if code_insee and departement != code_insee[:2]:
+                # skip requesting erps outside of searched departement
+                continue
+            try:
+                parsed = search_siret_v3(etablissement.get("siret"))
+                if parsed:
+                    results.append(parsed)
+            except RuntimeError as err:
+                logger.error(err)
+                continue
+        return reorder_results(results, terms)
+    except (AttributeError, KeyError, IndexError, TypeError) as err:
+        raise RuntimeError(f"Erreur de traitement de la réponse: {err}")
+
+
+def query(terms, code_insee):
+    try:
+        terms = clean_search_terms(terms)
+        res = requests.get(
+            f"{BASE_URL_V1}/full_text/{terms}", {"per_page": MAX_PER_PAGE, "page": 1}
+        )
+        logger.info(f"entreprise api call: {res.url}")
+        if res.status_code == 404:
+            return []
+        elif res.status_code != 200:
+            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête.")
+        return process_response(res.json(), terms, code_insee)
+    except requests.exceptions.RequestException as err:
+        raise RuntimeError(f"entreprise api error: {err}")
+
+
+def search(terms, code_insee):
+    try:
+        return query(terms, code_insee)
+    except RuntimeError as err:
+        logger.error(err)
+        return []
