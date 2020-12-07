@@ -251,6 +251,7 @@ class Erp(models.Model):
     SOURCE_API = "api"
     SOURCE_API_ENTREPRISE = "entreprise_api"
     SOURCE_CCONFORME = "cconforme"
+    SOURCE_ODS = "opendatasoft"
     SOURCE_PUBLIC = "public"
     SOURCE_PUBLIC_ERP = "public_erp"
     SOURCE_SIRENE = "sirene"
@@ -260,6 +261,7 @@ class Erp(models.Model):
         (SOURCE_API, "API"),
         (SOURCE_API_ENTREPRISE, "API Entreprise (publique)"),
         (SOURCE_CCONFORME, "cconforme"),
+        (SOURCE_ODS, "API OpenDataSoft"),
         (SOURCE_PUBLIC, "Saisie manuelle publique"),
         (SOURCE_PUBLIC_ERP, "API des établissements publics"),
         (SOURCE_SIRENE, "API Sirene INSEE"),

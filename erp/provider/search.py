@@ -2,7 +2,7 @@ from fuzzywuzzy import process
 
 from core.lib.text import remove_accents
 from erp.models import Commune, Erp
-from erp.provider import arrondissements, entreprise, public_erp
+from erp.provider import arrondissements, entreprise, public_erp, opendatasoft
 
 
 MAX_TYPES = 5
@@ -58,13 +58,14 @@ def find_global_erps(form):
     search_entreprise = f"{search} {get_searched_commune(code_insee, search)}"
 
     # Entreprise
-    result_entreprises = []
-    try:
-        result_entreprises = entreprise.search(search_entreprise, code_insee)
-        for result in result_entreprises:
-            result["exists"] = Erp.objects.find_by_siret(result["siret"])
-    except RuntimeError:
-        pass
+    result_entreprises = entreprise.search(search_entreprise, code_insee)
+    for result in result_entreprises:
+        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+
+    # OpenDataSoft
+    result_ods = opendatasoft.search(search_entreprise, code_insee)
+    for result in result_ods:
+        result["exists"] = Erp.objects.find_by_siret(result["siret"])
 
     # Administration publique
     result_public = []
@@ -80,4 +81,6 @@ def find_global_erps(form):
                     result_public.append(result)
         except RuntimeError:
             pass
-    return sort_and_filter_results(code_insee, result_public + result_entreprises)
+    return sort_and_filter_results(
+        code_insee, result_public + result_ods + result_entreprises
+    )
