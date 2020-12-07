@@ -459,9 +459,10 @@ class ProviderGlobalSearchForm(forms.Form):
     search = forms.CharField(
         label="Recherche",
         help_text=mark_safe(
-            "Recherche sur le nom d'une administration publique, d'une entreprise, d'un "
-            '<a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>'
-            ", la voie, le code postal, l'activité."
+            """Recherche sur le nom d'une administration publique, d'une entreprise, un
+            <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32135" tabindex="-1" target="_blank">numéro SIRET</a>,
+            l'adresse, l\'activité ou le
+            <a href="https://www.insee.fr/fr/information/2406147" tabindex="-1" target="_blank">code NAF</a>."""
         ),
         required=True,
         widget=forms.TextInput(
@@ -472,7 +473,7 @@ class ProviderGlobalSearchForm(forms.Form):
     code_insee = forms.CharField(
         label="Commune",
         required=True,
-        help_text="Commencez à saisir le nom de la commune recherchée, puis cliquez sur la proposition correspondante.",
+        help_text="Commencez à saisir le nom de la commune recherchée, puis sélectionnez la proposition correspondante.",
         widget=forms.Select(),
     )
 
