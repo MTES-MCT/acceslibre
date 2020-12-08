@@ -118,7 +118,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 
   <div class="row p-0 m-0">
     {% if erp %}
-    <main id="content" class="a4a-app-main col-lg-6 col-md-8 col-sm-12 erp-list p-0 m-0 border-top overflow-auto">
+    <main role="main" id="content" class="a4a-app-main col-lg-6 col-md-8 col-sm-12 erp-list p-0 m-0 border-top overflow-auto">
       <div class="px-3">
         {% include "erps/commune/erp.html" with erp=erp %}
       </div>
@@ -129,7 +129,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 
     {% else %}
 
-    <main id="content" class="a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto">
+    <main role="main" id="content" class="a4a-app-main col-lg-5 col-md-5 col-sm-8 erp-list p-0 m-0 border-top overflow-auto">
       <h2 class="sr-only">
         {% if current_activite %}
           {{ current_activite.nom }} à
