@@ -8,7 +8,7 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<main id="content">
+<main role="main" id="content">
   {% if user.is_authenticated %}
   <p class="alert alert-warning">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block page_title %}{% endblock%} | {{ SITE_NAME|default_if_none:"acceslibre" }}</title>
-    <meta name="description" content="{% block page_description %}La plateforme collaborative de l'accessibilité{% endblock %}">
+    <title>{% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock%}</title>
+    <meta name="description" content="{% block page_description %}Inventaire de l'accessibilité des Établissements Recevant du Public (ERP) en France{% endblock %}">
     <link rel="manifest" href="{% static "manifest.webmanifest" %}">
     <meta name="theme-color" content="#075ea2">
     <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %}">
@@ -36,6 +36,7 @@
     <a class="skippy sr-only sr-only-focusable" href="#content">
       <span class="skippy-text">Aller au contenu principal</span>
     </a>
+    {% block skiplinks %}{% endblock %}
     {% include "common/notifications.html" %}
     {% block content %}{% endblock %}
     {% include "common/matomo.html" %}

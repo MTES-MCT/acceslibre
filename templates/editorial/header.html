@@ -1,14 +1,15 @@
 {% load static %}
 
-<div class="container-fluid p-0 m-0 {% if dark %} a4a-bg-primary-gradient text-light{% endif %}">
+<header role="banner" class="container-fluid p-0 m-0 {% if dark %} a4a-bg-primary-gradient text-light{% endif %}">
   <div class="container py-3">
     <nav class="row">
       <div class="col-md-5 col-lg-6 col-xl-7 my-1">
         <h1 class="h3 m-0 p-0">
-          <a class="text-decoration-none{% if dark %} text-light{% endif %}" href="{% url "home" %}">
+          <a class="d-flex align-items-center text-decoration-none{% if dark %} text-light{% endif %}"
+            href="{% url "home" %}">
+            <span class="order-2 ml-3 mb-2" title="Accès libre">acces<strong>libre</strong></span>
             <img src="{% static "img/logo-marianne.svg" %}" alt="République Française" height="50"
-              class="border border-light bg-light mr-2">
-            <span title="Accès libre">acces<strong>libre</strong></span>
+              class="order-1 border border-light bg-light">
           </a>
         </h1>
       </div>
@@ -31,4 +32,4 @@
       </div>
     </nav>
   </div>
-</div>
+</header>

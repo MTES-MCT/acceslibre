@@ -29,7 +29,7 @@ def login(browser, username, password, next=None):
 def test_home(data, browser, capsys):
     browser.visit(reverse("home"))
 
-    assert browser.title.startswith("Accueil")
+    assert browser.title.startswith("acceslibre")
     assert len(browser.find_by_css("#home-communes-list .card")) == 1
 
     assert data.erp.geom is not None
