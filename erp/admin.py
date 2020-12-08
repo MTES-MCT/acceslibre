@@ -543,7 +543,6 @@ class VoteAdmin(admin.ModelAdmin):
 @admin.register(StatusCheck)
 class StatusCheckAdmin(admin.ModelAdmin):
     list_display = (
-        # "__str__",
         "get_erp_nom",
         "get_erp_commune",
         "get_erp_siret",
@@ -556,6 +555,7 @@ class StatusCheckAdmin(admin.ModelAdmin):
         "last_checked",
     ]
     list_display_links = ("get_erp_nom",)
+    search_fields = ("erp__nom",)
     ordering = ("-last_checked",)
 
     def get_queryset(self, request):
