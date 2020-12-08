@@ -191,6 +191,16 @@ $viewport-xl: 1200px;
     overflow: overlay;
   }
 
+  &-home-commune-link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      .card-body {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+
   &-text-smaller {
     font-size: 0.9em;
   }
