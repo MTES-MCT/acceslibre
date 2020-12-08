@@ -38,7 +38,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0 mx-4 flex-fill" action="{% url "commune" commune=commune.slug %}"
+    <form class="form-inline my-2 my-lg-0 flex-fill" action="{% url "commune" commune=commune.slug %}"
       method="get">
       <div class="input-group w-100">
         <label for="q" class="sr-only">Rechercher</label>

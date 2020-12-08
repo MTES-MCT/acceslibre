@@ -1,13 +1,13 @@
 // polyfills
 if (!Object.assign) {
-  Object.defineProperty(Object, 'assign', {
+  Object.defineProperty(Object, "assign", {
     enumerable: false,
     configurable: true,
     writable: true,
-    value: function(target) {
-      'use strict';
+    value: function (target) {
+      "use strict";
       if (target === undefined || target === null) {
-        throw new TypeError('Cannot convert first argument to object');
+        throw new TypeError("Cannot convert first argument to object");
       }
 
       var to = Object(target);
@@ -19,7 +19,11 @@ if (!Object.assign) {
         nextSource = Object(nextSource);
 
         var keysArray = Object.keys(Object(nextSource));
-        for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
+        for (
+          var nextIndex = 0, len = keysArray.length;
+          nextIndex < len;
+          nextIndex++
+        ) {
           var nextKey = keysArray[nextIndex];
           var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
           if (desc !== undefined && desc.enumerable) {
@@ -28,7 +32,7 @@ if (!Object.assign) {
         }
       }
       return to;
-    }
+    },
   });
 }
 
@@ -66,7 +70,10 @@ window.a4a = (function () {
       iconAnchor: [size / 2, size],
       popupAnchor: [0, -size],
       tooltipAnchor: [size / 2, -28],
-      className: "shadow-sm act-icon act-icon-rounded act-icon-" + size + (highlight && " invert" || ""),
+      className:
+        "shadow-sm act-icon act-icon-rounded act-icon-" +
+        size +
+        ((highlight && " invert") || ""),
     };
     return L.icon(options);
   }
@@ -96,11 +103,9 @@ window.a4a = (function () {
     const props = feature.properties;
     return L.marker(coords, {
       alt: props.nom,
-      title: (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
-      icon: createIcon(
-        currentPk && Number(props.pk) === currentPk,
-        props
-      ),
+      title:
+        (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
+      icon: createIcon(currentPk && Number(props.pk) === currentPk, props),
     });
   }
 
@@ -156,13 +161,15 @@ window.a4a = (function () {
 
   function createMap(id, options) {
     options = options || {};
-    const defaults = { layers: [ getStreetsTiles() ] };
+    const defaults = { layers: [getStreetsTiles()] };
     const _options = Object.assign({}, defaults, options);
     const map = L.map(id, _options);
-    L.control.layers({
-      "Plan des rues": getStreetsTiles(),
-      "Vue satellite": getSatelliteTiles()
-    }).addTo(map);
+    L.control
+      .layers({
+        "Plan des rues": getStreetsTiles(),
+        "Vue satellite": getSatelliteTiles(),
+      })
+      .addTo(map);
     return map;
   }
 
@@ -228,17 +235,26 @@ window.a4a = (function () {
 
   window.addEventListener("DOMContentLoaded", function () {
     if (window.hasOwnProperty("$")) {
-      [].forEach.call(document.querySelectorAll(".a4a-geo-link"), function (
-        link
-      ) {
-        link.addEventListener("click", function (event) {
-          event.preventDefault();
-          event.stopPropagation();
-          const pk = parseInt(link.dataset.erpId, 10);
-          if (pk) openMarkerPopup(pk);
-        });
+      [].forEach.call(
+        document.querySelectorAll(".a4a-geo-link"),
+        function (link) {
+          link.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const pk = parseInt(link.dataset.erpId, 10);
+            if (pk) openMarkerPopup(pk);
+          });
+        }
+      );
+
+      // Django crispy forms asterisk a11y improvements
+      $(".asteriskField").each(function (i, elem) {
+        $(elem).replaceWith(
+          '<abbr class="asteriskField" title="(obligatoire)">*</abbr>'
+        );
       });
 
+      // Autocomplete
       $("#q").autocomplete({
         deferRequestBy: 100,
         minChars: 2,
@@ -256,7 +272,7 @@ window.a4a = (function () {
               type: "street",
               lat: lat,
               lon: lon,
-              citycode: $input.data("code-insee")
+              citycode: $input.data("code-insee"),
             },
           })
             .then(function (result) {
@@ -311,12 +327,12 @@ window.a4a = (function () {
             });
           $.when(streetsReq, erpsReq)
             .done(function (streets, erps) {
-              const results = [].sort.call(streets.concat(erps), function (
-                a,
-                b
-              ) {
-                return a.data.score - b.data.score;
-              });
+              const results = [].sort.call(
+                streets.concat(erps),
+                function (a, b) {
+                  return a.data.score - b.data.score;
+                }
+              );
               done({ suggestions: results });
             })
             .fail(function (err) {
