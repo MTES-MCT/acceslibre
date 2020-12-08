@@ -36,6 +36,7 @@
     <a class="skippy sr-only sr-only-focusable" href="#content">
       <span class="skippy-text">Aller au contenu principal</span>
     </a>
+    {% block skiplinks %}{% endblock %}
     {% include "common/notifications.html" %}
     {% block content %}{% endblock %}
     {% include "common/matomo.html" %}

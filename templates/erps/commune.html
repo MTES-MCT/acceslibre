@@ -12,6 +12,24 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 {% endif %}
 {% endspaceless %}{% endblock %}
 
+{% block skiplinks %}
+  {% if erp %}
+    <a class="skippy sr-only sr-only-focusable" href="#content">
+      <span class="skippy-text">Aller à la liste des établissements</span>
+    </a>
+    <a class="skippy sr-only sr-only-focusable" href="#activites">
+      <span class="skippy-text">Aller à la liste des activités</span>
+    </a>
+  {% else %}
+    <a class="skippy sr-only sr-only-focusable" href="#a11y">
+      <span class="skippy-text">Aller aux caractéristiques d'accessibilité de l'établissement</span>
+    </a>
+  {% endif %}
+  <a class="skippy sr-only sr-only-focusable" href="#app-map">
+    <span class="skippy-text">Aller à la carte</span>
+  </a>
+{% endblock skiplinks %}
+
 {% block content %}
 <header class="navbar navbar-expand-lg navbar-dark a4a-navbar">
   <a class="navbar-brand pb-1" href="{% url "home" %}" title="Retour à l'accueil">acces<strong>libre</strong></a>
@@ -170,7 +188,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
       </div>
     </main>
 
-    <nav class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 order-first bg-light activites-list p-0 m-0 border-top overflow-auto">
+    <nav id="activites" class="a4a-app-nav col-lg-2 col-md-3 col-sm-4 order-first bg-light activites-list p-0 m-0 border-top overflow-auto">
       <h2 class="sr-only">Domaines d'activité à {{ commune.nom }}</h2>
       {% if activites|length > 0 %}
       <div class="d-block d-sm-none d-xl-none">

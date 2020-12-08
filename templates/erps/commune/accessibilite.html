@@ -1,143 +1,145 @@
-<h3 class="h4 font-weight-normal mb-3">Accessibilité de l'établissement</h3>
+<section id="a11y">
+  <h3 class="h4 font-weight-normal mb-3">Accessibilité de l'établissement</h3>
 
-<div class="row">
-  <div class="col-md-4">
-    <div class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
-      {% for section, info in accessibilite_data.items %}
-      <a class="nav-link text-truncate {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
-        title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
-        aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" id="{{ info.tabid }}-tab"
-        data-toggle="tab">
-        <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
-      </a>
-      {% endfor %}
-      <a class="nav-link text-truncate" href="#history"
-        title="Historique des modifications" role="tab" aria-controls="history"
-        aria-selected="false" id="history-tab"
-        data-toggle="tab">
-        <i aria-hidden="true" class="icon icon-clock mr-2"></i>Historique
-      </a>
-    </div>
-    <script>
-      $(document).ready(function() {
-        $(".nav .nav-link").on("click", function(event) {
-          location.replace(event.target.href);
-          event.preventDefault();
-        });
-      });
-    </script>
-  </div>
-  <div class="col-md-8 tab-content">
-    {% for section, info in accessibilite_data.items %}
-    <section class="a4a-tab-content-section tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
-      aria-labelledby="{{ info.tabid }}-tab">
-      {% if info.fields %}
-      <h3 class="sr-only">{{ info.description }}</h3>
-
-      {% include "erps/commune/fields.html" with fields=info.fields %}
-      {% elif info.sections %}
-      {% for subsection, subinfo in info.sections.items %}
-      <div class="card mb-3">
-        <div class="card-header border-bottom-0 p-2">
-          <h6 class="m-0">
-            <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
-          </h6>
-        </div>
-        <div class="card-body p-0">
-          {% include "erps/commune/fields.html" with fields=subinfo.fields %}
-        </div>
-      </div>
-      {% endfor %}
-      {% endif %}
-
-      {% if info.edit_route %}
-      <p class="mt-1 text-center mb-1">
-        <a href="{% url info.edit_route erp_slug=erp.slug %}" class="btn btn-outline-primary w-100"
-          title="Amélioriez ou rectifiez les informations d'accessibilité de type &laquo;&nbsp;{{section}}&nbsp;&raquo; de l'établissement {{ erp.nom }}">
-          <i aria-hidden="true" class="icon icon-pencil"></i>
-          Améliorez ces informations
+  <div class="row">
+    <div class="col-md-4">
+      <div class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
+        {% for section, info in accessibilite_data.items %}
+        <a class="nav-link text-truncate {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
+          title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" id="{{ info.tabid }}-tab"
+          data-toggle="tab">
+          <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-2"></i>{{ section }}
         </a>
-      </p>
-      <p class="text-center px-5">
-        <small class="text-muted">
-          Contribuez à améliorer les informations d'accessibilité de cet établissement
-        </small>
-      </p>
-      {% endif %}
-    </section>
-    {% endfor %}
-    <section class="a4a-tab-content-section tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
-      <h3 class="sr-only">Historique des modifications</h3>
-      <div class="list-group list-group-flush">
-        {% for entry in erp.get_history %}
-        <details class="list-group-item list-group-item-action text-overlay">
-          <summary class="no-ouline">
-            Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
-          </summary>
-          {% if entry.diff %}
-            <table class="table table-sm table-striped mt-3 mb-0">
-              <tr>
-                <th>Champ</th>
-                <th>Ancienne valeur</th>
-                <th>Nouvelle valeur</th>
-              </tr>
-              {% for field in entry.diff %}
-              <tr>
-                <td>{{ field.label }}</td>
-                <td class="text-danger">
-                  {% include "fields/diff_value.html" with name=field.field value=field.old %}
-                </td>
-                <td class="text-success">
-                  {% include "fields/diff_value.html" with name=field.field value=field.new %}
-                </td>
-              </tr>
-              {% endfor %}
-            </table>
-          {% endif %}
-        </details>
-        {% empty %}
-        <p class="alert alert-info">
-          <i aria-hidden="true" class="icon icon-info-circled"></i>
-          Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
-        </p>
         {% endfor %}
+        <a class="nav-link text-truncate" href="#history"
+          title="Historique des modifications" role="tab" aria-controls="history"
+          aria-selected="false" id="history-tab"
+          data-toggle="tab">
+          <i aria-hidden="true" class="icon icon-clock mr-2"></i>Historique
+        </a>
       </div>
-    </section>
+      <script>
+        $(document).ready(function() {
+          $(".nav .nav-link").on("click", function(event) {
+            location.replace(event.target.href);
+            event.preventDefault();
+          });
+        });
+      </script>
+    </div>
+    <div class="col-md-8 tab-content">
+      {% for section, info in accessibilite_data.items %}
+      <section class="a4a-tab-content-section tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
+        aria-labelledby="{{ info.tabid }}-tab">
+        {% if info.fields %}
+        <h3 class="sr-only">{{ info.description }}</h3>
+
+        {% include "erps/commune/fields.html" with fields=info.fields %}
+        {% elif info.sections %}
+        {% for subsection, subinfo in info.sections.items %}
+        <div class="card mb-3">
+          <div class="card-header border-bottom-0 p-2">
+            <h6 class="m-0">
+              <i aria-hidden="true" class="icon icon-{{ subinfo.icon }} mr-2"></i>{{ subsection }}
+            </h6>
+          </div>
+          <div class="card-body p-0">
+            {% include "erps/commune/fields.html" with fields=subinfo.fields %}
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if info.edit_route %}
+        <p class="mt-1 text-center mb-1">
+          <a href="{% url info.edit_route erp_slug=erp.slug %}" class="btn btn-outline-primary w-100"
+            title="Amélioriez ou rectifiez les informations d'accessibilité de type &laquo;&nbsp;{{section}}&nbsp;&raquo; de l'établissement {{ erp.nom }}">
+            <i aria-hidden="true" class="icon icon-pencil"></i>
+            Améliorez ces informations
+          </a>
+        </p>
+        <p class="text-center px-5">
+          <small class="text-muted">
+            Contribuez à améliorer les informations d'accessibilité de cet établissement
+          </small>
+        </p>
+        {% endif %}
+      </section>
+      {% endfor %}
+      <section class="a4a-tab-content-section tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
+        <h3 class="sr-only">Historique des modifications</h3>
+        <div class="list-group list-group-flush">
+          {% for entry in erp.get_history %}
+          <details class="list-group-item list-group-item-action text-overlay">
+            <summary class="no-ouline">
+              Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
+            </summary>
+            {% if entry.diff %}
+              <table class="table table-sm table-striped mt-3 mb-0">
+                <tr>
+                  <th>Champ</th>
+                  <th>Ancienne valeur</th>
+                  <th>Nouvelle valeur</th>
+                </tr>
+                {% for field in entry.diff %}
+                <tr>
+                  <td>{{ field.label }}</td>
+                  <td class="text-danger">
+                    {% include "fields/diff_value.html" with name=field.field value=field.old %}
+                  </td>
+                  <td class="text-success">
+                    {% include "fields/diff_value.html" with name=field.field value=field.new %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+            {% endif %}
+          </details>
+          {% empty %}
+          <p class="alert alert-info">
+            <i aria-hidden="true" class="icon icon-info-circled"></i>
+            Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
+          </p>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
   </div>
-</div>
-<script>
-(function() {
-  function handleTabFromHash() {
-    if (!location.hash || location.hash === "#") {
-      return;
-    }
-
-    const sections = document.querySelectorAll(".a4a-tab-content-section");
-    const availableHashIds = [].reduce.call(sections, function(acc, elem) {
-      acc["#" + elem.id] = elem.id + "-tab";
-      return acc;
-    }, {});
-
-    let $tabElem;
-    if (location.hash in availableHashIds) {
-      $tabElem = $("#" + availableHashIds[location.hash]);
-    }
-
-    if ($tabElem && $tabElem.get(0)) {
-      $tabElem.tab("show");
-      // Handle special case of history where we open the first entry.
-      if (location.hash === "#history") {
-        const firstHistoryEntry = document.querySelector("details");
-        if (firstHistoryEntry) {
-          firstHistoryEntry.open = true;
-        }
+  <script>
+  (function() {
+    function handleTabFromHash() {
+      if (!location.hash || location.hash === "#") {
+        return;
       }
-    } else {
-      $("[data-toggle=tab]").first().tab("show");
-    }
-  }
 
-  window.addEventListener("DOMContentLoaded", handleTabFromHash);
-  window.addEventListener("hashchange", handleTabFromHash);
-})();
-</script>
+      const sections = document.querySelectorAll(".a4a-tab-content-section");
+      const availableHashIds = [].reduce.call(sections, function(acc, elem) {
+        acc["#" + elem.id] = elem.id + "-tab";
+        return acc;
+      }, {});
+
+      let $tabElem;
+      if (location.hash in availableHashIds) {
+        $tabElem = $("#" + availableHashIds[location.hash]);
+      }
+
+      if ($tabElem && $tabElem.get(0)) {
+        $tabElem.tab("show");
+        // Handle special case of history where we open the first entry.
+        if (location.hash === "#history") {
+          const firstHistoryEntry = document.querySelector("details");
+          if (firstHistoryEntry) {
+            firstHistoryEntry.open = true;
+          }
+        }
+      } else {
+        $("[data-toggle=tab]").first().tab("show");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", handleTabFromHash);
+    window.addEventListener("hashchange", handleTabFromHash);
+  })();
+  </script>
+</section>
