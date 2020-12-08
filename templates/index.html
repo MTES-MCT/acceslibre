@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}Accueil{% endblock%}
+{% block page_title %}{% if search_results %}Résultats de votre recherche{% else %}acceslibre, la plateforme collaborative de l'accessibilité{% endif %}{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=False %}
