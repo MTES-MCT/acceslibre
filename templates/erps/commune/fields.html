@@ -86,6 +86,8 @@
           Important
           {% elif field.value == "importante" %}
           Importante
+          {% elif field.name == "sanitaires_adaptes" %}
+          {% if field.value == 1 %}Oui{% else %}Non{% endif %}
           {% elif field.name == "accueil_personnels" %}
           {{ erp.accessibilite.get_accueil_personnels_display }}
           {% elif field.name == "entree_largeur_mini" %}

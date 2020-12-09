@@ -76,30 +76,8 @@ class UsernameChangeForm(forms.Form):
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
-    accueil_equipements_malentendants = forms.MultipleChoiceField(
-        required=False,
-        choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
-        widget=forms.CheckboxSelectMultiple,
-        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
-        label="Équipement(s) sourd/malentendant",  # FIXME: use get_label
-        help_text=schema.get_help_text("accueil_equipements_malentendants"),
-    )
-    labels_familles_handicap = forms.MultipleChoiceField(
-        required=False,
-        choices=schema.HANDICAP_CHOICES,
-        widget=forms.CheckboxSelectMultiple,
-        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
-        label="Famille(s) de handicap concernées(s)",  # FIXME: use get_label
-        help_text=schema.get_help_text("labels_familles_handicap"),
-    )
-    labels = forms.MultipleChoiceField(
-        required=False,
-        choices=schema.LABEL_CHOICES,
-        widget=forms.CheckboxSelectMultiple,
-        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
-        label="Marques et labels",  # FIXME: use get_label
-        help_text=schema.get_help_text("labels"),
-    )
+    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
+    # fields, hence why we set them up manually for each fields.
 
     class Meta:
         model = Accessibilite
@@ -107,6 +85,44 @@ class AdminAccessibiliteForm(forms.ModelForm):
         widgets = get_widgets_for_accessibilite()
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
+
+    accueil_equipements_malentendants = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_equipements_malentendants"),
+        help_text=schema.get_help_text("accueil_equipements_malentendants"),
+    )
+    labels_familles_handicap = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.HANDICAP_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("labels_familles_handicap"),
+        help_text=schema.get_help_text("labels_familles_handicap"),
+    )
+    labels = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.LABEL_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("labels"),
+        help_text=schema.get_help_text("labels"),
+    )
+    sanitaires_adaptes = forms.ChoiceField(
+        required=False,
+        label=schema.get_label("sanitaires_adaptes"),
+        help_text=schema.get_help_text("sanitaires_adaptes"),
+        choices=schema.NULLABLE_BOOL_NUM_CHOICES,
+        widget=forms.RadioSelect(attrs={"class": "inline"}),
+    )
+
+    def clean_sanitaires_adaptes(self):
+        # Specific case where we want to map nullable bool choices
+        # to 0 and 1 integers, hence why we use NULLABLE_BOOL_NUM_CHOICES
+        # as choices.
+        value = self.cleaned_data["sanitaires_adaptes"]
+        if value == "":
+            return None
+        return value
 
 
 class AdminActiviteForm(forms.ModelForm):

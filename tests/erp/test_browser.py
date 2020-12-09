@@ -507,13 +507,13 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         reverse("contrib_sanitaires", kwargs={"erp_slug": erp.slug}),
         data={
             "sanitaires_presence": True,
-            "sanitaires_adaptes": 42,
+            "sanitaires_adaptes": 1,
         },
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.sanitaires_presence is True
-    assert accessibilite.sanitaires_adaptes == 42
+    assert accessibilite.sanitaires_adaptes == 1
     assert_redirect(response, "/contrib/labellisation/test-erp/")
     assert response.status_code == 200
 
@@ -763,7 +763,7 @@ def test_accessibilite_history(data, client):
         reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
         data={
             "sanitaires_presence": True,
-            "sanitaires_adaptes": 42,
+            "sanitaires_adaptes": 1,
         },
     )
     client.post(
@@ -787,9 +787,9 @@ def test_accessibilite_history(data, client):
         },
         {
             "field": "sanitaires_adaptes",
-            "label": "Nombre de sanitaires adaptés",
+            "label": "Sanitaires adaptés",
             "new": None,
-            "old": 42,
+            "old": 1,
         },
     ]
 
