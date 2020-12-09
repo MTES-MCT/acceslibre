@@ -250,7 +250,7 @@ window.a4a = (function () {
       // Django crispy forms asterisk a11y improvements
       $(".asteriskField").each(function (i, elem) {
         $(elem).replaceWith(
-          '<abbr class="asteriskField" title="(obligatoire)">*</abbr>'
+          '&nbsp;<small>(requis)</small><abbr class="asteriskField" title="(obligatoire)">*</abbr>'
         );
       });
 
