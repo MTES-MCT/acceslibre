@@ -82,7 +82,7 @@ PERSONNELS_FORMES = "formés"
 PERSONNELS_NON_FORMES = "non-formés"
 PERSONNELS_CHOICES = [
     (PERSONNELS_AUCUN, "Aucun personnel"),
-    (PERSONNELS_FORMES, "Personnels sensibilisés et formés"),
+    (PERSONNELS_FORMES, "Personnels sensibilisés ou formés"),
     (PERSONNELS_NON_FORMES, "Personnels non-formés"),
     (None, UNKNOWN),
 ]
