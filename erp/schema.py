@@ -198,7 +198,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Desserte par les transports en commun",
         "help_text": mark_safe(
-            "L'établissement est-il desservi par les transports en commun&nbsp;?"
+            "L'établissement est-il desservi par les transports en commun à proximité (moins de 200 mètres)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence de transports en commun à proximité (moins de 200 mètres)"
