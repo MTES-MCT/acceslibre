@@ -76,7 +76,15 @@ class UsernameChangeForm(forms.Form):
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
-    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
+    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
+    # fields, hence why we set them up manually for each fields.
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels()
+        help_texts = schema.get_help_texts()
 
     accueil_equipements_malentendants = forms.MultipleChoiceField(
         required=False,
@@ -89,7 +97,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
         required=False,
         choices=schema.HANDICAP_CHOICES,
         widget=forms.CheckboxSelectMultiple,
-        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
         label=schema.get_label("labels_familles_handicap"),
         help_text=schema.get_help_text("labels_familles_handicap"),
     )
@@ -97,7 +104,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
         required=False,
         choices=schema.LABEL_CHOICES,
         widget=forms.CheckboxSelectMultiple,
-        # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom fields...
         label=schema.get_label("labels"),
         help_text=schema.get_help_text("labels"),
     )
@@ -117,13 +123,6 @@ class AdminAccessibiliteForm(forms.ModelForm):
         if value == "":
             return None
         return value
-
-    class Meta:
-        model = Accessibilite
-        exclude = ("pk",)
-        widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels()
-        help_texts = schema.get_help_texts()
 
 
 class AdminActiviteForm(forms.ModelForm):

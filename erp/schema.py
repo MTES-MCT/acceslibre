@@ -726,7 +726,9 @@ FIELDS = {
         "help_text": mark_safe(
             "Y a-t-il des sanitaires mis à disposition du public&nbsp;?"
         ),
-        "help_text_ui": mark_safe("Présences de sanitaires dans l'établissement"),
+        "help_text_ui": mark_safe(
+            "Mise à disposition de sanitaires dans l'établissement"
+        ),
         "section": SECTION_SANITAIRES,
         "nullable_bool": True,
         "warn_if": False,
@@ -738,7 +740,7 @@ FIELDS = {
             "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "Un ou plusieurs sanitaires adaptés sont mis à disposition du public"
+            "Mise à disposition de sanitaires adaptés dans l'établissement"
         ),
         "section": SECTION_SANITAIRES,
         "nullable_bool": False,
