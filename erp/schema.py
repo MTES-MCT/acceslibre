@@ -415,10 +415,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Entrée facilement repérable",
         "help_text": mark_safe(
-            "Y a-t-il des éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, etc)&nbsp;?"
+            "Y a-t-il des éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "Présence d'éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, etc)"
+            "Présence d'éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
         ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
