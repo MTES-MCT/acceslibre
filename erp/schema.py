@@ -435,9 +435,9 @@ FIELDS = {
     },
     "entree_vitree_vitrophanie": {
         "is_a11y": True,
-        "label": "Vitrophanie",
+        "label": "Repérage de la vitre",
         "help_text": mark_safe(
-            "Si l'entrée est vitrée, y a-t-il des éléments contrastés permettant de visualiser les parties vitrées de l'entrée&nbsp;?"
+            "Y a-t-il des éléments contrastés (autocollants ou autres) permettant de repérer la porte vitrée&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée"
