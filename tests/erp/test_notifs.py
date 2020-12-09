@@ -59,7 +59,7 @@ def test_notification_accessibilite(client, data):
         reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
         data={
             "sanitaires_presence": "True",
-            "sanitaires_adaptes": "8",
+            "sanitaires_adaptes": "1",
             "action": "contribute",
         },
         follow=True,

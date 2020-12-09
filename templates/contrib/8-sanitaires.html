@@ -5,5 +5,5 @@
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.sanitaires_presence inline=True %}
-  {% include "fields/number.html" with field=form.sanitaires_adaptes %}
+  {% include "fields/boolradio.html" with field=form.sanitaires_adaptes inline=True %}
 {% endblock %}

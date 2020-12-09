@@ -17,6 +17,14 @@ NULLABLE_OR_NA_BOOLEAN_CHOICES = (
     (None, UNKNOWN_OR_NA),
 )
 
+# Specific case where we want to map nullable bool choices
+# to 0 and 1 integers (see sanitaires_adaptes field)
+NULLABLE_BOOL_NUM_CHOICES = (
+    (1, "Oui"),
+    (0, "Non"),
+    (None, UNKNOWN),
+)
+
 DEVERS_AUCUN = "aucun"
 DEVERS_LEGER = "léger"
 DEVERS_IMPORTANT = "important"
@@ -725,9 +733,13 @@ FIELDS = {
     },
     "sanitaires_adaptes": {
         "is_a11y": True,
-        "label": "Nombre de sanitaires adaptés",
-        "help_text": mark_safe("Combien y a-t-il de sanitaires adaptés&nbsp;?"),
-        "help_text_ui": mark_safe("Nombre de sanitaires adaptés"),
+        "label": "Sanitaires adaptés",
+        "help_text": mark_safe(
+            "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
+        ),
+        "help_text_ui": mark_safe(
+            "Un ou plusieurs sanitaires adaptés sont mis à disposition du public"
+        ),
         "section": SECTION_SANITAIRES,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 1,
