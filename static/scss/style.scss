@@ -1,17 +1,17 @@
 // Acceslibre styles
 
-// Bootstrap
+// Bootstrap colors
 $white: #fff;
 $primary: #075ea2;
 $success: #167d2e;
 $info: #097182;
-
+$input-border-color: #969696;
 $navbar-dark-color: rgba($white, 0.8);
-
+$text-muted: rgb(104, 104, 104);
+// Responsive texts
 $enable-responsive-font-sizes: true;
 
-$text-muted: rgb(104, 104, 104);
-
+// Viewports
 $viewport-xs: 320px;
 $viewport-sm: 576px;
 $viewport-md: 768px;
@@ -23,6 +23,13 @@ $viewport-xl: 1200px;
 // App specific styles
 
 .a4a {
+  // selectWoo styles overriding
+  .select2-container--bootstrap4 {
+    .select2-selection, input[type=text] {
+      border: 1px solid $input-border-color;
+    }
+  }
+
   .btn {
     .icon {
       font-size: .9em;
