@@ -1,33 +1,44 @@
 from django.conf import settings
 from django.db import models
 
-from erp.models import Commune, Erp
+from erp.models import Erp
+from subscription import managers
 
 
-class Subscription(models.Model):
+class ErpSubscription(models.Model):
+    class Meta:
+        unique_together = ("user", "erp")
+
+    objects = managers.ErpSubscriptionQuerySet.as_manager()
+
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name="Utilisateur",
         on_delete=models.CASCADE,
     )
-    commune = models.ForeignKey(
-        Commune,
-        verbose_name="Commune",
+    erp = models.ForeignKey(
+        Erp,
+        verbose_name="Établissement",
         on_delete=models.CASCADE,
     )
-    content_object = models.GenericForeignKey("content_type", "object_id")
+    # datetimes
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Date de création"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True, verbose_name="Dernière modification"
+    )
 
     @staticmethod
-    def subscribe(commune, user):
-        sub = Subscription.objects.filter(user=user, commune=commune)
+    def subscribe(erp, user):
+        sub = ErpSubscription.objects.filter(user=user, erp=erp)
         if not sub:
-            sub = Subscription(user=user, commune=commune)
+            sub = ErpSubscription(user=user, erp=erp)
             sub.save()
         return sub
 
     @staticmethod
-    def unsubscribe(commune, user):
-        sub = Subscription.objects.filter(user=user, commune=commune)
-        if not sub:
-            return
-        return sub.delete()
+    def unsubscribe(erp, user):
+        sub = ErpSubscription.objects.filter(user=user, erp=erp)
+        if sub:
+            sub.delete()

@@ -254,6 +254,7 @@ class App(BaseListView):
                 Activite, slug=self.kwargs["activite_slug"]
             )
         if "erp_slug" in self.kwargs:
+            context["user_is_subscribed"] = False
             erp = get_object_or_404(
                 Erp.objects.select_related(
                     "accessibilite", "activite", "commune_ext", "user", "statuscheck"
@@ -270,6 +271,7 @@ class App(BaseListView):
                 context["user_vote"] = Vote.objects.filter(
                     user=self.request.user, erp=erp
                 ).first()
+                context["user_is_subscribed"] = erp.is_subscribed_by(self.request.user)
             context["object_list"] = (
                 Erp.objects.select_related("accessibilite", "commune_ext", "activite")
                 .published()

@@ -91,10 +91,14 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
       </h1>
     </div>
     <div class="col-md-4 px-3 py-2">
+      <!-- Mobile view -->
       <div class="d-flex d-md-none justify-content-between">
-        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_start" %}">Ajouter un établissement</a>
+        <a class="btn btn-sm btn-outline-primary" href="{% url "contrib_start" %}">
+          Ajouter un établissement
+        </a>
         <div class="btn-group" role="group" aria-label="Affichage">
-          <button type="button" class="link-display-infos btn btn-sm btn-primary">Infos</button><button type="button" class="link-display-map btn btn-sm btn-outline-primary">Carte</button>
+          <button type="button" class="link-display-infos btn btn-sm btn-primary">Infos</button>
+          <button type="button" class="link-display-map btn btn-sm btn-outline-primary">Carte</button>
         </div>
         <script>
         $(document).ready(function() {
@@ -128,9 +132,28 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         });
         </script>
       </div>
-      <a class="d-none d-md-block btn btn-outline-primary w-100" href="{% url "contrib_start" %}?code_insee={{ commune.code_insee }}">
-        Ajouter un établissement
-      </a>
+      <!-- /Mobile view -->
+      <!-- Desktop view -->
+      <div class="d-none d-md-flex align-content-center justify-content-end">
+        <a class="btn btn-outline-primary"
+          href="{% url "contrib_start" %}?code_insee={{ commune.code_insee }}">
+          Ajouter un établissement
+        </a>
+        {% if erp %}
+          {% if user_is_subscribed %}
+          <button class="btn btn-secondary ml-2">
+            <i aria-hidden="true" class="icon icon-bell"></i>
+            Ne plus recevoir les notifications de mise à jour
+          </button>
+          {% else %}
+          <button class="btn btn-primary ml-2">
+            <i aria-hidden="true" class="icon icon-bell"></i>
+            Recevoir les notifications de mise à jour
+          </button>
+          {% endif %}
+        {% endif %}
+      </div>
+      <!-- /Desktop view -->
     </div>
   </aside>
 
