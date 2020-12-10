@@ -215,7 +215,11 @@ class BaseErpForm(forms.ModelForm):
             )
 
         # Ensure picking the right postcode
-        if code_postal and code_postal != locdata["code_postal"]:
+        if (
+            code_postal
+            and locdata["code_postal"]
+            and code_postal != locdata["code_postal"]
+        ):
             dpt_result = locdata["code_postal"][:2]
             if departement != dpt_result:
                 # Different departement, too risky to consider it valid; raise an error
