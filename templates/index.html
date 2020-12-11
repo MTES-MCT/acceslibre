@@ -139,9 +139,9 @@
       <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
         {% for commune in communes %}
         <div class="col mb-4">
-          <a class="a4a-home-commune-link d-none d-md-block" href="{% url 'commune' commune.slug %}">
+          <a class="a4a-home-commune-link" href="{% url 'commune' commune.slug %}">
             <div class="card shadow-sm">
-              <img class="card-img-top" alt=""
+              <img class="d-none d-md-block card-img-top" alt=""
                   src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">
               <div class="card-body p-3">
                 <small class="text-muted">{{ commune.departement_nom }}</small>
