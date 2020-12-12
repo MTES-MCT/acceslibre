@@ -41,6 +41,12 @@
           {{ form.last_name|as_crispy_field }}
         </div>
       </div>
+      <p>
+        <small class="form-text text-muted">
+          <i aria-hidden="true" class="icon icon-info-circled"></i>
+          Votre nom et votre prénom de seront jamais affichés publiquement.
+        </small>
+      </p>
       {{ form.email|as_crispy_field }}
       {{ form.password1|as_crispy_field }}
       {{ form.password2|as_crispy_field }}

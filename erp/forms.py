@@ -24,9 +24,10 @@ from erp.models import (
 from erp.provider import departements, geocoder
 
 
-USERNAME_RULES = (
-    "Uniquement des lettres, nombres et les caractères « . », « - » et « _ »"
-)
+USERNAME_RULES = """
+Uniquement des lettres, nombres et les caractères « . », « - » et « _ ».
+<strong>Note&nbsp;: ce nom d'utilisateur pourra être affiché publiquement sur le site si vous contribuez.</strong>
+"""
 
 
 def bool_radios():
@@ -41,7 +42,7 @@ def get_widgets_for_accessibilite():
 def define_username_field():
     return forms.CharField(
         max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}.",
+        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}",
         required=True,
         label="Nom d’utilisateur",
         validators=[RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES)],
@@ -70,7 +71,7 @@ class UsernameChangeForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data["username"]
-        if get_user_model().objects.filter(username=username).count() > 0:
+        if get_user_model().objects.filter(username__iexact=username).count() > 0:
             raise ValidationError("Ce nom d'utilisateur est déjà pris.")
         return username
 
