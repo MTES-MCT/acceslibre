@@ -116,6 +116,15 @@ class AdminAccessibiliteForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
     )
 
+    def __init__(self, *args, **kwargs):
+        initial = kwargs.get("initial", {})
+        obj = kwargs.get("instance")
+        if obj and obj.sanitaires_adaptes is not None and obj.sanitaires_adaptes > 1:
+            initial["sanitaires_adaptes"] = 1
+            kwargs["initial"] = initial
+
+        super().__init__(*args, **kwargs)
+
     def clean_sanitaires_adaptes(self):
         # Specific case where we want to map nullable bool choices
         # to 0 and 1 integers, hence why we use NULLABLE_BOOL_NUM_CHOICES
