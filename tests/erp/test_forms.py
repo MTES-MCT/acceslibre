@@ -74,6 +74,15 @@ def test_CustomRegistrationForm():
     assert "username" not in form.errors
 
 
+def test_AdminAccessibiliteForm_sanitaires_adaptes_value_mapping(data):
+    data.accessibilite.sanitaires_adaptes = 12
+    data.accessibilite.save()
+
+    form = forms.AdminAccessibiliteForm(instance=data.accessibilite)
+
+    assert form.initial["sanitaires_adaptes"] == 1
+
+
 @pytest.mark.django_db
 def test_BaseErpForm_get_adresse_query(
     form_data, mocker, geocoder_result_ok, paris_commune
