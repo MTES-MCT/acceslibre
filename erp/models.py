@@ -22,6 +22,7 @@ from erp import managers
 from erp import schema
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
+from subscription.models import ErpSubscription
 
 FULLTEXT_CONFIG = "french_unaccent"
 
@@ -525,7 +526,7 @@ class Erp(models.Model):
         return self.published and self.has_accessibilite() and self.geom is not None
 
     def is_subscribed_by(self, user):
-        return False
+        return ErpSubscription.objects.filter(user=user, erp=self).count() == 1
 
     @property
     def adresse(self):

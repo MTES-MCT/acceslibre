@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.db import models
 
-from erp.models import Erp
 from subscription import managers
 
 
@@ -17,7 +16,7 @@ class ErpSubscription(models.Model):
         on_delete=models.CASCADE,
     )
     erp = models.ForeignKey(
-        Erp,
+        "erp.Erp",
         verbose_name="Établissement",
         on_delete=models.CASCADE,
     )
