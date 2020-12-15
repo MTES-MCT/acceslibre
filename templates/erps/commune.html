@@ -99,6 +99,19 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         <div class="btn-group" role="group" aria-label="Affichage">
           <button type="button" class="link-display-infos btn btn-sm btn-primary">Infos</button>
           <button type="button" class="link-display-map btn btn-sm btn-outline-primary">Carte</button>
+          {% if user.is_authenticated and erp %}
+            {% if user_is_subscribed %}
+            <a href="{% url "unsubscribe_erp" erp_slug=erp.slug %}" class="btn btn-sm btn-secondary">
+              <i aria-hidden="true" class="icon icon-bell-mute"></i>
+              <span class="sr-only">Se désabonner</span>
+            </a>
+            {% else %}
+            <a href="{% url "subscribe_erp" erp_slug=erp.slug %}" class="btn btn-sm btn-primary">
+              <i aria-hidden="true" class="icon icon-bell"></i>
+              <span class="sr-only">S'abonner</span>
+            </a>
+            {% endif %}
+          {% endif %}
         </div>
         <script>
         $(document).ready(function() {
