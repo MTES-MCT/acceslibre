@@ -110,6 +110,7 @@
       <span class="text-nowrap">
         {% csrf_token %}
         <button type="submit" name="action" value="UP" class="btn btn-sm btn-light"
+          data-track-event="vote,up,{{ erp.slug }}"
           {% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% else %}title="Oui"{% endif %}>
           <i aria-hidden="true" class="icon icon-upvote{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
           <small><span class="sr-only">Votes positifs: </span>{{ erp.count_positives|default_if_none:"0" }}</small>
@@ -133,7 +134,10 @@
         <textarea class="form-control mt-2" id="vote_comment_input" name="comment" rows="3"
           placeholder="Veuillez nous expliquer la raison de votre insatisfaction afin que nous puissions nous améliorer."></textarea>
         <div class="mt-2">
-          <button type="submit" name="action" value="DOWN" class="btn btn-sm btn-primary">Envoyer</button>
+          <button type="submit" name="action" value="DOWN" class="btn btn-sm btn-primary"
+            data-track-event="vote,down,{{ erp.slug }}">
+            Envoyer
+          </button>
           <button type="button" class="btn btn-sm btn-link btn-vote-no-cancel">Annuler</button>
         </div>
       </div>
