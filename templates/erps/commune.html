@@ -141,15 +141,17 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         </a>
         {% if user.is_authenticated and erp %}
           {% if user_is_subscribed %}
-          <button class="btn btn-secondary ml-2">
+          <a href="{% url "unsubscribe_erp" erp_slug=erp.slug %}" class="btn btn-secondary ml-2"
+            title="Recevoir des notifications par email lorsque cet établissement est mis à jour">
             <i aria-hidden="true" class="icon icon-bell"></i>
             Se désabonner
-          </button>
+          </a>
           {% else %}
-          <button class="btn btn-primary ml-2">
+          <a href="{% url "subscribe_erp" erp_slug=erp.slug %}" class="btn btn-primary ml-2"
+            title="Ne plus recevoir de notification par email lorsque cet établissement est mis à jour">
             <i aria-hidden="true" class="icon icon-bell"></i>
             S'abonner
-          </button>
+          </a>
           {% endif %}
         {% endif %}
       </div>
