@@ -18,23 +18,30 @@
         {{ field.value|urlizetrunc:25|linebreaks }}
       </blockquote>
     </div>
-    {% else %}
+    {% elif field.name == "accueil_equipements_malentendants" %}
     <div>
-      <!-- {{ field.name }} -->
-      <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
-      {% if field.help_text_ui %}
-      <small class="text-muted">{{ field.help_text_ui }}</small>
-      {% endif %}
-    </div>
-    <span class="a4a-badge-group pl-2 text-right">
-      {% if field.name == "accueil_equipements_malentendants" %}
+      <div class="mb-2">
+        <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+        <small class="text-muted">{{ field.help_text_ui }}</small>
+      </div>
+      <div class="text-right">
         {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
         <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
           <i aria-hidden="true" class="icon icon-check"></i>
           {{ equipement|get_equipement_label }}
         </span><br>
         {% endfor %}
-      {% elif field.name == "labels" %}
+      </div>
+    </div>
+    {% else %}
+    <div>
+      <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+      {% if field.help_text_ui %}
+      <small class="text-muted">{{ field.help_text_ui }}</small>
+      {% endif %}
+    </div>
+    <span class="a4a-badge-group pl-2 text-right">
+      {% if field.name == "labels" %}
         {% for label in erp.accessibilite.labels %}
         {% if label == "aucun" %}
         <span class="badge a4a-badge">Aucun</span>
