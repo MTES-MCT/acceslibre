@@ -208,19 +208,11 @@
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-lg-6">
-      <h2 class="h5 my-3">Fréquentation <small class="text-muted">sur les 30 derniers jours</small></h2>
-      <iframe width="100%" height="560" title="Statistiques de fréquentation du site" style="overflow:hidden"
-        src="https://stats.data.gouv.fr/index.php?module=Widgetize&action=iframe&period=range&date=last30&forceView=1&viewDataTable=graphEvolution&disableLink=0&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=getEvolutionGraph&idSite=118&disableLink=1&widget=1"
-        scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-    </div>
-    <div class="col-lg-6">
-      <h2 class="h5 my-3">Récapitulatif des visites <small class="text-muted">sur les 30 derniers jours</small></h2>
-      <iframe width="100%" height="560" title="Récapitulatif des visites sur le site" style="overflow:hidden"
-        src="https://stats.data.gouv.fr/index.php?module=Widgetize&action=iframe&period=range&date=last30&forceView=1&viewDataTable=sparklines&disableLink=0&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=get&idSite=118&disableLink=1&widget=1"
-        scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-    </div>
+  <div class="mt-3">
+    <h2 class="h5 my-3">Fréquentation <small class="text-muted">sur les 30 derniers jours</small></h2>
+    <iframe width="100%" height="800" title="Statistiques de fréquentation du site" style="overflow:hidden"
+      src="https://stats.data.gouv.fr/index.php?module=Widgetize&action=iframe&period=range&date=last30&containerId=VisitOverviewWithGraph&disableLink=0&widget=1&moduleToWidgetize=CoreHome&actionToWidgetize=renderWidgetContainer&idSite=118&disableLink=1&widget=1"
+      scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
   </div>
 </main>
 {% endblock %}
