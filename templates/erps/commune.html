@@ -143,7 +143,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% if user_is_subscribed %}
           <a href="{% url "unsubscribe_erp" erp_slug=erp.slug %}" class="btn btn-secondary ml-2"
             title="Recevoir des notifications par email lorsque cet établissement est mis à jour">
-            <i aria-hidden="true" class="icon icon-bell"></i>
+            <i aria-hidden="true" class="icon icon-bell-mute"></i>
             Se désabonner
           </a>
           {% else %}
