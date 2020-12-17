@@ -442,7 +442,9 @@ class Erp(models.Model):
         erp_history = _get_history(
             self.get_versions(), exclude_changes_from=exclude_changes_from
         )
-        accessibilite_history = self.accessibilite.get_history()
+        accessibilite_history = self.accessibilite.get_history(
+            exclude_changes_from=exclude_changes_from
+        )
         global_history = erp_history + accessibilite_history
         global_history.sort(key=lambda x: x["date"], reverse=True)
         return global_history
