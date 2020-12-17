@@ -29,6 +29,7 @@ from erp import forms
 from erp import schema
 from erp import serializers
 from erp import versioning
+from subscription.models import ErpSubscription
 
 
 def handler403(request, exception):
@@ -254,6 +255,7 @@ class App(BaseListView):
                 Activite, slug=self.kwargs["activite_slug"]
             )
         if "erp_slug" in self.kwargs:
+            context["user_is_subscribed"] = False
             erp = get_object_or_404(
                 Erp.objects.select_related(
                     "accessibilite", "activite", "commune_ext", "user", "statuscheck"
@@ -270,6 +272,7 @@ class App(BaseListView):
                 context["user_vote"] = Vote.objects.filter(
                     user=self.request.user, erp=erp
                 ).first()
+                context["user_is_subscribed"] = erp.is_subscribed_by(self.request.user)
             context["object_list"] = (
                 Erp.objects.select_related("accessibilite", "commune_ext", "activite")
                 .published()
@@ -765,6 +768,7 @@ def contrib_publication(request, erp_slug):
         "user_type": erp.user_type,
         "published": erp.published,
         "certif": erp.published,
+        "subscribe": erp.is_subscribed_by(request.user),
     }
     empty_a11y = False
     if request.method == "POST":
@@ -782,6 +786,10 @@ def contrib_publication(request, erp_slug):
             else:
                 erp.user_type = form.cleaned_data.get("user_type")
                 erp.published = form.cleaned_data.get("published")
+                if form.cleaned_data.get("subscribe"):
+                    ErpSubscription.subscribe(erp, request.user)
+                else:
+                    ErpSubscription.unsubscribe(erp, request.user)
                 erp = erp.save()
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été sauvegardées."

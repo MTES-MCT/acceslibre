@@ -21,6 +21,7 @@ urlpatterns = [
     path("annuaire/", include("annuaire.urls")),
     path("api/", include("api.urls")),
     path("contact/", include("contact.urls")),
+    path("subscription/", include("subscription.urls")),
     path("stats/", include("stats.urls")),
     # django-registration overrides, handling `next` query string param
     path(

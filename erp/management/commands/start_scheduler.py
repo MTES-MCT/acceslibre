@@ -3,7 +3,8 @@ import time
 
 from django.core.management.base import BaseCommand
 
-from erp.jobs import check_closed_erps, notify_changed_erps
+from erp.jobs import check_closed_erps
+from subscription.jobs import notify_changed_erps
 
 
 class Command(BaseCommand):
