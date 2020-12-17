@@ -23,14 +23,21 @@
               src="{% static "img/mapicons.svg" %}#{{ subscription.erp.get_activite_vector_icon }}">
             {{ subscription.erp.nom }}
           </a>
-        </div>
-        {% if subscription.erp.activite %}
-          <div>
-            <small><strong>{{ subscription.erp.activite.nom }}</strong></small>
-          </div>
+          {% if subscription.erp.activite %}
+            <small class="text-muted">({{ subscription.erp.activite.nom }})</small>
         {% endif %}
+        </div>
+        <address class="mb-0">
+          <small class="text-muted">{{ subscription.erp.adresse }}</small>
+        </address>
         <div>
-          <address class="mb-0"><small class="text-muted">{{ subscription.erp.adresse }}</small></address>
+          <small class="text-muted">
+            {% if subscription.user == user %}
+            Vous avez créé cette fiche
+            {% else %}
+            Fiche créée par <strong>{{ subscription.user.username }}</strong>
+            {% endif %}
+          </small>
         </div>
       </div>
       <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="Actions">
