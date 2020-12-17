@@ -10,6 +10,11 @@ from .models import Accessibilite, Erp
 
 
 def extract_online_erp(version):
+    """Extract the Erp object from a reversion.models.Version instance,
+    which can link either an Erp or an Accessibilite.
+    """
+    if not hasattr(version, "content_type"):
+        return None
     erp = (
         version.object
         if version.content_type == ContentType.objects.get_for_model(Erp)
@@ -72,30 +77,3 @@ def get_recent_contribs_qs(hours, now=None):
         .filter(revision__date_created__gt=now - timedelta(hours=hours))
         .prefetch_related("object")
     )
-
-
-def get_recent_contribs_excluding_owner(hours, now=None):
-    "Retrieves erp updates made by other users than their owner since a given number of hours."
-    erp_type = ContentType.objects.get_for_model(Erp)
-    changed = []
-    for version in get_recent_contribs_qs(hours, now):
-        # how is this supposed to happen? because it does.
-        if not hasattr(version, "content_type"):
-            continue
-        erp = version.object if version.content_type == erp_type else version.object.erp
-        owner = erp.user
-        modified_by_other = owner and owner.id != version.revision.user_id
-        if erp.user and modified_by_other and erp not in changed:
-            changed.append({"erp": erp, "contributor": version.revision.user})
-    return changed
-
-
-def get_owners_to_notify(hours, now=None):
-    recent_contribs = get_recent_contribs_excluding_owner(hours, now)
-    owners = {}
-    for change in recent_contribs:
-        owner_pk = change["erp"].user.pk
-        if owner_pk not in owners:
-            owners[owner_pk] = []
-        owners[owner_pk].append(change)
-    return owners

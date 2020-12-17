@@ -10,14 +10,15 @@ from subscription.models import ErpSubscription
 HOURS_CHECK = 3
 
 
-def send_notification(user, erps):
+def send_notification(notification):
+    recipient = notification["user"]
     mailer.send_email(
-        [user.email],
+        [recipient.email],
         f"[{settings.SITE_NAME}] Vous avez reçu de nouvelles contributions",
         "mail/changed_erp_notification.txt",
         {
-            "user": user,
-            "erps": erps,
+            "user": recipient,
+            "erps": notification["erps"],
             "SITE_NAME": settings.SITE_NAME,
             "SITE_ROOT_URL": settings.SITE_ROOT_URL,
         },
@@ -26,12 +27,7 @@ def send_notification(user, erps):
 
 def get_notifications(hours, now=None):
     notifications = {}
-    versions = [
-        version
-        for version in versioning.get_recent_contribs_qs(hours, now)
-        if hasattr(version, "content_type")  # no idea how/why this is happening :/
-    ]
-    for version in versions:
+    for version in versioning.get_recent_contribs_qs(hours, now):
         erp = versioning.extract_online_erp(version)
         if not erp:
             continue
@@ -40,9 +36,7 @@ def get_notifications(hours, now=None):
             continue
         for user in subscribers:
             # retrieve history for this erp, excluding current subscriber
-            changes_by_others = [
-                diff for diff in erp.get_history() if diff["user"] != user
-            ]
+            changes_by_others = erp.get_history(exclude_changes_from=user)
             if len(changes_by_others) == 0:
                 continue
             # expose changes_by_others to be used in template
@@ -58,4 +52,4 @@ def get_notifications(hours, now=None):
 def job(*args, **kwargs):
     notifications = get_notifications(hours=HOURS_CHECK)
     for notification in notifications.values():
-        send_notification(notification["user"], notification["erps"])
+        send_notification(notification)

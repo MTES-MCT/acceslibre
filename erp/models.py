@@ -29,7 +29,7 @@ FULLTEXT_CONFIG = "french_unaccent"
 models.CharField.register_lookup(Lower)
 
 
-def _get_history(versions):
+def _get_history(versions, exclude_changes_from=None):
     history = []
     current_fields_dict = {}
     for version in versions:
@@ -47,6 +47,8 @@ def _get_history(versions):
         current_fields_dict = version.field_dict
     history.reverse()
     history = list(filter(lambda x: x["diff"] != [], history))
+    if exclude_changes_from:
+        history = [entry for entry in history if entry["user"] != exclude_changes_from]
     return history
 
 
@@ -435,9 +437,11 @@ class Erp(models.Model):
             return self.activite.vector_icon
         return default
 
-    def get_history(self):
+    def get_history(self, exclude_changes_from=None):
         "Combines erp and related accessibilite histories."
-        erp_history = _get_history(self.get_versions())
+        erp_history = _get_history(
+            self.get_versions(), exclude_changes_from=exclude_changes_from
+        )
         accessibilite_history = self.accessibilite.get_history()
         global_history = erp_history + accessibilite_history
         global_history.sort(key=lambda x: x["date"], reverse=True)
@@ -1143,8 +1147,10 @@ class Accessibilite(models.Model):
         else:
             return "Caractéristiques d'accessibilité de cet ERP"
 
-    def get_history(self):
-        return _get_history(self.get_versions())
+    def get_history(self, exclude_changes_from=None):
+        return _get_history(
+            self.get_versions(), exclude_changes_from=exclude_changes_from
+        )
 
     def get_versions(self):
         # take the last n revisions
