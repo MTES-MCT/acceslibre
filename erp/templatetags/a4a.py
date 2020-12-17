@@ -28,6 +28,7 @@ def active_compte_section(path, test):
             test == "mon_identifiant" and path == "/mon_compte/identifiant/",
             test == "mes_contributions"
             and path.startswith("/mon_compte/contributions/"),
+            test == "mes_abonnements" and path.startswith("/mon_compte/abonnements/"),
             test == "mot_de_passe"
             and path
             in [

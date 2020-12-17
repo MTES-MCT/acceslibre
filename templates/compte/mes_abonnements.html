@@ -1,0 +1,49 @@
+{% extends "compte/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Mes abonnements{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block compte_content %}
+  <h3 class="mb-3">Mes abonnements</h3>
+
+  <p class="">
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    Les établissements pour lesquels vous êtes abonné aux notifications par email de mise à jour.
+  </p>
+
+  <ul class="list-group">
+    {% for subscription in pager %}
+    <li class="list-group-item d-lg-flex justify-content-between align-items-center shadow-sm">
+      <div class="flex-fill">
+        <div class="font-weight-bold">
+          <a href="{{ subscription.erp.get_absolute_url }}">
+            <img alt="" class="act-icon act-icon-20 mb-1"
+              src="{% static "img/mapicons.svg" %}#{{ subscription.erp.get_activite_vector_icon }}">
+            {{ subscription.erp.nom }}
+          </a>
+        </div>
+        {% if subscription.erp.activite %}
+          <div>
+            <small><strong>{{ subscription.erp.activite.nom }}</strong></small>
+          </div>
+        {% endif %}
+        <div>
+          <address class="mb-0"><small class="text-muted">{{ subscription.erp.adresse }}</small></address>
+        </div>
+      </div>
+      <div class="btn-group d-flex justify-content-between mt-1" role="group" aria-label="Actions">
+        <a class="btn btn-sm btn-outline-primary"
+          href="{% url "unsubscribe_erp" erp_slug=subscription.erp.slug %}?redir=account">
+          <i aria-hidden="true" class="icon icon-bell-mute"></i>
+          Se désabonner
+        </a>
+      </div>
+    </li>
+    {% empty %}
+    <li class="list-group-item border-top-0 rounded-0">La liste est vide.</li>
+    {% endfor %}
+  </ul>
+  {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
+{% endblock %}

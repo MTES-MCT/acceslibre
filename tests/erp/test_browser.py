@@ -124,6 +124,7 @@ def test_admin_urls_ok(data, url, client):
     [
         reverse("mon_compte"),
         reverse("mes_erps"),
+        reverse("mes_abonnements"),
         reverse("mes_contributions"),
         reverse("mes_contributions_recues"),
     ],

@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, reverse
 
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -15,7 +15,11 @@ def subscribe_erp(request, erp_slug):
         messages.SUCCESS,
         "Vous êtes désormais abonné aux notifications de modification de cet établissement.",
     )
-    return redirect(erp.get_absolute_url())
+    return redirect(
+        reverse("mes_abonnements")
+        if request.GET.get("redir") == "account"
+        else erp.get_absolute_url()
+    )
 
 
 @login_required
@@ -27,4 +31,8 @@ def unsubscribe_erp(request, erp_slug):
         messages.SUCCESS,
         "Vous êtes désormais desabonné des notifications de modification de cet établissement.",
     )
-    return redirect(erp.get_absolute_url())
+    return redirect(
+        reverse("mes_abonnements")
+        if request.GET.get("redir") == "account"
+        else erp.get_absolute_url()
+    )

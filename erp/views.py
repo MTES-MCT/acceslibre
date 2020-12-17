@@ -421,6 +421,25 @@ def mes_contributions_recues(request):
 
 
 @login_required
+def mes_abonnements(request):
+    qs = (
+        ErpSubscription.objects.select_related(
+            "erp", "erp__activite", "erp__commune_ext", "erp__user"
+        )
+        .filter(user=request.user)
+        .order_by("-updated_at")
+    )
+    paginator = Paginator(qs, 10)
+    page_number = request.GET.get("page", 1)
+    pager = paginator.get_page(page_number)
+    return render(
+        request,
+        "compte/mes_abonnements.html",
+        context={"pager": pager, "pager_base_url": "?1"},
+    )
+
+
+@login_required
 @reversion.views.create_revision()
 def contrib_delete(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
