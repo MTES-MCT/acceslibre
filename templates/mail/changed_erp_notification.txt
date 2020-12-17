@@ -1,13 +1,14 @@
-{% autoescape off %}Bonjour {{ owner.username }},
+{% autoescape off %}Bonjour {{ user.username }},
 
 Des utilisateurs ont récemment contribué de nouvelles informations à des
 établissements que vous avez ajoutés sur la plateforme :
 
-{% for change in changes %}
-- {{ change.contributor }} sur {{ change.erp.nom }} ({{ change.erp.commune }}):
-  {{ SITE_ROOT_URL }}{{ change.erp.get_absolute_url }}#history
+{% for erp in erps %}
+- Établissement : "{{ erp.nom }}" ({{ erp.code_postal }} {{ erp.commune }}):
+  {{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}#history{% for diff in erp.changes_by_others %}
+  - {{ diff.user }} a mis à jour les informations suivantes :{% for field in diff.diff %}
+    - {{ field.label }}: "{{ field.old }}" devient "{{ field.new }}"{% endfor %}{% endfor %}
 {% endfor %}
-
 Pour information, vous pouvez à tout moment retrouver l'intégralité
 des contributions effectuées sur vos établissements à cette adresse :
 {{ SITE_ROOT_URL }}{% url "mes_contributions_recues" %}

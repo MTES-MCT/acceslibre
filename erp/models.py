@@ -46,7 +46,8 @@ def _get_history(versions):
         )
         current_fields_dict = version.field_dict
     history.reverse()
-    return list(filter(lambda x: x["diff"] != [], history))
+    history = list(filter(lambda x: x["diff"] != [], history))
+    return history
 
 
 class Activite(models.Model):

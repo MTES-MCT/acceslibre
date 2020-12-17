@@ -9,6 +9,18 @@ from reversion.models import Version
 from .models import Accessibilite, Erp
 
 
+def extract_online_erp(version):
+    erp = (
+        version.object
+        if version.content_type == ContentType.objects.get_for_model(Erp)
+        else version.object.erp
+    )
+    if erp.is_online():
+        return erp
+    else:
+        return None
+
+
 def get_user_contributions(user):
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
@@ -47,12 +59,12 @@ def get_user_contributions_recues(user):
     )
 
 
-def get_recent_contribs(hours, now=None):
+def get_recent_contribs_qs(hours, now=None):
+    "Retrieves Erp and Accessibilite versions created since a given number of hours."
     now = now or timezone.now()
-    "Retrieves erps updated by other users than their owner since a given number of hours."
     erp_type = ContentType.objects.get_for_model(Erp)
     accessibilite_type = ContentType.objects.get_for_model(Accessibilite)
-    versions = (
+    return (
         Version.objects.select_related("revision", "revision__user")
         .exclude(revision__user__isnull=True)
         .exclude(content_type__isnull=True)
@@ -60,8 +72,13 @@ def get_recent_contribs(hours, now=None):
         .filter(revision__date_created__gt=now - timedelta(hours=hours))
         .prefetch_related("object")
     )
+
+
+def get_recent_contribs_excluding_owner(hours, now=None):
+    "Retrieves erp updates made by other users than their owner since a given number of hours."
+    erp_type = ContentType.objects.get_for_model(Erp)
     changed = []
-    for version in versions:
+    for version in get_recent_contribs_qs(hours, now):
         # how is this supposed to happen? because it does.
         if not hasattr(version, "content_type"):
             continue
@@ -74,7 +91,7 @@ def get_recent_contribs(hours, now=None):
 
 
 def get_owners_to_notify(hours, now=None):
-    recent_contribs = get_recent_contribs(hours, now)
+    recent_contribs = get_recent_contribs_excluding_owner(hours, now)
     owners = {}
     for change in recent_contribs:
         owner_pk = change["erp"].user.pk
