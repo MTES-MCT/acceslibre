@@ -193,3 +193,35 @@ def test_notification_skip_owner(client, data):
     notify_changed_erps.job()
 
     assert len(mail.outbox) == 0
+
+
+def test_erp_publication_subscription_option(data, client):
+    client.login(username="niko", password="Abc12345!")
+
+    # user subscribes to updates
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        data={
+            "user_type": Erp.USER_ROLE_PUBLIC,
+            "published": "on",
+            "certif": "on",
+            "subscribe": "on",
+        },
+        follow=True,
+    )
+    assert response.status_code == 200
+    assert ErpSubscription.objects.filter(erp=data.erp, user=data.niko).count() == 1
+
+    # user unsubscribes from updates
+    response = client.post(
+        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
+        data={
+            "user_type": Erp.USER_ROLE_PUBLIC,
+            "published": "on",
+            "certif": "on",
+            "subscribe": "on",
+        },
+        follow=True,
+    )
+    assert response.status_code == 200
+    assert ErpSubscription.objects.filter(erp=data.erp, user=data.niko).count() == 1

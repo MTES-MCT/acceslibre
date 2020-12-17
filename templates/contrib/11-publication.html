@@ -16,6 +16,8 @@
   {% include "fields/boolradio.html" with field=form.user_type inline=False %}
   {% include "fields/textarea.html" with field=form.registre_url %}
   {% include "fields/boolradio.html" with field=form.conformite inline=True %}
+
+  {{ form.subscribe|as_crispy_field }}
   {{ form.published|as_crispy_field }}
   {{ form.certif|as_crispy_field }}
 {% endblock %}

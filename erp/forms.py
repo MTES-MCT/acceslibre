@@ -571,6 +571,10 @@ class PublicPublicationForm(forms.ModelForm):
         label="Je souhaite mettre en ligne cette fiche d'établissement immédiatement",
         required=False,
     )
+    subscribe = forms.BooleanField(
+        label="Je souhaite recevoir des notifications par email lorsque cette fiche est mise à jour par d'autres contributeurs",
+        required=False,
+    )
     certif = forms.BooleanField(
         label=f"Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur {settings.SITE_NAME}.",
         required=True,

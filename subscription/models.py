@@ -30,7 +30,7 @@ class ErpSubscription(models.Model):
 
     @staticmethod
     def subscribe(erp, user):
-        sub = ErpSubscription.objects.filter(user=user, erp=erp)
+        sub = ErpSubscription.objects.filter(user=user, erp=erp).first()
         if not sub:
             sub = ErpSubscription(user=user, erp=erp)
             sub.save()
