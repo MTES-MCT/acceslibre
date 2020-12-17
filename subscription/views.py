@@ -6,19 +6,23 @@ from erp.models import Erp
 from subscription.models import ErpSubscription
 
 
-@login_required
-def subscribe_erp(request, erp_slug):
-    erp = get_object_or_404(Erp.objects, slug=erp_slug)
-    ErpSubscription.subscribe(erp, request.user)
-    messages.add_message(
-        request,
-        messages.SUCCESS,
-        "Vous êtes désormais abonné aux notifications de modification de cet établissement.",
-    )
+def _message_and_redirect(request, erp, message):
+    messages.add_message(request, messages.SUCCESS, message)
     return redirect(
         reverse("mes_abonnements")
         if request.GET.get("redir") == "account"
         else erp.get_absolute_url()
+    )
+
+
+@login_required
+def subscribe_erp(request, erp_slug):
+    erp = get_object_or_404(Erp.objects, slug=erp_slug)
+    ErpSubscription.subscribe(erp, request.user)
+    return _message_and_redirect(
+        request,
+        erp,
+        "Vous êtes désormais abonné aux notifications de modification de cet établissement.",
     )
 
 
@@ -26,13 +30,8 @@ def subscribe_erp(request, erp_slug):
 def unsubscribe_erp(request, erp_slug):
     erp = get_object_or_404(Erp.objects, slug=erp_slug)
     ErpSubscription.unsubscribe(erp, request.user)
-    messages.add_message(
+    return _message_and_redirect(
         request,
-        messages.SUCCESS,
-        "Vous êtes désormais desabonné des notifications de modification de cet établissement.",
-    )
-    return redirect(
-        reverse("mes_abonnements")
-        if request.GET.get("redir") == "account"
-        else erp.get_absolute_url()
+        erp,
+        "Vous êtes désormais desabonné des notifications de modification pour cet établissement.",
     )

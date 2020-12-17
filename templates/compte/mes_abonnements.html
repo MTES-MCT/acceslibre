@@ -8,7 +8,7 @@
 {% block compte_content %}
   <h3 class="mb-3">Mes abonnements</h3>
 
-  <p class="">
+  <p>
     <i aria-hidden="true" class="icon icon-info-circled"></i>
     Les établissements pour lesquels vous êtes abonné aux notifications par email de mise à jour.
   </p>
@@ -42,7 +42,7 @@
       </div>
     </li>
     {% empty %}
-    <li class="list-group-item border-top-0 rounded-0">La liste est vide.</li>
+    <li class="list-group-item">La liste est vide.</li>
     {% endfor %}
   </ul>
   {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url %}
