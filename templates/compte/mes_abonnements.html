@@ -32,10 +32,10 @@
         </address>
         <div>
           <small class="text-muted">
-            {% if subscription.user == user %}
-            Vous avez créé cette fiche
+            {% if request.user == subscription.erp.user %}
+            <strong>Vous</strong> avez créé cette fiche
             {% else %}
-            Fiche créée par <strong>{{ subscription.user.username }}</strong>
+            Fiche créée par <strong>{{ subscription.erp.user }}</strong>
             {% endif %}
           </small>
         </div>
