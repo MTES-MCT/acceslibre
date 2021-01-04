@@ -33,7 +33,7 @@ def extract_personne_physique(etablissement):
 
 
 def extract_nom(etablissement):
-    nom = (
+    return text.normalize_nom(
         etablissement.get("denominationusuelle1unitelegale")
         or etablissement.get("enseigne1etablissement")
         or etablissement.get("denominationusuelleetablissement")
@@ -42,7 +42,6 @@ def extract_nom(etablissement):
         or extract_personne_physique(etablissement)
         or ""
     )
-    return text.normalize_nom(nom)
 
 
 def extract_voie(etablissement):

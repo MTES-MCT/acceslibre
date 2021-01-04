@@ -70,10 +70,16 @@ def test_parse_etablissement_jacou_data_ok(sample_response):
 def test_extract_nom():
     assert opendatasoft.extract_nom({}) == ""
     assert "Chuck Norris" == opendatasoft.extract_nom(
-        {"prenomusuelunitelegale": "Chuck", "nomunitelegale": "Norris"}
+        {
+            "prenomusuelunitelegale": "Chuck",
+            "nomunitelegale": "Norris",
+        }
     )
     assert "Chuck Norris" == opendatasoft.extract_nom(
-        {"prenom1unitelegale": "Chuck", "nomunitelegale": "Norris"}
+        {
+            "prenom1unitelegale": "Chuck",
+            "nomunitelegale": "Norris",
+        }
     )
     assert "Jane Doe (Birkin)" == opendatasoft.extract_nom(
         {
@@ -82,5 +88,13 @@ def test_extract_nom():
             "nomusageunitelegale": "Birkin",
         }
     )
-    assert "Chuck" == opendatasoft.extract_nom({"prenomusuelunitelegale": "Chuck"})
-    assert "Chucky" == opendatasoft.extract_nom({"pseudonymeunitelegale": "chucky"})
+    assert "Chuck" == opendatasoft.extract_nom(
+        {
+            "prenomusuelunitelegale": "Chuck",
+        }
+    )
+    assert "Chucky" == opendatasoft.extract_nom(
+        {
+            "pseudonymeunitelegale": "chucky",
+        }
+    )
