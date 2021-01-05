@@ -16,19 +16,31 @@ def extract_coordonnes(etablissement):
         return [coords[1], coords[0]]
 
 
+def extract_personne_physique(etablissement):
+    pseudonyme = etablissement.get("pseudonymeunitelegale")
+    if pseudonyme:
+        return pseudonyme
+    prenom = etablissement.get("prenomusuelunitelegale", "") or etablissement.get(
+        "prenom1unitelegale", ""
+    )
+    nom = etablissement.get("nomunitelegale", "")
+    nom_usage = etablissement.get("nomusageunitelegale", "")
+    if nom_usage:
+        nom = f"{nom} ({nom_usage})"
+    if not prenom and not nom:
+        return None
+    return f"{prenom} {nom}".strip()
+
+
 def extract_nom(etablissement):
-    usage = etablissement.get("nomusageunitelegale", "") or ""
-    if usage:
-        usage = f" ({usage})"
     return text.normalize_nom(
-        (
-            etablissement.get("denominationusuelle1unitelegale")
-            or etablissement.get("enseigne1etablissement")
-            or etablissement.get("denominationusuelleetablissement")
-            or etablissement.get("denominationunitelegale")
-            or etablissement.get("l1_adressage_unitelegale")
-        )
-        + usage
+        etablissement.get("denominationusuelle1unitelegale")
+        or etablissement.get("enseigne1etablissement")
+        or etablissement.get("denominationusuelleetablissement")
+        or etablissement.get("denominationunitelegale")
+        or etablissement.get("l1_adressage_unitelegale")
+        or extract_personne_physique(etablissement)
+        or ""
     )
 
 
@@ -39,6 +51,7 @@ def extract_voie(etablissement):
 
 
 def parse_etablissement(record):
+    # TODO: Return None when a parsed establissement is invalid (eg. name is empty)
     etablissement = record.get("fields")
     nom = extract_nom(etablissement)
     voie = extract_voie(etablissement)
@@ -108,6 +121,7 @@ def query(terms, code_insee):
         json_value = res.json()
         if not json_value or "records" not in json_value:
             raise RuntimeError(f"Résultat invalide: {json_value}")
+        # FIXME: discard any parsed etablissement being None
         return [parse_etablissement(r) for r in json_value["records"]]
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"opendatasoft search api error: {err}")
