@@ -1,5 +1,6 @@
 {% extends "editorial/base.html" %}
 
+{% load a4a %}
 {% load static %}
 
 {% block page_title %}Nos partenaires{% endblock%}
@@ -8,21 +9,19 @@
 <main role="main" id="content" class="mt-5">
   <h2 class="text-center mb-5">Nos partenaires</h2>
 
-  <div class="card-deck">
-  {% for pid, partenaire in partenaires.items %}
-    <div class="card mb-3" id="{{ pid }}">
-      <div class="card-body">
-        <h5 class="card-title">
-          <a href="{{ partenaire.url }}">
-            <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
-              alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
-          </a>
-        </h5>
-        {% include partenaire.template %}
-      </div>
+  {% for pid, partenaire in partenaires.items|shuffle %}
+  <div class="card mb-3" id="{{ pid }}">
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="{{ partenaire.url }}">
+          <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
+            alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
+        </a>
+      </h5>
+      {% include partenaire.template %}
     </div>
-  {% endfor %}
   </div>
+  {% endfor %}
 
   <p><a href="{% url "home" %}">&laquo; Retour à l'accueil</a></p>
 </main>
