@@ -259,7 +259,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
 
     form = AdminErpForm
 
-    actions = ["assign_activite", "publish", "unpublish"]
+    actions = ["assign_activite", "assign_user", "publish", "unpublish"]
     inlines = [AccessibiliteInline]
     list_display = (
         "get_nom",
@@ -363,8 +363,8 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     def assign_activite(self, request, queryset):
         if "apply" in request.POST:
             try:
-                queryset.update(activite_id=int(request.POST["activite"]))
-                self.message_user(request, f"{queryset.count()} ERP ont été modifiés.")
+                count = queryset.update(activite_id=int(request.POST["activite"]))
+                self.message_user(request, f"{count} ERP ont été modifiés.")
             except (KeyError, TypeError):
                 pass
             return HttpResponseRedirect(request.get_full_path())
@@ -372,10 +372,33 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
         return render(
             request,
             "admin/assign_activite.html",
-            context={"erps": queryset, "activites": Activite.objects.all()},
+            context={
+                "erps": queryset,
+                "activites": Activite.objects.order_by("nom"),
+            },
         )
 
     assign_activite.short_description = "Assigner une nouvelle catégorie"
+
+    def assign_user(self, request, queryset):
+        if "apply" in request.POST:
+            try:
+                count = queryset.update(user_id=int(request.POST["user"]))
+                self.message_user(request, f"{count} ERP ont été modifiés.")
+            except (KeyError, TypeError):
+                pass
+            return HttpResponseRedirect(request.get_full_path())
+
+        return render(
+            request,
+            "admin/assign_user.html",
+            context={
+                "erps": queryset,
+                "users": User.objects.order_by("username"),
+            },
+        )
+
+    assign_user.short_description = "Attribuer à un utilisateur"
 
     def geolocalise(self, instance):
         return instance.geom is not None
