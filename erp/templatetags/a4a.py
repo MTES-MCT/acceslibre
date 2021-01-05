@@ -1,4 +1,5 @@
 import json
+import random
 
 from urllib.parse import quote
 
@@ -153,6 +154,13 @@ def safe_username(value):
         username = value.split("@")[0]
         return username + "@..." if username else value.replace("@", "")
     return value
+
+
+@register.filter
+def shuffle(arg):
+    tmp = list(arg)[:]
+    random.shuffle(tmp)
+    return tmp
 
 
 @register.filter("startswith")
