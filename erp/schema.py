@@ -109,6 +109,22 @@ RAMPE_CHOICES = [
 REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
 
 PARTENAIRES = {
+    "DGE": {
+        "avatar": "dge_avatar.png",
+        "logo": "img/partenaires/dge.png",
+        "name": "DGE",
+        "short_description": "Direction Générale des Entreprises",
+        "template": "editorial/partenaires/dge.html",
+        "url": "https://www.entreprises.gouv.fr/fr",
+    },
+    "LUCIE": {
+        "avatar": "lucie_avatar.png",
+        "logo": "img/partenaires/lucie.png",
+        "name": "RSE Lucie",
+        "short_description": "La RSE Positive",
+        "template": "editorial/partenaires/lucie.html",
+        "url": "https://agence-lucie.com/",
+    },
     "MOBALIB": {
         "avatar": "mobalib_avatar.jpg",
         "logo": "img/partenaires/mobalib.png",
