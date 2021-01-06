@@ -81,8 +81,34 @@ $viewport-xl: 1200px;
     padding: 4px;
   }
 
+  .small-caps {
+    font-variant: small-caps;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
   svg {
     fill: currentColor;
+  }
+
+  &-landing-picto-right {
+    float: right;
+    width: 70px;
+    margin: 0 0 1em 1em;
+  }
+
+  &-landing-picto-center {
+    display: block;
+    width: 70px;
+    margin: 0 auto;
+  }
+
+  &-landing-separator {
+    // width: 33%;
+    border-top: 5px solid $primary;
+    margin: 1.5em 33%;
   }
 
   .cgu p, .cgu li {
