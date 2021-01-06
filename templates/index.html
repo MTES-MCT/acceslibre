@@ -129,8 +129,8 @@
           <hr class="a4a-landing-separator">
           <p class="text-dark">Votez&nbsp;! Une fiche vous a été utile, son contenu vous a servi et vous avez constaté une bonne adéquation entre son contenu et la réalité, <strong>faites-le savoir en votant.</strong></p>
           <p class="text-dark">Au contraire, vous constatez une erreur ou une incomplétude, modifiez la fiche en la complétant ou la corrigeant.</p>
-          <p class="text-center"><a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary mb-3 mt-4">
-            Ajouter un établissement
+          <p class="text-center"><a href="#villes-couvertes" class="btn btn-lg btn-link mb-3 mt-4">
+            Voir les principales villes couvertes &raquo;
           </a></p>
         </div>
       </div>
@@ -223,29 +223,29 @@
       <div class="row">
         <div class="col-md-6 text-center">
           <a href="https://www.cohesion-territoires.gouv.fr/">
-            <img alt="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" class="img-fluid mt-3" src="{% static "img/landing/mctrct.png" %}" style="max-height:250px">
+            <img alt="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" class="img-fluid mt-4" src="{% static "img/landing/mctrct.png" %}" style="max-height:180px">
           </a>
         </div>
         <div class="col-md-6 text-center">
           <a href="https://www.ecologie.gouv.fr/">
-            <img alt="Ministère de la Transition Écologique et Solidaire" class="img-fluid mt-3" src="{% static "img/landing/mtes.jpg" %}" style="max-height:250px">
+            <img alt="Ministère de la Transition Écologique et Solidaire" class="img-fluid mt-4" src="{% static "img/landing/mtes.jpg" %}" style="max-height:180px">
           </a>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4 text-center">
           <a href="https://www.wegoto.eu/">
-            <img alt="Wegoto" class="img-fluid mt-3" src="{% static "img/partenaires/wegoto.png" %}">
+            <img alt="Wegoto" class="img-fluid mt-4" src="{% static "img/partenaires/wegoto.png" %}">
           </a>
         </div>
         <div class="col-md-4 text-center">
           <a href="https://agence-lucie.com/">
-            <img alt="RSE Lucie" class="img-fluid mt-3" src="{% static "img/partenaires/lucie.png" %}" style="height:100px">
+            <img alt="RSE Lucie" class="img-fluid mt-4" src="{% static "img/partenaires/lucie.png" %}" style="height:100px">
           </a>
         </div>
         <div class="col-md-4 text-center">
           <a href="https://www.mobalib.com/">
-            <img alt="Mobalib" class="img-fluid mt-3" src="{% static "img/partenaires/mobalib.png" %}">
+            <img alt="Mobalib" class="img-fluid mt-4" src="{% static "img/partenaires/mobalib.png" %}">
           </a>
         </div>
       </div>
@@ -259,7 +259,8 @@
 
 {% block editorial_content %}
 <aside>
-  <div class="row mt-4">
+  <hr class="a4a-landing-separator">
+  <div class="row mt-5" id="villes-couvertes">
     <div class="col-md-8">
       {% if search_results %}
       {% include "search-results.html" %}
