@@ -14,95 +14,102 @@
   <section class="container-fluid bg-light py-5">
     <div class="container">
       <h2 class="font-weight-bold mb-3">Trouvez les lieux accessibles ouverts au public</h2>
-      <p class="text-dark">Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
-      <form action="{% url "home" %}#results">
-        <input type="hidden" name="lat">
-        <input type="hidden" name="lon">
-        <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
-        <div class="input-group py-1">
-          <input type="search" id="search" name="q" class="form-control form-control-lg" placeholder="restau lyon"
-            aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-lg btn-primary border-left text-nowrap">
-              <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
-              <span class="sr-only">Rechercher</span>
-            </button>
-          </div>
-        </div>
-        <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
-          <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
-            {% if localize == "1" %}checked{% endif %}>
-          <label class="custom-control-label" for="localize">
-            Rechercher autour de ma position géographique actuelle
-            <span id="geoloader" class="loader"></span>
-            <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
-          </label>
-        </div>
-      </form>
-      <script>
-      (function(geolocation) {
-        if (!geolocation) {
-          document.querySelector("#loc-field").innerHTML = [
-            '<div class="text-danger">',
-              '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
-              "La géolocalisation n'est pas disponible sur votre navigateur.",
-            '</div>',
-          ].join("");
-          return;
-        }
-        function listenToLocCheckboxChange() {
-          return function(event) {
-            processLocCheckbox(event.target);
-          }
-        }
-        function processLocCheckbox(node) {
-          if (!node.checked) {
-            document.querySelector("#loc").innerText = "";
-            document.querySelector("input[name=lat]").value = null;
-            document.querySelector("input[name=lon]").value = null;
-          } else {
-            geolocation.getCurrentPosition(function(position) {
-              $("#geoloader").show();
-              const lat = position.coords.latitude;
-              const lon = position.coords.longitude;
-              fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
-                .then(function(response) {
-                  return response.json()
-                })
-                .then(function(json) {
-                  let label;
-                  try {
-                    label = "(" + json.features[0].properties.label + ")"
-                  } catch (e) {
-                    label = "(" + lat + ", " + lon + ")";
-                  }
-                  const loc = document.querySelector("#loc");
-                  loc.innerText = label;
-                  loc.setAttribute("role", "status");
-                  document.querySelector("input[name=lat]").value = lat;
-                  document.querySelector("input[name=lon]").value = lon;
-                  $("#geoloader").hide();
-                })
-                .catch(function(err) {
-                  console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
-                  $("#geoloader").hide();
+      <div class="row">
+        <div class="col-xl-6">
+          <p class="text-dark">Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
+          <form action="{% url "home" %}#results">
+            <input type="hidden" name="lat">
+            <input type="hidden" name="lon">
+            <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
+            <div class="input-group py-1">
+              <input type="search" id="search" name="q" class="form-control form-control-lg" placeholder="restau lyon"
+                aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-lg btn-primary border-left text-nowrap">
+                  <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
+                  <span class="sr-only">Rechercher</span>
+                </button>
+              </div>
+            </div>
+            <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
+              <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
+                {% if localize == "1" %}checked{% endif %}>
+              <label class="custom-control-label" for="localize">
+                Rechercher autour de ma position géographique actuelle
+                <span id="geoloader" class="loader"></span>
+                <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
+              </label>
+            </div>
+          </form>
+          <script>
+          (function(geolocation) {
+            if (!geolocation) {
+              document.querySelector("#loc-field").innerHTML = [
+                '<div class="text-danger">',
+                  '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
+                  "La géolocalisation n'est pas disponible sur votre navigateur.",
+                '</div>',
+              ].join("");
+              return;
+            }
+            function listenToLocCheckboxChange() {
+              return function(event) {
+                processLocCheckbox(event.target);
+              }
+            }
+            function processLocCheckbox(node) {
+              if (!node.checked) {
+                document.querySelector("#loc").innerText = "";
+                document.querySelector("input[name=lat]").value = null;
+                document.querySelector("input[name=lon]").value = null;
+              } else {
+                geolocation.getCurrentPosition(function(position) {
+                  $("#geoloader").show();
+                  const lat = position.coords.latitude;
+                  const lon = position.coords.longitude;
+                  fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
+                    .then(function(response) {
+                      return response.json()
+                    })
+                    .then(function(json) {
+                      let label;
+                      try {
+                        label = "(" + json.features[0].properties.label + ")"
+                      } catch (e) {
+                        label = "(" + lat + ", " + lon + ")";
+                      }
+                      const loc = document.querySelector("#loc");
+                      loc.innerText = label;
+                      loc.setAttribute("role", "status");
+                      document.querySelector("input[name=lat]").value = lat;
+                      document.querySelector("input[name=lon]").value = lon;
+                      $("#geoloader").hide();
+                    })
+                    .catch(function(err) {
+                      console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
+                      $("#geoloader").hide();
+                    });
+                }, function(err) {
+                  alert("Nous n'avons pas pu déterminer votre position géographique.")
                 });
-            }, function(err) {
-              alert("Nous n'avons pas pu déterminer votre position géographique.")
+              }
+            }
+            window.addEventListener("DOMContentLoaded", function() {
+              $("#geoloader").hide();
+              const locCheckbox = document.querySelector("#localize");
+              locCheckbox.addEventListener("change", listenToLocCheckboxChange());
+              setTimeout(function() {
+                // Note: a timeout is required in order to reprocess the form state after navigating back
+                processLocCheckbox(locCheckbox);
+              }, 10);
             });
-          }
-        }
-        window.addEventListener("DOMContentLoaded", function() {
-          $("#geoloader").hide();
-          const locCheckbox = document.querySelector("#localize");
-          locCheckbox.addEventListener("change", listenToLocCheckboxChange());
-          setTimeout(function() {
-            // Note: a timeout is required in order to reprocess the form state after navigating back
-            processLocCheckbox(locCheckbox);
-          }, 10);
-        });
-      })(navigator.geolocation);
-      </script>
+          })(navigator.geolocation);
+          </script>
+        </div>
+        <div class="col-xl-6">
+          <img alt="" class="img-fluid" src="{% static "img/landing/illustration-principale.png" %}">
+        </div>
+      </div>
     </div>
   </section>
 
