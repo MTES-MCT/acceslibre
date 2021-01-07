@@ -3,11 +3,11 @@ version: "3.5"
 services:
   database:
     container_name: access4all_postgresql
-    image: postgis/postgis
+    image: postgis/postgis@12
     environment:
-      POSTGRES_DB: ${DATABASE_NAME}
-      POSTGRES_USER: ${DATABASE_USER}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: access4all
+      POSTGRES_USER: access4all
+      POSTGRES_PASSWORD: access4all
     ports:
       - 5432:5432
     restart: unless-stopped
