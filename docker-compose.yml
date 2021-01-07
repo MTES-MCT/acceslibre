@@ -1,0 +1,21 @@
+version: "3.5"
+
+services:
+  database:
+    container_name: access4all_postgresql
+    image: postgis/postgis:12-master
+    environment:
+      POSTGRES_DB: access4all
+      POSTGRES_USER: access4all
+      POSTGRES_PASSWORD: access4all
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+    restart: unless-stopped
