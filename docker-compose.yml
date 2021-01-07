@@ -3,7 +3,7 @@ version: "3.5"
 services:
   database:
     container_name: access4all_postgresql
-    image: postgis/postgis@12
+    image: postgis/postgis:12-master
     environment:
       POSTGRES_DB: access4all
       POSTGRES_USER: access4all
