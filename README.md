@@ -16,6 +16,7 @@ L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant de
 - `libpq-dev`
 - `python3.8-dev`
 - `Django` en version 3 ou supérieure
+- Optionnel: [Docker](https://docs.docker.com/get-docker/) et [docker-compose](https://docs.docker.com/compose/install/)
 
 ## Configurer les variables d'environnement
 
@@ -49,6 +50,24 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 $ pipenv shell
 $ pipenv install -d
 ```
+
+## Base de données avec Docker Compose
+
+Pour lancer les services :
+```
+docker-compose up
+# ou pour lancer en background
+docker-compose up -d
+```
+
+L'interface web [Adminer](https://www.adminer.org/) est accessible sur http://localhost:8080/?pgsql=database&username=access4all&db=access4all&ns=public.
+
+:bulb: Pour les commandes dans le container PG, préfixer les commandes avec :
+```
+docker-compose exec database <...>
+# Ex: docker-compose exec database psql -U access4all
+```
+
 
 ## Configurer la base de données
 

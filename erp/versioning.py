@@ -20,7 +20,7 @@ def extract_online_erp(version):
         if version.content_type == ContentType.objects.get_for_model(Erp)
         else version.object.erp
     )
-    if erp.is_online():
+    if erp and erp.is_online():
         return erp
     else:
         return None
