@@ -8,6 +8,8 @@ Des utilisateurs ont récemment contribué de nouvelles informations à des
   {{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}#history{% for diff in erp.changes_by_others %}
   - {{ diff.user }} a mis à jour les informations suivantes :{% for field in diff.diff %}
     - {{ field.label }}: "{{ field.old }}" devient "{{ field.new }}"{% endfor %}{% endfor %}
+
+Pour ne plus recevoir de notifications pour cet établissement, cliquez ici : {{ SITE_ROOT_URL }}{% url "unsubscribe_erp" erp.slug %}
 {% endfor %}
 Pour information, vous pouvez à tout moment retrouver l'intégralité
 des contributions effectuées sur vos établissements à cette adresse :
