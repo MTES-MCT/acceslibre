@@ -1,0 +1,17 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}Recherche{% endblock%}
+
+{% block header %}
+  {% include "editorial/header.html" with dark=True %}
+{% endblock %}
+
+{% block editorial_content %}
+<main id="content">
+  <h2 class="mb-3">Recherche</h2>
+  {% include "search-results.html" %}
+</main>
+{% endblock %}

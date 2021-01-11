@@ -56,6 +56,16 @@ urlpatterns = [
         name="autocomplete",
     ),
     path(
+        "communes/",
+        views.communes,
+        name="communes",
+    ),
+    path(
+        "recherche/",
+        views.search,
+        name="search",
+    ),
+    path(
         "app/<str:commune>/",
         cache_app_page(),
         name="commune",

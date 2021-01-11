@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}{% if search_results %}Résultats de votre recherche{% else %}acceslibre, la plateforme collaborative de l'accessibilité{% endif %}{% endblock%}
+{% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=False %}
@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-xl-6">
           <p class="text-dark">Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
-          <form action="{% url "home" %}#results">
+          <form action="{% url "search" %}">
             <input type="hidden" name="lat">
             <input type="hidden" name="lon">
             <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
@@ -40,6 +40,9 @@
                 </button>
               </div>
             </div>
+            <p class="text-center pt-2 mb-1">
+              Ou accedez à <a href="{% url "communes" %}">la liste des communes renseignées</a>.
+            </p>
           </form>
           <script>
           (function(geolocation) {
@@ -136,9 +139,11 @@
           <hr class="a4a-landing-separator">
           <p class="text-dark">Votez&nbsp;! Une fiche vous a été utile, son contenu vous a servi et vous avez constaté une bonne adéquation entre son contenu et la réalité, <strong>faites-le savoir en votant.</strong></p>
           <p class="text-dark">Au contraire, vous constatez une erreur ou une incomplétude, modifiez la fiche en la complétant ou la corrigeant.</p>
-          <p class="text-center"><a href="#villes-couvertes" class="btn btn-lg btn-link mb-3 mt-4">
-            Voir les principales villes couvertes &raquo;
-          </a></p>
+          <p class="text-center">
+            <a href="{% url "communes" %}" class="btn btn-lg btn-link mb-3 mt-4">
+              Parcourir les territoires couverts &raquo;
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -230,29 +235,29 @@
       <div class="row">
         <div class="col-md-6 text-center">
           <a href="https://www.cohesion-territoires.gouv.fr/">
-            <img alt="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" class="img-fluid mt-4" src="{% static "img/landing/mctrct.png" %}" style="max-height:180px">
+            <img class="a4a-landing-ministere-logo" alt="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" class="img-fluid mt-4" src="{% static "img/landing/mctrct.png" %}">
           </a>
         </div>
         <div class="col-md-6 text-center">
           <a href="https://www.ecologie.gouv.fr/">
-            <img alt="Ministère de la Transition Écologique et Solidaire" class="img-fluid mt-4" src="{% static "img/landing/mtes.jpg" %}" style="max-height:180px">
+            <img class="a4a-landing-ministere-logo" alt="Ministère de la Transition Écologique et Solidaire" class="img-fluid mt-4" src="{% static "img/landing/mtes.jpg" %}">
           </a>
         </div>
       </div>
-      <div class="row">
+      <div class="row d-flex align-items-center">
         <div class="col-md-4 text-center">
           <a href="https://www.wegoto.eu/">
-            <img alt="Wegoto" class="img-fluid mt-4" src="{% static "img/partenaires/wegoto.png" %}">
+            <img alt="Wegoto" class="a4a-landing-partenaire-logo mt-4" src="{% static "img/partenaires/wegoto.png" %}">
           </a>
         </div>
         <div class="col-md-4 text-center">
           <a href="https://agence-lucie.com/">
-            <img alt="RSE Lucie" class="img-fluid mt-4" src="{% static "img/partenaires/lucie.png" %}" style="height:100px">
+            <img alt="RSE Lucie" class="a4a-landing-partenaire-logo mt-4" src="{% static "img/partenaires/lucie.png" %}" style="height:100px">
           </a>
         </div>
         <div class="col-md-4 text-center">
           <a href="https://www.mobalib.com/">
-            <img alt="Mobalib" class="img-fluid mt-4" src="{% static "img/partenaires/mobalib.png" %}">
+            <img alt="Mobalib" class="a4a-landing-partenaire-logo mt-4" src="{% static "img/partenaires/mobalib.png" %}">
           </a>
         </div>
       </div>
@@ -262,57 +267,4 @@
     </div>
   </section>
 </main>
-{% endblock %}
-
-{% block editorial_content %}
-<aside>
-  <hr class="a4a-landing-separator">
-  <div class="row mt-5" id="villes-couvertes">
-    <div class="col-md-8">
-      {% if search_results %}
-      {% include "search-results.html" %}
-      {% else %}
-      <h2 class="sr-only">Communes renseignées</h2>
-      <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
-        {% for commune in communes %}
-        <div class="col mb-4">
-          <a class="a4a-home-commune-link" href="{% url 'commune' commune.slug %}">
-            <div class="card shadow-sm">
-              <img class="d-none d-md-block card-img-top" alt=""
-                  src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">
-              <div class="card-body p-3">
-                <small class="text-muted">{{ commune.departement_nom }}</small>
-                <h3 class="h5 card-title mb-0 mr-1">{{ commune.nom }}</h3>
-              </div>
-            </div>
-          </a>
-        </div>
-        {% endfor %}
-      </div>
-      <p class="text-right">
-        <a href="{% url "annuaire_home" %}">Toutes les communes, par département &raquo;</a>
-      </p>
-      {% endif %}
-    </div>
-    <div class="col-md-4">
-      <aside class="card">
-        <div class="card-header">
-          <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>
-        </div>
-        {# FIXME: list-group class should be needed here but adds a 2px top border on first element #}
-        <div class="list-group-flush" id="home-latest-erps-list">
-          {% for erp in latest %}
-          <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
-            <img alt="" class="act-icon act-icon-20 mb-1"
-              src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-            {% if erp.commune_ext %}{{ erp.commune_ext.nom }}{% else %}erp.commune{% endif %}
-            {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
-            <br><strong>{{ erp.nom }}</strong>
-          </a>
-          {% endfor %}
-        </div>
-      </aside>
-    </div>
-  </div>
-</aside>
 {% endblock %}

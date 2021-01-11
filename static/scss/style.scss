@@ -94,6 +94,16 @@ $viewport-xl: 1200px;
   }
 
   &-landing {
+    &-ministere-logo {
+      max-height: 180px;
+    }
+
+    &-partenaire-logo {
+      max-width: 200px;
+      max-height: 100px;
+      vertical-align: middle;
+    }
+
     &-picto {
       &-center {
         display: block;
