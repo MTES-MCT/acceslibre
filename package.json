@@ -1,0 +1,42 @@
+{
+  "name": "acceslibre",
+  "version": "1.0.0",
+  "description": "Référencement de l'accessibilité des ERP (Établissements Recevant du Public) en France.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "clean": "rm static/dist/bundle.js",
+    "start": "parcel static/index.js --hmr-port 34471 --out-dir static/dist --public-url static --out-file main",
+    "build-prod": "parcel build static/index.js --out-dir static/dist --public-url static --out-file main",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MTES-MCT/acceslibre.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MTES-MCT/acceslibre/issues"
+  },
+  "homepage": "https://github.com/MTES-MCT/acceslibre#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.3",
+    "devbridge-autocomplete": "^1.4.11",
+    "jquery": "^3.5.1",
+    "leaflet": "^1.7.1",
+    "leaflet-center-cross": "0.0.8",
+    "leaflet.locatecontrol": "^0.70.0",
+    "leaflet.markercluster": "^1.4.1",
+    "popper.js": "^1.16.1",
+    "sentry": "^0.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.32.2"
+  }
+}
