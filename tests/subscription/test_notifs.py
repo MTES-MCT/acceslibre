@@ -1,4 +1,5 @@
 import pytest
+from django.conf import settings
 
 from django.contrib.gis.geos import Point
 from django.core import mail
@@ -121,6 +122,7 @@ def test_notification_erp(client, data, mocker):
     assert Version.objects.count() != 0
 
     notify_changed_erps.job()
+    unsubscribe_url = reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug})
 
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [data.niko.email]
@@ -129,6 +131,7 @@ def test_notification_erp(client, data, mocker):
     assert "34830 Jacou" in mail.outbox[0].body
     assert "sophie a mis à jour les informations suivantes" in mail.outbox[0].body
     assert 'nom: "niko erp" devient "sophie erp"' in mail.outbox[0].body
+    assert f'{settings.SITE_ROOT_URL}{unsubscribe_url}' in mail.outbox[0].body
     assert updated_erp.get_absolute_url() in mail.outbox[0].body
 
 

@@ -5,7 +5,7 @@ from .settings import *
 DEBUG = True
 
 SITE_HOST = "localhost"
-SITE_ROOT_URL = f"http://testserver/"
+SITE_ROOT_URL = f"http://testserver"
 
 ALLOWED_HOSTS = [
     "localhost",
