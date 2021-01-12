@@ -8,8 +8,8 @@
   },
   "scripts": {
     "clean": "rm static/dist/bundle.js",
-    "start": "parcel static/index.js --hmr-port 34471 --out-dir static/dist --public-url static --out-file main",
-    "build-prod": "parcel build static/index.js --out-dir static/dist --public-url static --out-file main",
+    "start": "parcel static/index.js --hmr-port 34471 --out-dir static/dist --out-file main",
+    "build-prod": "parcel build static/index.js --out-dir static/dist --out-file main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,16 +25,22 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.3",
+    "core-js": "^3.8.2",
     "devbridge-autocomplete": "^1.4.11",
+    "icons": "^1.0.0",
     "jquery": "^3.5.1",
+    "js": "^0.1.0",
     "leaflet": "^1.7.1",
     "leaflet-center-cross": "0.0.8",
     "leaflet.locatecontrol": "^0.70.0",
     "leaflet.markercluster": "^1.4.1",
     "popper.js": "^1.16.1",
+    "regenerator-runtime": "^0.13.7",
     "sentry": "^0.1.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^7.17.0",
     "parcel-bundler": "^1.12.4",
     "sass": "^1.32.2"
