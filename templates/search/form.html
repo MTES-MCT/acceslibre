@@ -1,0 +1,93 @@
+{% load static %}
+
+<form action="{% url "search" %}">
+  <input type="hidden" name="lat">
+  <input type="hidden" name="lon">
+  <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
+  <div id="loc-field" class="form-group custom-control custom-switch mb-3 mt-0 ml-2">
+    <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
+      {% if localize == "1" %}checked{% endif %}>
+    <label class="custom-control-label" for="localize">
+      Rechercher autour de ma position géographique actuelle
+      <span id="geoloader" class="lds-dual-ring" style="vertical-align:middle"></span>
+      <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
+    </label>
+  </div>
+  <div class="input-group py-1">
+    <input type="search" id="search" name="q" class="form-control form-control-lg" placeholder="restau lyon"
+      aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
+    <div class="input-group-append">
+      <button type="submit" class="btn btn-lg btn-primary border-left text-nowrap">
+        <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
+        <span class="sr-only">Rechercher</span>
+      </button>
+    </div>
+  </div>
+  <p class="text-center pt-2 mb-1">
+    Ou accedez à <a href="{% url "communes" %}">la liste des communes renseignées</a>.
+  </p>
+</form>
+<script>
+(function(geolocation) {
+  if (!geolocation) {
+    document.querySelector("#loc-field").innerHTML = [
+      '<div class="text-danger">',
+        '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
+        "La géolocalisation n'est pas disponible sur votre navigateur.",
+      '</div>',
+    ].join("");
+    return;
+  }
+  function listenToLocCheckboxChange() {
+    return function(event) {
+      processLocCheckbox(event.target);
+    }
+  }
+  function processLocCheckbox(node) {
+    if (!node.checked) {
+      document.querySelector("#loc").innerText = "";
+      document.querySelector("input[name=lat]").value = null;
+      document.querySelector("input[name=lon]").value = null;
+    } else {
+      $("#geoloader").show();
+      geolocation.getCurrentPosition(function(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
+          .then(function(response) {
+            return response.json()
+          })
+          .then(function(json) {
+            let label;
+            try {
+              label = "(" + json.features[0].properties.label + ")"
+            } catch (e) {
+              label = "(" + lat + ", " + lon + ")";
+            }
+            const loc = document.querySelector("#loc");
+            loc.innerText = label;
+            loc.setAttribute("role", "status");
+            document.querySelector("input[name=lat]").value = lat;
+            document.querySelector("input[name=lon]").value = lon;
+            $("#geoloader").hide();
+          })
+          .catch(function(err) {
+            console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
+            $("#geoloader").hide();
+          });
+      }, function(err) {
+        alert("Nous n'avons pas pu déterminer votre position géographique.")
+      });
+    }
+  }
+  window.addEventListener("DOMContentLoaded", function() {
+    $("#geoloader").hide();
+    const locCheckbox = document.querySelector("#localize");
+    locCheckbox.addEventListener("change", listenToLocCheckboxChange());
+    setTimeout(function() {
+      // Note: a timeout is required in order to reprocess the form state after navigating back
+      processLocCheckbox(locCheckbox);
+    }, 10);
+  });
+})(navigator.geolocation);
+</script>
