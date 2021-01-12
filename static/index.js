@@ -20,4 +20,8 @@ import 'leaflet.locatecontrol/dist/L.Control.Locate.min.css'
 import './scss/style.scss';
 import './icons/styles.css'
 
-console.log("hello world!");
+if (module.hot) {
+    module.hot.accept()
+}
+
+console.log("hello world !");
