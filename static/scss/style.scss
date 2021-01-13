@@ -81,12 +81,53 @@ $viewport-xl: 1200px;
     padding: 4px;
   }
 
+  .small-caps {
+    font-variant: small-caps;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
   svg {
     fill: currentColor;
   }
 
-  .cgu p, .cgu li {
-    color: #444;
+  &-landing {
+    &-ministere-logo {
+      max-height: 180px;
+    }
+
+    &-partenaire-logo {
+      max-width: 200px;
+      max-height: 100px;
+      vertical-align: middle;
+    }
+
+    &-picto {
+      &-center {
+        display: block;
+        width: 70px;
+        margin: 0 auto;
+      }
+
+      &-right {
+        float: right;
+        width: 70px;
+        margin: 0 0 1em 1em;
+      }
+    }
+
+    &-separator {
+      border-top: 5px solid $primary;
+      margin: 1.5em 33%;
+    }
+  }
+
+  .cgu {
+    p, li {
+      color: #444;
+    }
   }
 
   &-partenaire-logo {
@@ -749,51 +790,34 @@ $viewport-xl: 1200px;
     }
   }
 
-  .loader,
-  .loader:before,
-  .loader:after {
-    border-radius: 50%;
-    width: 1em;
-    height: 1em;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation: loader-animation 1.8s infinite ease-in-out;
-    animation: loader-animation 1.8s infinite ease-in-out;
-  }
-  .loader {
-    color: #ffffff;
-    font-size: 10px;
-    margin: 0 auto;
-    position: relative;
-    text-indent: -9999em;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
-  }
-  .loader:before,
-  .loader:after {
-    content: "";
-    position: absolute;
-    top: 0;
-  }
-  .loader:before {
-    left: -1.5em;
-    -webkit-animation-delay: -0.32s;
-    animation-delay: -0.32s;
-  }
-  .loader:after {
-    left: 1.5em;
-  }
-  @keyframes loader-animation {
-    0%,
-    80%,
-    100% {
-      box-shadow: 0 1em 0 -1em;
+  .lds-dual-ring {
+    // adapted from https://loading.io/css/
+    $lds-dual-ring-size: 16px;
+    $lds-dual-ring-stroke: $lds-dual-ring-size / 6;
+    $lds-dual-ring-margin: 0px;
+
+    display: inline-block;
+    width: $lds-dual-ring-size;
+    height: $lds-dual-ring-size;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: $lds-dual-ring-size;
+      height: $lds-dual-ring-size;
+      margin: $lds-dual-ring-margin;
+      border-radius: 50%;
+      border: $lds-dual-ring-stroke solid $primary;
+      border-color: $primary transparent $primary transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
     }
-    40% {
-      box-shadow: 0 1em 0 0;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }

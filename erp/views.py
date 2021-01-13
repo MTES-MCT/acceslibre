@@ -24,7 +24,7 @@ from django_registration.backends.activation.views import (
 from core import mailer
 
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
-from erp.provider import search
+from erp.provider import search as provider_search
 from erp import forms
 from erp import schema
 from erp import serializers
@@ -55,12 +55,24 @@ def handler500(request):
 
 
 def home(request):
+    return render(request, "index.html")
+
+
+def communes(request):
     communes_qs = Commune.objects.erp_stats()[:12]
     latest = (
         Erp.objects.select_related("activite", "commune_ext")
         .published()
         .order_by("-created_at")[:17]
     )
+    return render(
+        request,
+        "communes.html",
+        context={"communes": communes_qs, "latest": latest},
+    )
+
+
+def search(request):
     search_results = None
     q = request.GET.get("q")
     localize = request.GET.get("localize")
@@ -98,7 +110,7 @@ def home(request):
         }
     return render(
         request,
-        "index.html",
+        "search.html",
         context={
             "pager": pager,
             "pager_base_url": pager_base_url,
@@ -107,8 +119,6 @@ def home(request):
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
             "search": q,
-            "communes": communes_qs,
-            "latest": latest,
             "search_results": search_results,
         },
     )
@@ -478,8 +488,9 @@ def contrib_global_search(request):
     form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
     if form.is_valid():
         try:
-            results = search.global_search(
-                form.cleaned_data["search"], form.cleaned_data["code_insee"]
+            results = provider_search.global_search(
+                form.cleaned_data["search"],
+                form.cleaned_data["code_insee"],
             )
         except RuntimeError as err:
             error = err

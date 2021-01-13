@@ -23,32 +23,35 @@ def client():
 
 def test_home(data, client):
     response = client.get(reverse("home"))
-    assert response.context["search"] is None
+    assert response.status_code == 200
+
+
+def test_communes(data, client):
+    response = client.get(reverse("communes"))
     assert len(response.context["communes"]) == 1
     assert response.context["communes"][0].nom == "Jacou"
     assert len(response.context["latest"]) == 1
-    assert response.context["search_results"] is None
 
 
-def test_home_search(data, client):
-    response = client.get(reverse("home") + "?q=croissant%20jacou")
+def test_search(data, client):
+    response = client.get(reverse("search") + "?q=croissant%20jacou")
     assert response.context["search"] == "croissant jacou"
     assert len(response.context["search_results"]["pager"]) == 1
     assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["search_results"]["pager"][0], "distance") is False
 
 
-def test_home_search_empty_text_query(data, client):
-    response = client.get(reverse("home") + "?q=")
+def test_search_empty_text_query(data, client):
+    response = client.get(reverse("search") + "?q=")
     assert response.context["search"] == ""
     assert len(response.context["search_results"]["pager"]) == 1
     assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["search_results"]["pager"][0], "distance") is False
 
 
-def test_home_localized(data, client):
+def test_search_localized(data, client):
     response = client.get(
-        reverse("home") + "?q=croissant%20jacou&localize=1&lat=1&lon=2"
+        reverse("search") + "?q=croissant%20jacou&localize=1&lat=1&lon=2"
     )
     assert response.context["search"] == "croissant jacou"
     assert len(response.context["search_results"]["pager"]) == 1
@@ -59,9 +62,13 @@ def test_home_localized(data, client):
 @pytest.mark.parametrize(
     "url",
     [
-        # Home and search engine
+        # Home
         reverse("home"),
-        reverse("home") + "?q=plop",
+        # Communes
+        reverse("communes"),
+        # Search
+        reverse("search"),
+        reverse("search") + "?q=plop",
         # Editorial
         reverse("accessibilite"),
         reverse("autocomplete"),
