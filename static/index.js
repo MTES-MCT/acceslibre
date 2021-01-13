@@ -22,6 +22,8 @@ import './vendor/selectWoo-1.0.8/css/select2.min.css'
 import './vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css'
 import './scss/style.scss';
 
+console.log('toto', $, $().autocomplete)
+
 if (module.hot) {
     module.hot.accept()
 }
