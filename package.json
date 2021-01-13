@@ -8,8 +8,9 @@
   },
   "scripts": {
     "clean": "rm static/dist/bundle.js",
-    "start": "parcel static/index.js --hmr-port 34471 --out-dir static/dist --public-url /static --out-file main",
-    "start:both": "concurrently -n \"server,front\" -c \"yellow,blue\" -k \"python manage.py runserver\" \"npm run start\"",
+    "start": "parcel static/index.js --hmr-port 34471 --out-dir static/dist --public-url /static/dist --out-file main",
+    "start:server": "python manage.py runserver",
+    "start:both": "concurrently -n \"server,front\" -c \"yellow,blue\" -k \"npm run start:server\" \"npm run start\"",
     "build:prod": "parcel build static/index.js --out-dir static/dist --public-url static --out-file main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,7 +38,8 @@
     "leaflet.markercluster": "^1.4.1",
     "popper.js": "^1.16.1",
     "regenerator-runtime": "^0.13.7",
-    "sentry": "^0.1.2"
+    "sentry": "^0.1.2",
+    "vendor": "^1.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
