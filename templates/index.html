@@ -50,9 +50,15 @@
           <p class="text-dark">Votez&nbsp;! Une fiche vous a été utile, son contenu vous a servi et vous avez constaté une bonne adéquation entre son contenu et la réalité, <strong>faites-le savoir en votant.</strong></p>
           <p class="text-dark">Au contraire, vous constatez une erreur ou une incomplétude, modifiez la fiche en la complétant ou la corrigeant.</p>
           <p class="text-center">
+            {% if user.is_authenticated %}
             <a href="{% url "communes" %}" class="btn btn-lg btn-link mb-3 mt-4">
               Parcourir les territoires pilotes&nbsp;&raquo;
             </a>
+            {% else %}
+            <a href="{% url "django_registration_register" %}" class="btn btn-lg btn-primary mb-3 mt-4">
+              Créez votre compte
+            </a>
+            {% endif %}
           </p>
         </div>
       </div>
