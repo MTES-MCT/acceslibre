@@ -1,6 +1,5 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
-from django.views.decorators.cache import cache_page
 
 from core.cache import cache_per_user
 from erp import schema, views
@@ -18,8 +17,12 @@ def cache_app_page():
     return cache_per_user(APP_CACHE_TTL)(views.App.as_view())
 
 
-def editorial_page(template_name, context=None):
-    return cache_page(EDITORIAL_CACHE_TTL)(
+def cache_user_page(view):
+    return cache_per_user(APP_CACHE_TTL)(view)
+
+
+def cache_editorial_page(template_name, context=None):
+    return cache_per_user(EDITORIAL_CACHE_TTL)(
         views.EditorialView.as_view(template_name=template_name, extra_context=context)
     )
 
@@ -29,20 +32,24 @@ urlpatterns = [
     ############################################################################
     # Editorial
     ############################################################################
-    path("", cache_per_user(APP_CACHE_TTL)(views.home), name="home"),
+    path(
+        "",
+        cache_user_page(views.home),
+        name="home",
+    ),
     path(
         "conditions-generales-d-utilisation",
-        editorial_page("editorial/cgu.html"),
+        cache_editorial_page("editorial/cgu.html"),
         name="cgu",
     ),
     path(
         "accessibilite",
-        editorial_page("editorial/accessibilite.html"),
+        cache_editorial_page("editorial/accessibilite.html"),
         name="accessibilite",
     ),
     path(
         "partenaires",
-        editorial_page(
+        cache_editorial_page(
             "editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}
         ),
         name="partenaires",
@@ -54,6 +61,16 @@ urlpatterns = [
         "app/autocomplete/",
         views.autocomplete,
         name="autocomplete",
+    ),
+    path(
+        "communes/",
+        cache_user_page(views.communes),
+        name="communes",
+    ),
+    path(
+        "recherche/",
+        cache_user_page(views.search),
+        name="search",
     ),
     path(
         "app/<str:commune>/",

@@ -30,11 +30,13 @@ def test_home(data, browser, capsys):
     browser.visit(reverse("home"))
 
     assert browser.title.startswith("acceslibre")
-    assert len(browser.find_by_css("#home-communes-list .card")) == 1
 
-    assert data.erp.geom is not None
-    assert data.erp.published is True
-    assert data.erp.accessibilite is not None
+
+def test_communes(data, browser, capsys):
+    browser.visit(reverse("communes"))
+
+    assert browser.title.startswith("Communes")
+    assert len(browser.find_by_css("#home-communes-list .card")) == 1
     assert len(browser.find_by_css("#home-latest-erps-list a")) == 1
 
 

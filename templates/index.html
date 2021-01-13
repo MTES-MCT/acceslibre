@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}{% if search_results %}Résultats de votre recherche{% else %}acceslibre, la plateforme collaborative de l'accessibilité{% endif %}{% endblock%}
+{% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=False %}
@@ -11,171 +11,170 @@
 
 {% block top_fluid_content %}
 <main role="main" id="content">
-  <section class="container-fluid py-5 a4a-bg-primary-gradient">
+  <section class="container-fluid bg-light py-5">
     <div class="container">
+      <h2 class="font-weight-bold mb-3">Trouvez les lieux accessibles ouverts au public</h2>
       <div class="row">
-        <div class="col-lg-6 p-4 a4a-cta-search">
-          <h2 class="h3 text-light font-weight-bold">Découvrez l'accessibilité des établissements autour de vous</h2>
-          <p class="text-light py-3">{{ SITE_NAME.title }} vous permet d'accéder aux <strong>informations essentielles d'accessibilité</strong> des établissements recevant du public en France.</p>
-          <form action="{% url "home" %}#results">
-            <input type="hidden" name="lat">
-            <input type="hidden" name="lon">
-            <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
-            <div class="input-group py-1">
-              <input type="search" id="search" name="q" class="form-control form-control-lg border-0" placeholder="Rechercher un restaurant, une ville, etc..."
-                aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-lg btn-light border-left text-nowrap">
-                  <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
-                  <span class="sr-only">Rechercher</span>
-                </button>
-              </div>
-            </div>
-            <div id="loc-field" class="form-group custom-control custom-switch mt-3 mb-0 ml-2">
-              <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
-                {% if localize == "1" %}checked{% endif %}>
-              <label class="custom-control-label text-light" for="localize">
-                Rechercher autour de ma position géographique actuelle
-                <span id="geoloader" class="loader"></span>
-                <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
-              </label>
-            </div>
-          </form>
+        <div class="col-xl-6">
+          <p class="text-dark">Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
+          {% include "search/form.html" %}
         </div>
-        <div class="col-lg-6 p-4 text-center bg-light rounded a4a-cta-contribute">
-          <h2 class="h3 font-weight-bold">Participez à l'enrichissement des données d'accessibilité</h2>
-          <p class="pt-2 pb-1">
-            {{ SITE_NAME.title }} est une <strong>plateforme citoyenne collaborative ouverte à tous</strong>.
-            Usagers, gestionnaires d'établissements et agents territoriaux contribuent et <strong>enrichissent
-            continuellement les informations</strong>.
-          </p>
-          <p>
-            <a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary btn-block mb-3">
-              Ajouter un établissement
-            </a>
-          </p>
-          <p class="pb-2 mb-0"><em>10 minutes suffisent pour créer votre compte et ajouter un établissement&nbsp;!</em></p>
+        <div class="col-xl-6">
+          <img alt="" class="img-fluid" src="{% static "img/landing/illustration-principale.png" %}">
         </div>
       </div>
     </div>
   </section>
-  <script>
-  (function(geolocation) {
-    if (!geolocation) {
-      document.querySelector("#loc-field").innerHTML = [
-        '<div class="text-danger">',
-          '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
-          "La géolocalisation n'est pas disponible sur votre navigateur.",
-        '</div>',
-      ].join("");
-      return;
-    }
-    function listenToLocCheckboxChange() {
-      return function(event) {
-        processLocCheckbox(event.target);
-      }
-    }
-    function processLocCheckbox(node) {
-      if (!node.checked) {
-        document.querySelector("#loc").innerText = "";
-        document.querySelector("input[name=lat]").value = null;
-        document.querySelector("input[name=lon]").value = null;
-      } else {
-        geolocation.getCurrentPosition(function(position) {
-          $("#geoloader").show();
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          fetch("https://api-adresse.data.gouv.fr/reverse/?lon=" + lon + "&lat=" + lat + "&type=street")
-            .then(function(response) {
-              return response.json()
-            })
-            .then(function(json) {
-              let label;
-              try {
-                label = "(" + json.features[0].properties.label + ")"
-              } catch (e) {
-                label = "(" + lat + ", " + lon + ")";
-              }
-              const loc = document.querySelector("#loc");
-              loc.innerText = label;
-              loc.setAttribute("role", "status");
-              document.querySelector("input[name=lat]").value = lat;
-              document.querySelector("input[name=lon]").value = lon;
-              $("#geoloader").hide();
-            })
-            .catch(function(err) {
-              console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
-              $("#geoloader").hide();
-            });
-        }, function(err) {
-          alert("Nous n'avons pas pu déterminer votre position géographique.")
-        });
-      }
-    }
-    window.addEventListener("DOMContentLoaded", function() {
-      $("#geoloader").hide();
-      const locCheckbox = document.querySelector("#localize");
-      locCheckbox.addEventListener("change", listenToLocCheckboxChange());
-      setTimeout(function() {
-        // Note: a timeout is required in order to reprocess the form state after navigating back
-        processLocCheckbox(locCheckbox);
-      }, 10);
-    });
-  })(navigator.geolocation);
-  </script>
-</main>
-{% endblock %}
 
-{% block editorial_content %}
-<section>
-  <h2 class="sr-only">Rechercher un établissement</h2>
-
-  <div class="row mt-4">
-    <div class="col-md-8">
-      {% if search_results %}
-      {% include "search-results.html" %}
-      {% else %}
-      <h2 class="sr-only">Communes renseignées</h2>
-      <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
-        {% for commune in communes %}
-        <div class="col mb-4">
-          <a class="a4a-home-commune-link" href="{% url 'commune' commune.slug %}">
-            <div class="card shadow-sm">
-              <img class="d-none d-md-block card-img-top" alt=""
-                  src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">
-              <div class="card-body p-3">
-                <small class="text-muted">{{ commune.departement_nom }}</small>
-                <h3 class="h5 card-title mb-0 mr-1">{{ commune.nom }}</h3>
-              </div>
-            </div>
-          </a>
+  <section class="container-fluid pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="font-weight-bold mb-3">
+            <img alt="" class="a4a-landing-picto-right" src="{% static "img/landing/participez-enrichissement-donnees.png" %}">
+            Participez à l'enrichissement des données d'accessibilité
+          </h3>
+          <hr class="a4a-landing-separator">
+          <p class="text-dark">{{ SITE_NAME.title }} est une <strong>plateforme citoyenne ouverte à tous&nbsp;!</strong></p>
+          <p class="text-dark">Que vous soyez gestionnaire d'un établissement ou que vous le fréquentiez, que vous soyez expert de l'accessibilité parce que c'est votre quotidien et/ou votre métier, <strong>partagez</strong> votre expérience, <strong>contribuez</strong> et <strong> enrichissez</strong> les informations d'accessibilité d'{{ SITE_NAME.title }}.</p>
+          <p class="text-center"><a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary mb-3 mt-4">
+            Ajouter un établissement
+          </a></p>
         </div>
-        {% endfor %}
+        <div class="col-md-6">
+          <h3 class="font-weight-bold mb-3">
+            <img alt="" class="a4a-landing-picto-right" src="{% static "img/landing/fiabilite-des-donnees.png" %}">
+            Soyez acteur de la fiabilité des données
+          </h3>
+          <hr class="a4a-landing-separator">
+          <p class="text-dark">Votez&nbsp;! Une fiche vous a été utile, son contenu vous a servi et vous avez constaté une bonne adéquation entre son contenu et la réalité, <strong>faites-le savoir en votant.</strong></p>
+          <p class="text-dark">Au contraire, vous constatez une erreur ou une incomplétude, modifiez la fiche en la complétant ou la corrigeant.</p>
+          <p class="text-center">
+            <a href="{% url "communes" %}" class="btn btn-lg btn-link mb-3 mt-4">
+              Parcourir les territoires pilotes&nbsp;&raquo;
+            </a>
+          </p>
+        </div>
       </div>
-      <p class="text-right">
-        <a href="{% url "annuaire_home" %}">Toutes les communes, par département &raquo;</a>
-      </p>
-      {% endif %}
     </div>
-    <div class="col-md-4">
-      <aside class="card">
-        <div class="card-header">
-          <h2 class="h6 m-0 font-weight-normal">Derniers établissements renseignés</h2>
+  </section>
+
+  <section class="container-fluid bg-light py-5">
+    <div class="container">
+      <h2 class="text-center font-weight-bold mb-4">Vous êtes gérant ou responsable d'établissement recevant du public&nbsp;?</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <h3 class="font-weight-bold text-center my-3">Augmentez votre visibilité</h3>
+          <hr class="a4a-landing-separator">
+          <p class="text-center text-dark mb-4">Touchez une plus large clientèle en partageant en quelques clics des informations essentielles pour les personnes en situation de handicap</p>
+          <img alt="" class="a4a-landing-picto-center" src="{% static "img/landing/visibilite.png" %}">
         </div>
-        {# FIXME: list-group class should be needed here but adds a 2px top border on first element #}
-        <div class="list-group-flush" id="home-latest-erps-list">
-          {% for erp in latest %}
-          <a href="{{ erp.get_absolute_url }}" class="list-group-item list-group-item-action">
-            <img alt="" class="act-icon act-icon-20 mb-1"
-              src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-            {% if erp.commune_ext %}{{ erp.commune_ext.nom }}{% else %}erp.commune{% endif %}
-            {% if erp.activite %}&raquo; <span class="text-muted">{{ erp.activite.nom}}</span>{% endif %}
-            <br><strong>{{ erp.nom }}</strong>
+        <div class="col-md-4">
+          <h3 class="font-weight-bold text-center my-3">En 5 minutes&nbsp;!</h3>
+          <hr class="a4a-landing-separator">
+          <p class="text-center text-dark mb-4">Complétez la fiche relative à votre établissement en quelques clics&nbsp;!<br><br></p>
+          <img alt="" class="a4a-landing-picto-center" src="{% static "img/landing/stopwatch.png" %}">
+        </div>
+        <div class="col-md-4">
+          <h3 class="font-weight-bold text-center my-3">Et rassurez-vous</h3>
+          <hr class="a4a-landing-separator">
+          <p class="text-center text-dark mb-4">Les informations renseignées vous montreront que vous êtes plus accessibles que vous ne l'imaginez.</p>
+          <img alt="" class="a4a-landing-picto-center" src="{% static "img/landing/rassurez-vous.png" %}">
+        </div>
+      </div>
+      <p class="text-center"><a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary mb-0 mt-5">
+        Référencez votre établissement
+      </a></p>
+    </div>
+  </section>
+
+  <section class="container-fluid py-5 a4a-bg-primary-gradient">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="font-weight-bold text-light mb-3">Notre mission</h3>
+          <p class="text-light">Apporter une information manquante aux personnes en situation de handicap et leurs proches, en faisant participer l'ensemble des acteurs. Aidez la communauté en partageant votre expérience&nbsp;!</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="font-weight-bold text-light mb-3">Notre vision</h3>
+          <p class="text-light">Créer un commun, une base de données <strong>partagée, gratuite, libre</strong> — en mobilisant et en fédérant tous les acteurs de l'accessibilité via cet outil collaboratif.</p>
+        </div>
+      </div>
+      <p class="h3 text-light font-weight-bold text-center mt-4 mb-0">Un commun pour tous, tous pour un commun</p>
+    </div>
+  </section>
+
+  <section class="container-fluid bg-light py-5">
+    <div class="container">
+      <h2 class="text-center uppercase mb-3">Ce que pensent nos utilisateurs</h2>
+      <hr class="a4a-landing-separator">
+      <div class="row">
+        <div class="col-md-6">
+          <blockquote>
+            <p class="text-dark text-center">
+              <q><em>
+                Je suis très agréablement surpris par l'exhaustivité des renseignements fournis, qui en plus se calquent sur la règlementation officielle. On sent que c'est très professionnel. Bravo&nbsp;!
+              </em></q>
+            </p>
+            <footer class="text-muted text-center">
+              <p><cite>Frédéric W.</cite></p>
+            </footer>
+          </blockquote>
+        </div>
+        <div class="col-md-6">
+          <blockquote>
+            <p class="text-dark text-center">
+              <q><em>
+                J'ai trouvé le produit très intuitif. […] Quand je m'organise j'ai besoin de beaucoup d'informations, et je les ai trouvées sur votre produit.
+              </em></q>
+            </p>
+            <footer class="text-muted text-center">
+              <p><cite>Corinne L.<br>Utilisatrice en situation de handicap moteur</cite></p>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid pt-5">
+    <div class="container">
+      <h2 class="text-center uppercase mb-3">Nos partenaires</h2>
+      <hr class="a4a-landing-separator">
+      <h3 class="font-weight-bold text-center mb-5">Un projet porté par</h3>
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <a href="https://www.cohesion-territoires.gouv.fr/">
+            <img class="img-fluid mt-4 a4a-landing-ministere-logo" alt="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" src="{% static "img/landing/mctrct.png" %}">
           </a>
-          {% endfor %}
         </div>
-      </aside>
+        <div class="col-md-6 text-center">
+          <a href="https://www.ecologie.gouv.fr/">
+            <img class="img-fluid mt-4 a4a-landing-ministere-logo" alt="Ministère de la Transition Écologique et Solidaire" src="{% static "img/landing/mtes.jpg" %}">
+          </a>
+        </div>
+      </div>
+      <div class="row d-flex align-items-center">
+        <div class="col-md-4 text-center">
+          <a href="https://www.wegoto.eu/">
+            <img class="a4a-landing-partenaire-logo mt-4" alt="Wegoto" src="{% static "img/partenaires/wegoto.png" %}">
+          </a>
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="https://agence-lucie.com/">
+            <img class="a4a-landing-partenaire-logo mt-4" alt="RSE Lucie" src="{% static "img/partenaires/lucie.png" %}" style="height:100px">
+          </a>
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="https://www.mobalib.com/">
+            <img class="a4a-landing-partenaire-logo mt-4" alt="Mobalib" src="{% static "img/partenaires/mobalib.png" %}">
+          </a>
+        </div>
+      </div>
+      <p class="text-center mt-4 mb-0">
+        <a class="btn btn-link btn-lg" href="{% url "partenaires" %}">Tous nos partenaires&nbsp;&raquo;</a>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 {% endblock %}
