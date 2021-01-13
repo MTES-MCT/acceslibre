@@ -1,11 +1,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-// const jquery = parcelRequire('jquery')
-// $ = window.$ = window.jQuery = jquery;
-
 import './js/jquery';
-// import {$, jQuery} from "jquery";
 
 import 'devbridge-autocomplete';
 import 'leaflet';
@@ -16,7 +12,6 @@ import 'chart.js';
 import 'sentry';
 
 import('./js/app').then();
-import('./vendor/selectWoo').then();
 
 import './icons/styles.css'
 import 'leaflet/dist/leaflet.css'
