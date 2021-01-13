@@ -153,5 +153,5 @@ window.addEventListener("DOMContentLoaded", function() {
     // Registration
     $("#id_ban_autocomplete").autocomplete(banAutocomplete);
     $("#id_photon_autocomplete").autocomplete(photonAutocomplete);
-  })(django.jQuery);
+  })($);
 });
