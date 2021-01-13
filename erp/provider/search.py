@@ -12,24 +12,33 @@ def get_searched_commune(code_insee, search):
 
 
 def sort_and_filter_results(code_insee, results):
-    # Exclude non-geolocalized results
-    results = filter(
-        lambda result: result.get("coordonnees") is not None,
-        results,
-    )
+    siret_seen = []
+    processed = []
 
-    # Exclude results from other departements
-    def filter_dpt(result):
-        return result["code_insee"][:2] == code_insee[:2]
+    for result in results:
+        # Exclude non-geolocalized results
+        if result.get("coordonnees") is None:
+            continue
+        # Exclude results from other departements
+        if result["code_insee"][:2] != code_insee[:2]:
+            continue
+        # Exclude already seen siret
+        siret = result.get("siret")
+        if siret:
+            if siret in siret_seen:
+                continue
+            else:
+                siret_seen.append(result.get("siret"))
+        processed.append(result)
 
-    results = filter(filter_dpt, results)
-
-    # Sort with matching commune first
-    return sorted(
-        results,
+    # Sort with matching commune first (same insee code)
+    processed = sorted(
+        processed,
         key=lambda result: result["code_insee"] == code_insee,
         reverse=True,
     )
+
+    return processed
 
 
 def global_search(terms, code_insee):
