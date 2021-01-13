@@ -12,7 +12,7 @@ import 'leaflet-center-cross';
 import 'chart.js';
 import 'sentry';
 
-import './js/app';
+import('./js/app').then();
 
 import 'leaflet/dist/leaflet.css'
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
