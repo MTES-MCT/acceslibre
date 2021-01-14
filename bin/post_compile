@@ -1,4 +1,4 @@
 #!/bin/sh
 
-#python manage.py sass static/scss/style.scss static/css/style.css -t compressed
+npm run build:prod
 python manage.py collectstatic --noinput
