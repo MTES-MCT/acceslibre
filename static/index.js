@@ -12,6 +12,9 @@ import 'chart.js';
 import 'sentry';
 
 import('./js/app').then();
+import './vendor/selectWoo-1.0.8/js/select2.min.js'
+import './vendor/selectWoo-1.0.8/js/i18n/fr.js'
+
 
 import './icons/styles.css'
 import 'leaflet/dist/leaflet.css'
@@ -21,8 +24,6 @@ import 'leaflet.locatecontrol/dist/L.Control.Locate.min.css'
 import './vendor/selectWoo-1.0.8/css/select2.min.css'
 import './vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css'
 import './scss/style.scss';
-
-console.log('toto', $, $().autocomplete)
 
 if (module.hot) {
     module.hot.accept()

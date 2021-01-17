@@ -1,20 +1,30 @@
-version: 2
+version: 2.1
+
+orbs:
+  python: circleci/python@1.0.0
+
 jobs:
   build:
-    working_directory: ~/access4all
+    # working_directory: ~/access4all
     docker:
-      - image: circleci/python:3.8.2
-        environment:
-          PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: postgres://root:password@localhost/circle_test
-          DJANGO_SETTINGS_MODULE: core.settings_test
-          INSEE_API_CLIENT_KEY: fake-insee-api-client-key
-          INSEE_API_SECRET_KEY: fake-insee-api-secret-key
+      - image: circleci/python:3.8.2-node
       - image: circleci/postgres:12.2-postgis
         environment:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
           POSTGRES_DB: circle_test
+    environment:
+      PIPENV_VENV_IN_PROJECT: true
+      DATABASE_URL: postgres://root:password@localhost/circle_test
+      DJANGO_SETTINGS_MODULE: core.settings_test
+      INSEE_API_CLIENT_KEY: fake-insee-api-client-key
+      INSEE_API_SECRET_KEY: fake-insee-api-secret-key
+      SECRET_KEY: abc54658f4gdsqfgqgdhyqtrhqg54
+      EMAIL_HOST: in-v3.mailjet.com
+      EMAIL_PORT: 587
+      EMAIL_HOST_USER: decf9e29a556df42e902677a4750f42b
+      EMAIL_HOST_PASSWORD: e3576506c5d2c9ac5183b169e88a3c66²
+      SCALINGO_APP: access4all
     steps:
       - checkout
       - restore_cache:
@@ -24,7 +34,6 @@ jobs:
           command: |
             sudo apt update
             sudo apt install -y gdal-bin
-            sudo pip install pipenv
             pipenv sync --dev
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -40,7 +49,7 @@ jobs:
       - run:
           name: Run Flake8
           command: |
-            pipenv run flake8 ~/access4all
+            pipenv run flake8
       - run:
           name: Check production security
           command: |
@@ -48,7 +57,8 @@ jobs:
       - run:
           name: Check SASS stylesheets
           command: |
-            pipenv run ./manage.py sass static/scss/style.scss static/css/style.css
+            npm ci
+            npm run build:prod
       - run:
           name: Check Django templates
           command: |
@@ -56,6 +66,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            mkdir test-results
             pipenv run pytest
       - store_test_results:
           path: test-results
