@@ -31,7 +31,11 @@
             {{ result.nom }}
             {% endif %}
             {% if result.exists %}
-            <span class="badge badge-danger">Existe dans la base</span>
+              {% if not result.exists.is_online %}
+              <span class="badge badge-warning">Existe à l'état de brouillon</span>
+              {% else %}
+              <span class="badge badge-danger">Existe déjà dans la base</span>
+              {% endif %}
             {% elif result.actif %}
             <span class="badge badge-success">En activité</span>
             {% else %}
@@ -49,11 +53,17 @@
             </small>
           </p>
           <p class="card-text mb-0">
+            {% if result.exists and not result.exists.is_online and result.exists.user == user %}
+            <a class="btn btn-success btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
+              Reprendre votre brouillon
+            </a>
+            {% else %}
             <a class="btn btn-primary btn-block {% if not result.actif or result.exists %}disabled{% endif%}"
               href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content"
               {% if not result.actif or result.exists %}disabled{% endif%}>
               Sélectionner cet établissement
             </a>
+            {% endif %}
           </p>
         </div>
       </div>

@@ -98,7 +98,7 @@ $viewport-xl: 1200px;
     }
 
     &-partenaire-logo {
-      max-width: 200px;
+      max-width: 220px;
       max-height: 100px;
       vertical-align: middle;
     }
@@ -339,6 +339,7 @@ $viewport-xl: 1200px;
 
   &-navbar {
     background-color: $primary;
+    padding: 1px 1em;
   }
 
   &-app-nav,

@@ -117,6 +117,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/dge.html",
         "url": "https://www.entreprises.gouv.fr/fr",
     },
+    "JACCEDE": {
+        "avatar": "jaccede_avatar.png",
+        "logo": "img/partenaires/jaccede.png",
+        "name": "Jaccede",
+        "short_description": "Trouvez les lieux qui vous sont accessibles",
+        "template": "editorial/partenaires/jaccede.html",
+        "url": "https://jaccede.com/",
+    },
     "LUCIE": {
         "avatar": "lucie_avatar.png",
         "logo": "img/partenaires/lucie.png",
