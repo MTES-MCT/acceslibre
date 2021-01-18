@@ -22,8 +22,8 @@ jobs:
       SECRET_KEY: abc54658f4gdsqfgqgdhyqtrhqg54
       EMAIL_HOST: in-v3.mailjet.com
       EMAIL_PORT: 587
-      EMAIL_HOST_USER: decf9e29a556df42e902677a4750f42b
-      EMAIL_HOST_PASSWORD: e3576506c5d2c9ac5183b169e88a3c66²
+      EMAIL_HOST_USER: xxx
+      EMAIL_HOST_PASSWORD: xxx
       SCALINGO_APP: access4all
     steps:
       - checkout
