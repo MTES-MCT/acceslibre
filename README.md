@@ -16,7 +16,7 @@ L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant de
 - `libpq-dev`
 - `python3.8-dev`
 - `Django` en version 3 ou supérieure
-- Node + Npm
+- Node v14+ + Npm
 - Optionnel: [Docker](https://docs.docker.com/get-docker/) et [docker-compose](https://docs.docker.com/compose/install/)
 
 ## Configurer les variables d'environnement
@@ -159,8 +159,7 @@ L'application est alors accessible à l'adresse [http://localhost:8000/](http://
 
 La configuration de développement des paramètres applicatifs se fait dans le fichier `core/settings_dev.py`. Vous pouvez également définir votre propre module sur le même modèle et l'importer par le biais de la variable d'environnement `DJANGO_SETTINGS_MODULE`.
 
-N'oubliez pas de relancer `python manage.py runserver` ou `npm run start:both
-`pour prendre en compte tout changement effectué à ce niveau.
+N'oubliez pas de relancer `python manage.py runserver` ou `npm run start:both`pour prendre en compte tout changement effectué à ce niveau.
 
 ## Générer et appliquer les migrations du modèle de données
 
