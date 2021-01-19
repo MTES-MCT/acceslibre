@@ -20,10 +20,8 @@
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('{% url "sw.js" %}', { scope: "/" })
           .then(function(reg) {
-            // registration worked
             console.debug("Registration succeeded. Scope is " + reg.scope);
           }).catch(function(error) {
-            // registration failed
             console.debug("Registration failed with " + error);
           });
       }
