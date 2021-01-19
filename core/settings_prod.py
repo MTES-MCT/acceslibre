@@ -5,7 +5,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     SITE_HOST,
-    "access4all.osc-fr1.scalingo.io",
+    "access4all*.osc-fr1.scalingo.io",
 ]
 
 CACHES = {
