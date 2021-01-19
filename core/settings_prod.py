@@ -6,7 +6,7 @@ from .settings import *
 DEBUG = False
 REVIEW_APP_URL = os.environ.get("CANONICAL_HOST_URL")
 if REVIEW_APP_URL:
-    SITE_HOST = REVIEW_APP_URL
+    SITE_HOST = REVIEW_APP_URL.replace("https://", "")
 
 ALLOWED_HOSTS = [
     SITE_HOST,
