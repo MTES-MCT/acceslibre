@@ -1,3 +1,4 @@
 #!/bin/env bash
 
 python manage.py migrate
+echo "ALLOWED_HOSTS: $ALLOWED_HOSTS"
