@@ -1,4 +1,5 @@
 #!/bin/env bash
 
 python manage.py migrate
-echo "ALLOWED_HOSTS: $ALLOWED_HOSTS"
+echo "CANONICAL_HOST_URL: $CANONICAL_HOST_URL"
+echo "REVIEW_APP_HOST: $REVIEW_APP_HOST"

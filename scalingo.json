@@ -1,7 +1,8 @@
 {
   "env": {
-    "CANONICAL_HOST_URL": {
-      "generator": "url"
+    "REVIEW_APP_HOST": {
+      "generator": "template",
+      "value": "%APP%.osc-fr1.scalingo.io"
     }
   }
 }
