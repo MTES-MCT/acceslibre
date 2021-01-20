@@ -2,7 +2,7 @@
   "env": {
     "REVIEW_APP_HOST": {
       "generator": "template",
-      "value": "%APP%.osc-fr1.scalingo.io"
+      "template": "%APP%.osc-fr1.scalingo.io"
     }
   }
 }
