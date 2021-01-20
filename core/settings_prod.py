@@ -27,7 +27,7 @@ CACHES = {
 # }
 
 # FIXME: removed because of a nasty bug with dist static assets
-# STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
+STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 
 # https://docs.djangoproject.com/fr/3.1/ref/middleware/#http-strict-transport-security
 SECURE_SSL_REDIRECT = True

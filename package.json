@@ -9,7 +9,7 @@
     "start": "parcel static/parcel-entry.js --hmr-port 34471 --out-dir static/dist --public-url /static/dist --out-file main",
     "start:server": "python manage.py runserver",
     "start:both": "concurrently -n \"server,front\" -c \"yellow,blue\" -k \"npm run start:server\" \"npm run start\"",
-    "build:prod": "parcel build static/parcel-entry.js --out-dir static/dist --public-url static --out-file main",
+    "build:prod": "parcel build static/parcel-entry.js --out-dir static/dist --public-url /static/dist --out-file main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
