@@ -5,7 +5,12 @@ from .settings import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get("DEPLOY_HOST", SITE_HOST)]
+APP_NAME = os.environ.get("APP", "access4all")
+ALLOWED_HOSTS = [
+    SITE_HOST,
+    f"{APP_NAME}.osc-fr1.scalingo.io",
+]
+
 
 CACHES = {
     "default": {
