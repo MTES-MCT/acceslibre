@@ -7,6 +7,7 @@ DEBUG = False
 
 APP_NAME = os.environ.get("APP", "access4all")
 ALLOWED_HOSTS = [
+    "localhost",
     SITE_HOST,
     f"{APP_NAME}.osc-fr1.scalingo.io",
 ]
@@ -25,7 +26,8 @@ CACHES = {
 #     }
 # }
 
-STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
+# FIXME: removed because of a nasty bug with dist static assets
+# STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 
 # https://docs.djangoproject.com/fr/3.1/ref/middleware/#http-strict-transport-security
 SECURE_SSL_REDIRECT = True
