@@ -1,3 +1,4 @@
 #!/bin/env bash
 
+echo "DEPLOY_HOST: $DEPLOY_HOST"
 python manage.py migrate

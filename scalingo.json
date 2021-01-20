@@ -1,0 +1,8 @@
+{
+  "env": {
+    "DEPLOY_HOST": {
+      "generator": "template",
+      "template": "%APP%.osc-fr1.scalingo.io"
+    }
+  }
+}
