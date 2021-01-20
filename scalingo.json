@@ -1,6 +1,6 @@
 {
   "env": {
-    "REVIEW_APP_HOST": {
+    "DEPLOY_HOST": {
       "generator": "template",
       "template": "%APP%.osc-fr1.scalingo.io"
     }

@@ -4,15 +4,8 @@ import os
 from .settings import *
 
 DEBUG = False
-REVIEW_APP_HOST = os.environ.get("REVIEW_APP_HOST")
 
-ALLOWED_HOSTS = [
-    SITE_HOST,
-    "access4all.osc-fr1.scalingo.io",
-]
-
-if REVIEW_APP_HOST:
-    ALLOWED_HOSTS += [REVIEW_APP_HOST]
+ALLOWED_HOSTS = [os.environ.get("DEPLOY_HOST", SITE_HOST)]
 
 CACHES = {
     "default": {

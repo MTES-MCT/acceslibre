@@ -1,4 +1,4 @@
 #!/bin/env bash
 
+echo "DEPLOY_HOST: $DEPLOY_HOST"
 python manage.py migrate
-echo "REVIEW_APP_HOST: $REVIEW_APP_HOST"

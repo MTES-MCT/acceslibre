@@ -16,7 +16,7 @@ L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant de
 - `libpq-dev`
 - `python3.8-dev`
 - `Django` en version 3 ou supérieure
-- Node v14+ + Npm
+- [Node](https://nodejs.org/fr/) v14+ + Npm
 - Optionnel: [Docker](https://docs.docker.com/get-docker/) et [docker-compose](https://docs.docker.com/compose/install/)
 
 ## Configurer les variables d'environnement
