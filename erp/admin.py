@@ -248,15 +248,6 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
 
 @admin.register(Erp)
 class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
-    class Media:
-        css = {"all": ("admin/a4a-addons.css",)}
-        js = (
-            "vendor/jquery.autocomplete@1.4.11/jquery.autocomplete.min.js",
-            "js/forms.js",
-            "admin/js/a4a-admin.js",
-            "admin/js/a4a-autocomplete.js",
-        )
-
     form = AdminErpForm
 
     actions = ["assign_activite", "assign_user", "publish", "unpublish"]
@@ -313,7 +304,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
             None,
             {
                 "fields": [
-                    "photon_autocomplete",
                     "activite",
                     "nom",
                     "siret",
@@ -327,7 +317,6 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
             "Localisation",
             {
                 "fields": [
-                    "ban_autocomplete",
                     "numero",
                     "voie",
                     "lieu_dit",

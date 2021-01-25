@@ -18,8 +18,7 @@ $viewport-md: 768px;
 $viewport-lg: 992px;
 $viewport-xl: 1200px;
 
-@import "../vendor/bootstrap@4.5.3/scss/bootstrap.scss";
-
+@import "~bootstrap/scss/bootstrap";
 // App specific styles
 
 .a4a {

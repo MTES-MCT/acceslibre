@@ -1,15 +1,21 @@
-version: 2
+version: 2.1
+
 jobs:
   build:
-    working_directory: ~/access4all
     docker:
-      - image: circleci/python:3.8.2
+      - image: circleci/python:3.8.2-node
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DATABASE_URL: postgres://root:password@localhost/circle_test
           DJANGO_SETTINGS_MODULE: core.settings_test
           INSEE_API_CLIENT_KEY: fake-insee-api-client-key
           INSEE_API_SECRET_KEY: fake-insee-api-secret-key
+          SECRET_KEY: secret-key
+          EMAIL_HOST: host
+          EMAIL_PORT: 587
+          EMAIL_HOST_USER: xxx
+          EMAIL_HOST_PASSWORD: xxx
+          SCALINGO_APP: access4all
       - image: circleci/postgres:12.2-postgis
         environment:
           POSTGRES_USER: root
@@ -24,7 +30,6 @@ jobs:
           command: |
             sudo apt update
             sudo apt install -y gdal-bin
-            sudo pip install pipenv
             pipenv sync --dev
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -40,7 +45,7 @@ jobs:
       - run:
           name: Run Flake8
           command: |
-            pipenv run flake8 ~/access4all
+            pipenv run flake8
       - run:
           name: Check production security
           command: |
@@ -48,7 +53,8 @@ jobs:
       - run:
           name: Check SASS stylesheets
           command: |
-            pipenv run ./manage.py sass static/scss/style.scss static/css/style.css
+            npm ci
+            npm run build:prod
       - run:
           name: Check Django templates
           command: |
@@ -56,6 +62,7 @@ jobs:
       - run:
           name: Run tests
           command: |
+            mkdir test-results
             pipenv run pytest
       - store_test_results:
           path: test-results

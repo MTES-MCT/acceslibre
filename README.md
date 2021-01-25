@@ -16,6 +16,7 @@ L'environnement de développement recommandé est Ubuntu 20.04 LTS, disposant de
 - `libpq-dev`
 - `python3.8-dev`
 - `Django` en version 3 ou supérieure
+- [Node](https://nodejs.org/fr/) v14+ + Npm
 - Optionnel: [Docker](https://docs.docker.com/get-docker/) et [docker-compose](https://docs.docker.com/compose/install/)
 
 ## Configurer les variables d'environnement
@@ -42,7 +43,7 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 - La prise en compte de l'assignation des variables d'environnement définies dans ce fichier `.env` ne sont effectives qu'après avoir activé l'environnement virtuel de développement Python, au moyen de la commande `pipenv shell`. L'exécution de cette commande est également nécessaire pour prendre en compte chaque modification de leur valeur.
 - Vous pouvez lancer un serveur de développement en positionnant la variable d'environnement `DJANGO_SETTINGS_MODULE` manuellement à l'appel de la ligne de commande :
 
-      $ DJANGO_SETTINGS_MODULE=core.settings_prod ./run-dev.sh
+      $ DJANGO_SETTINGS_MODULE=core.settings_prod npm run start:both
 
 ## Installation
 
@@ -143,18 +144,22 @@ $ python manage.py loaddata erp/fixtures/communes.json
 ## Lancer le serveur de développement
 
 ```
-$ ./run-dev.sh
+# Front
+npm start
+# Back
+python manage.py runserver
+
+# Ou simultanément
+npm run start:both
 ```
 
 L'application est alors accessible à l'adresse [http://localhost:8000/](http://localhost:8000/).
-
-**Note :** Il est important d'utiliser le script `run-dev.sh` plutôt que la commande usuelle `manage.py runserver` fournie par Django, afin de prendre en compte la compilation des fichiers [Sass](https://sass-lang.com/) à la volée.
 
 ## Configuration locale de dévelopement
 
 La configuration de développement des paramètres applicatifs se fait dans le fichier `core/settings_dev.py`. Vous pouvez également définir votre propre module sur le même modèle et l'importer par le biais de la variable d'environnement `DJANGO_SETTINGS_MODULE`.
 
-N'oubliez pas de relancer `./run-dev.sh` pour prendre en compte tout changement effectué à ce niveau.
+N'oubliez pas de relancer `python manage.py runserver` ou `npm run start:both`pour prendre en compte tout changement effectué à ce niveau.
 
 ## Générer et appliquer les migrations du modèle de données
 

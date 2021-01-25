@@ -1,12 +1,17 @@
 # flake8: noqa
+import os
+
 from .settings import *
 
 DEBUG = False
 
+APP_NAME = os.environ.get("APP", "access4all")
 ALLOWED_HOSTS = [
+    "localhost",
     SITE_HOST,
-    "access4all.osc-fr1.scalingo.io",
+    f"{APP_NAME}.osc-fr1.scalingo.io",
 ]
+
 
 CACHES = {
     "default": {
@@ -21,6 +26,7 @@ CACHES = {
 #     }
 # }
 
+# FIXME: removed because of a nasty bug with dist static assets
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 
 # https://docs.djangoproject.com/fr/3.1/ref/middleware/#http-strict-transport-security

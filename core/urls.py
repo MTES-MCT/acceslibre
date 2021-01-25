@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path
 from django.views.decorators.cache import cache_page
+from django.views.generic import TemplateView
 
 from core.sitemaps import SITEMAPS
 
@@ -55,6 +56,15 @@ urlpatterns = [
         {"sitemaps": SITEMAPS},
         name="sitemap",
     ),
+    # The service worker cannot be in /static because its scope will be limited to /static.
+    # Since we want it to have a scope of the full application, we rely on this TemplateView
+    # trick to make it work.
+    path(
+        'sw.js',
+        TemplateView.as_view(template_name='sw.js', content_type='application/javascript'),
+        name='sw.js',
+    ),
+
 ]
 
 if settings.DEBUG:
