@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 
 // https://stackoverflow.com/a/47984928
 import "./jquery";
-import "bootstrap/dist/js/bootstrap.bundle.js";
+import "bootstrap/js/dist/tab";
 
 import "devbridge-autocomplete";
 import "leaflet";
