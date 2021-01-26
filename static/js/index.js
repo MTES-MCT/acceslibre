@@ -1,9 +1,14 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
+// jQuery and selectWoo are very special beasts
 // https://stackoverflow.com/a/47984928
-import "./jquery";
-import "bootstrap/js/dist/tab";
+// https://stackoverflow.com/a/49722514
+import jquery from "jquery";
+window.$ = window.jQuery = jquery;
+import select2 from "../vendor/selectWoo-1.0.8/js/select2.full.min";
+select2(window.$);
+import("../vendor/selectWoo-1.0.8/js/i18n/fr.js").then();
 
 import "devbridge-autocomplete";
 import "leaflet";
@@ -14,11 +19,3 @@ import "chart.js";
 import "sentry";
 
 import "./app";
-
-// https://stackoverflow.com/a/49722514
-import("../vendor/selectWoo-1.0.8/js/select2.full.min").then(
-  async (select2) => {
-    select2($);
-    await import("../vendor/selectWoo-1.0.8/js/i18n/fr.js");
-  }
-);
