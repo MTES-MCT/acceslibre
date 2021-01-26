@@ -383,7 +383,7 @@ class BasePublicErpInfosForm(BaseErpForm):
         label="Cet établissement reçoit du public",
         help_text=mark_safe(
             'Seuls les <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32351" target="_blank">'
-            "établissements recevant du public</a> peuvent être ajoutés à cette base de données."
+            "établissements recevant du public</a>, les gîtes et les chambres d'hôtes, peuvent être ajoutés à cette base de données."
         ),
     )
 

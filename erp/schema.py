@@ -165,7 +165,7 @@ SECTIONS = {
     SECTION_TRANSPORT: {
         "icon": "bus",
         "label": "Transports en commun",
-        "description": "Desserte par les transports en commun",
+        "description": "Arrêt de transport en commun à proximité",
         "edit_route": "contrib_transport",
     },
     SECTION_STATIONNEMENT: {
@@ -228,12 +228,12 @@ FIELDS = {
     # Transport
     "transport_station_presence": {
         "is_a11y": True,
-        "label": "Desserte par les transports en commun",
+        "label": "Proximité d'un arrêt de transport en commun",
         "help_text": mark_safe(
-            "L'établissement est-il desservi par les transports en commun à proximité (moins de 200 mètres)&nbsp;?"
+            "Existe-t-il un arrêt de transport en commun à proximité (moins de 200 mètres)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "Présence de transports en commun à proximité (moins de 200 mètres)"
+            "Arrêt de transport en commun à proximité (moins de 200 mètres)"
         ),
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
@@ -775,7 +775,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Marques ou labels",
         "help_text": mark_safe(
-            "Si l’établissement est entré dans une démarche volontaire de labellisation, quelle marques ou quels labels a-t-il obtenu&nbsp;?"
+            "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marques ou quels labels a-t-il obtenu&nbsp;?"
         ),
         "help_text_ui": mark_safe("Marque(s) ou label(s) obtenus par l'établissement"),
         "section": SECTION_LABELS,
