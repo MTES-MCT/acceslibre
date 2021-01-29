@@ -10,6 +10,13 @@ def contains_digits(string):
     return any(char.isdigit() for char in string)
 
 
+def extract_numero_voie(string):
+    if string[0].isdigit():
+        return tuple(string.split(" ", maxsplit=1))
+    else:
+        return (None, string)
+
+
 def normalize_nom(nom):
     parts = map(
         lambda x: x.title() if x not in FRENCH_STOPWORDS else x,

@@ -359,13 +359,6 @@ def clean_coordonnees(coords):
     return coords
 
 
-def extract_numero_voie(string):
-    if text.contains_digits(string):
-        return tuple(string.split(" ", maxsplit=1))
-    else:
-        return (None, string)
-
-
 def get_type_choices():
     return list(TYPES.items())
 
@@ -402,7 +395,7 @@ def parse_etablissement(feature):
     if len(lignes) == 0:
         raise RuntimeError("L'enregistrement ne possède aucune ligne d'adresse")
 
-    (numero, voie) = extract_numero_voie(lignes[0])
+    (numero, voie) = text.extract_numero_voie(lignes[0])
 
     # Validation de la valeur d'adresse email
     email = properties.get("email")
