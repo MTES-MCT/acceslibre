@@ -11,7 +11,7 @@ def contains_digits(string):
 
 
 def extract_numero_voie(string):
-    if string[0].isdigit():
+    if len(string) > 0 and string[0].isdigit():
         return tuple(string.split(" ", maxsplit=1))
     else:
         return (None, string)

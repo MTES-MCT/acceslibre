@@ -64,17 +64,6 @@ def test_find_public_types_multiple():
     assert "tribunal_commerce" in tribunaux
 
 
-def test_extract_numero_voie():
-    cases = [
-        ("", (None, "")),
-        ("4 grand rue", ("4", "grand rue")),
-        ("grand rue", (None, "grand rue")),
-        ("4TER grand rue", ("4TER", "grand rue")),
-    ]
-    for case in cases:
-        assert public_erp.extract_numero_voie(case[0]) == case[1]
-
-
 def test_parse_etablissement_jacou(data, activite_mairie):
     json_feature = json.loads(
         """
