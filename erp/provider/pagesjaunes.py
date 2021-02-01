@@ -55,8 +55,22 @@ class Client:
         return self.auth_token
 
     def parse_result(self, result):
+        # place infos
         infos = result["inscriptions"][0]
+        nom = result.get("merchant_name")
         (numero, voie) = text.extract_numero_voie(infos.get("address_street"))
+        address_city = infos.get("address_city")
+        code_postal = infos.get("address_zipcode")
+        commune_ext = Commune.objects.search_by_nom_code_postal(
+            address_city, code_postal
+        ).first()
+        if commune_ext:
+            commune = commune_ext.nom
+            code_insee = commune_ext.code_insee
+        else:
+            commune = address_city
+            code_insee = None
+        # photos
         photos = [p["url"] for p in result.get("visual_urls", [])]
         photo = photos[0] if len(photos) > 0 else None
 
@@ -64,12 +78,12 @@ class Client:
             actif=True,
             source="pagesjaunes",
             source_id=result.get("merchant_id"),
-            nom=result.get("merchant_name"),
+            nom=nom,
             numero=numero,
             voie=voie,
-            code_postal=infos.get("address_zipcode"),
-            commune=infos.get("address_city"),
-            code_insee=None,
+            code_postal=code_postal,
+            commune=commune,
+            code_insee=code_insee,
             coordonnees=[infos.get("longitude"), infos.get("latitude")],
             naf=None,
             activite=None,
