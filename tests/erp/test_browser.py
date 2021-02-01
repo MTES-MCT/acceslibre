@@ -499,7 +499,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.accueil_visibilite is True
     assert accessibilite.accueil_personnels == "aucun"
-    assert accessibilite.accueil_equipements_malentendants_presence is False
+    assert accessibilite.accueil_equipements_malentendants_presence is True
     assert accessibilite.accueil_equipements_malentendants == ["bim", "lsf"]
     assert accessibilite.accueil_cheminement_plain_pied is False
     assert accessibilite.accueil_cheminement_ascenseur is True

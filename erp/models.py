@@ -998,10 +998,10 @@ class Accessibilite(models.Model):
 
     # Équipements pour personnes sourdes ou malentendantes
     accueil_equipements_malentendants_presence = models.BooleanField(
-      null=True,
-      blank=True,
-      choices=schema.NULLABLE_BOOLEAN_CHOICES,
-      verbose_name="Équipement(s) sourd/malentendant",
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Équipement(s) sourd/malentendant",
     )
 
     # Équipements pour personnes sourdes ou malentendantes
