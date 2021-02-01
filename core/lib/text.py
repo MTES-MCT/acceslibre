@@ -11,10 +11,34 @@ def contains_digits(string):
 
 
 def extract_numero_voie(string):
-    if len(string) > 0 and string[0].isdigit():
-        return tuple(string.split(" ", maxsplit=1))
-    else:
+    """This attempts at extracting the street number and street name out
+    of a French address string:
+
+    >>> extract_numero_voie("4 bis rue yolo")
+    ("4bis", "rue yolo")
+    >>> extract_numero_voie("RN 7")
+    (None, "RN 7")
+    """
+    if not string or len(string) == 0:
+        return (None, "")
+    if not string[0].isdigit():
         return (None, string)
+    numero = None
+    voie = None
+    parts = string.replace(",", "").split(" ")
+    if len(parts) == 1:
+        voie = string
+    elif len(parts) == 2:
+        numero = parts[0]
+        voie = " ".join(parts[1:])
+    elif len(parts) >= 3:
+        if parts[1].lower() in ("b", "bis", "t", "ter", "q", "quater"):
+            numero = parts[0] + parts[1]
+            voie = " ".join(parts[2:])
+        else:
+            numero = parts[0]
+            voie = " ".join(parts[1:])
+    return (numero, voie)
 
 
 def normalize_nom(nom):

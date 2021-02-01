@@ -17,15 +17,21 @@ def test_contains_digits(value, expected):
     assert text.contains_digits(value) is expected
 
 
-def test_extract_numero_voie():
-    cases = [
+@pytest.mark.parametrize(
+    "value, expected",
+    [
         ("", (None, "")),
         ("4 grand rue", ("4", "grand rue")),
+        ("4, grand rue", ("4", "grand rue")),
         ("grand rue", (None, "grand rue")),
+        ("4 bis r yolo", ("4bis", "r yolo")),
         ("4TER grand rue", ("4TER", "grand rue")),
-    ]
-    for case in cases:
-        assert text.extract_numero_voie(case[0]) == case[1]
+        ("rn 7", (None, "rn 7")),
+        ("chemin des prés", (None, "chemin des prés")),
+    ],
+)
+def test_extract_numero_voie(value, expected, capsys):
+    assert text.extract_numero_voie(value) == expected
 
 
 @pytest.mark.parametrize(
