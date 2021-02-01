@@ -24,6 +24,9 @@
         {% endif %}></div>
       <div class="col-lg-7">
         <div class="card-body">
+          {% if result.photo %}
+            <img alt="" class="rounded shadow-sm" src="{{ result.photo }}" height="100" style="float:right">
+          {% endif %}
           <h3 class="h6 card-title font-weight-bold">
             {% if result.exists and result.exists.is_online %}
             <a href="{{ result.exists.get_absolute_url }}" target="_blank">{{ result.nom }}</a>
