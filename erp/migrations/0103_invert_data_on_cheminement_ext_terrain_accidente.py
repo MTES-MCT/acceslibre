@@ -10,4 +10,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+      migrations.RunSQL('update erp_accessibilite '
+                        'set cheminement_ext_terrain_accidente = not cheminement_ext_terrain_accidente',
+                        elidable=True)
     ]
