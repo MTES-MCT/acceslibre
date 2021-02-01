@@ -53,6 +53,7 @@
               {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
               {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
               {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
+              <br>TEST code_insee: {{ result.code_insee|default_if_none:"nope" }}
             </small>
           </p>
           <p class="card-text mb-0">
