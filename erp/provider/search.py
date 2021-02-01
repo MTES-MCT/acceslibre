@@ -1,5 +1,11 @@
 from erp.models import Commune, Erp
-from erp.provider import arrondissements, entreprise, public_erp, opendatasoft
+from erp.provider import (
+    arrondissements,
+    entreprise,
+    public_erp,
+    opendatasoft,
+    pagesjaunes,
+)
 
 
 def get_searched_commune(code_insee, search):
@@ -20,7 +26,7 @@ def sort_and_filter_results(code_insee, results):
         if result.get("coordonnees") is None:
             continue
         # Exclude results from other departements
-        if result["code_insee"][:2] != code_insee[:2]:
+        if result.get("code_insee") and result["code_insee"][:2] != code_insee[:2]:
             continue
         # Exclude already seen siret
         siret = result.get("siret")
@@ -42,24 +48,32 @@ def sort_and_filter_results(code_insee, results):
 
 
 def global_search(terms, code_insee):
-    # OpenDataSoft
-    result_ods = opendatasoft.search(terms, code_insee)
-    for result in result_ods:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
-
-    # Etalab entreprise
-    search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
-    result_entreprises = entreprise.search(search_entreprises, code_insee)
-    for result in result_entreprises:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
-
-    # Administration publique
-    result_public = public_erp.search(terms, code_insee)
-    for result in result_public:
+    # Pagesjaunes
+    commune = Commune.objects.get(code_insee=code_insee)
+    results_pj = pagesjaunes.search(terms, commune.nom)
+    for result in results_pj:
         result["exists"] = Erp.objects.find_by_source_id(
             result["source"], result["source_id"]
         )
 
+    # # OpenDataSoft
+    # result_ods = opendatasoft.search(terms, code_insee)
+    # for result in result_ods:
+    #     result["exists"] = Erp.objects.find_by_siret(result["siret"])
+
+    # # Etalab entreprise
+    # search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
+    # result_entreprises = entreprise.search(search_entreprises, code_insee)
+    # for result in result_entreprises:
+    #     result["exists"] = Erp.objects.find_by_siret(result["siret"])
+
+    # # Administration publique
+    # result_public = public_erp.search(terms, code_insee)
+    # for result in result_public:
+    #     result["exists"] = Erp.objects.find_by_source_id(
+    #         result["source"], result["source_id"]
+    #     )
+
     return sort_and_filter_results(
-        code_insee, result_public + result_ods + result_entreprises
+        code_insee, results_pj  # + result_public + result_ods + result_entreprises
     )
