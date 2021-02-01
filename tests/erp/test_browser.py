@@ -483,7 +483,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         data={
             "accueil_visibilite": True,
             "accueil_personnels": "aucun",
-            "acceuil_equipements_malentendants_presence": False,
+            "accueil_equipements_malentendants_presence": True,
             "accueil_equipements_malentendants": ["bim", "lsf"],
             "accueil_cheminement_plain_pied": False,
             "accueil_cheminement_ascenseur": True,
