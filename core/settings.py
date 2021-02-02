@@ -32,6 +32,7 @@ def get_env_variable(var_name, required=True, type=str):
         return os.environ.get(var_name)
 
 
+STAGING = False
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
@@ -137,6 +138,7 @@ def expose_site_context(request):
 
     return {
         "MAPBOX_TOKEN": settings.MAPBOX_TOKEN,
+        "STAGING": settings.STAGING,
         "SITE_NAME": settings.SITE_NAME,
         "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,

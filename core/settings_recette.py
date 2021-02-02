@@ -5,6 +5,7 @@ from .settings import *
 
 DEBUG = False
 
+STAGING = True
 SITE_NAME = "acceslibre (recette)"
 SITE_HOST = "recette-access4all.osc-fr1.scalingo.io"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
