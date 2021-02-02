@@ -1001,7 +1001,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
-        verbose_name="Présence d'équipement(s) sourd/malentendant",
+        verbose_name="Présence d'équipement(s) sourds/malentendants",
     )
 
     # Équipements pour personnes sourdes ou malentendantes
