@@ -997,6 +997,14 @@ class Accessibilite(models.Model):
     )
 
     # Équipements pour personnes sourdes ou malentendantes
+    accueil_equipements_malentendants_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Présence d'équipement(s) sourds/malentendants",
+    )
+
+    # Équipements pour personnes sourdes ou malentendantes
     accueil_equipements_malentendants = ArrayField(
         models.CharField(
             max_length=255, blank=True, choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES

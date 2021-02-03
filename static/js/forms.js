@@ -88,6 +88,14 @@ window.a4aForms = (function () {
 
     // Accueil
     {
+      source: "accueil_equipements_malentendants_presence",
+      values: ["True"],
+      targets: [
+        "accueil_equipements_malentendants",
+      ],
+      indent: 1,
+    },
+    {
       source: "accueil_cheminement_plain_pied",
       values: ["False"],
       targets: [
