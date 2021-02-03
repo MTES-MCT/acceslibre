@@ -647,7 +647,7 @@ FIELDS = {
     },
     "accueil_equipements_malentendants_presence": {
         "is_a11y": True,
-        "label": "Équipement(s) d'aide à l'audition et à la communication",
+        "label": "Présence d'équipements sourds/malentendants",
         "help_text": mark_safe(
             "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes française, solution de traduction à distance, etc)&nbsp?"
         ),
@@ -660,7 +660,7 @@ FIELDS = {
     },
     "accueil_equipements_malentendants": {
         "is_a11y": True,
-        "label": "Équipement(s) de communication",
+        "label": "Équipement(s) d'aide à l'audition et à la communication",
         "help_text": mark_safe(
             "Équipements sourds/malentendants disponibles"
         ),
