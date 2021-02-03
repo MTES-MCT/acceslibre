@@ -10,6 +10,8 @@ jobs:
           DJANGO_SETTINGS_MODULE: core.settings_test
           INSEE_API_CLIENT_KEY: fake-insee-api-client-key
           INSEE_API_SECRET_KEY: fake-insee-api-secret-key
+          PAGESJAUNES_API_CLIENT_KEY: fake-pj-api-client-key
+          PAGESJAUNES_API_SECRET_KEY: fake-pj-api-secret-key
           SECRET_KEY: secret-key
           EMAIL_HOST: host
           EMAIL_PORT: 587
