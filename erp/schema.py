@@ -311,10 +311,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Cheminement extérieur",
         "help_text": mark_safe(
-            "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur&nbsp;?"
+            "L'accès à l'entrée depuis la voirie se fait-il par un cheminement extérieur&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur"
+            "L'accès à l'entrée depuis la voirie se fait-il par un cheminement extérieur"
         ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
