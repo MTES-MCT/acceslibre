@@ -647,12 +647,12 @@ FIELDS = {
     },
     "accueil_equipements_malentendants_presence": {
         "is_a11y": True,
-        "label": "Présence d'équipements sourds/malentendants",
+        "label": "Présence d'équipements d'aide à l'audition et à la communication",
         "help_text": mark_safe(
-            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes (boucle à induction magnétique, langue des signes française, solution de traduction à distance, etc)&nbsp?"
+            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes&nbsp?"
         ),
         "help_text_ui": mark_safe(
-            "Présence d'équipements ou de prestations facilitant la communication avec les personnes sourdes ou malentendantes"
+            "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
         ),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -660,13 +660,11 @@ FIELDS = {
     },
     "accueil_equipements_malentendants": {
         "is_a11y": True,
-        "label": "Équipement(s) d'aide à l'audition et à la communication",
+        "label": "Liste des équipements d'aide à l'audition et à la communication",
         "help_text": mark_safe(
-            "Équipements sourds/malentendants disponibles"
+            "Sélectionnez les équipements ou prestations disponibles à l'accueil de l'établissement&nbsp;:"
         ),
-        "help_text_ui": mark_safe(
-            "Équipements sourds/malentendants disponibles"
-        ),
+        "help_text_ui": mark_safe("Équipements ou prestations disponibles"),
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and len(x) == 0,
