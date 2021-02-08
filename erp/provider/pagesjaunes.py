@@ -5,7 +5,7 @@ import time
 from django.conf import settings
 
 from core.lib import text
-from erp.models import Commune
+from erp.models import Commune, Erp
 
 
 logger = logging.getLogger(__name__)
@@ -92,7 +92,7 @@ class Client:
 
         return dict(
             actif=True,
-            source="pagesjaunes",
+            source=Erp.SOURCE_PJ,
             source_id=result.get("merchant_id"),
             nom=nom,
             numero=numero,
