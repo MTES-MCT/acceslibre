@@ -134,8 +134,9 @@ class Client:
             )
             logger.info(f"pagesjaunes api call: {res.url}")
             json = res.json()
+            raw_results = json.get("search_results", {}).get("listings", [])
             results = []
-            for result in json["search_results"]["listings"]:
+            for result in raw_results:
                 results.append(self.parse_result(result))
             return self.deduplicate_results(results)
         except requests.exceptions.RequestException as err:

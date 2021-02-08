@@ -91,6 +91,7 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
             "commune_search": "Jacou (34)",
             "code_insee": "34120",
             "search": "mairie",
+            "sources": [Erp.SOURCE_PJ],
         },
         follow=True,
     )

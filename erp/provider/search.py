@@ -47,32 +47,38 @@ def sort_and_filter_results(code_insee, results):
     return processed
 
 
-def global_search(terms, code_insee):
-    # Pagesjaunes
+def global_search(terms, code_insee, sources=[Erp.SOURCE_PJ]):
     commune = Commune.objects.get(code_insee=code_insee)
-    results_pj = pagesjaunes.search(terms, commune.nom)
-    for result in results_pj:
-        result["exists"] = Erp.objects.find_by_source_id(
-            result["source"], result["source_id"]
-        )
+    results_pj = result_ods = result_entreprises = result_public = []
+
+    # Pagesjaunes
+    if Erp.SOURCE_PJ in sources:
+        results_pj = pagesjaunes.search(terms, commune.nom)
+        for result in results_pj:
+            result["exists"] = Erp.objects.find_by_source_id(
+                result["source"], result["source_id"]
+            )
 
     # OpenDataSoft
-    result_ods = opendatasoft.search(terms, code_insee)
-    for result in result_ods:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+    if Erp.SOURCE_ODS in sources:
+        result_ods = opendatasoft.search(terms, code_insee)
+        for result in result_ods:
+            result["exists"] = Erp.objects.find_by_siret(result["siret"])
 
     # Etalab entreprise
-    search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
-    result_entreprises = entreprise.search(search_entreprises, code_insee)
-    for result in result_entreprises:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+    if Erp.SOURCE_API_ENTREPRISE in sources:
+        search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
+        result_entreprises = entreprise.search(search_entreprises, code_insee)
+        for result in result_entreprises:
+            result["exists"] = Erp.objects.find_by_siret(result["siret"])
 
     # Administration publique
-    result_public = public_erp.search(terms, code_insee)
-    for result in result_public:
-        result["exists"] = Erp.objects.find_by_source_id(
-            result["source"], result["source_id"]
-        )
+    if Erp.SOURCE_PUBLIC_ERP in sources:
+        result_public = public_erp.search(terms, code_insee)
+        for result in result_public:
+            result["exists"] = Erp.objects.find_by_source_id(
+                result["source"], result["source_id"]
+            )
 
     return sort_and_filter_results(
         code_insee, results_pj + result_public + result_ods + result_entreprises

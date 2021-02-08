@@ -490,9 +490,22 @@ class ProviderGlobalSearchForm(forms.Form):
         help_text="Commencez à saisir le nom de la commune recherchée, puis sélectionnez la proposition correspondante.",
         widget=forms.Select(),
     )
+    sources = forms.MultipleChoiceField(
+        label="Sources",
+        choices=(
+            (Erp.SOURCE_PJ, "PagesJaunes"),
+            (Erp.SOURCE_API_ENTREPRISE, "API Entreprise"),
+            (Erp.SOURCE_ODS, "OpenDataSoft"),
+            (Erp.SOURCE_PUBLIC_ERP, "Administrations publiques"),
+        ),
+        widget=forms.CheckboxSelectMultiple,
+        help_text="Sélectionnez les sources de données à interroger pour rechercher des établissements",
+        required=True,
+    )
 
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
+        initial["sources"] = [Erp.SOURCE_PJ]
         code_insee = initial.get("code_insee")
         if code_insee:
             commune = Commune.objects.filter(code_insee=code_insee).first()

@@ -496,12 +496,15 @@ def contrib_start(request):
 @login_required
 def contrib_global_search(request):
     results = error = None
-    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
+    form = forms.ProviderGlobalSearchForm(
+        request.GET if request.GET else None, initial={"sources": [Erp.SOURCE_PJ]}
+    )
     if form.is_valid():
         try:
             results = provider_search.global_search(
                 form.cleaned_data["search"],
                 form.cleaned_data["code_insee"],
+                sources=form.cleaned_data["sources"],
             )
         except RuntimeError as err:
             error = err

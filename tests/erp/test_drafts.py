@@ -50,7 +50,7 @@ def test_user_draft_listed(client, data, mocker, sample_result, capsys):
 
     response = client.get(
         reverse("contrib_global_search")
-        + "?search=croissants&code_insee=34120&commune_search=Jacou+%2834%2C+Hérault%29"
+        + "?search=croissants&code_insee=34120&commune_search=Jacou+%2834%2C+Hérault%29&sources=pagesjaunes"
     )
 
     assert "Existe à l'état de brouillon" in response.content.decode()
