@@ -81,6 +81,7 @@ def search(request):
     page_number = 1
     lat = None
     lon = None
+    geojson_list = None
     if "q" in request.GET:
         erp_qs = Erp.objects.select_related(
             "accessibilite", "activite", "commune_ext"
@@ -110,7 +111,7 @@ def search(request):
         }
         serializer = serializers.SpecialErpSerializer()
         geojson_list = serializer.serialize(
-            erp_qs,
+            erp_qs[:10],
             geometry_field="geom",
             use_natural_foreign_keys=True,
             fields=[

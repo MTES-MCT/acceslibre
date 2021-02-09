@@ -11,27 +11,24 @@
 
 {% block editorial_content %}
 <main id="content">
-  <h2 class="mb-3">Recherche</h2>
+  <h2 class="mb-3">{% if search %}Votre recherche <small class="font-italic text-muted">{{ search }}</small>{% else %}Recherche{% endif %}</h2>
 
   {% include "search/form.html" with from_home=False %}
 
-  <hr class="a4a-landing-separator">
-
-  <section class="pt-2" id="results">
-    <h2 class="h4 mb-3">
-      Établissements {% if localize == "1" %}proches de vous{% endif %}
-      <small class="text-muted"> correspondant à votre recherche</small>
-    </h2>
-    {% if not search_results.pager %}
+  <section class="pt-2 mt-2" id="results">
+    {% if search and not search_results.pager %}
     <div class="alert alert-info">
       Il n'y a pas de résultat correspondant à votre recherche.
     </div>
-    {% else %}
-    <div class="row">
+    {% elif search_results.pager %}
+    <h2 class="h4 mb-3">
+      Établissements {% if localize == "1" %}proches de vous{% endif %}
+    </h2>
+    <div class="row no-gutters">
       <div class="col-md-5 mb-4">
-        <div class="list-group">
+        <div class="list-group list-group-flush">
         {% for erp in search_results.pager %}
-          <div class="list-group-item">
+          <div class="list-group-item pl-0">
             <div class="d-flex w-100 justify-content-between">
               <h3 class="h6 mb-0">
                 <a href="{{ erp.get_absolute_url }}">
@@ -60,18 +57,39 @@
           </div>
         {% endfor%}
         </div>
+        <!-- results pagination -->
+        <div class="px-2">
+          {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url %}
+        </div>
       </div>
-      <div class="col-md-7">
-        {% include "common/map.html" %}
+      <div class="col-md-7 a4a-search-map-area">
+        <div class="a4a-search-map" id="app-map">
+          <noscript>
+            <div class="p-3">
+              <div class="alert alert-warning">
+                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                JavaScript doit être activé pour utiliser la cartographie interactive.
+              </div>
+            </div>
+          </noscript>
+        </div>
+        <script>
+          $(function() {
+            const map = a4a.initAppMap(
+              {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
+              {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
+              {{ around | default_if_none:"null" }},
+              {{ geojson_list | safe }}
+            );
+          });
+        </script>
       </div>
     </div>
-    <!-- results pagination -->
-    {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url %}
     {% endif %}
   </section>
 
   {% if localize != "1" %}
-  <section>
+  <section class="mt-3">
     {% if search_results.communes %}
     <h2 class="h4 mb-3">
       Villes <small class="text-muted">correspondant à votre recherche</small>

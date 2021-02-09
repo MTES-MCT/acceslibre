@@ -388,6 +388,19 @@ $viewport-xl: 1200px;
     }
   }
 
+  &-search-map-area {
+    position: relative;
+    min-height: 200px;
+  }
+
+  &-search-map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
   &-erp-list-inner.loading {
     opacity: 0.65;
   }

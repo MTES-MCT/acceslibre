@@ -75,7 +75,7 @@ window.a4a = (function () {
     return L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
       id: styleId,
       attribution: `
-          Cartographie &copy; contributeurs <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
+          &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
           <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
           Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>`,
       maxZoom: 20,
@@ -224,6 +224,8 @@ window.a4a = (function () {
     if (pk) {
       openMarkerPopup(pk);
     }
+
+    return map;
   }
 
   function openMarkerPopup(pk) {
