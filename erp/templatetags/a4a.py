@@ -71,7 +71,7 @@ def format_distance(value):
     if value.m == 0:
         return "Au même endroit"
     elif value.m > 999:
-        return f"À {value.km:.2f} km"
+        return f"À {round(value.km)} km"
     else:
         return f"À {round(value.m)} m"
 

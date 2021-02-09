@@ -13,7 +13,7 @@
 <main id="content">
   <h2 class="mb-3">Recherche</h2>
 
-  {% include "search/form.html" %}
+  {% include "search/form.html" with from_home=False %}
 
   <hr class="a4a-landing-separator">
 
@@ -22,6 +22,11 @@
       Établissements {% if localize == "1" %}proches de vous{% endif %}
       <small class="text-muted"> correspondant à votre recherche</small>
     </h2>
+    {% if not search_results.pager %}
+    <div class="alert alert-info">
+      Il n'y a pas de résultat correspondant à votre recherche.
+    </div>
+    {% else %}
     <div class="row">
       <div class="col-md-5 mb-4">
         <div class="list-group">
@@ -41,27 +46,28 @@
                 </small>
               {% endif %}
             </div>
-            <div>{% if erp.activite %}<small>{{ erp.activite }}</small>{% endif %}</div>
-            <small class="mb-1">
-              {{ erp.short_adresse }} {{ erp.code_postal }}
-              {% if erp.commune_ext %}
-              <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
-              {% else %}
-              {{ erp.commune }}
-              {% endif %}
-            </small>
+            {% if erp.activite %}<small class="text-muted">{{ erp.activite }}</small>{% endif %}
+            <address class="mb-0">
+              <small>
+                {{ erp.short_adresse }} {{ erp.code_postal }}
+                {% if erp.commune_ext %}
+                <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
+                {% else %}
+                {{ erp.commune }}
+                {% endif %}
+              </small>
+            </address>
           </div>
-        {% empty %}
-        <p class="col">Aucun résultat.</p>
         {% endfor%}
         </div>
       </div>
       <div class="col-md-7">
-        Carto ici
+        {% include "common/map.html" %}
       </div>
     </div>
     <!-- results pagination -->
     {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url %}
+    {% endif %}
   </section>
 
   {% if localize != "1" %}

@@ -17,7 +17,7 @@
       <div class="row">
         <div class="col-xl-6">
           <p class="text-dark">Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
-          {% include "search/form.html" %}
+          {% include "search/form.html" with from_home=True %}
         </div>
         <div class="col-xl-6">
           <img alt="" class="img-fluid" src="{% static "img/landing/illustration-principale.png" %}">

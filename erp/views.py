@@ -108,6 +108,22 @@ def search(request):
             )[:4],
             "pager": pager,
         }
+        serializer = serializers.SpecialErpSerializer()
+        geojson_list = serializer.serialize(
+            erp_qs,
+            geometry_field="geom",
+            use_natural_foreign_keys=True,
+            fields=[
+                "pk",
+                "nom",
+                "activite__nom",
+                "activite__vector_icon",
+                "adresse",
+                "absolute_url",
+                "contrib_localisation_url",
+                "has_accessibilite",
+            ],
+        )
     return render(
         request,
         "search/results.html",
@@ -120,6 +136,9 @@ def search(request):
             "lon": request.GET.get("lon"),
             "search": q,
             "search_results": search_results,
+            "geojson_list": geojson_list,
+            "commune_json": None,
+            "around": None,  # XXX: (lat, lon)
         },
     )
 

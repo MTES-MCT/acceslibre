@@ -31,10 +31,7 @@ window.a4a = (function () {
       iconAnchor: [size / 2, size],
       popupAnchor: [0, -size],
       tooltipAnchor: [size / 2, -28],
-      className:
-        "shadow-sm act-icon act-icon-rounded act-icon-" +
-        size +
-        ((highlight && " invert") || ""),
+      className: "shadow-sm act-icon act-icon-rounded act-icon-" + size + ((highlight && " invert") || ""),
     };
     return L.icon(options);
   }
@@ -61,12 +58,8 @@ window.a4a = (function () {
   function pointToLayer({ properties: props }, coords) {
     return L.marker(coords, {
       alt: props.nom,
-      title:
-        (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
-      icon: createIcon(
-        currentPk && Number(props.pk) === currentPk,
-        props.activite__vector_icon
-      ),
+      title: (props.activite__nom ? props.activite__nom + ": " : "") + props.nom,
+      icon: createIcon(currentPk && Number(props.pk) === currentPk, props.activite__vector_icon),
     });
   }
 
@@ -79,30 +72,22 @@ window.a4a = (function () {
   }
 
   function createTiles(styleId) {
-    return L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      {
-        id: styleId,
-        attribution: `
+    return L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+      id: styleId,
+      attribution: `
           Cartographie &copy; contributeurs <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
           <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
           Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>`,
-        maxZoom: 20,
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken:
-          "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw",
-      }
-    );
+      maxZoom: 20,
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw",
+    });
   }
 
   function initHomeMap() {
     const tiles = createTiles();
-    return L.map("home-map")
-      .addLayer(tiles)
-      .setZoom(6)
-      .setMinZoom(6)
-      .setView([46.227638, 2.213749], 6);
+    return L.map("home-map").addLayer(tiles).setZoom(6).setMinZoom(6).setView([46.227638, 2.213749], 6);
   }
 
   function getStreetsTiles() {
@@ -131,21 +116,15 @@ window.a4a = (function () {
 
     const popup = L.popup()
       .setLatLng(latlng)
-      .setContent(
-        '<a href="#" class="a4a-map-add">Ajouter un établissement ici</a>'
-      )
+      .setContent('<a href="#" class="a4a-map-add">Ajouter un établissement ici</a>')
       .openOn(map);
 
     $(".a4a-map-add").on("click", async function (event) {
       event.preventDefault();
       const { lat, lng } = latlng;
-      const req = await fetch(
-        `https://api-adresse.data.gouv.fr/reverse/?lon=${lng}&lat=${lat}`
-      );
+      const req = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lng}&lat=${lat}`);
       const res = await req.json();
-      const results = res.features.filter(
-        ({ properties }) => properties.type == "housenumber"
-      );
+      const results = res.features.filter(({ properties }) => properties.type == "housenumber");
       if (results.length == 0) {
         $(this).replaceWith("Aucune adresse ne correspond à cet emplacement.");
         return;
@@ -201,7 +180,10 @@ window.a4a = (function () {
       pointToLayer: pointToLayer,
     });
 
-    map = createMap("app-map").setMinZoom(info.zoom - 2);
+    map = createMap("app-map");
+    if (info) {
+      map.setMinZoom(info.zoom - 2);
+    }
 
     // right-click menu
     map.on("contextmenu", onMapContextMenu);
@@ -228,7 +210,7 @@ window.a4a = (function () {
       map.setView(around, 16);
     } else if (geoJson.features.length > 0) {
       map.fitBounds(markers.getBounds().pad(0.1));
-    } else {
+    } else if (info) {
       map.setView(info.center, info.zoom);
     }
 
@@ -270,9 +252,7 @@ window.a4a = (function () {
 
     // Django crispy forms asterisk a11y improvements
     $(".asteriskField").each((i, elem) => {
-      $(elem).replaceWith(
-        '&nbsp;<small>(requis)</small><abbr class="asteriskField" title="(obligatoire)">*</abbr>'
-      );
+      $(elem).replaceWith('&nbsp;<small>(requis)</small><abbr class="asteriskField" title="(obligatoire)">*</abbr>');
     });
 
     // Autocomplete
@@ -299,15 +279,9 @@ window.a4a = (function () {
           .then(function ({ features }) {
             return features
               .filter(({ properties: { city } }) => {
-                return (
-                  (commune && city.toLowerCase() === commune.toLowerCase()) ||
-                  true
-                );
+                return (commune && city.toLowerCase() === commune.toLowerCase()) || true;
               })
-              .map(function ({
-                properties: { label, score },
-                geometry: { coordinates },
-              }) {
+              .map(function ({ properties: { label, score }, geometry: { coordinates } }) {
                 return {
                   value: label,
                   data: {
