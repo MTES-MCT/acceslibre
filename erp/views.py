@@ -110,7 +110,7 @@ def search(request):
         }
     return render(
         request,
-        "search.html",
+        "search/results.html",
         context={
             "pager": pager,
             "pager_base_url": pager_base_url,
