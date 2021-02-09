@@ -22,41 +22,45 @@
       Établissements {% if localize == "1" %}proches de vous{% endif %}
       <small class="text-muted"> correspondant à votre recherche</small>
     </h2>
-    <div class="row row-cols-1 row-cols-md-2">
-      {% for erp in search_results.pager %}
-      <div class="col mb-4">
-        <div class="card shadow-sm mb-2">
-          <div class="card-body p-3">
-            <h3 class="h6 m-0">
-              <img alt="" class="act-icon act-icon-20 mb-1"
-                src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-              <a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>
-            </h3>
-            {% if localize == "1" and erp.distance %}
-              <small class="text-muted" aria-label="Distance de votre position géographique">
-                <em>({{ erp.distance|format_distance }})</em>
-              </small>
-            {% endif %}
-            {% if erp.activite %}<small>{{ erp.activite }}</small>{% endif %}
-            <address class="mb-0">
-              <em>
-                <small class="text-muted">
-                  {{ erp.short_adresse }} {{ erp.code_postal }}
-                  {% if erp.commune_ext %}
-                  <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
-                  {% else %}
-                  {{ erp.commune }}
-                  {% endif %}
+    <div class="row">
+      <div class="col-md-5 mb-4">
+        <div class="list-group">
+        {% for erp in search_results.pager %}
+          <div class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+              <h3 class="h6 mb-0">
+                <a href="{{ erp.get_absolute_url }}">
+                  <img alt="" class="act-icon act-icon-20 mb-1"
+                    src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                  {{ erp.nom }}
+                </a>
+              </h3>
+              {% if localize == "1" and erp.distance %}
+                <small class="text-muted" aria-label="Distance de votre position géographique">
+                  <em>{{ erp.distance|format_distance }}</em>
                 </small>
-              </em>
-            </address>
+              {% endif %}
+            </div>
+            <div>{% if erp.activite %}<small>{{ erp.activite }}</small>{% endif %}</div>
+            <small class="mb-1">
+              {{ erp.short_adresse }} {{ erp.code_postal }}
+              {% if erp.commune_ext %}
+              <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
+              {% else %}
+              {{ erp.commune }}
+              {% endif %}
+            </small>
           </div>
+        {% empty %}
+        <p class="col">Aucun résultat.</p>
+        {% endfor%}
         </div>
       </div>
-      {% empty %}
-      <p class="col">Aucun résultat.</p>
-      {% endfor %}
+      <div class="col-md-7">
+        Carto ici
+      </div>
     </div>
+    <!-- results pagination -->
     {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url %}
   </section>
 
