@@ -76,18 +76,18 @@ def search(request):
     search_results = None
     q = request.GET.get("q")
     localize = request.GET.get("localize")
-    pager = None
+    paginator = pager = None
     pager_base_url = None
     page_number = 1
     lat = None
     lon = None
     geojson_list = None
-    if "q" in request.GET:
-        erp_qs = Erp.objects.select_related(
-            "accessibilite", "activite", "commune_ext"
-        ).published()
-        if len(q) > 0:
-            erp_qs = erp_qs.search(q)
+    if q and len(q) > 0:
+        erp_qs = (
+            Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+            .published()
+            .search(q)
+        )
         if localize == "1":
             try:
                 (lat, lon) = (
@@ -129,6 +129,7 @@ def search(request):
         request,
         "search/results.html",
         context={
+            "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
             "page_number": page_number,

@@ -388,9 +388,20 @@ $viewport-xl: 1200px;
     }
   }
 
+  &-search-pager {
+    justify-content: flex-end; // desktop
+
+    @media only screen and (max-width: $viewport-sm) {
+      // on mobile we want the pagination links to sit centered under the section heading
+      margin-top: 1em;
+      justify-content: center;
+    }
+  }
+
   &-search-map-area {
     position: relative;
     min-height: 400px; // desktop
+
     @media only screen and (max-width: $viewport-sm) {
       min-height: 200px; // mobile
       order: -1; // on mobile the map is on top of results
