@@ -11,7 +11,15 @@
 
 {% block editorial_content %}
 <main id="content">
-  <h2 class="mb-3">{% if search %}Votre recherche <small class="font-italic text-muted">{{ search }}</small>{% else %}Recherche{% endif %}</h2>
+  <h2 class="mb-3">
+    {% if search and not search_results.pager %}
+      Aucun résultat
+    {% elif search and search_results.pager %}
+      Votre recherche <small class="font-italic text-muted">{{ search }}</small>
+    {% else %}
+      Recherche
+    {% endif %}
+  </h2>
 
   {% include "search/form.html" with from_home=False %}
 
