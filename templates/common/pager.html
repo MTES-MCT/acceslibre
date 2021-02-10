@@ -1,6 +1,6 @@
 {% if pager and pager.has_other_pages %}
 <nav aria-label="Pagination des résultats">
-  <ul class="pagination justify-content-end mt-3">
+  <ul class="pagination {% if css_classes %}{{ css_classes }}{% else %}justify-content-end mt-3{% endif %}">
     {% if pager.has_previous %}
     <li class="page-item">
       <a class="page-link" href="{{ pager_base_url }}&page={{ pager.previous_page_number }}">&laquo;&nbsp;Page précédente</a>
@@ -10,16 +10,23 @@
       <a class="page-link" href="#">&laquo;&nbsp;Page précédente</a>
     </li>
     {% endif %}
-    {% if pager.paginator.num_pages > 5 %}
-    <li class="page-item disabled">
-      <span class="page-link">page {{ pager.number }}/{{ pager.paginator.num_pages }}</span>
-    </li>
-    {% else %}
-    {% for i in pager.paginator.page_range %}
-    <li class="page-item{% if pager.number == i %} active{% endif %}">
-      <a class="page-link" href="{{ pager_base_url }}&page={{ i }}">{{ i }}</a>
-    </li>
-    {% endfor %}
+    {% if not no_page_links %}
+      {% if pager.paginator.num_pages > 5 %}
+      <li class="page-item disabled">
+        <span class="page-link">page {{ pager.number }}/{{ pager.paginator.num_pages }}</span>
+      </li>
+      {% else %}
+        {% for i in pager.paginator.page_range %}
+        <li class="page-item{% if pager.number == i %} active{% endif %}">
+          <a class="page-link" href="{{ pager_base_url }}&page={{ i }}">
+            {% if pager.number == i %}
+              <span class="sr-only">(page courrante)</span>
+            {% endif %}
+            {{ i }}
+          </a>
+        </li>
+        {% endfor %}
+      {% endif %}
     {% endif %}
     {% if pager.has_next %}
     <li class="page-item">

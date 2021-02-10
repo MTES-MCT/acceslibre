@@ -25,12 +25,12 @@
       Établissements {% if localize == "1" %}proches de vous{% endif %}
     </h2>
     <div class="row no-gutters">
-      <div class="col-md-5 mb-4">
+      <div class="col-md-5">
         <div class="list-group list-group-flush">
         {% for erp in search_results.pager %}
           <div class="list-group-item pl-0">
             <div class="d-flex w-100 justify-content-between">
-              <h3 class="h6 mb-0">
+              <h3 class="h6 font-weight-bold mb-0">
                 <a href="{{ erp.get_absolute_url }}">
                   <img alt="" class="act-icon act-icon-20 mb-1"
                     src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
@@ -43,27 +43,18 @@
                 </small>
               {% endif %}
             </div>
-            {% if erp.activite %}<small class="text-muted">{{ erp.activite }}</small>{% endif %}
-            <address class="mb-0">
-              <small>
-                {{ erp.short_adresse }} {{ erp.code_postal }}
-                {% if erp.commune_ext %}
-                <a href="{% url "commune" commune=erp.commune_ext.slug%}">{{ erp.commune_ext.nom }}</a>
-                {% else %}
-                {{ erp.commune }}
-                {% endif %}
-              </small>
-            </address>
+            {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
+            <address class="d-inline mb-0"><small>{{ erp.adresse }}</small></address>
           </div>
         {% endfor%}
         </div>
         <!-- results pagination -->
-        <div class="px-2">
-          {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url %}
+        <div class="border-top pt-2">
+          {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url no_page_links=True css_classes="justify-content-center mt-2" %}
         </div>
       </div>
       <div class="col-md-7 a4a-search-map-area">
-        <div class="a4a-search-map" id="app-map">
+        <div class="a4a-search-map rounded" id="app-map">
           <noscript>
             <div class="p-3">
               <div class="alert alert-warning">
