@@ -11,7 +11,7 @@
 <script>
   window.addEventListener("DOMContentLoaded", function () {
     a4a.initAppMap(
-      {{ commune_json | safe }},
+      {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
       {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
       {{ around | default_if_none:"null" }},
       {{ geojson_list | safe }}

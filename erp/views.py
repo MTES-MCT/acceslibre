@@ -54,6 +54,26 @@ def handler500(request):
     return render(request, "500.html", context={}, status=500)
 
 
+def make_geojson(erp_qs):
+    "Take an Erp queryset and serialize it to geojson."
+    serializer = serializers.SpecialErpSerializer()
+    return serializer.serialize(
+        erp_qs,
+        geometry_field="geom",
+        use_natural_foreign_keys=True,
+        fields=[
+            "pk",
+            "nom",
+            "activite__nom",
+            "activite__vector_icon",
+            "adresse",
+            "absolute_url",
+            "contrib_localisation_url",
+            "has_accessibilite",
+        ],
+    )
+
+
 def home(request):
     return render(request, "index.html")
 
@@ -76,17 +96,18 @@ def search(request):
     search_results = None
     q = request.GET.get("q")
     localize = request.GET.get("localize")
-    pager = None
+    paginator = pager = None
     pager_base_url = None
     page_number = 1
     lat = None
     lon = None
-    if "q" in request.GET:
-        erp_qs = Erp.objects.select_related(
-            "accessibilite", "activite", "commune_ext"
-        ).published()
-        if len(q) > 0:
-            erp_qs = erp_qs.search(q)
+    geojson_list = None
+    if q and len(q) > 0:
+        erp_qs = (
+            Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+            .published()
+            .search(q)
+        )
         if localize == "1":
             try:
                 (lat, lon) = (
@@ -108,10 +129,12 @@ def search(request):
             )[:4],
             "pager": pager,
         }
+        geojson_list = make_geojson(erp_qs[:10])
     return render(
         request,
-        "search.html",
+        "search/results.html",
         context={
+            "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
             "page_number": page_number,
@@ -120,6 +143,9 @@ def search(request):
             "lon": request.GET.get("lon"),
             "search": q,
             "search_results": search_results,
+            "geojson_list": geojson_list,
+            "commune_json": None,
+            "around": None,  # XXX: (lat, lon)
         },
     )
 
@@ -289,22 +315,7 @@ class App(BaseListView):
                 .nearest([erp.geom.coords[1], erp.geom.coords[0]])
                 .filter(distance__lt=Distance(km=20))[:16]
             )
-        serializer = serializers.SpecialErpSerializer()
-        context["geojson_list"] = serializer.serialize(
-            context["object_list"],
-            geometry_field="geom",
-            use_natural_foreign_keys=True,
-            fields=[
-                "pk",
-                "nom",
-                "activite__nom",
-                "activite__vector_icon",
-                "adresse",
-                "absolute_url",
-                "contrib_localisation_url",
-                "has_accessibilite",
-            ],
-        )
+        context["geojson_list"] = make_geojson(context["object_list"])
         return context
 
 

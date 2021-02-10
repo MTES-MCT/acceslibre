@@ -1,0 +1,113 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}Recherche{% endblock%}
+
+{% block header %}
+  {% include "editorial/header.html" with dark=True %}
+{% endblock %}
+
+{% block editorial_content %}
+<main id="content">
+  <h2 class="mb-3">{% if search %}Votre recherche <small class="font-italic text-muted">{{ search }}</small>{% else %}Recherche{% endif %}</h2>
+
+  {% include "search/form.html" with from_home=False %}
+
+  <section class="pt-2 mt-2" id="results">
+    {% if search and not search_results.pager %}
+    <div class="alert alert-info">
+      Il n'y a pas de résultat correspondant à votre recherche.
+    </div>
+    {% elif search_results.pager %}
+    <div class="row my-2">
+      <div class="col-sm-6">
+        <h2 class="h4 m-0">
+          {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
+          {% if localize == "1" %}proche{{ paginator.count|pluralize:"s" }} de vous{% endif %}
+          <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ page_number }}/{{ paginator.num_pages }}{% endif %}</small>
+        </h2>
+      </div>
+      <div class="col-sm-6">
+        {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-5">
+        <div class="list-group list-group-flush">
+        {% for erp in search_results.pager %}
+          <div class="list-group-item pl-0">
+            <div class="d-flex w-100 justify-content-between">
+              <h3 class="h6 font-weight-bold mb-0">
+                <a href="{{ erp.get_absolute_url }}">
+                  <img alt="" class="act-icon act-icon-20 mb-1"
+                    src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                  {{ erp.nom }}
+                </a>
+              </h3>
+              {% if localize == "1" and erp.distance %}
+                <small class="text-muted" aria-label="Distance de votre position géographique">
+                  <em>{{ erp.distance|format_distance }}</em>
+                </small>
+              {% endif %}
+            </div>
+            {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
+            <address class="d-inline mb-0"><small>{{ erp.adresse }}</small></address>
+          </div>
+        {% endfor%}
+        </div>
+      </div>
+      <div class="col-md-7 a4a-search-map-area">
+        <div class="a4a-search-map rounded" id="app-map">
+          <noscript>
+            <div class="p-3">
+              <div class="alert alert-warning">
+                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+                JavaScript doit être activé pour utiliser la cartographie interactive.
+              </div>
+            </div>
+          </noscript>
+        </div>
+        <script>
+          $(function() {
+            const map = a4a.initAppMap(
+              {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
+              {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
+              {{ around | default_if_none:"null" }},
+              {{ geojson_list | safe }}
+            );
+          });
+        </script>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+
+  {% if localize != "1" %}
+  <section class="mt-4">
+    {% if search_results.communes %}
+    <h2 class="h4 mb-3">
+      Villes <small class="text-muted">correspondant à votre recherche</small>
+    </h2>
+    {% endif %}
+    <div class="row row-cols-1 row-cols-md-2">
+      {% for commune in search_results.communes %}
+      <div class="col mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-3 d-flex justify-content-between align-items-center">
+            <div>
+              <small class="text-muted">{{ commune.departement_nom }}</small>
+              <h3 class="h5 card-title mb-0">
+                <a href="{% url 'commune' commune.slug %}">{{ commune.nom }}</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+</main>
+{% endblock %}
