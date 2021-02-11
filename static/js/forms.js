@@ -30,7 +30,7 @@ window.a4aForms = (function () {
     // Presence d'un extérieur et cheminement
     {
       source: "cheminement_ext_presence",
-      values: ["True"],
+      values: ["False"],
       targets: [
         "cheminement_ext_terrain_accidente",
         "cheminement_ext_plain_pied",
