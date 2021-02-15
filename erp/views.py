@@ -129,7 +129,7 @@ def search(request):
             )[:4],
             "pager": pager,
         }
-        geojson_list = make_geojson(erp_qs[:10])
+        geojson_list = make_geojson(pager)
     return render(
         request,
         "search/results.html",
