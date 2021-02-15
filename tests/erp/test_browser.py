@@ -44,9 +44,7 @@ def test_search(data, client):
 def test_search_empty_text_query(data, client):
     response = client.get(reverse("search") + "?q=")
     assert response.context["search"] == ""
-    assert len(response.context["search_results"]["pager"]) == 1
-    assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
-    assert hasattr(response.context["search_results"]["pager"][0], "distance") is False
+    assert response.context["search_results"] is None
 
 
 def test_search_localized(data, client):

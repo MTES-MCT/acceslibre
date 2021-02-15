@@ -1,0 +1,78 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}Challenge DDT février 2021{% endblock%}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <h2 class="text-center">Challenge DDT <small class="text-muted">février 2021</small></h2>
+  <h3 class="h4 text-center">Semaine de l'innovation et de la créativité</h3>
+  <section class="row justify-content-center mt-4">
+    <div>
+      {% if today < start_date %}
+      <div class="alert alert-info">
+        Le concours n'a pas encore démarré
+      </div>
+      {% elif not top_contribs %}
+      <div class="alert alert-info">
+        Le concours a démarré, mais aucun participant n'a encore ajouté d'établissement.
+      </div>
+      {% endif %}
+      <ul class="list-group" style="min-width:320px">
+        <li class="list-group-item font-weight-bold" style="font-size:1.2em">
+          <span class="badge badge-primary badge-pill">1</span>
+          {% if top_contribs.0 %}
+            {{ top_contribs.0.username }}<br>
+            <small class="text-muted">
+              {{ top_contribs.0.erp_count_published }}
+              établissement{{ top_contribs.0.erp_count_published|pluralize:"s" }}
+              renseigné{{ top_contribs.0.erp_count_published|pluralize:"s" }}
+            </small>
+          {% else %}
+            ???
+          {% endif %}
+        </li>
+        <li class="list-group-item" style="font-size:1.1em">
+          <span class="badge badge-primary badge-pill">2</span>
+          {% if top_contribs.1 %}
+            {{ top_contribs.1.username }}<br>
+            <small class="text-muted">
+              {{ top_contribs.1.erp_count_published }}
+              établissement{{ top_contribs.1.erp_count_published|pluralize:"s" }}
+              renseigné{{ top_contribs.1.erp_count_published|pluralize:"s" }}
+            </small>
+          {% else %}
+            ???
+          {% endif %}
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-primary badge-pill">3</span>
+          {% if top_contribs.2 %}
+            {{ top_contribs.2.username }}<br>
+            <small class="text-muted">
+              {{ top_contribs.2.erp_count_published }}
+              établissement{{ top_contribs.2.erp_count_published|pluralize:"s" }}
+              renseigné{{ top_contribs.2.erp_count_published|pluralize:"s" }}
+            </small>
+          {% else %}
+            ???
+          {% endif %}
+        </li>
+      </ul>
+      <h3 class="mt-5 mb-3">Classement général</h3>
+      {% if not top_contribs %}
+      <div class="alert alert-info">
+        Aucun participant n'a ajouté d'établissement pour le moment
+      </div>
+      {% endif %}
+      <ol>
+      {% for top_contrib in top_contribs %}
+        <li>{{ top_contrib.username }} ({{ top_contrib.erp_count_published }})</li>
+      {% endfor %}
+      </ol>
+    </div>
+  </section>
+</main>
+{% endblock %}

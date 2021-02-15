@@ -70,10 +70,12 @@ def format_distance(value):
         return value
     if value.m == 0:
         return "Au même endroit"
-    elif value.m > 999:
+    elif value.m < 1500:
+        return f"À {round(value.m)} m"
+    elif value.m < 10000:
         return f"À {value.km:.2f} km"
     else:
-        return f"À {round(value.m)} m"
+        return f"À {round(value.km)} km"
 
 
 @register.filter(name="format_source")
