@@ -1,10 +1,13 @@
+import datetime
 import reversion
+
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
+from django.db.models import Count, Q
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
@@ -76,6 +79,43 @@ def make_geojson(erp_qs):
 
 def home(request):
     return render(request, "index.html")
+
+
+def challenge_ddt(request):
+    start_date = datetime.datetime(2021, 2, 22, 9)
+    today = datetime.datetime.today()
+    filters = Q(
+        erp__published=True,
+        erp__accessibilite__isnull=False,
+        erp__geom__isnull=False,
+        erp__user__email__contains="rhone.gouv.fr",
+        erp__created_at__gte=start_date,
+    )
+    excludes = Q(erp__user__username="julien")
+    top_contribs = (
+        get_user_model()
+        .objects.annotate(
+            erp_count_published=Count(
+                "erp",
+                filter=filters,
+                excude=excludes,
+                distinct=True,
+            )
+        )
+        .filter(filters)
+        .exclude(excludes)
+        .filter(erp_count_published__gt=0)
+        .order_by("-erp_count_published")
+    )
+    return render(
+        request,
+        "challenge/podium.html",
+        context={
+            "start_date": start_date,
+            "today": today,
+            "top_contribs": top_contribs,
+        },
+    )
 
 
 def communes(request):

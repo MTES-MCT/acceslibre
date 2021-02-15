@@ -28,7 +28,6 @@ def cache_editorial_page(template_name, context=None):
 
 
 urlpatterns = [
-    path("mapicons", views.mapicons, name="mapicons"),
     ############################################################################
     # Editorial
     ############################################################################
@@ -54,6 +53,10 @@ urlpatterns = [
         ),
         name="partenaires",
     ),
+    # Challenge DDT feb 2021
+    path("challenge/ddt/2021/02/", views.challenge_ddt, name="challenge-ddt"),
+    # Map icons
+    path("mapicons", views.mapicons, name="mapicons"),
     ############################################################################
     # HTML app
     ############################################################################
