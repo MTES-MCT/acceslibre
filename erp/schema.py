@@ -324,10 +324,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Revêtement extérieur",
         "help_text": mark_safe(
-            "Le revêtement du cheminement extérieur (entre l’entrée de la parcelle et l’entrée de l’établissement) est-il meuble ou accidenté (pavés, gravillons, terre, herbe, ou toute surface non stabilisée)&nbsp;?"
+            "Le revêtement du cheminement extérieur (entre le trottoir et l'entrée de l’établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "Cet revêtement est accidenté (pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
+            "Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
         ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
