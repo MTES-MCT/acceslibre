@@ -123,7 +123,17 @@ class AdminAccessibiliteForm(forms.ModelForm):
             initial["sanitaires_adaptes"] = 1
             kwargs["initial"] = initial
 
+        if obj and obj.cheminement_ext_presence is not None:
+            obj.cheminement_ext_presence = not obj.cheminement_ext_presence
+            kwargs["instance"] = obj
+
         super().__init__(*args, **kwargs)
+
+    def clean_cheminement_ext_presence(self):
+        value = self.cleaned_data["cheminement_ext_presence"]
+        if isinstance(value, bool):
+            return not value
+        return value
 
     def clean_sanitaires_adaptes(self):
         # Specific case where we want to map nullable bool choices
