@@ -88,3 +88,45 @@ def test_Erp_vote(data):
     vote = data.erp.vote(data.niko, action="UP")
     assert vote is None
     assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
+
+
+def test_Erp_metadata_tags_update_key(data):
+    erp = Erp.objects.create(
+        nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]}
+    )
+
+    erp.metadata["tags"].append("plop")
+    erp.save()
+
+    erp = Erp.objects.get(metadata__tags__contains=["plop"])  # raises if not found
+    assert erp.metadata["keepme"] == 42
+
+
+def test_Erp_metadata_tags_delete_key(data):
+    erp = Erp.objects.create(
+        nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]}
+    )
+
+    del erp.metadata["keepme"]
+    erp.save()
+
+    erp = Erp.objects.get(metadata__tags__contains=["foo"])  # raises if not found
+    assert "keepme" not in erp.metadata
+
+
+def test_Erp_metadata_tags_filter(data):
+    Erp.objects.create(nom="erp1", metadata={"tags": ["foo", "bar"]})
+    Erp.objects.create(nom="erp2", metadata={"tags": ["bar", "baz"]})
+
+    assert Erp.objects.filter(metadata__tags__contains=["foo"]).count() == 1
+    assert Erp.objects.filter(metadata__tags__contains=["baz"]).count() == 1
+    assert Erp.objects.filter(metadata__tags__contains=["bar"]).count() == 2
+
+
+def test_Erp_metadata_update_nested_key(data):
+    erp = Erp.objects.create(nom="erp1", metadata={"foo": {"bar": 42}})
+
+    erp.metadata["foo"]["bar"] = 43
+    erp.save()
+
+    Erp.objects.get(metadata__foo__bar=43)  # raises if not found

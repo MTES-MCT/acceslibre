@@ -273,6 +273,7 @@ class AdminErpForm(BaseErpForm):
             "search_vector",
             "source",
             "source_id",
+            "metadata",
         )
 
     def clean(self):
