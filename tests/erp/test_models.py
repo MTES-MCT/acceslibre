@@ -90,17 +90,10 @@ def test_Erp_vote(data):
     assert Vote.objects.filter(erp=data.erp, user=data.niko).count() == 0
 
 
-def create_erp_with_metadata(nom, metadata):
-    return Erp.objects.create(
-        nom=nom,
-        code_postal="34830",
-        commune="Jacou",
-        metadata=metadata,
-    )
-
-
 def test_Erp_metadata_tags_update_key(data):
-    erp = create_erp_with_metadata("erp1", {"keepme": 42, "tags": ["foo", "bar"]})
+    erp = Erp.objects.create(
+        nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]}
+    )
 
     erp.metadata["tags"].append("plop")
     erp.save()
@@ -110,7 +103,9 @@ def test_Erp_metadata_tags_update_key(data):
 
 
 def test_Erp_metadata_tags_delete_key(data):
-    erp = create_erp_with_metadata("erp1", {"keepme": 42, "tags": ["foo", "bar"]})
+    erp = Erp.objects.create(
+        nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]}
+    )
 
     del erp.metadata["keepme"]
     erp.save()
@@ -120,8 +115,8 @@ def test_Erp_metadata_tags_delete_key(data):
 
 
 def test_Erp_metadata_tags_filter(data):
-    create_erp_with_metadata("erp1", {"tags": ["foo", "bar"]})
-    create_erp_with_metadata("erp2", {"tags": ["bar", "baz"]})
+    Erp.objects.create(nom="erp1", metadata={"tags": ["foo", "bar"]})
+    Erp.objects.create(nom="erp2", metadata={"tags": ["bar", "baz"]})
 
     assert Erp.objects.filter(metadata__tags__contains=["foo"]).count() == 1
     assert Erp.objects.filter(metadata__tags__contains=["baz"]).count() == 1
@@ -129,7 +124,7 @@ def test_Erp_metadata_tags_filter(data):
 
 
 def test_Erp_metadata_update_nested_key(data):
-    erp = create_erp_with_metadata("erp1", {"foo": {"bar": 42}})
+    erp = Erp.objects.create(nom="erp1", metadata={"foo": {"bar": 42}})
 
     erp.metadata["foo"]["bar"] = 43
     erp.save()
