@@ -9,6 +9,7 @@ from django.core.management.base import BaseCommand
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import arrondissements
 
+# Basic/generic fields mapping
 FIELDS_MAP = {
     "c_nom": "nom",
     "c_adr_num": "numero",
@@ -17,11 +18,12 @@ FIELDS_MAP = {
     "c_com_cp": "code_postal",
     "c_com_insee": "code_insee",
     "c_rdv_tel": "telephone",
-    "c__edit_datemaj": "2021/02/03 15:19:36.488",
 }
 
 
 class Command(BaseCommand):
+    "Imports vaccination centers from open data: https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
+
     help = "Importe les établissements centres de vaccination COVID"
 
     activite = Activite.objects.filter(slug="centre-de-vaccination").first()
@@ -78,20 +80,36 @@ class Command(BaseCommand):
 
     def build_commentaire(self, metadata):
         date = datetime.today().strftime("%d/%m/%Y")
-        return f"Ces informations ont été importées depuis data.gouv.fr le {date}: https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
+        infos = metadata["centre_vaccination"]
+        lines = [
+            f"Ces informations ont été importées depuis data.gouv.fr le {date} "
+            "depuis https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
+        ]
+        # Prise de rendez-vous
+        if "url_rdv" in infos:
+            lines.append(f"Prise de rendez-vous en ligne: {infos['url_rdv']}")
+        # Horaires de rendez-vous
+        if "horaires_rdv" in infos:
+            lines.append("Horaires de prise de rendez-vous:")
+            horaires_lines = [
+                f"- {jour}: {horaire if horaire else 'N/A'}"
+                for (jour, horaire) in infos["horaires_rdv"].items()
+            ]
+            lines.append("\n".join(horaires_lines))
+        print("\n\n".join(lines))
+        return "\n\n".join(lines)
 
     def import_centre(self, centre):
         props = centre["properties"]
         geometry = centre["geometry"]
-        source = "centres-vaccination"  # XXX: use model constant
         source_id = props["c_gid"]
 
         # Check if we already have this ERP
         existing = True
-        erp = Erp.objects.find_by_source_id(source, source_id)
+        erp = Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, source_id)
         if not erp:
             erp = Erp(
-                source=source,
+                source=Erp.SOURCE_VACCINATION,
                 source_id=source_id,
                 activite=self.activite,
             )
