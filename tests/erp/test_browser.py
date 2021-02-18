@@ -419,7 +419,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
-    assert accessibilite.cheminement_ext_presence is True
+    assert accessibilite.cheminement_ext_presence is False
     assert accessibilite.cheminement_ext_terrain_accidente is True
     assert accessibilite.cheminement_ext_plain_pied is False
     assert accessibilite.cheminement_ext_ascenseur is True
