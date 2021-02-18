@@ -31,15 +31,20 @@
 </form>
 <script>
 (function(geolocation) {
-  if (!geolocation) {
-    document.querySelector("#loc-field").innerHTML = [
+  function renderError(error) {
+    document.querySelector("#loc").innerHTML = [
       '<div class="text-danger">',
         '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
-        "La géolocalisation n'est pas disponible sur votre navigateur.",
+        error,
       '</div>',
     ].join("");
+  }
+
+  if (!geolocation) {
+    renderError("La géolocalisation n'est pas disponible sur votre navigateur.")
     return;
   }
+
   function listenToLocCheckboxChange() {
     return function(event) {
       processLocCheckbox(event.target);
@@ -52,6 +57,7 @@
       document.querySelector("input[name=lon]").value = null;
     } else {
       $("#geoloader").show();
+      document.querySelector("#loc").innerHTML = "";
       geolocation.getCurrentPosition(function(position) {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
@@ -78,7 +84,11 @@
             $("#geoloader").hide();
           });
       }, function(err) {
-        alert("Nous n'avons pas pu déterminer votre position géographique.")
+        $("#geoloader").hide();
+        document.querySelector("#localize").checked = false;
+        renderError("Nous n'avons pas pu déterminer votre position géographique. Erreur: " + err.message)
+      }, {
+        timeout: 10000
       });
     }
   }
