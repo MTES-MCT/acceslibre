@@ -297,9 +297,12 @@ $viewport-xl: 1200px;
 
   &-erp-details-link {
     font-size: .9em;
-    padding-bottom: 1px;
+    @media screen and (max-width: $viewport-md) {
+      font-size: .85em;
+      padding: 4px;
+    }
     .icon {
-      vertical-align: text-top;
+      vertical-align: inherit;
     }
   }
 

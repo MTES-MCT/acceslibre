@@ -1115,6 +1115,7 @@ def mapicons(request):
         "unisex",
         "university",
         "veterinary-care",
+        "vaccin",
         "vase",
         "vegetables",
         "viewing",

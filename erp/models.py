@@ -260,6 +260,7 @@ class Erp(models.Model):
     SOURCE_PUBLIC_ERP = "public_erp"
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
+    SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_CHOICES = (
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
@@ -270,6 +271,7 @@ class Erp(models.Model):
         (SOURCE_PUBLIC_ERP, "API des établissements publics"),
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
+        (SOURCE_VACCINATION, "Centres de vaccination"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
@@ -342,6 +344,7 @@ class Erp(models.Model):
         unique=True,
         populate_from="nom",
         help_text="Identifiant d'URL (slug)",
+        max_length=255,
     )
     activite = models.ForeignKey(
         Activite,
