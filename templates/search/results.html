@@ -45,23 +45,31 @@
       <div class="col-md-5">
         <div class="list-group list-group-flush">
         {% for erp in search_results.pager %}
-          <div class="list-group-item pl-0">
-            <div class="d-flex w-100 justify-content-between">
-              <h3 class="h6 font-weight-bold mb-0">
-                <a href="{{ erp.get_absolute_url }}">
-                  <img alt="" class="act-icon act-icon-20 mb-1"
-                    src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                  {{ erp.nom }}
-                </a>
-              </h3>
-              {% if localize == "1" and erp.distance %}
-                <small class="text-muted" aria-label="Distance de votre position géographique">
-                  <em>{{ erp.distance|format_distance }}</em>
-                </small>
-              {% endif %}
+          <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+            <div>
+              <div class="d-flex w-100 justify-content-between">
+                <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                  <a href="{{ erp.get_absolute_url }}">
+                    <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
+                      src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                    {% if localize == "1" and erp.distance %}
+                      <small class="text-muted" aria-label="Distance de votre position géographique">
+                        <em>{{ erp.distance|format_distance }}</em>
+                      </small>
+                    {% endif %}
+                    {{ erp.nom }}
+                  </a>
+                </h3>
+              </div>
+              <div>
+                {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
+                <address class="d-inline mb-0"><small>{{ erp.adresse }}</small></address>
+              </div>
             </div>
-            {% if erp.activite %}<small class="font-weight-bold text-muted">{{ erp.activite }}</small>{% endif %}
-            <address class="d-inline mb-0"><small>{{ erp.adresse }}</small></address>
+            <div class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+              title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+              <i aria-hidden="true" class="icon icon-target"></i>
+            </div>
           </div>
         {% endfor%}
         </div>

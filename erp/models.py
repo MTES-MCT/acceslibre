@@ -294,6 +294,7 @@ class Erp(models.Model):
             models.Index(fields=["user_type"]),
             GinIndex(name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
+            GinIndex(fields=["metadata"], name="gin_metadata"),
         ]
 
     objects = managers.ErpQuerySet.as_manager()
@@ -410,6 +411,18 @@ class Erp(models.Model):
         verbose_name="Code INSEE",
         help_text="Code INSEE de la commune",
     )
+
+    # Metadata
+    # Notes:
+    # - DO NOT store Python datetimes or attempt to pass some; JSON doesn't
+    # have a native datetime type, so while we could encode dates, we couldn't
+    # reliably decode them
+    # - For updating nested values, you have to retrieve the whole object,
+    # update the target nested values so the metadata object is mutated, then
+    # save the instance. See tests for illustration.
+    # XXX: we might want to provide convenient getter and setters targetting
+    # given nested keys later at some point.
+    metadata = models.JSONField(default=dict)
 
     # datetimes
     created_at = models.DateTimeField(
