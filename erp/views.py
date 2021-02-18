@@ -342,7 +342,6 @@ class App(BaseListView):
             )
             context["erp"] = erp
             if erp.has_accessibilite():
-                erp.accessibilite.cheminement_ext_presence = not erp.accessibilite.cheminement_ext_presence
                 form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
                 context["accessibilite_data"] = form.get_accessibilite_data()
             if self.request.user.is_authenticated:

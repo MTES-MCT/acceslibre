@@ -316,6 +316,11 @@ class ViewAccessibiliteForm(forms.ModelForm):
                 if field_value == []:
                     field_value = None
                 warning = None
+
+                # data value is inverted to keep db representation in sync with name
+                if section == "Cheminement extérieur" and field_data["id"] == 'cheminement_ext_presence':
+                    field_value = not field_value
+
                 if "warn_if" in field_data and field_data["warn_if"] is not None:
                     if callable(field_data["warn_if"]):
                         warning = field_data["warn_if"](field_value, self.instance)
