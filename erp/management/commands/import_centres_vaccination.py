@@ -78,12 +78,12 @@ class Command(BaseCommand):
             },
         }
 
-    def build_commentaire(self, metadata):
+    def build_commentaire(self, existing, metadata):
         date = datetime.today().strftime("%d/%m/%Y")
         infos = metadata["centre_vaccination"]
         lines = [
-            f"Ces informations ont été importées depuis data.gouv.fr le {date} "
-            "depuis https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
+            f"Ces informations ont été {'mises à jour' if existing else 'importées'} depuis data.gouv.fr le {date} "
+            "https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
         ]
         # Prise de rendez-vous
         if "url_rdv" in infos:
@@ -96,7 +96,6 @@ class Command(BaseCommand):
                 for (jour, horaire) in infos["horaires_rdv"].items()
             ]
             lines.append("\n".join(horaires_lines))
-        print("\n\n".join(lines))
         return "\n\n".join(lines)
 
     def import_centre(self, centre):
@@ -140,7 +139,7 @@ class Command(BaseCommand):
         erp.save()
 
         # Basic accessibilite information (informative comment)
-        accessibilite.commentaire = self.build_commentaire(erp.metadata)
+        accessibilite.commentaire = self.build_commentaire(existing, erp.metadata)
         accessibilite.save()
 
         return erp
