@@ -75,7 +75,6 @@ window.a4aForms = (function () {
         "entree_marches_main_courante",
         "entree_marches_rampe",
         "entree_ascenseur",
-        "entree_dispositif_appel"
       ],
       indent: 1,
     },
