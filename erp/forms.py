@@ -94,6 +94,13 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label=schema.get_label("accueil_equipements_malentendants"),
         help_text=schema.get_help_text("accueil_equipements_malentendants"),
     )
+    entree_dispositif_appel_type = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.ENTREE_DISPOSITIFS_APPEL_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("entree_dispositif_appel_type"),
+        help_text=schema.get_help_text("entree_dispositif_appel_type"),
+    )
     labels_familles_handicap = forms.MultipleChoiceField(
         required=False,
         choices=schema.HANDICAP_CHOICES,

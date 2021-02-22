@@ -115,6 +115,11 @@ def get_equipement_description(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_DESCRIPTIONS).get(value, "")
 
 
+@register.filter(name="get_dispositifs_appel_label")
+def get_dispositifs_appel_label(value):
+    return dict(schema.ENTREE_DISPOSITIFS_APPEL_CHOICES).get(value, "")
+
+
 @register.filter(name="get_label_name")
 def get_label_name(value):
     return dict(schema.LABEL_CHOICES).get(value)

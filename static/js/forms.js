@@ -67,6 +67,12 @@ window.a4aForms = (function () {
       indent: 1,
     },
     {
+      source: "entree_dispositif_appel",
+      values: ["True"],
+      targets: ["entree_dispositif_appel_type"],
+      indent: 1,
+    },
+    {
       source: "entree_plain_pied",
       values: ["False"],
       targets: [
