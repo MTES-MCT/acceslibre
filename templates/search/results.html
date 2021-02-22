@@ -24,6 +24,12 @@
   </h2>
   {% endif %}
 
+  {% if search and "centres de vaccination" in search %}
+  <div class="alert alert-warning">
+    Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
+  </div>
+  {% endif %}
+
   <section class="pt-2" id="results">
     {% if search and not search_results.pager %}
     <div class="alert alert-info">
