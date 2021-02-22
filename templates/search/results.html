@@ -11,25 +11,26 @@
 
 {% block editorial_content %}
 <main id="content">
-  <h2 class="mb-3">
-    {% if search and not search_results.pager %}
-      Aucun résultat
-    {% elif search and search_results.pager %}
-      Votre recherche <small class="font-italic text-muted">{{ search }}</small>
-    {% else %}
-      Recherche
-    {% endif %}
-  </h2>
-
   {% include "search/form.html" with from_home=False %}
 
-  <section class="pt-2 mt-2" id="results">
+  {% if search %}
+  <h2 class="mt-3 mb-2">
+    {% if search_results.pager %}
+      <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
+      {{ search }}
+    {% else %}
+      Aucun résultat
+    {% endif %}
+  </h2>
+  {% endif %}
+
+  <section class="pt-2" id="results">
     {% if search and not search_results.pager %}
     <div class="alert alert-info">
       Il n'y a pas de résultat correspondant à votre recherche.
     </div>
     {% elif search_results.pager %}
-    <div class="row my-2">
+    <div class="row mt-2">
       <div class="col-sm-6">
         <h2 class="h4 m-0">
           {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}

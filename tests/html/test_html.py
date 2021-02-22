@@ -64,8 +64,8 @@ def test_home_auth(data, auth_client):
     validate_url_get(auth_client, reverse("home"))
 
 
-def test_home_search(data, client):
-    validate_url_get(client, reverse("home") + "?q=jacou")
+def test_search(data, client):
+    validate_url_get(client, reverse("search") + "?q=jacou")
 
 
 def test_commune_home(data, client):
