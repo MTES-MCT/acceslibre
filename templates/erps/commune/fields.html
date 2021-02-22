@@ -34,20 +34,20 @@
       </div>
     </div>
     {% elif field.name == "entree_dispositif_appel_type" %}
-      <div class="w-100">
-        <div class="mb-2">
-          <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
-          <small class="text-muted">{{ field.help_text_ui }}</small>
-        </div>
-        <div class="text-right">
-          {% for dispositif in erp.accessibilite.entree_dispositif_appel_type %}
-            <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ dispositif|get_dispositifs_appel_label }}">
-          <i aria-hidden="true" class="icon icon-check"></i>
-          {{ dispositif|get_dispositifs_appel_label }}
-        </span><br>
-          {% endfor %}
-        </div>
+    <div class="w-100">
+      <div class="mb-2">
+        <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+        <small class="text-muted">{{ field.help_text_ui }}</small>
       </div>
+      <div class="text-right">
+        {% for dispositif in erp.accessibilite.entree_dispositif_appel_type %}
+          <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ dispositif|get_dispositifs_appel_label }}">
+        <i aria-hidden="true" class="icon icon-check"></i>
+        {{ dispositif|get_dispositifs_appel_label }}
+      </span><br>
+        {% endfor %}
+      </div>
+    </div>
     {% else %}
     <div>
       <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>

@@ -958,9 +958,9 @@ class Accessibilite(models.Model):
     )
     entree_dispositif_appel_type = ArrayField(
         models.CharField(
-            max_length=255, blank=True, choices=schema.ENTREE_DISPOSITIFS_APPEL_CHOICES
+            max_length=255, blank=True, choices=schema.DISPOSITIFS_APPEL_CHOICES
         ),
-        verbose_name="Équipement(s) sourd/malentendant",
+        verbose_name="Dispositifs d'appel disponibles",
         default=list,
         null=True,
         blank=True,

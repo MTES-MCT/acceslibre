@@ -96,7 +96,7 @@ class AdminAccessibiliteForm(forms.ModelForm):
     )
     entree_dispositif_appel_type = forms.MultipleChoiceField(
         required=False,
-        choices=schema.ENTREE_DISPOSITIFS_APPEL_CHOICES,
+        choices=schema.DISPOSITIFS_APPEL_CHOICES,
         widget=forms.CheckboxSelectMultiple,
         label=schema.get_label("entree_dispositif_appel_type"),
         help_text=schema.get_help_text("entree_dispositif_appel_type"),
