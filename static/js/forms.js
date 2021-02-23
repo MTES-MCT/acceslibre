@@ -67,6 +67,12 @@ window.a4aForms = (function () {
       indent: 1,
     },
     {
+      source: "entree_dispositif_appel",
+      values: ["True"],
+      targets: ["entree_dispositif_appel_type"],
+      indent: 1,
+    },
+    {
       source: "entree_plain_pied",
       values: ["False"],
       targets: [
@@ -75,7 +81,6 @@ window.a4aForms = (function () {
         "entree_marches_main_courante",
         "entree_marches_rampe",
         "entree_ascenseur",
-        "entree_dispositif_appel"
       ],
       indent: 1,
     },
