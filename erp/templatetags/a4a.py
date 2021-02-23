@@ -105,6 +105,11 @@ def format_siret(value):
     return sirene.format_siret(value, separator=" ")
 
 
+@register.filter(name="get_dispositifs_appel_label")
+def get_dispositifs_appel_label(value):
+    return dict(schema.DISPOSITIFS_APPEL_CHOICES).get(value, "")
+
+
 @register.filter(name="get_equipement_label")
 def get_equipement_label(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_CHOICES).get(value, "Inconnu")
@@ -113,11 +118,6 @@ def get_equipement_label(value):
 @register.filter(name="get_equipement_description")
 def get_equipement_description(value):
     return dict(schema.EQUIPEMENT_MALENTENDANT_DESCRIPTIONS).get(value, "")
-
-
-@register.filter(name="get_dispositifs_appel_label")
-def get_dispositifs_appel_label(value):
-    return dict(schema.DISPOSITIFS_APPEL_CHOICES).get(value, "")
 
 
 @register.filter(name="get_label_name")
