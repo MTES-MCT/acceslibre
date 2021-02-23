@@ -653,26 +653,9 @@ class Erp(models.Model):
             weight="A",
             config=FULLTEXT_CONFIG,
         )
-        if self.commune_ext:
-            for code_postal in self.commune_ext.code_postaux:
-                search_vector = search_vector + SearchVector(
-                    Value(code_postal, output_field=models.TextField()),
-                    weight="C",
-                    config=FULLTEXT_CONFIG,
-                )
         search_vector = search_vector + SearchVector(
             Value(self.nom, output_field=models.TextField()),
             weight="B",
-            config=FULLTEXT_CONFIG,
-        )
-        search_vector = search_vector + SearchVector(
-            Value(self.voie, output_field=models.TextField()),
-            weight="B",
-            config=FULLTEXT_CONFIG,
-        )
-        search_vector = search_vector + SearchVector(
-            Value(self.lieu_dit, output_field=models.TextField()),
-            weight="C",
             config=FULLTEXT_CONFIG,
         )
         if self.activite is not None:
@@ -693,6 +676,25 @@ class Erp(models.Model):
                     weight="C",
                     config=FULLTEXT_CONFIG,
                 )
+        if self.commune_ext is not None:
+            for code_postal in self.commune_ext.code_postaux:
+                search_vector = search_vector + SearchVector(
+                    Value(code_postal, output_field=models.TextField()),
+                    weight="C",
+                    config=FULLTEXT_CONFIG,
+                )
+        if self.voie is not None:
+            search_vector = search_vector + SearchVector(
+                Value(self.voie, output_field=models.TextField()),
+                weight="D",
+                config=FULLTEXT_CONFIG,
+            )
+        if self.lieu_dit is not None:
+            search_vector = search_vector + SearchVector(
+                Value(self.lieu_dit, output_field=models.TextField()),
+                weight="D",
+                config=FULLTEXT_CONFIG,
+            )
 
         self.search_vector = search_vector
         super().save(*args, **kwargs)

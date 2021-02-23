@@ -151,9 +151,14 @@ class ErpQuerySet(models.QuerySet):
 
     def search(self, query):
         return (
-            self.annotate(rank=search.SearchRank(models.F("search_vector"), query))
+            self.annotate(
+                rank=search.SearchRank(
+                    models.F("search_vector"),
+                    search.SearchQuery(query, config="french_unaccent"),
+                )
+            )
             .filter(search_vector=search.SearchQuery(query, config="french_unaccent"))
-            .order_by("rank")
+            .order_by("-rank")
         )
 
     def with_votes(self):

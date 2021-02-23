@@ -38,7 +38,7 @@
     {% elif search_results.pager %}
     <div class="row mt-2">
       <div class="col-sm-6">
-        <h2 class="h4 m-0">
+        <h2 class="h4 m-0 mb-3">
           {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
           {% if localize == "1" %}proche{{ paginator.count|pluralize:"s" }} de vous{% endif %}
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ page_number }}/{{ paginator.num_pages }}{% endif %}</small>
@@ -56,6 +56,7 @@
             <div>
               <div class="d-flex w-100 justify-content-between">
                 <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                  <!-- rank: {{ erp.rank }} -->
                   <a href="{{ erp.get_absolute_url }}">
                     <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
                       src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
