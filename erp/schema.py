@@ -67,6 +67,17 @@ HANDICAP_CHOICES = [
     (HANDICAP_VISUEL, "Visuel"),
 ]
 
+DISPOSITIFS_APPEL_BOUTON = "bouton"
+DISPOSITIFS_APPEL_SONNETTE = "sonnette"
+DISPOSITIFS_APPEL_INTERPHONE = "interphone"
+DISPOSITIFS_APPEL_VISIOPHONE = "visiophone"
+DISPOSITIFS_APPEL_CHOICES = [
+    (DISPOSITIFS_APPEL_BOUTON, "Bouton d’appel"),
+    (DISPOSITIFS_APPEL_SONNETTE, "Sonnette"),
+    (DISPOSITIFS_APPEL_INTERPHONE, "Interphone"),
+    (DISPOSITIFS_APPEL_VISIOPHONE, "Visiophone")
+]
+
 LABEL_AUTRE = "autre"
 LABEL_DPT = "dpt"
 LABEL_MOBALIB = "mobalib"
@@ -549,10 +560,23 @@ FIELDS = {
         "is_a11y": True,
         "label": "Dispositif d'appel à l'entrée",
         "help_text": mark_safe(
-            "Existe-t-il un dispositif comme une sonnette pour permettre à quelqu'un ayant besoin de la rampe ou d'une aide humaine de signaler sa présence&nbsp;?"
+            "Existe-t-il un dispositif pour permettre à quelqu'un signaler sa présence à l'entrée&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence d'un dispositif comme une sonnette pour signaler sa présence"
+        ),
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": False,
+    },
+    "entree_dispositif_appel_type": {
+        "is_a11y": True,
+        "label": "Type de dispositif d'appel à l'entrée",
+        "help_text": mark_safe(
+            "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
+        ),
+        "help_text_ui": mark_safe(
+            "Dispositifs d'appels présents"
         ),
         "section": SECTION_ENTREE,
         "nullable_bool": True,

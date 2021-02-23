@@ -956,6 +956,15 @@ class Accessibilite(models.Model):
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Dispositif d'appel",
     )
+    entree_dispositif_appel_type = ArrayField(
+        models.CharField(
+            max_length=255, blank=True, choices=schema.DISPOSITIFS_APPEL_CHOICES
+        ),
+        verbose_name="Dispositifs d'appel disponibles",
+        default=list,
+        null=True,
+        blank=True,
+    )
     entree_aide_humaine = models.BooleanField(
         null=True,
         blank=True,
