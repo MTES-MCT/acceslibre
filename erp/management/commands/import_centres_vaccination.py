@@ -17,9 +17,6 @@ class Command(BaseCommand):
 
     help = "Importe les établissements raxs de vaccination COVID"
 
-    # updated = "UPDATE " if erp.id is not None else ""
-    # print(f"- {updated}{erp.nom}\n  {erp.code_postal} {erp.commune_ext.nom}")
-
     def add_arguments(self, parser):
         parser.add_argument(
             "--verbose",
@@ -44,12 +41,15 @@ class Command(BaseCommand):
                 fatal("Liste des centres manquante")
             for record in json_data["features"]:
                 try:
-                    mapper = RecordMapper(record)
-                    mapper.process(activite)
-                    sys.stdout.write(".")
+                    erp = RecordMapper(record).process(activite)
+                    if options["verbose"]:
+                        print(f"- {erp.nom}\n  {erp.code_postal} {erp.commune_ext.nom}")
+                    else:
+                        sys.stdout.write(".")
                     imported += 1
                 except RuntimeError as err:
-                    sys.stdout.write("S")
+                    if not options["verbose"]:
+                        sys.stdout.write("S")
                     errors.append(err)
                     sys.stdout.flush()
                     skipped += 1

@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.contrib.gis.geos import Point
 
+from core.lib import text
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
 
@@ -31,6 +32,9 @@ class RecordMapper:
             self.props = record["properties"]
         except KeyError as err:
             raise RuntimeError(f"Propriété manquante {err}: {record}")
+        # Clean string properties
+        for key, val in self.props.items():
+            self.props[key] = text.strip_if_str(val)
 
     @property
     def source_id(self):

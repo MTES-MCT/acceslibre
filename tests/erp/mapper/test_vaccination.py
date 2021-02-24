@@ -60,7 +60,7 @@ def test_build_metadata(sample_record_reserve_ps):
                 "samedi": "fermé",
                 "vendredi": "9:00-16:30",
             },
-            "modalites": "Réservé aux professionnels de santé",
+            "modalites": None,
             "structure": {
                 "code_insee": "34172",
                 "code_postal": "34000",
@@ -229,7 +229,7 @@ def test_update_existing_erp(activite_cdv, neufchateau, sample_record_ok):
     m1 = RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
     erp1 = m1.process(activite_cdv)
 
-    # let's import updated data for the same Erp
+    # import updated data for the same Erp
     sample_record_ok_updated = sample_record_ok.copy()
     sample_record_ok_updated["properties"]["c_rdv_tel"] = "1234"
     m2 = RecordMapper(sample_record_ok_updated, today=datetime(2021, 1, 1))
@@ -240,4 +240,22 @@ def test_update_existing_erp(activite_cdv, neufchateau, sample_record_ok):
     assert (
         "mises à jour depuis data.gouv.fr le 01/01/2021"
         in erp2.accessibilite.commentaire
+    )
+
+
+def test_unpublish_closed_erp(activite_cdv, neufchateau, sample_record_ok):
+    m1 = RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
+    m1.process(activite_cdv)
+
+    # reimport the same record, but this time it's closed
+    sample_closed = sample_record_ok.copy()
+    sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
+    m2 = RecordMapper(sample_closed, today=datetime(2021, 1, 2))
+
+    with pytest.raises(RuntimeError) as err:
+        m2.process(activite_cdv)
+    assert "UNPUBLISHED" in str(err.value)
+    assert (
+        Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, m2.source_id).published
+        is False
     )

@@ -28,5 +28,10 @@ def remove_accents(input_str):
     return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
+def strip_if_str(value):
+    "Strips a value when it's a string, otherwise return it."
+    return value.strip() if isinstance(value, str) else value
+
+
 def ucfirst(string):
     return string if not string else string[0].upper() + string[1:]

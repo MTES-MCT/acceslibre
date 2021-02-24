@@ -35,3 +35,8 @@ def test_ucfirst():
     assert text.ucfirst("") == ""
     assert text.ucfirst("a") == "A"
     assert text.ucfirst("foo") == "Foo"
+
+
+def test_strip_if_str():
+    assert text.strip_if_str(None) is None
+    assert text.strip_if_str(" foo ") == "foo"

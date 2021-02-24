@@ -115,7 +115,7 @@ def sample_record_reserve_ps():
         "c_date_ouverture": "2021-01-13",
         "c_rdv_site_web": "https://partners.doctolib.fr/hopital-public/uzes/centre-de-vaccination-covid-ch-le-mas-careiron?pid=practice-164184\u0026enable_cookies_consent=1",
         "c_rdv_tel": "+33809541919",
-        "c_rdv_modalites": "R\u00e9serv\u00e9 aux professionnels de sant\u00e9",
+        "c_rdv_modalites": null,
         "c_rdv_consultation_prevaccination": null
     },
     "geometry": {
