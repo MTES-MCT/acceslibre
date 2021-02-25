@@ -70,19 +70,6 @@
               ou par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
             </p>
 
-            <h4 class="h5 mt-2">Horaires d'ouverture</h4>
-            <table class="table table-striped table-bordered table-sm">
-              <caption>Horaires d'ouverture de l'établissement</caption>
-              <tbody>
-              {% for jour, horaire in infos.horaires_rdv.items %}
-                <tr>
-                  <th>{{ jour }}</th>
-                  <td>{{ horaire }}</td>
-                </tr>
-              {% endfor %}
-              </tbody>
-            </table>
-
             {% if infos.structure and infos.structure.nom %}
             {% with infos.structure as structure %}
               <h4 class="h5 mt-2">Structure porteuse</h4>
