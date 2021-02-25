@@ -50,19 +50,19 @@ class RecordMapper:
     def process(self, activite):
         "Procède aux vérifications et à l'import de l'enregistrement"
         # Création ou récupération d'un ERP existant
-        self.__fetch_or_create_erp(activite)
-        self.__check_importable()
-        self.__import_basic_erp_fields()
-        self.__import_coordinates()
+        self._fetch_or_create_erp(activite)
+        self._check_importable()
+        self._import_basic_erp_fields()
+        self._import_coordinates()
         # Commune checks and normalization
-        self.__retrieve_commune_ext()
+        self._retrieve_commune_ext()
         # Strange/invalid phone numbers
         if self.erp.telephone and len(self.erp.telephone) > 20:
             self.erp.telephone = None
         # Build metadata
-        self.erp.metadata = self.__build_metadata()
+        self.erp.metadata = self._build_metadata()
         # Prepare comment
-        commentaire = self.__build_commentaire()
+        commentaire = self._build_commentaire()
 
         # Save erp instance
         self.erp.save()
@@ -77,7 +77,7 @@ class RecordMapper:
 
         return self.erp
 
-    def __build_commentaire(self):
+    def _build_commentaire(self):
         "Retourne un commentaire informatif à propos de l'import"
         date = self.today.strftime("%d/%m/%Y")
         return (
@@ -85,7 +85,7 @@ class RecordMapper:
             "https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
         )
 
-    def __build_metadata(self):
+    def _build_metadata(self):
         return {
             "ban_addresse_id": self.props.get("c_id_adr"),
             "centre_vaccination": {
@@ -114,7 +114,7 @@ class RecordMapper:
             },
         }
 
-    def __check_closed(self):
+    def _check_closed(self):
         "Vérification si centre déjà fermé"
         raw_date_fermeture = self.props.get("c_date_fermeture")
         if raw_date_fermeture:
@@ -122,7 +122,7 @@ class RecordMapper:
             if date_fermeture < self.today:
                 return date_fermeture
 
-    def __check_reserve_pros(self):
+    def _check_reserve_pros(self):
         "Vérification si centre uniquement réservé aux personnels soignants"
         modalites = self.props.get("c_rdv_modalites")
         if modalites and any(
@@ -130,28 +130,28 @@ class RecordMapper:
         ):
             return modalites
 
-    def __check_equipe_mobile(self):
+    def _check_equipe_mobile(self):
         "Vérification équipes mobiles"
         modalites = self.props.get("c_rdv_modalites")
         if modalites:
             if "equipe mobile" in modalites.lower():
                 return modalites
 
-    def __check_importable(self):
+    def _check_importable(self):
         "Vérifications d'exclusion d'import ou de mise à jour"
-        ferme_depuis = self.__check_closed()
+        ferme_depuis = self._check_closed()
         if ferme_depuis:
-            self.__discard(f"Centre fermé le {ferme_depuis}")
+            self._discard(f"Centre fermé le {ferme_depuis}")
 
-        reserve_pros = self.__check_reserve_pros()
+        reserve_pros = self._check_reserve_pros()
         if reserve_pros:
-            self.__discard(f"Réservé aux professionnels de santé: {reserve_pros}")
+            self._discard(f"Réservé aux professionnels de santé: {reserve_pros}")
 
-        equipe_mobile = self.__check_equipe_mobile()
+        equipe_mobile = self._check_equipe_mobile()
         if equipe_mobile:
-            self.__discard(f"Équipe mobile écartée: {equipe_mobile}")
+            self._discard(f"Équipe mobile écartée: {equipe_mobile}")
 
-    def __discard(self, msg):
+    def _discard(self, msg):
         "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
         if self.erp_exists:
             self.erp.published = False
@@ -161,7 +161,7 @@ class RecordMapper:
             msg = "SKIPPED: " + msg
         raise RuntimeError(msg)
 
-    def __fetch_or_create_erp(self, activite):
+    def _fetch_or_create_erp(self, activite):
         "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"
         erp = Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, self.source_id)
         if not erp:
@@ -172,12 +172,12 @@ class RecordMapper:
             )
         self.erp = erp
 
-    def __import_basic_erp_fields(self):
+    def _import_basic_erp_fields(self):
         "Importe les champs administratif basiques du centre de vaccination"
         for (json_field, model_field) in self.FIELDS_MAP.items():
             setattr(self.erp, model_field, self.props[json_field])
 
-    def __import_coordinates(self):
+    def _import_coordinates(self):
         "Importe les coordonnées géographiques du centre de vaccination"
         try:
             (lon, lat) = self.geometry["coordinates"][0]
@@ -185,7 +185,7 @@ class RecordMapper:
         except (KeyError, IndexError):
             raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
 
-    def __retrieve_commune_ext(self):
+    def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"
         if self.erp.code_insee:
             commune_ext = Commune.objects.filter(code_insee=self.erp.code_insee).first()
