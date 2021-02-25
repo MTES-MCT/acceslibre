@@ -1,3 +1,5 @@
+{% load a4a %}
+
 <section id="a11y">
   <h3 class="h4 font-weight-normal mb-3">Accessibilité de l'établissement</h3>
 
@@ -46,7 +48,7 @@
             {% if infos.date_ouverture %}
             <p>
               <i aria-hidden="true" class="icon icon-info-circled"></i>
-              Centre ouvert le {{ infos.date_ouverture }}.
+              Centre ouvert le {{ infos.date_ouverture|format_isodate }}.
             </p>
             {% endif %}
             {% if infos.modalites %}
