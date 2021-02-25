@@ -48,7 +48,13 @@
             {% if infos.date_ouverture %}
             <p>
               <i aria-hidden="true" class="icon icon-info-circled"></i>
-              Centre ouvert le {{ infos.date_ouverture|format_isodate }}.
+              Centre ouvert depuis le {{ infos.date_ouverture|format_isodate }}.
+            </p>
+            {% endif %}
+            {% if infos.date_fermeture %}
+            <p class="text-danger">
+              <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+              Fermeture prévue à compter du {{ infos.date_fermeture|format_isodate }}.
             </p>
             {% endif %}
             {% if infos.modalites %}
@@ -56,15 +62,17 @@
             <blockquote><em>{{ infos.modalites }}</em></blockquote>
             {% endif %}
 
-            <h4 class="h5 mt-2">Horaires de rendez-vous</h4>
+            <h4 class="h5 mt-2">Prise de rendez-vous</h4>
             <p>
               {% if infos.url_rdv %}
               <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
               {% endif %}
               ou par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
             </p>
+
+            <h4 class="h5 mt-2">Horaires d'ouverture</h4>
             <table class="table table-striped table-bordered table-sm">
-              <caption>Horaires de rendez-vous</caption>
+              <caption>Horaires d'ouverture de l'établissement</caption>
               <tbody>
               {% for jour, horaire in infos.horaires_rdv.items %}
                 <tr>
