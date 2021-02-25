@@ -38,18 +38,5 @@
     par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
     {% endif %}
   </p>
-
-  {% if infos.structure and infos.structure.nom %}
-  {% with infos.structure as structure %}
-    <h4 class="h5 mt-2">Structure porteuse</h4>
-    <address class="text-muted">
-      {% if structure.nom %}{{ structure.nom }}<br>{% endif %}
-      {% if structure.numero %}{{ structure.numero }}{% endif %}
-      {% if structure.voie %}{{ structure.voie }}<br>{% endif %}
-      {% if structure.code_postal %}{{ structure.code_postal }}{% endif %}
-      {% if structure.commune %}{{ structure.commune }}<br>{% endif %}
-    </address>
-  {% endwith %}
-  {% endif %}
 {% endwith %}
 </div>
