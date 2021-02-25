@@ -1,0 +1,55 @@
+{% load a4a %}
+
+<h3 class="sr-only">Information vaccination</h3>
+
+<div class="list-group list-group-flush">
+{% with erp.metadata.centre_vaccination as infos %}
+  <h3 class="h4">Informations du centre de vaccination</h3>
+  {% if infos.date_ouverture %}
+  <p>
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    Centre ouvert depuis le {{ infos.date_ouverture|format_isodate }}.
+  </p>
+  {% endif %}
+  {% if infos.date_fermeture %}
+  <p class="text-danger">
+    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+    Fermeture prévue à compter du {{ infos.date_fermeture|format_isodate }}.
+  </p>
+  {% endif %}
+  {% if infos.modalites %}
+  <h4 class="h5 mt-2">Modalités particulières</h4>
+  <blockquote><em>{{ infos.modalites }}</em></blockquote>
+  {% endif %}
+
+  <h4 class="h5 mt-2">Prise de rendez-vous</h4>
+  {% if infos.acces_sur_rdv %}
+  <p>
+    <i aria-hidden="true" class="icon icon-clock"></i>
+    L'accès à ce centre de vaccination se fait sur rendez-vous.
+  </p>
+  {% endif %}
+  <p>
+    {% if infos.url_rdv %}
+    <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
+    {% endif %}
+    {% if infos.url_rdv and erp.telephone %}ou{% endif %}
+    {% if erp.telephone %}
+    par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
+    {% endif %}
+  </p>
+
+  {% if infos.structure and infos.structure.nom %}
+  {% with infos.structure as structure %}
+    <h4 class="h5 mt-2">Structure porteuse</h4>
+    <address class="text-muted">
+      {% if structure.nom %}{{ structure.nom }}<br>{% endif %}
+      {% if structure.numero %}{{ structure.numero }}{% endif %}
+      {% if structure.voie %}{{ structure.voie }}<br>{% endif %}
+      {% if structure.code_postal %}{{ structure.code_postal }}{% endif %}
+      {% if structure.commune %}{{ structure.commune }}<br>{% endif %}
+    </address>
+  {% endwith %}
+  {% endif %}
+{% endwith %}
+</div>

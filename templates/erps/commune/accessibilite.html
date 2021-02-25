@@ -41,49 +41,7 @@
     <div class="col-md-8 tab-content">
       {% if erp.metadata.centre_vaccination %}
         <section class="a4a-tab-content-section tab-pane active" id="vaccination" role="tabpanel" aria-labelledby="vaccination-tab">
-          <h3 class="sr-only">Information vaccination</h3>
-          <div class="list-group list-group-flush">
-          {% with erp.metadata.centre_vaccination as infos %}
-            <h3 class="h4">Informations du centre de vaccination</h3>
-            {% if infos.date_ouverture %}
-            <p>
-              <i aria-hidden="true" class="icon icon-info-circled"></i>
-              Centre ouvert depuis le {{ infos.date_ouverture|format_isodate }}.
-            </p>
-            {% endif %}
-            {% if infos.date_fermeture %}
-            <p class="text-danger">
-              <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-              Fermeture prévue à compter du {{ infos.date_fermeture|format_isodate }}.
-            </p>
-            {% endif %}
-            {% if infos.modalites %}
-            <h4 class="h5 mt-2">Modalités particulières</h4>
-            <blockquote><em>{{ infos.modalites }}</em></blockquote>
-            {% endif %}
-
-            <h4 class="h5 mt-2">Prise de rendez-vous</h4>
-            <p>
-              {% if infos.url_rdv %}
-              <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
-              {% endif %}
-              ou par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
-            </p>
-
-            {% if infos.structure and infos.structure.nom %}
-            {% with infos.structure as structure %}
-              <h4 class="h5 mt-2">Structure porteuse</h4>
-              <address>
-                {% if structure.nom %}{{ structure.nom }}<br>{% endif %}
-                {% if structure.numero %}{{ structure.numero }}{% endif %}
-                {% if structure.voie %}{{ structure.voie }}<br>{% endif %}
-                {% if structure.code_postal %}{{ structure.code_postal }}{% endif %}
-                {% if structure.commune %}{{ structure.commune }}<br>{% endif %}
-              </address>
-            {% endwith %}
-            {% endif %}
-          {% endwith %}
-          </div>
+          {% include "erps/commune/includes/vaccination.html" %}
         </section>
       {% endif %}
       {% for section, info in accessibilite_data.items %}
@@ -125,41 +83,7 @@
       </section>
       {% endfor %}
       <section class="a4a-tab-content-section tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
-        <h3 class="sr-only">Historique des modifications</h3>
-        <div class="list-group list-group-flush">
-          {% for entry in erp.get_history %}
-          <details class="list-group-item list-group-item-action text-overlay">
-            <summary class="no-ouline">
-              Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
-            </summary>
-            {% if entry.diff %}
-              <table class="table table-sm table-striped mt-3 mb-0">
-                <tr>
-                  <th>Champ</th>
-                  <th>Ancienne valeur</th>
-                  <th>Nouvelle valeur</th>
-                </tr>
-                {% for field in entry.diff %}
-                <tr>
-                  <td>{{ field.label }}</td>
-                  <td class="text-danger">
-                    {% include "fields/diff_value.html" with name=field.field value=field.old %}
-                  </td>
-                  <td class="text-success">
-                    {% include "fields/diff_value.html" with name=field.field value=field.new %}
-                  </td>
-                </tr>
-                {% endfor %}
-              </table>
-            {% endif %}
-          </details>
-          {% empty %}
-          <p class="alert alert-info">
-            <i aria-hidden="true" class="icon icon-info-circled"></i>
-            Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
-          </p>
-          {% endfor %}
-        </div>
+        {% include "erps/commune/includes/history.html" %}
       </section>
     </div>
   </div>
