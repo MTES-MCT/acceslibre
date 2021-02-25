@@ -4,8 +4,16 @@
   <div class="row">
     <div class="col-md-4">
       <div class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
+        {% if erp.metadata.centre_vaccination %}
+        <a class="nav-link text-truncate active" href="#vaccination"
+          title="Information vaccination" role="tab" aria-controls="vaccination"
+          aria-selected="false" id="vaccination-tab"
+          data-toggle="tab">
+          <i aria-hidden="true" class="icon icon-info-circled mr-2"></i>Infos vaccination
+        </a>
+        {% endif %}
         {% for section, info in accessibilite_data.items %}
-        <a class="nav-link text-truncate {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
+        <a class="nav-link text-truncate {% if not erp.metadata.centre_vaccination and forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
           title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
           aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" id="{{ info.tabid }}-tab"
           data-toggle="tab">
@@ -29,8 +37,60 @@
       </script>
     </div>
     <div class="col-md-8 tab-content">
+      {% if erp.metadata.centre_vaccination %}
+        <section class="a4a-tab-content-section tab-pane active" id="vaccination" role="tabpanel" aria-labelledby="vaccination-tab">
+          <h3 class="sr-only">Information vaccination</h3>
+          <div class="list-group list-group-flush">
+          {% with erp.metadata.centre_vaccination as infos %}
+            <h3 class="h4">Informations du centre de vaccination</h3>
+            {% if infos.date_ouverture %}
+            <p>
+              <i aria-hidden="true" class="icon icon-info-circled"></i>
+              Centre ouvert le {{ infos.date_ouverture }}.
+            </p>
+            {% endif %}
+            {% if infos.modalites %}
+            <h4 class="h5 mt-2">Modalités particulières</h4>
+            <blockquote><em>{{ infos.modalites }}</em></blockquote>
+            {% endif %}
+
+            <h4 class="h5 mt-2">Horaires de rendez-vous</h4>
+            <p>
+              {% if infos.url_rdv %}
+              <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
+              {% endif %}
+              ou par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
+            </p>
+            <table class="table table-striped table-bordered table-sm">
+              <caption>Horaires de rendez-vous</caption>
+              <tbody>
+              {% for jour, horaire in infos.horaires_rdv.items %}
+                <tr>
+                  <th>{{ jour }}</th>
+                  <td>{{ horaire }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+
+            {% if infos.structure and infos.structure.nom %}
+            {% with infos.structure as structure %}
+              <h4 class="h5 mt-2">Structure porteuse</h4>
+              <address>
+                {% if structure.nom %}{{ structure.nom }}<br>{% endif %}
+                {% if structure.numero %}{{ structure.numero }}{% endif %}
+                {% if structure.voie %}{{ structure.voie }}<br>{% endif %}
+                {% if structure.code_postal %}{{ structure.code_postal }}{% endif %}
+                {% if structure.commune %}{{ structure.commune }}<br>{% endif %}
+              </address>
+            {% endwith %}
+            {% endif %}
+          {% endwith %}
+          </div>
+        </section>
+      {% endif %}
       {% for section, info in accessibilite_data.items %}
-      <section class="a4a-tab-content-section tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
+      <section class="a4a-tab-content-section tab-pane{% if not erp.metadata.centre_vaccination and forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
         aria-labelledby="{{ info.tabid }}-tab">
         {% if info.fields %}
         <h3 class="sr-only">{{ info.description }}</h3>
