@@ -9,16 +9,14 @@ from erp.models import Commune
 @pytest.fixture
 def neufchateau(db):
     return Commune.objects.create(
-        **{
-            "nom": "Neufchâteau",
-            "slug": "88-neufchateau",
-            "departement": "88",
-            "code_insee": "88321",
-            "superficie": 2380,
-            "population": 6639,
-            "geom": Point(5.6962, 48.3568),
-            "code_postaux": ["88300"],
-        }
+        nom="Neufchâteau",
+        slug="88-neufchateau",
+        departement="88",
+        code_insee="88321",
+        superficie=2380,
+        population=6639,
+        geom=Point(5.6962, 48.3568),
+        code_postaux=["88300"],
     )
 
 

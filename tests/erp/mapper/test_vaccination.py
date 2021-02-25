@@ -49,13 +49,13 @@ def test_skip_importing_closed(activite_cdv, neufchateau, sample_record_ok):
     assert "SKIPPED: Centre fermé le 2021-01-01" in str(err.value)
 
 
-def test_skip_importing_reserve_ps(activite_cdv, neufchateau, sample_record_ok):
-    sample_reserve_ps = sample_record_ok.copy()
-    sample_reserve_ps["properties"][
+def test_skip_importing_reserve_pros(activite_cdv, neufchateau, sample_record_ok):
+    sample_reserve_pros = sample_record_ok.copy()
+    sample_reserve_pros["properties"][
         "c_rdv_modalites"
     ] = "Ouvert uniquement aux professionnels"
 
-    m = RecordMapper(sample_reserve_ps)
+    m = RecordMapper(sample_reserve_pros)
     with pytest.raises(RuntimeError) as err:
         m.process(activite_cdv)
 

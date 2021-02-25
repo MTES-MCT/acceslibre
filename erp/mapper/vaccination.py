@@ -18,7 +18,7 @@ class RecordMapper:
         "c_rdv_tel": "telephone",
     }
 
-    RESERVE_PS = [
+    RESERVE_PROS = [
         "R\u00e9serv\u00e9 aux professionnels de sant\u00e9",
         "Uniquement pour les professionnels de sant\u00e9",
         "Ouvert uniquement aux professionnels",
@@ -122,11 +122,11 @@ class RecordMapper:
             if date_fermeture < self.today:
                 return date_fermeture
 
-    def __check_reserve_ps(self):
+    def __check_reserve_pros(self):
         "Vérification si centre uniquement réservé aux personnels soignants"
         modalites = self.props.get("c_rdv_modalites")
         if modalites and any(
-            test.lower() in modalites.lower() for test in self.RESERVE_PS
+            test.lower() in modalites.lower() for test in self.RESERVE_PROS
         ):
             return modalites
 
@@ -143,9 +143,9 @@ class RecordMapper:
         if ferme_depuis:
             self.__discard(f"Centre fermé le {ferme_depuis}")
 
-        reserve_ps = self.__check_reserve_ps()
-        if reserve_ps:
-            self.__discard(f"Réservé aux professionnels de santé: {reserve_ps}")
+        reserve_pros = self.__check_reserve_pros()
+        if reserve_pros:
+            self.__discard(f"Réservé aux professionnels de santé: {reserve_pros}")
 
         equipe_mobile = self.__check_equipe_mobile()
         if equipe_mobile:
