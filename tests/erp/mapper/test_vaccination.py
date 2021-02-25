@@ -102,6 +102,7 @@ def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):
             "date_fermeture": None,
             "date_ouverture": "2021-01-08",
             "datemaj": "2021/02/04 16:21:11.620",
+            "acces_sur_rdv": True,
             "horaires_rdv": {
                 "dimanche": "fermé",
                 "jeudi": "14:00-18:00",

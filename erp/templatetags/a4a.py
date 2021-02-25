@@ -1,6 +1,7 @@
 import json
 import random
 
+from datetime import datetime
 from urllib.parse import quote
 
 from django import template
@@ -76,6 +77,14 @@ def format_distance(value):
         return f"À {value.km:.2f} km"
     else:
         return f"À {round(value.km)} km"
+
+
+@register.filter(name="format_isodate")
+def format_isodate(value):
+    try:
+        return datetime.strptime(value, "%Y-%m-%d").strftime("%d/%m/%Y")
+    except ValueError:
+        return value
 
 
 @register.filter(name="format_source")

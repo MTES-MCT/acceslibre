@@ -100,6 +100,7 @@ class RecordMapper:
                 },
                 "date_fermeture": self.props.get("c_date_fermeture"),
                 "date_ouverture": self.props.get("c_date_ouverture"),
+                "acces_sur_rdv": self.props.get("c_rdv"),
                 "url_rdv": self.props.get("c_rdv_site_web"),
                 "modalites": self.props.get("c_rdv_modalites"),
                 "horaires_rdv": {
