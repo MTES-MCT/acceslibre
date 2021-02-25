@@ -1,0 +1,38 @@
+{% load a4a %}
+
+<h3 class="sr-only">Historique des modifications</h3>
+
+<div class="list-group list-group-flush">
+  {% for entry in erp.get_history %}
+  <details class="list-group-item list-group-item-action text-overlay">
+    <summary class="no-ouline">
+      Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
+    </summary>
+    {% if entry.diff %}
+      <table class="table table-sm table-striped mt-3 mb-0">
+        <tr>
+          <th>Champ</th>
+          <th>Ancienne valeur</th>
+          <th>Nouvelle valeur</th>
+        </tr>
+        {% for field in entry.diff %}
+        <tr>
+          <td>{{ field.label }}</td>
+          <td class="text-danger">
+            {% include "fields/diff_value.html" with name=field.field value=field.old %}
+          </td>
+          <td class="text-success">
+            {% include "fields/diff_value.html" with name=field.field value=field.new %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </details>
+  {% empty %}
+  <p class="alert alert-info">
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
+  </p>
+  {% endfor %}
+</div>

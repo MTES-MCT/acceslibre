@@ -1,11 +1,21 @@
+{% load a4a %}
+
 <section id="a11y">
   <h3 class="h4 font-weight-normal mb-3">Accessibilité de l'établissement</h3>
 
   <div class="row">
     <div class="col-md-4">
       <div class="nav flex-column nav-pills a4a-nav-pills" role="tablist" aria-label="Sections">
+        {% if erp.metadata.centre_vaccination %}
+        <a class="nav-link text-truncate active" href="#vaccination"
+          title="Information vaccination" role="tab" aria-controls="vaccination"
+          aria-selected="false" id="vaccination-tab"
+          data-toggle="tab">
+          <i aria-hidden="true" class="icon icon-info-circled mr-2"></i>Infos vaccination
+        </a>
+        {% endif %}
         {% for section, info in accessibilite_data.items %}
-        <a class="nav-link text-truncate {% if forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
+        <a class="nav-link text-truncate {% if not erp.metadata.centre_vaccination and forloop.first %} active{% endif %}" href="#{{ info.tabid }}"
           title="{{ info.description }}" role="tab" aria-controls="{{ info.tabid }}"
           aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" id="{{ info.tabid }}-tab"
           data-toggle="tab">
@@ -29,8 +39,13 @@
       </script>
     </div>
     <div class="col-md-8 tab-content">
+      {% if erp.metadata.centre_vaccination %}
+        <section class="a4a-tab-content-section tab-pane active" id="vaccination" role="tabpanel" aria-labelledby="vaccination-tab">
+          {% include "erps/commune/includes/vaccination.html" %}
+        </section>
+      {% endif %}
       {% for section, info in accessibilite_data.items %}
-      <section class="a4a-tab-content-section tab-pane{% if forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
+      <section class="a4a-tab-content-section tab-pane{% if not erp.metadata.centre_vaccination and forloop.first %} active{% endif %}" id="{{ info.tabid }}" role="tabpanel"
         aria-labelledby="{{ info.tabid }}-tab">
         {% if info.fields %}
         <h3 class="sr-only">{{ info.description }}</h3>
@@ -68,41 +83,7 @@
       </section>
       {% endfor %}
       <section class="a4a-tab-content-section tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
-        <h3 class="sr-only">Historique des modifications</h3>
-        <div class="list-group list-group-flush">
-          {% for entry in erp.get_history %}
-          <details class="list-group-item list-group-item-action text-overlay">
-            <summary class="no-ouline">
-              Modifications par <strong>{{ entry.user }}</strong> le {{ entry.date|date:"j/m/Y à H:i"|lower }}
-            </summary>
-            {% if entry.diff %}
-              <table class="table table-sm table-striped mt-3 mb-0">
-                <tr>
-                  <th>Champ</th>
-                  <th>Ancienne valeur</th>
-                  <th>Nouvelle valeur</th>
-                </tr>
-                {% for field in entry.diff %}
-                <tr>
-                  <td>{{ field.label }}</td>
-                  <td class="text-danger">
-                    {% include "fields/diff_value.html" with name=field.field value=field.old %}
-                  </td>
-                  <td class="text-success">
-                    {% include "fields/diff_value.html" with name=field.field value=field.new %}
-                  </td>
-                </tr>
-                {% endfor %}
-              </table>
-            {% endif %}
-          </details>
-          {% empty %}
-          <p class="alert alert-info">
-            <i aria-hidden="true" class="icon icon-info-circled"></i>
-            Il n'y a pas encore d'historique de modifications pour les données d'accessibilité de cet établissement.
-          </p>
-          {% endfor %}
-        </div>
+        {% include "erps/commune/includes/history.html" %}
       </section>
     </div>
   </div>

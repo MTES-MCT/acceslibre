@@ -1,6 +1,6 @@
 {% load static %}
 
-<form action="{% url "search" %}">
+<form id="search-form" action="{% url "search" %}">
   <input type="hidden" name="lat">
   <input type="hidden" name="lon">
   <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
@@ -47,10 +47,11 @@
 
   function listenToLocCheckboxChange() {
     return function(event) {
-      processLocCheckbox(event.target);
+      processLocCheckbox(event.target, { initial: false });
     }
   }
-  function processLocCheckbox(node) {
+  function processLocCheckbox(node, options) {
+    options = options || { initial: false };
     if (!node.checked) {
       document.querySelector("#loc").innerText = "";
       document.querySelector("input[name=lat]").value = null;
@@ -78,6 +79,10 @@
             document.querySelector("input[name=lat]").value = lat;
             document.querySelector("input[name=lon]").value = lon;
             $("#geoloader").hide();
+            // if ongoing search, submit form with localization data
+            if (!options.initial && $("#search").val().trim()) {
+              $("#search-form").submit();
+            }
           })
           .catch(function(err) {
             console.warn("Le service de géopositionnement inverse a retourné une erreur : " + err);
@@ -98,7 +103,7 @@
     locCheckbox.addEventListener("change", listenToLocCheckboxChange());
     setTimeout(function() {
       // Note: a timeout is required in order to reprocess the form state after navigating back
-      processLocCheckbox(locCheckbox);
+      processLocCheckbox(locCheckbox, { initial: true });
     }, 10);
   });
 })(navigator.geolocation);
