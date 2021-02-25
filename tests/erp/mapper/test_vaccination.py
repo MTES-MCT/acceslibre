@@ -8,11 +8,7 @@ from django.contrib.gis.geos import Point
 from erp.mapper.vaccination import RecordMapper
 from erp.models import Activite, Erp
 
-from tests.erp.mapper.fixtures import (
-    neufchateau,
-    sample_record_ok,
-    sample_record_reserve_ps,
-)
+from tests.erp.mapper.fixtures import neufchateau, sample_record_ok
 
 
 @pytest.fixture
@@ -42,135 +38,42 @@ def test_source_id_missing():
     assert "Champ c_gid manquant" in str(err.value)
 
 
-def test_build_metadata(sample_record_reserve_ps):
-    m = RecordMapper(sample_record_reserve_ps)
+def test_skip_importing_closed(activite_cdv, neufchateau, sample_record_ok):
+    sample_closed = sample_record_ok.copy()
+    sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
 
-    assert m.build_metadata() == {
-        "ban_addresse_id": "30334_0270_00016_bis",
-        "centre_vaccination": {
-            "date_fermeture": "2021-02-01",
-            "date_ouverture": "2021-01-13",
-            "datemaj": "2021/02/04 12:07:14.218",
-            "horaires_rdv": {
-                "dimanche": "fermé",
-                "jeudi": "fermé",
-                "lundi": "fermé",
-                "mardi": "fermé",
-                "mercredi": "9:00-16:30",
-                "samedi": "fermé",
-                "vendredi": "9:00-16:30",
-            },
-            "modalites": None,
-            "structure": {
-                "code_insee": "34172",
-                "code_postal": "34000",
-                "commune": "MONTPELLIER",
-                "nom": "AGENCE REGIONALE DE SANTE OCCITANIE",
-                "numero": "1025",
-                "voie": "AV HENRI BECQUEREL",
-            },
-            "url_rdv": "https://partners.doctolib.fr/hopital-public/uzes/centre-de-vaccination-covid-ch-le-mas-careiron?pid=practice-164184&enable_cookies_consent=1",
-        },
-    }
+    m = RecordMapper(sample_closed, today=datetime(2021, 1, 2))
+    with pytest.raises(RuntimeError) as err:
+        m.process(activite_cdv)
+
+    assert "SKIPPED: Centre fermé le 2021-01-01" in str(err.value)
 
 
-def test_build_commentaire(sample_record_reserve_ps):
-    m = RecordMapper(sample_record_reserve_ps, today=datetime(2021, 1, 1))
+def test_skip_importing_reserve_ps(activite_cdv, neufchateau, sample_record_ok):
+    sample_reserve_ps = sample_record_ok.copy()
+    sample_reserve_ps["properties"][
+        "c_rdv_modalites"
+    ] = "Ouvert uniquement aux professionnels"
 
-    assert "importées depuis data.gouv.fr le 01/01/2021" in m.build_commentaire()
+    m = RecordMapper(sample_reserve_ps)
+    with pytest.raises(RuntimeError) as err:
+        m.process(activite_cdv)
 
-
-def test_check_closed():
-    # closed vaccination center
-    m = RecordMapper(
-        {
-            "geometry": [],
-            "properties": {"c_date_fermeture": "2021-01-01"},
-        },
-        today=datetime(2021, 1, 2),
-    )
-    assert m.check_closed() == datetime(2021, 1, 1)
-
-    # active vaccination center
-    m = RecordMapper(
-        {
-            "geometry": [],
-            "properties": {"c_date_fermeture": "2021-01-03"},
-        },
-        today=datetime(2021, 1, 2),
-    )
-    assert m.check_closed() is None
-
-
-def test_check_reserve_ps():
-    m = RecordMapper(
-        {
-            "geometry": [],
-            "properties": {
-                "c_rdv_modalites": "R\u00e9serv\u00e9 aux professionnels de sant\u00e9",
-            },
-        }
-    )
-    assert m.check_reserve_ps() == "R\u00e9serv\u00e9 aux professionnels de sant\u00e9"
-
-
-def test_check_equipe_mobile():
-    m = RecordMapper(
-        {
-            "geometry": [],
-            "properties": {"c_rdv_modalites": "Equipe mobile"},
-        }
-    )
-    assert m.check_equipe_mobile() == "Equipe mobile"
-
-
-def test_extract_coordinates():
-    m = RecordMapper(
-        {
-            "geometry": {
-                "type": "MultiPoint",
-                "coordinates": [[4.4130655367765, 44.008294265819]],
-            },
-            "properties": {},
-        }
-    )
-    assert m.extract_coordinates() == Point(4.4130655367765, 44.008294265819)
-
-
-def test_fetch_or_create_erp_non_existing(activite_cdv):
-    m = RecordMapper(
-        {
-            "geometry": [],
-            "properties": {"c_gid": "test_new"},
-        }
+    assert (
+        "SKIPPED: Réservé aux professionnels de santé: Ouvert uniquement aux professionnels"
+        in str(err.value)
     )
 
-    m.fetch_or_create_erp(activite_cdv)
 
-    assert m.erp is not None
-    assert m.erp_exists is False
-    assert m.erp.source_id == "test_new"
+def test_skip_importing_equipe_mobile(activite_cdv, neufchateau, sample_record_ok):
+    sample_equipe_mobile = sample_record_ok.copy()
+    sample_equipe_mobile["properties"]["c_rdv_modalites"] = "Equipe mobile"
 
+    m = RecordMapper(sample_equipe_mobile)
+    with pytest.raises(RuntimeError) as err:
+        m.process(activite_cdv)
 
-def test_fetch_or_create_erp_existing(activite_cdv):
-    existing_erp = Erp.objects.create(
-        nom="plop",
-        source=Erp.SOURCE_VACCINATION,
-        source_id="test_existing",
-    )
-    m = RecordMapper(
-        {
-            "geometry": [],
-            "properties": {"c_gid": "test_existing"},
-        }
-    )
-
-    m.fetch_or_create_erp(activite_cdv)
-
-    assert m.erp is not None
-    assert m.erp_exists is True
-    assert m.erp.id == existing_erp.id
-    assert m.erp.source_id == "test_existing"
+    assert "SKIPPED: Équipe mobile écartée: " in str(err.value)
 
 
 def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):

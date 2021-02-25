@@ -47,39 +47,45 @@ class RecordMapper:
     def erp_exists(self):
         return self.erp and self.erp.id is not None
 
-    def discard(self, msg):
-        if self.erp_exists:
-            self.erp.published = False
-            self.erp.save()
-            msg = "UNPUBLISHED: " + msg
+    def process(self, activite):
+        "Procède aux vérifications et à l'import de l'enregistrement"
+        # Création ou récupération d'un ERP existant
+        self.__fetch_or_create_erp(activite)
+        self.__check_importable()
+        self.__import_basic_erp_fields()
+        self.__import_coordinates()
+        # Commune checks and normalization
+        self.__retrieve_commune_ext()
+        # Strange/invalid phone numbers
+        if self.erp.telephone and len(self.erp.telephone) > 20:
+            self.erp.telephone = None
+        # Build metadata
+        self.erp.metadata = self.__build_metadata()
+        # Prepare comment
+        commentaire = self.__build_commentaire()
+
+        # Save erp instance
+        self.erp.save()
+
+        # Attach a comment to the Accessibilite object
+        if self.erp_exists and self.erp.has_accessibilite():
+            accessibilite = self.erp.accessibilite
         else:
-            msg = "SKIPPED: " + msg
-        raise RuntimeError(msg)
+            accessibilite = Accessibilite(erp=self.erp)
+        accessibilite.commentaire = commentaire
+        accessibilite.save()
 
-    def retrieve_commune_ext(self):
-        if self.erp.code_insee:
-            commune_ext = Commune.objects.filter(code_insee=self.erp.code_insee).first()
-            if not commune_ext:
-                arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
-                if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
-        elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[self.erp.code_postal]
-            ).first()
-        else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
-            )
+        return self.erp
 
-        if not commune_ext:
-            raise RuntimeError("Impossible de résoudre la commune")
+    def __build_commentaire(self):
+        "Retourne un commentaire informatif à propos de l'import"
+        date = self.today.strftime("%d/%m/%Y")
+        return (
+            f"Ces informations ont été {'mises à jour' if self.erp_exists else 'importées'} depuis data.gouv.fr le {date} "
+            "https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
+        )
 
-        self.erp.commune_ext = commune_ext
-
-    def build_metadata(self):
+    def __build_metadata(self):
         return {
             "ban_addresse_id": self.props.get("c_id_adr"),
             "centre_vaccination": {
@@ -108,44 +114,55 @@ class RecordMapper:
             },
         }
 
-    def build_commentaire(self):
-        date = self.today.strftime("%d/%m/%Y")
-        return (
-            f"Ces informations ont été {'mises à jour' if self.erp_exists else 'importées'} depuis data.gouv.fr le {date} "
-            "https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/"
-        )
-
-    def check_closed(self):
-        # Exclusion des centres déjà fermés
+    def __check_closed(self):
+        "Vérification si centre déjà fermé"
         raw_date_fermeture = self.props.get("c_date_fermeture")
         if raw_date_fermeture:
             date_fermeture = datetime.strptime(raw_date_fermeture, "%Y-%m-%d")
             if date_fermeture < self.today:
                 return date_fermeture
 
-    def check_reserve_ps(self):
-        # Exclusion des centres uniquement réservés aux personnels soignants
+    def __check_reserve_ps(self):
+        "Vérification si centre uniquement réservé aux personnels soignants"
         modalites = self.props.get("c_rdv_modalites")
         if modalites and any(
             test.lower() in modalites.lower() for test in self.RESERVE_PS
         ):
             return modalites
 
-    def check_equipe_mobile(self):
-        # Exclusion des équipes mobiles
+    def __check_equipe_mobile(self):
+        "Vérification équipes mobiles"
         modalites = self.props.get("c_rdv_modalites")
         if modalites:
             if "equipe mobile" in modalites.lower():
                 return modalites
 
-    def extract_coordinates(self):
-        try:
-            (lon, lat) = self.geometry["coordinates"][0]
-            return Point(lon, lat)
-        except (KeyError, IndexError):
-            raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
+    def __check_importable(self):
+        "Vérifications d'exclusion d'import ou de mise à jour"
+        ferme_depuis = self.__check_closed()
+        if ferme_depuis:
+            self.__discard(f"Centre fermé le {ferme_depuis}")
 
-    def fetch_or_create_erp(self, activite):
+        reserve_ps = self.__check_reserve_ps()
+        if reserve_ps:
+            self.__discard(f"Réservé aux professionnels de santé: {reserve_ps}")
+
+        equipe_mobile = self.__check_equipe_mobile()
+        if equipe_mobile:
+            self.__discard(f"Équipe mobile écartée: {equipe_mobile}")
+
+    def __discard(self, msg):
+        "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
+        if self.erp_exists:
+            self.erp.published = False
+            self.erp.save()
+            msg = "UNPUBLISHED: " + msg
+        else:
+            msg = "SKIPPED: " + msg
+        raise RuntimeError(msg)
+
+    def __fetch_or_create_erp(self, activite):
+        "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"
         erp = Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, self.source_id)
         if not erp:
             erp = Erp(
@@ -155,51 +172,40 @@ class RecordMapper:
             )
         self.erp = erp
 
-    def check_importable(self):
-        # Vérifications d'exclusion d'import ou de mise à jour
-        ferme_depuis = self.check_closed()
-        if ferme_depuis:
-            self.discard(f"Centre fermé le {ferme_depuis}")
-
-        reserve_ps = self.check_reserve_ps()
-        if reserve_ps:
-            self.discard(f"Réservé aux professionnels de santé: {reserve_ps}")
-
-        equipe_mobile = self.check_equipe_mobile()
-        if equipe_mobile:
-            self.discard(f"Équipe mobile écartée: {equipe_mobile}")
-
-    def import_basic_fields(self):
-        # Import basic administrative fields
+    def __import_basic_erp_fields(self):
+        "Importe les champs administratif basiques du centre de vaccination"
         for (json_field, model_field) in self.FIELDS_MAP.items():
             setattr(self.erp, model_field, self.props[json_field])
 
-    def process(self, activite):
-        # Création ou récupération d'un ERP existant
-        self.fetch_or_create_erp(activite)
-        self.check_importable()
-        self.import_basic_fields()
-        # Coordinates
-        self.erp.geom = self.extract_coordinates()
-        # Commune checks and normalization
-        self.retrieve_commune_ext()
-        # Strange/invalid phone numbers
-        if self.erp.telephone and len(self.erp.telephone) > 20:
-            self.erp.telephone = None
-        # Build metadata
-        self.erp.metadata = self.build_metadata()
-        # Prepare comment
-        commentaire = self.build_commentaire()
+    def __import_coordinates(self):
+        "Importe les coordonnées géographiques du centre de vaccination"
+        try:
+            (lon, lat) = self.geometry["coordinates"][0]
+            self.erp.geom = Point(lon, lat)
+        except (KeyError, IndexError):
+            raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
 
-        # Save erp instance
-        self.erp.save()
-
-        # Attach a comment to the Accessibilite object
-        if self.erp_exists and self.erp.has_accessibilite():
-            accessibilite = self.erp.accessibilite
+    def __retrieve_commune_ext(self):
+        "Assigne une commune normalisée à l'Erp en cours de génération"
+        if self.erp.code_insee:
+            commune_ext = Commune.objects.filter(code_insee=self.erp.code_insee).first()
+            if not commune_ext:
+                arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
+                if arrdt:
+                    commune_ext = Commune.objects.filter(
+                        nom__iexact=arrdt["commune"]
+                    ).first()
+        elif self.erp.code_postal:
+            commune_ext = Commune.objects.filter(
+                code_postaux__contains=[self.erp.code_postal]
+            ).first()
         else:
-            accessibilite = Accessibilite(erp=self.erp)
-        accessibilite.commentaire = commentaire
-        accessibilite.save()
+            raise RuntimeError(
+                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
+            )
 
-        return self.erp
+        if not commune_ext:
+            raise RuntimeError("Impossible de résoudre la commune")
+
+        self.erp.commune_ext = commune_ext
+        self.erp.commune = commune_ext.nom
