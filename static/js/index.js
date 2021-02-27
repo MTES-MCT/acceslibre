@@ -10,6 +10,7 @@ import select2 from "../vendor/selectWoo-1.0.8/js/select2.full.min";
 select2(window.$);
 import("../vendor/selectWoo-1.0.8/js/i18n/fr.js").then();
 
+import "bootstrap/js/dist/collapse";
 import "bootstrap/js/dist/tab";
 import "devbridge-autocomplete";
 import "leaflet";
