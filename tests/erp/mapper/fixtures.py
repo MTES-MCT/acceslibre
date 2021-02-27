@@ -62,7 +62,7 @@ def sample_record_ok():
         "c_rdv_site_web": "https://partners.doctolib.fr/hopital-public/neufchateau/centre-de-vaccination-covid-neufchateau-et-vittel?speciality_id=5494\u0026enable_cookies_consent=1",
         "c_rdv_tel": "+33329948605",
         "c_rdv_modalites": null,
-        "c_rdv_consultation_prevaccination": null
+        "c_rdv_consultation_prevaccination": true
     },
     "geometry": {
         "type": "MultiPoint",
