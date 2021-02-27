@@ -39,11 +39,17 @@
       {{ form.erp|as_crispy_field }}
       {% if erp %}
         <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
-        {% if erp.activite and erp.activite.slug == "centre-de-vaccination" %}
+        {% if erp.activite %}
         <div class="alert alert-warning">
-          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information d'acessibilité des établissements.
-          Nous ne sommes <strong>pas compétents sur les questions médicales, ni capables de vous fournir des informations
-          sur les modalités de vaccination contre la COVID 19.</strong>
+          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information d'<strong>accessibilité</strong> des établissements.
+          {% if erp.activite.slug == "centre-de-vaccination" %}
+            Nous ne sommes <strong>pas compétents sur les questions médicales, ni capables de vous fournir des informations
+            sur les modalités de vaccination contre la COVID 19.</strong>
+          {% else %}
+            Nous ne sommes <strong>pas compétents pour vous fournir des informations sur les services ou prestations proposés
+            par l'établissement, ni assurer un support ou une assistance vis à vis de ces services ou prestations.</strong>
+          {% endif %}
+          Merci de votre compréhension.
         </div>
         {% endif %}
       {% endif %}
