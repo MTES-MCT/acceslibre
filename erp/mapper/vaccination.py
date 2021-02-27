@@ -103,6 +103,7 @@ class RecordMapper:
                 "acces_sur_rdv": self.props.get("c_rdv"),
                 "url_rdv": self.props.get("c_rdv_site_web"),
                 "modalites": self.props.get("c_rdv_modalites"),
+                "prevaccination": self.props.get("c_rdv_consultation_prevaccination"),
                 "horaires_rdv": {
                     "lundi": self.props.get("c_rdv_lundi") or "N/C",
                     "mardi": self.props.get("c_rdv_mardi") or "N/C",

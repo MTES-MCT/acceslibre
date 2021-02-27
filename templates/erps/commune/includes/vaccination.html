@@ -17,6 +17,7 @@
     Fermeture prévue à compter du {{ infos.date_fermeture|format_isodate }}.
   </p>
   {% endif %}
+
   {% if infos.modalites %}
   <h4 class="h5 mt-2">Modalités particulières</h4>
   <blockquote><em>{{ infos.modalites }}</em></blockquote>
@@ -29,6 +30,12 @@
     L'accès à ce centre de vaccination se fait sur rendez-vous.
   </p>
   {% endif %}
+  {% if infos.prevaccination is True %}
+  <p>
+    <i aria-hidden="true" class="icon icon-info-circled"></i>
+    Ce centre propose également des consultations de prévaccination.
+  </p>
+  {% endif %}
   <p>
     {% if infos.url_rdv %}
     <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
@@ -37,6 +44,10 @@
     {% if erp.telephone %}
     par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
     {% endif %}
+  </p>
+
+  <p>
+    <a href="https://www.sante.fr/cf/centres-vaccination-covid.html">&raquo; En savoir plus sur les conditions de vaccination</a>
   </p>
 {% endwith %}
 </div>
