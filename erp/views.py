@@ -164,10 +164,19 @@ def where(request):
     return JsonResponse({"q": q, "results": results})
 
 
+def get_where_data(where):
+    if not where:
+        return None
+    elif where == "france_entiere":  # france entière
+        return {"type": "france_entiere"}
+    elif len(where) == 5:  # code insee
+        return {"type": "commune", "obj": Commune.objects.get(code_insee=where)}
+    elif len(where) == 2:  # departement
+        return {"type": "departement", "obj": departements.get_departements(where)}
+    raise RuntimeError(f"Invalid where data: {where}")
+
+
 def search(request):
-    # XXX: if where is provided, retrieve associated model instance (Commune) or
-    # departement info, so we can pass it to the template and render a meaningful
-    # search info in the heading.
     search_results = None
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
@@ -217,6 +226,7 @@ def search(request):
             "search_where": where,
             "search_what": what,
             "search_where_label": search_where_label,
+            "where_data": get_where_data(where),
             "search_results": search_results,
             "geojson_list": geojson_list,
             "commune_json": None,

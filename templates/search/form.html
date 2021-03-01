@@ -3,7 +3,7 @@
 <form class="a4a-search-form" id="search-form" action="{% url "search" %}">
   <input type="hidden" name="lat">
   <input type="hidden" name="lon">
-  <div id="loc-field" class="form-group custom-control custom-switch mb-1 mt-0 ml-2">
+  <div id="loc-field" class="form-group custom-control custom-switch mb-1 mt-0">
     <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
       {% if localize == "1" %}checked{% endif %}>
     <label class="custom-control-label" for="localize">
@@ -21,7 +21,7 @@
       </label>
       <select id="search_where" name="where" class="select form-control"
         aria-label="Rechercher une commune, un département"></select>
-        <script>
+      <script>
         $(document).ready(function() {
           $search_where = $("#search_where");
           $search_where.select2({

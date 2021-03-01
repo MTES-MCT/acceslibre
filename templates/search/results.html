@@ -17,7 +17,17 @@
   <h2 class="mt-3 mb-2">
     {% if search_results.pager %}
       <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-      {{ search_where }} {{ search_what }} {% if localize %}<small class="text-muted" style="font-size:.6em">autour de votre position</small>{% endif %}
+      {{ search_what }}
+      {% if where_data %}
+        {% if where_data.type == "france_entiere" %}
+          France entière
+        {% elif where_data.type == "commune" %}
+          {{ where_data.obj.nom }}
+        {% elif where_data.type == "departement" %}
+          {{ where_data.obj.nom }}
+        {% endif %}
+      {% endif %}
+      {% if localize %}<small class="text-muted" style="font-size:.6em">autour de votre position</small>{% endif %}
     {% else %}
       Aucun résultat
     {% endif %}
