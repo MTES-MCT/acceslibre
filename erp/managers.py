@@ -78,6 +78,7 @@ class CommuneQuerySet(models.QuerySet):
                 )
                 clauses = (
                     clauses
+                    | Q(nom__iexact=term)
                     | Q(nom__unaccent__icontains=term)
                     | Q(**{f"{similarity_field}__gte": 0.6})
                 )
@@ -119,6 +120,16 @@ class ErpQuerySet(models.QuerySet):
 
     def in_commune(self, commune):
         return self.filter(commune_ext=commune)
+
+    def where(self, where="france_entiere"):
+        if where == "france_entiere":
+            return self
+        if len(where) == 2:
+            return self.filter(commune_ext__departement=where)
+        elif len(where) == 5:
+            return self.filter(commune_ext__code_insee=where)
+        else:
+            return self
 
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)

@@ -3,7 +3,6 @@
 <form class="a4a-search-form" id="search-form" action="{% url "search" %}">
   <input type="hidden" name="lat">
   <input type="hidden" name="lon">
-  <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
   <div id="loc-field" class="form-group custom-control custom-switch mb-1 mt-0 ml-2">
     <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
       {% if localize == "1" %}checked{% endif %}>
@@ -15,19 +14,50 @@
   </div>
   <div class="row">
     <div class="where-field col-xl-6 py-1">
+      <input type="hidden" id="search_where_label" name="search_where_label" value="{{ search_where_label }}">
       <label class="sr-only" for="search_where">Où</label>
-      <input type="search" aria-label="Où" id="search_where" name="where"
-        class="form-control" placeholder="Où"
-        aria-label="Rechercher une commune, un département" autocomplete="off"
-        value="{{ search|default_if_none:"" }}">
+      <select id="search_where" name="where" class="select form-control"
+        aria-label="Rechercher une commune, un département"></select>
+        <script>
+        $(document).ready(function() {
+          $search_where = $("#search_where");
+          $search_where.select2({
+            allowClear: true,
+            placeholder: "Où",
+            theme: "bootstrap4",
+            width: "auto",
+            ajax: {
+              cache: true,
+              delay: 100,
+              dataType: "json",
+              url: "{% url "where" %}"
+            }
+          });
+          $search_where.on("select2:select", function(event) {
+            try {
+              $("#search_where_label").val(event.params.data.text);
+            } catch(err) {
+              console.warn("Unable to retrieve where data", err);
+            }
+          });
+
+          // Initialisation et vérification de la présence d'une valeur pré-sélectionnée
+          const search_where_label = $("#search_where_label").val();
+          const search_where_value = "{{ search_where }}";
+          if (search_where_label && search_where_value) {
+            let option = new Option(search_where_label, search_where_value, false, false);
+            $search_where.append(option).trigger("change");
+          }
+        });
+      </script>
     </div>
     <div class="what-field col-xl-6 py-1">
       <label class="sr-only" for="search_what">Quoi</label>
       <div class="input-group">
-        <input type="search" aria-label="Quoi" id="search_what" name="what"
+        <input type="search" id="search_what" name="what"
           class="form-control" placeholder="Quoi"
           aria-label="Rechercher un établissement, une activité" autocomplete="off"
-          value="{{ search|default_if_none:"" }}">
+          value="{{ search_what|default_if_none:"" }}">
         <div class="input-group-append">
           <button type="submit" class="btn btn-primary border-left text-nowrap">
             <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
@@ -37,17 +67,6 @@
       </div>
     </div>
   </div>
-  <script>
-    $(document).ready(function() {
-      $("#search_where").selectWoo({
-        allowClear: true,
-        language: "fr",
-        placeholder: "Où",
-        theme: "bootstrap4",
-        width: "auto"
-      });
-    });
-  </script>
 
   {% if from_home %}
   <p class="text-center pt-3 mb-0">
@@ -106,7 +125,7 @@
             document.querySelector("input[name=lon]").value = lon;
             $("#geoloader").hide();
             // if ongoing search, submit form with localization data
-            if (!options.initial && $("#search").val().trim()) {
+            if (!options.initial && ($("#search_where").val().trim() || $("#search_what").val().trim())) {
               $("#search-form").submit();
             }
           })

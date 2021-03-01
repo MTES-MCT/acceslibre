@@ -33,24 +33,27 @@ def test_communes(data, client):
 
 
 def test_search(data, client):
-    response = client.get(reverse("search") + "?q=croissant%20jacou")
-    assert response.context["search"] == "croissant jacou"
+    response = client.get(reverse("search") + "?where=34120&what=croissant")
+    assert response.context["search_where"] == "34120"
+    assert response.context["search_what"] == "croissant"
     assert len(response.context["search_results"]["pager"]) == 1
     assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["search_results"]["pager"][0], "distance") is False
 
 
 def test_search_empty_text_query(data, client):
-    response = client.get(reverse("search") + "?q=")
-    assert response.context["search"] == ""
+    response = client.get(reverse("search") + "?where=&what=")
+    assert response.context["search_where"] == ""
+    assert response.context["search_what"] == ""
     assert response.context["search_results"] is None
 
 
 def test_search_localized(data, client):
     response = client.get(
-        reverse("search") + "?q=croissant%20jacou&localize=1&lat=1&lon=2"
+        reverse("search") + "?where=34120&what=croissant&localize=1&lat=1&lon=2"
     )
-    assert response.context["search"] == "croissant jacou"
+    assert response.context["search_where"] == "34120"
+    assert response.context["search_what"] == "croissant"
     assert len(response.context["search_results"]["pager"]) == 1
     assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["search_results"]["pager"][0], "distance")

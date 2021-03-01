@@ -1,3 +1,5 @@
+from core.lib import text
+
 # données sources extraites de https://api.gouv.fr/les-api/api-geo
 DEPARTEMENTS = {
     "01": {
@@ -409,5 +411,55 @@ DEPARTEMENTS = {
 REGIONS = sorted(list(set(d["region"] for n, d in DEPARTEMENTS.items())))
 
 
+def get_departement(code):
+    return DEPARTEMENTS.get(code)
+
+
 def get_departements():
     return DEPARTEMENTS
+
+
+def search(q, limit=None, for_autocomplete=False):
+    terms = [_clean_term(term) for term in q.split(" ") if term]
+    results = []
+    seen_codes = []
+    for code, dpt in get_departements().items():
+        keep = False
+        score = 0
+        if code in seen_codes:
+            continue
+        if _to_phrase(q) == _to_phrase(dpt["nom"]):
+            keep = True
+            score = 1
+        else:
+            for term in terms:
+                if term in _clean_term(dpt["nom"]):
+                    keep = True
+                    score = 0.5
+        if keep:
+            if not for_autocomplete:
+                result = dpt
+                result["score"] = score
+            else:
+                result = {
+                    "id": code,
+                    "text": f"{dpt['nom']} ({code})",
+                    "score": score,
+                }
+            results.append(result)
+        seen_codes.append(code)
+    # sort by score desc
+    results = sorted(results, key=lambda result: result["score"], reverse=True)
+    # remove score attrs
+    for result in results:
+        del result["score"]
+    # apply limit
+    return results[:limit] if limit and limit > 0 else results
+
+
+def _clean_term(term):
+    return text.remove_accents(term.lower())
+
+
+def _to_phrase(terms):
+    return text.remove_accents(terms.lower().replace("-", " "))

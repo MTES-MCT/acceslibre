@@ -13,25 +13,25 @@
 <main id="content">
   {% include "search/form.html" with from_home=False %}
 
-  {% if search %}
+  {% if search_ongoing %}
   <h2 class="mt-3 mb-2">
     {% if search_results.pager %}
       <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-      {{ search }} {% if localize %}<small class="text-muted" style="font-size:.6em">autour de votre position</small>{% endif %}
+      {{ search_where }} {{ search_what }} {% if localize %}<small class="text-muted" style="font-size:.6em">autour de votre position</small>{% endif %}
     {% else %}
       Aucun résultat
     {% endif %}
   </h2>
   {% endif %}
 
-  {% if search and "centres de vaccination" in search %}
+  {% if search_what and "centres de vaccination" in search_what %}
   <div class="alert alert-warning">
     Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
   </div>
   {% endif %}
 
   <section class="pt-2" id="results">
-    {% if search and not search_results.pager %}
+    {% if search_ongoing and not search_results.pager %}
     <div class="alert alert-info">
       Il n'y a pas de résultat correspondant à votre recherche.
     </div>

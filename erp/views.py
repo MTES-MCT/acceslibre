@@ -7,11 +7,10 @@ from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Count, Q
+from django.db.models import Count, F, Q
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
-from django.db.models import F
 from django.forms import modelform_factory
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -27,7 +26,7 @@ from django_registration.backends.activation.views import (
 from core import mailer
 
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
-from erp.provider import search as provider_search
+from erp.provider import departements, search as provider_search
 from erp import forms
 from erp import schema
 from erp import serializers
@@ -135,9 +134,41 @@ def communes(request):
     )
 
 
+def where(request):
+    MAX_SUGGESTIONS = 10
+    q = request.GET.get("q", "").strip()
+    if q:
+        communes_qs = Commune.objects.search(q).order_by(
+            F("population").desc(nulls_last=True)
+        )
+    else:
+        communes_qs = Commune.objects.with_published_erp_count().order_by(
+            "-erp_access_count"
+        )
+    communes_qs = communes_qs.values(
+        "code_insee",
+        "nom",
+        "departement",
+    )
+    results = []
+    if q and "france" in q.lower().strip():
+        results.append({"id": "france_entiere", "text": "France entière"})
+    results += departements.search(q, limit=5, for_autocomplete=True)
+    for commune in communes_qs[:MAX_SUGGESTIONS]:
+        results.append(
+            {
+                "id": commune["code_insee"],
+                "text": f"{commune['nom']} ({commune['departement']})",
+            }
+        )
+    return JsonResponse({"q": q, "results": results})
+
+
 def search(request):
     search_results = None
-    q = request.GET.get("q")
+    where = request.GET.get("where", "")
+    what = request.GET.get("what", "")
+    search_where_label = request.GET.get("search_where_label", "")
     localize = request.GET.get("localize")
     paginator = pager = None
     pager_base_url = None
@@ -145,12 +176,14 @@ def search(request):
     lat = None
     lon = None
     geojson_list = None
-    if q and len(q) > 0:
-        erp_qs = (
-            Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-            .published()
-            .search(q)
-        )
+    if len(where) > 0 or len(what) > 0:
+        erp_qs = Erp.objects.select_related(
+            "accessibilite", "activite", "commune_ext"
+        ).published()
+        if what:
+            erp_qs = erp_qs.search(what)
+        if where:
+            erp_qs = erp_qs.where(where)
         if localize == "1":
             try:
                 (lat, lon) = (
@@ -163,15 +196,8 @@ def search(request):
         paginator = Paginator(erp_qs, 10)
         page_number = request.GET.get("page", 1)
         pager = paginator.get_page(page_number)
-        pager_base_url = (
-            f"?q={q or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
-        )
-        search_results = {
-            "communes": Commune.objects.search(q).order_by(
-                F("population").desc(nulls_last=True)
-            )[:4],
-            "pager": pager,
-        }
+        pager_base_url = f"?where={where or ''}&what={what or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
+        search_results = {"pager": pager}
         geojson_list = make_geojson(pager)
     return render(
         request,
@@ -184,7 +210,10 @@ def search(request):
             "localize": localize,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
-            "search": q,
+            "search_ongoing": where or what,
+            "search_where": where,
+            "search_what": what,
+            "search_where_label": search_where_label,
             "search_results": search_results,
             "geojson_list": geojson_list,
             "commune_json": None,

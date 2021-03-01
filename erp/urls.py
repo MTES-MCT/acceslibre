@@ -76,6 +76,11 @@ urlpatterns = [
         name="search",
     ),
     path(
+        "where/",
+        views.where,
+        name="where",
+    ),
+    path(
         "app/<str:commune>/",
         cache_app_page(),
         name="commune",
