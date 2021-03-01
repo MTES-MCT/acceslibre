@@ -1,6 +1,6 @@
 {% load static %}
 
-<form id="search-form" action="{% url "search" %}">
+<form class="a4a-search-form" id="search-form" action="{% url "search" %}">
   <input type="hidden" name="lat">
   <input type="hidden" name="lon">
   <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
@@ -13,18 +13,44 @@
       <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
     </label>
   </div>
-  <div class="input-group py-1">
-    <input type="search" id="search" name="q" class="form-control form-control-lg" placeholder="restau lyon"
-      aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
-    <div class="input-group-append">
-      <button type="submit" class="btn btn-lg btn-primary border-left text-nowrap">
-        <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
-        <span class="sr-only">Rechercher</span>
-      </button>
+  <div class="row">
+    <div class="where-field col-xl-6 py-1">
+      <label class="sr-only" for="search_where">Où</label>
+      <input type="search" aria-label="Où" id="search_where" name="where"
+        class="form-control" placeholder="Où"
+        aria-label="Rechercher une commune, un département" autocomplete="off"
+        value="{{ search|default_if_none:"" }}">
+    </div>
+    <div class="what-field col-xl-6 py-1">
+      <label class="sr-only" for="search_what">Quoi</label>
+      <div class="input-group">
+        <input type="search" aria-label="Quoi" id="search_what" name="what"
+          class="form-control" placeholder="Quoi"
+          aria-label="Rechercher un établissement, une activité" autocomplete="off"
+          value="{{ search|default_if_none:"" }}">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary border-left text-nowrap">
+            <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
+            <span class="sr-only">Rechercher</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+  <script>
+    $(document).ready(function() {
+      $("#search_where").selectWoo({
+        allowClear: true,
+        language: "fr",
+        placeholder: "Où",
+        theme: "bootstrap4",
+        width: "auto"
+      });
+    });
+  </script>
+
   {% if from_home %}
-  <p class="text-center pt-2 mb-1">
+  <p class="text-center pt-3 mb-0">
     Ou accedez à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
   </p>
   {% endif %}

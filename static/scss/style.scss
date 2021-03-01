@@ -391,6 +391,27 @@ $viewport-xl: 1200px;
     }
   }
 
+  &-search-form {
+    @media screen and (min-width: $viewport-xl) {
+      .where-field {
+        padding-right: 0;
+
+        .select2-selection {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+      .what-field {
+        padding-left: 0;
+        input[type=search] {
+          border-left: 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
+
   &-search-pager {
     justify-content: flex-end; // desktop
 

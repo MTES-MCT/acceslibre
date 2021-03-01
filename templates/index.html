@@ -22,12 +22,11 @@
     <div class="container">
       <h2 class="font-weight-bold mb-3">Trouvez les lieux accessibles ouverts au public</h2>
       <div class="row">
-        <div class="col-xl-6">
+        <div class="col-lg-6">
           <p class="text-dark">Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
           {% include "search/form.html" with from_home=True %}
         </div>
-        <div class="col-xl-6">
-          <img alt="" class="img-fluid" src="{% static "img/landing/illustration-principale.png" %}">
+        <div class="col-lg-6" style="background:url('{% static "img/landing/illustration-principale.png" %}');background-position:center;background-size:cover">
         </div>
       </div>
     </div>
