@@ -40,12 +40,6 @@ def remove_accents(input_str):
     return "".join([c for c in nfkd_form if not unicodedata.combining(c)])
 
 
-def remove_stopwords(input_str):
-    for stop_word in FRENCH_STOPWORDS:
-        input_str = input_str.replace(stop_word, "")
-    return input_str
-
-
 def strip_if_str(value):
     "Strips a value when it's a string, otherwise return it."
     return value.strip() if isinstance(value, str) else value
