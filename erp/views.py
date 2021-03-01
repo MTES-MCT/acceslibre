@@ -165,6 +165,9 @@ def where(request):
 
 
 def search(request):
+    # XXX: if where is provided, retrieve associated model instance (Commune) or
+    # departement info, so we can pass it to the template and render a meaningful
+    # search info in the heading.
     search_results = None
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
