@@ -120,16 +120,6 @@ class ErpQuerySet(models.QuerySet):
     def in_commune(self, commune):
         return self.filter(commune_ext=commune)
 
-    def where(self, where="france_entiere"):
-        if where == "france_entiere":
-            return self
-        if len(where) == 2:  # departement
-            return self.filter(commune_ext__departement=where)
-        elif len(where) == 5:  # code insee
-            return self.filter(commune_ext__code_insee=where)
-        else:
-            return self
-
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)
 
@@ -159,7 +149,7 @@ class ErpQuerySet(models.QuerySet):
     def published(self):
         return self.filter(published=True).geolocated().having_an_accessibilite()
 
-    def search(self, query):
+    def search_what(self, query):
         return (
             self.annotate(
                 rank=search.SearchRank(
@@ -170,6 +160,16 @@ class ErpQuerySet(models.QuerySet):
             .filter(search_vector=search.SearchQuery(query, config="french_unaccent"))
             .order_by("-rank")
         )
+
+    def search_where(self, where="france_entiere"):
+        if where == "france_entiere":
+            return self
+        if len(where) == 2:  # departement
+            return self.filter(commune_ext__departement=where)
+        elif len(where) == 5:  # code insee
+            return self.filter(commune_ext__code_insee=where)
+        else:
+            return self
 
     def with_votes(self):
         return self.annotate(

@@ -184,9 +184,9 @@ def search(request):
             "accessibilite", "activite", "commune_ext"
         ).published()
         if what:
-            erp_qs = erp_qs.search(what)
+            erp_qs = erp_qs.search_what(what)
         if where:
-            erp_qs = erp_qs.where(where)
+            erp_qs = erp_qs.search_where(where)
         if localize == "1":
             try:
                 (lat, lon) = (
@@ -261,7 +261,7 @@ def autocomplete(request):
     qs = Erp.objects.published()
     if commune_slug:
         qs = qs.filter(commune_ext__slug=commune_slug)
-    qs = qs.search(q)[:7]
+    qs = qs.search_what(q)[:7]
     for erp in qs:
         suggestions.append(
             {
