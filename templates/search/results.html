@@ -17,7 +17,7 @@
   <h2 class="mt-3 mb-2">
     {% if search_results.pager %}
       <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-      {{ search }}
+      {{ search }} {% if localize %}<small class="text-muted" style="font-size:.6em">autour de votre position</small>{% endif %}
     {% else %}
       Aucun résultat
     {% endif %}
