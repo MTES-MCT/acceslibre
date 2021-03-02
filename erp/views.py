@@ -331,7 +331,7 @@ class BaseListView(generic.ListView):
         queryset = super().get_queryset()
         queryset = queryset.in_commune(self.commune)
         if self.search_terms is not None:
-            queryset = queryset.search(self.search_terms)
+            queryset = queryset.search_what(self.search_terms)
         else:
             if "activite_slug" in self.kwargs:
                 if self.kwargs["activite_slug"] == "non-categorises":

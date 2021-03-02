@@ -88,6 +88,7 @@ def test_search_localized(data, client):
         reverse("password_reset_complete"),
         # App
         reverse("commune", kwargs=dict(commune="34-jacou")),
+        reverse("commune", kwargs=dict(commune="34-jacou")) + "?q=pain",
         reverse(
             "commune_activite",
             kwargs=dict(commune="34-jacou", activite_slug="boulangerie"),
