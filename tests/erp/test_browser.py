@@ -68,7 +68,9 @@ def test_search_localized(data, client):
         reverse("communes"),
         # Search
         reverse("search"),
-        reverse("search") + "?q=plop",
+        reverse("search") + "?what=boulangerie",
+        reverse("search") + "?where=34120",
+        reverse("search") + "?where=34120&what=boulangerie",
         # Editorial
         reverse("accessibilite"),
         reverse("autocomplete"),

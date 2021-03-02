@@ -173,7 +173,7 @@ def get_where_data(where):
         return {"type": "commune", "obj": Commune.objects.get(code_insee=where)}
     elif len(where) == 2:  # departement
         return {"type": "departement", "obj": departements.get_departements(where)}
-    raise RuntimeError(f"Invalid where data: {where}")
+    return None
 
 
 def search(request):
