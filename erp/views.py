@@ -83,6 +83,7 @@ def home(request):
 
 def challenge_ddt(request):
     start_date = datetime.datetime(2021, 2, 22, 9)
+    stop_date = datetime.datetime(2021, 3, 31, 23, 59, 59)
     today = datetime.datetime.today()
     filters = Q(
         erp__published=True,
@@ -90,6 +91,7 @@ def challenge_ddt(request):
         erp__geom__isnull=False,
         erp__user__email__contains="rhone.gouv.fr",
         erp__created_at__gte=start_date,
+        erp__created_at__lt=stop_date,
     )
     excludes = Q(erp__user__username="julien")
     top_contribs = (
@@ -112,6 +114,7 @@ def challenge_ddt(request):
         "challenge/podium.html",
         context={
             "start_date": start_date,
+            "stop_date": stop_date,
             "today": today,
             "top_contribs": top_contribs,
         },

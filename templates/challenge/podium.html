@@ -3,17 +3,25 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}Challenge DDT février 2021{% endblock%}
+{% block page_title %}Challenge DDT février/mars 2021{% endblock%}
 
 {% block editorial_content %}
 <main role="main" id="content">
-  <h2 class="text-center">Challenge DDT <small class="text-muted">février 2021</small></h2>
-  <h3 class="h4 text-center">Semaine de l'innovation et de la créativité</h3>
+  <h1 class="text-center">Challenge DDT <small class="text-muted">février/mars 2021</small></h1>
+  <h3 class="text-center py-4">
+    <small class="text-muted">dans le cadre de la</small><br>
+    Semaine de l'innovation et de la créativité<br>
+    <small class="text-muted">Du {{ start_date|date:"d F Y" }} au {{ stop_date|date:"d F Y"  }}.</small><br>
+  </h3>
   <section class="row justify-content-center mt-4">
     <div>
       {% if today < start_date %}
       <div class="alert alert-info">
         Le concours n'a pas encore démarré
+      </div>
+      {% elif today > stop_date%}
+      <div class="alert alert-info">
+        Le concours est terminé
       </div>
       {% elif not top_contribs %}
       <div class="alert alert-info">
