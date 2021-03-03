@@ -697,16 +697,27 @@ def process_accessibilite_form(
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
-            action = request.POST.get("action")
-            if action == "contribute":
-                hash = "#" + redirect_hash if redirect_hash else ""
-                return redirect(erp.get_absolute_url() + hash)
-            else:
+            # N'amener l'utilisateur vers l'étape de publication que:
+            # - s'il est propriétaire de la fiche
+            # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
+            if request.user == erp.user or step != 8:
                 return redirect(
                     reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
                 )
+            else:
+                return redirect(erp.get_absolute_url() + f"#{redirect_hash}")
     else:
         form = forms.AdminAccessibiliteForm(instance=accessibilite)
+
+    if prev_route:
+        prev_route = reverse(prev_route, kwargs={"erp_slug": erp.slug})
+    else:
+        prev_route = None
+
+    if request.user == erp.user or step != 8:
+        next_route = reverse(redirect_route, kwargs={"erp_slug": erp.slug})
+    else:
+        next_route = None
 
     return render(
         request,
@@ -716,9 +727,9 @@ def process_accessibilite_form(
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
-            "prev_route": reverse(prev_route, kwargs={"erp_slug": erp.slug})
-            if prev_route
-            else None,
+            "redirect_hash": redirect_hash,
+            "next_route": next_route,
+            "prev_route": prev_route,
         },
     )
 

@@ -33,15 +33,12 @@
     {{ form.lat|as_crispy_field }}
     {{ form.lon|as_crispy_field }}
 
-    <p class="mt-3">
-      <a class="btn btn-link" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Précédent</a>
-      {% if erp.user == request.user %}
-      <button type="submit" class="btn btn-primary mr-2">Suivant</button>
-      {% else %}
-      <a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a>
-      <button type="submit" name="action" value="contribute" class="btn btn-primary mr-2">Publier les modifications</button>
-      {% endif %}
-    </p>
+
+    <div class="mt-3">
+      {% url "contrib_edit_infos" erp_slug=erp.slug as prev_route %}
+      {% url "contrib_transport" erp_slug=erp.slug as next_route %}
+      {% include "contrib/includes/prevnext.html" %}
+    </div>
   </form>
 
   <script>
