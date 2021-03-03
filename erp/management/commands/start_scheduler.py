@@ -5,6 +5,7 @@ from django.core.management.base import BaseCommand
 
 from erp.jobs import check_closed_erps
 from subscription.jobs import notify_changed_erps
+from erp.management.commands import import_centres_vaccination
 
 
 class Command(BaseCommand):
@@ -15,6 +16,9 @@ class Command(BaseCommand):
         schedule.every().day.at("00:00").do(check_closed_erps.job, verbose=True)
         schedule.every(notify_changed_erps.HOURS_CHECK).hours.do(
             notify_changed_erps.job, verbose=True
+        )
+        schedule.every(6).hours.do(
+            import_centres_vaccination.Command().handle(), verbose=True
         )
         print("Scheduler started")
         while True:
