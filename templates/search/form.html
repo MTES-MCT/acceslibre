@@ -21,6 +21,38 @@
       </label>
       <select id="search_where" name="where" class="select form-control"
         aria-label="Rechercher une commune, un département"></select>
+      <script>
+        $(document).ready(function() {
+          $search_where = $("#search_where");
+          $search_where.select2({
+            allowClear: true,
+            placeholder: "Exemple: 69000, Clichy…",
+            theme: "bootstrap4",
+            width: "auto",
+            ajax: {
+              cache: true,
+              delay: 100,
+              dataType: "json",
+              url: "{% url "where" %}"
+            }
+          });
+          $search_where.on("select2:select", function(event) {
+            try {
+              $("#search_where_label").val(event.params.data.text);
+            } catch(err) {
+              console.warn("Unable to retrieve where data", err);
+            }
+          });
+
+          // Initialisation et vérification de la présence d'une valeur pré-sélectionnée
+          const search_where_label = $("#search_where_label").val();
+          const search_where_value = "{{ search_where }}";
+          if (search_where_label && search_where_value) {
+            let option = new Option(search_where_label, search_where_value, false, false);
+            $search_where.append(option).trigger("change");
+          }
+        });
+      </script>
     </div>
     <div class="what-field col-xl-6 py-1">
       <label for="search_what">
@@ -48,64 +80,8 @@
   </p>
   {% endif %}
 </form>
-
 <script>
 (function(geolocation) {
-  $(document).ready(function() {
-    $search_where = $("#search_where");
-
-    $search_where.select2({
-      allowClear: true,
-      placeholder: "Exemple: 69000, Clichy…",
-      theme: "bootstrap4",
-      width: "auto",
-      ajax: {
-        cache: true,
-        delay: 100,
-        dataType: "json",
-        url: "{% url "where" %}"
-      }
-    });
-
-    // bahaviors on selection
-    $search_where.on("select2:select", function(event) {
-      if (event.params.data.id === "autour_de_moi") {
-        // XXX: run geoloc
-        alert("autour de moi");
-        $("#search_where_label").val("Autour de moi");
-      } else {
-        try {
-          $("#search_where_label").val(event.params.data.text);
-        } catch(err) {
-          console.warn("Unable to retrieve where data", err);
-        }
-      }
-    });
-
-    // behaviors when opening the widget
-    $search_where.one("select2:open", function(e) {
-      $search_field = $("input.select2-search__field");
-      // add a placeholder to text input
-      $search_field.prop("placeholder", "Tapez le lieu que vous recherchez");
-      // add more action links
-      const links = [
-      '<div class="d-flex justify-content-between pb-1">',
-      '  <a class="btn btn-sm btn-link" href="#" onclick="">Autour de moi</a>',
-      '  <a class="btn btn-sm btn-link" href="#" onclick="">France entière</a>',
-      '</div>'
-      ].join("");
-      $(links).insertBefore($search_field);
-    });
-
-    // initialization and checks for any preexisting value
-    const search_where_label = $("#search_where_label").val();
-    const search_where_value = "{{ search_where }}";
-    if (search_where_label && search_where_value) {
-      let option = new Option(search_where_label, search_where_value, false, false);
-      $search_where.append(option).trigger("change");
-    }
-  });
-
   function renderError(error) {
     document.querySelector("#loc").innerHTML = [
       '<div class="text-danger">',

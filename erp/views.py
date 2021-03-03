@@ -150,7 +150,10 @@ def where(request):
         "nom",
         "departement",
     )
-    results = departements.search(q, limit=5, for_autocomplete=True)
+    results = []
+    if q and "france" in q.lower().strip():
+        results.append({"id": "france_entiere", "text": "France entière"})
+    results += departements.search(q, limit=5, for_autocomplete=True)
     for commune in communes_qs[:MAX_SUGGESTIONS]:
         results.append(
             {
@@ -169,7 +172,7 @@ def get_where_data(where):
     elif len(where) == 5:  # code insee
         return {"type": "commune", "obj": Commune.objects.get(code_insee=where)}
     elif len(where) == 2:  # departement
-        return {"type": "departement", "obj": departements.get_departement(where)}
+        return {"type": "departement", "obj": departements.get_departements(where)}
     return None
 
 
