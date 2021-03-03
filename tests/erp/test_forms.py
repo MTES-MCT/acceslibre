@@ -8,7 +8,6 @@ from erp import forms
 from erp.models import Commune, Erp
 from erp.provider import geocoder
 
-from tests.fixtures import data
 
 POINT = Point((0, 0))
 

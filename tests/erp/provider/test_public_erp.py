@@ -6,15 +6,6 @@ from django.contrib.gis.geos import Point
 from erp.provider import public_erp
 from erp.models import Activite, Commune
 
-from tests.fixtures import (
-    data,
-    activite_administration_publique,
-    activite_mairie,
-    commune_castelnau,
-    commune_montpellier,
-    commune_montreuil,
-)
-
 
 def test_find_public_types_simple():
     assert public_erp.find_public_types("dlfhsdjhfsjh") == []

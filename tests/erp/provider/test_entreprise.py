@@ -2,8 +2,6 @@ import pytest
 
 from erp.provider import entreprise
 
-from tests.fixtures import data
-
 
 @pytest.fixture
 def sample_response():

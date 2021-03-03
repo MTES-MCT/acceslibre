@@ -7,7 +7,6 @@ from django.urls import reverse
 from erp import schema
 from erp.models import Erp
 
-from tests.fixtures import data
 from tests.utils import assert_redirect
 
 
@@ -44,7 +43,7 @@ def test_user_draft_listed(client, data, mocker, sample_result, capsys):
     data.erp.published = False
     data.erp.save()
 
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     mocker.patch("erp.provider.search.global_search", return_value=[sample_result])
 

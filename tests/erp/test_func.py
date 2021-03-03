@@ -9,8 +9,6 @@ from splinter import Browser
 from erp.models import Erp
 from erp import schema
 
-from tests.fixtures import data
-
 
 @pytest.fixture
 def browser():

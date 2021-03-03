@@ -4,7 +4,6 @@ from django.contrib.auth import get_user_model
 from django.test import Client
 from django.urls import reverse
 
-from tests.fixtures import data
 from tests.utils import assert_redirect
 
 
@@ -19,7 +18,7 @@ def test_update_username_anonymous(client, data):
 
 
 def test_update_username_authenticated(client, data):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
     response = client.get(reverse("mon_identifiant"))
 
     assert response.status_code == 200

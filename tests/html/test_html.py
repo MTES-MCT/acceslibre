@@ -5,8 +5,6 @@ import tempfile
 from django.test import Client
 from django.urls import reverse
 
-from tests.fixtures import data
-
 
 @pytest.fixture
 def client():
@@ -14,9 +12,9 @@ def client():
 
 
 @pytest.fixture
-def auth_client():
+def auth_client(data):
     client = Client()
-    client.login(username="admin", password="Abc12345!")
+    client.force_login(data.admin)
     return client
 
 
@@ -56,7 +54,7 @@ def validate_url_get(client, url):
 
 def test_home(data, client):
     validate_url_get(client, reverse("home"))
-    client.login(username="admin", password="Abc12345!")
+    client.force_login(data.admin)
     validate_url_get(client, reverse("home"))
 
 
