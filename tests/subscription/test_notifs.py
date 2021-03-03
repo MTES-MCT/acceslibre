@@ -10,7 +10,6 @@ from erp.models import Accessibilite, Erp
 from subscription.models import ErpSubscription
 from subscription.jobs import notify_changed_erps
 
-from tests.fixtures import data
 
 from reversion.models import Version
 
@@ -36,7 +35,7 @@ def niko_create_erp_and_subscribe_updates(client, data, mocker):
         },
     )
     # auth user
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
     # create erp admin data
     response = client.post(
         reverse("contrib_admin_infos"),
@@ -94,7 +93,7 @@ def test_notification_erp(client, data, mocker):
     erp = niko_create_erp_and_subscribe_updates(client, data, mocker)
 
     # sophie updates this erp data
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
     response = client.post(
         reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
         data={
@@ -131,7 +130,7 @@ def test_notification_erp(client, data, mocker):
     assert "34830 Jacou" in mail.outbox[0].body
     assert "sophie a mis à jour les informations suivantes" in mail.outbox[0].body
     assert 'nom: "niko erp" devient "sophie erp"' in mail.outbox[0].body
-    assert f'{settings.SITE_ROOT_URL}{unsubscribe_url}' in mail.outbox[0].body
+    assert f"{settings.SITE_ROOT_URL}{unsubscribe_url}" in mail.outbox[0].body
     assert updated_erp.get_absolute_url() in mail.outbox[0].body
 
 
@@ -139,7 +138,7 @@ def test_notification_accessibilite(client, data, mocker):
     erp = niko_create_erp_and_subscribe_updates(client, data, mocker)
 
     # sophie updates this erp accessibilite data
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
 
     response = client.post(
         reverse("contrib_sanitaires", kwargs={"erp_slug": erp.slug}),
@@ -169,7 +168,7 @@ def test_notification_accessibilite(client, data, mocker):
 
 
 def test_notification_skip_owner(client, data):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
     response = client.post(
         reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
         data={
@@ -199,7 +198,7 @@ def test_notification_skip_owner(client, data):
 
 
 def test_erp_publication_subscription_option(data, client):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     # user subscribes to updates
     response = client.post(
