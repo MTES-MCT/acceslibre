@@ -684,6 +684,12 @@ def process_accessibilite_form(
         slug=erp_slug,
     )
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
+
+    # N'amener l'utilisateur vers l'étape de publication que:
+    # - s'il est propriétaire de la fiche
+    # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
+    user_can_access_next_route = request.user == erp.user or step != 8
+
     if request.method == "POST":
         Form = modelform_factory(
             Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields
@@ -697,10 +703,7 @@ def process_accessibilite_form(
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
-            # N'amener l'utilisateur vers l'étape de publication que:
-            # - s'il est propriétaire de la fiche
-            # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
-            if request.user == erp.user or step != 8:
+            if user_can_access_next_route:
                 return redirect(
                     reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
                 )
@@ -714,7 +717,7 @@ def process_accessibilite_form(
     else:
         prev_route = None
 
-    if request.user == erp.user or step != 8:
+    if user_can_access_next_route:
         next_route = reverse(redirect_route, kwargs={"erp_slug": erp.slug})
     else:
         next_route = None
