@@ -2,8 +2,6 @@ import pytest
 
 from subscription.models import ErpSubscription
 
-from tests.fixtures import data
-
 
 def test_subscribe(data):
     assert ErpSubscription.objects.count() == 0

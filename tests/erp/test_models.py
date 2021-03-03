@@ -5,8 +5,6 @@ from django.core.exceptions import ValidationError
 from erp import schema
 from erp.models import Accessibilite, Erp, Vote
 
-from tests.fixtures import data
-
 
 def test_Accessibilite_has_data(data):
     acc = Accessibilite(id=1337, erp=data.erp)

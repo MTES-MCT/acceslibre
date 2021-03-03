@@ -10,7 +10,6 @@ from django.urls import reverse
 from erp.models import Erp
 from contact.models import Message
 
-from tests.fixtures import data
 
 TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
@@ -66,7 +65,7 @@ def test_contact_antispam(data, client):
 
 
 def test_contact_authenticated(data, client):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     response = client.get(reverse("contact_form"))
     assert response.context["form"].initial["user"] == data.niko

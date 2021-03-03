@@ -5,8 +5,6 @@ from django.core import mail
 from erp.jobs import check_closed_erps
 from erp.models import Erp, StatusCheck
 
-from tests.fixtures import data
-
 
 def test_check_closed_erps_job(data, capsys, mocker):
     assert StatusCheck.objects.filter(erp=data.erp).count() == 0

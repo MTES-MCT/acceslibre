@@ -12,7 +12,6 @@ from erp import schema
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
 from erp.provider import geocoder
 
-from tests.fixtures import data
 from tests.utils import assert_redirect
 
 
@@ -119,7 +118,7 @@ def test_urls_ok(data, url, client):
     ],
 )
 def test_admin_urls_ok(data, url, client):
-    client.login(username="admin", password="Abc12345!")
+    client.force_login(data.admin)
     response = client.get(url)
     assert response.status_code == 200
 
@@ -135,7 +134,7 @@ def test_admin_urls_ok(data, url, client):
     ],
 )
 def test_admin_urls_ok(data, url, client):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
     response = client.get(url)
     assert response.status_code == 200
 
@@ -187,25 +186,25 @@ def test_registration(data, client, capsys):
     response = client.post(
         reverse("django_registration_register"),
         data={
-            "username": "julia",
-            "email": "julia@julia.tld",
+            "username": "julien",
+            "email": "julien@julien.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
         },
     )
     assert response.status_code == 302
     # TODO: test activation link
-    assert User.objects.filter(username="julia", is_active=False).count() == 1
+    assert User.objects.filter(username="julien", is_active=False).count() == 1
 
 
 def test_registration_with_first_and_last_name(data, client, capsys):
     response = client.post(
         reverse("django_registration_register"),
         data={
-            "username": "julia",
-            "first_name": "Julia",
-            "last_name": "Zucker",
-            "email": "julia@julia.tld",
+            "username": "julien",
+            "first_name": "Julien",
+            "last_name": "Lebian",
+            "email": "julien@julien.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
         },
@@ -213,7 +212,7 @@ def test_registration_with_first_and_last_name(data, client, capsys):
     assert response.status_code == 302
     assert (
         User.objects.filter(
-            username="julia", first_name="Julia", last_name="Zucker", is_active=False
+            username="julien", first_name="Julien", last_name="Lebian", is_active=False
         ).count()
         == 1
     )
@@ -221,7 +220,7 @@ def test_registration_with_first_and_last_name(data, client, capsys):
 
 def test_admin_with_regular_user(data, client, capsys):
     # test that regular frontend user don't have access to the admin
-    client.login(username="julia", password="Abc12345!")
+    client.force_login(data.samuel)
 
     response = client.get(reverse("admin:index"), follow=True)
     # ensure user is redirected to admin login page
@@ -232,7 +231,7 @@ def test_admin_with_regular_user(data, client, capsys):
 
 def test_admin_with_staff_user(data, client, capsys):
     # the staff flag is for partners (gestionnaire ou territoire)
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200
@@ -242,7 +241,7 @@ def test_admin_with_staff_user(data, client, capsys):
 
 
 def test_admin_with_admin_user(data, client, capsys):
-    client.login(username="admin", password="Abc12345!")
+    client.force_login(data.admin)
 
     response = client.get(reverse("admin:index"))
     assert response.status_code == 200
@@ -293,7 +292,7 @@ def test_erp_edit_can_be_contributed(data, client):
     assert response.status_code == 200
 
     # owners can edit their erp
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
     response = client.get(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
@@ -301,7 +300,7 @@ def test_erp_edit_can_be_contributed(data, client):
     assert b"initialement fournies par" not in response.content
 
     # non-owner can't
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
     response = client.get(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
@@ -310,7 +309,7 @@ def test_erp_edit_can_be_contributed(data, client):
 
 
 def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
@@ -610,7 +609,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
 
 
 def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     # empty a11y data
     data.erp.accessibilite.sanitaires_presence = None
@@ -652,14 +651,14 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
 
 
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
 
     response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
     assert response.status_code == 404
 
 
 def test_delete_erp_owner(data, client, monkeypatch, capsys):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
     assert response.status_code == 200
@@ -700,7 +699,7 @@ def test_erp_vote_anonymous(data, client):
 
 
 def test_erp_vote_logged_in(data, client):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     response = client.post(
         reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
@@ -729,7 +728,7 @@ def test_erp_vote_logged_in(data, client):
 
 
 def test_erp_vote_counts(data, client):
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
 
     client.post(
         reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
@@ -740,7 +739,7 @@ def test_erp_vote_counts(data, client):
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
     assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
 
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
 
     client.post(
         reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
@@ -751,7 +750,7 @@ def test_erp_vote_counts(data, client):
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
     assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
 
-    client.login(username="admin", password="Abc12345!")
+    client.force_login(data.admin)
 
     client.post(
         reverse("erp_vote", kwargs={"erp_slug": data.erp.slug}),
@@ -768,7 +767,7 @@ def test_accessibilite_history(data, client):
 
     assert 0 == len(accessibilite.get_history())
 
-    client.login(username="niko", password="Abc12345!")
+    client.force_login(data.niko)
     client.post(
         reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
         data={
@@ -805,7 +804,7 @@ def test_accessibilite_history(data, client):
 
 
 def test_contribution_flow_administrative_data(data, client):
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
     response = client.get(
         reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug})
     )
@@ -841,7 +840,7 @@ def test_contribution_flow_administrative_data(data, client):
 
 
 def test_contribution_flow_accessibilite_data(data, client):
-    client.login(username="sophie", password="Abc12345!")
+    client.force_login(data.sophie)
     response = client.get(
         reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug})
     )
