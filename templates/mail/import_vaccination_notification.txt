@@ -1,0 +1,17 @@
+{% autoescape off %}
+
+Opération effectuée:
+- {{imported}} centres importés
+- {{skipped}} écartés
+
+{%if len(errors) %}
+Erreurs rencontrées :
+{% for error in errors %}
+  - {{ error }}
+{% endfor %}
+{% endif %}
+
+--
+L'équipe {{ SITE_NAME.title }}
+{{ SITE_ROOT_URL }}
+{% endautoescape %}
