@@ -33,6 +33,10 @@ class Command(BaseCommand):
         self.stdout.write("Importation des centres de vaccination")
 
         try:
-            import_centres_vaccination.job(dataset_url=options["dataset-url"], verbose=options["verbose"], report=options["report"])
+            import_centres_vaccination.job(
+                dataset_url=options["dataset-url"],
+                verbose=options["verbose"],
+                report=options["report"],
+            )
         except RuntimeError as err:
             fatal(err)
