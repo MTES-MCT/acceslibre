@@ -1,10 +1,10 @@
 {% autoescape off %}
 
 Opération effectuée:
-- {{imported}} centres importés
-- {{skipped}} écartés
+- {{ imported }} centres importés
+- {{ skipped }} écartés
 
-{%if len(errors) %}
+{% if len(errors) %}
 Erreurs rencontrées :
 {% for error in errors %}
   - {{ error }}

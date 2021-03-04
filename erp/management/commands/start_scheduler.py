@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand
 
 from erp.jobs import check_closed_erps
 from subscription.jobs import notify_changed_erps
-from erp.management.jobs import import_centres_vaccination
+from erp.jobs import import_centres_vaccination
 
 
 class Command(BaseCommand):

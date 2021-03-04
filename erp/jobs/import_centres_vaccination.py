@@ -5,14 +5,16 @@ import requests
 from django.conf import settings
 
 from core import mailer
-from erp.mapper import RecordMapper
+from erp.mapper.vaccination import RecordMapper
 from erp.models import Activite
 
 
-API_URL = "https://www.data.gouv.fr/api/1/datasets/lieux-de-vaccination-contre-la-covid-19/"
+API_URL = (
+    "https://www.data.gouv.fr/api/1/datasets/lieux-de-vaccination-contre-la-covid-19/"
+)
 
 
-def job(dataset_url='', verbose=False, report=False):
+def job(dataset_url="", verbose=False, report=False):
     json_data = _get_valid_data(dataset_url)
 
     activite = Activite.objects.filter(slug="centre-de-vaccination").first()
@@ -50,9 +52,7 @@ def _get_json(url):
     try:
         return requests.get(url).json()
     except requests.exceptions.RequestException as err:
-        raise RuntimeError(
-            f"Erreur de récupération des données JSON: {url}:\n  {err}"
-        )
+        raise RuntimeError(f"Erreur de récupération des données JSON: {url}:\n  {err}")
 
 
 def _retrieve_latest_dataset_url():
@@ -67,9 +67,7 @@ def _retrieve_latest_dataset_url():
             raise RuntimeError("Jeu de donnée JSON abenst.")
         return json_resources[0]["latest"]
     except (KeyError, IndexError, ValueError) as err:
-        raise RuntimeError(
-            f"Impossible de parser les données depuis {API_URL}:\n{err}"
-        )
+        raise RuntimeError(f"Impossible de parser les données depuis {API_URL}:\n{err}")
 
 
 def _retrieve_json_data(dataset_url):
@@ -94,6 +92,8 @@ def _process_data(records, activite, verbose=False):
                 print("S", end="", flush=True)
             errors.append(err)
             skipped += 1
+
+    return errors, imported, skipped
 
 
 def _send_report(errors, imported, skipped):
