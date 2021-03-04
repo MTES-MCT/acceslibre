@@ -213,9 +213,7 @@ function processRule(rule) {
     input.addEventListener("change", function (event) {
       processTargets(rule, event.target.value);
       rule.targets.forEach(function (child) {
-        childRule = rules.filter(function (r) {
-          return r.source === child;
-        })[0];
+        childRule = rules.filter((r) => r.source === child)[0];
         if (childRule) {
           processTargets(childRule, getValue(child));
         }
@@ -227,6 +225,7 @@ function processRule(rule) {
 }
 
 function run(config) {
+  // XXX: check if this should be ran at all (check presence of form or fields in the page)
   for (let key in config || {}) {
     _config[key] = config[key];
   }

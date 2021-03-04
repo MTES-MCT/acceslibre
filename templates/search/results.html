@@ -101,8 +101,8 @@
           </noscript>
         </div>
         <script>
-          $(function() {
-            const map = a4a.initAppMap(
+          window.addEventListener("DOMContentLoaded", function() {
+            const map = a4a.geo.initAppMap(
               {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
               {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
               {{ around | default_if_none:"null" }},

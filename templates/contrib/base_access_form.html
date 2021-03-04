@@ -3,10 +3,6 @@
 {% load a4a %}
 {% load static %}
 
-{% block javascript_extras %}
-<script src="{% static "js/forms.js" %}"></script>
-{% endblock %}
-
 {% block contrib_content %}
   {# <div class="alert alert-success"><pre>{{ accessibilite.to_debug }}</pre></div> #}
   <form action="" method="POST" class="a4a-form mb-4">
@@ -63,12 +59,4 @@
 
     {% include "contrib/includes/prevnext.html" %}
   </form>
-  <script>
-  window.addEventListener("DOMContentLoaded", function() {
-    window.a4aForms.run({
-      fieldSelectorPrefix: ".field-",
-      inputNamePrefix: ""
-    });
-  });
-  </script>
 {% endblock %}

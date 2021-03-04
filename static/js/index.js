@@ -22,23 +22,26 @@ import "sentry";
 
 // app modules
 import forms from "./forms";
-import map from "./map";
+import geo from "./geo";
 import search from "./search";
 
 import "./app";
 
+// general DOM-dependent initializations
+window.addEventListener("DOMContentLoaded", () => {
+  // geo
+  geo.handleGeoLinks();
+  // forms
+  forms.a11y.improveRequiredFieldsA11y();
+  forms.conditional.run({
+    fieldSelectorPrefix: ".field-",
+    inputNamePrefix: "",
+  });
+});
+
+// expose general namespaced lib for use withing pages
 window.a4a = {
+  geo,
   forms,
-  map,
   search,
 };
-
-window.addEventListener("DOMContentLoaded", () => {
-  // Django crispy forms asterisk a11y improvements
-  // XXX: move me to another module
-  $(".asteriskField").each((i, elem) => {
-    $(elem).replaceWith('&nbsp;<small>(requis)</small><abbr class="asteriskField" title="(obligatoire)">*</abbr>');
-  });
-
-  map.handleGeoLinks();
-});
