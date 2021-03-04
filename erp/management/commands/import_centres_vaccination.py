@@ -1,11 +1,8 @@
-import requests
 import sys
 
-from django.conf import settings
 from django.core.management.base import BaseCommand
-
-from core import mailer
 from erp.jobs import import_centres_vaccination
+
 
 def fatal(msg):
     print(msg)

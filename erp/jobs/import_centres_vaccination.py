@@ -11,36 +11,15 @@ from erp.models import Activite
 
 API_URL = "https://www.data.gouv.fr/api/1/datasets/lieux-de-vaccination-contre-la-covid-19/"
 
-def job(dataset_url='', verbose=False, report=False):
-    if not dataset_url:
-        dataset_url = _retrieve_latest_dataset_url()
 
-    json_data = _retrieve_json_data(dataset_url)
+def job(dataset_url='', verbose=False, report=False):
+    json_data = _get_valid_data(dataset_url)
 
     activite = Activite.objects.filter(slug="centre-de-vaccination").first()
     if not activite:
         raise RuntimeError("L'activité Centre de vaccination n'existe pas.")
 
-    errors = []
-    imported = 0
-    skipped = 0
-
-    if "features" not in json_data:
-        raise RuntimeError("Liste des centres manquante")
-
-    for record in json_data["features"]:
-        try:
-            erp = RecordMapper(record).process(activite)
-            if verbose:
-                print(f"- {erp.nom}\n  {erp.code_postal} {erp.commune_ext.nom}")
-            else:
-                print(".", end="", flush=True)
-            imported += 1
-        except RuntimeError as err:
-            if not verbose:
-                print("S", end="", flush=True)
-            errors.append(err)
-            skipped += 1
+    errors, imported, skipped = _process_data(json_data, activite, verbose)
 
     if verbose and len(errors) > 0:
         print("Erreurs rencontrées :")
@@ -51,7 +30,21 @@ def job(dataset_url='', verbose=False, report=False):
     print(f"- {imported} centres importés")
     print(f"- {skipped} écartés")
 
-    _send_report(errors, imported, skipped)
+    if report:
+        _send_report(errors, imported, skipped)
+
+
+def _get_valid_data(dataset_url):
+    if not dataset_url:
+        dataset_url = _retrieve_latest_dataset_url()
+
+    json_data = _retrieve_json_data(dataset_url)
+
+    if "features" not in json_data:
+        raise RuntimeError("Liste des centres manquante")
+
+    return json_data["features"]
+
 
 def _get_json(url):
     try:
@@ -60,6 +53,7 @@ def _get_json(url):
         raise RuntimeError(
             f"Erreur de récupération des données JSON: {url}:\n  {err}"
         )
+
 
 def _retrieve_latest_dataset_url():
     try:
@@ -77,8 +71,30 @@ def _retrieve_latest_dataset_url():
             f"Impossible de parser les données depuis {API_URL}:\n{err}"
         )
 
+
 def _retrieve_json_data(dataset_url):
     return _get_json(dataset_url)
+
+
+def _process_data(records, activite, verbose=False):
+    errors = []
+    imported = 0
+    skipped = 0
+
+    for record in records:
+        try:
+            erp = RecordMapper(record).process(activite)
+            if verbose:
+                print(f"- {erp.nom}\n  {erp.code_postal} {erp.commune_ext.nom}")
+            else:
+                print(".", end="", flush=True)
+            imported += 1
+        except RuntimeError as err:
+            if not verbose:
+                print("S", end="", flush=True)
+            errors.append(err)
+            skipped += 1
+
 
 def _send_report(errors, imported, skipped):
     mailer.mail_admins(
