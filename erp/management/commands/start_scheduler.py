@@ -13,13 +13,14 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-        # schedule.every().day.at("00:00").do(check_closed_erps.job, verbose=True)
+        schedule.every().day.at("00:00").do(check_closed_erps.job, verbose=True)
         schedule.every(notify_changed_erps.HOURS_CHECK).hours.do(
             notify_changed_erps.job, verbose=True
         )
-        schedule.every(6).hours.do(
-            ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
-        )
+        for target in ["00:00", "06:00", "12:00", "18:00"]:
+            schedule.every().day.at(target).do(
+                ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
+            )
         print("Scheduler started")
         while True:
             schedule.run_pending()
