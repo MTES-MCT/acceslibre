@@ -18,7 +18,7 @@ class Command(BaseCommand):
             notify_changed_erps.job, verbose=True
         )
         schedule.every(6).hours.do(
-            import_centres_vaccination.job, verbose=True, report=True
+            import_centres_vaccination.job, verbose=True, is_scheduler=True
         )
         print("Scheduler started")
         while True:

@@ -82,7 +82,7 @@ def _retrieve_json_data(dataset_url):
     return _get_json(dataset_url)
 
 
-def _process_data(records, activite, is_scheduler=False):
+def _process_data(records, activite, is_scheduler):
     errors = []
     imported = 0
     skipped = 0
