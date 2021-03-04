@@ -1,0 +1,18 @@
+<div class="d-flex flex-column d-lg-block">
+  {% if prev_route %}
+  <a class="btn btn-link" href="{{ prev_route }}">&laquo; Précédent</a>
+  {% endif %}
+
+  <button type="submit" class="btn btn-primary"
+    {% if erp.user != request.user %}name="action" value="contribute"{% endif %}>
+    {% if save_btn_label %}{{ save_btn_label }}{% else %}Enregister et continuer{% endif %}
+  </button>
+
+  {% if next_route %}
+  <a class="btn btn-link" href="{{ next_route }}">Suivant &raquo;</a>
+  {% endif %}
+
+  {% if erp and erp.is_online %}
+  <a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a>
+  {% endif %}
+</div>

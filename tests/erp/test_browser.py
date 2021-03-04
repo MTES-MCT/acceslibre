@@ -861,5 +861,8 @@ def test_contribution_flow_accessibilite_data(data, client):
     assert updated_erp.user == data.erp.user  # original owner is preserved
     assert updated_erp.accessibilite.sanitaires_presence is False
     assert updated_erp.accessibilite.sanitaires_adaptes is None
-    assert_redirect(response, updated_erp.get_absolute_url() + "#sanitaires")
+    assert_redirect(
+        response,
+        reverse("contrib_labellisation", kwargs={"erp_slug": updated_erp.slug}),
+    )
     assert response.status_code == 200
