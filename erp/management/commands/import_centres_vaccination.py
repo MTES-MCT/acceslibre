@@ -1,7 +1,7 @@
 import sys
 
 from django.core.management.base import BaseCommand
-from erp.jobs import import_centres_vaccination
+from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
 
 
 def fatal(msg):
@@ -33,10 +33,9 @@ class Command(BaseCommand):
         self.stdout.write("Importation des centres de vaccination")
 
         try:
-            import_centres_vaccination.job(
+            ImportVaccinationsCenters(options["scheduler"]).job(
                 dataset_url=options.get("dataset-url") or "",
                 verbose=options["verbose"],
-                is_scheduler=options["scheduler"],
             )
         except RuntimeError as err:
             fatal(err)
