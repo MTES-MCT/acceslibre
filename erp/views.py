@@ -647,11 +647,7 @@ def contrib_localisation(request, erp_slug):
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
-            action = request.POST.get("action")
-            if action == "contribute":
-                return redirect(erp.get_absolute_url())
-            else:
-                return redirect("contrib_transport", erp_slug=erp.slug)
+            return redirect("contrib_transport", erp_slug=erp.slug)
     elif erp.geom is not None:
         form = forms.PublicLocalisationForm(
             {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
@@ -708,7 +704,10 @@ def process_accessibilite_form(
                     reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
                 )
             else:
-                return redirect(erp.get_absolute_url() + f"#{redirect_hash}")
+                redirect_url = erp.get_absolute_url()
+                if step == 7:
+                    redirect_url += f"#{redirect_hash}"
+                return redirect(redirect_url)
     else:
         form = forms.AdminAccessibiliteForm(instance=accessibilite)
 
