@@ -35,12 +35,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Importation des centres de vaccination")
 
-        verbose = options["verbose"] or False
-        dataset_url = options["dataset-url"] or ''
-
         try:
-            import_centres_vaccination.job(dataset_url=dataset_url, verbose=verbose)
+            import_centres_vaccination.job(dataset_url=options["dataset-url"], verbose=options["verbose"], report=options["report"])
         except RuntimeError as err:
             fatal(err)
-
-
