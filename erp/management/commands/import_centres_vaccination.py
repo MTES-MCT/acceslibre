@@ -21,12 +21,12 @@ class Command(BaseCommand):
         parser.add_argument(
             "--verbose",
             action="store_true",
-            help="Afficher les raisons d'écartement d'import de certains centres",
+            help="Afficher les erreurs",
         )
         parser.add_argument(
-            "--report",
+            "--scheduler",
             action="store_true",
-            help="Envoi un mail en fin d'opération",
+            help="Job: Execute et envoi un mail en fin d'opération",
         )
 
     def handle(self, *args, **options):  # noqa
@@ -34,9 +34,9 @@ class Command(BaseCommand):
 
         try:
             import_centres_vaccination.job(
-                dataset_url=options["dataset-url"],
+                dataset_url=options.get("dataset-url") or "",
                 verbose=options["verbose"],
-                report=options["report"],
+                is_scheduler=options["scheduler"],
             )
         except RuntimeError as err:
             fatal(err)
