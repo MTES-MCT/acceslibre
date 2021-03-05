@@ -22,6 +22,9 @@ def outputVoidStrategy(text, end="\n", flush=False):
 class ImportVaccinationsCenters:
     API_URL = "https://www.data.gouv.fr/api/1/datasets/lieux-de-vaccination-contre-la-covid-19/"
     output = None
+    errors = []
+    imported = 0
+    skipped = 0
 
     def __init__(self, is_scheduler=False) -> None:
         self.is_scheduler = is_scheduler
@@ -29,19 +32,20 @@ class ImportVaccinationsCenters:
 
     def job(self, dataset_url=None, verbose=False):
         try:
-            errors, imported, skipped = self.do_import(dataset_url)
+            for erp in self.do_import(dataset_url):
+                self.output("." if erp else "S", "", True)
 
             if self.is_scheduler:
-                self._send_report(errors, imported, skipped)
+                self._send_report()
+            else:
+                if verbose and len(self.errors) > 0:
+                    self.output("Erreurs rencontrées :")
+                    for error in self.errors:
+                        self.output(f"- {error}")
 
-            if verbose and len(errors) > 0:
-                self.output("Erreurs rencontrées :")
-                for error in errors:
-                    self.output(f"- {error}")
-
-            self.output("Opération effectuée:")
-            self.output(f"- {imported} centres importés")
-            self.output(f"- {skipped} écartés")
+                self.output("Opération effectuée:")
+                self.output(f"- {self.imported} centres importés")
+                self.output(f"- {self.skipped} écartés")
         except RuntimeError as err:
             logger.error(err)
 
@@ -52,7 +56,7 @@ class ImportVaccinationsCenters:
         if not activite:
             raise RuntimeError("L'activité Centre de vaccination n'existe pas.")
 
-        return self._process_data(json_data, activite, self.is_scheduler)
+        return self._process_data(json_data, activite)
 
     def _get_valid_data(self, dataset_url):
         if not dataset_url:
@@ -89,33 +93,26 @@ class ImportVaccinationsCenters:
                 f"Impossible de parser les données depuis {self.API_URL}:\n{err}"
             )
 
-    def _process_data(self, records, activite, is_scheduler):
-        errors = []
-        imported = 0
-        skipped = 0
-
+    def _process_data(self, records, activite):
         for record in records:
+            mapped = RecordMapper(record)
             try:
-                RecordMapper(record).process(activite)
-                if not is_scheduler:
-                    self.output(".", "", True)
-                imported += 1
+                erp = mapped.process(activite)
+                self.imported += 1
+                yield erp
             except RuntimeError as err:
-                if not is_scheduler:
-                    self.output("S", end="", flush=True)
-                errors.append(err.__str__())
-                skipped += 1
+                self.errors.append(f"{mapped.props.get('c_nom')} : {err.__str__()}")
+                self.skipped += 1
+                yield None
 
-        return errors, imported, skipped
-
-    def _send_report(self, errors, imported, skipped):
+    def _send_report(self):
         mailer.mail_admins(
             f"[{settings.SITE_NAME}] Rapport d'importation des centres de vaccination",
             "mail/import_vaccination_notification.txt",
             {
-                "errors": errors,
-                "imported": imported,
-                "skipped": skipped,
+                "errors": self.errors,
+                "imported": self.imported,
+                "skipped": self.skipped,
                 "SITE_NAME": settings.SITE_NAME,
                 "SITE_ROOT_URL": settings.SITE_ROOT_URL,
             },
