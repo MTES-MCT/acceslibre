@@ -10,6 +10,18 @@ def contains_digits(string):
     return any(char.isdigit() for char in string)
 
 
+def contains_sequence(test, source):
+    if not test or not source:
+        return False
+    return remove_accents(test.lower()) in remove_accents(source.lower())
+
+
+def contains_sequence_any(tests, source):
+    if not tests or not source:
+        return False
+    return any(contains_sequence(test, source) for test in tests)
+
+
 def normalize_nom(nom):
     parts = map(
         lambda x: x.title() if x not in FRENCH_STOPWORDS else x,
