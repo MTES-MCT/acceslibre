@@ -22,6 +22,10 @@ class RecordMapper:
         "R\u00e9serv\u00e9 aux professionnels de sant\u00e9",
         "Uniquement pour les professionnels de sant\u00e9",
         "Ouvert uniquement aux professionnels",
+        "Professionnels de santé uniquement",
+        "Réservé PS",
+        "réservé aux professionnels",
+        "centre pour professionnels de santé",
     ]
 
     def __init__(self, record, today=None):
@@ -126,18 +130,17 @@ class RecordMapper:
 
     def _check_reserve_pros(self):
         "Vérification si centre uniquement réservé aux personnels soignants"
-        modalites = self.props.get("c_rdv_modalites")
-        if modalites and any(
-            test.lower() in modalites.lower() for test in self.RESERVE_PROS
-        ):
-            return modalites
+        return text.contains_sequence_any(
+            self.RESERVE_PROS, self.props.get("c_nom")
+        ) or text.contains_sequence_any(
+            self.RESERVE_PROS, self.props.get("c_rdv_modalites")
+        )
 
     def _check_equipe_mobile(self):
         "Vérification équipes mobiles"
-        modalites = self.props.get("c_rdv_modalites")
-        if modalites:
-            if "equipe mobile" in modalites.lower():
-                return modalites
+        return text.contains_sequence(
+            "equipe mobile", self.props.get("c_nom")
+        ) or text.contains_sequence("équipe mobile", self.props.get("c_rdv_modalites"))
 
     def _check_importable(self):
         "Vérifications d'exclusion d'import ou de mise à jour"
@@ -147,20 +150,20 @@ class RecordMapper:
 
         reserve_pros = self._check_reserve_pros()
         if reserve_pros:
-            self._discard(f"Réservé aux professionnels de santé: {reserve_pros}")
+            self._discard("Réservé aux professionnels de santé")
 
         equipe_mobile = self._check_equipe_mobile()
         if equipe_mobile:
-            self._discard(f"Équipe mobile écartée: {equipe_mobile}")
+            self._discard("Équipe mobile écartée")
 
     def _discard(self, msg):
         "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
         if self.erp_exists:
             self.erp.published = False
             self.erp.save()
-            msg = "UNPUBLISHED: " + msg
+            msg = "MIS HORS LIGNE: " + msg
         else:
-            msg = "SKIPPED: " + msg
+            msg = "ÉCARTÉ: " + msg
         raise RuntimeError(msg)
 
     def _fetch_or_create_erp(self, activite):
