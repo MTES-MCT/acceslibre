@@ -46,34 +46,59 @@ def test_skip_importing_closed(activite_cdv, neufchateau, sample_record_ok):
     with pytest.raises(RuntimeError) as err:
         m.process(activite_cdv)
 
-    assert "SKIPPED: Centre fermé le 2021-01-01" in str(err.value)
+    assert "ÉCARTÉ: Centre fermé le 2021-01-01" in str(err.value)
 
 
-def test_skip_importing_reserve_pros(activite_cdv, neufchateau, sample_record_ok):
+@pytest.mark.parametrize(
+    "updates",
+    [
+        {
+            "c_nom": "XXX réservé aux professionnels de santé",
+            "c_rdv_modalites": None,
+        },
+        {
+            "c_nom": "XXX",
+            "c_rdv_modalites": "réservé aux professionnels de santé",
+        },
+        {
+            "c_nom": "XXX réservé PS",
+            "c_rdv_modalites": None,
+        },
+    ],
+)
+def test_skip_importing_reserve_pros(
+    updates, activite_cdv, neufchateau, sample_record_ok
+):
     sample_reserve_pros = sample_record_ok.copy()
-    sample_reserve_pros["properties"][
-        "c_rdv_modalites"
-    ] = "Ouvert uniquement aux professionnels"
+    sample_reserve_pros["properties"].update(updates)
 
     m = RecordMapper(sample_reserve_pros)
     with pytest.raises(RuntimeError) as err:
         m.process(activite_cdv)
 
-    assert (
-        "SKIPPED: Réservé aux professionnels de santé: Ouvert uniquement aux professionnels"
-        in str(err.value)
-    )
+    assert "ÉCARTÉ: Réservé aux professionnels de santé" in str(err.value)
 
 
-def test_skip_importing_equipe_mobile(activite_cdv, neufchateau, sample_record_ok):
+@pytest.mark.parametrize(
+    "updates",
+    [
+        {"c_nom": "XXX Equipe mobile", "c_rdv_modalites": None},
+        {"c_nom": "XXX équipe mobile", "c_rdv_modalites": None},
+        {"c_nom": "XXX", "c_rdv_modalites": "Équipe mobile"},
+        {"c_nom": "XXX", "c_rdv_modalites": "equipe mobile"},
+    ],
+)
+def test_skip_importing_equipe_mobile(
+    updates, activite_cdv, neufchateau, sample_record_ok
+):
     sample_equipe_mobile = sample_record_ok.copy()
-    sample_equipe_mobile["properties"]["c_rdv_modalites"] = "Equipe mobile"
+    sample_equipe_mobile["properties"].update(updates)
 
     m = RecordMapper(sample_equipe_mobile)
     with pytest.raises(RuntimeError) as err:
         m.process(activite_cdv)
 
-    assert "SKIPPED: Équipe mobile écartée: " in str(err.value)
+    assert "ÉCARTÉ: Équipe mobile écartée" in str(err.value)
 
 
 def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):
@@ -159,7 +184,7 @@ def test_unpublish_closed_erp(activite_cdv, neufchateau, sample_record_ok):
 
     with pytest.raises(RuntimeError) as err:
         m2.process(activite_cdv)
-    assert "UNPUBLISHED" in str(err.value)
+    assert "MIS HORS LIGNE:" in str(err.value)
     assert (
         Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, m2.source_id).published
         is False
