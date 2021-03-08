@@ -81,6 +81,9 @@
           </div>
         {% endfor%}
         </div>
+        <div class="pt-2 pr-2">
+          {% include "common/pager.html" with pager=search_results.pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+        </div>
       </div>
       <div class="col-md-7 a4a-search-map-area">
         <div class="a4a-search-map rounded" id="app-map">
