@@ -254,6 +254,94 @@ function handleGeoLinks() {
   });
 }
 
+function handleGeolocationToggler() {
+  if (!document.getElementById("search-form")) {
+    return;
+  }
+
+  function renderError(error) {
+    document.querySelector("#loc").innerHTML = [
+      '<div class="text-danger">',
+      '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
+      error,
+      "</div>",
+    ].join("");
+  }
+
+  const { geolocation } = navigator;
+
+  if (!geolocation) {
+    renderError("La géolocalisation n'est pas disponible sur votre navigateur.");
+    return;
+  }
+
+  function listenToLocCheckboxChange() {
+    return function (event) {
+      processLocCheckbox(event.target, { initial: false });
+    };
+  }
+
+  function processLocCheckbox(node, options) {
+    options = options || { initial: false };
+    if (!node.checked) {
+      document.querySelector("#loc").innerText = "";
+      document.querySelector("input[name=lat]").value = null;
+      document.querySelector("input[name=lon]").value = null;
+    } else {
+      $("#geoloader").show();
+      document.querySelector("#loc").innerHTML = "";
+      geolocation.getCurrentPosition(
+        function ({ coords: { latitude: lat, longitude: lon } }) {
+          fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`)
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (json) {
+              let label;
+              try {
+                label = "(" + json.features[0].properties.label + ")";
+              } catch (e) {
+                label = "(" + lat + ", " + lon + ")";
+              }
+              const loc = document.querySelector("#loc");
+              loc.innerText = label;
+              loc.setAttribute("role", "status");
+              document.querySelector("input[name=lat]").value = lat;
+              document.querySelector("input[name=lon]").value = lon;
+              $("#geoloader").hide();
+              // if ongoing search, submit form with localization data
+              if (!options.initial && $("#search").val().trim()) {
+                $("#search-form").submit();
+              }
+            })
+            .catch(function (err) {
+              console.warn(`Le service de géopositionnement inverse a retourné une erreur : ${err}`);
+              $("#geoloader").hide();
+            });
+        },
+        (err) => {
+          $("#geoloader").hide();
+          document.querySelector("#localize").checked = false;
+          renderError(`Nous n'avons pas pu déterminer votre position géographique. Erreur: ${err.message}`);
+        },
+        {
+          timeout: 10000,
+        }
+      );
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    $("#geoloader").hide();
+    const locCheckbox = document.querySelector("#localize");
+    locCheckbox.addEventListener("change", listenToLocCheckboxChange());
+    setTimeout(() => {
+      // Note: a timeout is required in order to reprocess the form state after navigating back
+      processLocCheckbox(locCheckbox, { initial: true });
+    }, 10);
+  });
+}
+
 export default {
   createMap,
   createTiles,
