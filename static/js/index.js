@@ -30,7 +30,7 @@ import search from "./search";
 // XXX: maybe move to contextually use in pages
 dom.ready(() => {
   // geo
-  geo.handleGeoLinks();
+  geo.handleGeoLinks(dom.findAll(".a4a-geo-link"));
 
   // forms
   forms.a11y.improveRequiredFieldsA11y();
@@ -38,7 +38,8 @@ dom.ready(() => {
     fieldSelectorPrefix: ".field-",
     inputNamePrefix: "",
   });
-  const searchForm = dom.findOne("form#search-form");
+
+  const searchForm = document.querySelector("form#search-form");
   if (searchForm) {
     forms.search.SearchForm(searchForm);
   }

@@ -245,17 +245,18 @@ function openMarkerPopup(pk) {
   });
 }
 
-function handleGeoLinks() {
-  dom.ready(() => {
-    for (const link of dom.findAll(".a4a-geo-link")) {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        const pk = parseInt(link.dataset.erpId, 10);
-        if (pk) openMarkerPopup(pk);
-      });
-    }
-  });
+function handleGeoLinks(links) {
+  if (!links || links.length == 0) {
+    return;
+  }
+  for (const link of links) {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const pk = parseInt(link.dataset.erpId, 10);
+      if (pk) openMarkerPopup(pk);
+    });
+  }
 }
 
 async function reverseGeocode({ lat, lon }) {

@@ -1,14 +1,13 @@
-import dom from "../dom";
 import geo from "../geo";
 
-function SearchForm(node) {
-  if (!node) {
+function SearchForm(root) {
+  if (!root) {
     console.log("missing element");
     return;
   }
 
   function renderError(error) {
-    dom.findOne("#loc").innerHTML = `
+    root.querySelector("#loc").innerHTML = `
       <div class="text-danger">
         <i aria-hidden="false" class="icon icon-exclamation-circle"></i>
         ${error}
@@ -29,37 +28,36 @@ function SearchForm(node) {
 
   function processLocCheckbox(node, options = { initial: false }) {
     if (!node.checked) {
-      dom.findOne("#loc").innerText = "";
-      dom.findOne("input[name=lat]").value = null;
-      dom.findOne("input[name=lon]").value = null;
+      root.querySelector("#loc").innerText = "";
+      root.querySelector("input[name=lat]").value = null;
+      root.querySelector("input[name=lon]").value = null;
     } else {
       $("#geoloader").show();
-      dom.findOne("#loc").innerHTML = "";
+      root.querySelector("#loc").innerHTML = "";
       geo
         .getUserLocation()
         .then(({ lat, lon, label }) => {
-          const loc = dom.findOne("#loc");
+          const loc = root.querySelector("#loc");
           loc.innerText = label;
           loc.setAttribute("role", "status");
-          dom.findOne("input[name=lat]").value = lat;
-          dom.findOne("input[name=lon]").value = lon;
+          root.querySelector("input[name=lat]").value = lat;
+          root.querySelector("input[name=lon]").value = lon;
           $("#geoloader").hide(); // XXX: drop jquery
           // if ongoing search, submit form with localization data
           if (!options.initial && $("#search").val().trim()) {
-            // XXX: drop jquery
-            $("#search-form").trigger("submit"); // XXX: drop jquery
+            node.submit();
           }
         })
         .catch((err) => {
           $("#geoloader").hide(); // XXX: drop jquery
-          dom.findOne("#localize").checked = false;
+          root.querySelector("#localize").checked = false;
           renderError(err);
         });
     }
   }
 
   $("#geoloader").hide();
-  const locCheckbox = dom.findOne("#localize");
+  const locCheckbox = root.querySelector("#localize");
   locCheckbox.addEventListener("change", listenToLocCheckboxChange());
   setTimeout(() => {
     // Note: a timeout is required in order to reprocess the form state after navigating back
