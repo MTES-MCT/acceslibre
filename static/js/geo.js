@@ -258,102 +258,40 @@ function handleGeoLinks() {
   });
 }
 
-function handleGeolocationToggler() {
-  if (!dom.findOne("form#search-form")) {
-    console.log("search form not found", document.querySelector("#search-form"));
-    return;
-  }
+async function reverseGeocode({ lat, lon }) {
+  const res = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`);
+  return await res.json();
+}
 
-  function renderError(error) {
-    dom.findOne("#loc").innerHTML = `
-      <div class="text-danger">
-        <i aria-hidden="false" class="icon icon-exclamation-circle"></i>
-        ${error}
-      </div>`;
-  }
-
-  const { geolocation } = navigator;
-
-  if (!geolocation) {
-    renderError("La géolocalisation n'est pas disponible sur votre navigateur.");
-    return;
-  }
-
-  function listenToLocCheckboxChange() {
-    return function ({ target }) {
-      processLocCheckbox(target, { initial: false });
-    };
-  }
-
-  async function reverseGeocode({ lat, lon }) {
-    const res = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`);
-    return await res.json();
-  }
-
-  function getCurrentPosition(options) {
-    return new Promise((resolve, reject) => {
-      geolocation.getCurrentPosition(resolve, reject, options);
-    });
-  }
-
-  async function getUserLocation(options = { timeout: 10000 }) {
-    const {
-      coords: { latitude: lat, longitude: lon },
-    } = await getCurrentPosition(options);
-    const { features } = await reverseGeocode({ lat, lon });
-    let label;
-    try {
-      label = `(${features[0].properties.label})`;
-    } catch (_) {
-      label = `(${lat}, ${lon})`;
-    }
-    return { lat, lon, label };
-  }
-
-  function processLocCheckbox(node, options = { initial: false }) {
-    if (!node.checked) {
-      dom.findOne("#loc").innerText = "";
-      dom.findOne("input[name=lat]").value = null;
-      dom.findOne("input[name=lon]").value = null;
+function getCurrentPosition(options = { timeout: 10000 }) {
+  return new Promise((resolve, reject) => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
     } else {
-      $("#geoloader").show();
-      dom.findOne("#loc").innerHTML = "";
-      getUserLocation()
-        .then(({ lat, lon, label }) => {
-          const loc = dom.findOne("#loc");
-          loc.innerText = label;
-          loc.setAttribute("role", "status");
-          dom.findOne("input[name=lat]").value = lat;
-          dom.findOne("input[name=lon]").value = lon;
-          $("#geoloader").hide(); // XXX: drop jquery
-          // if ongoing search, submit form with localization data
-          if (!options.initial && $("#search").val().trim()) {
-            // XXX: drop jquery
-            $("#search-form").trigger("submit"); // XXX: drop jquery
-          }
-        })
-        .catch((err) => {
-          $("#geoloader").hide(); // XXX: drop jquery
-          dom.findOne("#localize").checked = false;
-          renderError(err);
-        });
+      reject("La géolocalisation n'est pas disponible sur votre navigateur.");
     }
-  }
+  });
+}
 
-  $("#geoloader").hide();
-  const locCheckbox = dom.findOne("#localize");
-  locCheckbox.addEventListener("change", listenToLocCheckboxChange());
-  setTimeout(() => {
-    // Note: a timeout is required in order to reprocess the form state after navigating back
-    processLocCheckbox(locCheckbox, { initial: true });
-  }, 10);
+async function getUserLocation(options) {
+  const {
+    coords: { latitude: lat, longitude: lon },
+  } = await getCurrentPosition(options);
+  const { features } = await reverseGeocode({ lat, lon });
+  let label;
+  try {
+    label = `(${features[0].properties.label})`;
+  } catch (_) {
+    label = `(${lat}, ${lon})`;
+  }
+  return { lat, lon, label };
 }
 
 export default {
   createMap,
   createTiles,
+  getUserLocation,
   handleGeoLinks,
-  handleGeolocationToggler,
   initAppMap,
   recalculateMapSize,
 };

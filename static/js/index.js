@@ -31,7 +31,6 @@ import search from "./search";
 dom.ready(() => {
   // geo
   geo.handleGeoLinks();
-  geo.handleGeolocationToggler();
 
   // forms
   forms.a11y.improveRequiredFieldsA11y();
@@ -39,6 +38,10 @@ dom.ready(() => {
     fieldSelectorPrefix: ".field-",
     inputNamePrefix: "",
   });
+  const searchForm = dom.findOne("form#search-form");
+  if (searchForm) {
+    forms.search.SearchForm(searchForm);
+  }
 });
 
 // expose general namespaced lib for usage withing pages

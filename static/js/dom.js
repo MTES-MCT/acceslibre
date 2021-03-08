@@ -2,8 +2,8 @@ function ready(fn) {
   window.addEventListener("DOMContentLoaded", fn);
 }
 
-function findOne(sel) {
-  return document.querySelector(sel);
+function findOne(sel, parent) {
+  return (parent || document).querySelector(sel);
 }
 
 function findAll(sel) {
