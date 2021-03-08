@@ -26,6 +26,8 @@ class RecordMapper:
         "Réservé PS",
         "réservé aux professionnels",
         "centre pour professionnels de santé",
+        "EMV",
+        "vaccination mobile",
     ]
 
     def __init__(self, record, today=None):
