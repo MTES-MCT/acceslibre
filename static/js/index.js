@@ -21,16 +21,20 @@ import "chart.js";
 import "sentry";
 
 // app modules
+import dom from "./dom";
 import forms from "./forms";
 import geo from "./geo";
 import search from "./search";
 
 import "./app";
 
-// general DOM-dependent initializations
-window.addEventListener("DOMContentLoaded", () => {
+// Initializations
+// XXX: maybe move to contextually use in pages
+dom.ready(() => {
   // geo
   geo.handleGeoLinks();
+  geo.handleGeolocationToggler();
+
   // forms
   forms.a11y.improveRequiredFieldsA11y();
   forms.conditional.run({
@@ -39,8 +43,9 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// expose general namespaced lib for use withing pages
+// expose general namespaced lib for usage withing pages
 window.a4a = {
+  dom,
   geo,
   forms,
   search,

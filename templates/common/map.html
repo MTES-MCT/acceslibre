@@ -9,12 +9,12 @@
   </noscript>
 </div>
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
+  a4a.dom.ready(function() {
     a4a.geo.initAppMap(
       {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
       {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
       {{ around | default_if_none:"null" }},
       {{ geojson_list | safe }}
     );
-  })
+  });
 </script>

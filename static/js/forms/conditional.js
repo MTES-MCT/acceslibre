@@ -213,7 +213,7 @@ function processRule(rule) {
     input.addEventListener("change", function (event) {
       processTargets(rule, event.target.value);
       rule.targets.forEach(function (child) {
-        childRule = rules.filter((r) => r.source === child)[0];
+        const childRule = rules.filter((r) => r.source === child)[0];
         if (childRule) {
           processTargets(childRule, getValue(child));
         }

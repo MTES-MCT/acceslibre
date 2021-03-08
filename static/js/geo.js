@@ -1,5 +1,7 @@
 // XXX: we suppose we're always having a single map on a page
 
+import dom from "./dom";
+
 let currentPk,
   layers = [],
   markers,
@@ -244,28 +246,30 @@ function openMarkerPopup(pk) {
 }
 
 function handleGeoLinks() {
-  [].forEach.call(document.querySelectorAll(".a4a-geo-link"), (link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-      const pk = parseInt(link.dataset.erpId, 10);
-      if (pk) openMarkerPopup(pk);
-    });
+  dom.ready(() => {
+    for (const link of dom.findAll(".a4a-geo-link")) {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const pk = parseInt(link.dataset.erpId, 10);
+        if (pk) openMarkerPopup(pk);
+      });
+    }
   });
 }
 
 function handleGeolocationToggler() {
-  if (!document.getElementById("search-form")) {
+  if (!dom.findOne("form#search-form")) {
+    console.log("search form not found", document.querySelector("#search-form"));
     return;
   }
 
   function renderError(error) {
-    document.querySelector("#loc").innerHTML = [
-      '<div class="text-danger">',
-      '<i aria-hidden="false" class="icon icon-exclamation-circle"></i> ',
-      error,
-      "</div>",
-    ].join("");
+    dom.findOne("#loc").innerHTML = `
+      <div class="text-danger">
+        <i aria-hidden="false" class="icon icon-exclamation-circle"></i>
+        ${error}
+      </div>`;
   }
 
   const { geolocation } = navigator;
@@ -276,76 +280,80 @@ function handleGeolocationToggler() {
   }
 
   function listenToLocCheckboxChange() {
-    return function (event) {
-      processLocCheckbox(event.target, { initial: false });
+    return function ({ target }) {
+      processLocCheckbox(target, { initial: false });
     };
   }
 
-  function processLocCheckbox(node, options) {
-    options = options || { initial: false };
+  async function reverseGeocode({ lat, lon }) {
+    const res = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`);
+    return await res.json();
+  }
+
+  function getCurrentPosition(options) {
+    return new Promise((resolve, reject) => {
+      geolocation.getCurrentPosition(resolve, reject, options);
+    });
+  }
+
+  async function getUserLocation(options = { timeout: 10000 }) {
+    const {
+      coords: { latitude: lat, longitude: lon },
+    } = await getCurrentPosition(options);
+    const { features } = await reverseGeocode({ lat, lon });
+    let label;
+    try {
+      label = `(${features[0].properties.label})`;
+    } catch (_) {
+      label = `(${lat}, ${lon})`;
+    }
+    return { lat, lon, label };
+  }
+
+  function processLocCheckbox(node, options = { initial: false }) {
     if (!node.checked) {
-      document.querySelector("#loc").innerText = "";
-      document.querySelector("input[name=lat]").value = null;
-      document.querySelector("input[name=lon]").value = null;
+      dom.findOne("#loc").innerText = "";
+      dom.findOne("input[name=lat]").value = null;
+      dom.findOne("input[name=lon]").value = null;
     } else {
       $("#geoloader").show();
-      document.querySelector("#loc").innerHTML = "";
-      geolocation.getCurrentPosition(
-        function ({ coords: { latitude: lat, longitude: lon } }) {
-          fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`)
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (json) {
-              let label;
-              try {
-                label = "(" + json.features[0].properties.label + ")";
-              } catch (e) {
-                label = "(" + lat + ", " + lon + ")";
-              }
-              const loc = document.querySelector("#loc");
-              loc.innerText = label;
-              loc.setAttribute("role", "status");
-              document.querySelector("input[name=lat]").value = lat;
-              document.querySelector("input[name=lon]").value = lon;
-              $("#geoloader").hide();
-              // if ongoing search, submit form with localization data
-              if (!options.initial && $("#search").val().trim()) {
-                $("#search-form").submit();
-              }
-            })
-            .catch(function (err) {
-              console.warn(`Le service de géopositionnement inverse a retourné une erreur : ${err}`);
-              $("#geoloader").hide();
-            });
-        },
-        (err) => {
-          $("#geoloader").hide();
-          document.querySelector("#localize").checked = false;
-          renderError(`Nous n'avons pas pu déterminer votre position géographique. Erreur: ${err.message}`);
-        },
-        {
-          timeout: 10000,
-        }
-      );
+      dom.findOne("#loc").innerHTML = "";
+      getUserLocation()
+        .then(({ lat, lon, label }) => {
+          const loc = dom.findOne("#loc");
+          loc.innerText = label;
+          loc.setAttribute("role", "status");
+          dom.findOne("input[name=lat]").value = lat;
+          dom.findOne("input[name=lon]").value = lon;
+          $("#geoloader").hide(); // XXX: drop jquery
+          // if ongoing search, submit form with localization data
+          if (!options.initial && $("#search").val().trim()) {
+            // XXX: drop jquery
+            $("#search-form").trigger("submit"); // XXX: drop jquery
+          }
+        })
+        .catch((err) => {
+          $("#geoloader").hide(); // XXX: drop jquery
+          dom.findOne("#localize").checked = false;
+          renderError(err);
+        });
     }
   }
 
-  window.addEventListener("DOMContentLoaded", () => {
-    $("#geoloader").hide();
-    const locCheckbox = document.querySelector("#localize");
-    locCheckbox.addEventListener("change", listenToLocCheckboxChange());
-    setTimeout(() => {
-      // Note: a timeout is required in order to reprocess the form state after navigating back
-      processLocCheckbox(locCheckbox, { initial: true });
-    }, 10);
-  });
+  $("#geoloader").hide();
+  const locCheckbox = dom.findOne("#localize");
+  locCheckbox.addEventListener("change", listenToLocCheckboxChange());
+  setTimeout(() => {
+    // Note: a timeout is required in order to reprocess the form state after navigating back
+    processLocCheckbox(locCheckbox, { initial: true });
+  }, 10);
 }
 
 export default {
   createMap,
   createTiles,
   handleGeoLinks,
+  handleGeolocationToggler,
   initAppMap,
   recalculateMapSize,
 };
