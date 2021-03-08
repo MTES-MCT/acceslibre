@@ -41,15 +41,15 @@
         <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
         {% if erp.activite %}
         <div class="alert alert-warning">
-          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information d'<strong>accessibilité</strong> des établissements.
+          <img class="d-none d-md-inline" alt="Attention !" style="float:left;width:95px;margin-right:12px" src="{% static "img/red-warning-sign.png" %}">
+          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information
+          d'<a href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank">accessibilité de cet établissement</a>.
           {% if erp.activite.slug == "centre-de-vaccination" %}
-            Nous ne sommes <strong>pas compétents sur les questions médicales, ni capables de vous fournir des informations
-            sur les modalités de vaccination contre la COVID 19.</strong>
+            Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc pas vous renseigner sur la prise de rendez-vous.</strong>
           {% else %}
-            Nous ne sommes <strong>pas compétents pour vous fournir des informations sur les services ou prestations proposés
-            par l'établissement, ni assurer un support ou une assistance vis à vis de ces services ou prestations.</strong>
+            <strong>Nous ne pouvons pas vous fournir une assistance vis à vis des services ou prestations proposés.</strong>
+            Merci de votre compréhension.
           {% endif %}
-          Merci de votre compréhension.
         </div>
         {% endif %}
       {% endif %}
