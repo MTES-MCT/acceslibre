@@ -26,8 +26,6 @@ import forms from "./forms";
 import geo from "./geo";
 import search from "./search";
 
-import "./app";
-
 // Initializations
 // XXX: maybe move to contextually use in pages
 dom.ready(() => {
