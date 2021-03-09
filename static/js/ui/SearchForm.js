@@ -1,4 +1,5 @@
 import api from "../api";
+import dom from "../dom";
 
 function renderError(root, error) {
   root.querySelector("#loc").innerHTML = `
@@ -6,6 +7,14 @@ function renderError(root, error) {
       <i aria-hidden="false" class="icon icon-exclamation-circle"></i>
       ${error}
     </div>`;
+}
+
+function setLocationStatus(root, label, lat, lon) {
+  const loc = root.querySelector("#loc");
+  loc.innerText = label;
+  loc.setAttribute("role", "status");
+  root.querySelector("input[name=lat]").value = lat;
+  root.querySelector("input[name=lon]").value = lon;
 }
 
 function SearchForm(root) {
@@ -24,37 +33,31 @@ function SearchForm(root) {
     return ({ target }) => processLocCheckbox(target, { initial: false });
   }
 
-  function processLocCheckbox(node, options = { initial: false }) {
+  async function processLocCheckbox(node, options = { initial: false }) {
+    root.querySelector("#loc").innerHTML = "";
     if (!node.checked) {
-      root.querySelector("#loc").innerText = "";
-      root.querySelector("input[name=lat]").value = null;
-      root.querySelector("input[name=lon]").value = null;
+      setLocationStatus(root, "", null, null);
     } else {
-      $("#geoloader").show();
-      root.querySelector("#loc").innerHTML = "";
-      api
-        .getUserLocation()
-        .then(({ lat, lon, label }) => {
-          const loc = root.querySelector("#loc");
-          loc.innerText = label;
-          loc.setAttribute("role", "status");
-          root.querySelector("input[name=lat]").value = lat;
-          root.querySelector("input[name=lon]").value = lon;
-          $("#geoloader").hide(); // XXX: drop jquery
-          // if ongoing search, submit form with localization data
-          if (!options.initial && $("#search").val().trim()) {
-            node.submit();
-          }
-        })
-        .catch((err) => {
-          $("#geoloader").hide(); // XXX: drop jquery
-          root.querySelector("#localize").checked = false;
-          renderError(root, err);
-        });
+      dom.show(root.querySelector("#geoloader"));
+      try {
+        const { lat, lon, label } = await api.getUserLocation();
+        setLocationStatus(root, label, lat, lon);
+        dom.hide(root.querySelector("#geoloader"));
+        dom;
+        // if ongoing search, submit form with localization data
+        if (!options.initial && root.querySelector("#search").value.trim()) {
+          node.submit();
+        }
+      } catch (err) {
+        setLocationStatus(root, "", null, null);
+        dom.hide(root.querySelector("#geoloader"));
+        root.querySelector("#localize").checked = false;
+        renderError(root, err);
+      }
     }
   }
 
-  $("#geoloader").hide();
+  dom.hide(root.querySelector("#geoloader"));
   const locCheckbox = root.querySelector("#localize");
   locCheckbox.addEventListener("change", listenToLocCheckboxChange());
   setTimeout(() => {

@@ -7,6 +7,7 @@ function findAll(sel) {
 }
 
 function hide(el) {
+  el.dataset.previousDisplay = window.getComputedStyle(el).display;
   el.style.display = "none";
 }
 
@@ -19,7 +20,13 @@ function removeClass(el, class_) {
 }
 
 function show(el) {
-  el.style.display = "block";
+  const { previousDisplay } = el.dataset;
+  if (previousDisplay) {
+    delete el.dataset.previousDisplay;
+    el.style.display = previousDisplay;
+  } else {
+    el.style.display = "block";
+  }
 }
 
 export default {
@@ -27,5 +34,6 @@ export default {
   findAll,
   hide,
   ready,
+  removeClass,
   show,
 };
