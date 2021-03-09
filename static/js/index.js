@@ -22,17 +22,18 @@ import "sentry";
 
 // app modules
 import dom from "./dom";
-import ui from "./ui";
 import geo from "./geo";
+
+import AppAutocomplete from "./ui/AppAutocomplete";
+import SearchForm from "./ui/SearchForm";
+import a11y from "./ui/a11y.js";
+import conditional from "./ui/conditional.js";
 
 // Initializations
 dom.ready(() => {
-  // geo
   geo.handleGeoLinks(dom.findAll(".a4a-geo-link"));
-
-  // UI
-  ui.a11y.improveRequiredFieldsA11y();
-  ui.conditional.run({
+  a11y.improveRequiredFieldsA11y();
+  conditional.run({
     fieldSelectorPrefix: ".field-",
     inputNamePrefix: "",
   });
@@ -40,13 +41,13 @@ dom.ready(() => {
   // Global search form
   const searchForm = document.querySelector("form#search-form");
   if (searchForm) {
-    ui.comp.SearchForm(searchForm);
+    SearchForm(searchForm);
   }
 
   // App autocomplete
   const appAutocomplete = document.querySelector("#app-autocomplete");
   if (appAutocomplete) {
-    ui.comp.AppAutocomplete(appAutocomplete);
+    AppAutocomplete(appAutocomplete);
   }
 });
 
@@ -54,5 +55,4 @@ dom.ready(() => {
 window.a4a = {
   dom,
   geo,
-  ui,
 };

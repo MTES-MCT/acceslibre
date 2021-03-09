@@ -1,4 +1,4 @@
-import geo from "../../geo";
+import api from "../api";
 
 function renderError(root, error) {
   root.querySelector("#loc").innerHTML = `
@@ -32,7 +32,7 @@ function SearchForm(root) {
     } else {
       $("#geoloader").show();
       root.querySelector("#loc").innerHTML = "";
-      geo
+      api
         .getUserLocation()
         .then(({ lat, lon, label }) => {
           const loc = root.querySelector("#loc");
