@@ -1,9 +1,9 @@
 import a11y from "./a11y";
+import comp from "./comp";
 import conditional from "./conditional";
-import search from "./search";
 
 export default {
   a11y,
+  comp,
   conditional,
-  search,
 };

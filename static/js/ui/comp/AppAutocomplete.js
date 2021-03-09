@@ -1,12 +1,13 @@
 // Autocomplete
+// FIXME: to be replaced by a common autocomplete component later
 
-function initAppAutocomplete() {
-  // XXX: to be replaced by something else later
-  $("#q").autocomplete({
+function AppAutocomplete(root) {
+  const $input = $(root).find("input[name=q]");
+
+  $input.autocomplete({
     deferRequestBy: 100,
     minChars: 2,
     lookup: function (query, done) {
-      const $input = $("#q");
       const commune = $input.data("commune");
       const communeSlug = $input.data("commune-slug");
       const lat = $input.data("lat");
@@ -80,6 +81,4 @@ function initAppAutocomplete() {
   });
 }
 
-export default {
-  initAppAutocomplete,
-};
+export default AppAutocomplete;

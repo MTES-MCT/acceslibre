@@ -42,9 +42,9 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0 flex-fill" action="{% url "commune" commune=commune.slug %}"
       method="get">
-      <div class="input-group w-100">
+      <div class="input-group w-100" id="app-autocomplete">
         <label for="q" class="sr-only">Rechercher</label>
-        <input class="input-group-prepend form-control w-50 rounded-left" name="q" id="q" type="search" data-commune="{{ commune.nom }}"
+        <input class="input-group-prepend form-control w-50 rounded-left" name="q" type="search" data-commune="{{ commune.nom }}"
           data-commune-slug="{{ commune.slug }}" data-lat="{{ commune.geom.coords.1 }}" data-lon="{{ commune.geom.coords.0 }}"
           data-code-insee="{{ commune.code_insee }}" placeholder="Rue, restaurant, café, poste, pharmacie..."
           value="{{ search_terms|default_if_none:"" }}" title="Rechercher" autocomplete="off">
@@ -136,7 +136,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
             activateBtn($mapBtn, $infosBtn);
             $mapWrapper.addClass("visible");
             $("#content").hide();
-            a4a.recalculateMapSize();
+            a4a.geo.recalculateMapSize();
           });
 
           $(window).on("resize", function() {

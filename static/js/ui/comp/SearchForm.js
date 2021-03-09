@@ -1,4 +1,12 @@
-import geo from "../geo";
+import geo from "../../geo";
+
+function renderError(root, error) {
+  root.querySelector("#loc").innerHTML = `
+    <div class="text-danger">
+      <i aria-hidden="false" class="icon icon-exclamation-circle"></i>
+      ${error}
+    </div>`;
+}
 
 function SearchForm(root) {
   if (!root) {
@@ -6,24 +14,14 @@ function SearchForm(root) {
     return;
   }
 
-  function renderError(error) {
-    root.querySelector("#loc").innerHTML = `
-      <div class="text-danger">
-        <i aria-hidden="false" class="icon icon-exclamation-circle"></i>
-        ${error}
-      </div>`;
-  }
-
   const { geolocation } = navigator;
   if (!geolocation) {
-    renderError("La géolocalisation n'est pas disponible sur votre navigateur.");
+    renderError(root, "La géolocalisation n'est pas disponible sur votre navigateur.");
     return;
   }
 
   function listenToLocCheckboxChange() {
-    return function ({ target }) {
-      processLocCheckbox(target, { initial: false });
-    };
+    return ({ target }) => processLocCheckbox(target, { initial: false });
   }
 
   function processLocCheckbox(node, options = { initial: false }) {
@@ -51,7 +49,7 @@ function SearchForm(root) {
         .catch((err) => {
           $("#geoloader").hide(); // XXX: drop jquery
           root.querySelector("#localize").checked = false;
-          renderError(err);
+          renderError(root, err);
         });
     }
   }
@@ -65,6 +63,4 @@ function SearchForm(root) {
   }, 10);
 }
 
-export default {
-  SearchForm,
-};
+export default SearchForm;
