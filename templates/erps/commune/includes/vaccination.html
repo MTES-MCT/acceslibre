@@ -5,6 +5,14 @@
 <div class="list-group list-group-flush">
 {% with erp.metadata.centre_vaccination as infos %}
   <h3 class="h4">Informations du centre de vaccination</h3>
+
+  {% if not infos.date_ouverture and not infos.date_fermeture and not infos.modalites and not infos.acces_sur_rdv and not infos.prevaccination and not infos.url_rdv and not erp.telephone %}
+  <div class="alert alert-info">
+    <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
+    Nous ne disposons d'aucune information sur les modalités de vaccination pour ce centre.
+  </div>
+  {% endif %}
+
   {% if infos.date_ouverture %}
   <p>
     <i aria-hidden="true" class="icon icon-info-circled"></i>
@@ -23,28 +31,32 @@
   <blockquote><em>{{ infos.modalites }}</em></blockquote>
   {% endif %}
 
-  <h4 class="h5 mt-2">Prise de rendez-vous</h4>
   {% if infos.acces_sur_rdv %}
+  <h4 class="h5 mt-2">Prise de rendez-vous</h4>
   <p>
     <i aria-hidden="true" class="icon icon-clock"></i>
     L'accès à ce centre de vaccination se fait sur rendez-vous.
   </p>
   {% endif %}
+
   {% if infos.prevaccination is True %}
   <p>
     <i aria-hidden="true" class="icon icon-info-circled"></i>
     Ce centre propose également des consultations de prévaccination.
   </p>
   {% endif %}
+
+  {% if infos.url_rdv or erp.telephone %}
   <p>
     {% if infos.url_rdv %}
     <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
     {% endif %}
-    {% if infos.url_rdv and erp.telephone %}ou{% endif %}
+    {% if infos.url_rdv and erp.telephone %}<br class="d-none d-md-block">ou{% endif %}
     {% if erp.telephone %}
     par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
     {% endif %}
   </p>
+  {% endif %}
 
   <p>
     <a href="https://www.sante.fr/cf/centres-vaccination-covid.html">&raquo; En savoir plus sur les conditions de vaccination</a>
