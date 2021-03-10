@@ -1,5 +1,7 @@
 // XXX: we suppose we're always having a single map on a page
 
+import dom from "./dom";
+
 let currentPk,
   layers = [],
   markers,
@@ -120,14 +122,14 @@ function onMapContextMenu({ latlng, target: map }) {
     .setContent('<a href="#" class="a4a-map-add">Ajouter un établissement ici</a>')
     .openOn(map);
 
-  $(".a4a-map-add").on("click", async function (event) {
+  document.querySelector(".a4a-map-add").addEventListener("click", async (event) => {
     event.preventDefault();
     const { lat, lng } = latlng;
     const req = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lng}&lat=${lat}`);
     const res = await req.json();
     const results = res.features.filter(({ properties }) => properties.type == "housenumber");
     if (results.length == 0) {
-      $(this).replaceWith("Aucune adresse ne correspond à cet emplacement.");
+      event.target.outerHTML = "Aucune adresse ne correspond à cet emplacement.";
       return;
     }
     const adresses = results.map(({ properties, geometry }) => {
@@ -151,13 +153,13 @@ function onMapContextMenu({ latlng, target: map }) {
         }),
       };
     }, []);
-    $(this).replaceWith(`
+    event.target.outerHTML = `
       <p><b>Choisissez une adresse :</b></p>
       <ul class="a4a-map-reverse-results">
         ${adresses.map(({ data, label }) => {
           return `<li><a href="/contrib/admin-infos/?data=${data}">${label}</a></li>`;
         })}
-      </ul>`);
+      </ul>`;
   });
 }
 

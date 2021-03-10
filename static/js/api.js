@@ -1,8 +1,3 @@
-async function reverseGeocode({ lat, lon }) {
-  const res = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`);
-  return await res.json();
-}
-
 function getCurrentPosition(options = { timeout: 10000 }) {
   return new Promise((resolve, reject) => {
     if ("geolocation" in navigator) {
@@ -30,3 +25,8 @@ async function getUserLocation(options) {
 export default {
   getUserLocation,
 };
+
+async function reverseGeocode({ lat, lon }) {
+  const res = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`);
+  return await res.json();
+}
