@@ -12,7 +12,7 @@ async function getUserLocation(options) {
   const {
     coords: { latitude: lat, longitude: lon },
   } = await getCurrentPosition(options);
-  const { features } = await reverseGeocode({ lat, lon });
+  const { features } = await reverseGeocode({ lat, lon }, { type: "street" });
   let label;
   try {
     label = `(${features[0].properties.label})`;
@@ -22,11 +22,16 @@ async function getUserLocation(options) {
   return { lat, lon, label };
 }
 
-export default {
-  getUserLocation,
-};
-
-async function reverseGeocode({ lat, lon }) {
-  const res = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}&type=street`);
+async function reverseGeocode({ lat, lon }, options = {}) {
+  let url = `https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`;
+  if (options.type) {
+    url += `&type=${options.type}`;
+  }
+  const res = await fetch(url);
   return await res.json();
 }
+
+export default {
+  getUserLocation,
+  reverseGeocode,
+};

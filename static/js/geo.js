@@ -1,6 +1,6 @@
 // XXX: we suppose we're always having a single map on a page
 
-import dom from "./dom";
+import api from "./api";
 
 let currentPk,
   layers = [],
@@ -119,10 +119,9 @@ function onMapContextMenu({ latlng, target: map }) {
 
   document.querySelector(".a4a-map-add").addEventListener("click", async (event) => {
     event.preventDefault();
-    const { lat, lng } = latlng;
-    const req = await fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${lng}&lat=${lat}`);
-    const res = await req.json();
-    const results = res.features.filter(({ properties }) => properties.type == "housenumber");
+    const { lat, lng: lon } = latlng;
+    const { features } = await api.reverseGeocode({ lat, lon });
+    const results = features.filter(({ properties }) => properties.type == "housenumber");
     if (results.length == 0) {
       event.target.outerHTML = "Aucune adresse ne correspond à cet emplacement.";
       return;
