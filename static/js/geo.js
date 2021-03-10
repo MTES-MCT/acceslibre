@@ -88,11 +88,6 @@ function createTiles(styleId) {
   });
 }
 
-function initHomeMap() {
-  const tiles = createTiles();
-  return L.map("home-map").addLayer(tiles).setZoom(6).setMinZoom(6).setView([46.227638, 2.213749], 6);
-}
-
 function getStreetsTiles() {
   if (!streetTiles) {
     streetTiles = createTiles("n1k0/ck7daao8i07o51ipn747gwtdq");
