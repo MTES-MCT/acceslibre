@@ -2,6 +2,17 @@ function addClass(el, class_) {
   el.classList.add(class_);
 }
 
+function applyOne(selector, fn) {
+  const node = document.querySelector(selector);
+  if (node) {
+    fn(node);
+  }
+}
+
+function applyAll(selector, fn) {
+  findAll(selector).forEach(fn);
+}
+
 function findAll(sel) {
   return [].slice.call(document.querySelectorAll(sel), 0);
 }
@@ -31,6 +42,8 @@ function show(el) {
 
 export default {
   addClass,
+  applyAll,
+  applyOne,
   findAll,
   hide,
   ready,

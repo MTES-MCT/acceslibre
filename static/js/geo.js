@@ -239,24 +239,10 @@ function openMarkerPopup(pk) {
   });
 }
 
-function handleGeoLinks(links) {
-  if (!links || links.length == 0) {
-    return;
-  }
-  for (const link of links) {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      const pk = parseInt(link.dataset.erpId, 10);
-      if (pk) openMarkerPopup(pk);
-    });
-  }
-}
-
 export default {
   createMap,
   createTiles,
-  handleGeoLinks,
   initAppMap,
+  openMarkerPopup,
   recalculateMapSize,
 };

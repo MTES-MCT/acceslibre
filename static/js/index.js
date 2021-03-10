@@ -25,35 +25,21 @@ import dom from "./dom";
 import geo from "./geo";
 
 import AppAutocomplete from "./ui/AppAutocomplete";
-import SearchForm from "./ui/SearchForm";
-import a11y from "./ui/a11y.js";
+import AsteriskField from "./ui/AsteriskField";
 import ConditionalForm from "./ui/ConditionalForm.js";
+import GeoLink from "./ui/GeoLink.js";
+import SearchForm from "./ui/SearchForm";
 
 // Initializations
 dom.ready(() => {
-  geo.handleGeoLinks(dom.findAll(".a4a-geo-link"));
-  a11y.improveRequiredFieldsA11y();
-
-  // Conditional forms
-  const conditionalForm = document.querySelector(".a4a-conditional-form");
-  if (conditionalForm) {
-    ConditionalForm(conditionalForm);
-  }
-
-  // Global search form
-  const searchForm = document.querySelector("form#search-form");
-  if (searchForm) {
-    SearchForm(searchForm);
-  }
-
-  // App autocomplete
-  const appAutocomplete = document.querySelector("#app-autocomplete");
-  if (appAutocomplete) {
-    AppAutocomplete(appAutocomplete);
-  }
+  dom.applyOne(".a4a-conditional-form", ConditionalForm);
+  dom.applyOne("form#search-form", SearchForm);
+  dom.applyOne("#app-autocomplete", AppAutocomplete);
+  dom.applyAll(".asteriskField", AsteriskField);
+  dom.applyAll(".a4a-geo-link", GeoLink);
 });
 
-// expose general namespaced lib for usage withing pages
+// expose general namespaced lib for usage within pages
 window.a4a = {
   dom,
   geo,
