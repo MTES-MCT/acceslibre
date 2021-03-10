@@ -198,9 +198,9 @@ function processRule(root, rule) {
     return;
   }
 
-  inputs.forEach(function (input) {
-    input.addEventListener("change", function (event) {
-      processTargets(root, rule, event.target.value);
+  inputs.forEach((input) => {
+    input.addEventListener("change", function ({ target: { value } }) {
+      processTargets(root, rule, value);
       rule.targets.forEach((child) => {
         const childRule = rules.filter((r) => r.source === child)[0];
         if (childRule) {
