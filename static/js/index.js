@@ -27,16 +27,18 @@ import geo from "./geo";
 import AppAutocomplete from "./ui/AppAutocomplete";
 import SearchForm from "./ui/SearchForm";
 import a11y from "./ui/a11y.js";
-import conditional from "./ui/conditional.js";
+import ConditionalForm from "./ui/ConditionalForm.js";
 
 // Initializations
 dom.ready(() => {
   geo.handleGeoLinks(dom.findAll(".a4a-geo-link"));
   a11y.improveRequiredFieldsA11y();
-  conditional.run({
-    fieldSelectorPrefix: ".field-",
-    inputNamePrefix: "",
-  });
+
+  // Conditional forms
+  const conditionalForm = document.querySelector(".a4a-conditional-form");
+  if (conditionalForm) {
+    ConditionalForm(conditionalForm);
+  }
 
   // Global search form
   const searchForm = document.querySelector("form#search-form");

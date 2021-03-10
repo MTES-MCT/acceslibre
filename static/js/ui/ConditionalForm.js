@@ -1,8 +1,3 @@
-let _config = {
-  fieldSelectorPrefix: ".form-row.field-",
-  inputNamePrefix: "accessibilite-0-",
-};
-
 const rules = [
   // Transport
   {
@@ -138,24 +133,18 @@ const rules = [
   },
 ];
 
-function getFieldInputs(field) {
-  const sourceSelector = "input[name=" + _config.inputNamePrefix + field + "]";
-  return [].slice.call(document.querySelectorAll(sourceSelector));
+function getFieldInputs(root, field) {
+  return [].slice.call(root.querySelectorAll(`input[name=${field}]`));
 }
 
-function getValue(field) {
-  const inputs = getFieldInputs(field);
+function getValue(root, field) {
+  const inputs = getFieldInputs(root, field);
   if (inputs.length === 0) {
     // field has not been found in the page, skipping
     return;
   }
-  const selectedInput = inputs.filter(function (input) {
-    return input.checked;
-  })[0];
-  if (!selectedInput) {
-    return;
-  }
-  return selectedInput.value;
+  const selectedInput = inputs.filter(({ checked }) => checked)[0];
+  return selectedInput?.value;
 }
 
 function resetField(field) {
@@ -185,9 +174,9 @@ function resetField(field) {
   }
 }
 
-function processTargets(rule, value) {
-  rule.targets.forEach(function (target) {
-    const el = document.querySelector((_config.fieldSelectorPrefix || "") + target);
+function processTargets(root, rule, value) {
+  rule.targets.forEach((target) => {
+    const el = root.querySelector(`.field-${target}`);
     if (!el) {
       return;
     }
@@ -201,9 +190,9 @@ function processTargets(rule, value) {
   });
 }
 
-function processRule(rule) {
+function processRule(root, rule) {
   // grab the source field input elements
-  const inputs = getFieldInputs(rule.source);
+  const inputs = getFieldInputs(root, rule.source);
   if (inputs.length === 0) {
     // field has not been found in the page, skipping
     return;
@@ -211,28 +200,21 @@ function processRule(rule) {
 
   inputs.forEach(function (input) {
     input.addEventListener("change", function (event) {
-      processTargets(rule, event.target.value);
-      rule.targets.forEach(function (child) {
+      processTargets(root, rule, event.target.value);
+      rule.targets.forEach((child) => {
         const childRule = rules.filter((r) => r.source === child)[0];
         if (childRule) {
-          processTargets(childRule, getValue(child));
+          processTargets(root, childRule, getValue(root, child));
         }
       });
     });
   });
 
-  processTargets(rule, getValue(rule.source));
+  processTargets(root, rule, getValue(root, rule.source));
 }
 
-function run(config) {
-  // XXX: check if this should be ran at all (check presence of form or fields in the page)
-  for (let key in config || {}) {
-    _config[key] = config[key];
-  }
-
+export default function ConditionalForm(root) {
   rules.forEach(function (rule) {
-    processRule(rule);
+    processRule(root, rule);
   });
 }
-
-export default { run };
