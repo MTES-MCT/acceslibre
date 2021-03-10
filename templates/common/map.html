@@ -1,4 +1,17 @@
-<div id="app-map" class="a4a-app-map">
+<script id="around-data" type="application/json">
+  {{ around | default_if_none:"null" }}
+</script>
+<script id="commune-data" type="application/json">
+  {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
+</script>
+<script id="erp-pk-data" type="application/json">
+  {% if erp %}{{ erp.pk }}{% else %}null{% endif %}
+</script>
+<script id="erps-data" type="application/json">
+  {{ geojson_list | safe }}
+</script>
+
+<div id="app-map" class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}">
   <noscript>
     <div class="p-3">
       <div class="alert alert-warning">
@@ -10,11 +23,10 @@
 </div>
 <script>
   a4a.dom.ready(function() {
-    a4a.geo.initAppMap(
-      {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
-      {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
-      {{ around | default_if_none:"null" }},
-      {{ geojson_list | safe }}
-    );
+    const around_data = JSON.parse(document.getElementById("around-data").textContent);
+    const commune_data = JSON.parse(document.getElementById("commune-data").textContent);
+    const erps_data = JSON.parse(document.getElementById("erps-data").textContent);
+    const erp_id = JSON.parse(document.getElementById("erp-pk-data").textContent);
+    a4a.geo.initAppMap(commune_data, erp_id, around_data, erps_data);
   });
 </script>

@@ -90,26 +90,7 @@
         </div>
       </div>
       <div class="col-md-7 a4a-search-map-area">
-        <div class="a4a-search-map rounded" id="app-map">
-          <noscript>
-            <div class="p-3">
-              <div class="alert alert-warning">
-                <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-                JavaScript doit être activé pour utiliser la cartographie interactive.
-              </div>
-            </div>
-          </noscript>
-        </div>
-        <script>
-          window.addEventListener("DOMContentLoaded", function() {
-            const map = a4a.geo.initAppMap(
-              {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %},
-              {% if erp %}{{ erp.pk }}{% else %}null{% endif %},
-              {{ around | default_if_none:"null" }},
-              {{ geojson_list | safe }}
-            );
-          });
-        </script>
+        {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
       </div>
     </div>
     {% endif %}

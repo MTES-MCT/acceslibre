@@ -1,4 +1,5 @@
 // XXX: we suppose we're always having a single map on a page
+// TODO: make this a component
 
 import api from "./api";
 
@@ -241,7 +242,6 @@ function openMarkerPopup(pk) {
 
 export default {
   createMap,
-  createTiles,
   initAppMap,
   openMarkerPopup,
   recalculateMapSize,

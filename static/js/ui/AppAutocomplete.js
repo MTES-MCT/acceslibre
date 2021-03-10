@@ -1,5 +1,5 @@
-// Autocomplete
-// FIXME: to be replaced by a common autocomplete component later
+// App Autocomplete
+// FIXME: Replaced this by a common autocomplete component. As a bonus, drop jquery usage entirely.
 
 function AppAutocomplete(root) {
   const $input = $(root).find("input[name=q]");
