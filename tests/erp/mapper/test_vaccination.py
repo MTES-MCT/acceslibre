@@ -158,6 +158,8 @@ def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):
 def test_update_existing_erp(activite_cdv, neufchateau, sample_record_ok):
     m1 = RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
     erp1 = m1.process(activite_cdv)
+    erp1.accessibilite.commentaire = "user contrib"
+    erp1.accessibilite.save()
 
     # import updated data for the same Erp
     sample_record_ok_updated = sample_record_ok.copy()
@@ -167,10 +169,7 @@ def test_update_existing_erp(activite_cdv, neufchateau, sample_record_ok):
 
     assert erp1.id == erp2.id
     assert erp2.telephone == "1234"
-    assert (
-        "mises à jour depuis data.gouv.fr le 01/01/2021"
-        in erp2.accessibilite.commentaire
-    )
+    assert "user contrib" in erp2.accessibilite.commentaire
 
 
 def test_unpublish_closed_erp(activite_cdv, neufchateau, sample_record_ok):
