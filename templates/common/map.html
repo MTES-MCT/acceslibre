@@ -23,10 +23,15 @@
 </div>
 <script>
   a4a.dom.ready(function() {
-    const around_data = JSON.parse(document.getElementById("around-data").textContent);
-    const commune_data = JSON.parse(document.getElementById("commune-data").textContent);
-    const erps_data = JSON.parse(document.getElementById("erps-data").textContent);
-    const erp_id = JSON.parse(document.getElementById("erp-pk-data").textContent);
-    a4a.geo.initAppMap(commune_data, erp_id, around_data, erps_data);
+    // TODO: make this a ui component
+    function parse(id) {
+      return JSON.parse(document.getElementById(id).textContent);
+    }
+    a4a.geo.initAppMap(
+      parse("commune-data"),
+      parse("erp-pk-data"),
+      parse("around-data"),
+      parse("erps-data")
+    );
   });
 </script>
