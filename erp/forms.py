@@ -39,13 +39,23 @@ def get_widgets_for_accessibilite():
     return dict([(f, bool_radios()) for f in field_names])
 
 
+def validate_username_whitelisted(value):
+    if value.lower() in settings.USERNAME_BLACKLIST:
+        raise ValidationError(
+            "Ce nom d'utilisateur est réservé", params={"value": value}
+        )
+
+
 def define_username_field():
     return forms.CharField(
         max_length=32,
         help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}",
         required=True,
         label="Nom d’utilisateur",
-        validators=[RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES)],
+        validators=[
+            RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
+            validate_username_whitelisted,
+        ],
     )
 
 
