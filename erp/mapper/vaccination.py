@@ -73,13 +73,11 @@ class RecordMapper:
         # Save erp instance
         self.erp.save()
 
-        # Attach a comment to the Accessibilite object
-        if self.erp_exists and self.erp.has_accessibilite():
-            accessibilite = self.erp.accessibilite
-        else:
+        # Attach an Accessibilite to newly created Erps
+        if not self.erp.has_accessibilite():
             accessibilite = Accessibilite(erp=self.erp)
-        accessibilite.commentaire = commentaire
-        accessibilite.save()
+            accessibilite.commentaire = commentaire
+            accessibilite.save()
 
         return self.erp
 
