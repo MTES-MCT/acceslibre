@@ -1,5 +1,5 @@
-// XXX: we suppose we're always having a single map on a page
-// TODO: make this a component
+// INFO: we suppose we're always having a single map on a page
+// TODO: split these into better scoped components
 
 import api from "./api";
 
