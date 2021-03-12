@@ -4,7 +4,7 @@ import "regenerator-runtime/runtime";
 // jQuery and selectWoo are very special beasts
 // https://stackoverflow.com/a/47984928
 // https://stackoverflow.com/a/49722514
-import jquery from "jquery";
+import jquery, { Autocomplete } from "jquery";
 window.$ = window.jQuery = jquery;
 import select2 from "../vendor/selectWoo-1.0.8/js/select2.full.min";
 select2(window.$);
@@ -18,6 +18,35 @@ import "leaflet.markercluster";
 import "leaflet.locatecontrol";
 import "leaflet-center-cross";
 import "chart.js";
-import "sentry";
 
-import "./app";
+// Sentry
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
+window.Sentry = Sentry;
+window.SentryIntegrations = Integrations;
+
+// app modules
+import dom from "./dom";
+import geo from "./geo";
+
+import AppAutocomplete from "./ui/AppAutocomplete";
+import AsteriskField from "./ui/AsteriskField";
+import ConditionalForm from "./ui/ConditionalForm.js";
+import GeoLink from "./ui/GeoLink.js";
+import SearchForm from "./ui/SearchForm";
+
+// Initializations
+dom.ready(() => {
+  dom.mountOne("#app-autocomplete", AppAutocomplete);
+  dom.mountOne("#app-map", geo.AppMap);
+  dom.mountOne(".a4a-conditional-form", ConditionalForm);
+  dom.mountOne("#search-form", SearchForm);
+  dom.mountAll(".asteriskField", AsteriskField);
+  dom.mountAll(".a4a-geo-link", GeoLink);
+});
+
+// expose general namespaced lib for usage within pages
+window.a4a = {
+  dom,
+  geo,
+};
