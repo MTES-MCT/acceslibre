@@ -138,10 +138,11 @@ def expose_site_context(request):
 
     return {
         "MAPBOX_TOKEN": settings.MAPBOX_TOKEN,
-        "STAGING": settings.STAGING,
+        "SENTRY_DSN": settings.SENTRY_DSN,
         "SITE_NAME": settings.SITE_NAME,
         "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        "STAGING": settings.STAGING,
     }
 
 
