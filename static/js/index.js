@@ -33,6 +33,7 @@ import SearchForm from "./ui/SearchForm";
 // Initializations
 dom.ready(() => {
   dom.mountOne("#app-autocomplete", AppAutocomplete);
+  dom.mountOne("#app-map", geo.AppMap);
   dom.mountOne(".a4a-conditional-form", ConditionalForm);
   dom.mountOne("#search-form", SearchForm);
   dom.mountAll(".asteriskField", AsteriskField);

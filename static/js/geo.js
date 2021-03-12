@@ -107,7 +107,7 @@ function safeBase64Encode(data) {
   return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
 }
 
-function onMapContextMenu({ latlng, target: map }) {
+function onMapContextMenu(root, { latlng, target: map }) {
   // prevent imprecise locations by requiring a minimum zoom level
   if (map.getZoom() < 16) {
     return;
@@ -118,7 +118,7 @@ function onMapContextMenu({ latlng, target: map }) {
     .setContent('<a href="#" class="a4a-map-add">Ajouter un établissement ici</a>')
     .openOn(map);
 
-  document.querySelector(".a4a-map-add").addEventListener("click", async (event) => {
+  root.querySelector(".a4a-map-add").addEventListener("click", async (event) => {
     event.preventDefault();
     const { lat, lng: lon } = latlng;
     const { features } = await api.reverseGeocode({ lat, lon });
@@ -158,9 +158,9 @@ function onMapContextMenu({ latlng, target: map }) {
   });
 }
 
-function createMap(id, options = {}) {
+function createMap(domTarget, options = {}) {
   const defaults = { layers: [getStreetsTiles()] };
-  const map = L.map(id, { ...defaults, options });
+  const map = L.map(domTarget, { ...defaults, options });
   L.control
     .layers({
       "Plan des rues": getStreetsTiles(),
@@ -170,7 +170,15 @@ function createMap(id, options = {}) {
   return map;
 }
 
-function initAppMap(info, pk, around, geoJson) {
+function parseJsonScript(scriptNode) {
+  return JSON.parse(scriptNode.textContent);
+}
+
+function AppMap(root) {
+  const info = parseJsonScript(root.querySelector("#commune-data"));
+  const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
+  const around = parseJsonScript(root.querySelector("#around-data"));
+  const geoJson = parseJsonScript(root.querySelector("#erps-data"));
   currentPk = pk;
 
   const geoJsonLayer = L.geoJSON(geoJson, {
@@ -178,13 +186,13 @@ function initAppMap(info, pk, around, geoJson) {
     pointToLayer: pointToLayer,
   });
 
-  map = createMap("app-map");
+  map = createMap(root);
   if (info) {
     map.setMinZoom(info.zoom - 2);
   }
 
   // right-click menu
-  map.on("contextmenu", onMapContextMenu);
+  map.on("contextmenu", onMapContextMenu.bind(map, root));
 
   // markers
   markers = L.markerClusterGroup({
@@ -241,8 +249,8 @@ function openMarkerPopup(pk) {
 }
 
 export default {
+  AppMap,
   createMap,
-  initAppMap,
   openMarkerPopup,
   recalculateMapSize,
 };
