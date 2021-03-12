@@ -46,7 +46,7 @@ function SearchForm(root) {
         dom;
         // if ongoing search, submit form with localization data
         if (!options.initial && root.querySelector("#search").value.trim()) {
-          node.submit();
+          root.submit();
         }
       } catch (err) {
         setLocationStatus(root, "", null, null);
