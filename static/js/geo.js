@@ -15,7 +15,7 @@ function recalculateMapSize() {
     return;
   }
   // store current pk before it gets destroyed for unclear reasons
-  _pk = currentPk;
+  const _pk = currentPk;
   map.invalidateSize(false);
   // ensure repositioning any opened popup
   // see https://stackoverflow.com/a/38172374
