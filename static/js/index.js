@@ -32,11 +32,11 @@ import SearchForm from "./ui/SearchForm";
 
 // Initializations
 dom.ready(() => {
-  dom.applyOne(".a4a-conditional-form", ConditionalForm);
-  dom.applyOne("form#search-form", SearchForm);
-  dom.applyOne("#app-autocomplete", AppAutocomplete);
-  dom.applyAll(".asteriskField", AsteriskField);
-  dom.applyAll(".a4a-geo-link", GeoLink);
+  dom.mountOne("#app-autocomplete", AppAutocomplete);
+  dom.mountOne(".a4a-conditional-form", ConditionalForm);
+  dom.mountOne("#search-form", SearchForm);
+  dom.mountAll(".asteriskField", AsteriskField);
+  dom.mountAll(".a4a-geo-link", GeoLink);
 });
 
 // expose general namespaced lib for usage within pages

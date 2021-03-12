@@ -2,17 +2,6 @@ function addClass(el, class_) {
   el.classList.add(class_);
 }
 
-function applyOne(selector, fn) {
-  const node = document.querySelector(selector);
-  if (node) {
-    fn(node);
-  }
-}
-
-function applyAll(selector, fn) {
-  findAll(selector).forEach(fn);
-}
-
 function findAll(sel) {
   return [].slice.call(document.querySelectorAll(sel), 0);
 }
@@ -20,6 +9,17 @@ function findAll(sel) {
 function hide(el) {
   el.dataset.previousDisplay = window.getComputedStyle(el).display;
   el.style.display = "none";
+}
+
+function mountOne(selector, fn) {
+  const node = document.querySelector(selector);
+  if (node) {
+    fn(node);
+  }
+}
+
+function mountAll(selector, fn) {
+  findAll(selector).forEach(fn);
 }
 
 function ready(fn) {
@@ -42,10 +42,10 @@ function show(el) {
 
 export default {
   addClass,
-  applyAll,
-  applyOne,
   findAll,
   hide,
+  mountAll,
+  mountOne,
   ready,
   removeClass,
   show,
