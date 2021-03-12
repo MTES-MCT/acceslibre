@@ -138,10 +138,11 @@ def expose_site_context(request):
 
     return {
         "MAPBOX_TOKEN": settings.MAPBOX_TOKEN,
-        "STAGING": settings.STAGING,
+        "SENTRY_DSN": settings.SENTRY_DSN,
         "SITE_NAME": settings.SITE_NAME,
         "SITE_HOST": settings.SITE_HOST,
         "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        "STAGING": settings.STAGING,
     }
 
 
@@ -251,3 +252,67 @@ GRAPH_MODELS = {
 
 INSEE_API_CLIENT_KEY = get_env_variable("INSEE_API_CLIENT_KEY")
 INSEE_API_SECRET_KEY = get_env_variable("INSEE_API_SECRET_KEY")
+
+# Usernames blacklist
+USERNAME_BLACKLIST = [
+    # English/generic
+    "abuse",
+    "admin",
+    "administrator",
+    "contact",
+    "error",
+    "ftp",
+    "hostmaster",
+    "info",
+    "is",
+    "it",
+    "list",
+    "list-request",
+    "mail",
+    "majordomo",
+    "marketing",
+    "mis",
+    "press",
+    "mail",
+    "media",
+    "moderator",
+    "news",
+    "noc",
+    "postmaster",
+    "reporting",
+    "root",
+    "sales",
+    "security",
+    "ssl-admin",
+    "ssladmin",
+    "ssladministrator",
+    "sslwebmaster",
+    "security",
+    "support",
+    "sysadmin",
+    "trouble",
+    "usenet",
+    "uucp",
+    "webmaster",
+    "www",
+    # French
+    "abus",
+    "aide",
+    "administrateur",
+    "commercial",
+    "courriel",
+    "email",
+    "erreur",
+    "information",
+    "moderateur",
+    "presse",
+    "rapport",
+    "securite",
+    "sécurité",
+    "service",
+    "signalement",
+    "television",
+    "tv",
+    "vente",
+    "webmestre",
+]

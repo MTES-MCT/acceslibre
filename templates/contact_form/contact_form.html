@@ -38,18 +38,29 @@
       {{ form.topic|as_crispy_field }}
       {{ form.erp|as_crispy_field }}
       {% if erp %}
-        <p class="alert alert-info">Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</p>
+        <div class="alert alert-info d-inline-block d-md-flex justify-content-between">
+          <span>Établissement : <strong>{{ erp.nom }}</strong> ({{ erp.commune_ext.nom }})</span>
+          <span><a href="{{ erp.get_absolute_url }}">&raquo; Retour à la fiche</a></span>
+        </div>
         {% if erp.activite %}
         <div class="alert alert-warning">
-          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information d'<strong>accessibilité</strong> des établissements.
+          <img class="d-none d-md-inline" alt="Attention !" style="float:left;width:95px;margin-right:12px" src="{% static "img/red-warning-sign.png" %}">
+          Nous vous rappelons que la mission d'Acceslibre est de fournir l'information
+          d'<a href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank">accessibilité de cet établissement</a>.
           {% if erp.activite.slug == "centre-de-vaccination" %}
-            Nous ne sommes <strong>pas compétents sur les questions médicales, ni capables de vous fournir des informations
-            sur les modalités de vaccination contre la COVID 19.</strong>
+            <p>Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc pas vous renseigner sur la prise de rendez-vous.</strong></p>
+            {% if erp.telephone %}
+            <p>Vous pouvez néanmoins contacter ce centre au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>.</p>
+            {% endif %}
+            <p class="mb-0">
+              <a href="https://solidarites-sante.gouv.fr/grands-dossiers/vaccin-covid-19/je-suis-un-particulier/" target="_blank">
+                &raquo; Plus d'information sur les modalités de vaccination
+              </a>
+            </p>
           {% else %}
-            Nous ne sommes <strong>pas compétents pour vous fournir des informations sur les services ou prestations proposés
-            par l'établissement, ni assurer un support ou une assistance vis à vis de ces services ou prestations.</strong>
+            <strong>Nous ne pouvons pas vous fournir une assistance vis à vis des services ou prestations proposés.</strong>
+            Merci de votre compréhension.
           {% endif %}
-          Merci de votre compréhension.
         </div>
         {% endif %}
       {% endif %}

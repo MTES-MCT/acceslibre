@@ -224,6 +224,31 @@ def test_registration_with_first_and_last_name(data, client, capsys):
     )
 
 
+@pytest.mark.parametrize(
+    "username",
+    [
+        "Admin",
+        "commercial",
+        "Commercial",
+        "  commercial  ",
+        "  Commercial  ",
+    ],
+)
+def test_registration_username_blacklisted(username, data, client, capsys):
+    response = client.post(
+        reverse("django_registration_register"),
+        data={
+            "username": username,
+            "email": "hacker@yoyo.tld",
+            "password1": "Abc12345!",
+            "password2": "Abc12345!",
+        },
+    )
+    assert response.status_code == 200
+    assert User.objects.filter(username=username).count() == 0
+    assert "username" in response.context["form"].errors
+
+
 def test_admin_with_regular_user(data, client, capsys):
     # test that regular frontend user don't have access to the admin
     client.force_login(data.samuel)

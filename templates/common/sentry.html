@@ -1,16 +1,18 @@
-{% if not debug %}
+{% if not debug and SENTRY_DSN %}
   <!-- Sentry -->
   <script>
-  (function(Sentry) {
+  (function(Sentry, Integrations) {
     if (!Sentry) {
       return;
     }
-    const dsn = "https://ed89c4bb2914496dbb608cc348fedca2:9e9898f0ba714c2cb31941be9bca1082@sentry.data.gouv.fr/49";
-    Sentry.init({ dsn: dsn });
+    Sentry.init({
+      dsn: "{{ SENTRY_DSN }}",
+      integrations: [new Integrations.BrowserTracing()],
+    });
     Sentry.configureScope(function(scope) {
       {% if user.is_authenticated %}scope.setUser({ username: "{{ user.username }}" }){% endif %}
     });
-  })(window.Sentry);
+  })(window.Sentry, window.SentryIntegrations);
   </script>
   <!-- End Sentry Code -->
 {% endif %}

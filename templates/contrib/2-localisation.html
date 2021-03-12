@@ -43,7 +43,7 @@
 
   <script>
   window.addEventListener("DOMContentLoaded", function() {
-    const erpmap = a4a.createMap("erpmap", { scrollWheelZoom: false }).setView({
+    const erpmap = a4a.geo.createMap("erpmap", { scrollWheelZoom: false }).setView({
       lat: {{ form.lat.value }},
       lon: {{ form.lon.value }}
     }, 18);

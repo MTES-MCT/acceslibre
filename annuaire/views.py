@@ -16,9 +16,9 @@ def home(request):
 def departement(request, departement):
     departements_list = departements.get_departements()
     current_departement = departements_list.get(departement)
-    current_departement["code"] = departement
     if not current_departement:
         raise Http404(f"departement inconnu: {departement}")
+    current_departement["code"] = departement
     return render(
         request,
         "annuaire/index.html",
