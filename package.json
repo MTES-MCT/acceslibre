@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/MTES-MCT/acceslibre#readme",
   "dependencies": {
+    "@sentry/browser": "^6.2.2",
+    "@sentry/tracing": "^6.2.2",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "bootstrap": "^4.5.3",
@@ -38,7 +40,6 @@
     "popper.js": "^1.16.1",
     "regenerator-runtime": "^0.13.7",
     "sass": "^1.32.2",
-    "sentry": "^0.1.2",
     "vendor": "^1.7.0"
   },
   "devDependencies": {

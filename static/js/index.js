@@ -18,7 +18,12 @@ import "leaflet.markercluster";
 import "leaflet.locatecontrol";
 import "leaflet-center-cross";
 import "chart.js";
-import "sentry";
+
+// Sentry
+import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
+window.Sentry = Sentry;
+window.SentryIntegrations = Integrations;
 
 // app modules
 import dom from "./dom";

@@ -1,16 +1,18 @@
 {% if not debug and SENTRY_DSN %}
   <!-- Sentry -->
   <script>
-  (function(Sentry) {
+  (function(Sentry, Integrations) {
     if (!Sentry) {
       return;
     }
-    const dsn = "{{ SENTRY_DSN }}";
-    Sentry.init({ dsn: dsn });
+    Sentry.init({
+      dsn: "{{ SENTRY_DSN }}",
+      integrations: [new Integrations.BrowserTracing()],
+    });
     Sentry.configureScope(function(scope) {
       {% if user.is_authenticated %}scope.setUser({ username: "{{ user.username }}" }){% endif %}
     });
-  })(window.Sentry);
+  })(window.Sentry, window.SentryIntegrations);
   </script>
   <!-- End Sentry Code -->
 {% endif %}
