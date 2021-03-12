@@ -1,11 +1,11 @@
-{% if not debug %}
+{% if not debug and SENTRY_DSN %}
   <!-- Sentry -->
   <script>
   (function(Sentry) {
     if (!Sentry) {
       return;
     }
-    const dsn = "https://ed89c4bb2914496dbb608cc348fedca2:9e9898f0ba714c2cb31941be9bca1082@sentry.data.gouv.fr/49";
+    const dsn = "{{ SENTRY_DSN }}";
     Sentry.init({ dsn: dsn });
     Sentry.configureScope(function(scope) {
       {% if user.is_authenticated %}scope.setUser({ username: "{{ user.username }}" }){% endif %}
