@@ -32,18 +32,18 @@
     return L.icon(options);
   }
 
+  // non-hightlighted custom SVG icon
   L.marker([43.6570046,3.9136314], {
     icon: createIcon("bakery", false)
   }).addTo(map)
-      .bindPopup('4 grand rue jacou')
+      .bindPopup('Boulangerie - 4 grand rue jacou')
       .openPopup();
+
+  // hightlighted custom SVG icon
   L.marker([43.6580058, 3.911346], {
     icon: createIcon("car-learn", true)
   }).addTo(map)
-      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-      .openPopup();
-  L.marker([43.6592167, 3.9093397]).addTo(map)
-      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+      .bindPopup('Auto-école')
       .openPopup();
   </script>
 </div>
