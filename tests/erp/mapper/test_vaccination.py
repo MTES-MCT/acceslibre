@@ -188,3 +188,14 @@ def test_unpublish_closed_erp(activite_cdv, neufchateau, sample_record_ok):
         Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, m2.source_id).published
         is False
     )
+
+
+def test_intercept_sql_errors(activite_cdv, neufchateau, sample_record_ok):
+    long_cp_record = sample_record_ok.copy()
+    long_cp_record["properties"]["c_com_cp"] = "12345 / 54321"
+
+    m = RecordMapper(long_cp_record)
+    with pytest.raises(RuntimeError) as err:
+        m.process(activite_cdv)
+
+    assert "Erreur à l'enregistrement des données" in str(err.value)
