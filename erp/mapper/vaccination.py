@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
+from django.db.utils import DataError
 
 from core.lib import text
 from erp.models import Accessibilite, Commune, Erp
@@ -70,14 +71,17 @@ class RecordMapper:
         # Prepare comment
         commentaire = self._build_commentaire()
 
-        # Save erp instance
-        self.erp.save()
+        try:
+            # Save erp instance
+            self.erp.save()
 
-        # Attach an Accessibilite to newly created Erps
-        if not self.erp.has_accessibilite():
-            accessibilite = Accessibilite(erp=self.erp)
-            accessibilite.commentaire = commentaire
-            accessibilite.save()
+            # Attach an Accessibilite to newly created Erps
+            if not self.erp.has_accessibilite():
+                accessibilite = Accessibilite(erp=self.erp)
+                accessibilite.commentaire = commentaire
+                accessibilite.save()
+        except DataError as err:
+            raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
         return self.erp
 
