@@ -54,11 +54,12 @@ class StaticViewSitemap(Sitemap):
     def items(self):
         return [
             ("home", 1),
+            ("communes", 0.9),
             ("apidocs", 0.8),
             ("cgu", 0.5),
             ("accessibilite", 0.5),
             ("partenaires", 0.4),
-            ("stats", 0.1),
+            ("stats_home", 0.1),
         ]
 
     def location(self, item):
