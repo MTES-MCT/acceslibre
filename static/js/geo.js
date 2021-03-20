@@ -75,30 +75,36 @@ function iconCreateFunction(cluster) {
   });
 }
 
-function createTiles(styleId) {
+function createStreetTiles() {
+  return L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> et contributeurs`,
+  });
+}
+
+function createCustomTiles(styleId) {
   return L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     id: styleId,
     attribution: `
         &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
         <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
         Imagerie © <a href="https://www.mapbox.com/">Mapbox</a>`,
-    maxZoom: 20,
+    maxZoom: 18,
     tileSize: 512,
     zoomOffset: -1,
     accessToken: "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw",
   });
 }
 
-function getStreetsTiles() {
+function getStreetTiles() {
   if (!streetTiles) {
-    streetTiles = createTiles("n1k0/ck7daao8i07o51ipn747gwtdq");
+    streetTiles = createStreetTiles();
   }
   return streetTiles;
 }
 
 function getSatelliteTiles() {
   if (!satelliteTiles) {
-    satelliteTiles = createTiles("n1k0/ckh8z9k2q2gbj19mw0x32efym");
+    satelliteTiles = createCustomTiles("n1k0/ckh8z9k2q2gbj19mw0x32efym");
   }
   return satelliteTiles;
 }
@@ -159,11 +165,11 @@ function onMapContextMenu(root, { latlng, target: map }) {
 }
 
 function createMap(domTarget, options = {}) {
-  const defaults = { layers: [getStreetsTiles()] };
+  const defaults = { layers: [getStreetTiles()] };
   const map = L.map(domTarget, { ...defaults, options });
   L.control
     .layers({
-      "Plan des rues": getStreetsTiles(),
+      "Plan des rues": getStreetTiles(),
       "Vue satellite": getSatelliteTiles(),
     })
     .addTo(map);
