@@ -144,8 +144,11 @@ class StatsView(TemplateView):
         erp_qs = Erp.objects.published()
 
         context["north_star"] = self.get_north_star()
-        context["nb_filled_erps"] = erp_qs.count()
-        context["nb_filled_erps_by_users"] = erp_qs.filter(user__isnull=False).count()
+        context["nb_published_erps"] = erp_qs.count()
+        context["nb_published_erps_by_users"] = erp_qs.filter(
+            user__isnull=False
+        ).count()
+        context["nb_filled_erps"] = erp_qs.having_a11y_data().count()
         context["communes"] = Commune.objects.erp_stats()[:10]
         context["nb_communes"] = (
             Commune.objects.erp_stats().filter(erp_access_count__gt=0).count()
