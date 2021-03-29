@@ -12,7 +12,7 @@ pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}
 
 [packages]
-Django = "==3.1.5"
+Django = "==3.1.6"
 requests = "*"
 django-reset-migrations = "*"
 django-import-export = "*"

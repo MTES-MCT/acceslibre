@@ -4,8 +4,10 @@ from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
 from django.db.models import Count, Max, Q
+from django.db.models.functions import Length
 
 from core.lib import text
+from erp import schema
 
 
 class ActiviteQuerySet(models.QuerySet):
@@ -119,6 +121,28 @@ class ErpQuerySet(models.QuerySet):
 
     def in_commune(self, commune):
         return self.filter(commune_ext=commune)
+
+    def having_a11y_data(self):
+        """Filter ERPs having at least one a11y data filled in. A11y fields are defined
+        in the `erp.schema.FIELDS` dict through the `is_a11y` flag for each field."""
+        qs = self
+        clauses = Q()
+        for field, info in schema.FIELDS.items():
+            if not info["is_a11y"]:
+                continue
+            if info["type"] == "string":
+                # Django stores blank strings instead of null values when a form is saved with
+                # an empty CharField, so the db is filled with empty strings — hence this check.
+                # see https://stackoverflow.com/a/34640020/330911
+                qs = qs.annotate(**{f"{field}_len": Length(f"accessibilite__{field}")})
+                clauses = clauses | Q(**{f"{field}_len__gt": 0})
+            elif info["type"] == "array":
+                # check that this arrayfield contains at least one item
+                clauses = clauses | Q(**{f"accessibilite__{field}__len__gt": 0})
+            elif info["nullable"] is True:
+                # everything nullable is checked accordingly
+                clauses = clauses | Q(**{f"accessibilite__{field}__isnull": False})
+        return qs.filter(clauses)
 
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)
