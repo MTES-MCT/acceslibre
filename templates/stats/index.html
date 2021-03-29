@@ -27,18 +27,6 @@
     </div>
     <div class="card shadow-sm">
       <div class="card-body text-center d-flex flex-column justify-content-around">
-        <h3 class="display-4"><strong>{{ nb_filled_erps }}</strong></h3>
-        <p class="card-text mb-0">
-          fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}<br>
-          <small class="text-muted">dont <strong>{{ nb_filled_erps_by_users }}</strong> par les utilisateurs de la plateforme</small>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card-deck my-4">
-    <div class="card shadow-sm">
-      <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-4"><strong>{{ nb_contributors }}</strong></h3>
         <p class="card-text mb-0">
           contributeur{{ nb_contributors|pluralize:"s" }}<br>
@@ -53,7 +41,37 @@
         </h3>
         <p class="card-text mb-0">
           communes<br>
-          <small class="text-muted">disposant d'au moins un établissement renseigné et publié.</small>
+          <small class="text-muted">disposant d'au moins un établissement publié.</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-deck my-4">
+    <div class="card shadow-sm">
+      <div class="card-body text-center d-flex flex-column justify-content-around">
+        <h3 class="display-4"><strong>{{ nb_filled_erps }}</strong></h3>
+        <p class="card-text mb-0">
+          fiche{{ nb_filled_erps|pluralize:"s" }} accessibilité renseignée{{ nb_filled_erps|pluralize:"s" }}<br>
+          <small class="text-muted">sur un critère d'accessibilité ou plus</small>
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm">
+      <div class="card-body text-center d-flex flex-column justify-content-around">
+        <h3 class="display-4"><strong>{{ nb_published_erps }}</strong></h3>
+        <p class="card-text mb-0">
+          établissement{{ nb_published_erps|pluralize:"s" }} publié{{ nb_published_erps|pluralize:"s" }}<br>
+          <small class="text-muted">dont <strong>{{ nb_published_erps_by_users }}</strong> par les utilisateurs de la plateforme</small>
+        </p>
+      </div>
+    </div>
+    <div class="card shadow-sm">
+      <div class="card-body text-center d-flex flex-column justify-content-around">
+        <h3 class="display-4"><strong>{{ nb_cv_erps }}</strong></h3>
+        <p class="card-text mb-0">
+          <a href="{% url "search" %}?q=centres+de+vaccination">centre{{ nb_cv_erps|pluralize:"s" }} de vaccination</a> publié{{ nb_cv_erps|pluralize:"s" }}<br>
+          <small class="text-muted">dont <strong>{{ nb_cv_filled_erps }}</strong> renseigné{{ nb_cv_filled_erps|pluralize:"s" }} sur leur accessibilité</small>
         </p>
       </div>
     </div>
@@ -127,7 +145,7 @@
 
     <div class="card shadow-sm my-3">
       <div class="card-header">
-        Évolution du nombre d'établissements renseignés <small class="text-muted">sur les 30 derniers jours</small>
+        Évolution du nombre d'établissements publiés <small class="text-muted">sur les 30 derniers jours</small>
       </div>
       <div class="card-body p-2">
         <canvas id="erpCountChart" width="100%" height="250"></canvas>
