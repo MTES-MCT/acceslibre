@@ -101,6 +101,26 @@ def test_skip_importing_equipe_mobile(
     assert "ÉCARTÉ: Équipe mobile écartée" in str(err.value)
 
 
+@pytest.mark.parametrize(
+    "updates",
+    [
+        {"c_nom": "XXX en attente", "c_rdv_modalites": None},
+        {"c_nom": "XXX", "c_rdv_modalites": "en attente"},
+    ],
+)
+def test_skip_importing_en_attente(
+    updates, activite_cdv, neufchateau, sample_record_ok
+):
+    sample_en_attente = sample_record_ok.copy()
+    sample_en_attente["properties"].update(updates)
+
+    m = RecordMapper(sample_en_attente)
+    with pytest.raises(RuntimeError) as err:
+        m.process(activite_cdv)
+
+    assert "ÉCARTÉ: En attente d'affectation" in str(err.value)
+
+
 def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):
     m = RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
 
