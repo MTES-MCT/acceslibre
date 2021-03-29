@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.views.generic import TemplateView
 
 from core.lib import sql
-from erp.models import Commune, Erp, Vote
+from erp.models import Activite, Commune, Erp, Vote
 
 
 class StatsView(TemplateView):
@@ -149,6 +149,12 @@ class StatsView(TemplateView):
             user__isnull=False
         ).count()
         context["nb_filled_erps"] = erp_qs.having_a11y_data().count()
+        # vaccination centers
+        cv = Activite.objects.get(slug="centre-de-vaccination")
+        context["nb_cv_erps"] = erp_qs.filter(activite=cv).count()
+        context["nb_cv_filled_erps"] = (
+            erp_qs.filter(activite=cv).having_a11y_data().count()
+        )
         context["communes"] = Commune.objects.erp_stats()[:10]
         context["nb_communes"] = (
             Commune.objects.erp_stats().filter(erp_access_count__gt=0).count()
