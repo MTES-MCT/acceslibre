@@ -21,6 +21,12 @@
     <i aria-hidden="true" class="icon icon-pencil"></i>
     <span>Modifier ces informations</span>
   </a>
+  {% if not erp.user %}
+  <a class="a4a-erp-details-link btn btn-sm btn-light d-inline-block mr-1 mb-1" href="{% url "contrib_claim" erp_slug=erp.slug %}">
+    <i aria-hidden="true" class="icon icon-gestionnaire"></i>
+    <span>Je gère cet établissement</span>
+  </a>
+  {% endif %}
   {% if user.is_superuser %}
   <a class="a4a-erp-details-link btn btn-sm btn-light d-inline-block mr-1 mb-1" href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
     <i aria-hidden="true" class="icon icon-pencil"></i>
