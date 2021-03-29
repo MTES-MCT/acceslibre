@@ -71,3 +71,13 @@ def test_purge_accounts_job_keep_user(spambot):
     purge_accounts.job(today=datetime(2020, 1, 29))
 
     assert User.objects.filter(username="spambot").count() == 1
+
+
+def test_purge_accounts_job_keep_inactive_with_erps(spambot):
+    # user has been deactivated after they created erps
+    assert User.objects.filter(username="spambot").count() == 1
+    Erp.objects.create(nom="test", user=spambot)
+
+    purge_accounts.job(today=datetime(2020, 6, 1))
+
+    assert User.objects.filter(username="spambot").count() == 1
