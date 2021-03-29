@@ -24,10 +24,7 @@ from erp.models import (
 from erp.provider import departements, geocoder
 
 
-USERNAME_RULES = """
-Uniquement des lettres, nombres et les caractères « . », « - » et « _ ».
-<strong>Note&nbsp;: ce nom d'utilisateur pourra être affiché publiquement sur le site si vous contribuez.</strong>
-"""
+USERNAME_RULES = "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
 
 
 def bool_radios():
@@ -49,7 +46,8 @@ def validate_username_whitelisted(value):
 def define_username_field():
     return forms.CharField(
         max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}",
+        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}. "
+        "Note : ce nom d'utilisateur pourra être affiché publiquement sur le site si vous contribuez.",
         required=True,
         label="Nom d’utilisateur",
         validators=[
