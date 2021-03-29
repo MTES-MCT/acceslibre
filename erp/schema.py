@@ -75,7 +75,7 @@ DISPOSITIFS_APPEL_CHOICES = [
     (DISPOSITIFS_APPEL_BOUTON, "Bouton d’appel"),
     (DISPOSITIFS_APPEL_SONNETTE, "Sonnette"),
     (DISPOSITIFS_APPEL_INTERPHONE, "Interphone"),
-    (DISPOSITIFS_APPEL_VISIOPHONE, "Visiophone")
+    (DISPOSITIFS_APPEL_VISIOPHONE, "Visiophone"),
 ]
 
 LABEL_AUTRE = "autre"
@@ -241,6 +241,8 @@ SECTIONS = {
 FIELDS = {
     # Transport
     "transport_station_presence": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Proximité d'un arrêt de transport en commun",
         "help_text": mark_safe(
@@ -254,6 +256,8 @@ FIELDS = {
         "warn_if": False,
     },
     "transport_information": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Informations complémentaires",
         "help_text": mark_safe(
@@ -266,6 +270,8 @@ FIELDS = {
     },
     # Stationnement
     "stationnement_presence": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Stationnement dans l'ERP",
         "help_text": mark_safe(
@@ -279,6 +285,8 @@ FIELDS = {
         "warn_if": False,
     },
     "stationnement_pmr": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Stationnements adaptés dans l'ERP",
         "help_text": mark_safe(
@@ -292,6 +300,8 @@ FIELDS = {
         "warn_if": False,
     },
     "stationnement_ext_presence": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Stationnement à proximité de l'ERP",
         "help_text": mark_safe(
@@ -305,6 +315,8 @@ FIELDS = {
         "warn_if": False,
     },
     "stationnement_ext_pmr": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Stationnements PMR à proximité de l'ERP",
         "help_text": mark_safe(
@@ -319,6 +331,8 @@ FIELDS = {
     },
     # Cheminement extérieur
     "cheminement_ext_presence": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Cheminement extérieur",
         "help_text": mark_safe(
@@ -332,6 +346,8 @@ FIELDS = {
         "warn_if": None,
     },
     "cheminement_ext_terrain_accidente": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Revêtement extérieur",
         "help_text": mark_safe(
@@ -345,6 +361,8 @@ FIELDS = {
         "warn_if": True,
     },
     "cheminement_ext_plain_pied": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Cheminement extérieur de plain-pied",
         "help_text": mark_safe(
@@ -358,6 +376,8 @@ FIELDS = {
         "warn_if": False,
     },
     "cheminement_ext_ascenseur": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Ascenseur/élévateur",
         "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
@@ -367,6 +387,8 @@ FIELDS = {
         "warn_if": False,
     },
     "cheminement_ext_nombre_marches": {
+        "type": "number",
+        "nullable": True,
         "is_a11y": True,
         "label": "Nombre de marches",
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
@@ -376,6 +398,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x > 0,
     },
     "cheminement_ext_reperage_marches": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Marches ou escalier sécurisé(es)",
         "help_text": mark_safe(
@@ -389,6 +413,8 @@ FIELDS = {
         "warn_if": False,
     },
     "cheminement_ext_main_courante": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
         "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
@@ -398,6 +424,8 @@ FIELDS = {
         "warn_if": False,
     },
     "cheminement_ext_rampe": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
@@ -409,6 +437,8 @@ FIELDS = {
         "warn_if": RAMPE_AUCUNE,
     },
     "cheminement_ext_pente": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Pente",
         "help_text": mark_safe(
@@ -420,6 +450,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
     },
     "cheminement_ext_devers": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Dévers",
         "help_text": mark_safe(
@@ -431,6 +463,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x in [DEVERS_LEGER, DEVERS_IMPORTANT],
     },
     "cheminement_ext_bande_guidage": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Bande de guidage",
         "help_text": mark_safe(
@@ -444,6 +478,8 @@ FIELDS = {
         "warn_if": False,
     },
     "cheminement_ext_retrecissement": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
@@ -458,6 +494,8 @@ FIELDS = {
     },
     # Entrée
     "entree_reperage": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Entrée facilement repérable",
         "help_text": mark_safe(
@@ -471,6 +509,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_vitree": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Entrée vitrée",
         "help_text": mark_safe("La porte d'entrée est-elle vitrée&nbsp;?"),
@@ -480,6 +520,8 @@ FIELDS = {
         "warn_if": True,
     },
     "entree_vitree_vitrophanie": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Repérage de la vitre",
         "help_text": mark_safe(
@@ -493,6 +535,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_plain_pied": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Entrée de plain-pied",
         "help_text": mark_safe(
@@ -506,6 +550,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_ascenseur": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Ascenseur/élévateur",
         "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
@@ -515,6 +561,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_marches": {
+        "type": "number",
+        "nullable": True,
         "is_a11y": True,
         "label": "Nombre de marches",
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
@@ -524,6 +572,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x > 0,
     },
     "entree_marches_reperage": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Repérage des marches",
         "help_text": mark_safe(
@@ -537,6 +587,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_marches_main_courante": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
         "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
@@ -546,6 +598,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_marches_rampe": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
@@ -557,6 +611,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is False or x == RAMPE_AUCUNE,
     },
     "entree_dispositif_appel": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Dispositif d'appel à l'entrée",
         "help_text": mark_safe(
@@ -570,19 +626,21 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_dispositif_appel_type": {
+        "type": "array",
+        "nullable": True,
         "is_a11y": True,
         "label": "Type de dispositif d'appel à l'entrée",
         "help_text": mark_safe(
             "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
         ),
-        "help_text_ui": mark_safe(
-            "Dispositifs d'appels présents"
-        ),
+        "help_text_ui": mark_safe("Dispositifs d'appels présents"),
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
     },
     "entree_balise_sonore": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Balise sonore à l'entrée",
         "help_text": mark_safe(
@@ -594,6 +652,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_aide_humaine": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Aide humaine",
         "help_text": mark_safe(
@@ -605,6 +665,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_largeur_mini": {
+        "type": "number",
+        "nullable": True,
         "is_a11y": True,
         "label": "Largeur de la porte",
         "help_text": mark_safe(
@@ -616,6 +678,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x < 80,
     },
     "entree_pmr": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Entrée spécifique PMR",
         "help_text": mark_safe(
@@ -629,6 +693,8 @@ FIELDS = {
         "warn_if": False,
     },
     "entree_pmr_informations": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Informations complémentaires concernant l'entrée PMR",
         "help_text": mark_safe(
@@ -641,6 +707,8 @@ FIELDS = {
     },
     # Accueil
     "accueil_visibilite": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Visibilité de la zone d'accueil",
         "help_text": mark_safe(
@@ -654,6 +722,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_personnels": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Personnel d'accueil",
         "help_text": mark_safe(
@@ -670,6 +740,8 @@ FIELDS = {
         ],
     },
     "accueil_equipements_malentendants_presence": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Présence d'équipements d'aide à l'audition et à la communication",
         "help_text": mark_safe(
@@ -683,6 +755,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_equipements_malentendants": {
+        "type": "array",
+        "nullable": False,
         "is_a11y": True,
         "label": "Liste des équipements d'aide à l'audition et à la communication",
         "help_text": mark_safe(
@@ -694,6 +768,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and len(x) == 0,
     },
     "accueil_cheminement_plain_pied": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Cheminement de plain-pied entre l'entrée et l'accueil",
         "help_text": mark_safe(
@@ -707,6 +783,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_cheminement_ascenseur": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Ascenseur/élévateur",
         "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
@@ -716,6 +794,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_cheminement_nombre_marches": {
+        "type": "number",
+        "nullable": True,
         "is_a11y": True,
         "label": "Nombre de marches",
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
@@ -725,6 +805,8 @@ FIELDS = {
         "warn_if": lambda x, i: x is not None and x > 0,
     },
     "accueil_cheminement_reperage_marches": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Repérage des marches ou de l’escalier",
         "help_text": mark_safe(
@@ -738,6 +820,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_cheminement_main_courante": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
         "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
@@ -747,6 +831,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_cheminement_rampe": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
@@ -758,6 +844,8 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_retrecissement": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
@@ -771,6 +859,8 @@ FIELDS = {
         "warn_if": True,
     },
     "accueil_prestations": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Prestations spécifiques proposées par l'établissement",
         "help_text": mark_safe(
@@ -783,6 +873,8 @@ FIELDS = {
     },
     # Sanitaires
     "sanitaires_presence": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires",
         "help_text": mark_safe(
@@ -796,6 +888,8 @@ FIELDS = {
         "warn_if": False,
     },
     "sanitaires_adaptes": {
+        "type": "number",
+        "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires adaptés",
         "help_text": mark_safe(
@@ -810,6 +904,8 @@ FIELDS = {
     },
     # Labels
     "labels": {
+        "type": "array",
+        "nullable": False,
         "is_a11y": True,
         "label": "Marques ou labels",
         "help_text": mark_safe(
@@ -821,6 +917,8 @@ FIELDS = {
         "warn_if": None,
     },
     "labels_familles_handicap": {
+        "type": "array",
+        "nullable": False,
         "is_a11y": True,
         "label": "Famille(s) de handicap concernées(s)",
         "help_text": mark_safe(
@@ -834,6 +932,8 @@ FIELDS = {
         "warn_if": None,
     },
     "labels_autre": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": True,
         "label": "Autre label",
         "help_text": mark_safe("Si autre, préciser le nom du label"),
@@ -844,6 +944,8 @@ FIELDS = {
     },
     # Commentaire
     "commentaire": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": False,
         "label": "Commentaire libre (précisions utiles concernant l'accessibilité du bâtiment)",
         "help_text": mark_safe(
@@ -857,6 +959,8 @@ FIELDS = {
     },
     # Registre
     "registre_url": {
+        "type": "string",
+        "nullable": True,
         "is_a11y": False,
         "label": "Registre",
         "help_text": mark_safe(
@@ -873,6 +977,8 @@ FIELDS = {
     },
     # Conformité
     "conformite": {
+        "type": "boolean",
+        "nullable": True,
         "is_a11y": False,
         "label": "Conformité",
         "help_text": mark_safe(
