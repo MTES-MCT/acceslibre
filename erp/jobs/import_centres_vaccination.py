@@ -31,6 +31,12 @@ class ImportVaccinationsCenters:
         self.output = outputVoidStrategy if is_scheduler else outputPrintStrategy
 
     def job(self, dataset_url=None, verbose=False):
+        # reinitialize class instance properties, as it's long-lived
+        # accross imports in a scheduler context
+        self.imported = 0
+        self.skipped = 0
+        self.errors = []
+
         try:
             for erp in self.do_import(dataset_url):
                 self.output("." if erp else "S", "", True)
