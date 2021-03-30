@@ -9,15 +9,37 @@
 <main>
   <h2 class="h3 mb-3">Renseigner un établissement</h2>
 
-  <p>Vous vous apprêtez à compléter les informations d'accessibilité pour l'établissement suivant&nbsp;:</p>
+  <p class="font-weight-bold">Vous déclarez être gestionnaire de l'établissement suivant&nbsp;:</p>
 
   <div class="card shadow-m mb-3">
     <div class="card-header">
-      <strong>{{ erp.nom }}</strong>
+      <h3 class="h5 mb-0">
+        {{ erp.nom }}
+        {% if erp.activite %}<small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
+      </h3>
     </div>
     <div class="card-body">
-      <address class="m-0">{{ erp.adresse }}</adresse>
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="h6">Adresse&nbsp;:</h4>
+          <address class="mb-2 font-italic">{{ erp.adresse }}</adresse>
+        </div>
+        <div class="col-sm-6">
+          <div id="claim-map" style="height:200px"></div>
+        </div>
+      </div>
     </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        const map = a4a.geo.createMap("claim-map", { scrollWheelZoom: false }).setView({
+          lat: {{ erp.geom.coords.1 }},
+          lon: {{ erp.geom.coords.0 }}
+        }, 17);
+        map.dragging.disable();
+        const control = L.control.centerCross({show: true, position: "topright"});
+        map.addControl(control);
+      });
+      </script>
   </div>
 
   <form action="" method="POST" class="a4a-form">

@@ -19,17 +19,22 @@ class RecordMapper:
         "c_rdv_tel": "telephone",
     }
 
-    RESERVE_PROS = [
-        "R\u00e9serv\u00e9 aux professionnels de sant\u00e9",
-        "Uniquement pour les professionnels de sant\u00e9",
-        "Ouvert uniquement aux professionnels",
-        "Professionnels de santé uniquement",
-        "Réservé PS",
-        "réservé aux professionnels",
-        "centre pour professionnels de santé",
-        "EMV",
-        "vaccination mobile",
-    ]
+    TESTS_ECARTEMENT = {
+        # Réservé aux professionnels de santé
+        "R\u00e9serv\u00e9 aux professionnels de sant\u00e9": "Réservé aux professionnels de santé",
+        "Uniquement pour les professionnels de sant\u00e9": "Réservé aux professionnels de santé",
+        "Ouvert uniquement aux professionnels": "Réservé aux professionnels de santé",
+        "Professionnels de santé uniquement": "Réservé aux professionnels de santé",
+        "Réservé PS": "Réservé aux professionnels de santé",
+        "réservé aux professionnels": "Réservé aux professionnels de santé",
+        "centre pour professionnels de santé": "Réservé aux professionnels de santé",
+        # Équipes mobiles
+        "Équipe mobile": "Équipe mobile écartée",
+        "vaccination mobile": "Équipe mobile écartée",
+        "EMV": "Équipe mobile écartée",
+        # En attente d'affectation
+        "en attente": "En attente d'affectation",
+    }
 
     def __init__(self, record, today=None):
         self.erp = None
@@ -132,19 +137,13 @@ class RecordMapper:
             if date_fermeture < self.today:
                 return date_fermeture
 
-    def _check_reserve_pros(self):
-        "Vérification si centre uniquement réservé aux personnels soignants"
-        return text.contains_sequence_any(
-            self.RESERVE_PROS, self.props.get("c_nom")
-        ) or text.contains_sequence_any(
-            self.RESERVE_PROS, self.props.get("c_rdv_modalites")
-        )
-
-    def _check_equipe_mobile(self):
-        "Vérification équipes mobiles"
-        return text.contains_sequence(
-            "equipe mobile", self.props.get("c_nom")
-        ) or text.contains_sequence("équipe mobile", self.props.get("c_rdv_modalites"))
+    def _check_ecartement(self):
+        "Vérification des autres raisons d'écartement"
+        for (test, raison) in self.TESTS_ECARTEMENT.items():
+            if text.contains_sequence(
+                test, self.props.get("c_nom")
+            ) or text.contains_sequence(test, self.props.get("c_rdv_modalites")):
+                return raison
 
     def _check_importable(self):
         "Vérifications d'exclusion d'import ou de mise à jour"
@@ -152,13 +151,9 @@ class RecordMapper:
         if ferme_depuis:
             self._discard(f"Centre fermé le {ferme_depuis}")
 
-        reserve_pros = self._check_reserve_pros()
-        if reserve_pros:
-            self._discard("Réservé aux professionnels de santé")
-
-        equipe_mobile = self._check_equipe_mobile()
-        if equipe_mobile:
-            self._discard("Équipe mobile écartée")
+        raison_ecartement = self._check_ecartement()
+        if raison_ecartement:
+            self._discard(raison_ecartement)
 
     def _discard(self, msg):
         "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"

@@ -951,20 +951,26 @@ def contrib_publication(request, erp_slug):
 
 @login_required
 def contrib_claim(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, user__isnull=True, published=True)
+    erp = Erp.objects.filter(slug=erp_slug, user__isnull=True, published=True).first()
+    if not erp:
+        erp = get_object_or_404(Erp, slug=erp_slug, published=True)
+        return redirect("contrib_edit_infos", erp_slug=erp.slug)
     if request.method == "POST":
         form = forms.PublicClaimForm(request.POST)
         if form.is_valid():
             erp.user = request.user
+            erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
             erp.save()
             messages.add_message(
-                request, messages.SUCCESS, "L'établissement a été revendiqué."
+                request, messages.SUCCESS, "Opération effectuée avec succès."
             )
-            return redirect("contrib_localisation", erp_slug=erp.slug)
+            return redirect("contrib_edit_infos", erp_slug=erp.slug)
     else:
         form = forms.PublicClaimForm()
     return render(
-        request, template_name="contrib/claim.html", context={"erp": erp, "form": form}
+        request,
+        template_name="contrib/claim.html",
+        context={"erp": erp, "form": form},
     )
 
 
