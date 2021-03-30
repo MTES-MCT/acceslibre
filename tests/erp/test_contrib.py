@@ -5,7 +5,7 @@ from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
 
-from erp.models import Erp
+from erp.models import Accessibilite, Erp
 
 AKEI_SIRET = "88076068100010"
 
@@ -97,3 +97,21 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
 
     assert response.status_code == 200
     assert response.context["results"] == [mairie_jacou_result, akei_result]
+
+
+def test_claim(client, user):
+    erp = Erp.objects.create(nom="test", published=True)
+
+    response = client.get(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}))
+    assert response.status_code == 200  # jean-pierre is logged in the client
+
+    response = client.post(
+        reverse("contrib_claim", kwargs={"erp_slug": erp.slug}),
+        data={"ok": "on"},
+        follow=True,
+    )
+
+    erp.refresh_from_db()
+    assert response.context["form"].errors == {}
+    assert erp.user == user
+    assert erp.user_type == Erp.USER_ROLE_GESTIONNAIRE
