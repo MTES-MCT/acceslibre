@@ -34,6 +34,10 @@ class RecordMapper:
         "EMV": "Équipe mobile écartée",
         # En attente d'affectation
         "en attente": "En attente d'affectation",
+        # Centres pénitentiaires
+        "centre de détention": "Centre pénitentiaire non-accessible à la population générale",
+        "pénitentiaire": "Centre pénitentiaire non-accessible à la population générale",
+        "prison": "Centre pénitentiaire non-accessible à la population générale",
     }
 
     def __init__(self, record, today=None):
