@@ -17,16 +17,12 @@
   <h2 class="mt-3 mb-2">
     {% if pager %}
       <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-      {% if where_data %}
-        {% if where_data.type == "france_entiere" %}
-          France entière
-        {% elif where_data.type == "commune" %}
-          {{ where_data.obj.nom }}
-        {% elif where_data.type == "departement" %}
-          {{ where_data.obj.nom }}
-        {% endif %}
+      {% if where_data.type == "france_entiere" %}
+        France entière
+      {% elif where_data.type == "commune" or where_data.type == "departement" %}
+        <a href="{% url "commune" commune=where_data.obj.slug %}">{{ where_data.obj.nom }}</a>
       {% endif %}
-      {% if search_where and search_what  %}<small class="text-muted">/</small>{% endif %}
+      {% if where_data and search_what  %}<small class="text-muted">/</small>{% endif %}
       {{ search_what }}
       {% if localize %}
         <small class="text-muted" style="font-size:.6em">autour de votre position</small>

@@ -165,14 +165,12 @@ def where(request):
 
 
 def get_where_data(where):
-    if not where:
-        return None
-    elif where == "france_entiere":  # france entière
+    if not where or where == "france_entiere":  # france entière
         return {"type": "france_entiere"}
     elif len(where) == 5:  # code insee
         return {"type": "commune", "obj": Commune.objects.get(code_insee=where)}
     elif len(where) == 2:  # departement
-        return {"type": "departement", "obj": departements.get_departements(where)}
+        return {"type": "departement", "obj": departements.get_departement(where)}
     return None
 
 
