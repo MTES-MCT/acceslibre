@@ -36,16 +36,16 @@ def test_search(data, client):
     response = client.get(reverse("search") + "?where=34120&what=croissant")
     assert response.context["search_where"] == "34120"
     assert response.context["search_what"] == "croissant"
-    assert len(response.context["search_results"]["pager"]) == 1
-    assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
-    assert hasattr(response.context["search_results"]["pager"][0], "distance") is False
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["pager"][0], "distance") is False
 
 
 def test_search_empty_text_query(data, client):
     response = client.get(reverse("search") + "?where=&what=")
     assert response.context["search_where"] == ""
     assert response.context["search_what"] == ""
-    assert response.context["search_results"] is None
+    assert response.context["pager"] is None
 
 
 def test_search_localized(data, client):
@@ -54,9 +54,9 @@ def test_search_localized(data, client):
     )
     assert response.context["search_where"] == "34120"
     assert response.context["search_what"] == "croissant"
-    assert len(response.context["search_results"]["pager"]) == 1
-    assert response.context["search_results"]["pager"][0].nom == "Aux bons croissants"
-    assert hasattr(response.context["search_results"]["pager"][0], "distance")
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["pager"][0], "distance")
 
 
 @pytest.mark.parametrize(

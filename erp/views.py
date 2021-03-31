@@ -177,7 +177,6 @@ def get_where_data(where):
 
 
 def search(request):
-    search_results = None
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
     search_where_label = request.GET.get("search_where_label", "")
@@ -209,7 +208,6 @@ def search(request):
         page_number = request.GET.get("page", 1)
         pager = paginator.get_page(page_number)
         pager_base_url = f"?where={where or ''}&what={what or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
-        search_results = {"pager": pager}
         geojson_list = make_geojson(pager)
     return render(
         request,
@@ -227,7 +225,6 @@ def search(request):
             "search_what": what,
             "search_where_label": search_where_label,
             "where_data": get_where_data(where),
-            "search_results": search_results,
             "geojson_list": geojson_list,
             "commune_json": None,
             "around": None,  # XXX: (lat, lon)
