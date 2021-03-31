@@ -11,7 +11,6 @@ from django.db.models import Count, Q
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
-from django.db.models import F
 from django.forms import modelform_factory
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -136,7 +135,6 @@ def communes(request):
 
 
 def search(request):
-    search_results = None
     q = request.GET.get("q")
     localize = request.GET.get("localize")
     paginator = pager = None
@@ -166,12 +164,6 @@ def search(request):
         pager_base_url = (
             f"?q={q or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
         )
-        search_results = {
-            "communes": Commune.objects.search(q).order_by(
-                F("population").desc(nulls_last=True)
-            )[:4],
-            "pager": pager,
-        }
         geojson_list = make_geojson(pager)
     return render(
         request,
@@ -185,7 +177,6 @@ def search(request):
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
             "search": q,
-            "search_results": search_results,
             "geojson_list": geojson_list,
             "commune_json": None,
             "around": None,  # XXX: (lat, lon)
