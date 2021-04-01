@@ -30,16 +30,38 @@
         {% endif %}
       </h2>
       <address class="m-0 p-0 mb-2"><em>{{ erp.adresse }}</em></address>
+
+      {% include "erps/commune/erp_actions.html" %}
+
       {% with erp.metadata.centre_vaccination as centre_vaccination %}
         {% if centre_vaccination %}
-        <div class="alert alert-warning px-3 py-2" role="alert" aria-live="assertive" style="font-size:.9em">
-          Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
-          vaccination contre la COVID-19. Si l'information d'accessibilité de ce centre est incomplète,
-          <a href="{% url "contrib_localisation" erp_slug=erp.slug %}">contribuez à l’améliorer</a>.
+        <div class="alert alert-warning d-sm-flex justify-content-between align-items-center px-3 py-2 mt-2 mb-0"
+          role="alert" aria-live="assertive" style="font-size:.9em">
+          <div class="mr-2">Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
+          vaccination contre la COVID-19.</div>
+          {% if centre_vaccination.url_rdv %}
+            <p class="text-center m-0 p-0">
+              <a class="text-nowrap btn btn-sm btn-success mt-1 mx-auto" style="width:230px"
+                href="{{ erp.metadata.centre_vaccination.url_rdv }}" target="_blank">
+                <i aria-hidden="true" class="icon icon-clock"></i>
+                <span>Prendre rendez-vous</span>
+              </a>
+            </p>
+          {% endif %}
         </div>
         {% endif %}
       {% endwith %}
-      {% include "erps/commune/erp_actions.html" %}
+
+      <div class="alert d-sm-flex justify-content-between align-items-center px-3 py-2 mt-2 mb-0" style="font-size:.9em">
+        <div class="mr-2">Si la description de l'accessibilité de cet établissement est incomplète ou inexacte, contribuez à l'améliorer.</div>
+        <p class="text-center m-0 p-0">
+          <a class="text-nowrap btn btn-sm btn-outline-primary mt-1 mx-auto" style="width:230px"
+            href="{% url "contrib_localisation" erp_slug=erp.slug %}">
+            <i aria-hidden="true" class="icon icon-pencil"></i>
+            Améliorez ces informations
+          </a>
+        </p>
+      </div>
     </div>
     <div class="a4a-accessibility-group d-flex justify-content-end align-center">
       {% for label in erp.accessibilite.labels %}
@@ -76,6 +98,28 @@
       {% endfor %}
     </div>
   </header>
+
+  <div class="mt-2">
+    {% if accessibilite_data %}
+      {% include "erps/commune/accessibilite.html" with erp=erp %}
+    {% else %}
+      <div class="alert alert-info mb-3">
+        Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
+      </div>
+      {% if not erp.user %}
+      <p class="text-center">
+        <a class="btn btn-primary" href="{% url "contrib_claim" erp_slug=erp.slug %}">
+          Je souhaite renseigner les informations d'accessibilité pour cet établissement
+        </a>
+      </p>
+      {% elif erp.user and erp.user.username != user.username %}
+      <div class="alert alert-info">
+        Si vous assurez la gestion de cet établissement et que vous souhaitez apporter des corrections
+        aux informations mentionnées, merci de <a href="{% url "contact_topic" topic="signalement" %}">nous contacter</a>.
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
 
   {% if accessibilite_data %}
   <hr>
@@ -127,6 +171,12 @@
           });
         });
       </script>
+      {% if not user.is_authenticated %}
+      <small class="d-block text-muted">
+        <i aria-hidden="true" class="icon icon-info-circled"></i>
+        <a href="{% url "login" %}?next={{ request.path }}">Connectez-vous</a> pour pouvoir voter
+      </small>
+      {% endif %}
     </form>
     <div class="col-xl-6 text-muted">
       {% include "erps/commune/erp_metas.html" %}
@@ -134,27 +184,6 @@
   </div>
   {% endif %}
 
-  <hr>
-
-  {% if accessibilite_data %}
-    {% include "erps/commune/accessibilite.html" with erp=erp %}
-  {% else %}
-    <div class="alert alert-info mb-3">
-      Les données d'accessibilité pour cet établissement ne sont pas encore disponibles.
-    </div>
-    {% if not erp.user %}
-    <p class="text-center">
-      <a class="btn btn-primary" href="{% url "contrib_claim" erp_slug=erp.slug %}">
-        Je souhaite renseigner les informations d'accessibilité pour cet établissement
-      </a>
-    </p>
-    {% elif erp.user and erp.user.username != user.username %}
-    <div class="alert alert-info">
-      Si vous assurez la gestion de cet établissement et que vous souhaitez apporter des corrections
-      aux informations mentionnées, merci de <a href="{% url "contact_topic" topic="signalement" %}">nous contacter</a>.
-    </div>
-    {% endif %}
-  {% endif %}
 </div>
 {% if object_list|length > 1 %}
 <hr>
