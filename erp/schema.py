@@ -358,7 +358,7 @@ FIELDS = {
         ),
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": True,
+        "warn_if": False,
     },
     "cheminement_ext_plain_pied": {
         "type": "boolean",
