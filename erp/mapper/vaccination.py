@@ -38,6 +38,7 @@ class RecordMapper:
         "centre de détention": "Centre pénitentiaire non-accessible à la population générale",
         "pénitentiaire": "Centre pénitentiaire non-accessible à la population générale",
         "prison": "Centre pénitentiaire non-accessible à la population générale",
+        "USMP": "Centre pénitentiaire non-accessible à la population générale",
     }
 
     def __init__(self, record, today=None):
