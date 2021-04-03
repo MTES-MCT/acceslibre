@@ -218,6 +218,22 @@ def test_registration_with_first_and_last_name(data, client, capsys):
     )
 
 
+def test_registration_not_a_robot(data, client, capsys):
+    response = client.post(
+        reverse("django_registration_register"),
+        data={
+            "username": "julien",
+            "email": "julien@julien.tld",
+            "password1": "Abc12345!",
+            "password2": "Abc12345!",
+            "robot": "on",
+        },
+    )
+    assert response.status_code == 200
+    assert "robot" in response.context["form"].errors
+    assert User.objects.filter(username="julien").count() == 0
+
+
 @pytest.mark.parametrize(
     "username",
     [

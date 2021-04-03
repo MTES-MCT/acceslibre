@@ -68,10 +68,25 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "password1",
             "password2",
             "next",
+            "robot",
         ]
 
     username = define_username_field()
     next = forms.CharField(required=False)
+    robot = forms.BooleanField(
+        label="Je suis un robot",
+        help_text="Merci de décocher cette case avant de soumettre le formulaire",
+        initial=True,
+        required=False,
+    )
+
+    def clean_robot(self):
+        robot = self.cleaned_data["robot"]
+        if robot:
+            raise ValidationError(
+                "Vous devez décocher cette case pour soumettre le formulaire"
+            )
+        return robot
 
 
 class UsernameChangeForm(forms.Form):
