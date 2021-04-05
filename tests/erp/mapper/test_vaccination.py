@@ -130,6 +130,8 @@ def test_skip_importing_en_attente(
         {"c_nom": "XXX", "c_rdv_modalites": "centre de détention"},
         {"c_nom": "Prison des Baumettes", "c_rdv_modalites": None},
         {"c_nom": "XXX", "c_rdv_modalites": "réservé prison"},
+        {"c_nom": "USMP Baumettes", "c_rdv_modalites": None},
+        {"c_nom": "XXX", "c_rdv_modalites": "réservé USMP"},
     ],
 )
 def test_skip_importing_etablissements_penitentiares(
