@@ -22,6 +22,7 @@ class ObjectifsView(TemplateView):
                         c.nom,
                         c.slug,
                         c.population,
+                        c.departement,
                         (c.population / 45) as total_erps_commune,
                         COUNT(e.id) filter (
                             where e.geom is not null
@@ -37,7 +38,7 @@ class ObjectifsView(TemplateView):
                     where
                         c.population > 0
                     group by
-                        c.nom, c.slug, c.population
+                        c.nom, c.slug, c.population, c.departement
                 ) data
             where
                 data.population > 10000 and data.erps_commune > 0 and data.total_erps_commune > 0
