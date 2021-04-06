@@ -11,4 +11,9 @@ urlpatterns = [
         cache_per_user(STATS_CACHE_TTL)(views.StatsView.as_view()),
         name="stats_home",
     ),
+    path(
+        "objectifs/",
+        cache_per_user(STATS_CACHE_TTL)(views.ObjectifsView.as_view()),
+        name="stats_objectifs",
+    ),
 ]
