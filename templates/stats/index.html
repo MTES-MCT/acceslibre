@@ -8,6 +8,13 @@
 <main role="main" id="content">
   <h2 class="my-3">Statistiques</h2>
 
+  {% if user.is_staff %}
+  <div class="alert alert-info">
+    Bienvenue <b>{{ user.username }}</b>&nbsp;! En tant que membre de l'équipe acceslibre, vous avez
+    accès au <a href="{% url "stats_objectifs" %}">tableau de suivi des objectifs</a>.
+  </div>
+  {% endif %}
+
   <div class="card-deck">
     <div class="card shadow-sm">
       <div class="card-body text-center d-flex flex-column justify-content-around">
