@@ -40,7 +40,9 @@ function SearchForm(root) {
         setLocationStatus(label, lat, lon);
         dom.hide(root.querySelector("#geoloader"));
         // if ongoing search, submit form with localization data
-        if (!options.initial && root.querySelector("#search").value.trim()) {
+        const where = root.querySelector("[name=where]").value.trim();
+        const what = root.querySelector("[name=what]").value.trim();
+        if (!options.initial && (where || what)) {
           root.submit();
         }
       } catch (err) {
