@@ -1,0 +1,35 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Objectifs{% endblock%}
+
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <h2 class="my-3">Objectifs</h2>
+  <p>
+    Liste des {{ stats_objectifs|length }} communes et territoires de plus de 10000 habitants par ordre de taux de complétude décroissant.<br>
+    <strong>Note&nbsp;:</strong> La donnée étant à ce jour inexistante en France, l'estimation du nombre d'ERP se fait sur la base de 45 ERP par habitant.
+  </p>
+  <table class="table table-striped">
+    <thead>
+      <th>Commune</th>
+      <th class="text-center">Nombre d'ERP estimé</th>
+      <th class="text-center">Nombre d'ERP renseignés</th>
+      <th class="text-center">Taux de complétude</th>
+    </thead>
+    <tbody>
+    {% for row in stats_objectifs %}
+      <tr>
+        <td class="font-weight-bold"><a href="{% url "commune" commune=row.slug %}">{{ row.nom }}</a></td>
+        <td class="text-center">{{ row.total_erps_commune }}</td>
+        <td class="text-center">{{ row.erps_commune }}</td>
+        <td class="text-center font-weight-bold">{{ row.pourcentage_completude|floatformat }}%</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</main>
+{% endblock  %}
