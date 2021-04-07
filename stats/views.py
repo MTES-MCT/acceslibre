@@ -9,6 +9,51 @@ from core.lib import sql
 from erp.models import Activite, Commune, Erp, Vote
 
 
+class ObjectifsView(TemplateView):
+    template_name = "stats/objectifs.html"
+
+    def get_stats_objectifs(self):
+        return sql.run_sql(
+            """--sql
+            select
+                (data.erps_commune::float / data.total_erps_commune::float * 100::float) as pourcentage_completude,
+                * from (
+                    select
+                        c.nom,
+                        c.slug,
+                        c.population,
+                        c.departement,
+                        (c.population / 45) as total_erps_commune,
+                        COUNT(e.id) filter (
+                            where e.geom is not null
+                            and e.published
+                            and a.id is not null
+                        ) as erps_commune
+                    from
+                        erp_commune c
+                    left join
+                        erp_erp e on e.commune_ext_id = c.id
+                    left join
+                        erp_accessibilite a on e.id = a.erp_id
+                    where
+                        c.population > 0
+                    group by
+                        c.nom, c.slug, c.population, c.departement
+                ) data
+            where
+                data.population > 10000 and data.erps_commune > 0 and data.total_erps_commune > 0
+            order by
+                pourcentage_completude desc
+            limit 20;
+            """
+        )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["stats_objectifs"] = self.get_stats_objectifs()
+        return context
+
+
 class StatsView(TemplateView):
     template_name = "stats/index.html"
 
