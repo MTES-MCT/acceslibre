@@ -26,7 +26,10 @@
           $search_where = $("#search_where");
           $search_where.select2({
             allowClear: true,
-            placeholder: "Exemple: 69000, Clichy…",
+            placeholder: {
+              id: "",
+              text: "Exemple: 69000, Clichy…"
+            },
             theme: "bootstrap4",
             width: "auto",
             ajax: {
@@ -36,6 +39,20 @@
               url: "{% url "where" %}"
             }
           });
+          $search_where.on("select2:open", function(event) {
+            const $results = $("#select2-search_where-results");
+            if ($("#select2-search_where-results").parent().find(".actions").length > 0) {
+              return;
+            }
+            const menu = `
+              <div class="actions d-flex justify-content-between">
+                <a class="btn btn-sm btn-link">Autour de moi</a>
+                <a class="btn btn-sm btn-link">France entière</a>
+              </div>
+            `;
+            $(menu).insertBefore($results);
+          });
+
           $search_where.on("select2:select", function(event) {
             try {
               $("#search_where_label").val(event.params.data.text);

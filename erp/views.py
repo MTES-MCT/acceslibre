@@ -135,32 +135,27 @@ def communes(request):
 
 
 def where(request):
-    MAX_SUGGESTIONS = 10
-    q = request.GET.get("q", "").strip()
-    if q:
-        communes_qs = Commune.objects.search(q).order_by(
-            F("population").desc(nulls_last=True)
-        )
-    else:
-        communes_qs = Commune.objects.with_published_erp_count().order_by(
-            "-erp_access_count"
-        )
-    communes_qs = communes_qs.values(
-        "code_insee",
-        "nom",
-        "departement",
-    )
+    MAX_SUGGESTIONS = 5
     results = []
-    if q and "france" in q.lower().strip():
-        results.append({"id": "france_entiere", "text": "France entière"})
-    results += departements.search(q, limit=5, for_autocomplete=True)
-    for commune in communes_qs[:MAX_SUGGESTIONS]:
-        results.append(
-            {
-                "id": commune["code_insee"],
-                "text": f"{commune['nom']} ({commune['departement']})",
-            }
+    q = request.GET.get("q", "").strip()
+    if q and len(q) > 0:
+        communes_qs = (
+            Commune.objects.search(q)
+            .order_by(F("population").desc(nulls_last=True))
+            .values(
+                "code_insee",
+                "nom",
+                "departement",
+            )
         )
+        for commune in communes_qs[:MAX_SUGGESTIONS]:
+            results.append(
+                {
+                    "id": commune["code_insee"],
+                    "text": f"{commune['nom']} ({commune['departement']})",
+                }
+            )
+        results += departements.search(q, limit=5, for_autocomplete=True)
     return JsonResponse({"q": q, "results": results})
 
 
