@@ -41,10 +41,10 @@
           vaccination contre la COVID-19.</div>
           {% if centre_vaccination.url_rdv %}
             <p class="text-center m-0 p-0">
-              <a class="text-nowrap btn btn-sm btn-success mt-1 mx-auto" style="width:230px"
+              <a class="btn btn-sm btn-success mt-1 mx-auto" style="width:230px"
                 href="{{ erp.metadata.centre_vaccination.url_rdv }}" target="_blank">
                 <i aria-hidden="true" class="icon icon-clock"></i>
-                <span>Prendre rendez-vous</span>
+                <span>Prendre rendez-vous {{ erp.metadata.centre_vaccination.url_rdv|cv_provider_name }}</span>
               </a>
             </p>
           {% endif %}
