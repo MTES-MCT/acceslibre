@@ -60,6 +60,18 @@ def arrondissements_json_data():
     return mark_safe(arrondissements.to_json())
 
 
+@register.filter(name="cv_provider_name")
+def cv_provider_name(value):
+    service = ""
+    if "doctolib" in value:
+        service = "Doctolib"
+    elif "maiia" in value:
+        service = "Maiia"
+    elif "keldoc" in value:
+        service = "Keldoc"
+    return mark_safe(f"sur&nbsp;{service}") if service else ""
+
+
 @register.filter(name="encode_provider_data")
 def encode_provider_data(value):
     return serializers.encode_provider_data(value)
