@@ -41,8 +41,8 @@
           vaccination contre la COVID-19.</div>
           {% if cv.url_rdv %}
             <p class="text-center m-0 p-0">
-              <a class="btn btn-sm btn-success mt-1 mx-auto" style="width:230px"
-                href="{{ cv.url_rdv }}" target="_blank">
+              <a class="btn btn-sm btn-success mt-1 mx-auto" style="width:230px" href="{{ cv.url_rdv }}"
+                target="_blank" title="Prendre rendez vous {{ cv.url_rdv|cv_provider_name }} (nouvelle fenêtre)">
                 <i aria-hidden="true" class="icon icon-clock"></i>
                 <span>Prendre rendez-vous {{ cv.url_rdv|cv_provider_name }}</span>
               </a>
