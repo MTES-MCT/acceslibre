@@ -26,6 +26,16 @@ def test_init():
     assert "Propriété manquante 'properties'" in str(err.value)
 
 
+def test_handle_malformed_rdv_url(activite_cdv, neufchateau, sample_record_ok):
+    sample_malformed_rdv_url = sample_record_ok.copy()
+    sample_malformed_rdv_url["properties"].update({"c_rdv_site_web": "gné"})
+
+    m = RecordMapper(sample_malformed_rdv_url)
+    erp = m.process(activite_cdv)
+
+    assert erp.metadata["centre_vaccination"]["url_rdv"] is None
+
+
 def test_source_id():
     m = RecordMapper({"geometry": [], "properties": {"c_gid": 123}})
     assert m.source_id == "123"
@@ -130,6 +140,10 @@ def test_skip_importing_en_attente(
         {"c_nom": "XXX", "c_rdv_modalites": "centre de détention"},
         {"c_nom": "Prison des Baumettes", "c_rdv_modalites": None},
         {"c_nom": "XXX", "c_rdv_modalites": "réservé prison"},
+        {"c_nom": "UHSA Baumettes", "c_rdv_modalites": None},
+        {"c_nom": "XXX", "c_rdv_modalites": "réservé UHSA"},
+        {"c_nom": "UHSI Baumettes", "c_rdv_modalites": None},
+        {"c_nom": "XXX", "c_rdv_modalites": "réservé UHSI"},
         {"c_nom": "USMP Baumettes", "c_rdv_modalites": None},
         {"c_nom": "XXX", "c_rdv_modalites": "réservé USMP"},
     ],
@@ -144,10 +158,7 @@ def test_skip_importing_etablissements_penitentiares(
     with pytest.raises(RuntimeError) as err:
         m.process(activite_cdv)
 
-    assert (
-        "ÉCARTÉ: Centre pénitentiaire non-accessible à la population générale"
-        in str(err.value)
-    )
+    assert "ÉCARTÉ: Centre réservé à la population carcérale" in str(err.value)
 
 
 def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):

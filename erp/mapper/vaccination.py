@@ -34,11 +34,13 @@ class RecordMapper:
         "EMV": "Équipe mobile écartée",
         # En attente d'affectation
         "en attente": "En attente d'affectation",
-        # Centres pénitentiaires
-        "centre de détention": "Centre pénitentiaire non-accessible à la population générale",
-        "pénitentiaire": "Centre pénitentiaire non-accessible à la population générale",
-        "prison": "Centre pénitentiaire non-accessible à la population générale",
-        "USMP": "Centre pénitentiaire non-accessible à la population générale",
+        # Centres réservés à la population carcérale
+        "centre de détention": "Centre réservé à la population carcérale",
+        "pénitentiaire": "Centre réservé à la population carcérale",
+        "prison": "Centre réservé à la population carcérale",
+        "UHSA": "Centre réservé à la population carcérale",
+        "UHSI": "Centre réservé à la population carcérale",
+        "USMP": "Centre réservé à la population carcérale",
     }
 
     def __init__(self, record, today=None):
@@ -104,6 +106,7 @@ class RecordMapper:
         )
 
     def _build_metadata(self):
+        url_rdv = self.props.get("c_rdv_site_web", "")
         return {
             "ban_addresse_id": self.props.get("c_id_adr"),
             "centre_vaccination": {
@@ -119,7 +122,7 @@ class RecordMapper:
                 "date_fermeture": self.props.get("c_date_fermeture"),
                 "date_ouverture": self.props.get("c_date_ouverture"),
                 "acces_sur_rdv": self.props.get("c_rdv"),
-                "url_rdv": self.props.get("c_rdv_site_web"),
+                "url_rdv": url_rdv if url_rdv.startswith("http") else None,
                 "modalites": self.props.get("c_rdv_modalites"),
                 "prevaccination": self.props.get("c_rdv_consultation_prevaccination"),
                 "horaires_rdv": {
