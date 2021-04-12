@@ -36,12 +36,12 @@ class ObjectifsView(TemplateView):
                     left join
                         erp_accessibilite a on e.id = a.erp_id
                     where
-                        c.population > 0
+                        c.population >= 0
                     group by
                         c.nom, c.slug, c.population, c.departement
                 ) data
             where
-                data.population > 10000 and data.erps_commune > 0 and data.total_erps_commune > 0
+                data.population > 5000 and data.erps_commune > 0 and data.total_erps_commune > 0
             order by
                 pourcentage_completude desc
             limit 20;
