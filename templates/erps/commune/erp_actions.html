@@ -1,3 +1,5 @@
+{% load a4a %}
+
 <div>
   {% if erp.contact_email %}
   <a class="a4a-erp-details-link btn btn-sm btn-light d-inline-block mr-1 mb-1" href="mailto:{{ erp.contact_email }}" target="_blank">
@@ -14,7 +16,7 @@
   {% if erp.telephone %}
   <a class="a4a-erp-details-link btn btn-sm btn-light d-inline-block mr-1 mb-1" href="tel:{{ erp.telephone }}">
     <i aria-hidden="true" class="icon icon-phone"></i>
-    <span>{{ erp.telephone }}</span>
+    <span>{{ erp.telephone|format_phone }}</span>
   </a>
   {% endif %}
 </div>

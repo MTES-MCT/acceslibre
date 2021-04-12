@@ -1,4 +1,5 @@
 import json
+import phonenumbers
 import random
 
 from datetime import datetime
@@ -96,6 +97,19 @@ def format_isodate(value):
     try:
         return datetime.strptime(value, "%Y-%m-%d").strftime("%d/%m/%Y")
     except ValueError:
+        return value
+
+
+@register.filter(name="format_phone")
+def format_phone(value):
+    if not value:
+        return ""
+    try:
+        return phonenumbers.format_number(
+            phonenumbers.parse(value, "FR"),
+            phonenumbers.PhoneNumberFormat.NATIONAL,
+        )
+    except phonenumbers.phonenumberutil.NumberParseException:
         return value
 
 

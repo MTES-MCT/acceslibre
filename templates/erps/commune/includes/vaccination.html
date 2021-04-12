@@ -47,7 +47,7 @@
   {% endif %}
 
   {% if infos.url_rdv or erp.telephone %}
-  <p class="mb-0 text-center">
+  <p class="text-center">
     {% if infos.url_rdv %}
     <a class="btn btn-success" href="{{ infos.url_rdv }}" target="_blank"
       title="Prendre rendez vous {{ infos.url_rdv|cv_provider_name }} (nouvelle fenêtre)">
@@ -56,7 +56,7 @@
     {% endif %}
     {% if infos.url_rdv and erp.telephone %}<br class="d-none d-md-block">ou{% endif %}
     {% if erp.telephone %}
-    par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
+    par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
     {% endif %}
   </p>
   {% endif %}
