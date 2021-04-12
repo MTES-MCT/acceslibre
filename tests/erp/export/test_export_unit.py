@@ -5,7 +5,7 @@ from typing import List
 
 import pytest
 
-from erp.export.export import export_data
+from erp.export.export import export_to_csv
 from erp.export.mappers import map_erp_to_official_schema
 from erp.export.schemas import OfficialSchema
 from erp.models import Erp
@@ -27,7 +27,7 @@ def test_export_to_csv(example_data: List[Erp]):
 
     # write to csv
     file = StringIO()
-    export_data(file, headers, mapped_data)
+    export_to_csv(file, headers, mapped_data)
 
     # assert correct csv values
     file.seek(0)
@@ -41,3 +41,4 @@ def test_export_to_csv(example_data: List[Erp]):
     assert erp_1['transport_station_presence'] == str(mapped_data[1].transport_station_presence)
     assert erp_1['commentaire'] == str(mapped_data[1].commentaire)
 
+    # Validate data with schema
