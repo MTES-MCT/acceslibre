@@ -49,7 +49,7 @@
   {% if infos.url_rdv or erp.telephone %}
   <p>
     {% if infos.url_rdv %}
-    <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous {{ infos.url_rdv|cv_provider_name }}</a>
+    <a class="btn btn-success" href="{{ infos.url_rdv }}" target="_blank">Prendre rendez-vous {{ infos.url_rdv|cv_provider_name }}</a>
     {% endif %}
     {% if infos.url_rdv and erp.telephone %}<br class="d-none d-md-block">ou{% endif %}
     {% if erp.telephone %}
