@@ -7,6 +7,12 @@ from core.lib import text
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
 
+RAISON_EN_ATTENTE = "En attente d'affectation"
+RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
+RAISON_PUBLIC_RESTREINT = "Réservé à un public restreint"
+RAISON_RESERVE_PS = "Réservé aux professionnels de santé"
+RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
+
 
 class RecordMapper:
     FIELDS_MAP = {
@@ -21,26 +27,26 @@ class RecordMapper:
 
     TESTS_ECARTEMENT = {
         # Réservé aux professionnels de santé
-        "R\u00e9serv\u00e9 aux professionnels de sant\u00e9": "Réservé aux professionnels de santé",
-        "Uniquement pour les professionnels de sant\u00e9": "Réservé aux professionnels de santé",
-        "Ouvert uniquement aux professionnels": "Réservé aux professionnels de santé",
-        "Professionnels de santé uniquement": "Réservé aux professionnels de santé",
-        "Réservé PS": "Réservé aux professionnels de santé",
-        "réservé aux professionnels": "Réservé aux professionnels de santé",
-        "centre pour professionnels de santé": "Réservé aux professionnels de santé",
+        "R\u00e9serv\u00e9 aux professionnels de sant\u00e9": RAISON_RESERVE_PS,
+        "Uniquement pour les professionnels de sant\u00e9": RAISON_RESERVE_PS,
+        "Ouvert uniquement aux professionnels": RAISON_RESERVE_PS,
+        "Professionnels de santé uniquement": RAISON_RESERVE_PS,
+        "Réservé PS": RAISON_RESERVE_PS,
+        "réservé aux professionnels": RAISON_RESERVE_PS,
+        "centre pour professionnels de santé": RAISON_RESERVE_PS,
         # Équipes mobiles
-        "Équipe mobile": "Équipe mobile écartée",
-        "vaccination mobile": "Équipe mobile écartée",
-        "EMV": "Équipe mobile écartée",
+        "Équipe mobile": RAISON_EQUIPE_MOBILE,
+        "vaccination mobile": RAISON_EQUIPE_MOBILE,
+        "EMV": RAISON_EQUIPE_MOBILE,
         # En attente d'affectation
-        "en attente": "En attente d'affectation",
+        "en attente": RAISON_EN_ATTENTE,
         # Centres réservés à la population carcérale
-        "centre de détention": "Centre réservé à la population carcérale",
-        "pénitentiaire": "Centre réservé à la population carcérale",
-        "prison": "Centre réservé à la population carcérale",
-        "UHSA": "Centre réservé à la population carcérale",
-        "UHSI": "Centre réservé à la population carcérale",
-        "USMP": "Centre réservé à la population carcérale",
+        "centre de détention": RAISON_RESERVE_CARCERAL,
+        "pénitentiaire": RAISON_RESERVE_CARCERAL,
+        "prison": RAISON_RESERVE_CARCERAL,
+        "UHSA": RAISON_RESERVE_CARCERAL,
+        "UHSI": RAISON_RESERVE_CARCERAL,
+        "USMP": RAISON_RESERVE_CARCERAL,
     }
 
     def __init__(self, record, today=None):
@@ -147,11 +153,18 @@ class RecordMapper:
 
     def _check_ecartement(self):
         "Vérification des autres raisons d'écartement"
+
         for (test, raison) in self.TESTS_ECARTEMENT.items():
             if text.contains_sequence(
                 test, self.props.get("c_nom")
             ) or text.contains_sequence(test, self.props.get("c_rdv_modalites")):
                 return raison
+
+        if self.props.get("c_reserve_professionels_sante") is True:
+            return RAISON_RESERVE_PS
+
+        if self.props.get("c_centre_fermeture") is True:
+            return RAISON_PUBLIC_RESTREINT
 
     def _check_importable(self):
         "Vérifications d'exclusion d'import ou de mise à jour"
