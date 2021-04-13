@@ -44,3 +44,4 @@ def test_export_to_csv(example_data: List[Erp]):
     # Validate data with schema
 
 # Test/check invalid data ex: no accessibility object -> should be ignored
+# Test transformed/mapped data
