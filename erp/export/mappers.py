@@ -22,7 +22,7 @@ def map_list_from_schema(schema_enum, data):
     return result
 
 
-def map_erp_to_official_schema(erps: List[Erp]) -> Tuple[List[str], List[OfficialSchema]]:
+def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[OfficialSchema]]:
     headers = [x.name for x in fields(OfficialSchema)]
 
     results = []
