@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from erp.jobs import check_closed_erps, export_to_datagouv
+from erp.jobs import export_to_datagouv
 
 
 class Command(BaseCommand):
