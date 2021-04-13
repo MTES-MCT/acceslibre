@@ -33,18 +33,18 @@
 
       {% include "erps/commune/erp_actions.html" %}
 
-      {% with erp.metadata.centre_vaccination as centre_vaccination %}
-        {% if centre_vaccination %}
+      {% with erp.metadata.centre_vaccination as cv %}
+        {% if cv %}
         <div class="alert alert-warning d-sm-flex justify-content-between align-items-center px-3 py-2 mt-2 mb-0"
           role="alert" aria-live="assertive" style="font-size:.9em">
           <div class="mr-2">Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
           vaccination contre la COVID-19.</div>
-          {% if centre_vaccination.url_rdv %}
+          {% if cv.url_rdv %}
             <p class="text-center m-0 p-0">
-              <a class="text-nowrap btn btn-sm btn-success mt-1 mx-auto" style="width:230px"
-                href="{{ erp.metadata.centre_vaccination.url_rdv }}" target="_blank">
+              <a class="btn btn-sm btn-success mt-1 mx-auto" style="width:230px" href="{{ cv.url_rdv }}"
+                target="_blank" title="Prendre rendez vous {{ cv.url_rdv|cv_provider_name }} (nouvelle fenêtre)">
                 <i aria-hidden="true" class="icon icon-clock"></i>
-                <span>Prendre rendez-vous</span>
+                <span>Prendre rendez-vous {{ cv.url_rdv|cv_provider_name }}</span>
               </a>
             </p>
           {% endif %}

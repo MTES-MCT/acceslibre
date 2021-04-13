@@ -12,7 +12,7 @@ pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}
 
 [packages]
-Django = "==3.1.6"
+Django = "==3.1.8"
 requests = "*"
 django-reset-migrations = "*"
 django-import-export = "*"
@@ -47,6 +47,7 @@ django-reversion = "*"
 django-admin-autocomplete-filter = "*"
 fuzzywuzzy = "*"
 python-levenshtein = "*"
+phonenumbers = "*"
 
 [requires]
 python_version = "3.8"

@@ -7,6 +7,12 @@ from core.lib import text
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
 
+RAISON_EN_ATTENTE = "En attente d'affectation"
+RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
+RAISON_PUBLIC_RESTREINT = "Réservé à un public restreint"
+RAISON_RESERVE_PS = "Réservé aux professionnels de santé"
+RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
+
 
 class RecordMapper:
     FIELDS_MAP = {
@@ -21,24 +27,26 @@ class RecordMapper:
 
     TESTS_ECARTEMENT = {
         # Réservé aux professionnels de santé
-        "R\u00e9serv\u00e9 aux professionnels de sant\u00e9": "Réservé aux professionnels de santé",
-        "Uniquement pour les professionnels de sant\u00e9": "Réservé aux professionnels de santé",
-        "Ouvert uniquement aux professionnels": "Réservé aux professionnels de santé",
-        "Professionnels de santé uniquement": "Réservé aux professionnels de santé",
-        "Réservé PS": "Réservé aux professionnels de santé",
-        "réservé aux professionnels": "Réservé aux professionnels de santé",
-        "centre pour professionnels de santé": "Réservé aux professionnels de santé",
+        "R\u00e9serv\u00e9 aux professionnels de sant\u00e9": RAISON_RESERVE_PS,
+        "Uniquement pour les professionnels de sant\u00e9": RAISON_RESERVE_PS,
+        "Ouvert uniquement aux professionnels": RAISON_RESERVE_PS,
+        "Professionnels de santé uniquement": RAISON_RESERVE_PS,
+        "Réservé PS": RAISON_RESERVE_PS,
+        "réservé aux professionnels": RAISON_RESERVE_PS,
+        "centre pour professionnels de santé": RAISON_RESERVE_PS,
         # Équipes mobiles
-        "Équipe mobile": "Équipe mobile écartée",
-        "vaccination mobile": "Équipe mobile écartée",
-        "EMV": "Équipe mobile écartée",
+        "Équipe mobile": RAISON_EQUIPE_MOBILE,
+        "vaccination mobile": RAISON_EQUIPE_MOBILE,
+        "EMV": RAISON_EQUIPE_MOBILE,
         # En attente d'affectation
-        "en attente": "En attente d'affectation",
-        # Centres pénitentiaires
-        "centre de détention": "Centre pénitentiaire non-accessible à la population générale",
-        "pénitentiaire": "Centre pénitentiaire non-accessible à la population générale",
-        "prison": "Centre pénitentiaire non-accessible à la population générale",
-        "USMP": "Centre pénitentiaire non-accessible à la population générale",
+        "en attente": RAISON_EN_ATTENTE,
+        # Centres réservés à la population carcérale
+        "centre de détention": RAISON_RESERVE_CARCERAL,
+        "pénitentiaire": RAISON_RESERVE_CARCERAL,
+        "prison": RAISON_RESERVE_CARCERAL,
+        "UHSA": RAISON_RESERVE_CARCERAL,
+        "UHSI": RAISON_RESERVE_CARCERAL,
+        "USMP": RAISON_RESERVE_CARCERAL,
     }
 
     def __init__(self, record, today=None):
@@ -104,6 +112,7 @@ class RecordMapper:
         )
 
     def _build_metadata(self):
+        url_rdv = self.props.get("c_rdv_site_web", "")
         return {
             "ban_addresse_id": self.props.get("c_id_adr"),
             "centre_vaccination": {
@@ -119,7 +128,7 @@ class RecordMapper:
                 "date_fermeture": self.props.get("c_date_fermeture"),
                 "date_ouverture": self.props.get("c_date_ouverture"),
                 "acces_sur_rdv": self.props.get("c_rdv"),
-                "url_rdv": self.props.get("c_rdv_site_web"),
+                "url_rdv": url_rdv if url_rdv and url_rdv.startswith("http") else None,
                 "modalites": self.props.get("c_rdv_modalites"),
                 "prevaccination": self.props.get("c_rdv_consultation_prevaccination"),
                 "horaires_rdv": {
@@ -144,11 +153,18 @@ class RecordMapper:
 
     def _check_ecartement(self):
         "Vérification des autres raisons d'écartement"
+
         for (test, raison) in self.TESTS_ECARTEMENT.items():
             if text.contains_sequence(
                 test, self.props.get("c_nom")
             ) or text.contains_sequence(test, self.props.get("c_rdv_modalites")):
                 return raison
+
+        if self.props.get("c_reserve_professionels_sante") is True:
+            return RAISON_RESERVE_PS
+
+        if self.props.get("c_centre_fermeture") is True:
+            return RAISON_PUBLIC_RESTREINT
 
     def _check_importable(self):
         "Vérifications d'exclusion d'import ou de mise à jour"

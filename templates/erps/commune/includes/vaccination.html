@@ -47,13 +47,16 @@
   {% endif %}
 
   {% if infos.url_rdv or erp.telephone %}
-  <p>
+  <p class="text-center">
     {% if infos.url_rdv %}
-    <a class="btn btn-success" href="{{ infos.url_rdv }}">Prendre rendez-vous en ligne</a>
+    <a class="btn btn-success" href="{{ infos.url_rdv }}" target="_blank"
+      title="Prendre rendez vous {{ infos.url_rdv|cv_provider_name }} (nouvelle fenêtre)">
+        Prendre rendez-vous {{ infos.url_rdv|cv_provider_name }}
+    </a>
     {% endif %}
     {% if infos.url_rdv and erp.telephone %}<br class="d-none d-md-block">ou{% endif %}
     {% if erp.telephone %}
-    par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>
+    par téléphone au <a href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone }}</a>
     {% endif %}
   </p>
   {% endif %}
@@ -62,9 +65,9 @@
   <h4 class="h5 mt-2">Ressources complémentaires</h4>
   <p>
     <span aria-hidden="true">&raquo;</span>
-    <a href="https://covidtracker.fr/vitemadose/">Trouver un rendez-vous dans mon département</a><br>
+    <a href="https://covidtracker.fr/vitemadose/" title="Le site s'ouvrira dans une nouvelle fenêtre">Trouver un rendez-vous dans mon département</a><br>
     <span aria-hidden="true">&raquo;</span>
-    <a href="https://www.sante.fr/cf/centres-vaccination-covid.html">En savoir plus sur les conditions de vaccination</a>
+    <a href="https://www.sante.fr/cf/centres-vaccination-covid.html" title="Le site s'ouvrira dans une nouvelle fenêtre">En savoir plus sur les conditions de vaccination</a>
   </p>
 {% endwith %}
 </div>
