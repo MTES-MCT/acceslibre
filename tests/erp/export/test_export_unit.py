@@ -6,7 +6,7 @@ from typing import List
 import pytest
 
 from erp.export.export import export_to_csv
-from erp.export.mappers import map_erp_to_official_schema
+from erp.export.mappers import map_erp_to_json_schema
 from erp.export.schemas import OfficialSchema
 from erp.models import Erp
 from tests.erp.test_managers import create_test_erp
@@ -23,7 +23,7 @@ def example_data(db):
 def test_export_to_csv(example_data: List[Erp]):
     # map
     first_row = [x.name for x in fields(OfficialSchema)]
-    headers, mapped_data = map_erp_to_official_schema(example_data)
+    headers, mapped_data = map_erp_to_json_schema(example_data)
 
     # write to csv
     file = StringIO()
@@ -45,3 +45,5 @@ def test_export_to_csv(example_data: List[Erp]):
 
 # Test/check invalid data ex: no accessibility object -> should be ignored
 # Test transformed/mapped data
+
+# Test updload data.gouv
