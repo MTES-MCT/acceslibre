@@ -26,9 +26,16 @@ def test_init():
     assert "Propriété manquante 'properties'" in str(err.value)
 
 
-def test_handle_malformed_rdv_url(activite_cdv, neufchateau, sample_record_ok):
+@pytest.mark.parametrize(
+    "updates",
+    [
+        {"c_rdv_site_web": "Doctolib"},
+        {"c_rdv_site_web": None},
+    ],
+)
+def test_handle_malformed_rdv_url(updates, activite_cdv, neufchateau, sample_record_ok):
     sample_malformed_rdv_url = sample_record_ok.copy()
-    sample_malformed_rdv_url["properties"].update({"c_rdv_site_web": "gné"})
+    sample_malformed_rdv_url["properties"].update(updates)
 
     m = RecordMapper(sample_malformed_rdv_url)
     erp = m.process(activite_cdv)

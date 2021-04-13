@@ -122,7 +122,7 @@ class RecordMapper:
                 "date_fermeture": self.props.get("c_date_fermeture"),
                 "date_ouverture": self.props.get("c_date_ouverture"),
                 "acces_sur_rdv": self.props.get("c_rdv"),
-                "url_rdv": url_rdv if url_rdv.startswith("http") else None,
+                "url_rdv": url_rdv if url_rdv and url_rdv.startswith("http") else None,
                 "modalites": self.props.get("c_rdv_modalites"),
                 "prevaccination": self.props.get("c_rdv_consultation_prevaccination"),
                 "horaires_rdv": {
