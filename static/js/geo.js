@@ -51,7 +51,7 @@ function onEachFeature({ geometry, properties: props }, layer) {
       <br>${props.adresse}
       <br>
       <a href="#" onclick="a4a.geo.zoomTo(${geometry.coordinates[1]}, ${geometry.coordinates[0]})">
-        <i aria-hidden="true" class="icon icon-exterieur-target a4a-icon-small-top"></i>
+        <i aria-hidden="true" class="icon icon-shrink a4a-icon-small-top"></i>
         Zoomer sur cet établissement
       </a>
     </div>`);
@@ -255,7 +255,7 @@ function openMarkerPopup(pk) {
 }
 
 function zoomTo(lat, lon) {
-  map.setView([lat, lon], 17);
+  map.setView([lat, lon], 18);
 }
 
 export default {
