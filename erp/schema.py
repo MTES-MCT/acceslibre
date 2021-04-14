@@ -429,7 +429,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
-            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence et type de rampe"),
         "section": SECTION_CHEMINEMENT_EXT,
@@ -603,7 +603,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
-            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": None,
         "section": SECTION_ENTREE,
@@ -836,7 +836,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
-            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence et type de rampe"),
         "section": SECTION_ACCUEIL,
