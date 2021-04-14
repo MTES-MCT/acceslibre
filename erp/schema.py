@@ -483,7 +483,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
-            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
@@ -849,7 +849,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
-            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre la zone d’accueil&nbsp;?"
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre la zone d’accueil&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
