@@ -32,7 +32,7 @@ DEVERS_CHOICES = [
     (DEVERS_AUCUN, "Aucun"),
     (DEVERS_LEGER, "Léger"),
     (DEVERS_IMPORTANT, "Important"),
-    (None, UNKNOWN_OR_NA),
+    (None, UNKNOWN),
 ]
 
 EQUIPEMENT_MALENTENDANT_AUTRES = "autres"
