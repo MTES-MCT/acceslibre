@@ -393,6 +393,13 @@ class Erp(models.Model):
         verbose_name="Courriel",
         help_text="Adresse email permettant de contacter l'ERP",
     )
+    contact_url = models.URLField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Lien vers outil de contact",
+        help_text="Lien hypertexte permettant de contacter l'établissement (formulaire, chatbot, etc.)",
+    )
     # adresse
     numero = models.CharField(
         max_length=255,
