@@ -947,12 +947,14 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": False,
-        "label": "Commentaire libre (précisions utiles concernant l'accessibilité du bâtiment)",
+        "label": "Informations complémentaires et prestations spécifiques",
         "help_text": mark_safe(
-            "Indiquez ici toute information supplémentaire qui vous semble pertinente pour décrire l'accessibilité du bâtiment."
-            "<br><strong>Note&nbsp;:</strong> ce commentaire sera affiché sur la fiche publique de l'établissement."
+            "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées"
         ),
-        "help_text_ui": mark_safe("Informations supplémentaires"),
+        "help_text_ui": mark_safe(
+            "Ajoutez ici toute information supplémentaire concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées."
+            "<br><strong>Note&nbsp;:</strong> ces informations seront affichées sur la fiche publique de l'établissement."
+        ),
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
