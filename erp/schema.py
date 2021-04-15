@@ -123,6 +123,14 @@ RAMPE_CHOICES = [
     (None, UNKNOWN),
 ]
 
+ESCALIER_MONTANT = "montant"
+ESCALIER_DESCENDANT = "descendant"
+ESCALIER_SENS = [
+    (ESCALIER_MONTANT, "Montant"),
+    (ESCALIER_DESCENDANT, "Descendant"),
+    (None, UNKNOWN),
+]
+
 REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
 
 PARTENAIRES = {
@@ -400,6 +408,19 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
+    "cheminement_ext_sens_marches": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Sens de circulation de l'escalier",
+        "help_text": mark_safe(
+            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+        ),
+        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": None,
+    },
     "cheminement_ext_reperage_marches": {
         "type": "boolean",
         "nullable": True,
@@ -573,6 +594,19 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
+    },
+    "entree_marches_sens": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Sens de circulation de l'escalier",
+        "help_text": mark_safe(
+            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+        ),
+        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": None,
     },
     "entree_marches_reperage": {
         "type": "boolean",
@@ -806,6 +840,19 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
+    },
+    "accueil_cheminement_sens_marches": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Sens de circulation de l'escalier",
+        "help_text": mark_safe(
+            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+        ),
+        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": None,
     },
     "accueil_cheminement_reperage_marches": {
         "type": "boolean",

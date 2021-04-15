@@ -824,6 +824,14 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="Nombre de marches",
     )
+    # Sens des marches de l'escalier
+    cheminement_ext_sens_marches = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Sens de circulation de l'escalier",
+        choices=schema.ESCALIER_SENS,
+    )
     # Repérage des marches ou de l’escalier – oui / non / inconnu / sans objet
     cheminement_ext_reperage_marches = models.BooleanField(
         null=True,
@@ -925,6 +933,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Marches d'escalier",
+    )
+    # Sens des marches de l'escalier
+    entree_marches_sens = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Sens de circulation de l'escalier",
+        choices=schema.ESCALIER_SENS,
     )
     # Repérage des marches ou de l'escalier
     entree_marches_reperage = models.BooleanField(
@@ -1058,6 +1074,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Nombre de marches",
+    )
+    # Sens des marches de l'escalier
+    accueil_cheminement_sens_marches = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Sens de circulation de l'escalier",
+        choices=schema.ESCALIER_SENS,
     )
     # Repérage des marches ou de l’escalier
     accueil_cheminement_reperage_marches = models.BooleanField(
