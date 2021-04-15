@@ -858,19 +858,6 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": True,
     },
-    "accueil_prestations": {
-        "type": "string",
-        "nullable": True,
-        "is_a11y": True,
-        "label": "Prestations spécifiques proposées par l'établissement",
-        "help_text": mark_safe(
-            "Prestations spécifiques supplémentaires proposées par l'établissement"
-        ),
-        "help_text_ui": None,
-        "section": SECTION_ACCUEIL,
-        "nullable_bool": False,
-        "warn_if": None,
-    },
     # Sanitaires
     "sanitaires_presence": {
         "type": "boolean",
