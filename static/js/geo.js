@@ -41,7 +41,7 @@ function createIcon(highlight, iconName = "building") {
 }
 
 // see https://leafletjs.com/examples/geojson/
-function onEachFeature({ properties: props }, layer) {
+function onEachFeature({ geometry, properties: props }, layer) {
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
       <strong>
@@ -50,9 +50,9 @@ function onEachFeature({ properties: props }, layer) {
       ${(props.activite__nom && "<br>" + props.activite__nom) || ""}
       <br>${props.adresse}
       <br>
-      <a href="${props.contrib_localisation_url}">
-        <i aria-hidden="true" class="icon icon-pencil a4a-icon-small-top"></i>
-        Affiner la localisation
+      <a href="#" onclick="a4a.geo.zoomTo(${geometry.coordinates[1]}, ${geometry.coordinates[0]})">
+        <i aria-hidden="true" class="icon icon-shrink a4a-icon-small-top"></i>
+        Zoomer sur cet établissement
       </a>
     </div>`);
   layer.pk = parseInt(props.pk, 10);
@@ -254,9 +254,14 @@ function openMarkerPopup(pk) {
   });
 }
 
+function zoomTo(lat, lon) {
+  map.setView([lat, lon], 18);
+}
+
 export default {
   AppMap,
   createMap,
   openMarkerPopup,
   recalculateMapSize,
+  zoomTo,
 };
