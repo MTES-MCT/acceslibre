@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?jdg1i6');
-  src:  url('fonts/icomoon.eot?jdg1i6#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?jdg1i6') format('truetype'),
-    url('fonts/icomoon.woff?jdg1i6') format('woff'),
-    url('fonts/icomoon.svg?jdg1i6#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?lkjzfi');
+  src:  url('fonts/icomoon.eot?lkjzfi#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?lkjzfi') format('truetype'),
+    url('fonts/icomoon.woff?lkjzfi') format('woff'),
+    url('fonts/icomoon.svg?lkjzfi#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -19,7 +19,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-
+  
   /* Enable Ligatures ================ */
   letter-spacing: 0;
   -webkit-font-feature-settings: "liga";
@@ -67,6 +67,9 @@
 }
 .icon-contribute-out:before {
   content: "\e961";
+}
+.icon-dialog:before {
+  content: "\e96f";
 }
 .icon-user:before {
   content: "\e971";
