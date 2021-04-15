@@ -379,6 +379,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "contact_email",
             "site_internet",
             "telephone",
+            "contact_url",
         )
         labels = {"siret": "Numéro SIRET", "user_type": "Saisie en qualité de"}
         help_texts = {
@@ -408,6 +409,11 @@ class BasePublicErpInfosForm(BaseErpForm):
                 attrs={"placeholder": "ex: http://etablissement.com"}
             ),
             "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
+            "contact_url": forms.URLInput(
+                attrs={
+                    "placeholder": "https://mon-etablissement.fr/contactez-nous.html"
+                }
+            ),
         }
 
     recevant_du_public = forms.BooleanField(

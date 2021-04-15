@@ -100,6 +100,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "telephone",
             "site_internet",
             "contact_email",
+            "contact_url",
             "user_type",
             "accessibilite",
             "distance",
