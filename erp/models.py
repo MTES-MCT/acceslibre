@@ -1097,14 +1097,6 @@ class Accessibilite(models.Model):
         verbose_name="Rétrécissement du cheminement",
     )
 
-    # Prestations d'accueil adapté supplémentaires
-    accueil_prestations = models.TextField(
-        max_length=1000,
-        null=True,
-        blank=True,
-        verbose_name="Prestations d'accueil adapté supplémentaires",
-    )
-
     ##############
     # Sanitaires #
     ##############

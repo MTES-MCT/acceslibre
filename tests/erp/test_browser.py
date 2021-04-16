@@ -538,7 +538,6 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "accueil_cheminement_main_courante": True,
             "accueil_cheminement_rampe": "aucune",
             "accueil_retrecissement": True,
-            "accueil_prestations": "blah",
         },
         follow=True,
     )
@@ -554,7 +553,6 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.accueil_cheminement_main_courante is True
     assert accessibilite.accueil_cheminement_rampe == "aucune"
     assert accessibilite.accueil_retrecissement is True
-    assert accessibilite.accueil_prestations == "blah"
     assert_redirect(response, "/contrib/sanitaires/test-erp/")
     assert response.status_code == 200
 

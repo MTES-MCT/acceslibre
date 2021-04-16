@@ -5,9 +5,6 @@
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.accueil_visibilite inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True %}
-  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants inline=False %}
   {% include "fields/boolradio.html" with field=form.accueil_cheminement_plain_pied inline=True %}
   {% include "fields/boolradio.html" with field=form.accueil_cheminement_ascenseur inline=True %}
   {% include "fields/number.html" with field=form.accueil_cheminement_nombre_marches %}
@@ -15,5 +12,7 @@
   {% include "fields/boolradio.html" with field=form.accueil_cheminement_main_courante inline=True %}
   {% include "fields/boolradio.html" with field=form.accueil_cheminement_rampe inline=True %}
   {% include "fields/boolradio.html" with field=form.accueil_retrecissement inline=True %}
-  {% include "fields/textarea.html" with field=form.accueil_prestations %}
+  {% include "fields/boolradio.html" with field=form.accueil_personnels inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants_presence inline=True %}
+  {% include "fields/boolradio.html" with field=form.accueil_equipements_malentendants inline=False %}
 {% endblock %}
