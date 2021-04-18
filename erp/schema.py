@@ -37,23 +37,26 @@ DEVERS_CHOICES = [
 
 EQUIPEMENT_MALENTENDANT_AUTRES = "autres"
 EQUIPEMENT_MALENTENDANT_BIM = "bim"
+EQUIPEMENT_MALENTENDANT_BM_PORTATIVE = "bmp"
 EQUIPEMENT_MALENTENDANT_LSF = "lsf"
-EQUIPEMENT_MALENTENDANT_SCD = "scd"
+EQUIPEMENT_MALENTENDANT_STS = "sts"
 EQUIPEMENT_MALENTENDANT_LPC = "lpc"
 EQUIPEMENT_MALENTENDANT_CHOICES = [
-    (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique"),
+    (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique fixe"),
+    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, "Boucle à induction magnétique portative"),
     (EQUIPEMENT_MALENTENDANT_LSF, "Langue des signes française"),
     (EQUIPEMENT_MALENTENDANT_LPC, "Langue Française Parlée Complétée (LFPC)"),
-    (EQUIPEMENT_MALENTENDANT_SCD, "Service de communication à distance"),
+    (EQUIPEMENT_MALENTENDANT_STS, "Sous-Titrage ou Transcription Simultanée"),
     (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
 ]
 
 EQUIPEMENT_MALENTENDANT_DESCRIPTIONS = {
     EQUIPEMENT_MALENTENDANT_AUTRES: "Autres équipements non précisés",
     EQUIPEMENT_MALENTENDANT_BIM: "La boucle à induction magnétique (BIM) permet d'entendre une source sonore en s'affranchissant de la distance (salles de spectacles), du bruit ambiant (lieux publics), des phénomènes d'échos ou de réverbérations sonores (églises, salles aux murs nus), des déformations apportées par les écouteurs (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma).",
+    EQUIPEMENT_MALENTENDANT_BM_PORTATIVE: "La boucle magnétique portative (BMP) est un système de transmission du son individuel",
     EQUIPEMENT_MALENTENDANT_LSF: "La langue des signes française (LSF) est la langue des signes utilisée par une partie des sourds de France et par une partie des sourds de Suisse.",
     EQUIPEMENT_MALENTENDANT_LPC: "Langue Française Parlée Complétée (LFPC)",
-    EQUIPEMENT_MALENTENDANT_SCD: "Service de communication, à distance et en temps réel, entre entendants et malentendants ou sourds, par transcription TIP (Transcription Instantanée de la Parole) ou LSF (Langue des Signes Français).",
+    EQUIPEMENT_MALENTENDANT_STS: "Service de communication, à distance et en temps réel, entre entendants et malentendants ou sourds, par sous-titrage ou transcription TIP (Transcription Instantanée de la Parole).",
 }
 
 HANDICAP_AUDITIF = "auditif"
