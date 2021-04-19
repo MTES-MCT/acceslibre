@@ -105,6 +105,16 @@ INSTALLED_APPS = [
     "reversion",
 ]
 
+
+def floc_middleware(get_response):
+    def middleware(request):
+        response = get_response(request)
+        response["Permissions-Policy"] = "interest-cohort=()"
+        return response
+
+    return middleware
+
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -114,6 +124,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core.settings.floc_middleware",
 ]
 
 SITE_ID = 1
