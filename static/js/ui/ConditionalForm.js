@@ -29,6 +29,7 @@ const rules = [
       "cheminement_ext_terrain_accidente",
       "cheminement_ext_plain_pied",
       "cheminement_ext_nombre_marches",
+      "cheminement_ext_sens_marches",
       "cheminement_ext_reperage_marches",
       "cheminement_ext_main_courante",
       "cheminement_ext_rampe",
@@ -71,6 +72,7 @@ const rules = [
     values: ["False"],
     targets: [
       "entree_marches",
+      "entree_marches_sens",
       "entree_marches_reperage",
       "entree_marches_main_courante",
       "entree_marches_rampe",
@@ -97,6 +99,7 @@ const rules = [
     values: ["False"],
     targets: [
       "accueil_cheminement_nombre_marches",
+      "accueil_cheminement_sens_marches",
       "accueil_cheminement_reperage_marches",
       "accueil_cheminement_main_courante",
       "accueil_cheminement_rampe",
