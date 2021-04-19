@@ -99,7 +99,17 @@ PENTE_CHOICES = [
     (PENTE_AUCUNE, "Aucune"),
     (PENTE_LEGERE, "Légère"),
     (PENTE_IMPORTANTE, "Importante"),
-    (None, UNKNOWN_OR_NA),
+    (None, UNKNOWN),
+]
+
+PENTE_LONGUEUR_COURTE = "courte"
+PENTE_LONGUEUR_MOYENNE = "moyenne"
+PENTE_LONGUEUR_LONGUE = "longue"
+PENTE_LENGTH_CHOICES = [
+    (PENTE_LONGUEUR_COURTE, "< 0,5m"),
+    (PENTE_LONGUEUR_MOYENNE, "entre 0,5 et 2m"),
+    (PENTE_LONGUEUR_LONGUE, "> 2m"),
+    (None, UNKNOWN),
 ]
 
 PERSONNELS_AUCUN = "aucun"
@@ -461,17 +471,43 @@ FIELDS = {
         "warn_if": RAMPE_AUCUNE,
     },
     "cheminement_ext_pente": {
-        "type": "string",
+        "type": "boolean",
         "nullable": True,
         "is_a11y": True,
         "label": "Pente",
         "help_text": mark_safe(
-            "S'il existe une pente, quel est son degré de difficulté&nbsp;?"
+            "Une pente est-elle présente&nbsp;?"
         ),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
+        "warn_if": False,
+    },
+    "cheminement_ext_pente_degre_difficulte": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "PDegré de difficulté de la pente",
+        "help_text": mark_safe(
+            "Quel est son degré de difficulté&nbsp;?"
+        ),
+        "help_text_ui": None,
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": PENTE_AUCUNE,
+    },
+    "cheminement_ext_pente_longueur": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Longueur de la pente",
+        "help_text": mark_safe(
+            "Quelle est sa longueur&nbsp;?"
+        ),
+        "help_text_ui": None,
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": PENTE_AUCUNE,
     },
     "cheminement_ext_devers": {
         "type": "string",
