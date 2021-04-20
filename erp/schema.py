@@ -487,7 +487,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": True,
-        "label": "PDegré de difficulté de la pente",
+        "label": "Degré de difficulté de la pente",
         "help_text": mark_safe(
             "Quel est son degré de difficulté&nbsp;?"
         ),
