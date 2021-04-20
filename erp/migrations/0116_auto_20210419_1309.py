@@ -19,33 +19,61 @@ def separate_fields(apps, schema_editor):
             access.cheminement_ext_pente = True
             access.cheminement_ext_pente_degre_difficulte = schema.PENTE_IMPORTANTE
         else:
-            print(f'Invalid choice for id {access.erp_id} : {access.cheminement_ext_pente}')
-            continue
+            raise ValueError(
+                f"Invalid choice for id {access.erp_id} : {access.cheminement_ext_pente}"
+            )
 
         access.save()
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('erp', '0115_auto_20210419_1033'),
+        ("erp", "0115_auto_20210419_1033"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='accessibilite',
-            name='cheminement_ext_pente_degre_difficulte',
-            field=models.CharField(blank=True, choices=[('aucune', 'Aucune'), ('légère', 'Légère'), ('importante', 'Importante'), (None, 'Inconnu')], max_length=15, null=True, verbose_name='Difficulté de la pente'),
+            model_name="accessibilite",
+            name="cheminement_ext_pente_degre_difficulte",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("aucune", "Aucune"),
+                    ("légère", "Légère"),
+                    ("importante", "Importante"),
+                    (None, "Inconnu"),
+                ],
+                max_length=15,
+                null=True,
+                verbose_name="Difficulté de la pente",
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='cheminement_ext_pente_longueur',
-            field=models.CharField(blank=True, choices=[('courte', '< 0,5m'), ('moyenne', 'entre 0,5 et 2m'), ('longue', '> 2m'), (None, 'Inconnu')], max_length=15, null=True, verbose_name='Longueur de la pente'),
+            model_name="accessibilite",
+            name="cheminement_ext_pente_longueur",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("courte", "< 0,5m"),
+                    ("moyenne", "entre 0,5 et 2m"),
+                    ("longue", "> 2m"),
+                    (None, "Inconnu"),
+                ],
+                max_length=15,
+                null=True,
+                verbose_name="Longueur de la pente",
+            ),
         ),
         migrations.RunPython(separate_fields),
         migrations.AlterField(
-            model_name='accessibilite',
-            name='cheminement_ext_pente',
-            field=models.BooleanField(blank=True, choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], max_length=15, null=True, verbose_name='Pente présence'),
+            model_name="accessibilite",
+            name="cheminement_ext_pente",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                max_length=15,
+                null=True,
+                verbose_name="Pente présence",
+            ),
         ),
     ]
