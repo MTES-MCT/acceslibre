@@ -19,7 +19,8 @@ def separate_fields(apps, schema_editor):
             access.cheminement_ext_pente = True
             access.cheminement_ext_pente_degre_difficulte = schema.PENTE_IMPORTANTE
         else:
-            raise ValueError(f'Invalid choice for id {access.erp_id} : {access.cheminement_ext_pente}')
+            print(f'Invalid choice for id {access.erp_id} : {access.cheminement_ext_pente}')
+            continue
 
         access.save()
 
