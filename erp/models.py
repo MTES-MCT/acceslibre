@@ -862,13 +862,30 @@ class Accessibilite(models.Model):
         verbose_name="Ascenseur/élévateur",
     )
 
+    # Pente - oui / non / inconnu
+    cheminement_ext_pente = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Pente présence",
+    )
+
     # Pente - Aucune, légère, importante, inconnu
-    cheminement_ext_pente = models.CharField(
+    cheminement_ext_pente_degre_difficulte = models.CharField(
         max_length=15,
         null=True,
         blank=True,
         choices=schema.PENTE_CHOICES,
-        verbose_name="Pente",
+        verbose_name="Difficulté de la pente",
+    )
+
+    # Pente - Aucune, légère, importante, inconnu
+    cheminement_ext_pente_longueur = models.CharField(
+        max_length=15,
+        null=True,
+        blank=True,
+        choices=schema.PENTE_LENGTH_CHOICES,
+        verbose_name="Longueur de la pente",
     )
 
     # Dévers - Aucun, léger, important, inconnu

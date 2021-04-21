@@ -54,6 +54,16 @@ const rules = [
     indent: 2,
   },
 
+  {
+    source: "cheminement_ext_pente",
+    values: ["True"],
+    targets: [
+      "cheminement_ext_pente_degre_difficulte",
+      "cheminement_ext_pente_longueur",
+    ],
+    indent: 2,
+  },
+
   // Entrée
   {
     source: "entree_vitree",
