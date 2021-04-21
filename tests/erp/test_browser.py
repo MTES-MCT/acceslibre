@@ -458,7 +458,9 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "cheminement_ext_reperage_marches": True,
             "cheminement_ext_main_courante": True,
             "cheminement_ext_rampe": "aucune",
-            "cheminement_ext_pente": "aucune",
+            "cheminement_ext_pente": True,
+            "cheminement_ext_pente_degre_difficulte": "légère",
+            "cheminement_ext_pente_longueur": "courte",
             "cheminement_ext_devers": "aucun",
             "cheminement_ext_bande_guidage": True,
             "cheminement_ext_retrecissement": True,
@@ -475,7 +477,9 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.cheminement_ext_reperage_marches is True
     assert accessibilite.cheminement_ext_main_courante is True
     assert accessibilite.cheminement_ext_rampe == "aucune"
-    assert accessibilite.cheminement_ext_pente == "aucune"
+    assert accessibilite.cheminement_ext_pente is True
+    assert accessibilite.cheminement_ext_pente_degre_difficulte == "légère"
+    assert accessibilite.cheminement_ext_pente_longueur == "courte"
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
