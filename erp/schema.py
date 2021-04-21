@@ -475,9 +475,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Pente",
-        "help_text": mark_safe(
-            "Une pente est-elle présente&nbsp;?"
-        ),
+        "help_text": mark_safe("Une pente est-elle présente&nbsp;?"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -488,9 +486,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Degré de difficulté de la pente",
-        "help_text": mark_safe(
-            "Quel est son degré de difficulté&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est son degré de difficulté&nbsp;?"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -501,9 +497,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Longueur de la pente",
-        "help_text": mark_safe(
-            "Quelle est sa longueur&nbsp;?"
-        ),
+        "help_text": mark_safe("Quelle est sa longueur&nbsp;?"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,

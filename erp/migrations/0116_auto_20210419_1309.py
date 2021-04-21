@@ -5,9 +5,16 @@ from erp.models import Accessibilite as Access
 from erp import schema
 
 
-def separate_fields(apps, schema_editor):
+accessibility = None
+
+
+def save_access(apps, schema_editor):
     Accessibilite: Access = apps.get_model("erp", "Accessibilite")
-    for access in Accessibilite.objects.all():
+    accessibility = Accessibilite.objects.all()
+
+
+def separate_fields(apps, schema_editor):
+    for access in accessibility:
         if access.cheminement_ext_pente is None:
             pass
         elif access.cheminement_ext_pente == schema.PENTE_AUCUNE:
@@ -27,11 +34,14 @@ def separate_fields(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
+    # atomic = False
+
     dependencies = [
         ("erp", "0115_auto_20210419_1033"),
     ]
 
     operations = [
+        migrations.RunPython(save_access),
         migrations.AddField(
             model_name="accessibilite",
             name="cheminement_ext_pente_degre_difficulte",
@@ -64,7 +74,6 @@ class Migration(migrations.Migration):
                 verbose_name="Longueur de la pente",
             ),
         ),
-        migrations.RunPython(separate_fields),
         migrations.AlterField(
             model_name="accessibilite",
             name="cheminement_ext_pente",
@@ -76,4 +85,5 @@ class Migration(migrations.Migration):
                 verbose_name="Pente présence",
             ),
         ),
+        migrations.RunPython(separate_fields),
     ]
