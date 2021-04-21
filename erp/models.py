@@ -864,7 +864,6 @@ class Accessibilite(models.Model):
 
     # Pente - oui / non / inconnu
     cheminement_ext_pente = models.BooleanField(
-        max_length=15,
         null=True,
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
