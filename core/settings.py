@@ -105,6 +105,16 @@ INSTALLED_APPS = [
     "reversion",
 ]
 
+
+def floc_middleware(get_response):
+    def middleware(request):
+        response = get_response(request)
+        response["Permissions-Policy"] = "interest-cohort=()"
+        return response
+
+    return middleware
+
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -114,6 +124,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core.settings.floc_middleware",
 ]
 
 SITE_ID = 1
@@ -175,6 +186,10 @@ database_url = os.environ.get(
 )
 DATABASES = {"default": dj_database_url.config()}
 DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
+
+# Default field to use for implicit model primary keys
+# see https://docs.djangoproject.com/en/3.2/releases/3.2/#customizing-type-of-auto-created-primary-keys
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

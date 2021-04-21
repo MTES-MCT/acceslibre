@@ -393,6 +393,13 @@ class Erp(models.Model):
         verbose_name="Courriel",
         help_text="Adresse email permettant de contacter l'ERP",
     )
+    contact_url = models.URLField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Lien vers outil de contact",
+        help_text="Lien hypertexte permettant de contacter l'établissement (formulaire, chatbot, etc.)",
+    )
     # adresse
     numero = models.CharField(
         max_length=255,
@@ -515,9 +522,6 @@ class Erp(models.Model):
                     erp_slug=self.slug,
                 ),
             )
-
-    def get_contrib_localisation_url(self):
-        return reverse("contrib_localisation", kwargs={"erp_slug": self.slug})
 
     def get_admin_url(self):
         return (
@@ -820,6 +824,14 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="Nombre de marches",
     )
+    # Sens des marches de l'escalier
+    cheminement_ext_sens_marches = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Sens de circulation de l'escalier",
+        choices=schema.ESCALIER_SENS,
+    )
     # Repérage des marches ou de l’escalier – oui / non / inconnu / sans objet
     cheminement_ext_reperage_marches = models.BooleanField(
         null=True,
@@ -850,13 +862,30 @@ class Accessibilite(models.Model):
         verbose_name="Ascenseur/élévateur",
     )
 
+    # Pente - oui / non / inconnu
+    cheminement_ext_pente = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Pente présence",
+    )
+
     # Pente - Aucune, légère, importante, inconnu
-    cheminement_ext_pente = models.CharField(
+    cheminement_ext_pente_degre_difficulte = models.CharField(
         max_length=15,
         null=True,
         blank=True,
         choices=schema.PENTE_CHOICES,
-        verbose_name="Pente",
+        verbose_name="Difficulté de la pente",
+    )
+
+    # Pente - Aucune, légère, importante, inconnu
+    cheminement_ext_pente_longueur = models.CharField(
+        max_length=15,
+        null=True,
+        blank=True,
+        choices=schema.PENTE_LENGTH_CHOICES,
+        verbose_name="Longueur de la pente",
     )
 
     # Dévers - Aucun, léger, important, inconnu
@@ -921,6 +950,14 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Marches d'escalier",
+    )
+    # Sens des marches de l'escalier
+    entree_marches_sens = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Sens de circulation de l'escalier",
+        choices=schema.ESCALIER_SENS,
     )
     # Repérage des marches ou de l'escalier
     entree_marches_reperage = models.BooleanField(
@@ -1055,6 +1092,14 @@ class Accessibilite(models.Model):
         blank=True,
         verbose_name="Nombre de marches",
     )
+    # Sens des marches de l'escalier
+    accueil_cheminement_sens_marches = models.CharField(
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name="Sens de circulation de l'escalier",
+        choices=schema.ESCALIER_SENS,
+    )
     # Repérage des marches ou de l’escalier
     accueil_cheminement_reperage_marches = models.BooleanField(
         null=True,
@@ -1091,14 +1136,6 @@ class Accessibilite(models.Model):
         blank=True,
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Rétrécissement du cheminement",
-    )
-
-    # Prestations d'accueil adapté supplémentaires
-    accueil_prestations = models.TextField(
-        max_length=1000,
-        null=True,
-        blank=True,
-        verbose_name="Prestations d'accueil adapté supplémentaires",
     )
 
     ##############

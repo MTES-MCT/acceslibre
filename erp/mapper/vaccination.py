@@ -91,6 +91,7 @@ class RecordMapper:
 
         try:
             # Save erp instance
+            self.erp.published = True
             self.erp.save()
 
             # Attach an Accessibilite to newly created Erps

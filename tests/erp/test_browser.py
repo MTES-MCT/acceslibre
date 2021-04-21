@@ -448,10 +448,13 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "cheminement_ext_plain_pied": False,
             "cheminement_ext_ascenseur": True,
             "cheminement_ext_nombre_marches": 42,
+            "cheminement_ext_sens_marches": "descendant",
             "cheminement_ext_reperage_marches": True,
             "cheminement_ext_main_courante": True,
             "cheminement_ext_rampe": "aucune",
-            "cheminement_ext_pente": "aucune",
+            "cheminement_ext_pente": True,
+            "cheminement_ext_pente_degre_difficulte": "légère",
+            "cheminement_ext_pente_longueur": "courte",
             "cheminement_ext_devers": "aucun",
             "cheminement_ext_bande_guidage": True,
             "cheminement_ext_retrecissement": True,
@@ -464,10 +467,13 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.cheminement_ext_plain_pied is False
     assert accessibilite.cheminement_ext_ascenseur is True
     assert accessibilite.cheminement_ext_nombre_marches == 42
+    assert accessibilite.cheminement_ext_sens_marches == "descendant"
     assert accessibilite.cheminement_ext_reperage_marches is True
     assert accessibilite.cheminement_ext_main_courante is True
     assert accessibilite.cheminement_ext_rampe == "aucune"
-    assert accessibilite.cheminement_ext_pente == "aucune"
+    assert accessibilite.cheminement_ext_pente is True
+    assert accessibilite.cheminement_ext_pente_degre_difficulte == "légère"
+    assert accessibilite.cheminement_ext_pente_longueur == "courte"
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
@@ -484,6 +490,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "entree_plain_pied": False,
             "entree_ascenseur": True,
             "entree_marches": 42,
+            "entree_marches_sens": "descendant",
             "entree_marches_reperage": True,
             "entree_marches_main_courante": True,
             "entree_marches_rampe": "aucune",
@@ -504,6 +511,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.entree_plain_pied is False
     assert accessibilite.entree_ascenseur is True
     assert accessibilite.entree_marches == 42
+    assert accessibilite.entree_marches_sens == "descendant"
     assert accessibilite.entree_marches_reperage is True
     assert accessibilite.entree_marches_main_courante is True
     assert accessibilite.entree_marches_rampe == "aucune"
@@ -528,11 +536,11 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "accueil_cheminement_plain_pied": False,
             "accueil_cheminement_ascenseur": True,
             "accueil_cheminement_nombre_marches": 42,
+            "accueil_cheminement_sens_marches": "descendant",
             "accueil_cheminement_reperage_marches": True,
             "accueil_cheminement_main_courante": True,
             "accueil_cheminement_rampe": "aucune",
             "accueil_retrecissement": True,
-            "accueil_prestations": "blah",
         },
         follow=True,
     )
@@ -544,11 +552,11 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.accueil_cheminement_plain_pied is False
     assert accessibilite.accueil_cheminement_ascenseur is True
     assert accessibilite.accueil_cheminement_nombre_marches == 42
+    assert accessibilite.accueil_cheminement_sens_marches == "descendant"
     assert accessibilite.accueil_cheminement_reperage_marches is True
     assert accessibilite.accueil_cheminement_main_courante is True
     assert accessibilite.accueil_cheminement_rampe == "aucune"
     assert accessibilite.accueil_retrecissement is True
-    assert accessibilite.accueil_prestations == "blah"
     assert_redirect(response, "/contrib/sanitaires/test-erp/")
     assert response.status_code == 200
 

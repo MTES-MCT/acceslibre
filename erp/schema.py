@@ -32,28 +32,31 @@ DEVERS_CHOICES = [
     (DEVERS_AUCUN, "Aucun"),
     (DEVERS_LEGER, "Léger"),
     (DEVERS_IMPORTANT, "Important"),
-    (None, UNKNOWN_OR_NA),
+    (None, UNKNOWN),
 ]
 
 EQUIPEMENT_MALENTENDANT_AUTRES = "autres"
 EQUIPEMENT_MALENTENDANT_BIM = "bim"
+EQUIPEMENT_MALENTENDANT_BM_PORTATIVE = "bmp"
 EQUIPEMENT_MALENTENDANT_LSF = "lsf"
-EQUIPEMENT_MALENTENDANT_SCD = "scd"
+EQUIPEMENT_MALENTENDANT_STS = "sts"
 EQUIPEMENT_MALENTENDANT_LPC = "lpc"
 EQUIPEMENT_MALENTENDANT_CHOICES = [
-    (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique"),
+    (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique fixe"),
+    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, "Boucle à induction magnétique portative"),
     (EQUIPEMENT_MALENTENDANT_LSF, "Langue des signes française"),
     (EQUIPEMENT_MALENTENDANT_LPC, "Langue Française Parlée Complétée (LFPC)"),
-    (EQUIPEMENT_MALENTENDANT_SCD, "Service de communication à distance"),
+    (EQUIPEMENT_MALENTENDANT_STS, "Sous-Titrage ou Transcription Simultanée"),
     (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
 ]
 
 EQUIPEMENT_MALENTENDANT_DESCRIPTIONS = {
     EQUIPEMENT_MALENTENDANT_AUTRES: "Autres équipements non précisés",
     EQUIPEMENT_MALENTENDANT_BIM: "La boucle à induction magnétique (BIM) permet d'entendre une source sonore en s'affranchissant de la distance (salles de spectacles), du bruit ambiant (lieux publics), des phénomènes d'échos ou de réverbérations sonores (églises, salles aux murs nus), des déformations apportées par les écouteurs (téléphones, MP3) ou les haut-parleurs (télévision, radio, cinéma).",
+    EQUIPEMENT_MALENTENDANT_BM_PORTATIVE: "La boucle magnétique portative (BMP) est un système de transmission du son individuel",
     EQUIPEMENT_MALENTENDANT_LSF: "La langue des signes française (LSF) est la langue des signes utilisée par une partie des sourds de France et par une partie des sourds de Suisse.",
     EQUIPEMENT_MALENTENDANT_LPC: "Langue Française Parlée Complétée (LFPC)",
-    EQUIPEMENT_MALENTENDANT_SCD: "Service de communication, à distance et en temps réel, entre entendants et malentendants ou sourds, par transcription TIP (Transcription Instantanée de la Parole) ou LSF (Langue des Signes Français).",
+    EQUIPEMENT_MALENTENDANT_STS: "Service de communication, à distance et en temps réel, entre entendants et malentendants ou sourds, par sous-titrage ou transcription TIP (Transcription Instantanée de la Parole).",
 }
 
 HANDICAP_AUDITIF = "auditif"
@@ -96,7 +99,17 @@ PENTE_CHOICES = [
     (PENTE_AUCUNE, "Aucune"),
     (PENTE_LEGERE, "Légère"),
     (PENTE_IMPORTANTE, "Importante"),
-    (None, UNKNOWN_OR_NA),
+    (None, UNKNOWN),
+]
+
+PENTE_LONGUEUR_COURTE = "courte"
+PENTE_LONGUEUR_MOYENNE = "moyenne"
+PENTE_LONGUEUR_LONGUE = "longue"
+PENTE_LENGTH_CHOICES = [
+    (PENTE_LONGUEUR_COURTE, "< 0,5m"),
+    (PENTE_LONGUEUR_MOYENNE, "entre 0,5 et 2m"),
+    (PENTE_LONGUEUR_LONGUE, "> 2m"),
+    (None, UNKNOWN),
 ]
 
 PERSONNELS_AUCUN = "aucun"
@@ -117,6 +130,14 @@ RAMPE_CHOICES = [
     (RAMPE_AUCUNE, "Aucune"),
     (RAMPE_FIXE, "Fixe"),
     (RAMPE_AMOVIBLE, "Amovible"),
+    (None, UNKNOWN),
+]
+
+ESCALIER_MONTANT = "montant"
+ESCALIER_DESCENDANT = "descendant"
+ESCALIER_SENS = [
+    (ESCALIER_MONTANT, "Montant"),
+    (ESCALIER_DESCENDANT, "Descendant"),
     (None, UNKNOWN),
 ]
 
@@ -397,6 +418,19 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
+    "cheminement_ext_sens_marches": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Sens de circulation de l'escalier",
+        "help_text": mark_safe(
+            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+        ),
+        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": None,
+    },
     "cheminement_ext_reperage_marches": {
         "type": "boolean",
         "nullable": True,
@@ -429,7 +463,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
-            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence et type de rampe"),
         "section": SECTION_CHEMINEMENT_EXT,
@@ -437,17 +471,37 @@ FIELDS = {
         "warn_if": RAMPE_AUCUNE,
     },
     "cheminement_ext_pente": {
-        "type": "string",
+        "type": "boolean",
         "nullable": True,
         "is_a11y": True,
         "label": "Pente",
-        "help_text": mark_safe(
-            "S'il existe une pente, quel est son degré de difficulté&nbsp;?"
-        ),
+        "help_text": mark_safe("Une pente est-elle présente&nbsp;?"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
+        "warn_if": False,
+    },
+    "cheminement_ext_pente_degre_difficulte": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Degré de difficulté de la pente",
+        "help_text": mark_safe("Quel est son degré de difficulté&nbsp;?"),
+        "help_text_ui": None,
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": PENTE_AUCUNE,
+    },
+    "cheminement_ext_pente_longueur": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Longueur de la pente",
+        "help_text": mark_safe("Quelle est sa longueur&nbsp;?"),
+        "help_text_ui": None,
+        "section": SECTION_CHEMINEMENT_EXT,
+        "nullable_bool": True,
+        "warn_if": PENTE_AUCUNE,
     },
     "cheminement_ext_devers": {
         "type": "string",
@@ -483,7 +537,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
-            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
@@ -571,6 +625,19 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
+    "entree_marches_sens": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Sens de circulation de l'escalier",
+        "help_text": mark_safe(
+            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+        ),
+        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": None,
+    },
     "entree_marches_reperage": {
         "type": "boolean",
         "nullable": True,
@@ -603,7 +670,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
-            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": None,
         "section": SECTION_ENTREE,
@@ -804,6 +871,19 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
+    "accueil_cheminement_sens_marches": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Sens de circulation de l'escalier",
+        "help_text": mark_safe(
+            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+        ),
+        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": None,
+    },
     "accueil_cheminement_reperage_marches": {
         "type": "boolean",
         "nullable": True,
@@ -836,7 +916,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rampe",
         "help_text": mark_safe(
-            "S'il existe une rampe, est-elle fixe ou amovible&nbsp;?"
+            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence et type de rampe"),
         "section": SECTION_ACCUEIL,
@@ -849,7 +929,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
-            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 80 cm) du chemin emprunté par le public pour atteindre la zone d’accueil&nbsp;?"
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre la zone d’accueil&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
@@ -857,19 +937,6 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
-    },
-    "accueil_prestations": {
-        "type": "string",
-        "nullable": True,
-        "is_a11y": True,
-        "label": "Prestations spécifiques proposées par l'établissement",
-        "help_text": mark_safe(
-            "Prestations spécifiques supplémentaires proposées par l'établissement"
-        ),
-        "help_text_ui": None,
-        "section": SECTION_ACCUEIL,
-        "nullable_bool": False,
-        "warn_if": None,
     },
     # Sanitaires
     "sanitaires_presence": {
@@ -947,12 +1014,14 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": False,
-        "label": "Commentaire libre (précisions utiles concernant l'accessibilité du bâtiment)",
+        "label": "Informations complémentaires et prestations spécifiques",
         "help_text": mark_safe(
-            "Indiquez ici toute information supplémentaire qui vous semble pertinente pour décrire l'accessibilité du bâtiment."
-            "<br><strong>Note&nbsp;:</strong> ce commentaire sera affiché sur la fiche publique de l'établissement."
+            "Ajoutez ici toute information supplémentaire concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées."
+            "<br><strong>Note&nbsp;:</strong> ces informations seront affichées sur la fiche publique de l'établissement."
         ),
-        "help_text_ui": mark_safe("Informations supplémentaires"),
+        "help_text_ui": mark_safe(
+            "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées"
+        ),
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,

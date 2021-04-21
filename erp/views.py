@@ -70,7 +70,6 @@ def make_geojson(erp_qs):
             "activite__vector_icon",
             "adresse",
             "absolute_url",
-            "contrib_localisation_url",
             "has_accessibilite",
         ],
     )
