@@ -160,6 +160,11 @@ def get_label_name(value):
     return dict(schema.LABEL_CHOICES).get(value)
 
 
+@register.filter(name="get_pente_degre_difficulte")
+def get_pente_degre_difficulte(value):
+    return dict(schema.PENTE_CHOICES).get(value)
+
+
 @register.filter(name="get_naf_label")
 def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")

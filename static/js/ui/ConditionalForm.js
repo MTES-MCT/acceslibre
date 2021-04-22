@@ -55,7 +55,7 @@ const rules = [
   },
 
   {
-    source: "cheminement_ext_pente",
+    source: "cheminement_ext_pente_presence",
     values: ["True"],
     targets: [
       "cheminement_ext_pente_degre_difficulte",
