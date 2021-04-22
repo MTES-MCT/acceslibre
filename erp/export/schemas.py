@@ -33,7 +33,9 @@ class OfficialSchema:
     entree_marches_main_courante: bool
     entree_marches_rampe: Literal["aucune", "fixe", "amovible"]
     entree_dispositif_appel: bool
-    entree_dispositif_appel_type: Set[Literal["bouton", "sonnette", "interphone", "visiophone"]]
+    entree_dispositif_appel_type: Set[
+        Literal["bouton", "sonnette", "interphone", "visiophone"]
+    ]
     entree_balise_sonore: bool
     entree_aide_humaine: bool
     entree_largeur_mini: int
@@ -42,7 +44,9 @@ class OfficialSchema:
     accueil_visibilite: bool
     accueil_personnels: Literal["formés", "non-formés"]
     accueil_equipements_malentendants_presence: bool
-    accueil_equipements_malentendants: Set[Literal["autres", "bim", "lsf", "scd", "lpc"]]
+    accueil_equipements_malentendants: Set[
+        Literal["autres", "bim", "lsf", "scd", "lpc"]
+    ]
     accueil_cheminement_plain_pied: bool
     accueil_cheminement_ascenseur: bool
     accueil_cheminement_nombre_marches: int

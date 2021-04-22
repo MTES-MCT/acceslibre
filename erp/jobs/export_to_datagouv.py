@@ -4,7 +4,7 @@ from erp.models import Erp
 
 
 def job(*args, **kwargs):
-    with open('export.csv', 'w', newline='') as csv_file:
-        erps = Erp.objects.select_related('accessibilite').filter(published=True)
+    with open("export.csv", "w", newline="") as csv_file:
+        erps = Erp.objects.having_a11y_data().all()
         headers, mapped_data = map_erp_to_json_schema(erps)
         export_to_csv(csv_file, headers, mapped_data)

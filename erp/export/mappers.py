@@ -47,9 +47,15 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[OfficialSch
             cheminement_ext_nombre_marches=erp.accessibilite.cheminement_ext_nombre_marches,
             cheminement_ext_reperage_marches=erp.accessibilite.cheminement_ext_reperage_marches,
             cheminement_ext_main_courante=erp.accessibilite.cheminement_ext_main_courante,
-            cheminement_ext_rampe=map_value_from_schema(schema.RAMPE_CHOICES, erp.accessibilite.cheminement_ext_rampe),
-            cheminement_ext_pente=map_value_from_schema(schema.PENTE_CHOICES, erp.accessibilite.cheminement_ext_pente),
-            cheminement_ext_devers=map_value_from_schema(schema.DEVERS_CHOICES, erp.accessibilite.cheminement_ext_devers),
+            cheminement_ext_rampe=map_value_from_schema(
+                schema.RAMPE_CHOICES, erp.accessibilite.cheminement_ext_rampe
+            ),
+            cheminement_ext_pente=map_value_from_schema(
+                schema.PENTE_CHOICES, erp.accessibilite.cheminement_ext_pente
+            ),
+            cheminement_ext_devers=map_value_from_schema(
+                schema.DEVERS_CHOICES, erp.accessibilite.cheminement_ext_devers
+            ),
             cheminement_ext_bande_guidage=erp.accessibilite.cheminement_ext_bande_guidage,
             cheminement_ext_retrecissement=erp.accessibilite.cheminement_ext_retrecissement,
             entree_reperage=erp.accessibilite.entree_reperage,
@@ -60,34 +66,48 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[OfficialSch
             entree_marches=erp.accessibilite.entree_marches,
             entree_marches_reperage=erp.accessibilite.entree_marches_reperage,
             entree_marches_main_courante=erp.accessibilite.entree_marches_main_courante,
-            entree_marches_rampe=map_value_from_schema(schema.RAMPE_CHOICES, erp.accessibilite.entree_marches_rampe),
+            entree_marches_rampe=map_value_from_schema(
+                schema.RAMPE_CHOICES, erp.accessibilite.entree_marches_rampe
+            ),
             entree_dispositif_appel=erp.accessibilite.entree_dispositif_appel,
-            entree_dispositif_appel_type=map_list_from_schema(schema.DISPOSITIFS_APPEL_CHOICES, erp.accessibilite.entree_dispositif_appel_type),
+            entree_dispositif_appel_type=map_list_from_schema(
+                schema.DISPOSITIFS_APPEL_CHOICES,
+                erp.accessibilite.entree_dispositif_appel_type,
+            ),
             entree_balise_sonore=erp.accessibilite.entree_balise_sonore,
             entree_aide_humaine=erp.accessibilite.entree_aide_humaine,
             entree_largeur_mini=erp.accessibilite.entree_largeur_mini,
             entree_pmr=erp.accessibilite.entree_pmr,
             entree_pmr_informations=erp.accessibilite.entree_pmr_informations,
             accueil_visibilite=erp.accessibilite.accueil_visibilite,
-            accueil_personnels=map_value_from_schema(schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels),
+            accueil_personnels=map_value_from_schema(
+                schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels
+            ),
             accueil_equipements_malentendants_presence=erp.accessibilite.accueil_equipements_malentendants_presence,
-            accueil_equipements_malentendants=map_list_from_schema(schema.EQUIPEMENT_MALENTENDANT_CHOICES, erp.accessibilite.accueil_equipements_malentendants),
+            accueil_equipements_malentendants=map_list_from_schema(
+                schema.EQUIPEMENT_MALENTENDANT_CHOICES,
+                erp.accessibilite.accueil_equipements_malentendants,
+            ),
             accueil_cheminement_plain_pied=erp.accessibilite.accueil_cheminement_plain_pied,
             accueil_cheminement_ascenseur=erp.accessibilite.accueil_cheminement_ascenseur,
             accueil_cheminement_nombre_marches=erp.accessibilite.accueil_cheminement_nombre_marches,
             accueil_cheminement_reperage_marches=erp.accessibilite.accueil_cheminement_reperage_marches,
             accueil_cheminement_main_courante=erp.accessibilite.accueil_cheminement_main_courante,
-            accueil_cheminement_rampe=map_value_from_schema(schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe),
+            accueil_cheminement_rampe=map_value_from_schema(
+                schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
+            ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
             accueil_prestations=erp.accessibilite.accueil_prestations,
             sanitaires_presence=erp.accessibilite.sanitaires_presence,
             sanitaires_adaptes=erp.accessibilite.sanitaires_adaptes,
             labels=map_list_from_schema(schema.LABEL_CHOICES, erp.accessibilite.labels),
-            labels_familles_handicap=map_list_from_schema(schema.HANDICAP_CHOICES, erp.accessibilite.labels_familles_handicap),
+            labels_familles_handicap=map_list_from_schema(
+                schema.HANDICAP_CHOICES, erp.accessibilite.labels_familles_handicap
+            ),
             labels_autre=erp.accessibilite.labels_autre,
             commentaire=erp.accessibilite.commentaire,
             registre_url=erp.accessibilite.registre_url,
-            conformite=erp.accessibilite.conformite
+            conformite=erp.accessibilite.conformite,
         )
 
         results.append(o)
