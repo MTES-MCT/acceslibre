@@ -470,7 +470,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": RAMPE_AUCUNE,
     },
-    "cheminement_ext_pente": {
+    "cheminement_ext_pente_presence": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,

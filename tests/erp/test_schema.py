@@ -60,7 +60,10 @@ def test_get_help_texts():
 
 def test_get_help_text():
     result = schema.get_help_text("cheminement_ext_rampe")
-    assert result == "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
+    assert (
+        result
+        == "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
+    )
 
     result = schema.get_help_text("invalid", "yolo")
     assert result == "yolo"
@@ -70,7 +73,7 @@ def test_get_section_fields():
     result = schema.get_section_fields(schema.SECTION_ENTREE)
     assert type(result) == list
     assert "entree_reperage" in result
-    assert "cheminement_ext_pente" not in result
+    assert "cheminement_ext_pente_presence" not in result
 
 
 def test_get_nullable_bool_fields():
