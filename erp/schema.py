@@ -470,7 +470,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": RAMPE_AUCUNE,
     },
-    "cheminement_ext_pente": {
+    "cheminement_ext_pente_presence": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
@@ -479,7 +479,7 @@ FIELDS = {
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": False,
+        "warn_if": None,
     },
     "cheminement_ext_pente_degre_difficulte": {
         "type": "string",
@@ -490,7 +490,7 @@ FIELDS = {
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": PENTE_AUCUNE,
+        "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
     },
     "cheminement_ext_pente_longueur": {
         "type": "string",
@@ -501,7 +501,8 @@ FIELDS = {
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": PENTE_AUCUNE,
+        "warn_if": lambda x, i: x is not None
+        and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
     },
     "cheminement_ext_devers": {
         "type": "string",

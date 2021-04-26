@@ -73,7 +73,7 @@ def test_get_section_fields():
     result = schema.get_section_fields(schema.SECTION_ENTREE)
     assert type(result) == list
     assert "entree_reperage" in result
-    assert "cheminement_ext_pente" not in result
+    assert "cheminement_ext_pente_presence" not in result
 
 
 def test_get_nullable_bool_fields():
