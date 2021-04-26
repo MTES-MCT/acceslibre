@@ -6,13 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0110_auto_20210222_1909'),
+        ("erp", "0110_auto_20210222_1909"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='cheminement_ext_devers',
-            field=models.CharField(blank=True, choices=[('aucun', 'Aucun'), ('léger', 'Léger'), ('important', 'Important'), (None, 'Inconnu')], max_length=15, null=True, verbose_name='Dévers'),
+            model_name="accessibilite",
+            name="cheminement_ext_devers",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("aucun", "Aucun"),
+                    ("léger", "Léger"),
+                    ("important", "Important"),
+                    (None, "Inconnu"),
+                ],
+                max_length=15,
+                null=True,
+                verbose_name="Dévers",
+            ),
         ),
     ]
