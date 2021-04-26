@@ -924,6 +924,30 @@ class Accessibilite(models.Model):
         verbose_name="Entrée facilement repérable",
     )
 
+    # Présence d'une porte (oui / non)
+    entree_porte_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
+        verbose_name="Y a-t-il une porte ?",
+    )
+    # Manoeuvre de la porte (porte battante / porte coulissante / tourniquet / porte tambour / inconnu ou sans objet)
+    entree_porte_manoeuvre = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        choices=schema.PORTE_MANOEUVRE_CHOICES,
+        verbose_name="Manœuvre de la porte",
+    )
+    # Type de porte (manuelle / automatique / passage libre sans porte / inconnu)
+    entree_porte_type = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        choices=schema.PORTE_TYPE_CHOICES,
+        verbose_name="Type de porte",
+    )
+
     # Entrée vitrée
     entree_vitree = models.BooleanField(
         null=True,

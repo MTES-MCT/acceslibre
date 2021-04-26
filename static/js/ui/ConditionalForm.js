@@ -57,14 +57,17 @@ const rules = [
   {
     source: "cheminement_ext_pente_presence",
     values: ["True"],
-    targets: [
-      "cheminement_ext_pente_degre_difficulte",
-      "cheminement_ext_pente_longueur",
-    ],
+    targets: ["cheminement_ext_pente_degre_difficulte", "cheminement_ext_pente_longueur"],
     indent: 2,
   },
 
   // Entrée
+  {
+    source: "entree_porte_presence",
+    values: ["True"],
+    targets: ["entree_porte_manoeuvre", "entree_porte_type"],
+    indent: 1,
+  },
   {
     source: "entree_vitree",
     values: ["True"],

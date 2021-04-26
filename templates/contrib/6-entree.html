@@ -5,6 +5,9 @@
 
 {% block fields_content %}
   {% include "fields/boolradio.html" with field=form.entree_reperage inline=True %}
+  {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True %}
+  {% include "fields/boolradio.html" with field=form.entree_porte_manoeuvre inline=True %}
+  {% include "fields/boolradio.html" with field=form.entree_porte_type inline=True %}
   {% include "fields/boolradio.html" with field=form.entree_vitree inline=True %}
   {% include "fields/boolradio.html" with field=form.entree_vitree_vitrophanie inline=True %}
   {% include "fields/boolradio.html" with field=form.entree_dispositif_appel inline=True %}

@@ -122,6 +122,26 @@ PERSONNELS_CHOICES = [
     (None, UNKNOWN),
 ]
 
+PORTE_TYPE_MANUELLE = "manuelle"
+PORTE_TYPE_AUTOMATIQUE = "automatique"
+PORTE_TYPE_CHOICES = [
+    (PORTE_TYPE_MANUELLE, "Manuelle"),
+    (PORTE_TYPE_AUTOMATIQUE, "Automatique"),
+    (None, UNKNOWN_OR_NA),
+]
+
+PORTE_MANOEUVRE_BATTANTE = "battante"
+PORTE_MANOEUVRE_COULISSANTE = "coulissante"
+PORTE_MANOEUVRE_TOURNIQUET = "tourniquet"
+PORTE_MANOEUVRE_TAMBOUR = "tambour"
+PORTE_MANOEUVRE_CHOICES = [
+    (PORTE_MANOEUVRE_BATTANTE, "Porte battante"),
+    (PORTE_MANOEUVRE_COULISSANTE, "Porte coulissante"),
+    (PORTE_MANOEUVRE_TOURNIQUET, "Tourniquet"),
+    (PORTE_MANOEUVRE_TAMBOUR, "Porte tambour"),
+    (None, UNKNOWN),
+]
+
 RAMPE_AUCUNE = "aucune"
 RAMPE_FIXE = "fixe"
 RAMPE_AMOVIBLE = "amovible"
@@ -562,6 +582,41 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+    },
+    "entree_porte_presence": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Y a-t-il une porte ?",
+        "help_text": mark_safe(
+            "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
+        ),
+        "help_text_ui": mark_safe("Présence d'une porte à l'entrée de l'établissement"),
+        "section": SECTION_ENTREE,
+        "nullable_bool": False,
+        "warn_if": None,
+    },
+    "entree_porte_manoeuvre": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Manoeuvre de la porte",
+        "help_text": mark_safe("Comment s'ouvre la porte&nbsp;?"),
+        "help_text_ui": mark_safe("Type d'ouverture de la porte"),
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,  # XXX: vérifier ça
+        "warn_if": None,
+    },
+    "entree_porte_type": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Type de porte",
+        "help_text": mark_safe("Comment s'ouvre la porte&nbsp;?"),
+        "help_text_ui": mark_safe("Type d'ouverture de la porte"),
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,  # XXX: vérifier ça
+        "warn_if": None,
     },
     "entree_vitree": {
         "type": "boolean",
