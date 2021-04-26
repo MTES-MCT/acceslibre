@@ -26,7 +26,8 @@ class ImportVaccinationsCenters:
     imported = 0
     skipped = 0
 
-    def __init__(self, is_scheduler=False) -> None:
+    def __init__(self, is_scheduler=False, mail_notification=False) -> None:
+        self.mail_notification = mail_notification
         self.is_scheduler = is_scheduler
         self.output = outputVoidStrategy if is_scheduler else outputPrintStrategy
 
@@ -40,20 +41,20 @@ class ImportVaccinationsCenters:
         try:
             for erp in self.do_import(dataset_url):
                 self.output("." if erp else "S", "", True)
-
-            if self.is_scheduler:
-                self._send_report()
-            else:
-                if verbose and len(self.errors) > 0:
-                    self.output("Erreurs rencontrées :")
-                    for error in self.errors:
-                        self.output(f"- {error}")
-
-                self.output("Opération effectuée:")
-                self.output(f"- {self.imported} centres importés")
-                self.output(f"- {self.skipped} écartés")
         except RuntimeError as err:
             logger.error(err)
+
+        if self.is_scheduler and self.mail_notification:
+            self._send_report()
+        else:
+            if verbose and len(self.errors) > 0:
+                self.output("Erreurs rencontrées :")
+                for error in self.errors:
+                    self.output(f"- {error}")
+
+            self.output("Opération effectuée:")
+            self.output(f"- {self.imported} centres importés")
+            self.output(f"- {self.skipped} écartés")
 
     def do_import(self, dataset_url):
         json_data = self._get_valid_data(dataset_url)

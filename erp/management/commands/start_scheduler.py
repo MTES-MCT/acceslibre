@@ -18,10 +18,9 @@ class Command(BaseCommand):
         schedule.every(notify_changed_erps.HOURS_CHECK).hours.do(
             notify_changed_erps.job, verbose=True
         )
-        for target in ["00:00", "06:00", "12:00", "18:00"]:
-            schedule.every().day.at(target).do(
-                ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
-            )
+        schedule.every().hour.do(
+            ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
+        )
         print("Scheduler started")
         while True:
             schedule.run_pending()
