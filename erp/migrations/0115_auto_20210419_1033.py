@@ -6,23 +6,53 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0114_alter_accessibilite_accueil_equipements_malentendants'),
+        ("erp", "0114_alter_accessibilite_accueil_equipements_malentendants"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='accessibilite',
-            name='accueil_cheminement_sens_marches',
-            field=models.CharField(blank=True, choices=[('montant', 'Montant'), ('descendant', 'Descendant'), (None, 'Inconnu')], max_length=20, null=True, verbose_name="Sens de circulation de l'escalier"),
+            model_name="accessibilite",
+            name="accueil_cheminement_sens_marches",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("montant", "Montant"),
+                    ("descendant", "Descendant"),
+                    (None, "Inconnu"),
+                ],
+                max_length=20,
+                null=True,
+                verbose_name="Sens de circulation de l'escalier",
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='cheminement_ext_sens_marches',
-            field=models.CharField(blank=True, choices=[('montant', 'Montant'), ('descendant', 'Descendant'), (None, 'Inconnu')], max_length=20, null=True, verbose_name="Sens de circulation de l'escalier"),
+            model_name="accessibilite",
+            name="cheminement_ext_sens_marches",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("montant", "Montant"),
+                    ("descendant", "Descendant"),
+                    (None, "Inconnu"),
+                ],
+                max_length=20,
+                null=True,
+                verbose_name="Sens de circulation de l'escalier",
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='entree_marches_sens',
-            field=models.CharField(blank=True, choices=[('montant', 'Montant'), ('descendant', 'Descendant'), (None, 'Inconnu')], max_length=20, null=True, verbose_name="Sens de circulation de l'escalier"),
+            model_name="accessibilite",
+            name="entree_marches_sens",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("montant", "Montant"),
+                    ("descendant", "Descendant"),
+                    (None, "Inconnu"),
+                ],
+                max_length=20,
+                null=True,
+                verbose_name="Sens de circulation de l'escalier",
+            ),
         ),
     ]
