@@ -15,24 +15,11 @@ def migrate_value(previous_value):
         return None, None
 
 
-# {"<pk>": "<schema.PENTE_CHOICES>", etc…}
-previous_data = {}
-
-
-def retrieve_previous_data_and_reset_values(apps, schema_editor):
-    Accessibilite = apps.get_model("erp", "Accessibilite")
-    for a in Accessibilite.objects.all():
-        previous_data[a.id] = a.cheminement_ext_pente
-        a.cheminement_ext_pente = None
-        a.save()
-
-
 def migrate_previous_data(apps, schema_editor):
     Accessibilite = apps.get_model("erp", "Accessibilite")
-    for (id, previous_value) in previous_data.items():
-        a = Accessibilite.objects.get(pk=id)
-        (presence, degre_difficulte) = migrate_value(previous_value)
-        a.cheminement_ext_pente = presence
+    for a in Accessibilite.objects.all():
+        (presence, degre_difficulte) = migrate_value(a.cheminement_ext_pente)
+        a.cheminement_ext_pente_presence = presence
         a.cheminement_ext_pente_degre_difficulte = degre_difficulte
         a.save()
 
@@ -43,6 +30,16 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.AddField(
+            model_name="accessibilite",
+            name="cheminement_ext_pente_presence",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                null=True,
+                verbose_name="Pente présence",
+            ),
+        ),
         migrations.AddField(
             model_name="accessibilite",
             name="cheminement_ext_pente_degre_difficulte",
@@ -75,16 +72,9 @@ class Migration(migrations.Migration):
                 verbose_name="Longueur de la pente",
             ),
         ),
-        migrations.RunPython(retrieve_previous_data_and_reset_values),
-        migrations.AlterField(
+        migrations.RunPython(migrate_previous_data),
+        migrations.RemoveField(
             model_name="accessibilite",
             name="cheminement_ext_pente",
-            field=models.BooleanField(
-                blank=True,
-                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
-                null=True,
-                verbose_name="Pente présence",
-            ),
         ),
-        migrations.RunPython(migrate_previous_data),
     ]
