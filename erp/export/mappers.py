@@ -1,8 +1,8 @@
 from dataclasses import fields
-from typing import List, Tuple, Literal
+from typing import List, Tuple
 
 from erp import schema
-from erp.export.schemas import OfficialSchema
+from erp.export.schemas import EtalabSchema
 from erp.models import Erp, Accessibilite
 
 
@@ -22,8 +22,8 @@ def map_list_from_schema(schema_enum, data):
     return result
 
 
-def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[OfficialSchema]]:
-    headers = [x.name for x in fields(OfficialSchema)]
+def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabSchema]]:
+    headers = [x.name for x in fields(EtalabSchema)]
 
     results = []
     for erp in erps:
@@ -32,7 +32,7 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[OfficialSch
         except Accessibilite.DoesNotExist:
             continue
 
-        o = OfficialSchema(
+        o = EtalabSchema(
             id=str(erp.id),
             transport_station_presence=erp.accessibilite.transport_station_presence,
             transport_information=erp.accessibilite.transport_information,
