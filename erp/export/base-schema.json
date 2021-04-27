@@ -1,0 +1,60 @@
+{
+  "$schema": "https://specs.frictionlessdata.io/schemas/table-schema.json",
+  "name": "acceslibre",
+  "title": "Schéma des données d'accessibilité des ERPs",
+  "description": "Spécification du fichier d'échange relatif aux données d'accessibilité des Établissements Recevant du Public (ERP).",
+  "keywords": [
+    "accessibilite",
+    "access",
+    "a11y"
+  ],
+  "countryCode": "FR",
+  "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
+  "path": "https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/schema.json",
+  "image": "https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/irve.png",
+  "licenses": [
+    {
+      "title": "Etalab Licence Ouverte 2.0",
+      "name": "etalab-2.0",
+      "path": "https://spdx.org/licenses/etalab-2.0.html"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Fichier valide (CSV)",
+      "name": "exemple-valide-csv",
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.1.1/exemple-valide.csv"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Arrêté du 12 janvier 2017 relatif aux objets importants",
+      "path": "https://beta.legifrance.gouv.fr/codes/id/LEGISCTA000031367685/2020-05-25"
+    }
+  ],
+  "created": "2021-03-10",
+  "lastModified": "2021-03-10",
+  "version": "0.0.1",
+  "contributors": [
+    {
+      "title": "Caleb Eliacheff",
+      "email": "caleb.eliacheff@beta.gouv.fr",
+      "organisation": "MTES-MCT",
+      "role": "author"
+    },
+    {
+      "title": "Nicolas Pierrault",
+      "email": "nicolas@perriault.net",
+      "organisation": "MTES-MCT",
+      "role": "author"
+    }
+  ],
+  "fields": [
+    {
+      "name":"id",
+      "description":"Identifiant unique",
+      "type":"string",
+      "example":""
+    }
+  ]
+}
