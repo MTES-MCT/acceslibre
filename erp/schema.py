@@ -96,7 +96,6 @@ PENTE_AUCUNE = "aucune"
 PENTE_LEGERE = "légère"
 PENTE_IMPORTANTE = "importante"
 PENTE_CHOICES = [
-    (PENTE_AUCUNE, "Aucune"),
     (PENTE_LEGERE, "Légère"),
     (PENTE_IMPORTANTE, "Importante"),
     (None, UNKNOWN),
