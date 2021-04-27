@@ -939,7 +939,7 @@ class Accessibilite(models.Model):
         choices=schema.PORTE_MANOEUVRE_CHOICES,
         verbose_name="Manœuvre de la porte",
     )
-    # Type de porte (manuelle / automatique / passage libre sans porte / inconnu)
+    # Type de porte (manuelle / automatique / inconnu)
     entree_porte_type = models.CharField(
         max_length=255,
         null=True,

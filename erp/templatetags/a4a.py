@@ -172,7 +172,7 @@ def get_naf_label(value):
 
 @register.filter(name="get_schema_label")
 def get_schema_label(value):
-    return schema.FIELDS.get(value, {}).get("label", value) or value
+    return schema.get_label(value)
 
 
 @register.filter("isemptylist")

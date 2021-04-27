@@ -602,9 +602,9 @@ FIELDS = {
         "is_a11y": True,
         "label": "Manoeuvre de la porte",
         "help_text": mark_safe("Comment s'ouvre la porte&nbsp;?"),
-        "help_text_ui": mark_safe("Type d'ouverture de la porte"),
+        "help_text_ui": mark_safe("Mode d'ouverture de la porte"),
         "section": SECTION_ENTREE,
-        "nullable_bool": True,  # XXX: vérifier ça
+        "nullable_bool": True,
         "warn_if": None,
     },
     "entree_porte_type": {
@@ -612,10 +612,10 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Type de porte",
-        "help_text": mark_safe("Comment s'ouvre la porte&nbsp;?"),
-        "help_text_ui": mark_safe("Type d'ouverture de la porte"),
+        "help_text": mark_safe("Quel est le type de la porte&nbsp;?"),
+        "help_text_ui": mark_safe("Type de porte"),
         "section": SECTION_ENTREE,
-        "nullable_bool": True,  # XXX: vérifier ça
+        "nullable_bool": True,
         "warn_if": None,
     },
     "entree_vitree": {
