@@ -117,6 +117,13 @@ class AdminAccessibiliteForm(forms.ModelForm):
         label=schema.get_label("accueil_equipements_malentendants"),
         help_text=schema.get_help_text("accueil_equipements_malentendants"),
     )
+    entree_porte_presence = forms.ChoiceField(
+        required=False,
+        label=schema.get_label("entree_porte_presence"),
+        help_text=schema.get_help_text("entree_porte_presence"),
+        choices=[(True, "Oui"), (False, "Non")],
+        widget=forms.RadioSelect(attrs={"class": "inline"}),
+    )
     entree_dispositif_appel_type = forms.MultipleChoiceField(
         required=False,
         choices=schema.DISPOSITIFS_APPEL_CHOICES,
@@ -149,10 +156,19 @@ class AdminAccessibiliteForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
         obj = kwargs.get("instance")
+        # Nombre de sanitaires
         if obj and obj.sanitaires_adaptes is not None and obj.sanitaires_adaptes > 1:
             initial["sanitaires_adaptes"] = 1
-            kwargs["initial"] = initial
-
+        # Valeur par défaut présence d'une porte à l'entrée
+        if obj and (
+            obj.entree_porte_presence is None
+            or (
+                obj.entree_porte_manoeuvre is not None
+                or obj.entree_porte_type is not None
+            )
+        ):
+            initial["entree_porte_presence"] = True
+        kwargs["initial"] = initial
         super().__init__(*args, **kwargs)
 
     def clean_sanitaires_adaptes(self):
