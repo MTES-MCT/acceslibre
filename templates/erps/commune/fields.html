@@ -112,6 +112,10 @@
           {% if field.value > 0 %}Oui{% else %}Non{% endif %}
           {% elif field.name == "accueil_personnels" %}
           {{ erp.accessibilite.get_accueil_personnels_display }}
+          {% elif field.name == "cheminement_ext_pente_degre_difficulte" %}
+          {{ erp.accessibilite.get_cheminement_ext_pente_degre_difficulte_display }}
+          {% elif field.name == "cheminement_ext_pente_longueur" %}
+          {{ erp.accessibilite.get_cheminement_ext_pente_longueur_display }}
           {% elif field.name == "entree_largeur_mini" %}
           {{ field.value }}&nbsp;cm
           {% elif field.name == "cheminement_ext_nombre_marches" or field.name == "accueil_cheminement_nombre_marches" or field.name == "entree_marches" %}

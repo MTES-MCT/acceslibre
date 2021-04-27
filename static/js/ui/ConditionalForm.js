@@ -34,7 +34,7 @@ const rules = [
       "cheminement_ext_main_courante",
       "cheminement_ext_rampe",
       "cheminement_ext_ascenseur",
-      "cheminement_ext_pente",
+      "cheminement_ext_pente_presence",
       "cheminement_ext_devers",
       "cheminement_ext_bande_guidage",
       "cheminement_ext_retrecissement",
@@ -55,7 +55,7 @@ const rules = [
   },
 
   {
-    source: "cheminement_ext_pente",
+    source: "cheminement_ext_pente_presence",
     values: ["True"],
     targets: [
       "cheminement_ext_pente_degre_difficulte",
