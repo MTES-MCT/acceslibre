@@ -26,6 +26,8 @@ def create_field(field_name, field):
         type=map_types(field.get("type")),
         description=field.get("help_text_ui") or field.get("description"),
         title=field.get("label"),
+        true_values=constraints.get("boolTrue", None),
+        false_values=constraints.get("boolFalse", None),
         constraints=constraints.get("enum", None),
         array_item=constraints.get("arrayItem", None),
     )
@@ -61,6 +63,31 @@ def get_constraints(field_name, field):
         constraints["arrayItem"]["type"] = "string"
         constraints["arrayItem"]["enum"] = [
             value[0] for value in enum if value[0] is not None
+        ]
+    elif field_type == "boolean":
+        constraints["boolTrue"] = [
+            "true",
+            "True",
+            "TRUE",
+            "1",
+            "vrai",
+            "Vrai",
+            "VRAI",
+            "oui",
+            "Oui",
+            "OUI",
+        ]
+        constraints["boolFalse"] = [
+            "false",
+            "False",
+            "FALSE",
+            "0",
+            "faux",
+            "Faux",
+            "FAUX",
+            "non",
+            "Non",
+            "NON",
         ]
 
     return constraints
