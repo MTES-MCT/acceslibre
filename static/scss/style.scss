@@ -23,6 +23,11 @@ $viewport-xl: 1200px;
 // App specific styles
 
 .a4a {
+  &-bg-home {
+    background-position: center;
+    background-size: cover;
+  }
+
   &-staging-notice {
     position: sticky;
     bottom: 0;
