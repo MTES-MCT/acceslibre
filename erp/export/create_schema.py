@@ -1,11 +1,7 @@
-from dataclasses import asdict
-
 from frictionless import Schema, Field
 
 from erp import schema
-from erp.export.models import EtalabModel
 from erp.schema import FIELDS
-
 
 ETALAB_SCHEMA_FIELDS = [
     "id",
