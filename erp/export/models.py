@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, fields
 from typing import Literal, Set, Optional
 
 
@@ -67,3 +67,6 @@ class EtalabModel:
     commentaire: str = None
     registre_url: str = None
     conformite: bool = None
+
+
+ETALAB_SCHEMA_FIELDS = [x.name for x in fields(EtalabModel)]

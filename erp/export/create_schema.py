@@ -1,64 +1,8 @@
 from frictionless import Schema, Field
 
 from erp import schema
+from erp.export.models import ETALAB_SCHEMA_FIELDS
 from erp.schema import FIELDS
-
-ETALAB_SCHEMA_FIELDS = [
-    "id",
-    "transport_station_presence",
-    "transport_information",
-    "stationnement_presence",
-    "stationnement_pmr",
-    "stationnement_ext_presence",
-    "stationnement_ext_pmr",
-    "cheminement_ext_presence",
-    "cheminement_ext_terrain_accidente",
-    "cheminement_ext_plain_pied",
-    "cheminement_ext_ascenseur",
-    "cheminement_ext_nombre_marches",
-    "cheminement_ext_reperage_marches",
-    "cheminement_ext_main_courante",
-    "cheminement_ext_rampe",
-    "cheminement_ext_pente",
-    "cheminement_ext_devers",
-    "cheminement_ext_bande_guidage",
-    "cheminement_ext_retrecissement",
-    "entree_reperage",
-    "entree_vitree",
-    "entree_vitree_vitrophanie",
-    "entree_plain_pied",
-    "entree_ascenseur",
-    "entree_marches",
-    "entree_marches_reperage",
-    "entree_marches_main_courante",
-    "entree_marches_rampe",
-    "entree_dispositif_appel",
-    "entree_dispositif_appel_type",
-    "entree_balise_sonore",
-    "entree_aide_humaine",
-    "entree_largeur_mini",
-    "entree_pmr",
-    "entree_pmr_informations",
-    "accueil_visibilite",
-    "accueil_personnels",
-    "accueil_equipements_malentendants_presence",
-    "accueil_equipements_malentendants",
-    "accueil_cheminement_plain_pied",
-    "accueil_cheminement_ascenseur",
-    "accueil_cheminement_nombre_marches",
-    "accueil_cheminement_reperage_marches",
-    "accueil_cheminement_main_courante",
-    "accueil_cheminement_rampe",
-    "accueil_retrecissement",
-    "accueil_prestations",
-    "sanitaires_presence",
-    "sanitaires_adaptes",
-    "labels",
-    "labels_autre",
-    "commentaire",
-    "registre_url",
-    "conformite",
-]
 
 
 def generate_schema(base="base-schema.json", outfile="schema.json"):
@@ -77,7 +21,7 @@ def generate_schema(base="base-schema.json", outfile="schema.json"):
 
 def create_field(field_name, field):
     constraints = get_constraints(field_name, field)
-    return Field(
+    field = Field(
         name=field_name,
         type=map_types(field.get("type")),
         description=field.get("help_text_ui") or field.get("description"),
@@ -85,6 +29,9 @@ def create_field(field_name, field):
         constraints=constraints.get("enum", None),
         array_item=constraints.get("arrayItem", None),
     )
+
+    field["example"] = field.get("example", "")
+    return field
 
 
 def map_types(from_format):

@@ -1,5 +1,4 @@
 import csv
-from dataclasses import fields
 from io import StringIO
 from typing import List
 
@@ -7,7 +6,7 @@ import pytest
 
 from erp.export.export import export_to_csv
 from erp.export.mappers import map_erp_to_json_schema
-from erp.export.schemas import EtalabSchema
+from erp.export.models import ETALAB_SCHEMA_FIELDS
 from erp.models import Erp
 from tests.erp.test_managers import create_test_erp
 
@@ -28,7 +27,7 @@ def example_data(db):
 
 def test_export_to_csv(example_data: List[Erp]):
     # map
-    first_row = [x.name for x in fields(EtalabSchema)]
+    first_row = ETALAB_SCHEMA_FIELDS
     headers, mapped_data = map_erp_to_json_schema(example_data)
 
     # write to csv
