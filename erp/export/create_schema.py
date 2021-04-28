@@ -148,6 +148,3 @@ def get_linked_enum(field_name):
         return schema.HANDICAP_CHOICES
 
     return None
-
-
-generate_schema()
