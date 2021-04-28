@@ -1,15 +1,60 @@
 from dataclasses import asdict
 
+from frictionless import Schema, Field
+
 from erp import schema
 from erp.export.models import EtalabModel
 from erp.schema import FIELDS
-from frictionless import Schema, Field
+
+
+def generate_schema(base="base-schema.json", outfile="schema.json"):
+    table_schema = Schema(base)
+    # table_schema["version"] = "0.0.2"
+    fields_name = asdict(EtalabModel(id="")).keys()
+
+    for field_name in fields_name:
+        f = FIELDS.get(field_name)
+        if not f:
+            continue
+
+        table_schema.add_field(create_field(field_name, f))
+
+    table_schema.to_json(outfile)
+
+
+def create_field(name, field):
+    constraints = get_constraints(field, name)
+
+    return Field(
+        name=name,
+        type=map_types(field.get("type")),
+        description=field.get("help_text_ui") or field.get("description"),
+        title=field.get("label"),
+        constraints=constraints,
+    )
 
 
 def map_types(from_format):
     if from_format == "number":
         return "integer"
     return from_format
+
+
+def get_constraints(field, name):
+    constraints = {}
+    enum = get_linked_enum(name)
+    field_type = map_types(field.get("type"))
+    if enum and field_type == "string":
+        constraints["enum"] = [value[0] for value in enum if value[0] is not None]
+    elif enum and field_type == "array":
+        constraints["arrayItem"] = {}
+        constraints["arrayItem"]["type"] = "string"
+        constraints["arrayItem"]["enum"] = [
+            value[0] for value in enum if value[0] is not None
+        ]
+    else:
+        constraints = None
+    return constraints
 
 
 def get_linked_enum(name):
@@ -35,43 +80,4 @@ def get_linked_enum(name):
     return None
 
 
-def create_field(name, field):
-    constraints = get_constraints(field, name)
-
-    return Field(
-        name=name,
-        type=map_types(field.get("type")),
-        description=field.get("help_text_ui") or field.get("description"),
-        title=field.get("label"),
-        constraints=constraints,
-    )
-
-
-def get_constraints(field, name):
-    constraints = {}
-    enum = get_linked_enum(name)
-    field_type = map_types(field.get("type"))
-    if enum and field_type == "string":
-        constraints["enum"] = [value[0] for value in enum if value[0] is not None]
-    elif enum and field_type == "array":
-        constraints["arrayItem"] = {}
-        constraints["arrayItem"]["type"] = "string"
-        constraints["arrayItem"]["enum"] = [
-            value[0] for value in enum if value[0] is not None
-        ]
-    else:
-        constraints = None
-    return constraints
-
-
-table_schema = Schema("base-schema.json")
-fields_name = asdict(EtalabModel(id="")).keys()
-
-for field_name in fields_name:
-    f = FIELDS.get(field_name)
-    if not f:
-        continue
-
-    table_schema.add_field(create_field(field_name, f))
-
-table_schema.to_json("schema.json")
+generate_schema()
