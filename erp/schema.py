@@ -105,9 +105,9 @@ PENTE_LONGUEUR_COURTE = "courte"
 PENTE_LONGUEUR_MOYENNE = "moyenne"
 PENTE_LONGUEUR_LONGUE = "longue"
 PENTE_LENGTH_CHOICES = [
-    (PENTE_LONGUEUR_COURTE, "< 0,5m"),
-    (PENTE_LONGUEUR_MOYENNE, "entre 0,5 et 2m"),
-    (PENTE_LONGUEUR_LONGUE, "> 2m"),
+    (PENTE_LONGUEUR_COURTE, "< 0,5 mètres"),
+    (PENTE_LONGUEUR_MOYENNE, "entre 0,5 et 2 mètres"),
+    (PENTE_LONGUEUR_LONGUE, "> 2 mètres"),
     (None, UNKNOWN),
 ]
 
@@ -494,7 +494,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Pente",
-        "help_text": mark_safe("Une pente est-elle présente&nbsp;?"),
+        "help_text": mark_safe("Le cheminement est-il en pente&nbsp;?"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
