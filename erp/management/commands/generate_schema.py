@@ -5,7 +5,7 @@ from erp.export.create_schema import generate_schema
 
 class Command(BaseCommand):
     help = "Génère un TableSchema à partir du schema de données"
-    default_dir = "erp/export"
+    default_dir = "erp/export/static"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -14,15 +14,17 @@ class Command(BaseCommand):
             help=f"Fichier contenant un schema prérempli sans champs. Défaut: {self.default_dir}/base-schema.json",
         )
         parser.add_argument(
-            "--outfile",
+            "--out-file",
             type=str,
             help=f"Destination du fichier généré. Défaut: {self.default_dir}/schema.json",
         )
 
     def handle(self, *args, **options):
         base = options.get("base-file", self.default_dir + "/base-schema.json")
-        outfile = options.get("outfile", self.default_dir + "/schema.json")
+        outfile = options.get("out-file", self.default_dir + "/schema.json")
+        repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1"
         try:
+            # generate_schema(base=base, outfile=outfile, repository=repository)
             generate_schema(base=base, outfile=outfile)
             print(f"Schema generated to: {outfile}")
         except KeyboardInterrupt:

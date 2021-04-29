@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from frictionless import Schema, Field
 
 from erp import schema
@@ -5,8 +7,15 @@ from erp.export.models import ETALAB_SCHEMA_FIELDS
 from erp.schema import FIELDS
 
 
-def generate_schema(base="base-schema.json", outfile="schema.json"):
+def generate_schema(
+    base="static/base-schema.json",
+    outfile="static/schema.json",
+    repository="",
+):
     table_schema = Schema(base)
+    table_schema["path"] = repository + "schema.json"
+    table_schema.get("resources")[0]["path"] = repository + "exemple-valide.csv"
+
     # table_schema["version"] = "0.0.1"
 
     for field_name in ETALAB_SCHEMA_FIELDS:
