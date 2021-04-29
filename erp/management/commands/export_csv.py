@@ -7,5 +7,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             export_to_datagouv.job()
+            print("Data exported successfully to 'export.csv'")
         except KeyboardInterrupt:
             print("Interrompu.")

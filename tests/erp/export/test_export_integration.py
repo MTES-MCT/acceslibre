@@ -16,16 +16,17 @@ from erp.models import Erp
 @pytest.mark.integration
 @pytest.mark.django_db
 def test_csv_creation(db):
-    with open("static/export-test.csv", "w", newline="") as csv_file:
-        erps = Erp.objects.having_a11y_data().all()[0:10]
-        headers, mapped_data = map_erp_to_json_schema(erps)
-        export_to_csv(csv_file, headers, mapped_data)
+    try:
+        with open("export-test.csv", "w", newline="") as csv_file:
+            erps = Erp.objects.having_a11y_data().all()[0:10]
+            headers, mapped_data = map_erp_to_json_schema(erps)
+            export_to_csv(csv_file, headers, mapped_data)
 
-        assert Path("export.csv").exists() is True
-        package = Package(descriptor="erp/export/static/schema.json")
-        print(package)
-        result = validate_package(package)
-        assert result.get("errors") == []
-        print(result)
-
-    os.remove(csv_file.name)
+            assert Path("export-test.csv").exists() is True
+            package = Package(descriptor="erp/export/static/schema.json")
+            print(package)
+            result = validate_package(package)
+            assert result.get("errors") == []
+            print(result)
+    finally:
+        os.remove(csv_file.name)
