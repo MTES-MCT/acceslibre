@@ -50,8 +50,14 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             cheminement_ext_rampe=map_value_from_schema(
                 schema.RAMPE_CHOICES, erp.accessibilite.cheminement_ext_rampe
             ),
-            cheminement_ext_pente=map_value_from_schema(
-                schema.PENTE_CHOICES, erp.accessibilite.cheminement_ext_pente
+            cheminement_ext_pente_presence=erp.accessibilite.cheminement_ext_pente_presence,
+            cheminement_ext_pente_longueur=map_value_from_schema(
+                schema.PENTE_LENGTH_CHOICES,
+                erp.accessibilite.cheminement_ext_pente_longueur,
+            ),
+            cheminement_ext_pente_degre_difficulte=map_value_from_schema(
+                schema.PENTE_CHOICES,
+                erp.accessibilite.cheminement_ext_pente_degre_difficulte,
             ),
             cheminement_ext_devers=map_value_from_schema(
                 schema.DEVERS_CHOICES, erp.accessibilite.cheminement_ext_devers
@@ -97,7 +103,6 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
                 schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
             ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
-            accueil_prestations=erp.accessibilite.accueil_prestations,
             sanitaires_presence=erp.accessibilite.sanitaires_presence,
             sanitaires_adaptes=erp.accessibilite.sanitaires_adaptes,
             labels=map_list_from_schema(schema.LABEL_CHOICES, erp.accessibilite.labels),
@@ -108,6 +113,9 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             commentaire=erp.accessibilite.commentaire,
             registre_url=erp.accessibilite.registre_url,
             conformite=erp.accessibilite.conformite,
+            cheminement_ext_sens_marches=erp.accessibilite.cheminement_ext_sens_marches,
+            entree_marches_sens=erp.accessibilite.entree_marches_sens,
+            accueil_cheminement_sens_marches=erp.accessibilite.accueil_cheminement_sens_marches,
         )
 
         results.append(o)
