@@ -23,10 +23,9 @@ def test_csv_creation(db):
             export_to_csv(csv_file, headers, mapped_data)
 
             assert Path("export-test.csv").exists() is True
+
             package = Package(descriptor="erp/export/static/schema.json")
-            print(package)
             result = validate_package(package)
             assert result.get("errors") == []
-            print(result)
     finally:
         os.remove(csv_file.name)
