@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 
-from erp.export.create_schema import generate_schema
+from erp.export.generate_schema import generate_schema
 
 
 class Command(BaseCommand):

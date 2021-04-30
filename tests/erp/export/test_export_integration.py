@@ -4,16 +4,15 @@
 import os
 from pathlib import Path
 
-import frictionless
 import pytest
-from frictionless import resource, Resource, Package, validate_package
+from frictionless import Package, validate_package
 
 from erp.export.export import export_to_csv
+from erp.export.generate_schema import generate_schema
 from erp.export.mappers import map_erp_to_json_schema
 from erp.models import Erp
 
 
-@pytest.mark.integration
 @pytest.mark.django_db
 def test_csv_creation(db):
     try:
@@ -29,3 +28,10 @@ def test_csv_creation(db):
             assert result.get("errors") == []
     finally:
         os.remove(csv_file.name)
+
+
+@pytest.mark.django_db
+def test_check_modified_schema(db):
+    # use stringio to test schema generation, then compare
+    maybe_new_schema = generate_schema()
+    # assert maybe_new_schema == actual_schema
