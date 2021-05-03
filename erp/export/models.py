@@ -20,7 +20,7 @@ class EtalabModel:
     cheminement_ext_sens_marches: Literal["montant", "descendant"]
     cheminement_ext_main_courante: bool
     cheminement_ext_rampe: Literal["aucune", "fixe", "amovible"]
-    cheminement_ext_pente_presence: bool
+    # cheminement_ext_pente_presence: bool
     cheminement_ext_pente_degre_difficulte: Literal["aucune", "légère", "importante"]
     cheminement_ext_pente_longueur: Literal["courte", "moyenne", "longue"]
     cheminement_ext_devers: Literal["aucun", "léger", "important"]
@@ -47,7 +47,7 @@ class EtalabModel:
     entree_pmr_informations: str
     accueil_visibilite: bool
     accueil_personnels: Literal["formés", "non-formés"]
-    accueil_equipements_malentendants_presence: bool
+    # accueil_equipements_malentendants_presence: bool
     accueil_equipements_malentendants: Set[
         Literal["autres", "bim", "lsf", "scd", "lpc"]
     ]
@@ -60,7 +60,7 @@ class EtalabModel:
     accueil_cheminement_sens_marches: Literal["montant", "descendant"]
     accueil_retrecissement: bool
     # accueil_prestations: str
-    sanitaires_presence: bool
+    # sanitaires_presence: bool
     sanitaires_adaptes: int
     labels: Set[Literal["autre", "dpt", "mobalib", "th"]]
     labels_familles_handicap: Set[Literal["auditif", "mental", "moteur", "visuel"]]
