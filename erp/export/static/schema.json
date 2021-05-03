@@ -10,7 +10,7 @@
   ],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
-  "path": "schema.json",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1schema.json",
   "licenses": [
     {
       "title": "Etalab Licence Ouverte 2.0",
@@ -22,7 +22,7 @@
     {
       "title": "Fichier valide (CSV)",
       "name": "exemple-valide-csv",
-      "path": "exemple-valide.csv"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1exemple-valide.csv"
     }
   ],
   "sources": [],
@@ -79,7 +79,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "transport_information",
@@ -116,7 +116,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "stationnement_pmr",
@@ -147,7 +147,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "stationnement_ext_presence",
@@ -178,7 +178,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "stationnement_ext_pmr",
@@ -209,7 +209,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_presence",
@@ -240,7 +240,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_terrain_accidente",
@@ -271,7 +271,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_plain_pied",
@@ -302,7 +302,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_ascenseur",
@@ -332,13 +332,13 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_nombre_marches",
       "title": "Nombre de marches",
       "type": "integer",
-      "example": ""
+      "example": "0"
     },
     {
       "name": "cheminement_ext_reperage_marches",
@@ -369,14 +369,20 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_sens_marches",
       "title": "Sens de circulation de l'escalier",
       "description": "Sens de circulation des marches ou de l’escalier",
       "type": "string",
-      "example": ""
+      "constraints": {
+        "enum": [
+          "montant",
+          "descendant"
+        ]
+      },
+      "example": "Valeurs possibles: montant -> Montant, descendant -> Descendant"
     },
     {
       "name": "cheminement_ext_main_courante",
@@ -406,7 +412,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_rampe",
@@ -443,7 +449,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_pente_degre_difficulte",
@@ -456,7 +462,7 @@
           "importante"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: aucune -> Aucune, légère -> Légère, importante -> Importante"
     },
     {
       "name": "cheminement_ext_pente_longueur",
@@ -469,7 +475,7 @@
           "longue"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: courte -> < 0,5m, moyenne -> entre 0,5 et 2m, longue -> > 2m"
     },
     {
       "name": "cheminement_ext_devers",
@@ -482,7 +488,7 @@
           "important"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: aucun -> Aucun, léger -> Léger, important -> Important"
     },
     {
       "name": "cheminement_ext_bande_guidage",
@@ -513,7 +519,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "cheminement_ext_retrecissement",
@@ -544,7 +550,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_reperage",
@@ -575,7 +581,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_vitree",
@@ -605,7 +611,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_vitree_vitrophanie",
@@ -636,7 +642,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_plain_pied",
@@ -667,7 +673,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_ascenseur",
@@ -697,13 +703,13 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_marches",
       "title": "Nombre de marches",
       "type": "integer",
-      "example": ""
+      "example": "0"
     },
     {
       "name": "entree_marches_reperage",
@@ -734,7 +740,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_marches_main_courante",
@@ -764,7 +770,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_marches_rampe",
@@ -777,14 +783,20 @@
           "amovible"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible"
     },
     {
       "name": "entree_marches_sens",
       "title": "Sens de circulation de l'escalier",
       "description": "Sens de circulation des marches ou de l’escalier",
       "type": "string",
-      "example": ""
+      "constraints": {
+        "enum": [
+          "montant",
+          "descendant"
+        ]
+      },
+      "example": "Valeurs possibles: montant -> Montant, descendant -> Descendant"
     },
     {
       "name": "entree_dispositif_appel",
@@ -815,7 +827,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_dispositif_appel_type",
@@ -831,7 +843,7 @@
           "visiophone"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: bouton -> Bouton d’appel, sonnette -> Sonnette, interphone -> Interphone, visiophone -> Visiophone"
     },
     {
       "name": "entree_balise_sonore",
@@ -861,7 +873,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_aide_humaine",
@@ -891,14 +903,14 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_largeur_mini",
       "title": "Largeur de la porte",
       "description": "Largeur minimale de la porte d'entrée",
       "type": "integer",
-      "example": ""
+      "example": "0"
     },
     {
       "name": "entree_pmr",
@@ -929,7 +941,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "entree_pmr_informations",
@@ -966,7 +978,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_personnels",
@@ -979,7 +991,7 @@
           "non-formés"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: aucun -> Aucun personnel, formés -> Personnels sensibilisés ou formés, non-formés -> Personnels non-formés"
     },
     {
       "name": "accueil_equipements_malentendants_presence",
@@ -1010,7 +1022,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_equipements_malentendants",
@@ -1028,7 +1040,7 @@
           "autres"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: bim -> Boucle à induction magnétique fixe, bmp -> Boucle à induction magnétique portative, lsf -> Langue des signes française, lpc -> Langue Française Parlée Complétée (LFPC), sts -> Sous-Titrage ou Transcription Simultanée, autres -> Autres"
     },
     {
       "name": "accueil_cheminement_plain_pied",
@@ -1059,7 +1071,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_cheminement_ascenseur",
@@ -1089,13 +1101,13 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_cheminement_nombre_marches",
       "title": "Nombre de marches",
       "type": "integer",
-      "example": ""
+      "example": "0"
     },
     {
       "name": "accueil_cheminement_reperage_marches",
@@ -1126,7 +1138,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_cheminement_main_courante",
@@ -1156,7 +1168,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_cheminement_rampe",
@@ -1187,7 +1199,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "accueil_cheminement_sens_marches",
@@ -1200,7 +1212,7 @@
           "descendant"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: montant -> Montant, descendant -> Descendant"
     },
     {
       "name": "accueil_retrecissement",
@@ -1231,7 +1243,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "sanitaires_presence",
@@ -1262,14 +1274,14 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     },
     {
       "name": "sanitaires_adaptes",
       "title": "Sanitaires adaptés",
       "description": "Mise à disposition de sanitaires adaptés dans l'établissement",
       "type": "integer",
-      "example": ""
+      "example": "0"
     },
     {
       "name": "labels",
@@ -1285,7 +1297,7 @@
           "th"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: autre -> Autre, dpt -> Destination pour Tous, mobalib -> Mobalib, th -> Tourisme & Handicap"
     },
     {
       "name": "labels_familles_handicap",
@@ -1301,7 +1313,7 @@
           "visuel"
         ]
       },
-      "example": ""
+      "example": "Valeurs possibles: auditif -> Auditif, mental -> Mental, moteur -> Moteur, visuel -> Visuel"
     },
     {
       "name": "labels_autre",
@@ -1352,7 +1364,7 @@
         "Non",
         "NON"
       ],
-      "example": ""
+      "example": "True"
     }
   ]
 }

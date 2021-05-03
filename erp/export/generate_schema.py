@@ -1,10 +1,36 @@
 from pathlib import Path
+from typing import Any
 
 from frictionless import Schema, Field
 
 from erp import schema
 from erp.export.models import ETALAB_SCHEMA_FIELDS
 from erp.schema import FIELDS
+
+TRUE_VALUES = [
+    "true",
+    "True",
+    "TRUE",
+    "1",
+    "vrai",
+    "Vrai",
+    "VRAI",
+    "oui",
+    "Oui",
+    "OUI",
+]
+FALSE_VALUES = [
+    "false",
+    "False",
+    "FALSE",
+    "0",
+    "faux",
+    "Faux",
+    "FAUX",
+    "non",
+    "Non",
+    "NON",
+]
 
 
 def generate_schema(
@@ -30,7 +56,7 @@ def generate_schema(
 
 def create_field(field_name, field):
     constraints = get_constraints(field_name, field)
-    field = Field(
+    schema_field = Field(
         name=field_name,
         type=map_types(field.get("type")),
         description=field.get("help_text_ui") or field.get("description"),
@@ -41,8 +67,11 @@ def create_field(field_name, field):
         array_item=constraints.get("arrayItem", None),
     )
 
-    field["example"] = field.get("example", "")
-    return field
+    schema_field["example"] = field.get(
+        "example", generate_example_text(field_name, field)
+    ) or generate_example_text(field_name, field)
+
+    return schema_field
 
 
 def map_types(from_format):
@@ -51,12 +80,9 @@ def map_types(from_format):
     return from_format
 
 
-def get_constraints(field_name, field):
+def get_constraints(field_name: str, field: Any) -> dict:
     """
     Get TableSchema constraints. The key will be identified when constructing fields to avoid another conditional
-    :param field:
-    :param name:
-    :return:
     """
     constraints = {}
     enum = get_linked_enum(field_name)
@@ -74,30 +100,8 @@ def get_constraints(field_name, field):
             value[0] for value in enum if value[0] is not None
         ]
     elif field_type == "boolean":
-        constraints["boolTrue"] = [
-            "true",
-            "True",
-            "TRUE",
-            "1",
-            "vrai",
-            "Vrai",
-            "VRAI",
-            "oui",
-            "Oui",
-            "OUI",
-        ]
-        constraints["boolFalse"] = [
-            "false",
-            "False",
-            "FALSE",
-            "0",
-            "faux",
-            "Faux",
-            "FAUX",
-            "non",
-            "Non",
-            "NON",
-        ]
+        constraints["boolTrue"] = TRUE_VALUES
+        constraints["boolFalse"] = FALSE_VALUES
 
     return constraints
 
@@ -107,6 +111,8 @@ def get_linked_enum(field_name):
         return schema.DEVERS_CHOICES
     if field_name == "entree_marches_rampe":
         return schema.RAMPE_CHOICES
+    if field_name == "entree_marches_sens":
+        return schema.ESCALIER_SENS
     if field_name == "entree_dispositif_appel_type":
         return schema.DISPOSITIFS_APPEL_CHOICES
     if field_name == "accueil_personnels":
@@ -117,6 +123,8 @@ def get_linked_enum(field_name):
         return schema.ESCALIER_SENS
     if field_name == "accueil_cheminement_rampe":
         return schema.RAMPE_CHOICES
+    if field_name == "cheminement_ext_sens_marches":
+        return schema.ESCALIER_SENS
     if field_name == "cheminement_ext_pente_degre_difficulte":
         return schema.PENTE_CHOICES
     if field_name == "cheminement_ext_pente_longueur":
@@ -127,3 +135,19 @@ def get_linked_enum(field_name):
         return schema.HANDICAP_CHOICES
 
     return None
+
+
+def generate_example_text(field_name, field):
+    text = ""
+    enum = get_linked_enum(field_name)
+    if field.get("type") == "boolean":
+        text = "True"
+    elif field.get("type") == "number":
+        text = "0"
+    elif field.get("type") == "string" and not enum:
+        pass
+    elif enum:
+        values = [f"{e[0]} -> {e[1]}" for e in enum if e[0] is not None]
+        text = f"Valeurs possibles: {', '.join(values)}"
+
+    return text
