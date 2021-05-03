@@ -29,7 +29,6 @@ const rules = [
       "cheminement_ext_terrain_accidente",
       "cheminement_ext_plain_pied",
       "cheminement_ext_nombre_marches",
-      "cheminement_ext_sens_marches",
       "cheminement_ext_reperage_marches",
       "cheminement_ext_main_courante",
       "cheminement_ext_rampe",
@@ -46,6 +45,7 @@ const rules = [
     values: ["False"],
     targets: [
       "cheminement_ext_nombre_marches",
+      "cheminement_ext_sens_marches",
       "cheminement_ext_reperage_marches",
       "cheminement_ext_main_courante",
       "cheminement_ext_rampe",
@@ -57,14 +57,17 @@ const rules = [
   {
     source: "cheminement_ext_pente_presence",
     values: ["True"],
-    targets: [
-      "cheminement_ext_pente_degre_difficulte",
-      "cheminement_ext_pente_longueur",
-    ],
+    targets: ["cheminement_ext_pente_degre_difficulte", "cheminement_ext_pente_longueur"],
     indent: 2,
   },
 
   // Entrée
+  {
+    source: "entree_porte_presence",
+    values: ["True"],
+    targets: ["entree_porte_manoeuvre", "entree_porte_type"],
+    indent: 1,
+  },
   {
     source: "entree_vitree",
     values: ["True"],

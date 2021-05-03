@@ -42,13 +42,13 @@
     </small></p>
     {% endif %}
 
-    {% if form.non_field_errors %}
+    {% if form.errors %}
     <div class="alert alert-warning">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">
-        {% for field_name, message in form.non_field_errors.items %}
-        <li>{{ field_name }}: {{ message }}</li>
+        {% for field_name, message in form.errors.items %}
+        <li>{{ field_name|get_schema_label }}: {{ message }}</li>
         {% endfor %}
       </ul>
     </div>

@@ -96,7 +96,6 @@ PENTE_AUCUNE = "aucune"
 PENTE_LEGERE = "légère"
 PENTE_IMPORTANTE = "importante"
 PENTE_CHOICES = [
-    (PENTE_AUCUNE, "Aucune"),
     (PENTE_LEGERE, "Légère"),
     (PENTE_IMPORTANTE, "Importante"),
     (None, UNKNOWN),
@@ -106,9 +105,9 @@ PENTE_LONGUEUR_COURTE = "courte"
 PENTE_LONGUEUR_MOYENNE = "moyenne"
 PENTE_LONGUEUR_LONGUE = "longue"
 PENTE_LENGTH_CHOICES = [
-    (PENTE_LONGUEUR_COURTE, "< 0,5m"),
-    (PENTE_LONGUEUR_MOYENNE, "entre 0,5 et 2m"),
-    (PENTE_LONGUEUR_LONGUE, "> 2m"),
+    (PENTE_LONGUEUR_COURTE, "< 0,5 mètres"),
+    (PENTE_LONGUEUR_MOYENNE, "entre 0,5 et 2 mètres"),
+    (PENTE_LONGUEUR_LONGUE, "> 2 mètres"),
     (None, UNKNOWN),
 ]
 
@@ -119,6 +118,26 @@ PERSONNELS_CHOICES = [
     (PERSONNELS_AUCUN, "Aucun personnel"),
     (PERSONNELS_FORMES, "Personnels sensibilisés ou formés"),
     (PERSONNELS_NON_FORMES, "Personnels non-formés"),
+    (None, UNKNOWN),
+]
+
+PORTE_TYPE_MANUELLE = "manuelle"
+PORTE_TYPE_AUTOMATIQUE = "automatique"
+PORTE_TYPE_CHOICES = [
+    (PORTE_TYPE_MANUELLE, "Manuelle"),
+    (PORTE_TYPE_AUTOMATIQUE, "Automatique"),
+    (None, UNKNOWN_OR_NA),
+]
+
+PORTE_MANOEUVRE_BATTANTE = "battante"
+PORTE_MANOEUVRE_COULISSANTE = "coulissante"
+PORTE_MANOEUVRE_TOURNIQUET = "tourniquet"
+PORTE_MANOEUVRE_TAMBOUR = "tambour"
+PORTE_MANOEUVRE_CHOICES = [
+    (PORTE_MANOEUVRE_BATTANTE, "Porte battante"),
+    (PORTE_MANOEUVRE_COULISSANTE, "Porte coulissante"),
+    (PORTE_MANOEUVRE_TOURNIQUET, "Tourniquet"),
+    (PORTE_MANOEUVRE_TAMBOUR, "Porte tambour"),
     (None, UNKNOWN),
 ]
 
@@ -475,7 +494,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Pente",
-        "help_text": mark_safe("Une pente est-elle présente&nbsp;?"),
+        "help_text": mark_safe("Le cheminement est-il en pente&nbsp;?"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -562,6 +581,41 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+    },
+    "entree_porte_presence": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Y a-t-il une porte ?",
+        "help_text": mark_safe(
+            "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
+        ),
+        "help_text_ui": mark_safe("Présence d'une porte à l'entrée de l'établissement"),
+        "section": SECTION_ENTREE,
+        "nullable_bool": False,
+        "warn_if": None,
+    },
+    "entree_porte_manoeuvre": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Manoeuvre de la porte",
+        "help_text": mark_safe("Comment s'ouvre la porte&nbsp;?"),
+        "help_text_ui": mark_safe("Mode d'ouverture de la porte"),
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": None,
+    },
+    "entree_porte_type": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Type de porte",
+        "help_text": mark_safe("Quel est le type de la porte&nbsp;?"),
+        "help_text_ui": mark_safe("Type de porte"),
+        "section": SECTION_ENTREE,
+        "nullable_bool": True,
+        "warn_if": None,
     },
     "entree_vitree": {
         "type": "boolean",
