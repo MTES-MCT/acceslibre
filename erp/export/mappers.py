@@ -7,7 +7,7 @@ from erp.models import Erp, Accessibilite
 
 
 def map_value_from_schema(schema_enum, data):
-    return schema_enum[[y[0] for y in schema_enum].index(data)][1]
+    return schema_enum[[y[0] for y in schema_enum].index(data)][0]
 
 
 def map_list_from_schema(schema_enum, data):
@@ -16,7 +16,7 @@ def map_list_from_schema(schema_enum, data):
 
     result = set()
     for d in data:
-        choice = schema_enum[[y[0] for y in schema_enum].index(d)][1]
+        choice = schema_enum[[y[0] for y in schema_enum].index(d)][0]
         result.add(choice)
 
     return result
@@ -113,19 +113,19 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             commentaire=erp.accessibilite.commentaire,
             registre_url=erp.accessibilite.registre_url,
             conformite=erp.accessibilite.conformite,
-            cheminement_ext_sens_marches=map_list_from_schema(
+            cheminement_ext_sens_marches=map_value_from_schema(
                 schema.ESCALIER_SENS, erp.accessibilite.cheminement_ext_sens_marches
             ),
-            entree_marches_sens=map_list_from_schema(
+            entree_marches_sens=map_value_from_schema(
                 schema.ESCALIER_SENS, erp.accessibilite.entree_marches_sens
             ),
-            accueil_cheminement_sens_marches=map_list_from_schema(
+            accueil_cheminement_sens_marches=map_value_from_schema(
                 schema.ESCALIER_SENS, erp.accessibilite.accueil_cheminement_sens_marches
             ),
-            entree_porte_manoeuvre=map_list_from_schema(
+            entree_porte_manoeuvre=map_value_from_schema(
                 schema.PORTE_MANOEUVRE_CHOICES, erp.accessibilite.entree_porte_manoeuvre
             ),
-            entree_porte_type=map_list_from_schema(
+            entree_porte_type=map_value_from_schema(
                 schema.PORTE_TYPE_CHOICES, erp.accessibilite.entree_porte_type
             ),
         )
