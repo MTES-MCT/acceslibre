@@ -422,47 +422,16 @@
       "example": ""
     },
     {
-      "name": "cheminement_ext_pente_presence",
-      "title": "Pente",
-      "type": "boolean",
-      "trueValues": [
-        "true",
-        "True",
-        "TRUE",
-        "1",
-        "vrai",
-        "Vrai",
-        "VRAI",
-        "oui",
-        "Oui",
-        "OUI"
-      ],
-      "falseValues": [
-        "false",
-        "False",
-        "FALSE",
-        "0",
-        "faux",
-        "Faux",
-        "FAUX",
-        "non",
-        "Non",
-        "NON"
-      ],
-      "example": "True"
-    },
-    {
       "name": "cheminement_ext_pente_degre_difficulte",
       "title": "Degré de difficulté de la pente",
       "type": "string",
       "constraints": {
         "enum": [
-          "aucune",
           "légère",
           "importante"
         ]
       },
-      "example": "Valeurs possibles: aucune -> Aucune, légère -> Légère, importante -> Importante"
+      "example": "Valeurs possibles: légère -> Légère, importante -> Importante"
     },
     {
       "name": "cheminement_ext_pente_longueur",
@@ -475,7 +444,7 @@
           "longue"
         ]
       },
-      "example": "Valeurs possibles: courte -> < 0,5m, moyenne -> entre 0,5 et 2m, longue -> > 2m"
+      "example": "Valeurs possibles: courte -> < 0,5 mètres, moyenne -> entre 0,5 et 2 mètres, longue -> > 2 mètres"
     },
     {
       "name": "cheminement_ext_devers",
@@ -950,6 +919,20 @@
       "example": ""
     },
     {
+      "name": "entree_porte_manoeuvre",
+      "title": "Manoeuvre de la porte",
+      "description": "Mode d'ouverture de la porte",
+      "type": "string",
+      "example": ""
+    },
+    {
+      "name": "entree_porte_type",
+      "title": "Type de porte",
+      "description": "Type de porte",
+      "type": "string",
+      "example": ""
+    },
+    {
       "name": "accueil_visibilite",
       "title": "Visibilité de la zone d'accueil",
       "description": "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée",
@@ -992,37 +975,6 @@
         ]
       },
       "example": "Valeurs possibles: aucun -> Aucun personnel, formés -> Personnels sensibilisés ou formés, non-formés -> Personnels non-formés"
-    },
-    {
-      "name": "accueil_equipements_malentendants_presence",
-      "title": "Présence d'équipements d'aide à l'audition et à la communication",
-      "description": "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes",
-      "type": "boolean",
-      "trueValues": [
-        "true",
-        "True",
-        "TRUE",
-        "1",
-        "vrai",
-        "Vrai",
-        "VRAI",
-        "oui",
-        "Oui",
-        "OUI"
-      ],
-      "falseValues": [
-        "false",
-        "False",
-        "FALSE",
-        "0",
-        "faux",
-        "Faux",
-        "FAUX",
-        "non",
-        "Non",
-        "NON"
-      ],
-      "example": "True"
     },
     {
       "name": "accueil_equipements_malentendants",
@@ -1218,37 +1170,6 @@
       "name": "accueil_retrecissement",
       "title": "Rétrécissement du cheminement",
       "description": "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée",
-      "type": "boolean",
-      "trueValues": [
-        "true",
-        "True",
-        "TRUE",
-        "1",
-        "vrai",
-        "Vrai",
-        "VRAI",
-        "oui",
-        "Oui",
-        "OUI"
-      ],
-      "falseValues": [
-        "false",
-        "False",
-        "FALSE",
-        "0",
-        "faux",
-        "Faux",
-        "FAUX",
-        "non",
-        "Non",
-        "NON"
-      ],
-      "example": "True"
-    },
-    {
-      "name": "sanitaires_presence",
-      "title": "Sanitaires",
-      "description": "Mise à disposition de sanitaires dans l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
