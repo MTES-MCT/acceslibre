@@ -19,7 +19,7 @@ def map_list_from_schema(schema_enum, data):
         choice = schema_enum[[y[0] for y in schema_enum].index(d)][0]
         result.add(choice)
 
-    return result
+    return list(result)
 
 
 def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel]]:
@@ -50,7 +50,7 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             cheminement_ext_rampe=map_value_from_schema(
                 schema.RAMPE_CHOICES, erp.accessibilite.cheminement_ext_rampe
             ),
-            # cheminement_ext_pente_presence=erp.accessibilite.cheminement_ext_pente_presence,
+            cheminement_ext_pente_presence=erp.accessibilite.cheminement_ext_pente_presence,
             cheminement_ext_pente_longueur=map_value_from_schema(
                 schema.PENTE_LENGTH_CHOICES,
                 erp.accessibilite.cheminement_ext_pente_longueur,
@@ -89,7 +89,7 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             accueil_personnels=map_value_from_schema(
                 schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels
             ),
-            # accueil_equipements_malentendants_presence=erp.accessibilite.accueil_equipements_malentendants_presence,
+            accueil_equipements_malentendants_presence=erp.accessibilite.accueil_equipements_malentendants_presence,
             accueil_equipements_malentendants=map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,
                 erp.accessibilite.accueil_equipements_malentendants,
@@ -103,7 +103,7 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
                 schema.RAMPE_CHOICES, erp.accessibilite.accueil_cheminement_rampe
             ),
             accueil_retrecissement=erp.accessibilite.accueil_retrecissement,
-            # sanitaires_presence=erp.accessibilite.sanitaires_presence,
+            sanitaires_presence=erp.accessibilite.sanitaires_presence,
             sanitaires_adaptes=erp.accessibilite.sanitaires_adaptes,
             labels=map_list_from_schema(schema.LABEL_CHOICES, erp.accessibilite.labels),
             labels_familles_handicap=map_list_from_schema(
@@ -122,6 +122,7 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             accueil_cheminement_sens_marches=map_value_from_schema(
                 schema.ESCALIER_SENS, erp.accessibilite.accueil_cheminement_sens_marches
             ),
+            entree_porte_presence=erp.accessibilite.entree_porte_presence,
             entree_porte_manoeuvre=map_value_from_schema(
                 schema.PORTE_MANOEUVRE_CHOICES, erp.accessibilite.entree_porte_manoeuvre
             ),

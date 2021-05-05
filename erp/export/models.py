@@ -1,5 +1,5 @@
 from dataclasses import dataclass, fields
-from typing import Literal, Set, Union, Optional
+from typing import Literal, Set, Optional
 
 
 @dataclass
@@ -17,10 +17,10 @@ class EtalabModel:
     cheminement_ext_ascenseur: bool
     cheminement_ext_nombre_marches: int
     cheminement_ext_reperage_marches: bool
-    cheminement_ext_sens_marches: Optional[Literal["montant", "descendant"]]
+    cheminement_ext_sens_marches: Literal["montant", "descendant"]
     cheminement_ext_main_courante: bool
     cheminement_ext_rampe: Literal["aucune", "fixe", "amovible"]
-    # cheminement_ext_pente_presence: bool
+    cheminement_ext_pente_presence: bool
     cheminement_ext_pente_degre_difficulte: Literal["aucune", "légère", "importante"]
     cheminement_ext_pente_longueur: Literal["courte", "moyenne", "longue"]
     cheminement_ext_devers: Literal["aucun", "léger", "important"]
@@ -35,24 +35,22 @@ class EtalabModel:
     entree_marches_reperage: bool
     entree_marches_main_courante: bool
     entree_marches_rampe: Literal["aucune", "fixe", "amovible"]
-    entree_marches_sens: Optional[Literal["montant", "descendant"]]
+    entree_marches_sens: Literal["montant", "descendant"]
     entree_dispositif_appel: bool
-    entree_dispositif_appel_type: Set[
-        Literal["bouton", "sonnette", "interphone", "visiophone"]
+    entree_dispositif_appel_type: Optional[
+        Set[Literal["bouton", "sonnette", "interphone", "visiophone"]]
     ]
     entree_balise_sonore: bool
     entree_aide_humaine: bool
     entree_largeur_mini: int
     entree_pmr: bool
     entree_pmr_informations: str
-    # entree_porte_presence: bool
-    entree_porte_manoeuvre: Optional[
-        Literal["battante", "coulissante", "tourniquet", "tambour"]
-    ]
-    entree_porte_type: Optional[Literal["manuelle", "automatique"]]
+    entree_porte_presence: bool
+    entree_porte_manoeuvre: Literal["battante", "coulissante", "tourniquet", "tambour"]
+    entree_porte_type: Literal["manuelle", "automatique"]
     accueil_visibilite: bool
     accueil_personnels: Literal["formés", "non-formés"]
-    # accueil_equipements_malentendants_presence: bool
+    accueil_equipements_malentendants_presence: bool
     accueil_equipements_malentendants: Optional[
         Set[Literal["autres", "bim", "lsf", "scd", "lpc"]]
     ]
@@ -62,13 +60,15 @@ class EtalabModel:
     accueil_cheminement_reperage_marches: bool
     accueil_cheminement_main_courante: bool
     accueil_cheminement_rampe: Literal["aucune", "fixe", "amovible", "aide humaine"]
-    accueil_cheminement_sens_marches: Optional[Literal["montant", "descendant"]]
+    accueil_cheminement_sens_marches: Literal["montant", "descendant"]
     accueil_retrecissement: bool
     # accueil_prestations: str
-    # sanitaires_presence: bool
+    sanitaires_presence: bool
     sanitaires_adaptes: int
-    labels: Set[Literal["autre", "dpt", "mobalib", "th"]]
-    labels_familles_handicap: Set[Literal["auditif", "mental", "moteur", "visuel"]]
+    labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th"]]]
+    labels_familles_handicap: Optional[
+        Set[Literal["auditif", "mental", "moteur", "visuel"]]
+    ]
     labels_autre: str
     commentaire: str
     registre_url: str

@@ -1,4 +1,5 @@
 import csv
+import json
 from dataclasses import asdict
 from typing import List
 
@@ -8,4 +9,11 @@ def export_to_csv(file, headers, mapped_data: List):
     csv_writer.writeheader()
 
     for erp in mapped_data:
-        csv_writer.writerow(asdict(erp))
+        data = asdict(erp)
+        # TODO: better to be in dict_factory
+        [
+            data.update({k: json.dumps(v)})
+            for k, v in data.items()
+            if type(data[k]) == list
+        ]
+        csv_writer.writerow(data)
