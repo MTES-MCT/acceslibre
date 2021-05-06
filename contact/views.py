@@ -2,11 +2,26 @@ from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from core import mailer
+from core import mailer, settings
 from erp.models import Erp
 
 from .forms import ContactForm
 from .models import Message
+
+
+def send_notification(notification):
+    recipient = notification["user"]
+    mailer.send_email(
+        [recipient.email],
+        f"[{settings.SITE_NAME}] Vous avez reçu de nouvelles contributions",
+        "mail/contact_form_receipt.txt",
+        {
+            "user": recipient,
+            # "erps": notification["erps"],
+            "SITE_NAME": settings.SITE_NAME,
+            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        },
+    )
 
 
 def contact(request, topic=None, erp_slug=None):
