@@ -984,14 +984,28 @@
       "title": "Manoeuvre de la porte",
       "description": "Mode d'ouverture de la porte",
       "type": "string",
-      "example": ""
+      "constraints": {
+        "enum": [
+          "battante",
+          "coulissante",
+          "tourniquet",
+          "tambour"
+        ]
+      },
+      "example": "Valeurs possibles: battante -> Porte battante, coulissante -> Porte coulissante, tourniquet -> Tourniquet, tambour -> Porte tambour"
     },
     {
       "name": "entree_porte_type",
       "title": "Type de porte",
       "description": "Type de porte",
       "type": "string",
-      "example": ""
+      "constraints": {
+        "enum": [
+          "manuelle",
+          "automatique"
+        ]
+      },
+      "example": "Valeurs possibles: manuelle -> Manuelle, automatique -> Automatique"
     },
     {
       "name": "accueil_visibilite",
