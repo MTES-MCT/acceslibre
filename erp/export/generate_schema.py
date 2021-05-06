@@ -133,6 +133,10 @@ def get_linked_enum(field_name):
         return schema.LABEL_CHOICES
     if field_name == "labels_familles_handicap":
         return schema.HANDICAP_CHOICES
+    if field_name == "entree_porte_manoeuvre":
+        return schema.PORTE_MANOEUVRE_CHOICES
+    if field_name == "entree_porte_type":
+        return schema.PORTE_TYPE_CHOICES
 
     return None
 
