@@ -1,19 +1,26 @@
 {% autoescape off %}Bonjour {{ user.username }},
 
-
-
 <b>Ce message est un message automatique, merci de ne pas y répondre.</b>
 
 Bonjour,
 
 Nous vous remercions pour votre message.
 
+{% if is_vaccination %}
+Toutefois, sachez que Acceslibre apporte les informations relatives à l'accessibilité des établissements recevant du public. Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination.
+
+Par conséquent, toute demande à destination de l'établissement ne pourra être traitée par nos services.
+
+Nous vous invitons à vous rapprocher de votre centre de vaccination pour répondre à votre demande ou à consulter :
+
+Pour toute autre demande, vous recevrez une réponse dans les plus brefs délais.
+{% else %}
 Toutefois, sachez que Acceslibre apporte les informations relatives à l'accessibilité des établissements recevant du public.
 
 Cependant, la messagerie Acceslibre ne permet pas d'échanger avec les membres des établissements renseignés. Nous vous invitions à contacter directement l'établissement.
 
 Pour toute autre demande, vous recevrez une réponse dans les plus brefs délais.
-
+{% endif %}
 Bien cordialement,
 
 --
