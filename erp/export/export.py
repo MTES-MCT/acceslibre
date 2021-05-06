@@ -11,6 +11,8 @@ def export_to_csv(file, headers, mapped_data: List):
     for erp in mapped_data:
         data = asdict(erp)
         # TODO: better to be in dict_factory
+        # Solve the quoting problem: frictionless only validate with "[""value""]",
+        # but standard python lib render '["value"]'
         [
             data.update({k: json.dumps(v)})
             for k, v in data.items()
