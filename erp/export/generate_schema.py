@@ -1,4 +1,3 @@
-from pathlib import Path
 from typing import Any
 
 from frictionless import Schema, Field
@@ -63,8 +62,9 @@ def create_field(field_name, field):
         title=field.get("label"),
         true_values=constraints.get("boolTrue", None),
         false_values=constraints.get("boolFalse", None),
-        constraints=constraints.get("enum", None),
+        constraints=constraints.get("simple", None),
         array_item=constraints.get("arrayItem", None),
+        format=constraints.get("format", None),
     )
 
     schema_field["example"] = field.get(
@@ -88,9 +88,9 @@ def get_constraints(field_name: str, field: Any) -> dict:
     enum = get_linked_enum(field_name)
     field_type = map_types(field.get("type"))
     if enum and field_type == "string":
-        constraints["enum"] = {}
+        constraints["simple"] = {}
 
-        constraints["enum"]["enum"] = [
+        constraints["simple"]["enum"] = [
             value[0] for value in enum if value[0] is not None
         ]
     elif enum and field_type == "array":
@@ -102,6 +102,8 @@ def get_constraints(field_name: str, field: Any) -> dict:
     elif field_type == "boolean":
         constraints["boolTrue"] = TRUE_VALUES
         constraints["boolFalse"] = FALSE_VALUES
+    elif field_type == "string" and "url" in field_name:
+        constraints["format"] = "uri"
 
     return constraints
 
@@ -125,6 +127,8 @@ def get_linked_enum(field_name):
         return schema.RAMPE_CHOICES
     if field_name == "cheminement_ext_sens_marches":
         return schema.ESCALIER_SENS
+    if field_name == "cheminement_ext_rampe":
+        return schema.RAMPE_CHOICES
     if field_name == "cheminement_ext_pente_degre_difficulte":
         return schema.PENTE_CHOICES
     if field_name == "cheminement_ext_pente_longueur":

@@ -5,6 +5,9 @@ from typing import Literal, Set, Optional
 @dataclass
 class EtalabModel:
     id: str
+    name: str
+    postal_code: str
+    commune: str
     transport_station_presence: bool
     transport_information: str
     stationnement_presence: bool

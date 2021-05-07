@@ -48,7 +48,47 @@
       "name":"id",
       "description":"Identifiant unique",
       "type":"string",
-      "example":""
+      "constraints": {
+        "required": true
+      },
+      "example":"acceslibre_clichy_20211013"
+    },
+    {
+      "name":"name",
+      "description":"Nom de l'établissement",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"Mairie du 3e"
+    },
+    {
+      "name":"postal_code",
+      "description":"Code postal",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"75017"
+    },
+    {
+      "name":"commune",
+      "description":"Nom de la commune",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"Paris 17"
+    },
+    {
+      "name": "siren",
+      "description": "Le numero SIREN de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
+      "example": "130025265",
+      "type": "string",
+      "constraints":{
+        "required":true,
+        "pattern": "^\\d{9}$"
+      }
     }
   ]
 }

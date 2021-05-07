@@ -46,9 +46,48 @@
   "fields": [
     {
       "name": "id",
-      "description": "Identifiant unique",
+      "description": "Identifiant unique de l'ERP du producteur, précédé du nom du producteur. Si vous n'avez pas d'identifiant unique et que vous souhaitez en récupérer un, vous pouvez vous rendre sur https://heidi.app.etalab.studio",
       "type": "string",
-      "example": ""
+      "constraints": {
+        "required": true
+      },
+      "example": "clichy_01F2KMMRZVQ5FQY882PCJQAPQ0"
+    },
+    {
+      "name": "name",
+      "description": "Nom de l'établissement",
+      "type": "string",
+      "constraints": {
+        "required": true
+      },
+      "example": "Mairie du 3e"
+    },
+    {
+      "name": "postal_code",
+      "description": "Code postal",
+      "type": "string",
+      "constraints": {
+        "required": true
+      },
+      "example": "75017"
+    },
+    {
+      "name": "commune",
+      "description": "Nom de la commune",
+      "type": "string",
+      "constraints": {
+        "required": true
+      },
+      "example": "Paris 17"
+    },
+    {
+      "name": "siren",
+      "description": "Le numero SIREN de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
+      "example": "130025265",
+      "type": "string",
+      "constraints": {
+        "pattern": "^\\d{9}$"
+      }
     },
     {
       "name": "transport_station_presence",
@@ -85,7 +124,7 @@
       "name": "transport_information",
       "title": "Informations complémentaires",
       "type": "string",
-      "example": ""
+      "example": "Ligne n4"
     },
     {
       "name": "stationnement_presence",
@@ -419,7 +458,14 @@
       "title": "Rampe",
       "description": "Présence et type de rampe",
       "type": "string",
-      "example": ""
+      "constraints": {
+        "enum": [
+          "aucune",
+          "fixe",
+          "amovible"
+        ]
+      },
+      "example": "Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible"
     },
     {
       "name": "cheminement_ext_pente_presence",
@@ -946,7 +992,7 @@
       "name": "entree_pmr_informations",
       "title": "Informations complémentaires concernant l'entrée PMR",
       "type": "string",
-      "example": ""
+      "example": "Entrée fléchée"
     },
     {
       "name": "entree_porte_presence",
@@ -1337,7 +1383,7 @@
     {
       "name": "sanitaires_adaptes",
       "title": "Sanitaires adaptés",
-      "description": "Mise à disposition de sanitaires adaptés dans l'établissement",
+      "description": "Nombre de sanitaires adaptés dans l'établissement",
       "type": "integer",
       "example": "0"
     },
@@ -1377,21 +1423,22 @@
       "name": "labels_autre",
       "title": "Autre label",
       "type": "string",
-      "example": ""
+      "example": "HandiLabel"
     },
     {
       "name": "commentaire",
       "title": "Informations complémentaires et prestations spécifiques",
       "description": "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées",
       "type": "string",
-      "example": ""
+      "example": "Propose des places gratuites"
     },
     {
       "name": "registre_url",
       "title": "Registre",
       "description": "Si l'établissement dispose d'un registre numérique, adresse internet à laquelle celui-ci est consultable",
       "type": "string",
-      "example": ""
+      "format": "uri",
+      "example": "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
     },
     {
       "name": "conformite",

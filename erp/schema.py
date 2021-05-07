@@ -307,6 +307,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Ligne n4",
     },
     # Stationnement
     "stationnement_presence": {
@@ -826,6 +827,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Entrée fléchée",
     },
     # Accueil
     "accueil_visibilite": {
@@ -1017,9 +1019,7 @@ FIELDS = {
         "help_text": mark_safe(
             "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
         ),
-        "help_text_ui": mark_safe(
-            "Mise à disposition de sanitaires adaptés dans l'établissement"
-        ),
+        "help_text_ui": mark_safe("Nombre de sanitaires adaptés dans l'établissement"),
         "section": SECTION_SANITAIRES,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 1,
@@ -1063,6 +1063,7 @@ FIELDS = {
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "HandiLabel",
     },
     # Commentaire
     "commentaire": {
@@ -1080,6 +1081,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Propose des places gratuites",
     },
     # Registre
     "registre_url": {
@@ -1098,6 +1100,7 @@ FIELDS = {
         "section": SECTION_REGISTRE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is None,
+        "example": f"{REGISTRE_INFO_URL}",
     },
     # Conformité
     "conformite": {
