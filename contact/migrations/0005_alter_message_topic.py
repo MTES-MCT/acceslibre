@@ -7,9 +7,10 @@ from contact.models import Message as MessageModel
 def change_category(apps, schema_editor):
     Message: MessageModel = apps.get_model("contact", "Message")
     messages = Message.objects.all()
+    topics = [topic[0] for topic in MessageModel.TOPICS]
     for m in messages:
-        if m.topic not in messages.TOPICS:
-            m.topic = "autres"
+        if m.topic not in topics:
+            m.topic = "autre"
             m.save()
 
 
