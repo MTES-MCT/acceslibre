@@ -8,6 +8,7 @@ class EtalabModel:
     name: str
     postal_code: str
     commune: str
+    siret: str
     transport_station_presence: bool
     transport_information: str
     stationnement_presence: bool

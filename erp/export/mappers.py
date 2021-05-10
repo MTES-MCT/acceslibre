@@ -33,7 +33,11 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             continue
 
         o = EtalabModel(
-            id=str(erp.id),
+            id=f"acceslibre_{str(erp.id)}",
+            name=erp.nom,
+            postal_code=erp.code_postal,
+            commune=erp.commune,
+            siret=erp.siret,
             transport_station_presence=erp.accessibilite.transport_station_presence,
             transport_information=erp.accessibilite.transport_information,
             stationnement_presence=erp.accessibilite.stationnement_presence,

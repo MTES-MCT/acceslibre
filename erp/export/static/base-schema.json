@@ -81,13 +81,13 @@
       "example":"Paris 17"
     },
     {
-      "name": "siren",
-      "description": "Le numero SIREN de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
-      "example": "130025265",
+      "name": "siret",
+      "description": "Le numero SIRET de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
+      "example": "13002526564591",
       "type": "string",
       "constraints":{
         "required":true,
-        "pattern": "^\\d{9}$"
+        "pattern": "^\\d{14}$"
       }
     }
   ]
