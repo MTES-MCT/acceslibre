@@ -46,7 +46,7 @@ def contact(request, topic=None, erp_slug=None):
             send_receipt(
                 message.email,
                 message.get_topic_display(),
-                message.topic == "vaccination",
+                message.topic == Message.TOPIC_VACCINATION,
             )
             return redirect(reverse("contact_form_sent"))
     else:
