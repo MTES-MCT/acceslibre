@@ -607,6 +607,8 @@ class PublicPublicationForm(forms.ModelForm):
     published = forms.BooleanField(
         label="Je souhaite mettre en ligne cette fiche d'établissement immédiatement",
         required=False,
+        initial=True,
+        widget=forms.CheckboxInput(attrs={"checked": "checked"}),
     )
     subscribe = forms.BooleanField(
         label="Je souhaite recevoir des notifications par email lorsque cette fiche est mise à jour par d'autres contributeurs",
