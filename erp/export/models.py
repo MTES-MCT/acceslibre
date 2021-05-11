@@ -8,11 +8,11 @@ class EtalabModel:
     name: str
     postal_code: str
     commune: str
-    siret: str
     numero: str
     voie: str
     lieu_dit: str
     code_insee: str
+    siret: str
     coordinates: str
     transport_station_presence: bool
     stationnement_presence: bool

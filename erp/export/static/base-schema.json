@@ -102,19 +102,7 @@
       "name":"code_insee",
       "description":"Code INSEE",
       "type":"string",
-      "constraints": {
-        "required": true
-      },
       "example":"17877"
-    },
-    {
-      "name":"commune",
-      "description":"Nom de la commune",
-      "type":"string",
-      "constraints": {
-        "required": true
-      },
-      "example":"Paris 17"
     },
     {
       "name": "siret",
