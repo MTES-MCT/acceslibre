@@ -1,6 +1,6 @@
 # TI: test csv file writing
 # TI: check frictionless validation with http call
-# TI: export to data.gouv
+# TI: automated export to data.gouv
 import os
 from pathlib import Path
 
