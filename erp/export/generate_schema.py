@@ -2,7 +2,6 @@ from typing import Any
 
 from frictionless import Schema, Field
 
-from erp import schema
 from erp.export.models import ETALAB_SCHEMA_FIELDS
 from erp.schema import FIELDS
 
