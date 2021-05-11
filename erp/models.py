@@ -969,7 +969,7 @@ class Accessibilite(models.Model):
         choices=schema.NULLABLE_BOOLEAN_CHOICES,
         verbose_name="Entrée de plain-pied",
     )
-    # Nombre de marchesschema.PENTE_LENGTH_CHOICES
+    # Nombre de marches
     entree_marches = models.PositiveSmallIntegerField(
         null=True,
         blank=True,

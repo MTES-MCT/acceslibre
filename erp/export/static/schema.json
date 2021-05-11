@@ -37,7 +37,7 @@
       "role": "author"
     },
     {
-      "title": "Nicolas Pierrault",
+      "title": "Nicolas Perriault",
       "email": "nicolas@perriault.net",
       "organisation": "MTES-MCT",
       "role": "author"
@@ -370,6 +370,7 @@
     {
       "name": "cheminement_ext_ascenseur",
       "title": "Ascenseur/élévateur",
+      "description": "Existe-t-il un ascenseur ou un élévateur&nbsp;?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -400,6 +401,7 @@
     {
       "name": "cheminement_ext_nombre_marches",
       "title": "Nombre de marches",
+      "description": "Combien y'a t'il de marches&nbsp;?",
       "type": "integer",
       "example": "0"
     },
@@ -450,6 +452,7 @@
     {
       "name": "cheminement_ext_main_courante",
       "title": "Main courante",
+      "description": "L'escalier est-il équipé d'une main courante ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -494,6 +497,7 @@
     {
       "name": "cheminement_ext_pente_presence",
       "title": "Pente",
+      "description": "Le cheminement est-il en pente ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -524,6 +528,7 @@
     {
       "name": "cheminement_ext_pente_degre_difficulte",
       "title": "Degré de difficulté de la pente",
+      "description": "Quel est son degré de difficulté ?",
       "type": "string",
       "constraints": {
         "enum": [
@@ -536,6 +541,7 @@
     {
       "name": "cheminement_ext_pente_longueur",
       "title": "Longueur de la pente",
+      "description": "Quelle est sa longueur ?",
       "type": "string",
       "constraints": {
         "enum": [
@@ -549,6 +555,7 @@
     {
       "name": "cheminement_ext_devers",
       "title": "Dévers",
+      "description": "Un dévers est une inclinaison transversale du cheminement. S'il en existe un, quel est son degré de difficulté ?",
       "type": "string",
       "constraints": {
         "enum": [
@@ -655,6 +662,7 @@
     {
       "name": "entree_vitree",
       "title": "Entrée vitrée",
+      "description": "La porte d'entrée est-elle vitrée ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -747,6 +755,7 @@
     {
       "name": "entree_ascenseur",
       "title": "Ascenseur/élévateur",
+      "description": "Existe-t-il un ascenseur ou un élévateur ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -777,6 +786,7 @@
     {
       "name": "entree_marches",
       "title": "Nombre de marches",
+      "description": "Indiquer 0 s'il n'y a ni marche ni escalier",
       "type": "integer",
       "example": "0"
     },
@@ -814,6 +824,7 @@
     {
       "name": "entree_marches_main_courante",
       "title": "Main courante",
+      "description": "L'escalier est-il équipé d'une main courante ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -844,6 +855,7 @@
     {
       "name": "entree_marches_rampe",
       "title": "Rampe",
+      "description": "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible ?",
       "type": "string",
       "constraints": {
         "enum": [
@@ -917,6 +929,7 @@
     {
       "name": "entree_balise_sonore",
       "title": "Balise sonore à l'entrée",
+      "description": "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -947,6 +960,7 @@
     {
       "name": "entree_aide_humaine",
       "title": "Aide humaine",
+      "description": "Présence ou possibilité d'une aide humaine au déplacement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1105,6 +1119,7 @@
     {
       "name": "accueil_personnels",
       "title": "Personnel d'accueil",
+      "description": "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées ?",
       "type": "string",
       "constraints": {
         "enum": [
@@ -1198,6 +1213,7 @@
     {
       "name": "accueil_cheminement_ascenseur",
       "title": "Ascenseur/élévateur",
+      "description": "Existe-t-il un ascenseur ou un élévateur ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1228,6 +1244,7 @@
     {
       "name": "accueil_cheminement_nombre_marches",
       "title": "Nombre de marches",
+      "description": "Indiquer 0 s'il n'y a ni marche ni escalier",
       "type": "integer",
       "example": "0"
     },
@@ -1265,6 +1282,7 @@
     {
       "name": "accueil_cheminement_main_courante",
       "title": "Main courante",
+      "description": "L'escalier est-il équipé d'une main courante ?",
       "type": "boolean",
       "trueValues": [
         "true",

@@ -58,7 +58,7 @@ def create_field(field_name, field):
     schema_field = Field(
         name=field_name,
         type=map_types(field.get("type")),
-        description=field.get("help_text_ui") or field.get("description"),
+        description=get_description(field_name, field),
         title=field.get("label"),
         true_values=constraints.get("boolTrue", None),
         false_values=constraints.get("boolFalse", None),
@@ -68,10 +68,22 @@ def create_field(field_name, field):
     )
 
     schema_field["example"] = field.get(
-        "example", generate_example_text(field_name, field)
-    ) or generate_example_text(field_name, field)
+        "example", generate_example_text(field)
+    ) or generate_example_text(field)
 
     return schema_field
+
+
+def get_description(field_name, field):
+    help_text = (
+        field.get("help_text").replace("&nbsp;", " ")
+        if field.get("help_text")
+        else None
+    )
+    description = field.get("description") or field.get("help_text_ui") or help_text
+    if not description:
+        raise ValueError("No description found for field: " + field_name)
+    return description
 
 
 def map_types(from_format):
@@ -85,7 +97,7 @@ def get_constraints(field_name: str, field: Any) -> dict:
     Get TableSchema constraints. The key will be identified when constructing fields to avoid another conditional
     """
     constraints = {}
-    enum = get_linked_enum(field_name)
+    enum = field.get("enum") or None
     field_type = map_types(field.get("type"))
     if enum and field_type == "string":
         constraints["simple"] = {}
@@ -108,46 +120,9 @@ def get_constraints(field_name: str, field: Any) -> dict:
     return constraints
 
 
-def get_linked_enum(field_name):
-    if field_name == "cheminement_ext_devers":
-        return schema.DEVERS_CHOICES
-    if field_name == "entree_marches_rampe":
-        return schema.RAMPE_CHOICES
-    if field_name == "entree_marches_sens":
-        return schema.ESCALIER_SENS
-    if field_name == "entree_dispositif_appel_type":
-        return schema.DISPOSITIFS_APPEL_CHOICES
-    if field_name == "accueil_personnels":
-        return schema.PERSONNELS_CHOICES
-    if field_name == "accueil_equipements_malentendants":
-        return schema.EQUIPEMENT_MALENTENDANT_CHOICES
-    if field_name == "accueil_cheminement_sens_marches":
-        return schema.ESCALIER_SENS
-    if field_name == "accueil_cheminement_rampe":
-        return schema.RAMPE_CHOICES
-    if field_name == "cheminement_ext_sens_marches":
-        return schema.ESCALIER_SENS
-    if field_name == "cheminement_ext_rampe":
-        return schema.RAMPE_CHOICES
-    if field_name == "cheminement_ext_pente_degre_difficulte":
-        return schema.PENTE_CHOICES
-    if field_name == "cheminement_ext_pente_longueur":
-        return schema.PENTE_LENGTH_CHOICES
-    if field_name == "labels":
-        return schema.LABEL_CHOICES
-    if field_name == "labels_familles_handicap":
-        return schema.HANDICAP_CHOICES
-    if field_name == "entree_porte_manoeuvre":
-        return schema.PORTE_MANOEUVRE_CHOICES
-    if field_name == "entree_porte_type":
-        return schema.PORTE_TYPE_CHOICES
-
-    return None
-
-
-def generate_example_text(field_name, field):
+def generate_example_text(field):
     text = ""
-    enum = get_linked_enum(field_name)
+    enum = field.get("enum") or None
     if field.get("type") == "boolean":
         text = "True"
     elif field.get("type") == "number":
