@@ -9,8 +9,12 @@ class EtalabModel:
     postal_code: str
     commune: str
     siret: str
+    numero: str
+    voie: str
+    lieu_dit: str
+    code_insee: str
+    coordinates: str
     transport_station_presence: bool
-    transport_information: str
     stationnement_presence: bool
     stationnement_pmr: bool
     stationnement_ext_presence: bool
@@ -48,7 +52,6 @@ class EtalabModel:
     entree_aide_humaine: bool
     entree_largeur_mini: int
     entree_pmr: bool
-    entree_pmr_informations: str
     entree_porte_presence: bool
     entree_porte_manoeuvre: Literal["battante", "coulissante", "tourniquet", "tambour"]
     entree_porte_type: Literal["manuelle", "automatique"]
@@ -66,15 +69,12 @@ class EtalabModel:
     accueil_cheminement_rampe: Literal["aucune", "fixe", "amovible", "aide humaine"]
     accueil_cheminement_sens_marches: Literal["montant", "descendant"]
     accueil_retrecissement: bool
-    # accueil_prestations: str
     sanitaires_presence: bool
     sanitaires_adaptes: int
     labels: Optional[Set[Literal["autre", "dpt", "mobalib", "th"]]]
     labels_familles_handicap: Optional[
         Set[Literal["auditif", "mental", "moteur", "visuel"]]
     ]
-    labels_autre: str
-    commentaire: str
     registre_url: str
     conformite: bool
 

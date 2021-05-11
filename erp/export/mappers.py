@@ -1,6 +1,8 @@
 from dataclasses import fields
 from typing import List, Tuple
 
+from django.contrib.gis.geos import Point
+
 from erp import schema
 from erp.export.models import ETALAB_SCHEMA_FIELDS, EtalabModel
 from erp.models import Erp, Accessibilite
@@ -38,8 +40,12 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             postal_code=erp.code_postal,
             commune=erp.commune,
             siret=erp.siret,
+            numero=erp.numero,
+            voie=erp.voie,
+            lieu_dit=erp.lieu_dit,
+            code_insee=erp.code_insee,
+            coordinates=",".join(map(str, erp.geom.coords)),
             transport_station_presence=erp.accessibilite.transport_station_presence,
-            transport_information=erp.accessibilite.transport_information,
             stationnement_presence=erp.accessibilite.stationnement_presence,
             stationnement_pmr=erp.accessibilite.stationnement_pmr,
             stationnement_ext_presence=erp.accessibilite.stationnement_ext_presence,
@@ -88,7 +94,6 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             entree_aide_humaine=erp.accessibilite.entree_aide_humaine,
             entree_largeur_mini=erp.accessibilite.entree_largeur_mini,
             entree_pmr=erp.accessibilite.entree_pmr,
-            entree_pmr_informations=erp.accessibilite.entree_pmr_informations,
             accueil_visibilite=erp.accessibilite.accueil_visibilite,
             accueil_personnels=map_value_from_schema(
                 schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels
@@ -113,8 +118,6 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             labels_familles_handicap=map_list_from_schema(
                 schema.HANDICAP_CHOICES, erp.accessibilite.labels_familles_handicap
             ),
-            labels_autre=erp.accessibilite.labels_autre,
-            commentaire=erp.accessibilite.commentaire,
             registre_url=erp.accessibilite.registre_url,
             conformite=erp.accessibilite.conformite,
             cheminement_ext_sens_marches=map_value_from_schema(
