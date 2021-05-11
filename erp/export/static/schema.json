@@ -51,7 +51,7 @@
       "constraints": {
         "required": true
       },
-      "example": "acceslibre_clichy_20211013"
+      "example": "123e4567-e89b-12d3-a456-426614174000"
     },
     {
       "name": "name",
@@ -81,14 +81,55 @@
       "example": "Paris 17"
     },
     {
+      "name": "numero",
+      "description": "Numero de la rue",
+      "type": "string",
+      "example": "15"
+    },
+    {
+      "name": "voie",
+      "description": "Nom de la rue/voie",
+      "type": "string",
+      "example": "Rue Paul Chenavard"
+    },
+    {
+      "name": "lieu_dit",
+      "description": "Lieu-dit",
+      "type": "string",
+      "example": "Le petit Marché"
+    },
+    {
+      "name": "code_insee",
+      "description": "Code INSEE",
+      "type": "string",
+      "constraints": {
+        "required": true
+      },
+      "example": "17877"
+    },
+    {
+      "name": "commune",
+      "description": "Nom de la commune",
+      "type": "string",
+      "constraints": {
+        "required": true
+      },
+      "example": "Paris 17"
+    },
+    {
       "name": "siret",
       "description": "Le numero SIRET de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
       "example": "13002526564591",
       "type": "string",
       "constraints": {
-        "required": true,
         "pattern": "^\\d{14}$"
       }
+    },
+    {
+      "name": "coordinates",
+      "description": "Coordonnées GPS",
+      "example": "90, 45",
+      "type": "geopoint"
     },
     {
       "name": "transport_station_presence",
@@ -120,12 +161,6 @@
         "NON"
       ],
       "example": "True"
-    },
-    {
-      "name": "transport_information",
-      "title": "Informations complémentaires",
-      "type": "string",
-      "example": "Ligne n4"
     },
     {
       "name": "stationnement_presence",
@@ -990,12 +1025,6 @@
       "example": "True"
     },
     {
-      "name": "entree_pmr_informations",
-      "title": "Informations complémentaires concernant l'entrée PMR",
-      "type": "string",
-      "example": "Entrée fléchée"
-    },
-    {
       "name": "entree_porte_presence",
       "title": "Y a-t-il une porte ?",
       "description": "Présence d'une porte à l'entrée de l'établissement",
@@ -1421,19 +1450,6 @@
       "example": "Valeurs possibles: auditif -> Auditif, mental -> Mental, moteur -> Moteur, visuel -> Visuel"
     },
     {
-      "name": "labels_autre",
-      "title": "Autre label",
-      "type": "string",
-      "example": "HandiLabel"
-    },
-    {
-      "name": "commentaire",
-      "title": "Informations complémentaires et prestations spécifiques",
-      "description": "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées",
-      "type": "string",
-      "example": "Propose des places gratuites"
-    },
-    {
       "name": "registre_url",
       "title": "Registre",
       "description": "Si l'établissement dispose d'un registre numérique, adresse internet à laquelle celui-ci est consultable",
@@ -1472,5 +1488,8 @@
       ],
       "example": "True"
     }
+  ],
+  "primaryKey": [
+    "id"
   ]
 }

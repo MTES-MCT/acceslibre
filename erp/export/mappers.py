@@ -24,6 +24,12 @@ def map_list_from_schema(schema_enum, data):
     return list(result)
 
 
+def map_coords(geom):
+    if not geom:
+        return None
+    return ",".join(map(str, geom.coords))
+
+
 def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel]]:
     headers = ETALAB_SCHEMA_FIELDS
 
@@ -44,7 +50,7 @@ def map_erp_to_json_schema(erps: List[Erp]) -> Tuple[List[str], List[EtalabModel
             voie=erp.voie,
             lieu_dit=erp.lieu_dit,
             code_insee=erp.code_insee,
-            coordinates=",".join(map(str, erp.geom.coords)),
+            coordinates=map_coords(erp.geom),
             transport_station_presence=erp.accessibilite.transport_station_presence,
             stationnement_presence=erp.accessibilite.stationnement_presence,
             stationnement_pmr=erp.accessibilite.stationnement_pmr,
