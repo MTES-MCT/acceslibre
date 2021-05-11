@@ -1,0 +1,64 @@
+{% extends "editorial/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block page_title %}Renseigner un établissement{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <h2 class="h3 mb-3">Documentation des champs d'accessibilité</h2>
+
+  <div class="alert alert-info mb-3">
+    Vous souhaitez étudier ces entités au format tableur&nbsp;? <a href="{% url "contact_form" %}">Demandez le nous</a>&nbsp;!
+  </div>
+
+  <table class="table">
+    <tbody>
+      <tr class="table-light">
+        <th>Entité</th>
+        <th>Description</th>
+        <th>Type de données</th>
+        <th>Attributs</th>
+      </tr>
+    {% for section, fields in sections.items %}
+      <tr class="table-light mt-2">
+        <th colspan="4"><h3 class="h4 m-0">{{ section }}</h3></th>
+      </tr>
+      {% for field in fields %}
+      <tr>
+        <th style="width:28%" class="pl-5">{{ field.label }}</th>
+        <td style="width:40%">{% if field.help_text_ui %}{{ field.help_text_ui }}{% else %}{{ field.help_text }}{% endif %}</td>
+        <td>
+          {% if field.type == "boolean" %}
+            Booléen optionnel
+          {% elif field.type == "number" %}
+            Nombre entier positif
+          {% elif field.type == "array" %}
+            Choix multiple
+          {% elif field.type == "string" %}
+            {% if field.choices %}
+            Choix simple
+            {% else %}
+            Texte libre
+            {% endif %}
+          {% else %}
+            N/A
+          {% endif %}
+        </td>
+        <td>
+          {% if field.choices %}
+            <ul class="p-0 pl-3 m-0">
+            {% for choice in field.choices %}
+              <li>{{ choice.1 }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    {% endfor %}
+    </tbody>
+  </table>
+</main>
+{% endblock %}

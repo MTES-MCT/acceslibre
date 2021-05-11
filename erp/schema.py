@@ -289,6 +289,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Arrêt de transport en commun à proximité (moins de 200 mètres)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
@@ -302,6 +303,7 @@ FIELDS = {
             "Préciser ici les informations supplémentaires sur ces transports (type de transport, ligne, nom de l'arrêt, etc) et éventuellement des informations jugées importantes sur le cheminement qui relie le point d'arrêt à l'établissement."
         ),
         "help_text_ui": None,
+        "choices": None,
         "section": SECTION_TRANSPORT,
         "nullable_bool": False,
         "warn_if": None,
@@ -318,6 +320,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence de stationnement au sein de la parcelle de l'établissement"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
@@ -333,6 +336,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence de stationnement adapté au sein de la parcelle de l'établissement"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
@@ -348,6 +352,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence de stationnement à proximité de l'établissement (moins de 200 mètres)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
@@ -363,6 +368,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence de stationnement adapté à proximité de l'établissement (moins de 200 mètres)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
         "warn_if": False,
@@ -379,6 +385,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": None,
@@ -394,6 +401,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
@@ -409,6 +417,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
@@ -420,6 +429,7 @@ FIELDS = {
         "label": "Ascenseur/élévateur",
         "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
@@ -432,6 +442,7 @@ FIELDS = {
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "help_text_ui": None,
         "section": SECTION_CHEMINEMENT_EXT,
+        "choices": None,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
     },
@@ -444,6 +455,7 @@ FIELDS = {
             "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
         ),
         "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "choices": ESCALIER_SENS,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": None,
@@ -459,6 +471,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
@@ -470,6 +483,7 @@ FIELDS = {
         "label": "Main courante",
         "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
@@ -483,6 +497,7 @@ FIELDS = {
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence et type de rampe"),
+        "choices": RAMPE_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": RAMPE_AUCUNE,
@@ -494,6 +509,7 @@ FIELDS = {
         "label": "Pente",
         "help_text": mark_safe("Le cheminement est-il en pente&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": None,
@@ -505,6 +521,7 @@ FIELDS = {
         "label": "Degré de difficulté de la pente",
         "help_text": mark_safe("Quel est son degré de difficulté&nbsp;?"),
         "help_text_ui": None,
+        "choices": PENTE_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
@@ -516,6 +533,7 @@ FIELDS = {
         "label": "Longueur de la pente",
         "help_text": mark_safe("Quelle est sa longueur&nbsp;?"),
         "help_text_ui": None,
+        "choices": PENTE_LENGTH_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None
@@ -530,6 +548,7 @@ FIELDS = {
             "Un dévers est une inclinaison transversale du cheminement. S'il en existe un, quel est son degré de difficulté&nbsp;?"
         ),
         "help_text_ui": None,
+        "choices": DEVERS_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [DEVERS_LEGER, DEVERS_IMPORTANT],
@@ -545,6 +564,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence d'une bande de guidage au sol facilitant le déplacement d'une personne aveugle ou malvoyante"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
@@ -560,6 +580,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
@@ -576,6 +597,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence d'éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -589,6 +611,7 @@ FIELDS = {
             "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence d'une porte à l'entrée de l'établissement"),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
@@ -600,6 +623,7 @@ FIELDS = {
         "label": "Manoeuvre de la porte",
         "help_text": mark_safe("Comment s'ouvre la porte&nbsp;?"),
         "help_text_ui": mark_safe("Mode d'ouverture de la porte"),
+        "choices": PORTE_MANOEUVRE_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
@@ -611,6 +635,7 @@ FIELDS = {
         "label": "Type de porte",
         "help_text": mark_safe("Quel est le type de la porte&nbsp;?"),
         "help_text_ui": mark_safe("Type de porte"),
+        "choices": PORTE_TYPE_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
@@ -622,6 +647,7 @@ FIELDS = {
         "label": "Entrée vitrée",
         "help_text": mark_safe("La porte d'entrée est-elle vitrée&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": True,
@@ -637,6 +663,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -652,6 +679,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "L'entrée se fait de plain-pied (sans rupture de niveau)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -663,6 +691,7 @@ FIELDS = {
         "label": "Ascenseur/élévateur",
         "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -674,6 +703,7 @@ FIELDS = {
         "label": "Nombre de marches",
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "help_text_ui": None,
+        "choices": None,
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
@@ -687,6 +717,7 @@ FIELDS = {
             "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
         ),
         "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "choices": ESCALIER_SENS,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
@@ -702,6 +733,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -713,6 +745,7 @@ FIELDS = {
         "label": "Main courante",
         "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -726,6 +759,7 @@ FIELDS = {
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": None,
+        "choices": RAMPE_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is False or x == RAMPE_AUCUNE,
@@ -741,6 +775,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence d'un dispositif comme une sonnette pour signaler sa présence"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -754,6 +789,7 @@ FIELDS = {
             "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
         ),
         "help_text_ui": mark_safe("Dispositifs d'appels présents"),
+        "choices": DISPOSITIFS_APPEL_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -767,6 +803,7 @@ FIELDS = {
             "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante&nbsp;?"
         ),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -780,6 +817,7 @@ FIELDS = {
             "Présence ou possibilité d'une aide humaine au déplacement"
         ),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -793,6 +831,7 @@ FIELDS = {
             "Si la largeur n'est pas précisément connue, indiquer une valeur minimum. Exemple&nbsp;: la largeur se situe entre 90 et 100 cm&nbsp;; indiquer 90."
         ),
         "help_text_ui": mark_safe("Largeur minimale de la porte d'entrée"),
+        "choices": None,
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
@@ -808,6 +847,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence d'une entrée secondaire spécifique dédiée aux personnes à mobilité réduite"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
@@ -821,6 +861,7 @@ FIELDS = {
             "Préciser ici les modalités d'accès de l'entrée spécifique PMR"
         ),
         "help_text_ui": None,
+        "choices": None,
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
@@ -837,6 +878,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -850,6 +892,7 @@ FIELDS = {
             "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
         ),
         "help_text_ui": None,
+        "choices": PERSONNELS_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None
@@ -870,6 +913,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -883,6 +927,7 @@ FIELDS = {
             "Sélectionnez les équipements ou prestations disponibles à l'accueil de l'établissement&nbsp;:"
         ),
         "help_text_ui": mark_safe("Équipements ou prestations disponibles"),
+        "choices": EQUIPEMENT_MALENTENDANT_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and len(x) == 0,
@@ -898,6 +943,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -909,6 +955,7 @@ FIELDS = {
         "label": "Ascenseur/élévateur",
         "help_text": mark_safe("Existe-t-il un ascenseur ou un élévateur&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -920,6 +967,7 @@ FIELDS = {
         "label": "Nombre de marches",
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "help_text_ui": None,
+        "choices": None,
         "section": SECTION_ACCUEIL,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
@@ -933,6 +981,7 @@ FIELDS = {
             "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
         ),
         "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "choices": ESCALIER_SENS,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": None,
@@ -948,6 +997,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -959,6 +1009,7 @@ FIELDS = {
         "label": "Main courante",
         "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
         "help_text_ui": None,
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -972,6 +1023,7 @@ FIELDS = {
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": mark_safe("Présence et type de rampe"),
+        "choices": RAMPE_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
@@ -987,6 +1039,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
@@ -1003,6 +1056,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Mise à disposition de sanitaires dans l'établissement"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_SANITAIRES,
         "nullable_bool": True,
         "warn_if": False,
@@ -1018,6 +1072,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Mise à disposition de sanitaires adaptés dans l'établissement"
         ),
+        "choices": None,
         "section": SECTION_SANITAIRES,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 1,
@@ -1032,6 +1087,7 @@ FIELDS = {
             "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marques ou quels labels a-t-il obtenu&nbsp;?"
         ),
         "help_text_ui": mark_safe("Marque(s) ou label(s) obtenus par l'établissement"),
+        "choices": LABEL_CHOICES,
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
@@ -1047,6 +1103,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Famille(s) de handicap couverte(s) par ces marques ou labels"
         ),
+        "choices": HANDICAP_CHOICES,
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
@@ -1058,6 +1115,7 @@ FIELDS = {
         "label": "Autre label",
         "help_text": mark_safe("Si autre, préciser le nom du label"),
         "help_text_ui": None,
+        "choices": None,
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
@@ -1075,6 +1133,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées"
         ),
+        "choices": None,
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
@@ -1109,6 +1168,7 @@ FIELDS = {
         "help_text_ui": mark_safe(
             "Statut réglementaire de conformité de l'établissement"
         ),
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CONFORMITE,
         "nullable_bool": True,
         "warn_if": False,
@@ -1127,6 +1187,25 @@ def get_api_fieldsets():
             "label": section["label"],
             "fields": get_section_fields(section_id),
         }
+    return fieldsets
+
+
+def get_documentation_fieldsets():
+    # {"Nom de la section": {
+    #   "fields": [
+    #     {"label": "Nom du champ",
+    #      "type": "type de champ",
+    #      ""
+    #      }
+    #   ],
+    # },
+    fieldsets = {}
+    for section_id, section in SECTIONS.items():
+        fields = []
+        for field_id in get_section_fields(section_id):
+            fields.append(FIELDS.get(field_id))
+        fieldsets[section["label"]] = fields
+
     return fieldsets
 
 
