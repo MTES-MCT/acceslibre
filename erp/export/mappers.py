@@ -1,7 +1,4 @@
-from dataclasses import fields
 from typing import List, Tuple
-
-from django.contrib.gis.geos import Point
 
 from erp import schema
 from erp.export.models import ETALAB_SCHEMA_FIELDS, EtalabModel
