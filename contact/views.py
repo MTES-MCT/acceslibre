@@ -13,7 +13,7 @@ def send_receipt(email, topic, is_vaccination):
     mailer.send_email(
         [email],
         f"Suite à votre demande d'aide sur {settings.SITE_NAME} [{topic}]",
-        f"mail/contact_form_receipt.txt",
+        "mail/contact_form_receipt.txt",
         {
             "user": email,
             "is_vaccination": is_vaccination,
