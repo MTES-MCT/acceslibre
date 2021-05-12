@@ -919,12 +919,11 @@
         "type": "string",
         "enum": [
           "bouton",
-          "sonnette",
           "interphone",
           "visiophone"
         ]
       },
-      "example": "Valeurs possibles: bouton -> Bouton d’appel, sonnette -> Sonnette, interphone -> Interphone, visiophone -> Visiophone"
+      "example": "Valeurs possibles: bouton -> Bouton d’appel, interphone -> Interphone, visiophone -> Visiophone"
     },
     {
       "name": "entree_balise_sonore",
@@ -1419,7 +1418,7 @@
     {
       "name": "sanitaires_adaptes",
       "title": "Sanitaires adaptés",
-      "description": "Nombre de sanitaires adaptés dans l'établissement",
+      "description": "Mise à disposition de sanitaires adaptés dans l'établissement",
       "type": "integer",
       "example": "0"
     },

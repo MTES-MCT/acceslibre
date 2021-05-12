@@ -46,7 +46,7 @@ class EtalabModel:
     entree_marches_sens: Literal["montant", "descendant"]
     entree_dispositif_appel: bool
     entree_dispositif_appel_type: Optional[
-        Set[Literal["bouton", "sonnette", "interphone", "visiophone"]]
+        Set[Literal["bouton", "interphone", "visiophone"]]
     ]
     entree_balise_sonore: bool
     entree_aide_humaine: bool
