@@ -2,8 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block page_title %}Renseigner un établissement{% endblock%}
-{% block robots %}noindex, nofollow{% endblock %}
+{% block page_title %}Documentation des champs d'accessibilité{% endblock%}
 
 {% block editorial_content %}
 <main role="main" id="content">
@@ -13,7 +12,7 @@
     Vous souhaitez étudier ces entités au format tableur&nbsp;? <a href="{% url "contact_form" %}">Demandez le nous</a>&nbsp;!
   </div>
 
-  <table class="table">
+  <table class="table table-responsive">
     <tbody>
       <tr class="table-light">
         <th>Entité</th>
@@ -29,7 +28,7 @@
       <tr>
         <th style="width:28%" class="pl-5">{{ field.label }}</th>
         <td style="width:40%">{% if field.help_text_ui %}{{ field.help_text_ui }}{% else %}{{ field.help_text }}{% endif %}</td>
-        <td>
+        <td class="text-center">
           {% if field.type == "boolean" %}
             Booléen optionnel
           {% elif field.type == "number" %}
