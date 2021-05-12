@@ -1,21 +1,23 @@
+from django.conf import settings
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from core import mailer, settings
+from core import mailer
 from erp.models import Erp
 
 from .forms import ContactForm
 from .models import Message
 
 
-def send_receipt(email, topic, is_vaccination):
+def send_receipt(email, topic, erp, is_vaccination):
     mailer.send_email(
         [email],
         f"Suite à votre demande d'aide sur {settings.SITE_NAME} [{topic}]",
         "mail/contact_form_receipt.txt",
         {
             "user": email,
+            "erp": erp,
             "is_vaccination": is_vaccination,
             "SITE_NAME": settings.SITE_NAME,
             "SITE_ROOT_URL": settings.SITE_ROOT_URL,
@@ -46,6 +48,7 @@ def contact(request, topic=None, erp_slug=None):
             send_receipt(
                 message.email,
                 message.get_topic_display(),
+                erp,
                 message.topic == Message.TOPIC_VACCINATION,
             )
             return redirect(reverse("contact_form_sent"))

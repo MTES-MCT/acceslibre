@@ -15,8 +15,8 @@ TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
 TEST_BODY = "This is a test"
 
-RECEIPT_EXTRACT_NORMAL = "Nous vous invitions à contacter directement l'établissement"
-RECEIPT_EXTRACT_VACCINATION = "centre de vaccination"
+RECEIPT_CONTENT_NORMAL = "nous vous invitons à contacter directement l’établissement"
+RECEIPT_CONTENT_VACCINATION = "Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination."
 
 
 def test_contact(data, client):
@@ -50,7 +50,7 @@ def test_contact(data, client):
 
     assert "Suite à votre demande d'aide" in mail.outbox[1].subject
     assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_EXTRACT_NORMAL in mail.outbox[1].body
+    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
 
 
 def test_contact_antispam(data, client):
@@ -107,7 +107,7 @@ def test_contact_authenticated(data, client):
 
     assert "Suite à votre demande d'aide" in mail.outbox[1].subject
     assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_EXTRACT_NORMAL in mail.outbox[1].body
+    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
 
 
 def test_contact_topic(data, client):
@@ -141,7 +141,7 @@ def test_contact_topic(data, client):
 
     assert "Suite à votre demande d'aide" in mail.outbox[1].subject
     assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_EXTRACT_NORMAL in mail.outbox[1].body
+    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
 
 
 def test_contact_topic_erp(data, client):
@@ -181,4 +181,4 @@ def test_contact_topic_erp(data, client):
 
     assert "Suite à votre demande d'aide" in mail.outbox[1].subject
     assert TEST_EMAIL in mail.outbox[1].to
-    assert RECEIPT_EXTRACT_VACCINATION in mail.outbox[1].body
+    assert RECEIPT_CONTENT_VACCINATION in mail.outbox[1].body
