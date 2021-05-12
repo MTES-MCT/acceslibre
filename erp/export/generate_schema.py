@@ -96,7 +96,7 @@ def get_constraints(field_name: str, field: Any) -> dict:
     Get TableSchema constraints. The key will be identified when constructing fields to avoid another conditional
     """
     constraints = {}
-    enum = field.get("enum") or None
+    enum = field.get("choices") or None
     field_type = map_types(field.get("type"))
     if enum and field_type == "string":
         constraints["simple"] = {}
@@ -121,7 +121,7 @@ def get_constraints(field_name: str, field: Any) -> dict:
 
 def generate_example_text(field):
     text = ""
-    enum = field.get("enum") or None
+    enum = field.get("choices") or None
     if field.get("type") == "boolean":
         text = "True"
     elif field.get("type") == "number":

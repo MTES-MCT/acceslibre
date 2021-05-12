@@ -462,7 +462,6 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": None,
-        "enum": ESCALIER_SENS,
     },
     "cheminement_ext_reperage_marches": {
         "type": "boolean",
@@ -505,7 +504,6 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": RAMPE_AUCUNE,
-        "enum": RAMPE_CHOICES,
     },
     "cheminement_ext_pente_presence": {
         "type": "boolean",
@@ -530,7 +528,6 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [PENTE_LEGERE, PENTE_IMPORTANTE],
-        "enum": PENTE_CHOICES,
     },
     "cheminement_ext_pente_longueur": {
         "type": "string",
@@ -544,7 +541,6 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None
         and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
-        "enum": PENTE_LENGTH_CHOICES,
     },
     "cheminement_ext_devers": {
         "type": "string",
@@ -559,7 +555,6 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and x in [DEVERS_LEGER, DEVERS_IMPORTANT],
-        "enum": DEVERS_CHOICES,
     },
     "cheminement_ext_bande_guidage": {
         "type": "boolean",
@@ -635,7 +630,6 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
-        "enum": PORTE_MANOEUVRE_CHOICES,
     },
     "entree_porte_type": {
         "type": "string",
@@ -648,7 +642,6 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
-        "enum": PORTE_TYPE_CHOICES,
     },
     "entree_vitree": {
         "type": "boolean",
@@ -731,7 +724,6 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": None,
-        "enum": ESCALIER_SENS,
     },
     "entree_marches_reperage": {
         "type": "boolean",
@@ -774,7 +766,6 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is False or x == RAMPE_AUCUNE,
-        "enum": RAMPE_CHOICES,
     },
     "entree_dispositif_appel": {
         "type": "boolean",
@@ -805,7 +796,6 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
-        "enum": DISPOSITIFS_APPEL_CHOICES,
     },
     "entree_balise_sonore": {
         "type": "boolean",
@@ -915,7 +905,6 @@ FIELDS = {
             PERSONNELS_NON_FORMES,
             PERSONNELS_AUCUN,
         ],
-        "enum": PERSONNELS_CHOICES,
     },
     "accueil_equipements_malentendants_presence": {
         "type": "boolean",
@@ -946,7 +935,6 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": lambda x, i: x is not None and len(x) == 0,
-        "enum": EQUIPEMENT_MALENTENDANT_CHOICES,
     },
     "accueil_cheminement_plain_pied": {
         "type": "boolean",
@@ -1001,7 +989,6 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": None,
-        "enum": ESCALIER_SENS,
     },
     "accueil_cheminement_reperage_marches": {
         "type": "boolean",
@@ -1108,7 +1095,6 @@ FIELDS = {
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
-        "enum": LABEL_CHOICES,
     },
     "labels_familles_handicap": {
         "type": "array",
@@ -1125,7 +1111,6 @@ FIELDS = {
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
-        "enum": HANDICAP_CHOICES,
     },
     "labels_autre": {
         "type": "string",
