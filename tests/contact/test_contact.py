@@ -15,6 +15,9 @@ TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
 TEST_BODY = "This is a test"
 
+RECEIPT_CONTENT_NORMAL = "nous vous invitons à contacter directement l’établissement"
+RECEIPT_CONTENT_VACCINATION = "Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination."
+
 
 def test_contact(data, client):
     response = client.post(
@@ -28,7 +31,7 @@ def test_contact(data, client):
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 1
+    assert len(mail.outbox) == 2
     assert "[signalement]" in mail.outbox[0].subject
     assert TEST_NAME in mail.outbox[0].body
     assert TEST_EMAIL in mail.outbox[0].body
@@ -44,6 +47,10 @@ def test_contact(data, client):
             sent_ok=True,
         ).count()
     )
+
+    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
+    assert TEST_EMAIL in mail.outbox[1].to
+    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
 
 
 def test_contact_antispam(data, client):
@@ -83,7 +90,7 @@ def test_contact_authenticated(data, client):
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 1
+    assert len(mail.outbox) == 2
     assert "[signalement]" in mail.outbox[0].subject
     assert data.erp.user.username in mail.outbox[0].body
     assert TEST_BODY in mail.outbox[0].body
@@ -98,21 +105,25 @@ def test_contact_authenticated(data, client):
         ).count()
     )
 
+    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
+    assert TEST_EMAIL in mail.outbox[1].to
+    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
+
 
 def test_contact_topic(data, client):
     response = client.post(
-        reverse("contact_topic", kwargs={"topic": "a11y"}),
+        reverse("contact_topic", kwargs={"topic": "api"}),
         {
             "name": TEST_NAME,
             "email": TEST_EMAIL,
-            "topic": "a11y",
+            "topic": "api",
             "body": TEST_BODY,
         },
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 1
-    assert "[a11y]" in mail.outbox[0].subject
+    assert len(mail.outbox) == 2
+    assert "[api]" in mail.outbox[0].subject
     assert TEST_NAME in mail.outbox[0].body
     assert TEST_EMAIL in mail.outbox[0].body
     assert TEST_BODY in mail.outbox[0].body
@@ -120,7 +131,7 @@ def test_contact_topic(data, client):
     assert (
         1
         == Message.objects.filter(
-            topic="a11y",
+            topic="api",
             name=TEST_NAME,
             email=TEST_EMAIL,
             body=TEST_BODY,
@@ -128,15 +139,19 @@ def test_contact_topic(data, client):
         ).count()
     )
 
+    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
+    assert TEST_EMAIL in mail.outbox[1].to
+    assert RECEIPT_CONTENT_NORMAL in mail.outbox[1].body
+
 
 def test_contact_topic_erp(data, client):
     response = client.post(
         reverse(
             "contact_topic_erp",
-            kwargs={"topic": "signalement", "erp_slug": data.erp.slug},
+            kwargs={"topic": "vaccination", "erp_slug": data.erp.slug},
         ),
         {
-            "topic": "signalement",
+            "topic": "vaccination",
             "name": TEST_NAME,
             "email": TEST_EMAIL,
             "body": TEST_BODY,
@@ -145,8 +160,8 @@ def test_contact_topic_erp(data, client):
     )
 
     assert response.status_code == 302
-    assert len(mail.outbox) == 1
-    assert "[signalement]" in mail.outbox[0].subject
+    assert len(mail.outbox) == 2
+    assert "[vaccination]" in mail.outbox[0].subject
     assert TEST_NAME in mail.outbox[0].body
     assert TEST_EMAIL in mail.outbox[0].body
     assert TEST_BODY in mail.outbox[0].body
@@ -155,7 +170,7 @@ def test_contact_topic_erp(data, client):
     assert (
         1
         == Message.objects.filter(
-            topic="signalement",
+            topic="vaccination",
             name=TEST_NAME,
             email=TEST_EMAIL,
             body=TEST_BODY,
@@ -163,3 +178,7 @@ def test_contact_topic_erp(data, client):
             sent_ok=True,
         ).count()
     )
+
+    assert "Suite à votre demande d'aide" in mail.outbox[1].subject
+    assert TEST_EMAIL in mail.outbox[1].to
+    assert RECEIPT_CONTENT_VACCINATION in mail.outbox[1].body

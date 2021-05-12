@@ -5,21 +5,25 @@ from erp.models import Erp
 
 
 class Message(models.Model):
-    TOPIC_A11Y = "a11y"
     TOPIC_BUG = "bug"
-    TOPIC_SUPPORT = "support"
+    TOPIC_CONNECTION = "connection"
+    TOPIC_ADDRESS = "address"
+    TOPIC_DELETION = "deletion"
     TOPIC_CONTACT = "contact"
-    TOPIC_PARTENARIAT = "partenariat"
     TOPIC_SIGNALEMENT = "signalement"
+    TOPIC_API = "api"
+    TOPIC_VACCINATION = "vaccination"
     TOPIC_AUTRE = "autre"
     TOPICS = [
-        (TOPIC_A11Y, "Problème d'accessibilité"),
-        (TOPIC_BUG, "Rapport de bug"),
-        (TOPIC_SUPPORT, "Demande d'aide"),
-        (TOPIC_CONTACT, "Prise de contact"),
-        (TOPIC_PARTENARIAT, "Proposition de partenariat"),
-        (TOPIC_SIGNALEMENT, "Signalement d'un problème de données"),
-        (TOPIC_AUTRE, "Autre demande"),
+        (TOPIC_BUG, "Bug technique"),
+        (TOPIC_CONNECTION, "Problème de connexion"),
+        (TOPIC_ADDRESS, "Adresse non reconnue"),
+        (TOPIC_DELETION, "Suppression d'un établissement"),
+        (TOPIC_CONTACT, "Prise de contact avec Acceslibre"),
+        (TOPIC_API, "API"),
+        (TOPIC_SIGNALEMENT, "Signaler une malveillance"),
+        (TOPIC_VACCINATION, "Vaccination"),
+        (TOPIC_AUTRE, "Autre"),
     ]
 
     class Meta:
