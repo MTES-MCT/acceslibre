@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -9,11 +10,26 @@ from .forms import ContactForm
 from .models import Message
 
 
+def send_receipt(email, topic, erp, is_vaccination):
+    mailer.send_email(
+        [email],
+        f"Suite à votre demande d'aide sur {settings.SITE_NAME} [{topic}]",
+        "mail/contact_form_receipt.txt",
+        {
+            "user": email,
+            "erp": erp,
+            "is_vaccination": is_vaccination,
+            "SITE_NAME": settings.SITE_NAME,
+            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        },
+    )
+
+
 def contact(request, topic=None, erp_slug=None):
     if topic and topic not in dict(Message.TOPICS):
         raise Http404("invalid subject")
     erp = Erp.objects.filter(slug=erp_slug).first() if erp_slug else None
-    initial = initial = {"topic": topic or Message.TOPIC_CONTACT, "erp": erp}
+    initial = {"topic": topic or Message.TOPIC_CONTACT, "erp": erp}
     if request.method == "POST":
         form = ContactForm(request.POST, request=request, initial=initial)
         if form.is_valid():
@@ -28,6 +44,13 @@ def contact(request, topic=None, erp_slug=None):
             )
             message.sent_ok = sent_ok
             message.save()
+
+            send_receipt(
+                message.email,
+                message.get_topic_display(),
+                erp,
+                message.topic == Message.TOPIC_VACCINATION,
+            )
             return redirect(reverse("contact_form_sent"))
     else:
         form = ContactForm(request=request, initial=initial)
