@@ -15,19 +15,20 @@ from erp.models import Erp
 
 @pytest.mark.django_db
 def test_csv_creation(db):
+    dest_path = "export-test.csv"
     try:
-        with open("export-test.csv", "w", newline="") as csv_file:
+        with open(dest_path, "w", newline="") as csv_file:
             erps = Erp.objects.having_a11y_data().all()[0:10]
             headers, mapped_data = map_erp_to_json_schema(erps)
             export_to_csv(csv_file, headers, mapped_data)
 
-            assert Path("export-test.csv").exists() is True
+        assert Path(dest_path).exists() is True
 
-            package = Package(descriptor="erp/export/static/schema.json")
-            result = validate_package(package)
-            assert result.get("errors") == []
+        package = Package(descriptor="erp/export/static/schema.json")
+        result = validate_package(package)
+        assert result.get("errors") == []
     finally:
-        os.remove(csv_file.name)
+        os.remove(dest_path)
 
 
 @pytest.mark.django_db
