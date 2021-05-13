@@ -1,5 +1,6 @@
 import json
 import reversion
+import uuid as uuid
 
 from autoslug import AutoSlugField
 from django.conf import settings
@@ -300,6 +301,8 @@ class Erp(models.Model):
         ]
 
     objects = managers.ErpQuerySet.as_manager()
+
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
     source = models.CharField(
         max_length=100,
