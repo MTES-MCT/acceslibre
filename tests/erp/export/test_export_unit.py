@@ -5,7 +5,7 @@ from typing import List
 
 import pytest
 
-from erp.export.export import export_to_csv
+from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.utils import map_erps_to_json_schema
 from erp.export.models import EtalabModel
@@ -32,7 +32,7 @@ def test_export_to_csv(example_data):
     headers, mapped_data = map_erps_to_json_schema(example_data, EtalabModel)
     file = StringIO()
 
-    export_to_csv(file, headers, mapped_data)
+    export_schema_to_csv(file, example_data, EtalabModel)
     file.seek(0)
     reader = csv.DictReader(file, fieldnames=first_row)
     next(reader)  # Skip headers
