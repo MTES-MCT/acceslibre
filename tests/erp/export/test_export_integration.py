@@ -9,6 +9,7 @@ from frictionless import Package, validate_package
 
 from erp.export.export import export_to_csv
 from erp.export.generate_schema import generate_schema
+from erp.export.models import EtalabModel
 from erp.export.utils import map_erps_to_json_schema
 from erp.models import Erp
 
@@ -19,7 +20,7 @@ def test_csv_creation(db):
     try:
         with open(dest_path, "w", newline="") as csv_file:
             erps = Erp.objects.having_a11y_data().all()[0:10]
-            headers, mapped_data = map_erps_to_json_schema(erps)
+            headers, mapped_data = map_erps_to_json_schema(erps, EtalabModel)
             export_to_csv(csv_file, headers, mapped_data)
 
         assert Path(dest_path).exists() is True
