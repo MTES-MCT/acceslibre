@@ -119,6 +119,11 @@ urlpatterns = [
     ############################################################################
     # Ajout ERP
     ############################################################################
+    path(
+        "contrib/documentation/",
+        views.contrib_documentation,
+        name="contrib_documentation",
+    ),
     path("contrib/delete/<str:erp_slug>/", views.contrib_delete, name="contrib_delete"),
     path("contrib/start/", views.contrib_start, name="contrib_start"),
     path(

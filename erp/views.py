@@ -1181,3 +1181,11 @@ def mapicons(request):
         "zoo",
     ]
     return render(request, "mapicons.html", context={"mapicons": mapicons})
+
+
+def contrib_documentation(request):
+    return render(
+        request,
+        "contrib/documentation.html",
+        context={"sections": schema.get_documentation_fieldsets()},
+    )
