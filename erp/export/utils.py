@@ -5,8 +5,8 @@ from typing import List, Tuple, Type
 from erp.models import Erp
 
 
-@dataclass
-class BaseExportModel:
+@dataclass(frozen=True)
+class BaseExportMapper:
     @staticmethod
     @abstractmethod
     def headers():
@@ -21,7 +21,7 @@ class BaseExportModel:
 def map_erps_to_json_schema(
     erps: List[Erp],
     export_model,
-) -> Tuple[List[str], List[Type[BaseExportModel]]]:
+) -> Tuple[List[str], List[Type[BaseExportMapper]]]:
     headers = export_model.headers()
     results = [export_model.map_from(erp) for erp in erps if erp.accessibilite]
 

@@ -8,7 +8,7 @@ import pytest
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.utils import map_erps_to_json_schema
-from erp.export.models import EtalabModel
+from erp.export.mappers import EtalabMapper
 from erp.models import Erp
 from tests.erp.test_managers import create_test_erp
 
@@ -28,11 +28,11 @@ def example_data(db) -> List[Erp]:
 
 
 def test_export_to_csv(example_data):
-    first_row = EtalabModel.headers()
-    headers, mapped_data = map_erps_to_json_schema(example_data, EtalabModel)
+    first_row = EtalabMapper.headers()
+    headers, mapped_data = map_erps_to_json_schema(example_data, EtalabMapper)
     file = StringIO()
 
-    export_schema_to_csv(file, example_data, EtalabModel)
+    export_schema_to_csv(file, example_data, EtalabMapper)
     file.seek(0)
     reader = csv.DictReader(file, fieldnames=first_row)
     next(reader)  # Skip headers

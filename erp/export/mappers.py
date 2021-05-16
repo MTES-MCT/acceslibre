@@ -6,12 +6,12 @@ from erp.export.utils import (
     map_value_from_schema,
     map_list_from_schema,
     map_coords,
-    BaseExportModel,
+    BaseExportMapper,
 )
 
 
-@dataclass
-class EtalabModel(BaseExportModel):
+@dataclass(frozen=True)
+class EtalabMapper(BaseExportMapper):
     id: str
     name: str
     postal_code: str
@@ -88,11 +88,11 @@ class EtalabModel(BaseExportModel):
 
     @staticmethod
     def headers():
-        return [x.name for x in fields(EtalabModel)]
+        return [x.name for x in fields(EtalabMapper)]
 
     @staticmethod
     def map_from(erp):
-        return EtalabModel(
+        return EtalabMapper(
             id=str(erp.id),
             name=erp.nom,
             postal_code=erp.code_postal,

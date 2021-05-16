@@ -8,7 +8,7 @@ import pytest
 from frictionless import Package, validate_package
 
 from erp.export.export import export_schema_to_csv
-from erp.export.models import EtalabModel
+from erp.export.mappers import EtalabMapper
 from erp.models import Erp
 
 
@@ -18,7 +18,7 @@ def test_csv_creation(db):
     try:
         with open(dest_path, "w", newline="") as csv_file:
             erps = Erp.objects.having_a11y_data().all()[0:10]
-            export_schema_to_csv(csv_file, erps, EtalabModel)
+            export_schema_to_csv(csv_file, erps, EtalabMapper)
 
         assert Path(dest_path).exists() is True
 

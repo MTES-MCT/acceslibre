@@ -2,7 +2,7 @@ from typing import Any
 
 from frictionless import Schema, Field
 
-from erp.export.models import EtalabModel
+from erp.export.mappers import EtalabMapper
 from erp.schema import FIELDS
 
 TRUE_VALUES = [
@@ -42,7 +42,7 @@ def generate_schema(
 
     # table_schema["version"] = "0.0.1"
 
-    for field_name in EtalabModel.headers():
+    for field_name in EtalabMapper.headers():
         f = FIELDS.get(field_name)
         if not f:
             continue
