@@ -28,7 +28,7 @@ def get_erp_contact_infos(erp):
 def send_receipt(message):
     return mailer.send_email(
         [message.email],
-        f"[{settings.SITE_NAME}] Suite à votre demande d'aide [{message.get_topic_display}]",
+        f"[{settings.SITE_NAME}] Suite à votre demande d'aide [{message.get_topic_display()}]",
         "mail/contact_form_receipt.txt",
         {
             "message_date": message.created_at,
