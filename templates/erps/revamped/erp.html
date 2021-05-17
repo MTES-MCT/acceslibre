@@ -1,0 +1,75 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}{% if erp %}{{ erp.nom }}, {% endif %}{% if current_activite %}{{ current_activite.nom }}, {% endif %}{{ commune.nom }}, Accessibilité{% endblock%}
+
+{% block page_description %}{% spaceless %}
+{% if erp %}
+Découvrez l'accessibilité de l'établissement {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom}}
+{% else %}
+Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
+{% endif %}
+{% endspaceless %}{% endblock %}
+
+{% block skiplinks %}
+  <a class="skippy sr-only sr-only-focusable" href="#content">
+    <span class="skippy-text">Aller à la liste des établissements</span>
+  </a>
+  <a class="skippy sr-only sr-only-focusable" href="#activites">
+    <span class="skippy-text">Aller à la liste des activités</span>
+  </a>
+  <a class="skippy sr-only sr-only-focusable" href="#app-map">
+    <span class="skippy-text">Aller à la carte</span>
+  </a>
+{% endblock skiplinks %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <article>
+    <header class="d-flex">
+      {% if erp.activite %}
+      <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
+        class="act-icon act-icon-erp act-icon-black"
+        src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+      {% endif %}
+      <div>
+        <h2 class="font-weight-bold">{{ erp.nom }}</h2>
+        <address class="font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
+        {% if erp.site_internet or erp.contact_url or erp.contact_email %}
+        <p class="d-flex text-primary">
+          {% if erp.site_internet %}
+          <span class="mr-3">
+            <i aria-hidden="true" class="icon icon-globe"></i>
+            <a href="{{ erp.site_internet }}" target="_blank">Site internet</a>
+          </span>
+          {% endif %}
+          {% if erp.contact_url %}
+          <span class="mr-3">
+            <i aria-hidden="true" class="icon icon-enveloppe"></i>
+            <a href="{{ erp.contact_url }}" target="_blank">Écrire un message</a>
+          </span>
+          {% elif erp.contact_email %}
+          <span class="mr-3">
+            <i aria-hidden="true" class="icon icon-enveloppe"></i>
+            <a href="mailto:{{ erp.contact_email }}">Écrire un message</a>
+          </span>
+          {% endif %}
+        </p>
+        {% endif %}
+      </div>
+    </header>
+    <aside class="mt-2 mb-4">
+      {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+    </aside>
+    <div class="row">
+      <section class="col-md-8">
+        {% include "erps/revamped/accessibilite.html" %}
+      </section>
+      <aside class="col-md-4">
+        {% include "erps/revamped/sidebar.html" %}
+      </aside>
+  </article>
+</main>
+{% endblock %}

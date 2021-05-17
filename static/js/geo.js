@@ -35,7 +35,7 @@ function createIcon(highlight, iconName = "building") {
     iconAnchor: [size / 2, size],
     popupAnchor: [0, -size],
     tooltipAnchor: [size / 2, -28],
-    className: `shadow-sm act-icon act-icon-rounded act-icon-${size}${(highlight && " invert") || ""}`,
+    className: `shadow-sm act-icon act-icon-rounded act-icon-${size}${(highlight && " act-icon-invert") || ""}`,
   };
   return L.icon(options);
 }

@@ -1,0 +1,57 @@
+{% load a4a %}
+
+<div class="card shadow-sm">
+  <div class="card-body pb-2">
+    <h2 class="h4 text-center mb-3">
+      <i aria-hidden="true" class="icon icon-pencil mr-1"></i>
+      Contribuez&nbsp;!
+    </h2>
+    <p class="my-3">
+      Si la description de l'accessibilité de cet établissement est incomplète ou inexacte,
+      contribuez à l'améliorer.
+    </p>
+    <p class="text-center">
+      <a class="btn btn-primary text-nowrap mx-auto" href="{% url "contrib_localisation" erp_slug=erp.slug %}">
+        <i aria-hidden="true" class="icon icon-pencil"></i>
+        Améliorez ces informations
+      </a>
+    </p>
+    <p class="text-center">
+      <a href="{% url "contact_topic_erp" topic="signalement" erp_slug=erp.slug %}">Signaler un problème</a>
+    </p>
+    <p class="text-center mb-O">
+      <a href="{% url "contrib_claim" erp_slug=erp.slug %}">Je gère cet établissement</a>
+    </p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">
+      {% spaceless %}
+      Informations initialement fournies
+      {% if erp.user %}
+        par <strong>{{ erp.user.username|format_username }}</strong>
+      {% endif %}
+      le {{ erp.get_global_timestamps.created_at|date:"j/m/Y" }}
+      {% if erp.user_type == "gestionnaire" %}
+        en tant que gestionnaire de l'établissement
+      {% elif erp.user_type == "admin" %}
+        en tant qu'administration
+      {% elif erp.user_type == "public" %}
+        en tant qu'usager de l'établissement
+      {% endif %}
+      {% if erp.get_global_timestamps.created_at != erp.get_global_timestamps.updated_at %}
+        et mises à jour le {{ erp.get_global_timestamps.updated_at|date:"j/m/Y" }}
+      {% endif %}
+      {% endspaceless %}.
+      <br>
+      <details>
+        <summary class="no-ouline text-primary mt-1">
+          <i aria-hidden="true" class="icon icon-clock"></i>
+          Consulter l'historique des modifications
+        </summary>
+        <section id="history" class="mt-2">
+          {% include "erps/commune/includes/history.html" %}
+        </section>
+      </details>
+    </small>
+  </div>
+</div>

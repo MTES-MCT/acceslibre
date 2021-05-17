@@ -39,6 +39,8 @@
             'save': '&#xe960;',
             'upload': '&#xe961;',
             'load': '&#xe961;',
+            'bubble2': '&#xe96e;',
+            'comment2': '&#xe96e;',
             'bubbles3': '&#xe96f;',
             'comments3': '&#xe96f;',
             'user': '&#xe971;',
