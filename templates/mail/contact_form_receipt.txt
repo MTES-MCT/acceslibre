@@ -1,30 +1,24 @@
 {% autoescape off %}Ce message est un message automatique, merci de ne pas y répondre.
 
 Bonjour,
+
+Nous vous remercions pour votre message du {{ message_date|date:"j F Y à H:i"|lower }}{% if not is_vaccination %}, vous recevrez une réponse dans les plus brefs délais.{% endif %}.
 {% if is_vaccination %}
-Nous vous remercions pour votre message.
-
 Toutefois, sachez qu’Acceslibre apporte les informations relatives à l’accessibilité des établissements recevant du public.
-Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination.
 
-Par conséquent, toute demande à destination de l’établissement ne pourra être traitée par nos services.
+Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination ; par conséquent, toute demande à destination de l’établissement ne pourra être traitée par nos services.
 
 Nous vous invitons à vous rapprocher de votre centre de vaccination pour répondre à votre demande ou à consulter : https://vaccination-info-service.fr/
 
 Pour toute autre demande, vous recevrez une réponse dans les plus brefs délais.
 {% else %}
-Nous vous remercions pour votre message ; vous recevrez une réponse dans les plus brefs délais.
-
 Toutefois, si votre demande s’adresse aux gestionnaires d’établissements, nous vous invitons à contacter directement l’établissement.
 En effet, la messagerie Acceslibre ne permet pas d’échanger avec les membres des établissements renseignés.
 {% endif %}
-{% if erp %}{% if erp.contact_email or erp.telephone or erp.contact_url or erp.site_internet %}
-Pour contacter directement l'établissement « {{ erp.nom }} » :
-{% if erp.contact_email %}- Adresse email : {{ erp.contact_email }}{% endif %}
-{% if erp.telephone %}- Téléphone : {{ erp.telephone }}{% endif %}
-{% if erp.contact_url %}- Formulaire de contact : {{ erp.contact_url }}{% endif %}
-{% if erp.site_internet %}- Site internet : {{ erp.site_internet }}{% endif %}
-{% endif %}{% endif %}
+{% if erp and contact_infos %}Pour contacter directement l'établissement « {{ erp.nom }} » :
+
+{{ contact_infos }}
+{% endif %}
 Bien cordialement,
 
 --
