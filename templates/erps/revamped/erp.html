@@ -48,7 +48,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% endif %}
         {% endwith %}
 
-        <div class="d-flex align-items-center text-primary mb-2">
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary mb-2">
           {% with erp.metadata.centre_vaccination as cv %}
             {% if cv and cv.url_rdv %}
               <a class="btn btn-outline-primary mr-3" href="{{ cv.url_rdv }}" target="_blank">
@@ -71,12 +71,12 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% endif %}
           {% if erp.contact_url %}
           <span class="mr-3">
-            <i aria-hidden="true" class="icon icon-enveloppe"></i>
+            <i aria-hidden="true" class="icon icon-mail"></i>
             <a href="{{ erp.contact_url }}" target="_blank">Écrire un message</a>
           </span>
           {% elif erp.contact_email %}
           <span class="mr-3">
-            <i aria-hidden="true" class="icon icon-enveloppe"></i>
+            <i aria-hidden="true" class="icon icon-mail"></i>
             <a href="mailto:{{ erp.contact_email }}">Écrire un message</a>
           </span>
           {% endif %}
