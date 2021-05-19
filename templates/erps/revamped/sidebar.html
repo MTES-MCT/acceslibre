@@ -22,6 +22,14 @@
     <p class="text-center mb-O">
       <a href="{% url "contrib_claim" erp_slug=erp.slug %}">Je gère cet établissement</a>
     </p>
+    {% if user.is_superuser %}
+    <p class="text-center mb-O">
+      <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
+        <i aria-hidden="true" class="icon icon-lock"></i>
+        Administrer cette fiche
+      </a>
+    </p>
+    {% endif %}
   </div>
   <div class="card-footer">
     <small class="text-muted">
