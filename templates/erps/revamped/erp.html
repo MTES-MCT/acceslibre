@@ -60,15 +60,17 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         {% endif %}
       </div>
     </header>
-    <aside class="mt-2 mb-4">
-      {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
-    </aside>
-    <div class="row">
-      <section class="col-md-8">
-        {% include "erps/revamped/accessibilite.html" %}
-      </section>
-      <aside class="col-md-4">
-        {% include "erps/revamped/sidebar.html" %}
+    <div class="d-flex flex-column">
+      <div class="row order-2">
+        <section class="col-md-8">
+          {% include "erps/revamped/accessibilite.html" %}
+        </section>
+        <aside class="col-md-4">
+          {% include "erps/revamped/sidebar.html" %}
+        </aside>
+      </div>
+      <aside class="mt-2 mb-4 order-1">
+        {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
       </aside>
   </article>
 </main>
