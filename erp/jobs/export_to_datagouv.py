@@ -5,5 +5,5 @@ from erp.models import Erp
 
 def job(*args, **kwargs):
     with open("export.csv", "w", newline="") as csv_file:
-        erps = Erp.objects.having_a11y_data().all()
+        erps = Erp.objects.published().having_a11y_data().all()
         export_schema_to_csv(csv_file, erps, EtalabMapper)
