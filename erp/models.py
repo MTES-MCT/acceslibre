@@ -1,6 +1,7 @@
 import json
-import reversion
+import uuid
 
+import reversion
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
@@ -14,12 +15,10 @@ from django.forms.models import model_to_dict
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
-
 from reversion.models import Version
 
 from core.lib import diff as diffutils
-from erp import managers
-from erp import schema
+from erp import managers, schema
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
@@ -300,6 +299,8 @@ class Erp(models.Model):
         ]
 
     objects = managers.ErpQuerySet.as_manager()
+
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
     source = models.CharField(
         max_length=100,
