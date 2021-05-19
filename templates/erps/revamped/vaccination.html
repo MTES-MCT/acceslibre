@@ -15,40 +15,40 @@
   {% endif %}
 
   {% if infos.date_ouverture %}
-  <p class="border-bottom m-0 py-1">
+  <div class="border-bottom m-0 py-1">
     Centre ouvert depuis le {{ infos.date_ouverture|format_isodate }}
-  </p>
+  </div>
   {% endif %}
 
   {% if infos.date_fermeture %}
-  <p class="border-bottom m-0 py-1">
+  <div class="border-bottom m-0 py-1">
     Fermeture prévue à compter du {{ infos.date_fermeture|format_isodate }}
-  </p>
+  </div>
   {% endif %}
 
   {% if infos.modalites %}
-  <p class="border-bottom m-0 py-1">
+  <div class="border-bottom m-0 py-1">
     Modalités particulières:<br>
     <i aria-hidden="true" class="icon icon-bubble"></i>
     &laquo;&nbsp;{{ infos.modalites }}&nbsp;&raquo;
-  </p>
+  </div>
   {% endif %}
 
   {% if infos.acces_sur_rdv %}
-  <p class="border-bottom m-0 py-1">
+  <div class="border-bottom m-0 py-1">
     L'accès à ce centre de vaccination se fait sur rendez-vous.
-  </p>
+  </div>
   {% endif %}
 
   {% if infos.prevaccination is True %}
-  <p class="border-bottom m-0 py-1">
+  <div class="border-bottom m-0 py-1">
     Ce centre propose également des consultations de prévaccination.
-  </p>
+  </div>
   {% endif %}
 
-  <p class="m-0 py-1">
+  <div class="m-0 py-1">
     <span aria-hidden="true">&raquo;</span>
     <a href="https://www.sante.fr/cf/centres-vaccination-covid.html" title="Le site s'ouvrira dans une nouvelle fenêtre">En savoir plus sur les conditions de vaccination</a>
-  </p>
+  </div>
 {% endwith %}
 </section>
