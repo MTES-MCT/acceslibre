@@ -2,29 +2,28 @@
 
 Bonjour,
 {% if is_vaccination %}
-Nous vous remercions pour votre message.
+Nous vous remercions pour votre message du {{ message_date|date:"j F Y à H:i"|lower }}.
 
 Toutefois, sachez qu’Acceslibre apporte les informations relatives à l’accessibilité des établissements recevant du public.
-Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination.
 
-Par conséquent, toute demande à destination de l’établissement ne pourra être traitée par nos services.
+Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination ; par conséquent, toute demande à destination de l’établissement ne pourra être traitée par nos services.
 
 Nous vous invitons à vous rapprocher de votre centre de vaccination pour répondre à votre demande ou à consulter : https://vaccination-info-service.fr/
 
 Pour toute autre demande, vous recevrez une réponse dans les plus brefs délais.
-{% else %}
-Nous vous remercions pour votre message ; vous recevrez une réponse dans les plus brefs délais.
-
-Toutefois, si votre demande s’adresse aux gestionnaires d’établissements, nous vous invitons à contacter directement l’établissement.
-En effet, la messagerie Acceslibre ne permet pas d’échanger avec les membres des établissements renseignés.
-{% endif %}
-{% if erp %}{% if erp.contact_email or erp.telephone or erp.contact_url or erp.site_internet %}
+{% if erp and contact_infos %}
 Pour contacter directement l'établissement « {{ erp.nom }} » :
-{% if erp.contact_email %}- Adresse email : {{ erp.contact_email }}{% endif %}
-{% if erp.telephone %}- Téléphone : {{ erp.telephone }}{% endif %}
-{% if erp.contact_url %}- Formulaire de contact : {{ erp.contact_url }}{% endif %}
-{% if erp.site_internet %}- Site internet : {{ erp.site_internet }}{% endif %}
+
+{{ contact_infos }}{% endif %}
+{% else %}
+Nous vous remercions pour votre message du {{ message_date|date:"j F Y à H:i"|lower }}. Vous recevrez une réponse dans les plus brefs délais.
+
+Toute demande sur un établissement ne portant pas sur son accessibilité ne pourra pas être traitée par notre service. Pour de telles demandes, nous vous invitons à contacter directement les gestionnaires de l'établissement.
+
+{% if erp %}{{ erp.nom }}{% if contact_infos %}
+{{ contact_infos }}
 {% endif %}{% endif %}
+{% endif %}
 Bien cordialement,
 
 --
