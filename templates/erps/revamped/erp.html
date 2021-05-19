@@ -66,7 +66,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% if erp.telephone %}
           <span class="mr-3">
             <i aria-hidden="true" class="icon icon-phone"></i>
-            <a href="tel:{{ erp.telephone }}" target="_blank">{{ erp.telephone|format_phone}}</a>
+            <a href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone}}</a>
           </span>
           {% endif %}
           {% if erp.contact_url %}
@@ -99,9 +99,13 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
       </aside>
   </article>
-  <!-- full width container ? -->
-  <aside id="proximite" class="mt-4">
-    {% include "erps/revamped/proximite.html" %}
-  </aside>
 </main>
+{% endblock %}
+
+{% block bottom_fluid_content %}
+<aside id="proximite" class="container-fluid bg-light mt-4 py-4">
+  <div class="container">
+    {% include "erps/revamped/proximite.html" %}
+  </div>
+</aside>
 {% endblock %}
