@@ -316,6 +316,7 @@ class AdminErpForm(BaseErpForm):
         model = Erp
         exclude = (
             "pk",
+            "uuid",
             "search_vector",
             "source",
             "source_id",
