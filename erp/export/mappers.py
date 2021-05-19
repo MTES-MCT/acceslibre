@@ -93,7 +93,7 @@ class EtalabMapper(BaseExportMapper):
     @staticmethod
     def map_from(erp):
         return EtalabMapper(
-            id=str(erp.id),
+            id=erp.uuid,
             name=erp.nom,
             postal_code=erp.code_postal,
             commune=erp.commune,
