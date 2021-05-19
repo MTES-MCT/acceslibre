@@ -15,8 +15,8 @@ TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"
 TEST_BODY = "This is a test"
 
-RECEIPT_CONTENT_NORMAL = "nous vous invitons à contacter directement l’établissement"
-RECEIPT_CONTENT_VACCINATION = "Nous ne sommes donc pas en charge des modalités de prise de rendez-vous de vaccination."
+RECEIPT_CONTENT_NORMAL = "contacter directement les gestionnaires de l'établissement"
+RECEIPT_CONTENT_VACCINATION = "prise de rendez-vous de vaccination"
 
 
 def test_contact(data, client):
