@@ -33,6 +33,8 @@
             'files': '&#xe925;',
             'phone': '&#xe942;',
             'telephone': '&#xe942;',
+            'map': '&#xe94b;',
+            'guide': '&#xe94b;',
             'clock': '&#xe94e;',
             'time2': '&#xe94e;',
             'download': '&#xe960;',

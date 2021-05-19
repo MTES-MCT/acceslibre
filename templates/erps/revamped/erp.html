@@ -99,5 +99,9 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
       </aside>
   </article>
+  <!-- full width container ? -->
+  <aside id="proximite" class="mt-4">
+    {% include "erps/revamped/proximite.html" %}
+  </aside>
 </main>
 {% endblock %}
