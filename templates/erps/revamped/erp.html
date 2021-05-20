@@ -34,7 +34,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         class="d-none d-md-block act-icon act-icon-erp act-icon-black"
         src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
       {% endif %}
-      <div>
+      <div class="w-100">
         <h1 class="h2 d-flex align-items-center font-weight-bold">
           {% if erp.activite %}
           <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
@@ -87,7 +87,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
             <a href="mailto:{{ erp.contact_email }}">Écrire un message</a>
           </span>
           {% endif %}
-          <span>
+          <span class="ml-auto">
             <i aria-hidden="true" class="icon icon-zoom-in"></i>
             <a href="#" id="map-height-toggle-link">Agrandir la carte</a>
           </span>
