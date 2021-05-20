@@ -29,7 +29,7 @@
       </div>
       <div class="text-right">
         {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
-        <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
+        <span class="badge badge-success text-wrap a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
           <i aria-hidden="true" class="icon icon-check"></i>
           {{ equipement|get_equipement_label }}
         </span><br>

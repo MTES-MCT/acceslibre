@@ -11,7 +11,7 @@
       contribuez à l'améliorer.
     </p>
     <p class="text-center">
-      <a class="btn btn-primary text-nowrap mx-auto" href="{% url "contrib_localisation" erp_slug=erp.slug %}">
+      <a class="btn btn-primary text-wrap mx-auto" href="{% url "contrib_localisation" erp_slug=erp.slug %}">
         <i aria-hidden="true" class="icon icon-pencil"></i>
         Améliorez ces informations
       </a>
@@ -54,7 +54,7 @@
       <details>
         <summary class="no-ouline text-primary mt-1">
           <i aria-hidden="true" class="icon icon-clock"></i>
-          Consulter l'historique des modifications
+          Historique des modifications
         </summary>
         <section id="history" class="mt-2">
           {% include "erps/commune/includes/history.html" %}
