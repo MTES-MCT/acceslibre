@@ -53,6 +53,8 @@
             'user5': '&#xe976;',
             'search': '&#xe986;',
             'magnifier': '&#xe986;',
+            'zoom-in': '&#xe987;',
+            'magnifier2': '&#xe987;',
             'shrink': '&#xe98a;',
             'collapse': '&#xe98a;',
             'key': '&#xe98d;',

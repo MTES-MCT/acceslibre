@@ -31,19 +31,23 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
     <header class="d-flex">
       {% if erp.activite %}
       <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
-        class="act-icon act-icon-erp act-icon-black"
+        class="d-none d-md-block act-icon act-icon-erp act-icon-black"
         src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
       {% endif %}
       <div>
-        <h1 class="h2 font-weight-bold">
+        <h1 class="h2 d-flex align-items-center font-weight-bold">
+          {% if erp.activite %}
+          <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
+            class="d-inline d-md-none act-icon act-icon-24 act-icon-black mr-1"
+            src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+          {% endif %}
           {{ erp.nom }}
-          <span class="sr-only">{% if erp.activite %}{{ erp.activite.nom }}{% endif %}</span>
         </h1>
         <address class="font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
 
         {% with erp.metadata.centre_vaccination as cv %}
           {% if cv %}
-          <div class="alert alert-warning d-flex align-items-center" role="alert" aria-live="assertive" style="font-size:.9em">
+          <div class="alert alert-warning d-flex align-items-center mb-1" role="alert" aria-live="assertive" style="font-size:.9em">
             <i aria-hidden="true" class="icon icon-warning text-bigger mr-2"></i>
             Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
             vaccination contre la COVID-19.
@@ -51,7 +55,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% endif %}
         {% endwith %}
 
-        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary mb-2">
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
           {% with erp.metadata.centre_vaccination as cv %}
             {% if cv and cv.url_rdv %}
               <a class="btn btn-outline-primary mr-3" href="{{ cv.url_rdv }}" target="_blank">
@@ -83,6 +87,10 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
             <a href="mailto:{{ erp.contact_email }}">Écrire un message</a>
           </span>
           {% endif %}
+          <span>
+            <i aria-hidden="true" class="icon icon-zoom-in"></i>
+            <a href="#" id="map-height-toggle-link">Agrandir la carte</a>
+          </span>
         </div>
       </div>
     </header>
@@ -98,8 +106,31 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% include "erps/revamped/sidebar.html" %}
         </aside>
       </div>
-      <aside class="mt-2 mb-4 order-1">
+      <aside class="mb-4 mt-2 order-1">
         {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+        <script>
+        (function() {
+          // FIXME: move to component?
+          const mapLinkEl = document.querySelector("#map-height-toggle-link");
+          const mapEl = document.querySelector("#app-map");
+          const initialMapHeight = mapEl.style.height;
+          const initialMapHeightToggleLinkText = mapLinkEl.textContent;
+
+          function toggleMapHeight(event) {
+            event.preventDefault();
+            if (mapEl.style.height === initialMapHeight) {
+              mapEl.style.height = "70vh";
+              mapLinkEl.textContent = "Réduire la carte";
+            } else {
+              mapEl.style.height = initialMapHeight;
+              mapLinkEl.textContent = initialMapHeightToggleLinkText;
+            }
+            a4a.geo.recalculateMapSize();
+          }
+
+          mapLinkEl.addEventListener("click", toggleMapHeight);
+        })();
+        </script>
       </aside>
   </article>
 </main>
