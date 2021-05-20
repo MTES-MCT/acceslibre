@@ -61,8 +61,7 @@ def test_erp_details_edit_links(data, browser, capsys):
 
     assert browser.title.startswith(data.erp.nom)
     edit_urls = [
-        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
-        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_localisation", kwargs={"erp_slug": data.erp.slug}),
     ]
     for edit_url in edit_urls:
         matches = browser.links.find_by_href(edit_url)
@@ -78,7 +77,7 @@ def test_registration_flow(data, browser):
     browser.fill("password1", "Abcdef123!")
     browser.fill("password2", "Abcdef123!")
     browser.uncheck("robot")
-    button = browser.find_by_css("form button[type=submit]")
+    button = browser.find_by_css("form.registration-form button[type=submit]")
     button.click()
 
     user = User.objects.get(username="johndoe")
@@ -105,9 +104,9 @@ def test_registration_flow(data, browser):
     connect_link.click()
 
     assert browser.is_text_present("Nom d’utilisateur")
-    browser.fill("username", "johndoe")
-    browser.fill("password", "Abcdef123!")
-    button = browser.find_by_css("form button[type=submit]")
+    browser.find_by_css(".login-form [name=username]").first.fill("johndoe")
+    browser.find_by_css(".login-form [name=password]").first.fill("Abcdef123!")
+    button = browser.find_by_css(".login-form button[type=submit]")
     button.click()
 
     # ensure we've been redirected to where we registered initially from
