@@ -15,7 +15,7 @@
       <small class="text-muted">{{ info.description }}</small>
     </h3>
 
-    {% include "erps/commune/fields.html" with fields=info.fields %}
+    {% include "erps/revamped/fields.html" with fields=info.fields %}
     {% elif info.sections %}
     {% for subsection, subinfo in info.sections.items %}
     <div class="card mb-3">
@@ -25,7 +25,7 @@
         </h6>
       </div>
       <div class="card-body p-0">
-        {% include "erps/commune/fields.html" with fields=subinfo.fields %}
+        {% include "erps/revamped/fields.html" with fields=subinfo.fields %}
       </div>
     </div>
     {% endfor %}

@@ -33,6 +33,18 @@ $viewport-xl: 1200px;
     z-index: 9999;
   }
 
+  &-comment-block {
+    p {
+      margin: 0;
+      &::before {
+        content: "« ";
+      }
+      &::after {
+        content: " »";
+      }
+    }
+  }
+
   // selectWoo styles overriding
   .select2-container--bootstrap4 {
     .select2-selection, input[type=text] {
@@ -521,8 +533,8 @@ $viewport-xl: 1200px;
 
   &-accessibility-label-logo {
     border-radius: 8px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 
   &-app-title {

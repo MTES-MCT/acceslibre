@@ -1,0 +1,149 @@
+{% load a4a %}
+{% load static %}
+
+{% if fields %}
+<ul class="p-0 m-0">
+  {% for field in fields %}
+  {% if field.value != "" and field.value is not None %}
+  <li class="d-flex justify-content-between align-items-center border-bottom px-0 py-2 m-0 {% if field.warning %}text-muted{% endif %}">
+    {% if field.template_name == "django/forms/widgets/textarea.html" %}
+    <div>
+      <div>
+        <h4 class="h6 m-0 p-0 font-weight-normal">
+          <i aria-hidden="true" class="icon icon-bubble"></i>
+          {{ field.label }}
+        </h4>
+        {% if field.help_text_ui %}
+        <small class="text-muted">{{ field.help_text_ui }}</small>
+        {% endif %}
+      </div>
+      <blockquote class="a4a-comment-block mb-0 my-1">
+        {{ field.value|urlizetrunc:25|linebreaks }}
+      </blockquote>
+    </div>
+    {% elif field.name == "accueil_equipements_malentendants" %}
+    <div class="w-100">
+      <div class="mb-2">
+        <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+        <small class="text-muted">{{ field.help_text_ui }}</small>
+      </div>
+      <div class="text-right">
+        {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
+        <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
+          <i aria-hidden="true" class="icon icon-check"></i>
+          {{ equipement|get_equipement_label }}
+        </span><br>
+        {% endfor %}
+      </div>
+    </div>
+    {% elif field.name == "entree_dispositif_appel_type" %}
+    <div class="w-100">
+      <div class="mb-2">
+        <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+        <small class="text-muted">{{ field.help_text_ui }}</small>
+      </div>
+      <div class="text-right">
+        {% for dispositif in erp.accessibilite.entree_dispositif_appel_type %}
+        <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ dispositif|get_dispositifs_appel_label }}">
+          <i aria-hidden="true" class="icon icon-check"></i>
+          {{ dispositif|get_dispositifs_appel_label }}
+        </span><br>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+    <div>
+      <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+      {% if field.help_text_ui %}
+      <small class="text-muted">{{ field.help_text_ui }}</small>
+      {% endif %}
+    </div>
+    <span class="a4a-badge-group pl-2 text-right">
+      {% if field.name == "labels" %}
+        {% for label in erp.accessibilite.labels %}
+        {% if label == "aucun" %}
+        <span class="badge a4a-badge">Aucun</span>
+        {% elif label == "autre" %}
+        <span class="badge a4a-badge">{{ label }}</span>
+        {% else %}
+        <img class="a4a-accessibility-label-logo"
+          src="{% with "img/labels/"|add:label|add:".jpg" as label_img %}{% static label_img %}{% endwith %}"
+          alt="{{ label|get_label_name }}" title="{{ label|get_label_name }}">
+        {% endif %}
+        {% endfor %}
+      {% elif field.name == "labels_familles_handicap" %}
+        {% for famille in erp.accessibilite.labels_familles_handicap %}
+        <span class="badge badge-light a4a-badge mb-1">
+          {% if famille == "auditif" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/auditif.svg" %}" alt="Handicap auditif">
+          {% endif %}
+          {% if famille == "mental" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/mental.svg" %}" alt="Handicap mental">
+          {% endif %}
+          {% if famille == "moteur" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/moteur.svg" %}" alt="Handicap moteur">
+          {% endif %}
+          {% if famille == "visuel" %}
+          <img class="a4a-handicap-icon" src="{% static "img/handicap/visuel.svg" %}" alt="Handicap visuel">
+          {% endif %}
+          {{ famille.title }}
+        </span><br>
+        {% endfor %}
+      {% elif field.name == "labels_autre" %}
+        <span class="badge badge-success a4a-badge pb-2 mb-1">
+          {{ field.value }}
+        </span>
+      {% else %}
+      <span class="badge {% if field.warning is False %}badge-success{% else %}text-dark{% endif %} a4a-badge">
+        {% if field.warning is False %}
+        <i aria-hidden="true" class="icon icon-check"></i>
+        {% elif field.warning is True %}
+        <strong>
+          {% endif %}
+          {% if field.value is True %}
+          Oui
+          {% elif field.value is False %}
+          Non
+          {% elif field.value == "aucun" %}
+          Aucun
+          {% elif field.value == "aucune" %}
+          Aucune
+          {% elif field.value == "important" %}
+          Important
+          {% elif field.value == "importante" %}
+          Importante
+          {% elif field.name == "sanitaires_adaptes" %}
+          {% if field.value > 0 %}Oui{% else %}Non{% endif %}
+          {% elif field.name == "accueil_personnels" %}
+          {{ erp.accessibilite.get_accueil_personnels_display }}
+          {% elif field.name == "cheminement_ext_pente_degre_difficulte" %}
+          {{ erp.accessibilite.get_cheminement_ext_pente_degre_difficulte_display }}
+          {% elif field.name == "cheminement_ext_pente_longueur" %}
+          {{ erp.accessibilite.get_cheminement_ext_pente_longueur_display }}
+          {% elif field.name == "entree_largeur_mini" %}
+          {{ field.value }}&nbsp;cm
+          {% elif field.name == "cheminement_ext_nombre_marches" or field.name == "accueil_cheminement_nombre_marches" or field.name == "entree_marches" %}
+            {% if field.value == 0 %}
+            Aucune marche
+            {% else %}
+            {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
+            {% endif %}
+          {% elif field.name == "registre_url" %}
+          <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
+          {% else %}
+          {{ field.value }}
+          {% endif %}
+          {% if field.warning is True %}
+        </strong>
+        {% endif %}
+      </span>
+      {% endif %}
+    </span>
+    {% endif %}
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% else %}
+<p>Aucune information.</p>
+{% endif %}

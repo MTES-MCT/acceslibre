@@ -16,13 +16,13 @@
 
   {% if infos.date_ouverture %}
   <div class="border-bottom m-0 py-1">
-    Centre ouvert depuis le {{ infos.date_ouverture|format_isodate }}
+    Centre ouvert depuis le <strong>{{ infos.date_ouverture|format_isodate }}</strong>
   </div>
   {% endif %}
 
   {% if infos.date_fermeture %}
   <div class="border-bottom m-0 py-1">
-    Fermeture prévue à compter du {{ infos.date_fermeture|format_isodate }}
+    Fermeture prévue à compter du <strong>{{ infos.date_fermeture|format_isodate }}</strong>
   </div>
   {% endif %}
 
@@ -36,13 +36,13 @@
 
   {% if infos.acces_sur_rdv %}
   <div class="border-bottom m-0 py-1">
-    L'accès à ce centre de vaccination se fait sur rendez-vous.
+    L'accès à ce centre de vaccination se fait <strong>sur rendez-vous</strong>
   </div>
   {% endif %}
 
   {% if infos.prevaccination is True %}
   <div class="border-bottom m-0 py-1">
-    Ce centre propose également des consultations de prévaccination.
+    Ce centre propose également des consultations de <strong>prévaccination</strong>
   </div>
   {% endif %}
 

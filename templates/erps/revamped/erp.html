@@ -35,7 +35,10 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
         src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
       {% endif %}
       <div>
-        <h2 class="font-weight-bold">{{ erp.nom }}</h2>
+        <h1 class="h2 font-weight-bold">
+          {{ erp.nom }}
+          <span class="sr-only">{% if erp.activite %}{{ erp.activite.nom }}{% endif %}</span>
+        </h1>
         <address class="font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
 
         {% with erp.metadata.centre_vaccination as cv %}
