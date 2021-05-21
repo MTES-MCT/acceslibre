@@ -33,12 +33,14 @@ import AppAutocomplete from "./ui/AppAutocomplete";
 import AsteriskField from "./ui/AsteriskField";
 import ConditionalForm from "./ui/ConditionalForm.js";
 import GeoLink from "./ui/GeoLink.js";
+import MapExpander from "./ui/MapExpander";
 import SearchForm from "./ui/SearchForm";
 
 // Initializations
 dom.ready(() => {
   dom.mountOne("#app-autocomplete", AppAutocomplete);
   dom.mountOne("#app-map", geo.AppMap);
+  dom.mountOne("#map-height-toggle-link", MapExpander);
   dom.mountOne(".a4a-conditional-form", ConditionalForm);
   dom.mountOne("#search-form", SearchForm);
   dom.mountAll(".asteriskField", AsteriskField);

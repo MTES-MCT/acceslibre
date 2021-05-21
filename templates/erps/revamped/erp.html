@@ -28,7 +28,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 {% block editorial_content %}
 <main role="main" id="content">
   <article>
-    <header class="d-flex">
+    <header id="article-header" class="d-flex">
       {% if erp.activite %}
       <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
         class="d-none d-md-block act-icon act-icon-erp act-icon-black"
@@ -89,7 +89,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
           {% endif %}
           <span class="ml-auto">
             <i aria-hidden="true" class="icon icon-zoom-in"></i>
-            <a href="#" id="map-height-toggle-link">Agrandir la carte</a>
+            <a href="" id="map-height-toggle-link">Agrandir la carte</a>
           </span>
         </div>
       </div>
@@ -108,29 +108,6 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
       </div>
       <aside class="mb-4 mt-2 order-1">
         {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
-        <script>
-        (function() {
-          // FIXME: move to component?
-          const mapLinkEl = document.querySelector("#map-height-toggle-link");
-          const mapEl = document.querySelector("#app-map");
-          const initialMapHeight = mapEl.style.height;
-          const initialMapHeightToggleLinkText = mapLinkEl.textContent;
-
-          function toggleMapHeight(event) {
-            event.preventDefault();
-            if (mapEl.style.height === initialMapHeight) {
-              mapEl.style.height = "70vh";
-              mapLinkEl.textContent = "Réduire la carte";
-            } else {
-              mapEl.style.height = initialMapHeight;
-              mapLinkEl.textContent = initialMapHeightToggleLinkText;
-            }
-            a4a.geo.recalculateMapSize();
-          }
-
-          mapLinkEl.addEventListener("click", toggleMapHeight);
-        })();
-        </script>
       </aside>
     </div>
   </article>
