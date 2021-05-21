@@ -14,14 +14,11 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 {% endspaceless %}{% endblock %}
 
 {% block skiplinks %}
-  <a class="skippy sr-only sr-only-focusable" href="#content">
-    <span class="skippy-text">Aller à la liste des établissements</span>
-  </a>
-  <a class="skippy sr-only sr-only-focusable" href="#activites">
-    <span class="skippy-text">Aller à la liste des activités</span>
-  </a>
   <a class="skippy sr-only sr-only-focusable" href="#app-map">
     <span class="skippy-text">Aller à la carte</span>
+  </a>
+  <a class="skippy sr-only sr-only-focusable" href="#a11y">
+    <span class="skippy-text">Aller aux informations d'accessibilité</span>
   </a>
 {% endblock skiplinks %}
 
@@ -47,7 +44,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
 
         {% with erp.metadata.centre_vaccination as cv %}
           {% if cv %}
-          <div class="alert alert-warning d-flex align-items-center mb-1" role="alert" aria-live="assertive" style="font-size:.9em">
+          <div class="alert alert-warning d-flex align-items-center mb-2" role="alert" aria-live="assertive" style="font-size:.9em">
             <i aria-hidden="true" class="icon icon-warning text-bigger mr-2"></i>
             Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
             vaccination contre la COVID-19.
@@ -96,7 +93,7 @@ Découvrez l'accessibilité des établissements de la ville de {{ commune.nom }}
     </header>
     <div class="d-flex flex-column">
       <div class="row order-2">
-        <section class="col-md-8">
+        <section id="a11y" class="col-md-8">
           {% include "erps/revamped/accessibilite.html" %}
           <aside class="text-center">
             {% include "erps/revamped/vote-form.html" %}
