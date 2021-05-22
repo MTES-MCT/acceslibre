@@ -32,7 +32,7 @@
       {% for commune in communes %}
       <p>
         {{ commune.code_postaux|join:", " }} -
-        <a href="{% url "commune" commune.slug %}">{{ commune.nom }}</a>
+        <a href="{% url "search" %}?q={{ commune.nom }}">{{ commune.nom }}</a>
         <small class="text-muted">({{ commune.erp_access_count }} établissement{{ commune.erp_access_count|pluralize }})</small>
       </p>
       {% empty %}
