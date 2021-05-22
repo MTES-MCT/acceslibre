@@ -174,7 +174,7 @@ class Commune(models.Model):
         return f"{self.nom} ({self.departement})"
 
     def get_absolute_url(self):
-        return reverse("commune", kwargs=dict(commune=self.slug))
+        return reverse("search") + "?q=" + self.nom
 
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
