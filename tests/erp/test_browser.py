@@ -137,10 +137,6 @@ def test_admin_urls_ok(data, url, client):
 @pytest.mark.parametrize(
     "url",
     [
-        reverse("commune", kwargs=dict(commune="invalid")),
-        reverse(
-            "commune_activite", kwargs=dict(commune="invalid", activite_slug="invalid")
-        ),
         reverse(
             "commune_activite_erp",
             kwargs=dict(commune="invalid", activite_slug="invalid", erp_slug="invalid"),

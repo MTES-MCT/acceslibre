@@ -246,7 +246,10 @@ class EditorialView(TemplateView):
 class BaseListView(generic.ListView):
     model = Erp
     queryset = Erp.objects.select_related(
-        "activite", "accessibilite", "commune_ext", "statuscheck"
+        "activite",
+        "accessibilite",
+        "commune_ext",
+        "statuscheck",
     ).published()
     _commune = None
 

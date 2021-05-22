@@ -76,16 +76,6 @@ urlpatterns = [
         name="search",
     ),
     path(
-        "app/<str:commune>/",
-        cache_app_page(),
-        name="commune",
-    ),
-    path(
-        "app/<str:commune>/a/<str:activite_slug>/",
-        cache_app_page(),
-        name="commune_activite",
-    ),
-    path(
         "app/<str:commune>/erp/<str:erp_slug>/",
         views.App.as_view(),  # avoid caching details page
         name="commune_erp",
