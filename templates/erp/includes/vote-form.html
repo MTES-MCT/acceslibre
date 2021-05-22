@@ -1,4 +1,4 @@
-<form action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
+<form class="vote-form my-5" action="{% url "erp_vote" erp_slug=erp.slug %}" method="POST">
   <h4 class="h5">Ces informations sont-elles fiables&nbsp;?</h4>
   <span class="text-nowrap">
     {% csrf_token %}

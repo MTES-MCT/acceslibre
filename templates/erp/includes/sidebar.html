@@ -22,6 +22,23 @@
     <p class="text-center mb-O">
       <a href="{% url "contrib_claim" erp_slug=erp.slug %}">Je gère cet établissement</a>
     </p>
+    <p class="text-center mb-O">
+    {% if user.is_authenticated %}
+      {% if user_is_subscribed %}
+      <a href="{% url "unsubscribe_erp" erp_slug=erp.slug %}"
+        title="Recevoir des notifications par email lorsque cet établissement est mis à jour">
+        <i aria-hidden="true" class="icon icon-bell-mute"></i>
+        Se désabonner des mises à jour
+      </a>
+      {% else %}
+      <a href="{% url "subscribe_erp" erp_slug=erp.slug %}"
+        title="Ne plus recevoir de notification par email lorsque cet établissement est mis à jour">
+        <i aria-hidden="true" class="icon icon-bell"></i>
+        S'abonner aux mise à jour
+      </a>
+      {% endif %}
+    {% endif %}
+    </p>
     {% if user.is_superuser %}
     <p class="text-center mb-O">
       <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
