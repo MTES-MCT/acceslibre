@@ -66,14 +66,6 @@ def test_search(data, client):
     validate_url_get(client, reverse("search") + "?q=jacou")
 
 
-def test_commune_home(data, client):
-    validate_url_get(client, data.jacou.get_absolute_url())
-
-
-def test_commune_home_auth(data, auth_client):
-    validate_url_get(auth_client, data.jacou.get_absolute_url())
-
-
 def test_erp_details(data, client):
     validate_url_get(client, data.erp.get_absolute_url())
 

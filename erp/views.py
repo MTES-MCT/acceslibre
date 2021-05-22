@@ -297,7 +297,7 @@ class BaseListView(generic.ListView):
 
 class App(BaseListView):
     "Static, template-based Web application views."
-    template_name = "erps/revamped/erp.html"
+    template_name = "erp/index.html"
 
     def get(self, request, *args, **kwargs):
         if self.search_terms is not None and self.request.GET.get("scope") == "country":

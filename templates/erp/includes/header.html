@@ -1,0 +1,69 @@
+{% load a4a %}
+{% load static %}
+
+<header id="article-header" class="d-flex">
+  {% if erp.activite %}
+  <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
+    class="d-none d-md-block act-icon act-icon-erp act-icon-black"
+    src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+  {% endif %}
+  <div class="w-100">
+    <h1 class="h2 d-flex align-items-center font-weight-bold">
+      {% if erp.activite %}
+      <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
+        class="d-inline d-md-none act-icon act-icon-24 act-icon-black mr-1"
+        src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+      {% endif %}
+      {{ erp.nom }}
+    </h1>
+    <address class="font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
+
+    {% with erp.metadata.centre_vaccination as cv %}
+      {% if cv %}
+      <div class="alert alert-warning d-flex align-items-center mb-2" role="alert" aria-live="assertive" style="font-size:.9em">
+        <i aria-hidden="true" class="icon icon-warning text-bigger mr-2"></i>
+        Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
+        vaccination contre la COVID-19.
+      </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
+      {% with erp.metadata.centre_vaccination as cv %}
+        {% if cv and cv.url_rdv %}
+          <a class="btn btn-outline-primary mr-3" href="{{ cv.url_rdv }}" target="_blank">
+            <i aria-hidden="true" class="icon icon-clock"></i>
+            <span>Prendre rendez-vous {{ cv.url_rdv|cv_provider_name }}</span>
+          </a>
+        {% endif %}
+      {% endwith %}
+      {% if erp.site_internet %}
+      <span class="mr-3">
+        <i aria-hidden="true" class="icon icon-globe"></i>
+        <a href="{{ erp.site_internet }}" target="_blank">Site internet</a>
+      </span>
+      {% endif %}
+      {% if erp.telephone %}
+      <span class="mr-3">
+        <i aria-hidden="true" class="icon icon-phone"></i>
+        <a href="tel:{{ erp.telephone }}">{{ erp.telephone|format_phone}}</a>
+      </span>
+      {% endif %}
+      {% if erp.contact_url %}
+      <span class="mr-3">
+        <i aria-hidden="true" class="icon icon-mail"></i>
+        <a href="{{ erp.contact_url }}" target="_blank">Écrire un message</a>
+      </span>
+      {% elif erp.contact_email %}
+      <span class="mr-3">
+        <i aria-hidden="true" class="icon icon-mail"></i>
+        <a href="mailto:{{ erp.contact_email }}">Écrire un message</a>
+      </span>
+      {% endif %}
+      <span class="ml-auto">
+        <i aria-hidden="true" class="icon icon-zoom-in"></i>
+        <a href="" id="map-height-toggle-link">Agrandir la carte</a>
+      </span>
+    </div>
+  </div>
+</header>

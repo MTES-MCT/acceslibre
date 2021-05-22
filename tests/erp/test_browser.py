@@ -82,11 +82,6 @@ def test_search_localized(data, client):
         reverse("django_registration_complete"),
         reverse("password_reset_complete"),
         # App
-        reverse("commune", kwargs=dict(commune="34-jacou")),
-        reverse(
-            "commune_activite",
-            kwargs=dict(commune="34-jacou", activite_slug="boulangerie"),
-        ),
         reverse(
             "commune_activite_erp",
             kwargs=dict(
