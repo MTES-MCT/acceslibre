@@ -1,4 +1,5 @@
 import json
+import urllib.parse
 import uuid
 
 import reversion
@@ -174,7 +175,7 @@ class Commune(models.Model):
         return f"{self.nom} ({self.departement})"
 
     def get_absolute_url(self):
-        return reverse("search") + "?q=" + self.nom
+        return reverse("search") + "?q=" + urllib.parse.quote(self.nom)
 
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
