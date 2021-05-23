@@ -50,7 +50,7 @@ function onEachFeature({ geometry, properties: props }, layer) {
       ${(props.activite__nom && "<br>" + props.activite__nom) || ""}
       <br>${props.adresse}
       <br>
-      <a href="#" onclick="a4a.geo.zoomTo(${geometry.coordinates[1]}, ${geometry.coordinates[0]})">
+      <a href="#" onclick="a4a.geo.zoomTo(${geometry.coordinates[1]}, ${geometry.coordinates[0]});return false">
         <i aria-hidden="true" class="icon icon-shrink a4a-icon-small-top"></i>
         Zoomer sur cet établissement
       </a>
