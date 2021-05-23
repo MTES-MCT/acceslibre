@@ -12,10 +12,9 @@ from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.forms import modelform_factory
-from django.http import Http404, JsonResponse
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 from django_registration.backends.activation.views import (
     ActivationView,
@@ -206,32 +205,6 @@ class CustomActivationView(ActivationView):
         if not next and self.extra_context and "next" in self.extra_context:
             next = self.extra_context.get("next", "")
         return f"{url}?next={next}"
-
-
-@cache_page(60 * 15)
-def autocomplete(request):
-    suggestions = []
-    q = request.GET.get("q", "")
-    commune_slug = request.GET.get("commune_slug")
-    if len(q) < 3:
-        return JsonResponse({"suggestions": suggestions})
-    qs = Erp.objects.published()
-    if commune_slug:
-        qs = qs.filter(commune_ext__slug=commune_slug)
-    qs = qs.search(q)[:7]
-    for erp in qs:
-        suggestions.append(
-            {
-                "value": erp.nom + ", " + erp.adresse,
-                "data": {
-                    "score": erp.rank,
-                    "activite": erp.activite and erp.activite.slug,
-                    "url": erp.get_absolute_url(),
-                },
-            }
-        )
-    suggestions = sorted(suggestions, key=lambda s: s["data"]["score"], reverse=True)
-    return JsonResponse({"suggestions": suggestions})
 
 
 class EditorialView(TemplateView):

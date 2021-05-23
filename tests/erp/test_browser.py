@@ -68,7 +68,6 @@ def test_search_localized(data, client):
         reverse("search") + "?q=plop",
         # Editorial
         reverse("accessibilite"),
-        reverse("autocomplete"),
         reverse("cgu"),
         reverse("partenaires"),
         reverse("contact_form"),
@@ -286,23 +285,6 @@ def test_admin_with_admin_user(data, client, capsys):
 
     response = client.get(data.erp.get_admin_url())
     assert response.status_code == 200
-
-
-def test_autocomplete(data, client):
-    # Request URL: http://localhost:8000/app/autocomplete/?q=te&commune_slug=69-villeurbanne
-    response = client.get(
-        reverse("autocomplete") + "?q=croissants&commune_slug=34-jacou"
-    )
-    assert response.status_code == 200
-
-    json = response.json()
-    assert "suggestions" in json
-    assert len(json["suggestions"]) == 1
-    sugg = json["suggestions"][0]
-    assert sugg["data"]["activite"] == data.erp.activite.slug
-    assert sugg["data"]["url"] == data.erp.get_absolute_url()
-    assert data.erp.nom in sugg["value"]
-    assert data.erp.adresse in sugg["value"]
 
 
 def test_ajout_erp_requires_auth(data, client):

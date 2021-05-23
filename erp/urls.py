@@ -57,14 +57,6 @@ urlpatterns = [
     path("challenge/ddt/2021/02/", views.challenge_ddt, name="challenge-ddt"),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
-    ############################################################################
-    # HTML app
-    ############################################################################
-    path(
-        "app/autocomplete/",
-        views.autocomplete,
-        name="autocomplete",
-    ),
     path(
         "communes/",
         cache_user_page(views.communes),
