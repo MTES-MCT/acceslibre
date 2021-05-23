@@ -129,7 +129,7 @@
             {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
             {% endif %}
           {% elif field.name == "registre_url" %}
-          <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
+          <a class="text-white" href="{{ field.value }}" target="_blank" rel="noopener">Consulter</a>
           {% else %}
           {{ field.value }}
           {% endif %}

@@ -41,7 +41,7 @@
     </p>
     {% if user.is_superuser %}
     <p class="text-center mb-O">
-      <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank">
+      <a href="{% url "admin:erp_erp_change" object_id=erp.pk %}" target="_blank" rel="noopener">
         <i aria-hidden="true" class="icon icon-lock"></i>
         Administrer cette fiche
       </a>
