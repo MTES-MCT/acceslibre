@@ -183,7 +183,6 @@ function parseJsonScript(scriptNode) {
 function AppMap(root) {
   const info = parseJsonScript(root.querySelector("#commune-data"));
   const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
-  const around = parseJsonScript(root.querySelector("#around-data"));
   const geoJson = parseJsonScript(root.querySelector("#erps-data"));
   currentPk = pk;
 
@@ -209,18 +208,7 @@ function AppMap(root) {
   markers.addLayer(geoJsonLayer);
   map.addLayer(markers);
 
-  if (around) {
-    L.marker(around, {
-      icon: L.divIcon({ className: "a4a-center-icon icon icon-target" }),
-    }).addTo(map);
-    L.circle(around, {
-      fillColor: "#0f0",
-      fillOpacity: 0.1,
-      stroke: 0,
-      radius: 400,
-    }).addTo(map);
-    map.setView(around, 16);
-  } else if (geoJson.features.length > 0) {
+  if (geoJson.features.length > 0) {
     map.fitBounds(markers.getBounds().pad(0.1));
   } else if (info) {
     map.setView(info.center, info.zoom);

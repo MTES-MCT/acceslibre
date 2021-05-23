@@ -2,15 +2,15 @@
 {% load static %}
 
 <header id="article-header" class="d-flex">
-  {% if erp.activite %}
-  <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
+  {% if activite %}
+  <img alt="{{ activite.nom }}" title="{{ activite.nom }}"
     class="d-none d-md-block act-icon act-icon-erp act-icon-black"
     src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
   {% endif %}
   <div class="w-100">
     <h1 class="h2 d-flex align-items-center font-weight-bold">
-      {% if erp.activite %}
-      <img alt="{{ erp.activite.nom }}" title="{{ erp.activite.nom }}"
+      {% if activite %}
+      <img alt="{{ activite.nom }}" title="{{ activite.nom }}"
         class="d-inline d-md-none act-icon act-icon-24 act-icon-black mr-1"
         src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
       {% endif %}

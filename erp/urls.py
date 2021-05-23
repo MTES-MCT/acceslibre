@@ -77,12 +77,12 @@ urlpatterns = [
     ),
     path(
         "app/<str:commune>/erp/<str:erp_slug>/",
-        views.App.as_view(),  # avoid caching details page
+        views.erp_details,  # avoid caching details page
         name="commune_erp",
     ),
     path(
         "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
-        views.App.as_view(),  # avoid caching details page
+        views.erp_details,  # avoid caching details page
         name="commune_activite_erp",
     ),
     path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
