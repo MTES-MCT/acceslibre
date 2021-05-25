@@ -2,19 +2,22 @@
 {% load static %}
 
 {% if fields %}
-<ul class="list-group list-group-flush">
+<ul class="p-0 m-0">
   {% for field in fields %}
   {% if field.value != "" and field.value is not None %}
-  <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+  <li class="d-flex justify-content-between align-items-center border-bottom px-0 py-2 m-0 {% if field.warning %}text-muted{% endif %}">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
     <div>
       <div>
-        <h4 class="h6 m-0 p-0 font-weight-normal">{{ field.label }}</h4>
+        <h4 class="h6 m-0 p-0 font-weight-normal">
+          <i aria-hidden="true" class="icon icon-bubble"></i>
+          {{ field.label }}
+        </h4>
         {% if field.help_text_ui %}
         <small class="text-muted">{{ field.help_text_ui }}</small>
         {% endif %}
       </div>
-      <blockquote class="lead mb-0 my-1">
+      <blockquote class="a4a-comment-block mb-0 my-1">
         {{ field.value|urlizetrunc:25|linebreaks }}
       </blockquote>
     </div>
@@ -26,7 +29,7 @@
       </div>
       <div class="text-right">
         {% for equipement in erp.accessibilite.accueil_equipements_malentendants %}
-        <span class="badge badge-success a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
+        <span class="badge badge-success text-wrap a4a-badge mb-1 cursor-help" title="{{ equipement|get_equipement_description }}">
           <i aria-hidden="true" class="icon icon-check"></i>
           {{ equipement|get_equipement_label }}
         </span><br>
@@ -60,11 +63,12 @@
         {% for label in erp.accessibilite.labels %}
         {% if label == "aucun" %}
         <span class="badge a4a-badge">Aucun</span>
+        {% elif label == "autre" %}
+        <span class="badge a4a-badge">{{ label }}</span>
         {% else %}
-        <span class="badge badge-success a4a-badge mb-1">
-          <i aria-hidden="true" class="icon icon-check"></i>
-          {{ label|get_label_name }}
-        </span><br>
+        <img class="a4a-accessibility-label-logo"
+          src="{% with "img/labels/"|add:label|add:".jpg" as label_img %}{% static label_img %}{% endwith %}"
+          alt="{{ label|get_label_name }}" title="{{ label|get_label_name }}">
         {% endif %}
         {% endfor %}
       {% elif field.name == "labels_familles_handicap" %}
@@ -125,7 +129,7 @@
             {{ field.value }}&nbsp;marche{{ field.value|pluralize:"s" }}
             {% endif %}
           {% elif field.name == "registre_url" %}
-          <a class="text-white" href="{{ field.value }}" target="_blank">Consulter</a>
+          <a class="text-white" href="{{ field.value }}" target="_blank" rel="noopener">Consulter</a>
           {% else %}
           {{ field.value }}
           {% endif %}
