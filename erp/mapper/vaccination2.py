@@ -118,7 +118,7 @@ class RecordMapper(BaseRecordMapper):
 
     def _retrieve_latest_dataset_url(self):
         try:
-            json_data = self.fetcher.fetch_data(self.root_dataset_url)
+            json_data = self.fetcher.fetch(self.root_dataset_url)
             json_resources = [
                 resource
                 for resource in json_data["resources"]
@@ -134,7 +134,7 @@ class RecordMapper(BaseRecordMapper):
             )
 
     def fetch_data(self):
-        json_data = self.fetcher.fetch_data(self.dataset_url)
+        json_data = self.fetcher.fetch(self.dataset_url)
 
         if "features" not in json_data:
             raise RuntimeError("Liste des centres manquante")

@@ -1,4 +1,5 @@
 import abc
+from typing import List, Any
 
 from erp.models import Erp, Activite
 
@@ -15,7 +16,7 @@ class BaseRecordMapper(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def fetch_data(self):
+    def fetch_data(self) -> List[Any]:
         pass
 
     @abc.abstractmethod
