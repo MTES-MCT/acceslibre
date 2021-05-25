@@ -29,7 +29,7 @@ class CsvFetcher(Fetcher):
 
     def fetch(self, url) -> Iterable[Any]:
         try:
-            csvfile = requests.get(url).text
+            csvfile = requests.get(url).content.decode("utf8")
         except requests.exceptions.RequestException as err:
             raise RuntimeError(
                 f"Erreur de récupération des données JSON: {url}:\n  {err}"
