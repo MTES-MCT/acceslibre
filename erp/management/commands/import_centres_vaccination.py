@@ -3,7 +3,7 @@ import sys
 from django.core.management.base import BaseCommand
 
 from erp.import_datasets.import_datasets import ImportDatasets
-from erp.import_datasets.loader_strategy import JsonFetcher
+from erp.import_datasets.fetcher_strategy import JsonFetcher
 from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
 from erp.mapper.vaccination2 import RecordMapper
 

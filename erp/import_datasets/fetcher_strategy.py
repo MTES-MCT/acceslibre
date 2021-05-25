@@ -45,6 +45,6 @@ class CsvFetcher(Fetcher):
             raise RuntimeError(f"Erreur de lecture des données CSV: {url}:\n  {err}")
 
 
-class FileFetcher(Fetcher):
-    def fetch(self, filepath):
-        ...
+class VoidFetcher(Fetcher):
+    def fetch(self, anything):
+        return None

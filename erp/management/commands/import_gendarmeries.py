@@ -3,7 +3,7 @@ import sys
 from django.core.management.base import BaseCommand
 
 from erp.import_datasets.import_datasets import ImportDatasets
-from erp.import_datasets.loader_strategy import CsvFetcher
+from erp.import_datasets.fetcher_strategy import CsvFetcher
 from erp.mapper.gendarmerie import RecordMapper
 
 

@@ -1,13 +1,10 @@
 from datetime import datetime
 
-import requests
 from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
-from erp.import_datasets.base_mapper import BaseRecordMapper
-from erp.import_datasets.loader_strategy import Fetcher
-from erp.models import Accessibilite, Commune, Erp, Activite
+from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
@@ -17,11 +14,7 @@ RAISON_RESERVE_PS = "Réservé aux professionnels de santé"
 RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 
 
-class RecordMapper(BaseRecordMapper):
-    root_dataset_url = "https://www.data.gouv.fr/api/1/datasets/lieux-de-vaccination-contre-la-covid-19/"
-    dataset_url = None
-    activite = "centre-de-vaccination"
-
+class RecordMapper:
     FIELDS_MAP = {
         "c_nom": "nom",
         "c_adr_num": "numero",
@@ -56,13 +49,17 @@ class RecordMapper(BaseRecordMapper):
         "USMP": RAISON_RESERVE_CARCERAL,
     }
 
-    def __init__(self, fetcher: Fetcher, dataset_url: str = None, today=None):
+    def __init__(self, record, today=None):
         self.erp = None
         self.today = today if today is not None else datetime.today()
-        self.geometry = None
-        self.props = None
-        self.fetcher = fetcher
-        self.dataset_url = dataset_url or self._retrieve_latest_dataset_url()
+        try:
+            self.geometry = record["geometry"]
+            self.props = record["properties"]
+        except KeyError as err:
+            raise RuntimeError(f"Propriété manquante {err}: {record}")
+        # Clean string properties
+        for key, val in self.props.items():
+            self.props[key] = text.strip_if_str(val)
 
     @property
     def source_id(self):
@@ -75,16 +72,7 @@ class RecordMapper(BaseRecordMapper):
     def erp_exists(self):
         return self.erp and self.erp.id is not None
 
-    def process(self, record, activite):
-        try:
-            self.geometry = record["geometry"]
-            self.props = record["properties"]
-        except KeyError as err:
-            raise RuntimeError(f"Propriété manquante {err}: {record}")
-        # Clean string properties
-        for key, val in self.props.items():
-            self.props[key] = text.strip_if_str(val)
-
+    def process(self, activite):
         "Procède aux vérifications et à l'import de l'enregistrement"
         # Création ou récupération d'un ERP existant
         self._fetch_or_create_erp(activite)
@@ -115,31 +103,6 @@ class RecordMapper(BaseRecordMapper):
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
         return self.erp
-
-    def _retrieve_latest_dataset_url(self):
-        try:
-            json_data = self.fetcher.fetch(self.root_dataset_url)
-            json_resources = [
-                resource
-                for resource in json_data["resources"]
-                if resource["format"] == "json"
-            ]
-
-            if len(json_resources) == 0:
-                raise RuntimeError("Jeu de données absent.")
-            return json_resources[0]["latest"]
-        except (KeyError, IndexError, ValueError) as err:
-            raise RuntimeError(
-                f"Impossible de parser les données depuis {self.dataset_url}:\n{err}"
-            )
-
-    def fetch_data(self):
-        json_data = self.fetcher.fetch(self.dataset_url)
-
-        if "features" not in json_data:
-            raise RuntimeError("Liste des centres manquante")
-
-        return json_data["features"]
 
     def _build_commentaire(self):
         "Retourne un commentaire informatif à propos de l'import"
