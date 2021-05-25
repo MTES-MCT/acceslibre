@@ -1,8 +1,10 @@
 import logging
 
+from django.db import DataError
+
 from erp.import_datasets.base_mapper import BaseRecordMapper
 from erp.import_datasets.print_strategy import outputPrintStrategy, outputVoidStrategy
-from erp.models import Activite
+from erp.models import Activite, Accessibilite
 
 logger = logging.getLogger(__name__)
 
@@ -44,11 +46,11 @@ class ImportDatasets:
 
     def do_import(self):
         try:
-            json_data = self.mapper.fetch_data()
+            data = self.mapper.fetch_data()
         except RuntimeError as err:
             raise RuntimeError("Error fetching data: ", str(err))
 
-        return self._process_data(json_data)
+        return self._process_data(data)
 
     def _process_data(self, records):
         activite = Activite.objects.filter(slug=self.mapper.activite).first()
@@ -58,9 +60,23 @@ class ImportDatasets:
         for record in records:
             try:
                 erp = self.mapper.process(record, activite)
+                self._save_erp(erp)
                 self.imported += 1
                 yield erp
             except RuntimeError as err:
                 self.errors.append(f"{err.__str__()}")
                 self.skipped += 1
                 yield None
+
+    def _save_erp(self, erp):
+        try:
+            # Save erp instance
+            erp.published = True
+            erp.save()
+
+            # Attach an Accessibilite to newly created Erps
+            if not erp.has_accessibilite():
+                accessibilite = Accessibilite(erp=erp)
+                accessibilite.save()
+        except DataError as err:
+            raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err

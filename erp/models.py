@@ -260,6 +260,7 @@ class Erp(models.Model):
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
     SOURCE_VACCINATION = "centres-vaccination"
+    SOURCE_GENDARMERIE = "gendarmeries"
     SOURCE_CHOICES = (
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
@@ -271,6 +272,7 @@ class Erp(models.Model):
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
+        (SOURCE_GENDARMERIE, "Gendarmeries"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
@@ -393,6 +395,13 @@ class Erp(models.Model):
         blank=True,
         verbose_name="Courriel",
         help_text="Adresse email permettant de contacter l'ERP",
+    )
+    private_contact_email = models.EmailField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Courriel privé",
+        help_text="Email permettant de notifier le fournisseur en cas de modifications par un tier",
     )
     contact_url = models.URLField(
         max_length=255,

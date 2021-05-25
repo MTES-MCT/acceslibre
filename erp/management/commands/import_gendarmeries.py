@@ -3,7 +3,7 @@ import sys
 from django.core.management.base import BaseCommand
 
 from erp.import_datasets.import_datasets import ImportDatasets
-from erp.import_datasets.loader_strategy import JsonFetcher, CsvFetcher
+from erp.import_datasets.loader_strategy import CsvFetcher
 from erp.mapper.gendarmerie import RecordMapper
 
 
@@ -36,8 +36,10 @@ class Command(BaseCommand):
         self.stdout.write("Importation des ERPs gendarmerie")
 
         try:
-            fetcher = CsvFetcher()
-            mapper = RecordMapper(fetcher=fetcher)
+            fetcher = CsvFetcher(delimiter=";")
+            mapper = RecordMapper(
+                fetcher=fetcher, dataset_url=options.get("dataset-url")
+            )
             ImportDatasets(mapper=mapper).job(verbose=True)
             # ImportDatasets(mapper=mapper, is_scheduler=True).job()
         except RuntimeError as err:

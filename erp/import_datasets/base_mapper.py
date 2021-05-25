@@ -20,5 +20,5 @@ class BaseRecordMapper(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def process(self, records, activite: Activite) -> Erp:
+    def process(self, record, activite: Activite) -> Erp:
         pass

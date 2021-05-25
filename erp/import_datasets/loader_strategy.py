@@ -1,4 +1,5 @@
 import csv
+import io
 from abc import ABC, abstractmethod
 from typing import Any, List, Iterable
 
@@ -22,6 +23,10 @@ class JsonFetcher(Fetcher):
 
 
 class CsvFetcher(Fetcher):
+    def __init__(self, delimiter=",", fieldnames=None):
+        self.delimiter = delimiter
+        self.fieldnames = fieldnames
+
     def fetch(self, url) -> Iterable[Any]:
         try:
             csvfile = requests.get(url).text
@@ -31,7 +36,11 @@ class CsvFetcher(Fetcher):
             )
 
         try:
-            return csv.reader(csvfile)
+            return csv.DictReader(
+                io.StringIO(csvfile),
+                delimiter=self.delimiter,
+                fieldnames=self.fieldnames,
+            )
         except csv.Error as err:
             raise RuntimeError(f"Erreur de lecture des données CSV: {url}:\n  {err}")
 
