@@ -199,7 +199,7 @@
         <ol class="mb-0">
         {% for commune in communes %}
           <li>
-            <strong><a href="{% url "search" %}?q={{ commune.nom }}">{{ commune.nom }}</a></strong>
+            <strong><a href="{{ commune.get_absolute_url }}">{{ commune.nom }}</a></strong>
             <small class="text-muted">
               {{ commune.erp_access_count }}
               fiche{{ commune.erp_access_count|pluralize:"s" }}
