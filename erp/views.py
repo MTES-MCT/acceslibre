@@ -12,11 +12,9 @@ from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.forms import modelform_factory
-from django.http import Http404, JsonResponse
+from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
-from django.views import generic
-from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 from django_registration.backends.activation.views import (
     ActivationView,
@@ -25,7 +23,7 @@ from django_registration.backends.activation.views import (
 
 from core import mailer
 
-from erp.models import Accessibilite, Activite, Commune, Erp, Vote
+from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import search as provider_search
 from erp import forms
 from erp import schema
@@ -209,32 +207,6 @@ class CustomActivationView(ActivationView):
         return f"{url}?next={next}"
 
 
-@cache_page(60 * 15)
-def autocomplete(request):
-    suggestions = []
-    q = request.GET.get("q", "")
-    commune_slug = request.GET.get("commune_slug")
-    if len(q) < 3:
-        return JsonResponse({"suggestions": suggestions})
-    qs = Erp.objects.published()
-    if commune_slug:
-        qs = qs.filter(commune_ext__slug=commune_slug)
-    qs = qs.search(q)[:7]
-    for erp in qs:
-        suggestions.append(
-            {
-                "value": erp.nom + ", " + erp.adresse,
-                "data": {
-                    "score": erp.rank,
-                    "activite": erp.activite and erp.activite.slug,
-                    "url": erp.get_absolute_url(),
-                },
-            }
-        )
-    suggestions = sorted(suggestions, key=lambda s: s["data"]["score"], reverse=True)
-    return JsonResponse({"suggestions": suggestions})
-
-
 class EditorialView(TemplateView):
     template_name = "editorial/base.html"
 
@@ -243,113 +215,56 @@ class EditorialView(TemplateView):
         return context
 
 
-class BaseListView(generic.ListView):
-    model = Erp
-    queryset = Erp.objects.select_related(
-        "activite", "accessibilite", "commune_ext", "statuscheck"
-    ).published()
-    _commune = None
-
-    @property
-    def around(self):
-        raw = self.request.GET.get("around")
-        if raw is None:
-            return
-        try:
-            rlon, rlat = raw.split(",")
-            return (float(rlon), float(rlat))
-        except (IndexError, ValueError, TypeError):
-            return None
-
-    @property
-    def commune(self):
-        if self._commune is None:
-            self._commune = get_object_or_404(
-                Commune.objects.select_related(), slug=self.kwargs["commune"]
-            )
-        return self._commune
-
-    @property
-    def search_terms(self):
-        q = self.request.GET.get("q", "").strip()
-        if len(q) >= 2:
-            return q
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        queryset = queryset.in_commune(self.commune)
-        if self.search_terms is not None:
-            queryset = queryset.search(self.search_terms)
-        else:
-            if "activite_slug" in self.kwargs:
-                if self.kwargs["activite_slug"] == "non-categorises":
-                    queryset = queryset.filter(activite__isnull=True)
-                else:
-                    queryset = queryset.filter(
-                        activite__slug=self.kwargs["activite_slug"]
-                    )
-            queryset = queryset.order_by("nom")
-        if self.around is not None:
-            queryset = queryset.nearest(self.around)
-        # We can't hammer the pages with too many entries, hard-limiting here
-        return queryset[:500]
-
-
-class App(BaseListView):
-    "Static, template-based Web application views."
-    template_name = "erps/commune.html"
-
-    def get(self, request, *args, **kwargs):
-        if self.search_terms is not None and self.request.GET.get("scope") == "country":
-            return redirect(reverse("home") + "?q=" + self.search_terms)
-        return super().get(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["around"] = (
-            list(self.around) if self.around is not None else self.around
+def erp_details(request, commune, erp_slug, activite_slug=None):
+    base_qs = (
+        Erp.objects.select_related(
+            "accessibilite",
+            "activite",
+            "commune_ext",
+            "user",
+            "statuscheck",
         )
-        context["commune"] = self.commune
-        context["commune_json"] = self.commune.toTemplateJson()
-        context["search_terms"] = self.search_terms
-        context["activites"] = Activite.objects.in_commune(
-            self.commune
-        ).with_erp_counts()
-        context["activite_slug"] = self.kwargs.get("activite_slug")
-        if (
-            "activite_slug" in self.kwargs
-            and self.kwargs["activite_slug"] != "non-categorises"
-        ):
-            context["current_activite"] = get_object_or_404(
-                Activite, slug=self.kwargs["activite_slug"]
-            )
-        if "erp_slug" in self.kwargs:
-            context["user_is_subscribed"] = False
-            erp = get_object_or_404(
-                Erp.objects.select_related(
-                    "accessibilite", "activite", "commune_ext", "user", "statuscheck"
-                )
-                .published()
-                .with_votes(),
-                slug=self.kwargs["erp_slug"],
-            )
-            context["erp"] = erp
-            if erp.has_accessibilite():
-                form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
-                context["accessibilite_data"] = form.get_accessibilite_data()
-            if self.request.user.is_authenticated:
-                context["user_vote"] = Vote.objects.filter(
-                    user=self.request.user, erp=erp
-                ).first()
-                context["user_is_subscribed"] = erp.is_subscribed_by(self.request.user)
-            context["object_list"] = (
-                Erp.objects.select_related("accessibilite", "commune_ext", "activite")
-                .published()
-                .nearest([erp.geom.coords[1], erp.geom.coords[0]])
-                .filter(distance__lt=Distance(km=20))[:16]
-            )
-        context["geojson_list"] = make_geojson(context["object_list"])
-        return context
+        .published()
+        .with_votes()
+        .filter(
+            commune_ext__slug=commune,
+            slug=erp_slug,
+        )
+    )
+    if activite_slug:
+        base_qs = base_qs.filter(activite__slug=activite_slug)
+    erp = get_object_or_404(base_qs)
+    nearest_erps = (
+        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+        .published()
+        .nearest([erp.geom.coords[1], erp.geom.coords[0]])
+        .filter(distance__lt=Distance(km=20))[:16]
+    )
+    geojson_list = make_geojson(nearest_erps)
+    form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
+    accessibilite_data = form.get_accessibilite_data()
+    user_vote = (
+        request.user.is_authenticated
+        and Vote.objects.filter(user=request.user, erp=erp).first() is not None
+    )
+    user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
+        request.user
+    )
+    return render(
+        request,
+        "erp/index.html",
+        context={
+            "accessibilite_data": accessibilite_data,
+            "activite": erp.activite,
+            "commune": erp.commune_ext,
+            "commune_json": erp.commune_ext.toTemplateJson(),
+            "erp": erp,
+            "geojson_list": geojson_list,
+            "nearest_erps": nearest_erps,
+            "user_is_subscribed": user_is_subscribed,
+            "user_vote": user_vote,
+        },
+    )
 
 
 @login_required

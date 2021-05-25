@@ -26,7 +26,7 @@
         <div class="card-body">
           <h3 class="h6 card-title font-weight-bold">
             {% if result.exists and result.exists.is_online %}
-            <a href="{{ result.exists.get_absolute_url }}" target="_blank">{{ result.nom }}</a>
+            <a href="{{ result.exists.get_absolute_url }}" target="_blank" rel="noopener">{{ result.nom }}</a>
             {% else %}
             {{ result.nom }}
             {% endif %}

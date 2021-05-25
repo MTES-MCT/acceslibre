@@ -1,0 +1,50 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}{{ erp.nom }}, {% if activite %}{{ activite.nom }}, {% endif %}{{ commune.nom }}, Accessibilité{% endblock%}
+
+{% block page_description %}Découvrez l'accessibilité de l'établissement {{ erp.nom }} à {{ commune.nom }} - {{ commune.departement_nom}}{% endblock %}
+
+{% block skiplinks %}
+  <a class="skippy sr-only sr-only-focusable" href="#app-map">
+    <span class="skippy-text">Aller à la carte</span>
+  </a>
+  <a class="skippy sr-only sr-only-focusable" href="#a11y">
+    <span class="skippy-text">Aller aux informations d'accessibilité</span>
+  </a>
+{% endblock skiplinks %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <article class="mt-5">
+    {% include "erp/includes/header.html" %}
+
+    <div class="d-flex flex-column">
+      <div class="row order-2">
+        <section id="a11y" class="col-md-8">
+          {% include "erp/includes/accessibilite.html" %}
+          <aside class="text-center">
+            {% include "erp/includes/vote-form.html" %}
+          </aside>
+        </section>
+        <aside class="col-md-4">
+          {% include "erp/includes/sidebar.html" %}
+        </aside>
+      </div>
+      <aside class="mb-4 mt-2 order-1">
+        {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+      </aside>
+    </div>
+  </article>
+</main>
+{% endblock %}
+
+{% block bottom_fluid_content %}
+<aside id="proximite" class="container-fluid bg-light mt-4 py-4">
+  <div class="container">
+    {% include "erp/includes/proximite.html" %}
+  </div>
+</aside>
+{% endblock %}

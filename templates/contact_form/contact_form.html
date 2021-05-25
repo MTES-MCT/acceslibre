@@ -12,7 +12,7 @@
   <h2 class="h3 text-center mb-4">Contactez-nous</h2>
 
   <div class="row justify-content-md-center">
-    <form action="" method="POST" class="col-md-6 col-lg-7 mb-4">
+    <form id="contact-form" action="" method="POST" class="col-md-6 col-lg-7 mb-4">
       {% csrf_token %}
 
       <p><small class="text-muted">
@@ -46,14 +46,14 @@
         <div class="alert alert-warning">
           <img class="d-none d-md-inline" alt="Attention !" style="float:left;width:95px;margin-right:12px" src="{% static "img/red-warning-sign.png" %}">
           Nous vous rappelons que la mission d'Acceslibre est de fournir l'information
-          d'<a href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank">accessibilité de cet établissement</a>.
+          d'<a href="https://fr.wikipedia.org/wiki/Accessibilit%C3%A9" target="_blank" rel="noopener">accessibilité de cet établissement</a>.
           {% if erp.activite.slug == "centre-de-vaccination" %}
             <p>Nous ne gérons pas ce centre de vaccination, <strong>nous ne pouvons donc pas vous renseigner sur la prise de rendez-vous.</strong></p>
             {% if erp.telephone %}
             <p>Vous pouvez néanmoins contacter ce centre au <a href="tel:{{ erp.telephone }}">{{ erp.telephone }}</a>.</p>
             {% endif %}
             <p class="mb-0">
-              <a href="https://solidarites-sante.gouv.fr/grands-dossiers/vaccin-covid-19/je-suis-un-particulier/" target="_blank">
+              <a href="https://solidarites-sante.gouv.fr/grands-dossiers/vaccin-covid-19/je-suis-un-particulier/" target="_blank" rel="noopener">
                 &raquo; Plus d'information sur les modalités de vaccination
               </a>
             </p>

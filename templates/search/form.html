@@ -7,7 +7,7 @@
   <div id="loc-field" class="form-group custom-control custom-switch mb-1 mt-0 ml-2">
     <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
       {% if localize == "1" %}checked{% endif %}>
-    <label class="custom-control-label" for="localize">
+    <label class="custom-control-label{% if dark %} text-light{% endif %}" for="localize">
       Rechercher autour de ma position géographique actuelle
       <span id="geoloader" class="lds-dual-ring" style="vertical-align:middle"></span>
       <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
@@ -17,7 +17,7 @@
     <input type="search" id="search" name="q" class="form-control form-control-lg" placeholder="restau lyon"
       aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
     <div class="input-group-append">
-      <button type="submit" class="btn btn-lg btn-primary border-left text-nowrap">
+      <button type="submit" class="btn btn-lg {% if dark %}btn-light{% else %}btn-primary{% endif %} border-left text-nowrap">
         <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
         <span class="sr-only">Rechercher</span>
       </button>
