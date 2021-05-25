@@ -260,7 +260,7 @@ class Erp(models.Model):
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
     SOURCE_VACCINATION = "centres-vaccination"
-    SOURCE_GENDARMERIE = "gendarmeries"
+    SOURCE_GENDARMERIE = "gendarmerie"
     SOURCE_CHOICES = (
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
@@ -272,7 +272,7 @@ class Erp(models.Model):
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
-        (SOURCE_GENDARMERIE, "Gendarmeries"),
+        (SOURCE_GENDARMERIE, "Gendarmerie"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
