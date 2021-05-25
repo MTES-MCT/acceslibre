@@ -25,7 +25,6 @@ class RecordMapper(BaseRecordMapper):
             Erp.SOURCE_GENDARMERIE, record["identifiant_public_unite"]
         )
         numero, voie = self._parse_address(record)
-        print(record["service"])
         if not erp:
             erp = Erp(
                 source=Erp.SOURCE_GENDARMERIE,
@@ -46,12 +45,11 @@ class RecordMapper(BaseRecordMapper):
         return erp
 
     def _parse_address(self, record):
-        res = " ".split(record["voie"])
-        print(res)
+        res = record["voie"].split(" ")
         try:
-            if res[0].isdigit():
+            if res[0][0].isdigit():
                 numero = res[0]
-                if res[1] in ["bis"]:
+                if res[1] in ["bis", "ter"]:
                     numero += " " + res[1]
                     voie = " ".join(res[2:])
                 else:
