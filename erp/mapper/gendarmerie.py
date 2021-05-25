@@ -47,6 +47,7 @@ class RecordMapper(BaseRecordMapper):
 
     def _parse_address(self, record):
         res = " ".split(record["voie"])
+        print(res)
         try:
             if res[0].isdigit():
                 numero = res[0]
