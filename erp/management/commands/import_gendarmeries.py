@@ -2,10 +2,7 @@ import sys
 
 from django.core.management.base import BaseCommand
 
-from erp.import_datasets.import_datasets import ImportDatasets
-from erp.import_datasets.fetcher_strategy import CsvFetcher
 from erp.jobs.import_gendarmerie import ImportGendarmerie
-from erp.mapper.gendarmerie import RecordMapper
 
 
 def fatal(msg):

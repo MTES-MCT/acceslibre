@@ -59,7 +59,7 @@ class RecordMapper(BaseRecordMapper):
     def _import_coordinates(self, record):
         "Importe les coordonnées géographiques du centre de vaccination"
         try:
-            (x, y) = float(record["geocodage_x_GPS"]), float(record["geocodage_y_GPS"])
+            x, y = float(record["geocodage_x_GPS"]), float(record["geocodage_y_GPS"])
             return Point(x, y)
         except (KeyError, IndexError):
             raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
@@ -67,15 +67,15 @@ class RecordMapper(BaseRecordMapper):
     def populate_basic_fields(self, record):
         numero, voie = self._parse_address(record)
 
-        self.erp.private_contact_email = (record["identifiant_public_unite"],)
-        self.erp.telephone = (record["telephone"],)
-        self.erp.code_insee = (record["code_commune_insee"],)
-        self.erp.code_postal = (record["code_postal"],)
-        self.erp.numero = (numero,)
-        self.erp.voie = (voie,)
-        self.erp.geom = (self._import_coordinates(record),)
-        self.erp.site_internet = (record["url"],)
-        self.erp.nom = (record["service"],)
+        self.erp.private_contact_email = record["identifiant_public_unite"]
+        self.erp.telephone = record["telephone"]
+        self.erp.code_insee = record["code_commune_insee"]
+        self.erp.code_postal = record["code_postal"]
+        self.erp.numero = numero
+        self.erp.voie = voie
+        self.erp.geom = self._import_coordinates(record)
+        self.erp.site_internet = record["url"]
+        self.erp.nom = record["service"]
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"

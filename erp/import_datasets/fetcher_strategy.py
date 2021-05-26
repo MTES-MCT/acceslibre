@@ -51,5 +51,8 @@ class VoidFetcher(Fetcher):
 
 
 class StringFetcher(Fetcher):
-    def fetch(self, anylist):
-        return anylist
+    def __init__(self, content):
+        self.content = content
+
+    def fetch(self, data=None):
+        return self.content

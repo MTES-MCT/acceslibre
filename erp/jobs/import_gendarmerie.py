@@ -1,29 +1,26 @@
 import logging
+import sys
 
 from django.conf import settings
 
 from core import mailer
 from erp.import_datasets.fetcher_strategy import CsvFetcher
 from erp.import_datasets.import_datasets import ImportDatasets
-from erp.management.commands.import_gendarmeries import fatal
-from erp.mapper.vaccination import RecordMapper
+from erp.mapper.gendarmerie import RecordMapper
 
 logger = logging.getLogger(__name__)
 
 
-def outputPrintStrategy(text, end="\n", flush=False):
-    print(text, end=end, flush=flush)
-
-
-def outputVoidStrategy(text, end="\n", flush=False):
-    pass
+def fatal(msg):
+    print(msg)
+    sys.exit(1)
 
 
 class ImportGendarmerie:
-    def job(self, dataset_url=None, verbose=False):
+    def job(self, verbose=False):
         try:
             fetcher = CsvFetcher(delimiter=";")
-            mapper = RecordMapper(fetcher=fetcher, dataset_url=dataset_url)
+            mapper = RecordMapper(fetcher=fetcher)
             imported, skipped, errors = ImportDatasets(mapper=mapper).job(
                 verbose=verbose
             )

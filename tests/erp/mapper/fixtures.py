@@ -3,6 +3,7 @@ import pytest
 
 from django.contrib.gis.geos import Point
 
+from erp.import_datasets.fetcher_strategy import StringFetcher
 from erp.models import Commune
 
 
@@ -70,3 +71,63 @@ def sample_record_ok():
     }
 }"""
     )
+
+
+@pytest.fixture
+def gendarmeries_valid():
+    return [
+        {
+            "identifiant_public_unite": "1008620",
+            "service": "Gendarmerie - Brigade d'Ornex",
+            "adresse_geographique": "124 Rue de Béjoud 01210 ORNEX",
+            "telephone": "+33 4 50 40 59 30",
+            "departement": "01",
+            "code_commune_insee": "01281",
+            "voie": "124 Rue de Béjoud",
+            "code_postal": "01210",
+            "commune": "Ornex",
+            "geocodage_epsg": "",
+            "geocodage_x": "",
+            "geocodage_y": "",
+            "geocodage_x_GPS": "6.09523",
+            "geocodage_y_GPS": "46.27591",
+            "horaires_accueil": " Lundi : 8h00-12h00 14h00-18h00 Mardi : 8h00-12h00 14h00-18h00 Mercredi : 14h00-18h00 Jeudi : 8h00-12h00 14h00-18h00 Vendredi : 8h00-12h00 14h00-18h00 Samedi : 14h00-18h00 Dimanche : 9h00-12h00 15h00-18h00",
+            "url": "https://lannuaire.service-public.fr/auvergne-rhone-alpes/ain/gendarmerie-01281-01",
+        },
+        {
+            "identifiant_public_unite": "1008614",
+            "service": "Gendarmerie - Brigade d'Oyonnax",
+            "adresse_geographique": "144 Rue Sainte-Geneviève 01100 OYONNAX",
+            "telephone": "+33 4 74 77 16 33",
+            "departement": "01",
+            "code_commune_insee": "01283",
+            "voie": "144 Rue Sainte-Geneviève",
+            "code_postal": "01100",
+            "commune": "Oyonnax",
+            "geocodage_epsg": "",
+            "geocodage_x": "",
+            "geocodage_y": "",
+            "geocodage_x_GPS": "5.64149",
+            "geocodage_y_GPS": "46.25539",
+            "horaires_accueil": "",
+            "url": "https://lannuaire.service-public.fr/auvergne-rhone-alpes/ain/gendarmerie-01283-01",
+        },
+        {
+            "identifiant_public_unite": "1008593",
+            "service": "Gendarmerie - Brigade de Belley",
+            "adresse_geographique": "Caserne Sibuet 9 Rue Mante 01300 BELLEY",
+            "telephone": "+33 4 79 81 69 00",
+            "departement": "01",
+            "code_commune_insee": "01034",
+            "voie": "Caserne Sibuet 9 Rue Mante",
+            "code_postal": "01300",
+            "commune": "Belley",
+            "geocodage_epsg": "",
+            "geocodage_x": "",
+            "geocodage_y": "",
+            "geocodage_x_GPS": "5.68275",
+            "geocodage_y_GPS": "45.75554",
+            "horaires_accueil": " Lundi : 8h00-12h00 14h00-18h00 Mardi : 8h00-12h00 14h00-18h00 Mercredi : 8h00-12h00 14h00-18h00 Jeudi : 8h00-12h00 14h00-18h00 Vendredi : 8h00-12h00 14h00-18h00 Samedi : 8h00-12h00 14h00-18h00 Dimanche : 9h00-12h00 15h00-18h00",
+            "url": "https://lannuaire.service-public.fr/auvergne-rhone-alpes/ain/gendarmerie-01034-01",
+        },
+    ]
