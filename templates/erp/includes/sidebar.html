@@ -19,9 +19,11 @@
     <p class="text-center">
       <a href="{% url "contact_topic_erp" topic="signalement" erp_slug=erp.slug %}">Signaler un problème</a>
     </p>
+    {% if not erp.user %}
     <p class="text-center mb-O">
       <a href="{% url "contrib_claim" erp_slug=erp.slug %}">Je gère cet établissement</a>
     </p>
+    {% endif %}
     <p class="text-center mb-O">
     {% if user.is_authenticated %}
       {% if user_is_subscribed %}
