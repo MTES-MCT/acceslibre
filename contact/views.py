@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -66,7 +67,15 @@ def contact(request, topic=None, erp_slug=None):
             message.sent_ok = sent_ok
             message.save()
             send_receipt(message)
-            return redirect(reverse("contact_form_sent"))
+            if erp:
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    "Votre message a été envoyé.",
+                )
+                return redirect(erp.get_absolute_url())
+            else:
+                return redirect(reverse("contact_form_sent"))
     else:
         form = ContactForm(request=request, initial=initial)
     return render(
