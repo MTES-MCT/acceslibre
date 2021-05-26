@@ -39,7 +39,7 @@
     <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
       {% with erp.metadata.centre_vaccination as cv %}
         {% if cv and cv.url_rdv %}
-          <a class="btn btn-outline-primary mr-3" href="{{ cv.url_rdv }}" target="_blank" rel="noopener">
+          <a class="btn btn-outline-primary mr-3" href="{{ cv.url_rdv }}" target="_blank" rel="noopener noreferrer">
             <i aria-hidden="true" class="icon icon-clock"></i>
             <span>Prendre rendez-vous {{ cv.url_rdv|cv_provider_name }}</span>
           </a>
@@ -48,7 +48,7 @@
       {% if erp.site_internet %}
       <span class="mr-3">
         <i aria-hidden="true" class="icon icon-globe"></i>
-        <a href="{{ erp.site_internet }}" target="_blank" rel="noopener">Site internet</a>
+        <a href="{{ erp.site_internet }}" target="_blank" rel="noopener noreferrer">Site internet</a>
       </span>
       {% endif %}
       {% if erp.telephone %}
@@ -60,7 +60,7 @@
       {% if erp.contact_url %}
       <span class="mr-3">
         <i aria-hidden="true" class="icon icon-mail"></i>
-        <a href="{{ erp.contact_url }}" target="_blank" rel="noopener">Écrire un message</a>
+        <a href="{{ erp.contact_url }}" target="_blank" rel="noopener noreferrer">Écrire un message</a>
       </span>
       {% elif erp.contact_email %}
       <span class="mr-3">
