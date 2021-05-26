@@ -22,8 +22,12 @@ def import_dataset(gendarmeries_valid, db, activite_cdv):
     return _factory
 
 
-def test_basic_stats(import_dataset):
+def test_basic_stats(import_dataset, gendarmeries_valid):
     imported, skipped, errors = import_dataset().job()
+    erp = Erp.objects.filter(
+        source_id=gendarmeries_valid[0]["identifiant_public_unite"]
+    ).first()
+    assert erp is not None
     assert imported == 3, skipped == 0
 
 
@@ -37,6 +41,6 @@ def test_updated_data(import_dataset, gendarmeries_valid):
     erp = Erp.objects.filter(
         source_id=gendarmeries_valid_updated[0]["identifiant_public_unite"]
     ).first()
-    assert skipped == 0, len(errors) == 0
     assert erp is not None
     assert erp.code_insee == gendarmeries_valid_updated[0]["code_commune_insee"]
+    assert skipped == 0, len(errors) == 0

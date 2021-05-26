@@ -7,6 +7,8 @@ from erp.import_datasets.fetcher_strategy import VoidFetcher
 from erp.mapper import vaccination as v
 from erp.models import Activite, Erp
 
+from tests.erp.mapper.fixtures import neufchateau, sample_record_ok
+
 
 @pytest.fixture
 def activite_cdv(db):
