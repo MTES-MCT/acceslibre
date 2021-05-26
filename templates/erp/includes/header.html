@@ -16,7 +16,9 @@
       {% endif %}
       {{ erp.nom }}
     </h1>
-    <address class="font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
+    <div>
+      <address class="d-inline font-weight-bold m-0 mb-2 p-0">{{ erp.adresse }}</address>
+      - <a href="#" onclick="a4a.geo.openMarkerPopup({{ erp.pk }}, { highlight: true });return false">Situer sur la carte</a>
 
     {% with erp.metadata.centre_vaccination as cv %}
       {% if cv %}

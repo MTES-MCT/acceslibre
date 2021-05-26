@@ -42,6 +42,7 @@ function createIcon(highlight, iconName = "building") {
 
 // see https://leafletjs.com/examples/geojson/
 function onEachFeature({ geometry, properties: props }, layer) {
+  let zoomLink = "";
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
       <strong>
@@ -49,11 +50,6 @@ function onEachFeature({ geometry, properties: props }, layer) {
       </strong>
       ${(props.activite__nom && "<br>" + props.activite__nom) || ""}
       <br>${props.adresse}
-      <br>
-      <a href="#" onclick="a4a.geo.zoomTo(${geometry.coordinates[1]}, ${geometry.coordinates[0]});return false">
-        <i aria-hidden="true" class="icon icon-shrink a4a-icon-small-top"></i>
-        Zoomer sur cet établissement
-      </a>
     </div>`);
   layer.pk = parseInt(props.pk, 10);
   layers.push(layer);
@@ -186,15 +182,15 @@ function AppMap(root) {
   const geoJson = parseJsonScript(root.querySelector("#erps-data"));
   currentPk = pk;
 
-  const geoJsonLayer = L.geoJSON(geoJson, {
-    onEachFeature: onEachFeature,
-    pointToLayer: pointToLayer,
-  });
-
   map = createMap(root);
   if (info) {
     map.setMinZoom(info.zoom - 2);
   }
+
+  const geoJsonLayer = L.geoJSON(geoJson, {
+    onEachFeature: onEachFeature,
+    pointToLayer: pointToLayer,
+  });
 
   // right-click menu
   map.on("contextmenu", onMapContextMenu.bind(map, root));
@@ -228,7 +224,7 @@ function AppMap(root) {
   return map;
 }
 
-function openMarkerPopup(pk) {
+function openMarkerPopup(pk, options = {}) {
   if (!markers) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
@@ -237,6 +233,9 @@ function openMarkerPopup(pk) {
     if (layer.pk === pk) {
       markers.zoomToShowLayer(layer, () => {
         layer.openPopup();
+        if (options.highlight) {
+          map.setView(layer.getLatLng(), 18);
+        }
       });
     }
   });
