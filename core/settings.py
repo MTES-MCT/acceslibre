@@ -109,7 +109,7 @@ INSTALLED_APPS = [
 def floc_middleware(get_response):
     def middleware(request):
         response = get_response(request)
-        response["Referrer-Policy"] = "no-referrer"
+        response["Referrer-Policy"] = "same-origin"
         return response
 
     return middleware
