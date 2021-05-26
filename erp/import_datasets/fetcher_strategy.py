@@ -48,3 +48,8 @@ class CsvFetcher(Fetcher):
 class VoidFetcher(Fetcher):
     def fetch(self, anything):
         return None
+
+
+class StringFetcher(Fetcher):
+    def fetch(self, anylist):
+        return anylist
