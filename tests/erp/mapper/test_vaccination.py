@@ -1,15 +1,11 @@
-import json
-import pytest
-
 from datetime import datetime
 
-from django.contrib.gis.geos import Point
+import pytest
+from django.db import DataError
 
 from erp.import_datasets.fetcher_strategy import VoidFetcher
 from erp.mapper import vaccination as v
 from erp.models import Activite, Erp
-
-from tests.erp.mapper.fixtures import neufchateau, sample_record_ok
 
 
 @pytest.fixture
@@ -53,9 +49,9 @@ def test_handle_malformed_rdv_url(
     assert erp.metadata["centre_vaccination"]["url_rdv"] is None
 
 
-def test_source_id(mapper, activite_cdv):
-    m = mapper().process({"geometry": [], "properties": {"c_gid": 123}}, activite_cdv)
-    assert m.source_id == "123"
+def test_source_id(mapper, activite_cdv, neufchateau, sample_record_ok):
+    m = mapper().process(sample_record_ok.copy(), activite_cdv)
+    assert m.source_id == "219"
 
 
 def test_source_id_missing(mapper, activite_cdv):
@@ -250,12 +246,13 @@ def test_update_existing_erp(mapper, activite_cdv, neufchateau, sample_record_ok
     m1 = mapper(today=datetime(2021, 1, 1))
     erp1 = m1.process(sample_record_ok, activite_cdv)
     erp1.accessibilite.commentaire = "user contrib"
+    erp1.save()
     erp1.accessibilite.save()
 
     # import updated data for the same Erp
     sample_record_ok_updated = sample_record_ok.copy()
     sample_record_ok_updated["properties"]["c_rdv_tel"] = "1234"
-    m2 = mapper(today=datetime(2021, 1, 1))
+    m2 = mapper(today=datetime(2021, 1, 2))
     erp2 = m2.process(sample_record_ok_updated, activite_cdv)
 
     assert erp1.id == erp2.id
@@ -264,19 +261,18 @@ def test_update_existing_erp(mapper, activite_cdv, neufchateau, sample_record_ok
 
 
 def test_unpublish_closed_erp(mapper, activite_cdv, neufchateau, sample_record_ok):
-    m1 = mapper(today=datetime(2021, 1, 1))
-    m1.process(sample_record_ok, activite_cdv)
+    erp1 = mapper(today=datetime(2021, 1, 1)).process(sample_record_ok, activite_cdv)
+    erp1.save()
 
     # reimport the same record, but this time it's closed
     sample_closed = sample_record_ok.copy()
     sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
-    m2 = mapper(today=datetime(2021, 1, 2))
 
     with pytest.raises(RuntimeError) as err:
-        m2.process(sample_closed, activite_cdv)
+        erp2 = mapper(today=datetime(2021, 1, 2)).process(sample_closed, activite_cdv)
     assert "MIS HORS LIGNE:" in str(err.value)
     assert (
-        Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, m2.source_id).published
+        Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, erp1.source_id).published
         is False
     )
 
@@ -285,7 +281,8 @@ def test_intercept_sql_errors(mapper, activite_cdv, neufchateau, sample_record_o
     long_cp_record = sample_record_ok.copy()
     long_cp_record["properties"]["c_com_cp"] = "12345 / 54321"
 
-    with pytest.raises(RuntimeError) as err:
-        mapper().process(long_cp_record, activite_cdv)
+    with pytest.raises(DataError) as err:
+        erp = mapper().process(long_cp_record, activite_cdv)
+        erp.save()
 
-    assert "Erreur à l'enregistrement des données" in str(err.value)
+    # assert "Erreur à l'enregistrement des données" in str(err.value)

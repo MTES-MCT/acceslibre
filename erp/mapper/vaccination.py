@@ -238,8 +238,6 @@ class RecordMapper(BaseRecordMapper):
     def _import_basic_erp_fields(self):
         "Importe les champs administratif basiques du centre de vaccination"
         for (json_field, model_field) in self.FIELDS_MAP.items():
-            print(self.erp, model_field, json_field)
-            print(self.props)
             setattr(self.erp, model_field, self.props[json_field])
 
     def _import_coordinates(self):
@@ -270,6 +268,7 @@ class RecordMapper(BaseRecordMapper):
             )
 
         if not commune_ext:
+            print(self.erp.code_insee, self.erp.code_postal)
             raise RuntimeError("Impossible de résoudre la commune")
 
         self.erp.commune_ext = commune_ext
