@@ -4,6 +4,7 @@ import time
 from django.core.management.base import BaseCommand
 
 from erp.jobs import check_closed_erps, purge_accounts
+from erp.jobs.import_gendarmerie import ImportGendarmerie
 from subscription.jobs import notify_changed_erps
 from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
 
@@ -21,6 +22,7 @@ class Command(BaseCommand):
         schedule.every().hour.do(
             ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
         )
+        schedule.every().week.do(ImportGendarmerie(is_scheduler=True).job, verbose=True)
         print("Scheduler started")
         while True:
             schedule.run_pending()
