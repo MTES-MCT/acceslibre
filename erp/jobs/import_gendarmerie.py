@@ -1,5 +1,3 @@
-# Imports vaccination centers from open data: https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/
-
 import logging
 
 from django.conf import settings
@@ -26,19 +24,21 @@ class ImportGendarmerie:
         try:
             fetcher = CsvFetcher(delimiter=";")
             mapper = RecordMapper(fetcher=fetcher, dataset_url=dataset_url)
-            ImportDatasets(mapper=mapper).job(verbose=verbose)
-            # ImportDatasets(mapper=mapper, is_scheduler=True).job()
+            imported, skipped, errors = ImportDatasets(mapper=mapper).job(
+                verbose=verbose
+            )
+            self._send_report(imported, skipped, errors)
         except RuntimeError as err:
             fatal(err)
 
-    def _send_report(self):
+    def _send_report(self, imported, skipped, errors):
         mailer.mail_admins(
-            f"[{settings.SITE_NAME}] Rapport d'importation des centres de vaccination",
+            f"[{settings.SITE_NAME}] Rapport d'importation des gendarmeries",
             "mail/import_vaccination_notification.txt",
             {
-                "errors": self.errors,
-                "imported": self.imported,
-                "skipped": self.skipped,
+                "errors": errors,
+                "imported": imported,
+                "skipped": skipped,
                 "SITE_NAME": settings.SITE_NAME,
                 "SITE_ROOT_URL": settings.SITE_ROOT_URL,
             },
