@@ -23,7 +23,7 @@
 
     {% with erp.metadata.centre_vaccination as cv %}
       {% if cv %}
-      <div class="alert alert-warning d-flex align-items-center mb-2" role="alert" aria-live="assertive" style="font-size:.9em">
+      <div class="alert alert-warning d-flex align-items-center my-2" role="alert" aria-live="assertive" style="font-size:.9em">
         <i aria-hidden="true" class="icon icon-warning text-bigger mr-2"></i>
         Cet établissement est centre de vaccination dans le cadre de la campagne nationale de
         vaccination contre la COVID-19.
@@ -32,7 +32,7 @@
     {% endwith %}
 
     {% if erp.statuscheck and erp.statuscheck.active is False %}
-    <div class="alert alert-warning d-flex align-items-center mb-2" role="alert" aria-live="assertive" style="font-size:.9em">
+    <div class="alert alert-warning d-flex align-items-center my-2" role="alert" aria-live="assertive" style="font-size:.9em">
       <i aria-hidden="true" class="icon icon-exclamation-circle text-bigger mr-2"></i>
       Cet établissement semble fermé.&nbsp;
       <a href="{% url "contact_topic_erp" topic="signalement" erp_slug=erp.slug %}">Signaler une erreur</a>
