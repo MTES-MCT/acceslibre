@@ -10,12 +10,12 @@ class BaseExportMapper:
     @staticmethod
     @abstractmethod
     def headers():
-        ...
+        pass
 
     @staticmethod
     @abstractmethod
     def map_from(erp):
-        ...
+        pass
 
 
 def map_erps_to_json_schema(
