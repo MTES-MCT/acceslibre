@@ -227,7 +227,7 @@ SECTIONS = {
         "edit_route": "contrib_stationnement",
     },
     SECTION_CHEMINEMENT_EXT: {
-        "icon": "exterieur-target",
+        "icon": "road",
         "label": "Cheminement extérieur",
         "description": "Cheminement extérieur depuis la voirie jusqu'à l'entrée",
         "edit_route": "contrib_exterieur",
