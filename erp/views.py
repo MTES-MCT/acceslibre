@@ -152,7 +152,9 @@ def search(request):
                     float(request.GET.get("lat")),
                     float(request.GET.get("lon")),
                 )
-                erp_qs = erp_qs.nearest((lat, lon)).order_by("distance")
+                erp_qs = erp_qs.nearest((lat, lon), max_radius_km=20).order_by(
+                    "distance"
+                )
             except ValueError:
                 pass
         paginator = Paginator(erp_qs, 10)
