@@ -1,11 +1,7 @@
-# TI: test csv file writing
-# TI: check frictionless validation with http call
-# TI: automated export to data.gouv
 import os
 from pathlib import Path
 
-import pytest
-from frictionless import Package, validate_package, validate_resource, Resource
+from frictionless import validate_resource, Resource
 
 from erp.export.export import export_schema_to_csv
 from erp.export.mappers import EtalabMapper
