@@ -24,10 +24,18 @@
     <div class="d-flex flex-column">
       <div class="row order-2">
         <section id="a11y" class="col-md-8">
+        {% if accessibilite_data %}
           {% include "erp/includes/accessibilite.html" %}
           <aside class="text-center">
             {% include "erp/includes/vote-form.html" %}
           </aside>
+        {% else %}
+          <div class="alert alert-info">
+            <i aria-hidden="true" class="icon icon-info-circled"></i>
+            Les données d'accessibilité pour cet établissement ne sont pas encore disponibles,
+            mais <a href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">vous pouvez les ajouter</a>.
+          </div>
+        {% endif %}
         </section>
         <aside class="col-md-4">
           {% include "erp/includes/sidebar.html" %}
