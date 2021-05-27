@@ -41,20 +41,12 @@ def test_export_to_csv(example_data):
     assert erp_0["transport_station_presence"] == str(
         mapped_data[0].transport_station_presence
     )
-    # assert erp_0["commentaire"] == str(mapped_data[0].commentaire)
     erp_1 = next(reader)
     assert erp_1["transport_station_presence"] == str(
         mapped_data[1].transport_station_presence
     )
-    # assert erp_1["commentaire"] == str(mapped_data[1].commentaire)
 
     # Validate data with schema
-
-
-# Test/check invalid data ex: no accessibility object -> should be ignored
-# Test transformed/mapped data
-
-# Test upload data.gouv
 
 
 def test_generate_schema():

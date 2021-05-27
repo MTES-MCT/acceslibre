@@ -5,14 +5,13 @@ import os
 from pathlib import Path
 
 import pytest
-from frictionless import Package, validate_package
+from frictionless import Package, validate_package, validate_resource, Resource
 
 from erp.export.export import export_schema_to_csv
 from erp.export.mappers import EtalabMapper
 from erp.models import Erp
 
 
-@pytest.mark.django_db
 def test_csv_creation(db):
     dest_path = "export-test.csv"
     try:
@@ -22,16 +21,11 @@ def test_csv_creation(db):
 
         assert Path(dest_path).exists() is True
 
-        package = Package(descriptor="erp/export/static/schema.json")
-        result = validate_package(package)
+        resource = Resource(
+            "erp/export/static/exemple-valide.csv",
+            schema="erp/export/static/schema.json",
+        )
+        result = validate_resource(resource)
         assert result.get("errors") == []
     finally:
         os.remove(dest_path)
-
-
-@pytest.mark.django_db
-def test_check_modified_schema(db):
-    # use stringio to test schema generation, then compare
-    # maybe_new_schema = generate_schema()
-    # assert maybe_new_schema == actual_schema
-    ...
