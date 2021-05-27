@@ -35,13 +35,14 @@ function createIcon(highlight, iconName = "building") {
     iconAnchor: [size / 2, size],
     popupAnchor: [0, -size],
     tooltipAnchor: [size / 2, -28],
-    className: `shadow-sm act-icon act-icon-rounded act-icon-${size}${(highlight && " invert") || ""}`,
+    className: `shadow-sm act-icon act-icon-rounded act-icon-${size}${(highlight && " act-icon-invert") || ""}`,
   };
   return L.icon(options);
 }
 
 // see https://leafletjs.com/examples/geojson/
 function onEachFeature({ geometry, properties: props }, layer) {
+  let zoomLink = "";
   layer.bindPopup(`
     <div class="a4a-map-popup-content">
       <strong>
@@ -49,11 +50,6 @@ function onEachFeature({ geometry, properties: props }, layer) {
       </strong>
       ${(props.activite__nom && "<br>" + props.activite__nom) || ""}
       <br>${props.adresse}
-      <br>
-      <a href="#" onclick="a4a.geo.zoomTo(${geometry.coordinates[1]}, ${geometry.coordinates[0]})">
-        <i aria-hidden="true" class="icon icon-shrink a4a-icon-small-top"></i>
-        Zoomer sur cet établissement
-      </a>
     </div>`);
   layer.pk = parseInt(props.pk, 10);
   layers.push(layer);
@@ -165,7 +161,7 @@ function onMapContextMenu(root, { latlng, target: map }) {
 }
 
 function createMap(domTarget, options = {}) {
-  const defaults = { layers: [getStreetTiles()] };
+  const defaults = { layers: [getStreetTiles()], scrollWheelZoom: false };
   const map = L.map(domTarget, { ...defaults, options });
   L.control
     .layers({
@@ -183,19 +179,18 @@ function parseJsonScript(scriptNode) {
 function AppMap(root) {
   const info = parseJsonScript(root.querySelector("#commune-data"));
   const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
-  const around = parseJsonScript(root.querySelector("#around-data"));
   const geoJson = parseJsonScript(root.querySelector("#erps-data"));
   currentPk = pk;
-
-  const geoJsonLayer = L.geoJSON(geoJson, {
-    onEachFeature: onEachFeature,
-    pointToLayer: pointToLayer,
-  });
 
   map = createMap(root);
   if (info) {
     map.setMinZoom(info.zoom - 2);
   }
+
+  const geoJsonLayer = L.geoJSON(geoJson, {
+    onEachFeature: onEachFeature,
+    pointToLayer: pointToLayer,
+  });
 
   // right-click menu
   map.on("contextmenu", onMapContextMenu.bind(map, root));
@@ -209,18 +204,7 @@ function AppMap(root) {
   markers.addLayer(geoJsonLayer);
   map.addLayer(markers);
 
-  if (around) {
-    L.marker(around, {
-      icon: L.divIcon({ className: "a4a-center-icon icon icon-target" }),
-    }).addTo(map);
-    L.circle(around, {
-      fillColor: "#0f0",
-      fillOpacity: 0.1,
-      stroke: 0,
-      radius: 400,
-    }).addTo(map);
-    map.setView(around, 16);
-  } else if (geoJson.features.length > 0) {
+  if (geoJson.features.length > 0) {
     map.fitBounds(markers.getBounds().pad(0.1));
   } else if (info) {
     map.setView(info.center, info.zoom);
@@ -240,7 +224,7 @@ function AppMap(root) {
   return map;
 }
 
-function openMarkerPopup(pk) {
+function openMarkerPopup(pk, options = {}) {
   if (!markers) {
     console.warn("No marker clusters were registered, cannot open marker.");
     return;
@@ -249,6 +233,9 @@ function openMarkerPopup(pk) {
     if (layer.pk === pk) {
       markers.zoomToShowLayer(layer, () => {
         layer.openPopup();
+        if (options.highlight) {
+          map.setView(layer.getLatLng(), 18);
+        }
       });
     }
   });

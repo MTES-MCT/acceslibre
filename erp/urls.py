@@ -57,14 +57,6 @@ urlpatterns = [
     path("challenge/ddt/2021/02/", views.challenge_ddt, name="challenge-ddt"),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
-    ############################################################################
-    # HTML app
-    ############################################################################
-    path(
-        "app/autocomplete/",
-        views.autocomplete,
-        name="autocomplete",
-    ),
     path(
         "communes/",
         cache_user_page(views.communes),
@@ -76,23 +68,13 @@ urlpatterns = [
         name="search",
     ),
     path(
-        "app/<str:commune>/",
-        cache_app_page(),
-        name="commune",
-    ),
-    path(
-        "app/<str:commune>/a/<str:activite_slug>/",
-        cache_app_page(),
-        name="commune_activite",
-    ),
-    path(
         "app/<str:commune>/erp/<str:erp_slug>/",
-        views.App.as_view(),  # avoid caching details page
+        views.erp_details,  # avoid caching details page
         name="commune_erp",
     ),
     path(
         "app/<str:commune>/a/<str:activite_slug>/erp/<str:erp_slug>/",
-        views.App.as_view(),  # avoid caching details page
+        views.erp_details,  # avoid caching details page
         name="commune_activite_erp",
     ),
     path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),

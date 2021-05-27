@@ -20,7 +20,7 @@
   <h2 class="h3 text-center mb-4">Créer un compte utilisateur</h2>
 
   <div class="row justify-content-md-center">
-    <form action="." method="POST" class="col-md-6 col-lg-5 mb-4" id="registration">
+    <form action="." method="POST" class="registration-form col-md-6 col-lg-5 mb-4" id="registration">
       {% csrf_token %}
 
       <input type="hidden" name="next" value="{{ request.GET.next }}">

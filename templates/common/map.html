@@ -1,7 +1,4 @@
 <div id="app-map" class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}">
-  <script id="around-data" type="application/json">
-    {{ around | default_if_none:"null" }}
-  </script>
   <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
   </script>
