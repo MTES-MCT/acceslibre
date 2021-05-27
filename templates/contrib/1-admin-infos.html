@@ -75,7 +75,7 @@
         </p>
         <ul>
         {% for match in existing_matches %}
-          <li><a href="{{ match.get_absolute_url }}" target="_blank">{{ match.nom }}</a> - {{ match.adresse }}</li>
+          <li><a href="{{ match.get_absolute_url }}" target="_blank" rel="noopener noreferrer">{{ match.nom }}</a> - {{ match.adresse }}</li>
         {% endfor %}
         </ul>
         <p>
