@@ -1,6 +1,7 @@
 import logging
 
-from django.db import DataError
+from django.db import DataError, DatabaseError, transaction, IntegrityError
+from django.db.transaction import TransactionManagementError
 
 from erp.import_datasets.base_mapper import BaseRecordMapper
 from erp.import_datasets.print_strategy import outputPrintStrategy, outputVoidStrategy
@@ -59,12 +60,13 @@ class ImportDatasets:
 
         for record in records:
             try:
-                erp = self.mapper.process(record, activite)
-                self._save_erp(erp)
+                with transaction.atomic():
+                    erp = self.mapper.process(record, activite)
+                    self._save_erp(erp)
                 self.imported += 1
                 yield erp
             except RuntimeError as err:
-                self.errors.append(f"{err.__str__()}")
+                self.errors.append(str(err))
                 self.skipped += 1
                 yield None
 
@@ -78,5 +80,5 @@ class ImportDatasets:
             if not erp.has_accessibilite():
                 accessibilite = Accessibilite(erp=erp)
                 accessibilite.save()
-        except DataError as err:
+        except (TransactionManagementError, DataError, DatabaseError) as err:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err

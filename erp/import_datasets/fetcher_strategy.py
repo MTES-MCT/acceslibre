@@ -7,6 +7,8 @@ import requests
 
 
 class Fetcher(ABC):
+    fieldnames: List
+
     @abstractmethod
     def fetch(self, uri) -> Any:
         pass

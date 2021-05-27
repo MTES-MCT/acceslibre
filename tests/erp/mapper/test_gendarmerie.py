@@ -19,7 +19,7 @@ def import_dataset(gendarmeries_valid, db, activite_cdv):
         mapper = RecordMapper(fetcher=fetcher, dataset_url="dummy")
         return ImportDatasets(mapper=mapper, is_scheduler=True)
 
-    return _factory
+    yield _factory
 
 
 def test_basic_stats(import_dataset, gendarmeries_valid):
@@ -44,3 +44,20 @@ def test_updated_data(import_dataset, gendarmeries_valid):
     assert erp is not None
     assert erp.code_insee == gendarmeries_valid_updated[0]["code_commune_insee"]
     assert skipped == 0, len(errors) == 0
+
+
+def test_invalid_data(import_dataset, gendarmeries_valid):
+    gendarmeries_invalid = gendarmeries_valid.copy()
+    gendarmeries_invalid[0]["code_commune_insee"] = "67000azdasqd"
+
+    imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
+    assert len(errors) == 1, imported == 2
+
+
+def test_fail_on_schema_change(import_dataset, gendarmeries_valid):
+    gendarmeries_invalid = gendarmeries_valid.copy()
+    gendarmeries_invalid[0]["code_insee"] = "test"
+    del gendarmeries_invalid[0]["code_commune_insee"]
+
+    imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
+    assert imported == 0

@@ -14,13 +14,28 @@ class RecordMapper(BaseRecordMapper):
     )
     activite = "gendarmerie"
     erp = None
+    fields = [
+        "identifiant_public_unite",
+        "telephone",
+        "code_commune_insee",
+        "code_postal",
+        "voie",
+        "geocodage_x_GPS",
+        "geocodage_y_GPS",
+        "url",
+        "service",
+    ]
 
     def __init__(self, fetcher: Fetcher, dataset_url: str = dataset_url, today=None):
         self.today = today if today is not None else datetime.today()
         self.fetcher = fetcher
 
     def fetch_data(self):
-        return self.fetcher.fetch(self.dataset_url)
+        data = self.fetcher.fetch(self.dataset_url)
+
+        if not all(field in data[0].keys() for field in self.fields):
+            raise RuntimeError("Missmatch fields in CSV")
+        return data
 
     def process(self, record, activite: Activite) -> Erp:
         erp = Erp.objects.find_by_source_id(

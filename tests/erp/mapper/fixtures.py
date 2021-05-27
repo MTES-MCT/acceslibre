@@ -3,7 +3,6 @@ import pytest
 
 from django.contrib.gis.geos import Point
 
-from erp.import_datasets.fetcher_strategy import StringFetcher
 from erp.models import Commune
 
 
