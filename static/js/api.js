@@ -22,6 +22,13 @@ async function getUserLocation(options) {
   return { lat, lon, label };
 }
 
+function loadLocalization() {
+  // XXX implement TTL/expiration
+  try {
+    return JSON.parse(sessionStorage["a4a-loc"] || "null");
+  } catch (e) {}
+}
+
 async function reverseGeocode({ lat, lon }, options = {}) {
   let url = `https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`;
   if (options.type) {
@@ -31,7 +38,16 @@ async function reverseGeocode({ lat, lon }, options = {}) {
   return await res.json();
 }
 
+function saveLocalization(loc) {
+  if (loc) {
+    sessionStorage["a4a-loc"] = JSON.stringify(loc);
+  }
+  return loc;
+}
+
 export default {
   getUserLocation,
+  loadLocalization,
   reverseGeocode,
+  saveLocalization,
 };

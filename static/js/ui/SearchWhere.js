@@ -1,40 +1,66 @@
+import api from "../api";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
+let loc = api.loadLocalization();
+
+function getCommonResults() {
+  return [
+    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}` },
+    { id: "france_entiere", text: "France entière" },
+  ];
+}
+
 function SearchWhere(root) {
-  let canSubmit = false;
-  const hiddenField = root.querySelector("input[type=hidden]");
-  const whereUrl = root.querySelector("input[type=search]").dataset.src;
+  let preventSubmit = false;
+  const input = root.querySelector("input[type=search]");
+  const hiddenWhereField = root.querySelector("input[name=where]");
+  const hiddenLatField = root.querySelector("input[name=lat]");
+  const hiddenLonField = root.querySelector("input[name=lon]");
+  const whereUrl = input.dataset.src;
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
 
     getResultValue: (result) => result.text,
 
-    onSubmit: (result) => {
-      if (result) {
-        hiddenField.value = result.id;
-        canSubmit = true;
+    onSubmit: async (result) => {
+      if (!result) {
+        return;
       }
+
+      if (result.id === "around_me") {
+        if (!loc) {
+          loc = await api.getUserLocation();
+        }
+        hiddenLatField.value = loc.lat;
+        hiddenLonField.value = loc.lon;
+        input.value = `Autour de moi ${loc.label}`;
+        api.saveLocalization(loc);
+      } else {
+        hiddenLatField.value = "";
+        hiddenLonField.value = "";
+      }
+
+      hiddenWhereField.value = result.id;
+      preventSubmit = true;
     },
 
     renderResult: (result, props) => {
       const active = props["aria-selected"] ? "active" : "";
       return `
-        <li class="list-group-item a4a-slightly-smaller px-3 py-2 ${active}" ${props}>
+        <li class="list-group-item a4a-autocomplete-result ${active}" ${props}>
           ${result.text}
         </li>
       `;
     },
 
     search: async (input) => {
+      const commonResults = getCommonResults();
       if (input.length < 1) {
-        return [];
+        return commonResults;
       }
       const res = await fetch(`${whereUrl}?q=${input}`);
       const json = await res.json();
-      return [
-        { id: "around_me", text: "Autour de moi" },
-        { id: "france_entiere", text: "France entière" },
-      ].concat(json.results);
+      return commonResults.concat(json.results);
     },
   });
 
@@ -42,9 +68,9 @@ function SearchWhere(root) {
   // @see https://github.com/trevoreyre/autocomplete/issues/45#issuecomment-617216849
   autocomplete.input.addEventListener("keydown", (event) => {
     const { key } = event;
-    if (canSubmit && key == "Enter") {
+    if (preventSubmit && key == "Enter") {
       event.preventDefault();
-      canSubmit = false;
+      preventSubmit = false;
     }
   });
   return autocomplete;

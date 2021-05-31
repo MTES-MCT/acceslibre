@@ -133,7 +133,8 @@ def communes(request):
 
 
 def where(request):
-    MAX_SUGGESTIONS = 5
+    NB_COMMUNES_SUGG = 4
+    NB_DPT_SUGG = 2
     results = []
     q = request.GET.get("q", "").strip()
     if q and len(q) > 0:
@@ -146,14 +147,14 @@ def where(request):
                 "departement",
             )
         )
-        for commune in communes_qs[:MAX_SUGGESTIONS]:
+        for commune in communes_qs[:NB_COMMUNES_SUGG]:
             results.append(
                 {
                     "id": commune["code_insee"],
                     "text": f"{commune['nom']} ({commune['departement']})",
                 }
             )
-        results += departements.search(q, limit=5, for_autocomplete=True)
+        results += departements.search(q, limit=NB_DPT_SUGG, for_autocomplete=True)
     return JsonResponse({"q": q, "results": results})
 
 
@@ -171,7 +172,6 @@ def search(request):
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
     search_where_label = request.GET.get("search_where_label", "")
-    localize = request.GET.get("localize")
     paginator = pager = None
     pager_base_url = None
     page_number = 1
@@ -186,7 +186,7 @@ def search(request):
             erp_qs = erp_qs.search_what(what)
         if where:
             erp_qs = erp_qs.search_where(where)
-        if localize == "1":
+        if where == "around_me":
             try:
                 (lat, lon) = (
                     float(request.GET.get("lat")),
@@ -200,7 +200,9 @@ def search(request):
         paginator = Paginator(erp_qs, 10)
         page_number = request.GET.get("page", 1)
         pager = paginator.get_page(page_number)
-        pager_base_url = f"?where={where or ''}&what={what or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
+        pager_base_url = (
+            f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
+        )
         geojson_list = make_geojson(pager)
     return render(
         request,
@@ -210,7 +212,6 @@ def search(request):
             "pager": pager,
             "pager_base_url": pager_base_url,
             "page_number": page_number,
-            "localize": localize,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
             "search_ongoing": where or what,

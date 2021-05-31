@@ -22,7 +22,7 @@
       {% endif %}
       {% if where_data and search_what  %}<small class="text-muted">/</small>{% endif %}
       {{ search_what }}
-      {% if localize %}
+      {% if search_where == "around_me" %}
         <small class="text-muted" style="font-size:.6em">autour de votre position</small>
       {% endif %}
     {% else %}
@@ -51,7 +51,7 @@
       <div class="col-sm-6">
         <h2 class="h4 m-0 mb-3">
           {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
-          {% if localize == "1" %}à moins de 20km{% endif %}
+          {% if search_where == "around_me" %}à moins de 20km{% endif %}
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ page_number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>
@@ -71,7 +71,7 @@
                   <a href="{{ erp.get_absolute_url }}">
                     <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
                       src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                    {% if localize == "1" and erp.distance %}
+                    {% if search_where == "around_me" and erp.distance %}
                       <small class="text-muted" aria-label="Distance de votre position géographique">
                         <em>{{ erp.distance|format_distance }}</em>
                       </small>

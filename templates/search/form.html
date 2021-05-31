@@ -1,17 +1,6 @@
 {% load static %}
 
 <form class="a4a-search-form" id="search-form" action="{% url "search" %}">
-  <input type="hidden" name="lat">
-  <input type="hidden" name="lon">
-  <div id="loc-field" class="form-group custom-control custom-switch mb-1 mt-0">
-    <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
-      {% if localize == "1" %}checked{% endif %}>
-    <label class="custom-control-label{% if dark %} text-light{% endif %}" for="localize">
-      Rechercher autour de ma position géographique actuelle
-      <span id="geoloader" class="lds-dual-ring" style="vertical-align:middle"></span>
-      <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
-    </label>
-  </div>
   <div class="row">
     <div class="where-field col-xl-6 py-1">
       <label for="where-input">
@@ -20,25 +9,13 @@
       </label>
       <div class="search-where-field" style="z-index:9999">
         <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
-          spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off"
+          spellcheck=false autocomplete="off" autocapitalize="off"
           placeholder="Exemple : lyon, rhône…" data-src="{% url "where" %}">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
-        <input id="search_where" type="hidden" name="where" value="{{ search_where }}">
+        <input type="hidden" name="where" value="{{ search_where }}">
+        <input type="hidden" name="lat">
+        <input type="hidden" name="lon">
       </div>
-      <!--
-          $search_where.select2({
-            allowClear: true,
-            placeholder: "Exemple: 69000, Clichy…",
-            theme: "bootstrap4",
-            width: "auto",
-            ajax: {
-              cache: true,
-              delay: 100,
-              dataType: "json",
-              url: "{% url "where" %}"
-            }
-          });
-      -->
     </div>
     <div class="what-field col-xl-6 py-1">
       <label for="search_what">

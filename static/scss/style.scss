@@ -72,6 +72,17 @@ $viewport-xl: 1200px;
     }
   }
 
+  &-autocomplete-result {
+    cursor: pointer;
+    font-size: .87em;
+    padding: 8px 12px;
+    &:hover {
+      color: $list-group-active-color;
+      background-color: $list-group-active-bg;
+      border-color: $list-group-active-border-color;
+    }
+  }
+
   .larger-font {
     font-size: 1.2rem;
   }
