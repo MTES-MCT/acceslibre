@@ -23,7 +23,7 @@
       <div class="row row-cols-1 row-cols-sm-2" id="home-communes-list">
         {% for commune in communes %}
         <div class="col mb-4">
-          <a class="a4a-home-commune-link" href="{% url 'commune' commune.slug %}">
+          <a class="a4a-home-commune-link" href="{{ commune.get_absolute_url }}">
             <div class="card shadow-sm">
               <img class="d-none d-md-block card-img-top" alt=""
                   src="{% result_map_img commune.geom.coords style="light-v10" zoom=11 size="348x139" marker=False %}">

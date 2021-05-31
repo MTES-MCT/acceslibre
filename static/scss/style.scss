@@ -2,6 +2,8 @@
 
 // Bootstrap colors
 $white: #fff;
+$body-color: #111;
+$dark: #333;
 $primary: #075ea2;
 $success: #167d2e;
 $info: #097182;
@@ -37,6 +39,18 @@ $viewport-xl: 1200px;
     padding: 2px 10px;
     text-align: center;
     z-index: 9999;
+  }
+
+  &-comment-block {
+    p {
+      margin: 0;
+      &::before {
+        content: "« ";
+      }
+      &::after {
+        content: " »";
+      }
+    }
   }
 
   // selectWoo styles overriding
@@ -76,41 +90,80 @@ $viewport-xl: 1200px;
     height: 48px;
     padding: 6px;
 
-    &.invert {
-      filter: invert(1) contrast(1.75);
+    &-black {
+      filter: grayscale(100%) contrast(1.75);
     }
-  }
 
-  .act-icon-squared {
-    border-radius: 0%;
-  }
+    &-erp {
+      // large viewport
+      @media screen and (min-width: $viewport-md) {
+        width: 96px;
+        height: 96px;
+        padding: 7px;
+        margin-right: 15px;
+      }
+      // mobile viewport
+      @media screen and (max-width: $viewport-md) {
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+        margin-right: 10px;
+      }
+    }
 
-  .act-icon-rounded {
-    border-radius: 50%;
-  }
+    &-invert {
+      filter: invert(1) contrast(2);
+    }
 
-  .act-icon-16 {
-    width: 16px;
-    height: 16px;
-    padding: 2px;
-  }
+    &-squared {
+      border-radius: 0%;
+    }
 
-  .act-icon-20 {
-    width: 20px;
-    height: 20px;
-    padding: 3px;
-  }
+    &-rounded {
+      border-radius: 50%;
+    }
 
-  .act-icon-24 {
-    width: 24px;
-    height: 24px;
-    padding: 2px;
-  }
+    &-16 {
+      width: 16px;
+      height: 16px;
+      padding: 2px;
+    }
 
-  .act-icon-32 {
-    width: 32px;
-    height: 32px;
-    padding: 4px;
+    &-20 {
+      width: 20px;
+      height: 20px;
+      padding: 2px;
+    }
+
+    &-24 {
+      width: 24px;
+      height: 24px;
+      padding: 3px;
+    }
+
+    &-32 {
+      width: 32px;
+      height: 32px;
+      padding: 4px;
+    }
+
+    &-48 {
+      width: 48px;
+      height: 48px;
+      padding: 5px;
+    }
+
+    &-72 {
+      width: 72px;
+      height: 72px;
+      padding: 6px;
+    }
+
+    &-96 {
+      width: 96px;
+      height: 96px;
+      padding: 7px;
+    }
   }
 
   .small-caps {
@@ -267,6 +320,10 @@ $viewport-xl: 1200px;
     outline: none;
   }
 
+  .text-bigger {
+    font-size: 2em;
+  }
+
   .text-overlay {
     overflow: overlay;
   }
@@ -408,6 +465,16 @@ $viewport-xl: 1200px;
     }
   }
 
+  &-app-erp-map {
+    @media screen and (min-width: $viewport-md) {
+      height: 350px;
+    }
+    @media screen and (max-width: $viewport-md) {
+      height: 200px;
+    }
+  }
+
+
   &-search-form {
     @media screen and (min-width: $viewport-xl) {
       .where-field {
@@ -502,8 +569,8 @@ $viewport-xl: 1200px;
 
   &-accessibility-label-logo {
     border-radius: 8px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 
   &-app-title {

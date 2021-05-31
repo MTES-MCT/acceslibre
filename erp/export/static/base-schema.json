@@ -1,0 +1,124 @@
+{
+  "$schema": "https://specs.frictionlessdata.io/schemas/table-schema.json",
+  "name": "acceslibre",
+  "title": "Schéma des données d'accessibilité des ERPs",
+  "description": "Spécification du fichier d'échange relatif aux données d'accessibilité des Établissements Recevant du Public (ERP).",
+  "keywords": [
+    "accessibilite",
+    "access",
+    "a11y"
+  ],
+  "countryCode": "FR",
+  "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1/schema.json",
+  "licenses": [
+    {
+      "title": "Etalab Licence Ouverte 2.0",
+      "name": "etalab-2.0",
+      "path": "https://spdx.org/licenses/etalab-2.0.html"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Fichier valide (CSV)",
+      "name": "exemple-valide-csv",
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1/exemple-valide.csv"
+    }
+  ],
+  "sources": [],
+  "created": "2021-03-10",
+  "lastModified": "2021-03-10",
+  "version": "0.0.1",
+  "contributors": [
+    {
+      "title": "Caleb Eliacheff",
+      "email": "caleb.eliacheff@beta.gouv.fr",
+      "organisation": "MTES-MCT",
+      "role": "author"
+    },
+    {
+      "title": "Nicolas Perriault",
+      "email": "nicolas@perriault.net",
+      "organisation": "MTES-MCT",
+      "role": "author"
+    }
+  ],
+  "fields": [
+    {
+      "name":"id",
+      "description":"Identifiant unique",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"123e4567-e89b-12d3-a456-426614174000"
+    },
+    {
+      "name":"name",
+      "description":"Nom de l'établissement",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"Mairie du 3e"
+    },
+    {
+      "name":"postal_code",
+      "description":"Code postal",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"75017"
+    },
+    {
+      "name":"commune",
+      "description":"Nom de la commune",
+      "type":"string",
+      "constraints": {
+        "required": true
+      },
+      "example":"Paris 17"
+    },
+    {
+      "name":"numero",
+      "description":"Numero de la rue",
+      "type":"string",
+      "example":"15"
+    },
+    {
+      "name":"voie",
+      "description":"Nom de la rue/voie",
+      "type":"string",
+      "example":"Rue Paul Chenavard"
+    },
+    {
+      "name":"lieu_dit",
+      "description":"Lieu-dit",
+      "type":"string",
+      "example":"Le petit Marché"
+    },
+    {
+      "name":"code_insee",
+      "description":"Code INSEE",
+      "type":"string",
+      "example":"17877"
+    },
+    {
+      "name": "siret",
+      "description": "Le numero SIRET de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
+      "example": "13002526564591",
+      "type": "string",
+      "constraints":{
+        "pattern": "^\\d{14}$"
+      }
+    },
+    {
+      "name": "coordinates",
+      "description": "Coordonnées GPS",
+      "example": "90, 45",
+      "type": "geopoint"
+    }
+  ],
+  "primaryKey": ["id"]
+}

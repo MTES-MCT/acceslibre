@@ -227,7 +227,7 @@ SECTIONS = {
         "edit_route": "contrib_stationnement",
     },
     SECTION_CHEMINEMENT_EXT: {
-        "icon": "exterieur-target",
+        "icon": "road",
         "label": "Cheminement extérieur",
         "description": "Cheminement extérieur depuis la voirie jusqu'à l'entrée",
         "edit_route": "contrib_exterieur",
@@ -307,6 +307,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Ligne n4",
     },
     # Stationnement
     "stationnement_presence": {
@@ -433,6 +434,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "description": "Existe-t-il un ascenseur ou un élévateur&nbsp;?",
     },
     "cheminement_ext_nombre_marches": {
         "type": "number",
@@ -445,6 +447,7 @@ FIELDS = {
         "choices": None,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
+        "description": "Combien y'a t'il de marches&nbsp;?",
     },
     "cheminement_ext_sens_marches": {
         "type": "string",
@@ -865,6 +868,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Entrée fléchée",
     },
     # Accueil
     "accueil_visibilite": {
@@ -1084,7 +1088,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Marques ou labels",
         "help_text": mark_safe(
-            "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marques ou quels labels a-t-il obtenu&nbsp;?"
+            "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marque ou quel label a-t-il obtenu(e)&nbsp;?"
         ),
         "help_text_ui": mark_safe("Marque(s) ou label(s) obtenus par l'établissement"),
         "choices": LABEL_CHOICES,
@@ -1119,6 +1123,7 @@ FIELDS = {
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "HandiLabel",
     },
     # Commentaire
     "commentaire": {
@@ -1137,6 +1142,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Propose des places gratuites",
     },
     # Registre
     "registre_url": {
@@ -1155,6 +1161,7 @@ FIELDS = {
         "section": SECTION_REGISTRE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is None,
+        "example": f"{REGISTRE_INFO_URL}",
     },
     # Conformité
     "conformite": {

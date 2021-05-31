@@ -11,8 +11,6 @@ select2(window.$);
 import("../vendor/selectWoo-1.0.8/js/i18n/fr.js").then();
 
 import "bootstrap/js/dist/collapse";
-import "bootstrap/js/dist/tab";
-import "devbridge-autocomplete";
 import "leaflet";
 import "leaflet.markercluster";
 import "leaflet.locatecontrol";
@@ -29,16 +27,16 @@ window.SentryIntegrations = Integrations;
 import dom from "./dom";
 import geo from "./geo";
 
-import AppAutocomplete from "./ui/AppAutocomplete";
 import AsteriskField from "./ui/AsteriskField";
 import ConditionalForm from "./ui/ConditionalForm.js";
 import GeoLink from "./ui/GeoLink.js";
+import MapExpander from "./ui/MapExpander";
 import SearchForm from "./ui/SearchForm";
 
 // Initializations
 dom.ready(() => {
-  dom.mountOne("#app-autocomplete", AppAutocomplete);
   dom.mountOne("#app-map", geo.AppMap);
+  dom.mountOne("#map-height-toggle-link", MapExpander);
   dom.mountOne(".a4a-conditional-form", ConditionalForm);
   dom.mountOne("#search-form", SearchForm);
   dom.mountAll(".asteriskField", AsteriskField);

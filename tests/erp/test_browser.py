@@ -50,7 +50,8 @@ def test_search_empty_text_query(data, client):
 
 def test_search_localized(data, client):
     response = client.get(
-        reverse("search") + "?where=34120&what=croissant&localize=1&lat=1&lon=2"
+        reverse("search")
+        + "?where=34120&what=croissant&localize=1&lat=43.6648062&lon=3.9048148"
     )
     assert response.context["search_where"] == "34120"
     assert response.context["search_what"] == "croissant"
@@ -73,7 +74,6 @@ def test_search_localized(data, client):
         reverse("search") + "?where=34120&what=boulangerie",
         # Editorial
         reverse("accessibilite"),
-        reverse("autocomplete"),
         reverse("cgu"),
         reverse("partenaires"),
         reverse("contact_form"),
@@ -87,12 +87,6 @@ def test_search_localized(data, client):
         reverse("django_registration_complete"),
         reverse("password_reset_complete"),
         # App
-        reverse("commune", kwargs=dict(commune="34-jacou")),
-        reverse("commune", kwargs=dict(commune="34-jacou")) + "?q=pain",
-        reverse(
-            "commune_activite",
-            kwargs=dict(commune="34-jacou", activite_slug="boulangerie"),
-        ),
         reverse(
             "commune_activite_erp",
             kwargs=dict(
@@ -148,10 +142,6 @@ def test_admin_urls_ok(data, url, client):
 @pytest.mark.parametrize(
     "url",
     [
-        reverse("commune", kwargs=dict(commune="invalid")),
-        reverse(
-            "commune_activite", kwargs=dict(commune="invalid", activite_slug="invalid")
-        ),
         reverse(
             "commune_activite_erp",
             kwargs=dict(commune="invalid", activite_slug="invalid", erp_slug="invalid"),
@@ -301,23 +291,6 @@ def test_admin_with_admin_user(data, client, capsys):
 
     response = client.get(data.erp.get_admin_url())
     assert response.status_code == 200
-
-
-def test_autocomplete(data, client):
-    # Request URL: http://localhost:8000/app/autocomplete/?q=te&commune_slug=69-villeurbanne
-    response = client.get(
-        reverse("autocomplete") + "?q=croissants&commune_slug=34-jacou"
-    )
-    assert response.status_code == 200
-
-    json = response.json()
-    assert "suggestions" in json
-    assert len(json["suggestions"]) == 1
-    sugg = json["suggestions"][0]
-    assert sugg["data"]["activite"] == data.erp.activite.slug
-    assert sugg["data"]["url"] == data.erp.get_absolute_url()
-    assert data.erp.nom in sugg["value"]
-    assert data.erp.adresse in sugg["value"]
 
 
 def test_ajout_erp_requires_auth(data, client):

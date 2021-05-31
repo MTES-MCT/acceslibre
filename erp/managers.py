@@ -156,14 +156,13 @@ class ErpQuerySet(models.QuerySet):
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
-    def nearest(self, coords):
+    def nearest(self, coords, max_radius_km=None):
         # NOTE: the Point constructor wants lon, lat
         location = Point(coords[1], coords[0], srid=4326)
-        return (
-            self.published()
-            .annotate(distance=Distance("geom", location))
-            .order_by("distance")
-        )
+        qs = self.published().annotate(distance=Distance("geom", location))
+        if max_radius_km:
+            qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
+        return qs.order_by("distance")
 
     def not_published(self):
         return self.filter(
