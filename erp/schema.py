@@ -307,6 +307,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Ligne n4",
     },
     # Stationnement
     "stationnement_presence": {
@@ -433,6 +434,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "description": "Existe-t-il un ascenseur ou un élévateur&nbsp;?",
     },
     "cheminement_ext_nombre_marches": {
         "type": "number",
@@ -445,6 +447,7 @@ FIELDS = {
         "choices": None,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
+        "description": "Combien y'a t'il de marches&nbsp;?",
     },
     "cheminement_ext_sens_marches": {
         "type": "string",
@@ -865,6 +868,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Entrée fléchée",
     },
     # Accueil
     "accueil_visibilite": {
@@ -1119,6 +1123,7 @@ FIELDS = {
         "section": SECTION_LABELS,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "HandiLabel",
     },
     # Commentaire
     "commentaire": {
@@ -1137,6 +1142,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "example": "Propose des places gratuites",
     },
     # Registre
     "registre_url": {
@@ -1155,6 +1161,7 @@ FIELDS = {
         "section": SECTION_REGISTRE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is None,
+        "example": f"{REGISTRE_INFO_URL}",
     },
     # Conformité
     "conformite": {
