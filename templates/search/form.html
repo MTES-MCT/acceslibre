@@ -16,8 +16,8 @@
     <div class="where-field col-xl-6 py-1">
       <input type="hidden" id="search_where_label" name="search_where_label" value="{{ search_where_label }}">
       <label for="search_where">
-        <strong class="larger-font">Où</strong>
-        <span class="text-muted">(ville, département…)</span>
+        <strong class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
+        <span class="text-{% if dark %}light{% else %}muted{% endif %}">(ville, département…)</span>
       </label>
       <select id="search_where" name="where" class="select form-control"
         aria-label="Rechercher une commune, un département"></select>
@@ -71,8 +71,8 @@
     </div>
     <div class="what-field col-xl-6 py-1">
       <label for="search_what">
-        <strong class="larger-font">Quoi</strong>
-        <span class="text-muted">(activité, nom de l'établissement…)</span>
+        <strong class="larger-font{% if dark %} text-light{% endif %}">Quoi</strong>
+        <span class="text-{% if dark %}light{% else %}muted{% endif %}">(activité, nom de l'établissement…)</span>
       </label>
       <div class="input-group">
         <input type="search" id="search_what" name="what"
@@ -80,7 +80,7 @@
           aria-label="Rechercher un établissement, une activité" autocomplete="off"
           value="{{ search_what|default_if_none:"" }}">
         <div class="input-group-append">
-          <button type="submit" class="btn btn-primary border-left text-nowrap">
+          <button type="submit" class="btn {% if dark %}btn-light{% else %}btn-primary{% endif %} border-left text-nowrap">
             <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
             <span class="sr-only">Rechercher</span>
           </button>
