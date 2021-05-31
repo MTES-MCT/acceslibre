@@ -48,7 +48,8 @@ def test_search_empty_text_query(data, client):
 
 def test_search_localized(data, client):
     response = client.get(
-        reverse("search") + "?q=croissant%20jacou&localize=1&lat=1&lon=2"
+        reverse("search")
+        + "?q=croissant%20jacou&localize=1&lat=43.6648062&lon=3.9048148"
     )
     assert response.context["search"] == "croissant jacou"
     assert len(response.context["pager"]) == 1

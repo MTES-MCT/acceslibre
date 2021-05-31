@@ -42,7 +42,7 @@
       <div class="col-sm-6">
         <h2 class="h4 m-0 mb-3">
           {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
-          {% if localize == "1" %}proche{{ paginator.count|pluralize:"s" }} de vous{% endif %}
+          {% if localize == "1" %}à moins de 20km{% endif %}
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ page_number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>

@@ -227,7 +227,7 @@ SECTIONS = {
         "edit_route": "contrib_stationnement",
     },
     SECTION_CHEMINEMENT_EXT: {
-        "icon": "exterieur-target",
+        "icon": "road",
         "label": "Cheminement extérieur",
         "description": "Cheminement extérieur depuis la voirie jusqu'à l'entrée",
         "edit_route": "contrib_exterieur",
@@ -1088,7 +1088,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Marques ou labels",
         "help_text": mark_safe(
-            "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marques ou quels labels a-t-il obtenu&nbsp;?"
+            "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marque ou quel label a-t-il obtenu(e)&nbsp;?"
         ),
         "help_text_ui": mark_safe("Marque(s) ou label(s) obtenus par l'établissement"),
         "choices": LABEL_CHOICES,

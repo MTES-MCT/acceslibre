@@ -152,7 +152,9 @@ def search(request):
                     float(request.GET.get("lat")),
                     float(request.GET.get("lon")),
                 )
-                erp_qs = erp_qs.nearest((lat, lon)).order_by("distance")
+                erp_qs = erp_qs.nearest((lat, lon), max_radius_km=20).order_by(
+                    "distance"
+                )
             except ValueError:
                 pass
         paginator = Paginator(erp_qs, 10)
@@ -238,7 +240,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         Erp.objects.select_related("accessibilite", "activite", "commune_ext")
         .published()
         .nearest([erp.geom.coords[1], erp.geom.coords[0]])
-        .filter(distance__lt=Distance(km=20))[:16]
+        .filter(distance__lt=Distance(km=20))[:10]
     )
     geojson_list = make_geojson(nearest_erps)
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
