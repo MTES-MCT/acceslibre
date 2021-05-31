@@ -32,6 +32,7 @@ import ConditionalForm from "./ui/ConditionalForm.js";
 import GeoLink from "./ui/GeoLink.js";
 import MapExpander from "./ui/MapExpander";
 import SearchForm from "./ui/SearchForm";
+import SearchWhere from "./ui/SearchWhere";
 
 // Initializations
 dom.ready(() => {
@@ -39,6 +40,7 @@ dom.ready(() => {
   dom.mountOne("#map-height-toggle-link", MapExpander);
   dom.mountOne(".a4a-conditional-form", ConditionalForm);
   dom.mountOne("#search-form", SearchForm);
+  dom.mountAll(".search-where-field", SearchWhere);
   dom.mountAll(".asteriskField", AsteriskField);
   dom.mountAll(".a4a-geo-link", GeoLink);
 });

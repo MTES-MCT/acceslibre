@@ -14,16 +14,18 @@
   </div>
   <div class="row">
     <div class="where-field col-xl-6 py-1">
-      <input type="hidden" id="search_where_label" name="search_where_label" value="{{ search_where_label }}">
-      <label for="search_where">
+      <label for="where-input">
         <strong class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
         <span class="text-{% if dark %}light{% else %}muted{% endif %}">(ville, département…)</span>
       </label>
-      <select id="search_where" name="where" class="select form-control"
-        aria-label="Rechercher une commune, un département"></select>
-      <script>
-        $(document).ready(function() {
-          $search_where = $("#search_where");
+      <div class="search-where-field" style="z-index:9999">
+        <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
+          spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off"
+          placeholder="Exemple : lyon, rhône…" data-src="{% url "where" %}">
+        <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
+        <input id="search_where" type="hidden" name="where" value="{{ search_where }}">
+      </div>
+      <!--
           $search_where.select2({
             allowClear: true,
             placeholder: "Exemple: 69000, Clichy…",
@@ -36,38 +38,7 @@
               url: "{% url "where" %}"
             }
           });
-
-          $search_where.on("select2:open", function(event) {
-            const $results = $("#select2-search_where-results");
-            if ($results.parent().find(".actions").length > 0) {
-              return;
-            }
-            const menu = `
-              <div class="actions d-flex justify-content-between">
-                <a class="btn btn-sm btn-link">Autour de moi</a>
-                <a class="btn btn-sm btn-link">France entière</a>
-              </div>
-            `;
-            $(menu).insertBefore($results);
-          });
-
-          $search_where.on("select2:select", function(event) {
-            try {
-              $("#search_where_label").val(event.params.data.text);
-            } catch(err) {
-              console.warn("Unable to retrieve where data", err);
-            }
-          });
-
-          // Initialisation et vérification de la présence d'une valeur pré-sélectionnée
-          const search_where_label = $("#search_where_label").val();
-          const search_where_value = "{{ search_where }}";
-          if (search_where_label && search_where_value) {
-            let option = new Option(search_where_label, search_where_value, false, false);
-            $search_where.append(option).trigger("change");
-          }
-        });
-      </script>
+      -->
     </div>
     <div class="what-field col-xl-6 py-1">
       <label for="search_what">
@@ -76,7 +47,7 @@
       </label>
       <div class="input-group">
         <input type="search" id="search_what" name="what"
-          class="form-control" placeholder="Exemple: mairie, café de l'église…"
+          class="form-control" placeholder="Exemple : mairie, café de l'église…"
           aria-label="Rechercher un établissement, une activité" autocomplete="off"
           value="{{ search_what|default_if_none:"" }}">
         <div class="input-group-append">
