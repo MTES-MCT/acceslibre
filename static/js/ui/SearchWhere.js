@@ -5,8 +5,8 @@ let loc = api.loadUserLocation();
 
 function getCommonResults() {
   return [
-    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}`, icon: "target" },
-    { id: "france_entiere", text: "France entière" },
+    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}`, icon: "street-view" },
+    { id: "france_entiere", text: "France entière", icon: "france" },
   ];
 }
 
@@ -48,7 +48,7 @@ function SearchWhere(root) {
       const active = props["aria-selected"] ? "active" : "";
       return `
         <li class="list-group-item a4a-autocomplete-result ${active}" ${props}>
-          ${icon ? `<i class="icon icon-${icon}"></i>` : ""}
+          ${icon ? `<i aria-hidden="true" class="icon icon-${icon}"></i>` : ""}
           ${text}
         </li>
       `;
