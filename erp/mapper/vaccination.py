@@ -1,13 +1,12 @@
 from datetime import datetime
 
-import requests
 from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
 from erp.import_datasets.base_mapper import BaseRecordMapper
 from erp.import_datasets.fetcher_strategy import Fetcher
-from erp.models import Accessibilite, Commune, Erp, Activite
+from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
 
 RAISON_EN_ATTENTE = "En attente d'affectation"

@@ -1,6 +1,6 @@
 import logging
 
-from django.db import DataError, DatabaseError, transaction, IntegrityError
+from django.db import DataError, DatabaseError, transaction
 from django.db.transaction import TransactionManagementError
 
 from erp.import_datasets.base_mapper import BaseRecordMapper

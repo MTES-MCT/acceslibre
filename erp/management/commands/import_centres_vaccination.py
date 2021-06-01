@@ -1,11 +1,10 @@
 import sys
 
 from django.core.management.base import BaseCommand
+from erp.mapper.vaccination import RecordMapper
 
-from erp.import_datasets.import_datasets import ImportDatasets
 from erp.import_datasets.fetcher_strategy import JsonFetcher
-from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
-from erp.mapper.vaccination2 import RecordMapper
+from erp.import_datasets.import_datasets import ImportDatasets
 
 
 def fatal(msg):
@@ -38,11 +37,11 @@ class Command(BaseCommand):
 
         try:
             fetcher = JsonFetcher()
-            mapper = RecordMapper(fetcher=fetcher)
-            ImportDatasets(mapper=mapper).job(verbose=True)
-            # ImportVaccinationsCenters(options["scheduler"]).job(
-            #     dataset_url=options.get("dataset-url") or "",
-            #     verbose=options["verbose"],
-            # )
+            mapper = RecordMapper(
+                fetcher=fetcher, dataset_url=options.get("dataset-url")
+            )
+            ImportDatasets(mapper=mapper, is_scheduler=options.get("scheduler")).job(
+                verbose=options.get("verbose")
+            )
         except RuntimeError as err:
             fatal(err)
