@@ -271,7 +271,7 @@ def test_unpublish_closed_erp(mapper, activite_cdv, neufchateau, sample_record_o
     sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
 
     with pytest.raises(RuntimeError) as err:
-        erp2 = mapper(today=datetime(2021, 1, 2)).process(sample_closed, activite_cdv)
+        mapper(today=datetime(2021, 1, 2)).process(sample_closed, activite_cdv)
     assert "MIS HORS LIGNE:" in str(err.value)
     assert (
         Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, erp1.source_id).published
@@ -283,8 +283,6 @@ def test_intercept_sql_errors(mapper, activite_cdv, neufchateau, sample_record_o
     long_cp_record = sample_record_ok.copy()
     long_cp_record["properties"]["c_com_cp"] = "12345 / 54321"
 
-    with pytest.raises(DataError) as err:
+    with pytest.raises(DataError):
         erp = mapper().process(long_cp_record, activite_cdv)
         erp.save()
-
-    # assert "Erreur à l'enregistrement des données" in str(err.value)

@@ -69,7 +69,7 @@ class RecordMapper(BaseRecordMapper):
             else:
                 numero = None
                 voie = record["voie"]
-        except Exception as err:
+        except (KeyError, IndexError):
             numero = None
             voie = record["voie"]
 
