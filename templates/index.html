@@ -22,15 +22,18 @@
     <div class="container">
       <h2 class="font-weight-bold mb-3">Trouvez les lieux accessibles ouverts au public</h2>
       <div class="row">
-        <div class="col-lg-6 col-xl-7">
-          <p>Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
+        <div class="col-lg-6 col-xl-8">
+          <p>
+            Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité
+            essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.
+          </p>
           {% include "search/form.html" %}
           <p class="text-center pt-3 mb-0">
             Ou accedez à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
           </p>
         </div>
-        <div style="background-image:url('{% static "img/landing/illustration-principale.png" %}')"
-          class="col-lg-6 col-xl-5 a4a-bg-home">
+        <div class="col-lg-6 col-xl-4 a4a-bg-home"
+          style="background-image:url('{% static "img/landing/illustration-principale.png" %}')">
         </div>
       </div>
     </div>

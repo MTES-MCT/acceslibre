@@ -10,7 +10,7 @@
       <div class="search-where-field" style="z-index:9999">
         <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
           spellcheck=false autocomplete="off" autocapitalize="off" value="{{ search_where_label }}"
-          name="search_where_label" placeholder="Exemple : lyon, rhône…" data-src="{% url "where" %}">
+          name="search_where_label" placeholder="Exemple: lyon, ain…" data-src="{% url "where" %}">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
         <input type="hidden" name="where" value="{{ search_where }}">
         <input type="hidden" name="lat" value="{{ lat }}">
@@ -24,7 +24,7 @@
       </label>
       <div class="input-group">
         <input type="search" id="search_what" name="what"
-          class="form-control" placeholder="Exemple : mairie, café de l'église…"
+          class="form-control" placeholder="Exemple: mairie, café…"
           aria-label="Rechercher un établissement, une activité" autocomplete="off"
           value="{{ search_what|default_if_none:"" }}">
         <div class="input-group-append">

@@ -169,9 +169,9 @@ def get_where_data(where):
 
 
 def search(request):
-    where = request.GET.get("where", "")
+    where = request.GET.get("where", "") or "france_entiere"
     what = request.GET.get("what", "")
-    search_where_label = request.GET.get("search_where_label", "")
+    search_where_label = request.GET.get("search_where_label", "") or "France entière"
     paginator = pager = None
     pager_base_url = None
     lat = None
