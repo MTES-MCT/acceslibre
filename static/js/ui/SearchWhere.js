@@ -1,11 +1,11 @@
 import api from "../api";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
-let loc = api.loadLocalization();
+let loc = api.loadUserLocation();
 
 function getCommonResults() {
   return [
-    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}` },
+    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}`, icon: "target" },
     { id: "france_entiere", text: "France entière" },
   ];
 }
@@ -44,11 +44,12 @@ function SearchWhere(root) {
       preventSubmit = true;
     },
 
-    renderResult: (result, props) => {
+    renderResult: ({ text, icon }, props) => {
       const active = props["aria-selected"] ? "active" : "";
       return `
         <li class="list-group-item a4a-autocomplete-result ${active}" ${props}>
-          ${result.text}
+          ${icon ? `<i class="icon icon-${icon}"></i>` : ""}
+          ${text}
         </li>
       `;
     },
