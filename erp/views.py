@@ -168,12 +168,26 @@ def get_where_data(where):
     return None
 
 
+def get_search_where_label(where):
+    label = "Lieu indeterminé"
+    if not where or where == "france_entiere":
+        label = "France entière"
+    elif where == "around_me":
+        label = "Autour de moi"
+    elif len(where) == 2:  # departement
+        label = departements.get_departement(where)
+    elif len(where) == 5:  # code insee
+        commune = Commune.objects.filter(code_insee=where).first()
+        label = str(commune) if commune else None
+    return label
+
+
 def search(request):
     where = request.GET.get("where", "france_entiere") or "france_entiere"
     what = request.GET.get("what", "")
-    search_where_label = (
-        request.GET.get("search_where_label", "France entière") or "France entière"
-    )
+    search_where_label = request.GET.get(
+        "search_where_label"
+    ) or get_search_where_label(where)
     paginator = pager = None
     pager_base_url = None
     lat = None
