@@ -15,7 +15,7 @@ def activite_cdv(db):
 @pytest.fixture
 def import_dataset(gendarmeries_valid, db, activite_cdv):
     def _factory(dataset=gendarmeries_valid):
-        fetcher = StringFetcher(dataset)
+        fetcher = StringFetcher(dataset, RecordMapper.fields)
         mapper = RecordMapper(fetcher=fetcher, dataset_url="dummy")
         return ImportDatasets(mapper=mapper, is_scheduler=True)
 
@@ -60,4 +60,4 @@ def test_fail_on_schema_change(import_dataset, gendarmeries_valid):
     del gendarmeries_invalid[0]["code_commune_insee"]
 
     imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
-    assert imported == 0
+    assert imported == 2, skipped == 1

@@ -1,10 +1,11 @@
+import re
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
 
 from erp.import_datasets.base_mapper import BaseRecordMapper
 from erp.import_datasets.fetcher_strategy import Fetcher
-from erp.models import Activite, Erp, Commune
+from erp.models import Activite, Erp, Commune, Accessibilite
 from erp.provider import arrondissements
 
 
@@ -24,6 +25,7 @@ class RecordMapper(BaseRecordMapper):
         "geocodage_y_GPS",
         "url",
         "service",
+        "horaires_accueil",
     ]
 
     def __init__(self, fetcher: Fetcher, dataset_url: str = dataset_url, today=None):
@@ -33,7 +35,7 @@ class RecordMapper(BaseRecordMapper):
     def fetch_data(self):
         data = self.fetcher.fetch(self.dataset_url)
 
-        if not all(field in data[0].keys() for field in self.fields):
+        if not all(field in self.fetcher.fieldnames for field in self.fields):
             raise RuntimeError("Missmatch fields in CSV")
         return data
 
@@ -50,6 +52,7 @@ class RecordMapper(BaseRecordMapper):
 
         self.erp = erp
         self.populate_basic_fields(record)
+        self.populate_accessibilite(record)
 
         return erp
 
@@ -80,17 +83,20 @@ class RecordMapper(BaseRecordMapper):
             raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
 
     def populate_basic_fields(self, record):
-        numero, voie = self._parse_address(record)
+        try:
+            numero, voie = self._parse_address(record)
 
-        self.erp.private_contact_email = record["identifiant_public_unite"]
-        self.erp.telephone = record["telephone"]
-        self.erp.code_insee = record["code_commune_insee"]
-        self.erp.code_postal = record["code_postal"]
-        self.erp.numero = numero
-        self.erp.voie = voie
-        self.erp.geom = self._import_coordinates(record)
-        self.erp.site_internet = record["url"]
-        self.erp.nom = record["service"]
+            self.erp.private_contact_email = record["identifiant_public_unite"]
+            self.erp.telephone = record["telephone"]
+            self.erp.code_insee = record["code_commune_insee"]
+            self.erp.code_postal = record["code_postal"]
+            self.erp.numero = numero
+            self.erp.voie = voie
+            self.erp.geom = self._import_coordinates(record)
+            self.erp.site_internet = record["url"]
+            self.erp.nom = record["service"]
+        except (KeyError, IndexError) as err:
+            raise RuntimeError("Impossible d'extraire des données: " + str(err))
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"
@@ -116,3 +122,17 @@ class RecordMapper(BaseRecordMapper):
 
         self.erp.commune_ext = commune_ext
         self.erp.commune = commune_ext.nom
+
+    def populate_accessibilite(self, record):
+        if not self.erp.has_accessibilite():
+            accessibilite = Accessibilite(erp=self.erp)
+            self.erp.accessibilite = accessibilite
+        self.erp.accessibilite.commentaire = self._build_comment(record)
+
+    def _build_comment(self, record):
+        horaires = re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())
+        stripped = [s.strip() for s in horaires]
+        comment = "Horaires d'accueil: \n"
+        for h in stripped:
+            comment += h + "\n"
+        return comment.rstrip()

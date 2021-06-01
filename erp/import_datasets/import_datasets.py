@@ -80,5 +80,7 @@ class ImportDatasets:
             if not erp.has_accessibilite():
                 accessibilite = Accessibilite(erp=erp)
                 accessibilite.save()
+            else:
+                erp.accessibilite.save()
         except (TransactionManagementError, DataError, DatabaseError) as err:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err

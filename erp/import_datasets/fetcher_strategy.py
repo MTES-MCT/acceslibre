@@ -38,11 +38,14 @@ class CsvFetcher(Fetcher):
             )
 
         try:
-            return csv.DictReader(
+            reader = csv.DictReader(
                 io.StringIO(csvfile),
                 delimiter=self.delimiter,
                 fieldnames=self.fieldnames,
             )
+            if not self.fieldnames:
+                self.fieldnames = list(reader.fieldnames)
+            return reader
         except csv.Error as err:
             raise RuntimeError(f"Erreur de lecture des données CSV: {url}:\n  {err}")
 
@@ -53,8 +56,9 @@ class VoidFetcher(Fetcher):
 
 
 class StringFetcher(Fetcher):
-    def __init__(self, content):
+    def __init__(self, content, fieldnames=None):
         self.content = content
+        self.fieldnames = fieldnames
 
     def fetch(self, data=None):
         return self.content
