@@ -10,7 +10,6 @@ async function getCommonResults() {
 }
 
 function SearchWhere(root) {
-  let preventSubmit = false;
   const input = root.querySelector("input[type=search]");
   const hiddenWhereField = root.querySelector("input[name=where]");
   const hiddenLatField = root.querySelector("input[name=lat]");
@@ -20,6 +19,10 @@ function SearchWhere(root) {
   function setLatLon(loc) {
     hiddenLatField.value = loc?.lat;
     hiddenLonField.value = loc?.lon;
+  }
+
+  function setSearchValue(label) {
+    input.value = label;
   }
 
   const autocomplete = new Autocomplete(root, {
@@ -35,19 +38,18 @@ function SearchWhere(root) {
       if (result.id === "around_me") {
         const loc = await api.loadUserLocation();
         if (!loc) {
-          alert("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
+          console.warn("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
           setLatLon(null);
-          input.value = "";
+          setSearchValue("");
         } else {
           setLatLon(loc);
-          input.value = `Autour de moi ${loc.label}`;
+          setSearchValue(`Autour de moi ${loc.label}`);
         }
       } else {
         setLatLon(null);
       }
 
       hiddenWhereField.value = result.id;
-      preventSubmit = true;
     },
 
     renderResult: ({ text, icon }, props) => {
@@ -74,12 +76,11 @@ function SearchWhere(root) {
   // Prevent global form submission when an entry is selected
   // @see https://github.com/trevoreyre/autocomplete/issues/45#issuecomment-617216849
   autocomplete.input.addEventListener("keydown", (event) => {
-    const { key } = event;
-    if (preventSubmit && key == "Enter") {
+    if (event.key == "Enter") {
       event.preventDefault();
-      preventSubmit = false;
     }
   });
+
   return autocomplete;
 }
 
