@@ -28,13 +28,13 @@ function SearchWhere(root) {
       }
 
       if (result.id === "around_me") {
+        preventSubmit = true;
         if (!loc) {
           loc = await api.getUserLocation();
         }
         hiddenLatField.value = loc.lat;
         hiddenLonField.value = loc.lon;
         input.value = `Autour de moi ${loc.label}`;
-        api.saveLocalization(loc);
       } else {
         hiddenLatField.value = "";
         hiddenLonField.value = "";

@@ -1,3 +1,11 @@
+function decodeJson(json) {
+  return JSON.parse(atob(json));
+}
+
+function encodeJson(js) {
+  return btoa(JSON.stringify(js));
+}
+
 function getCurrentPosition(options = { timeout: 10000 }) {
   return new Promise((resolve, reject) => {
     if ("geolocation" in navigator) {
@@ -9,6 +17,10 @@ function getCurrentPosition(options = { timeout: 10000 }) {
 }
 
 async function getUserLocation(options) {
+  let loc = loadUserLocation();
+  if (loc) {
+    return loc;
+  }
   const {
     coords: { latitude: lat, longitude: lon },
   } = await getCurrentPosition(options);
@@ -19,13 +31,19 @@ async function getUserLocation(options) {
   } catch (_) {
     label = `(${lat}, ${lon})`;
   }
-  return { lat, lon, label };
+  loc = { lat, lon, label, timestamp: new Date().getTime() };
+  saveUserLocation(loc);
+  return loc;
 }
 
-function loadLocalization() {
-  // XXX implement TTL/expiration
+function loadUserLocation(ttl = 5 * 60000) {
   try {
-    return JSON.parse(sessionStorage["a4a-loc"] || "null");
+    let loc = decodeJson(sessionStorage["a4a-loc"] || "null");
+    if (loc.timestamp && new Date().getTime() - loc.timestamp > ttl) {
+      return saveUserLocation(null);
+    } else {
+      return loc;
+    }
   } catch (e) {}
 }
 
@@ -38,16 +56,14 @@ async function reverseGeocode({ lat, lon }, options = {}) {
   return await res.json();
 }
 
-function saveLocalization(loc) {
-  if (loc) {
-    sessionStorage["a4a-loc"] = JSON.stringify(loc);
-  }
+function saveUserLocation(loc) {
+  sessionStorage["a4a-loc"] = encodeJson(loc);
   return loc;
 }
 
 export default {
   getUserLocation,
-  loadLocalization,
+  loadUserLocation,
   reverseGeocode,
-  saveLocalization,
+  saveUserLocation,
 };
