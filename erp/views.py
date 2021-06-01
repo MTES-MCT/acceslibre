@@ -174,7 +174,6 @@ def search(request):
     search_where_label = request.GET.get("search_where_label", "")
     paginator = pager = None
     pager_base_url = None
-    page_number = 1
     lat = None
     lon = None
     geojson_list = None
@@ -198,8 +197,7 @@ def search(request):
             except ValueError:
                 pass
         paginator = Paginator(erp_qs, 10)
-        page_number = request.GET.get("page", 1)
-        pager = paginator.get_page(page_number)
+        pager = paginator.get_page(request.GET.get("page", 1))
         pager_base_url = (
             f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
         )
@@ -211,7 +209,6 @@ def search(request):
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
-            "page_number": page_number,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
             "search_ongoing": where or what,
@@ -395,8 +392,7 @@ def mes_erps(request):
         qs = non_published_qs
     qs = qs.filter(user_id=request.user.pk).order_by("-updated_at")
     paginator = Paginator(qs, 10)
-    page_number = request.GET.get("page", 1)
-    pager = paginator.get_page(page_number)
+    pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_erps.html",
@@ -413,8 +409,7 @@ def mes_erps(request):
 
 def _mes_contributions_view(request, qs, recues=False):
     paginator = Paginator(qs, 10)
-    page_number = request.GET.get("page", 1)
-    pager = paginator.get_page(page_number)
+    pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_contributions.html",
@@ -444,8 +439,7 @@ def mes_abonnements(request):
         .order_by("-updated_at")
     )
     paginator = Paginator(qs, 10)
-    page_number = request.GET.get("page", 1)
-    pager = paginator.get_page(page_number)
+    pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_abonnements.html",
