@@ -240,6 +240,11 @@ class ErpFilterBackend(BaseFilterBackend):
         if search_terms is not None:
             queryset = queryset.search(search_terms)
 
+        # Search
+        source_id = request.query_params.get("source_id", None)
+        if source_id is not None:
+            queryset = queryset.filter(source_id__iexact=source_id)
+
         # Proximity
         around = geocoder.parse_coords(request.query_params.get("around"))
         if around is not None:
@@ -313,6 +318,17 @@ class ErpSchema(A4aAutoSchema):
                 "in": "query",
                 "required": False,
                 "description": "Numéro SIRET de l'établissement",
+                "schema": {"type": "string"},
+            },
+        },
+        "source_id": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "source_id",
+                "in": "query",
+                "required": False,
+                "description": "ID unique fourni par un fournisseur tier",
                 "schema": {"type": "string"},
             },
         },
