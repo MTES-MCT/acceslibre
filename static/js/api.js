@@ -1,5 +1,9 @@
 function decodeJson(json) {
-  return JSON.parse(atob(json));
+  try {
+    return JSON.parse(atob(json));
+  } catch (e) {
+    return null;
+  }
 }
 
 function encodeJson(js) {
@@ -17,12 +21,9 @@ function getCurrentPosition(options = { timeout: 10000 }) {
 }
 
 async function getUserLocation(options) {
-  let loc = await loadUserLocation();
-  if (loc) {
-    return loc;
-  }
   const {
     coords: { latitude: lat, longitude: lon },
+    timestamp,
   } = await getCurrentPosition(options);
   const { features } = await reverseGeocode({ lat, lon }, { type: "street" });
   let label;
@@ -31,20 +32,25 @@ async function getUserLocation(options) {
   } catch (_) {
     label = `(${lat}, ${lon})`;
   }
-  loc = { lat, lon, label, timestamp: new Date().getTime() };
-  saveUserLocation(loc);
-  return loc;
+  return saveUserLocation({ lat, lon, label, timestamp });
 }
 
-async function loadUserLocation(ttl = 5 * 60000) {
+async function loadUserLocation(options = {}) {
+  const { ttl, retrieve } = { ttl: 5 * 60000, retrieve: true, ...options };
   try {
-    let loc = decodeJson(sessionStorage["a4a-loc"] || "null");
-    if (loc && loc.timestamp && new Date().getTime() - loc.timestamp > ttl) {
-      return await getUserLocation();
+    const loc = decodeJson(sessionStorage["a4a-loc"] || "null");
+    if (!loc || (loc.timestamp && new Date().getTime() - loc.timestamp > ttl)) {
+      if (retrieve) {
+        return await getUserLocation();
+      } else {
+        return loc;
+      }
     } else {
       return loc;
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 async function reverseGeocode({ lat, lon }, options = {}) {

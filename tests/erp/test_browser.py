@@ -43,9 +43,9 @@ def test_search_commune(data, client):
 
 def test_search_empty_text_query(data, client):
     response = client.get(reverse("search") + "?where=&what=")
-    assert response.context["search_where"] == ""
+    assert response.context["search_where"] == "france_entiere"
     assert response.context["search_what"] == ""
-    assert response.context["pager"] is None
+    assert response.context["pager"] is not None
 
 
 def test_search_around_me(data, client):
