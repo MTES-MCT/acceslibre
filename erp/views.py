@@ -158,36 +158,25 @@ def where(request):
     return JsonResponse({"q": q, "results": results})
 
 
-def get_where_data(where):
-    if not where or where == "france_entiere":  # france entière
-        return {"type": "france_entiere"}
-    elif len(where) == 5:  # code insee
-        return {"type": "commune", "obj": Commune.objects.get(code_insee=where)}
-    elif len(where) == 2:  # departement
-        return {"type": "departement", "obj": departements.get_departement(where)}
-    return None
-
-
-def get_search_where_label(where):
-    label = "Lieu indeterminé"
+def get_where_label(where):
+    label = None
     if not where or where == "france_entiere":
         label = "France entière"
     elif where == "around_me":
         label = "Autour de moi"
     elif len(where) == 2:  # departement
-        label = departements.get_departement(where)
+        dpt = departements.get_departement(where)
+        label = dpt["nom"] if dpt else None
     elif len(where) == 5:  # code insee
         commune = Commune.objects.filter(code_insee=where).first()
         label = str(commune) if commune else None
-    return label
+    return label if label else "Lieu indeterminé"
 
 
 def search(request):
     where = request.GET.get("where", "france_entiere") or "france_entiere"
     what = request.GET.get("what", "")
-    search_where_label = request.GET.get(
-        "search_where_label"
-    ) or get_search_where_label(where)
+    search_where_label = request.GET.get("search_where_label") or get_where_label(where)
     paginator = pager = None
     pager_base_url = None
     lat = None
@@ -231,7 +220,6 @@ def search(request):
             "search_where": where,
             "search_where_label": search_where_label,
             "search_what": what,
-            "where_data": get_where_data(where),
             "geojson_list": geojson_list,
             "commune_json": None,
             "around": None,  # XXX: (lat, lon)

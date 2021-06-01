@@ -14,12 +14,8 @@
   {% if search_ongoing %}
   <h2 class="mt-3 mb-2">
     <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-    {% if where_data.type == "france_entiere" %}
-      France entière
-    {% elif where_data.type == "commune" or where_data.type == "departement" %}
-      {{ where_data.obj.nom }}
-    {% endif %}
-    {% if where_data and search_what  %}<small class="text-muted">/</small>{% endif %}
+    {{ search_where_label }}
+    {% if search_where_label and search_what %}<small class="text-muted">/</small>{% endif %}
     {{ search_what }}
     {% if search_where == "around_me" %}
       <small class="text-muted" style="font-size:.6em">autour de votre position</small>
