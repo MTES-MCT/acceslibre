@@ -69,10 +69,11 @@ class RecordMapper(BaseRecordMapper):
             else:
                 numero = None
                 voie = record["voie"]
-
-            return numero, voie
         except Exception as err:
-            raise RuntimeError("Erreur de parsing de l'adresse: " + str(err))
+            numero = None
+            voie = record["voie"]
+
+        return numero, voie
 
     def _import_coordinates(self, record):
         "Importe les coordonnées géographiques du centre de vaccination"
