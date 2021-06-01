@@ -22,7 +22,10 @@ class Command(BaseCommand):
         schedule.every().hour.do(
             ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
         )
-        schedule.every().week.do(ImportGendarmerie(is_scheduler=True).job, verbose=True)
+        schedule.every().week.do(
+            ImportGendarmerie(is_scheduler=True, mail_notification=True).job,
+            verbose=True,
+        )
         print("Scheduler started")
         while True:
             schedule.run_pending()

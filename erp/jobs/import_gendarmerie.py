@@ -17,6 +17,10 @@ def fatal(msg):
 
 
 class ImportGendarmerie:
+    def __init__(self, is_scheduler=False, mail_notification=False):
+        self.mail_notification = mail_notification
+        self.is_scheduler = is_scheduler
+
     def job(self, verbose=False):
         try:
             fetcher = CsvFetcher(delimiter=";")
@@ -24,7 +28,8 @@ class ImportGendarmerie:
             imported, skipped, errors = ImportDatasets(mapper=mapper).job(
                 verbose=verbose
             )
-            self._send_report(imported, skipped, errors)
+            if self.mail_notification:
+                self._send_report(imported, skipped, errors)
         except RuntimeError as err:
             fatal(err)
 
