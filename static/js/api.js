@@ -17,7 +17,7 @@ function getCurrentPosition(options = { timeout: 10000 }) {
 }
 
 async function getUserLocation(options) {
-  let loc = loadUserLocation();
+  let loc = await loadUserLocation();
   if (loc) {
     return loc;
   }
@@ -36,11 +36,11 @@ async function getUserLocation(options) {
   return loc;
 }
 
-function loadUserLocation(ttl = 5 * 60000) {
+async function loadUserLocation(ttl = 5 * 60000) {
   try {
     let loc = decodeJson(sessionStorage["a4a-loc"] || "null");
-    if (loc.timestamp && new Date().getTime() - loc.timestamp > ttl) {
-      return saveUserLocation(null);
+    if (loc && loc.timestamp && new Date().getTime() - loc.timestamp > ttl) {
+      return await getUserLocation();
     } else {
       return loc;
     }

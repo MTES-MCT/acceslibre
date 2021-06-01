@@ -1,11 +1,11 @@
 import api from "../api";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
-let loc = api.loadUserLocation();
+let _loc;
 
 function getCommonResults() {
   return [
-    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}`, icon: "street-view" },
+    { id: "around_me", text: `Autour de moi ${_loc ? _loc.label : ""}`, icon: "street-view" },
     { id: "france_entiere", text: "France entière", icon: "france" },
   ];
 }
@@ -29,12 +29,12 @@ function SearchWhere(root) {
 
       if (result.id === "around_me") {
         preventSubmit = true;
-        if (!loc) {
-          loc = await api.getUserLocation();
+        if (!_loc) {
+          _loc = await api.loadUserLocation();
         }
-        hiddenLatField.value = loc.lat;
-        hiddenLonField.value = loc.lon;
-        input.value = `Autour de moi ${loc.label}`;
+        hiddenLatField.value = _loc.lat;
+        hiddenLonField.value = _loc.lon;
+        input.value = `Autour de moi ${_loc.label}`;
       } else {
         hiddenLatField.value = "";
         hiddenLonField.value = "";
@@ -60,8 +60,8 @@ function SearchWhere(root) {
         return commonResults;
       }
       const res = await fetch(`${whereUrl}?q=${input}`);
-      const json = await res.json();
-      return commonResults.concat(json.results);
+      const { results } = await res.json();
+      return commonResults.concat(results);
     },
   });
 
