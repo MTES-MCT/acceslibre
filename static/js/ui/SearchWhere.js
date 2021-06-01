@@ -17,6 +17,11 @@ function SearchWhere(root) {
   const hiddenLonField = root.querySelector("input[name=lon]");
   const whereUrl = input.dataset.src;
 
+  function setLatLon(loc) {
+    hiddenLatField.value = loc?.lat;
+    hiddenLonField.value = loc?.lon;
+  }
+
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
 
@@ -30,22 +35,15 @@ function SearchWhere(root) {
       if (result.id === "around_me") {
         const loc = await api.loadUserLocation();
         if (!loc) {
-          preventSubmit = true;
-          alert(
-            "Impossible de récupérer votre localisation ; veuillez vérifier les autorisations de votre navigateur"
-          );
-          hiddenLatField.value = "";
-          hiddenLonField.value = "";
+          alert("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
+          setLatLon(null);
           input.value = "";
-          return;
         } else {
-          hiddenLatField.value = loc.lat;
-          hiddenLonField.value = loc.lon;
+          setLatLon(loc);
           input.value = `Autour de moi ${loc.label}`;
         }
       } else {
-        hiddenLatField.value = "";
-        hiddenLonField.value = "";
+        setLatLon(null);
       }
 
       hiddenWhereField.value = result.id;
