@@ -9,12 +9,12 @@
       </label>
       <div class="search-where-field" style="z-index:9999">
         <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
-          spellcheck=false autocomplete="off" autocapitalize="off"
-          placeholder="Exemple : lyon, rhône…" data-src="{% url "where" %}">
+          spellcheck=false autocomplete="off" autocapitalize="off" value="{{ search_where_label }}"
+          name="search_where_label" placeholder="Exemple : lyon, rhône…" data-src="{% url "where" %}">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
         <input type="hidden" name="where" value="{{ search_where }}">
-        <input type="hidden" name="lat">
-        <input type="hidden" name="lon">
+        <input type="hidden" name="lat" value="{{ lat }}">
+        <input type="hidden" name="lon" value="{{ lon }}">
       </div>
     </div>
     <div class="what-field col-xl-6 py-1">
