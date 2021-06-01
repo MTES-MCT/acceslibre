@@ -24,7 +24,7 @@ class Command(BaseCommand):
         )
         schedule.every().week.do(
             ImportGendarmerie(is_scheduler=True, mail_notification=True).job,
-            verbose=True,
+            verbose=False,
         )
         print("Scheduler started")
         while True:

@@ -32,4 +32,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Importation des ERPs gendarmerie")
-        ImportGendarmerie().job()
+        ImportGendarmerie(is_scheduler=options.get("scheduler")).job(
+            verbose=options.get("verbose")
+        )

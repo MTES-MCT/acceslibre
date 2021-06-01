@@ -120,7 +120,7 @@ class RecordMapper(BaseRecordMapper):
             )
 
         if not commune_ext:
-            raise RuntimeError("Impossible de résoudre la commune")
+            raise RuntimeError("Impossible de résoudre la commune: ")
 
         self.erp.commune_ext = commune_ext
         self.erp.commune = commune_ext.nom

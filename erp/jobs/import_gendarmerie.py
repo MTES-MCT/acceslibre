@@ -25,9 +25,9 @@ class ImportGendarmerie:
         try:
             fetcher = CsvFetcher(delimiter=";")
             mapper = RecordMapper(fetcher=fetcher)
-            imported, skipped, errors = ImportDatasets(mapper=mapper).job(
-                verbose=verbose
-            )
+            imported, skipped, errors = ImportDatasets(
+                mapper=mapper, is_scheduler=self.is_scheduler
+            ).job(verbose=verbose)
             if self.mail_notification:
                 self._send_report(imported, skipped, errors)
         except RuntimeError as err:
