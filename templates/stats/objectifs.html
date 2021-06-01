@@ -26,7 +26,7 @@
       {% for row in stats_objectifs %}
         <tr>
           <td>
-            <strong><a href="{% url "search" %}?q={{ row.nom }}">{{ row.nom }}</a></strong> ({{ row.departement }})
+            <strong><a href="{% url "search" %}?where={{ row.code_insee }}">{{ row.nom }}</a></strong> ({{ row.departement }})
           </td>
           <td class="text-center font-weight-bold">{{ row.pourcentage_completude|floatformat }}%</td>
           <td class="text-center">{{ row.total_erps_commune }}</td>
