@@ -240,7 +240,12 @@ class ErpFilterBackend(BaseFilterBackend):
         if search_terms is not None:
             queryset = queryset.search(search_terms)
 
-        # Search
+        # Source Externe
+        source = request.query_params.get("source", None)
+        if source is not None:
+            queryset = queryset.filter(source__iexact=source)
+
+        # Id Externe
         source_id = request.query_params.get("source_id", None)
         if source_id is not None:
             queryset = queryset.filter(source_id__iexact=source_id)
@@ -318,6 +323,17 @@ class ErpSchema(A4aAutoSchema):
                 "in": "query",
                 "required": False,
                 "description": "Numéro SIRET de l'établissement",
+                "schema": {"type": "string"},
+            },
+        },
+        "source": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "source",
+                "in": "query",
+                "required": False,
+                "description": "Nom du fournisseur tier",
                 "schema": {"type": "string"},
             },
         },

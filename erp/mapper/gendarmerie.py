@@ -52,6 +52,7 @@ class RecordMapper(BaseRecordMapper):
 
         self.erp = erp
         self.populate_basic_fields(record)
+        self._retrieve_commune_ext()
         self.populate_accessibilite(record)
 
         return erp
@@ -87,7 +88,7 @@ class RecordMapper(BaseRecordMapper):
         try:
             numero, voie = self._parse_address(record)
 
-            self.erp.private_contact_email = record["identifiant_public_unite"]
+            self.erp.private_contact_email = None
             self.erp.telephone = record["telephone"]
             self.erp.code_insee = record["code_commune_insee"]
             self.erp.code_postal = record["code_postal"]

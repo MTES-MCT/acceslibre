@@ -73,7 +73,37 @@ def sample_record_ok():
 
 
 @pytest.fixture
-def gendarmeries_valid():
+def gendarmeries_valid(db):
+    Commune.objects.create(
+        nom="Oyonnax",
+        slug=" 01 - oyonnax",
+        departement="01",
+        code_insee="01283",
+        superficie=3626,
+        population=22559,
+        geom=Point(5.6962, 48.3568),
+        code_postaux=["01100"],
+    )
+    Commune.objects.create(
+        nom="Ornex",
+        slug="01-ornex",
+        departement="01",
+        code_insee="01281",
+        superficie=569,
+        population=4400,
+        geom=Point(5.6962, 48.3568),
+        code_postaux=["01210"],
+    )
+    Commune.objects.create(
+        nom="Belley",
+        slug="01 - belley",
+        departement="01",
+        code_insee="01034",
+        superficie=2251,
+        population=9133,
+        geom=Point(5.6962, 48.3568),
+        code_postaux=["01300"],
+    )
     return [
         {
             "identifiant_public_unite": "1008620",

@@ -35,7 +35,7 @@ def test_updated_data(import_dataset, gendarmeries_valid):
     import_dataset().job()
 
     gendarmeries_valid_updated = gendarmeries_valid.copy()
-    gendarmeries_valid_updated[0]["code_commune_insee"] = "67000"
+    gendarmeries_valid_updated[0]["code_commune_insee"] = "01283"
     imported, skipped, errors = import_dataset(gendarmeries_valid_updated).job()
 
     erp = Erp.objects.filter(
@@ -43,7 +43,7 @@ def test_updated_data(import_dataset, gendarmeries_valid):
     ).first()
     assert erp is not None
     assert erp.code_insee == gendarmeries_valid_updated[0]["code_commune_insee"]
-    assert skipped == 0, len(errors) == 0
+    assert skipped == 0, imported == 3
 
 
 def test_invalid_data(import_dataset, gendarmeries_valid):
@@ -51,7 +51,7 @@ def test_invalid_data(import_dataset, gendarmeries_valid):
     gendarmeries_invalid[0]["code_commune_insee"] = "67000azdasqd"
 
     imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
-    assert len(errors) == 1, imported == 2
+    assert skipped == 1, imported == 2
 
 
 def test_fail_on_schema_change(import_dataset, gendarmeries_valid):
