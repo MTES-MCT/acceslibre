@@ -381,7 +381,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Cheminement extérieur",
         "help_text": mark_safe(
-            "L'accès à l'entrée depuis la voirie se fait-il par un cheminement extérieur&nbsp;?"
+            "Y-a-t-il un chemin extérieur entre le trottoir et l’entrée principale du bâtiment (exemple : une cour)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur"
@@ -484,7 +484,9 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
+        "help_text": mark_safe(
+            "L'escalier est-il équipé de main(s) courante(s)&nbsp;?"
+        ),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
@@ -661,7 +663,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Repérage de la vitre",
         "help_text": mark_safe(
-            "Y a-t-il des éléments contrastés (autocollants ou autres) permettant de repérer la porte vitrée&nbsp;?"
+            "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou autres) permettant de repérer la porte vitrée&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée"
@@ -746,7 +748,9 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
+        "help_text": mark_safe(
+            "L'escalier est-il équipé de main(s) courante(s)&nbsp;?"
+        ),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
@@ -877,10 +881,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Visibilité de la zone d'accueil",
         "help_text": mark_safe(
-            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée&nbsp;?"
+            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée du bâtiment&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée"
+            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -940,9 +944,9 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Cheminement de plain-pied entre l'entrée et l'accueil",
+        "label": "Chemin entre l’entrée principale du bâtiment et l’accueil de l'établissement",
         "help_text": mark_safe(
-            "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
+            "Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de l'établissement est de plain pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm ? (Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau)"
         ),
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
@@ -1011,7 +1015,9 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe("L'escalier est-il équipé d'une main courante&nbsp;?"),
+        "help_text": mark_safe(
+            "L'escalier est-il équipé de main(s) courante(s)&nbsp;?"
+        ),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
