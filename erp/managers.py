@@ -213,7 +213,11 @@ class ErpQuerySet(models.QuerySet):
         qs = self
         if not raw_query and not qualified_query:
             return qs
-        elif not qualified_query and raw_query:
+        elif (
+            not qualified_query
+            and raw_query
+            and not raw_query.startswith("France entière")
+        ):
             qs = qs.search_commune(raw_query)
         elif qualified_query == "around_me":
             try:
