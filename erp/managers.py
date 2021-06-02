@@ -207,15 +207,23 @@ class ErpQuerySet(models.QuerySet):
             .order_by("-rank")
         )
 
-    def search_where(self, where="france_entiere", raw_search=False):
-        if raw_search:
-            return self.search_commune(where)
-        if len(where) == 2:  # departement
-            return self.filter(commune_ext__departement=where)
-        elif len(where) == 5:  # code insee
-            return self.filter(commune_ext__code_insee=where)
-        else:
-            return self
+    def search_where(self, raw, qualified, lat=None, lon=None):
+        qs = self
+        if not qualified and raw:
+            qs = qs.search_commune(raw)
+        elif qualified == "around_me":
+            try:
+                qs = qs.nearest(
+                    (float(lat), float(lon)),
+                    max_radius_km=20,
+                ).order_by("distance")
+            except ValueError:
+                pass
+        elif len(qualified) == 2 and qualified.isdigit():  # departement
+            qs = qs.filter(commune_ext__departement=qualified)
+        elif len(qualified) == 5 and qualified.isdigit():  # code insee
+            qs = qs.filter(commune_ext__code_insee=qualified)
+        return qs
 
     def with_votes(self):
         return self.annotate(

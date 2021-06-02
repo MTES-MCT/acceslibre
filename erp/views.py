@@ -184,19 +184,13 @@ def search(request):
         "accessibilite", "activite", "commune_ext"
     ).published()
     # where
-    if where == "around_me":
-        try:
-            (lat, lon) = (
-                float(request.GET.get("lat")),
-                float(request.GET.get("lon")),
-            )
-            erp_qs = erp_qs.nearest((lat, lon), max_radius_km=20).order_by("distance")
-        except ValueError:
-            pass
-    elif not where and search_where_label:
-        erp_qs = erp_qs.search_where(search_where_label, raw_search=True)
-    elif where:
-        erp_qs = erp_qs.search_where(where)
+    if where or search_where_label:
+        erp_qs = erp_qs.search_where(
+            search_where_label,
+            where,
+            lat=request.GET.get("lat"),
+            lon=request.GET.get("lon"),
+        )
     # what
     if what:
         erp_qs = erp_qs.search_what(what)
