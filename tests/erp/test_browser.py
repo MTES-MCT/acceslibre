@@ -41,6 +41,28 @@ def test_search_commune(data, client):
     assert hasattr(response.context["pager"][0], "distance") is False
 
 
+def test_search_raw_commune(data, client):
+    response = client.get(
+        reverse("search") + "?search_where_label=jacou&where=&what=croissant"
+    )
+    assert response.context["search_where"] == ""
+    assert response.context["search_what"] == "croissant"
+    assert response.context["search_where_label"] == "jacou"
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["pager"][0], "distance") is False
+
+
+def test_search_departement(data, client):
+    response = client.get(reverse("search") + "?where=34&what=croissant")
+    assert response.context["search_where"] == "34"
+    assert response.context["search_what"] == "croissant"
+    assert response.context["search_where_label"] == "Hérault"
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["pager"][0], "distance") is False
+
+
 def test_search_empty_text_query(data, client):
     response = client.get(reverse("search") + "?where=&what=")
     assert response.context["search_where"] == ""
