@@ -62,8 +62,12 @@ def test_home_auth(data, auth_client):
     validate_url_get(auth_client, reverse("home"))
 
 
-def test_search(data, client):
-    validate_url_get(client, reverse("search") + "?q=jacou")
+def test_search_empty(data, client):
+    validate_url_get(client, reverse("search"))
+
+
+def test_search_result(data, client):
+    validate_url_get(client, reverse("search") + "?where=34120")
 
 
 def test_erp_details(data, client):

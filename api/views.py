@@ -238,7 +238,7 @@ class ErpFilterBackend(BaseFilterBackend):
         # Search
         search_terms = request.query_params.get("q", None)
         if search_terms is not None:
-            queryset = queryset.search(search_terms)
+            queryset = queryset.search_what(search_terms)
 
         # Proximity
         around = geocoder.parse_coords(request.query_params.get("around"))

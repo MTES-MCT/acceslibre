@@ -16,14 +16,6 @@
     </button>
     <script>
     $(document).ready(function() {
-      // Type d'établissement
-      $("#id_type").select2({
-        allowClear: true,
-        language: "fr",
-        placeholder: "Rechercher un type d'établissement",
-        theme: "bootstrap4"
-      });
-
       // Commune & arrondissements
       const arrondissementsData = {% arrondissements_json_data %};
       function addArrondissements(results) {

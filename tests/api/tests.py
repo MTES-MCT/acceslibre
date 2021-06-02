@@ -40,3 +40,13 @@ def test_endpoint_erp_list(data, api_client):
     assert erp_json["activite"]["nom"] == "Boulangerie"
     assert erp_json["activite"]["slug"] == "boulangerie"
     assert "user" not in erp_json
+
+
+def test_endpoint_erp_list_qs(data, api_client):
+    response = api_client.get(reverse("erp-list") + "?q=croissants")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 1
+
+    response = api_client.get(reverse("erp-list") + "?q=nexiste_pas")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 0

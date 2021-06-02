@@ -9,6 +9,7 @@ $success: #167d2e;
 $info: #097182;
 $input-border-color: #969696;
 $navbar-dark-color: rgba($white, 0.8);
+$text-dark: #343a40;
 $text-muted: rgb(104, 104, 104);
 // Responsive texts
 $enable-responsive-font-sizes: true;
@@ -24,6 +25,11 @@ $viewport-xl: 1200px;
 // App specific styles
 
 .a4a {
+  &-bg-home {
+    background-position: center;
+    background-size: cover;
+  }
+
   &-staging-notice {
     position: sticky;
     bottom: 0;
@@ -49,9 +55,42 @@ $viewport-xl: 1200px;
 
   // selectWoo styles overriding
   .select2-container--bootstrap4 {
+    .select2-results__option--highlighted.select2-results__option[aria-selected=true] {
+      // background-color: transparent;
+      // color: $text-dark;
+      &:hover {
+        background-color: #007bff;
+        color: #f8f9fa;
+      }
+    }
+    .select2-results__option--highlighted.select2-results__option[data-selected=true] {
+      background-color: #007bff;
+      color: #f8f9fa;
+    }
     .select2-selection, input[type=text] {
       border: 1px solid $input-border-color;
     }
+  }
+
+  &-autocomplete-result {
+    cursor: pointer;
+    font-size: .87em;
+    padding: 8px 12px;
+    &:hover {
+      color: $list-group-active-color;
+      background-color: $list-group-active-bg;
+      border-color: $list-group-active-border-color;
+    }
+  }
+
+  .larger-font {
+    font-size: 1.2rem;
+  }
+
+  .rounded-only-bottom {
+    border-radius: 0;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 
   .btn {
@@ -449,6 +488,18 @@ $viewport-xl: 1200px;
     }
     @media screen and (max-width: $viewport-md) {
       height: 200px;
+    }
+  }
+
+
+  &-search-form {
+    @media screen and (min-width: $viewport-xl) {
+      .where-field {
+        padding-right: 8px;
+      }
+      .what-field {
+        padding-left: 8px;
+      }
     }
   }
 

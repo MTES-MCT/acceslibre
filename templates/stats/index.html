@@ -77,7 +77,7 @@
       <div class="card-body text-center d-flex flex-column justify-content-around">
         <h3 class="display-4"><strong>{{ nb_cv_erps }}</strong></h3>
         <p class="card-text mb-0">
-          <a href="{% url "search" %}?q=centres+de+vaccination">centre{{ nb_cv_erps|pluralize:"s" }} de vaccination</a> publié{{ nb_cv_erps|pluralize:"s" }}<br>
+          <a href="{% url "search" %}?what=centres+de+vaccination">centre{{ nb_cv_erps|pluralize:"s" }} de vaccination</a> publié{{ nb_cv_erps|pluralize:"s" }}<br>
           <small class="text-muted">dont <strong>{{ nb_cv_filled_erps }}</strong> renseigné{{ nb_cv_filled_erps|pluralize:"s" }} sur leur accessibilité</small>
         </p>
       </div>

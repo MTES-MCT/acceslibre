@@ -7,12 +7,12 @@ from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
-from django.db.models import Count, Q
+from django.db.models import Count, F, Q
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.forms import modelform_factory
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
@@ -24,7 +24,8 @@ from django_registration.backends.activation.views import (
 from core import mailer
 
 from erp.models import Accessibilite, Commune, Erp, Vote
-from erp.provider import search as provider_search
+from erp.provider import departements, search as provider_search
+
 from erp import forms
 from erp import schema
 from erp import serializers
@@ -131,22 +132,65 @@ def communes(request):
     )
 
 
+def where(request):
+    NB_COMMUNES_SUGG = 4
+    NB_DPT_SUGG = 2
+    results = []
+    q = request.GET.get("q", "").strip()
+    if q and len(q) > 0:
+        communes_qs = (
+            Commune.objects.search(q)
+            .order_by(F("population").desc(nulls_last=True))
+            .values(
+                "code_insee",
+                "nom",
+                "departement",
+            )
+        )
+        for commune in communes_qs[:NB_COMMUNES_SUGG]:
+            results.append(
+                {
+                    "id": commune["code_insee"],
+                    "text": f"{commune['nom']} ({commune['departement']})",
+                }
+            )
+        results += departements.search(q, limit=NB_DPT_SUGG, for_autocomplete=True)
+    return JsonResponse({"q": q, "results": results})
+
+
+def get_where_label(where):
+    label = None
+    if not where or where == "france_entiere":
+        label = "France entière"
+    elif where == "around_me":
+        label = "Autour de moi"
+    elif len(where) == 2:  # departement
+        dpt = departements.get_departement(where)
+        label = dpt["nom"] if dpt else None
+    elif len(where) == 5:  # code insee
+        commune = Commune.objects.filter(code_insee=where).first()
+        label = str(commune) if commune else None
+    return label if label else "Lieu indeterminé"
+
+
 def search(request):
-    q = request.GET.get("q")
-    localize = request.GET.get("localize")
+    where = request.GET.get("where", "france_entiere") or "france_entiere"
+    what = request.GET.get("what", "")
+    search_where_label = request.GET.get("search_where_label") or get_where_label(where)
     paginator = pager = None
     pager_base_url = None
-    page_number = 1
     lat = None
     lon = None
     geojson_list = None
-    if q and len(q) > 0:
-        erp_qs = (
-            Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-            .published()
-            .search(q)
-        )
-        if localize == "1":
+    if len(where) > 0 or len(what) > 0:
+        erp_qs = Erp.objects.select_related(
+            "accessibilite", "activite", "commune_ext"
+        ).published()
+        if what:
+            erp_qs = erp_qs.search_what(what)
+        if where:
+            erp_qs = erp_qs.search_where(where)
+        if where == "around_me":
             try:
                 (lat, lon) = (
                     float(request.GET.get("lat")),
@@ -158,10 +202,9 @@ def search(request):
             except ValueError:
                 pass
         paginator = Paginator(erp_qs, 10)
-        page_number = request.GET.get("page", 1)
-        pager = paginator.get_page(page_number)
+        pager = paginator.get_page(request.GET.get("page", 1))
         pager_base_url = (
-            f"?q={q or ''}&localize={localize or ''}&lat={lat or ''}&lon={lon or ''}"
+            f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
         )
         geojson_list = make_geojson(pager)
     return render(
@@ -171,11 +214,12 @@ def search(request):
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
-            "page_number": page_number,
-            "localize": localize,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
-            "search": q,
+            "search_ongoing": where or what,
+            "search_where": where,
+            "search_where_label": search_where_label,
+            "search_what": what,
             "geojson_list": geojson_list,
             "commune_json": None,
             "around": None,  # XXX: (lat, lon)
@@ -352,8 +396,7 @@ def mes_erps(request):
         qs = non_published_qs
     qs = qs.filter(user_id=request.user.pk).order_by("-updated_at")
     paginator = Paginator(qs, 10)
-    page_number = request.GET.get("page", 1)
-    pager = paginator.get_page(page_number)
+    pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_erps.html",
@@ -370,8 +413,7 @@ def mes_erps(request):
 
 def _mes_contributions_view(request, qs, recues=False):
     paginator = Paginator(qs, 10)
-    page_number = request.GET.get("page", 1)
-    pager = paginator.get_page(page_number)
+    pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_contributions.html",
@@ -401,8 +443,7 @@ def mes_abonnements(request):
         .order_by("-updated_at")
     )
     paginator = Paginator(qs, 10)
-    page_number = request.GET.get("page", 1)
-    pager = paginator.get_page(page_number)
+    pager = paginator.get_page(request.GET.get("page", 1))
     return render(
         request,
         "compte/mes_abonnements.html",
