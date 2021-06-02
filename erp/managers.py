@@ -196,6 +196,8 @@ class ErpQuerySet(models.QuerySet):
         return qs.filter(clauses)
 
     def search_what(self, query):
+        if not query:
+            return self
         return (
             self.annotate(
                 rank=search.SearchRank(
@@ -207,11 +209,13 @@ class ErpQuerySet(models.QuerySet):
             .order_by("-rank")
         )
 
-    def search_where(self, raw, qualified, lat=None, lon=None):
+    def search_where(self, raw_query, qualified_query, lat=None, lon=None):
         qs = self
-        if not qualified and raw:
-            qs = qs.search_commune(raw)
-        elif qualified == "around_me":
+        if not raw_query and not qualified_query:
+            return qs
+        elif not qualified_query and raw_query:
+            qs = qs.search_commune(raw_query)
+        elif qualified_query == "around_me":
             try:
                 qs = qs.nearest(
                     (float(lat), float(lon)),
@@ -219,10 +223,10 @@ class ErpQuerySet(models.QuerySet):
                 ).order_by("distance")
             except ValueError:
                 pass
-        elif len(qualified) == 2 and qualified.isdigit():  # departement
-            qs = qs.filter(commune_ext__departement=qualified)
-        elif len(qualified) == 5 and qualified.isdigit():  # code insee
-            qs = qs.filter(commune_ext__code_insee=qualified)
+        elif len(qualified_query) == 2 and qualified_query.isdigit():  # departement
+            qs = qs.filter(commune_ext__departement=qualified_query)
+        elif len(qualified_query) == 5 and qualified_query.isdigit():  # code insee
+            qs = qs.filter(commune_ext__code_insee=qualified_query)
         return qs
 
     def with_votes(self):

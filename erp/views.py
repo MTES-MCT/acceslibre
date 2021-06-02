@@ -180,22 +180,20 @@ def search(request):
     what = request.GET.get("what")
     search_where_label = get_where_label(request.GET.get("search_where_label"), where)
     lat = lon = None
-    erp_qs = Erp.objects.select_related(
+    qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
     # where
-    if where or search_where_label:
-        erp_qs = erp_qs.search_where(
-            search_where_label,
-            where,
-            lat=request.GET.get("lat"),
-            lon=request.GET.get("lon"),
-        )
+    qs = qs.search_where(
+        search_where_label,
+        where,
+        lat=request.GET.get("lat"),
+        lon=request.GET.get("lon"),
+    )
     # what
-    if what:
-        erp_qs = erp_qs.search_what(what)
+    qs = qs.search_what(what)
     # pager
-    paginator = Paginator(erp_qs, 10)
+    paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
     pager_base_url = (
         f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
