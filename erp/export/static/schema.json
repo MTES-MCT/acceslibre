@@ -452,7 +452,7 @@
     {
       "name": "cheminement_ext_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé d'une main courante ?",
+      "description": "L'escalier est-il équipé de main(s) courante(s) ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -824,7 +824,7 @@
     {
       "name": "entree_marches_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé d'une main courante ?",
+      "description": "L'escalier est-il équipé de main(s) courante(s) ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1087,7 +1087,7 @@
     {
       "name": "accueil_visibilite",
       "title": "Visibilité de la zone d'accueil",
-      "description": "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée",
+      "description": "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1180,7 +1180,7 @@
     },
     {
       "name": "accueil_cheminement_plain_pied",
-      "title": "Cheminement de plain-pied entre l'entrée et l'accueil",
+      "title": "Chemin entre l’entrée principale du bâtiment et l’accueil de l'établissement",
       "description": "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)",
       "type": "boolean",
       "trueValues": [
@@ -1281,7 +1281,7 @@
     {
       "name": "accueil_cheminement_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé d'une main courante ?",
+      "description": "L'escalier est-il équipé de main(s) courante(s) ?",
       "type": "boolean",
       "trueValues": [
         "true",
