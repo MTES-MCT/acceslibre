@@ -17,8 +17,8 @@ function SearchWhere(root) {
   const whereUrl = input.dataset.src;
 
   function setLatLon(loc) {
-    hiddenLatField.value = loc?.lat;
-    hiddenLonField.value = loc?.lon;
+    hiddenLatField.value = loc?.lat || "";
+    hiddenLonField.value = loc?.lon || "";
   }
 
   function setSearchValue(label) {
