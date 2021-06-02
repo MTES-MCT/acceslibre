@@ -176,8 +176,8 @@ def get_where_label(raw_input, where):
 
 
 def search(request):
-    where = request.GET.get("where")
-    what = request.GET.get("what")
+    where = request.GET.get("where", "")
+    what = request.GET.get("what", "")
     search_where_label = get_where_label(request.GET.get("search_where_label"), where)
     lat = lon = None
     qs = Erp.objects.select_related(
