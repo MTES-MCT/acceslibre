@@ -1,31 +1,39 @@
 {% load static %}
 
-<form id="search-form" action="{% url "search" %}">
-  <input type="hidden" name="lat">
-  <input type="hidden" name="lon">
-  <label for="search" class="sr-only">Recherchez un établissement, une ville, etc...</label>
-  <div id="loc-field" class="form-group custom-control custom-switch mb-1 mt-0 ml-2">
-    <input type="checkbox" class="custom-control-input" name="localize" id="localize" value="1"
-      {% if localize == "1" %}checked{% endif %}>
-    <label class="custom-control-label{% if dark %} text-light{% endif %}" for="localize">
-      Rechercher autour de ma position géographique actuelle
-      <span id="geoloader" class="lds-dual-ring" style="vertical-align:middle"></span>
-      <strong id="loc" aria-live="polite" title="Mon emplacement"></strong>
-    </label>
-  </div>
-  <div class="input-group py-1">
-    <input type="search" id="search" name="q" class="form-control form-control-lg" placeholder="restau lyon"
-      aria-label="Rechercher un établissement, une ville, une activité" autocomplete="off" value="{{ search|default_if_none:"" }}" required pattern="[\s\S]*\S[\s\S]*">
-    <div class="input-group-append">
-      <button type="submit" class="btn btn-lg {% if dark %}btn-light{% else %}btn-primary{% endif %} border-left text-nowrap">
-        <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
-        <span class="sr-only">Rechercher</span>
-      </button>
+<form class="a4a-search-form" id="search-form" action="{% url "search" %}">
+  <div class="row">
+    <div class="where-field col-xl-6 py-1">
+      <label for="where-input">
+        <strong class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
+        <span class="text-{% if dark %}light{% else %}muted{% endif %}">(ville, département…)</span>
+      </label>
+      <div class="search-where-field" style="z-index:9999">
+        <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
+          spellcheck=false autocomplete="off" autocapitalize="off" value="{{ search_where_label }}"
+          name="search_where_label" placeholder="Exemple: lyon, ain…" data-src="{% url "where" %}">
+        <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
+        <input type="hidden" name="where" value="{{ search_where }}">
+        <input type="hidden" name="lat" value="{{ lat }}">
+        <input type="hidden" name="lon" value="{{ lon }}">
+      </div>
+    </div>
+    <div class="what-field col-xl-6 py-1">
+      <label for="search_what">
+        <strong class="larger-font{% if dark %} text-light{% endif %}">Quoi</strong>
+        <span class="text-{% if dark %}light{% else %}muted{% endif %}">(activité, nom de l'établissement…)</span>
+      </label>
+      <div class="input-group">
+        <input type="search" id="search_what" name="what"
+          class="form-control" placeholder="Exemple: mairie, café…"
+          aria-label="Rechercher un établissement, une activité" autocomplete="off"
+          value="{{ search_what|default_if_none:"" }}">
+        <div class="input-group-append">
+          <button type="submit" class="btn {% if dark %}btn-light{% else %}btn-primary{% endif %} border-left text-nowrap">
+            <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
+            <span class="sr-only">Rechercher</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-  {% if from_home %}
-  <p class="text-center pt-2 mb-1">
-    Ou accedez à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
-  </p>
-  {% endif %}
 </form>

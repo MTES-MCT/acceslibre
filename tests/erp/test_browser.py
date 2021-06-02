@@ -32,26 +32,29 @@ def test_communes(data, client):
     assert len(response.context["latest"]) == 1
 
 
-def test_search(data, client):
-    response = client.get(reverse("search") + "?q=croissant%20jacou")
-    assert response.context["search"] == "croissant jacou"
+def test_search_commune(data, client):
+    response = client.get(reverse("search") + "?where=34120&what=croissant")
+    assert response.context["search_where"] == "34120"
+    assert response.context["search_what"] == "croissant"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["pager"][0], "distance") is False
 
 
 def test_search_empty_text_query(data, client):
-    response = client.get(reverse("search") + "?q=")
-    assert response.context["search"] == ""
-    assert response.context["pager"] is None
+    response = client.get(reverse("search") + "?where=&what=")
+    assert response.context["search_where"] == "france_entiere"
+    assert response.context["search_what"] == ""
+    assert response.context["pager"] is not None
 
 
-def test_search_localized(data, client):
+def test_search_around_me(data, client):
     response = client.get(
         reverse("search")
-        + "?q=croissant%20jacou&localize=1&lat=43.6648062&lon=3.9048148"
+        + "?where=around_me&what=croissant&lat=43.6648062&lon=3.9048148"
     )
-    assert response.context["search"] == "croissant jacou"
+    assert response.context["search_where"] == "around_me"
+    assert response.context["search_what"] == "croissant"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["pager"][0], "distance")
@@ -66,7 +69,9 @@ def test_search_localized(data, client):
         reverse("communes"),
         # Search
         reverse("search"),
-        reverse("search") + "?q=plop",
+        reverse("search") + "?what=boulangerie",
+        reverse("search") + "?where=34120",
+        reverse("search") + "?where=34120&what=boulangerie",
         # Editorial
         reverse("accessibilite"),
         reverse("cgu"),

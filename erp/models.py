@@ -175,7 +175,7 @@ class Commune(models.Model):
         return f"{self.nom} ({self.departement})"
 
     def get_absolute_url(self):
-        return reverse("search") + "?q=" + urllib.parse.quote(self.nom)
+        return reverse("search") + "?where=" + urllib.parse.quote(self.code_insee)
 
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")

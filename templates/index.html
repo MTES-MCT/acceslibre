@@ -13,7 +13,7 @@
 <aside class="container-fluid alert alert-warning mb-0 shadow-sm">
   <div class="container">
     <strong>Vaccination COVID-19&nbsp;:</strong>
-    trouvez les <a href="{% url "search" %}?q=centres+de+vaccination">centres de vaccination</a>
+    trouvez les <a href="{% url "search" %}?what=centres+de+vaccination">centres de vaccination</a>
     et contribuez à mieux décrire leur accessibilité.
   </div>
 </aside>
@@ -22,12 +22,18 @@
     <div class="container">
       <h2 class="font-weight-bold mb-3">Trouvez les lieux accessibles ouverts au public</h2>
       <div class="row">
-        <div class="col-xl-6">
-          <p>Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.</p>
-          {% include "search/form.html" with from_home=True %}
+        <div class="col-lg-6 col-xl-8">
+          <p>
+            Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité
+            essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.
+          </p>
+          {% include "search/form.html" %}
+          <p class="text-center pt-3 mb-0">
+            Ou accedez à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
+          </p>
         </div>
-        <div class="col-xl-6">
-          <img alt="" class="img-fluid" src="{% static "img/landing/illustration-principale.png" %}">
+        <div class="col-lg-6 col-xl-4 a4a-bg-home"
+          style="background-image:url('{% static "img/landing/illustration-principale.png" %}')">
         </div>
       </div>
     </div>
