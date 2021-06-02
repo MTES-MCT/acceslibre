@@ -32,6 +32,7 @@ import ConditionalForm from "./ui/ConditionalForm.js";
 import GeoLink from "./ui/GeoLink.js";
 import MapExpander from "./ui/MapExpander";
 import SearchWhere from "./ui/SearchWhere";
+import GetGeolocBtn from "./ui/GetGeolocBtn";
 
 // Initializations
 dom.ready(() => {
@@ -41,6 +42,7 @@ dom.ready(() => {
   dom.mountAll(".search-where-field", SearchWhere);
   dom.mountAll(".asteriskField", AsteriskField);
   dom.mountAll(".a4a-geo-link", GeoLink);
+  dom.mountAll(".get-geoloc-btn", GetGeolocBtn);
 });
 
 // expose general namespaced lib for usage within pages
