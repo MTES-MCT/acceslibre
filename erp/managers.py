@@ -172,7 +172,32 @@ class ErpQuerySet(models.QuerySet):
     def published(self):
         return self.filter(published=True).geolocated().having_an_accessibilite()
 
+    def search_commune(self, query):
+        qs = self
+        terms = query.strip().split(" ")
+        clauses = Q()
+        for index, term in enumerate(terms):
+            if text.contains_digits(term) and len(term) == 5:
+                clauses = clauses | Q(commune_ext__code_postaux__contains=[term])
+            if len(term) > 2:
+                similarity_field = f"similarity_{index}"
+                qs = qs.annotate(
+                    **{
+                        similarity_field: search.TrigramSimilarity(
+                            "commune_ext__nom", term
+                        )
+                    }
+                )
+                clauses = (
+                    clauses
+                    | Q(commune_ext__nom__unaccent__icontains=term)
+                    | Q(**{f"{similarity_field}__gte": 0.6})
+                )
+        return qs.filter(clauses)
+
     def search_what(self, query):
+        if not query:
+            return self
         return (
             self.annotate(
                 rank=search.SearchRank(
@@ -184,13 +209,42 @@ class ErpQuerySet(models.QuerySet):
             .order_by("-rank")
         )
 
-    def search_where(self, where="france_entiere"):
-        if len(where) == 2:  # departement
-            return self.filter(commune_ext__departement=where)
-        elif len(where) == 5:  # code insee
-            return self.filter(commune_ext__code_insee=where)
-        else:
-            return self
+    def search_where(self, raw_q, qualified_q, lat=None, lon=None):
+        """Searches ERPs at a given location.
+        Params:
+        - raw_q: a raw query to search (eg. "lyon"); this is typically the raw input
+          submitted by the user when using the public search form.
+        - qualified_q: a qualified query, usually resovled by the autocomplete frontend
+          code, featuring either:
+          * a code_insee (34120) for a commune lookup
+          * a departement (34, 2B) for a departement lookup
+          * the string "around_me" for a localized lookup (requires lat & lon kwargs set)
+          * the string "france_entiere", equivalent to an empty lookup
+        - lat: optional latitude if "around_me" is specified as a qualified query
+        - lon: optional longitude if "around_me" is specified as a qualified query
+        """
+        qs = self
+        if not raw_q and not qualified_q:
+            return qs
+        elif not qualified_q and raw_q and not raw_q.startswith("France entière"):
+            qs = qs.search_commune(raw_q)
+        elif qualified_q == "around_me":
+            try:
+                qs = qs.nearest(
+                    (float(lat), float(lon)),
+                    max_radius_km=20,
+                ).order_by("distance")
+            except ValueError:
+                pass
+        elif (
+            qualified_q and len(qualified_q) == 2 and text.contains_digits(qualified_q)
+        ):  # departement
+            qs = qs.filter(commune_ext__departement=qualified_q)
+        elif (
+            qualified_q and len(qualified_q) == 5 and qualified_q.isdigit()
+        ):  # code insee
+            qs = qs.filter(commune_ext__code_insee=qualified_q)
+        return qs
 
     def with_votes(self):
         return self.annotate(

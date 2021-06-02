@@ -137,7 +137,7 @@ def where(request):
     NB_DPT_SUGG = 2
     results = []
     q = request.GET.get("q", "").strip()
-    if q and len(q) > 0:
+    if q and len(q) > 0 and not q.startswith("Autour de moi"):
         communes_qs = (
             Commune.objects.search(q)
             .order_by(F("population").desc(nulls_last=True))
@@ -158,9 +158,11 @@ def where(request):
     return JsonResponse({"q": q, "results": results})
 
 
-def get_where_label(where):
+def get_where_label(raw_input, where):
     label = None
-    if not where or where == "france_entiere":
+    if raw_input and not where:
+        label = raw_input
+    elif not where or where == "france_entiere":
         label = "France entière"
     elif where == "around_me":
         label = "Autour de moi"
@@ -174,39 +176,29 @@ def get_where_label(where):
 
 
 def search(request):
-    where = request.GET.get("where", "france_entiere") or "france_entiere"
+    where = request.GET.get("where", "")
     what = request.GET.get("what", "")
-    search_where_label = request.GET.get("search_where_label") or get_where_label(where)
-    paginator = pager = None
-    pager_base_url = None
-    lat = None
-    lon = None
-    geojson_list = None
-    if len(where) > 0 or len(what) > 0:
-        erp_qs = Erp.objects.select_related(
-            "accessibilite", "activite", "commune_ext"
-        ).published()
-        if what:
-            erp_qs = erp_qs.search_what(what)
-        if where:
-            erp_qs = erp_qs.search_where(where)
-        if where == "around_me":
-            try:
-                (lat, lon) = (
-                    float(request.GET.get("lat")),
-                    float(request.GET.get("lon")),
-                )
-                erp_qs = erp_qs.nearest((lat, lon), max_radius_km=20).order_by(
-                    "distance"
-                )
-            except ValueError:
-                pass
-        paginator = Paginator(erp_qs, 10)
-        pager = paginator.get_page(request.GET.get("page", 1))
-        pager_base_url = (
-            f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
-        )
-        geojson_list = make_geojson(pager)
+    search_where_label = get_where_label(request.GET.get("search_where_label"), where)
+    lat = lon = None
+    qs = Erp.objects.select_related(
+        "accessibilite", "activite", "commune_ext"
+    ).published()
+    # where
+    qs = qs.search_where(
+        search_where_label,
+        where,
+        lat=request.GET.get("lat"),
+        lon=request.GET.get("lon"),
+    )
+    # what
+    qs = qs.search_what(what)
+    # pager
+    paginator = Paginator(qs, 10)
+    pager = paginator.get_page(request.GET.get("page", 1))
+    pager_base_url = (
+        f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
+    )
+    geojson_list = make_geojson(pager)
     return render(
         request,
         "search/results.html",
@@ -216,7 +208,6 @@ def search(request):
             "pager_base_url": pager_base_url,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
-            "search_ongoing": where or what,
             "search_where": where,
             "search_where_label": search_where_label,
             "search_what": what,
