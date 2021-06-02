@@ -55,18 +55,6 @@ $viewport-xl: 1200px;
 
   // selectWoo styles overriding
   .select2-container--bootstrap4 {
-    .select2-results__option--highlighted.select2-results__option[aria-selected=true] {
-      // background-color: transparent;
-      // color: $text-dark;
-      &:hover {
-        background-color: #007bff;
-        color: #f8f9fa;
-      }
-    }
-    .select2-results__option--highlighted.select2-results__option[data-selected=true] {
-      background-color: #007bff;
-      color: #f8f9fa;
-    }
     .select2-selection, input[type=text] {
       border: 1px solid $input-border-color;
     }

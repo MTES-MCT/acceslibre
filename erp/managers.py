@@ -185,8 +185,6 @@ class ErpQuerySet(models.QuerySet):
         )
 
     def search_where(self, where="france_entiere"):
-        if where == "france_entiere":
-            return self
         if len(where) == 2:  # departement
             return self.filter(commune_ext__departement=where)
         elif len(where) == 5:  # code insee
