@@ -25,6 +25,10 @@ function SearchWhere(root) {
     input.value = label;
   }
 
+  function setWhereValue(value) {
+    hiddenWhereField.value = value;
+  }
+
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
 
@@ -49,7 +53,7 @@ function SearchWhere(root) {
         setLatLon(null);
       }
 
-      hiddenWhereField.value = result.id;
+      setWhereValue(result.id);
     },
 
     renderResult: ({ text, icon }, props) => {
@@ -73,11 +77,14 @@ function SearchWhere(root) {
     },
   });
 
-  // Prevent global form submission when an entry is selected
-  // @see https://github.com/trevoreyre/autocomplete/issues/45#issuecomment-617216849
   autocomplete.input.addEventListener("keydown", (event) => {
+    // Prevent global form submission when an entry is selected
+    // @see https://github.com/trevoreyre/autocomplete/issues/45#issuecomment-617216849
     if (event.key == "Enter") {
       event.preventDefault();
+    } else if (event.key != "Tab") {
+      setWhereValue("");
+      setLatLon(null);
     }
   });
 

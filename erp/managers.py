@@ -172,6 +172,29 @@ class ErpQuerySet(models.QuerySet):
     def published(self):
         return self.filter(published=True).geolocated().having_an_accessibilite()
 
+    def search_commune(self, query):
+        qs = self
+        terms = query.strip().split(" ")
+        clauses = Q()
+        for index, term in enumerate(terms):
+            if text.contains_digits(term) and len(term) == 5:
+                clauses = clauses | Q(commune_ext__code_postaux__contains=[term])
+            if len(term) > 2:
+                similarity_field = f"similarity_{index}"
+                qs = qs.annotate(
+                    **{
+                        similarity_field: search.TrigramSimilarity(
+                            "commune_ext__nom", term
+                        )
+                    }
+                )
+                clauses = (
+                    clauses
+                    | Q(commune_ext__nom__unaccent__icontains=term)
+                    | Q(**{f"{similarity_field}__gte": 0.6})
+                )
+        return qs.filter(clauses)
+
     def search_what(self, query):
         return (
             self.annotate(
@@ -184,7 +207,9 @@ class ErpQuerySet(models.QuerySet):
             .order_by("-rank")
         )
 
-    def search_where(self, where="france_entiere"):
+    def search_where(self, where="france_entiere", raw_search=False):
+        if raw_search:
+            return self.search_commune(where)
         if len(where) == 2:  # departement
             return self.filter(commune_ext__departement=where)
         elif len(where) == 5:  # code insee
