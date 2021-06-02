@@ -209,17 +209,26 @@ class ErpQuerySet(models.QuerySet):
             .order_by("-rank")
         )
 
-    def search_where(self, raw_query, qualified_query, lat=None, lon=None):
+    def search_where(self, raw_q, qualified_q, lat=None, lon=None):
+        """Searches ERPs at a given location.
+        Params:
+        - raw_q: a raw query to search (eg. "lyon"); this is typically the raw input
+          submitted by the user when using the public search form.
+        - qualified_q: a qualified query, usually resovled by the autocomplete frontend
+          code, featuring either:
+          * a code_insee (34120) for a commune lookup
+          * a departement (34, 2B) for a departement lookup
+          * the string "around_me" for a localized lookup (requires lat & lon kwargs set)
+          * the string "france_entiere", equivalent to an empty lookup
+        - lat: optional latitude if "around_me" is specified as a qualified query
+        - lon: optional longitude if "around_me" is specified as a qualified query
+        """
         qs = self
-        if not raw_query and not qualified_query:
+        if not raw_q and not qualified_q:
             return qs
-        elif (
-            not qualified_query
-            and raw_query
-            and not raw_query.startswith("France entière")
-        ):
-            qs = qs.search_commune(raw_query)
-        elif qualified_query == "around_me":
+        elif not qualified_q and raw_q and not raw_q.startswith("France entière"):
+            qs = qs.search_commune(raw_q)
+        elif qualified_q == "around_me":
             try:
                 qs = qs.nearest(
                     (float(lat), float(lon)),
@@ -227,10 +236,14 @@ class ErpQuerySet(models.QuerySet):
                 ).order_by("distance")
             except ValueError:
                 pass
-        elif len(qualified_query) == 2 and qualified_query.isdigit():  # departement
-            qs = qs.filter(commune_ext__departement=qualified_query)
-        elif len(qualified_query) == 5 and qualified_query.isdigit():  # code insee
-            qs = qs.filter(commune_ext__code_insee=qualified_query)
+        elif (
+            qualified_q and len(qualified_q) == 2 and text.contains_digits(qualified_q)
+        ):  # departement
+            qs = qs.filter(commune_ext__departement=qualified_q)
+        elif (
+            qualified_q and len(qualified_q) == 5 and qualified_q.isdigit()
+        ):  # code insee
+            qs = qs.filter(commune_ext__code_insee=qualified_q)
         return qs
 
     def with_votes(self):
