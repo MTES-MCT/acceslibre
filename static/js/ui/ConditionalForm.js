@@ -65,7 +65,7 @@ const rules = [
   {
     source: "entree_porte_presence",
     values: ["True"],
-    targets: ["entree_porte_manoeuvre", "entree_porte_type"],
+    targets: ["entree_porte_manoeuvre", "entree_porte_type", "entree_vitree"],
     indent: 1,
   },
   {
