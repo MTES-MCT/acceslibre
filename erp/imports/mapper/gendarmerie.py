@@ -3,8 +3,8 @@ from datetime import datetime
 
 from django.contrib.gis.geos import Point
 
-from erp.import_datasets.base_mapper import BaseRecordMapper
-from erp.import_datasets.fetcher_strategy import Fetcher
+from erp.imports.mapper.base import BaseRecordMapper
+from erp.imports.fetcher import Fetcher
 from erp.models import Activite, Erp, Commune, Accessibilite
 from erp.provider import arrondissements
 

@@ -1,10 +1,10 @@
 import sys
 
 from django.core.management.base import BaseCommand
-from erp.mapper.vaccination import RecordMapper
+from erp.imports.mapper.vaccination import RecordMapper
 
-from erp.import_datasets.fetcher_strategy import JsonFetcher
-from erp.import_datasets.import_datasets import ImportDatasets
+from erp.imports.fetcher import JsonFetcher
+from erp.imports.importer import Importer
 
 
 def fatal(msg):
@@ -40,7 +40,7 @@ class Command(BaseCommand):
             mapper = RecordMapper(
                 fetcher=fetcher, dataset_url=options.get("dataset-url")
             )
-            ImportDatasets(mapper=mapper, is_scheduler=options.get("scheduler")).job(
+            Importer(mapper=mapper, is_scheduler=options.get("scheduler")).job(
                 verbose=options.get("verbose")
             )
         except RuntimeError as err:

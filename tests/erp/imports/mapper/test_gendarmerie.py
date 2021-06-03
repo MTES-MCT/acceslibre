@@ -1,10 +1,10 @@
 import pytest
 
-from erp.import_datasets.fetcher_strategy import StringFetcher
+from erp.imports.fetcher import StringFetcher
 from erp.models import Activite, Erp
-from tests.erp.mapper.fixtures import gendarmeries_valid
-from erp.import_datasets.import_datasets import ImportDatasets
-from erp.mapper.gendarmerie import RecordMapper
+from tests.erp.imports.mapper.fixtures import gendarmeries_valid
+from erp.imports.importer import Importer
+from erp.imports.mapper.gendarmerie import RecordMapper
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def import_dataset(gendarmeries_valid, db, activite_cdv):
     def _factory(dataset=gendarmeries_valid):
         fetcher = StringFetcher(dataset, RecordMapper.fields)
         mapper = RecordMapper(fetcher=fetcher, dataset_url="dummy")
-        return ImportDatasets(mapper=mapper, is_scheduler=True)
+        return Importer(mapper=mapper, is_scheduler=True)
 
     yield _factory
 

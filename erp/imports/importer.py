@@ -3,14 +3,14 @@ import logging
 from django.db import DataError, DatabaseError, transaction
 from django.db.transaction import TransactionManagementError
 
-from erp.import_datasets.base_mapper import BaseRecordMapper
-from erp.import_datasets.print_strategy import outputPrintStrategy, outputVoidStrategy
+from erp.imports.mapper.base import BaseRecordMapper
+from erp.imports.printer import outputPrintStrategy, outputVoidStrategy
 from erp.models import Activite, Accessibilite
 
 logger = logging.getLogger(__name__)
 
 
-class ImportDatasets:
+class Importer:
     output = None
     errors = []
     imported = 0

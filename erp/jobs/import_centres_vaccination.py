@@ -5,7 +5,7 @@ import logging
 from django.conf import settings
 from json import JSONDecodeError
 
-from erp.mapper.vaccination import RecordMapper
+from erp.imports.mapper.vaccination import RecordMapper
 from erp.models import Activite
 
 from core import mailer

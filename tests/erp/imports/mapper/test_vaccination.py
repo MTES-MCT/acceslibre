@@ -3,11 +3,11 @@ from datetime import datetime
 import pytest
 from django.db import DataError
 
-from erp.import_datasets.fetcher_strategy import VoidFetcher
-from erp.mapper import vaccination as v
+from erp.imports.fetcher import VoidFetcher
+from erp.imports.mapper import vaccination as v
 from erp.models import Activite, Erp
 
-from tests.erp.mapper.fixtures import neufchateau, sample_record_ok
+from tests.erp.imports.mapper.fixtures import neufchateau, sample_record_ok
 
 
 @pytest.fixture

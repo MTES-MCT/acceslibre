@@ -4,9 +4,9 @@ import sys
 from django.conf import settings
 
 from core import mailer
-from erp.import_datasets.fetcher_strategy import CsvFetcher
-from erp.import_datasets.import_datasets import ImportDatasets
-from erp.mapper.gendarmerie import RecordMapper
+from erp.imports.fetcher import CsvFetcher
+from erp.imports.importer import Importer
+from erp.imports.mapper.gendarmerie import RecordMapper
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ class ImportGendarmerie:
         try:
             fetcher = CsvFetcher(delimiter=";")
             mapper = RecordMapper(fetcher=fetcher)
-            imported, skipped, errors = ImportDatasets(
+            imported, skipped, errors = Importer(
                 mapper=mapper, is_scheduler=self.is_scheduler
             ).job(verbose=verbose)
             if self.mail_notification:
