@@ -1,10 +1,8 @@
 import sys
 
 from django.core.management.base import BaseCommand
-from erp.imports.mapper.vaccination import RecordMapper
 
-from erp.imports.fetcher import JsonFetcher
-from erp.imports.importer import Importer
+from erp.jobs.import_gendarmerie import ImportGendarmerie
 
 
 def fatal(msg):
@@ -13,7 +11,7 @@ def fatal(msg):
 
 
 class Command(BaseCommand):
-    help = "Importe les centres de vaccination COVID"
+    help = "Importe les ERPs gendarmerie"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -33,15 +31,7 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):  # noqa
-        self.stdout.write("Importation des centres de vaccination")
-
-        try:
-            fetcher = JsonFetcher()
-            mapper = RecordMapper(
-                fetcher=fetcher, dataset_url=options.get("dataset-url")
-            )
-            Importer(mapper=mapper, is_scheduler=options.get("scheduler")).job(
-                verbose=options.get("verbose")
-            )
-        except RuntimeError as err:
-            fatal(err)
+        self.stdout.write("Importation des ERPs gendarmerie")
+        ImportGendarmerie(is_scheduler=options.get("scheduler")).job(
+            verbose=options.get("verbose")
+        )
