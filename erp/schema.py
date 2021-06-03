@@ -74,7 +74,7 @@ DISPOSITIFS_APPEL_BOUTON = "bouton"
 DISPOSITIFS_APPEL_INTERPHONE = "interphone"
 DISPOSITIFS_APPEL_VISIOPHONE = "visiophone"
 DISPOSITIFS_APPEL_CHOICES = [
-    (DISPOSITIFS_APPEL_BOUTON, "Bouton d’appel"),
+    (DISPOSITIFS_APPEL_BOUTON, "Bouton d'appel"),
     (DISPOSITIFS_APPEL_INTERPHONE, "Interphone"),
     (DISPOSITIFS_APPEL_VISIOPHONE, "Visiophone"),
 ]
@@ -197,7 +197,7 @@ PARTENAIRES = {
         "avatar": "wegoto_avatar.png",
         "logo": "img/partenaires/wegoto.png",
         "name": "Wegoto",
-        "short_description": "Expert en données d’accessibilité",
+        "short_description": "Expert en données d'accessibilité",
         "template": "editorial/partenaires/wegoto.html",
         "url": "https://www.wegoto.eu/",
     },
@@ -314,9 +314,9 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Stationnement dans l'ERP",
+        "label": "Stationnement dans l'établissement",
         "help_text": mark_safe(
-            "Existe-t-il une ou plusieurs places de stationnement dans l’établissement ou au sein de la parcelle de l’établissement&nbsp;?"
+            "Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence de stationnement au sein de la parcelle de l'établissement"
@@ -330,9 +330,9 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Stationnements adaptés dans l'ERP",
+        "label": "Stationnements adaptés dans l'établissement",
         "help_text": mark_safe(
-            "Existe-t-il une ou plusieurs places de stationnement adaptées dans l’établissement ou au sein de la parcelle de l'établissement&nbsp;?"
+            "Existe-t-il une ou plusieurs places de stationnement adaptées dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence de stationnement adapté au sein de la parcelle de l'établissement"
@@ -346,7 +346,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Stationnement à proximité de l'ERP",
+        "label": "Stationnement à proximité de l'établissement",
         "help_text": mark_safe(
             "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à proximité de l'établissement (200 m)&nbsp;?"
         ),
@@ -362,9 +362,9 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Stationnements PMR à proximité de l'ERP",
+        "label": "Stationnements PMR à proximité de l'établissement",
         "help_text": mark_safe(
-            "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à proximité de l’établissement (200 m)&nbsp;?"
+            "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à proximité de l'établissement (200 m)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Présence de stationnement adapté à proximité de l'établissement (moins de 200 mètres)"
@@ -381,7 +381,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Cheminement extérieur",
         "help_text": mark_safe(
-            "Y-a-t-il un chemin extérieur entre le trottoir et l’entrée principale du bâtiment (exemple : une cour)&nbsp;?"
+            "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du bâtiment (exemple&nbsp;: une cour)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur"
@@ -397,7 +397,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Revêtement extérieur",
         "help_text": mark_safe(
-            "Le revêtement du cheminement extérieur (entre le trottoir et l'entrée de l’établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
+            "Le revêtement du cheminement extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
@@ -413,7 +413,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Cheminement extérieur de plain-pied",
         "help_text": mark_safe(
-            "Le cheminement est-il de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
+            "Le cheminement est-il de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
         ),
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
@@ -455,9 +455,9 @@ FIELDS = {
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
         "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
         ),
-        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -485,7 +485,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Main courante",
         "help_text": mark_safe(
-            "L'escalier est-il équipé de main(s) courante(s)&nbsp;?"
+            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
         ),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -597,10 +597,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Entrée facilement repérable",
         "help_text": mark_safe(
-            "Y a-t-il des éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
+            "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "Présence d'éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
+            "Présence d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
@@ -679,7 +679,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Entrée de plain-pied",
         "help_text": mark_safe(
-            "L'entrée est-elle de plain-pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;?"
+            "L'entrée est-elle de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "L'entrée se fait de plain-pied (sans rupture de niveau)"
@@ -719,9 +719,9 @@ FIELDS = {
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
         "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
         ),
-        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -749,7 +749,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Main courante",
         "help_text": mark_safe(
-            "L'escalier est-il équipé de main(s) courante(s)&nbsp;?"
+            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
         ),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -881,10 +881,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Visibilité de la zone d'accueil",
         "help_text": mark_safe(
-            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée du bâtiment&nbsp;?"
+            "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est-elle visible depuis l'entrée du bâtiment&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment"
+            "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
@@ -944,9 +944,9 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Chemin entre l’entrée principale du bâtiment et l’accueil de l'établissement",
+        "label": "Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement",
         "help_text": mark_safe(
-            "Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de l'établissement est de plain pied, c’est-à-dire sans marche ni ressaut supérieur à 2 cm ? (Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau)"
+            "Une fois l'entrée du bâtiment passée, le chemin jusqu'à l'accueil de l'établissement est de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? (Attention, plain-pied ne signifie pas plat mais sans rupture brutale de niveau)"
         ),
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
@@ -986,9 +986,9 @@ FIELDS = {
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
         "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l’escalier&nbsp;?"
+            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
         ),
-        "help_text_ui": "Sens de circulation des marches ou de l’escalier",
+        "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -998,7 +998,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Repérage des marches ou de l’escalier",
+        "label": "Repérage des marches ou de l'escalier",
         "help_text": mark_safe(
             "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
         ),
@@ -1016,7 +1016,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Main courante",
         "help_text": mark_safe(
-            "L'escalier est-il équipé de main(s) courante(s)&nbsp;?"
+            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
         ),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -1044,7 +1044,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Rétrécissement du cheminement",
         "help_text": mark_safe(
-            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre la zone d’accueil&nbsp;?"
+            "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée"
@@ -1094,7 +1094,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Marques ou labels",
         "help_text": mark_safe(
-            "Si l’établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marque ou quel label a-t-il obtenu(e)&nbsp;?"
+            "Si l'établissement est entré dans une démarche volontaire de labellisation liée au handicap, quelle marque ou quel label a-t-il obtenu(e)&nbsp;?"
         ),
         "help_text_ui": mark_safe("Marque(s) ou label(s) obtenus par l'établissement"),
         "choices": LABEL_CHOICES,

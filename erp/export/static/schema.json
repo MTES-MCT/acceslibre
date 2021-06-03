@@ -152,7 +152,7 @@
     },
     {
       "name": "stationnement_presence",
-      "title": "Stationnement dans l'ERP",
+      "title": "Stationnement dans l'établissement",
       "description": "Présence de stationnement au sein de la parcelle de l'établissement",
       "type": "boolean",
       "trueValues": [
@@ -183,7 +183,7 @@
     },
     {
       "name": "stationnement_pmr",
-      "title": "Stationnements adaptés dans l'ERP",
+      "title": "Stationnements adaptés dans l'établissement",
       "description": "Présence de stationnement adapté au sein de la parcelle de l'établissement",
       "type": "boolean",
       "trueValues": [
@@ -214,7 +214,7 @@
     },
     {
       "name": "stationnement_ext_presence",
-      "title": "Stationnement à proximité de l'ERP",
+      "title": "Stationnement à proximité de l'établissement",
       "description": "Présence de stationnement à proximité de l'établissement (moins de 200 mètres)",
       "type": "boolean",
       "trueValues": [
@@ -245,7 +245,7 @@
     },
     {
       "name": "stationnement_ext_pmr",
-      "title": "Stationnements PMR à proximité de l'ERP",
+      "title": "Stationnements PMR à proximité de l'établissement",
       "description": "Présence de stationnement adapté à proximité de l'établissement (moins de 200 mètres)",
       "type": "boolean",
       "trueValues": [
@@ -439,7 +439,7 @@
     {
       "name": "cheminement_ext_sens_marches",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l’escalier",
+      "description": "Sens de circulation des marches ou de l'escalier",
       "type": "string",
       "constraints": {
         "enum": [
@@ -452,7 +452,7 @@
     {
       "name": "cheminement_ext_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé de main(s) courante(s) ?",
+      "description": "L'escalier est-il équipé d'une ou plusieurs main-courantes ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -631,7 +631,7 @@
     {
       "name": "entree_reperage",
       "title": "Entrée facilement repérable",
-      "description": "Présence d'éléments facilitant le repérage de l'entrée de l’établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)",
+      "description": "Présence d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -824,7 +824,7 @@
     {
       "name": "entree_marches_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé de main(s) courante(s) ?",
+      "description": "L'escalier est-il équipé d'une ou plusieurs main-courantes ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -869,7 +869,7 @@
     {
       "name": "entree_marches_sens",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l’escalier",
+      "description": "Sens de circulation des marches ou de l'escalier",
       "type": "string",
       "constraints": {
         "enum": [
@@ -923,7 +923,7 @@
           "visiophone"
         ]
       },
-      "example": "Valeurs possibles: bouton -> Bouton d’appel, interphone -> Interphone, visiophone -> Visiophone"
+      "example": "Valeurs possibles: bouton -> Bouton d'appel, interphone -> Interphone, visiophone -> Visiophone"
     },
     {
       "name": "entree_balise_sonore",
@@ -1087,7 +1087,7 @@
     {
       "name": "accueil_visibilite",
       "title": "Visibilité de la zone d'accueil",
-      "description": "La zone d'accueil (guichet d’accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment",
+      "description": "La zone d'accueil (guichet d'accueil, caisse, secrétariat, etc) est visible depuis l'entrée du bâtiment",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1180,7 +1180,7 @@
     },
     {
       "name": "accueil_cheminement_plain_pied",
-      "title": "Chemin entre l’entrée principale du bâtiment et l’accueil de l'établissement",
+      "title": "Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement",
       "description": "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)",
       "type": "boolean",
       "trueValues": [
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "accueil_cheminement_reperage_marches",
-      "title": "Repérage des marches ou de l’escalier",
+      "title": "Repérage des marches ou de l'escalier",
       "description": "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées",
       "type": "boolean",
       "trueValues": [
@@ -1281,7 +1281,7 @@
     {
       "name": "accueil_cheminement_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé de main(s) courante(s) ?",
+      "description": "L'escalier est-il équipé d'une ou plusieurs main-courantes ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1343,7 +1343,7 @@
     {
       "name": "accueil_cheminement_sens_marches",
       "title": "Sens de circulation de l'escalier",
-      "description": "Sens de circulation des marches ou de l’escalier",
+      "description": "Sens de circulation des marches ou de l'escalier",
       "type": "string",
       "constraints": {
         "enum": [
