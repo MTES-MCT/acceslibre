@@ -7,13 +7,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0123_auto_20210513_1720'),
+        ("erp", "0123_auto_20210513_1720"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='entree_dispositif_appel_type',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, choices=[('bouton', "Bouton d'appel"), ('interphone', 'Interphone'), ('visiophone', 'Visiophone')], max_length=255), blank=True, default=list, null=True, size=None, verbose_name="Dispositifs d'appel disponibles"),
+            model_name="accessibilite",
+            name="entree_dispositif_appel_type",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(
+                    blank=True,
+                    choices=[
+                        ("bouton", "Bouton d'appel"),
+                        ("interphone", "Interphone"),
+                        ("visiophone", "Visiophone"),
+                    ],
+                    max_length=255,
+                ),
+                blank=True,
+                default=list,
+                null=True,
+                size=None,
+                verbose_name="Dispositifs d'appel disponibles",
+            ),
         ),
     ]

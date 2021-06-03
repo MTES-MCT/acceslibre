@@ -117,7 +117,7 @@ class ImportVaccinationsCenters:
     def _send_report(self):
         mailer.mail_admins(
             f"[{settings.SITE_NAME}] Rapport d'importation des centres de vaccination",
-            "mail/import_vaccination_notification.txt",
+            "mail/import_notification.txt",
             {
                 "errors": self.errors,
                 "imported": self.imported,

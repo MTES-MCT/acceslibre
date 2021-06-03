@@ -36,7 +36,7 @@ class ImportGendarmerie:
     def _send_report(self, imported, skipped, errors):
         mailer.mail_admins(
             f"[{settings.SITE_NAME}] Rapport d'importation des gendarmeries",
-            "mail/import_vaccination_notification.txt",
+            "mail/import_notification.txt",
             {
                 "errors": errors,
                 "imported": imported,

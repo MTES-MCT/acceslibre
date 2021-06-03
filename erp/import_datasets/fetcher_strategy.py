@@ -1,5 +1,6 @@
 import csv
 import io
+import json
 from abc import ABC, abstractmethod
 from typing import Any, List, Iterable
 
@@ -22,6 +23,8 @@ class JsonFetcher(Fetcher):
             raise RuntimeError(
                 f"Erreur de récupération des données JSON: {url}:\n  {err}"
             )
+        except json.JSONDecodeError as err:
+            raise RuntimeError(f"Erreur de lecture des données JSON\n  {err}")
 
 
 class CsvFetcher(Fetcher):

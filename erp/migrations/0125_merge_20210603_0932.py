@@ -6,9 +6,8 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0124_alter_accessibilite_entree_dispositif_appel_type'),
-        ('erp', '0124_auto_20210525_1231'),
+        ("erp", "0124_alter_accessibilite_entree_dispositif_appel_type"),
+        ("erp", "0124_auto_20210525_1231"),
     ]
 
-    operations = [
-    ]
+    operations = []

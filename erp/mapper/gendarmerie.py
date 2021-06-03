@@ -98,7 +98,7 @@ class RecordMapper(BaseRecordMapper):
             self.erp.site_internet = record["url"]
             self.erp.nom = record["service"]
         except (KeyError, IndexError) as err:
-            raise RuntimeError("Impossible d'extraire des données: " + str(err))
+            raise RuntimeError(f"Impossible d'extraire des données: {str(err)}")
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"

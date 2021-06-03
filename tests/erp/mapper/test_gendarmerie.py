@@ -28,7 +28,7 @@ def test_basic_stats(import_dataset, gendarmeries_valid):
         source_id=gendarmeries_valid[0]["identifiant_public_unite"]
     ).first()
     assert erp is not None
-    assert imported == 3, skipped == 0
+    assert (imported, skipped) == (3, 0)
 
 
 def test_updated_data(import_dataset, gendarmeries_valid):
@@ -43,7 +43,7 @@ def test_updated_data(import_dataset, gendarmeries_valid):
     ).first()
     assert erp is not None
     assert erp.code_insee == gendarmeries_valid_updated[0]["code_commune_insee"]
-    assert skipped == 0, imported == 3
+    assert (imported, skipped) == (3, 0)
 
 
 def test_invalid_data(import_dataset, gendarmeries_valid):
@@ -51,7 +51,7 @@ def test_invalid_data(import_dataset, gendarmeries_valid):
     gendarmeries_invalid[0]["code_commune_insee"] = "67000azdasqd"
 
     imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
-    assert skipped == 1, imported == 2
+    assert (imported, skipped) == (2, 1)
 
 
 def test_fail_on_schema_change(import_dataset, gendarmeries_valid):
@@ -60,4 +60,4 @@ def test_fail_on_schema_change(import_dataset, gendarmeries_valid):
     del gendarmeries_invalid[0]["code_commune_insee"]
 
     imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
-    assert imported == 2, skipped == 1
+    assert (imported, skipped) == (2, 1)

@@ -103,13 +103,11 @@ class RecordMapper(BaseRecordMapper):
         try:
             # Save erp instance
             self.erp.published = True
-            # self.erp.save()
 
             # Attach an Accessibilite to newly created Erps
             if not self.erp.has_accessibilite():
                 accessibilite = Accessibilite(erp=self.erp)
                 accessibilite.commentaire = commentaire
-                # accessibilite.save()
         except DataError as err:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
@@ -267,7 +265,6 @@ class RecordMapper(BaseRecordMapper):
             )
 
         if not commune_ext:
-            print(self.erp.code_insee, self.erp.code_postal)
             raise RuntimeError("Impossible de résoudre la commune")
 
         self.erp.commune_ext = commune_ext
