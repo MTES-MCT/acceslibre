@@ -133,11 +133,12 @@ def communes(request):
 
 
 def where(request):
-    NB_COMMUNES_SUGG = 4
     NB_DPT_SUGG = 2
+    NB_COMMUNES_SUGG = 4
     results = []
     q = request.GET.get("q", "").strip()
-    if q and len(q) > 0 and not q.startswith("Autour de moi"):
+    if q and len(q) > 0 and not q.startswith("Autour de moi") and q != "France entière":
+        results += departements.search(q, limit=NB_DPT_SUGG, for_autocomplete=True)
         communes_qs = (
             Commune.objects.search(q)
             .order_by(F("population").desc(nulls_last=True))
@@ -154,7 +155,6 @@ def where(request):
                     "text": f"{commune['nom']} ({commune['departement']})",
                 }
             )
-        results += departements.search(q, limit=NB_DPT_SUGG, for_autocomplete=True)
     return JsonResponse({"q": q, "results": results})
 
 
