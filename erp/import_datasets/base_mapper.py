@@ -1,5 +1,5 @@
 import abc
-from typing import List, Any
+from typing import List, Union, Dict
 
 from erp.models import Erp, Activite
 
@@ -16,9 +16,9 @@ class BaseRecordMapper(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def fetch_data(self) -> List[Any]:
+    def fetch_data(self) -> Dict[str, str]:
         pass
 
     @abc.abstractmethod
-    def process(self, record, activite: Activite) -> Erp:
+    def process(self, record: Dict[str, str], activite: Activite) -> Erp:
         pass
