@@ -1,14 +1,13 @@
-import json
-import pytest
-
 from datetime import datetime
 
-from django.contrib.gis.geos import Point
+import pytest
+from django.db import DataError
 
-from erp.mapper import vaccination as v
+from erp.imports.fetcher import VoidFetcher
+from erp.imports.mapper import vaccination as v
 from erp.models import Activite, Erp
 
-from tests.erp.mapper.fixtures import neufchateau, sample_record_ok
+from tests.erp.imports.mapper.fixtures import neufchateau, sample_record_ok
 
 
 @pytest.fixture
@@ -16,13 +15,21 @@ def activite_cdv(db):
     return Activite.objects.create(nom="Centre de vaccination")
 
 
-def test_init():
+@pytest.fixture
+def mapper():
+    def _factory(today=None):
+        return v.RecordMapper(VoidFetcher(), dataset_url="dummy", today=today)
+
+    return _factory
+
+
+def test_init(mapper, activite_cdv):
     with pytest.raises(RuntimeError) as err:
-        v.RecordMapper({})
+        mapper().process({}, activite_cdv)
     assert "Propriété manquante 'geometry'" in str(err.value)
 
     with pytest.raises(RuntimeError) as err:
-        v.RecordMapper({"geometry": []})
+        mapper().process({"geometry": []}, activite_cdv)
     assert "Propriété manquante 'properties'" in str(err.value)
 
 
@@ -33,35 +40,37 @@ def test_init():
         {"c_rdv_site_web": None},
     ],
 )
-def test_handle_malformed_rdv_url(updates, activite_cdv, neufchateau, sample_record_ok):
+def test_handle_malformed_rdv_url(
+    mapper, updates, activite_cdv, neufchateau, sample_record_ok
+):
     sample_malformed_rdv_url = sample_record_ok.copy()
     sample_malformed_rdv_url["properties"].update(updates)
 
-    m = v.RecordMapper(sample_malformed_rdv_url)
-    erp = m.process(activite_cdv)
+    erp = mapper().process(sample_malformed_rdv_url, activite_cdv)
 
     assert erp.metadata["centre_vaccination"]["url_rdv"] is None
 
 
-def test_source_id():
-    m = v.RecordMapper({"geometry": [], "properties": {"c_gid": 123}})
-    assert m.source_id == "123"
+def test_source_id(mapper, activite_cdv, neufchateau, sample_record_ok):
+    m = mapper().process(sample_record_ok.copy(), activite_cdv)
+    assert m.source_id == "219"
 
 
-def test_source_id_missing():
+def test_source_id_missing(mapper, activite_cdv):
     with pytest.raises(RuntimeError) as err:
-        m = v.RecordMapper({"geometry": [], "properties": {"c_gid": None}})
+        m = mapper().process(
+            {"geometry": [], "properties": {"c_gid": None}}, activite_cdv
+        )
         m.source_id
     assert "Champ c_gid manquant" in str(err.value)
 
 
-def test_skip_importing_closed(activite_cdv, neufchateau, sample_record_ok):
+def test_skip_importing_closed(mapper, activite_cdv, neufchateau, sample_record_ok):
     sample_closed = sample_record_ok.copy()
     sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
 
-    m = v.RecordMapper(sample_closed, today=datetime(2021, 1, 2))
     with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
+        mapper(today=datetime(2021, 1, 2)).process(sample_closed, activite_cdv)
 
     assert "ÉCARTÉ: Centre fermé le 2021-01-01" in str(err.value)
 
@@ -87,14 +96,13 @@ def test_skip_importing_closed(activite_cdv, neufchateau, sample_record_ok):
     ],
 )
 def test_skip_importing_reserve_pros(
-    updates, activite_cdv, neufchateau, sample_record_ok
+    mapper, updates, activite_cdv, neufchateau, sample_record_ok
 ):
     sample_reserve_pros = sample_record_ok.copy()
     sample_reserve_pros["properties"].update(updates)
 
-    m = v.RecordMapper(sample_reserve_pros)
     with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
+        mapper().process(sample_reserve_pros, activite_cdv)
 
     assert v.RAISON_RESERVE_PS in str(err.value)
 
@@ -104,14 +112,13 @@ def test_skip_importing_reserve_pros(
     [{"c_centre_fermeture": True}],
 )
 def test_skip_importing_reserve_public_restreint(
-    updates, activite_cdv, neufchateau, sample_record_ok
+    mapper, updates, activite_cdv, neufchateau, sample_record_ok
 ):
     sample_public_restreint = sample_record_ok.copy()
     sample_public_restreint["properties"].update(updates)
 
-    m = v.RecordMapper(sample_public_restreint)
     with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
+        mapper().process(sample_public_restreint, activite_cdv)
 
     assert v.RAISON_PUBLIC_RESTREINT in str(err.value)
 
@@ -126,14 +133,13 @@ def test_skip_importing_reserve_public_restreint(
     ],
 )
 def test_skip_importing_equipe_mobile(
-    updates, activite_cdv, neufchateau, sample_record_ok
+    mapper, updates, activite_cdv, neufchateau, sample_record_ok
 ):
     sample_equipe_mobile = sample_record_ok.copy()
     sample_equipe_mobile["properties"].update(updates)
 
-    m = v.RecordMapper(sample_equipe_mobile)
     with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
+        mapper().process(sample_equipe_mobile, activite_cdv)
 
     assert v.RAISON_EQUIPE_MOBILE in str(err.value)
 
@@ -146,14 +152,13 @@ def test_skip_importing_equipe_mobile(
     ],
 )
 def test_skip_importing_en_attente(
-    updates, activite_cdv, neufchateau, sample_record_ok
+    mapper, updates, activite_cdv, neufchateau, sample_record_ok
 ):
     sample_en_attente = sample_record_ok.copy()
     sample_en_attente["properties"].update(updates)
 
-    m = v.RecordMapper(sample_en_attente)
     with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
+        mapper().process(sample_en_attente, activite_cdv)
 
     assert v.RAISON_EN_ATTENTE in str(err.value)
 
@@ -176,22 +181,19 @@ def test_skip_importing_en_attente(
     ],
 )
 def test_skip_importing_etablissements_penitentiares(
-    updates, activite_cdv, neufchateau, sample_record_ok
+    mapper, updates, activite_cdv, neufchateau, sample_record_ok
 ):
     sample_en_attente = sample_record_ok.copy()
     sample_en_attente["properties"].update(updates)
 
-    m = v.RecordMapper(sample_en_attente)
     with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
+        mapper().process(sample_en_attente, activite_cdv)
 
     assert v.RAISON_RESERVE_CARCERAL in str(err.value)
 
 
-def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):
-    m = v.RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
-
-    erp = m.process(activite_cdv)
+def test_save_non_existing_erp(mapper, activite_cdv, neufchateau, sample_record_ok):
+    erp = mapper(today=datetime(2021, 1, 1)).process(sample_record_ok, activite_cdv)
 
     assert erp.published is True
     assert erp.user_id is None
@@ -242,47 +244,45 @@ def test_save_non_existing_erp(activite_cdv, neufchateau, sample_record_ok):
     )
 
 
-def test_update_existing_erp(activite_cdv, neufchateau, sample_record_ok):
-    m1 = v.RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
-    erp1 = m1.process(activite_cdv)
+def test_update_existing_erp(mapper, activite_cdv, neufchateau, sample_record_ok):
+    m1 = mapper(today=datetime(2021, 1, 1))
+    erp1 = m1.process(sample_record_ok, activite_cdv)
     erp1.accessibilite.commentaire = "user contrib"
+    erp1.save()
     erp1.accessibilite.save()
 
     # import updated data for the same Erp
     sample_record_ok_updated = sample_record_ok.copy()
     sample_record_ok_updated["properties"]["c_rdv_tel"] = "1234"
-    m2 = v.RecordMapper(sample_record_ok_updated, today=datetime(2021, 1, 1))
-    erp2 = m2.process(activite_cdv)
+    m2 = mapper(today=datetime(2021, 1, 2))
+    erp2 = m2.process(sample_record_ok_updated, activite_cdv)
 
     assert erp1.id == erp2.id
     assert erp2.telephone == "1234"
     assert "user contrib" in erp2.accessibilite.commentaire
 
 
-def test_unpublish_closed_erp(activite_cdv, neufchateau, sample_record_ok):
-    m1 = v.RecordMapper(sample_record_ok, today=datetime(2021, 1, 1))
-    m1.process(activite_cdv)
+def test_unpublish_closed_erp(mapper, activite_cdv, neufchateau, sample_record_ok):
+    erp1 = mapper(today=datetime(2021, 1, 1)).process(sample_record_ok, activite_cdv)
+    erp1.save()
 
     # reimport the same record, but this time it's closed
     sample_closed = sample_record_ok.copy()
     sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
-    m2 = v.RecordMapper(sample_closed, today=datetime(2021, 1, 2))
 
     with pytest.raises(RuntimeError) as err:
-        m2.process(activite_cdv)
+        mapper(today=datetime(2021, 1, 2)).process(sample_closed, activite_cdv)
     assert "MIS HORS LIGNE:" in str(err.value)
     assert (
-        Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, m2.source_id).published
+        Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, erp1.source_id).published
         is False
     )
 
 
-def test_intercept_sql_errors(activite_cdv, neufchateau, sample_record_ok):
+def test_intercept_sql_errors(mapper, activite_cdv, neufchateau, sample_record_ok):
     long_cp_record = sample_record_ok.copy()
     long_cp_record["properties"]["c_com_cp"] = "12345 / 54321"
 
-    m = v.RecordMapper(long_cp_record)
-    with pytest.raises(RuntimeError) as err:
-        m.process(activite_cdv)
-
-    assert "Erreur à l'enregistrement des données" in str(err.value)
+    with pytest.raises(DataError):
+        erp = mapper().process(long_cp_record, activite_cdv)
+        erp.save()

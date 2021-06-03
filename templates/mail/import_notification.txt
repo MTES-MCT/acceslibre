@@ -1,7 +1,7 @@
 {% autoescape off %}
 
 Opération effectuée:
-- {{ imported }} centres importés
+- {{ imported }} ERPs importés
 - {{ skipped }} écartés
 
 {% if errors %}

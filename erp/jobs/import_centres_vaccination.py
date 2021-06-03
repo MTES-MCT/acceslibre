@@ -5,7 +5,7 @@ import logging
 from django.conf import settings
 from json import JSONDecodeError
 
-from erp.mapper.vaccination import RecordMapper
+from erp.imports.mapper.vaccination import RecordMapper
 from erp.models import Activite
 
 from core import mailer
@@ -117,7 +117,7 @@ class ImportVaccinationsCenters:
     def _send_report(self):
         mailer.mail_admins(
             f"[{settings.SITE_NAME}] Rapport d'importation des centres de vaccination",
-            "mail/import_vaccination_notification.txt",
+            "mail/import_notification.txt",
             {
                 "errors": self.errors,
                 "imported": self.imported,
