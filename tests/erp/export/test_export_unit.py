@@ -60,6 +60,6 @@ def test_generate_schema():
         with open("schema-test.json", "r") as test_schema, open(
             "erp/export/static/schema.json", "r"
         ) as actual_schema:
-            assert test_schema.read() == actual_schema.read()
+            assert test_schema.read().strip() == actual_schema.read().strip()
     finally:
         os.remove(test_schema.name)
