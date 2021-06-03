@@ -377,6 +377,8 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
       *administration publiques* contenant le terme *impôts* situés dans la ville
       de *Lyon*. Vous pouvez également filtrer par ville en utilisant au choix
       les champs `code_postal` ou `code_insee`.
+    - `?source=gendarmerie&source_id=1002326` permet de rechercher un enregistrement
+      par source et identifiant dans la source.
 
     retrieve:
     Ce point d'accès permet de récupérer les données d'un ERP spécifique, identifié
