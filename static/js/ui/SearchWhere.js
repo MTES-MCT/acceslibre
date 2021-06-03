@@ -54,6 +54,7 @@ function SearchWhere(root) {
       }
 
       setWhereValue(result.id);
+      input.select();
     },
 
     renderResult: ({ text, icon }, props) => {

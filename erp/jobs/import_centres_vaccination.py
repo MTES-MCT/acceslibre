@@ -1,12 +1,14 @@
 # Imports vaccination centers from open data: https://www.data.gouv.fr/fr/datasets/lieux-de-vaccination-contre-la-covid-19/
-
-from django.conf import settings
 import requests
 import logging
 
-from core import mailer
+from django.conf import settings
+from json import JSONDecodeError
+
 from erp.mapper.vaccination import RecordMapper
 from erp.models import Activite
+
+from core import mailer
 
 logger = logging.getLogger(__name__)
 
@@ -79,7 +81,7 @@ class ImportVaccinationsCenters:
     def _get_json(self, url):
         try:
             return requests.get(url).json()
-        except requests.exceptions.RequestException as err:
+        except (requests.exceptions.RequestException, JSONDecodeError) as err:
             raise RuntimeError(
                 f"Erreur de récupération des données JSON: {url}:\n  {err}"
             )
