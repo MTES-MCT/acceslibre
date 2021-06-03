@@ -1,5 +1,5 @@
 import abc
-from typing import List, Union, Dict
+from typing import Dict
 
 from erp.models import Erp, Activite
 
