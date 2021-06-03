@@ -3,6 +3,9 @@
 <form class="a4a-search-form" id="search-form" action="{% url "search" %}">
   <div class="row">
     <div class="where-field col-xl-6 py-1">
+      <button type="button" class="sr-only get-geoloc-btn">
+        Autoriser l'obtention de ma localisation géographique
+      </button>
       <label for="where-input">
         <strong class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
         <span class="text-{% if dark %}light{% else %}muted{% endif %}">(ville, département…)</span>

@@ -10,6 +10,19 @@ function encodeJson(js) {
   return btoa(JSON.stringify(js));
 }
 
+async function fetchWithTimeout(resource, options) {
+  // see https://dmitripavlutin.com/timeout-fetch-request/
+  const { timeout = 8000 } = options;
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  const response = await fetch(resource, {
+    ...options,
+    signal: controller.signal,
+  });
+  clearTimeout(id);
+  return response;
+}
+
 function getCurrentPosition(options = { timeout: 10000 }) {
   return new Promise((resolve, reject) => {
     if ("geolocation" in navigator) {
@@ -25,12 +38,18 @@ async function getUserLocation(options) {
     coords: { latitude: lat, longitude: lon },
     timestamp,
   } = await getCurrentPosition(options);
-  const { features } = await reverseGeocode({ lat, lon }, { type: "street" });
   let label;
   try {
+    // Reverse geolocalization is purely cosmectic, so let's not block on slow requests
+    const { features } = await reverseGeocode({ lat, lon }, { type: "street", timeout: 800 });
     label = `(${features[0].properties.label})`;
-  } catch (_) {
-    label = `(${lat}, ${lon})`;
+  } catch (e) {
+    // if reverse geocoding request timed out, we still obtained coords so it's ok;
+    // just log other error types.
+    label = "(ok)";
+    if (e.name !== "AbortError") {
+      console.error(e);
+    }
   }
   return saveUserLocation({ lat, lon, label, timestamp });
 }
@@ -54,11 +73,12 @@ async function loadUserLocation(options = {}) {
 }
 
 async function reverseGeocode({ lat, lon }, options = {}) {
+  const { timeout = 8000 } = options;
   let url = `https://api-adresse.data.gouv.fr/reverse/?lon=${lon}&lat=${lat}`;
   if (options.type) {
     url += `&type=${options.type}`;
   }
-  const res = await fetch(url);
+  const res = await fetchWithTimeout(url, { timeout });
   return await res.json();
 }
 
