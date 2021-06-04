@@ -88,7 +88,6 @@ class RecordMapper(BaseRecordMapper):
         try:
             numero, voie = self._parse_address(record)
 
-            self.erp.private_contact_email = None
             self.erp.telephone = record["telephone"]
             self.erp.code_insee = record["code_commune_insee"]
             self.erp.code_postal = record["code_postal"]
@@ -97,6 +96,7 @@ class RecordMapper(BaseRecordMapper):
             self.erp.geom = self._import_coordinates(record)
             self.erp.site_internet = record["url"]
             self.erp.nom = record["service"]
+            self.erp.contact_url = "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr"
         except (KeyError, IndexError) as err:
             raise RuntimeError(f"Impossible d'extraire des données: {str(err)}")
 
