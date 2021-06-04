@@ -28,6 +28,11 @@ def test_basic_stats(import_dataset, gendarmeries_valid):
         source_id=gendarmeries_valid[0]["identifiant_public_unite"]
     ).first()
     assert erp is not None
+    assert erp.voie is not None
+    assert (
+        erp.contact_url
+        == "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr"
+    )
     assert (imported, skipped) == (3, 0)
 
 
