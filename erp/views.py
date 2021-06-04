@@ -183,6 +183,8 @@ def search(request):
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
+    # what
+    qs = qs.search_what(what)
     # where
     qs = qs.search_where(
         search_where_label,
@@ -190,8 +192,6 @@ def search(request):
         lat=request.GET.get("lat"),
         lon=request.GET.get("lon"),
     )
-    # what
-    qs = qs.search_what(what)
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
