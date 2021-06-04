@@ -1,10 +1,7 @@
 import sys
 
 from django.core.management.base import BaseCommand
-from erp.imports.mapper.vaccination import RecordMapper
 
-from erp.imports.fetcher import JsonFetcher
-from erp.imports.importer import Importer
 from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
 
 

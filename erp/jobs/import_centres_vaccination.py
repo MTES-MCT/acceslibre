@@ -5,7 +5,7 @@ import sys
 from django.conf import settings
 
 from core import mailer
-from erp.imports.fetcher import CsvFetcher, JsonFetcher
+from erp.imports.fetcher import JsonFetcher
 from erp.imports.importer import Importer
 from erp.imports.mapper.vaccination import RecordMapper
 
