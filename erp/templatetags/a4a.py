@@ -85,11 +85,18 @@ def format_distance(value):
     if value.m == 0:
         return "Au même endroit"
     elif value.m < 1500:
-        return f"À {round(value.m)} m"
+        return mark_safe(
+            f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> mètres</i>'
+        )
     elif value.m < 10000:
-        return f"À {value.km:.2f} km"
+        formatted = f"{value.km:.2f}".replace(".", ",")
+        return mark_safe(
+            f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>'
+        )
     else:
-        return f"À {round(value.km)} km"
+        return mark_safe(
+            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>'
+        )
 
 
 @register.filter(name="format_isodate")
