@@ -1,16 +1,16 @@
 import api from "../api";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
-async function getCommonResults() {
-  const loc = await api.loadUserLocation({ retrieve: false });
+async function getCommonResults(loc) {
   return [
-    { id: "around_me", text: `Autour de moi ${loc ? loc.label : ""}`, icon: "street-view" },
+    { id: "around_me", text: `Autour de moi ${loc?.label || ""}`, icon: "street-view" },
     { id: "france_entiere", text: "France entière", icon: "france" },
   ];
 }
 
 function SearchWhere(root) {
   const input = root.querySelector("input[type=search]");
+  const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
   const hiddenWhereField = root.querySelector("input[name=where]");
   const hiddenLatField = root.querySelector("input[name=lat]");
   const hiddenLonField = root.querySelector("input[name=lon]");
@@ -40,12 +40,16 @@ function SearchWhere(root) {
       }
 
       if (result.id === "around_me") {
+        if (api.hasPermission("geolocation") !== "granted") {
+          a11yGeolocBtn.focus();
+        }
         const loc = await api.loadUserLocation();
         if (!loc) {
           console.warn("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
           setLatLon(null);
           setSearchValue("");
         } else {
+          input.focus();
           setLatLon(loc);
           setSearchValue(`Autour de moi ${loc.label}`);
         }
@@ -68,7 +72,8 @@ function SearchWhere(root) {
     },
 
     search: async (input) => {
-      const commonResults = await getCommonResults();
+      const loc = await api.loadUserLocation({ retrieve: false });
+      const commonResults = await getCommonResults(loc);
       if (input.length < 1) {
         return commonResults;
       }
