@@ -33,6 +33,16 @@ function getCurrentPosition(options = { timeout: 10000 }) {
   });
 }
 
+async function hasPermission(name) {
+  // Exemple name: "geolocation"
+  if (!navigator?.permissions?.query) {
+    return;
+  }
+  // Will return ['granted', 'prompt', 'denied']
+  const { state } = await navigator.permissions.query({ name });
+  return state;
+}
+
 async function getUserLocation(options) {
   const {
     coords: { latitude: lat, longitude: lon },
@@ -88,6 +98,7 @@ function saveUserLocation(loc) {
 }
 
 export default {
+  hasPermission,
   getUserLocation,
   loadUserLocation,
   reverseGeocode,
