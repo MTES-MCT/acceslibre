@@ -5,6 +5,7 @@ from erp.imports.mapper.vaccination import RecordMapper
 
 from erp.imports.fetcher import JsonFetcher
 from erp.imports.importer import Importer
+from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
 
 
 def fatal(msg):
@@ -34,14 +35,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Importation des centres de vaccination")
-
-        try:
-            fetcher = JsonFetcher()
-            mapper = RecordMapper(
-                fetcher=fetcher, dataset_url=options.get("dataset-url")
-            )
-            Importer(mapper=mapper, is_scheduler=options.get("scheduler")).job(
-                verbose=options.get("verbose")
-            )
-        except RuntimeError as err:
-            fatal(err)
+        ImportVaccinationsCenters(is_scheduler=options.get("scheduler")).job(
+            verbose=options.get("verbose")
+        )
