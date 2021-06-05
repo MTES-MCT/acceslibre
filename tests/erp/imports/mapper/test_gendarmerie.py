@@ -66,3 +66,26 @@ def test_fail_on_schema_change(import_dataset, gendarmeries_valid):
 
     imported, skipped, errors = import_dataset(gendarmeries_invalid).job()
     assert (imported, skipped) == (2, 1)
+
+
+def test_horaires(import_dataset, gendarmeries_valid):
+    imported, skipped, errors = import_dataset(gendarmeries_valid).job()
+    assert (imported, skipped, errors) == (3, 0, [])
+
+    erp = Erp.objects.filter(
+        source_id=gendarmeries_valid[0]["identifiant_public_unite"]
+    ).first()
+
+    assert "Horaires d'accueil" in erp.accessibilite.commentaire
+    assert "Lundi : 8h00-12h00 14h00-18h00" in erp.accessibilite.commentaire
+
+
+def test_horaires_missing(import_dataset, gendarmeries_valid):
+    imported, skipped, errors = import_dataset(gendarmeries_valid).job()
+    assert (imported, skipped, errors) == (3, 0, [])
+
+    erp = Erp.objects.filter(
+        source_id=gendarmeries_valid[1]["identifiant_public_unite"]
+    ).first()
+
+    assert "Horaires d'accueil" not in erp.accessibilite.commentaire

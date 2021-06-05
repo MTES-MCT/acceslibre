@@ -135,9 +135,17 @@ class RecordMapper(BaseRecordMapper):
         self.erp.accessibilite.commentaire = self._build_comment(record)
 
     def _build_comment(self, record):
-        horaires = re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())
-        stripped = [s.strip() for s in horaires]
-        comment = "Horaires d'accueil: \n"
-        for h in stripped:
-            comment += h + "\n"
+        date = self.today.strftime("%d/%m/%Y")
+        comment = (
+            f"Ces informations ont été importées depuis data.gouv.fr le {date} "
+            "https://www.data.gouv.fr/fr/datasets/liste-des-unites-de-gendarmerie-accueillant-du-public-comprenant-leur-geolocalisation-et-leurs-horaires-douverture/"
+        )
+        horaires = [
+            s.strip()
+            for s in re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())
+        ]
+        if len(horaires) > 0:
+            comment += "\n\nHoraires d'accueil: \n"
+            for horaire in horaires:
+                comment += horaire + "\n"
         return comment.rstrip()
