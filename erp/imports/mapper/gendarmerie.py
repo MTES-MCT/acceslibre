@@ -4,16 +4,12 @@ from datetime import datetime
 from django.contrib.gis.geos import Point
 
 from erp.imports.mapper.base import BaseRecordMapper
-from erp.imports.fetcher import Fetcher
 from erp.models import Activite, Erp, Commune, Accessibilite
 from erp.provider import arrondissements
 
 
-class RecordMapper(BaseRecordMapper):
-    dataset_url = (
-        "https://www.data.gouv.fr/fr/datasets/r/061a5736-8fc2-4388-9e55-8cc31be87fa0"
-    )
-    activite = "gendarmerie"
+class GendarmerieMapper(BaseRecordMapper):
+    activite = Activite.objects.get(slug="gendarmerie")
     erp = None
     fields = [
         "identifiant_public_unite",
@@ -28,34 +24,28 @@ class RecordMapper(BaseRecordMapper):
         "horaires_accueil",
     ]
 
-    def __init__(self, fetcher: Fetcher, dataset_url: str = dataset_url, today=None):
+    def __init__(self, record, today=None):
+        self.record = record
         self.today = today if today is not None else datetime.today()
-        self.fetcher = fetcher
 
-    def fetch_data(self):
-        data = self.fetcher.fetch(self.dataset_url)
-
-        if not all(field in self.fetcher.fieldnames for field in self.fields):
-            raise RuntimeError("Missmatch fields in CSV")
-        return data
-
-    def process(self, record, activite: Activite) -> Erp:
+    def process(self) -> Erp:
         erp = Erp.objects.find_by_source_id(
-            Erp.SOURCE_GENDARMERIE, record["identifiant_public_unite"]
+            Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
         )
         if not erp:
             erp = Erp(
                 source=Erp.SOURCE_GENDARMERIE,
-                source_id=record["identifiant_public_unite"],
-                activite=activite,
+                source_id=self.record["identifiant_public_unite"],
+                activite=self.activite,
             )
 
         self.erp = erp
-        self.populate_basic_fields(record)
+        self.populate_basic_fields(self.record)
         self._retrieve_commune_ext()
-        self.populate_accessibilite(record)
+        self.populate_accessibilite(self.record)
 
-        return erp
+        # FIXME: discard erps when they're no more listed in the datagouv dataset
+        return (self.erp, False)
 
     def _parse_address(self, record):
         res = record["voie"].split(" ")
