@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 
-from erp.imports.mapper import SkippedRecord, UnpublishedRecord
+from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.vaccination import (
     VaccinationMapper,
     RAISON_RESERVE_PS,
@@ -52,20 +52,20 @@ def test_handle_malformed_rdv_url(mapper, updates, neufchateau, sample_record_ok
     sample_malformed_rdv_url = sample_record_ok.copy()
     sample_malformed_rdv_url["properties"].update(updates)
 
-    erp = mapper(sample_malformed_rdv_url).process()
+    erp, _ = mapper(sample_malformed_rdv_url).process()
 
     assert erp.metadata["centre_vaccination"]["url_rdv"] is None
 
 
 def test_source_id(mapper, neufchateau, sample_record_ok):
-    erp = mapper(sample_record_ok.copy()).process()
+    erp, _ = mapper(sample_record_ok.copy()).process()
 
     assert erp.source_id == "219"
 
 
 def test_source_id_missing(mapper):
     with pytest.raises(RuntimeError) as err:
-        m = mapper({"geometry": [], "properties": {"c_gid": None}}).process()
+        m, _ = mapper({"geometry": [], "properties": {"c_gid": None}}).process()
         m.source_id
 
     assert "Champ c_gid manquant" in str(err.value)
@@ -193,7 +193,7 @@ def test_skip_importing_etablissements_penitentiares(
 
 
 def test_save_non_existing_erp(mapper, neufchateau, sample_record_ok, activite_cdv):
-    erp = mapper(sample_record_ok, today=datetime(2021, 1, 1)).process()
+    erp, _ = mapper(sample_record_ok, today=datetime(2021, 1, 1)).process()
 
     assert erp.published is True
     assert erp.user_id is None
@@ -246,7 +246,7 @@ def test_save_non_existing_erp(mapper, neufchateau, sample_record_ok, activite_c
 
 def test_update_existing_erp(mapper, neufchateau, sample_record_ok):
     m1 = mapper(sample_record_ok, today=datetime(2021, 1, 1))
-    erp1 = m1.process()
+    erp1, _ = m1.process()
     erp1.accessibilite.commentaire = "user contrib"
     erp1.save()
     erp1.accessibilite.save()
@@ -255,7 +255,7 @@ def test_update_existing_erp(mapper, neufchateau, sample_record_ok):
     sample_record_ok_updated = sample_record_ok.copy()
     sample_record_ok_updated["properties"]["c_rdv_tel"] = "1234"
     m2 = mapper(sample_record_ok_updated, today=datetime(2021, 1, 2))
-    erp2 = m2.process()
+    erp2, _ = m2.process()
 
     assert erp1.id == erp2.id
     assert erp2.telephone == "1234"

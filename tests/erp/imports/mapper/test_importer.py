@@ -3,7 +3,7 @@ import pytest
 from datetime import datetime
 from django.db import DataError
 
-from erp.imports.mapper import SkippedRecord, UnpublishedRecord
+from erp.imports.mapper import SkippedRecord
 
 
 def test_unpublish_closed_erp(mapper, neufchateau, sample_record_ok, capsys):
@@ -14,14 +14,9 @@ def test_unpublish_closed_erp(mapper, neufchateau, sample_record_ok, capsys):
     sample_closed = sample_record_ok.copy()
     sample_closed["properties"]["c_date_fermeture"] = "2021-01-01"
 
-    with pytest.raises(UnpublishedRecord) as err:
-        mapper(sample_closed, today=datetime(2021, 1, 2)).process()
+    erp, reason = mapper(sample_closed, today=datetime(2021, 1, 2)).process()
 
-    assert "fermé" in str(err.value)
-    assert err.value.erp is not None
-    assert err.value.erp.published is False
-
-    erp1 = erp1.refresh_from_db()
+    assert "fermé" in reason
     assert erp1.published is False
 
 

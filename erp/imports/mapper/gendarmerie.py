@@ -43,7 +43,7 @@ class GendarmerieMapper:
         self._retrieve_commune_ext()
         self.populate_accessibilite(self.record)
 
-        return self.erp
+        return self.erp, None
 
     def _parse_address(self, record):
         res = record["voie"].split(" ")

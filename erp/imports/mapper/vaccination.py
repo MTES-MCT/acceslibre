@@ -6,7 +6,7 @@ from django.db.utils import DataError
 from core.lib import text
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
-from erp.imports.mapper import SkippedRecord, UnpublishedRecord
+from erp.imports.mapper import SkippedRecord
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
 RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
@@ -18,6 +18,7 @@ RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 class VaccinationMapper:
     activite = None
     erp = None
+    unpublish_reason = None
 
     FIELDS_MAP = {
         "c_nom": "nom",
@@ -109,13 +110,13 @@ class VaccinationMapper:
         except DataError as err:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
-        return self.erp
+        return self.erp, self.unpublish_reason
 
     def _discard(self, msg):
         "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
         if self.erp_exists:
             self.erp.published = False
-            raise UnpublishedRecord(msg, erp=self.erp)
+            self.unpublish_reason = msg
         else:
             raise SkippedRecord(msg)
 
