@@ -4,8 +4,9 @@ from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
-from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
+from erp.imports.mapper import SkippedRecord, UnpublishedRecord
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
 RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
@@ -15,7 +16,6 @@ RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 
 
 class VaccinationMapper:
-    discard_reason = None
     activite = None
     erp = None
 
@@ -109,8 +109,15 @@ class VaccinationMapper:
         except DataError as err:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
-        # FIXME: discard erps when they're no more listed in the datagouv dataset
-        return self.erp, self.discard_reason
+        return self.erp
+
+    def _discard(self, msg):
+        "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
+        if self.erp_exists:
+            self.erp.published = False
+            raise UnpublishedRecord(msg, erp=self.erp)
+        else:
+            raise SkippedRecord(msg)
 
     def _build_commentaire(self):
         "Retourne un commentaire informatif à propos de l'import"
@@ -179,11 +186,11 @@ class VaccinationMapper:
         "Vérifications d'exclusion d'import ou de mise à jour"
         ferme_depuis = self._check_closed()
         if ferme_depuis:
-            self.discard_reason = f"Centre fermé le {ferme_depuis}"
+            self._discard(f"Centre fermé le {ferme_depuis}")
 
         raison_ecartement = self._check_ecartement()
         if raison_ecartement:
-            self.discard_reason = raison_ecartement
+            self._discard(raison_ecartement)
 
     def _fetch_or_create_erp(self):
         "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"
