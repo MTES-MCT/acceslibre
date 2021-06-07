@@ -276,8 +276,8 @@
     },
     {
       "name": "cheminement_ext_presence",
-      "title": "Cheminement extérieur",
-      "description": "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur",
+      "title": "Chemin extérieur",
+      "description": "L'accès à l'entrée depuis la voirie se fait par un chemin extérieur",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -338,7 +338,7 @@
     },
     {
       "name": "cheminement_ext_plain_pied",
-      "title": "Cheminement extérieur de plain-pied",
+      "title": "Chemin extérieur de plain-pied",
       "description": "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)",
       "type": "boolean",
       "trueValues": [
@@ -497,7 +497,7 @@
     {
       "name": "cheminement_ext_pente_presence",
       "title": "Pente",
-      "description": "Le cheminement est-il en pente ?",
+      "description": "Le chemin est-il en pente ?",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -555,7 +555,7 @@
     {
       "name": "cheminement_ext_devers",
       "title": "Dévers",
-      "description": "Un dévers est une inclinaison transversale du cheminement. S'il en existe un, quel est son degré de difficulté ?",
+      "description": "Un dévers est une inclinaison transversale du chemin. S'il en existe un, quel est son degré de difficulté ?",
       "type": "string",
       "constraints": {
         "enum": [
@@ -599,7 +599,7 @@
     },
     {
       "name": "cheminement_ext_retrecissement",
-      "title": "Rétrécissement du cheminement",
+      "title": "Rétrécissement du chemin",
       "description": "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée",
       "type": "boolean",
       "trueValues": [
@@ -1355,7 +1355,7 @@
     },
     {
       "name": "accueil_retrecissement",
-      "title": "Rétrécissement du cheminement",
+      "title": "Rétrécissement du chemin",
       "description": "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée",
       "type": "boolean",
       "trueValues": [
