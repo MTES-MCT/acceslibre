@@ -3,7 +3,7 @@ from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 
 
-ROOT_DATASETS_API = "https://www.data.gouv.fr/api/1/datasets/"
+ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
 
 
 class Importer:
@@ -14,14 +14,14 @@ class Importer:
 
     def process(self):
         # TODO: handle try/except stuff
-        records = self.fetcher.fetch(f"{ROOT_DATASETS_API}/{self.id}")
+        records = self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}")
         for record in records:
             (erp, discarded) = self.mapper(record).process()
             # TODO: handle discarded
             if discarded:
                 erp.published = False
             erp.save()
-            # Handle logging
+            # TODO: Handle logging
 
 
 Importer(
