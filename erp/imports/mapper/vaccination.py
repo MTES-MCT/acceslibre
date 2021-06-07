@@ -4,7 +4,6 @@ from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
-from erp.imports.mapper.base import BaseRecordMapper
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import arrondissements
 
@@ -15,8 +14,9 @@ RAISON_RESERVE_PS = "Réservé aux professionnels de santé"
 RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 
 
-class VaccinationMapper(BaseRecordMapper):
+class VaccinationMapper:
     activite = Activite.objects.get(slug="centre-de-vaccination")
+    discarded = False
     erp = None
 
     FIELDS_MAP = {

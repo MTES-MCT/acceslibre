@@ -3,13 +3,13 @@ from datetime import datetime
 
 from django.contrib.gis.geos import Point
 
-from erp.imports.mapper.base import BaseRecordMapper
 from erp.models import Activite, Erp, Commune, Accessibilite
 from erp.provider import arrondissements
 
 
-class GendarmerieMapper(BaseRecordMapper):
+class GendarmerieMapper:
     activite = Activite.objects.get(slug="gendarmerie")
+    discarded = False
     erp = None
     fields = [
         "identifiant_public_unite",
@@ -45,7 +45,7 @@ class GendarmerieMapper(BaseRecordMapper):
         self.populate_accessibilite(self.record)
 
         # FIXME: discard erps when they're no more listed in the datagouv dataset
-        return (self.erp, False)
+        return (self.erp, self.discarded)
 
     def _parse_address(self, record):
         res = record["voie"].split(" ")
