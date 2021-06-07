@@ -15,8 +15,8 @@ RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 
 
 class VaccinationMapper:
-    activite = Activite.objects.get(slug="centre-de-vaccination")
-    discarded = False
+    discard_reason = None
+    activite = None
     erp = None
 
     FIELDS_MAP = {
@@ -53,12 +53,13 @@ class VaccinationMapper:
         "USMP": RAISON_RESERVE_CARCERAL,
     }
 
-    def __init__(self, record, today=None):
+    def __init__(self, record, activite=None, today=None):
         self.record = record
         self.erp = None
         self.geometry = None
         self.props = None
         self.today = today if today is not None else datetime.today()
+        self.activite = activite
 
     @property
     def source_id(self):
@@ -109,7 +110,7 @@ class VaccinationMapper:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
         # FIXME: discard erps when they're no more listed in the datagouv dataset
-        return (self.erp, self.discarded)
+        return self.erp, self.discard_reason
 
     def _build_commentaire(self):
         "Retourne un commentaire informatif à propos de l'import"
@@ -178,21 +179,11 @@ class VaccinationMapper:
         "Vérifications d'exclusion d'import ou de mise à jour"
         ferme_depuis = self._check_closed()
         if ferme_depuis:
-            self._discard(f"Centre fermé le {ferme_depuis}")
+            self.discard_reason = f"Centre fermé le {ferme_depuis}"
 
         raison_ecartement = self._check_ecartement()
         if raison_ecartement:
-            self._discard(raison_ecartement)
-
-    def _discard(self, msg):
-        "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
-        if self.erp_exists:
-            self.erp.published = False
-            self.erp.save()
-            msg = "MIS HORS LIGNE: " + msg
-        else:
-            msg = "ÉCARTÉ: " + msg
-        raise RuntimeError(msg)
+            self.discard_reason = raison_ecartement
 
     def _fetch_or_create_erp(self):
         "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"

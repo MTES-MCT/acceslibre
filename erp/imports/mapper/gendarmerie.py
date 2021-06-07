@@ -8,7 +8,6 @@ from erp.provider import arrondissements
 
 
 class GendarmerieMapper:
-    activite = Activite.objects.get(slug="gendarmerie")
     discarded = False
     erp = None
     fields = [
@@ -24,11 +23,12 @@ class GendarmerieMapper:
         "horaires_accueil",
     ]
 
-    def __init__(self, record, today=None):
+    def __init__(self, record, activite=None, today=None):
         self.record = record
         self.today = today if today is not None else datetime.today()
+        self.activite = activite
 
-    def process(self) -> Erp:
+    def process(self):
         erp = Erp.objects.find_by_source_id(
             Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
         )
@@ -45,7 +45,7 @@ class GendarmerieMapper:
         self.populate_accessibilite(self.record)
 
         # FIXME: discard erps when they're no more listed in the datagouv dataset
-        return (self.erp, self.discarded)
+        return self.erp, None
 
     def _parse_address(self, record):
         res = record["voie"].split(" ")
