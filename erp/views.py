@@ -371,6 +371,39 @@ def mon_identifiant(request):
 
 
 @login_required
+def mon_email(request):
+    if request.method == "POST":
+        form = forms.EmailChangeForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            user = get_user_model().objects.get(id=request.user.id)
+            old_email = user.email
+            user.email = email
+            user.save()
+            LogEntry.objects.log_action(
+                user_id=request.user.id,
+                content_type_id=ContentType.objects.get_for_model(user).pk,
+                object_id=user.id,
+                object_repr=email,
+                action_flag=CHANGE,
+                change_message=f"Changement de nom d'utilisateur (avant: {old_email})",
+            )
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                f"Votre email a été changé en {user.email}.",
+            )
+            return redirect("mon_identifiant")
+    else:
+        form = forms.UsernameChangeForm(initial={"email": request.user.email})
+    return render(
+        request,
+        "compte/mon_email.html",
+        context={"form": form},
+    )
+
+
+@login_required
 def mes_erps(request):
     qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
         user_id=request.user.pk

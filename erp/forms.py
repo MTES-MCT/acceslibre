@@ -57,6 +57,13 @@ def define_username_field():
     )
 
 
+def define_email_field():
+    return forms.EmailField(
+        required=True,
+        label="Email",
+    )
+
+
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = get_user_model()
@@ -97,6 +104,21 @@ class UsernameChangeForm(forms.Form):
         if get_user_model().objects.filter(username__iexact=username).count() > 0:
             raise ValidationError("Ce nom d'utilisateur est déjà pris.")
         return username
+
+
+class EmailChangeForm(forms.Form):
+    email1 = define_email_field()
+    email2 = define_email_field()
+
+    def clean_email(self):
+        email1 = self.cleaned_data["email1"]
+        email2 = self.cleaned_data["email2"]
+        if email1 != email2:
+            raise ValidationError("Les emails ne correspondent pas")
+
+        if get_user_model().objects.filter(email__iexact=email1).count() > 0:
+            raise ValidationError("Veuillez choisir un email différent")
+        return email1
 
 
 class AdminAccessibiliteForm(forms.ModelForm):
