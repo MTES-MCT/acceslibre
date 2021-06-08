@@ -30,7 +30,11 @@ def test_unpublish_closed_erp(neufchateau, sample_record_ok, activite_cdv):
     today = datetime(2021, 1, 1)
     mapper = VaccinationMapper
     Importer(
-        "", fetcher=fetcher, mapper=mapper, activite=activite_cdv, today=today
+        "fake-id",
+        fetcher=fetcher,
+        mapper=mapper,
+        activite=activite_cdv,
+        today=today,
     ).process()
 
     # reimport the same record, but this time it's closed
@@ -41,7 +45,11 @@ def test_unpublish_closed_erp(neufchateau, sample_record_ok, activite_cdv):
     today = datetime(2021, 1, 2)
     mapper = VaccinationMapper
     Importer(
-        "", fetcher=fetcher, mapper=mapper, activite=activite_cdv, today=today
+        "fake-id",
+        fetcher=fetcher,
+        mapper=mapper,
+        activite=activite_cdv,
+        today=today,
     ).process()
 
     erp = Erp.objects.get(source_id=sample_record_ok["properties"]["c_gid"])

@@ -20,7 +20,8 @@ class Command(BaseCommand):
             notify_changed_erps.job, verbose=True
         )
         schedule.every().hour.do(
-            ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
+            ImportVaccinationsCenters(is_scheduler=True).job,
+            verbose=True,
         )
         schedule.every().week.do(
             ImportGendarmerie(is_scheduler=True, mail_notification=True).job,
