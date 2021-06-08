@@ -57,10 +57,17 @@ class VaccinationMapper:
     def __init__(self, record, activite=None, today=None):
         self.record = record
         self.erp = None
-        self.geometry = None
-        self.props = None
         self.today = today if today is not None else datetime.today()
         self.activite = activite
+
+        try:
+            self.geometry = self.record["geometry"]
+            self.props = self.record["properties"]
+        except KeyError as err:
+            raise RuntimeError(f"Propriété manquante {err}: {self.record}")
+        # Clean string properties
+        for key, val in self.props.items():
+            self.props[key] = text.strip_if_str(val)
 
     @property
     def source_id(self):
@@ -74,15 +81,6 @@ class VaccinationMapper:
         return self.erp and self.erp.id is not None
 
     def process(self):
-        try:
-            self.geometry = self.record["geometry"]
-            self.props = self.record["properties"]
-        except KeyError as err:
-            raise RuntimeError(f"Propriété manquante {err}: {self.record}")
-        # Clean string properties
-        for key, val in self.props.items():
-            self.props[key] = text.strip_if_str(val)
-
         "Procède aux vérifications et à l'import de l'enregistrement"
         # Création ou récupération d'un ERP existant
         self._fetch_or_create_erp()

@@ -3,6 +3,7 @@ import pytest
 
 from django.contrib.gis.geos import Point
 
+from erp.imports.fetcher import Fetcher
 from erp.models import Commune
 
 
@@ -160,3 +161,11 @@ def gendarmeries_valid(db):
             "url": "https://lannuaire.service-public.fr/auvergne-rhone-alpes/ain/gendarmerie-01034-01",
         },
     ]
+
+
+class FakeJsonFetcher(Fetcher):
+    def __init__(self, content):
+        self.content = content
+
+    def fetch(self, url=None):
+        return self.content

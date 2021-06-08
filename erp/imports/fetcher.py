@@ -1,7 +1,6 @@
 import csv
 import io
 import json
-from logging import log
 
 import requests
 
@@ -23,7 +22,6 @@ class JsonFetcher(Fetcher):
             res = super().fetch(url).json()
             return self.hook(res)
         except KeyError as err:
-            print(res)
             raise RuntimeError(f"Erreur de clé JSON: {err}")
         except json.JSONDecodeError as err:
             raise RuntimeError(f"Erreur de décodage des données JSON:\n  {err}")
@@ -50,17 +48,3 @@ class CsvFetcher(Fetcher):
             raise RuntimeError(
                 f"Erreur de récupération des données CSV: {url}:\n  {err}"
             )
-
-
-class VoidFetcher(Fetcher):
-    def fetch(self, url):
-        return None
-
-
-class StringFetcher(Fetcher):
-    def __init__(self, content, fieldnames=None):
-        self.content = content
-        self.fieldnames = fieldnames
-
-    def fetch(self, url=None):
-        return self.content
