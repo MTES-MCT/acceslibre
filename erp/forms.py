@@ -632,7 +632,7 @@ class PublicPublicationForm(forms.ModelForm):
         if not url:
             return None
         try:
-            req = requests.head(self.cleaned_data["registre_url"])
+            req = requests.get(self.cleaned_data["registre_url"], timeout=1)
             if not req.ok:
                 raise ValidationError(
                     f"Cette URL est en erreur HTTP {req.status_code}, veuillez vérifier votre saisie."
