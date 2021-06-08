@@ -3,6 +3,7 @@ import pytest
 
 from django.contrib.gis.geos import Point
 
+from erp.imports.fetcher import Fetcher
 from erp.models import Commune
 
 
@@ -156,7 +157,15 @@ def gendarmeries_valid(db):
             "geocodage_y": "",
             "geocodage_x_GPS": "5.68275",
             "geocodage_y_GPS": "45.75554",
-            "horaires_accueil": " Lundi : 8h00-12h00 14h00-18h00 Mardi : 8h00-12h00 14h00-18h00 Mercredi : 8h00-12h00 14h00-18h00 Jeudi : 8h00-12h00 14h00-18h00 Vendredi : 8h00-12h00 14h00-18h00 Samedi : 8h00-12h00 14h00-18h00 Dimanche : 9h00-12h00 15h00-18h00",
+            "horaires_accueil": "",
             "url": "https://lannuaire.service-public.fr/auvergne-rhone-alpes/ain/gendarmerie-01034-01",
         },
     ]
+
+
+class FakeJsonFetcher(Fetcher):
+    def __init__(self, content):
+        self.content = content
+
+    def fetch(self, url=None):
+        return self.content
