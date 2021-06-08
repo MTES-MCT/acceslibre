@@ -3,6 +3,7 @@ import sys
 
 from datetime import datetime
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 
 from erp.imports import fetcher
@@ -97,8 +98,9 @@ Erreurs rencontrées
 
 
 def build_summary(dataset, results):
+    environment = "RECETTE" if settings.STAGING else "PRODUCTION"
     datestr = datetime.strftime(datetime.now(), "%d/%m/%Y à %H:%M:%S")
-    return f"""Statistiques d'import {dataset} effectué le {datestr}:
+    return f"""Statistiques d'import {dataset} effectué le {datestr} en {environment} ({settings.SITE_HOST}):
 
 - Importés: {len(results['imported'])}
 - Écartés: {len(results['skipped'])}
