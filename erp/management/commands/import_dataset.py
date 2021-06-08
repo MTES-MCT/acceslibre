@@ -109,8 +109,10 @@ def build_summary(dataset, results):
 
 
 def ping_mattermost(summary, errors):
+    if not settings.MATTERMOST_HOOK:
+        return
     requests.post(
-        "https://mattermost.incubateur.net/hooks/gam18nzoqjga5pjzrq6esg4pfr",
+        settings.MATTERMOST_HOOK,
         json={
             "text": summary,
             "attachments": [

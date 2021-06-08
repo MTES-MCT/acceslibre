@@ -1,13 +1,17 @@
+import logging
+
 from datetime import datetime
 
 from django.db import DataError, DatabaseError, transaction
 from django.db.transaction import TransactionManagementError
 
 from erp.imports.mapper import SkippedRecord
-
 from erp.models import Accessibilite
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
+
+
+logger = logging.getLogger(__name__)
 
 
 class Importer:
@@ -33,9 +37,8 @@ class Importer:
 
         for record in self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}"):
             try:
-                (erp, unpublish_reason) = self.mapper(
-                    record, self.activite, self.today
-                ).process()
+                mapper = self.mapper(record, self.activite, self.today)
+                (erp, unpublish_reason) = mapper.process()
                 if not erp:
                     self.log_char("X")
                     continue
@@ -64,6 +67,7 @@ class Importer:
                 self.print_char("E")
                 results["errors"].append(f"{str(erp)}: {str(err)}")
             except (TransactionManagementError, DataError, DatabaseError) as err:
+                logger.error(f"Database error while importing dataset: {err}")
                 self.print_char("E")
                 results["errors"].append(f"{str(erp)}: {str(err)}")
 
