@@ -1,12 +1,11 @@
 import schedule
 import time
 
+from django.core import management
 from django.core.management.base import BaseCommand
 
 from erp.jobs import check_closed_erps, purge_accounts
-from erp.jobs.import_gendarmerie import ImportGendarmerie
 from subscription.jobs import notify_changed_erps
-from erp.jobs.import_centres_vaccination import ImportVaccinationsCenters
 
 
 class Command(BaseCommand):
@@ -20,11 +19,10 @@ class Command(BaseCommand):
             notify_changed_erps.job, verbose=True
         )
         schedule.every().hour.do(
-            ImportVaccinationsCenters(is_scheduler=True).job, verbose=True
+            management.call_command("import_dataset", "vaccination")
         )
         schedule.every().week.do(
-            ImportGendarmerie(is_scheduler=True, mail_notification=True).job,
-            verbose=False,
+            management.call_command("import_dataset", "gendarmerie")
         )
         print("Scheduler started")
         while True:

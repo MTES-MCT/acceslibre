@@ -4,10 +4,9 @@ from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
-from erp.imports.mapper.base import BaseRecordMapper
-from erp.imports.fetcher import Fetcher
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
+from erp.imports.mapper import SkippedRecord
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
 RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"
@@ -16,10 +15,10 @@ RAISON_RESERVE_PS = "Réservé aux professionnels de santé"
 RAISON_RESERVE_CARCERAL = "Centre réservé à la population carcérale"
 
 
-class RecordMapper(BaseRecordMapper):
-    root_dataset_url = "https://www.data.gouv.fr/api/1/datasets/lieux-de-vaccination-contre-la-covid-19/"
-    dataset_url = None
-    activite = "centre-de-vaccination"
+class VaccinationMapper:
+    activite = None
+    erp = None
+    unpublish_reason = None
 
     FIELDS_MAP = {
         "c_nom": "nom",
@@ -55,13 +54,20 @@ class RecordMapper(BaseRecordMapper):
         "USMP": RAISON_RESERVE_CARCERAL,
     }
 
-    def __init__(self, fetcher: Fetcher, dataset_url: str = None, today=None):
+    def __init__(self, record, activite=None, today=None):
+        self.record = record
         self.erp = None
-        self.geometry = None
-        self.props = None
         self.today = today if today is not None else datetime.today()
-        self.fetcher = fetcher
-        self.dataset_url = dataset_url or self._retrieve_latest_dataset_url()
+        self.activite = activite
+
+        try:
+            self.geometry = self.record["geometry"]
+            self.props = self.record["properties"]
+        except KeyError as err:
+            raise RuntimeError(f"Propriété manquante {err}: {self.record}")
+        # Clean string properties
+        for key, val in self.props.items():
+            self.props[key] = text.strip_if_str(val)
 
     @property
     def source_id(self):
@@ -74,19 +80,10 @@ class RecordMapper(BaseRecordMapper):
     def erp_exists(self):
         return self.erp and self.erp.id is not None
 
-    def process(self, record, activite):
-        try:
-            self.geometry = record["geometry"]
-            self.props = record["properties"]
-        except KeyError as err:
-            raise RuntimeError(f"Propriété manquante {err}: {record}")
-        # Clean string properties
-        for key, val in self.props.items():
-            self.props[key] = text.strip_if_str(val)
-
+    def process(self):
         "Procède aux vérifications et à l'import de l'enregistrement"
         # Création ou récupération d'un ERP existant
-        self._fetch_or_create_erp(activite)
+        self._fetch_or_create_erp()
         self._check_importable()
         self._import_basic_erp_fields()
         self._import_coordinates()
@@ -111,32 +108,15 @@ class RecordMapper(BaseRecordMapper):
         except DataError as err:
             raise RuntimeError(f"Erreur à l'enregistrement des données: {err}") from err
 
-        return self.erp
+        return self.erp, self.unpublish_reason
 
-    def _retrieve_latest_dataset_url(self):
-        try:
-            json_data = self.fetcher.fetch(self.root_dataset_url)
-            json_resources = [
-                resource
-                for resource in json_data["resources"]
-                if resource["format"] == "json"
-            ]
-
-            if len(json_resources) == 0:
-                raise RuntimeError("Jeu de données absent.")
-            return json_resources[0]["latest"]
-        except (KeyError, IndexError, ValueError) as err:
-            raise RuntimeError(
-                f"Impossible de parser les données depuis {self.dataset_url}:\n{err}"
-            )
-
-    def fetch_data(self):
-        json_data = self.fetcher.fetch(self.dataset_url)
-
-        if "features" not in json_data:
-            raise RuntimeError("Liste des centres manquante")
-
-        return json_data["features"]
+    def _discard(self, msg):
+        "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
+        if self.erp_exists:
+            self.erp.published = False
+            self.unpublish_reason = msg
+        else:
+            raise SkippedRecord(msg)
 
     def _build_commentaire(self):
         "Retourne un commentaire informatif à propos de l'import"
@@ -211,24 +191,14 @@ class RecordMapper(BaseRecordMapper):
         if raison_ecartement:
             self._discard(raison_ecartement)
 
-    def _discard(self, msg):
-        "Écarte cet enregistrement de l'import, et dépublie l'Erp existant en base si besoin"
-        if self.erp_exists:
-            self.erp.published = False
-            self.erp.save()
-            msg = "MIS HORS LIGNE: " + msg
-        else:
-            msg = "ÉCARTÉ: " + msg
-        raise RuntimeError(msg)
-
-    def _fetch_or_create_erp(self, activite):
+    def _fetch_or_create_erp(self):
         "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"
         erp = Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, self.source_id)
         if not erp:
             erp = Erp(
                 source=Erp.SOURCE_VACCINATION,
                 source_id=self.source_id,
-                activite=activite,
+                activite=self.activite,
             )
         self.erp = erp
 
@@ -265,7 +235,10 @@ class RecordMapper(BaseRecordMapper):
             )
 
         if not commune_ext:
-            raise RuntimeError("Impossible de résoudre la commune")
+            raise RuntimeError(
+                f"Impossible de résoudre la commune depuis le code INSEE ({self.erp.code_insee}) "
+                f"ou le code postal ({self.erp.code_postal}) "
+            )
 
         self.erp.commune_ext = commune_ext
         self.erp.commune = commune_ext.nom

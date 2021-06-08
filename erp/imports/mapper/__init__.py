@@ -1,0 +1,2 @@
+class SkippedRecord(Exception):
+    pass
