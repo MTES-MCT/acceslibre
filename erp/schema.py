@@ -228,8 +228,8 @@ SECTIONS = {
     },
     SECTION_CHEMINEMENT_EXT: {
         "icon": "road",
-        "label": "Cheminement extérieur",
-        "description": "Cheminement extérieur depuis la voirie jusqu'à l'entrée",
+        "label": "Chemin extérieur",
+        "description": "Chemin extérieur depuis la voirie jusqu'à l'entrée",
         "edit_route": "contrib_exterieur",
     },
     SECTION_ENTREE: {
@@ -300,7 +300,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Informations complémentaires",
         "help_text": mark_safe(
-            "Préciser ici les informations supplémentaires sur ces transports (type de transport, ligne, nom de l'arrêt, etc) et éventuellement des informations jugées importantes sur le cheminement qui relie le point d'arrêt à l'établissement."
+            "Préciser ici les informations supplémentaires sur ces transports (type de transport, ligne, nom de l'arrêt, etc) et éventuellement des informations jugées importantes sur le chemin qui relie le point d'arrêt à l'établissement."
         ),
         "help_text_ui": None,
         "choices": None,
@@ -379,12 +379,12 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Cheminement extérieur",
+        "label": "Chemin extérieur",
         "help_text": mark_safe(
             "Y-a-t-il un chemin extérieur entre le trottoir et l'entrée principale du bâtiment (exemple&nbsp;: une cour)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
-            "L'accès à l'entrée depuis la voirie se fait par un cheminement extérieur"
+            "L'accès à l'entrée depuis la voirie se fait par un chemin extérieur"
         ),
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
@@ -397,7 +397,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Revêtement extérieur",
         "help_text": mark_safe(
-            "Le revêtement du cheminement extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
+            "Le revêtement du chemin extérieur (entre le trottoir et l'entrée de l'établissement) est-il stable (sol roulable, absence de pavés ou de gravillons, pas de terre ni d'herbe, etc.)&nbsp;?"
         ),
         "help_text_ui": mark_safe(
             "Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)"
@@ -411,9 +411,9 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Cheminement extérieur de plain-pied",
+        "label": "Chemin extérieur de plain-pied",
         "help_text": mark_safe(
-            "Le cheminement est-il de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
+            "Le chemin est-il de plain-pied, c'est-à-dire sans marche ni ressaut supérieur à 2 cm&nbsp;? Attention plain-pied ne signifie pas plat mais sans rupture brutale de niveau."
         ),
         "help_text_ui": mark_safe(
             "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)"
@@ -512,7 +512,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Pente",
-        "help_text": mark_safe("Le cheminement est-il en pente&nbsp;?"),
+        "help_text": mark_safe("Le chemin est-il en pente&nbsp;?"),
         "help_text_ui": None,
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
@@ -550,7 +550,7 @@ FIELDS = {
         "is_a11y": True,
         "label": "Dévers",
         "help_text": mark_safe(
-            "Un dévers est une inclinaison transversale du cheminement. S'il en existe un, quel est son degré de difficulté&nbsp;?"
+            "Un dévers est une inclinaison transversale du chemin. S'il en existe un, quel est son degré de difficulté&nbsp;?"
         ),
         "help_text_ui": None,
         "choices": DEVERS_CHOICES,
@@ -578,7 +578,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Rétrécissement du cheminement",
+        "label": "Rétrécissement du chemin",
         "help_text": mark_safe(
             "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
         ),
@@ -1042,7 +1042,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Rétrécissement du cheminement",
+        "label": "Rétrécissement du chemin",
         "help_text": mark_safe(
             "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 cm) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
         ),
