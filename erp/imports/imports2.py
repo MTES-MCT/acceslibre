@@ -1,48 +1,55 @@
+from django.db import DataError, DatabaseError, transaction
+from django.db.transaction import TransactionManagementError
+
 from erp.imports.mapper import SkippedRecord
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
 
 
 class Importer:
-    def __init__(self, id, fetcher, mapper, activite=None, today=None):
+    def __init__(self, id, fetcher, mapper, activite=None, verbose=False, today=None):
         self.id = id
         self.fetcher = fetcher
         self.mapper = mapper
         self.activite = activite
+        self.verbose = verbose
         self.today = today
 
+    def print_char(self, msg):
+        if self.verbose:
+            print(msg, end="", flush=True)
+
     def process(self):
-        records = self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}")
-        for record in records:
+        results = {
+            "imported": [],
+            "skipped": [],
+            "unpublished": [],
+            "errors": [],
+        }
+
+        for record in self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}"):
             try:
                 (erp, unpublish_reason) = self.mapper(
                     record, self.activite, self.today
                 ).process()
-                if unpublish_reason:
-                    print("MIS HORS LIGNE: " + unpublish_reason)
-                    erp.published = False
-                erp.save()
-                print(".")
-                # TODO: Handle logging
-            except SkippedRecord as reason:
-                print(f"ÉCARTÉ: : {reason}")
-            # except UnpublishedRecord as err:
-            #     erp = err.erp.save()
-            #     print(f"MIS HORS LIGNE: {err} ({erp})")
+                if not erp:
+                    self.log_char("X")
+                    continue
+                with transaction.atomic():
+                    if unpublish_reason:
+                        erp.published = False
+                        results["unpublished"].append(f"{str(erp)}: {unpublish_reason}")
+                    erp.save()
+                self.print_char(".")
+                results["imported"].append(str(erp))
+            except SkippedRecord as skipped_reason:
+                self.print_char("S")
+                results["skipped"].append(f"{str(erp)}: {skipped_reason}")
             except RuntimeError as err:
-                print(err)
+                self.print_char("E")
+                results["errors"].append(f"{str(erp)}: {str(err)}")
+            except (TransactionManagementError, DataError, DatabaseError) as err:
+                self.print_char("E")
+                results["errors"].append(f"{str(erp)}: {str(err)}")
 
-
-# Importer(
-#     "d0566522-604d-4af6-be44-a26eefa01756",
-#     fetcher.JsonFetcher(hook=lambda x: x["features"]),
-#     VaccinationMapper,
-#     Activite.objects.get(slug="centre-de-vaccination"),
-# ).process()
-
-# Importer(
-#     "061a5736-8fc2-4388-9e55-8cc31be87fa0",
-#     fetcher.CsvFetcher(delimiter=";"),
-#     GendarmerieMapper,
-#     Activite.objects.get(slug="gendarmerie"),
-# ).process()
+        return results
