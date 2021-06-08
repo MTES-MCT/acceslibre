@@ -1,7 +1,7 @@
 import schedule
 import time
 
-from django.core import management
+from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
 from erp.jobs import check_closed_erps, purge_accounts
@@ -18,12 +18,8 @@ class Command(BaseCommand):
         schedule.every(notify_changed_erps.HOURS_CHECK).hours.do(
             notify_changed_erps.job, verbose=True
         )
-        schedule.every().hour.do(
-            lambda _: management.call_command("import_dataset", "vaccination")
-        )
-        schedule.every().week.do(
-            lambda _: management.call_command("import_dataset", "gendarmerie")
-        )
+        schedule.every().hour.do(call_command, "import_dataset", "vaccination")
+        schedule.every().week.do(call_command, "import_dataset", "gendarmerie")
         print("Scheduler started")
         while True:
             schedule.run_pending()
