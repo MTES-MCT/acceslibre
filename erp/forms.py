@@ -1,5 +1,3 @@
-import requests
-
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -10,9 +8,7 @@ from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
-
 from django_registration.forms import RegistrationFormUniqueEmail
-from requests.exceptions import RequestException
 
 from erp import schema
 from erp.models import (
@@ -626,22 +622,6 @@ class PublicPublicationForm(forms.ModelForm):
                 "Publication impossible sans ces garanties de votre part"
             )
         return True
-
-    def clean_registre_url(self):
-        url = self.cleaned_data.get("registre_url")
-        if not url:
-            return None
-        try:
-            req = requests.get(self.cleaned_data["registre_url"], timeout=1)
-            if not req.ok:
-                raise ValidationError(
-                    f"Cette URL est en erreur HTTP {req.status_code}, veuillez vérifier votre saisie."
-                )
-        except RequestException:
-            raise ValidationError(
-                "Cette URL n'aboutit pas, veuillez vérifier votre saisie."
-            )
-        return url
 
 
 class PublicClaimForm(forms.Form):
