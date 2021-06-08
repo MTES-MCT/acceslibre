@@ -19,10 +19,10 @@ class Command(BaseCommand):
             notify_changed_erps.job, verbose=True
         )
         schedule.every().hour.do(
-            management.call_command("import_dataset", "vaccination")
+            lambda _: management.call_command("import_dataset", "vaccination")
         )
         schedule.every().week.do(
-            management.call_command("import_dataset", "gendarmerie")
+            lambda _: management.call_command("import_dataset", "gendarmerie")
         )
         print("Scheduler started")
         while True:
