@@ -4,7 +4,7 @@ import pytest
 from django.db import DataError
 
 from erp.imports.fetcher import JsonFetcher
-from erp.imports.imports2 import Importer
+from erp.imports.importer import Importer
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Activite, Erp
 from tests.erp.imports.mapper.fixtures import FakeJsonFetcher

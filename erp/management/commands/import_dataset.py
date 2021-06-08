@@ -6,7 +6,7 @@ from datetime import datetime
 from django.core.management.base import BaseCommand
 
 from erp.imports import fetcher
-from erp.imports.imports2 import Importer
+from erp.imports.importer import Importer
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
 
