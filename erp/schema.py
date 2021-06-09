@@ -384,7 +384,7 @@ FIELDS = {
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": None,
+        "warn_if": True,
     },
     "cheminement_ext_terrain_accidente": {
         "type": "boolean",
