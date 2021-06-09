@@ -7,10 +7,10 @@
   {% if field.value != "" and field.value is not None %}
   <li class="a11y-field border-bottom {% if field.warning %}text-muted{% endif %}">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
-      <h4 class="h6 m-0 p-0 font-weight-normal">
+      <h3 class="h6 m-0 p-0 font-weight-normal">
         <i aria-hidden="true" class="icon icon-bubble"></i>
         {{ field.label }}
-      </h4>
+      </h3>
       <blockquote class="a4a-comment-block mb-0 my-1">
         {{ field.value|urlizetrunc:25|linebreaks }}
       </blockquote>
