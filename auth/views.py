@@ -1,3 +1,5 @@
+import uuid
+
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model
@@ -11,6 +13,7 @@ from django_registration.backends.activation.views import (
 )
 
 from auth import forms
+from auth.models import AuthUserEmailChange
 
 
 class CustomActivationCompleteView(TemplateView):
@@ -84,21 +87,23 @@ def mon_email(request):
         if form.is_valid():
             email = form.cleaned_data["email"]
             user = get_user_model().objects.get(id=request.user.id)
-            old_email = user.email
-            user.email = email
-            user.save()
-            LogEntry.objects.log_action(
-                user_id=request.user.id,
-                content_type_id=ContentType.objects.get_for_model(user).pk,
-                object_id=user.id,
-                object_repr=email,
-                action_flag=CHANGE,
-                change_message=f"Changement d'email (avant: {old_email})",
+            auth_key = uuid.uuid4()
+            email_changer = AuthUserEmailChange(
+                auth_key=auth_key, user=user, new_email=email
             )
+            email_changer.save()
+            # LogEntry.objects.log_action(
+            #     user_id=request.user.id,
+            #     content_type_id=ContentType.objects.get_for_model(user).pk,
+            #     object_id=user.id,
+            #     object_repr=email,
+            #     action_flag=CHANGE,
+            #     change_message=f"Changement d'email (avant: {old_email})",
+            # )
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"Votre email a été changé en {user.email}.",
+                f"Un email de validation vous a été envoyé à {user.email}. Merci de consulter votre boite de récaption",
             )
             return redirect("mon_email")
     else:

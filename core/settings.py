@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     "import_export",
     "reset_migrations",
     "django_admin_listfilter_dropdown",
+    "auth.apps.AuthConfig",
     "erp.apps.ErpConfig",
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",

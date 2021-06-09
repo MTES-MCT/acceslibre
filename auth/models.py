@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class EmailChangeAuth(models.Model):
+class AuthUserEmailChange(models.Model):
     auth_key = models.UUIDField()
     user = models.ForeignKey(
         User,
