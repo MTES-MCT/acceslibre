@@ -5,8 +5,13 @@ from datetime import datetime
 from django.db import DataError, DatabaseError, transaction
 from django.db.transaction import TransactionManagementError
 
+from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
-from erp.models import Accessibilite
+from erp.imports.mapper.gendarmerie import GendarmerieMapper
+from erp.imports.mapper.vaccination import VaccinationMapper
+
+from erp.models import Accessibilite, Activite
+
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
 
@@ -72,3 +77,23 @@ class Importer:
                 results["errors"].append(f"{str(erp)}: {str(err)}")
 
         return results
+
+
+def import_gendarmeries(verbose=False):
+    return Importer(
+        "061a5736-8fc2-4388-9e55-8cc31be87fa0",
+        fetcher.CsvFetcher(delimiter=";"),
+        GendarmerieMapper,
+        Activite.objects.get(slug="gendarmerie"),
+        verbose=verbose,
+    ).process()
+
+
+def import_vaccination(verbose=False):
+    return Importer(
+        "d0566522-604d-4af6-be44-a26eefa01756",
+        fetcher.JsonFetcher(hook=lambda x: x["features"]),
+        VaccinationMapper,
+        Activite.objects.get(slug="centre-de-vaccination"),
+        verbose=verbose,
+    ).process()
