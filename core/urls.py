@@ -14,13 +14,6 @@ from auth.views import (
 )
 from core.sitemaps import SITEMAPS
 
-# from erp.forms import CustomRegistrationForm
-# from erp.views import (
-#     CustomActivationView,
-#     CustomActivationCompleteView,
-#     CustomRegistrationView,
-# )
-
 
 SITEMAP_CACHE_TTL = 86400
 
@@ -57,6 +50,7 @@ urlpatterns = [
     ),
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("auth/", include("auth.urls")),
     path("admin/", admin.site.urls),
     path(
         "sitemap.xml",

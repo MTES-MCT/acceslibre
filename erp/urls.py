@@ -86,11 +86,8 @@ urlpatterns = [
     ############################################################################
     # Account
     ############################################################################
-    path("mon_compte/", views.mon_compte, name="mon_compte"),
     path("mon_compte/erps/", views.mes_erps, name="mes_erps"),
     path("mon_compte/abonnements/", views.mes_abonnements, name="mes_abonnements"),
-    path("mon_compte/identifiant/", views.mon_identifiant, name="mon_identifiant"),
-    path("mon_compte/email/", views.mon_email, name="mon_email"),
     path(
         "mon_compte/contributions/", views.mes_contributions, name="mes_contributions"
     ),
