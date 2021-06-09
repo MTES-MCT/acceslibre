@@ -48,6 +48,7 @@ urlpatterns = [
         CustomRegistrationView.as_view(form_class=CustomRegistrationForm),
         name="django_registration_register",
     ),
+    # TODO more things to move to auth
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("auth/", include("auth.urls")),
