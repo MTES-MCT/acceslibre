@@ -333,7 +333,6 @@ def test_ViewAccessibiliteForm_serialized():
 
     assert field["template_name"] == "django/forms/widgets/select.html"
     assert field["name"] == "entree_reperage"
-    assert field["label"] == schema.get_label("entree_reperage")
-    assert field["help_text_ui"] == schema.get_help_text_ui("entree_reperage")
+    assert field["label"] == schema.get_help_text_ui("entree_reperage")
     assert field["value"] is True
     assert field["warning"] is False

@@ -343,6 +343,16 @@ $viewport-xl: 1200px;
     }
   }
 
+  .a11y-field {
+    list-style-type: none;
+    margin: 0;
+    padding: .27rem 0;
+
+    h4 {
+      line-height: 1.5em;
+    }
+  }
+
   &-text-smaller {
     font-size: 0.9em;
   }
