@@ -470,7 +470,7 @@ FIELDS = {
             "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
         ),
         "help_text_ui": "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
-        "help_text_ui_neg": "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
+        "help_text_ui_neg": "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -499,8 +499,8 @@ FIELDS = {
         "help_text": mark_safe(
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
-        "help_text_ui": "Présence et type de rampe",
-        "help_text_ui_neg": "Présence et type de rampe",
+        "help_text_ui": "Présence d'une rampe fixe ou amovible",
+        "help_text_ui_neg": "Présence d'une rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -668,7 +668,7 @@ FIELDS = {
         "help_text": mark_safe(
             "Y a-t-il des éléments contrastés (autocollants, éléments de menuiserie ou autres) permettant de repérer la porte vitrée&nbsp;?"
         ),
-        "help_text_ui": "Des éléments contrastés permettant de visualiser les parties vitrées de l'entrée",
+        "help_text_ui": "Des éléments contrastés permettent de visualiser les parties vitrées de l'entrée",
         "help_text_ui_neg": "Pas d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
@@ -741,7 +741,7 @@ FIELDS = {
             "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
         ),
         "help_text_ui": "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
-        "help_text_ui_neg": "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
+        "help_text_ui_neg": "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -770,8 +770,8 @@ FIELDS = {
         "help_text": mark_safe(
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
-        "help_text_ui": "Présence et type de rampe",
-        "help_text_ui_neg": "Présence et type de rampe",
+        "help_text_ui": "Présence d'une rampe fixe ou amovible",
+        "help_text_ui_neg": "Présence d'une rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -1018,7 +1018,7 @@ FIELDS = {
             "L'escalier est-il sécurisé&nbsp;: nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier, première et dernière contremarches contrastées&nbsp;?"
         ),
         "help_text_ui": "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées",
-        "help_text_ui_neg": "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
+        "help_text_ui_neg": "Pas de nez de marche contrasté, de bande d'éveil à la vigilance en haut de l'escalier ni de première et dernière contremarches contrastées",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1047,8 +1047,8 @@ FIELDS = {
         "help_text": mark_safe(
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
-        "help_text_ui": "Présence et type de rampe",
-        "help_text_ui_neg": "Présence et type de rampe",
+        "help_text_ui": "Présence d'une rampe fixe ou amovible",
+        "help_text_ui_neg": "Présence d'une rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,

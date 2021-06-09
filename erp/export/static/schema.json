@@ -483,7 +483,7 @@
     {
       "name": "cheminement_ext_rampe",
       "title": "Rampe",
-      "description": "Présence et type de rampe",
+      "description": "Présence d'une rampe fixe ou amovible",
       "type": "string",
       "constraints": {
         "enum": [
@@ -693,7 +693,7 @@
     {
       "name": "entree_vitree_vitrophanie",
       "title": "Repérage de la vitre",
-      "description": "Des éléments contrastés permettant de visualiser les parties vitrées de l'entrée",
+      "description": "Des éléments contrastés permettent de visualiser les parties vitrées de l'entrée",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -855,7 +855,7 @@
     {
       "name": "entree_marches_rampe",
       "title": "Rampe",
-      "description": "Présence et type de rampe",
+      "description": "Présence d'une rampe fixe ou amovible",
       "type": "string",
       "constraints": {
         "enum": [
@@ -1312,7 +1312,7 @@
     {
       "name": "accueil_cheminement_rampe",
       "title": "Rampe",
-      "description": "Présence et type de rampe",
+      "description": "Présence d'une rampe fixe ou amovible",
       "type": "boolean",
       "trueValues": [
         "true",
