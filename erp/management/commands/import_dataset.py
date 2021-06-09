@@ -6,12 +6,7 @@ from datetime import datetime
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from erp.imports import fetcher
-from erp.imports.importer import Importer
-from erp.imports.mapper.gendarmerie import GendarmerieMapper
-from erp.imports.mapper.vaccination import VaccinationMapper
-
-from erp.models import Activite
+from erp.imports import importer
 
 
 class Command(BaseCommand):
@@ -36,9 +31,9 @@ class Command(BaseCommand):
         if not dataset:
             return fatal("Identifiant du jeu de données à importer manquant")
         if dataset == "gendarmerie":
-            results = import_gendarmeries(verbose=verbose)
+            results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "vaccination":
-            results = import_vaccination(verbose=verbose)
+            results = importer.import_vaccination(verbose=verbose)
         else:
             return fatal(f"Identifiant de jeu de données inconnu: {dataset}")
 
@@ -53,26 +48,6 @@ class Command(BaseCommand):
 def fatal(msg):
     print(msg)
     sys.exit(1)
-
-
-def import_gendarmeries(verbose=False):
-    return Importer(
-        "061a5736-8fc2-4388-9e55-8cc31be87fa0",
-        fetcher.CsvFetcher(delimiter=";"),
-        GendarmerieMapper,
-        Activite.objects.get(slug="gendarmerie"),
-        verbose=verbose,
-    ).process()
-
-
-def import_vaccination(verbose=False):
-    return Importer(
-        "d0566522-604d-4af6-be44-a26eefa01756",
-        fetcher.JsonFetcher(hook=lambda x: x["features"]),
-        VaccinationMapper,
-        Activite.objects.get(slug="centre-de-vaccination"),
-        verbose=verbose,
-    ).process()
 
 
 def to_text_list(items):
@@ -118,7 +93,9 @@ def ping_mattermost(summary, errors):
             "attachments": [
                 {
                     "pretext": "Détail des erreurs",
-                    "text": to_text_list(errors),
+                    "text": to_text_list(errors)
+                    if errors
+                    else "Aucune erreur rencontrée",
                 }
             ],
         },
