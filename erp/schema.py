@@ -1096,6 +1096,7 @@ FIELDS = {
         "help_text_ui": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Pas de sanitaires adaptés mis à disposition dans l'établissement",
         "choices": None,
+        "unit": "sanitaire",
         "section": SECTION_SANITAIRES,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 1,
