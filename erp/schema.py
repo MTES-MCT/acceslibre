@@ -258,19 +258,19 @@ SECTIONS = {
     SECTION_REGISTRE: {
         "icon": "registre",
         "label": "Registre",
-        "description": "Registre d'accessibilité de l'établissement",
+        "description": "d'accessibilité de l'établissement",
         "edit_route": None,
     },
     SECTION_CONFORMITE: {
         "icon": "conformite",
         "label": "Conformité",
-        "description": "Conformité",
+        "description": "à la règlementation",
         "edit_route": None,
     },
     SECTION_COMMENTAIRE: {
         "icon": "info-circled",
         "label": "Commentaire",
-        "description": "Informations complémentaires",
+        "description": "et informations complémentaires",
         "edit_route": "contrib_commentaire",
     },
 }
