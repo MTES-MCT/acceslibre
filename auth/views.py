@@ -13,7 +13,9 @@ from django_registration.backends.activation.views import (
 )
 
 from auth import forms
-from auth.models import AuthUserEmailChange
+from auth.models import EmailChange
+from auth.service import create_and_send_token
+from core import mailer
 
 
 class CustomActivationCompleteView(TemplateView):
@@ -85,13 +87,11 @@ def mon_email(request):
     if request.method == "POST":
         form = forms.EmailChangeForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data["email"]
+            email = form.cleaned_data["email1"]
             user = get_user_model().objects.get(id=request.user.id)
-            auth_key = uuid.uuid4()
-            email_changer = AuthUserEmailChange(
-                auth_key=auth_key, user=user, new_email=email
-            )
-            email_changer.save()
+
+            create_and_send_token(user, email)
+
             # LogEntry.objects.log_action(
             #     user_id=request.user.id,
             #     content_type_id=ContentType.objects.get_for_model(user).pk,
@@ -113,3 +113,32 @@ def mon_email(request):
         "compte/mon_email.html",
         context={"form": form},
     )
+
+
+# Endpoint publique
+def change_email(request, activation_key):
+    if not activation_key:
+        return redirect("mon_email")
+
+    user = get_user_model().objects.get(id=request.user.id)
+    try:
+        changer = EmailChange.objects.get(auth_key=activation_key)
+    except Exception as err:
+        return render(
+            request,
+            "compte/change_activation_failed.html",
+            context={"activation_error": True},
+        )
+
+    if (changer.user is None) or (changer.user != user):
+        return render(
+            request,
+            "compte/change_activation_failed.html",
+            context={"activation_error": True},
+        )
+
+    user.email = changer.new_email
+    user.save()
+
+    changer.delete()
+    return redirect("mon_compte")

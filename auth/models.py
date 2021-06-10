@@ -2,9 +2,19 @@ import datetime
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
-class AuthUserEmailChange(models.Model):
+class EmailChange(models.Model):
+    class Meta:
+        ordering = ("created_at",)
+        verbose_name = "EmailChange"
+        verbose_name_plural = "EmailChanges"
+        indexes = [
+            models.Index(fields=["auth_key"]),
+        ]
+
     auth_key = models.UUIDField()
     user = models.ForeignKey(
         User,
