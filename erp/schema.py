@@ -582,8 +582,8 @@ FIELDS = {
         "help_text": mark_safe(
             "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre l'entrée&nbsp;?"
         ),
-        "help_text_ui": "Un ou plusieurs rétrecissements inférieurs à 90 centimètres du chemin pour atteindre l'entrée",
-        "help_text_ui_neg": "Pas de rétrecissement inférieur à 90 centimètres du chemin pour atteindre l'entrée",
+        "help_text_ui": "Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre l'entrée",
+        "help_text_ui_neg": "Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre l'entrée",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -1061,8 +1061,8 @@ FIELDS = {
         "help_text": mark_safe(
             "Existe-t-il un ou plusieurs rétrécissements (inférieur à 90 centimètres) du chemin emprunté par le public pour atteindre la zone d'accueil&nbsp;?"
         ),
-        "help_text_ui": "Présence d'un ou plusieurs rétrecissements inférieurs à 90 centimètres du chemin pour atteindre l'entrée",
-        "help_text_ui_neg": "Pas de rétrecissement inférieur à 90 centimètres du chemin pour atteindre l'entrée",
+        "help_text_ui": "Présence d'un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre l'entrée",
+        "help_text_ui_neg": "Pas de rétrécissement inférieur à 90 centimètres du chemin pour atteindre l'entrée",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
