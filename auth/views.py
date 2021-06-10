@@ -142,8 +142,10 @@ def change_email(request, activation_key):
         f"Votre email à été mis à jour avec succès !",
     )
 
-    if request.user.id:
-        return redirect("mon_compte")
+    return redirect("mon_compte")
+
+    # if request.user.id:
+    #     return redirect("mon_compte")
     # else:
     #     render(
     #         request,
