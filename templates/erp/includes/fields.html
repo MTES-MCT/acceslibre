@@ -6,32 +6,29 @@
   {% for field in fields %}
   {% if field.value != "" and field.value is not None %}
   <li class="a11y-field border-bottom">
-    {% if field.template_name == "django/forms/widgets/textarea.html" %}
-      <h3 class="h6 m-0 p-0 font-weight-normal">
-        <i aria-hidden="true" class="icon icon-bubble"></i>
-        {{ field.label }}
-      </h3>
-      <blockquote class="a4a-comment-block mb-0 my-1">
-        {{ field.value|urlizetrunc:25|linebreaks }}
-      </blockquote>
-    {% else %}
-      <h3 class="h6 m-0 p-0 font-weight-normal">
-        <!-- {{ field.name }} -->
-        {% if field.warning %}
-          <span class="sr-only">Attention :</span>
+    <!-- {{ field.name }} -->
+    <h3 class="h6 m-0 p-0 font-weight-normal">
+      {% if field.is_comment %}
+      <i aria-hidden="true" class="icon icon-bubble"></i>
+      {% endif %}
+      {% if field.warning %}
+        <span class="sr-only">Attention :</span>
+      {% endif %}
+      {{ field.label }}
+      {% if field.values and not field.is_comment %}:
+        {% for value in field.values %}
+        {% if value|startswith:"http" %}
+        <a href="{{ value }}" target="_blank" rel="noopener noreferrer">{{ value|truncatechars_html:30 }}</a>{% if not forloop.last %},{% endif %}
+        {% else %}
+        <strong>{{ value }}</strong>{% if not forloop.last %},{% endif %}
         {% endif %}
-        {{ field.label }}
-        {% if field.values %}:
-          {% for val in field.values %}
-          {% if val|startswith:"http" %}
-          <a href="{{ val }}" target="_blank" rel="noopener noreferrer">{{ val|truncatechars_html:30 }}</a>
-          {% else %}
-          <strong>{{ val }}</strong>
-          {% endif %}
-          {% if not forloop.last %} - {% endif %}
-          {% endfor %}
-        {% endif %}
-      </h3>
+        {% endfor %}
+      {% endif %}
+    </h3>
+    {% if field.is_comment %}
+    <blockquote class="a4a-comment-block mb-0 my-1">
+      {{ field.value|urlizetrunc:25|linebreaks }}
+    </blockquote>
     {% endif %}
   </li>
   {% endif %}

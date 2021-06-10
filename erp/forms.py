@@ -361,7 +361,6 @@ class ViewAccessibiliteForm(forms.ModelForm):
                     label = schema.get_help_text_ui_neg(field.name)
                 data[section]["fields"].append(
                     {
-                        "template_name": field.field.widget.template_name,
                         "name": field.name,
                         "label": label,
                         "value": field_value,
@@ -372,6 +371,9 @@ class ViewAccessibiliteForm(forms.ModelForm):
                             field_data["unit"],
                         ),
                         "warning": warning,
+                        "is_comment": field.field.widget.template_name.endswith(
+                            "textarea.html"
+                        ),
                     }
                 )
             # Discard empty sections to avoid rendering empty menu items
