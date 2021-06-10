@@ -1,3 +1,5 @@
+from functools import reduce
+
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -333,7 +335,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
     fieldsets = schema.get_form_fieldsets()
 
-    def get_accessibilite_data(self):
+    def get_accessibilite_data(self, flatten=False):
         data = {}
         for section, section_info in self.fieldsets.items():
             data[section] = {
@@ -347,21 +349,28 @@ class ViewAccessibiliteForm(forms.ModelForm):
             for field_data in section_fields:
                 field = self[field_data["id"]]
                 field_value = field.value()
-                if field_value == []:
-                    field_value = None
-                warning = None
+                warning = False
                 if "warn_if" in field_data and field_data["warn_if"] is not None:
                     if callable(field_data["warn_if"]):
                         warning = field_data["warn_if"](field_value, self.instance)
                     else:
                         warning = field_value == field_data["warn_if"]
+                if field_value:
+                    label = schema.get_help_text_ui(field.name)
+                else:
+                    label = schema.get_help_text_ui_neg(field.name)
                 data[section]["fields"].append(
                     {
                         "template_name": field.field.widget.template_name,
                         "name": field.name,
-                        "label": schema.get_label(field.name, field.label),
-                        "help_text_ui": schema.get_help_text_ui(field.name),
+                        "label": label,
                         "value": field_value,
+                        "values": self.get_display_values(
+                            field.name,
+                            field_value,
+                            field_data["choices"],
+                            field_data["unit"],
+                        ),
                         "warning": warning,
                     }
                 )
@@ -371,7 +380,32 @@ class ViewAccessibiliteForm(forms.ModelForm):
             )
             if empty_section:
                 data.pop(section)
-        return data
+        if flatten:
+            return reduce(
+                lambda x, y: x + y, (s["fields"] for (_, s) in data.items()), []
+            )
+        else:
+            return data
+
+    def get_display_values(self, name, value, choices, unit=""):
+        "Computes values to render on the frontend for a given field."
+        if type(value) == bool:
+            return None
+        try:
+            value = getattr(self.instance, f"get_{name}_display")()
+        except AttributeError:
+            # for some reason, ArrayField doesn't expose a get_FIELD_display method…
+            value = getattr(Accessibilite, name).field.value_from_object(self.instance)
+            if choices:
+                choices_dict = dict(choices)
+                return [choices_dict[v] for v in value]
+        if isinstance(value, list):
+            return value
+        if isinstance(value, str):
+            return [value]
+        if isinstance(value, int):
+            return [f"{value} {unit}{'s' if value > 1 else ''}"]
+        return None
 
 
 class BasePublicErpInfosForm(BaseErpForm):
