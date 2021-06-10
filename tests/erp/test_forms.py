@@ -312,6 +312,14 @@ def test_ViewAccessibiliteForm_filled():
     ]
 
 
+def test_ViewAccessibiliteForm_filled_with_comment():
+    form = forms.ViewAccessibiliteForm({"commentaire": "plop"})
+    data = form.get_accessibilite_data()
+    field = data["Commentaire"]["fields"][0]
+    assert field["value"] == "plop"
+    assert field["is_comment"] is True
+
+
 def test_ViewAccessibiliteForm_filled_null_comment():
     form = forms.ViewAccessibiliteForm(
         {
@@ -332,11 +340,11 @@ def test_ViewAccessibiliteForm_serialized():
     data = form.get_accessibilite_data()
     field = data["Entrée"]["fields"][0]
 
-    assert field["template_name"] == "django/forms/widgets/select.html"
     assert field["name"] == "entree_reperage"
     assert field["label"] == schema.get_help_text_ui("entree_reperage")
     assert field["value"] is True
     assert field["warning"] is False
+    assert field["is_comment"] is False
 
 
 @pytest.fixture
