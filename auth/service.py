@@ -1,11 +1,12 @@
 import uuid
+from datetime import datetime
 
+from _datetime import timedelta
 from django.conf import settings
-from django.contrib.auth import get_user_model
+from django.db import models
 from django.template.loader import render_to_string
 
 from auth.models import EmailChange
-
 
 TEMPLATE_NAME = "django_registration/activation_changement_email_body.txt"
 
@@ -41,3 +42,25 @@ def create_and_send_token(user, email):
         message,
         settings.DEFAULT_FROM_EMAIL,
     )
+
+
+def validate_from_token(user, activation_key):
+    try:
+        changer = EmailChange.objects.get(auth_key=activation_key)
+    except models.ObjectDoesNotExist as err:
+        return "Token invalide"
+
+    if (changer.user is None) or (changer.user != user):
+        return "Utilisateur non trouvé"
+
+    if (
+        changer.created_at + timedelta(days=settings.EMAIL_ACTIVATION_DAYS)
+        > datetime.utcnow()
+    ):
+        return "Token expiré"
+
+    user.email = changer.new_email
+    user.save()
+    changer.delete()
+
+    return None

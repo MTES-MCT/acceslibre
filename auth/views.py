@@ -1,5 +1,3 @@
-import uuid
-
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model
@@ -13,9 +11,7 @@ from django_registration.backends.activation.views import (
 )
 
 from auth import forms
-from auth.models import EmailChange
-from auth.service import create_and_send_token
-from core import mailer
+from auth.service import create_and_send_token, validate_from_token
 
 
 class CustomActivationCompleteView(TemplateView):
@@ -87,23 +83,23 @@ def mon_email(request):
     if request.method == "POST":
         form = forms.EmailChangeForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data["email1"]
+            new_email = form.cleaned_data["email1"]
             user = get_user_model().objects.get(id=request.user.id)
 
-            create_and_send_token(user, email)
+            create_and_send_token(user, new_email)
 
-            # LogEntry.objects.log_action(
-            #     user_id=request.user.id,
-            #     content_type_id=ContentType.objects.get_for_model(user).pk,
-            #     object_id=user.id,
-            #     object_repr=email,
-            #     action_flag=CHANGE,
-            #     change_message=f"Changement d'email (avant: {old_email})",
-            # )
+            LogEntry.objects.log_action(
+                user_id=request.user.id,
+                content_type_id=ContentType.objects.get_for_model(user).pk,
+                object_id=user.id,
+                object_repr=new_email,
+                action_flag=CHANGE,
+                change_message=f"Demande de changement d'email {user.email} -> {new_email}",
+            )
             messages.add_message(
                 request,
-                messages.SUCCESS,
-                f"Un email de validation vous a été envoyé à {user.email}. Merci de consulter votre boite de récaption",
+                messages.INFO,
+                f"Un email de validation vous a été envoyé à {user.email}. Merci de consulter votre boite de réception",
             )
             return redirect("mon_email")
     else:
@@ -115,30 +111,42 @@ def mon_email(request):
     )
 
 
-# Endpoint publique
+@login_required
 def change_email(request, activation_key):
     if not activation_key:
         return redirect("mon_email")
 
     user = get_user_model().objects.get(id=request.user.id)
-    try:
-        changer = EmailChange.objects.get(auth_key=activation_key)
-    except Exception as err:
-        return render(
+    old_email = user.email.copy()
+
+    failure = validate_from_token(user, activation_key)
+    if failure:
+        render(
             request,
             "compte/change_activation_failed.html",
-            context={"activation_error": True},
+            context={"activation_error": failure},
         )
 
-    if (changer.user is None) or (changer.user != user):
-        return render(
-            request,
-            "compte/change_activation_failed.html",
-            context={"activation_error": True},
-        )
+    LogEntry.objects.log_action(
+        user_id=request.user.id,
+        content_type_id=ContentType.objects.get_for_model(user).pk,
+        object_id=user.id,
+        object_repr=user,
+        action_flag=CHANGE,
+        change_message=f"Email modifié {old_email} -> {user.email}",
+    )
 
-    user.email = changer.new_email
-    user.save()
+    messages.add_message(
+        request,
+        messages.SUCCESS,
+        f"Votre email à été mis à jour avec succès !",
+    )
 
-    changer.delete()
-    return redirect("mon_compte")
+    if request.user.id:
+        return redirect("mon_compte")
+    # else:
+    #     render(
+    #         request,
+    #         "compte/change_activation_success.html",
+    #         context={},
+    #     )
