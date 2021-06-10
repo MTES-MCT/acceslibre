@@ -122,7 +122,7 @@
     {
       "name": "transport_station_presence",
       "title": "Proximité d'un arrêt de transport en commun",
-      "description": "Arrêt de transport en commun à moins de 200 mètres",
+      "description": "Arrêt de transport en commun à moins de 200 mètres de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -153,7 +153,7 @@
     {
       "name": "stationnement_presence",
       "title": "Stationnement dans l'établissement",
-      "description": "Places de stationnement disponibles au sein de la parcelle de l'établissement",
+      "description": "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -184,7 +184,7 @@
     {
       "name": "stationnement_pmr",
       "title": "Stationnements adaptés dans l'établissement",
-      "description": "Places de stationnement adaptées disponibles au sein de la parcelle de l'établissement",
+      "description": "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -215,7 +215,7 @@
     {
       "name": "stationnement_ext_presence",
       "title": "Stationnement à proximité de l'établissement",
-      "description": "Places de stationnement disponibles à moins de 200 mètres",
+      "description": "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -246,7 +246,7 @@
     {
       "name": "stationnement_ext_pmr",
       "title": "Stationnements PMR à proximité de l'établissement",
-      "description": "Places de stationnement adaptées disponibles à moins de 200 mètres",
+      "description": "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",

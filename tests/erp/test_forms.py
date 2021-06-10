@@ -5,8 +5,9 @@ from unittest import mock
 
 from erp import schema
 from erp import forms
-from erp.models import Commune, Erp
+from erp.models import Accessibilite, Commune, Erp
 from erp.provider import geocoder
+from erp.schema import get_help_text_ui, get_help_text_ui_neg
 
 
 POINT = Point((0, 0))
@@ -336,3 +337,48 @@ def test_ViewAccessibiliteForm_serialized():
     assert field["label"] == schema.get_help_text_ui("entree_reperage")
     assert field["value"] is True
     assert field["warning"] is False
+
+
+@pytest.fixture
+def form_test():
+    def _factory(name, value):
+        instance = Accessibilite(**{name: value})
+        form = forms.ViewAccessibiliteForm(instance=instance)
+        data = form.get_accessibilite_data(flatten=True)
+        return [f["label"] for f in data]
+
+    return _factory
+
+
+def test_ViewAccessibiliteForm_labels(form_test):
+    def assert_absence(name, value):
+        assert get_help_text_ui_neg(name) in form_test(name, value)
+
+    def assert_presence(name, value):
+        assert get_help_text_ui(name) in form_test(name, value)
+
+    def assert_missing(name, value):
+        assert get_help_text_ui(name) not in form_test(name, value)
+        assert get_help_text_ui_neg(name) not in form_test(name, value)
+
+    # boolean fields
+    assert_presence("sanitaires_presence", True)
+    assert_absence("sanitaires_presence", False)
+    assert_missing("sanitaires_presence", None)
+
+    # integer fields
+    assert_presence("sanitaires_adaptes", 1)
+    assert_presence("sanitaires_adaptes", 2)
+    assert_absence("sanitaires_adaptes", 0)
+    assert_missing("sanitaires_adaptes", None)
+
+    # single string fields
+    assert_presence("cheminement_ext_pente_degre_difficulte", schema.PENTE_LEGERE)
+    assert_missing("cheminement_ext_pente_degre_difficulte", None)
+
+    # multiple strings fields
+    assert_presence(
+        "entree_dispositif_appel_type",
+        [schema.DISPOSITIFS_APPEL_BOUTON, schema.DISPOSITIFS_APPEL_INTERPHONE],
+    )
+    assert_missing("entree_dispositif_appel_type", [])

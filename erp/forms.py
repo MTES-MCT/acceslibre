@@ -1,3 +1,5 @@
+from functools import reduce
+
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -333,7 +335,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
     fieldsets = schema.get_form_fieldsets()
 
-    def get_accessibilite_data(self):
+    def get_accessibilite_data(self, flatten=False):
         data = {}
         for section, section_info in self.fieldsets.items():
             data[section] = {
@@ -347,8 +349,6 @@ class ViewAccessibiliteForm(forms.ModelForm):
             for field_data in section_fields:
                 field = self[field_data["id"]]
                 field_value = field.value()
-                if field_value == []:
-                    field_value = None
                 warning = False
                 if "warn_if" in field_data and field_data["warn_if"] is not None:
                     if callable(field_data["warn_if"]):
@@ -380,7 +380,12 @@ class ViewAccessibiliteForm(forms.ModelForm):
             )
             if empty_section:
                 data.pop(section)
-        return data
+        if flatten:
+            return reduce(
+                lambda x, y: x + y, (s["fields"] for (_, s) in data.items()), []
+            )
+        else:
+            return data
 
     def get_display_values(self, name, value, choices, unit=""):
         "Computes values to render on the frontend for a given field."

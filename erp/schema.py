@@ -90,7 +90,6 @@ LABEL_CHOICES = [
     (LABEL_TH, "Tourisme & Handicap"),
 ]
 
-PENTE_AUCUNE = "aucune"
 PENTE_LEGERE = "légère"
 PENTE_IMPORTANTE = "importante"
 PENTE_CHOICES = [
@@ -284,10 +283,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Proximité d'un arrêt de transport en commun",
         "help_text": mark_safe(
-            "Existe-t-il un arrêt de transport en commun à moins de 200 mètres&nbsp;?"
+            "Existe-t-il un arrêt de transport en commun à moins de 200 mètres de l'établissement&nbsp;?"
         ),
-        "help_text_ui": "Arrêt de transport en commun à moins de 200 mètres",
-        "help_text_ui_neg": "Pas d'arrêt de transport en commun à moins de 200 mètres",
+        "help_text_ui": "Arrêt de transport en commun à moins de 200 mètres de l'établissement",
+        "help_text_ui_neg": "Pas d'arrêt de transport en commun à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
@@ -318,7 +317,7 @@ FIELDS = {
         "help_text": mark_safe(
             "Existe-t-il une ou plusieurs places de stationnement dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
         ),
-        "help_text_ui": "Places de stationnement disponibles au sein de la parcelle de l'établissement",
+        "help_text_ui": "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible au sein de la parcelle de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
@@ -333,7 +332,7 @@ FIELDS = {
         "help_text": mark_safe(
             "Existe-t-il une ou plusieurs places de stationnement adaptées dans l'établissement ou au sein de la parcelle de l'établissement&nbsp;?"
         ),
-        "help_text_ui": "Places de stationnement adaptées disponibles au sein de la parcelle de l'établissement",
+        "help_text_ui": "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
@@ -346,10 +345,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Stationnement à proximité de l'établissement",
         "help_text": mark_safe(
-            "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à moins de 200 mètres&nbsp;?"
+            "Existe-t-il une ou plusieurs places de stationnement en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
         ),
-        "help_text_ui": "Places de stationnement disponibles à moins de 200 mètres",
-        "help_text_ui_neg": "Pas de place de stationnement disponible à moins de 200 mètres",
+        "help_text_ui": "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement",
+        "help_text_ui_neg": "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
@@ -361,10 +360,10 @@ FIELDS = {
         "is_a11y": True,
         "label": "Stationnements PMR à proximité de l'établissement",
         "help_text": mark_safe(
-            "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres&nbsp;?"
+            "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
         ),
-        "help_text_ui": "Places de stationnement adaptées disponibles à moins de 200 mètres",
-        "help_text_ui_neg": "Pas de place de stationnement disponible adaptée à moins de 200 mètres",
+        "help_text_ui": "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement",
+        "help_text_ui_neg": "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_STATIONNEMENT,
         "nullable_bool": True,
