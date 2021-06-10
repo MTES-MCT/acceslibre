@@ -5,7 +5,7 @@
 <ul class="p-0 m-0">
   {% for field in fields %}
   {% if field.value != "" and field.value is not None %}
-  <li class="a11y-field border-bottom {% if field.warning %}text-muted{% endif %}">
+  <li class="a11y-field border-bottom">
     {% if field.template_name == "django/forms/widgets/textarea.html" %}
       <h3 class="h6 m-0 p-0 font-weight-normal">
         <i aria-hidden="true" class="icon icon-bubble"></i>
@@ -17,6 +17,9 @@
     {% else %}
       <h4 class="a11y-field h6 m-0 p-0 font-weight-normal">
         <!-- {{ field.name }} -->
+        {% if field.warning %}
+          <span class="sr-only">Attention :</span>
+        {% endif %}
         {{ field.label }}
         {% if field.values %}:
           {% for val in field.values %}
