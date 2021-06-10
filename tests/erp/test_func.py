@@ -52,7 +52,7 @@ def test_erp_details(data, browser):
         html.unescape(schema.get_help_text_ui("sanitaires_presence"))
     )
     assert browser.is_text_present(
-        html.unescape(schema.get_help_text_ui("sanitaires_adaptes"))
+        html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))
     )
 
 

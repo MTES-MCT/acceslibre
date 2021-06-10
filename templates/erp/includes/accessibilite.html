@@ -7,16 +7,15 @@
 {% endif %}
 
 {% for section, info in accessibilite_data.items %}
-  <section id="{{ info.tabid }}" class="mb-4">
-    {% if info.fields %}
-    <h2 class="h5 pb-1 border-bottom">
+  <section id="{{ info.tabid }}" class="mb-5">
+  {% if info.fields %}
+    <h2 class="h5 mb-0 pb-1 border-bottom">
       <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-1"></i>
       {{ section }}
       <small class="text-muted">{{ info.description }}</small>
     </h2>
-
     {% include "erp/includes/fields.html" with fields=info.fields %}
-    {% elif info.sections %}
+  {% elif info.sections %}
     {% for subsection, subinfo in info.sections.items %}
     <div class="card mb-3">
       <div class="card-header border-bottom-0 p-2">
@@ -29,6 +28,6 @@
       </div>
     </div>
     {% endfor %}
-    {% endif %}
+  {% endif %}
   </section>
 {% endfor %}
