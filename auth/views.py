@@ -140,7 +140,7 @@ def change_email(request, activation_key):
     messages.add_message(
         request,
         messages.SUCCESS,
-        f"Votre email à été mis à jour avec succès !",
+        "Votre email à été mis à jour avec succès !",
     )
 
     return redirect("mon_compte")

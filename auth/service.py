@@ -43,7 +43,7 @@ def send_activation_mail(activation_key, email, user):
 def validate_from_token(user, activation_key, today=datetime.now(timezone.utc)):
     try:
         email_token = EmailToken.objects.get(token=activation_key)
-    except models.ObjectDoesNotExist as err:
+    except models.ObjectDoesNotExist:
         return "Token invalide"
 
     if (email_token.user is None) or (email_token.user != user):
