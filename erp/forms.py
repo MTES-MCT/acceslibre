@@ -395,6 +395,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
             values = []
         elif name == "cheminement_ext_devers" and value == schema.DEVERS_AUCUN:
             label = schema.get_help_text_ui_neg(name)
+            values = []
         elif name == "sanitaires_adaptes" and value == 0:
             label = schema.get_help_text_ui_neg(name)
             values = []
