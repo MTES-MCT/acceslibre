@@ -118,7 +118,7 @@ def change_email(request, activation_key):
         return redirect("mon_email")
 
     user = get_user_model().objects.get(id=request.user.id)
-    old_email = user.email.copy()
+    old_email = user.email
 
     failure = validate_from_token(user, activation_key)
     if failure:
@@ -132,7 +132,7 @@ def change_email(request, activation_key):
         user_id=request.user.id,
         content_type_id=ContentType.objects.get_for_model(user).pk,
         object_id=user.id,
-        object_repr=user,
+        object_repr=user.email,
         action_flag=CHANGE,
         change_message=f"Email modifié {old_email} -> {user.email}",
     )

@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
 from _datetime import timedelta
 from django.conf import settings
@@ -8,15 +8,10 @@ from django.db import models
 from auth.models import EmailToken
 from core import mailer
 
-TEMPLATE_NAME = "django_registration/activation_changement_email_body.txt"
+TEMPLATE_NAME = "auth/activation_changement_email_body.txt"
 
 
-def create_token(user, email, token_uuid=None, today=datetime.utcnow()):
-    """
-    Send the activation email. The activation key is the username,
-    signed using TimestampSigner.
-
-    """
+def create_token(user, email, token_uuid=None, today=datetime.now(timezone.utc)):
     activation_key = token_uuid or uuid.uuid4()
     email_token = EmailToken(
         token=activation_key,
@@ -45,7 +40,7 @@ def send_activation_mail(activation_key, email, user):
     )
 
 
-def validate_from_token(user, activation_key):
+def validate_from_token(user, activation_key, today=datetime.now(timezone.utc)):
     try:
         email_token = EmailToken.objects.get(token=activation_key)
     except models.ObjectDoesNotExist as err:
@@ -54,11 +49,12 @@ def validate_from_token(user, activation_key):
     if (email_token.user is None) or (email_token.user != user):
         return "Utilisateur non trouvé"
 
-    if email_token.expire_at > datetime.utcnow():
+    if email_token.expire_at < today:
         return "Token expiré"
 
     user.email = email_token.new_email
     user.save()
+
     email_token.delete()
 
     return None
