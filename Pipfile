@@ -14,7 +14,7 @@ splinter = {extras = [ "django",], version = "*"}
 [packages]
 api-insee = "*"
 coreapi = "*"
-Django = "==3.2.2"
+Django = "==3.2.4"
 django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
 django-admin-list-filter-dropdown = "*"
 django-autoslug = "*"
