@@ -1,4 +1,6 @@
-import requests
+
+from functools import reduce
+
 from django import forms
 from django.conf import settings
 from django.contrib.postgres.forms import SimpleArrayField
@@ -6,7 +8,6 @@ from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from requests.exceptions import RequestException
 
 from erp import schema
 from erp.models import (
@@ -257,7 +258,11 @@ class AdminErpForm(BaseErpForm):
 
 
 class ViewAccessibiliteForm(forms.ModelForm):
-    "This form is used to render Accessibilite data in Erp details pages."
+    """This form is used to render Accessibilite data in Erp details pages, and is
+    probably one of the most hairy piece of code and logic from the whole app. This
+    is due to the inherent complexity of the professional accessibility domain
+    where words, concepts and their formulation — which HAVE to be cognitively
+    accessible themselves — are highly important."""
 
     class Meta:
         model = Accessibilite
@@ -265,7 +270,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
     fieldsets = schema.get_form_fieldsets()
 
-    def get_accessibilite_data(self):
+    def get_accessibilite_data(self, flatten=False):
         data = {}
         for section, section_info in self.fieldsets.items():
             data[section] = {
@@ -279,22 +284,25 @@ class ViewAccessibiliteForm(forms.ModelForm):
             for field_data in section_fields:
                 field = self[field_data["id"]]
                 field_value = field.value()
-                if field_value == []:
-                    field_value = None
-                warning = None
+                warning = False
                 if "warn_if" in field_data and field_data["warn_if"] is not None:
                     if callable(field_data["warn_if"]):
                         warning = field_data["warn_if"](field_value, self.instance)
                     else:
                         warning = field_value == field_data["warn_if"]
+                label, values = self.get_label_and_values(
+                    field.name, field_value, field_data["choices"], field_data["unit"]
+                )
                 data[section]["fields"].append(
                     {
-                        "template_name": field.field.widget.template_name,
                         "name": field.name,
-                        "label": schema.get_label(field.name, field.label),
-                        "help_text_ui": schema.get_help_text_ui(field.name),
+                        "label": label,
                         "value": field_value,
+                        "values": values,
                         "warning": warning,
+                        "is_comment": field.field.widget.template_name.endswith(
+                            "textarea.html"
+                        ),
                     }
                 )
             # Discard empty sections to avoid rendering empty menu items
@@ -303,7 +311,71 @@ class ViewAccessibiliteForm(forms.ModelForm):
             )
             if empty_section:
                 data.pop(section)
-        return data
+        if flatten:
+            return reduce(
+                lambda x, y: x + y, (s["fields"] for (_, s) in data.items()), []
+            )
+        else:
+            return data
+
+    def get_label_and_values(self, name, value, choices, unit=""):
+        "Computes rephrased label and optional values to render on the frontend for a given field."
+        values = self.get_display_values(name, value, choices, unit)
+        if name == "accueil_personnels" and value == schema.PERSONNELS_AUCUN:
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif name == "cheminement_ext_devers" and value == schema.DEVERS_AUCUN:
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif name == "sanitaires_adaptes" and value == 0:
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif (
+            name
+            in [
+                "cheminement_ext_rampe",
+                "entree_marches_rampe",
+                "accueil_cheminement_rampe",
+            ]
+            and value == schema.RAMPE_AUCUNE
+        ):
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif (
+            name
+            in [
+                "cheminement_ext_nombre_marches",
+                "entree_marches",
+                "accueil_cheminement_nombre_marches",
+            ]
+            and value == 0
+        ):
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif value:
+            label = schema.get_help_text_ui(name)
+        else:
+            label = schema.get_help_text_ui_neg(name)
+        return label, values
+
+    def get_display_values(self, name, value, choices, unit=""):
+        if type(value) == bool:
+            return None
+        try:
+            value = getattr(self.instance, f"get_{name}_display")()
+        except AttributeError:
+            # for some reason, ArrayField doesn't expose a get_FIELD_display method…
+            value = getattr(Accessibilite, name).field.value_from_object(self.instance)
+            if choices:
+                choices_dict = dict(choices)
+                return [choices_dict[v] for v in value] if value else []
+        if isinstance(value, list):
+            return value
+        if isinstance(value, str):
+            return [value]
+        if isinstance(value, int):
+            return [f"{value} {unit}{'s' if value > 1 else ''}"]
+        return None
 
 
 class BasePublicErpInfosForm(BaseErpForm):
@@ -554,22 +626,6 @@ class PublicPublicationForm(forms.ModelForm):
                 "Publication impossible sans ces garanties de votre part"
             )
         return True
-
-    def clean_registre_url(self):
-        url = self.cleaned_data.get("registre_url")
-        if not url:
-            return None
-        try:
-            req = requests.head(self.cleaned_data["registre_url"])
-            if not req.ok:
-                raise ValidationError(
-                    f"Cette URL est en erreur HTTP {req.status_code}, veuillez vérifier votre saisie."
-                )
-        except RequestException:
-            raise ValidationError(
-                "Cette URL n'aboutit pas, veuillez vérifier votre saisie."
-            )
-        return url
 
 
 class PublicClaimForm(forms.Form):

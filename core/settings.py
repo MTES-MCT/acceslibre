@@ -46,6 +46,9 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
 MAPBOX_TOKEN = "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
 
+# Mattermost hook
+MATTERMOST_HOOK = get_env_variable("MATTERMOST_HOOK", required=False)
+
 # Sentry integration
 SENTRY_DSN = get_env_variable("SENTRY_DSN", required=False)
 if SENTRY_DSN is not None:

@@ -122,7 +122,7 @@
     {
       "name": "transport_station_presence",
       "title": "Proximité d'un arrêt de transport en commun",
-      "description": "Arrêt de transport en commun à proximité (moins de 200 mètres)",
+      "description": "Arrêt de transport en commun à moins de 200 mètres de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -153,7 +153,7 @@
     {
       "name": "stationnement_presence",
       "title": "Stationnement dans l'établissement",
-      "description": "Présence de stationnement au sein de la parcelle de l'établissement",
+      "description": "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -184,7 +184,7 @@
     {
       "name": "stationnement_pmr",
       "title": "Stationnements adaptés dans l'établissement",
-      "description": "Présence de stationnement adapté au sein de la parcelle de l'établissement",
+      "description": "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -215,7 +215,7 @@
     {
       "name": "stationnement_ext_presence",
       "title": "Stationnement à proximité de l'établissement",
-      "description": "Présence de stationnement à proximité de l'établissement (moins de 200 mètres)",
+      "description": "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -246,7 +246,7 @@
     {
       "name": "stationnement_ext_pmr",
       "title": "Stationnements PMR à proximité de l'établissement",
-      "description": "Présence de stationnement adapté à proximité de l'établissement (moins de 200 mètres)",
+      "description": "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -308,7 +308,7 @@
     {
       "name": "cheminement_ext_terrain_accidente",
       "title": "Revêtement extérieur",
-      "description": "Ce revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)",
+      "description": "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -339,7 +339,7 @@
     {
       "name": "cheminement_ext_plain_pied",
       "title": "Chemin extérieur de plain-pied",
-      "description": "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)",
+      "description": "L'accès à cet espace se fait de plain-pied, c'est à dire sans rupture brutale de niveau",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -408,7 +408,7 @@
     {
       "name": "cheminement_ext_reperage_marches",
       "title": "Marches ou escalier sécurisé(es)",
-      "description": "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées",
+      "description": "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -452,7 +452,7 @@
     {
       "name": "cheminement_ext_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé d'une ou plusieurs main-courantes ?",
+      "description": "L'escalier est équipé d'une ou plusieurs main-courantes",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -483,7 +483,7 @@
     {
       "name": "cheminement_ext_rampe",
       "title": "Rampe",
-      "description": "Présence et type de rampe",
+      "description": "Présence d'une rampe fixe ou amovible",
       "type": "string",
       "constraints": {
         "enum": [
@@ -497,7 +497,7 @@
     {
       "name": "cheminement_ext_pente_presence",
       "title": "Pente",
-      "description": "Le chemin est-il en pente ?",
+      "description": "Le chemin est en pente",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -528,7 +528,7 @@
     {
       "name": "cheminement_ext_pente_degre_difficulte",
       "title": "Degré de difficulté de la pente",
-      "description": "Quel est son degré de difficulté ?",
+      "description": "Difficulté de la pente",
       "type": "string",
       "constraints": {
         "enum": [
@@ -541,7 +541,7 @@
     {
       "name": "cheminement_ext_pente_longueur",
       "title": "Longueur de la pente",
-      "description": "Quelle est sa longueur ?",
+      "description": "Longueur de la pente",
       "type": "string",
       "constraints": {
         "enum": [
@@ -555,7 +555,7 @@
     {
       "name": "cheminement_ext_devers",
       "title": "Dévers",
-      "description": "Un dévers est une inclinaison transversale du chemin. S'il en existe un, quel est son degré de difficulté ?",
+      "description": "Dévers ou inclinaison transversale du chemin",
       "type": "string",
       "constraints": {
         "enum": [
@@ -600,7 +600,7 @@
     {
       "name": "cheminement_ext_retrecissement",
       "title": "Rétrécissement du chemin",
-      "description": "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée",
+      "description": "Un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre l'entrée",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -631,7 +631,7 @@
     {
       "name": "entree_reperage",
       "title": "Entrée facilement repérable",
-      "description": "Présence d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)",
+      "description": "L'entrée de l'établissement est facilement repérable",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -662,7 +662,7 @@
     {
       "name": "entree_vitree",
       "title": "Entrée vitrée",
-      "description": "La porte d'entrée est-elle vitrée ?",
+      "description": "La porte d'entrée est vitrée",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -693,7 +693,7 @@
     {
       "name": "entree_vitree_vitrophanie",
       "title": "Repérage de la vitre",
-      "description": "Présence d'éléments contrastés permettant de visualiser les parties vitrées de l'entrée",
+      "description": "Des éléments contrastés permettent de visualiser les parties vitrées de l'entrée",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -724,7 +724,7 @@
     {
       "name": "entree_plain_pied",
       "title": "Entrée de plain-pied",
-      "description": "L'entrée se fait de plain-pied (sans rupture de niveau)",
+      "description": "L'entrée se fait de plain-pied, c'est à dire sans rupture brutale de niveau",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -755,7 +755,7 @@
     {
       "name": "entree_ascenseur",
       "title": "Ascenseur/élévateur",
-      "description": "Existe-t-il un ascenseur ou un élévateur ?",
+      "description": "Présence d'un ascenseur ou d'un élévateur",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -786,14 +786,14 @@
     {
       "name": "entree_marches",
       "title": "Nombre de marches",
-      "description": "Indiquer 0 s'il n'y a ni marche ni escalier",
+      "description": "Nombre de marches de l'escalier",
       "type": "integer",
       "example": "0"
     },
     {
       "name": "entree_marches_reperage",
       "title": "Repérage des marches",
-      "description": "Nez de marche contrastés, bande d'éveil à la vigilance en haut de l'escalier et/ou première et dernière contremarches contrastées",
+      "description": "Présence de nez de marche contrastés, d'une bande d'éveil à la vigilance en haut de l'escalier et/ou de première et dernière contremarches contrastées",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -824,7 +824,7 @@
     {
       "name": "entree_marches_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé d'une ou plusieurs main-courantes ?",
+      "description": "L'escalier est équipé d'une ou plusieurs main-courantes",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -855,7 +855,7 @@
     {
       "name": "entree_marches_rampe",
       "title": "Rampe",
-      "description": "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible ?",
+      "description": "Présence d'une rampe fixe ou amovible",
       "type": "string",
       "constraints": {
         "enum": [
@@ -928,7 +928,7 @@
     {
       "name": "entree_balise_sonore",
       "title": "Balise sonore à l'entrée",
-      "description": "L'entrée est-elle équipée d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante ?",
+      "description": "Présence d'une balise sonore facilitant son repérage par une personne aveugle ou malvoyante",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -959,7 +959,7 @@
     {
       "name": "entree_aide_humaine",
       "title": "Aide humaine",
-      "description": "Présence ou possibilité d'une aide humaine au déplacement",
+      "description": "Possibilité d'une aide humaine au déplacement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1118,7 +1118,7 @@
     {
       "name": "accueil_personnels",
       "title": "Personnel d'accueil",
-      "description": "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées ?",
+      "description": "Personnel à l'accueil des personnes handicapées",
       "type": "string",
       "constraints": {
         "enum": [
@@ -1181,7 +1181,7 @@
     {
       "name": "accueil_cheminement_plain_pied",
       "title": "Chemin entre l'entrée principale du bâtiment et l'accueil de l'établissement",
-      "description": "L'accès à cet espace se fait de plain-pied (sans rupture de niveau)",
+      "description": "L'accès à cet espace se fait de plain-pied, c'est à dire sans rupture brutale de niveau",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1212,7 +1212,7 @@
     {
       "name": "accueil_cheminement_ascenseur",
       "title": "Ascenseur/élévateur",
-      "description": "Existe-t-il un ascenseur ou un élévateur ?",
+      "description": "Présence d'un ascenseur ou un élévateur",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1243,7 +1243,7 @@
     {
       "name": "accueil_cheminement_nombre_marches",
       "title": "Nombre de marches",
-      "description": "Indiquer 0 s'il n'y a ni marche ni escalier",
+      "description": "Nombre de marches de l'escalier",
       "type": "integer",
       "example": "0"
     },
@@ -1281,7 +1281,7 @@
     {
       "name": "accueil_cheminement_main_courante",
       "title": "Main courante",
-      "description": "L'escalier est-il équipé d'une ou plusieurs main-courantes ?",
+      "description": "L'escalier est équipé d'une ou plusieurs main-courantes",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1312,7 +1312,7 @@
     {
       "name": "accueil_cheminement_rampe",
       "title": "Rampe",
-      "description": "Présence et type de rampe",
+      "description": "Présence d'une rampe fixe ou amovible",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1356,7 +1356,7 @@
     {
       "name": "accueil_retrecissement",
       "title": "Rétrécissement du chemin",
-      "description": "Un ou plusieurs rétrecissements (inférieurs à 80 cm) du chemin pour atteindre l'entrée",
+      "description": "Présence d'un ou plusieurs rétrécissements inférieurs à 90 centimètres du chemin pour atteindre l'entrée",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1387,7 +1387,7 @@
     {
       "name": "sanitaires_presence",
       "title": "Sanitaires",
-      "description": "Mise à disposition de sanitaires dans l'établissement",
+      "description": "Des sanitaires sont mis à disposition dans l'établissement",
       "type": "boolean",
       "trueValues": [
         "true",
@@ -1418,7 +1418,7 @@
     {
       "name": "sanitaires_adaptes",
       "title": "Sanitaires adaptés",
-      "description": "Mise à disposition de sanitaires adaptés dans l'établissement",
+      "description": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
       "type": "integer",
       "example": "0"
     },
@@ -1452,12 +1452,12 @@
           "visuel"
         ]
       },
-      "example": "Valeurs possibles: auditif -> Auditif, mental -> Mental, moteur -> Moteur, visuel -> Visuel"
+      "example": "Valeurs possibles: auditif -> Handicap auditif, mental -> Handicap mental, moteur -> Handicap moteur, visuel -> Handicap visuel"
     },
     {
       "name": "registre_url",
       "title": "Registre",
-      "description": "Si l'établissement dispose d'un registre numérique, adresse internet à laquelle celui-ci est consultable",
+      "description": "Adresse internet à laquelle le registre est consultable",
       "type": "string",
       "format": "uri",
       "example": "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"

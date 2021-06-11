@@ -1,30 +1,32 @@
 import csv
 import io
 import json
-from abc import ABC, abstractmethod
-from typing import Any, List, Iterable
 
 import requests
 
 
-class Fetcher(ABC):
-    fieldnames: List
-
-    @abstractmethod
-    def fetch(self, uri) -> Any:
-        pass
+class Fetcher:
+    def fetch(self, url):
+        try:
+            return requests.get(url)
+        except requests.exceptions.RequestException as err:
+            raise RuntimeError(f"Erreur de lecture des données JSON\n  {err}")
 
 
 class JsonFetcher(Fetcher):
+    def __init__(self, hook=lambda x: x):
+        self.hook = hook
+
     def fetch(self, url):
         try:
-            return requests.get(url).json()
-        except requests.exceptions.RequestException as err:
-            raise RuntimeError(
-                f"Erreur de récupération des données JSON: {url}:\n  {err}"
-            )
+            res = super().fetch(url).json()
+            return self.hook(res)
+        except KeyError as err:
+            raise RuntimeError(f"Erreur de clé JSON: {err}")
         except json.JSONDecodeError as err:
-            raise RuntimeError(f"Erreur de lecture des données JSON\n  {err}")
+            raise RuntimeError(f"Erreur de décodage des données JSON:\n  {err}")
+        except requests.exceptions.RequestException as err:
+            raise RuntimeError(f"Erreur de récupération des données JSON:\n  {err}")
 
 
 class CsvFetcher(Fetcher):
@@ -32,36 +34,17 @@ class CsvFetcher(Fetcher):
         self.delimiter = delimiter
         self.fieldnames = fieldnames
 
-    def fetch(self, url) -> Iterable[Any]:
+    def fetch(self, url):
         try:
-            csvfile = requests.get(url).content.decode("utf8")
-        except requests.exceptions.RequestException as err:
-            raise RuntimeError(
-                f"Erreur de récupération des données JSON: {url}:\n  {err}"
-            )
-
-        try:
-            reader = csv.DictReader(
-                io.StringIO(csvfile),
+            csv_contents = super().fetch(url).content.decode("utf8")
+            return csv.DictReader(
+                io.StringIO(csv_contents),
                 delimiter=self.delimiter,
                 fieldnames=self.fieldnames,
             )
-            if not self.fieldnames:
-                self.fieldnames = list(reader.fieldnames)
-            return reader
         except csv.Error as err:
-            raise RuntimeError(f"Erreur de lecture des données CSV: {url}:\n  {err}")
-
-
-class VoidFetcher(Fetcher):
-    def fetch(self, anything):
-        return None
-
-
-class StringFetcher(Fetcher):
-    def __init__(self, content, fieldnames=None):
-        self.content = content
-        self.fieldnames = fieldnames
-
-    def fetch(self, data=None):
-        return self.content
+            raise RuntimeError(f"Erreur de lecture des données CSV:\n  {err}")
+        except requests.exceptions.RequestException as err:
+            raise RuntimeError(
+                f"Erreur de récupération des données CSV: {url}:\n  {err}"
+            )

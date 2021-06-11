@@ -1,4 +1,4 @@
-<div id="app-map" class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}">
+<div aria-hidden="true" id="app-map" class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}">
   <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
   </script>

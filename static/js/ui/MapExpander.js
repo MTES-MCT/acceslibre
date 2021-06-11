@@ -2,7 +2,6 @@ import geo from "../geo";
 
 function MapExpander(root) {
   const mapEl = document.querySelector("#app-map");
-  const articleHeaderEl = document.querySelector("#article-header");
   const initialMapHeight = mapEl.style.height;
   const initialMapHeightToggleLinkText = root.textContent;
 
@@ -11,11 +10,11 @@ function MapExpander(root) {
     if (mapEl.style.height === initialMapHeight) {
       try {
         window.scrollBy({
-          top: articleHeaderEl.offsetTop - window.pageYOffset - 15,
+          top: root.offsetTop - window.pageYOffset - 15,
           behavior: "smooth",
         });
       } catch (e) {}
-      mapEl.style.height = "70vh";
+      mapEl.style.height = "90vh";
       root.textContent = "Réduire la carte";
     } else {
       mapEl.style.height = initialMapHeight;
