@@ -437,7 +437,7 @@ FIELDS = {
         "label": "Nombre de marches",
         "help_text": mark_safe("Indiquer 0 s'il n'y a ni marche ni escalier"),
         "help_text_ui": "Nombre de marches de l'escalier",
-        "help_text_ui_neg": "Pas de marches d'escalier",
+        "help_text_ui_neg": "Aucune marche d'escalier",
         "section": SECTION_CHEMINEMENT_EXT,
         "choices": None,
         "unit": "marche",
@@ -499,7 +499,7 @@ FIELDS = {
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
-        "help_text_ui_neg": "Présence d'une rampe fixe ou amovible",
+        "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
@@ -598,7 +598,7 @@ FIELDS = {
         "help_text": mark_safe(
             "Y a-t-il des éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)&nbsp;?"
         ),
-        "help_text_ui": "Des éléments facilitent le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)",
+        "help_text_ui": "L'entrée de l'établissement est facilement repérable",
         "help_text_ui_neg": "Pas d'éléments facilitant le repérage de l'entrée de l'établissement (numéro de rue à proximité, enseigne, végétaux, éléments architecturaux contrastés, etc)",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
@@ -770,7 +770,7 @@ FIELDS = {
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
-        "help_text_ui_neg": "Présence d'une rampe fixe ou amovible",
+        "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,
@@ -908,7 +908,7 @@ FIELDS = {
             "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
         ),
         "help_text_ui": "Personnel à l'accueil des personnes handicapées",
-        "help_text_ui_neg": "Personnel à l'accueil des personnes handicapées",
+        "help_text_ui_neg": "Aucun personnel à l'accueil des personnes handicapées",
         "choices": PERSONNELS_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1047,7 +1047,7 @@ FIELDS = {
             "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
         ),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
-        "help_text_ui_neg": "Présence d'une rampe fixe ou amovible",
+        "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
@@ -1093,7 +1093,7 @@ FIELDS = {
             "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
         ),
         "help_text_ui": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
-        "help_text_ui_neg": "Pas de sanitaires adaptés mis à disposition dans l'établissement",
+        "help_text_ui_neg": "Aucun sanitaire adapté mis à disposition dans l'établissement",
         "choices": None,
         "unit": "sanitaire",
         "section": SECTION_SANITAIRES,

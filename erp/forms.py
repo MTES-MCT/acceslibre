@@ -327,7 +327,11 @@ class AdminErpForm(BaseErpForm):
 
 
 class ViewAccessibiliteForm(forms.ModelForm):
-    "This form is used to render Accessibilite data in Erp details pages."
+    """This form is used to render Accessibilite data in Erp details pages, and is
+    probably one of the most hairy piece of code and logic from the whole app. This
+    is due to the inherent complexity of the professional accessibility domain
+    where words, concepts and their formulation — which HAVE to be cognitively
+    accessible themselves — are highly important."""
 
     class Meta:
         model = Accessibilite
@@ -355,21 +359,15 @@ class ViewAccessibiliteForm(forms.ModelForm):
                         warning = field_data["warn_if"](field_value, self.instance)
                     else:
                         warning = field_value == field_data["warn_if"]
-                if field_value:
-                    label = schema.get_help_text_ui(field.name)
-                else:
-                    label = schema.get_help_text_ui_neg(field.name)
+                label, values = self.get_label_and_values(
+                    field.name, field_value, field_data["choices"], field_data["unit"]
+                )
                 data[section]["fields"].append(
                     {
                         "name": field.name,
                         "label": label,
                         "value": field_value,
-                        "values": self.get_display_values(
-                            field.name,
-                            field_value,
-                            field_data["choices"],
-                            field_data["unit"],
-                        ),
+                        "values": values,
                         "warning": warning,
                         "is_comment": field.field.widget.template_name.endswith(
                             "textarea.html"
@@ -389,8 +387,46 @@ class ViewAccessibiliteForm(forms.ModelForm):
         else:
             return data
 
+    def get_label_and_values(self, name, value, choices, unit=""):
+        "Computes rephrased label and optional values to render on the frontend for a given field."
+        values = self.get_display_values(name, value, choices, unit)
+        if name == "accueil_personnels" and value == schema.PERSONNELS_AUCUN:
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif name == "cheminement_ext_devers" and value == schema.DEVERS_AUCUN:
+            label = schema.get_help_text_ui_neg(name)
+        elif name == "sanitaires_adaptes" and value == 0:
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif (
+            name
+            in [
+                "cheminement_ext_rampe",
+                "entree_marches_rampe",
+                "accueil_cheminement_rampe",
+            ]
+            and value == schema.RAMPE_AUCUNE
+        ):
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif (
+            name
+            in [
+                "cheminement_ext_nombre_marches",
+                "entree_marches",
+                "accueil_cheminement_nombre_marches",
+            ]
+            and value == 0
+        ):
+            label = schema.get_help_text_ui_neg(name)
+            values = []
+        elif value:
+            label = schema.get_help_text_ui(name)
+        else:
+            label = schema.get_help_text_ui_neg(name)
+        return label, values
+
     def get_display_values(self, name, value, choices, unit=""):
-        "Computes values to render on the frontend for a given field."
         if type(value) == bool:
             return None
         try:
@@ -400,7 +436,7 @@ class ViewAccessibiliteForm(forms.ModelForm):
             value = getattr(Accessibilite, name).field.value_from_object(self.instance)
             if choices:
                 choices_dict = dict(choices)
-                return [choices_dict[v] for v in value]
+                return [choices_dict[v] for v in value] if value else []
         if isinstance(value, list):
             return value
         if isinstance(value, str):
