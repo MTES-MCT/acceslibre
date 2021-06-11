@@ -1,35 +1,24 @@
 import datetime
-import reversion
 
+import reversion
 from django.conf import settings
 from django.contrib import messages
-from django.contrib.admin.models import LogEntry, CHANGE
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from django.contrib.contenttypes.models import ContentType
-from django.db.models import Count, F, Q
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
+from django.db.models import Count, F, Q
 from django.forms import modelform_factory
 from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
-from django_registration.backends.activation.views import (
-    ActivationView,
-    RegistrationView,
-)
 
 from core import mailer
-
+from erp import forms, schema, serializers, versioning
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import departements, search as provider_search
-
-from erp import forms
-from erp import schema
-from erp import serializers
-from erp import versioning
 from subscription.models import ErpSubscription
 
 
