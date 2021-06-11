@@ -11,7 +11,7 @@ from django_registration.backends.activation.views import (
 )
 
 from auth import forms
-from auth.service import create_and_send_token, validate_from_token
+from auth.service import create_token, validate_from_token, send_activation_mail
 
 
 class CustomActivationCompleteView(TemplateView):
@@ -86,7 +86,8 @@ def mon_email(request):
             new_email = form.cleaned_data["email1"]
             user = get_user_model().objects.get(id=request.user.id)
 
-            create_and_send_token(user, new_email)
+            token = create_token(user, new_email)
+            send_activation_mail(token, new_email, user)
 
             LogEntry.objects.log_action(
                 user_id=request.user.id,

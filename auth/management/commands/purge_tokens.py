@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.core.management.base import BaseCommand
 
-from auth.models import EmailChange
+from auth.models import EmailToken
 from erp.jobs import purge_accounts
 
 
@@ -17,6 +17,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):  # noqa
         try:
-            EmailChange.objects.filter(expire_at__gt=datetime.utcnow()).delete()
+            EmailToken.objects.filter(expire_at__gt=datetime.utcnow()).delete()
         except RuntimeError as err:
             fatal(err)

@@ -2,11 +2,11 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class EmailChange(models.Model):
+class EmailToken(models.Model):
     class Meta:
         ordering = ("created_at",)
-        verbose_name = "EmailChange"
-        verbose_name_plural = "EmailChanges"
+        verbose_name = "EmailToken"
+        verbose_name_plural = "EmailTokens"
         indexes = [
             models.Index(fields=["token"]),
         ]
