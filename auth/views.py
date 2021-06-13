@@ -83,7 +83,7 @@ def mon_email(request):
     if request.method == "POST":
         form = forms.EmailChangeForm(request.POST)
         if form.is_valid():
-            new_email = form.cleaned_data["email1"]
+            new_email = form.cleaned_data.get("email1")
             user = request.user
 
             activation_token = create_token(user, new_email)
@@ -112,15 +112,11 @@ def mon_email(request):
     )
 
 
-@login_required
 def change_email(request, activation_key):
     if not activation_key:
         return redirect("mon_email")
 
-    user = request.user
-    old_email = user.email
-
-    failure = validate_from_token(user, activation_key)
+    user, failure = validate_from_token(activation_key)
     if failure:
         render(
             request,
@@ -134,7 +130,7 @@ def change_email(request, activation_key):
         object_id=user.id,
         object_repr=user.email,
         action_flag=CHANGE,
-        change_message=f"Email modifié {old_email} -> {user.email}",
+        change_message=f"Email modifié {user.email}",
     )
 
     messages.add_message(
@@ -143,13 +139,13 @@ def change_email(request, activation_key):
         "Votre email à été mis à jour avec succès !",
     )
 
-    return redirect("mon_compte")
+    # return redirect("mon_compte")
 
-    # if request.user.id:
-    #     return redirect("mon_compte")
-    # else:
-    #     render(
-    #         request,
-    #         "compte/change_activation_success.html",
-    #         context={},
-    #     )
+    if request.user.id:
+        return redirect("mon_compte")
+    else:
+        render(
+            request,
+            "compte/change_activation_success.html",
+            context={},
+        )

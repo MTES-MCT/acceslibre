@@ -40,20 +40,20 @@ def send_activation_mail(activation_key, email, user):
     )
 
 
-def validate_from_token(user, activation_key, today=datetime.now(timezone.utc)):
+def validate_from_token(activation_key, today=datetime.now(timezone.utc)):
     try:
         email_token = EmailToken.objects.get(token=activation_key)
     except models.ObjectDoesNotExist:
         return "Token invalide"
 
-    if (email_token.user is None) or (email_token.user != user):
+    if email_token.user is None:
         return "Utilisateur non trouvé"
 
     if email_token.expire_at < today:
         return "Token expiré"
 
-    user.email = email_token.new_email
-    user.save()
+    email_token.user.email = email_token.new_email
+    email_token.user.save()
 
     email_token.delete()
 

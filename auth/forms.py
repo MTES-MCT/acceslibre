@@ -83,8 +83,9 @@ class EmailChangeForm(forms.Form):
     email2 = define_email_field("Confirmation nouvel email")
 
     def clean(self):
-        email1 = self.cleaned_data["email1"]
-        email2 = self.cleaned_data["email2"]
+        super().clean()
+        email1 = self.cleaned_data.get("email1")
+        email2 = self.cleaned_data.get("email2")
 
         if email1 != email2:
             raise ValidationError("Les emails ne correspondent pas")
