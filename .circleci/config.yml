@@ -24,17 +24,24 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          keys:
+            - python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+            - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
           name: Install dependencies
           command: |
             sudo apt update
             sudo apt install -y gdal-bin
             pipenv sync --dev
+            npm ci
       - save_cache:
-          key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
+          key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - "venv"
+      - save_cache:
+          key: node-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
       - run:
           name: Wait for Postgres server
           command: dockerize -wait tcp://localhost:5432 -timeout 10s
@@ -53,7 +60,6 @@ jobs:
       - run:
           name: Check SASS stylesheets
           command: |
-            npm ci
             npm run build:prod
       - run:
           name: Check Django templates
