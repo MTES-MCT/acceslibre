@@ -26,18 +26,23 @@ jobs:
       - restore_cache:
           keys:
             - python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
-            - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
-          name: Install dependencies
+          name: Install Python dependencies
           command: |
             sudo apt update
             sudo apt install -y gdal-bin
             pipenv sync --dev
-            npm ci
       - save_cache:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - "venv"
+      - restore_cache:
+          keys:
+            - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install Node dependencies
+          command: |
+            npm ci
       - save_cache:
           key: node-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
