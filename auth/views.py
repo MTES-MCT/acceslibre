@@ -83,7 +83,7 @@ def mon_email(request):
     if request.method == "POST":
         form = forms.EmailChangeForm(request.POST)
         if form.is_valid():
-            new_email = form.cleaned_data.get("email1")
+            new_email = form.cleaned_data
             user = request.user
 
             activation_token = create_token(user, new_email)
@@ -112,11 +112,11 @@ def mon_email(request):
     )
 
 
-def change_email(request, activation_key):
-    if not activation_key:
+def change_email(request, activation_token):
+    if not activation_token:
         return redirect("mon_email")
 
-    user, failure = validate_from_token(activation_key)
+    user, failure = validate_from_token(activation_token)
     if failure:
         render(
             request,

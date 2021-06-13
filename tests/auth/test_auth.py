@@ -36,7 +36,7 @@ def test_user_change_email_e2e(client, data):
 
     email_token_query = EmailToken.objects.all()
     assert len(email_token_query) == 1
-    assert email_token_query.first().token is not None
+    assert email_token_query.first().activation_token is not None
 
     # test email notification sent
     assert len(mail.outbox) == 1
@@ -50,9 +50,7 @@ def test_user_validate_email_change(db, data):
     today = datetime.now(timezone.utc)
     create_token(data.niko, "newemail@gmail.com", activation_token, today=today)
 
-    failure = validate_from_token(
-        data.niko, activation_key=activation_token, today=today
-    )
+    user, failure = validate_from_token(activation_token=activation_token, today=today)
 
     assert failure is None
     assert len(EmailToken.objects.all()) == 0
@@ -64,9 +62,7 @@ def test_user_validate_email_expired_token(db, data):
     future = datetime.now(timezone.utc) + timedelta(days=7)
     create_token(data.niko, "newemail@gmail.com", activation_token, today=past)
 
-    failure = validate_from_token(
-        data.niko, activation_token=activation_token, today=future
-    )
+    user, failure = validate_from_token(activation_token=activation_token, today=future)
 
     assert failure == "Token expiré"
 
@@ -76,9 +72,7 @@ def test_user_validate_email_no_token(db, data):
     today = datetime.now(timezone.utc)
     create_token(data.niko, "newemail@gmail.com", activation_token, today=today)
 
-    failure = validate_from_token(
-        data.niko, activation_token=activation_token, today=today
-    )
+    user, failure = validate_from_token(activation_token=activation_token, today=today)
 
     assert failure == "Token invalide"
 
