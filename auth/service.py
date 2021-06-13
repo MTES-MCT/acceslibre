@@ -11,10 +11,10 @@ from core import mailer
 TEMPLATE_NAME = "auth/activation_changement_email_body.txt"
 
 
-def create_token(user, email, token_uuid=None, today=datetime.now(timezone.utc)):
-    activation_key = token_uuid or uuid.uuid4()
+def create_token(user, email, activation_token=None, today=datetime.now(timezone.utc)):
+    activation_key = activation_token or uuid.uuid4()
     email_token = EmailToken(
-        token=activation_key,
+        activation_token=activation_key,
         user=user,
         new_email=email,
         expire_at=today + timedelta(days=settings.EMAIL_ACTIVATION_DAYS),

@@ -82,7 +82,7 @@ class EmailChangeForm(forms.Form):
     email1 = define_email_field("Nouvel email")
     email2 = define_email_field("Confirmation nouvel email")
 
-    def clean_email(self):
+    def clean(self):
         email1 = self.cleaned_data["email1"]
         email2 = self.cleaned_data["email2"]
 

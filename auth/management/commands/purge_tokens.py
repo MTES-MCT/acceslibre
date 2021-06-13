@@ -4,7 +4,6 @@ from datetime import datetime
 from django.core.management.base import BaseCommand
 
 from auth.models import EmailToken
-from erp.jobs import purge_accounts
 
 
 def fatal(msg):
@@ -15,8 +14,8 @@ def fatal(msg):
 class Command(BaseCommand):
     help = "Supprime les demandes de changements d'emails non utilisés de plus de 24h"
 
-    def handle(self, *args, **options):  # noqa
+    def handle(self, *args, **options):
         try:
-            EmailToken.objects.filter(expire_at__gt=datetime.utcnow()).delete()
+            EmailToken.objects.filter(expire_at__lt=datetime.utcnow()).delete()
         except RuntimeError as err:
             fatal(err)

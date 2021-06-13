@@ -51,12 +51,12 @@ def mon_identifiant(request):
         form = forms.UsernameChangeForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data["username"]
-            user = get_user_model().objects.get(id=request.user.id)
+            user = request.user
             old_username = user.username
             user.username = username
             user.save()
             LogEntry.objects.log_action(
-                user_id=request.user.id,
+                user_id=user.id,
                 content_type_id=ContentType.objects.get_for_model(user).pk,
                 object_id=user.id,
                 object_repr=username,
@@ -84,10 +84,10 @@ def mon_email(request):
         form = forms.EmailChangeForm(request.POST)
         if form.is_valid():
             new_email = form.cleaned_data["email1"]
-            user = get_user_model().objects.get(id=request.user.id)
+            user = request.user
 
-            token = create_token(user, new_email)
-            send_activation_mail(token, new_email, user)
+            activation_token = create_token(user, new_email)
+            send_activation_mail(activation_token, new_email, user)
 
             LogEntry.objects.log_action(
                 user_id=request.user.id,
@@ -117,7 +117,7 @@ def change_email(request, activation_key):
     if not activation_key:
         return redirect("mon_email")
 
-    user = get_user_model().objects.get(id=request.user.id)
+    user = request.user
     old_email = user.email
 
     failure = validate_from_token(user, activation_key)

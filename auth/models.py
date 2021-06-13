@@ -4,14 +4,14 @@ from django.db import models
 
 class EmailToken(models.Model):
     class Meta:
-        ordering = ("created_at",)
+        ordering = ("-created_at",)
         verbose_name = "EmailToken"
         verbose_name_plural = "EmailTokens"
         indexes = [
-            models.Index(fields=["token"]),
+            models.Index(fields=["activation_token"]),
         ]
 
-    token = models.UUIDField()
+    activation_token = models.UUIDField()
     user = models.ForeignKey(
         User,
         verbose_name="Utilisateur",
