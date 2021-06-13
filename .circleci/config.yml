@@ -24,6 +24,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
+          name: Restore Python cached dependencies
           keys:
             - python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
@@ -37,6 +38,7 @@ jobs:
           paths:
             - "venv"
       - restore_cache:
+          name: Restore Node cached dependencies
           keys:
             - node-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
