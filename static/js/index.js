@@ -26,23 +26,17 @@ window.SentryIntegrations = Integrations;
 // app modules
 import dom from "./dom";
 import geo from "./geo";
-
-import AsteriskField from "./ui/AsteriskField";
-import ConditionalForm from "./ui/ConditionalForm.js";
-import GeoLink from "./ui/GeoLink.js";
-import MapExpander from "./ui/MapExpander";
-import SearchWhere from "./ui/SearchWhere";
-import GetGeolocBtn from "./ui/GetGeolocBtn";
+import ui from "./ui";
 
 // Initializations
 dom.ready(() => {
   dom.mountOne("#app-map", geo.AppMap);
-  dom.mountOne("#map-height-toggle-link", MapExpander);
-  dom.mountOne(".a4a-conditional-form", ConditionalForm);
-  dom.mountAll(".search-where-field", SearchWhere);
-  dom.mountAll(".asteriskField", AsteriskField);
-  dom.mountAll(".a4a-geo-link", GeoLink);
-  dom.mountAll(".get-geoloc-btn", GetGeolocBtn);
+  dom.mountOne("#map-height-toggle-link", ui.MapExpander);
+  dom.mountOne(".a4a-conditional-form", ui.ConditionalForm);
+  dom.mountAll(".search-where-field", ui.SearchWhere);
+  dom.mountAll(".asteriskField", ui.AsteriskField);
+  dom.mountAll(".a4a-geo-link", ui.GeoLink);
+  dom.mountAll(".get-geoloc-btn", ui.GetGeolocBtn);
 });
 
 // expose general namespaced lib for usage within pages
