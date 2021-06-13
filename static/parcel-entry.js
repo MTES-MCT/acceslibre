@@ -1,6 +1,6 @@
-import './js/index';
-import './scss/styles';
+import "./js/index";
+import "./scss/styles";
 
 if (module.hot) {
-    module.hot.accept()
+  module.hot.accept();
 }
