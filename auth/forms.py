@@ -91,5 +91,7 @@ class EmailChangeForm(forms.Form):
             raise ValidationError("Les emails ne correspondent pas")
 
         if get_user_model().objects.filter(email__iexact=email1).count() > 0:
-            raise ValidationError("Veuillez choisir un email différent")
+            raise ValidationError(
+                "Cette adresse email existe déjà. Veuillez choisir une adresse email différente"
+            )
         return email1
