@@ -340,7 +340,7 @@ def test_erp_edit_can_be_contributed(data, client):
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
     assert response.status_code == 200
-    assert b"initialement fournies par" not in response.content
+    assert "initialement fournies par" not in response.content.decode()
 
     # non-owner can't
     client.force_login(data.sophie)
@@ -348,7 +348,7 @@ def test_erp_edit_can_be_contributed(data, client):
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
     assert response.status_code == 200
-    assert b"initialement fournies par" in response.content
+    assert "initialement fournies par" in response.content.decode()
 
 
 def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
@@ -620,7 +620,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
     assert erp.published is True
-    assert_redirect(response, "/mon_compte/erps/")
+    assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
 
     # Gestionnaire user
@@ -638,7 +638,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert erp.published is True
     # FIXME: this performs an actual query, we should use a mock
     assert erp.accessibilite.registre_url == "http://www.google.com/"
-    assert_redirect(response, "/mon_compte/erps/")
+    assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
 
     # Administrative user
@@ -655,7 +655,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
     assert erp.published is True
     assert erp.accessibilite.conformite is True
-    assert_redirect(response, "/mon_compte/erps/")
+    assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
 
 
@@ -696,7 +696,7 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
         follow=True,
     )
 
-    assert_redirect(response, "/mon_compte/erps/")
+    assert_redirect(response, "/compte/erps/")
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.published is False
 
@@ -731,7 +731,7 @@ def test_delete_erp_owner(data, client, monkeypatch, capsys):
         data={"confirm": True},
         follow=True,
     )
-    assert_redirect(response, "/mon_compte/erps/")
+    assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
     assert Erp.objects.filter(slug=data.erp.slug).count() == 0
 
