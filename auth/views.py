@@ -125,7 +125,7 @@ def change_email(request, activation_token):
         )
 
     LogEntry.objects.log_action(
-        user_id=request.user.id,
+        user_id=user.id,
         content_type_id=ContentType.objects.get_for_model(user).pk,
         object_id=user.id,
         object_repr=user.email,
@@ -144,7 +144,7 @@ def change_email(request, activation_token):
     if request.user.id:
         return redirect("mon_compte")
     else:
-        render(
+        return render(
             request,
             "compte/change_activation_success.html",
             context={},

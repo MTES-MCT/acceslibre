@@ -97,6 +97,28 @@ def test_user_validate_email_change_e2e(db, client, data):
     assert data.niko.email == new_email
 
 
+def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
+    client.force_login(data.niko)
+
+    new_email = "test@test.com"
+    _change_client_email(client, new_email)
+
+    email_token = EmailToken.objects.all().first()
+
+    client.logout()
+    response = client.get(
+        reverse(
+            "change_email", kwargs={"activation_token": email_token.activation_token}
+        ),
+        follow=True,
+    )
+
+    data.niko.refresh_from_db()
+    assert response.status_code == 200
+    assert len(EmailToken.objects.all()) == 0
+    assert data.niko.email == new_email
+
+
 def _change_client_email(client, new_email):
     response = client.post(
         reverse("mon_email"),
