@@ -2,15 +2,11 @@ from functools import reduce
 
 from django import forms
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
-from django.core.validators import RegexValidator
 from django.forms import widgets
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-
-from django_registration.forms import RegistrationFormUniqueEmail
 
 from erp import schema
 from erp.models import (
@@ -22,9 +18,6 @@ from erp.models import (
 from erp.provider import departements, geocoder
 
 
-USERNAME_RULES = "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
-
-
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
@@ -32,69 +25,6 @@ def bool_radios():
 def get_widgets_for_accessibilite():
     field_names = schema.get_nullable_bool_fields()
     return dict([(f, bool_radios()) for f in field_names])
-
-
-def validate_username_whitelisted(value):
-    if value.lower() in settings.USERNAME_BLACKLIST:
-        raise ValidationError(
-            "Ce nom d'utilisateur est réservé", params={"value": value}
-        )
-
-
-def define_username_field():
-    return forms.CharField(
-        max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}. "
-        "Note : ce nom d'utilisateur pourra être affiché publiquement sur le site si vous contribuez.",
-        required=True,
-        label="Nom d’utilisateur",
-        validators=[
-            RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
-            validate_username_whitelisted,
-        ],
-    )
-
-
-class CustomRegistrationForm(RegistrationFormUniqueEmail):
-    class Meta(RegistrationFormUniqueEmail.Meta):
-        model = get_user_model()
-        fields = [
-            "first_name",
-            "last_name",
-            "username",
-            "email",
-            "password1",
-            "password2",
-            "next",
-            "robot",
-        ]
-
-    username = define_username_field()
-    next = forms.CharField(required=False)
-    robot = forms.BooleanField(
-        label="Je suis un robot",
-        help_text="Merci de décocher cette case avant de soumettre le formulaire",
-        initial=True,
-        required=False,
-    )
-
-    def clean_robot(self):
-        robot = self.cleaned_data["robot"]
-        if robot:
-            raise ValidationError(
-                "Vous devez décocher cette case pour soumettre le formulaire"
-            )
-        return robot
-
-
-class UsernameChangeForm(forms.Form):
-    username = define_username_field()
-
-    def clean_username(self):
-        username = self.cleaned_data["username"]
-        if get_user_model().objects.filter(username__iexact=username).count() > 0:
-            raise ValidationError("Ce nom d'utilisateur est déjà pris.")
-        return username
 
 
 class AdminAccessibiliteForm(forms.ModelForm):

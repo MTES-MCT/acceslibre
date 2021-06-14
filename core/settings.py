@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     "import_export",
     "reset_migrations",
     "django_admin_listfilter_dropdown",
+    "auth.apps.AuthConfig",
     "erp.apps.ErpConfig",
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",
@@ -252,6 +253,7 @@ LOGIN_REDIRECT_URL = "/"
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_OPEN = True
 REGISTRATION_SALT = "a4a-registration"
+EMAIL_ACTIVATION_DAYS = 1
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",

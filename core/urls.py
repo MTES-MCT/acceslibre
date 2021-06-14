@@ -6,14 +6,13 @@ from django.urls import include, path
 from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 
-from core.sitemaps import SITEMAPS
-
-from erp.forms import CustomRegistrationForm
-from erp.views import (
-    CustomActivationView,
+from auth.forms import CustomRegistrationForm
+from auth.views import (
     CustomActivationCompleteView,
+    CustomActivationView,
     CustomRegistrationView,
 )
+from core.sitemaps import SITEMAPS
 
 
 SITEMAP_CACHE_TTL = 86400
@@ -51,6 +50,7 @@ urlpatterns = [
     ),
     path("accounts/", include("django_registration.backends.activation.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("auth/", include("auth.urls")),
     path("admin/", admin.site.urls),
     path(
         "sitemap.xml",
