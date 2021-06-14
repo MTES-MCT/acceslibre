@@ -119,7 +119,7 @@ def change_email(request, activation_token):
     if failure:
         render(
             request,
-            "compte/change_activation_failed.html",
+            "compte/email_change_activation_failed.html",
             context={"activation_error": failure},
         )
 
@@ -138,13 +138,11 @@ def change_email(request, activation_token):
         "Votre email à été mis à jour avec succès !",
     )
 
-    # return redirect("mon_compte")
-
     if request.user.id:
         return redirect("mon_compte")
     else:
         return render(
             request,
-            "compte/change_activation_success.html",
+            "compte/email_change_activation_success.html",
             context={},
         )
