@@ -51,6 +51,13 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mon_email" }}"
+        href="{% url "mon_email" %}">
+          <i aria-hidden="true" class="icon icon-mail mr-1"></i>
+          Mon adresse email
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mot_de_passe" }}"
         href="{% url "password_change" %}">
           <i aria-hidden="true" class="icon icon-key mr-1"></i>

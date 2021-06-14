@@ -50,6 +50,7 @@ def test_user_validate_email_change(db, data):
 
     user, failure = validate_from_token(activation_token=activation_token, today=today)
 
+    assert user == data.niko
     assert failure is None
     assert len(EmailToken.objects.all()) == 0
 
@@ -62,6 +63,7 @@ def test_user_validate_email_expired_token(db, data):
 
     user, failure = validate_from_token(activation_token=activation_token, today=future)
 
+    assert user == data.niko
     assert failure == "Token expiré"
 
 
@@ -72,6 +74,7 @@ def test_user_validate_email_no_token(db, data):
 
     user, failure = validate_from_token(activation_token=activation_token, today=today)
 
+    assert user is None
     assert failure == "Token invalide"
 
 
@@ -91,7 +94,7 @@ def test_user_validate_email_change_e2e(db, client, data):
 
     data.niko.refresh_from_db()
     assert response.status_code == 200
-    assert b"Mon compte" in response.getvalue()
+    assert "Mon compte" in response.content.decode()
     assert len(EmailToken.objects.all()) == 0
     assert data.niko.email == new_email
 
@@ -114,7 +117,7 @@ def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
 
     data.niko.refresh_from_db()
     assert response.status_code == 200
-    assert b"avec votre nouvelle adresse." in response.content
+    assert "avec votre nouvelle adresse." in response.content.decode()
     assert reverse("login") in response.content.decode()
     assert len(EmailToken.objects.all()) == 0
     assert data.niko.email == new_email
@@ -141,6 +144,7 @@ def _change_client_email(client, new_email):
         follow=True,
     )
     assert response.status_code == 200
+    assert "Email d'activation envoyé" in response.content.decode()
 
 
 def _login_client(client, data):

@@ -84,19 +84,6 @@ urlpatterns = [
     ),
     path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
     ############################################################################
-    # Account
-    ############################################################################
-    path("mon_compte/erps/", views.mes_erps, name="mes_erps"),
-    path("mon_compte/abonnements/", views.mes_abonnements, name="mes_abonnements"),
-    path(
-        "mon_compte/contributions/", views.mes_contributions, name="mes_contributions"
-    ),
-    path(
-        "mon_compte/contributions/recues/",
-        views.mes_contributions_recues,
-        name="mes_contributions_recues",
-    ),
-    ############################################################################
     # Ajout ERP
     ############################################################################
     path(

@@ -13,7 +13,11 @@
   </h3>
 
   <form action="{% url "mon_email" %}" method="post">
-    <p>Votre adresse email actuelle est <strong>{{ request.user.email }}</strong>.</p>
+    <p>
+      Utilisez le formulaire ci-dessous pour modifier votre adresse email actuelle (<strong>{{ request.user.email }}</strong>)<br>
+      Nous vous enverrons un mail à la nouvelle adresse comportant un lien d'activation
+      qu'il faudra cliquer pour confirmer ce changement.
+    </p>
     {% csrf_token %}
     {{ form|crispy }}
 
