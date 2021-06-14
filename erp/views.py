@@ -16,7 +16,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from core import mailer
-from erp import forms, schema, serializers, versioning
+from erp import forms, schema, serializers
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import departements, search as provider_search
 from subscription.models import ErpSubscription
@@ -293,78 +293,6 @@ def vote(request, erp_slug):
                 request, messages.SUCCESS, "Votre vote a été enregistré."
             )
     return redirect(erp.get_absolute_url())
-
-
-@login_required
-def mes_erps(request):
-    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
-        user_id=request.user.pk
-    )
-    published_qs = qs.published()
-    non_published_qs = qs.not_published()
-    erp_total_count = qs.count()
-    erp_published_count = published_qs.count()
-    erp_non_published_count = non_published_qs.count()
-    published = request.GET.get("published")
-    if published == "1":
-        qs = published_qs
-    elif published == "0":
-        qs = non_published_qs
-    qs = qs.filter(user_id=request.user.pk).order_by("-updated_at")
-    paginator = Paginator(qs, 10)
-    pager = paginator.get_page(request.GET.get("page", 1))
-    return render(
-        request,
-        "compte/mes_erps.html",
-        context={
-            "erp_total_count": erp_total_count,
-            "erp_published_count": erp_published_count,
-            "erp_non_published_count": erp_non_published_count,
-            "pager": pager,
-            "pager_base_url": f"?published={published or ''}",
-            "filter_published": published,
-        },
-    )
-
-
-def _mes_contributions_view(request, qs, recues=False):
-    paginator = Paginator(qs, 10)
-    pager = paginator.get_page(request.GET.get("page", 1))
-    return render(
-        request,
-        "compte/mes_contributions.html",
-        context={"pager": pager, "recues": recues},
-    )
-
-
-@login_required
-def mes_contributions(request):
-    qs = versioning.get_user_contributions(request.user)
-    return _mes_contributions_view(request, qs)
-
-
-@login_required
-def mes_contributions_recues(request):
-    qs = versioning.get_user_contributions_recues(request.user)
-    return _mes_contributions_view(request, qs, recues=True)
-
-
-@login_required
-def mes_abonnements(request):
-    qs = (
-        ErpSubscription.objects.select_related(
-            "erp", "erp__activite", "erp__commune_ext", "erp__user"
-        )
-        .filter(user=request.user)
-        .order_by("-updated_at")
-    )
-    paginator = Paginator(qs, 10)
-    pager = paginator.get_page(request.GET.get("page", 1))
-    return render(
-        request,
-        "compte/mes_abonnements.html",
-        context={"pager": pager, "pager_base_url": "?1"},
-    )
 
 
 @login_required
