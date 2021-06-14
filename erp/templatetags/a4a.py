@@ -35,8 +35,8 @@ def active_compte_section(path, test):
             test == "mot_de_passe"
             and path
             in [
-                "/accounts/password_change/",
-                "/accounts/password_change/done/",
+                "/compte/password_change/",
+                "/compte/password_change/done/",
                 "/admin/password_change/",
                 "/admin/password_change/done/",
             ],
