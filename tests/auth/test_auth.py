@@ -11,6 +11,7 @@ from django.utils.timezone import make_naive
 
 from auth.models import EmailToken
 from auth.service import create_token, validate_from_token
+from tests.utils import assert_redirect
 
 
 def client():
@@ -93,6 +94,7 @@ def test_user_validate_email_change_e2e(db, client, data):
 
     data.niko.refresh_from_db()
     assert response.status_code == 200
+    assert b"Mon compte" in response.getvalue()
     assert len(EmailToken.objects.all()) == 0
     assert data.niko.email == new_email
 
@@ -115,6 +117,10 @@ def test_user_validate_email_change_not_logged_in_e2e(db, client, data):
 
     data.niko.refresh_from_db()
     assert response.status_code == 200
+    assert (
+        b"Vous pouvez vous connecter avec votre nouvelle adresse."
+        in response.getvalue()
+    )
     assert len(EmailToken.objects.all()) == 0
     assert data.niko.email == new_email
 
