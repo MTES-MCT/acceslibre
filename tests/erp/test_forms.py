@@ -1,23 +1,22 @@
 import pytest
 
 from erp import forms
-from auth import forms as auth_forms
 
 
 @pytest.mark.django_db
 def test_CustomRegistrationForm():
-    form = auth_forms.CustomRegistrationForm()
+    form = forms.CustomRegistrationForm()
     assert form.is_valid() is False
 
-    form = auth_forms.CustomRegistrationForm({"username": "toto@toto.com"})
+    form = forms.CustomRegistrationForm({"username": "toto@toto.com"})
     assert form.is_valid() is False
-    assert auth_forms.USERNAME_RULES in form.errors["username"]
+    assert forms.USERNAME_RULES in form.errors["username"]
 
-    form = auth_forms.CustomRegistrationForm({"username": "toto+toto"})
+    form = forms.CustomRegistrationForm({"username": "toto+toto"})
     assert form.is_valid() is False
-    assert auth_forms.USERNAME_RULES in form.errors["username"]
+    assert forms.USERNAME_RULES in form.errors["username"]
 
-    form = auth_forms.CustomRegistrationForm(
+    form = forms.CustomRegistrationForm(
         {"username": "".join(map(lambda _: "x", range(0, 33)))}
     )  # 33c length string
     assert form.is_valid() is False
@@ -26,7 +25,7 @@ def test_CustomRegistrationForm():
         in form.errors["username"]
     )
 
-    form = auth_forms.CustomRegistrationForm({"username": "jean-pierre.timbault_42"})
+    form = forms.CustomRegistrationForm({"username": "jean-pierre.timbault_42"})
     assert "username" not in form.errors
 
 
