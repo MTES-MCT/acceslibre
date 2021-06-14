@@ -1,5 +1,5 @@
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 from django.core.management.base import BaseCommand
 
@@ -16,6 +16,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            EmailToken.objects.filter(expire_at__lt=datetime.utcnow()).delete()
+            EmailToken.objects.filter(expire_at__lt=datetime.now(timezone.utc)).delete()
         except RuntimeError as err:
             fatal(err)
