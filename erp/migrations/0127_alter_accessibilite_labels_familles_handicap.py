@@ -7,29 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("erp", "0126_auto_20210604_1611"),
+        ('erp', '0126_auto_20210604_1611'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name="accessibilite",
-            name="labels_familles_handicap",
-            field=django.contrib.postgres.fields.ArrayField(
-                base_field=models.CharField(
-                    blank=True,
-                    choices=[
-                        ("auditif", "Handicap auditif"),
-                        ("mental", "Handicap mental"),
-                        ("moteur", "Handicap moteur"),
-                        ("visuel", "Handicap visuel"),
-                    ],
-                    max_length=255,
-                ),
-                blank=True,
-                default=list,
-                null=True,
-                size=None,
-                verbose_name="Famille(s) de handicap concernées(s)",
-            ),
+            model_name='accessibilite',
+            name='labels_familles_handicap',
+            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, choices=[('auditif', 'Handicap auditif'), ('mental', 'Handicap mental'), ('moteur', 'Handicap moteur'), ('visuel', 'Handicap visuel')], max_length=255), blank=True, default=list, null=True, size=None, verbose_name='Famille(s) de handicap concernées(s)'),
         ),
     ]
