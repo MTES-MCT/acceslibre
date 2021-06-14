@@ -20,9 +20,8 @@ class Command(BaseCommand):
             notify_changed_erps.job, verbose=True
         )
         schedule.every().hour.do(call_command, "import_dataset", "vaccination")
-        schedule.every().week.do(call_command, "import_dataset", "gendarmerie")
+        schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
         print("Scheduler started")
-        schedule.run_all()
         while True:
             schedule.run_pending()
             time.sleep(1)

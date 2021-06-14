@@ -5,10 +5,10 @@ from _datetime import timedelta
 from django.conf import settings
 from django.db import models
 
-from auth.models import EmailToken
+from compte.models import EmailToken
 from core import mailer
 
-TEMPLATE_NAME = "auth/activation_changement_email_body.txt"
+TEMPLATE_NAME = "compte/email_change_activation_email.txt"
 
 
 def create_token(user, email, activation_token=None, today=datetime.now(timezone.utc)):

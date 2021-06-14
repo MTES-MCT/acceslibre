@@ -319,7 +319,7 @@ def test_admin_with_admin_user(data, client, capsys):
 def test_ajout_erp_requires_auth(data, client):
     response = client.get(reverse("contrib_start"), follow=True)
 
-    assert_redirect(response, "/accounts/login/?next=/contrib/start/")
+    assert_redirect(response, "/compte/login/?next=/contrib/start/")
     assert response.status_code == 200
     assert "registration/login.html" in [t.name for t in response.templates]
 
@@ -330,7 +330,7 @@ def test_erp_edit_can_be_contributed(data, client):
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True
     )
     assert_redirect(
-        response, "/accounts/login/?next=/contrib/transport/aux-bons-croissants/"
+        response, "/compte/login/?next=/contrib/transport/aux-bons-croissants/"
     )
     assert response.status_code == 200
 
@@ -744,7 +744,7 @@ def test_erp_vote_anonymous(data, client):
     )
 
     # ensure user is redirected to login page
-    assert_redirect(response, "/accounts/login/?next=/app/aux-bons-croissants/vote/")
+    assert_redirect(response, "/compte/login/?next=/app/aux-bons-croissants/vote/")
     assert response.status_code == 200
     assert "registration/login.html" in [t.name for t in response.templates]
 

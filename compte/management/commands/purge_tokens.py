@@ -1,14 +1,14 @@
-import sys
+import logging
+
 from datetime import datetime, timezone
 
 from django.core.management.base import BaseCommand
+from django.db import DatabaseError
 
-from auth.models import EmailToken
+from compte.models import EmailToken
 
 
-def fatal(msg):
-    print(msg)
-    sys.exit(1)
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -17,5 +17,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             EmailToken.objects.filter(expire_at__lt=datetime.now(timezone.utc)).delete()
-        except RuntimeError as err:
-            fatal(err)
+        except DatabaseError as err:
+            logger.error(
+                f"Error when deleting unused email change activation tokens: {err}"
+            )
+            raise DatabaseError

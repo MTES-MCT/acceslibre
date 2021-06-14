@@ -9,8 +9,8 @@ from django_registration.backends.activation.views import (
     ActivationView,
 )
 
-from auth import forms
-from auth.service import create_token, validate_from_token, send_activation_mail
+from compte import forms
+from compte.service import create_token, validate_from_token, send_activation_mail
 
 
 class CustomActivationCompleteView(TemplateView):
@@ -80,7 +80,7 @@ def mon_identifiant(request):
 @login_required
 def mon_email(request):
     if request.method == "POST":
-        form = forms.EmailChangeForm(request.POST)
+        form = forms.EmailChangeForm(request.POST, user=request.user)
         if form.is_valid():
             new_email = form.cleaned_data
             user = request.user
@@ -119,7 +119,7 @@ def change_email(request, activation_token):
     if failure:
         render(
             request,
-            "compte/change_activation_failed.html",
+            "compte/email_change_activation_failed.html",
             context={"activation_error": failure},
         )
 
@@ -145,6 +145,6 @@ def change_email(request, activation_token):
     else:
         return render(
             request,
-            "compte/change_activation_success.html",
+            "compte/email_change_activation_success.html",
             context={},
         )

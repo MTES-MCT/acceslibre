@@ -33,6 +33,7 @@ def define_email_field(label="Email"):
     return forms.EmailField(
         required=True,
         label=label,
+        widget=forms.TextInput(attrs={"placeholder": "Exemple: nom@domaine.com"}),
     )
 
 
@@ -79,17 +80,28 @@ class UsernameChangeForm(forms.Form):
 
 
 class EmailChangeForm(forms.Form):
-    email1 = define_email_field("Nouvel email")
-    email2 = define_email_field("Confirmation nouvel email")
+    email1 = define_email_field("Nouvelle adresse email")
+    email2 = define_email_field("Confirmation de la nouvelle adresse email")
+
+    def __init__(self, *args, user=None, **kwargs):
+        self.user = user
+        super().__init__(*args, **kwargs)
 
     def clean(self):
         super().clean()
         email1 = self.cleaned_data.get("email1")
         email2 = self.cleaned_data.get("email2")
 
+        if self.user and email1 == self.user.email:
+            raise ValidationError("Vous n'avez pas modifié votre adresse email")
+
         if email1 != email2:
             raise ValidationError("Les emails ne correspondent pas")
 
         if get_user_model().objects.filter(email__iexact=email1).count() > 0:
-            raise ValidationError("Veuillez choisir un email différent")
+            raise ValidationError(
+                "Cette adresse email existe déjà, "
+                "veuillez choisir une adresse email différente"
+            )
+
         return email1
