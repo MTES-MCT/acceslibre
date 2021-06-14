@@ -2,16 +2,13 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.core import mail
 
 from django.test import Client
 from django.urls import reverse
-from django.utils.timezone import make_naive
 
 from auth.models import EmailToken
 from auth.service import create_token, validate_from_token
-from tests.utils import assert_redirect
 
 
 def client():

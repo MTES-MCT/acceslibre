@@ -1,6 +1,5 @@
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
-from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render, redirect
