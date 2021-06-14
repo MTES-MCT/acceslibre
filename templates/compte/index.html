@@ -20,7 +20,9 @@
   {% endif %}
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <span>Mon adresse email :</span>
-    <strong>{{ user.email }}</strong>
+    <span>
+      <strong>{{ user.email }}</strong> (<a href="{% url "mon_email" %}">changer</a>)
+    </span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     <span>Date d'inscription :</span>

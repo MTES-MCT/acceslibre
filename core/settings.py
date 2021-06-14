@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     "import_export",
     "reset_migrations",
     "django_admin_listfilter_dropdown",
+    "compte.apps.CompteConfig",
     "erp.apps.ErpConfig",
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",
@@ -246,16 +247,17 @@ EMAIL_FILE_PATH = "/tmp/django_emails"
 EMAIL_SUBJECT_PREFIX = f"[{SITE_NAME}]"
 EMAIL_USE_LOCALTIME = True
 
-LOGIN_URL = "/accounts/login/"
+LOGIN_URL = "/compte/login/"
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_OPEN = True
 REGISTRATION_SALT = "a4a-registration"
+EMAIL_ACTIVATION_DAYS = 1
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
-    "erp.auth.EmailOrUsernameModelBackend",
+    "compte.auth.EmailOrUsernameModelBackend",
 )
 
 # graphviz

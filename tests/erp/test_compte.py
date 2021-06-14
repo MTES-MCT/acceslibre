@@ -14,7 +14,7 @@ def client():
 
 def test_update_username_anonymous(client, data):
     response = client.get(reverse("mon_identifiant"), follow=True)
-    assert_redirect(response, "/accounts/login/")
+    assert_redirect(response, "/compte/login/")
 
 
 def test_update_username_authenticated(client, data):
