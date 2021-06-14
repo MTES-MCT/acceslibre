@@ -1,0 +1,15 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Activation réussie{% endblock%}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+    <div class="alert alert-success">
+      Votre adresse mail à été changée avec succès !
+      Vous pouvez <a href="{% url "login" %}">vous connecter</a> avec votre nouvelle adresse.
+    </div>
+</main>
+{% endblock %}
