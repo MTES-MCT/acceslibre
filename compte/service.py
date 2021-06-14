@@ -34,7 +34,7 @@ def send_activation_mail(activation_token, email, user):
 
     mailer.send_email(
         [email],
-        f"Activation de votre compte {settings.SITE_NAME.title}",
+        f"Activation de votre compte {settings.SITE_NAME.title()}",
         TEMPLATE_NAME,
         context,
     )
