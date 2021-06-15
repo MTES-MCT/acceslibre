@@ -36,7 +36,6 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 **Notes :**
 
 - Un fichier d'exemple `.env.sample` est disponible à la racine du dépôt.
-- Les jetons d'authentification pour l'API Sirene de l'INSEE [s'obtiennent ici](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee).
 - En production, nous utilisons les services de [Mailjet](https://app.mailjet.com/) pour gérer l'envoi d'emails.
 - Pour travailler localement, l'utilisation du [backend d'email "console"](https://docs.djangoproject.com/en/3.0/topics/email/#console-backend) est recommandée.
 - La prise en compte de l'assignation des variables d'environnement définies dans ce fichier `.env` ne sont effectives qu'après avoir activé l'environnement virtuel de développement Python, au moyen de la commande `pipenv shell`. L'exécution de cette commande est également nécessaire pour prendre en compte chaque modification de leur valeur.

@@ -105,6 +105,20 @@ class CommuneQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
+    def find_similar(self, nom, commune, voie=None, lieu_dit=None):
+        qs = self.filter(
+            nom__iexact=nom,
+            commune__iexact=commune,
+        )
+        if voie or lieu_dit:
+            clause = Q()
+            if voie:
+                clause = clause | Q(voie__iexact=voie)
+            if lieu_dit:
+                clause = clause | Q(lieu_dit__iexact=lieu_dit)
+            qs = qs.filter(clause)
+        return qs
+
     def find_by_siret(self, siret):
         if siret:
             return self.filter(siret=siret).first()
