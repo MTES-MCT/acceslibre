@@ -3,10 +3,9 @@ import nested_admin
 from django import forms
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.contrib.gis.admin import OSMGeoAdmin
-from django.db.models import Count, Q
+from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -23,7 +22,6 @@ from erp.forms import (
     AdminErpForm,
 )
 
-# from .imports import ErpResource
 from .models import (
     Accessibilite,
     Activite,
@@ -33,74 +31,6 @@ from .models import (
     Vote,
 )
 from . import schema
-
-
-class CustomUserAdmin(UserAdmin):
-    ordering = (
-        "-date_joined",
-        "username",
-    )
-    list_display = (
-        "username",
-        "email",
-        "date_joined",
-        "is_active",
-        "is_staff",
-        "get_erp_count_published",
-        "get_erp_count_total",
-        "get_vote_count",
-        "get_rev_count",
-    )
-
-    def get_erp_count_published(self, obj):
-        return obj.erp_count_published
-
-    get_erp_count_published.short_description = "Pub. ERP"
-    get_erp_count_published.description = "djoisjddjpsqdo"
-    get_erp_count_published.admin_order_field = "erp_count_published"
-
-    def get_erp_count_total(self, obj):
-        return obj.erp_count_total
-
-    get_erp_count_total.short_description = "Tot. ERP"
-    get_erp_count_total.admin_order_field = "erp_count_total"
-
-    def get_vote_count(self, obj):
-        return obj.vote_count
-
-    get_vote_count.short_description = "Votes"
-    get_vote_count.admin_order_field = "vote_count"
-
-    def get_rev_count(self, obj):
-        return obj.rev_count
-
-    get_rev_count.short_description = "Rev"
-    get_rev_count.admin_order_field = "rev_count"
-
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        queryset = (
-            queryset.annotate(
-                erp_count_total=Count("erp", distinct=True),
-                erp_count_published=Count(
-                    "erp",
-                    filter=Q(
-                        erp__published=True,
-                        erp__accessibilite__isnull=False,
-                        erp__geom__isnull=False,
-                    ),
-                    distinct=True,
-                ),
-            )
-            .annotate(vote_count=Count("vote", distinct=True))
-            .annotate(rev_count=Count("revision", distinct=True))
-        )
-        return queryset
-
-
-# replace the default UserAdmin with yours
-admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
 
 
 @admin.register(Activite)
