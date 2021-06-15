@@ -38,6 +38,8 @@ SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
 DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
+DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
+DATAGOUV_DATASET_ID = "d54910da-d37a-46a0-93db-fc515db8a0fe"
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
