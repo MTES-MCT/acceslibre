@@ -28,8 +28,6 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 - `EMAIL_PORT`: Port du serveur SMTP
 - `EMAIL_HOST_USER`: Nom d'utilisateur SMTP
 - `EMAIL_HOST_PASSWORD`: Mot de passe SMTP
-- `INSEE_API_CLIENT_KEY`: Clé client d'[API INSEE Sirene](https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee)
-- `INSEE_API_SECRET_KEY`: Clé secrète d'API INSEE Sirene
 - `MATTERMOST_HOOK`: Url du [webhook entrant Mattermost](https://docs.mattermost.com/developer/webhooks-incoming.html) utilisé pour envoyer des notifications techniques
 - `SCALINGO_APP`: Le nom de l'application Scalingo, toujours `access4all`
 - `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
