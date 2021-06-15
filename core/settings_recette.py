@@ -4,6 +4,7 @@ import os
 from .settings import *
 
 DEBUG = False
+ENVIRONMENT = "recette"
 
 STAGING = True
 SITE_NAME = "acceslibre (recette)"

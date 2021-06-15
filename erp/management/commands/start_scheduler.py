@@ -17,7 +17,7 @@ class Command(BaseCommand):
         schedule.every().day.at("00:00").do(check_closed_erps.job, verbose=True)
         schedule.every().day.at("04:00").do(purge_accounts.job, verbose=True)
         schedule.every().hour.do(call_command, "purge_tokens")
-        if settings.DATAGOUV_API_KEY:
+        if settings.ENVIRONMENT == "prod":
             schedule.every().day.at("01:00").do(call_command, "export_to_datagouv")
         schedule.every(notify_changed_erps.HOURS_CHECK).hours.do(
             notify_changed_erps.job, verbose=True
