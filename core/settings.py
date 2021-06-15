@@ -37,6 +37,7 @@ SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
+DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY")
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
