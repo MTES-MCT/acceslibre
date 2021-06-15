@@ -1,3 +1,4 @@
+import copy
 import json
 import pytest
 
@@ -71,6 +72,23 @@ def sample_record_ok():
     }
 }"""
     )
+
+
+@pytest.fixture
+def record_skippable(sample_record_ok):
+    record_to_skip = copy.deepcopy(sample_record_ok)
+    record_to_skip["properties"]["c_gid"] = 100
+    record_to_skip["properties"]["c_rdv_modalites"] = "Établissement Pénitentiaire"
+    return record_to_skip
+
+
+@pytest.fixture
+def record_invalid_cp(sample_record_ok):
+    record_throwing_error = copy.deepcopy(sample_record_ok)
+    record_throwing_error["properties"]["c_gid"] = 200
+    record_throwing_error["properties"]["c_com_insee"] = "97801"
+    record_throwing_error["properties"]["c_com_cp"] = "97150"
+    return record_throwing_error
 
 
 @pytest.fixture

@@ -1,15 +1,21 @@
 from datetime import datetime
 
 import pytest
+import requests
 from django.db import DataError
 
 from erp.imports.fetcher import JsonFetcher
-from erp.imports.importer import Importer
+from erp.imports.importer import Importer, ROOT_DATASETS_URL
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Activite, Erp
 from tests.erp.imports.mapper.fixtures import FakeJsonFetcher
 
-from tests.erp.imports.mapper.fixtures import neufchateau, sample_record_ok
+from tests.erp.imports.mapper.fixtures import (
+    neufchateau,
+    sample_record_ok,
+    record_invalid_cp,
+    record_skippable,
+)
 
 
 @pytest.fixture
@@ -54,6 +60,36 @@ def test_unpublish_closed_erp(neufchateau, sample_record_ok, activite_cdv):
 
     erp = Erp.objects.get(source_id=sample_record_ok["properties"]["c_gid"])
     assert erp.published is False
+
+
+def test_import_invalid_erp(
+    sample_record_ok, record_skippable, record_invalid_cp, activite_cdv, neufchateau
+):
+    fetcher = FakeJsonFetcher([sample_record_ok, record_skippable, record_invalid_cp])
+    today = datetime(2021, 1, 1)
+    mapper = VaccinationMapper
+    results = Importer(
+        "fake-id",
+        fetcher=fetcher,
+        mapper=mapper,
+        activite=activite_cdv,
+        today=today,
+    ).process()
+
+    erps = Erp.objects.all()
+    assert len(erps) == 1
+    assert len(results["imported"]) == 1
+    assert len(results["skipped"]) == 1
+    assert "carcéral" in results["skipped"][0]
+    assert len(results["unpublished"]) == 0
+    assert len(results["errors"]) == 1
+    assert record_invalid_cp["properties"]["c_com_insee"] in results["errors"][0]
+
+
+def test_dataset_reachable():
+    response = requests.get(ROOT_DATASETS_URL + "/061a5736-8fc2-4388-9e55-8cc31be87fa0")
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "text/csv"
 
 
 def test_intercept_sql_errors(mapper, neufchateau, sample_record_ok):

@@ -41,11 +41,12 @@ class Importer:
         }
 
         for record in self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}"):
+            erp = None
             try:
                 mapper = self.mapper(record, self.activite, self.today)
                 (erp, unpublish_reason) = mapper.process()
                 if not erp:
-                    self.log_char("X")
+                    self.print_char("X")
                     continue
                 with transaction.atomic():
                     if unpublish_reason:
@@ -67,16 +68,21 @@ class Importer:
                         results["imported"].append(str(erp))
             except SkippedRecord as skipped_reason:
                 self.print_char("S")
-                results["skipped"].append(f"{str(erp)}: {skipped_reason}")
+                results["skipped"].append(f"{get_erp(erp)}: {skipped_reason}")
             except RuntimeError as err:
                 self.print_char("E")
-                results["errors"].append(f"{str(erp)}: {str(err)}")
+                results["errors"].append(f"{get_erp(erp)}: {str(err)}")
             except (TransactionManagementError, DataError, DatabaseError) as err:
                 logger.error(f"Database error while importing dataset: {err}")
                 self.print_char("E")
                 results["errors"].append(f"{str(erp)}: {str(err)}")
 
         return results
+
+
+def get_erp(erp):
+    # Sometimes the ERP is not in base and get rejected, so "erp" is empty
+    return str(erp) if erp else "ERP non répertorié"
 
 
 def import_gendarmeries(verbose=False):
