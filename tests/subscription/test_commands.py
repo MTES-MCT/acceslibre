@@ -3,12 +3,12 @@ from django.conf import settings
 
 from django.contrib.gis.geos import Point
 from django.core import mail
+from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
 
 from erp.models import Accessibilite, Erp
 from subscription.models import ErpSubscription
-from subscription.jobs import notify_changed_erps
 
 
 from reversion.models import Version
@@ -120,7 +120,7 @@ def test_notification_erp(client, data, mocker):
     assert updated_erp.nom == "sophie erp"
     assert Version.objects.count() != 0
 
-    notify_changed_erps.job()
+    call_command("notify_changed_erps")
     unsubscribe_url = reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug})
 
     assert len(mail.outbox) == 1
@@ -154,7 +154,7 @@ def test_notification_accessibilite(client, data, mocker):
     updated_acc = Accessibilite.objects.get(erp__slug=erp.slug)
     assert Version.objects.count() != 0
 
-    notify_changed_erps.job()
+    call_command("notify_changed_erps")
 
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [data.niko.email]
@@ -192,7 +192,7 @@ def test_notification_skip_owner(client, data):
     assert response.status_code == 200
 
     # niko is owner and shouldn't be notified
-    notify_changed_erps.job()
+    call_command("notify_changed_erps")
 
     assert len(mail.outbox) == 0
 
