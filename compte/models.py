@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.db import models
 
 
@@ -13,7 +13,7 @@ class EmailToken(models.Model):
 
     activation_token = models.UUIDField()
     user = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         verbose_name="Utilisateur",
         on_delete=models.CASCADE,
     )

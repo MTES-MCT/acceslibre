@@ -6,8 +6,8 @@ from django.urls import include, path
 from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 
-from auth.forms import CustomRegistrationForm
-from auth.views import (
+from compte.forms import CustomRegistrationForm
+from compte.views import (
     CustomActivationCompleteView,
     CustomActivationView,
     CustomRegistrationView,
@@ -32,25 +32,26 @@ urlpatterns = [
     path("stats/", include("stats.urls")),
     # django-registration overrides, handling `next` query string param
     path(
-        "accounts/activate/complete/",
+        "compte/activate/complete/",
         CustomActivationCompleteView.as_view(
             template_name="django_registration/activation_complete.html",
         ),
         name="django_registration_activation_complete",
     ),
     path(
-        "accounts/activate/<str:activation_key>/",
+        "compte/activate/<str:activation_key>/",
         CustomActivationView.as_view(),
         name="django_registration_activate",
     ),
     path(
-        "accounts/register/",
+        "compte/register/",
         CustomRegistrationView.as_view(form_class=CustomRegistrationForm),
         name="django_registration_register",
     ),
-    path("accounts/", include("django_registration.backends.activation.urls")),
-    path("accounts/", include("django.contrib.auth.urls")),
-    path("auth/", include("auth.urls")),
+    # TODO more things to move to auth
+    path("compte/", include("django_registration.backends.activation.urls")),
+    path("compte/", include("django.contrib.auth.urls")),
+    path("compte/", include("compte.urls")),
     path("admin/", admin.site.urls),
     path(
         "sitemap.xml",

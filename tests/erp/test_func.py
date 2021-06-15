@@ -86,7 +86,7 @@ def test_registration_flow(data, browser):
     assert len(mail.outbox) == 1
     assert "Activation de votre compte" in mail.outbox[0].subject
     assert "johndoe" in mail.outbox[0].body
-    assert "http://testserver/accounts/activate" in mail.outbox[0].body
+    assert "http://testserver/compte/activate" in mail.outbox[0].body
     assert "?next=/contactez-nous/" in mail.outbox[0].body
 
     activation_url = [

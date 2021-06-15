@@ -1,10 +1,11 @@
 import logging
+
 from datetime import datetime, timezone
 
 from django.core.management.base import BaseCommand
 from django.db import DatabaseError
 
-from auth.models import EmailToken
+from compte.models import EmailToken
 
 
 logger = logging.getLogger(__name__)
@@ -18,6 +19,6 @@ class Command(BaseCommand):
             EmailToken.objects.filter(expire_at__lt=datetime.now(timezone.utc)).delete()
         except DatabaseError as err:
             logger.error(
-                "Error when deleting unused email change activation tokens:" + str(err)
+                f"Error when deleting unused email change activation tokens: {err}"
             )
             raise DatabaseError

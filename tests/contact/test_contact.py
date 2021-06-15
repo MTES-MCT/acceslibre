@@ -76,7 +76,7 @@ def test_contact_authenticated(data, client):
 
     response = client.get(reverse("contact_form"))
     assert response.context["form"].initial["user"] == data.niko
-    assert b'value="niko@niko.tld"' in response.content
+    assert 'value="niko@niko.tld"' in response.content.decode()
 
     response = client.post(
         reverse("contact_form"),
