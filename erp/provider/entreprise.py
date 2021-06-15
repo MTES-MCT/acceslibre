@@ -199,7 +199,6 @@ def parse_etablissement_v3(record):
     return dict(
         source="entreprise_api",
         source_id=source_id,
-        actif=True,
         coordonnees=coordonnees,
         naf=naf,
         activite=None,  # Would be nice to infer activite from NAF

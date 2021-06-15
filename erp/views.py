@@ -222,7 +222,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "activite",
             "commune_ext",
             "user",
-            "statuscheck",
         )
         .published()
         .with_votes()

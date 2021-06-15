@@ -135,7 +135,6 @@ function onMapContextMenu(root, { latlng, target: map }) {
         data: safeBase64Encode({
           source: "public",
           source_id: `ban:${properties.id}`,
-          actif: true,
           coordonnees: [geometry.coordinates[0], geometry.coordinates[1]],
           naf: null,
           activite: null,

@@ -96,7 +96,6 @@ def test_parse_etablissement_jacou(data, activite_mairie):
     assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "mairie-34120-01",
-        "actif": True,
         "coordonnees": [3.9106014, 43.6609939],
         "naf": None,
         "activite": activite_mairie.pk,
@@ -156,7 +155,6 @@ def test_parse_etablissement_gendarmerie_castelnau(
     assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "gendarmerie-34057-01",
-        "actif": True,
         "coordonnees": [3.91375272, 43.64536644],
         "naf": None,
         "activite": activite_administration_publique.pk,
@@ -216,7 +214,6 @@ def test_parse_etablissement_montreuil(data, commune_montreuil, activite_mairie)
     assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "mairie-93048-01",
-        "actif": True,
         "coordonnees": [2.441878, 48.860395],
         "naf": None,
         "activite": activite_mairie.pk,
@@ -275,7 +272,6 @@ def test_parse_prefecture_montpellier(
     assert public_erp.parse_etablissement(json_feature) == {
         "source": "public_erp",
         "source_id": "prefecture-34172-01",
-        "actif": True,
         "coordonnees": [3.87658905983, 43.6109542847],
         "naf": None,
         "activite": activite_administration_publique.pk,

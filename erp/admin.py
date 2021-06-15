@@ -27,7 +27,6 @@ from .models import (
     Activite,
     Commune,
     Erp,
-    StatusCheck,
     Vote,
 )
 from . import schema
@@ -480,55 +479,6 @@ class VoteAdmin(admin.ModelAdmin):
 
     get_erp_nom.admin_order_field = "erp"
     get_erp_nom.short_description = "Établissement"
-
-
-@admin.register(StatusCheck)
-class StatusCheckAdmin(admin.ModelAdmin):
-    list_display = (
-        "get_erp_nom",
-        "get_erp_commune",
-        "get_erp_siret",
-        "get_bool_actif",
-        "last_checked",
-    )
-    list_select_related = ("erp", "erp__commune_ext")
-    list_filter = [
-        "active",
-        "last_checked",
-    ]
-    list_display_links = ("get_erp_nom",)
-    search_fields = ("erp__nom",)
-    ordering = ("-last_checked",)
-
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related("erp", "erp__commune_ext")
-        return queryset
-
-    def get_bool_actif(self, obj):
-        return obj.active
-
-    get_bool_actif.boolean = True
-    get_bool_actif.short_description = "En activité"
-
-    def get_erp_commune(self, obj):
-        return obj.erp.commune_ext.nom
-
-    get_erp_commune.admin_order_field = "activite"
-    get_erp_commune.short_description = "Commune"
-
-    def get_erp_nom(self, obj):
-        return obj.erp.nom
-
-    get_erp_nom.admin_order_field = "erp"
-    get_erp_nom.short_description = "Établissement"
-
-    def get_erp_siret(self, obj):
-        return mark_safe(
-            f'<a href="https://www.societe.com/cgi-bin/search?champs={obj.erp.siret}" target="_blank">{obj.erp.siret}</a>'
-        )
-
-    get_erp_siret.short_description = "SIRET"
 
 
 # General admin heading & labels

@@ -708,28 +708,6 @@ class Erp(models.Model):
         super().save(*args, **kwargs)
 
 
-class StatusCheck(models.Model):
-    class Meta:
-        verbose_name = "Vérification de statut"
-        verbose_name_plural = "Vérifications de statut"
-
-    erp = models.OneToOneField(
-        Erp,
-        on_delete=models.CASCADE,
-        verbose_name="Établissement",
-    )
-    active = models.BooleanField(
-        verbose_name="Toujours en activité",
-    )
-    non_diffusable = models.BooleanField(
-        default=False,
-        verbose_name="Données SIRENE non diffusables",
-    )
-    last_checked = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière vérification"
-    )
-
-
 @reversion.register(
     ignore_duplicates=True,
     exclude=["id", "erp_id", "created_at", "updated_at"],

@@ -36,8 +36,6 @@
               {% else %}
               <span class="badge badge-danger">Existe déjà dans la base</span>
               {% endif %}
-            {% elif result.actif %}
-            <span class="badge badge-success">En activité</span>
             {% else %}
             <span class="badge badge-warning">Fermé</span>
             {% endif %}
@@ -57,10 +55,13 @@
             <a class="btn btn-success btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
               Reprendre votre brouillon
             </a>
+            {% elif result.exists %}
+            <a class="btn btn-primary btn-block" href="{{ result.exists.get_absolute_url }}">
+              Voir cet établissement
+            </a>
             {% else %}
-            <a class="btn btn-primary btn-block {% if not result.actif or result.exists %}disabled{% endif%}"
-              href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content"
-              {% if not result.actif or result.exists %}disabled{% endif%}>
+            <a class="btn btn-primary btn-block"
+              href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
               Sélectionner cet établissement
             </a>
             {% endif %}

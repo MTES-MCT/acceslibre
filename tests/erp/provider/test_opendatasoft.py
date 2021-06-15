@@ -52,7 +52,6 @@ def test_parse_etablissement_jacou_data_ok(sample_response):
     assert opendatasoft.parse_etablissement(sample_response) == {
         "source": "opendatasoft",
         "source_id": "40764d119d4d8fbdd7e7af20e96a50afaf661d99",
-        "actif": True,
         "coordonnees": [3.913557, 43.657028],
         "naf": "62.02A",
         "activite": None,

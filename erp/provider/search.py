@@ -45,13 +45,23 @@ def global_search(terms, code_insee):
     # OpenDataSoft
     result_ods = opendatasoft.search(terms, code_insee)
     for result in result_ods:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+        result["exists"] = Erp.objects.find_similar(
+            result["nom"],
+            result["commune"],
+            voie=result["voie"],
+            lieu_dit=result["lieu_dit"],
+        ).first()
 
     # Etalab entreprise
     search_entreprises = f"{terms} {get_searched_commune(code_insee, terms)}"
     result_entreprises = entreprise.search(search_entreprises, code_insee)
     for result in result_entreprises:
-        result["exists"] = Erp.objects.find_by_siret(result["siret"])
+        result["exists"] = Erp.objects.find_similar(
+            result["nom"],
+            result["commune"],
+            voie=result["voie"],
+            lieu_dit=result["lieu_dit"],
+        ).first()
 
     # Administration publique
     result_public = public_erp.search(terms, code_insee)

@@ -455,23 +455,14 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         if not self.cleaned_data["geom"]:
             self.geocode()
 
-        # Unicité du numéro SIRET
-        siret = self.cleaned_data["siret"]
-        if siret and Erp.objects.find_by_siret(siret):
-            raise ValidationError(
-                {
-                    "siret": f"Un établissement disposant du numéro SIRET {siret} existe déjà dans la base de données."
-                }
-            )
         # Unicité du nom et de l'adresse
         nom = self.cleaned_data.get("nom")
         adresse = self.get_adresse_query()
-        existing = Erp.objects.filter(
-            nom__iexact=self.cleaned_data.get("nom"),
-            voie__iexact=self.cleaned_data.get("voie"),
-            lieu_dit__iexact=self.cleaned_data.get("lieu_dit"),
-            code_postal__iexact=self.cleaned_data.get("code_postal"),
-            commune__iexact=self.cleaned_data.get("commune"),
+        existing = Erp.objects.find_similar(
+            nom=self.cleaned_data.get("nom"),
+            voie=self.cleaned_data.get("voie"),
+            lieu_dit=self.cleaned_data.get("lieu_dit"),
+            commune=self.cleaned_data.get("commune"),
         ).first()
         if existing:
             if existing.is_online():
