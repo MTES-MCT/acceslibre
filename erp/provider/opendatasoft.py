@@ -58,7 +58,6 @@ def parse_etablissement(record):
     return dict(
         source="opendatasoft",
         source_id=record.get("recordid"),
-        actif=etablissement.get("etatadministratifetablissement") == "Actif",
         coordonnees=extract_coordonnes(etablissement),
         naf=etablissement.get("activiteprincipaleetablissement"),
         activite=None,  # Would be nice to infer activite from NAF

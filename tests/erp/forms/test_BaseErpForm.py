@@ -1,13 +1,10 @@
 import pytest
 
 from django.contrib.gis.geos import Point
-from unittest import mock
 
-from erp import schema
 from erp import forms
-from erp.models import Accessibilite, Commune, Erp
+from erp.models import Commune, Erp
 from erp.provider import geocoder
-from erp.schema import get_help_text_ui, get_help_text_ui_neg
 
 
 POINT = Point((0, 0))

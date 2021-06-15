@@ -31,14 +31,6 @@
       {% endif %}
     {% endwith %}
 
-    {% if erp.statuscheck and erp.statuscheck.active is False %}
-    <div class="alert alert-warning d-flex align-items-center mt-2 mb-1" role="alert" aria-live="assertive" style="font-size:.9em">
-      <i aria-hidden="true" class="icon icon-exclamation-circle text-bigger mr-2"></i>
-      Cet établissement semble fermé.&nbsp;
-      <a href="{% url "contact_topic_erp" topic="signalement" erp_slug=erp.slug %}">Signaler une erreur</a>
-    </div>
-    {% endif %}
-
     <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
       {% with erp.metadata.centre_vaccination as cv %}
         {% if cv and cv.url_rdv %}

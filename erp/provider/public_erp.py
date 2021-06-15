@@ -419,7 +419,6 @@ def parse_etablissement(feature):
     return dict(
         source="public_erp",
         source_id=properties.get("id"),
-        actif=True,
         coordonnees=coordonnees,
         naf=None,
         activite=activite_id,

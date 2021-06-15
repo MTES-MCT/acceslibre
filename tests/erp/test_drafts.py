@@ -21,7 +21,6 @@ def sample_result(data):
         "exists": data.erp,
         "source": "entreprise_api",
         "source_id": "63015890",
-        "actif": True,
         "coordonnees": [3.913557, 43.657028],
         "naf": "62.02A",
         "activite": None,
