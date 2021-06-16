@@ -1,6 +1,6 @@
 import datetime
-
 import reversion
+
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -14,6 +14,7 @@ from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
+from urllib.parse import urlencode
 
 from core import mailer
 from erp import forms, schema, serializers
@@ -147,7 +148,7 @@ def where(request):
     return JsonResponse({"q": q, "results": results})
 
 
-def _get_where_label(code, search):
+def _get_default_where_label(code, search):
     label = None
     if search and not code:
         label = search
@@ -155,50 +156,33 @@ def _get_where_label(code, search):
         label = "France entière"
     elif code == "around_me":
         label = "Autour de moi"
-    elif len(code) == 2:  # departement
-        dpt = departements.get_departement(code)
-        label = dpt["nom"] if dpt else None
-    elif len(code) == 5:  # code insee
-        commune = Commune.objects.filter(code_insee=code).first()
-        label = str(commune) if commune else None
     return label if label else "Lieu indeterminé"
 
 
-def _get_where_qs(qs, code, search, lat=None, lon=None, max_radius_km=20):
-    """Searches ERPs at a given location.
-    Params:
-    - code: a qualified query, usually resolved by the autocomplete frontend
-      code, featuring either:
-      * a code_insee (34120) for a commune lookup
-      * a departement (34, 2B) for a departement lookup
-      * the string "around_me" for a localized lookup (requires lat & lon kwargs set)
-      * the string "france_entiere", equivalent to an empty lookup
-    - search: a raw query to search (eg. "lyon"); this is typically the raw input
-      submitted by the user when using the public search form.
-    - lat: optional latitude, though will take precedence over other args when set
-    - lon: optional longitude, though will take precedence over other args when set
-    - max_radius_km: optional max search distance radius
-    """
+def _get_where_data(qs, code, search, lat=None, lon=None, max_radius_km=20):
+    label = _get_default_where_label(code, search)
     if lat and lon:
-        return qs.nearest((lat, lon), max_radius_km=max_radius_km)
-    elif code and len(code) == 5:
+        qs = qs.nearest((lat, lon), max_radius_km=max_radius_km)
+    elif code and len(code) == 5:  # code_insee
         commune = Commune.objects.filter(code_insee=code).first()
         if commune and commune.geom:
-            return qs.nearest(commune.geom, max_radius_km=max_radius_km)
+            label = str(commune)
+            qs = qs.nearest(commune.geom, max_radius_km=max_radius_km)
         else:
-            return qs.filter(commune_ext__code_insee=code)
-    elif code and len(code) == 2:
-        return qs.filter(commune_ext__departement=code)
+            label = code
+            qs = qs.filter(commune_ext__code_insee=code)
+    elif code and len(code) == 2:  # departement
+        dpt = departements.get_departement(code)
+        label = dpt["nom"] if dpt else None
+        qs = qs.filter(commune_ext__departement=code)
     elif search:
-        return qs.search_commune(search)
-    else:
-        return qs
+        qs = qs.search_commune(search)
+    return label, qs
 
 
 def search(request):
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
-    search_where_label = _get_where_label(where, request.GET.get("search_where_label"))
     lat = request.GET.get("lat")
     lon = request.GET.get("lon")
     qs = Erp.objects.select_related(
@@ -207,12 +191,20 @@ def search(request):
     # what
     qs = qs.search_what(what)
     # where
-    qs = _get_where_qs(qs, where, search_where_label, lat=lat, lon=lon)
+    where_label, qs = _get_where_data(
+        qs, where, request.GET.get("where_label"), lat=lat, lon=lon
+    )
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
-    pager_base_url = (
-        f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
+    pager_base_url = "?" + urlencode(
+        {
+            "where_label": where_label,
+            "where": where,
+            "what": what,
+            "lat": lat,
+            "lon": lon,
+        }
     )
     geojson_list = make_geojson(pager)
     return render(
@@ -224,9 +216,9 @@ def search(request):
             "pager_base_url": pager_base_url,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
-            "search_where": where,
-            "search_where_label": search_where_label,
-            "search_what": what,
+            "what": what,
+            "where": where,
+            "where_label": where_label,
             "geojson_list": geojson_list,
             "commune_json": None,
             "around": None,  # XXX: (lat, lon)
