@@ -147,40 +147,67 @@ def where(request):
     return JsonResponse({"q": q, "results": results})
 
 
-def get_where_label(raw_input, where):
+def _get_where_label(code, search):
     label = None
-    if raw_input and not where:
-        label = raw_input
-    elif not where or where == "france_entiere":
+    if search and not code:
+        label = search
+    elif not code or code == "france_entiere":
         label = "France entière"
-    elif where == "around_me":
+    elif code == "around_me":
         label = "Autour de moi"
-    elif len(where) == 2:  # departement
-        dpt = departements.get_departement(where)
+    elif len(code) == 2:  # departement
+        dpt = departements.get_departement(code)
         label = dpt["nom"] if dpt else None
-    elif len(where) == 5:  # code insee
-        commune = Commune.objects.filter(code_insee=where).first()
+    elif len(code) == 5:  # code insee
+        commune = Commune.objects.filter(code_insee=code).first()
         label = str(commune) if commune else None
     return label if label else "Lieu indeterminé"
+
+
+def _get_where_qs(qs, code, search, lat=None, lon=None, max_radius_km=20):
+    """Searches ERPs at a given location.
+    Params:
+    - code: a qualified query, usually resolved by the autocomplete frontend
+      code, featuring either:
+      * a code_insee (34120) for a commune lookup
+      * a departement (34, 2B) for a departement lookup
+      * the string "around_me" for a localized lookup (requires lat & lon kwargs set)
+      * the string "france_entiere", equivalent to an empty lookup
+    - search: a raw query to search (eg. "lyon"); this is typically the raw input
+      submitted by the user when using the public search form.
+    - lat: optional latitude, though will take precedence over other args when set
+    - lon: optional longitude, though will take precedence over other args when set
+    - max_radius_km: optional max search distance radius
+    """
+    if lat and lon:
+        return qs.nearest((lat, lon), max_radius_km=max_radius_km)
+    elif code and len(code) == 5:
+        commune = Commune.objects.filter(code_insee=code).first()
+        if commune and commune.geom:
+            return qs.nearest(commune.geom, max_radius_km=max_radius_km)
+        else:
+            return qs.filter(commune_ext__code_insee=code)
+    elif code and len(code) == 2:
+        return qs.filter(commune_ext__departement=code)
+    elif search:
+        return qs.search_commune(search)
+    else:
+        return qs
 
 
 def search(request):
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
-    search_where_label = get_where_label(request.GET.get("search_where_label"), where)
-    lat = lon = None
+    search_where_label = _get_where_label(where, request.GET.get("search_where_label"))
+    lat = request.GET.get("lat")
+    lon = request.GET.get("lon")
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
     # what
     qs = qs.search_what(what)
     # where
-    qs = qs.search_where(
-        search_where_label,
-        where,
-        lat=request.GET.get("lat"),
-        lon=request.GET.get("lon"),
-    )
+    qs = _get_where_qs(qs, where, search_where_label, lat=lat, lon=lon)
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))

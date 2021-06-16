@@ -38,7 +38,7 @@ def test_search_commune(data, client):
     assert response.context["search_what"] == "croissant"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
-    assert hasattr(response.context["pager"][0], "distance") is False
+    assert hasattr(response.context["pager"][0], "distance") is True
 
 
 def test_search_raw_commune(data, client):

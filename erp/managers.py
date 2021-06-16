@@ -3,7 +3,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Count, Max, Q
+from django.db.models import Count, F, Max, Q
 from django.db.models.functions import Length
 
 from core.lib import text
@@ -80,7 +80,7 @@ class CommuneQuerySet(models.QuerySet):
                 )
                 clauses = (
                     clauses
-                    | Q(nom__unaccent__icontains=term)
+                    | Q(nom__unaccent__iexact=term)
                     | Q(**{f"{similarity_field}__gte": 0.6})
                 )
         return qs.filter(clauses)
@@ -170,10 +170,16 @@ class ErpQuerySet(models.QuerySet):
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
-    def nearest(self, coords, max_radius_km=None):
-        # NOTE: the Point constructor wants lon, lat
-        location = Point(coords[1], coords[0], srid=4326)
-        qs = self.published().annotate(distance=Distance("geom", location))
+    def nearest(self, point, max_radius_km=None):
+        """Filter Erps around a given point, which can be either a `Point` instance
+        or a tuple(lat, lon)."""
+        if isinstance(point, Point):
+            location = point
+        elif isinstance(point, (tuple, list)):
+            location = Point(x=float(point[1]), y=float(point[0]), srid=4326)
+        else:
+            raise RuntimeError(f"Unsupported point type {type(point)}: {point}")
+        qs = self.annotate(distance=Distance("geom", location))
         if max_radius_km:
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
         return qs.order_by("distance")
@@ -187,6 +193,8 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(published=True).geolocated().having_an_accessibilite()
 
     def search_commune(self, query):
+        # FIXME: way too much code in common with ComuneQuerySet#search which should
+        #        be factored out.
         qs = self
         terms = query.strip().split(" ")
         clauses = Q()
@@ -204,7 +212,7 @@ class ErpQuerySet(models.QuerySet):
                 )
                 clauses = (
                     clauses
-                    | Q(commune_ext__nom__unaccent__icontains=term)
+                    | Q(commune_ext__nom__unaccent__iexact=term)
                     | Q(**{f"{similarity_field}__gte": 0.6})
                 )
         return qs.filter(clauses)
@@ -215,7 +223,7 @@ class ErpQuerySet(models.QuerySet):
         return (
             self.annotate(
                 rank=search.SearchRank(
-                    models.F("search_vector"),
+                    F("search_vector"),
                     search.SearchQuery(query, config="french_unaccent"),
                 )
             )
@@ -223,54 +231,8 @@ class ErpQuerySet(models.QuerySet):
             .order_by("-rank")
         )
 
-    def search_where(self, raw_q, qualified_q, lat=None, lon=None):
-        """Searches ERPs at a given location.
-        Params:
-        - raw_q: a raw query to search (eg. "lyon"); this is typically the raw input
-          submitted by the user when using the public search form.
-        - qualified_q: a qualified query, usually resolved by the autocomplete frontend
-          code, featuring either:
-          * a code_insee (34120) for a commune lookup
-          * a departement (34, 2B) for a departement lookup
-          * the string "around_me" for a localized lookup (requires lat & lon kwargs set)
-          * the string "france_entiere", equivalent to an empty lookup
-        - lat: optional latitude if "around_me" is specified as a qualified query
-        - lon: optional longitude if "around_me" is specified as a qualified query
-        """
-        qs = self
-        if not raw_q and not qualified_q:
-            return qs
-        elif not qualified_q and raw_q and not raw_q.startswith("France entière"):
-            qs = qs.search_commune(raw_q)
-        elif qualified_q == "around_me":
-            try:
-                qs = qs.nearest(
-                    (float(lat), float(lon)),
-                    max_radius_km=20,
-                ).order_by("distance")
-            except ValueError:
-                pass
-        elif (
-            qualified_q and len(qualified_q) == 2 and text.contains_digits(qualified_q)
-        ):  # departement
-            qs = qs.filter(commune_ext__departement=qualified_q)
-        elif (
-            qualified_q and len(qualified_q) == 5 and qualified_q.isdigit()
-        ):  # code insee
-            # qs = (
-            #     qs
-            #     # .filter(commune_ext__code_insee=qualified_q)
-            #     .annotate(
-            #         distance=GeometryDistance("geom", F("commune_ext__geom"))
-            #     ).order_by("distance")
-            # )
-            qs = qs.filter(commune_ext__code_insee=qualified_q)
-        return qs
-
     def with_votes(self):
         return self.annotate(
-            count_positives=models.Count("vote__value", filter=models.Q(vote__value=1)),
-            count_negatives=models.Count(
-                "vote__value", filter=models.Q(vote__value=-1)
-            ),
+            count_positives=Count("vote__value", filter=Q(vote__value=1)),
+            count_negatives=Count("vote__value", filter=Q(vote__value=-1)),
         )
