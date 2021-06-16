@@ -228,7 +228,7 @@ class ErpQuerySet(models.QuerySet):
         Params:
         - raw_q: a raw query to search (eg. "lyon"); this is typically the raw input
           submitted by the user when using the public search form.
-        - qualified_q: a qualified query, usually resovled by the autocomplete frontend
+        - qualified_q: a qualified query, usually resolved by the autocomplete frontend
           code, featuring either:
           * a code_insee (34120) for a commune lookup
           * a departement (34, 2B) for a departement lookup
@@ -257,6 +257,13 @@ class ErpQuerySet(models.QuerySet):
         elif (
             qualified_q and len(qualified_q) == 5 and qualified_q.isdigit()
         ):  # code insee
+            # qs = (
+            #     qs
+            #     # .filter(commune_ext__code_insee=qualified_q)
+            #     .annotate(
+            #         distance=GeometryDistance("geom", F("commune_ext__geom"))
+            #     ).order_by("distance")
+            # )
             qs = qs.filter(commune_ext__code_insee=qualified_q)
         return qs
 
