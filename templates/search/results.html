@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}{% if pager %}Résultats pour {{ search_what }} {{ search_where_label }}{% else %}Aucun résultat{% endif %}{% endblock%}
+{% block page_title %}{% if pager %}Résultats pour {{ what }} {{ where_label }}{% else %}Aucun résultat{% endif %}{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=True %}
@@ -13,12 +13,12 @@
 <main id="content">
   <h2 class="mt-3 mb-2">
     <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-    <span class="sr-only">Localité:</span> {{ search_where_label }}
-    {% if search_where_label and search_what %}<small class="text-muted">/</small>{% endif %}
-    {% if search_what %}<span class="sr-only">Activité: </span>{% endif %}{{ search_what }}
+    <span class="sr-only">Localité:</span> {{ where_label }}
+    {% if where_label and what %}<small class="text-muted">/</small>{% endif %}
+    {% if what %}<span class="sr-only">Activité: </span>{% endif %}{{ what }}
   </h2>
 
-  {% if search_what and "centres de vaccination" in search_what %}
+  {% if what and "centres de vaccination" in what %}
   <div class="alert alert-warning">
     Découvrez l'information d'accessibilité actuellement disponible pour chaque centre de vaccination (la collecte d'information est en cours).
     <br class="d-none d-md-block">
@@ -38,7 +38,7 @@
       <div class="col-sm-6">
         <h2 class="h4 m-0 mb-3">
           {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
-          {% if search_where == "around_me" %}à moins de 20km{% endif %}
+          {% if where == "around_me" %}à moins de 20km{% endif %}
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>
@@ -58,7 +58,7 @@
                   <a href="{{ erp.get_absolute_url }}">
                     <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
                       src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                    {% if search_where == "around_me" and erp.distance %}
+                    {% if where == "around_me" and erp.distance %}
                       <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
                     {% endif %}
                     {{ erp.nom }}

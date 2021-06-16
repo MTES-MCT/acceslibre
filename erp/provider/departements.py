@@ -426,7 +426,7 @@ def search(q, limit=None, for_autocomplete=False, keep_scores=False):
     seen_codes = []
     for code, dpt in get_departements().items():
         score = 0
-        if code in seen_codes:
+        if code in seen_codes or code in ["75"]:  # Paris city IS a departement
             continue
         if _to_phrase(q) == _to_phrase(dpt["nom"]):
             score = 1
