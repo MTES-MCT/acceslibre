@@ -13,9 +13,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         schedule.every().day.at("04:00").do(call_command, "purge_inactive_accounts")
         schedule.every().hour.do(call_command, "purge_tokens")
-        schedule.every(3).hours.do(call_command("notify_changed_erps", hours=3))
         if settings.DATAGOUV_API_KEY:
             schedule.every().day.at("01:00").do(call_command, "export_to_datagouv")
+        schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
         schedule.every().hour.do(call_command, "import_dataset", "vaccination")
         schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
         schedule.every().day.at("01:00").do(call_command, "export_to_datagouv")

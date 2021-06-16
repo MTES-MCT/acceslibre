@@ -22,6 +22,10 @@ function mountAll(selector, fn) {
   findAll(selector).forEach(fn);
 }
 
+function preventDefault(event) {
+  event.preventDefault();
+}
+
 function ready(fn) {
   window.addEventListener("DOMContentLoaded", fn);
 }
@@ -46,6 +50,7 @@ export default {
   hide,
   mountAll,
   mountOne,
+  preventDefault,
   ready,
   removeClass,
   show,

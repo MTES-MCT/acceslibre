@@ -1,6 +1,6 @@
 import datetime
-
 import reversion
+
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
@@ -14,6 +14,7 @@ from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
+from urllib.parse import urlencode
 
 from core import mailer
 from erp import forms, schema, serializers
@@ -147,45 +148,63 @@ def where(request):
     return JsonResponse({"q": q, "results": results})
 
 
-def get_where_label(raw_input, where):
+def _get_default_where_label(code, search):
     label = None
-    if raw_input and not where:
-        label = raw_input
-    elif not where or where == "france_entiere":
+    if search and not code:
+        label = search
+    elif not code or code == "france_entiere":
         label = "France entière"
-    elif where == "around_me":
+    elif code == "around_me":
         label = "Autour de moi"
-    elif len(where) == 2:  # departement
-        dpt = departements.get_departement(where)
-        label = dpt["nom"] if dpt else None
-    elif len(where) == 5:  # code insee
-        commune = Commune.objects.filter(code_insee=where).first()
-        label = str(commune) if commune else None
     return label if label else "Lieu indeterminé"
+
+
+def _get_where_data(qs, code, search, lat=None, lon=None, max_radius_km=20):
+    label = _get_default_where_label(code, search)
+    if lat and lon:
+        qs = qs.nearest((lat, lon), max_radius_km=max_radius_km)
+    elif code and len(code) == 5:  # code_insee
+        commune = Commune.objects.filter(code_insee=code).first()
+        if commune and commune.geom:
+            label = str(commune)
+            qs = qs.nearest(commune.geom, max_radius_km=max_radius_km)
+        else:
+            label = code
+            qs = qs.filter(commune_ext__code_insee=code)
+    elif code and len(code) == 2:  # departement
+        dpt = departements.get_departement(code)
+        label = dpt["nom"] if dpt else None
+        qs = qs.filter(commune_ext__departement=code)
+    elif search:
+        qs = qs.search_commune(search)
+    return label, qs
 
 
 def search(request):
     where = request.GET.get("where", "")
     what = request.GET.get("what", "")
-    search_where_label = get_where_label(request.GET.get("search_where_label"), where)
-    lat = lon = None
+    lat = request.GET.get("lat")
+    lon = request.GET.get("lon")
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
     # what
     qs = qs.search_what(what)
     # where
-    qs = qs.search_where(
-        search_where_label,
-        where,
-        lat=request.GET.get("lat"),
-        lon=request.GET.get("lon"),
+    where_label, qs = _get_where_data(
+        qs, where, request.GET.get("where_label"), lat=lat, lon=lon
     )
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
-    pager_base_url = (
-        f"?where={where or ''}&what={what or ''}&lat={lat or ''}&lon={lon or ''}"
+    pager_base_url = "?" + urlencode(
+        {
+            "where_label": where_label,
+            "where": where,
+            "what": what,
+            "lat": lat,
+            "lon": lon,
+        }
     )
     geojson_list = make_geojson(pager)
     return render(
@@ -197,9 +216,9 @@ def search(request):
             "pager_base_url": pager_base_url,
             "lat": request.GET.get("lat"),
             "lon": request.GET.get("lon"),
-            "search_where": where,
-            "search_where_label": search_where_label,
-            "search_what": what,
+            "what": what,
+            "where": where,
+            "where_label": where_label,
             "geojson_list": geojson_list,
             "commune_json": None,
             "around": None,  # XXX: (lat, lon)
