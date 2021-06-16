@@ -10,28 +10,18 @@ from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
 from erp.export.utils import map_erps_to_json_schema
 from erp.models import Erp
-from erp.models import Accessibilite, Erp
-
-
-def create_test_erp(name, **a11y_data):
-    erp = Erp.objects.create(nom=name)
-    if a11y_data:
-        Accessibilite.objects.create(erp=erp, **a11y_data)
-    else:
-        # simulate the case we have a non-a11y field filled
-        Accessibilite.objects.create(erp=erp, commentaire="simple commentaire")
-    return erp
+from tests.erp.test_managers import erp_with_a11y
 
 
 @pytest.fixture
-def example_data(db) -> List[Erp]:
+def example_data(erp_with_a11y) -> List[Erp]:
     return [
-        create_test_erp(
+        erp_with_a11y(
             "test 1",
             transport_station_presence=True,
             commentaire="simple commentaire",
         ),
-        create_test_erp(
+        erp_with_a11y(
             "test 2",
             transport_station_presence=False,
             commentaire="simple commentaire 2",
@@ -50,7 +40,6 @@ def test_export_to_csv(example_data):
         next(reader)  # Skip headers
 
         erp_0 = next(reader)
-        print(erp_0)
         assert erp_0["transport_station_presence"] == str(
             mapped_data[0].transport_station_presence
         )
