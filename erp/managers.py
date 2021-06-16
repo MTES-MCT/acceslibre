@@ -80,7 +80,7 @@ class CommuneQuerySet(models.QuerySet):
                 )
                 clauses = (
                     clauses
-                    | Q(nom__unaccent__iexact=term)
+                    | Q(nom__unaccent__icontains=term)
                     | Q(**{f"{similarity_field}__gte": 0.6})
                 )
         return qs.filter(clauses)
@@ -212,7 +212,7 @@ class ErpQuerySet(models.QuerySet):
                 )
                 clauses = (
                     clauses
-                    | Q(commune_ext__nom__unaccent__iexact=term)
+                    | Q(commune_ext__nom__unaccent__icontains=term)
                     | Q(**{f"{similarity_field}__gte": 0.6})
                 )
         return qs.filter(clauses)
