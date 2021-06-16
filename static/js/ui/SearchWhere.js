@@ -1,4 +1,5 @@
 import api from "../api";
+import dom from "../dom";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
 async function getCommonResults(loc) {
@@ -43,7 +44,9 @@ function SearchWhere(root) {
         if (api.hasPermission("geolocation") !== "granted") {
           a11yGeolocBtn.focus();
         }
+        input.form.addEventListener("submit", dom.preventDefault);
         const loc = await api.loadUserLocation();
+        input.form.removeEventListener("submit", dom.preventDefault);
         if (!loc) {
           console.warn("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
           setLatLon(null);

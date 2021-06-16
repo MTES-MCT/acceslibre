@@ -82,6 +82,8 @@ def encode_provider_data(value):
 def format_distance(value):
     if isinstance(value, str):
         return value
+    elif isinstance(value, float):
+        return str(value)
     if value.m == 0:
         return "Au même endroit"
     elif value.m < 1500:
