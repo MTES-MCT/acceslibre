@@ -28,9 +28,34 @@ class GendarmerieMapper:
         self.activite = activite
 
     def process(self):
-        erp = Erp.objects.find_by_source_id(
-            Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
+        basic_fields = self._extract_basic_fields(self.record)
+        # preexisting erps (before we had imports)
+        erp = (
+            Erp.objects.exclude(source=Erp.SOURCE_GENDARMERIE)
+            .filter(
+                activite=self.activite,
+                numero__iexact=basic_fields["numero"],
+                voie__iexact=basic_fields["voie"],
+                commune_ext__code_insee=basic_fields["code_insee"],
+                code_postal=basic_fields["code_postal"],
+            )
+            .first()
         )
+        if erp:
+            # delete already imported duplicate
+            print(f"Delete preexisting duplicate import: {str(erp)}")
+            Erp.objects.find_by_source_id(
+                Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
+            ).delete()
+            # update preexisting erp
+            erp.source = Erp.SOURCE_GENDARMERIE
+            erp.source_id = self.record["identifiant_public_unite"]
+        # already imported erps
+        if not erp:
+            erp = Erp.objects.find_by_source_id(
+                Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
+            )
+        # new erp
         if not erp:
             erp = Erp(
                 source=Erp.SOURCE_GENDARMERIE,
@@ -39,7 +64,9 @@ class GendarmerieMapper:
             )
 
         self.erp = erp
-        self.populate_basic_fields(self.record)
+        for name, value in basic_fields.items():
+            setattr(self.erp, name, value)
+
         self._retrieve_commune_ext()
         self.populate_accessibilite(self.record)
 
@@ -72,21 +99,24 @@ class GendarmerieMapper:
         except (KeyError, IndexError):
             raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
 
-    def populate_basic_fields(self, record):
+    def _extract_basic_fields(self, record):
         try:
             numero, voie = self._parse_address(record)
-
-            self.erp.telephone = record["telephone"]
-            self.erp.code_insee = record["code_commune_insee"]
-            self.erp.code_postal = record["code_postal"]
-            self.erp.numero = numero
-            self.erp.voie = voie
-            self.erp.geom = self._import_coordinates(record)
-            self.erp.site_internet = record["url"]
-            self.erp.nom = record["service"]
-            self.erp.contact_url = "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr"
-        except (KeyError, IndexError) as err:
-            raise RuntimeError(f"Impossible d'extraire des données: {str(err)}")
+            return {
+                "telephone": record["telephone"],
+                "code_insee": record["code_commune_insee"],
+                "code_postal": record["code_postal"],
+                "numero": numero,
+                "voie": voie,
+                "geom": self._import_coordinates(record),
+                "site_internet": record["url"],
+                "nom": record["service"],
+                "contact_url": "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr",
+            }
+        except KeyError as key:
+            raise RuntimeError(
+                f"Impossible d'extraire des données: champ {key} manquant"
+            )
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"
