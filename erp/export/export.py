@@ -43,6 +43,7 @@ def upload_to_datagouv(csv_path):
             headers={"X-API-KEY": settings.DATAGOUV_API_KEY},
         )
         response.raise_for_status()
+        assert response.json().get("success")
     except (
         requests.exceptions.RequestException,
         requests.exceptions.Timeout,
@@ -51,5 +52,4 @@ def upload_to_datagouv(csv_path):
     ) as err:
         raise RuntimeError(err)
 
-    assert response.json().get("success")
     return True
