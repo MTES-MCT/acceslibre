@@ -9,8 +9,17 @@ from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
 from erp.export.utils import map_erps_to_json_schema
 from erp.export.mappers import EtalabMapper
-from erp.models import Erp
-from tests.erp.test_managers import create_test_erp
+from erp.models import Accessibilite, Erp
+
+
+def create_test_erp(name, **a11y_data):
+    erp = Erp.objects.create(nom=name)
+    if a11y_data:
+        Accessibilite.objects.create(erp=erp, **a11y_data)
+    else:
+        # simulate the case we have a non-a11y field filled
+        Accessibilite.objects.create(erp=erp, commentaire="simple commentaire")
+    return erp
 
 
 @pytest.fixture
