@@ -4,7 +4,6 @@ import os
 from .settings import *
 
 DEBUG = False
-ENVIRONMENT = "prod"
 
 APP_NAME = os.environ.get("APP", "access4all")
 ALLOWED_HOSTS = [

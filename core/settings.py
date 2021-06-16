@@ -32,13 +32,12 @@ def get_env_variable(var_name, required=True, type=str):
         return os.environ.get(var_name)
 
 
-ENVIRONMENT = "dev"
 STAGING = False
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"
 SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
-DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY")
+DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True

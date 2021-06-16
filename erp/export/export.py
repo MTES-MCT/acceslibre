@@ -6,14 +6,10 @@ from typing import List, Type
 import requests
 from django.conf import settings
 
-from core.settings import get_env_variable
 from erp.export.utils import BaseExportMapper, map_erps_to_json_schema
 from erp.models import Erp
 
-API = "https://www.data.gouv.fr/api/1"
-HEADERS = {
-    "X-API-KEY": settings.DATAGOUV_API_KEY,
-}
+DATAGOUV_API_URL = "https://www.data.gouv.fr/api/1"
 
 
 def factory(data):
@@ -36,14 +32,11 @@ def upload_to_datagouv(csv_path):
     OpenAPI: https://doc.data.gouv.fr/api/reference/#/datasets/upload_dataset_resource
     Documentation: https://doc.data.gouv.fr/api/dataset-workflow/#modification-dun-jeu-de-donn%C3%A9es
     """
-    url = f"{API}/datasets/acceslibre/resources/93ae96a7-1db7-4cb4-a9f1-6d778370b640/upload/"
+    if not settings.DATAGOUV_API_KEY:
+        return
 
-    response = requests.post(
-        url,
-        files={
-            "file": open(csv_path, "rb"),
-        },
-        headers=HEADERS,
+    return requests.post(
+        f"{DATAGOUV_API_URL}/datasets/acceslibre/resources/93ae96a7-1db7-4cb4-a9f1-6d778370b640/upload/",
+        files={"file": open(csv_path, "rb")},
+        headers={"X-API-KEY": settings.DATAGOUV_API_KEY},
     )
-
-    return response

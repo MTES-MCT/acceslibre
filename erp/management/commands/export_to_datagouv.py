@@ -17,21 +17,22 @@ class Command(BaseCommand):
             help="Afficher les erreurs",
         )
 
+    def log(self, msg):
+        if self.verbose:
+            print(msg)
+
     def handle(self, *args, **options):
-        verbose = options.get("verbose", False)
+        self.verbose = options.get("verbose", False)
         csv_path = "acceslibre.csv"
         with open(csv_path, "w", newline="") as csv_file:
             try:
                 erps = Erp.objects.published().having_a11y_data()
                 export_schema_to_csv(csv_file, erps, EtalabMapper)
-                if verbose:
-                    print("Local export successful: 'acceslibre.csv'")
-                if settings.DATAGOUV_API_KEY:
-                    upload_to_datagouv(csv_path)
+                self.log("Local export successful: 'acceslibre.csv'")
+                res = upload_to_datagouv(csv_path)
+                if res:
                     ping_mattermost()
-                    if verbose:
-                        print("Dataset updated")
-
+                self.log("Dataset updated")
             except Exception as err:
                 if settings.DATAGOUV_API_KEY:
                     ping_mattermost(str(err))
