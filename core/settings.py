@@ -268,13 +268,6 @@ GRAPH_MODELS = {
     "group_models": True,
 }
 
-# Insee API
-# Vous pouvez obtenir vos clés ici :
-# https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee
-
-INSEE_API_CLIENT_KEY = get_env_variable("INSEE_API_CLIENT_KEY")
-INSEE_API_SECRET_KEY = get_env_variable("INSEE_API_SECRET_KEY")
-
 # Usernames blacklist
 USERNAME_BLACKLIST = [
     # English/generic

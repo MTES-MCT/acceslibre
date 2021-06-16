@@ -33,7 +33,6 @@ def akei_result():
     return dict(
         source="entreprise_api",
         source_id="12345",
-        actif=True,
         coordonnees=None,
         naf="62.02A",
         activite=None,
@@ -56,7 +55,6 @@ def mairie_jacou_result():
     return dict(
         source="public_erp",
         source_id="mairie-jacou-34120-01",
-        actif=True,
         coordonnees=[3, 42],
         naf=None,
         activite=None,

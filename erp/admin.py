@@ -3,10 +3,9 @@ import nested_admin
 from django import forms
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.contrib.gis.admin import OSMGeoAdmin
-from django.db.models import Count, Q
+from django.db.models import Count
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -23,84 +22,14 @@ from erp.forms import (
     AdminErpForm,
 )
 
-# from .imports import ErpResource
 from .models import (
     Accessibilite,
     Activite,
     Commune,
     Erp,
-    StatusCheck,
     Vote,
 )
 from . import schema
-
-
-class CustomUserAdmin(UserAdmin):
-    ordering = (
-        "-date_joined",
-        "username",
-    )
-    list_display = (
-        "username",
-        "email",
-        "date_joined",
-        "is_active",
-        "is_staff",
-        "get_erp_count_published",
-        "get_erp_count_total",
-        "get_vote_count",
-        "get_rev_count",
-    )
-
-    def get_erp_count_published(self, obj):
-        return obj.erp_count_published
-
-    get_erp_count_published.short_description = "Pub. ERP"
-    get_erp_count_published.description = "djoisjddjpsqdo"
-    get_erp_count_published.admin_order_field = "erp_count_published"
-
-    def get_erp_count_total(self, obj):
-        return obj.erp_count_total
-
-    get_erp_count_total.short_description = "Tot. ERP"
-    get_erp_count_total.admin_order_field = "erp_count_total"
-
-    def get_vote_count(self, obj):
-        return obj.vote_count
-
-    get_vote_count.short_description = "Votes"
-    get_vote_count.admin_order_field = "vote_count"
-
-    def get_rev_count(self, obj):
-        return obj.rev_count
-
-    get_rev_count.short_description = "Rev"
-    get_rev_count.admin_order_field = "rev_count"
-
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        queryset = (
-            queryset.annotate(
-                erp_count_total=Count("erp", distinct=True),
-                erp_count_published=Count(
-                    "erp",
-                    filter=Q(
-                        erp__published=True,
-                        erp__accessibilite__isnull=False,
-                        erp__geom__isnull=False,
-                    ),
-                    distinct=True,
-                ),
-            )
-            .annotate(vote_count=Count("vote", distinct=True))
-            .annotate(rev_count=Count("revision", distinct=True))
-        )
-        return queryset
-
-
-# replace the default UserAdmin with yours
-admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
 
 
 @admin.register(Activite)
@@ -550,55 +479,6 @@ class VoteAdmin(admin.ModelAdmin):
 
     get_erp_nom.admin_order_field = "erp"
     get_erp_nom.short_description = "Établissement"
-
-
-@admin.register(StatusCheck)
-class StatusCheckAdmin(admin.ModelAdmin):
-    list_display = (
-        "get_erp_nom",
-        "get_erp_commune",
-        "get_erp_siret",
-        "get_bool_actif",
-        "last_checked",
-    )
-    list_select_related = ("erp", "erp__commune_ext")
-    list_filter = [
-        "active",
-        "last_checked",
-    ]
-    list_display_links = ("get_erp_nom",)
-    search_fields = ("erp__nom",)
-    ordering = ("-last_checked",)
-
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        queryset = queryset.prefetch_related("erp", "erp__commune_ext")
-        return queryset
-
-    def get_bool_actif(self, obj):
-        return obj.active
-
-    get_bool_actif.boolean = True
-    get_bool_actif.short_description = "En activité"
-
-    def get_erp_commune(self, obj):
-        return obj.erp.commune_ext.nom
-
-    get_erp_commune.admin_order_field = "activite"
-    get_erp_commune.short_description = "Commune"
-
-    def get_erp_nom(self, obj):
-        return obj.erp.nom
-
-    get_erp_nom.admin_order_field = "erp"
-    get_erp_nom.short_description = "Établissement"
-
-    def get_erp_siret(self, obj):
-        return mark_safe(
-            f'<a href="https://www.societe.com/cgi-bin/search?champs={obj.erp.siret}" target="_blank">{obj.erp.siret}</a>'
-        )
-
-    get_erp_siret.short_description = "SIRET"
 
 
 # General admin heading & labels
