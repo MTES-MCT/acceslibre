@@ -10,7 +10,6 @@ from erp.export.generate_schema import generate_schema
 from erp.export.mappers import EtalabMapper
 from erp.export.utils import map_erps_to_json_schema
 from erp.models import Erp
-from tests.erp.test_managers import create_test_erp
 from erp.models import Accessibilite, Erp
 
 
