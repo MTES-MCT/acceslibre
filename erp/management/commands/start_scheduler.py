@@ -12,7 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         schedule.every().day.at("04:00").do(call_command, "purge_inactive_accounts")
         schedule.every().hour.do(call_command, "purge_tokens")
-        schedule.every(3).hours.do(call_command("notify_changed_erps", hours=3))
+        schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
         schedule.every().hour.do(call_command, "import_dataset", "vaccination")
         schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
         print("Scheduler started")
