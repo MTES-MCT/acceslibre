@@ -1,4 +1,6 @@
 import re
+import logging
+
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
@@ -6,6 +8,9 @@ from django.contrib.gis.measure import Distance
 
 from erp.models import Erp, Commune, Accessibilite
 from erp.provider import arrondissements
+
+
+logger = logging.getLogger(__name__)
 
 
 class GendarmerieMapper:
@@ -30,31 +35,16 @@ class GendarmerieMapper:
 
     def process(self):
         basic_fields = self._extract_basic_fields(self.record)
-        # preexisting erps (before we had imports)
-        erp = (
-            Erp.objects.exclude(source=Erp.SOURCE_GENDARMERIE)
-            .filter(
-                activite=self.activite,
-                nom__icontains="gendarmerie",
-                commune_ext__code_insee=basic_fields["code_insee"],
-                geom__distance_lte=(basic_fields["geom"], Distance(m=100)),
-            )
-            .first()
-        )
-        if erp:
-            # delete already imported duplicate
-            print(f"Delete preexisting duplicate import: {str(erp)}")
-            Erp.objects.find_by_source_id(
-                Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
-            ).delete()
-            # update preexisting erp
-            erp.source = Erp.SOURCE_GENDARMERIE
-            erp.source_id = self.record["identifiant_public_unite"]
+
+        # check for a preexisting match (before we had imports)
+        erp = self._process_preexisting(basic_fields["geom"])
+
         # already imported erps
         if not erp:
             erp = Erp.objects.find_by_source_id(
                 Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
-            )
+            ).first()
+
         # new erp
         if not erp:
             erp = Erp(
@@ -68,16 +58,40 @@ class GendarmerieMapper:
             setattr(self.erp, name, value)
 
         self._retrieve_commune_ext()
-        self.populate_accessibilite(self.record)
+        self._populate_accessibilite(self.record)
 
         return self.erp, None
+
+    def _process_preexisting(self, location):
+        erp = (
+            Erp.objects.exclude(source=Erp.SOURCE_GENDARMERIE)
+            .filter(
+                activite=self.activite,
+                geom__distance_lte=(location, Distance(m=100)),
+            )
+            .first()
+        )
+        if erp:
+            # unpublish already imported duplicate
+            old_erp = Erp.objects.find_by_source_id(
+                Erp.SOURCE_GENDARMERIE,
+                self.record["identifiant_public_unite"],
+                published=True,
+            ).first()
+            old_erp.published = False
+            old_erp.save()
+            logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
+            # update preexisting erp with new import information
+            erp.source = Erp.SOURCE_GENDARMERIE
+            erp.source_id = self.record["identifiant_public_unite"]
+        return erp
 
     def _parse_address(self, record):
         res = record["voie"].split(" ")
         try:
             if res[0][0].isdigit():
                 numero = res[0]
-                if res[1] in ["bis", "ter"]:
+                if res[1].lower() in ["bis", "ter"]:
                     numero += " " + res[1]
                     voie = " ".join(res[2:])
                 else:
@@ -146,7 +160,7 @@ class GendarmerieMapper:
         self.erp.commune_ext = commune_ext
         self.erp.commune = commune_ext.nom
 
-    def populate_accessibilite(self, record):
+    def _populate_accessibilite(self, record):
         if not self.erp.has_accessibilite():
             accessibilite = Accessibilite(erp=self.erp)
             self.erp.accessibilite = accessibilite
