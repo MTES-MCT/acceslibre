@@ -32,6 +32,7 @@ Créez un fichier `.env` à la racine du dépôt, définissant les variables d'e
 - `SCALINGO_APP`: Le nom de l'application Scalingo, toujours `access4all`
 - `SECRET_KEY`: Une chaine de caractères unique permettant de garantir la sécurité des [opérations de chiffrement](https://docs.djangoproject.com/en/3.0/ref/settings/#secret-key)
 - `SENTRY_DSN`: La chaine de connexion à [Sentry](https://sentry.io/), l'outil de rapport d'erreur que nous utilisons en production.
+- `DATAGOUV_API_KEY`: La chaine de connexion pour l'API [DataGouv](https://data.gouv.fr/fr/admin/me/)
 
 **Notes :**
 
