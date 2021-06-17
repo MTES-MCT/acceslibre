@@ -2,6 +2,7 @@ import re
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import Distance
 
 from erp.models import Erp, Commune, Accessibilite
 from erp.provider import arrondissements
@@ -34,10 +35,9 @@ class GendarmerieMapper:
             Erp.objects.exclude(source=Erp.SOURCE_GENDARMERIE)
             .filter(
                 activite=self.activite,
-                numero__iexact=basic_fields["numero"],
-                voie__iexact=basic_fields["voie"],
+                nom__icontains="gendarmerie",
                 commune_ext__code_insee=basic_fields["code_insee"],
-                code_postal=basic_fields["code_postal"],
+                geom__distance_lte=(basic_fields["geom"], Distance(m=100)),
             )
             .first()
         )
@@ -95,7 +95,7 @@ class GendarmerieMapper:
         "Importe les coordonnées géographiques du centre de vaccination"
         try:
             x, y = float(record["geocodage_x_GPS"]), float(record["geocodage_y_GPS"])
-            return Point(x, y)
+            return Point(x, y, srid=4326)
         except (KeyError, IndexError):
             raise RuntimeError("Coordonnées géographiques manquantes ou invalides")
 
