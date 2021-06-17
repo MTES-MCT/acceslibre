@@ -5,6 +5,7 @@ from tempfile import NamedTemporaryFile
 import pytest
 import requests
 from django.core import management
+from pytest_django.fixtures import settings
 from frictionless import validate_resource, Resource
 
 from erp.export.export import export_schema_to_csv
@@ -35,13 +36,15 @@ def test_export_command(mocker, db):
     mocker.patch(
         "requests.post",
     )
+
     management.call_command("export_to_datagouv")
     assert os.path.isfile("acceslibre.csv")
     assert os.stat("acceslibre.csv").st_size > 0
     os.unlink("acceslibre.csv")
 
 
-def test_export_failure(mocker, db):
+def test_export_failure(mocker, db, settings):
+    settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch(
         "requests.post",
         side_effect=requests.exceptions.RequestException("Error"),
