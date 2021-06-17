@@ -38,12 +38,9 @@ class Command(BaseCommand):
             if res:
                 ping_mattermost(len(erps))
                 self.log("Dataset uploaded")
-                return True
         except RuntimeError as err:
             ping_mattermost(error=str(err))
             raise RuntimeError(str(err))
-
-        return False
 
 
 def ping_mattermost(count=0, error=None):

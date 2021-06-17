@@ -32,7 +32,8 @@ def test_csv_creation(db):
         os.remove(dest_path)
 
 
-def test_export_command(mocker, db):
+def test_export_command(mocker, db, settings):
+    settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch(
         "requests.post",
     )
@@ -52,4 +53,5 @@ def test_export_failure(mocker, db, settings):
     with pytest.raises(RuntimeError) as err:
         management.call_command("export_to_datagouv")
 
+    os.unlink("acceslibre.csv")
     assert "Erreur lors de l'upload" in str(err.value)
