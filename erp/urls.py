@@ -68,11 +68,6 @@ urlpatterns = [
         name="search",
     ),
     path(
-        "where/",
-        views.where,
-        name="where",
-    ),
-    path(
         "app/<str:commune>/erp/<str:erp_slug>/",
         views.erp_details,  # avoid caching details page
         name="commune_erp",

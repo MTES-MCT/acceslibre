@@ -33,8 +33,10 @@ def test_communes(data, client):
 
 
 def test_search_commune(data, client):
-    response = client.get(reverse("search") + "?where=34120&what=croissant")
-    assert response.context["where"] == "34120"
+    response = client.get(
+        reverse("search") + "?where=Jacou&what=croissant&lat=43.661&lon=3.912"
+    )
+    assert response.context["where"] == "Jacou"
     assert response.context["what"] == "croissant"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
@@ -42,22 +44,9 @@ def test_search_commune(data, client):
 
 
 def test_search_raw_commune(data, client):
-    response = client.get(
-        reverse("search") + "?where_label=jacou&where=&what=croissant"
-    )
-    assert response.context["where"] == ""
+    response = client.get(reverse("search") + "?where=jacou&what=croissant")
+    assert response.context["where"] == "jacou"
     assert response.context["what"] == "croissant"
-    assert response.context["where_label"] == "jacou"
-    assert len(response.context["pager"]) == 1
-    assert response.context["pager"][0].nom == "Aux bons croissants"
-    assert hasattr(response.context["pager"][0], "distance") is False
-
-
-def test_search_departement(data, client):
-    response = client.get(reverse("search") + "?where=34&what=croissant")
-    assert response.context["where"] == "34"
-    assert response.context["what"] == "croissant"
-    assert response.context["where_label"] == "Hérault"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["pager"][0], "distance") is False
@@ -65,8 +54,7 @@ def test_search_departement(data, client):
 
 def test_search_empty_text_query(data, client):
     response = client.get(reverse("search") + "?where=&what=")
-    assert response.context["where"] == ""
-    assert response.context["where_label"] == "France entière"
+    assert response.context["where"] == "France entière"
     assert response.context["what"] == ""
     assert response.context["pager"] is not None
 
@@ -93,8 +81,9 @@ def test_search_around_me(data, client):
         # Search
         reverse("search"),
         reverse("search") + "?what=boulangerie",
-        reverse("search") + "?where=34120",
-        reverse("search") + "?where=34120&what=boulangerie",
+        reverse("search") + "?where=jacou",
+        reverse("search") + "?where=jacou&what=boulangerie",
+        reverse("search") + "?where=jacou&what=boulangerie&lat=43.2&lon=2.39",
         # Editorial
         reverse("accessibilite"),
         reverse("cgu"),
