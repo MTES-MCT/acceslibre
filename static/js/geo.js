@@ -162,6 +162,7 @@ function onMapContextMenu(root, { latlng, target: map }) {
 function createMap(domTarget, options = {}) {
   const defaults = { layers: [getStreetTiles()], scrollWheelZoom: false };
   const map = L.map(domTarget, { ...defaults, options });
+  L.control.scale({ imperial: false }).addTo(map);
   L.control
     .layers({
       "Plan des rues": getStreetTiles(),
