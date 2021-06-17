@@ -122,7 +122,7 @@ def communes(request):
     )
 
 
-def search(request):
+def search(request, commune_slug=None):
     where = request.GET.get("where", "France entière") or "France entière"
     what = request.GET.get("what", "")
     lat = request.GET.get("lat")
@@ -133,7 +133,11 @@ def search(request):
     # what
     qs = qs.search_what(what)
     # where
-    if lat and lon:
+    if commune_slug:
+        commune = get_object_or_404(Commune, slug=commune_slug)
+        qs = qs.filter(commune_ext=commune)
+        where = commune.nom
+    elif lat and lon:
         qs = qs.nearest((lat, lon))
     elif not where == "France entière":
         qs = qs.search_commune(where)

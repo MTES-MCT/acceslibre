@@ -52,6 +52,16 @@ def test_search_raw_commune(data, client):
     assert hasattr(response.context["pager"][0], "distance") is False
 
 
+def test_search_qualified_commune(data, client):
+    response = client.get(
+        reverse("search_commune", kwargs={"commune_slug": "34-jacou"})
+    )
+    assert response.context["where"] == "Jacou"
+    assert len(response.context["pager"]) == 1
+    assert response.context["pager"][0].nom == "Aux bons croissants"
+    assert hasattr(response.context["pager"][0], "distance") is False
+
+
 def test_search_empty_text_query(data, client):
     response = client.get(reverse("search") + "?where=&what=")
     assert response.context["where"] == "France entière"
@@ -84,6 +94,7 @@ def test_search_around_me(data, client):
         reverse("search") + "?where=jacou",
         reverse("search") + "?where=jacou&what=boulangerie",
         reverse("search") + "?where=jacou&what=boulangerie&lat=43.2&lon=2.39",
+        reverse("search_commune", kwargs={"commune_slug": "34-jacou"}),
         # Editorial
         reverse("accessibilite"),
         reverse("cgu"),
