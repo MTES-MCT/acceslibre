@@ -45,11 +45,10 @@ def upload_to_datagouv(csv_path):
         response.raise_for_status()
         assert response.json().get("success")
     except (
-        requests.exceptions.RequestException,
-        requests.exceptions.Timeout,
+        requests.RequestException,
         json.JSONDecodeError,
-        requests.exceptions.HTTPError,
+        AssertionError,
     ) as err:
-        raise RuntimeError(err)
+        raise RuntimeError(f"Erreur lors de l'upload {err}")
 
     return True

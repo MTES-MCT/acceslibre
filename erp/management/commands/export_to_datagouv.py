@@ -38,9 +38,12 @@ class Command(BaseCommand):
             if res:
                 ping_mattermost(len(erps))
                 self.log("Dataset uploaded")
+                return True
         except RuntimeError as err:
             ping_mattermost(error=str(err))
-            raise err
+            raise RuntimeError(str(err))
+
+        return False
 
 
 def ping_mattermost(count=0, error=None):
@@ -48,14 +51,17 @@ def ping_mattermost(count=0, error=None):
         return
     status = error if error else "Aucune erreur rencontrée :thumbsup:"
     url = f"{settings.DATAGOUV_DOMAIN}/fr/datasets/acceslibre/"
-    requests.post(
-        settings.MATTERMOST_HOOK,
-        json={
-            "attachments": [
-                {
-                    "pretext": "Export vers datagouv",
-                    "text": f"- {status}\n- ERPs exportés: **{count}**\n[Lien vers le dataset]({url})",
-                }
-            ],
-        },
-    )
+    try:
+        requests.post(
+            settings.MATTERMOST_HOOK,
+            json={
+                "attachments": [
+                    {
+                        "pretext": "Export vers datagouv",
+                        "text": f"- {status}\n- ERPs exportés: **{count}**\n[Lien vers le dataset]({url})",
+                    }
+                ],
+            },
+        )
+    except requests.RequestException as err:
+        logger.error(f"Couldn't send Mattermost notification: {err}")

@@ -47,9 +47,9 @@ def test_export_failure(mocker, db, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch(
         "requests.post",
-        side_effect=requests.exceptions.RequestException("Error"),
+        side_effect=requests.exceptions.HTTPError("Error"),
     )
-    with pytest.raises(Exception) as err:
+    with pytest.raises(RuntimeError) as err:
         management.call_command("export_to_datagouv")
 
-    assert isinstance(err.value, requests.exceptions.RequestException)
+    assert "Erreur lors de l'upload" in str(err.value)
