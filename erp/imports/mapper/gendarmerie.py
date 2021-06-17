@@ -67,7 +67,7 @@ class GendarmerieMapper:
             Erp.objects.exclude(source=Erp.SOURCE_GENDARMERIE)
             .filter(
                 activite=self.activite,
-                geom__distance_lte=(location, Distance(m=100)),
+                geom__distance_lte=(location, Distance(m=2000)),
             )
             .first()
         )
