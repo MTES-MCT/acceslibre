@@ -91,9 +91,9 @@ class EtalabMapper(BaseExportMapper):
         return [x.name for x in fields(EtalabMapper)]
 
     @staticmethod
-    def map_from(erp):
+    def map_from(erp) -> "EtalabMapper":
         return EtalabMapper(
-            id=erp.uuid,
+            id=str(erp.uuid),
             name=erp.nom,
             postal_code=erp.code_postal,
             commune=erp.commune,
