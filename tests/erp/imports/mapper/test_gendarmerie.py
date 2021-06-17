@@ -1,8 +1,11 @@
 import pytest
 
-from erp.models import Activite
-from tests.erp.imports.mapper.fixtures import gendarmeries_valid
+from django.contrib.gis.geos import Point
+
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
+from erp.models import Activite, Erp
+
+from tests.erp.imports.mapper.fixtures import gendarmeries_valid
 
 
 @pytest.fixture
@@ -69,3 +72,33 @@ def test_horaires_missing(mapper, gendarmeries_valid):
     erp, reason = mapper(sample).process()
 
     assert "Horaires d'accueil" not in erp.accessibilite.commentaire
+
+
+def test_unpublish_preexisting_duplicate_import(
+    mapper, activite_gendarmerie, gendarmeries_valid
+):
+    # create two duplicates
+    preexisting = Erp.objects.create(
+        nom="preexisting",
+        activite=activite_gendarmerie,
+        geom=Point(6.09523, 46.27591),
+        published=True,
+    )
+    already_imported = Erp.objects.create(
+        nom="already imported",
+        activite=activite_gendarmerie,
+        source=Erp.SOURCE_GENDARMERIE,
+        source_id="1008620",
+        geom=Point(6.09523, 46.27591),
+        published=True,
+    )
+
+    sample = gendarmeries_valid[0].copy()
+    erp, _ = mapper(sample).process()
+
+    erp.refresh_from_db()
+    assert erp.pk == preexisting.pk
+    assert erp.published is True
+
+    already_imported.refresh_from_db()
+    assert already_imported.published is False
