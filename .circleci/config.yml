@@ -14,7 +14,6 @@ jobs:
           EMAIL_HOST_USER: xxx
           EMAIL_HOST_PASSWORD: xxx
           SCALINGO_APP: access4all
-          DATAGOUV_API_KEY: xxx
       - image: circleci/postgres:12.2-postgis
         environment:
           POSTGRES_USER: root

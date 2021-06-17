@@ -44,7 +44,7 @@ class Command(BaseCommand):
 
 
 def ping_mattermost(count=0, error=None):
-    if not settings.MATTERMOST_HOOK and not settings.DATAGOUV_API_KEY:
+    if not settings.MATTERMOST_HOOK or not settings.DATAGOUV_API_KEY:
         return
     status = error if error else "Aucune erreur rencontrée :thumbsup:"
     url = f"{settings.DATAGOUV_DOMAIN}/fr/datasets/acceslibre/"
