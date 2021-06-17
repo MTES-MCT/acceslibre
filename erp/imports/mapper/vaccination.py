@@ -193,7 +193,9 @@ class VaccinationMapper:
 
     def _fetch_or_create_erp(self):
         "Récupère l'Erp existant correspondant à cet enregistrement ou en crée un s'il n'existe pas"
-        erp = Erp.objects.find_by_source_id(Erp.SOURCE_VACCINATION, self.source_id)
+        erp = Erp.objects.find_by_source_id(
+            Erp.SOURCE_VACCINATION, self.source_id
+        ).first()
         if not erp:
             erp = Erp(
                 source=Erp.SOURCE_VACCINATION,
