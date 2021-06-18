@@ -184,6 +184,7 @@ function parseAround({ lat, lon, label }) {
 }
 
 function AppMap(root) {
+  let aroundPoint;
   const info = parseJsonScript(root.querySelector("#commune-data"));
   const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
   const geoJson = parseJsonScript(root.querySelector("#erps-data"));
@@ -210,19 +211,20 @@ function AppMap(root) {
     iconCreateFunction: iconCreateFunction,
   });
   markers.addLayer(geoJsonLayer);
+
+  if (around) {
+    aroundPoint = L.circleMarker(around.point, { color: "#fff", fillColor: "#3388ff", fillOpacity: 1, radius: 9 })
+      .bindPopup(around.label)
+      .addTo(map);
+    markers.addLayer(aroundPoint);
+  }
+
   map.addLayer(markers);
 
   if (geoJson.features.length > 0) {
-    map.fitBounds(markers.getBounds().pad(0.1));
+    map.fitBounds(markers.getBounds(), { padding: [70, 70] });
   } else if (info) {
     map.setView(info.center, info.zoom);
-  }
-
-  if (around) {
-    const circle = L.circleMarker(around.point, { fillOpacity: 1, radius: 6 }).bindPopup(around.label).addTo(map);
-    if (!pk) {
-      circle.openPopup();
-    }
   }
 
   L.control
@@ -234,6 +236,8 @@ function AppMap(root) {
 
   if (pk) {
     openMarkerPopup(pk);
+  } else if (aroundPoint) {
+    aroundPoint.openPopup();
   }
 
   return map;
