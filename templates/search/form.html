@@ -4,16 +4,15 @@
   <div class="row">
     <div class="where-field col-xl-6 py-1">
       <label for="where-input">
-        <span class="sr-only">Saisir votre localité ou sélectionner une entrée dans la liste</span>
+        <span class="sr-only">Saisir une adresse ou une localité, puis sélectionner une entrée dans la liste</span>
         <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
-        <span aria-hidden="true" class="text-{% if dark %}light{% else %}muted{% endif %}">(ville, département…)</span>
+        <span aria-hidden="true" class="text-{% if dark %}light{% else %}muted{% endif %}">(adresse, ville)</span>
       </label>
       <div class="search-where-field" style="z-index:9999">
         <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
-          spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where_label }}"
-          name="where_label" placeholder="Exemple: lyon, rhône" data-src="{% url "where" %}">
+          spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
+          name="where" placeholder="Exemple: 12 rue des prés, Nantes">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
-        <input type="hidden" name="where" value="{{ where }}">
         <input type="hidden" name="lat" value="{{ lat }}">
         <input type="hidden" name="lon" value="{{ lon }}">
         <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">

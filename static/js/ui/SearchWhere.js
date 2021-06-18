@@ -12,10 +12,8 @@ async function getCommonResults(loc) {
 function SearchWhere(root) {
   const input = root.querySelector("input[type=search]");
   const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
-  const hiddenWhereField = root.querySelector("input[name=where]");
   const hiddenLatField = root.querySelector("input[name=lat]");
   const hiddenLonField = root.querySelector("input[name=lon]");
-  const whereUrl = input.dataset.src;
 
   function setLatLon(loc) {
     hiddenLatField.value = loc?.lat || "";
@@ -24,10 +22,6 @@ function SearchWhere(root) {
 
   function setSearchValue(label) {
     input.value = label;
-  }
-
-  function setWhereValue(value) {
-    hiddenWhereField.value = value;
   }
 
   const autocomplete = new Autocomplete(root, {
@@ -40,7 +34,9 @@ function SearchWhere(root) {
         return;
       }
 
-      if (result.id === "around_me") {
+      if (result.lat && result.lon) {
+        setLatLon(result);
+      } else if (result.id === "around_me") {
         if (api.hasPermission("geolocation") !== "granted") {
           a11yGeolocBtn.focus();
         }
@@ -60,7 +56,6 @@ function SearchWhere(root) {
         setLatLon(null);
       }
 
-      setWhereValue(result.id);
       input.select();
     },
 
@@ -80,8 +75,7 @@ function SearchWhere(root) {
       if (input.length < 1) {
         return commonResults;
       }
-      const res = await fetch(`${whereUrl}?q=${input}`);
-      const { results } = await res.json();
+      const { results } = await api.searchLocation(input, loc);
       return commonResults.concat(results);
     },
   });
@@ -92,7 +86,6 @@ function SearchWhere(root) {
     if (event.key == "Enter") {
       event.preventDefault();
     } else if (event.key != "Tab") {
-      setWhereValue("");
       setLatLon(null);
     }
   });

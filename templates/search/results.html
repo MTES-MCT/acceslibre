@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}{% if pager %}Résultats pour {{ what }} {{ where_label }}{% else %}Aucun résultat{% endif %}{% endblock%}
+{% block page_title %}{% if pager %}Résultats pour {{ what }} {{ where }}{% else %}Aucun résultat{% endif %}{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=True %}
@@ -13,9 +13,9 @@
 <main id="content">
   <h2 class="mt-3 mb-2">
     <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
-    <span class="sr-only">Localité:</span> {{ where_label }}
-    {% if where_label and what %}<small class="text-muted">/</small>{% endif %}
-    {% if what %}<span class="sr-only">Activité: </span>{% endif %}{{ what }}
+    <span class="sr-only">Localité:</span> {{ where }}
+    {% if where and what %}<small class="text-muted">/</small>{% endif %}
+    {% if what %}<span class="sr-only">Activité:</span> {{ what }}{% endif %}
   </h2>
 
   {% if what and "centres de vaccination" in what %}
@@ -38,7 +38,7 @@
       <div class="col-sm-6">
         <h2 class="h4 m-0 mb-3">
           {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
-          {% if where == "around_me" %}à moins de 20km{% endif %}
+          {% if where|startswith:"Autour de moi" %}à moins de 20km{% endif %}
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>
@@ -58,7 +58,7 @@
                   <a href="{{ erp.get_absolute_url }}">
                     <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
                       src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
-                    {% if where == "around_me" and erp.distance %}
+                    {% if where|startswith:"Autour de moi" and erp.distance %}
                       <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
                     {% endif %}
                     {{ erp.nom }}

@@ -10,18 +10,18 @@ logger = logging.getLogger(__name__)
 GEOCODER_URL = "https://api-adresse.data.gouv.fr/search/"
 
 
-def autocomplete(q, postcode=None, citycode=None, limit=5):
+def autocomplete(q, limit=1):
     params = {
-        "q": q,
-        "postcode": postcode,
-        "citycode": citycode,
         "autocomplete": 1,
+        "q": q,
         "limit": limit,
     }
-    if postcode is not None:
-        params["postcode"] = postcode
-    data = query(params)
-    return data.get("features") if data else None
+    try:
+        results = query(params, timeout=0.5)
+        (lon, lat) = results.get("features")[0]["geometry"]["coordinates"]
+        return (lat, lon)
+    except (KeyError, IndexError, RuntimeError):
+        return None
 
 
 def geocode(adresse, postcode=None, citycode=None):
@@ -61,16 +61,16 @@ def geocode(adresse, postcode=None, citycode=None):
         raise RuntimeError(f"Erreur lors du géocodage de l'adresse {adresse}") from err
 
 
-def query(params):
+def query(params, timeout=8):
     try:
-        res = requests.get(GEOCODER_URL, params)
+        res = requests.get(GEOCODER_URL, params, timeout=timeout)
         logger.info(f"Geocoder call: {res.url}")
         if res.status_code != 200:
             raise RuntimeError(
                 f"Erreur HTTP {res.status_code} lors de la géolocalisation de l'adresse."
             )
         return res.json()
-    except requests.exceptions.RequestException:
+    except (requests.exceptions.RequestException, requests.exceptions.Timeout):
         raise RuntimeError("Serveur de géocodage indisponible.")
 
 

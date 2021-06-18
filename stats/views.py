@@ -21,7 +21,6 @@ class ObjectifsView(TemplateView):
                     select
                         c.nom,
                         c.slug,
-                        c.code_insee,
                         c.population,
                         c.departement,
                         (c.population / 45) as total_erps_commune,
@@ -39,7 +38,7 @@ class ObjectifsView(TemplateView):
                     where
                         c.population >= 0
                     group by
-                        c.nom, c.slug, c.code_insee, c.population, c.departement
+                        c.nom, c.slug, c.population, c.departement
                 ) data
             where
                 data.population > 5000 and data.erps_commune > 0 and data.total_erps_commune > 0

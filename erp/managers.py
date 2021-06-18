@@ -171,7 +171,10 @@ class ErpQuerySet(models.QuerySet):
         if isinstance(point, Point):
             location = point
         elif isinstance(point, (tuple, list)):
-            location = Point(x=float(point[1]), y=float(point[0]), srid=4326)
+            try:
+                location = Point(x=float(point[1]), y=float(point[0]), srid=4326)
+            except (TypeError, ValueError):
+                return self
         else:
             raise RuntimeError(f"Unsupported point type {type(point)}: {point}")
         qs = self.annotate(distance=Distance("geom", location))

@@ -176,10 +176,18 @@ function parseJsonScript(scriptNode) {
   return JSON.parse(scriptNode.textContent);
 }
 
+function parseAround({ lat, lon, label }) {
+  if (!lat || !lon) return;
+  try {
+    return { label, point: L.latLng(lat, lon) };
+  } catch (_) {}
+}
+
 function AppMap(root) {
   const info = parseJsonScript(root.querySelector("#commune-data"));
   const pk = parseJsonScript(root.querySelector("#erp-pk-data"));
   const geoJson = parseJsonScript(root.querySelector("#erps-data"));
+  const around = parseAround(root.dataset);
   currentPk = pk;
 
   map = createMap(root);
@@ -208,6 +216,13 @@ function AppMap(root) {
     map.fitBounds(markers.getBounds().pad(0.1));
   } else if (info) {
     map.setView(info.center, info.zoom);
+  }
+
+  if (around) {
+    const circle = L.circleMarker(around.point, { fillOpacity: 1, radius: 6 }).bindPopup(around.label).addTo(map);
+    if (!pk) {
+      circle.openPopup();
+    }
   }
 
   L.control
