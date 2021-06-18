@@ -138,12 +138,12 @@ def search(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = commune.nom
     elif lat and lon:
-        qs = qs.nearest((lat, lon), max_radius_km=20)
+        qs = qs.nearest((lat, lon))
     elif where and not where == "France entière":
         coords = geocoder.autocomplete(where)
         if coords:
             lat, lon = coords  # update current searched lat/lon
-            qs = qs.nearest((lat, lon), max_radius_km=20)
+            qs = qs.nearest((lat, lon))
         else:
             qs = qs.search_commune(where)
     # pager
@@ -204,7 +204,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     nearest_erps = (
         Erp.objects.select_related("accessibilite", "activite", "commune_ext")
         .published()
-        .nearest([erp.geom.coords[1], erp.geom.coords[0]], max_radius_km=20)
+        .nearest([erp.geom.coords[1], erp.geom.coords[0]])
         .filter(distance__lt=Distance(km=20))[:10]
     )
     geojson_list = make_geojson(nearest_erps)

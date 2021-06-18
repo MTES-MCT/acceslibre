@@ -45,6 +45,8 @@ DATAGOUV_DATASET_ID = "d54910da-d37a-46a0-93db-fc515db8a0fe"
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
+# Maps
+MAP_SEARCH_RADIUS_KM = 10
 # Mapbox
 # Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
 MAPBOX_TOKEN = "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
@@ -155,6 +157,7 @@ def expose_site_context(request):
     from django.conf import settings
 
     return {
+        "MAP_SEARCH_RADIUS_KM": settings.MAP_SEARCH_RADIUS_KM,
         "MAPBOX_TOKEN": settings.MAPBOX_TOKEN,
         "SENTRY_DSN": settings.SENTRY_DSN,
         "SITE_NAME": settings.SITE_NAME,
