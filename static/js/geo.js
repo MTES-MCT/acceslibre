@@ -220,7 +220,9 @@ function AppMap(root) {
 
   if (around) {
     const circle = L.circleMarker(around.point, { fillOpacity: 1, radius: 6 }).bindPopup(around.label).addTo(map);
-    if (!pk) circle.openPopup();
+    if (!pk) {
+      circle.openPopup();
+    }
   }
 
   L.control

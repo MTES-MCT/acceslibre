@@ -32,7 +32,8 @@ def test_communes(data, client):
     assert len(response.context["latest"]) == 1
 
 
-def test_search_commune(data, client):
+def test_search_commune(data, client, mocker):
+    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(
         reverse("search") + "?where=Jacou&what=croissant&lat=43.661&lon=3.912"
     )
@@ -43,7 +44,8 @@ def test_search_commune(data, client):
     assert hasattr(response.context["pager"][0], "distance") is True
 
 
-def test_search_raw_commune(data, client):
+def test_search_raw_commune(data, client, mocker):
+    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(reverse("search") + "?where=jacou&what=croissant")
     assert response.context["where"] == "jacou"
     assert response.context["what"] == "croissant"
@@ -52,7 +54,8 @@ def test_search_raw_commune(data, client):
     assert hasattr(response.context["pager"][0], "distance") is False
 
 
-def test_search_qualified_commune(data, client):
+def test_search_qualified_commune(data, client, mocker):
+    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(
         reverse("search_commune", kwargs={"commune_slug": "34-jacou"})
     )
@@ -62,14 +65,16 @@ def test_search_qualified_commune(data, client):
     assert hasattr(response.context["pager"][0], "distance") is False
 
 
-def test_search_empty_text_query(data, client):
+def test_search_empty_text_query(data, client, mocker):
+    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(reverse("search") + "?where=&what=")
     assert response.context["where"] == "France entière"
     assert response.context["what"] == ""
     assert response.context["pager"] is not None
 
 
-def test_search_around_me(data, client):
+def test_search_around_me(data, client, mocker):
+    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(
         reverse("search")
         + "?where=around_me&what=croissant&lat=43.6648062&lon=3.9048148"

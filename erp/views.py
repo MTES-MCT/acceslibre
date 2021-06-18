@@ -19,7 +19,7 @@ from urllib.parse import urlencode
 from core import mailer
 from erp import forms, schema, serializers
 from erp.models import Accessibilite, Commune, Erp, Vote
-from erp.provider import search as provider_search
+from erp.provider import geocoder, search as provider_search
 from subscription.models import ErpSubscription
 
 
@@ -138,9 +138,14 @@ def search(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = commune.nom
     elif lat and lon:
-        qs = qs.nearest((lat, lon))
-    elif not where == "France entière":
-        qs = qs.search_commune(where)
+        qs = qs.nearest((lat, lon), max_radius_km=20)
+    elif where and not where == "France entière":
+        coords = geocoder.autocomplete(where)
+        if coords:
+            lat, lon = coords  # update current searched lat/lon
+            qs = qs.nearest((lat, lon), max_radius_km=20)
+        else:
+            qs = qs.search_commune(where)
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
@@ -160,8 +165,8 @@ def search(request, commune_slug=None):
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
-            "lat": request.GET.get("lat"),
-            "lon": request.GET.get("lon"),
+            "lat": lat,
+            "lon": lon,
             "what": what,
             "where": where,
             "geojson_list": geojson_list,
@@ -199,7 +204,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     nearest_erps = (
         Erp.objects.select_related("accessibilite", "activite", "commune_ext")
         .published()
-        .nearest([erp.geom.coords[1], erp.geom.coords[0]])
+        .nearest([erp.geom.coords[1], erp.geom.coords[0]], max_radius_km=20)
         .filter(distance__lt=Distance(km=20))[:10]
     )
     geojson_list = make_geojson(nearest_erps)
