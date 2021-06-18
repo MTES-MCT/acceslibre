@@ -13,8 +13,8 @@
           spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
           name="where" placeholder="Exemple: 12 rue des prés, Nantes">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
-        <input type="hidden" name="lat" value="{{ lat }}">
-        <input type="hidden" name="lon" value="{{ lon }}">
+        <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
+        <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
         <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
           Autoriser l'obtention de ma localisation géographique
         </button>

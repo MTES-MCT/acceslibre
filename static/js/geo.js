@@ -236,8 +236,6 @@ function AppMap(root) {
 
   if (pk) {
     openMarkerPopup(pk);
-  } else if (aroundPoint) {
-    aroundPoint.openPopup();
   }
 
   return map;
