@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.gis import measure
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.geos import Point
@@ -165,7 +166,7 @@ class ErpQuerySet(models.QuerySet):
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
-    def nearest(self, point, max_radius_km=None):
+    def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM):
         """Filter Erps around a given point, which can be either a `Point` instance
         or a tuple(lat, lon)."""
         if isinstance(point, Point):
