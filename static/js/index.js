@@ -5,7 +5,7 @@ import "whatwg-fetch";
 // jQuery and selectWoo are very special beasts
 // https://stackoverflow.com/a/47984928
 // https://stackoverflow.com/a/49722514
-import jquery, { Autocomplete } from "jquery";
+import jquery from "jquery";
 window.$ = window.jQuery = jquery;
 import select2 from "../vendor/selectWoo-1.0.8/js/select2.full.min";
 select2(window.$);

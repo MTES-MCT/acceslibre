@@ -1,4 +1,6 @@
-<div aria-hidden="true" id="app-map" class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}">
+<div aria-hidden="true" id="app-map" data-label="{{ where|default_if_none:"" }}"
+  class="{% if map_classes %}{{ map_classes }}{% else %}a4a-app-map{% endif %}"
+  data-lat="{{ lat|default_if_none:"" }}" data-lon="{{ lon|default_if_none:"" }}">
   <script id="commune-data" type="application/json">
     {% if commune_json %}{{ commune_json | safe }}{% else %}null{% endif %}
   </script>

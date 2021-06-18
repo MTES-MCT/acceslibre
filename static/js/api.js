@@ -97,10 +97,26 @@ function saveUserLocation(loc) {
   return loc;
 }
 
+async function searchLocation(q, loc) {
+  let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5`;
+  const { lat, lon } = loc || {};
+  if (lat && lon) url += `&lat=${lat}&lon=${lon}`;
+  const res = await fetch(url);
+  const { features } = await res.json();
+  const results = features.map(({ properties, geometry: { coordinates } }) => ({
+    id: "loc",
+    text: properties.label,
+    lat: coordinates[1],
+    lon: coordinates[0],
+  }));
+  return { q, results };
+}
+
 export default {
   hasPermission,
   getUserLocation,
   loadUserLocation,
   reverseGeocode,
   saveUserLocation,
+  searchLocation,
 };

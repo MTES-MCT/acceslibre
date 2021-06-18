@@ -66,8 +66,9 @@ def test_search_empty(data, client):
     validate_url_get(client, reverse("search"))
 
 
-def test_search_result(data, client):
-    validate_url_get(client, reverse("search") + "?where=34120")
+def test_search_result(data, client, mocker):
+    mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
+    validate_url_get(client, reverse("search") + "?where=jacou")
 
 
 def test_erp_details(data, client):
