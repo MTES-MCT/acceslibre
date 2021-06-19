@@ -1,11 +1,8 @@
-import requests
 import sys
 
-from datetime import datetime
-
-from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from core import mattermost
 from erp.imports import importer
 
 
@@ -42,7 +39,18 @@ class Command(BaseCommand):
         if verbose:
             print(detailed_report + "\n\n" + summary)
 
-        ping_mattermost(summary, results["errors"])
+        mattermost.send(
+            summary,
+            attachements=[
+                {
+                    "pretext": "Détail des erreurs",
+                    "text": to_text_list(results["errors"])
+                    if results["errors"]
+                    else "Aucune erreur rencontrée",
+                }
+            ],
+            tags=[__name__],
+        )
 
 
 def fatal(msg):
@@ -73,30 +81,9 @@ Erreurs rencontrées
 
 
 def build_summary(dataset, results):
-    environment = "RECETTE" if settings.STAGING else "PRODUCTION"
-    datestr = datetime.strftime(datetime.now(), "%d/%m/%Y à %H:%M:%S")
-    return f"""Statistiques d'import {dataset} effectué le {datestr} en {environment} ({settings.SITE_HOST}):
+    return f"""Statistiques d'import {dataset}:
 
 - Importés: {len(results['imported'])}
 - Écartés: {len(results['skipped'])}
 - Dépubliés: {len(results['unpublished'])}
 - Erreurs: {len(results['errors'])}"""
-
-
-def ping_mattermost(summary, errors):
-    if not settings.MATTERMOST_HOOK:
-        return
-    requests.post(
-        settings.MATTERMOST_HOOK,
-        json={
-            "text": summary,
-            "attachments": [
-                {
-                    "pretext": "Détail des erreurs",
-                    "text": to_text_list(errors)
-                    if errors
-                    else "Aucune erreur rencontrée",
-                }
-            ],
-        },
-    )

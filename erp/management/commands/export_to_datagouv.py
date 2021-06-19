@@ -1,9 +1,9 @@
 import logging
 
-import requests
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
+from core import mattermost
 from erp.export.export import export_schema_to_csv, upload_to_datagouv
 from erp.export.mappers import EtalabMapper
 from erp.models import Erp
@@ -12,8 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    help = "Exporte vers datagouv"
-    verbose = False
+    help = "Exporte et publie le jeu de données sur datagouv"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -27,7 +26,7 @@ class Command(BaseCommand):
             print(msg)
 
     def handle(self, *args, **options):
-        # self.verbose = options.get("verbose", False)
+        self.verbose = options.get("verbose", False)
         csv_path = "acceslibre.csv"
         self.log("Starting export")
         try:
@@ -40,25 +39,19 @@ class Command(BaseCommand):
                 self.log("Dataset uploaded")
         except RuntimeError as err:
             ping_mattermost(error=str(err))
-            raise RuntimeError(str(err))
+            logger.error(f"Impossible de publier le dataset: {err}")
 
 
 def ping_mattermost(count=0, error=None):
-    if not settings.MATTERMOST_HOOK or not settings.DATAGOUV_API_KEY:
-        return
     status = error if error else "Aucune erreur rencontrée :thumbsup:"
     url = f"{settings.DATAGOUV_DOMAIN}/fr/datasets/acceslibre/"
-    try:
-        requests.post(
-            settings.MATTERMOST_HOOK,
-            json={
-                "attachments": [
-                    {
-                        "pretext": "Export vers datagouv",
-                        "text": f"- {status}\n- ERPs exportés: **{count}**\n[Lien vers le dataset]({url})",
-                    }
-                ],
-            },
-        )
-    except requests.RequestException as err:
-        logger.error(f"Couldn't send Mattermost notification: {err}")
+    mattermost.send(
+        "Export vers datagouv",
+        attachements=[
+            {
+                "pretext": status,
+                "text": f"- ERPs exportés: **{count}**\n[Lien vers le dataset]({url})",
+            }
+        ],
+        tags=[__name__],
+    )

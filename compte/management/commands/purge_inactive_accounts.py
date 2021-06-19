@@ -1,14 +1,11 @@
-import logging
-
 from datetime import datetime, timedelta
-from django.utils import timezone
-from django.core.management.base import BaseCommand
 
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand
 from django.db.models import Count
+from django.utils import timezone
 
-
-logger = logging.getLogger(__name__)
+from core import mattermost
 
 
 class Command(BaseCommand):
@@ -47,6 +44,9 @@ class Command(BaseCommand):
             )
         )
 
-        (nb_deleted, _) = outdated_qs.delete()
+        nb_deleted, _ = outdated_qs.delete()
         if nb_deleted > 0:
-            logger.info(f"{nb_deleted} comptes utilisateur obsolètes supprimés.")
+            mattermost.send(
+                f"{nb_deleted} comptes utilisateur obsolètes supprimés.",
+                tags=[__name__],
+            )
