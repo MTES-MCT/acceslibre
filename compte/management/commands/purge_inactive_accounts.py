@@ -52,4 +52,4 @@ class Command(BaseCommand):
                     tags=[__name__],
                 )
         except DatabaseError as err:
-            raise CommandError(f"Erreur lors de la purge des comptes inatcitfs: {err}")
+            raise CommandError(f"Erreur lors de la purge des comptes obslètes: {err}")

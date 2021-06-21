@@ -21,9 +21,10 @@ class Command(BaseCommand):
             ).delete()
             if nb_deleted > 0:
                 mattermost.send(
-                    f"{nb_deleted} outdated activation tokens deleted", tags=[__name__]
+                    f"{nb_deleted} jetons d'activation d'adresse email supprimés",
+                    tags=[__name__],
                 )
         except DatabaseError as err:
             raise CommandError(
-                f"Error encountered while purging outdated activation tokens: {err}"
+                f"Erreur lors de la purge des jetons de changement d'adresse email: {err}"
             )
