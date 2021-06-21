@@ -153,7 +153,6 @@ class ErpOnlineFilter(admin.SimpleListFilter):
     def queryset(self, request, queryset):
         if self.value() == "True":
             queryset = queryset.published()
-            print("job done")
         elif self.value() == "False":
             queryset = queryset.not_published()
         return queryset
@@ -169,7 +168,6 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
     def queryset(self, request, queryset):
         if self.value() == "True":
             queryset = queryset.filter(accessibilite__isnull=False)
-            print("job done")
         elif self.value() == "False":
             queryset = queryset.filter(accessibilite__isnull=True)
         return queryset

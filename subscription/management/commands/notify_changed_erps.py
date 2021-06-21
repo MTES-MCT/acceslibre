@@ -5,7 +5,7 @@ from django.conf import settings
 from django.utils import timezone
 from django.core.management.base import BaseCommand
 
-from core import mailer
+from core import mailer, mattermost
 from erp import versioning
 from subscription.models import ErpSubscription
 
@@ -36,7 +36,7 @@ class Command(BaseCommand):
 
     def send_notification(self, notification):
         recipient = notification["user"]
-        mailer.send_email(
+        return mailer.send_email(
             [recipient.email],
             f"[{settings.SITE_NAME}] Vous avez reçu de nouvelles contributions",
             "mail/changed_erp_notification.txt",
@@ -77,6 +77,12 @@ class Command(BaseCommand):
         else:
             now = timezone.now()
 
-        notifications = self.get_notifications(options["hours"], now=now)
-        for notification in notifications.values():
-            self.send_notification(notification)
+        notifications = self.get_notifications(options["hours"], now=now).values()
+        sent_ok = 0
+        for notification in notifications:
+            sent_ok += 1 if self.send_notification(notification) else 0
+
+        mattermost.send(
+            f"{sent_ok}/{len(notifications)} notifications de souscription envoyées",
+            tags=[__name__],
+        )
