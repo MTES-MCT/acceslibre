@@ -114,10 +114,24 @@
       }
     },
     {
-      "name": "coordinates",
-      "description": "Coordonnées GPS",
-      "example": "90, 45",
-      "type": "geopoint"
+      "name": "longitude",
+      "description": "Coordonnées GPS: longitude",
+      "type": "number",
+      "example": "2.352222",
+      "contraints": {
+        "minimum": -90,
+        "maximum": 90
+      }
+    },
+    {
+      "name": "latitude",
+      "description": "Coordonnées GPS: latitude",
+      "type": "number",
+      "example": "48.856613",
+      "contraints": {
+        "minimum": -180,
+        "maximum": 180
+      }
     }
   ],
   "primaryKey": ["id"]
