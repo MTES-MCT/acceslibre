@@ -1,7 +1,9 @@
 # flake8: noqa
 import os
+import sentry_sdk
 
 from .settings import *
+
 
 DEBUG = False
 
@@ -15,6 +17,12 @@ ALLOWED_HOSTS = [
     f"{APP_NAME}.osc-fr1.scalingo.io",
 ]
 
+if SENTRY_DSN is not None:
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=SENTRY_DSN, integrations=[DjangoIntegration()], environment="production"
+    )
 
 CACHES = {
     "default": {
