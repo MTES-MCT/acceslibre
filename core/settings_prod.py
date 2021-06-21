@@ -5,7 +5,7 @@ from .settings import *
 
 DEBUG = False
 
-DATAGOUV_DOMAIN = "https://data.gouv.fr"
+DATAGOUV_DOMAIN = "https://www.data.gouv.fr"
 DATAGOUV_DATASET_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 
 APP_NAME = os.environ.get("APP", "access4all")
