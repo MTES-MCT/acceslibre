@@ -22,7 +22,7 @@ def spambot(db):
     )
 
 
-def test_purge_accounts_job_purge_user(spambot):
+def test_purge_accounts_purge_user(spambot):
     assert User.objects.filter(username="spambot").count() == 1
 
     call_command("purge_inactive_accounts", today="2020-06-01")
@@ -30,7 +30,7 @@ def test_purge_accounts_job_purge_user(spambot):
     assert User.objects.filter(username="spambot").count() == 0
 
 
-def test_purge_accounts_job_keep_user(spambot):
+def test_purge_accounts_keep_user(spambot):
     assert User.objects.filter(username="spambot").count() == 1
 
     call_command("purge_inactive_accounts", today="2020-01-29")
@@ -38,7 +38,7 @@ def test_purge_accounts_job_keep_user(spambot):
     assert User.objects.filter(username="spambot").count() == 1
 
 
-def test_purge_accounts_job_keep_inactive_with_erps(spambot):
+def test_purge_accounts_keep_inactive_with_erps(spambot):
     # user has been deactivated after they created erps
     assert User.objects.filter(username="spambot").count() == 1
     Erp.objects.create(nom="test", user=spambot)

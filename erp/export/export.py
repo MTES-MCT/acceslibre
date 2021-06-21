@@ -49,6 +49,6 @@ def upload_to_datagouv(csv_path):
         json.JSONDecodeError,
         AssertionError,
     ) as err:
-        raise RuntimeError(f"Erreur lors de l'upload {err}")
+        raise RuntimeError(f"Erreur lors de l'upload: {err}")
 
     return True

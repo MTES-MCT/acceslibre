@@ -1,11 +1,6 @@
-import requests
-import sys
+from django.core.management.base import BaseCommand, CommandError
 
-from datetime import datetime
-
-from django.conf import settings
-from django.core.management.base import BaseCommand
-
+from core import mattermost
 from erp.imports import importer
 
 
@@ -29,25 +24,31 @@ class Command(BaseCommand):
         dataset = options.get("dataset")
         verbose = options.get("verbose", False)
         if not dataset:
-            return fatal("Identifiant du jeu de données à importer manquant")
+            raise CommandError("Identifiant du jeu de données à importer manquant")
         if dataset == "gendarmerie":
             results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "vaccination":
             results = importer.import_vaccination(verbose=verbose)
         else:
-            return fatal(f"Identifiant de jeu de données inconnu: {dataset}")
+            raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 
         summary = build_summary(dataset, results)
         detailed_report = build_detailed_report(results)
         if verbose:
             print(detailed_report + "\n\n" + summary)
 
-        ping_mattermost(summary, results["errors"])
-
-
-def fatal(msg):
-    print(msg)
-    sys.exit(1)
+        mattermost.send(
+            summary,
+            attachements=[
+                {
+                    "pretext": "Détail des erreurs",
+                    "text": to_text_list(results["errors"])
+                    if results["errors"]
+                    else "Aucune erreur rencontrée",
+                }
+            ],
+            tags=[__name__],
+        )
 
 
 def to_text_list(items):
@@ -73,30 +74,9 @@ Erreurs rencontrées
 
 
 def build_summary(dataset, results):
-    environment = "RECETTE" if settings.STAGING else "PRODUCTION"
-    datestr = datetime.strftime(datetime.now(), "%d/%m/%Y à %H:%M:%S")
-    return f"""Statistiques d'import {dataset} effectué le {datestr} en {environment} ({settings.SITE_HOST}):
+    return f"""Statistiques d'import {dataset}:
 
 - Importés: {len(results['imported'])}
 - Écartés: {len(results['skipped'])}
 - Dépubliés: {len(results['unpublished'])}
 - Erreurs: {len(results['errors'])}"""
-
-
-def ping_mattermost(summary, errors):
-    if not settings.MATTERMOST_HOOK:
-        return
-    requests.post(
-        settings.MATTERMOST_HOOK,
-        json={
-            "text": summary,
-            "attachments": [
-                {
-                    "pretext": "Détail des erreurs",
-                    "text": to_text_list(errors)
-                    if errors
-                    else "Aucune erreur rencontrée",
-                }
-            ],
-        },
-    )

@@ -26,9 +26,7 @@ def test_csv_creation(db):
 
 def test_export_command(mocker, db, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
-    mocker.patch(
-        "requests.post",
-    )
+    mocker.patch("requests.post")
 
     management.call_command("export_to_datagouv")
     assert os.path.isfile("acceslibre.csv")
@@ -40,12 +38,15 @@ def test_export_failure(mocker, db, settings):
     settings.DATAGOUV_API_KEY = "fake"  # To pass the check before uploading
     mocker.patch(
         "requests.post",
-        side_effect=requests.exceptions.HTTPError("Error"),
+        side_effect=requests.RequestException("KO"),
     )
-    with pytest.raises(RuntimeError) as err:
+    from erp.management.commands.export_to_datagouv import logger
+
+    with pytest.raises(management.CommandError) as err:
         management.call_command("export_to_datagouv")
 
-    os.unlink("acceslibre.csv")
+    if os.path.isfile("acceslibre.csv"):
+        os.unlink("acceslibre.csv")
     assert "Erreur lors de l'upload" in str(err.value)
 
 
