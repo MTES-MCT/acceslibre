@@ -2,7 +2,7 @@ import logging
 
 from datetime import datetime, timezone
 
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from django.db import DatabaseError
 
 from compte.models import EmailToken
@@ -24,6 +24,6 @@ class Command(BaseCommand):
                     f"{nb_deleted} outdated activation tokens deleted", tags=[__name__]
                 )
         except DatabaseError as err:
-            msg = f"Error encountered while purging outdated activation tokens: {err}"
-            logger.error(msg)
-            mattermost.send(msg, tags=[__name__])
+            raise CommandError(
+                f"Error encountered while purging outdated activation tokens: {err}"
+            )

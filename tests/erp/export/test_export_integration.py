@@ -50,12 +50,10 @@ def test_export_failure(mocker, db, settings):
     )
     from erp.management.commands.export_to_datagouv import logger
 
-    spy = mocker.spy(logger, "error")
+    with pytest.raises(management.CommandError) as err:
+        management.call_command("export_to_datagouv")
 
-    management.call_command("export_to_datagouv")
     if os.path.isfile("acceslibre.csv"):
         os.unlink("acceslibre.csv")
 
-    spy.assert_called_once_with(
-        "Impossible de publier le dataset: Erreur lors de l'upload: KO"
-    )
+    assert "Erreur lors de l'upload: KO" in str(err.value)

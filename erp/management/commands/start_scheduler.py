@@ -1,8 +1,15 @@
+import logging
 import schedule
 import time
+import traceback
 
-from django.core.management import call_command
+from django.core.management import call_command, CommandError
 from django.core.management.base import BaseCommand
+
+from core import mattermost
+
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -18,5 +25,14 @@ class Command(BaseCommand):
         schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
         print("Scheduler started")
         while True:
-            schedule.run_pending()
+            try:
+                schedule.run_pending()
+            except CommandError as err:
+                trace = traceback.format_exc()
+                logger.error(err)
+                mattermost.send(
+                    f"Erreur d'exécution de la commande: {err}",
+                    attachements=[{"pretext": "Stack trace", "text": trace}],
+                    tags=[__name__],
+                )
             time.sleep(1)

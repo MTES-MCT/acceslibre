@@ -1,7 +1,7 @@
 import logging
 
 from django.conf import settings
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 
 from core import mattermost
 from erp.export.export import export_schema_to_csv, upload_to_datagouv
@@ -38,18 +38,16 @@ class Command(BaseCommand):
                 ping_mattermost(len(erps))
                 self.log("Dataset uploaded")
         except RuntimeError as err:
-            ping_mattermost(error=str(err))
-            logger.error(f"Impossible de publier le dataset: {err}")
+            raise CommandError(f"Impossible de publier le dataset: {err}")
 
 
-def ping_mattermost(count=0, error=None):
-    status = error if error else "Aucune erreur rencontrée :thumbsup:"
+def ping_mattermost(count):
     url = f"{settings.DATAGOUV_DOMAIN}/fr/datasets/acceslibre/"
     mattermost.send(
         "Export vers datagouv",
         attachements=[
             {
-                "pretext": status,
+                "pretext": "Aucune erreur rencontrée :thumbsup:",
                 "text": f"- ERPs exportés: **{count}**\n[Lien vers le dataset]({url})",
             }
         ],

@@ -1,6 +1,4 @@
-import sys
-
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 
 from core import mattermost
 from erp.imports import importer
@@ -26,13 +24,13 @@ class Command(BaseCommand):
         dataset = options.get("dataset")
         verbose = options.get("verbose", False)
         if not dataset:
-            return fatal("Identifiant du jeu de données à importer manquant")
+            raise CommandError("Identifiant du jeu de données à importer manquant")
         if dataset == "gendarmerie":
             results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "vaccination":
             results = importer.import_vaccination(verbose=verbose)
         else:
-            return fatal(f"Identifiant de jeu de données inconnu: {dataset}")
+            raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 
         summary = build_summary(dataset, results)
         detailed_report = build_detailed_report(results)
@@ -51,11 +49,6 @@ class Command(BaseCommand):
             ],
             tags=[__name__],
         )
-
-
-def fatal(msg):
-    print(msg)
-    sys.exit(1)
 
 
 def to_text_list(items):

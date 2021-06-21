@@ -1,4 +1,4 @@
-from django.core.management import BaseCommand
+from django.core.management import BaseCommand, CommandError
 
 from erp.export.generate_schema import generate_schema
 
@@ -27,4 +27,4 @@ class Command(BaseCommand):
             generate_schema(base=base, outfile=outfile, repository=repository)
             print(f"Schema generated to: {outfile}")
         except KeyboardInterrupt:
-            print("Interrompu.")
+            raise CommandError("Interrompu.")
