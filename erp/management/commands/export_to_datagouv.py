@@ -23,7 +23,7 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            "--local",
+            "--skip-upload",
             action="store_true",
             help="Export local uniquement",
         )
@@ -34,7 +34,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.verbose = options.get("verbose", False)
-        local = options.get("local", False)
+        skip_upload = options.get("skip-upload", False)
 
         csv_path = "acceslibre.csv"
         self.log("Starting export")
@@ -42,7 +42,7 @@ class Command(BaseCommand):
             erps = Erp.objects.published().having_a11y_data()
             export_schema_to_csv(csv_path, erps, EtalabMapper)
             self.log("Local export successful: 'acceslibre.csv'")
-            if local:
+            if skip_upload:
                 return
             res = upload_to_datagouv(csv_path)
             if res:

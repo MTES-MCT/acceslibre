@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from dataclasses import dataclass
-from typing import List, Tuple, TypeVar, Type
+from typing import List, Tuple, TypeVar, Type, Optional
 
 from erp.models import Erp
 
@@ -46,7 +46,7 @@ def map_list_from_schema(schema_enum, data):
     return list(result)
 
 
-def map_coords(geom, index):
+def map_coords(geom, index) -> Optional[float]:
     if not geom:
         return None
-    return str(geom.coords[index])
+    return geom.coords[index]

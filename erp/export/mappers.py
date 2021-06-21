@@ -21,8 +21,8 @@ class EtalabMapper(BaseExportMapper):
     lieu_dit: str
     code_insee: str
     siret: str
-    longitude: str
-    latitude: str
+    longitude: float
+    latitude: float
     transport_station_presence: bool
     stationnement_presence: bool
     stationnement_pmr: bool
