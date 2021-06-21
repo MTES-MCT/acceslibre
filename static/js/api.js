@@ -88,8 +88,12 @@ async function reverseGeocode({ lat, lon }, options = {}) {
   if (options.type) {
     url += `&type=${options.type}`;
   }
-  const res = await fetchWithTimeout(url, { timeout });
-  return await res.json();
+  try {
+    const res = await fetchWithTimeout(url, { timeout });
+    return await res.json();
+  } catch (e) {
+    console.error("reverse geocoding error", e);
+  }
 }
 
 function saveUserLocation(loc) {
@@ -101,15 +105,22 @@ async function searchLocation(q, loc) {
   let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5`;
   const { lat, lon } = loc || {};
   if (lat && lon) url += `&lat=${lat}&lon=${lon}`;
-  const res = await fetch(url);
-  const { features } = await res.json();
-  const results = features.map(({ properties, geometry: { coordinates } }) => ({
-    id: "loc",
-    text: properties.label,
-    lat: coordinates[1],
-    lon: coordinates[0],
-  }));
-  return { q, results };
+  try {
+    const res = await fetch(url);
+    const { features } = await res.json();
+    const results = features.map(({ properties, geometry: { coordinates } }) => ({
+      id: "loc",
+      text: properties.label,
+      lat: coordinates[1],
+      lon: coordinates[0],
+    }));
+    return { q, results };
+  } catch (e) {
+    if (e.name === "TypeError" && e.message.toLowerCase() === "failed to fetch") {
+      // most likely a temporary network issue
+      return { q, results: [] };
+    }
+  }
 }
 
 export default {
