@@ -22,18 +22,28 @@ class Command(BaseCommand):
             help="Afficher les infos",
         )
 
+        parser.add_argument(
+            "--local",
+            action="store_true",
+            help="Export local uniquement",
+        )
+
     def log(self, msg):
         if self.verbose:
             print(msg)
 
     def handle(self, *args, **options):
-        # self.verbose = options.get("verbose", False)
+        self.verbose = options.get("verbose", False)
+        local = options.get("local", False)
+
         csv_path = "acceslibre.csv"
         self.log("Starting export")
         try:
             erps = Erp.objects.published().having_a11y_data()
             export_schema_to_csv(csv_path, erps, EtalabMapper)
             self.log("Local export successful: 'acceslibre.csv'")
+            if local:
+                return
             res = upload_to_datagouv(csv_path)
             if res:
                 ping_mattermost(len(erps))

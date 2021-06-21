@@ -46,7 +46,7 @@ def map_list_from_schema(schema_enum, data):
     return list(result)
 
 
-def map_coords(geom):
+def map_coords(geom, index):
     if not geom:
         return None
-    return ",".join(map(str, geom.coords))
+    return str(geom.coords[index])

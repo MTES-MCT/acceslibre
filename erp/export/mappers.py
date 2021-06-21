@@ -5,8 +5,8 @@ from erp import schema
 from erp.export.utils import (
     map_value_from_schema,
     map_list_from_schema,
-    map_coords,
     BaseExportMapper,
+    map_coords,
 )
 
 
@@ -21,7 +21,8 @@ class EtalabMapper(BaseExportMapper):
     lieu_dit: str
     code_insee: str
     siret: str
-    coordinates: str
+    longitude: str
+    latitude: str
     transport_station_presence: bool
     stationnement_presence: bool
     stationnement_pmr: bool
@@ -102,7 +103,8 @@ class EtalabMapper(BaseExportMapper):
             lieu_dit=erp.lieu_dit,
             code_insee=erp.code_insee,
             siret=erp.siret,
-            coordinates=map_coords(erp.geom),
+            longitude=map_coords(erp.geom, 0),
+            latitude=map_coords(erp.geom, 1),
             transport_station_presence=erp.accessibilite.transport_station_presence,
             stationnement_presence=erp.accessibilite.stationnement_presence,
             stationnement_pmr=erp.accessibilite.stationnement_pmr,
