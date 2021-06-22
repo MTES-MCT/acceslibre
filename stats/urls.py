@@ -1,4 +1,3 @@
-from django.contrib.admin.views.decorators import staff_member_required
 from django.urls import path
 
 from core.cache import cache_per_user
@@ -14,10 +13,8 @@ urlpatterns = [
         name="stats_home",
     ),
     path(
-        "objectifs/",
-        cache_per_user(STATS_CACHE_TTL)(
-            staff_member_required(views.ObjectifsView.as_view())
-        ),
-        name="stats_objectifs",
+        "palmares/",
+        cache_per_user(STATS_CACHE_TTL)(views.ObjectifsView.as_view()),
+        name="stats_palmares",
     ),
 ]

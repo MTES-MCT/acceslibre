@@ -1,0 +1,15 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Palmarès{% endblock%}
+
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <p><a href="{% url "stats_home" %}">&laquo; Retour aux statistiques générales</a></p>
+  <h2 class="my-3">Palmarès</h2>
+  {% include "stats/includes/palmares_table.html" %}
+</main>
+{% endblock  %}
