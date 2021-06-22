@@ -58,8 +58,6 @@ function SearchWhere(root) {
       } else {
         setLatLon(null);
       }
-
-      input.select();
     },
 
     renderResult: ({ text, icon }, props) => {
