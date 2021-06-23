@@ -38,18 +38,50 @@ def sample_result(data):
     }
 
 
-def test_user_draft_listed(client, data, mocker, sample_result, capsys):
+@pytest.fixture
+def test_response(client, mocker, sample_result):
+    def _factory(user_to_log_in):
+        mocker.patch("erp.provider.search.global_search", return_value=[sample_result])
+        client.force_login(user_to_log_in)
+        return client.get(
+            reverse("contrib_global_search")
+            + "?search=croissants&code_insee=34120&commune_search=Jacou+%2834%2C+Hérault%29"
+        ).content.decode()
+
+    return _factory
+
+
+def test_owner_draft_listed(data, test_response):
     data.erp.published = False
     data.erp.save()
+    response_content = test_response(data.niko)
 
-    client.force_login(data.niko)
+    assert "Existe dans vos brouillons" in response_content
+    assert "Reprendre votre brouillon" in response_content
 
-    mocker.patch("erp.provider.search.global_search", return_value=[sample_result])
 
-    response = client.get(
-        reverse("contrib_global_search")
-        + "?search=croissants&code_insee=34120&commune_search=Jacou+%2834%2C+Hérault%29"
-    )
+def test_owner_published_listed(data, test_response):
+    data.erp.published = True
+    data.erp.save()
+    response_content = test_response(data.niko)
 
-    assert "Existe à l'état de brouillon" in response.content.decode()
-    assert "Reprendre votre brouillon" in response.content.decode()
+    assert "Vous avez créé cette fiche" in response_content
+    assert "Modifier cet établissement" in response_content
+
+
+def test_user_draft_listed(data, test_response):
+    data.erp.published = False
+    data.erp.save()
+    response_content = test_response(data.sophie)
+
+    assert "Existe à l'état de brouillon" in response_content
+    assert "Voir cet établissement" in response_content
+
+
+def test_user_published_listed(data, test_response):
+    data.erp.published = True
+    data.erp.save()
+    response_content = test_response(data.sophie)
+
+    assert "Existe déjà dans la base" in response_content
+    assert "Voir cet établissement" in response_content
