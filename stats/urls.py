@@ -13,8 +13,8 @@ urlpatterns = [
         name="stats_home",
     ),
     path(
-        "palmares/",
-        cache_per_user(STATS_CACHE_TTL)(views.ObjectifsView.as_view()),
-        name="stats_palmares",
+        "territoires/",
+        cache_per_user(STATS_CACHE_TTL)(views.TerritoiresView.as_view()),
+        name="stats_territoires",
     ),
 ]

@@ -9,7 +9,7 @@ from core.lib import sql
 from erp.models import Erp
 
 
-def get_stats_palmares(max=10):
+def get_stats_territoires(max=10):
     return sql.run_sql(
         f"""--sql
             select
@@ -46,12 +46,12 @@ def get_stats_palmares(max=10):
     )
 
 
-class ObjectifsView(TemplateView):
-    template_name = "stats/palmares.html"
+class TerritoiresView(TemplateView):
+    template_name = "stats/territoires.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["palmares"] = get_stats_palmares(max=50)
+        context["palmares"] = get_stats_territoires(max=50)
         return context
 
 
@@ -98,7 +98,7 @@ class StatsView(TemplateView):
                     and e.published
                 ) as total
             from
-                generate_series(current_date - interval '16 months', current_date, interval '1 month') as date
+                generate_series(current_date - interval '12 months', current_date, interval '1 month') as date
             cross join
                 erp_accessibilite a
             left join
@@ -120,6 +120,6 @@ class StatsView(TemplateView):
         context["nb_published_erps"] = erp_qs.count()
         context["top_contributors"] = self.get_top_contributors()
         context["erp_counts_histogram"] = self.get_erp_counts_histogram()
-        context["palmares"] = get_stats_palmares()
+        context["palmares"] = get_stats_territoires()
 
         return context
