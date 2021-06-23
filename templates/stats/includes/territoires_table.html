@@ -1,7 +1,15 @@
 <p>
-  Liste des {{ palmares|length }} communes de 5000 habitants ou plus, classées par taux de complétude décroissant.<br>
+  Liste des {{ stats_territoires|length }} communes de 5000 habitants ou plus, classées par
+  {% if stats_territoires_sort == "count" %}nombre d'établissements renseignés{% else %}taux de complétude{% endif %} décroissant.
+  {% if stats_territoires_sort == "count" %}
+    <a href="./#territoires">Classer par taux de couverture</a>
+  {% else %}
+    <a href="./?sort=count#territoires">Classer par nombre d'établissements renseignés</a>
+  {% endif %}
+  <br>
   <small class="text-muted">
-    <strong>Note&nbsp;:</strong> La donnée étant à ce jour inexistante en France, l'estimation du nombre d'établissements recevant du public se fait sur la base d'1 établissement pour 45 habitants.
+    <strong>Note&nbsp;:</strong> La donnée étant à ce jour inexistante en France, l'estimation du nombre d'établissements
+    recevant du public se fait sur la base d'1 établissement pour 45 habitants.
   </small>
 </p>
 <div class="table-responsive-sm">
@@ -13,14 +21,14 @@
       <th class="text-center">Nombre d'ERP renseignés</th>
     </thead>
     <tbody>
-    {% for row in palmares %}
+    {% for row in stats_territoires %}
       <tr>
         <td>
           <strong><a href="{% url "search_commune" commune_slug=row.slug %}">{{ row.nom }}</a></strong> ({{ row.departement }})
         </td>
-        <td class="text-center font-weight-bold">{{ row.pourcentage_completude|floatformat }}%</td>
+        <td class="text-center {% if stats_territoires_sort == "completude" %}font-weight-bold{% endif %}">{{ row.pourcentage_completude|floatformat }}%</td>
         <td class="text-center">{{ row.total_erps_commune }}</td>
-        <td class="text-center">{{ row.erps_commune }}</td>
+        <td class="text-center {% if stats_territoires_sort == "count" %}font-weight-bold{% endif %}">{{ row.erps_commune }}</td>
       </tr>
     {% endfor %}
     </tbody>
