@@ -89,6 +89,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
         fields = (
             "url",
             "web_url",
+            "uuid",
             "activite",
             "nom",
             "slug",
