@@ -72,7 +72,7 @@
     <div class="card shadow-sm">
       <div class="card-header d-flex justify-content-between align-items-center">
         <span>Principaux territoires couverts</span>
-        <a href="{% url "stats_territoires" %}" class="text-right">Voir plus de territoires</a>
+        <a href="{% url "stats_territoires" %}?sort={{ stats_territoires_sort }}" class="text-right">Voir plus de territoires</a>
       </div>
       <div class="card-body">
         {% include "stats/includes/territoires_table.html" %}
