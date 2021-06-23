@@ -2,10 +2,13 @@ import api from "../api";
 import dom from "../dom";
 import Autocomplete from "@trevoreyre/autocomplete-js";
 
+const AROUND_ME = "Autour de moi";
+const FRANCE_ENTIERE = "France entière";
+
 async function getCommonResults(loc) {
   return [
-    { id: "around_me", text: `Autour de moi ${loc?.label || ""}`, icon: "street-view" },
-    { id: "france_entiere", text: "France entière", icon: "france" },
+    { id: "around_me", text: `${AROUND_ME} ${loc?.label || ""}`, icon: "street-view" },
+    { id: "france_entiere", text: FRANCE_ENTIERE, icon: "france" },
   ];
 }
 
@@ -27,7 +30,7 @@ function SearchWhere(root) {
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
 
-    getResultValue: (result) => result.text,
+    getResultValue: ({ text }) => text,
 
     onSubmit: async (result) => {
       if (!result) {
@@ -36,7 +39,7 @@ function SearchWhere(root) {
 
       if (result.lat && result.lon) {
         setLatLon(result);
-      } else if (result.id === "around_me") {
+      } else if (result.text.startsWith(AROUND_ME)) {
         if (api.hasPermission("geolocation") !== "granted") {
           a11yGeolocBtn.focus();
         }
@@ -50,13 +53,11 @@ function SearchWhere(root) {
         } else {
           input.focus();
           setLatLon(loc);
-          setSearchValue(`Autour de moi ${loc.label}`);
+          setSearchValue(`${AROUND_ME} ${loc.label}`);
         }
       } else {
         setLatLon(null);
       }
-
-      input.select();
     },
 
     renderResult: ({ text, icon }, props) => {
@@ -72,7 +73,7 @@ function SearchWhere(root) {
     search: async (input) => {
       const loc = await api.loadUserLocation({ retrieve: false });
       const commonResults = await getCommonResults(loc);
-      if (input.length < 1) {
+      if (input.length < 1 || input === FRANCE_ENTIERE || input.startsWith(AROUND_ME)) {
         return commonResults;
       }
       const { results } = await api.searchLocation(input, loc);
@@ -80,13 +81,31 @@ function SearchWhere(root) {
     },
   });
 
+  // Invalidate lat/lon on every key stroke in the search input, except when user tabs
+  // out of the field or selects and entry by pressing the Enter key.
   autocomplete.input.addEventListener("keydown", (event) => {
-    // Prevent global form submission when an entry is selected
-    // @see https://github.com/trevoreyre/autocomplete/issues/45#issuecomment-617216849
-    if (event.key == "Enter") {
-      event.preventDefault();
-    } else if (event.key != "Tab") {
+    if (event.key != "Tab" && event.key != "Enter") {
       setLatLon(null);
+    }
+  });
+
+  // Prevent global form submission when an autocomplete entry is selected by pressing Enter,
+  // which usually triggers form submit when a form input has the focus.
+  let submittable;
+
+  const observer = new MutationObserver((mutations) => {
+    const exp = mutations.filter(({ attributeName }) => attributeName == "aria-expanded")[0];
+    setTimeout(() => {
+      try {
+        submittable = exp.target.getAttribute("aria-expanded") !== "true";
+      } catch (e) {}
+    }, 0);
+  });
+  observer.observe(input, { attributeOldValue: true });
+
+  input.form.addEventListener("submit", (event) => {
+    if (!submittable) {
+      event.preventDefault();
     }
   });
 

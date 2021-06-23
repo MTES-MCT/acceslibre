@@ -115,11 +115,10 @@ async function searchLocation(q, loc) {
       lon: coordinates[0],
     }));
     return { q, results };
-  } catch (e) {
-    if (e.name === "TypeError" && e.message.toLowerCase() === "failed to fetch") {
-      // most likely a temporary network issue
-      return { q, results: [] };
-    }
+  } catch (err) {
+    // most likely a temporary network issue
+    console.warn(`error while searching location: ${err}`);
+    return { q, results: [] };
   }
 }
 
