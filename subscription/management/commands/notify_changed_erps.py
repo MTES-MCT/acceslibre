@@ -57,7 +57,7 @@ class Command(BaseCommand):
             subscribers = [
                 sub.user
                 for sub in ErpSubscription.objects.subscribers(erp)
-                if sub.user.is_active()
+                if sub.user.is_active
             ]
             if len(subscribers) == 0:
                 continue
