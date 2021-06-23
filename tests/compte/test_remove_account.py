@@ -34,7 +34,7 @@ def test_remove_account_e2e(client, data):
     assert response.status_code == 200
     assert response.wsgi_request.user.username == ""
     user_deleted = (
-        get_user_model().objects.filter(username__istartswith="deleted-").first()
+        get_user_model().objects.filter(username__iexact="<user-deleted>").first()
     )
     assert_user_deleted(user_deleted, None)
 
@@ -52,17 +52,13 @@ def test_remove_account_no_confirm_e2e(client, data):
     assert response.wsgi_request.user == data.niko
 
 
-def test_erp_shows_delete_username_instead():
-    pass
-
-
 def assert_user_deleted(user, uuid):
     user.refresh_from_db()
     if uuid:
-        assert user.username == "deleted-" + uuid
+        assert user.first_name == uuid
         assert check_password(uuid, user.password)
+    assert user.username == "<user-deleted>"
     assert user.email == ""
-    assert user.first_name == ""
     assert user.last_name == ""
     assert user.is_staff is False
     assert user.is_active is False

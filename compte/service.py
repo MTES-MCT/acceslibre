@@ -64,8 +64,8 @@ def validate_from_token(activation_token, today=datetime.now(timezone.utc)):
 
 def remove_personal_informations(user, uuid_gen):
     user.email = ""
-    user.username = "deleted-" + uuid_gen()
-    user.first_name = ""
+    user.username = "<user-deleted>"
+    user.first_name = uuid_gen()
     user.last_name = ""
     user.password = make_password(uuid_gen())
     user.is_staff = False
