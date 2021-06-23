@@ -1,0 +1,13 @@
+{% extends "editorial/base.html" %}
+
+{% block page_title %}Principaux territoires couverts{% endblock%}
+
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block editorial_content %}
+<main role="main" id="content">
+  <p><a href="{% url "stats_home" %}">&laquo; Retour aux statistiques générales</a></p>
+  <h2 class="my-3">Principaux territoires couverts</h2>
+  {% include "stats/includes/territoires_table.html" %}
+</main>
+{% endblock  %}
