@@ -1,5 +1,4 @@
-import uuid
-
+import shortuuid
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import logout
@@ -158,7 +157,7 @@ def change_email(request, activation_token):
 @login_required
 def delete_account(request):
     try:
-        res = remove_personal_informations(request.user, lambda: str(uuid.uuid4()))
+        res = remove_personal_informations(request.user, shortuuid.uuid)
     except RuntimeError as err:
         messages.add_message(
             request,

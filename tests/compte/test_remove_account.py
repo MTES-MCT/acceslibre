@@ -14,7 +14,7 @@ def client():
 
 def test_remove_account_unit(client, data):
     client.force_login(data.niko)
-    uuid = "cb19c390-4824-4cea-ab23-153f34c23b0a"
+    uuid = "vytxeTZskVKR7C7WgdSP3d"
 
     response = remove_personal_informations(data.niko, lambda: uuid)
 
@@ -33,7 +33,7 @@ def test_remove_account_e2e(client, data):
     assert response.status_code == 200
     assert response.wsgi_request.user.username == ""
     user_deleted = (
-        get_user_model().objects.filter(username__istartswith="deleted#").first()
+        get_user_model().objects.filter(username__istartswith="deleted-").first()
     )
     assert_user_deleted(user_deleted, None)
 
@@ -45,7 +45,7 @@ def test_erp_shows_delete_username_instead():
 def assert_user_deleted(user, uuid):
     user.refresh_from_db()
     if uuid:
-        assert user.username == "deleted#" + uuid
+        assert user.username == "deleted-" + uuid
         assert check_password(uuid, user.password)
     assert user.email == ""
     assert user.first_name == ""

@@ -129,7 +129,6 @@ def format_source(value, default="N/A"):
 
 @register.filter(name="format_username")
 def format_username(value):
-    value = shorten_deleted_username(value)
     username = safe_username(value)
     if username in schema.PARTENAIRES:
         info = schema.PARTENAIRES[username]
@@ -143,12 +142,6 @@ def format_username(value):
             """
         )
     return username
-
-
-def shorten_deleted_username(value):
-    if startswith(value, "deleted"):
-        return value[:12]
-    return value
 
 
 @register.filter(name="format_siret")
