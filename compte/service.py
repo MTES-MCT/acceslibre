@@ -3,7 +3,8 @@ from datetime import datetime, timezone
 
 from _datetime import timedelta
 from django.conf import settings
-from django.db import models
+from django.contrib.auth.hashers import make_password
+from django.db import models, DatabaseError
 
 from compte.models import EmailToken
 from core import mailer
@@ -59,3 +60,19 @@ def validate_from_token(activation_token, today=datetime.now(timezone.utc)):
     email_token.delete()
 
     return user, None
+
+
+def remove_personal_informations(user, uuid_gen):
+    user.email = ""
+    user.username = "deleted#" + uuid_gen()
+    user.first_name = ""
+    user.last_name = ""
+    user.password = make_password(uuid_gen())
+    user.is_staff = False
+    user.is_active = False
+    user.is_superuser = False
+    try:
+        user.save()
+        return True
+    except (ValueError, DatabaseError) as err:
+        raise RuntimeError(f"Erreur lors de la suppression: {err}")

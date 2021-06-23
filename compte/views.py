@@ -1,5 +1,8 @@
+import uuid
+
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
@@ -11,7 +14,12 @@ from django_registration.backends.activation.views import (
 )
 
 from compte import forms
-from compte.service import create_token, validate_from_token, send_activation_mail
+from compte.service import (
+    create_token,
+    validate_from_token,
+    send_activation_mail,
+    remove_personal_informations,
+)
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -137,8 +145,6 @@ def change_email(request, activation_token):
         "Votre email à été mis à jour avec succès !",
     )
 
-    # return redirect("mon_compte")
-
     if request.user.id:
         return redirect("mon_compte")
     else:
@@ -147,6 +153,30 @@ def change_email(request, activation_token):
             "compte/email_change_activation_success.html",
             context={},
         )
+
+
+@login_required
+def delete_account(request):
+    try:
+        res = remove_personal_informations(request.user, lambda: str(uuid.uuid4()))
+    except RuntimeError as err:
+        messages.add_message(
+            request,
+            messages.WARNING,
+            f"Erreur lors de la désactivation du compte: {err}",
+        )
+        return redirect("mon_compte")
+
+    if res is True:
+        logout(request)
+
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            "Votre compte à bien été désactivé",
+        )
+
+        return redirect("/")
 
 
 @login_required
