@@ -83,6 +83,7 @@ urlpatterns = [
         name="commune_activite_erp",
     ),
     path("app/<str:erp_slug>/vote/", views.vote, name="erp_vote"),
+    path("uuid/<str:uuid>/", views.from_uuid, name="erp_uuid"),
     ############################################################################
     # Ajout ERP
     ############################################################################
