@@ -234,6 +234,11 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     )
 
 
+def from_uuid(request, uuid):
+    erp = get_object_or_404(Erp.objects.published().filter(uuid=uuid, published=True))
+    return redirect(erp.get_absolute_url())
+
+
 @login_required
 def vote(request, erp_slug):
     if not request.user.is_active:
