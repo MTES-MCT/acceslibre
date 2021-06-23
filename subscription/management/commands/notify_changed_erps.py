@@ -54,11 +54,7 @@ class Command(BaseCommand):
             erp = versioning.extract_online_erp(version)
             if not erp:
                 continue
-            subscribers = [
-                sub.user
-                for sub in ErpSubscription.objects.subscribers(erp)
-                if sub.user.is_active
-            ]
+            subscribers = [sub.user for sub in ErpSubscription.objects.subscribers(erp)]
             if len(subscribers) == 0:
                 continue
             for user in subscribers:

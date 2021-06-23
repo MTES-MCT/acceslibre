@@ -27,11 +27,6 @@ urlpatterns = [
     ),
     path(
         "delete",
-        TemplateView.as_view(template_name="compte/delete_account_warning.html"),
-        name="delete_account_confirmation",
-    ),
-    path(
-        "delete/confirmation",
         views.delete_account,
         name="delete_account",
     ),

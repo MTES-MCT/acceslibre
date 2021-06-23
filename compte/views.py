@@ -156,26 +156,45 @@ def change_email(request, activation_token):
 
 @login_required
 def delete_account(request):
-    try:
-        res = remove_personal_informations(request.user, shortuuid.uuid)
-    except RuntimeError as err:
-        messages.add_message(
-            request,
-            messages.WARNING,
-            f"Erreur lors de la désactivation du compte: {err}",
-        )
-        return redirect("mon_compte")
+    if request.method == "POST":
+        try:
+            form = forms.AccountDeleteForm(request.POST)
+            if form.is_valid():
+                remove_personal_informations(request.user, shortuuid.uuid)
+                logout(request)
 
-    if res is True:
-        logout(request)
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    "Votre compte à bien été supprimé",
+                )
 
-        messages.add_message(
-            request,
-            messages.SUCCESS,
-            "Votre compte à bien été désactivé",
-        )
+                return redirect("/")
+        except RuntimeError as err:
+            messages.add_message(
+                request,
+                messages.WARNING,
+                "Erreur lors de la désactivation du compte",
+            )
 
-        return redirect("/")
+            LogEntry.objects.log_action(
+                user_id=request.user.id,
+                content_type_id=ContentType.objects.get_for_model(request.user).pk,
+                object_id=request.user.id,
+                object_repr=request.user.email,
+                action_flag=CHANGE,
+                change_message=f"Erreur lors de la désactivation du compte: {err}",
+            )
+
+            return redirect("mon_compte")
+    else:
+        print("well")
+        form = forms.AccountDeleteForm()
+    return render(
+        request,
+        template_name="compte/delete_account_warning.html",
+        context={"form": form},
+    )
 
 
 @login_required

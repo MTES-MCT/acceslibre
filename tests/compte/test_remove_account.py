@@ -27,6 +27,7 @@ def test_remove_account_e2e(client, data):
 
     response = client.post(
         reverse("delete_account"),
+        data={"confirm": True},
         follow=True,
     )
 
@@ -36,6 +37,19 @@ def test_remove_account_e2e(client, data):
         get_user_model().objects.filter(username__istartswith="deleted-").first()
     )
     assert_user_deleted(user_deleted, None)
+
+
+def test_remove_account_no_confirm_e2e(client, data):
+    client.force_login(data.niko)
+
+    response = client.post(
+        reverse("delete_account"),
+        data={"confirm": False},
+        follow=True,
+    )
+
+    assert response.status_code == 200
+    assert response.wsgi_request.user == data.niko
 
 
 def test_erp_shows_delete_username_instead():
