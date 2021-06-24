@@ -28,11 +28,11 @@
       </small>
     </h3>
 
-    <div id="erpmap" class="a4a-localisation-map"></div>
-
-    {{ form.lat|as_crispy_field }}
-    {{ form.lon|as_crispy_field }}
-
+    <div id="localisation-map">
+      <div class="a4a-localisation-map"></div>
+      {{ form.lat|as_crispy_field }}
+      {{ form.lon|as_crispy_field }}
+    </div>
 
     <div class="mt-3">
       {% url "contrib_edit_infos" erp_slug=erp.slug as prev_route %}
@@ -40,20 +40,4 @@
       {% include "contrib/includes/prevnext.html" %}
     </div>
   </form>
-
-  <script>
-  window.addEventListener("DOMContentLoaded", function() {
-    const erpmap = a4a.geo.createMap("erpmap", { scrollWheelZoom: false }).setView({
-      lat: {{ form.lat.value }},
-      lon: {{ form.lon.value }}
-    }, 18);
-    const control = L.control.centerCross({show: true, position: "topright"});
-    erpmap.addControl(control);
-    erpmap.on("move", function(event) {
-      const coords = event.target.getCenter();
-      document.querySelector("[name=lat]").value = coords.lat;
-      document.querySelector("[name=lon]").value = coords.lng;
-    });
-  });
-  </script>
 {% endblock %}
