@@ -1,4 +1,3 @@
-import shortuuid
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import logout
@@ -19,6 +18,7 @@ from compte.service import (
     send_activation_mail,
     remove_personal_informations,
 )
+from core.lib.text import random_string
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -160,7 +160,7 @@ def delete_account(request):
         try:
             form = forms.AccountDeleteForm(request.POST)
             if form.is_valid():
-                remove_personal_informations(request.user, shortuuid.uuid)
+                remove_personal_informations(request.user, random_string(10))
                 logout(request)
 
                 messages.add_message(
