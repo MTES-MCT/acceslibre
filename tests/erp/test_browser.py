@@ -921,3 +921,13 @@ def test_contribution_flow_accessibilite_data(data, client):
         reverse("contrib_labellisation", kwargs={"erp_slug": updated_erp.slug}),
     )
     assert response.status_code == 200
+
+
+def test_uuid_redirect(client, data):
+    response = client.get(
+        reverse("erp_uuid", kwargs={"uuid": str(data.erp.uuid)}),
+        follow=True,
+    )
+
+    assert response.status_code == 200
+    assert response.context["erp"] == data.erp

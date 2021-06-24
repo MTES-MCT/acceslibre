@@ -207,7 +207,7 @@ class ErpPagination(PageNumberPagination):
 
 class ErpFilterBackend(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
-    def filter_queryset(self, request, queryset, view):
+    def filter_queryset(self, request, queryset, view):  # noqa
         # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:
@@ -249,6 +249,11 @@ class ErpFilterBackend(BaseFilterBackend):
         source_id = request.query_params.get("source_id", None)
         if source_id is not None:
             queryset = queryset.filter(source_id__iexact=source_id)
+
+        # UUID
+        uuid = request.query_params.get("uuid", None)
+        if uuid is not None:
+            queryset = queryset.filter(uuid=uuid)
 
         # Proximity
         around = geocoder.parse_coords(request.query_params.get("around"))
@@ -348,6 +353,17 @@ class ErpSchema(A4aAutoSchema):
                 "schema": {"type": "string"},
             },
         },
+        "uuid": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "uuid",
+                "in": "query",
+                "required": False,
+                "description": "Identifiant unique OpenData",
+                "schema": {"type": "string"},
+            },
+        },
         "around": {
             "paths": ["/erps/"],
             "methods": ["GET"],
@@ -379,6 +395,8 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
       les champs `code_postal` ou `code_insee`.
     - `?source=gendarmerie&source_id=1002326` permet de rechercher un enregistrement
       par source et identifiant dans la source.
+    - `?uuid=d8823070-f999-4992-92e9-688be87a76a6` permet de rechercher un enregistrement
+      par son [identifiant unique OpenData](https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest/documentation.html#propri%C3%A9t%C3%A9-id).
 
     retrieve:
     Ce point d'accès permet de récupérer les données d'un ERP spécifique, identifié
