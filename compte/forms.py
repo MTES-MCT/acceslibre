@@ -105,3 +105,18 @@ class EmailChangeForm(forms.Form):
             )
 
         return email1
+
+
+class AccountDeleteForm(forms.Form):
+    confirm = forms.BooleanField(
+        label="Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible.",
+        required=True,
+    )
+
+    def clean_confirm(self):
+        confirm = self.cleaned_data["confirm"]
+        if confirm is not True:
+            raise ValidationError(
+                "Vous devez confirmer la suppression pour la rendre effective."
+            )
+        return confirm

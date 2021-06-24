@@ -39,7 +39,7 @@ class Command(BaseCommand):
             get_user_model()
             .objects.annotate(erps_count=Count("erp"))
             .filter(
-                is_active=False,
+                last_login=None,
                 date_joined__lt=today - timedelta(days=options["days"]),
                 erps_count=0,
             )

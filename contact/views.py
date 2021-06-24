@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.contrib import messages
-from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
@@ -47,9 +46,8 @@ def send_receipt(message):
     )
 
 
-def contact(request, topic=None, erp_slug=None):
-    if topic and topic not in dict(Message.TOPICS):
-        raise Http404("invalid subject")
+def contact(request, topic=Message.TOPIC_CONTACT, erp_slug=None):
+    topic = topic if topic in dict(Message.TOPICS) else Message.TOPIC_CONTACT
     erp = Erp.objects.filter(slug=erp_slug).first() if erp_slug else None
     initial = {"topic": topic or Message.TOPIC_CONTACT, "erp": erp}
     if request.method == "POST":

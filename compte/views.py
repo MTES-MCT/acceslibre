@@ -1,5 +1,8 @@
+import logging
+
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
+from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
@@ -10,11 +13,13 @@ from django_registration.backends.activation.views import (
     ActivationView,
 )
 
-from compte import forms
-from compte.service import create_token, validate_from_token, send_activation_mail
+from compte import forms, service
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
+
+
+logger = logging.getLogger(__name__)
 
 
 class CustomActivationCompleteView(TemplateView):
@@ -89,8 +94,8 @@ def mon_email(request):
             new_email = form.cleaned_data
             user = request.user
 
-            activation_token = create_token(user, new_email)
-            send_activation_mail(activation_token, new_email, user)
+            activation_token = service.create_token(user, new_email)
+            service.send_activation_mail(activation_token, new_email, user)
 
             LogEntry.objects.log_action(
                 user_id=request.user.id,
@@ -114,7 +119,7 @@ def change_email(request, activation_token):
     if not activation_token:
         return redirect("mon_email")
 
-    user, failure = validate_from_token(activation_token)
+    user, failure = service.validate_from_token(activation_token)
     if failure:
         render(
             request,
@@ -137,8 +142,6 @@ def change_email(request, activation_token):
         "Votre email à été mis à jour avec succès !",
     )
 
-    # return redirect("mon_compte")
-
     if request.user.id:
         return redirect("mon_compte")
     else:
@@ -147,6 +150,44 @@ def change_email(request, activation_token):
             "compte/email_change_activation_success.html",
             context={},
         )
+
+
+@login_required
+def delete_account(request):
+    if request.method == "POST":
+        form = forms.AccountDeleteForm(request.POST)
+        if form.is_valid():
+            userid, old_username = request.user.id, request.user.username
+            try:
+                service.anonymize_user(request.user)
+            except RuntimeError as err:
+                logger.error(err)
+                messages.add_message(
+                    request,
+                    messages.WARNING,
+                    "Erreur lors de la désactivation du compte",
+                )
+                return redirect("mon_compte")
+            logout(request)
+            messages.add_message(
+                request, messages.SUCCESS, "Votre compte à bien été supprimé"
+            )
+            LogEntry.objects.log_action(
+                user_id=userid,
+                content_type_id=ContentType.objects.get_for_model(get_user_model()).pk,
+                object_id=userid,
+                object_repr=old_username,
+                action_flag=CHANGE,
+                change_message=f'Compte "{old_username}" désactivé et anonymisé',
+            )
+            return redirect("/")
+    else:
+        form = forms.AccountDeleteForm()
+    return render(
+        request,
+        template_name="compte/delete_account_warning.html",
+        context={"form": form},
+    )
 
 
 @login_required
