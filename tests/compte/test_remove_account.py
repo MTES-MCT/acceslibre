@@ -1,4 +1,6 @@
 import pytest
+
+from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import check_password
 from django.test import Client
@@ -43,6 +45,14 @@ def test_delete_account_e2e(client, data, pseudo_random_string, capsys):
         username__iexact=service.DELETED_ACCOUNT_USERNAME,
     )
     assert_user_anonymized(anonymized_user, pseudo_random_string)
+
+    assert (
+        LogEntry.objects.filter(
+            object_repr="niko",
+            change_message="Compte niko désactivé et anonymisé",
+        ).count()
+        == 1
+    )
 
 
 def test_delete_account_no_confirm_e2e(client, data):

@@ -155,32 +155,32 @@ def change_email(request, activation_token):
 @login_required
 def delete_account(request):
     if request.method == "POST":
-        try:
-            form = forms.AccountDeleteForm(request.POST)
-            if form.is_valid():
-                userid, old_username = (request.user.id, request.user.username)
+        form = forms.AccountDeleteForm(request.POST)
+        if form.is_valid():
+            userid, old_username = request.user.id, request.user.username
+            try:
                 service.anonymize_user(request.user)
-                logout(request)
+            except RuntimeError as err:
+                logger.error(err)
                 messages.add_message(
-                    request, messages.SUCCESS, "Votre compte à bien été supprimé"
+                    request,
+                    messages.WARNING,
+                    "Erreur lors de la désactivation du compte",
                 )
-                LogEntry.objects.log_action(
-                    user_id=userid,
-                    content_type_id=ContentType.objects.get_for_model(
-                        get_user_model()
-                    ).pk,
-                    object_id=userid,
-                    object_repr=old_username,
-                    action_flag=CHANGE,
-                    change_message=f'Compte "{old_username}" désactivé et anonymisé',
-                )
-                return redirect("/")
-        except RuntimeError as err:
-            logger.error(err)
+                return redirect("mon_compte")
+            logout(request)
             messages.add_message(
-                request, messages.WARNING, "Erreur lors de la désactivation du compte"
+                request, messages.SUCCESS, "Votre compte à bien été supprimé"
             )
-            return redirect("mon_compte")
+            LogEntry.objects.log_action(
+                user_id=userid,
+                content_type_id=ContentType.objects.get_for_model(get_user_model()).pk,
+                object_id=userid,
+                object_repr=old_username,
+                action_flag=CHANGE,
+                change_message=f'Compte "{old_username}" désactivé et anonymisé',
+            )
+            return redirect("/")
     else:
         form = forms.AccountDeleteForm()
     return render(
