@@ -49,7 +49,7 @@ def test_delete_account_e2e(client, data, pseudo_random_string, capsys):
     assert (
         LogEntry.objects.filter(
             object_repr="niko",
-            change_message="Compte niko désactivé et anonymisé",
+            change_message='Compte "niko" désactivé et anonymisé',
         ).count()
         == 1
     )
