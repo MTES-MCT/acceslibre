@@ -13,6 +13,11 @@ async function getCommonResults(loc) {
 }
 
 function SearchWhere(root) {
+  if (!("MutationObserver" in window)) {
+    // Autocomplete is optional, degrade to pure HTML search behavior for old browsers
+    return;
+  }
+
   const input = root.querySelector("input[type=search]");
   const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
   const hiddenLatField = root.querySelector("input[name=lat]");
