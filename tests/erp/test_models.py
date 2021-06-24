@@ -1,10 +1,9 @@
 import pytest
 
-from django.contrib.gis.geos import Point
 from django.core.exceptions import ValidationError
 
 from erp import schema
-from erp.models import Accessibilite, Commune, Erp, Vote
+from erp.models import Accessibilite, Erp, Vote
 
 
 def test_Accessibilite_has_data(data):
@@ -48,23 +47,12 @@ def test_Erp_clean_validates_siret(data):
     assert data.erp.siret == "88076068100010"
 
 
-def test_Erp_clean_validates_voie_grande_commune(data, capsys):
-    grande_commune = Commune.objects.create(
-        nom="Grande Commune", departement="42", population=1001, geom=Point(0, 0)
-    )
-    erp = Erp.objects.create(nom="x", commune_ext=grande_commune)
+def test_Erp_clean_validates_voie(data, capsys):
+    erp = Erp.objects.create(nom="x", code_postal="12345")
     with pytest.raises(ValidationError) as excinfo:
         erp.clean()
     assert "voie" in excinfo.value.error_dict
     assert "lieu_dit" in excinfo.value.error_dict
-
-
-def test_Erp_clean_validates_voie_petite_commune(data, capsys):
-    petite_commune = Commune.objects.create(
-        nom="Petite Commune", departement="42", population=999, geom=Point(0, 0)
-    )
-    erp = Erp.objects.create(nom="x", commune_ext=petite_commune)
-    erp.clean()
 
 
 def test_Erp_editable_by(data):
