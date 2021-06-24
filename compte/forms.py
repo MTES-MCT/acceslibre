@@ -109,7 +109,7 @@ class EmailChangeForm(forms.Form):
 
 class AccountDeleteForm(forms.Form):
     confirm = forms.BooleanField(
-        label="Confirmer la suppression",
+        label="Confirmer la suppression de mon compte utilisateur. J'ai bien compris que cette opération est irréversible.",
         required=True,
     )
 

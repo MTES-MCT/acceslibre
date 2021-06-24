@@ -3,13 +3,15 @@
 
 {% load static %}
 
-{% block page_title %}Désactivation du compte{% endblock %}
+{% block page_title %}Supprimer mon compte{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
   <main role="main" id="content">
+    <h3 class="mb-3">Supprimer mon compte</h3>
+
     <div class="alert alert-danger">
-      Souhaitez vous confirmer la suppression de votre compte ? <br>
+      Souhaitez vous confirmer la suppression de votre compte ?<br>
       Toutes vos contributions sont conservées, en revanche, votre identifiant n'apparaîtra plus sur le site.
     </div>
 
@@ -34,8 +36,8 @@
 
       <div class="d-flex justify-content-between">
       <span>
-        <a class="btn btn-sm btn btn-outline-info text-nowrap" href="{% url "mon_compte" %}">
-         Retour
+        <a class="btn btn btn-outline-info text-nowrap" href="{% url "mon_compte" %}">
+         Annuler
         </a>
       </span>
       <button class="btn btn-danger">Confirmer la suppression</button>
