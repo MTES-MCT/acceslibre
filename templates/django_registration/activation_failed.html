@@ -15,7 +15,7 @@
       Vous pouvez donc <a href="{% url "login" %}?next={{ request.GET.next }}">vous authentifier</a>.
     {% elif activation_error.code == "bad_username" %}
       Nous n'avons pu retrouver le compte associé à cette demande d'activation.
-      Merci de <a href="{% url "contact_topic" topic="support" %}">nous contacter</a>.
+      Merci de <a href="{% url "contact_topic" topic="connection" %}">nous contacter</a>.
     {% elif activation_error.code == "expired" %}
       Cette demande d'activation de compte a expiré.
       Vous pouvez <a href="{% url "django_registration_register" %}">créer un nouveau compte</a>.
@@ -27,7 +27,7 @@
   {% else %}
     <p>
       Nous sommes désolés, nous n'avons pas pu déterminer la cause technique de l'échec d'activation.
-      Merci de <a href="{% url "contact_topic" topic="support" %}">nous contacter</a>.
+      Merci de <a href="{% url "contact_topic" topic="connection" %}">nous contacter</a>.
     </p>
   {% endif %}
 </main>

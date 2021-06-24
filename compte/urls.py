@@ -25,4 +25,9 @@ urlpatterns = [
         views.mes_contributions_recues,
         name="mes_contributions_recues",
     ),
+    path(
+        "suppression",
+        views.delete_account,
+        name="delete_account",
+    ),
 ]

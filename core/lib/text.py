@@ -30,7 +30,7 @@ def normalize_nom(nom):
     return ucfirst(" ".join(parts))
 
 
-def random_string(self, length):
+def random_string(length):
     return "".join(random.choice(string.ascii_letters) for i in range(length))
 
 

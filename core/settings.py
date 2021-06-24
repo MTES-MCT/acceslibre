@@ -262,6 +262,7 @@ USERNAME_BLACKLIST = [
     "admin",
     "administrator",
     "contact",
+    "deleted",
     "error",
     "ftp",
     "hostmaster",

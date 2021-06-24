@@ -1,14 +1,17 @@
 import uuid
-from datetime import datetime, timezone
 
+from datetime import datetime, timezone
 from _datetime import timedelta
 from django.conf import settings
-from django.db import models
+from django.contrib.auth.hashers import make_password
+from django.db import models, DatabaseError
 
 from compte.models import EmailToken
 from core import mailer
+from core.lib import text
 
-TEMPLATE_NAME = "compte/email_change_activation_email.txt"
+
+DELETED_ACCOUNT_USERNAME = "<compte supprimé>"
 
 
 def create_token(user, email, activation_token=None, today=datetime.now(timezone.utc)):
@@ -25,18 +28,16 @@ def create_token(user, email, activation_token=None, today=datetime.now(timezone
 
 
 def send_activation_mail(activation_token, email, user):
-    context = {
-        "activation_token": activation_token,
-        "user": user,
-        "SITE_NAME": settings.SITE_NAME,
-        "SITE_ROOT_URL": settings.SITE_ROOT_URL,
-    }
-
     mailer.send_email(
         [email],
         f"Activation de votre compte {settings.SITE_NAME.title()}",
-        TEMPLATE_NAME,
-        context,
+        "compte/email_change_activation_email.txt",
+        {
+            "activation_token": activation_token,
+            "user": user,
+            "SITE_NAME": settings.SITE_NAME,
+            "SITE_ROOT_URL": settings.SITE_ROOT_URL,
+        },
     )
 
 
@@ -59,3 +60,21 @@ def validate_from_token(activation_token, today=datetime.now(timezone.utc)):
     email_token.delete()
 
     return user, None
+
+
+def anonymize_user(user):
+    user.email = ""
+    user.username = DELETED_ACCOUNT_USERNAME
+    user.first_name = ""
+    user.last_name = ""
+    user.password = make_password(text.random_string(20))
+    user.is_staff = False
+    user.is_active = False
+    user.is_superuser = False
+    try:
+        user.save()
+        return user
+    except (ValueError, DatabaseError) as err:
+        raise RuntimeError(
+            f"Erreur lors de la suppression du compte utilisateur: {err}"
+        )
