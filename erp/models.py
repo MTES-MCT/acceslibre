@@ -595,13 +595,8 @@ class Erp(models.Model):
                 {"code_postal": "Le code postal doit faire 5 caractères"}
             )
 
-        # Voie OU lieu-dit sont requis
-        if self.voie is None and self.lieu_dit is None:
-            error = "Veuillez entrer une voie ou un lieu-dit"
-            raise ValidationError({"voie": error, "lieu_dit": error})
-
         # Commune
-        if self.commune and self.code_postal:
+        if not self.commune_ext and self.commune and self.code_postal:
             matches = Commune.objects.filter(
                 nom__unaccent__iexact=self.commune,
                 code_postaux__contains=[self.code_postal],
@@ -624,6 +619,15 @@ class Erp(models.Model):
                 )
             else:
                 self.commune_ext = matches[0]
+
+        # Voie OU lieu-dit sont requis SI la commune a plus de 1000 habitants
+        if (
+            (self.commune_ext.population or 0) > 1000
+            and self.voie is None
+            and self.lieu_dit is None
+        ):
+            voie_error = "Veuillez entrer une voie ou un lieu-dit"
+            raise ValidationError({"voie": voie_error, "lieu_dit": voie_error})
 
         # SIRET
         if self.siret:
