@@ -9,6 +9,7 @@ flake8 = "*"
 ipdb = "*"
 pylint = "*"
 pytest-mock = "*"
+pytest-xdist = "*"
 splinter = {extras = [ "django",], version = "*"}
 
 [packages]
