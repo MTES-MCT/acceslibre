@@ -76,13 +76,14 @@ class Command(BaseCommand):
             now = datetime.fromisoformat(options["now"])
         else:
             now = timezone.now()
-
         notifications = self.get_notifications(options["hours"], now=now).values()
+        total = len(notifications)
         sent_ok = 0
         for notification in notifications:
             sent_ok += 1 if self.send_notification(notification) else 0
-
-        mattermost.send(
-            f"{sent_ok}/{len(notifications)} notifications de souscription envoyées",
-            tags=[__name__],
-        )
+        if total > 0:
+            plural = "s" if total > 1 else ""
+            mattermost.send(
+                f"{sent_ok}/{total} notification{plural} de souscription envoyée{plural}",
+                tags=[__name__],
+            )
