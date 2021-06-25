@@ -10,6 +10,7 @@ ipdb = "*"
 pylint = "*"
 pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}
+pytest-circleci-parallelized = "*"
 
 [packages]
 coreapi = "*"
