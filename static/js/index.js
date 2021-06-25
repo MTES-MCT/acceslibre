@@ -1,4 +1,5 @@
 import "core-js/stable";
+import "mutationobserver-shim";
 import "regenerator-runtime/runtime";
 import "whatwg-fetch";
 
