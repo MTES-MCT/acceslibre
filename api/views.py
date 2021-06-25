@@ -384,15 +384,14 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     Ce point d'accès liste les ERP. Il accepte et permet de combiner plusieurs
     filtres via des paramètres spécifiques :
 
-    - `?q=impôts` recherche les ERP contenant le terme *impôts* dans son nom,
-      son adresse ou son activité
+    - `?q=impôts` recherche les ERP contenant le terme *impôts* dans son nom ou son activité
     - `?commune=Lyon` remonte les ERP de la ville de *Lyon*
     - `?activite=administration-publique` remonte les ERP ayant
       *Administration publique* pour activité
     - `?q=impôts&commune=Lyon&activite=administration-publique` remonte les
-      *administration publiques* contenant le terme *impôts* situés dans la ville
-      de *Lyon*. Vous pouvez également filtrer par ville en utilisant au choix
-      les champs `code_postal` ou `code_insee`.
+      *administrations publiques* contenant le terme *impôts* situés dans la ville
+      de *Lyon*. Vous pouvez également filtrer par ville plus précisément en utilisant
+      au choix les champs `code_postal` ou `code_insee`.
     - `?source=gendarmerie&source_id=1002326` permet de rechercher un enregistrement
       par source et identifiant dans la source.
     - `?uuid=d8823070-f999-4992-92e9-688be87a76a6` permet de rechercher un enregistrement
