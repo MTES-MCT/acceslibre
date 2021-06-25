@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from django.db.models import Count
+from django.db.models import Count, Q
 
 from erp.models import Erp
 
@@ -63,6 +63,17 @@ class CustomUserAdmin(UserAdmin):
             .get_queryset(request)
             .annotate(vote_count=Count("vote", distinct=True))
             .annotate(rev_count=Count("revision", distinct=True))
+            .annotate(erp_count_total=Count("erp"))
+            .annotate(
+                erp_count_published=Count(
+                    "erp",
+                    filter=Q(
+                        erp__published=True,
+                        erp__accessibilite__isnull=False,
+                        erp__geom__isnull=False,
+                    ),
+                )
+            )
         )
 
 
