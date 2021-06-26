@@ -163,6 +163,11 @@ class Commune(models.Model):
         verbose_name="Localisation",
         help_text="Coordonnées géographique du centre de la commune",
     )
+    contour = models.MultiPolygonField(
+        verbose_name="Contour",
+        help_text="Contour de la commune",
+        null=True,
+    )
     code_postaux = ArrayField(
         models.CharField(max_length=5),
         verbose_name="Codes postaux",
