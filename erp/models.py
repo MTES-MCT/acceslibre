@@ -1,3 +1,4 @@
+import math
 import json
 import uuid
 
@@ -184,6 +185,16 @@ class Commune(models.Model):
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
         return f"{nom} ({self.departement})"
+
+    def expand_contour(self, max_distance_meters):
+        "Expand commune bounding box, see https://stackoverflow.com/a/31945883/330911"
+        buffer = (
+            max_distance_meters
+            / 40000000.0
+            * 360.0
+            / math.cos(self.geom.y / 360.0 * math.pi)
+        )
+        return self.contour.buffer(buffer) if self.contour else self.geom.buffer(buffer)
 
     def get_zoom(self):
         if not self.superficie or self.superficie > 8000:

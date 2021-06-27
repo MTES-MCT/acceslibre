@@ -17,6 +17,7 @@ from django.views.generic import TemplateView
 from urllib.parse import urlencode
 
 from core import mailer
+from core.lib import geo
 from erp import forms, schema, serializers
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import geocoder, search as provider_search
@@ -122,6 +123,12 @@ def communes(request):
     )
 
 
+def _nearest_around(qs, point):
+    location = geo.parse_location(point)
+    commune = Commune.objects.get(contour__intersects=location)
+    return qs.nearest_mpoly(location, commune.expand_contour(3000))
+
+
 def search(request, commune_slug=None):
     where = request.GET.get("where", "France entière") or "France entière"
     what = request.GET.get("what", "")
@@ -138,7 +145,7 @@ def search(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = commune.nom
     elif lat and lon:
-        qs = qs.nearest((lat, lon))
+        qs = _nearest_around(qs, (lat, lon))
     elif where and not where == "France entière":
         coords = geocoder.autocomplete(where)
         if coords:

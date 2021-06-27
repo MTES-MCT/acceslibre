@@ -1,13 +1,12 @@
 from django.conf import settings
 from django.contrib.gis import measure
 from django.contrib.gis.db.models.functions import Distance
-from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
 from django.db.models import Count, F, Max, Q
 from django.db.models.functions import Length
 
-from core.lib import text
+from core.lib import geo, text
 from erp import schema
 
 
@@ -169,19 +168,17 @@ class ErpQuerySet(models.QuerySet):
     def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM):
         """Filter Erps around a given point, which can be either a `Point` instance
         or a tuple(lat, lon)."""
-        if isinstance(point, Point):
-            location = point
-        elif isinstance(point, (tuple, list)):
-            try:
-                location = Point(x=float(point[1]), y=float(point[0]), srid=4326)
-            except (TypeError, ValueError):
-                return self
-        else:
-            raise RuntimeError(f"Unsupported point type {type(point)}: {point}")
-        qs = self.annotate(distance=Distance("geom", location))
+        qs = self.annotate(distance=Distance("geom", geo.parse_location(point)))
         if max_radius_km:
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
         return qs.order_by("distance")
+
+    def nearest_mpoly(self, point, mpoly):
+        return (
+            self.annotate(distance=Distance("geom", geo.parse_location(point)))
+            .filter(geom__intersects=mpoly)
+            .order_by("distance")
+        )
 
     def not_published(self):
         return self.filter(
