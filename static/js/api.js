@@ -108,12 +108,16 @@ async function searchLocation(q, loc) {
   try {
     const res = await fetch(url);
     const { features } = await res.json();
-    const results = features.map(({ properties, geometry: { coordinates } }) => ({
-      id: "loc",
-      text: properties.label,
-      lat: coordinates[1],
-      lon: coordinates[0],
-    }));
+    const results = features.map(({ properties: { type, label, context, postcode }, geometry: { coordinates } }) => {
+      const text = type === "municipality" ? `${label} (${postcode.substr(0, 2)})` : label;
+      return {
+        id: "loc",
+        text,
+        context: context,
+        lat: coordinates[1],
+        lon: coordinates[0],
+      };
+    });
     return { q, results };
   } catch (err) {
     // most likely a temporary network issue

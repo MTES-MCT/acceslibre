@@ -60,12 +60,13 @@ function SearchWhere(root) {
       }
     },
 
-    renderResult: ({ text, icon }, props) => {
+    renderResult: ({ text, context, icon }, props) => {
       const active = props["aria-selected"] ? "active" : "";
       return `
         <li class="list-group-item a4a-autocomplete-result ${active}" ${props}>
           ${icon ? `<i aria-hidden="true" class="icon icon-${icon}"></i>` : ""}
           ${text}
+          ${context ? `<small class="text-muted text-truncate">${context}</small>` : ""}
         </li>
       `;
     },
