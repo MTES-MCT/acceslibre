@@ -128,6 +128,8 @@ class Commune(models.Model):
             models.Index(fields=["nom", "departement"]),
             models.Index(fields=["nom", "code_postaux"]),
             models.Index(fields=["arrondissement"]),
+            models.Index(fields=["obsolete"]),
+            models.Index(fields=["obsolete", "arrondissement"]),
         ]
 
     objects = managers.CommuneQuerySet.as_manager()
@@ -180,6 +182,11 @@ class Commune(models.Model):
         verbose_name="Arrondissement",
         default=False,
         help_text="Cette commune est un arrondissement (Paris, Lyon, Marseille)",
+    )
+    obsolete = models.BooleanField(
+        verbose_name="Obsolète",
+        default=False,
+        help_text="La commune est obsolète, par exemple suite à un regroupement ou un rattachement",
     )
 
     def __str__(self):

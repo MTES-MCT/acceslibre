@@ -1,20 +1,25 @@
 import json
 import requests
 
-from django.core.management.base import BaseCommand
+from django.contrib.contenttypes.models import ContentType
+from django.core.management.base import BaseCommand, CommandError
+
+from progress import bar
 
 from core.lib import geo
 from erp.models import Commune, Erp
+
 
 # Standard (Polygon)
 # https://geo.api.gouv.fr/communes/34120?fields=contour&format=json&geometry=contour
 # Commune "trouée" (MultiPolygon)
 # https://geo.api.gouv.fr/communes/2B049?fields=contour&format=json&geometry=contour
 
-TYPE_UPDATED = "updated"
+
 TYPE_ERROR = "errors"
-TYPE_MISSING_DELETED = "missing"
-TYPE_MISSING_WITH_ERPS = "missing-erps"
+TYPE_OBSOLETE = "obsolete"
+TYPE_OBSOLETE_NONEMPTY = "obsolete-nonempty"
+TYPE_UPDATED = "updated"
 
 
 class NotFound(Exception):
@@ -25,12 +30,21 @@ class Undecodable(Exception):
     pass
 
 
+class Conan(bar.Bar):
+    suffix = "%(remaining_minutes)d minutes remaining"
+
+    @property
+    def remaining_minutes(self):
+        return self.eta // 60
+
+
 class Command(BaseCommand):
+    commune_content_type = ContentType.objects.get_for_model(Commune)
     report = {
-        TYPE_UPDATED: [],
         TYPE_ERROR: [],
-        TYPE_MISSING_DELETED: [],
-        TYPE_MISSING_WITH_ERPS: [],
+        TYPE_OBSOLETE: [],
+        TYPE_OBSOLETE_NONEMPTY: [],
+        TYPE_UPDATED: [],
     }
 
     def handle(self, *args, **options):
@@ -42,38 +56,38 @@ class Command(BaseCommand):
             self.print_report()
 
     def process(self):
-        for commune in Commune.objects.filter(
-            arrondissement=False,  # we already have contours for arrondissements
+        communes = Commune.objects.filter(
+            # Note: we already have contours for arrondissements, and the contours
+            # provided for them by the API are the ones from the surrounding commune…
+            arrondissement=False,
+            obsolete=False,
             contour__isnull=True,
-        ):
+        )
+        for commune in Conan("Processing").iter(communes):
             try:
                 raw_contour = self.get_contour(commune.code_insee)
+                commune.contour = geo.geojson_mpoly(raw_contour)
+                commune.save()
+                self.log(commune, TYPE_UPDATED, "Updated contour OK")
             except NotFound:
-                base_msg = f"{commune.nom} ({commune.code_insee}) not found"
-                # check for existing Erp with this code
+                # check for existing Erps attached to this obsolete commune
                 count = Erp.objects.filter(commune_ext=commune).count()
                 if count > 0:
                     self.log(
-                        TYPE_MISSING_WITH_ERPS, f"{count} erps attached to {base_msg}"
+                        commune,
+                        TYPE_OBSOLETE_NONEMPTY,
+                        f"is obsolete with {count} erps",
                     )
                 else:
-                    commune.delete()
-                    self.log(TYPE_MISSING_DELETED, f"{base_msg}, deleted")
-                continue
+                    commune.obsolete = True
+                    commune.save()
+                    self.log(commune, TYPE_OBSOLETE, "marked as obsolete")
             except (Undecodable, requests.RequestException) as err:
-                self.log(TYPE_ERROR, f"Request error or undecodable JSON: {err}")
-            try:
-                commune.contour = geo.geojson_mpoly(raw_contour)
-                commune.save()
-                self.log(
-                    TYPE_UPDATED,
-                    f"Updated contour for {commune.nom} ({commune.code_insee})",
-                )
+                self.log(commune, TYPE_ERROR, f"Undecodable/bogus request: {err}")
             except TypeError as err:
-                self.log(
-                    TYPE_ERROR,
-                    f"Unable to store contour for {commune.nom} ({commune.code_insee}): {err}",
-                )
+                self.log(commune, TYPE_ERROR, f"Failed saving contour: {err}")
+            except Exception as err:
+                raise CommandError(err)
 
     def get_contour(self, code_insee):
         try:
@@ -90,27 +104,13 @@ class Command(BaseCommand):
             else:
                 raise err
 
-    def log(self, type, data):
-        if type == TYPE_UPDATED:
-            self.report[TYPE_UPDATED].append(data)
-            self.log_char("U")
-        elif type == TYPE_ERROR:
-            self.report[TYPE_ERROR].append(data)
-            self.log_char("E")
-        elif type == TYPE_MISSING_DELETED:
-            self.report[TYPE_MISSING_DELETED].append(data)
-            self.log_char("X")
-        elif type == TYPE_MISSING_WITH_ERPS:
-            self.report[TYPE_MISSING_WITH_ERPS].append(data)
-            self.log_char("!")
-
-    def log_char(self, char):
-        print(char, end="", flush=True)
+    def log(self, commune, type_, msg):
+        self.report[type_].append(f"{commune.nom} ({commune.code_insee}): {msg}")
 
     def print_report(self):
-        self.print_report_section("Non-existent", self.report[TYPE_MISSING_DELETED])
+        self.print_report_section("Non-existent", self.report[TYPE_OBSOLETE])
         self.print_report_section(
-            "Non-existent with ERPs attached", self.report[TYPE_MISSING_WITH_ERPS]
+            "Non-existent with ERPs attached", self.report[TYPE_OBSOLETE_NONEMPTY]
         )
         self.print_report_section("Errors", self.report[TYPE_ERROR])
         print("\nDone.")
