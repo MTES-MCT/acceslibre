@@ -100,6 +100,8 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     map_height = 300
     list_display = (
         "departement",
+        "obsolete",
+        "arrondissement",
         "nom",
         "code_insee",
         "code_postaux",
