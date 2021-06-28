@@ -123,10 +123,15 @@ def communes(request):
     )
 
 
-def _nearest_around(qs, point):
+def _search_commune_around(qs, point):
     location = geo.parse_location(point)
-    commune = Commune.objects.get(contour__intersects=location)
-    return commune, qs.nearest_mpoly(location, commune.expand_contour())
+    commune = (
+        Commune.objects.filter(contour__intersects=location)
+        .order_by("-arrondissement")  # prioritize lowest granularity
+        .first()
+    )
+    if commune:
+        return commune, qs.nearest_mpoly(location, commune.expand_contour())
 
 
 def search(request, commune_slug=None):
@@ -144,10 +149,14 @@ def search(request, commune_slug=None):
     if commune_slug:
         commune = get_object_or_404(Commune, slug=commune_slug)
         qs = qs.filter(commune_ext=commune)
-        where = commune.nom
+        where = str(commune)
     elif lat and lon:
-        commune, qs = _nearest_around(qs, (lat, lon))
-        commune_json = commune.toTemplateJson()
+        commune_match = _search_commune_around(qs, (lat, lon))
+        if commune_match:
+            commune, qs = commune_match
+            commune_json = commune.toTemplateJson()
+        else:
+            qs = qs.nearest((lat, lon))
     elif where and not where == "France entière":
         coords = geocoder.autocomplete(where)
         if coords:

@@ -196,8 +196,7 @@ function AppMap(root) {
   if (info) {
     map.setMinZoom(info.zoom - 2);
     if (info.contour) {
-      // TODO: more opacity, less green
-      L.polygon(info.contour, { color: "blue", opacity: 0.5, weight: 3, fillOpacity: 0.05 }).addTo(map);
+      L.polygon(info.contour, { color: "#075ea2", opacity: 0.6, weight: 3, fillOpacity: 0.05 }).addTo(map);
     }
   }
 

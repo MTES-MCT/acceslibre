@@ -59,7 +59,7 @@ def test_search_qualified_commune(data, client, mocker):
     response = client.get(
         reverse("search_commune", kwargs={"commune_slug": "34-jacou"})
     )
-    assert response.context["where"] == "Jacou"
+    assert response.context["where"] == "Jacou (34)"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["pager"][0], "distance") is False

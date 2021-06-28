@@ -18,7 +18,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
-from core.lib import diff as diffutils, geo
+from core.lib import calc, diff as diffutils, geo
 from erp import managers, schema
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
@@ -209,11 +209,10 @@ class Commune(models.Model):
 
     def expand_contour(self, max_distance_meters=None):
         "Expand commune bounding box, see https://stackoverflow.com/a/31945883/330911"
-        # FIXME: ideally we should compute a proportionate expansion of the commune
-        # bounding box, eg. a 5000m2 commune should be expanded as much as a 100000m2 one
-        # TODO: rely on superficie (in ha -> x10000 => m2) to infer that ratio
         if not max_distance_meters and self.superficie:
-            max_distance_meters = round(math.sqrt(self.superficie * 10000) / 5)
+            max_distance_meters = calc.clamp(
+                500, round(math.sqrt(self.superficie * 10000) / 5), 3000
+            )
         else:
             max_distance_meters = 3000
         buffer = (
@@ -240,7 +239,9 @@ class Commune(models.Model):
                 "nom": self.nom,
                 "slug": self.slug,
                 "center": geo.lonlat_to_latlon(self.geom.coords),
-                "contour": geo.lonlat_to_latlon(self.contour.coords),
+                "contour": geo.lonlat_to_latlon(self.contour.coords)
+                if self.contour
+                else None,
                 "zoom": self.get_zoom(),
             }
         )
