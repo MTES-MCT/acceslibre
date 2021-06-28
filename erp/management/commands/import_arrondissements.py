@@ -11,9 +11,11 @@ from erp.models import Commune
 
 
 class Command(BaseCommand):
-    # Data source: https://public.opendatasoft.com/explore/dataset/arrondissements-millesimes0/export/
+    """Import arrondissement data into the Commune db table.
 
-    # TODO: remove each arrondissement code postal from global communes
+    Data source: https://public.opendatasoft.com/explore/dataset/arrondissements-millesimes0/export/
+    """
+
     def handle(self, *args, **options):
         json_file_path = os.path.join(settings.BASE_DIR, "data", "arrondissements.json")
         with open(json_file_path) as json_file:

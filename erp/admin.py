@@ -100,11 +100,11 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     map_height = 300
     list_display = (
         "departement",
-        "obsolete",
-        "arrondissement",
         "nom",
         "code_insee",
         "code_postaux",
+        "obsolete",
+        "arrondissement",
         "erp_count",
         "voir_les_erps",
     )
@@ -114,6 +114,8 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     list_filter = [
         HavingErpsFilter,
         DepartementFilter,
+        "arrondissement",
+        "obsolete",
     ]
 
     def get_queryset(self, request):
