@@ -1,4 +1,6 @@
-from django.contrib.gis.geos import Point
+import json
+
+from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
 
 
 def parse_location(point):
@@ -10,3 +12,20 @@ def parse_location(point):
         except (TypeError, ValueError) as err:
             raise RuntimeError(f"Unable to create location from point data: {err}")
     raise RuntimeError(f"Unsupported point type {type(point)}: {point}")
+
+
+def lonlat_to_latlon(coords):
+    "Tranforms a list of coordinates in lon, lat to a list of coordinates in lat, lon."
+    if isinstance(coords, (tuple, list)):
+        return [lonlat_to_latlon(c) for c in coords][::-1]
+    else:
+        return coords
+
+
+def geojson_mpoly(geojson):
+    mpoly = GEOSGeometry(json.dumps(geojson))
+    if isinstance(mpoly, MultiPolygon):
+        return mpoly
+    if isinstance(mpoly, Polygon):
+        return MultiPolygon([mpoly])
+    raise TypeError(f"{mpoly.geom_type} not acceptable for this model")

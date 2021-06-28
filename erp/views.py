@@ -126,7 +126,7 @@ def communes(request):
 def _nearest_around(qs, point):
     location = geo.parse_location(point)
     commune = Commune.objects.get(contour__intersects=location)
-    return qs.nearest_mpoly(location, commune.expand_contour(3000))
+    return commune, qs.nearest_mpoly(location, commune.expand_contour())
 
 
 def search(request, commune_slug=None):
@@ -137,6 +137,7 @@ def search(request, commune_slug=None):
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
+    commune_json = None
     # what
     qs = qs.search_what(what)
     # where
@@ -145,7 +146,8 @@ def search(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = commune.nom
     elif lat and lon:
-        qs = _nearest_around(qs, (lat, lon))
+        commune, qs = _nearest_around(qs, (lat, lon))
+        commune_json = commune.toTemplateJson()
     elif where and not where == "France entière":
         coords = geocoder.autocomplete(where)
         if coords:
@@ -177,7 +179,7 @@ def search(request, commune_slug=None):
             "what": what,
             "where": where,
             "geojson_list": geojson_list,
-            "commune_json": None,
+            "commune_json": commune_json,
         },
     )
 

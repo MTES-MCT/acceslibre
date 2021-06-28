@@ -11,6 +11,7 @@ pylint = "*"
 pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}
 pytest-circleci-parallelized = "*"
+progress = "*"
 
 [packages]
 coreapi = "*"

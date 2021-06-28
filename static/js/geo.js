@@ -192,8 +192,13 @@ function AppMap(root) {
   currentPk = pk;
 
   map = createMap(root);
+
   if (info) {
     map.setMinZoom(info.zoom - 2);
+    if (info.contour) {
+      // TODO: more opacity, less green
+      L.polygon(info.contour, { color: "blue", opacity: 0.5, weight: 3, fillOpacity: 0.05 }).addTo(map);
+    }
   }
 
   const geoJsonLayer = L.geoJSON(geoJson, {

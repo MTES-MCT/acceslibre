@@ -18,7 +18,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
-from core.lib import diff as diffutils
+from core.lib import diff as diffutils, geo
 from erp import managers, schema
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
@@ -127,6 +127,7 @@ class Commune(models.Model):
             models.Index(fields=["departement"]),
             models.Index(fields=["nom", "departement"]),
             models.Index(fields=["nom", "code_postaux"]),
+            models.Index(fields=["arrondissement"]),
         ]
 
     objects = managers.CommuneQuerySet.as_manager()
@@ -175,6 +176,11 @@ class Commune(models.Model):
         default=list,
         help_text="Liste des codes postaux de cette commune",
     )
+    arrondissement = models.BooleanField(
+        verbose_name="Arrondissement",
+        default=False,
+        help_text="Cette commune est un arrondissement (Paris, Lyon, Marseille)",
+    )
 
     def __str__(self):
         return f"{self.nom} ({self.departement})"
@@ -182,12 +188,27 @@ class Commune(models.Model):
     def get_absolute_url(self):
         return reverse("search_commune", kwargs={"commune_slug": self.slug})
 
+    def clean(self):
+        if self.arrondissement is True and self.departement not in ["13", "69", "75"]:
+            raise ValidationError(
+                {
+                    "arrondissement": "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"
+                }
+            )
+
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
         return f"{nom} ({self.departement})"
 
-    def expand_contour(self, max_distance_meters):
+    def expand_contour(self, max_distance_meters=None):
         "Expand commune bounding box, see https://stackoverflow.com/a/31945883/330911"
+        # FIXME: ideally we should compute a proportionate expansion of the commune
+        # bounding box, eg. a 5000m2 commune should be expanded as much as a 100000m2 one
+        # TODO: rely on superficie (in ha -> x10000 => m2) to infer that ratio
+        if not max_distance_meters and self.superficie:
+            max_distance_meters = round(math.sqrt(self.superficie * 10000) / 5)
+        else:
+            max_distance_meters = 3000
         buffer = (
             max_distance_meters
             / 40000000.0
@@ -211,7 +232,8 @@ class Commune(models.Model):
             {
                 "nom": self.nom,
                 "slug": self.slug,
-                "center": [self.geom.coords[1], self.geom.coords[0]],
+                "center": geo.lonlat_to_latlon(self.geom.coords),
+                "contour": geo.lonlat_to_latlon(self.contour.coords),
                 "zoom": self.get_zoom(),
             }
         )
