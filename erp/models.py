@@ -1,7 +1,8 @@
+import math
 import json
 import uuid
-
 import reversion
+
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
@@ -17,7 +18,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
-from core.lib import diff as diffutils
+from core.lib import calc, diff as diffutils, geo
 from erp import managers, schema
 from erp.provider import sirene
 from erp.provider.departements import DEPARTEMENTS
@@ -126,6 +127,9 @@ class Commune(models.Model):
             models.Index(fields=["departement"]),
             models.Index(fields=["nom", "departement"]),
             models.Index(fields=["nom", "code_postaux"]),
+            models.Index(fields=["arrondissement"]),
+            models.Index(fields=["obsolete"]),
+            models.Index(fields=["obsolete", "arrondissement"]),
         ]
 
     objects = managers.CommuneQuerySet.as_manager()
@@ -163,11 +167,26 @@ class Commune(models.Model):
         verbose_name="Localisation",
         help_text="Coordonnées géographique du centre de la commune",
     )
+    contour = models.MultiPolygonField(
+        verbose_name="Contour",
+        help_text="Contour de la commune",
+        null=True,
+    )
     code_postaux = ArrayField(
         models.CharField(max_length=5),
         verbose_name="Codes postaux",
         default=list,
         help_text="Liste des codes postaux de cette commune",
+    )
+    arrondissement = models.BooleanField(
+        verbose_name="Arrondissement",
+        default=False,
+        help_text="Cette commune est un arrondissement (Paris, Lyon, Marseille)",
+    )
+    obsolete = models.BooleanField(
+        verbose_name="Obsolète",
+        default=False,
+        help_text="La commune est obsolète, par exemple suite à un regroupement ou un rattachement",
     )
 
     def __str__(self):
@@ -176,9 +195,41 @@ class Commune(models.Model):
     def get_absolute_url(self):
         return reverse("search_commune", kwargs={"commune_slug": self.slug})
 
+    def clean(self):
+        if self.arrondissement is True and self.departement not in ["13", "69", "75"]:
+            raise ValidationError(
+                {
+                    "arrondissement": "Seules Paris, Lyon et Marseille peuvent disposer d'arrondissements"
+                }
+            )
+
     def departement_nom(self):
         nom = DEPARTEMENTS.get(self.departement, {}).get("nom")
         return f"{nom} ({self.departement})"
+
+    def expand_contour(self, max_distance_meters=None):
+        """Expand commune contour by a given distance expressed in meters. If no
+        distance is provided, an automatic value is computed against commune area,
+        so the contour is expanded proportionally, though with a minimum of 500m and a
+        maximum of 3000m.
+        """
+        if not max_distance_meters and self.superficie:
+            max_distance_meters = calc.clamp(
+                500,
+                round(  # note: superficie is in hectares
+                    math.sqrt(self.superficie * 10000) / 5
+                ),
+                3000,
+            )
+        else:
+            max_distance_meters = 3000
+        buffer = (  # see https://stackoverflow.com/a/31945883/330911
+            max_distance_meters
+            / 40000000.0
+            * 360.0
+            / math.cos(self.geom.y / 360.0 * math.pi)
+        )
+        return self.contour.buffer(buffer) if self.contour else self.geom.buffer(buffer)
 
     def get_zoom(self):
         if not self.superficie or self.superficie > 8000:
@@ -195,7 +246,10 @@ class Commune(models.Model):
             {
                 "nom": self.nom,
                 "slug": self.slug,
-                "center": [self.geom.coords[1], self.geom.coords[0]],
+                "center": geo.lonlat_to_latlon(self.geom.coords),
+                "contour": geo.lonlat_to_latlon(self.contour.coords)
+                if self.contour
+                else None,
                 "zoom": self.get_zoom(),
             }
         )
