@@ -52,6 +52,14 @@
       <div class="col-md-5">
         <div class="list-group list-group-flush">
         {% for erp in pager %}
+          {% if erp.outside %}
+          <h5 class="mt-3 mb-2">
+            Aux alentours
+            {% if commune %}
+              <small class="text-muted">{{ commune.nom|preposition_nom }}</small>
+            {% endif %}
+          </h5>
+          {% endif %}
           <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
             <div>
               <div class="d-flex w-100 justify-content-between">
@@ -72,7 +80,9 @@
                 {% if erp.activite %}
                   <small class="font-weight-bold text-muted">{{ erp.activite }}</small>
                 {% endif %}
-                <address class="d-inline mb-0"><small>{{ erp.adresse }}</small></address>
+                <address class="d-inline mb-0">
+                  <small>{{ erp.adresse }}</small>
+                </address>
               </div>
             </div>
             <div class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"

@@ -131,7 +131,24 @@ def _search_commune_around(qs, point):
         .first()
     )
     if commune:
-        return commune, qs.nearest_mpoly(location, commune.expand_contour())
+        qs = qs.in_and_around_commune(location, commune)
+        return commune, qs
+
+
+def _update_search_pager(pager, commune):
+    prev = None
+    for erp in pager.object_list:
+        current = erp.code_postal + erp.commune_ext.nom
+        if any(
+            [
+                prev and prev != current,
+                commune and (erp.code_postal not in commune.code_postaux),
+            ]
+        ):
+            erp.outside = True
+            break
+        prev = current
+    return pager
 
 
 def search(request, commune_slug=None):
@@ -142,7 +159,7 @@ def search(request, commune_slug=None):
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
-    commune_json = None
+    commune_json = commune = None
     # what
     qs = qs.search_what(what)
     # where
@@ -167,6 +184,7 @@ def search(request, commune_slug=None):
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
+    pager = _update_search_pager(pager, commune)
     pager_base_url = "?" + urlencode(
         {
             "where": where,
@@ -180,6 +198,7 @@ def search(request, commune_slug=None):
         request,
         "search/results.html",
         context={
+            "commune": commune,
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,

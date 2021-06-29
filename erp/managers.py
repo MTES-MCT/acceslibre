@@ -3,7 +3,7 @@ from django.contrib.gis import measure
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Count, F, Max, Q
+from django.db.models import Case, Count, F, Max, Q, Value, When
 from django.db.models.functions import Length
 
 from core.lib import geo, text
@@ -175,11 +175,20 @@ class ErpQuerySet(models.QuerySet):
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
         return qs.order_by("distance")
 
-    def nearest_mpoly(self, point, mpoly):
+    def in_and_around_commune(self, point, commune):
+        """Filter erps"""
         return (
-            self.annotate(distance=Distance("geom", geo.parse_location(point)))
-            .filter(geom__intersects=mpoly)
-            .order_by("distance")
+            # erp from within expanded commune contour
+            self.filter(geom__intersects=commune.expand_contour())
+            # compute distance from provided point
+            .annotate(distance=Distance("geom", geo.parse_location(point)))
+            # add more weight if the erp is within strict commune contour
+            .annotate(
+                in_mpoly=Case(
+                    When(geom__intersects=commune.contour, then=Value("1")),
+                    default=Value("0"),
+                ),
+            ).order_by("-in_mpoly", "distance")
         )
 
     def not_published(self):

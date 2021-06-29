@@ -1,8 +1,8 @@
 import math
 import json
 import uuid
-
 import reversion
+
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
