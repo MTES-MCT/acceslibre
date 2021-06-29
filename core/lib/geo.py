@@ -3,15 +3,13 @@ import json
 from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
 
 
-def parse_location(point):
-    if isinstance(point, Point):
-        return point
-    if isinstance(point, (tuple, list)):
-        try:
-            return Point(x=float(point[1]), y=float(point[0]), srid=4326)
-        except (TypeError, ValueError) as err:
-            raise RuntimeError(f"Unable to create location from point data: {err}")
-    raise RuntimeError(f"Unsupported point type {type(point)}: {point}")
+def geojson_mpoly(geojson):
+    mpoly = GEOSGeometry(json.dumps(geojson))
+    if isinstance(mpoly, MultiPolygon):
+        return mpoly
+    if isinstance(mpoly, Polygon):
+        return MultiPolygon([mpoly])
+    raise TypeError(f"{mpoly.geom_type} not acceptable for this model")
 
 
 def lonlat_to_latlon(coords):
@@ -22,10 +20,12 @@ def lonlat_to_latlon(coords):
         return coords
 
 
-def geojson_mpoly(geojson):
-    mpoly = GEOSGeometry(json.dumps(geojson))
-    if isinstance(mpoly, MultiPolygon):
-        return mpoly
-    if isinstance(mpoly, Polygon):
-        return MultiPolygon([mpoly])
-    raise TypeError(f"{mpoly.geom_type} not acceptable for this model")
+def parse_location(point):
+    if isinstance(point, Point):
+        return point
+    if isinstance(point, (tuple, list)):
+        try:
+            return Point(x=float(point[1]), y=float(point[0]), srid=4326)
+        except (TypeError, ValueError) as err:
+            raise RuntimeError(f"Unable to create location from point data: {err}")
+    raise RuntimeError(f"Unsupported point type {type(point)}: {point}")

@@ -164,6 +164,22 @@ class ErpQuerySet(models.QuerySet):
     def having_an_accessibilite(self):
         return self.filter(accessibilite__isnull=False)
 
+    def in_and_around_commune(self, point, commune):
+        "Filter erps from within commune expanded contour and order them by distance."
+        return (
+            # erp from within expanded commune contour
+            self.filter(geom__intersects=commune.expand_contour())
+            # compute distance from provided point
+            .annotate(distance=Distance("geom", geo.parse_location(point)))
+            # add more weight if the erp is strictly within commune contour
+            .annotate(
+                strictly_within=Case(
+                    When(geom__intersects=commune.contour, then=Value("1")),
+                    default=Value("0"),
+                ),
+            ).order_by("-strictly_within", "distance")
+        )
+
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
@@ -174,22 +190,6 @@ class ErpQuerySet(models.QuerySet):
         if max_radius_km:
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
         return qs.order_by("distance")
-
-    def in_and_around_commune(self, point, commune):
-        """Filter erps"""
-        return (
-            # erp from within expanded commune contour
-            self.filter(geom__intersects=commune.expand_contour())
-            # compute distance from provided point
-            .annotate(distance=Distance("geom", geo.parse_location(point)))
-            # add more weight if the erp is within strict commune contour
-            .annotate(
-                in_mpoly=Case(
-                    When(geom__intersects=commune.contour, then=Value("1")),
-                    default=Value("0"),
-                ),
-            ).order_by("-in_mpoly", "distance")
-        )
 
     def not_published(self):
         return self.filter(
