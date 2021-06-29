@@ -1,0 +1,29 @@
+{% autoescape off %}Bonjour {{ user.username }},
+
+    Bonjour,
+    Vous avez commencé à saisir la fiche {{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}(avec lien url, etape géolocalisation) sur le site Acceslibre, mais ne l'avez pas encore publié.
+    Chaque information est précieuse. N'hésitez pas à publier une fiche, même si celle-ci est incomplète.
+    Souhaitez vous publier cette fiche maintenant ? je publie ma fiche (lien vers la fiche-étape publication {{ SITE_ROOT_URL }}
+
+**je ne souhaite plus recevoir ce type de mail (au clic, désactivation de l'option et renvoi sur une page ou pop up : votre demande a été prise en compte)
+
+Des utilisateurs ont récemment contribué de nouvelles informations à des
+établissements que vous avez ajoutés sur la plateforme :
+
+{% for erp in erps %}
+- Établissement : "{{ erp.nom }}" ({{ erp.code_postal }} {{ erp.commune }}):
+  {{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}#history{% for diff in erp.changes_by_others %}
+  - {{ diff.user }} a mis à jour les informations suivantes :{% for field in diff.diff %}
+    - {{ field.label }}: "{{ field.old }}" devient "{{ field.new }}"{% endfor %}{% endfor %}
+  Pour ne plus recevoir de notifications pour cet établissement, cliquez ici : {{ SITE_ROOT_URL }}{% url "unsubscribe_erp" erp.slug %}
+{% endfor %}
+Pour information, vous pouvez à tout moment retrouver l'intégralité
+des contributions effectuées sur vos établissements à cette adresse :
+{{ SITE_ROOT_URL }}{% url "mes_contributions_recues" %}
+
+Bonne journée.
+
+--
+L'équipe {{ SITE_NAME.title }}
+{{ SITE_ROOT_URL }}
+{% endautoescape %}
