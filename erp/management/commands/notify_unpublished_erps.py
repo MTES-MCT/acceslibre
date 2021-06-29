@@ -3,6 +3,7 @@ import logging
 from typing import List
 
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 
 from core import mailer, mattermost
@@ -12,10 +13,17 @@ logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
+    now = datetime.now(timezone.utc) - timedelta(days=130)
     help = (
         "Envoie une notification de rappel aux utilisateurs ayant commencé le remplissage d'une fiche sans la "
         "publier"
     )
+
+    def __init__(self, *args, **kwargs):
+        if kwargs.get("now"):
+            self.now = kwargs["now"]
+            del kwargs["now"]
+        super().__init__(*args, **kwargs)
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -25,9 +33,7 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        now = datetime.now(timezone.utc)
-
-        notifications = self.get_notifications(options["hours"], now=now).values()
+        notifications = self.get_notifications()
         total = len(notifications)
         sent_ok = 0
         for notification in notifications:
@@ -53,14 +59,20 @@ class Command(BaseCommand):
             },
         )
 
-    def get_notifications(self, now=datetime.now(timezone.utc)):
+    def get_notifications(self):
         notifications = []
         erps: List[Erp] = Erp.objects.filter(
-            published=False, updated_at__gt=now + timedelta(days=7)
+            published=False,
+            updated_at__gt=self.now + timedelta(days=7),
+            user__isnull=False,
         )
 
         for erp in erps:
-            user = erp.user
+            try:
+                user = erp.user
+            except User.DoesNotExist:
+                continue
+
             # todo check user preferences
             notifications.append((user, erp))
 
