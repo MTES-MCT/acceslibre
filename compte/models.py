@@ -20,3 +20,19 @@ class EmailToken(models.Model):
     new_email = models.EmailField()
     expire_at = models.DateTimeField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class UserPreferences(models.Model):
+    class Meta:
+        verbose_name = "UserPreferences"
+        verbose_name_plural = "UsersPreferences"
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Utilisateur",
+        on_delete=models.CASCADE,
+    )
+    notify_on_unpublished_erps = models.BooleanField(
+        default=True,
+        verbose_name="Accepte les mails de rappel de publication",
+    )
