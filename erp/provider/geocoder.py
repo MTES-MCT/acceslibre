@@ -17,7 +17,7 @@ def autocomplete(q, limit=1):
         "limit": limit,
     }
     try:
-        results = query(params, timeout=0.5)
+        results = query(params, timeout=0.75)  # avoid blocking for too long
         (lon, lat) = results.get("features")[0]["geometry"]["coordinates"]
         return (lat, lon)
     except (KeyError, IndexError, RuntimeError):
@@ -25,7 +25,6 @@ def autocomplete(q, limit=1):
 
 
 def geocode(adresse, postcode=None, citycode=None):
-    # retrieve geolocoder data
     try:
         data = query(
             {"q": adresse, "postcode": postcode, "citycode": citycode, "limit": 1}

@@ -1,13 +1,12 @@
 from django.conf import settings
 from django.contrib.gis import measure
 from django.contrib.gis.db.models.functions import Distance
-from django.contrib.gis.geos import Point
 from django.contrib.postgres import search
 from django.db import models
-from django.db.models import Count, F, Max, Q
+from django.db.models import Case, Count, F, Max, Q, Value, When
 from django.db.models.functions import Length
 
-from core.lib import text
+from core.lib import geo, text
 from erp import schema
 
 
@@ -68,7 +67,7 @@ class CommuneQuerySet(models.QuerySet):
         ).order_by("-erp_access_count")
 
     def search(self, query):
-        qs = self
+        qs = self.filter(obsolete=False)
         terms = query.strip().split(" ")
         clauses = Q()
         for index, term in enumerate(terms):
@@ -88,7 +87,9 @@ class CommuneQuerySet(models.QuerySet):
 
     def search_by_nom_code_postal(self, nom, code_postal):
         return self.filter(
-            nom__unaccent__iexact=nom, code_postaux__contains=[code_postal]
+            obsolete=False,
+            nom__unaccent__iexact=nom,
+            code_postaux__contains=[code_postal],
         )
 
     def with_published_erp_count(self):
@@ -163,22 +164,29 @@ class ErpQuerySet(models.QuerySet):
     def having_an_accessibilite(self):
         return self.filter(accessibilite__isnull=False)
 
+    def in_and_around_commune(self, point, commune):
+        "Filter erps from within commune expanded contour and order them by distance."
+        return (
+            # erp from within expanded commune contour
+            self.filter(geom__intersects=commune.expand_contour())
+            # compute distance from provided point
+            .annotate(distance=Distance("geom", geo.parse_location(point)))
+            # add more weight if the erp is strictly within commune contour
+            .annotate(
+                strictly_within=Case(
+                    When(geom__intersects=commune.contour, then=Value("1")),
+                    default=Value("0"),
+                ),
+            ).order_by("-strictly_within", "distance")
+        )
+
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
     def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM):
         """Filter Erps around a given point, which can be either a `Point` instance
         or a tuple(lat, lon)."""
-        if isinstance(point, Point):
-            location = point
-        elif isinstance(point, (tuple, list)):
-            try:
-                location = Point(x=float(point[1]), y=float(point[0]), srid=4326)
-            except (TypeError, ValueError):
-                return self
-        else:
-            raise RuntimeError(f"Unsupported point type {type(point)}: {point}")
-        qs = self.annotate(distance=Distance("geom", location))
+        qs = self.annotate(distance=Distance("geom", geo.parse_location(point)))
         if max_radius_km:
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
         return qs.order_by("distance")
@@ -199,7 +207,10 @@ class ErpQuerySet(models.QuerySet):
         clauses = Q()
         for index, term in enumerate(terms):
             if text.contains_digits(term) and len(term) == 5:
-                clauses = clauses | Q(commune_ext__code_postaux__contains=[term])
+                clauses = clauses | Q(
+                    commune_ext__obsolete=False,
+                    commune_ext__code_postaux__contains=[term],
+                )
             if len(term) > 2:
                 similarity_field = f"similarity_{index}"
                 qs = qs.annotate(
@@ -211,8 +222,11 @@ class ErpQuerySet(models.QuerySet):
                 )
                 clauses = (
                     clauses
-                    | Q(commune_ext__nom__unaccent__icontains=term)
                     | Q(**{f"{similarity_field}__gte": 0.6})
+                    | Q(
+                        commune_ext__obsolete=False,
+                        commune_ext__nom__unaccent__icontains=term,
+                    )
                 )
         return qs.filter(clauses)
 

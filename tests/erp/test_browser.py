@@ -59,7 +59,7 @@ def test_search_qualified_commune(data, client, mocker):
     response = client.get(
         reverse("search_commune", kwargs={"commune_slug": "34-jacou"})
     )
-    assert response.context["where"] == "Jacou"
+    assert response.context["where"] == "Jacou (34)"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
     assert hasattr(response.context["pager"][0], "distance") is False
@@ -858,7 +858,19 @@ def test_accessibilite_history(data, client):
     ]
 
 
-def test_contribution_flow_administrative_data(data, client):
+def test_contribution_flow_administrative_data(data, mocker, client):
+    mocker.patch(
+        "erp.provider.geocoder.geocode",
+        return_value={
+            "geom": Point(0, 0),
+            "numero": "4",
+            "voie": "Grand Rue",
+            "lieu_dit": None,
+            "code_postal": "34830",
+            "commune": "Jacou",
+            "code_insee": "34120",
+        },
+    )
     client.force_login(data.sophie)
     response = client.get(
         reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug})
