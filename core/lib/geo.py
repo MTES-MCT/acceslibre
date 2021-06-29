@@ -4,7 +4,8 @@ from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
 
 
 def geojson_mpoly(geojson):
-    mpoly = GEOSGeometry(json.dumps(geojson))
+    "Convert a geojson Polygon feature to MultiPolygon."
+    mpoly = GEOSGeometry(geojson if isinstance(geojson, str) else json.dumps(geojson))
     if isinstance(mpoly, MultiPolygon):
         return mpoly
     if isinstance(mpoly, Polygon):
@@ -13,7 +14,11 @@ def geojson_mpoly(geojson):
 
 
 def lonlat_to_latlon(coords):
-    "Tranforms a list of coordinates in lon, lat to a list of coordinates in lat, lon."
+    """Tranforms a list of coordinates in lon, lat to a list of coordinates in lat, lon.
+
+    Context: Leaflet had the brilliant idea of using the let/lon format instead of geojson
+    standard lon/lat, hence why we need to often convert shapes from one system to another.
+    """
     if isinstance(coords, (tuple, list)):
         return [lonlat_to_latlon(c) for c in coords][::-1]
     else:
@@ -21,6 +26,11 @@ def lonlat_to_latlon(coords):
 
 
 def parse_location(point):
+    """Returns a `geos.Point` from either:
+    - a `geos.Point` instance (noop)
+    - a lat/lon tuple (eg. `(43.2, 2.8)` or `("43.2", "2.8")`)
+    Raises `RuntimeError` when operation fails.
+    """
     if isinstance(point, Point):
         return point
     if isinstance(point, (tuple, list)):

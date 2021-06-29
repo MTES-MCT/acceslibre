@@ -208,14 +208,22 @@ class Commune(models.Model):
         return f"{nom} ({self.departement})"
 
     def expand_contour(self, max_distance_meters=None):
-        "Expand commune bounding box, see https://stackoverflow.com/a/31945883/330911"
+        """Expand commune contour by a given distance expressed in meters. If no
+        distance is provided, an automatic value is computed against commune area,
+        so the contour is expanded proportionally, though with a minimum of 500m and a
+        maximum of 3000m.
+        """
         if not max_distance_meters and self.superficie:
             max_distance_meters = calc.clamp(
-                500, round(math.sqrt(self.superficie * 10000) / 5), 3000
+                500,
+                round(  # note: superficie is in hectares
+                    math.sqrt(self.superficie * 10000) / 5
+                ),
+                3000,
             )
         else:
             max_distance_meters = 3000
-        buffer = (
+        buffer = (  # see https://stackoverflow.com/a/31945883/330911
             max_distance_meters
             / 40000000.0
             * 360.0

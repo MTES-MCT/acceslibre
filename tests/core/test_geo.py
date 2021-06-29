@@ -1,3 +1,4 @@
+import json
 import pytest
 
 from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
@@ -5,69 +6,39 @@ from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
 from core.lib import geo
 
 
-def test_geojson_mpoly_from_MultiPolygon():
-    assert isinstance(
-        geo.geojson_mpoly(
-            {
-                "type": "MultiPolygon",
-                "coordinates": [
-                    [
-                        [
-                            [102.0, 2.0],
-                            [103.0, 2.0],
-                            [103.0, 3.0],
-                            [102.0, 3.0],
-                            [102.0, 2.0],
-                        ]
-                    ],
-                    [
-                        [
-                            [100.0, 0.0],
-                            [101.0, 0.0],
-                            [101.0, 1.0],
-                            [100.0, 1.0],
-                            [100.0, 0.0],
-                        ],
-                        [
-                            [100.2, 0.2],
-                            [100.8, 0.2],
-                            [100.8, 0.8],
-                            [100.2, 0.8],
-                            [100.2, 0.2],
-                        ],
-                    ],
-                ],
-            }
-        ),
-        MultiPolygon,
-    )
+@pytest.fixture
+def mpoly():
+    return """{
+        "type": "MultiPolygon",
+        "coordinates": [
+            [ [ [102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0] ]
+            ],
+            [ [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ],
+              [ [100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2] ]
+            ]
+        ]
+    }"""
 
 
-def test_geojson_mpoly_from_Polygon():
-    assert isinstance(
-        geo.geojson_mpoly(
-            {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [100.0, 0.0],
-                        [101.0, 0.0],
-                        [101.0, 1.0],
-                        [100.0, 1.0],
-                        [100.0, 0.0],
-                    ],
-                    [
-                        [100.2, 0.2],
-                        [100.8, 0.2],
-                        [100.8, 0.8],
-                        [100.2, 0.8],
-                        [100.2, 0.2],
-                    ],
-                ],
-            }
-        ),
-        MultiPolygon,
-    )
+@pytest.fixture
+def poly():
+    return """{
+        "type": "Polygon",
+        "coordinates": [
+            [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0] ],
+            [ [100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2] ]
+        ]
+    }"""
+
+
+def test_geojson_mpoly_from_MultiPolygon(mpoly):
+    assert isinstance(geo.geojson_mpoly(mpoly), MultiPolygon)
+    assert isinstance(geo.geojson_mpoly(json.loads(mpoly)), MultiPolygon)
+
+
+def test_geojson_mpoly_from_Polygon(poly):
+    assert isinstance(geo.geojson_mpoly(poly), MultiPolygon)
+    assert isinstance(geo.geojson_mpoly(json.loads(poly)), MultiPolygon)
 
 
 def test_lonlat_to_latlon():
