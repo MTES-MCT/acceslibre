@@ -30,4 +30,9 @@ urlpatterns = [
         views.delete_account,
         name="delete_account",
     ),
+    path(
+        "notifications/rappels/disable",
+        views.disable_reminders,
+        name="disable_reminders",
+    ),
 ]

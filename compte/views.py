@@ -14,6 +14,7 @@ from django_registration.backends.activation.views import (
 )
 
 from compte import forms, service
+from compte.models import UserPreferences
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -259,4 +260,16 @@ def mes_abonnements(request):
         request,
         "compte/mes_abonnements.html",
         context={"pager": pager, "pager_base_url": "?1"},
+    )
+
+
+@login_required
+def disable_reminders(request):
+    prefs = UserPreferences.objects.get(user=request.user)
+    prefs.notify_on_unpublished_erps = False
+    prefs.save()
+
+    return render(
+        request,
+        "compte/notifications_disabled.html",
     )

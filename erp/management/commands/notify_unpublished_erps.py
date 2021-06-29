@@ -6,6 +6,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 
+from compte.models import UserPreferences
 from core import mailer, mattermost
 from erp.models import Erp
 
@@ -69,11 +70,14 @@ class Command(BaseCommand):
 
         for erp in erps:
             try:
-                user = erp.user
+                if self._should_notify(erp.user):
+                    notifications.append((erp.user, erp))
             except User.DoesNotExist:
                 continue
 
-            # todo check user preferences
-            notifications.append((user, erp))
-
         return notifications
+
+    def _should_notify(self, user):
+        return (
+            UserPreferences.objects.get(user=user).notify_on_unpublished_erps is False
+        )
