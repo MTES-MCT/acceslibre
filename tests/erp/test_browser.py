@@ -858,7 +858,19 @@ def test_accessibilite_history(data, client):
     ]
 
 
-def test_contribution_flow_administrative_data(data, client):
+def test_contribution_flow_administrative_data(data, mocker, client):
+    mocker.patch(
+        "erp.provider.geocoder.geocode",
+        return_value={
+            "geom": Point(0, 0),
+            "numero": "4",
+            "voie": "Grand Rue",
+            "lieu_dit": None,
+            "code_postal": "34830",
+            "commune": "Jacou",
+            "code_insee": "34120",
+        },
+    )
     client.force_login(data.sophie)
     response = client.get(
         reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug})

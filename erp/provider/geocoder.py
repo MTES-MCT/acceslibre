@@ -25,7 +25,6 @@ def autocomplete(q, limit=1):
 
 
 def geocode(adresse, postcode=None, citycode=None):
-    # retrieve geolocoder data
     try:
         data = query(
             {"q": adresse, "postcode": postcode, "citycode": citycode, "limit": 1}
