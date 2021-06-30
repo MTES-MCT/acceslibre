@@ -1,5 +1,5 @@
-from datetime import datetime, timezone, timedelta
 import logging
+from datetime import datetime, timezone, timedelta
 from typing import List
 
 from django.conf import settings
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    now = datetime.now(timezone.utc) - timedelta(days=130)
+    now = datetime.now(timezone.utc)
     help = (
         "Envoie une notification de rappel aux utilisateurs ayant commencé le remplissage d'une fiche sans la "
         "publier"
@@ -64,13 +64,13 @@ class Command(BaseCommand):
         notifications = []
         erps: List[Erp] = Erp.objects.filter(
             published=False,
-            updated_at__gt=self.now + timedelta(days=7),
+            updated_at__lte=self.now - timedelta(days=7),
             user__isnull=False,
         )
 
         for erp in erps:
             try:
-                if self._should_notify(erp.user):
+                if self._should_notify(erp.user) and self._due_time(erp):
                     notifications.append((erp.user, erp))
             except User.DoesNotExist:
                 continue
@@ -79,3 +79,6 @@ class Command(BaseCommand):
 
     def _should_notify(self, user):
         return UserPreferences.objects.get(user=user).notify_on_unpublished_erps is True
+
+    def _due_time(self, erp):
+        return (self.now - erp.updated_at).days % 7 == 0

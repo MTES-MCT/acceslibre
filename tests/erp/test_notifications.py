@@ -31,18 +31,40 @@ def unpublished_erp(data):
     return erp
 
 
-def test_get_notification(unpublished_erp, data):
-    past = datetime.now(timezone.utc) - timedelta(days=10)
-    notifs = Command(now=past).get_notifications()
+def test_get_notification_on7days(unpublished_erp, data):
+    futur = datetime.now(timezone.utc) + timedelta(days=7)
+    notifs = Command(now=futur).get_notifications()
 
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
     assert (notifs[0][0], notifs[0][1]) == (data.niko, unpublished_erp)
 
 
+def test_get_notification_before7days(unpublished_erp, data):
+    futur = datetime.now(timezone.utc) + timedelta(days=6)
+    notifs = Command(now=futur).get_notifications()
+
+    assert len(notifs) == 0
+
+
+def test_get_notification_after7days(unpublished_erp, data):
+    futur = datetime.now(timezone.utc) + timedelta(days=10)
+    notifs = Command(now=futur).get_notifications()
+
+    assert len(notifs) == 0
+
+
+def test_get_notification_after14days(unpublished_erp, data):
+    futur = datetime.now(timezone.utc) + timedelta(days=14)
+    notifs = Command(now=futur).get_notifications()
+
+    assert len(notifs) == 1
+    assert (notifs[0][0], notifs[0][1]) == (data.niko, unpublished_erp)
+
+
 def test_notification_unpublished_erp_command(unpublished_erp, data):
-    past = datetime.now(timezone.utc) - timedelta(days=10)
-    notify_unpublished_erps = Command(now=past)
+    futur = datetime.now(timezone.utc) + timedelta(days=7)
+    notify_unpublished_erps = Command(now=futur)
     unsubscribe_url = reverse("disable_reminders")
 
     call_command(notify_unpublished_erps)
