@@ -1,10 +1,12 @@
 from datetime import datetime, timezone, timedelta
 
 import pytest
+from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import mail
 from django.core.management import call_command
 from django.test import Client
+from django.urls import reverse
 
 from erp.models import Erp, Accessibilite, Activite
 from erp.management.commands.notify_unpublished_erps import Command
@@ -49,10 +51,10 @@ def test_notification_unpublished_erp_command(unpublished_erp, data):
 
     notify_unpublished_erps = Command(now=past)
     call_command(notify_unpublished_erps)
-    # unsubscribe_url = reverse("unsubscribe_erp", kwargs={"erp_slug": erp.slug})
+    unsubscribe_url = reverse("disable_reminders")
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [data.niko.email]
     assert "Rappel: publiez votre ERP !" in mail.outbox[0].subject
     assert "Chaque information est précieuse" in mail.outbox[0].body
     assert unpublished_erp.get_absolute_url() in mail.outbox[0].body
-    # assert f"{settings.SITE_ROOT_URL}{unsubscribe_url}" in mail.outbox[0].body
+    assert f"{settings.SITE_ROOT_URL}{unsubscribe_url}" in mail.outbox[0].body

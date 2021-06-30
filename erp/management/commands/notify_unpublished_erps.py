@@ -78,6 +78,4 @@ class Command(BaseCommand):
         return notifications
 
     def _should_notify(self, user):
-        return (
-            UserPreferences.objects.get(user=user).notify_on_unpublished_erps is False
-        )
+        return UserPreferences.objects.get(user=user).notify_on_unpublished_erps is True
