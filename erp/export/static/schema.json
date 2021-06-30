@@ -114,6 +114,20 @@
       }
     },
     {
+      "name": "contact_url",
+      "description": "Lien vers un moyen de contact (chatbot, formulaire, ...)",
+      "type": "string",
+      "example": "https://site.com/contact",
+      "format": "uri"
+    },
+    {
+      "name": "site_internet",
+      "description": "Site internet de l'établissement",
+      "type": "string",
+      "example": "https://site.com/",
+      "format": "uri"
+    },
+    {
       "name": "longitude",
       "description": "Coordonnées GPS: longitude",
       "type": "number",
