@@ -5,16 +5,10 @@ from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import mail
 from django.core.management import call_command
-from django.test import Client
 from django.urls import reverse
 
 from erp.models import Erp, Accessibilite, Activite
 from erp.management.commands.notify_unpublished_erps import Command
-
-
-@pytest.fixture
-def client():
-    return Client()
 
 
 @pytest.fixture
@@ -48,10 +42,11 @@ def test_get_notification(unpublished_erp, data):
 
 def test_notification_unpublished_erp_command(unpublished_erp, data):
     past = datetime.now(timezone.utc) - timedelta(days=10)
-
     notify_unpublished_erps = Command(now=past)
-    call_command(notify_unpublished_erps)
     unsubscribe_url = reverse("disable_reminders")
+
+    call_command(notify_unpublished_erps)
+
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [data.niko.email]
     assert "Rappel: publiez votre ERP !" in mail.outbox[0].subject
