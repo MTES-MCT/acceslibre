@@ -6,21 +6,30 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0130_auto_20210628_1140'),
+        ("erp", "0130_auto_20210628_1140"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='commune',
-            name='obsolete',
-            field=models.BooleanField(default=False, help_text='La commune est obsolète, par exemple suite à un regroupement ou un rattachement', verbose_name='Obsolète'),
+            model_name="commune",
+            name="obsolete",
+            field=models.BooleanField(
+                default=False,
+                help_text="La commune est obsolète, par exemple suite à un regroupement ou un rattachement",
+                verbose_name="Obsolète",
+            ),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['obsolete'], name='erp_commune_obsolet_cd7260_idx'),
+            model_name="commune",
+            index=models.Index(
+                fields=["obsolete"], name="erp_commune_obsolet_cd7260_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['obsolete', 'arrondissement'], name='erp_commune_obsolet_4eaeb3_idx'),
+            model_name="commune",
+            index=models.Index(
+                fields=["obsolete", "arrondissement"],
+                name="erp_commune_obsolet_4eaeb3_idx",
+            ),
         ),
     ]

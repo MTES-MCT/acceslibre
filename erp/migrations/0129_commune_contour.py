@@ -7,13 +7,18 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0128_delete_statuscheck'),
+        ("erp", "0128_delete_statuscheck"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='commune',
-            name='contour',
-            field=django.contrib.gis.db.models.fields.MultiPolygonField(help_text='Contour de la commune', null=True, srid=4326, verbose_name='Contour'),
+            model_name="commune",
+            name="contour",
+            field=django.contrib.gis.db.models.fields.MultiPolygonField(
+                help_text="Contour de la commune",
+                null=True,
+                srid=4326,
+                verbose_name="Contour",
+            ),
         ),
     ]
