@@ -15,12 +15,16 @@ async function getCommonResults(loc) {
 function SearchWhere(root) {
   const input = root.querySelector("input[type=search]");
   const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
-  const hiddenLatField = root.querySelector("input[name=lat]");
-  const hiddenLonField = root.querySelector("input[name=lon]");
+  const hiddens = {
+    lat: root.querySelector("input[name=lat]"),
+    lon: root.querySelector("input[name=lon]"),
+    code: root.querySelector("input[name=code]"),
+  };
 
-  function setLatLon(loc) {
-    hiddenLatField.value = loc?.lat || "";
-    hiddenLonField.value = loc?.lon || "";
+  function setSearchData(loc) {
+    hiddens.lat.value = loc?.lat || "";
+    hiddens.lon.value = loc?.lon || "";
+    hiddens.code.value = loc?.code || "";
   }
 
   function setSearchValue(label) {
@@ -38,7 +42,7 @@ function SearchWhere(root) {
       }
 
       if (result.lat && result.lon) {
-        setLatLon(result);
+        setSearchData(result);
       } else if (result.text.startsWith(AROUND_ME)) {
         if (api.hasPermission("geolocation") !== "granted") {
           a11yGeolocBtn.focus();
@@ -48,15 +52,15 @@ function SearchWhere(root) {
         input.form.removeEventListener("submit", dom.preventDefault);
         if (!loc) {
           console.warn("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
-          setLatLon(null);
+          setSearchData(null);
           setSearchValue("");
         } else {
           input.focus();
-          setLatLon(loc);
+          setSearchData(loc);
           setSearchValue(`${AROUND_ME} ${loc.label}`);
         }
       } else {
-        setLatLon(null);
+        setSearchData(null);
       }
     },
 
@@ -86,7 +90,7 @@ function SearchWhere(root) {
   // out of the field or selects and entry by pressing the Enter key.
   autocomplete.input.addEventListener("keydown", (event) => {
     if (event.key != "Tab" && event.key != "Enter") {
-      setLatLon(null);
+      setSearchData(null);
     }
   });
 

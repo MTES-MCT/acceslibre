@@ -302,7 +302,15 @@ class Vote(models.Model):
 
 @reversion.register(
     ignore_duplicates=True,
-    exclude=["id", "created_at", "updated_at", "search_vector"],
+    exclude=[
+        "id",
+        "uuid",
+        "source",
+        "source_id",
+        "created_at",
+        "updated_at",
+        "search_vector",
+    ],
 )
 class Erp(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25
