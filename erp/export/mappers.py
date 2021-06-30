@@ -21,6 +21,8 @@ class EtalabMapper(BaseExportMapper):
     lieu_dit: str
     code_insee: str
     siret: str
+    contact_url: str
+    site_internet: str
     longitude: float
     latitude: float
     transport_station_presence: bool
@@ -103,6 +105,8 @@ class EtalabMapper(BaseExportMapper):
             lieu_dit=erp.lieu_dit,
             code_insee=erp.code_insee,
             siret=erp.siret,
+            contact_url=erp.contact_url,
+            site_internet=erp.site_internet,
             longitude=map_coords(erp.geom, 0),
             latitude=map_coords(erp.geom, 1),
             transport_station_presence=erp.accessibilite.transport_station_presence,

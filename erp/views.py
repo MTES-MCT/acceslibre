@@ -17,6 +17,7 @@ from django.views.generic import TemplateView
 from urllib.parse import urlencode
 
 from core import mailer
+from core.lib import geo
 from erp import forms, schema, serializers
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import geocoder, search as provider_search
@@ -122,23 +123,67 @@ def communes(request):
     )
 
 
+def _search_commune_around(qs, point, code_insee=None):
+    location = geo.parse_location(point)
+    if code_insee:
+        commune = Commune.objects.filter(code_insee=code_insee).first()
+    else:
+        commune = (
+            Commune.objects.filter(contour__intersects=location)
+            .order_by("-arrondissement")  # priorize districts over large cities
+            .first()
+        )
+    if commune:
+        return commune, qs.in_and_around_commune(location, commune)
+
+
+def _update_search_pager(pager, commune):
+    prev = None
+    for erp in pager.object_list:
+        if commune.departement in ["13", "69", "75"]:
+            if commune.arrondissement:
+                current = erp.code_postal
+            else:
+                current = erp.commune_ext.departement
+        else:
+            current = erp.code_postal + erp.commune_ext.nom
+        if any(
+            [
+                prev and prev != current,
+                erp.commune_ext.arrondissement
+                and erp.code_postal not in commune.code_postaux,
+            ]
+        ):
+            erp.outside = True
+            break
+        prev = current
+    return pager
+
+
 def search(request, commune_slug=None):
     where = request.GET.get("where", "France entière") or "France entière"
     what = request.GET.get("what", "")
     lat = request.GET.get("lat")
     lon = request.GET.get("lon")
+    code = request.GET.get("code")
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
+    commune_json = commune = None
     # what
     qs = qs.search_what(what)
     # where
     if commune_slug:
         commune = get_object_or_404(Commune, slug=commune_slug)
         qs = qs.filter(commune_ext=commune)
-        where = commune.nom
+        where = str(commune)
     elif lat and lon:
-        qs = qs.nearest((lat, lon))
+        commune_match = _search_commune_around(qs, (lat, lon), code_insee=code)
+        if commune_match:
+            commune, qs = commune_match
+            commune_json = commune.toTemplateJson()
+        else:
+            qs = qs.nearest((lat, lon))
     elif where and not where == "France entière":
         coords = geocoder.autocomplete(where)
         if coords:
@@ -149,12 +194,15 @@ def search(request, commune_slug=None):
     # pager
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
+    if commune:
+        pager = _update_search_pager(pager, commune)
     pager_base_url = "?" + urlencode(
         {
             "where": where,
             "what": what,
             "lat": lat,
             "lon": lon,
+            "code": code,
         }
     )
     geojson_list = make_geojson(pager)
@@ -162,15 +210,17 @@ def search(request, commune_slug=None):
         request,
         "search/results.html",
         context={
+            "commune": commune,
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
             "lat": lat,
             "lon": lon,
+            "code": code,
             "what": what,
             "where": where,
             "geojson_list": geojson_list,
-            "commune_json": None,
+            "commune_json": commune_json,
         },
     )
 
@@ -235,7 +285,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
 
 def from_uuid(request, uuid):
-    erp = get_object_or_404(Erp.objects.published().filter(uuid=uuid, published=True))
+    erp = get_object_or_404(Erp.objects.published(), uuid=uuid)
     return redirect(erp.get_absolute_url())
 
 

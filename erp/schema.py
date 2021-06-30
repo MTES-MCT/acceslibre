@@ -830,7 +830,7 @@ FIELDS = {
             "Présence ou possibilité d'une aide humaine au déplacement"
         ),
         "help_text_ui": "Possibilité d'une aide humaine au déplacement",
-        "help_text_neg": "Pas de possibilité d'aide humaine au déplacement",
+        "help_text_ui_neg": "Pas de possibilité d'aide humaine au déplacement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
         "nullable_bool": True,

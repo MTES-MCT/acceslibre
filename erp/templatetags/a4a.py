@@ -229,3 +229,11 @@ def startswith(value, starts):
     if isinstance(value, str):
         return value.startswith(starts)
     return False
+
+
+@register.filter("preposition_nom")
+def preposition_nom(value):
+    if value.startswith("Le "):
+        return f"du {value.replace('Le ', '')}"
+    else:
+        return f"de {value}"
