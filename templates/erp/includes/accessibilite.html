@@ -11,7 +11,7 @@
   {% if info.fields %}
     <h2 class="h5 mb-0 pb-1 border-bottom">
       <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-1"></i>
-      {{ section }}
+      <b>{{ section }}</b>
       <small class="text-muted">{{ info.description }}</small>
     </h2>
     {% include "erp/includes/fields.html" with fields=info.fields %}
