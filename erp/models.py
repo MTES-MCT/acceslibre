@@ -29,7 +29,8 @@ FULLTEXT_CONFIG = "french_unaccent"
 models.CharField.register_lookup(Lower)
 
 
-def _get_history(versions, exclude_changes_from=None):
+def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
+    exclude_fields = exclude_fields if exclude_fields is not None else ()
     history = []
     current_fields_dict = {}
     for version in versions:
@@ -41,7 +42,9 @@ def _get_history(versions, exclude_changes_from=None):
                 "user": version.revision.user,
                 "date": version.revision.date_created,
                 "comment": version.revision.get_comment(),
-                "diff": diff,
+                "diff": [
+                    entry for entry in diff if entry["field"] not in exclude_fields
+                ],
             }
         )
         current_fields_dict = version.field_dict
@@ -520,7 +523,15 @@ class Erp(models.Model):
     def get_history(self, exclude_changes_from=None):
         "Combines erp and related accessibilite histories."
         erp_history = _get_history(
-            self.get_versions(), exclude_changes_from=exclude_changes_from
+            self.get_versions(),
+            exclude_fields=(
+                "uuid",
+                "source",
+                "source_id",
+                "metadata",
+                "search_vector",
+            ),
+            exclude_changes_from=exclude_changes_from,
         )
         accessibilite_history = self.accessibilite.get_history(
             exclude_changes_from=exclude_changes_from
