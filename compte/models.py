@@ -38,7 +38,7 @@ class UserPreferences(models.Model):
     )
     notify_on_unpublished_erps = models.BooleanField(
         default=True,
-        verbose_name="Accepte les mails de rappel de publication",
+        verbose_name="Recevoir des mails de rappel de publication",
     )
 
     @receiver(post_save, sender=User)

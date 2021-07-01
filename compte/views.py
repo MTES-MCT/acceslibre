@@ -264,6 +264,25 @@ def mes_abonnements(request):
 
 
 @login_required
+def mes_preferences(request):
+    if request.method == "POST":
+        form = forms.PreferencesForm(request.POST)
+        if form.is_valid():
+            prefs = request.user.preferences.get()
+            prefs.notify_on_unpublished_erps = form.notify_on_unpublished_erps
+            prefs.save()
+            return redirect("mes_preferences")
+        pass
+    else:
+        form = forms.PreferencesForm(initial={"user": request.user})
+    return render(
+        request,
+        "compte/mes_preferences.html",
+        context={"form": form},
+    )
+
+
+@login_required
 def disable_reminders(request):
     prefs = UserPreferences.objects.get(user=request.user)
     prefs.notify_on_unpublished_erps = False

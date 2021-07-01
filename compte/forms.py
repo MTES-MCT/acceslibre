@@ -5,6 +5,8 @@ from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django_registration.forms import RegistrationFormUniqueEmail
 
+from compte.models import UserPreferences
+
 USERNAME_RULES = "Uniquement des lettres, nombres et les caractères « . », « - » et « _ » (les espaces sont interdits)"
 
 
@@ -120,3 +122,9 @@ class AccountDeleteForm(forms.Form):
                 "Vous devez confirmer la suppression pour la rendre effective."
             )
         return confirm
+
+
+class PreferencesForm(forms.ModelForm):
+    class Meta:
+        model = UserPreferences
+        fields = ["notify_on_unpublished_erps"]
