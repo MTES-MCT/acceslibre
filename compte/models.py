@@ -29,7 +29,6 @@ class UserPreferences(models.Model):
     class Meta:
         verbose_name = "UserPreferences"
         verbose_name_plural = "UsersPreferences"
-        db_table = "user_preferences"
 
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
