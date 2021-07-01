@@ -32,6 +32,17 @@ def test_communes(data, client):
     assert len(response.context["latest"]) == 1
 
 
+def test_search_clean_params(data, client):
+    response = client.get(
+        reverse("search") + "?where=None&what=None&lat=None&lon=None&code=None"
+    )
+    assert response.context["where"] == "France entière"
+    assert response.context["what"] is None
+    assert response.context["lat"] is None
+    assert response.context["lon"] is None
+    assert response.context["code"] is None
+
+
 def test_search_commune(data, client, mocker):
     mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(
@@ -69,7 +80,7 @@ def test_search_empty_text_query(data, client, mocker):
     mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(reverse("search") + "?where=&what=")
     assert response.context["where"] == "France entière"
-    assert response.context["what"] == ""
+    assert response.context["what"] is None
     assert response.context["pager"] is not None
 
 
