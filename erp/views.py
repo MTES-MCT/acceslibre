@@ -123,18 +123,16 @@ def communes(request):
     )
 
 
-def _search_commune_around(qs, point, code_insee=None):
+def _search_commune_around(qs, point, code_insee):
+    commune = None
     location = geo.parse_location(point)
     if code_insee:
         commune = Commune.objects.filter(code_insee=code_insee).first()
-    else:
-        commune = (
-            Commune.objects.filter(contour__intersects=location)
-            .order_by("-arrondissement")  # priorize districts over large cities
-            .first()
-        )
     if commune:
-        return commune, qs.in_and_around_commune(location, commune)
+        qs = qs.in_and_around_commune(location, commune)
+    else:
+        qs = qs.nearest(location)
+    return commune, qs
 
 
 def _update_search_pager(pager, commune):
@@ -169,7 +167,6 @@ def search(request, commune_slug=None):
     qs = Erp.objects.select_related(
         "accessibilite", "activite", "commune_ext"
     ).published()
-    commune_json = commune = None
     # what
     qs = qs.search_what(what)
     # where
@@ -178,12 +175,7 @@ def search(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = str(commune)
     elif lat and lon:
-        commune_match = _search_commune_around(qs, (lat, lon), code_insee=code)
-        if commune_match:
-            commune, qs = commune_match
-            commune_json = commune.toTemplateJson()
-        else:
-            qs = qs.nearest((lat, lon))
+        commune, qs = _search_commune_around(qs, (lat, lon), code)
     elif where and not where == "France entière":
         coords = geocoder.autocomplete(where)
         if coords:
@@ -197,13 +189,7 @@ def search(request, commune_slug=None):
     if commune:
         pager = _update_search_pager(pager, commune)
     pager_base_url = "?" + urlencode(
-        {
-            "where": where,
-            "what": what,
-            "lat": lat,
-            "lon": lon,
-            "code": code,
-        }
+        {"where": where, "what": what, "lat": lat, "lon": lon, "code": code}
     )
     geojson_list = make_geojson(pager)
     return render(
@@ -220,7 +206,7 @@ def search(request, commune_slug=None):
             "what": what,
             "where": where,
             "geojson_list": geojson_list,
-            "commune_json": commune_json,
+            "commune_json": commune.toTemplateJson() if commune else None,
         },
     )
 
