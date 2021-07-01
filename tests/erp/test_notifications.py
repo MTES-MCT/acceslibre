@@ -37,7 +37,7 @@ def test_get_notification_on7days(unpublished_erp, data):
 
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
-    assert (notifs[0][0], notifs[0][1]) == (data.niko, unpublished_erp)
+    assert (notifs[0].user, notifs[0]) == (data.niko, unpublished_erp)
 
 
 def test_get_notification_before7days(unpublished_erp, data):
@@ -59,7 +59,7 @@ def test_get_notification_after14days(unpublished_erp, data):
     notifs = Command(now=futur).get_notifications()
 
     assert len(notifs) == 1
-    assert (notifs[0][0], notifs[0][1]) == (data.niko, unpublished_erp)
+    assert (notifs[0].user, notifs[0]) == (data.niko, unpublished_erp)
 
 
 def test_notification_unpublished_erp_command(unpublished_erp, data):

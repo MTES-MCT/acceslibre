@@ -6,7 +6,6 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 
-from compte.models import UserPreferences
 from core import mailer, mattermost
 from erp.models import Erp
 
@@ -42,12 +41,12 @@ class Command(BaseCommand):
         if total > 0:
             plural = "s" if total > 1 else ""
             mattermost.send(
-                f"{sent_ok}/{total} relance{plural} d'ERPs non-publiés",
+                f"{sent_ok}/{total} relance{plural} d'ERP{plural} non-publié{plural}",
                 tags=[__name__],
             )
 
     def send_notification(self, notification):
-        recipient, erp = notification
+        recipient, erp = notification.user, notification
         return mailer.send_email(
             [recipient.email],
             f"[{settings.SITE_NAME}] Rappel: publiez votre ERP !",
@@ -71,14 +70,14 @@ class Command(BaseCommand):
         for erp in erps:
             try:
                 if self._should_notify(erp.user) and self._due_time(erp):
-                    notifications.append((erp.user, erp))
+                    notifications.append(erp)
             except User.DoesNotExist:
                 continue
 
         return notifications
 
     def _should_notify(self, user):
-        return UserPreferences.objects.get(user=user).notify_on_unpublished_erps is True
+        return user.preferences.get().notify_on_unpublished_erps is True
 
     def _due_time(self, erp):
         return (self.now - erp.updated_at).days % 7 == 0

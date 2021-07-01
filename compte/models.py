@@ -29,11 +29,13 @@ class UserPreferences(models.Model):
     class Meta:
         verbose_name = "UserPreferences"
         verbose_name_plural = "UsersPreferences"
+        db_table = "user_preferences"
 
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         verbose_name="Utilisateur",
         on_delete=models.CASCADE,
+        related_name="preferences",
     )
     notify_on_unpublished_erps = models.BooleanField(
         default=True,
@@ -43,5 +45,4 @@ class UserPreferences(models.Model):
     @receiver(post_save, sender=User)
     def save_profile(sender, instance, created, **kwargs):
         if created:
-            user_prefs = UserPreferences(user=instance)
-            user_prefs.save()
+            UserPreferences.objects.create(user=instance)
