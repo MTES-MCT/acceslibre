@@ -124,15 +124,15 @@ def communes(request):
 
 
 def _search_commune_around(qs, point, code_insee):
-    commune = None
-    location = geo.parse_location(point)
+    commune, location = None, geo.parse_location(point)
     if code_insee:
         commune = Commune.objects.filter(code_insee=code_insee).first()
-    if commune:
-        qs = qs.in_and_around_commune(location, commune)
-    else:
-        qs = qs.nearest(location)
-    return commune, qs
+    return (
+        commune,
+        qs.in_and_around_commune(location, commune)
+        if commune
+        else qs.nearest(location),
+    )
 
 
 def _update_search_pager(pager, commune):
@@ -158,18 +158,24 @@ def _update_search_pager(pager, commune):
     return pager
 
 
+def _clean_search_params(request, *args):
+    return (
+        None if request.GET.get(arg) in ("", "None") else request.GET.get(arg)
+        for arg in args
+    )
+
+
 def search(request, commune_slug=None):
-    where = request.GET.get("where", "France entière") or "France entière"
-    what = request.GET.get("what", "")
-    lat = request.GET.get("lat")
-    lon = request.GET.get("lon")
-    code = request.GET.get("code")
-    qs = Erp.objects.select_related(
-        "accessibilite", "activite", "commune_ext"
-    ).published()
-    # what
-    qs = qs.search_what(what)
-    # where
+    where, what, lat, lon, code = _clean_search_params(
+        request, "where", "what", "lat", "lon", "code"
+    )
+    where = where or "France entière"
+    qs = (
+        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+        .published()
+        .search_what(what)
+    )
+    commune = None
     if commune_slug:
         commune = get_object_or_404(Commune, slug=commune_slug)
         qs = qs.filter(commune_ext=commune)
