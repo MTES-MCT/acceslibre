@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -41,7 +41,7 @@ class UserPreferences(models.Model):
         verbose_name="Recevoir des mails de rappel de publication",
     )
 
-    @receiver(post_save, sender=User)
+    @receiver(post_save, sender=get_user_model())
     def save_profile(sender, instance, created, **kwargs):
         if created:
             user_prefs = UserPreferences(user=instance)
