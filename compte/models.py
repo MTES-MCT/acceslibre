@@ -44,4 +44,5 @@ class UserPreferences(models.Model):
     @receiver(post_save, sender=User)
     def save_profile(sender, instance, created, **kwargs):
         if created:
-            UserPreferences.objects.create(user=instance)
+            user_prefs = UserPreferences(user=instance)
+            user_prefs.save()
