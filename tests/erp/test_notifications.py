@@ -65,7 +65,7 @@ def test_get_notification_after14days(unpublished_erp, data):
 def test_notification_unpublished_erp_command(unpublished_erp, data):
     futur = datetime.now(timezone.utc) + timedelta(days=7)
     notify_unpublished_erps = Command(now=futur)
-    unsubscribe_url = reverse("disable_reminders")
+    unsubscribe_url = reverse("mes_preferences")
 
     call_command(notify_unpublished_erps)
 

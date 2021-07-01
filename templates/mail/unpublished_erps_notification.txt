@@ -7,7 +7,7 @@ Souhaitez vous publier cette fiche maintenant ?
  -> Je publie ma fiche: {{ SITE_ROOT_URL }}/contrib/publication/{{erp.slug}}/
 
 
-** Je ne souhaite plus recevoir ce type de mail: {{ SITE_ROOT_URL }}{% url "disable_reminders" %}
+** Pour ne plus recevoir ce type d'emails, cliquez ici: {{ SITE_ROOT_URL }}{% url "mes_preferences" %}
 
 Bonne journée.
 

@@ -268,27 +268,22 @@ def mes_preferences(request):
     if request.method == "POST":
         form = forms.PreferencesForm(request.POST)
         if form.is_valid():
-            prefs = request.user.preferences.get()
-            prefs.notify_on_unpublished_erps = form.notify_on_unpublished_erps
+            prefs = UserPreferences.objects.get(user=request.user)
+            prefs.notify_on_unpublished_erps = form.cleaned_data.get(
+                "notify_on_unpublished_erps"
+            )
             prefs.save()
+
+            messages.add_message(
+                request, messages.SUCCESS, "Vos préférences ont bien été enregistrées"
+            )
+
             return redirect("mes_preferences")
         pass
     else:
-        form = forms.PreferencesForm(initial={"user": request.user})
+        form = forms.PreferencesForm(instance=request.user.preferences.get())
     return render(
         request,
         "compte/mes_preferences.html",
         context={"form": form},
-    )
-
-
-@login_required
-def disable_reminders(request):
-    prefs = UserPreferences.objects.get(user=request.user)
-    prefs.notify_on_unpublished_erps = False
-    prefs.save()
-
-    return render(
-        request,
-        "compte/notifications_disabled.html",
     )
