@@ -899,56 +899,6 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
     },
-    "accueil_personnels": {
-        "type": "string",
-        "nullable": True,
-        "is_a11y": True,
-        "label": "Personnel d'accueil",
-        "help_text": mark_safe(
-            "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
-        ),
-        "help_text_ui": "Personnel à l'accueil des personnes handicapées",
-        "help_text_ui_neg": "Aucun personnel à l'accueil des personnes handicapées",
-        "choices": PERSONNELS_CHOICES,
-        "section": SECTION_ACCUEIL,
-        "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None
-        and x
-        in [
-            PERSONNELS_NON_FORMES,
-            PERSONNELS_AUCUN,
-        ],
-    },
-    "accueil_equipements_malentendants_presence": {
-        "type": "boolean",
-        "nullable": True,
-        "is_a11y": True,
-        "label": "Présence d'équipements d'aide à l'audition et à la communication",
-        "help_text": mark_safe(
-            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes&nbsp?"
-        ),
-        "help_text_ui": "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes",
-        "help_text_ui_neg": "Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes",
-        "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_ACCUEIL,
-        "nullable_bool": True,
-        "warn_if": False,
-    },
-    "accueil_equipements_malentendants": {
-        "type": "array",
-        "nullable": False,
-        "is_a11y": True,
-        "label": "Liste des équipements d'aide à l'audition et à la communication",
-        "help_text": mark_safe(
-            "Sélectionnez les équipements ou prestations disponibles à l'accueil de l'établissement&nbsp;:"
-        ),
-        "help_text_ui": "Équipements ou prestations disponibles",
-        "help_text_ui_neg": "Équipements ou prestations disponibles",
-        "choices": EQUIPEMENT_MALENTENDANT_CHOICES,
-        "section": SECTION_ACCUEIL,
-        "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None and len(x) == 0,
-    },
     "accueil_cheminement_plain_pied": {
         "type": "boolean",
         "nullable": True,
@@ -1067,6 +1017,56 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+    },
+    "accueil_personnels": {
+        "type": "string",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Personnel d'accueil",
+        "help_text": mark_safe(
+            "En cas de présence du personnel, est-il formé ou sensibilisé à l'accueil des personnes handicapées&nbsp;?"
+        ),
+        "help_text_ui": "Personnel à l'accueil des personnes handicapées",
+        "help_text_ui_neg": "Aucun personnel à l'accueil des personnes handicapées",
+        "choices": PERSONNELS_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": lambda x, i: x is not None
+        and x
+        in [
+            PERSONNELS_NON_FORMES,
+            PERSONNELS_AUCUN,
+        ],
+    },
+    "accueil_equipements_malentendants_presence": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Présence d'équipements d'aide à l'audition et à la communication",
+        "help_text": mark_safe(
+            "L'accueil est-il équipé de produits ou prestations dédiés aux personnes sourdes ou malentendantes&nbsp?"
+        ),
+        "help_text_ui": "Présence de produits ou prestations dédiés aux personnes sourdes ou malentendantes",
+        "help_text_ui_neg": "Pas de produits ou prestations dédiés aux personnes sourdes ou malentendantes",
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+    },
+    "accueil_equipements_malentendants": {
+        "type": "array",
+        "nullable": False,
+        "is_a11y": True,
+        "label": "Liste des équipements d'aide à l'audition et à la communication",
+        "help_text": mark_safe(
+            "Sélectionnez les équipements ou prestations disponibles à l'accueil de l'établissement&nbsp;:"
+        ),
+        "help_text_ui": "Équipements ou prestations disponibles",
+        "help_text_ui_neg": "Équipements ou prestations disponibles",
+        "choices": EQUIPEMENT_MALENTENDANT_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": lambda x, i: x is not None and len(x) == 0,
     },
     # Sanitaires
     "sanitaires_presence": {
