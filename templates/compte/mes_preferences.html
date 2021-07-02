@@ -1,0 +1,23 @@
+{% extends "compte/base.html" %}
+{% load crispy_forms_filters %}
+
+{% load static %}
+
+{% block page_title %}Préférences{% endblock %}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block compte_content %}
+  <main role="main" id="content">
+    <h3 class="mb-3">Mes préférences</h3>
+    <form action="{% url "mes_preferences" %}" method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+
+      <p>
+        <button type="submit" class="btn btn-primary w-100">
+          Mettre à jour mes préférences
+        </button>
+      </p>
+    </form>
+  </main>
+{% endblock %}

@@ -26,8 +26,13 @@ urlpatterns = [
         name="mes_contributions_recues",
     ),
     path(
-        "suppression",
+        "suppression/",
         views.delete_account,
         name="delete_account",
+    ),
+    path(
+        "preferences/",
+        views.mes_preferences,
+        name="mes_preferences",
     ),
 ]
