@@ -110,7 +110,9 @@ def challenge_ddt(request):
 
 
 def communes(request):
-    communes_qs = Commune.objects.erp_stats()[:12]
+    communes_qs = Commune.objects.erp_stats().only(
+        "nom", "slug", "departement", "geom"
+    )[:12]
     latest = (
         Erp.objects.select_related("activite", "commune_ext")
         .published()
