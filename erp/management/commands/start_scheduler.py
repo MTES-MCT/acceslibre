@@ -17,6 +17,10 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
+        self.setup()
+        self.start()
+
+    def setup(self):
         schedule.every().day.at("04:00").do(call_command, "purge_inactive_accounts")
         schedule.every().hour.do(call_command, "purge_tokens")
         schedule.every().day.at("01:00").do(call_command, "export_to_datagouv")
@@ -26,6 +30,8 @@ class Command(BaseCommand):
         schedule.every().day.at("09:30").do(call_command, "notify_unpublished_erps")
         # Keep revisions from last 30 days and at least 20 from older changes
         schedule.every().day.do(call_command, "deleterevisions", keep=20, days=30)
+
+    def start(self):
         print("Scheduler started")
         while True:
             try:
