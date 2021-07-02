@@ -14,6 +14,7 @@ from django_registration.backends.activation.views import (
 )
 
 from compte import forms, service
+from compte.models import UserPreferences
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
@@ -259,4 +260,30 @@ def mes_abonnements(request):
         request,
         "compte/mes_abonnements.html",
         context={"pager": pager, "pager_base_url": "?1"},
+    )
+
+
+@login_required
+def mes_preferences(request):
+    if request.method == "POST":
+        form = forms.PreferencesForm(request.POST)
+        if form.is_valid():
+            prefs = UserPreferences.objects.get(user=request.user)
+            prefs.notify_on_unpublished_erps = form.cleaned_data.get(
+                "notify_on_unpublished_erps"
+            )
+            prefs.save()
+
+            messages.add_message(
+                request, messages.SUCCESS, "Vos préférences ont bien été enregistrées"
+            )
+
+            return redirect("mes_preferences")
+        pass
+    else:
+        form = forms.PreferencesForm(instance=request.user.preferences.get())
+    return render(
+        request,
+        "compte/mes_preferences.html",
+        context={"form": form},
     )
