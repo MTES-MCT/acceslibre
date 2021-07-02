@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
 
-from erp.models import Commune
+from erp.models import Commune, Erp
 from erp.provider import departements
 
 
@@ -25,6 +25,9 @@ def departement(request, departement):
         context={
             "departements": departements_list,
             "current_departement": current_departement,
+            "current_departement_erp_count": Erp.objects.published()
+            .filter(commune_ext__departement=current_departement["code"])
+            .count(),
             "communes": Commune.objects.with_published_erp_count()
             .filter(departement=departement, erp_access_count__gt=0)
             .order_by("nom"),

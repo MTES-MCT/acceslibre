@@ -28,7 +28,10 @@
         Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés.
       </p>
       {% else %}
-      <h3 class="mt-2 mb-3">{{ current_departement.code }} - {{ current_departement.nom }} ({{ communes.count }})</h3>
+      <h3 class="mt-2 mb-3">
+        {{ current_departement.code }} - {{ current_departement.nom }}
+        <small class="text-muted">{{ current_departement_erp_count }} établissement{{ current_departement_erp_count|pluralize:"s" }}</small>
+      </h3>
       {% for commune in communes %}
       <p>
         {{ commune.code_postaux|join:", " }} -
