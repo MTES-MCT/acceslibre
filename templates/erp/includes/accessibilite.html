@@ -9,10 +9,10 @@
 {% for section, info in accessibilite_data.items %}
   <section id="{{ info.tabid }}" class="mb-5">
   {% if info.fields %}
-    <h2 class="h5 font-weight-bold mb-0 pb-1 border-bottom">
+    <h2 class="h5 mb-0 pb-1 border-bottom font-weight-bold">
       <i aria-hidden="true" class="icon icon-{{ info.icon }} mr-1"></i>
       {{ section }}
-      <small class="font-weight-bold text-muted">{{ info.description }}</small>
+      <small class="text-muted">{{ info.description }}</small>
     </h2>
     {% include "erp/includes/fields.html" with fields=info.fields %}
   {% elif info.sections %}
