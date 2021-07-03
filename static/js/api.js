@@ -1,15 +1,3 @@
-function decodeJson(json) {
-  try {
-    return JSON.parse(atob(json));
-  } catch (e) {
-    return null;
-  }
-}
-
-function encodeJson(js) {
-  return btoa(JSON.stringify(js));
-}
-
 async function fetchWithTimeout(resource, options) {
   // see https://dmitripavlutin.com/timeout-fetch-request/
   const { timeout = 8000 } = options;
@@ -36,7 +24,7 @@ function getCurrentPosition(options = { timeout: 10000 }) {
 async function hasPermission(name) {
   // Exemple name: "geolocation"
   if (!navigator?.permissions?.query) {
-    return;
+    return false;
   }
   // Will return ['granted', 'prompt', 'denied']
   const { state } = await navigator.permissions.query({ name });
@@ -56,20 +44,20 @@ async function getUserLocation(options) {
   } catch (e) {
     // if reverse geocoding request timed out, we still obtained coords so it's ok;
     // just log other error types.
-    label = "(ok)";
-    if (e.name !== "AbortError") {
-      console.error(e);
-    }
+    label = "✓";
   }
   return saveUserLocation({ lat, lon, label, timestamp });
 }
 
 async function loadUserLocation(options = {}) {
   const { ttl, retrieve } = { ttl: 5 * 60000, retrieve: true, ...options };
+  let loc = null;
   try {
-    const loc = decodeJson(sessionStorage["a4a-loc"] || "null");
+    loc = JSON.parse(sessionStorage["a4a-loc"] || "null");
+  } catch (_) {}
+  try {
     if (!loc || (loc.timestamp && new Date().getTime() - loc.timestamp > ttl)) {
-      if (retrieve) {
+      if (!!retrieve) {
         return await getUserLocation();
       } else {
         return loc;
@@ -97,7 +85,7 @@ async function reverseGeocode({ lat, lon }, options = {}) {
 }
 
 function saveUserLocation(loc) {
-  sessionStorage["a4a-loc"] = encodeJson(loc);
+  sessionStorage["a4a-loc"] = JSON.stringify(loc);
   return loc;
 }
 
