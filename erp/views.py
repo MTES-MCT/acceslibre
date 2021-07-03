@@ -138,25 +138,10 @@ def _search_commune_around(qs, point, code_insee):
 
 
 def _update_search_pager(pager, commune):
-    prev = None
     for erp in pager.object_list:
-        if commune.departement in ["13", "69", "75"]:
-            if commune.arrondissement:
-                current = erp.code_postal
-            else:
-                current = erp.commune_ext.departement
-        else:
-            current = erp.code_postal + erp.commune_ext.nom
-        if any(
-            [
-                prev and prev != current,
-                erp.commune_ext.arrondissement
-                and erp.code_postal not in commune.code_postaux,
-            ]
-        ):
+        if erp.code_postal not in commune.code_postaux:
             erp.outside = True
             break
-        prev = current
     return pager
 
 
