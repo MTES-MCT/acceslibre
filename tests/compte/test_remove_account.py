@@ -42,7 +42,7 @@ def test_delete_account_e2e(client, data, pseudo_random_string, capsys):
 
     anonymized_user = get_user_model().objects.get(
         pk=data.niko.pk,
-        username__iexact=service.DELETED_ACCOUNT_USERNAME,
+        username__startswith=service.DELETED_ACCOUNT_USERNAME,
     )
     assert_user_anonymized(anonymized_user, pseudo_random_string)
 
@@ -71,7 +71,7 @@ def test_delete_account_no_confirm_e2e(client, data):
 
 def assert_user_anonymized(user, random_string):
     user.refresh_from_db()
-    assert user.username == service.DELETED_ACCOUNT_USERNAME
+    assert user.username.startswith(service.DELETED_ACCOUNT_USERNAME)
     assert check_password(random_string, user.password)
     assert user.email == ""
     assert user.last_name == ""

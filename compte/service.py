@@ -11,7 +11,7 @@ from core import mailer
 from core.lib import text
 
 
-DELETED_ACCOUNT_USERNAME = "<compte supprimé>"
+DELETED_ACCOUNT_USERNAME = "anonyme"
 
 
 def create_token(user, email, activation_token=None, today=datetime.now(timezone.utc)):
@@ -64,7 +64,7 @@ def validate_from_token(activation_token, today=datetime.now(timezone.utc)):
 
 def anonymize_user(user):
     user.email = ""
-    user.username = DELETED_ACCOUNT_USERNAME
+    user.username = f"{DELETED_ACCOUNT_USERNAME}{text.random_string(6)}"
     user.first_name = ""
     user.last_name = ""
     user.password = make_password(text.random_string(20))
