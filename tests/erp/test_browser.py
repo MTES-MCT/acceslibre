@@ -97,6 +97,11 @@ def test_search_around_me(data, client, mocker):
     assert hasattr(response.context["pager"][0], "distance")
 
 
+def test_invalid_search_params_404(data, client):
+    response = client.get(reverse("search") + "?where=&what=&lat=INVALID&lon=INVALID")
+    assert response.status_code == 404
+
+
 @pytest.mark.parametrize(
     "url",
     [

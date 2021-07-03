@@ -6,7 +6,7 @@ from django.db import models
 from django.db.models import Case, Count, F, Max, Q, Value, When
 from django.db.models.functions import Length
 
-from core.lib import geo, text
+from core.lib import text
 from erp import schema
 
 
@@ -125,7 +125,7 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(source=source, source_id=source_id, **filters)
 
     def find_existing_matches(self, nom, geom):
-        return self.nearest([geom.coords[1], geom.coords[0]]).filter(
+        return self.nearest(geom).filter(
             nom__unaccent__lower__trigram_similar=nom,
             distance__lt=measure.Distance(m=200),
         )
@@ -170,7 +170,7 @@ class ErpQuerySet(models.QuerySet):
             # erp from within expanded commune contour
             self.filter(geom__intersects=commune.expand_contour())
             # compute distance from provided point
-            .annotate(distance=Distance("geom", geo.parse_location(point)))
+            .annotate(distance=Distance("geom", point))
             # add more weight if the erp is strictly within commune contour
             .annotate(
                 strictly_within=Case(
@@ -186,7 +186,7 @@ class ErpQuerySet(models.QuerySet):
     def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM):
         """Filter Erps around a given point, which can be either a `Point` instance
         or a tuple(lat, lon)."""
-        qs = self.annotate(distance=Distance("geom", geo.parse_location(point)))
+        qs = self.annotate(distance=Distance("geom", point))
         if max_radius_km:
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
         return qs.order_by("distance")
