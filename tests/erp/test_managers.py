@@ -114,10 +114,3 @@ def test_ErpQuerySet_nearest_point(jacou_erp, paris_point, vendargues_point):
 
     assert Erp.objects.nearest(vendargues_point, max_radius_km=5).count() == 1
     assert Erp.objects.nearest(vendargues_point, max_radius_km=5).first() == jacou_erp
-
-
-def test_ErpQuerySet_nearest_tuple(jacou_erp, paris_point):
-    paris_tuple = (str(paris_point[1]), str(paris_point[0]))
-    assert Erp.objects.nearest(paris_tuple, max_radius_km=1).count() == 0
-    assert Erp.objects.nearest(paris_tuple, max_radius_km=1000).count() == 1
-    assert Erp.objects.nearest(paris_tuple, max_radius_km=1000).first() == jacou_erp

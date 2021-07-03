@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+from django.contrib.gis.geos import Point
 
 from erp.provider import geocoder
 
@@ -20,7 +21,7 @@ def test_autocomplete_ok(mocker, capsys):
         return_value={"features": [{"geometry": {"coordinates": [1, 2]}}]},
     )
 
-    assert geocoder.autocomplete("plop") == (2, 1)
+    assert geocoder.autocomplete("plop") == Point(1, 2, srid=4326)
 
 
 def test_autocomplete_request_error(mocker, capsys):
@@ -66,7 +67,7 @@ def test_geocode_ok(mocker):
     assert result["code_insee"] == "75115"
     assert result["code_postal"] == "75015"
     assert result["commune"] == "Paris"
-    assert result["geom"].coords == (2.309841, 48.844828)
+    assert result["geom"] == Point(2.309841, 48.844828, srid=4326)
     assert result["lieu_dit"] is None
     assert result["numero"] == "12"
     assert result["voie"] == "Rue Lecourbe"

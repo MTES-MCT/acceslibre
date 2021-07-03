@@ -3,7 +3,7 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}{% if pager %}Résultats pour {{ what }} {{ where }}{% else %}Aucun résultat{% endif %}{% endblock%}
+{% block page_title %}{% if pager %}Résultats pour {{ what|default_if_none:"" }} {{ where|default_if_none:"" }}{% else %}Aucun résultat{% endif %}{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=True %}
