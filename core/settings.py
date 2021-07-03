@@ -258,6 +258,9 @@ GRAPH_MODELS = {
 # Usernames blacklist
 USERNAME_BLACKLIST = [
     # English/generic
+    "anon",
+    "anonym",
+    "anonymous",
     "abuse",
     "admin",
     "administrator",
@@ -302,6 +305,7 @@ USERNAME_BLACKLIST = [
     "abus",
     "aide",
     "administrateur",
+    "anonyme",
     "commercial",
     "courriel",
     "email",
