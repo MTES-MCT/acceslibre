@@ -495,6 +495,13 @@ $viewport-xl: 1200px;
 
 
   &-search-form {
+    .autocomplete-input {
+      &.loading {
+        background: transparent url("/img/loading.gif") no-repeat;
+        background-position : calc(100% - 8px) center;
+      }
+    }
+
     @media screen and (min-width: $viewport-xl) {
       .where-field {
         padding-right: 8px;
@@ -626,28 +633,6 @@ $viewport-xl: 1200px;
   &-warn-icon {
     color: #aaa;
     display: inline-block;
-  }
-
-  /* Autocomplete */
-
-  &-autocomplete {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    z-index: 2000;
-  }
-
-  &-autocomplete-items {
-    background: $white;
-    border: 1px solid #d4d4d4;
-    border-bottom: none;
-    border-top: none;
-    left: 0;
-    margin: 0; /* overrides bootstrap row margins */
-    position: absolute;
-    right: 0;
-    top: 100%;
-    z-index: 99;
   }
 
   /* Notifs */

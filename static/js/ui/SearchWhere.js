@@ -31,6 +31,18 @@ function SearchWhere(root) {
     input.value = label;
   }
 
+  function setGeoLoading(loading) {
+    if (loading) {
+      input.type = "text";
+      input.form.addEventListener("submit", dom.preventDefault);
+      dom.addClass(input, "disabled", "loading");
+    } else {
+      input.type = "search";
+      input.form.removeEventListener("submit", dom.preventDefault);
+      dom.removeClass(input, "disabled", "loading");
+    }
+  }
+
   const autocomplete = new Autocomplete(root, {
     debounceTime: 100,
 
@@ -44,20 +56,21 @@ function SearchWhere(root) {
       if (result.lat && result.lon) {
         setSearchData(result);
       } else if (result.text.startsWith(AROUND_ME)) {
-        if (api.hasPermission("geolocation") !== "granted") {
+        if ((await api.hasPermission("geolocation")) !== "granted") {
           a11yGeolocBtn.focus();
         }
-        input.form.addEventListener("submit", dom.preventDefault);
-        const loc = await api.loadUserLocation();
-        input.form.removeEventListener("submit", dom.preventDefault);
+        setGeoLoading(true);
+        const loc = await api.loadUserLocation({ retrieve: true });
+        setGeoLoading(false);
         if (!loc) {
           console.warn("Impossible de récupérer votre localisation ; vérifiez les autorisations de votre navigateur");
           setSearchData(null);
           setSearchValue("");
-        } else {
           input.focus();
+        } else {
           setSearchData(loc);
           setSearchValue(`${AROUND_ME} ${loc.label}`);
+          input.form.querySelector("[name=what]").focus();
         }
       } else {
         setSearchData(null);
