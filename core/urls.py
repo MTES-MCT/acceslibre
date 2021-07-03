@@ -1,10 +1,8 @@
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path
 from django.views.decorators.cache import cache_page
-from django.views.generic import TemplateView
 
 from compte.forms import CustomRegistrationForm
 from compte.views import (
@@ -16,11 +14,6 @@ from core.sitemaps import SITEMAPS
 
 
 SITEMAP_CACHE_TTL = 86400
-
-
-@user_passes_test(lambda user: user.is_superuser)
-def test_sentry(request):
-    raise RuntimeError("Sentry error catching test")
 
 
 urlpatterns = [
@@ -64,18 +57,6 @@ urlpatterns = [
         {"sitemaps": SITEMAPS},
         name="sitemap",
     ),
-    # The service worker cannot be in /static because its scope will be limited to /static.
-    # Since we want it to have a scope of the full application, we rely on this TemplateView
-    # trick to make it work.
-    path(
-        "sw.js",
-        TemplateView.as_view(
-            template_name="sw.js",
-            content_type="application/javascript",
-        ),
-        name="sw.js",
-    ),
-    path("test-sentry", test_sentry),
 ]
 
 if settings.DEBUG:

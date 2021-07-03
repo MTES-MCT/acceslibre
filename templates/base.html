@@ -16,16 +16,6 @@
     <link rel="stylesheet" href="{% static "dist/main.css" %}">
     {% block stylesheet_extras %}{% endblock %}
     <script src="{% static "dist/main.js" %}"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('{% url "sw.js" %}', { scope: "/" })
-          .then(function(reg) {
-            console.debug("Registration succeeded. Scope is " + reg.scope);
-          }).catch(function(error) {
-            console.debug("Registration failed with " + error);
-          });
-      }
-    </script>
     {% block javascript_extras %}{% endblock %}
     <meta name="google-site-verification" content="iBstxzAU71oINQgMSrxoHh9rzedpj_49A953H788D5I">
   </head>
