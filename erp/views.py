@@ -126,14 +126,12 @@ def communes(request):
 
 
 def _search_commune_around(qs, point, code_insee):
-    commune, location = None, geo.parse_location(point)
+    commune = None
     if code_insee:
         commune = Commune.objects.filter(code_insee=code_insee).first()
     return (
         commune,
-        qs.in_and_around_commune(location, commune)
-        if commune
-        else qs.nearest(location),
+        qs.in_and_around_commune(point, commune) if commune else qs.nearest(point),
     )
 
 
@@ -152,11 +150,21 @@ def _clean_search_params(request, *args):
     )
 
 
+def _parse_location_or_404(lat, lon):
+    if not lat or not lon:
+        return None
+    try:
+        return geo.parse_location((lat, lon))
+    except RuntimeError as err:
+        raise Http404(err)
+
+
 def search(request, commune_slug=None):
     where, what, lat, lon, code = _clean_search_params(
         request, "where", "what", "lat", "lon", "code"
     )
     where = where or "France entière"
+    location = _parse_location_or_404(lat, lon)
     qs = (
         Erp.objects.select_related("accessibilite", "activite", "commune_ext")
         .published()
@@ -167,13 +175,13 @@ def search(request, commune_slug=None):
         commune = get_object_or_404(Commune, slug=commune_slug)
         qs = qs.filter(commune_ext=commune)
         where = str(commune)
-    elif lat and lon:
-        commune, qs = _search_commune_around(qs, (lat, lon), code)
+    elif location:
+        commune, qs = _search_commune_around(qs, location, code)
     elif where and not where == "France entière":
-        coords = geocoder.autocomplete(where)
-        if coords:
-            lat, lon = coords  # update current searched lat/lon
-            qs = qs.nearest((lat, lon))
+        location = geocoder.autocomplete(where)
+        if location:
+            lat, lon = (location.y, location.x)  # update current searched lat/lon
+            qs = qs.nearest(location)
         else:
             qs = qs.search_commune(where)
     # pager
@@ -222,10 +230,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         )
         .published()
         .with_votes()
-        .filter(
-            commune_ext__slug=commune,
-            slug=erp_slug,
-        )
+        .filter(commune_ext__slug=commune, slug=erp_slug)
     )
     if activite_slug:
         base_qs = base_qs.filter(activite__slug=activite_slug)
@@ -233,7 +238,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     nearest_erps = (
         Erp.objects.select_related("accessibilite", "activite", "commune_ext")
         .published()
-        .nearest([erp.geom.coords[1], erp.geom.coords[0]])
+        .nearest(erp.geom)
         .filter(distance__lt=Distance(km=20))[:10]
     )
     geojson_list = make_geojson(nearest_erps)

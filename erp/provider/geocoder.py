@@ -3,7 +3,8 @@ import requests
 
 from django.contrib.gis.geos import Point
 
-# FIXME: move as a provider module
+from core.lib import geo
+
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +20,7 @@ def autocomplete(q, limit=1):
     try:
         results = query(params, timeout=0.75)  # avoid blocking for too long
         (lon, lat) = results.get("features")[0]["geometry"]["coordinates"]
-        return (lat, lon)
+        return geo.parse_location((lat, lon))
     except (KeyError, IndexError, RuntimeError):
         return None
 
@@ -48,7 +49,7 @@ def geocode(adresse, postcode=None, citycode=None):
         # coordinates
         geometry = feature["geometry"]
         return {
-            "geom": Point(geometry["coordinates"]),
+            "geom": Point(geometry["coordinates"], srid=4326),
             "numero": properties.get("housenumber"),
             "voie": voie,
             "lieu_dit": lieu_dit,
