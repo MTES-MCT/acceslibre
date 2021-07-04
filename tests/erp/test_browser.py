@@ -37,10 +37,33 @@ def test_search_clean_params(data, client):
         reverse("search") + "?where=None&what=None&lat=None&lon=None&code=None"
     )
     assert response.context["where"] == "France entière"
-    assert response.context["what"] is None
-    assert response.context["lat"] is None
-    assert response.context["lon"] is None
-    assert response.context["code"] is None
+    assert response.context["what"] == ""
+    assert response.context["lat"] == ""
+    assert response.context["lon"] == ""
+    assert response.context["code"] == ""
+
+
+def test_search_pagination(data, client):
+    data.erp.delete()
+    for i in range(1, 22):
+        erp = Erp.objects.create(
+            nom=f"e{i}",
+            commune_ext=data.jacou,
+            geom=data.erp.geom,
+            published=True,
+        )
+        Accessibilite.objects.create(erp=erp, sanitaires_presence=True)
+    assert Erp.objects.published().count() == 21
+    response = client.get(reverse("search") + "?where=jacou&code=34120&page=1")
+    assert response.status_code == 200
+    assert response.context["pager"].paginator.num_pages == 3
+    assert len(response.context["pager"]) == 10
+    response = client.get(reverse("search") + "?where=jacou&code=34120&page=2")
+    assert response.status_code == 200
+    assert len(response.context["pager"]) == 10
+    response = client.get(reverse("search") + "?where=jacou&code=34120&page=3")
+    assert response.status_code == 200
+    assert len(response.context["pager"]) == 1
 
 
 def test_search_commune(data, client, mocker):
@@ -80,7 +103,7 @@ def test_search_empty_text_query(data, client, mocker):
     mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
     response = client.get(reverse("search") + "?where=&what=")
     assert response.context["where"] == "France entière"
-    assert response.context["what"] is None
+    assert response.context["what"] == ""
     assert response.context["pager"] is not None
 
 

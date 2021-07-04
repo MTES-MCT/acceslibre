@@ -14,10 +14,9 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
-from urllib.parse import urlencode
 
 from core import mailer
-from core.lib import geo
+from core.lib import geo, url
 from erp import forms, schema, serializers
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import geocoder, search as provider_search
@@ -143,10 +142,9 @@ def _update_search_pager(pager, commune):
     return pager
 
 
-def _clean_search_params(request, *args):
+def _clean_search_params(params, *args):
     return (
-        None if request.GET.get(arg) in ("", "None") else request.GET.get(arg)
-        for arg in args
+        "" if params.get(arg, "") == "None" else params.get(arg, "") for arg in args
     )
 
 
@@ -161,7 +159,7 @@ def _parse_location_or_404(lat, lon):
 
 def search(request, commune_slug=None):
     where, what, lat, lon, code = _clean_search_params(
-        request, "where", "what", "lat", "lon", "code"
+        request.GET, "where", "what", "lat", "lon", "code"
     )
     where = where or "France entière"
     location = _parse_location_or_404(lat, lon)
@@ -189,9 +187,7 @@ def search(request, commune_slug=None):
     pager = paginator.get_page(request.GET.get("page", 1))
     if commune:
         pager = _update_search_pager(pager, commune)
-    pager_base_url = "?" + urlencode(
-        {"where": where, "what": what, "lat": lat, "lon": lon, "code": code}
-    )
+    pager_base_url = url.encode_qs(where=where, what=what, lat=lat, lon=lon, code=code)
     geojson_list = make_geojson(pager)
     return render(
         request,
