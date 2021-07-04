@@ -1,4 +1,5 @@
 import AsteriskField from "./AsteriskField";
+import CommuneSearch from "./CommuneSearch.js";
 import ConditionalForm from "./ConditionalForm.js";
 import GeoLink from "./GeoLink.js";
 import GetGeolocBtn from "./GetGeolocBtn";
@@ -8,6 +9,7 @@ import SearchWhere from "./SearchWhere";
 
 export default {
   AsteriskField,
+  CommuneSearch,
   ConditionalForm,
   GeoLink,
   GetGeolocBtn,
