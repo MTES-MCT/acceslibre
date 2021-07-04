@@ -16,54 +16,32 @@
     </button>
     <script>
     $(document).ready(function() {
-      // Commune & arrondissements
-      const arrondissementsData = {% arrondissements_json_data %};
-      function addArrondissements(results) {
-        if (results.length === 0) {
-          return results;
-        }
-
-        let arrondissements = [], atIndex = -1;
-
-        for (let i=0; i<results.length; i++) {
-          let result = results[i];
-          if (result.nom in arrondissementsData) {
-            arrondissements = arrondissementsData[result.nom];
-            atIndex = i;
-            break;
-          }
-        }
-
-        // Insert results AFTER the found entry
-        results.splice.apply(results, [atIndex + 1, 0].concat(arrondissements));
-        return results;
-      }
-
       const codeInseeSelect = $("#id_code_insee");
 
       codeInseeSelect.select2({
         language: "fr",
         placeholder: "Rechercher une commune",
         theme: "bootstrap4",
+        minimumInputLength: 1,
         ajax: {
           cache: true,
           delay: 100,
-          url: "https://geo.api.gouv.fr/communes",
+          url: "https://api-adresse.data.gouv.fr/search/",
           dataType: "json",
           data: function (params) {
             return {
-              nom: params.term,
-              fields: "departement",
-              boost: "population",
+              q: params.term || "",
+              type: "municipality",
+              autocomplete: 1,
               limit: 5
             };
           },
           processResults: function (results) {
             return {
-              results: addArrondissements(results).map(function(result) {
+              results: results.features.map(function(result) {
                 return {
-                  id: result.code,
-                  text: result.nom + " (" + result.departement.code + ", " + result.departement.nom + ")",
+                  id: result.properties.citycode,
+                  text: result.properties.label + " (" + result.properties.postcode.substr(0, 2) + ")",
                 };
               })
             };
