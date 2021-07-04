@@ -1,6 +1,8 @@
+// Polyfills
 import "core-js/stable";
 import "mutationobserver-shim";
 import "regenerator-runtime/runtime";
+import "url-search-params-polyfill";
 import "whatwg-fetch";
 
 // jQuery and selectWoo are very special beasts
