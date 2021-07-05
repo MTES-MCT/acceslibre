@@ -136,7 +136,12 @@ def _search_commune_around(qs, point, code_insee):
 
 def _update_search_pager(pager, commune):
     for erp in pager.object_list:
-        if erp.code_postal not in commune.code_postaux:
+        if any(
+            [
+                commune.contour and not commune.contour.covers(erp.geom),
+                erp.code_postal not in commune.code_postaux,
+            ]
+        ):
             erp.outside = True
             break
     return pager
