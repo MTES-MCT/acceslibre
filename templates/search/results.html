@@ -3,7 +3,13 @@
 {% load a4a %}
 {% load static %}
 
-{% block page_title %}{% if pager %}Résultats pour {{ what|default_if_none:"" }} {{ where|default_if_none:"" }}{% else %}Aucun résultat{% endif %}{% endblock%}
+{% block page_title %}{% spaceless %}
+  {% if pager %}
+    Résultats pour {{ what|default_if_none:"" }} {{ where|default_if_none:"" }}, page {{ pager.number }}/{{ paginator.num_pages }}
+  {% else %}
+    Aucun résultat
+  {% endif %}
+{% endspaceless %}{% endblock%}
 
 {% block header %}
   {% include "editorial/header.html" with dark=True %}
@@ -30,8 +36,23 @@
 
   <section class="pt-2" id="results">
     {% if paginator.count == 0 %}
-    <div class="alert alert-info">
-      Il n'y a pas de résultat correspondant à votre recherche.
+    <div class="alert alert-info" role="alert" aria-live="assertive">
+      <i aria-hidden="true" class="icon icon-warning"></i>
+      Il n'y a pas de résultat correspondant à votre recherche <strong>{{ what }} {{ where }}</strong>.
+    </div>
+    <div class="alert" role="alert" aria-live="assertive">
+      <p>
+        <i aria-hidden="true" class="icon icon-bulb"></i>
+        Vous pouvez cependant :
+      </p>
+      <ul>
+        {% if commune %}
+        <li><a href="{% url "search" %}?where={{ commune }}&code={{ commune.code_insee }}">Afficher la liste de tous les établissements situés à {{ commune }}</a></li>
+        <li><a href="{% url "search" %}?where={{ commune.nom }}&lat={{ commune.geom.y }}&lon={{ commune.geom.x }}">Afficher les établissements situés dans un rayon de {{ MAP_SEARCH_RADIUS_KM }} kilomètres autour {{ commune|preposition_nom }}</a></li>
+        {% endif %}
+        <li><a href="{% url "contrib_start" %}{% if commune %}?code_insee={{ commune.code_insee }}{% endif %}">Ajouter un établissement manquant{% if commune %} à {{ commune }}{% endif %}</a></li>
+        <li><a href="{% url "contact_form" %}">Nous contacter pour obtenir de l'aide ou nous signaler un problème</a></li>
+      </ul>
     </div>
     {% elif pager %}
     <div class="row mt-2">
