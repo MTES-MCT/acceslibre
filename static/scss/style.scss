@@ -503,11 +503,20 @@ $viewport-xl: 1200px;
     }
 
     @media screen and (min-width: $viewport-xl) {
-      .where-field {
-        padding-right: 8px;
+      input[name=what] {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        &:focus {
+          z-index: 100000;
+        }
       }
-      .what-field {
-        padding-left: 8px;
+      input[name=where] {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 0;
+        &:focus {
+          z-index: 100000;
+        }
       }
     }
   }
