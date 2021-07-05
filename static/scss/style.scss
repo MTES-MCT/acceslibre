@@ -25,6 +25,15 @@ $viewport-xl: 1200px;
 // App specific styles
 
 .a4a {
+  // Ensure sticky footer
+  // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &-footer {
+    margin-top: auto;
+  }
   &-bg-home {
     background-position: center;
     background-size: cover;
