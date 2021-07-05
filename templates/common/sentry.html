@@ -10,9 +10,6 @@
       environment: "{% if STAGING %}recette{% else %}production{% endif %}",
       integrations: [new Integrations.BrowserTracing()],
     });
-    Sentry.configureScope(function(scope) {
-      {% if user.is_authenticated %}scope.setUser({ username: "{{ user.username }}" }){% endif %}
-    });
   })(window.Sentry, window.SentryIntegrations);
   </script>
   <!-- End Sentry Code -->
