@@ -70,7 +70,7 @@ function SearchWhere(root) {
         } else {
           setSearchData(loc);
           setSearchValue(`${AROUND_ME} ${loc.label}`);
-          input.form.querySelector("[name=what]").focus();
+          input.form.querySelector("button[type=submit]").focus();
         }
       } else {
         setSearchData(null);
