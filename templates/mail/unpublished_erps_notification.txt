@@ -1,11 +1,13 @@
 {% autoescape off %}Bonjour {{ user.username }},
 
-Vous avez commencé à saisir la fiche {{erp.nom}} ({{ SITE_ROOT_URL }}{{ erp.get_absolute_url }}) sur le site Acceslibre, mais ne l'avez pas encore publié.
+Vous avez commencé à saisir une ou plusieurs fiches sur {{ SITE_NAME.title }}, mais ne les avez pas encore publié.
 Chaque information est précieuse. N'hésitez pas à publier une fiche, même si celle-ci est incomplète.
-
-Souhaitez vous publier cette fiche maintenant ?
- -> Je publie ma fiche: {{ SITE_ROOT_URL }}/contrib/publication/{{erp.slug}}/
-
+{% for erp in erps %}
+- {% if erp.activite %}{{erp.activite.nom }}: {% endif %}{{ erp.nom }}, {{ erp.commune }}
+  -> Je publie ma fiche: {{ SITE_ROOT_URL }}{% url "contrib_publication" erp_slug=erp.slug %}
+{% endfor %}
+Vous pouvez retrouver l'ensemble de vos fiches en attente de publication à cette adresse :
+{{ SITE_ROOT_URL }}{% url "mes_erps" %}?published=0
 
 ** Pour ne plus recevoir ce type d'emails, cliquez ici: {{ SITE_ROOT_URL }}{% url "mes_preferences" %}
 
