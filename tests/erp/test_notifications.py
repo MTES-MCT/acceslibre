@@ -42,7 +42,7 @@ def test_get_notification_on7days(unpublished_erp, data):
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
     assert notifs[0]["user"] == data.niko
-    assert unpublished_erp in notifs[0]["erps"]
+    assert notifs[0]["erps"] == [unpublished_erp]
 
 
 def test_get_notification_before7days(unpublished_erp, data):
@@ -65,7 +65,7 @@ def test_get_notification_after14days(unpublished_erp, data):
 
     assert len(notifs) == 1
     assert notifs[0]["user"] == data.niko
-    assert unpublished_erp in notifs[0]["erps"]
+    assert notifs[0]["erps"] == [unpublished_erp]
 
 
 def test_notification_unpublished_erp_command(unpublished_erp, data):
@@ -78,7 +78,6 @@ def test_notification_unpublished_erp_command(unpublished_erp, data):
     assert mail.outbox[0].to == [data.niko.email]
     assert "Des établissements sont en attente de publication" in mail.outbox[0].subject
     assert "Boulangerie: Croissants chauds, Jacou (34)" in mail.outbox[0].body
-    # FIXME: check for mail urls instead of abs url
     assert reverse("mes_preferences") in mail.outbox[0].body
     assert (
         reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug})
