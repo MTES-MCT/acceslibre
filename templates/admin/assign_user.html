@@ -6,10 +6,10 @@
 
   <p>Sélectionnez un utilisateur à attribuer aux ERP sélectionnés :</p>
 
-  <select name="user">
+  <select name="new_owner_id">
     {% for user in users %}
       <option value="{{ user.pk }}"
-        {% if target_user_id == user.pk %}selected="selected"{% endif %}>
+        {% if current_user_id == user.pk %}selected="selected"{% endif %}>
         {{ user.username }}
       </option>
     {% endfor %}
