@@ -38,6 +38,10 @@ MAP_SEARCH_RADIUS_KM = 10
 # Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
 MAPBOX_TOKEN = "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
 
+# Notifications
+# number of days to send a ping notification after an erp is created but not published
+UNPUBLISHED_ERP_NOTIF_DAYS = 7
+
 # Mattermost hook
 MATTERMOST_HOOK = get_env_variable("MATTERMOST_HOOK", required=False)
 

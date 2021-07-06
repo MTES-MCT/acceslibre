@@ -1,16 +1,18 @@
-from datetime import datetime, timezone, timedelta
-
 import pytest
+
+from datetime import timedelta
+from requests import Response
+
 from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import mail
 from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
-from requests import Response
+from django.utils import timezone
 
-from erp.models import Erp, Accessibilite, Activite
 from erp.management.commands.notify_unpublished_erps import Command
+from erp.models import Erp, Accessibilite, Activite
 
 
 @pytest.fixture
@@ -19,16 +21,11 @@ def client() -> Client:
 
 
 @pytest.fixture
-def activite_boulangerie(db) -> Activite:
-    return Activite.objects.create(nom="Boulangerie")
-
-
-@pytest.fixture
 def unpublished_erp(data) -> Erp:
     erp = Erp.objects.create(
-        nom="Boulangerie",
+        nom="Croissants chauds",
         activite=data.boulangerie,
-        geom=Point(6.09523, 46.27591),
+        geom=Point(6.09523, 46.27591, srid=4326),
         published=False,
         commune=data.jacou,
         user=data.niko,
@@ -39,49 +36,54 @@ def unpublished_erp(data) -> Erp:
 
 
 def test_get_notification_on7days(unpublished_erp, data):
-    futur = datetime.now(timezone.utc) + timedelta(days=7)
+    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
     notifs = Command(now=futur).get_notifications()
 
     assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
-    assert (notifs[0].user, notifs[0]) == (data.niko, unpublished_erp)
+    assert notifs[0]["user"] == data.niko
+    assert unpublished_erp in notifs[0]["erps"]
 
 
 def test_get_notification_before7days(unpublished_erp, data):
-    futur = datetime.now(timezone.utc) + timedelta(days=6)
+    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS - 1)
     notifs = Command(now=futur).get_notifications()
 
     assert len(notifs) == 0
 
 
 def test_get_notification_after7days(unpublished_erp, data):
-    futur = datetime.now(timezone.utc) + timedelta(days=10)
+    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS + 3)
     notifs = Command(now=futur).get_notifications()
 
     assert len(notifs) == 0
 
 
 def test_get_notification_after14days(unpublished_erp, data):
-    futur = datetime.now(timezone.utc) + timedelta(days=14)
+    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS * 2)
     notifs = Command(now=futur).get_notifications()
 
     assert len(notifs) == 1
-    assert (notifs[0].user, notifs[0]) == (data.niko, unpublished_erp)
+    assert notifs[0]["user"] == data.niko
+    assert unpublished_erp in notifs[0]["erps"]
 
 
 def test_notification_unpublished_erp_command(unpublished_erp, data):
-    futur = datetime.now(timezone.utc) + timedelta(days=7)
+    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
     notify_unpublished_erps = Command(now=futur)
-    unsubscribe_url = reverse("mes_preferences")
 
     call_command(notify_unpublished_erps)
 
     assert len(mail.outbox) == 1
     assert mail.outbox[0].to == [data.niko.email]
-    assert "Rappel: publiez votre ERP !" in mail.outbox[0].subject
-    assert "Chaque information est précieuse" in mail.outbox[0].body
-    assert unpublished_erp.get_absolute_url() in mail.outbox[0].body
-    assert f"{settings.SITE_ROOT_URL}{unsubscribe_url}" in mail.outbox[0].body
+    assert "Des établissements sont en attente de publication" in mail.outbox[0].subject
+    assert "Boulangerie: Croissants chauds, Jacou (34)" in mail.outbox[0].body
+    # FIXME: check for mail urls instead of abs url
+    assert reverse("mes_preferences") in mail.outbox[0].body
+    assert (
+        reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug})
+        in mail.outbox[0].body
+    )
 
 
 def test_notifications_default_settings(data):
@@ -92,9 +94,7 @@ def test_notifications_edit_settings(client, data):
     client.force_login(data.niko)
     response: Response = client.post(
         reverse("mes_preferences"),
-        {
-            "notify_on_unpublished_erps": False,
-        },
+        {"notify_on_unpublished_erps": False},
         follow=True,
     )
 
