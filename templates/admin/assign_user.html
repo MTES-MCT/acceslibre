@@ -8,7 +8,10 @@
 
   <select name="user">
     {% for user in users %}
-      <option value="{{ user.pk }}">{{ user.username }}</option>
+      <option value="{{ user.pk }}"
+        {% if target_user_id == user.pk %}selected="selected"{% endif %}>
+        {{ user.username }}
+      </option>
     {% endfor %}
   </select>
 
