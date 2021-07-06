@@ -3,6 +3,7 @@ import schedule
 import time
 import traceback
 
+from django.conf import settings
 from django.core.management import call_command, CommandError
 from django.core.management.base import BaseCommand
 
@@ -27,9 +28,11 @@ class Command(BaseCommand):
         schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
         schedule.every().hour.do(call_command, "import_dataset", "vaccination")
         schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
-        schedule.every().day.at("09:30").do(call_command, "notify_unpublished_erps")
         # Keep revisions from last 30 days and at least 20 from older changes
         schedule.every().day.do(call_command, "deleterevisions", keep=20, days=30)
+        # env-dependant tasks
+        if not settings.STAGING:
+            schedule.every().day.at("09:30").do(call_command, "notify_unpublished_erps")
 
     def start(self):
         print("Scheduler started")
