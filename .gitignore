@@ -12,7 +12,6 @@ coverage/
 dist/*
 static/dist/
 process.yml
-acceslibre.csv
 
 !dist/index.html
 node_modules/
@@ -26,3 +25,8 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Dump bdd
+*.pgsql
+*.tar.gz
+*.tar
