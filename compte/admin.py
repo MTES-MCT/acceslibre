@@ -3,8 +3,6 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.db.models import Count, Q
 
-from erp.models import Erp
-
 
 class CustomUserAdmin(UserAdmin):
     ordering = (
@@ -20,27 +18,17 @@ class CustomUserAdmin(UserAdmin):
         "get_erp_count_published",
         "get_erp_count_total",
         "get_vote_count",
-        "get_rev_count",
     )
     list_per_page = 20
 
     def get_erp_count_published(self, obj):
-        # triggering one Erp count query per user because of performance
-        # sometimes many fast sql queries are better than a large & slow one
-        return Erp.objects.filter(
-            user=obj,
-            published=True,
-            accessibilite__isnull=False,
-            geom__isnull=False,
-        ).count()
+        return obj.erp_count_published
 
     get_erp_count_published.short_description = "Pub. ERP"
     get_erp_count_published.admin_order_field = "erp_count_published"
 
     def get_erp_count_total(self, obj):
-        # triggering one Erp count query per user because of performance
-        # sometimes many fast sql queries are better than a large & slow one
-        return Erp.objects.filter(user=obj).count()
+        return obj.erp_count_total
 
     get_erp_count_total.short_description = "Tot. ERP"
     get_erp_count_total.admin_order_field = "erp_count_total"
@@ -51,19 +39,12 @@ class CustomUserAdmin(UserAdmin):
     get_vote_count.short_description = "Votes"
     get_vote_count.admin_order_field = "vote_count"
 
-    def get_rev_count(self, obj):
-        return obj.rev_count
-
-    get_rev_count.short_description = "Rev"
-    get_rev_count.admin_order_field = "rev_count"
-
     def get_queryset(self, request):
         return (
             super()
             .get_queryset(request)
             .annotate(vote_count=Count("vote", distinct=True))
-            .annotate(rev_count=Count("revision", distinct=True))
-            .annotate(erp_count_total=Count("erp"))
+            .annotate(erp_count_total=Count("erp", distinct=True))
             .annotate(
                 erp_count_published=Count(
                     "erp",
@@ -72,6 +53,7 @@ class CustomUserAdmin(UserAdmin):
                         erp__accessibilite__isnull=False,
                         erp__geom__isnull=False,
                     ),
+                    distinct=True,
                 )
             )
         )

@@ -1,10 +1,10 @@
 import logging
-from datetime import datetime, timezone, timedelta
-from typing import List
+
+from datetime import timedelta
 
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
+from django.utils import timezone
 
 from core import mailer, mattermost
 from erp.models import Erp
@@ -13,10 +13,10 @@ logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    now = datetime.now(timezone.utc)
+    now = timezone.now()
     help = (
-        "Envoie une notification de rappel aux utilisateurs ayant commencé le remplissage d'une fiche sans la "
-        "publier"
+        "Envoie une notification de rappel aux utilisateurs ayant commencé le "
+        "remplissage d'une fiche sans la publier"
     )
 
     def __init__(self, *args, **kwargs):
@@ -24,13 +24,6 @@ class Command(BaseCommand):
             self.now = kwargs["now"]
             del kwargs["now"]
         super().__init__(*args, **kwargs)
-
-    def add_arguments(self, parser):
-        parser.add_argument(
-            "--verbose",
-            action="store_true",
-            help="Afficher les erreurs",
-        )
 
     def handle(self, *args, **options):
         notifications = self.get_notifications()
@@ -45,39 +38,34 @@ class Command(BaseCommand):
                 tags=[__name__],
             )
 
+    def get_notifications(self):
+        notifications = {}
+        since = self.now - timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS)
+        erps = Erp.objects.select_related("user", "commune_ext").filter(
+            published=False,
+            user__isnull=False,
+            user__is_active=True,
+            user__preferences__notify_on_unpublished_erps=True,
+            updated_at__lte=since,
+        )
+        for erp in erps:
+            erp_updated_since_days = (self.now - erp.updated_at).days
+            if erp_updated_since_days % settings.UNPUBLISHED_ERP_NOTIF_DAYS == 0:
+                if erp.user.pk not in notifications:
+                    notifications[erp.user.pk] = {"user": erp.user, "erps": []}
+                notifications[erp.user.pk]["erps"].append(erp)
+        return [n for _, n in notifications.items() if len(n["erps"]) > 0]
+
     def send_notification(self, notification):
-        recipient, erp = notification.user, notification
+        user, erps = notification["user"], notification["erps"]
         return mailer.send_email(
-            [recipient.email],
-            f"[{settings.SITE_NAME}] Rappel: publiez votre ERP !",
+            [user.email],
+            f"[{settings.SITE_NAME}] Des établissements sont en attente de publication",
             "mail/unpublished_erps_notification.txt",
             {
-                "user": recipient,
-                "erp": erp,
+                "user": user,
+                "erps": erps,
                 "SITE_NAME": settings.SITE_NAME,
                 "SITE_ROOT_URL": settings.SITE_ROOT_URL,
             },
         )
-
-    def get_notifications(self):
-        notifications = []
-        erps: List[Erp] = Erp.objects.filter(
-            published=False,
-            updated_at__lte=self.now - timedelta(days=7),
-            user__isnull=False,
-        )
-
-        for erp in erps:
-            try:
-                if self._should_notify(erp.user) and self._due_time(erp):
-                    notifications.append(erp)
-            except User.DoesNotExist:
-                continue
-
-        return notifications
-
-    def _should_notify(self, user):
-        return user.preferences.get().notify_on_unpublished_erps is True
-
-    def _due_time(self, erp):
-        return (self.now - erp.updated_at).days % 7 == 0

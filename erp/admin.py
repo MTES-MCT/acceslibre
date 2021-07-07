@@ -301,18 +301,22 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     assign_activite.short_description = "Assigner une nouvelle catégorie"
 
     def assign_user(self, request, queryset):
+        current_user_id = int(request.GET.get("user"))
         if "apply" in request.POST:
             try:
-                count = queryset.update(user_id=int(request.POST["user"]))
-                self.message_user(request, f"{count} ERP ont été modifiés.")
-            except (KeyError, TypeError):
-                pass
+                new_owner_id = request.POST.get("new_owner_id")
+                erp_pks = [int(pk) for pk in request.POST.getlist("_selected_action")]
+                update_qs = Erp.objects.filter(pk__in=erp_pks)
+                updated = update_qs.update(user_id=new_owner_id)
+                self.message_user(request, f"{updated} ERP ont été modifiés.")
+            except (KeyError, TypeError, ValueError) as err:
+                raise RuntimeError(f"Unable to batch update ERP ownership: {err}")
             return HttpResponseRedirect(request.get_full_path())
-
         return render(
             request,
             "admin/assign_user.html",
             context={
+                "current_user_id": current_user_id,
                 "erps": queryset,
                 "users": User.objects.order_by("username"),
             },
