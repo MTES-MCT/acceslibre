@@ -79,6 +79,7 @@ def test_get_help_text():
         ("accueil_cheminement_nombre_marches", 0, "0"),
         ("cheminement_ext_devers", "important", "Important"),
         ("labels", ["dpt", "th"], "Destination pour Tous, Tourisme & Handicap"),
+        ("labels", [], "Vide"),
     ],
 )
 def test_get_human_readable_value_ok(field, value, expected):
