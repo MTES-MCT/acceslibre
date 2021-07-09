@@ -1291,7 +1291,10 @@ def get_a11y_fields():
 
 
 def get_field_choices(field):
-    return FIELDS.get(field).get("choices")
+    try:
+        return FIELDS.get(field).get("choices")
+    except AttributeError:
+        return None
 
 
 def get_human_readable_value(field, value):

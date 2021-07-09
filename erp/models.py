@@ -45,9 +45,6 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
             entry["label"] = schema.get_label(entry["field"], entry["field"])
             entry["old"] = schema.get_human_readable_value(entry["field"], entry["old"])
             entry["new"] = schema.get_human_readable_value(entry["field"], entry["new"])
-
-
-
         history.append(
             {
                 "user": version.revision.user,
