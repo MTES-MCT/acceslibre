@@ -69,6 +69,20 @@ def test_get_help_text():
     assert result == "yolo"
 
 
+@pytest.mark.parametrize(
+    "value, expected",
+    [
+        ("", ""),
+        ("abcdef", "abcdef"),
+        ("ce bel été", "ce bel ete"),
+        ("ôÖ", "oO"),
+        ("À@äùéèïî", "A@aueeii"),
+    ],
+)
+def test_get_human_readable_value(value, expected):
+    pass
+
+
 def test_get_section_fields():
     result = schema.get_section_fields(schema.SECTION_ENTREE)
     assert type(result) == list

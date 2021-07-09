@@ -22,6 +22,26 @@ def contains_sequence_any(tests, source):
     return any(contains_sequence(test, source) for test in tests)
 
 
+def humanize_value(value):
+    """
+    Get python value and returns a human readable version of it.
+    """
+    if value is None:
+        return "Vide"
+    elif value is True:
+        return "Oui"
+    elif value is False:
+        return "Non"
+    elif isinstance(value, (int, float)):
+        return str(value)
+    elif isinstance(value, str):
+        return value
+    elif isinstance(value, (list, tuple)) and all([isinstance(x, str) for x in value]):
+        return ", ".join(value)
+
+    raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
+
+
 def normalize_nom(nom):
     parts = map(
         lambda x: x.title() if x not in FRENCH_STOPWORDS else x,

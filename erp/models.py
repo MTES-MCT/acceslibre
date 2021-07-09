@@ -313,7 +313,7 @@ class Vote(models.Model):
     ],
 )
 class Erp(models.Model):
-    HISTORY_MAX_LATEST_ITEMS = 25
+    HISTORY_MAX_LATEST_ITEMS = 25 # Fix me : move to settings
 
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
@@ -661,7 +661,7 @@ class Erp(models.Model):
     def departement(self):
         return self.code_postal[:2]
 
-    def clean(self):
+    def clean(self): # Fix me : move to form (abstract)
         # Code postal
         if self.code_postal and len(self.code_postal) != 5:
             raise ValidationError(

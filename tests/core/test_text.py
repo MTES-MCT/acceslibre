@@ -40,6 +40,30 @@ def test_contains_sequence_any():
     assert text.contains_sequence_any(["foo", "nope"], "föo bâr bÄz") is True
     assert text.contains_sequence_any(["nope", "nope"], "föo bâr bÄz") is False
 
+@pytest.mark.parametrize(
+    "value, expected",
+    [
+        (True, "Oui"),
+        (False, "abcdef"),
+        ("ce bel été", "ce bel ete"),
+        ("ôÖ", "oO"),
+        ("À@äùéèïî", "A@aueeii"),
+    ],
+)
+def test_humanize_value(value, expected):
+    assert text.humanize_value(True) == "Oui"
+    assert text.humanize_value(False) == "Non"
+    assert text.humanize_value(None) == "Vide"
+    assert text.humanize_value(1) == "1"
+    assert text.humanize_value(0) == "0"
+    assert text.humanize_value(0.2) == "0.2"
+    assert text.humanize_value("dpt") == "dpt"
+    assert text.humanize_value(["dpt", "dpt"]) == "dpt, dpt"
+    with pytest.raises(NotImplementedError):
+        assert text.humanize_value(["dpt", True, 12])
+    with pytest.raises(NotImplementedError):
+        assert text.humanize_value({'for': 'bar'})
+
 
 @pytest.mark.parametrize(
     "value, expected",
