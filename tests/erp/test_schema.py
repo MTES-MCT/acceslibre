@@ -72,18 +72,17 @@ def test_get_help_text():
 @pytest.mark.parametrize(
     "field, value, expected",
     [
-        ('sanitaires_presence', True, "Oui"),
-        ('sanitaires_presence', False, "Non"),
-        ('sanitaires_presence', None, "Inconnu"),
-        ('accueil_cheminement_nombre_marches', 1, "1"),
-        ('accueil_cheminement_nombre_marches', 0, "0"),
-        ('cheminement_ext_devers', "important", "Important"),
-        ('labels', ["dpt", "th"], "Destination pour Tous, Tourisme & Handicap"),
+        ("sanitaires_presence", True, "Oui"),
+        ("sanitaires_presence", False, "Non"),
+        ("sanitaires_presence", None, "Inconnu"),
+        ("accueil_cheminement_nombre_marches", 1, "1"),
+        ("accueil_cheminement_nombre_marches", 0, "0"),
+        ("cheminement_ext_devers", "important", "Important"),
+        ("labels", ["dpt", "th"], "Destination pour Tous, Tourisme & Handicap"),
     ],
 )
 def test_get_human_readable_value_ok(field, value, expected):
     assert schema.get_human_readable_value(field, value) == expected
-
 
 
 def test_get_section_fields():

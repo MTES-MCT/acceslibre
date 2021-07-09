@@ -22,11 +22,19 @@ def contains_sequence_any(tests, source):
     return any(contains_sequence(test, source) for test in tests)
 
 
-def humanize_value(value):
+def humanize_value(value, choices=None):
     """
     Get python value and returns a human readable version of it.
     """
-    if value is None:
+    if choices:
+        if not isinstance(value, (tuple, list)):
+            value = [value]
+        return ", ".join(dict(choices).get(v) for v in value)
+    elif isinstance(value, (tuple, list)):
+        return ", ".join(value)
+    elif isinstance(value, str):
+        return value
+    elif value is None:
         return "Vide"
     elif value is True:
         return "Oui"
@@ -34,11 +42,6 @@ def humanize_value(value):
         return "Non"
     elif isinstance(value, (int, float)):
         return str(value)
-    elif isinstance(value, str):
-        return value
-    elif isinstance(value, (list, tuple)) and all([isinstance(x, str) for x in value]):
-        return ", ".join(value)
-
     raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
 
 

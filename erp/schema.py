@@ -1203,6 +1203,7 @@ FIELDS = {
 
 # Fix me : write additional documentation
 
+
 def get_api_fieldsets():
     # {"id_section": {
     #   "label": "Nom de la section",
@@ -1289,17 +1290,15 @@ def get_a11y_fields():
     return [key for (key, val) in FIELDS.items() if val.get("is_a11y") is True]
 
 
+def get_field_choices(field):
+    return FIELDS.get(field).get("choices")
+
+
 def get_human_readable_value(field, value):
     """
     returns : (str) human readable value for this field.
     """
-    choices = FIELDS.get(field).get("choices")
-    if not choices:
-        return text.humanize_value(value)
-
-    value_ = value if isinstance(value, (list, tuple)) else [value]
-    print('value', value)
-    return text.humanize_value(value_)
+    return text.humanize_value(value, choices=get_field_choices(field))
 
 
 def get_labels():
