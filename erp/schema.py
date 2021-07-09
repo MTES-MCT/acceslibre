@@ -1296,7 +1296,10 @@ def get_human_readable_value(field, value):
     choices = FIELDS.get(field).get("choices")
     if not choices:
         return text.humanize_value(value)
-    return text.humanize_value(dict(choices).get(value))
+
+    value_ = value if isinstance(value, (list, tuple)) else [value]
+    print('value', value)
+    return text.humanize_value(value_)
 
 
 def get_labels():
