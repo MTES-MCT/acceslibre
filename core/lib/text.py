@@ -28,14 +28,14 @@ def humanize_value(value, choices=None):
     """
     Get python value and returns a human readable version of it.
     """
+    _humanize_empty_label = lambda x: "Vide" if len(x) == 0 else x
     if choices and (isinstance(value, (bool, str, tuple, list)) or value is None):
-        if not isinstance(value, (tuple, list)):
-            value = [value]
-        return ", ".join(dict(choices).get(v) for v in value)
+        value = [value] if not isinstance(value, (tuple, list)) else value
+        return _humanize_empty_label(", ".join(dict(choices).get(v) for v in value))
     elif isinstance(value, (tuple, list)):
-        return ", ".join(value)
+        return _humanize_empty_label(", ".join(value))
     elif isinstance(value, str):
-        return value
+        return _humanize_empty_label(value)
     elif isinstance(value, Point):
         return "%.4f, %.4f" % (value.y, value.x)
     elif value is None:
