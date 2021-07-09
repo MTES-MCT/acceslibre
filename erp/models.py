@@ -40,23 +40,26 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     current_fields_dict = {}
     for version in versions:
         diff = diffutils.dict_diff_keys(current_fields_dict, version.field_dict)
-
+        final_diff = []
         for entry in diff:
             entry["label"] = schema.get_label(entry["field"], entry["field"])
             entry["old"] = schema.get_human_readable_value(entry["field"], entry["old"])
             entry["new"] = schema.get_human_readable_value(entry["field"], entry["new"])
-        history.append(
-            {
-                "user": version.revision.user,
-                "date": version.revision.date_created,
-                "comment": version.revision.get_comment(),
-                "diff": [
-                    entry for entry in diff if entry["field"] not in exclude_fields
-                ],
-            }
-        )
+            if entry['old'] != entry['new']:
+                final_diff.append(entry)
+        if final_diff:
+            history.insert(
+                0,
+                {
+                    "user": version.revision.user,
+                    "date": version.revision.date_created,
+                    "comment": version.revision.get_comment(),
+                    "diff": [
+                        entry for entry in final_diff if entry["field"] not in exclude_fields
+                    ],
+                }
+            )
         current_fields_dict = version.field_dict
-    history.reverse()
     history = list(filter(lambda x: x["diff"] != [], history))
     if exclude_changes_from:
         history = [entry for entry in history if entry["user"] != exclude_changes_from]
