@@ -37,7 +37,7 @@ def humanize_value(value, choices=None):
     elif isinstance(value, str):
         return value
     elif isinstance(value, Point):
-        return f"{value.y:.5}, {value.x:.5}"
+        return "%.4f, %.4f" % (value.y, value.x)
     elif value is None:
         return "Vide"
     elif value is True:

@@ -57,7 +57,7 @@ def test_contains_sequence_any():
         (True, "Oui", [(True, "Oui"), (False, "Non")]),
         ("dpt", "DPT", [("dpt", "DPT"), ("foo", "Foo")]),
         (["foo", "bar"], "FOO, BAR", [("foo", "FOO"), ("bar", "BAR")]),
-        (Point(x=1.2345678, y=2.3456789), "2.3457, 1.2346", None),
+        (Point(x=5.2607112131234, y=45.9110012214), "45.9110, 5.2607", None),
     ],
 )
 def test_humanize_value_ok(value, expected, choices):
