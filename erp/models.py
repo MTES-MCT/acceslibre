@@ -30,13 +30,24 @@ models.CharField.register_lookup(Lower)
 
 
 def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
+    """
+    param versions : Queryset de django_reversion.Version
+
+    return history : Liste de dict.
+    """
     exclude_fields = exclude_fields if exclude_fields is not None else ()
     history = []
     current_fields_dict = {}
     for version in versions:
         diff = diffutils.dict_diff_keys(current_fields_dict, version.field_dict)
+
         for entry in diff:
             entry["label"] = schema.get_label(entry["field"], entry["field"])
+            entry["old"] = schema.get_human_readable_value(entry["field"], entry["old"])
+            entry["new"] = schema.get_human_readable_value(entry["field"], entry["new"])
+
+
+
         history.append(
             {
                 "user": version.revision.user,
