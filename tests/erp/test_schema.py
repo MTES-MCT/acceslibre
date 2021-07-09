@@ -85,6 +85,11 @@ def test_get_human_readable_value_ok(field, value, expected):
     assert schema.get_human_readable_value(field, value) == expected
 
 
+def test_get_human_readable_value_ko():
+    with pytest.raises(NotImplementedError):
+        schema.get_human_readable_value("sanitaires_presence", {})
+
+
 def test_get_section_fields():
     result = schema.get_section_fields(schema.SECTION_ENTREE)
     assert type(result) == list

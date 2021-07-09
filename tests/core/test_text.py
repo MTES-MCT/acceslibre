@@ -1,5 +1,7 @@
 import pytest
 
+from django.contrib.gis.geos import Point
+
 from core.lib import text
 
 
@@ -42,25 +44,27 @@ def test_contains_sequence_any():
 
 
 @pytest.mark.parametrize(
-    "value, expected",
+    "value, expected, choices",
     [
-        (True, "Oui"),
-        (False, "Non"),
-        (None, "Vide"),
-        (1, "1"),
-        (0, "0"),
-        (0.2, "0.2"),
-        ("dpt", "dpt"),
-        (["dpt", "dpt"], "dpt, dpt"),
+        (True, "Oui", None),
+        (False, "Non", None),
+        (None, "Vide", None),
+        (1, "1", None),
+        (0, "0", None),
+        (0.2, "0.2", None),
+        ("dpt", "dpt", None),
+        (["dpt", "dpt"], "dpt, dpt", None),
+        (True, "Oui", [(True, "Oui"), (False, "Non")]),
+        ("dpt", "DPT", [("dpt", "DPT"), ("foo", "Foo")]),
+        (["foo", "bar"], "FOO, BAR", [("foo", "FOO"), ("bar", "BAR")]),
+        (Point(x=1.2345678, y=2.3456789), "2.3457, 1.2346", None),
     ],
 )
-def test_humanize_value_ok(value, expected):
-    assert text.humanize_value(value) == expected
+def test_humanize_value_ok(value, expected, choices):
+    assert text.humanize_value(value, choices=choices) == expected
 
 
 def test_humanize_value_ko():
-    with pytest.raises(NotImplementedError):
-        assert text.humanize_value(["dpt", True, 12])
     with pytest.raises(NotImplementedError):
         assert text.humanize_value({"for": "bar"})
 

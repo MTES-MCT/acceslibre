@@ -2,6 +2,8 @@ import random
 import string
 import unicodedata
 
+from django.contrib.gis.geos import Point
+
 
 FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
 
@@ -26,7 +28,7 @@ def humanize_value(value, choices=None):
     """
     Get python value and returns a human readable version of it.
     """
-    if choices:
+    if choices and (isinstance(value, (bool, str, tuple, list)) or value is None):
         if not isinstance(value, (tuple, list)):
             value = [value]
         return ", ".join(dict(choices).get(v) for v in value)
@@ -34,6 +36,8 @@ def humanize_value(value, choices=None):
         return ", ".join(value)
     elif isinstance(value, str):
         return value
+    elif isinstance(value, Point):
+        return f"{value.y:.5}, {value.x:.5}"
     elif value is None:
         return "Vide"
     elif value is True:
