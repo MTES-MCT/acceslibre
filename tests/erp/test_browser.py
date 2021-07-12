@@ -885,14 +885,14 @@ def test_accessibilite_history(data, client):
         {
             "field": "sanitaires_presence",
             "label": "Sanitaires",
-            "new": False,
-            "old": True,
+            "new": "Non",
+            "old": "Oui",
         },
         {
             "field": "sanitaires_adaptes",
             "label": "Sanitaires adaptés",
-            "new": None,
-            "old": 1,
+            "new": "Vide",
+            "old": "1",
         },
     ]
 

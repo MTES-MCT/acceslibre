@@ -30,6 +30,7 @@ class Command(BaseCommand):
         # Keep revisions from last 30 days and at least 20 from older changes
         schedule.every().day.do(call_command, "deleterevisions", keep=20, days=30)
         # Do NOT periodically notify people from staging, because that would confuse them A LOT
+        # Fix me : replace by kill switch
         if not settings.STAGING:
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
             schedule.every().day.at("09:30").do(call_command, "notify_unpublished_erps")
