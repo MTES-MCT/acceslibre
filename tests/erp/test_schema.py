@@ -69,6 +69,28 @@ def test_get_help_text():
     assert result == "yolo"
 
 
+@pytest.mark.parametrize(
+    "field, value, expected",
+    [
+        ("sanitaires_presence", True, "Oui"),
+        ("sanitaires_presence", False, "Non"),
+        ("sanitaires_presence", None, "Inconnu"),
+        ("accueil_cheminement_nombre_marches", 1, "1"),
+        ("accueil_cheminement_nombre_marches", 0, "0"),
+        ("cheminement_ext_devers", "important", "Important"),
+        ("labels", ["dpt", "th"], "Destination pour Tous, Tourisme & Handicap"),
+        ("labels", [], "Vide"),
+    ],
+)
+def test_get_human_readable_value_ok(field, value, expected):
+    assert schema.get_human_readable_value(field, value) == expected
+
+
+def test_get_human_readable_value_ko():
+    with pytest.raises(NotImplementedError):
+        schema.get_human_readable_value("sanitaires_presence", {})
+
+
 def test_get_section_fields():
     result = schema.get_section_fields(schema.SECTION_ENTREE)
     assert type(result) == list

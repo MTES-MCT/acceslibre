@@ -162,7 +162,7 @@ def test_notification_accessibilite(client, data, mocker):
     assert "niko erp" in mail.outbox[0].body
     assert "34830 Jacou" in mail.outbox[0].body
     assert "sophie a mis à jour les informations suivantes" in mail.outbox[0].body
-    assert 'Sanitaires: "True" devient "False"' in mail.outbox[0].body
+    assert 'Sanitaires: "Oui" devient "Non"' in mail.outbox[0].body
     assert 'Sanitaires adaptés: "1" devient "0"' in mail.outbox[0].body
     assert updated_acc.erp.get_absolute_url() in mail.outbox[0].body
 
