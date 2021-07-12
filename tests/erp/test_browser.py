@@ -1,4 +1,5 @@
 import pytest
+import reversion
 
 from datetime import date
 
@@ -885,16 +886,34 @@ def test_accessibilite_history(data, client):
         {
             "field": "sanitaires_presence",
             "label": "Sanitaires",
-            "new": False,
-            "old": True,
+            "new": "Non",
+            "old": "Oui",
         },
         {
             "field": "sanitaires_adaptes",
             "label": "Sanitaires adaptés",
-            "new": None,
-            "old": 1,
+            "new": "Vide",
+            "old": "1",
         },
     ]
+
+
+def test_accessibilite_history_metadata(data, client):
+    with reversion.create_revision():
+        data.erp.metadata = {"a": 1}
+        data.erp.save()
+
+    with reversion.create_revision():
+        data.erp.metadata = {"a": 2}
+        data.erp.save()
+
+    assert 0 == len(data.erp.get_history())
+
+    with reversion.create_revision():
+        data.erp.commune = "Tourcoing"
+        data.erp.save()
+
+    assert 1 == len(data.erp.get_history())
 
 
 def test_contribution_flow_administrative_data(data, mocker, client):
