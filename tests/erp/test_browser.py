@@ -898,7 +898,7 @@ def test_accessibilite_history(data, client):
     ]
 
 
-def test_accessibilite_history_metadata(data, client):
+def test_history_metadata_not_versioned(data, client):
     with reversion.create_revision():
         data.erp.metadata = {"a": 1}
         data.erp.save()
@@ -909,11 +909,60 @@ def test_accessibilite_history_metadata(data, client):
 
     assert 0 == len(data.erp.get_history())
 
-    with reversion.create_revision():
-        data.erp.commune = "Tourcoing"
-        data.erp.save()
 
-    assert 1 == len(data.erp.get_history())
+def test_history_human_readable_diff(data, client):
+    with reversion.create_revision():
+        erp = Erp(
+            nom="test erp",
+            siret="52128577500016",
+            published=True,
+            geom=Point(0, 0),
+        )
+        erp.save()
+        accessibilite = Accessibilite(erp=erp)
+        accessibilite.save()
+
+    with reversion.create_revision():
+        erp.siret = "52128577500017"
+        erp.published = False
+        erp.geom = Point(1, 1)
+        erp.save()
+
+        erp.accessibilite.cheminement_ext_nombre_marches = 42
+        erp.accessibilite.labels = ["dpt", "th"]
+        erp.accessibilite.save()
+
+    history = erp.get_history()
+
+    assert len(history) == 2  # one entry per call to model .save()
+
+    erp_diff = history[0]["diff"]
+
+    assert len(erp_diff) == 3
+
+    def get_entry(field, diff_entries):
+        return list(filter(lambda x: x["field"] == field, diff_entries))[0]
+
+    assert get_entry("published", erp_diff)["old"] == "Oui"
+    assert get_entry("published", erp_diff)["new"] == "Non"
+
+    assert get_entry("geom", erp_diff)["old"] == "0.0000, 0.0000"
+    assert get_entry("geom", erp_diff)["new"] == "1.0000, 1.0000"
+
+    assert get_entry("siret", erp_diff)["old"] == "52128577500016"
+    assert get_entry("siret", erp_diff)["new"] == "52128577500017"
+
+    a11y_diff = history[1]["diff"]
+
+    assert len(a11y_diff) == 2
+
+    assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["old"] == "Vide"
+    assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["new"] == "42"
+    assert get_entry("labels", a11y_diff)["old"] == "Vide"
+    assert (
+        get_entry("labels", a11y_diff)["new"]
+        == "Destination pour Tous, Tourisme & Handicap"
+    )
 
 
 def test_contribution_flow_administrative_data(data, mocker, client):
