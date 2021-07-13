@@ -1,7 +1,5 @@
 from django.utils.safestring import mark_safe
 
-from core.lib import text
-
 # This module describes and handles accessibility fields data
 
 UNKNOWN = "Inconnu"
@@ -1201,8 +1199,6 @@ FIELDS = {
     },
 }
 
-# Fix me : write additional documentation
-
 
 def get_api_fieldsets():
     # {"id_section": {
@@ -1290,20 +1286,6 @@ def get_a11y_fields():
     return [key for (key, val) in FIELDS.items() if val.get("is_a11y") is True]
 
 
-def get_field_choices(field):
-    try:
-        return FIELDS.get(field).get("choices")
-    except AttributeError:
-        return None
-
-
-def get_human_readable_value(field, value):
-    """
-    returns : (str) human readable value for this field.
-    """
-    return text.humanize_value(value, choices=get_field_choices(field))
-
-
 def get_labels():
     return dict((k, v.get("label")) for (k, v) in FIELDS.items())
 
@@ -1340,9 +1322,9 @@ def get_help_text_ui_neg(field):
         return get_help_text_ui(field)
 
 
-def get_nullable_bool_fields():
-    return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]
-
-
 def get_section_fields(section_id):
     return [k for (k, v) in FIELDS.items() if v["section"] == section_id]
+
+
+def get_nullable_bool_fields():
+    return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]

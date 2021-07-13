@@ -2,8 +2,6 @@ import random
 import string
 import unicodedata
 
-from django.contrib.gis.geos import Point
-
 
 FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
 
@@ -22,31 +20,6 @@ def contains_sequence_any(tests, source):
     if not tests or not source:
         return False
     return any(contains_sequence(test, source) for test in tests)
-
-
-def humanize_value(value, choices=None):
-    """
-    Get python value and returns a human readable version of it.
-    """
-    _humanize_empty_label = lambda x: "Vide" if len(x) == 0 else x
-    if choices and (isinstance(value, (bool, str, tuple, list)) or value is None):
-        value = [value] if not isinstance(value, (tuple, list)) else value
-        return _humanize_empty_label(", ".join(dict(choices).get(v) for v in value))
-    elif isinstance(value, (tuple, list)):
-        return _humanize_empty_label(", ".join(value))
-    elif isinstance(value, str):
-        return _humanize_empty_label(value)
-    elif isinstance(value, Point):
-        return "%.4f, %.4f" % (value.y, value.x)
-    elif value is None:
-        return "Vide"
-    elif value is True:
-        return "Oui"
-    elif value is False:
-        return "Non"
-    elif isinstance(value, (int, float)):
-        return str(value)
-    raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
 
 
 def normalize_nom(nom):

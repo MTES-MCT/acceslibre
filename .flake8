@@ -1,9 +1,8 @@
 [flake8]
 ignore =
-    E231, # Space after comma
-    E501, # Line too long
-    E731, # Allow inline lambda assignments
-    W503  # Line break occurred before a binary operator
+    E231,
+    E501,
+    W503
 exclude =
     .git,
     .venv,

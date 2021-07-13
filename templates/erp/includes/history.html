@@ -19,10 +19,10 @@
         <tr>
           <td>{{ field.label }}</td>
           <td class="text-danger">
-            {{ field.old }}
+            {% include "fields/diff_value.html" with name=field.field value=field.old %}
           </td>
           <td class="text-success">
-            {{ field.new }}
+            {% include "fields/diff_value.html" with name=field.field value=field.new %}
           </td>
         </tr>
         {% endfor %}
