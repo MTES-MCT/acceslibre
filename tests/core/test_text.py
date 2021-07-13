@@ -61,6 +61,8 @@ def test_contains_sequence_any():
         ("dpt", "DPT", [("dpt", "DPT"), ("foo", "Foo")]),
         (["foo", "bar"], "FOO, BAR", [("foo", "FOO"), ("bar", "BAR")]),
         (Point(x=5.2607112131234, y=45.9110012214), "45.9110, 5.2607", None),
+        ([None, False], "Vide, Non", [(None, "Vide"), (False, "Non")]),
+        (["aucun"], "aucun", [("a", 1), ("b", 2)]),
     ],
 )
 def test_humanize_value_ok(value, expected, choices):

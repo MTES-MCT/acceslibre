@@ -24,29 +24,39 @@ def contains_sequence_any(tests, source):
     return any(contains_sequence(test, source) for test in tests)
 
 
+def _humanize_map_choices(values, choices):
+    labels = []
+    for value in values:
+        labels.append(choices.get(value) if value in choices else str(value))
+    return labels
+
+
 def humanize_value(value, choices=None):
     """
     Get python value and returns a human readable version of it.
     """
-    _humanize_empty_label = lambda x: "Vide" if len(x) == 0 else x
     if choices and (isinstance(value, (bool, str, tuple, list)) or value is None):
-        value = [value] if not isinstance(value, (tuple, list)) else value
-        return _humanize_empty_label(", ".join(dict(choices).get(v) for v in value))
-    elif isinstance(value, (tuple, list)):
-        return _humanize_empty_label(", ".join(value))
-    elif isinstance(value, str):
-        return _humanize_empty_label(value)
-    elif isinstance(value, Point):
-        return "%.4f, %.4f" % (value.y, value.x)
+        values = [value] if not isinstance(value, (tuple, list)) else value
+        _toto = _humanize_map_choices(values, dict(choices))
+        value = ", ".join(_toto) if isinstance(_toto, (list, tuple)) else _toto
     elif value is None:
-        return "Vide"
+        pass
+    elif isinstance(value, (tuple, list)):
+        value = ", ".join(value)
+    elif isinstance(value, str):
+        value = value
+    elif isinstance(value, Point):
+        value = "%.4f, %.4f" % (value.y, value.x)
     elif value is True:
-        return "Oui"
+        value = "Oui"
     elif value is False:
-        return "Non"
+        value = "Non"
     elif isinstance(value, (int, float)):
-        return str(value)
-    raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
+        value = str(value)
+    else:
+        raise NotImplementedError("Type of value isn't recognized : %s" % type(value))
+
+    return "Vide" if value in ("", None, [], ()) else value
 
 
 def normalize_nom(nom):
