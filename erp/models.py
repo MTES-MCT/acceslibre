@@ -556,7 +556,6 @@ class Erp(models.Model):
                 "uuid",
                 "source",
                 "source_id",
-                "metadata",
                 "search_vector",
             ),
             exclude_changes_from=exclude_changes_from,
