@@ -898,7 +898,7 @@ def test_accessibilite_history(data, client):
     ]
 
 
-def test_accessibilite_history_metadata_not_versioned(data, client):
+def test_history_metadata_not_versioned(data, client):
     with reversion.create_revision():
         data.erp.metadata = {"a": 1}
         data.erp.save()
@@ -910,7 +910,7 @@ def test_accessibilite_history_metadata_not_versioned(data, client):
     assert 0 == len(data.erp.get_history())
 
 
-def test_accessibilite_history_metadata_complete(data, client):
+def test_history_human_readable_diff(data, client):
     with reversion.create_revision():
         erp = Erp(
             nom="test erp",

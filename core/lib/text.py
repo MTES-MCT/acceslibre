@@ -37,8 +37,11 @@ def humanize_value(value, choices=None):
     """
     if choices and (isinstance(value, (bool, str, tuple, list)) or value is None):
         values = [value] if not isinstance(value, (tuple, list)) else value
-        _toto = _humanize_map_choices(values, dict(choices))
-        value = ", ".join(_toto) if isinstance(_toto, (list, tuple)) else _toto
+        mapped_choices = _humanize_map_choices(values, dict(choices))
+        if isinstance(mapped_choices, (list, tuple)):
+            value = ", ".join(mapped_choices)
+        else:
+            value = mapped_choices
     elif value is None:
         pass
     elif isinstance(value, (tuple, list)):
