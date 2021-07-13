@@ -26,15 +26,18 @@ jobs:
           keys:
             - python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
-          name: Install Python dependencies
+          name: Install System dependencies
           command: |
             sudo apt update
             sudo apt install -y gdal-bin
+      - run:
+          name: Install Python dependencies
+          command: |
             pipenv sync --dev
       - save_cache:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
-            - "venv"
+            - ".venv"
       - restore_cache:
           name: Restore Node cached dependencies
           keys:
