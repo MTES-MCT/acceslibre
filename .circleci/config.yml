@@ -38,6 +38,8 @@ jobs:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
+            - "/usr/local/bin"
+            - "/usr/local/lib/python3.6/site-packages"
       - restore_cache:
           name: Restore Node cached dependencies
           keys:
