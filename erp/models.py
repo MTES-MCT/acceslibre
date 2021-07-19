@@ -796,7 +796,7 @@ class Accessibilite(models.Model):
     transport_station_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("transport_station_presence")
+        choices=schema.get_field_choices("transport_station_presence"),
         verbose_name="Desserte par transports en commun",
     )
     transport_information = models.TextField(
@@ -813,13 +813,13 @@ class Accessibilite(models.Model):
     stationnement_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("stationnement_presence")
+        choices=schema.get_field_choices("stationnement_presence"),
         verbose_name="Stationnement dans l'ERP",
     )
     stationnement_pmr = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("stationnement_pmr")
+        choices=schema.get_field_choices("stationnement_pmr"),
         verbose_name="Stationnements PMR dans l'ERP",
     )
 
@@ -827,13 +827,13 @@ class Accessibilite(models.Model):
     stationnement_ext_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("stationnement_ext_presence")
+        choices=schema.get_field_choices("stationnement_ext_presence"),
         verbose_name="Stationnement à proximité de l'ERP",
     )
     stationnement_ext_pmr = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("stationnement_ext_pmr")
+        choices=schema.get_field_choices("stationnement_ext_pmr"),
         verbose_name="Stationnements PMR à proximité de l'ERP",
     )
 
@@ -851,14 +851,14 @@ class Accessibilite(models.Model):
     cheminement_ext_plain_pied = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("cheminement_ext_plain_pied")
+        choices=schema.get_field_choices("cheminement_ext_plain_pied"),
         verbose_name="Cheminement de plain-pied",
     )
     # Terrain meuble ou accidenté
     cheminement_ext_terrain_accidente = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("cheminement_ext_terrain_accidente")
+        choices=schema.get_field_choices("cheminement_ext_terrain_accidente"),
         verbose_name="Terrain meuble ou accidenté",
     )
     # Nombre de marches – nombre entre 0 et >10
@@ -901,7 +901,7 @@ class Accessibilite(models.Model):
     cheminement_ext_ascenseur = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("cheminement_ext_ascenseur")
+        choices=schema.get_field_choices("cheminement_ext_ascenseur"),
         verbose_name="Ascenseur/élévateur",
     )
 
@@ -909,7 +909,7 @@ class Accessibilite(models.Model):
     cheminement_ext_pente_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("cheminement_ext_pente_presence")
+        choices=schema.get_field_choices("cheminement_ext_pente_presence"),
         verbose_name="Pente présence",
     )
 
@@ -944,7 +944,7 @@ class Accessibilite(models.Model):
     cheminement_ext_bande_guidage = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("cheminement_ext_bande_guidage")
+        choices=schema.get_field_choices("cheminement_ext_bande_guidage"),
         verbose_name="Bande de guidage",
     )
 
@@ -952,7 +952,7 @@ class Accessibilite(models.Model):
     cheminement_ext_retrecissement = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("cheminement_ext_retrecissement")
+        choices=schema.get_field_choices("cheminement_ext_retrecissement"),
         verbose_name="Rétrécissement du cheminement",
     )
 
@@ -971,7 +971,7 @@ class Accessibilite(models.Model):
     entree_porte_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_porte_presence")
+        choices=schema.get_field_choices("entree_porte_presence"),
         verbose_name="Y a-t-il une porte ?",
     )
     # Manoeuvre de la porte (porte battante / porte coulissante / tourniquet / porte tambour / inconnu ou sans objet)
@@ -995,7 +995,7 @@ class Accessibilite(models.Model):
     entree_vitree = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_vitree")
+        choices=schema.get_field_choices("entree_vitree"),
         verbose_name="Entrée vitrée",
     )
     entree_vitree_vitrophanie = models.BooleanField(
@@ -1009,7 +1009,7 @@ class Accessibilite(models.Model):
     entree_plain_pied = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_plain_pied")
+        choices=schema.get_field_choices("entree_plain_pied"),
         verbose_name="Entrée de plain-pied",
     )
     # Nombre de marches
@@ -1052,14 +1052,14 @@ class Accessibilite(models.Model):
     entree_balise_sonore = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_balise_sonore")
+        choices=schema.get_field_choices("entree_balise_sonore"),
         verbose_name="Présence d'une balise sonore",
     )
     # Dispositif d’appel
     entree_dispositif_appel = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_dispositif_appel")
+        choices=schema.get_field_choices("entree_dispositif_appel"),
         verbose_name="Dispositif d'appel",
     )
     entree_dispositif_appel_type = ArrayField(
@@ -1074,13 +1074,13 @@ class Accessibilite(models.Model):
     entree_aide_humaine = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_aide_humaine")
+        choices=schema.get_field_choices("entree_aide_humaine"),
         verbose_name="Aide humaine",
     )
     entree_ascenseur = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_ascenseur")
+        choices=schema.get_field_choices("entree_ascenseur"),
         verbose_name="Ascenseur/élévateur",
     )
 
@@ -1095,7 +1095,7 @@ class Accessibilite(models.Model):
     entree_pmr = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("entree_pmr")
+        choices=schema.get_field_choices("entree_pmr"),
         verbose_name="Entrée spécifique PMR",
     )
 
@@ -1114,7 +1114,7 @@ class Accessibilite(models.Model):
     accueil_visibilite = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("accueil_visibilite")
+        choices=schema.get_field_choices("accueil_visibilite"),
         verbose_name="Visibilité directe de la zone d'accueil depuis l'entrée",
     )
 
@@ -1131,7 +1131,7 @@ class Accessibilite(models.Model):
     accueil_equipements_malentendants_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("accueil_equipements_malentendants_presence")
+        choices=schema.get_field_choices("accueil_equipements_malentendants_presence"),
         verbose_name="Présence d'équipement(s) sourds/malentendants",
     )
 
@@ -1171,7 +1171,7 @@ class Accessibilite(models.Model):
     accueil_cheminement_reperage_marches = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("accueil_cheminement_reperage_marches")
+        choices=schema.get_field_choices("accueil_cheminement_reperage_marches"),
         verbose_name="Repérage des marches ou de l’escalier",
     )
     # Main courante
@@ -1193,7 +1193,7 @@ class Accessibilite(models.Model):
     accueil_cheminement_ascenseur = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("accueil_cheminement_ascenseur")
+        choices=schema.get_field_choices("accueil_cheminement_ascenseur"),
         verbose_name="Ascenseur/élévateur",
     )
 
@@ -1201,7 +1201,7 @@ class Accessibilite(models.Model):
     accueil_retrecissement = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("accueil_retrecissement")
+        choices=schema.get_field_choices("accueil_retrecissement"),
         verbose_name="Rétrécissement du cheminement",
     )
 
@@ -1211,7 +1211,7 @@ class Accessibilite(models.Model):
     sanitaires_presence = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("sanitaires_presence")
+        choices=schema.get_field_choices("sanitaires_presence"),
         verbose_name="Sanitaires",
     )
     sanitaires_adaptes = models.PositiveSmallIntegerField(
@@ -1271,7 +1271,7 @@ class Accessibilite(models.Model):
         null=True,
         blank=True,
         verbose_name="Conformité",
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,  # replace with schema.get_field_choices("conformite")
+        choices=schema.get_field_choices("conformite"),
     )
 
     # Datetimes
