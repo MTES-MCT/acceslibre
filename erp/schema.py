@@ -202,6 +202,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/wegoto.html",
         "url": "https://www.wegoto.eu/",
     },
+    "ACCESMETRIE": {
+        "avatar": "accesmetrie_avatar.png",
+        "logo": "img/partenaires/accesmetrie.jpg",
+        "name": "AccèsMétrie",
+        "short_description": "Expert en données d'accessibilité",
+        "template": "editorial/partenaires/accesmetrie.html",
+        "url": "http://www.accesmetrie.com",
+    },
 }
 
 SECTION_TRANSPORT = "transport"

@@ -29,7 +29,7 @@
           </p>
           {% include "search/form.html" %}
           <p class="text-center pt-3 mb-0">
-            Ou accedez à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
+            Ou d'accéder à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
           </p>
         </div>
         <div class="col-lg-6 col-xl-4 a4a-bg-home"
@@ -179,24 +179,29 @@
         </div>
       </div>
       <div class="row d-flex align-items-center">
-        <div class="col-lg-3 text-center">
-          <a href="https://www.wegoto.eu/">
+        <div class="offset-lg-1 col-lg-2 text-center">
+          <a rel=”nofollow” target="_blank" href="https://www.wegoto.eu/">
             <img class="a4a-landing-partenaire-logo mt-4" alt="Wegoto" src="{% static "img/partenaires/wegoto.png" %}">
           </a>
         </div>
-        <div class="col-lg-3 text-center">
-          <a href="https://jaccede.com/">
+        <div class="col-lg-2 text-center">
+          <a rel=”nofollow” target="_blank" href="https://jaccede.com/">
             <img class="a4a-landing-partenaire-logo mt-4" alt="Jaccede.com" src="{% static "img/partenaires/jaccede.png" %}">
           </a>
         </div>
-        <div class="col-lg-3 text-center">
-          <a href="https://agence-lucie.com/">
+        <div class="col-lg-2 text-center">
+          <a rel=”nofollow” target="_blank" href="https://agence-lucie.com/">
             <img class="a4a-landing-partenaire-logo mt-4" alt="RSE Lucie" src="{% static "img/partenaires/lucie.png" %}">
           </a>
         </div>
-        <div class="col-lg-3 text-center">
-          <a href="https://www.mobalib.com/">
+        <div class="col-lg-2 text-center">
+          <a rel=”nofollow” target="_blank" href="https://www.mobalib.com/">
             <img class="a4a-landing-partenaire-logo mt-4" alt="Mobalib" src="{% static "img/partenaires/mobalib.png" %}">
+          </a>
+        </div>
+        <div class="col-lg-2 text-center">
+          <a href="{% url "partenaires" %}">
+            <img class="a4a-landing-partenaire-logo mt-4" alt="AccèsMétrie" src="{% static "img/partenaires/accesmetrie.jpg" %}">
           </a>
         </div>
       </div>
