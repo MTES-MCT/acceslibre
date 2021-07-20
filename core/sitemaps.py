@@ -37,7 +37,7 @@ class ErpSitemap(Sitemap):
     changefreq = "daily"
     protocol = "https"
     priority = 0.8
-    limit = 10000
+    limit = 1000
 
     def items(self):
         return Erp.objects.published()
