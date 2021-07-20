@@ -6,6 +6,12 @@
       <i aria-hidden="true" class="icon icon-pencil mr-1"></i>
       Contribuez&nbsp;!
     </h2>
+    <p class="text-center">
+      <a class="btn btn-primary text-wrap mx-auto" href="{% url "contrib_start" %}">
+        <i aria-hidden="true" class="icon icon-plus-circle"></i>
+        Ajoutez un établissement
+      </a>
+    </p>
     <p class="my-3">
       Si la description de l'accessibilité de cet établissement est incomplète ou inexacte,
       contribuez à l'améliorer.
@@ -36,7 +42,7 @@
       <a href="{% url "subscribe_erp" erp_slug=erp.slug %}"
         title="Ne plus recevoir de notification par email lorsque cet établissement est mis à jour">
         <i aria-hidden="true" class="icon icon-bell"></i>
-        S'abonner aux mise à jour
+        S'abonner aux mises à jour
       </a>
       {% endif %}
     {% endif %}
