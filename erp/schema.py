@@ -368,7 +368,7 @@ FIELDS = {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,
-        "label": "Stationnements PMR à proximité de l'établissement",
+        "label": "Stationnements adaptés à proximité de l'établissement",
         "help_text": mark_safe(
             "Existe-t-il une ou plusieurs places de stationnement adaptées en voirie ou en parking à moins de 200 mètres de l'établissement&nbsp;?"
         ),
