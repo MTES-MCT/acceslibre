@@ -1,6 +1,6 @@
 {% autoescape off %}Bonjour {{ user.username }},
 
-Vous avez commencé à saisir une ou plusieurs fiches sur {{ SITE_NAME.title }}, mais ne les avez pas encore publié.
+Vous avez commencé à saisir une ou plusieurs fiches sur {{ SITE_NAME.title }}, mais ne les avez pas encore publiées.
 Chaque information est précieuse. N'hésitez pas à publier une fiche, même si celle-ci est incomplète.
 {% for erp in erps %}
 - {% if erp.activite %}{{erp.activite.nom }}: {% endif %}{{ erp.nom }}, {{ erp.commune }}
