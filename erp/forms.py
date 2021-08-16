@@ -329,6 +329,9 @@ class ViewAccessibiliteForm(forms.ModelForm):
         elif name == "sanitaires_adaptes" and value == 0:
             label = schema.get_help_text_ui_neg(name)
             values = []
+        elif name == "sanitaires_adaptes" and value is not None and value > 0:
+            label = schema.get_help_text_ui(name)
+            values = []
         elif (
             name
             in [
