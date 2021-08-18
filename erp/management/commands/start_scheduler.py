@@ -33,7 +33,9 @@ class Command(BaseCommand):
         # Fix me : replace by kill switch
         if not settings.STAGING:
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
-            schedule.every().day.at("09:30").do(call_command, "notify_unpublished_erps")
+            schedule.every().thursday.at("14:30").do(
+                call_command, "notify_unpublished_erps"
+            )
 
     def start(self):
         print("Scheduler started")
