@@ -24,16 +24,8 @@ class ErpResource(resources.ModelResource):
             return "0" + cpost
         return cpost
 
-    def handle_siret(self, siret):
-        siret = str(siret).strip()
-        if len(siret) == 14 and siret.isdigit():
-            return siret
-        else:
-            return None
-
     def before_import_row(self, row, **kwargs):
         # siret
-        row["siret"] = self.handle_siret(row["siret"])
         # adresse
         if row["cplt"] == "" or row["cplt"] == "NR":
             cplt = ""

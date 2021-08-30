@@ -92,7 +92,6 @@ def test_BaseErpForm_clean_geom_missing(data, mocker):
             "user": data.niko,
             "user_type": "public",
             "activite": str(data.boulangerie.pk),
-            "recevant_du_public": "on",
             "nom": "test erp",
             "numero": "4",
             "voie": "Grand rue",
@@ -127,7 +126,6 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
             "user": data.niko,
             "user_type": "public",
             "activite": str(data.boulangerie.pk),
-            "recevant_du_public": "on",
             "nom": "plop",
             "numero": "4",
             "voie": "rue de la paix",
@@ -162,7 +160,6 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
             "user": data.niko,
             "user_type": "public",
             "activite": str(data.boulangerie.pk),
-            "recevant_du_public": "on",
             "nom": "test erp",
             "numero": "4",
             "voie": "Grand rue",
@@ -221,11 +218,9 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(
             "lieu_dit": "",
             "code_postal": "34830",
             "commune": "jacou",
-            "siret": "",
             "contact_email": "",
             "site_internet": "",
             "telephone": "",
-            "recevant_du_public": "on",
         }
     )
     assert form.is_valid() is True

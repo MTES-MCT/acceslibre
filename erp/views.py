@@ -407,9 +407,7 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     if request.method == "POST":
-        form = forms.PublicErpEditInfosForm(
-            request.POST, instance=erp, initial={"recevant_du_public": True}
-        )
+        form = forms.PublicErpEditInfosForm(request.POST, instance=erp)
         if form.is_valid():
             erp = form.save()
             messages.add_message(
@@ -417,9 +415,7 @@ def contrib_edit_infos(request, erp_slug):
             )
             return redirect("contrib_localisation", erp_slug=erp.slug)
     else:
-        form = forms.PublicErpAdminInfosForm(
-            instance=erp, initial={"recevant_du_public": True}
-        )
+        form = forms.PublicErpAdminInfosForm(instance=erp)
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
