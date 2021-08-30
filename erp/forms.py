@@ -442,7 +442,7 @@ class BasePublicErpInfosForm(BaseErpForm):
         self.fields["activite"].required = True
         self.fields[
             "activite"
-        ].help_text = "Domaine d'activité de l'établissement <b>recevant du public</b>"
+        ].help_text = "Domaine d'activité de l'établissement recevant du public"
         # Source id non requis
         self.fields["source_id"].required = False
 
