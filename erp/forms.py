@@ -394,21 +394,23 @@ class BasePublicErpInfosForm(BaseErpForm):
             "lieu_dit",
             "code_postal",
             "commune",
-            "siret",
             "contact_email",
             "site_internet",
             "telephone",
             "contact_url",
         )
-        labels = {"siret": "Numéro SIRET", "user_type": "Saisie en qualité de"}
+        labels = {"user_type": "Saisie en qualité de"}
         help_texts = {
-            "lieu_dit": "Lieu-dit ou complément d'adresse",
-            "siret": mark_safe(
-                'Le numéro <a href="https://fr.wikipedia.org/wiki/SIRET" '
-                'target="_blank">SIRET</a> à 14 chiffres de l\'établissement, '
-                "si l'établissement en dispose."
-            ),
-            "voie": "Le type et le nom de la voie, par exemple: rue Charles Péguy, ou place Jean Jaurès",
+            "nom": None,
+            "numero": None,
+            "voie": None,
+            "lieu_dit": None,
+            "code_postal": None,
+            "commune": None,
+            "contact_email": None,
+            "site_internet": None,
+            "telephone": None,
+            "contact_url": None,
         }
         widgets = {
             "source": forms.HiddenInput(),
@@ -420,7 +422,6 @@ class BasePublicErpInfosForm(BaseErpForm):
             "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
             "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
-            "siret": forms.TextInput(attrs={"placeholder": "ex: 88076068100010"}),
             "contact_email": forms.EmailInput(
                 attrs={"placeholder": "ex: nom@domain.tld"}
             ),
@@ -434,14 +435,6 @@ class BasePublicErpInfosForm(BaseErpForm):
                 }
             ),
         }
-
-    recevant_du_public = forms.BooleanField(
-        label="Cet établissement reçoit du public",
-        help_text=mark_safe(
-            'Seuls les <a href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F32351" target="_blank">'
-            "établissements recevant du public</a>, les gîtes et les chambres d'hôtes, peuvent être ajoutés à cette base de données."
-        ),
-    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
