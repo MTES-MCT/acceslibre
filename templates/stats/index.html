@@ -20,6 +20,18 @@
     </div>
   </div>
 
+  <div class="card-deck my-4">
+    <div class="card shadow-sm">
+      <div class="card-body d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
+        <h3 class="text-count font-weight-bold">{{ nb_contributors }}</h3>
+        <div class="h3 px-3 text-center text-md-left">
+          contributeur{{ nb_contributors|pluralize:"s" }}
+          sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }}
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="card-group my-4">
     <div class="card shadow-sm">
       <div class="card-header text-truncate">
