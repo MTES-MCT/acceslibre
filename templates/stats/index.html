@@ -11,8 +11,8 @@
   <div class="card-deck my-4">
     <div class="card shadow-sm">
       <div class="card-body d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <h3 class="text-count font-weight-bold">{{ nb_published_erps }}</h3>
-        <div class="h3 px-3 text-center text-md-left">
+        <h3 class="col-3 text-count font-weight-bold">{{ nb_published_erps }}</h3>
+        <div class="col-9 h3 px-3 text-center text-md-left">
           établissement{{ nb_published_erps|pluralize:"s" }} publié{{ nb_published_erps|pluralize:"s" }}
           sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }} grâce à la contribution de <strong>tous</strong>
         </div>
@@ -23,8 +23,8 @@
   <div class="card-deck my-4">
     <div class="card shadow-sm">
       <div class="card-body d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <h3 class="text-count font-weight-bold">{{ nb_contributors }}</h3>
-        <div class="h3 px-3 text-center text-md-left">
+        <h3 class="col-3 text-count font-weight-bold">{{ nb_contributors }}</h3>
+        <div class="col-9 h3 px-3 text-center text-md-left">
           contributeur{{ nb_contributors|pluralize:"s" }}
           sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }}
         </div>
