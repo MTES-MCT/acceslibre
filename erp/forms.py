@@ -440,7 +440,9 @@ class BasePublicErpInfosForm(BaseErpForm):
         super().__init__(*args, **kwargs)
         # Les contributions publiques rendent obligatoire le renseignement de l'activité
         self.fields["activite"].required = True
-        self.fields["activite"].help_text = "Domaine d'activité de l'établissement"
+        self.fields[
+            "activite"
+        ].help_text = "Domaine d'activité de l'établissement <b>recevant du public</b>"
         # Source id non requis
         self.fields["source_id"].required = False
 
