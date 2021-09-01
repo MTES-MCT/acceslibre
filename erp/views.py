@@ -351,6 +351,8 @@ def contrib_global_search(request):
         request,
         template_name="contrib/0a-search_results.html",
         context={
+            "search": form.cleaned_data["search"],
+            "commune_search": form.cleaned_data["commune_search"],
             "step": 1,
             "results": results,
             "form": form,
