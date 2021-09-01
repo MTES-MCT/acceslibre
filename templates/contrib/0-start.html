@@ -1,11 +1,12 @@
 {% extends "contrib/base.html" %}
 
+
 {% load a4a %}
 
 {% block page_title %}Ajouter un établissement{% endblock%}
 
 {% block contrib_content %}
-  <h2 class="h3">Rechercher un Établissement Recevant du Public</h2>
+  <h2 class="h3 text-center">Rechercher un Établissement Recevant du Public</h2>
   <p><small class="text-muted">
     <i aria-hidden="true" class="icon icon-info-circled"></i>
     La recherche se faisant sur les serveurs des services numériques de l'État,
@@ -16,7 +17,7 @@
   <p class="text-center text-muted my-4">ou</p>
   <p class="text-center mb-4">
     <a class="btn btn-outline-primary btn-lg w-100" href="{% url "contrib_admin_infos" %}">
-      Je remplis les données de l'établissement manuellement
+      Saisir les données manuellement
     </a>
   </p>
 {% endblock %}
