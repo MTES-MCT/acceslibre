@@ -530,7 +530,6 @@ class ProviderGlobalSearchForm(forms.Form):
     code_insee = forms.CharField(
         label="Commune",
         required=True,
-        help_text="Commencez à saisir le nom de la commune recherchée, puis sélectionnez la proposition correspondante.",
         widget=forms.Select(),
     )
 
