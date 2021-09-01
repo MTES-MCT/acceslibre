@@ -3,7 +3,7 @@
 
 <form action="{% url "contrib_global_search" %}#content" method="get" class="card mb-4">
   <div class="card-header">
-    <h3 class="h6 mb-0">Rechercher un établissement</h3>
+    <h3 class="h6 mb-0 text-center">Saisie automatique</h3>
   </div>
   <div class="card-body">
     {% if error %}
@@ -12,7 +12,7 @@
     {{ form|crispy }}
     <button type="submit" class="btn btn-primary w-100">
       <i aria-hidden="true" class="icon icon-magnifying-glass"></i>
-      Rechercher un établissement
+      Trouver l'établissement
     </button>
   </div>
 </form>
