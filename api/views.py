@@ -102,6 +102,17 @@ class AccessibiliteSchema(A4aAutoSchema):
                 "schema": {"type": "boolean"},
             },
         },
+        "readable": {
+            "paths": ["/accessibilite/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "readable",
+                "in": "query",
+                "required": False,
+                "description": "Formater les données d'accessibilité pour une lecture humaine",
+                "schema": {"type": "boolean"},
+            },
+        },
     }
 
 
@@ -118,7 +129,7 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     Ce point d'accès permet de récupérer les informations d'accessibilité d'un ERP
     spécifique, à partir de son identifiant.
 
-    **L'obtention de cette URL s'obtient en interrogeant la propriété `acessibilite`
+    **L'obtention de cette URL s'obtient en interrogeant la propriété `accessibilite`
     d'un objet *Erp*.**
     """
 

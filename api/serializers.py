@@ -38,10 +38,13 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
     def to_representation(self, instance):
         request = self.context.get("request")
         clean = request and request.GET.get("clean") == "true"
+        readable = request and request.GET.get("readable") == "true"
         # see https://stackoverflow.com/a/56826004/330911
         # TODO: option pour filtrer les valeurs nulles
         source = super().to_representation(instance)
         repr = {"url": source["url"], "erp": source["erp"]}
+        if readable:
+            repr["readable_fields"] = []
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
@@ -50,7 +53,14 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                     source[field] is None or source[field] == [] or source[field] == ""
                 ):
                     continue
-                repr[section][field] = source[field]
+                if readable:
+                    repr["readable_fields"].append(field)
+                    if source[field]:
+                        repr[section][field] = schema.get_help_text_ui(field)
+                    else:
+                        repr[section][field] = schema.get_help_text_ui_neg(field)
+                else:
+                    repr[section][field] = source[field]
         # move/un-nest/clean "commentaire" field if it exists
         try:
             repr["commentaire"] = repr["commentaire"]["commentaire"]
