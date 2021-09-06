@@ -60,6 +60,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                         repr["datas"][field] = schema.get_help_text_ui(field)
                     else:
                         repr["datas"][field] = schema.get_help_text_ui_neg(field)
+
                 else:
                     repr[section][field] = source[field]
         # move/un-nest/clean "commentaire" field if it exists
