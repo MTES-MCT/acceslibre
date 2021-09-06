@@ -45,6 +45,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         repr = {"url": source["url"], "erp": source["erp"]}
         if readable:
             repr["readable_fields"] = []
+            repr["datas"] = {}
         for section, data in schema.get_api_fieldsets().items():
             repr[section] = {}
             for field in data["fields"]:
@@ -56,9 +57,9 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                 if readable:
                     repr["readable_fields"].append(field)
                     if source[field]:
-                        repr[section][field] = schema.get_help_text_ui(field)
+                        repr["datas"][field] = schema.get_help_text_ui(field)
                     else:
-                        repr[section][field] = schema.get_help_text_ui_neg(field)
+                        repr["datas"][field] = schema.get_help_text_ui_neg(field)
                 else:
                     repr[section][field] = source[field]
         # move/un-nest/clean "commentaire" field if it exists
