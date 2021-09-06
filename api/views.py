@@ -66,6 +66,14 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: applica
 
 ---
 
+##### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
+
+```
+$ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "accept: application/json"
+```
+
+---
+
 Vous trouverez ci-après la documentation technique exhaustives des points d'entrée exposés par l'API.
 """
 
