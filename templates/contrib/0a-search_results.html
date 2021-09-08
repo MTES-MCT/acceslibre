@@ -5,7 +5,7 @@
 {% block page_title %}Rechercher un établissement{% endblock%}
 
 {% block contrib_content %}
-  <h2 class="h3">Ajouter un Établissement Recevant du Public</h2>
+  <h2 class="h3">Ajouter un établissement recevant du public</h2>
   <div class="card mb-4">
     <div class="card-header">
       <h3 class="h6 mb-0 text-center">Saisie automatique</h3>
@@ -87,15 +87,15 @@
     {% if results %}
     <hr>
     <h3 class="h5 mt-3 mb-3">
-      L'établissement que je souhaite ajouter n'est pas dans la liste
+      <b>L'établissement que je souhaite ajouter n'est pas dans la liste.</b>
     </h3>
     {% else %}
     <h3 class="h5">
-      Il n'y a pas de résultat correspondant à votre recherche.
+      <b>Il n'y a pas de résultat correspondant à votre recherche.</b>
     </h3>
     {% endif %}
     <div class="row mb-3">
-      <div class="col-12 col-md-6 mt-1 pr-0">
+      <div class="col-12 col-md-6 mt-1 pr-md-0 pr-4">
         <a class="btn btn-primary btn-lg w-100" href="{% url "contrib_admin_infos" %}">Saisir les données manuellement</a>
       </div>
       <div class="col-12 col-md-6 mt-1 pr-4">
