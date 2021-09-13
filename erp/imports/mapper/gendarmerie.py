@@ -78,9 +78,10 @@ class GendarmerieMapper:
                 self.record["identifiant_public_unite"],
                 published=True,
             ).first()
-            old_erp.published = False
-            old_erp.save()
-            logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
+            if old_erp:
+                old_erp.published = False
+                old_erp.save()
+                logger.info(f"Unpublished obsolete duplicate: {str(old_erp)}")
             # update preexisting erp with new import information
             erp.source = Erp.SOURCE_GENDARMERIE
             erp.source_id = self.record["identifiant_public_unite"]
