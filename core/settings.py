@@ -26,7 +26,7 @@ SITE_ROOT_URL = f"https://{SITE_HOST}"
 SECRET_KEY = get_env_variable("SECRET_KEY")
 DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
-DATAGOUV_DATASET_ID = "d54910da-d37a-46a0-93db-fc515db8a0fe"
+DATAGOUV_DATASET_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
