@@ -101,3 +101,16 @@ def test_get_section_fields():
 def test_get_nullable_bool_fields():
     result = schema.get_nullable_bool_fields()
     assert type(result) == list
+
+
+@pytest.mark.parametrize(
+    "field, expected",
+    [
+        ("sanitaires_presence", "boolean"),
+        ("accueil_cheminement_nombre_marches", "number"),
+        ("cheminement_ext_devers", "string"),
+        ("labels", "array"),
+    ],
+)
+def test_get_type(field, expected):
+    assert schema.get_type(field) == expected

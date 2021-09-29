@@ -35,6 +35,20 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
     )
 
+    def _readable_value(self, source, instance, repr, field):
+        repr["readable_fields"].append(field)
+        if schema.get_type(field) == "boolean":
+            if source[field]:
+                repr["datas"][field] = schema.get_help_text_ui(field)
+            else:
+                repr["datas"][field] = schema.get_help_text_ui_neg(field)
+        else:
+            repr["datas"][field] = "{} : {}".format(
+                schema.get_help_text_ui(field),
+                schema.get_human_readable_value(field, getattr(instance, field)),
+            )
+        return repr
+
     def to_representation(self, instance):
         request = self.context.get("request")
         clean = request and request.GET.get("clean") == "true"
@@ -55,15 +69,9 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                 ):
                     continue
                 if readable:
-                    repr["readable_fields"].append(field)
-                    if source[field]:
-                        repr["datas"][field] = schema.get_help_text_ui(field)
-                    else:
-                        repr["datas"][field] = schema.get_help_text_ui_neg(field)
-
+                    repr = self._readable_value(source, instance, repr, field)
                 else:
                     repr[section][field] = source[field]
-        # move/un-nest/clean "commentaire" field if it exists
         try:
             repr["commentaire"] = repr["commentaire"]["commentaire"]
         except KeyError:
