@@ -1354,3 +1354,7 @@ def get_nullable_bool_fields():
 
 def get_section_fields(section_id):
     return [k for (k, v) in FIELDS.items() if v["section"] == section_id]
+
+
+def get_type(field):
+    return FIELDS[field].get("type")
