@@ -56,10 +56,16 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                     continue
                 if readable:
                     repr["readable_fields"].append(field)
-                    if source[field]:
-                        repr["datas"][field] = schema.get_help_text_ui(field)
-                    else:
-                        repr["datas"][field] = schema.get_help_text_ui_neg(field)
+                    type_field = schema.get_type(field)
+                    if type_field == "boolean":
+                        if source[field]:
+                            repr["datas"][field] = schema.get_help_text_ui(field)
+                        else:
+                            repr["datas"][field] = schema.get_help_text_ui_neg(field)
+                    elif type_field in ("string", "array", "number"):
+                        repr["datas"][
+                            field
+                        ] = f"{schema.get_help_text_ui(field)} : {schema.get_human_readable_value(field, getattr(instance, field))}"
 
                 else:
                     repr[section][field] = source[field]

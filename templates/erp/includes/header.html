@@ -3,7 +3,7 @@
 
 <header id="article-header" class="d-flex">
   {% if activite %}
-  <img alt="{{ activite.nom }}" title="{{ activite.nom }}"
+  <img alt="{{ activite.nom }}"
     class="d-none d-md-block act-icon act-icon-erp act-icon-black"
     src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
   {% endif %}
