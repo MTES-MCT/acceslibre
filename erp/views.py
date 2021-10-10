@@ -391,6 +391,8 @@ def contrib_admin_infos(request):
             except RuntimeError as err:
                 data_error = err
         form = forms.PublicErpAdminInfosForm(data)
+    geojson_list = make_geojson(existing_matches) if existing_matches else None
+
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -400,6 +402,7 @@ def contrib_admin_infos(request):
             "has_data": data is not None,
             "data_error": data_error,
             "existing_matches": existing_matches,
+            "geojson_list": geojson_list,
         },
     )
 

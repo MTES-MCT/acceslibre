@@ -1,14 +1,14 @@
 {% extends "contrib/base.html" %}
 
 {% load a4a %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags static %}
 
 {% block page_title %}{% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
   <h2 class="h3 mb-3">
-    {% if erp %}Modifier{% else %}Ajouter{% endif %} un Établissement Recevant du Public
+    {% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement recevant du public
   </h2>
 
   {% if erp and erp.user != user %}
@@ -57,11 +57,12 @@
       </ul>
     </div>
     {% endif %}
-
+    {% if not existing_matches %}
     <p class="text-muted"><small>
-      Les champs marqué d'une astérisque (*) sont obligatoires. Pour l'adresse,
+      Les champs marqués d'une astérisque (*) sont obligatoires. Pour l'adresse,
       le renseignement d'une voie ou d'un lieu dit est obligatoire.
     </small></p>
+    {% endif %}
 
     {% if data_error %}
       <div class="alert alert-danger">{{ data_error }}</div>
@@ -71,27 +72,67 @@
       <div class="alert alert-warning">
         <p>
           <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-          Des établissements correspondants à votre saisies ont été identifiés&nbsp;:
+          Des établissements correspondant à votre saisie ont été identifiés&nbsp;:
         </p>
-        <ul>
-        {% for match in existing_matches %}
-          <li><a href="{{ match.get_absolute_url }}" target="_blank" rel="noopener noreferrer">{{ match.nom }}</a> - {{ match.adresse }}</li>
-        {% endfor %}
-        </ul>
-        <p>
-          <strong>Veuillez vous assurer qu'il ne s'agit pas d'un doublon.</strong>
-          Vous pouvez néanmoins soumettre les données après vérification de votre part.
-        </p>
+      </div>
+      <div class="list-group list-group-flush">
+        <div class="row">
+          <div class="col-md-6">
+            {% for erp in existing_matches %}
+            <div class="d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
+              <div>
+                <div class="d-flex w-100 justify-content-between">
+                  <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                    <!-- rank: {{ erp.rank }} -->
+                    <a href="{{ erp.get_absolute_url }}">
+                      <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
+                        src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
+                      {% if where|startswith:"Autour de moi" and erp.distance %}
+                        <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
+                      {% endif %}
+                      {{ erp.nom }}
+                      <span class="sr-only">{{ erp.adresse }}</span>
+                    </a>
+                  </h3>
+                </div>
+                <div aria-hidden="true">
+                  {% if erp.activite %}
+                    <small class="font-weight-bold text-muted">{{ erp.activite }}</small>
+                  {% endif %}
+                  <address class="d-inline mb-0">
+                    <small>{{ erp.adresse }}</small>
+                  </address>
+                </div>
+              </div>
+              <div class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+                title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+                <i aria-hidden="true" class="icon icon-target"></i>
+              </div>
+            </div>
+            <p class="text-left">
+              <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url "contrib_localisation" erp_slug=erp.slug %}">
+                <i aria-hidden="true" class="icon icon-pencil"></i>
+                Améliorez ces informations
+              </a>
+            </p>
+          {% endfor %}
+          </div>
+          <div class="col-md-6 a4a-search-map-area">
+            {% include "common/map.html" with map_classes="a4a-search-map rounded" erp=erp geojson_list=geojson_list%}
+          </div>
+
+        </div>
+        <hr class="my-5" style="width: 100%; border:1px solid rgba(0, 0, 0, 0.1);">
         <p class="mb-0">
-          <button class="btn btn-warning" type="submit" name="force" value="1">
-            <i aria-hidden="true" class="icon icon-info-circled"></i>
-            Soumettre les données
+          <button class="btn btn-primary" type="submit" name="force" value="1">
+            <i aria-hidden="true" class="icon icon-pencil"></i>
+            Continuer ma saisie d'un nouvel établissement
           </button>
         </p>
       </div>
     {% endif %}
 
-    <div class="row">
+    <div class="row mt-4">
       <div class="col-sm-6">
         {{ form.nom|as_crispy_field }}
       </div>
@@ -140,6 +181,8 @@
     </div>
     {{ form.contact_url|as_crispy_field }}
 
-    {% include "contrib/includes/prevnext.html" %}
+    {% if not existing_matches %}
+     {% include "contrib/includes/prevnext.html" %}
+    {% endif %}
   </form>
 {% endblock %}
