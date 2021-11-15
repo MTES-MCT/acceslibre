@@ -21,6 +21,7 @@ class EtalabMapper(BaseExportMapper):
     lieu_dit: str
     code_insee: str
     siret: str
+    activite: str
     contact_url: str
     site_internet: str
     longitude: float
@@ -105,6 +106,7 @@ class EtalabMapper(BaseExportMapper):
             lieu_dit=erp.lieu_dit,
             code_insee=erp.code_insee,
             siret=erp.siret,
+            activite=erp.activite.nom if erp.activite else "",
             contact_url=erp.contact_url,
             site_internet=erp.site_internet,
             longitude=map_coords(erp.geom, 0),

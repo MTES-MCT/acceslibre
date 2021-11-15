@@ -41,6 +41,12 @@
       "email": "nicolas@perriault.net",
       "organisation": "MTES-MCT",
       "role": "author"
+    },
+    {
+      "title": "Christophe VANFRACKEM",
+      "email": "christophe@zentux.fr",
+      "organisation": "MTES-MCT",
+      "role": "author"
     }
   ],
   "fields": [
@@ -146,6 +152,17 @@
         "minimum": -180,
         "maximum": 180
       }
+    },
+    {
+      "name": "activite",
+      "title": "Activité",
+      "description": "Domaine d'activité de l'ERP",
+      "type": "string",
+      "arrayItem": {
+        "type": "string",
+        "enum": []
+      },
+      "example": ""
     },
     {
       "name": "transport_station_presence",
