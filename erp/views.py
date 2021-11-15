@@ -283,7 +283,7 @@ def from_uuid(request, uuid):
     return redirect(erp.get_absolute_url())
 
 
-def widget_from_uuid(request, uuid):
+def widget_from_uuid(request, uuid):  # noqa
     erp = get_object_or_404(Erp.objects.published(), uuid=uuid)
     accessibilite_data = {}
     access = erp.accessibilite
