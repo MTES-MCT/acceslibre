@@ -56,13 +56,7 @@ def test_get_notification_after7days(unpublished_erp, data):
     futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS + 3)
     notifs = Command(now=futur).get_notifications()
 
-    assert len(notifs) == 0
-
-
-def test_get_notification_after14days(unpublished_erp, data):
-    futur = timezone.now() + timedelta(days=settings.UNPUBLISHED_ERP_NOTIF_DAYS * 2)
-    notifs = Command(now=futur).get_notifications()
-
+    assert len(Erp.objects.all()) == 2
     assert len(notifs) == 1
     assert notifs[0]["user"] == data.niko
     assert notifs[0]["erps"] == [unpublished_erp]
