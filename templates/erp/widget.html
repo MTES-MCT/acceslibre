@@ -1,0 +1,134 @@
+{% load static %}
+<style id="compiled-css" type="text/css">
+  .text-center {
+    text-align: center;
+  }
+
+  .modal__subtitle.fr-text--lg{
+    margin-bottom: 1rem !important;
+  }
+  .fr-modal__content {
+    margin-bottom: 1rem;
+  }
+
+  .fr-link {
+    color: var(--g700);
+  }
+
+  .fr-modal__body {
+    border-radius: 12px;
+  }
+
+  .modal__icon {
+    color: #7F7FC8;
+    text-align: center;
+    font-size: 2em;
+    padding: 2vh;
+  }
+
+  .modal__icon span {
+    /*background: #7F7FC8;*/
+
+  }
+
+  .modal__subtitle {
+    /* Couleurs illustratives/G - blue-dark */
+    color: #484D7A;
+  }
+
+  .modal__item {
+    background: var(--beige);
+    list-style-type: none;
+    padding: 0vh;
+  }
+
+  .modal__hr {
+    color: var(--g400);
+    margin: 0px;
+  }
+
+  .modal__footer_link {
+    text-align: right;
+    color: var(--g700);
+  }
+
+  .modal__footer_link a {
+    box-shadow: none;
+  }
+
+  .c-dialog {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 2.4rem;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: .2s;
+  }
+
+  .c-dialog__box {
+    flex: 1;
+    max-width: 48rem;
+    margin: auto;
+    padding: 2.4rem;
+    background-color: white;
+  }
+
+  .c-dialog[aria-hidden="true"] {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* EOS */
+</style>
+<div class="">
+  <div id="dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true"
+       aria-hidden="true" tabindex="-1" class="c-dialog">
+    <div class="fr-grid-row fr-grid-row--center" style="width:100%">
+      <div class="fr-col-12 fr-col-md-5">
+        <div class="fr-modal__body">
+          <div class="fr-modal__header text-right">
+            <button aria-label="Fermer" data-dismiss="dialog" class="fr-link fr-link--close "
+                    title="Fermer la fenêtre modale" aria-controls="fr-modal-1">Fermer
+            </button>
+          </div>
+          <div class="fr-modal__content">
+            <h1 class="fr-h4">
+              Accessibilité
+            </h1>
+            <p class="modal__subtitle fr-text--lg">{{ erp.nom }}</p>
+            {% if accessibilite_data %}
+              <ul>
+                {% for item, data in accessibilite_data.items %}
+                  <li class="modal__item fr-grid-row">
+                    <div class="fr-col-md-2 modal__icon">
+                      <img src="{{ data.icon }}" style="width:40px"></img>
+                    </div>
+                    <div class="fr-col-md-10" style="padding: 1.5vh;">
+                      <span class="fr-text--bold">{{ item|capfirst }}</span>
+                      <br>{{ data.label }}
+                    </div>
+                  </li>
+                  {% if not forloop.last %}
+                    <hr class="modal__hr">
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+            <p class="modal__footer_link">
+              <a target="_blank" href="{{ erp.get_absolute_uri }}" class="fr-text--md">Voir plus sur <img
+                      src="http://localhost:8000{% static "img/logo-acceslibre-widget.png" %}" alt="Accès Libre"
+                      style="height: 50px;margin-bottom: -20px;"></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

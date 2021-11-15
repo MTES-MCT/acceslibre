@@ -9,6 +9,7 @@ from django.contrib.gis.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
+from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db.models import Value
 from django.db.models.functions import Lower
@@ -597,6 +598,9 @@ class Erp(models.Model):
         if user.id != self.user.id:
             return False
         return True
+
+    def get_absolute_uri(self):
+        return f"{settings.SITE_ROOT_URL}{self.get_absolute_url()}"
 
     def get_absolute_url(self):
         if self.commune_ext:

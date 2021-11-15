@@ -18,6 +18,9 @@ from django.views.generic import TemplateView
 from core import mailer
 from core.lib import geo, url
 from erp import forms, schema, serializers
+from erp.export.utils import (
+    map_list_from_schema,
+)
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import geocoder, search as provider_search
 from subscription.models import ErpSubscription
@@ -252,6 +255,11 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
         request.user
     )
+    url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
+
+    widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
+<script src="{url_widget_js}" type="text/javascript" async="true"></script>\n
+<a href="#" aria-haspopup="dialog" aria-controls="dialog">Afficher les informations d'accessibilité</a>"""
     return render(
         request,
         "erp/index.html",
@@ -263,6 +271,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "erp": erp,
             "geojson_list": geojson_list,
             "nearest_erps": nearest_erps,
+            "widget_tag": widget_tag,
             "user_is_subscribed": user_is_subscribed,
             "user_vote": user_vote,
         },
@@ -272,6 +281,218 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 def from_uuid(request, uuid):
     erp = get_object_or_404(Erp.objects.published(), uuid=uuid)
     return redirect(erp.get_absolute_url())
+
+
+def widget_from_uuid(request, uuid):
+    erp = get_object_or_404(Erp.objects.published(), uuid=uuid)
+    accessibilite_data = {}
+    access = erp.accessibilite
+
+    # Conditions Stationnement
+    stationnement_label = None
+    if access.stationnement_presence and erp.accessibilite.stationnement_pmr:
+        stationnement_label = "Stationnement adapté dans l'établissement"
+    elif access.stationnement_ext_presence and access.stationnement_ext_pmr:
+        stationnement_label = "Stationnement adapté à proximité"
+    elif access.stationnement_ext_presence and access.stationnement_ext_pmr is False:
+        stationnement_label = "Pas de stationnement adapté à proximité"
+
+    if stationnement_label:
+        accessibilite_data["stationnement"] = {
+            "label": stationnement_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/car.png",
+        }
+
+    # Conditions Chemin Extérieur
+    chemin_ext_label = None
+    if not erp.accessibilite.cheminement_ext_presence:
+        pass
+    elif (
+        erp.accessibilite.cheminement_ext_presence is True
+        and erp.accessibilite.cheminement_ext_plain_pied is True
+        and (erp.accessibilite.cheminement_ext_terrain_accidente is (False or None))
+        and (
+            erp.accessibilite.cheminement_ext_pente_presence is (False or None)
+            or (
+                erp.accessibilite.cheminement_ext_pente_degre_difficulte
+                == schema.PENTE_LEGERE
+            )
+        )
+        and erp.accessibilite.cheminement_ext_devers
+        in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
+        and not erp.accessibilite.cheminement_ext_retrecissement
+    ):
+        chemin_ext_label = "Chemin d’accès de plain pied"
+    elif (
+        erp.accessibilite.cheminement_ext_presence is True
+        and erp.accessibilite.cheminement_ext_plain_pied is False
+        and (
+            (
+                not erp.accessibilite.cheminement_ext_ascenseur
+                and not erp.accessibilite.cheminement_ext_rampe
+            )
+        )
+        and (erp.accessibilite.cheminement_ext_terrain_accidente is (False or None))
+        and (
+            erp.accessibilite.cheminement_ext_pente_presence is (False or None)
+            or (
+                erp.accessibilite.cheminement_ext_pente_degre_difficulte
+                == schema.PENTE_LEGERE
+            )
+        )
+        and erp.accessibilite.cheminement_ext_devers
+        in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
+        and not erp.accessibilite.cheminement_ext_retrecissement
+    ):
+        chemin_ext_label = "Chemin rendu accessible (%s)" % (
+            "rampe" if erp.accessibilite.cheminement_ext_rampe else "ascenseur"
+        )
+    elif (
+        not erp.accessibilite.cheminement_ext_terrain_accidente
+        or erp.accessibilite.cheminement_ext_pente_degre_difficulte
+        != schema.PENTE_LEGERE
+        or erp.accessibilite.cheminement_ext_devers == schema.DEVERS_IMPORTANT
+        or erp.accessibilite.cheminement_ext_retrecissement
+        or (
+            not erp.accessibilite.cheminement_ext_ascenseur
+            and not erp.accessibilite.cheminement_ext_rampe
+        )
+    ):
+        chemin_ext_label = "Difficulté sur le chemin d'accès"
+
+    # Conditions Entrée
+    entree_label = None
+    if (
+        erp.accessibilite.entree_plain_pied
+        and erp.accessibilite.entree_largeur_mini >= 80
+    ):
+        entree_label = "Entrée de plain pied"
+    elif (
+        erp.accessibilite.entree_plain_pied
+        and erp.accessibilite.entree_largeur_mini < 80
+    ):
+        entree_label = "Entrée de plain pied mais étroite"
+
+    elif (
+        not erp.accessibilite.entree_plain_pied
+        and not erp.accessibilite.entree_pmr
+        and erp.accessibilite.entree_ascenseur
+        and erp.accessibilite.entree_largeur_mini >= 80
+    ):
+        entree_label = "Accès à l'entrée par ascenseur"
+    elif (
+        not erp.accessibilite.entree_plain_pied
+        and not erp.accessibilite.entree_pmr
+        and erp.accessibilite.entree_ascenseur
+        and erp.accessibilite.entree_largeur_mini < 80
+    ):
+        entree_label = "Entrée rendue accessible (ascenseur) mais étroite"
+    elif (
+        not erp.accessibilite.entree_plain_pied
+        and not erp.accessibilite.entree_pmr
+        and erp.accessibilite.entree_marches_rampe
+        and erp.accessibilite.entree_largeur_mini < 80
+    ):
+        entree_label = "Entrée rendue accessible (rampe) mais étroite"
+    elif (
+        erp.accessibilite.entree_marches_rampe
+        in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
+        and erp.accessibilite.entree_largeur_mini < 80
+    ):
+        entree_label = "Entrée rendue accessible (rampe) mais étroite"
+    elif (
+        erp.accessibilite.entree_marches_rampe
+        in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
+        and erp.accessibilite.entree_largeur_mini >= 80
+    ):
+        entree_label = "Accès à l’entrée par une rampe"
+    elif erp.accessibilite.entree_marches_rampe in (schema.RAMPE_AUCUNE, None):
+        entree_label = "L’entrée n’est pas de plain-pied"
+    elif erp.accessibilite.entree_pmr:
+        entree_label = "Entrée spécifique PMR"
+
+    if chemin_ext_label and entree_label:
+        accessibilite_data["cheminement"] = {
+            "label": f"{chemin_ext_label} et {entree_label}",
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
+        }
+    elif chemin_ext_label:
+        accessibilite_data["cheminement"] = {
+            "label": chemin_ext_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
+        }
+    elif entree_label:
+        accessibilite_data["cheminement"] = {
+            "label": entree_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
+        }
+
+    # Conditions présence de personnel
+    presence_personnel_label = None
+    if erp.accessibilite.accueil_personnels == schema.PERSONNELS_AUCUN:
+        presence_personnel_label = "Aucun personnel"
+    elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_NON_FORMES:
+        presence_personnel_label = "Personnel non formé"
+    elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_FORMES:
+        presence_personnel_label = "Personnel sensibilité / formé"
+
+    if presence_personnel_label:
+        accessibilite_data["personnel"] = {
+            "label": presence_personnel_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
+        }
+
+    # Conditions présence d'une balise sonore
+    balise_sonore = None
+    if erp.accessibilite.entree_balise_sonore:
+        balise_sonore = "Balise sonore"
+
+    if balise_sonore:
+        accessibilite_data["balise sonore"] = {
+            "label": balise_sonore,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
+        }
+
+    # Conditions Présence d’équipement sourd et malentendant
+    presence_equiepement_sourd_label = None
+    if erp.accessibilite.accueil_equipements_malentendants_presence:
+        presence_equiepement_sourd_label = ", ".join(
+            map_list_from_schema(
+                schema.EQUIPEMENT_MALENTENDANT_CHOICES,
+                erp.accessibilite.accueil_equipements_malentendants,
+                verbose=True,
+            )
+        )
+
+    if presence_equiepement_sourd_label:
+        accessibilite_data["équipement sourd et malentendant"] = {
+            "label": presence_equiepement_sourd_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
+        }
+
+    # Conditions Sanitaire
+    presence_sanitaire_label = None
+    if erp.accessibilite.sanitaires_presence and erp.accessibilite.sanitaires_adaptes:
+        presence_sanitaire_label = "Sanitaire adapté"
+    elif (
+        erp.accessibilite.sanitaires_presence
+        and not erp.accessibilite.sanitaires_adaptes
+    ):
+        presence_sanitaire_label = "Sanitaire non adapté"
+
+    if presence_sanitaire_label:
+        accessibilite_data["sanitaires"] = {
+            "label": presence_sanitaire_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/wc.png",
+        }
+    return render(
+        request,
+        "erp/widget.html",
+        context={
+            "accessibilite_data": accessibilite_data,
+            "erp": erp,
+        },
+    )
 
 
 @login_required

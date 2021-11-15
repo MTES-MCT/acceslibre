@@ -51,71 +51,71 @@
   ],
   "fields": [
     {
-      "name":"id",
-      "description":"Identifiant unique",
-      "type":"string",
+      "name": "id",
+      "description": "Identifiant unique",
+      "type": "string",
       "constraints": {
         "required": true
       },
-      "example":"123e4567-e89b-12d3-a456-426614174000"
+      "example": "123e4567-e89b-12d3-a456-426614174000"
     },
     {
-      "name":"name",
-      "description":"Nom de l'établissement",
-      "type":"string",
+      "name": "name",
+      "description": "Nom de l'établissement",
+      "type": "string",
       "constraints": {
         "required": true
       },
-      "example":"Mairie du 3e"
+      "example": "Mairie du 3e"
     },
     {
-      "name":"postal_code",
-      "description":"Code postal",
-      "type":"string",
+      "name": "postal_code",
+      "description": "Code postal",
+      "type": "string",
       "constraints": {
         "required": true
       },
-      "example":"75017"
+      "example": "75017"
     },
     {
-      "name":"commune",
-      "description":"Nom de la commune",
-      "type":"string",
+      "name": "commune",
+      "description": "Nom de la commune",
+      "type": "string",
       "constraints": {
         "required": true
       },
-      "example":"Paris 17"
+      "example": "Paris 17"
     },
     {
-      "name":"numero",
-      "description":"Numero de la rue",
-      "type":"string",
-      "example":"15"
+      "name": "numero",
+      "description": "Numero de la rue",
+      "type": "string",
+      "example": "15"
     },
     {
-      "name":"voie",
-      "description":"Nom de la rue/voie",
-      "type":"string",
-      "example":"Rue Paul Chenavard"
+      "name": "voie",
+      "description": "Nom de la rue/voie",
+      "type": "string",
+      "example": "Rue Paul Chenavard"
     },
     {
-      "name":"lieu_dit",
-      "description":"Lieu-dit",
-      "type":"string",
-      "example":"Le petit Marché"
+      "name": "lieu_dit",
+      "description": "Lieu-dit",
+      "type": "string",
+      "example": "Le petit Marché"
     },
     {
-      "name":"code_insee",
-      "description":"Code INSEE",
-      "type":"string",
-      "example":"17877"
+      "name": "code_insee",
+      "description": "Code INSEE",
+      "type": "string",
+      "example": "17877"
     },
     {
       "name": "siret",
       "description": "Le numero SIRET de l'ERP issue de la base SIRENE des entreprises. Vous pouvez récupérer cet identifiant sur le site annuaire-entreprises.data.gouv.fr.",
       "example": "13002526564591",
       "type": "string",
-      "constraints":{
+      "constraints": {
         "pattern": "^\\d{14}$"
       }
     },
@@ -154,5 +154,7 @@
       }
     }
   ],
-  "primaryKey": ["id"]
+  "primaryKey": [
+    "id"
+  ]
 }

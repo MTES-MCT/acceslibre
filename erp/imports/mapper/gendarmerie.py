@@ -9,7 +9,6 @@ from django.contrib.gis.measure import Distance
 from erp.models import Erp, Commune, Accessibilite
 from erp.provider import arrondissements
 
-
 logger = logging.getLogger(__name__)
 
 
