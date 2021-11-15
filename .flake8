@@ -10,7 +10,8 @@ exclude =
     __pycache__,
     data,
     docs,
-    erp/migrations
+    erp/migrations,
+    node_modules
 max-line-length = 88
 max-complexity = 10
 per-file-ignores =

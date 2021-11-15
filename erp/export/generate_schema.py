@@ -3,7 +3,7 @@ from typing import Any
 from frictionless import Schema, Field
 
 from erp.export.mappers import EtalabMapper
-from erp.schema import FIELDS
+from erp.schema import FIELDS, get_bdd_values
 
 TRUE_VALUES = [
     "true",
@@ -97,6 +97,8 @@ def get_constraints(field_name: str, field: Any) -> dict:
     """
     constraints = {}
     enum = field.get("choices") or None
+    bdd_values = field.get("app_model") or None
+
     field_type = map_types(field.get("type"))
     if enum and field_type == "string":
         constraints["simple"] = {}
@@ -110,6 +112,10 @@ def get_constraints(field_name: str, field: Any) -> dict:
         constraints["arrayItem"]["enum"] = [
             value[0] for value in enum if value[0] is not None
         ]
+    elif bdd_values:
+        constraints["arrayItem"] = {}
+        constraints["arrayItem"]["type"] = "string"
+        constraints["arrayItem"]["enum"] = [*get_bdd_values(field_name)]
     elif field_type == "boolean":
         constraints["boolTrue"] = TRUE_VALUES
         constraints["boolFalse"] = FALSE_VALUES

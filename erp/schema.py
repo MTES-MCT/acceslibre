@@ -1,3 +1,4 @@
+from django.apps import apps
 from django.utils.safestring import mark_safe
 
 from core.lib import text
@@ -221,6 +222,7 @@ SECTION_SANITAIRES = "sanitaires"
 SECTION_LABELS = "labels"
 SECTION_REGISTRE = "registre"
 SECTION_CONFORMITE = "conformite"
+SECTION_ACTIVITE = "activite"
 SECTION_COMMENTAIRE = "commentaire"
 SECTIONS = {
     SECTION_LABELS: {
@@ -1207,6 +1209,20 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
     },
+    # Activité
+    "activite": {
+        "type": "string",
+        "nullable": False,
+        "is_a11y": False,
+        "label": "Activité",
+        "help_text": mark_safe("Domaine d'activité de l'ERP"),
+        "help_text_ui": "Domaine d'activité de l'ERP",
+        "help_text_ui_neg": "Domaine d'activité de l'ERP",
+        "app_model": ("erp", "Activite"),
+        "attribute": "nom",
+        "nullable_bool": True,
+        "section": SECTION_ACTIVITE,
+    },
 }
 
 # Fix me : write additional documentation
@@ -1296,6 +1312,18 @@ def get_form_fieldsets(exclude_sections=None):
 
 def get_a11y_fields():
     return [key for (key, val) in FIELDS.items() if val.get("is_a11y") is True]
+
+
+def get_bdd_values(field):
+    try:
+        field = FIELDS.get(field)
+        return (
+            apps.get_model(*field.get("app_model"))
+            .objects.all()
+            .values_list(field.get("attribute"), flat=True)
+        )
+    except AttributeError:
+        return None
 
 
 def get_field_choices(field):

@@ -265,7 +265,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
     class Meta:
         model = Accessibilite
-        exclude = ("pk", "erp")
+        exclude = (
+            "pk",
+            "erp",
+        )
 
     fieldsets = schema.get_form_fieldsets()
 
