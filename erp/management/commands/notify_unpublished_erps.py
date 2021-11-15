@@ -50,7 +50,7 @@ class Command(BaseCommand):
         )
         for erp in erps:
             erp_updated_since_days = (self.now - erp.updated_at).days
-            if erp_updated_since_days % settings.UNPUBLISHED_ERP_NOTIF_DAYS == 0:
+            if erp_updated_since_days >= settings.UNPUBLISHED_ERP_NOTIF_DAYS:
                 if erp.user.pk not in notifications:
                     notifications[erp.user.pk] = {"user": erp.user, "erps": []}
                 notifications[erp.user.pk]["erps"].append(erp)
