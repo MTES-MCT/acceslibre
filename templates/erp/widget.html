@@ -58,8 +58,8 @@
 
   .c-dialog {
     position: fixed;
-    z-index: 100;
-    top: 0;
+    z-index: 100000;
+    top: 10vh;
     right: 0;
     bottom: 0;
     left: 0;
@@ -86,10 +86,86 @@
 
   /* EOS */
 </style>
-<div class="js-document">
+<style>
+  #dialog{
+        --link-underline: 0 1px 0 0 currentColor;
+    --link-blank-font: normal normal normal 1rem/1 dsfr-icons;
+    --link-blank-content: "\00a0";
+    --ul-type: "●\00a0\00a0";
+    --ol-type: decimal;
+    --ul-start: 1rem;
+    --ol-start: 1.5rem;
+    --xl-block: 0.5rem;
+    --li-bottom: 0.25rem;
+    --xl-base: 1em;
+    --ol-content: counters(li-counter, ".") ".\00a0\00a0";
+    --bf500: #000091;
+    --bf500-plain: #000091;
+    --w-bf500: #fff;
+    --bf300-plain: #9a9aff;
+    --bf200-bf300: #ececff;
+    --bf100-g750: #f5f5ff;
+    --t-plain: transparent;
+    --t-w: transparent;
+    --g800: #1e1e1e;
+    --g700: #383838;
+    --g600: #6a6a6a;
+    --g500: #9c9c9c;
+    --g400: #cecece;
+    --g300: #e7e7e7;
+    --g200: #f0f0f0;
+    --g100: #f8f8f8;
+    --w: #fff;
+    --beige: #f9f8f6;
+    --g800-plain: #1e1e1e;
+    --g600-g400: #6a6a6a;
+    --g400-t: #cecece;
+    --g100-g800: #f8f8f8;
+    --w-g750: #fff;
+    --focus: #2a7ffe;
+    --info: #0762c8;
+    --success: #008941;
+    --error: #e10600;
+    --rm300: #f7bfc3;
+    --rm500: #e1000f;
+    --scroll-shadow: rgba(30, 30, 30, 0.16);
+    --overlay: rgba(156, 156, 156, 0.32);
+    font-family: "Marianne", arial, sans-serif;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    --block-color-hover: rgba(224, 224, 224, 0.5);
+    --block-color-active: rgba(194, 194, 194, 0.5);
+    color: var(--g700);
+    box-sizing: inherit;
+    outline-offset: 2px;
+    outline-width: 2px;
+    outline-color: var(--focus);
+    position: fixed;
+    z-index: 100;
+    top: 10vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 2.4rem;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: .2s;
+    outline-style: none;
+  }
+
+  .fr-h4, .modal__subtitle {
+    color: var(--g700) !important;
+    font-family: "Marianne", arial, sans-serif
+  }
+</style>
+<div class="js-document" data-fr-theme="dark">
   <div id="dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true"
        aria-hidden="true" tabindex="-1" class="c-dialog">
-    <div class="fr-grid-row fr-grid-row--center" style="width:100%">
+    <div id="1" class="fr-grid-row fr-grid-row--center" style="width:100%">
       <div class="fr-col-12 fr-col-md-5">
         <div class="fr-modal__body">
           <div class="fr-modal__header text-right">
