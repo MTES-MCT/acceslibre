@@ -18,7 +18,7 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     link.id = 1;
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = base_url + '/static/dist/dsfr/dist/css/dsfr.css';
+    link.href = base_url + '/static/vendor/dsfr/dist/css/dsfr.css';
     link.media = 'all';
     head.appendChild(link);
 

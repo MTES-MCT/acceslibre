@@ -1,0 +1,19 @@
+{
+  "name": "@ds-fr/utilities",
+  "version": "0.1.7",
+  "license": "MIT",
+  "description": "Outils",
+  "config": {
+    "wrapper": "col-8"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --open --config ../../webpack/webpack.config.dev.js"
+  },
+  "dependencies": {
+    "@ds-fr/core": "^1.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "560f8482fdfd05ae39ffa7c4a66c432629b08f34"
+}

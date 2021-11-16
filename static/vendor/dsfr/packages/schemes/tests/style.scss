@@ -1,0 +1,6 @@
+@import '../../../page-test/styles';
+
+@import '../main';
+@import '~@ds-fr/buttons/main';
+
+@include add-scheme('brown', $brown-200, $brown-500, $grey-700, $blue-france-200, chromatic);

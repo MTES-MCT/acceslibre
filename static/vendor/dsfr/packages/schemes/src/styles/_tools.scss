@@ -1,0 +1,575 @@
+@use sass:color;
+@use sass:string;
+
+/**
+ Schemes wrapper
+ */
+
+$dm:'.#{$prefix}-dark-mode';
+$COLOR:unquote('$COLOR') !global;
+
+$scheme-wrapper-selectors:() !global;
+$scheme-elements:() !global;
+$scheme-elements-transitions:() !global;
+
+/** private */
+@function str-replace($stack, $needle, $content) {
+  $is:quote($stack);
+  $in:quote($needle);
+  $ic:quote($content);
+
+  $i:str-index($is, $in);
+
+  @while $i != null {
+    $is:unquote(str_slice($is, 1, $i - 1) + $ic + str_slice($is, $i + str-length($in), str_length($is)));
+    $i:str-index($is, $in);
+  }
+
+  @return unquote($is);
+}
+
+@function _replace_color($value, $hex, $url-encode:true) {
+  @if $url-encode == true {
+    $hex:unquote('%23' + str_slice(inspect($hex), 2));
+  }
+
+  @return str-replace($value, $COLOR, $hex);
+}
+
+@function _sanitize_selector($selector) {
+  $i:str-index(quote($selector), '_body');
+
+  @if $i == null {
+    $selector:str-replace($selector, 'body', '');
+  }
+
+  $selector:str-replace($selector, $dm, '');
+
+  /*
+  @if $selector == '' {
+    $selector:'*';
+  } */
+  @return $selector;
+}
+
+/** private */
+@function _get-scheme($scheme, $name, $index:0) {
+  $list: map_get(map_get($scheme-wrappers, $scheme), $name);
+
+  @if $index == 0 {
+    @return $list;
+  }
+
+  @return nth($list, $index);
+}
+
+/** private */
+@mixin _box-shadow-border($hex, $width: 0 0 0 0) {
+  $tw:nth($width, 1);
+  $rw:nth($width, 2);
+  $bw:nth($width, 3);
+  $lw:nth($width, 4);
+
+  @if $lw == 0 and $tw == 0 {
+    @if $rw == 0 and $bw == 0 {
+      //no action
+    }
+    @else {
+      box-shadow: inset #{-($rw)} #{-($bw)} 0 0 $hex;
+    }
+  }
+  @else {
+    @if $rw == 0 and $bw == 0 {
+      box-shadow: inset $lw $tw 0 0 $hex;
+    }
+    @else {
+      box-shadow: inset $lw $tw 0 0 $hex, inset #{-($rw)} #{-($bw)} 0 0 $hex;
+    }
+  }
+}
+
+/** private */
+@mixin _scheme-wrapper-border($hex, $width:1px, $module:'#{$prefix}-scheme') {
+
+  $base:'.#{$module}-border';
+  $w:$width;
+
+  @if length($width) == 1 {
+    $w: $width $width $width $width;
+  }
+  @else if length($width) == 2 {
+    $w: nth($width, 1) nth($width, 2) nth($width, 1) nth($width, 2);
+  }
+  @else if length($width) == 3 {
+    $w: nth($width, 1) nth($width, 2) nth($width, 3) nth($width, 2);
+  }
+
+  $l:('':0,'#{$base}--left': nth($w, 1));
+  $t:('':0,'#{$base}--top': nth($w, 2));
+  $r:('':0,'#{$base}--right': nth($w, 3));
+  $b:('':0,'#{$base}--bottom': nth($w, 4));
+
+  &#{$base} {
+    @include _box-shadow-border($hex, $w);
+
+    @each $ln, $lp in $l {
+      @each $tn, $tp in $t {
+        @each $rn, $rp in $r {
+          @each $bn, $bp in $b {
+            @if $lp != 0 or $tp != 0 or $rp != 0 or $bp != 0 {
+              &#{$ln}#{$tn}#{$rn}#{$bn} {
+                @include _box-shadow-border($hex, $tp $rp $bp $lp);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** private */
+@mixin _add-scheme-wrapper($selector, $colors, $scheme:light, $borders:true) {
+  $props: #{$scheme} nth($colors, 1);
+  @if length($colors) >= 3 {
+    $props: append($props, nth($colors, 3));
+  }
+
+  $scheme-wrapper-selectors:map-merge($scheme-wrapper-selectors, ($selector: $props)) !global;
+
+  @at-root body {
+    #{$selector},
+    &#{$selector} {
+      background-color: nth($colors, 1);
+
+      @if $borders == true {
+        @include _scheme-wrapper-border(nth($colors, 2), space(0-5N));
+      }
+    }
+
+    //pas de transitions pour le moment
+    @if false {
+      &:not(#{$dm}--sudden) {
+        #{$selector}, &#{$selector} {
+          transition: background-color 0.3s;
+        }
+      }
+    }
+
+    @if length($colors) >= 3 {
+      &#{$dm} #{$selector}, &#{$dm}#{$selector} {
+        background-color: nth($colors, 3);
+
+        @if $borders == true {
+          @include _scheme-wrapper-border(nth($colors, 4), space(0-5N));
+        }
+      }
+    }
+  }
+}
+
+/**
+ initialize wrappers.
+ */
+@mixin scheme-wrappers {
+
+  @at-root body {
+
+    $light: _get-scheme(light, white);
+
+    background-color: nth($light, 1);
+    @include _scheme-wrapper-border(nth($light, 2));
+
+    //pas de transitions pour le moment
+    @if false {
+      &:not(#{$dm}--sudden) {
+        transition: background-color 0.3s;
+      }
+    }
+
+    &#{$dm} {
+      background-color: nth($light, 3);
+      @include _scheme-wrapper-border(nth($light, 4));
+    }
+  }
+
+  @each $scheme, $variation in $scheme-wrappers {
+    @each $name, $colors in $variation {
+      $selector:'.#{$prefix}-scheme';
+
+      @if $name != white {
+        $selector: '.#{$prefix}-scheme.#{$prefix}-scheme--#{$name}';
+      }
+
+      @include _add-scheme-wrapper($selector, $colors, $scheme);
+    }
+  }
+}
+
+@mixin add-scheme($name, $light-color, $light-border-color, $dark-color:_get-scheme(dark, grey-800, 1), $dark-border-color:_get-scheme(dark, grey-800, 2), $scheme:light) {
+  $colors: $light-color $light-border-color;
+  @if $scheme != dark {
+    $colors:join($colors, ($dark-color $dark-border-color));
+  }
+
+  $selector:'.#{$prefix}-scheme.#{$prefix}-scheme--#{$name}';
+
+  @include _add-scheme-wrapper($selector, $colors, $scheme);
+
+  @include _update-elements-with-wrapper($selector, $colors, $scheme);
+}
+
+@mixin component-as-scheme($scheme:light, $name:grey-100, $module:null, $width: 0 0 0 0) {
+  $component:_sanitize_selector(&);
+  $colors: _get-scheme($scheme, $name);
+
+  @include _add-scheme-wrapper($component, $colors, $scheme, false);
+
+  @include _update-elements-with-wrapper($component, $colors, $scheme);
+
+  @if $module == null {
+    @at-root body {
+      #{$component} {
+        @include _box-shadow-border(nth($colors, 2), $width);
+      }
+
+      @if length($colors) >= 4 {
+        &#{$dm} #{$component} {
+          @include _box-shadow-border(nth($colors, 4), $width);
+        }
+      }
+    }
+  }
+  @else {
+    @at-root body {
+      #{$component} {
+        @include _scheme-wrapper-border(nth($colors, 2), $width, $module);
+      }
+
+      @if length($colors) >= 4 {
+        &#{$dm} #{$component} {
+          @include _scheme-wrapper-border(nth($colors, 4), $width, $module);
+        }
+      }
+    }
+  }
+}
+
+/**
+ Scheme set
+ */
+
+/** private */
+@mixin _scheme-element-hover($pseudo:before, $position:relative) {
+
+  position: $position;
+
+  &::#{$pseudo} {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    //background-size: 0%;
+    //background-position: 50% 50%;
+    //background-repeat: no-repeat;
+    //transition: background-size .3s cubic-bezier(.5,.5,.5,1);
+  }
+
+  @if false {
+    &:hover,
+    &:active {
+      &::#{$pseudo} {
+        //background-size: 470% ;
+        //transition: background-size .3s cubic-bezier(.5,.5,1,.5);
+      }
+    }
+  }
+}
+
+/** private */
+@mixin _scheme-element-hover-svg($shade, $opacity) {
+  //background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle r='32' cy='32' cx='32' fill='%23#{str_slice(inspect($shade), 2)}' fill-opacity='#{$opacity}'/%3E%3C/svg%3E");
+
+  //$s:str_slice(inspect($shade), 2);
+
+  //background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient r='0.5' cy='0.5' cx='0.5' spreadMethod='pad' id='button-gradient'%3E%3Cstop offset='0' stop-color='%23#{$s}' stop-opacity='1'/%3E%3Cstop offset='0.3' stop-color='%23#{$s}' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%23#{$s}' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle r='32' cy='32' cx='32' fill='url(%23button-gradient)' fill-opacity='#{$opacity}'/%3E%3C/svg%3E");
+
+  @if $shade == #000 {
+    background-color: rgba(0, 0, 0, $opacity);
+  }
+  @else {
+    background-color: rgba(255, 255, 255, $opacity);
+  }
+}
+
+/** private */
+@mixin _scheme-element-hover-bg($front, $back, $pseudo:before) {
+
+  $shade: #fff;
+  $opacity: 0.15;
+
+  $lightness: lightness(mix($front, $back, 100% * opacity($front)));
+  $scheme-lightness: lightness($back);
+
+  @if $lightness > 50% {
+    $shade:#000;
+    $c:$lightness / 100%;
+
+    @if ($scheme-lightness > 50%) {
+      $opacity: 0.06 / $c;
+    }
+    @else {
+      $opacity: 0.08 / $c;
+    }
+  }
+  @else {
+    $shade:#fff;
+    $c: (1 - ($lightness / 100%));
+    @if ($scheme-lightness > 50%) {
+      $opacity: 0.16/ $c;
+    }
+    @else {
+      $opacity: 0.16 / $c;
+    }
+  }
+
+  &::#{$pseudo} {
+    @include _scheme-element-hover-svg($shade, 0);
+  }
+
+  &:hover::#{$pseudo} {
+    @include _scheme-element-hover-svg($shade, $opacity);
+  }
+
+  &:active::#{$pseudo} {
+    @include _scheme-element-hover-svg($shade, $opacity * 2);
+  }
+}
+
+/** private */
+@function _scheme-set-color($set, $scheme) {
+  $result:null;
+  @if $scheme == dark and length($set) >= 2 {
+    $result:nth($set, 2);
+  }
+  @else if $scheme == chromatic and length($set) >= 3 {
+    $result:nth($set, 3);
+  }
+  @else {
+    $result:nth($set, 1);
+  }
+
+  @return $result;
+}
+
+/** private */
+@mixin _scheme-element-per-wrapper($selector, $props, $element, $hover, $set, $prop, $value, $url-encode) {
+  $scheme:nth($props, 1);
+  $back:nth($props, 2);
+  $front:_scheme-set-color($set, $scheme);
+
+  $pseudo:before;
+
+  @if $hover == after {
+    $pseudo:after;
+  }
+
+  @at-root body {
+    &:not(#{$dm}) {
+      & #{$selector}, &#{$selector} {
+        @if $element == '' {
+          #{$prop}: _replace_color($value, $front, $url-encode);
+        }
+        @else {
+          #{$element} {
+            #{$prop}: _replace_color($value, $front, $url-encode);
+
+            @if $hover != false {
+              @include _scheme-element-hover-bg($front, $back, $pseudo);
+            }
+          }
+        }
+      }
+    }
+
+    @if $hover != false and $scheme != dark and length($props) >= 3 and $element != '' {
+      $dark-back:nth($props, 3);
+      @if $dark-back != _get-scheme(dark, grey-800, 1) {
+        &#{$dm} {
+          & #{$selector}, &#{$selector} {
+            #{$element} {
+              @include _scheme-element-hover-bg(_scheme-set-color($set, dark), $dark-back, $pseudo);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** private */
+@mixin _update-elements-with-wrapper($selector, $colors, $scheme) {
+  $props: #{$scheme} nth($colors, 1);
+  @if length($colors) >= 3 {
+    $props: append($props, nth($colors, 3));
+  }
+
+  @each $element, $el-props in $scheme-elements {
+    @each $prop, $params in $el-props {
+      @include _scheme-element-per-wrapper($selector, $props, $element, map_get($params, hover) , map_get($params, set), $prop, map_get($params, value), map_get($params, url-encode));
+    }
+  }
+}
+
+/** private */
+@mixin _scheme-element($name, $prop, $transition:true, $hover:false, $value:$COLOR, $url-encode:false, $element:&) {
+  $set: map_get($scheme-sets, $name);
+
+  $element: _sanitize_selector($element);
+
+  $light: nth($set, 1);
+  $dark: _scheme-set-color($set, dark);
+
+  $h: quote($hover);
+  $i: str-index($h, '-');
+  $position: relative;
+
+  @if $i != null {
+    $hover: unquote(str_slice($h, 1, $i - 1));
+    $position: unquote(str_slice($h, $i + 1));
+  }
+
+  $pseudo:before;
+
+  @if $hover == after {
+    $pseudo:after;
+  }
+
+  @if $hover != false {
+    @at-root #{$element} {
+      @include _scheme-element-hover($pseudo, $position);
+    }
+  }
+
+  @at-root body {
+    //pas de transitions pour le moment
+    //@if $transition == true {
+    @if false {
+      $transitions:map_get($scheme-elements-transitions, $element);
+      $transitions:append($transitions, $prop 0.3s, $separator: comma);
+      $scheme-elements-transitions:map_merge($scheme-elements-transitions, ($element:$transitions)) !global;
+
+      &:not(#{$dm}--sudden) {
+        @if $element == '' {
+          transition: $transitions;
+        }
+        @else {
+          #{$element} {
+            transition: $transitions;
+          }
+        }
+      }
+    }
+
+    &:not(#{$dm}) {
+      @if $element == '' {
+        #{$prop}: _replace_color($value, $light, $url-encode);
+      }
+      @else {
+        #{$element} {
+          #{$prop}: _replace_color($value, $light, $url-encode);
+
+          @if $hover != false {
+            @include _scheme-element-hover-bg($light, _get-scheme(light, white, 1), $pseudo);
+          }
+        }
+      }
+    }
+
+    &#{$dm} {
+      @if $element == '' {
+        #{$prop}: _replace_color($value, $dark, $url-encode);
+      }
+      @else {
+        #{$element} {
+          #{$prop}: _replace_color($value, $dark, $url-encode);
+
+          @if $hover != false {
+            @include _scheme-element-hover-bg($dark, _get-scheme(dark, grey-800, 1), $pseudo);
+          }
+        }
+      }
+    }
+  }
+
+  $record:map_get($scheme-elements, #{$element});
+
+  @if ($record != null) {
+    $record:map_merge($record, (#{$prop} :(hover:$hover, set:$set, value:$value, url-encode:$url-encode)));
+  }
+  @else {
+    $record:(#{$prop} :(hover:$hover, set:$set, value:$value, url-encode:$url-encode));
+  }
+
+  $scheme-elements:map_merge($scheme-elements, (#{$element}: $record)) !global;
+
+  @each $selector, $props in $scheme-wrapper-selectors {
+    @include _scheme-element-per-wrapper($selector, $props, $element, $hover, $set, $prop, $value, $url-encode);
+  }
+}
+
+@mixin scheme-element-bg-color($set-name, $transition:true, $hover:false) {
+  @include _scheme-element($set-name, background-color, $transition, $hover);
+}
+
+@mixin scheme-element-text-color($set-name, $transition:true) {
+  @include _scheme-element($set-name, color, $transition);
+}
+
+@mixin scheme-element-fill-color($set-name, $transition:true) {
+  @include _scheme-element($set-name, fill, $transition);
+}
+
+@mixin scheme-element-border-color($set-name, $transition:true, $side:null, $value:1px solid $COLOR) {
+  $prop:border;
+  @if $side != null {
+    $prop:border-#{$side};
+  }
+  @include _scheme-element($set-name, $prop, $transition, false, $value);
+}
+
+@mixin scheme-element-outline-color($set-name, $transition:true, $value:1px solid $COLOR) {
+  @include _scheme-element($set-name, outline, $transition, false, $value);
+}
+
+@mixin scheme-element-box-shadow-color($set-name, $transition:true, $value:inset 0 0 0 1px $COLOR) {
+  @include _scheme-element($set-name, box-shadow, $transition, false, $value);
+}
+
+@mixin scheme-element-data-uri-svg($set-name, $value, $prop:background-image) {
+  @include _scheme-element($set-name, $prop, false, false, $value, true);
+}
+
+@mixin add-scheme-set($set-name, $light, $dark:null, $chromatic:null) {
+  $props:$light;
+  @if $dark != null {
+    $props:append($props, $dark);
+    @if $chromatic != null {
+      $props:append($props, $chromatic);
+    }
+  }
+
+  $scheme-sets:map_merge($scheme-sets, (#{$set-name}: $props)) !global;
+}
+
+@mixin scheme-element-focus() {
+  &:focus {
+    @include scheme-element-outline-color(focus, false, 2px solid $COLOR);
+    outline-offset: 2px;
+    z-index: 100000;
+  }
+}

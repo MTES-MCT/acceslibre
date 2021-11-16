@@ -1,0 +1,23 @@
+{
+  "name": "@ds-fr/navigation",
+  "version": "0.1.7",
+  "license": "MIT",
+  "description": "Navigation",
+  "config": {
+    "wrapper": "container"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config ../../webpack/webpack.config.dev.js"
+  },
+  "dependencies": {
+    "@ds-fr/buttons": "^0.1.7",
+    "@ds-fr/core": "^1.0.5",
+    "@ds-fr/icons": "^0.1.7",
+    "@ds-fr/schemes": "^0.1.7",
+    "@ds-fr/utilities": "^0.1.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "560f8482fdfd05ae39ffa7c4a66c432629b08f34"
+}

@@ -491,6 +491,7 @@ def widget_from_uuid(request, uuid):  # noqa
         context={
             "accessibilite_data": accessibilite_data,
             "erp": erp,
+            "base_url": f"{settings.SITE_ROOT_URL}",
         },
     )
 
