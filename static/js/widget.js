@@ -18,9 +18,17 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     link.id = 1;
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = base_url + '/static/vendor/dsfr/dist/css/dsfr.css';
+    link.href = base_url + '/static/css/dsfr-widget.css';
     link.media = 'all';
     head.appendChild(link);
+
+    var link2 = document.createElement('link');
+    link2.id = 2;
+    link2.rel = 'stylesheet';
+    link2.type = 'text/css';
+    link2.href = base_url + '/static/vendor/dsfr/dist/css/modal.css';
+    link2.media = 'all';
+    head.appendChild(link2);
 
     const triggers = document.querySelectorAll('[aria-haspopup="dialog"]');
     const doc = document.querySelector('.js-document');
