@@ -465,7 +465,7 @@ def widget_from_uuid(request, uuid):  # noqa
         )
 
     if presence_equiepement_sourd_label:
-        accessibilite_data["équipement sourd et malentendant"] = {
+        accessibilite_data["équipements sourd et malentendant"] = {
             "label": presence_equiepement_sourd_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
         }
