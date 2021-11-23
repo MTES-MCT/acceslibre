@@ -412,17 +412,17 @@ def widget_from_uuid(request, uuid):  # noqa
         entree_label = "Entrée spécifique PMR"
 
     if chemin_ext_label and entree_label:
-        accessibilite_data["cheminement"] = {
-            "label": f"{chemin_ext_label} et {entree_label}",
+        accessibilite_data["accès"] = {
+            "label": f"{chemin_ext_label} et {entree_label.lower()}",
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
     elif chemin_ext_label:
-        accessibilite_data["cheminement"] = {
+        accessibilite_data["accès"] = {
             "label": chemin_ext_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
     elif entree_label:
-        accessibilite_data["cheminement"] = {
+        accessibilite_data["accès"] = {
             "label": entree_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
@@ -434,7 +434,7 @@ def widget_from_uuid(request, uuid):  # noqa
     elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_NON_FORMES:
         presence_personnel_label = "Personnel non formé"
     elif erp.accessibilite.accueil_personnels == schema.PERSONNELS_FORMES:
-        presence_personnel_label = "Personnel sensibilité / formé"
+        presence_personnel_label = "Personnel sensibilisé / formé"
 
     if presence_personnel_label:
         accessibilite_data["personnel"] = {
