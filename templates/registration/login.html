@@ -29,7 +29,7 @@
       </small></p>
 
       {% for error in form.non_field_errors %}
-        <p class="form-text text-danger">{{ error }}</p>
+        <p class="form-text text-danger" role="alert">{{ error }}</p>
       {% endfor %}
 
         {{ form.username|as_crispy_field }}

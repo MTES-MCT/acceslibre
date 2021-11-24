@@ -50,6 +50,14 @@ $viewport-xl: 1200px;
     z-index: 9999;
   }
 
+  .bold{
+    font-weight: bold;
+  }
+
+  .focus-img:focus img {
+    border: 2px solid white;
+    padding:2px;
+  }
   &-comment-block {
     p {
       margin: 0;
@@ -332,6 +340,10 @@ $viewport-xl: 1200px;
 
   .no-outline {
     outline: none;
+  }
+
+  .no-list {
+    list-style-type: none;
   }
 
   .text-bigger {
