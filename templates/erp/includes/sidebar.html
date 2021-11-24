@@ -1,4 +1,4 @@
-{% load a4a %}
+{% load a4a static %}
 
 <div class="card shadow-sm">
   <div class="card-body pb-2">
@@ -91,11 +91,35 @@
 <div class="card shadow-sm mt-5">
   <div class="card-body pb-2">
     <h2 class="h4 text-center mb-3">
-      Intégrer AccèsLibre&nbsp;!
+      AccèsLibre&nbsp;sur votre site !
     </h2>
-    <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb">
-      <code class="Code__Text-sc-1wllvkx-1 dNGlgo">{{ widget_tag|linebreaksbr }}</code>
-      <p class="Code__Explication-sc-1wllvkx-2 jzfvxW">Copiez ce code puis ajoutez-le où vous souhaitez qu'il s'affiche sur votre site web</p>
+    <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb text-center">
+      <img alt="" class="img-thumbnail mb-3" src="{% static "img/widget-ddt-rhone.png" %}">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#widgetmodal">
+        Comment faire ?
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="widgetmodal" tabindex="-1" role="dialog" aria-labelledby="Modal pour l'explication du widget acceslibre" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Comment intégrer Accès libre sur votre site</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-left">
+              <code class="Code__Text-sc-1wllvkx-1 dNGlgo">{{ widget_tag|linebreaksbr }}</code>
+              <p class="Code__Explication-sc-1wllvkx-2 jzfvxW">Copiez ce code puis ajoutez-le où vous souhaitez qu'il s'affiche sur votre site web</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
+
