@@ -91,7 +91,7 @@
 <div class="card shadow-sm mt-5">
   <div class="card-body pb-2">
     <h2 class="h4 text-center mb-3">
-      AccèsLibre&nbsp;sur votre site !
+      Acceslibre&nbsp;sur votre site !
     </h2>
     <div class="Code__Wrapper-sc-1wllvkx-0 iOUfrb text-center">
       <img alt="" class="img-thumbnail mb-3" src="{% static "img/widget-ddt-rhone.png" %}">
@@ -103,17 +103,20 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Comment intégrer Accès libre sur votre site</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Intégrer acceslibre sur votre site !</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body text-left">
-              <code class="Code__Text-sc-1wllvkx-1 dNGlgo">{{ widget_tag|linebreaksbr }}</code>
-              <p class="Code__Explication-sc-1wllvkx-2 jzfvxW">Copiez ce code puis ajoutez-le où vous souhaitez qu'il s'affiche sur votre site web</p>
+            <div class="modal-body text-left" id="widget-code">
+              <p class="Code__Explication-sc-1wllvkx-2 jzfvxW">Copiez ce code puis collez-le là où vous souhaitez qu'il s'affiche sur votre site web :</p>
+              <div style="background-color: black; padding: 1rem;">
+                  <code style="color:white;" class="Code__Text-sc-1wllvkx-1 dNGlgo" id="tocopy">{{ widget_tag|linebreaksbr }}</code>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" >Fermer</button>
+              <button type="button" class="btn btn-primary js-copy" data-target="#tocopy">Copier</button>
             </div>
           </div>
         </div>
@@ -123,3 +126,45 @@
   </div>
 </div>
 
+<script>
+    var btncopy = document.querySelector('.js-copy');
+    if(btncopy) {
+        btncopy.addEventListener('click', docopy);
+    }
+
+    function docopy() {
+        var range = document.createRange();
+        var target = this.dataset.target;
+        var fromElement = document.querySelector(target);
+        var selection = window.getSelection();
+
+        range.selectNode(fromElement);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        try {
+            var result = document.execCommand('copy');
+            if (result) {
+               var tag = document.createElement("p");
+               tag.className = "text-center text-success"
+               var text = document.createTextNode("Copié avec succès");
+               tag.appendChild(text);
+               var element = document.getElementById("widget-code");
+               element.appendChild(tag);
+            }
+        }
+        catch(err) {
+            console.log(err);
+            alert("Une erreur s'est produite lors de la copie.")
+        }
+        selection = window.getSelection();
+
+        if (typeof selection.removeRange === 'function') {
+            selection.removeRange(range);
+        } else if (typeof selection.removeAllRanges === 'function') {
+            selection.removeAllRanges();
+        }
+    }
+
+
+</script>
