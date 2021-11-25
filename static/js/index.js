@@ -20,6 +20,9 @@ import "leaflet.locatecontrol";
 import "leaflet-center-cross";
 import "chart.js";
 
+// Bootstrap
+import * as bootstrap from 'bootstrap';
+
 // Sentry
 import * as Sentry from "@sentry/browser";
 import { Integrations } from "@sentry/tracing";
