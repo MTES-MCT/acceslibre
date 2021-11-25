@@ -3,6 +3,8 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.db.models import Count, Q
 
+from compte.models import UserPreferences
+
 
 class CustomUserAdmin(UserAdmin):
     ordering = (
@@ -62,3 +64,4 @@ class CustomUserAdmin(UserAdmin):
 # Replace the default UserAdmin with our custom one
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(UserPreferences)

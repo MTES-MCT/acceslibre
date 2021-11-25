@@ -12,9 +12,7 @@ from erp.imports.mapper.vaccination import VaccinationMapper
 
 from erp.models import Accessibilite, Activite
 
-
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"
-
 
 logger = logging.getLogger(__name__)
 

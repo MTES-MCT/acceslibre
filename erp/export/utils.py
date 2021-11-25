@@ -34,13 +34,16 @@ def map_value_from_schema(schema_enum, data):
     return schema_enum[[y[0] for y in schema_enum].index(data)][0]
 
 
-def map_list_from_schema(schema_enum, data):
+def map_list_from_schema(schema_enum, data, verbose=False):
+    if verbose:
+        index = 1
+
     if not data or not len(data):
         return None
 
     result = set()
     for d in data:
-        choice = schema_enum[[y[0] for y in schema_enum].index(d)][0]
+        choice = schema_enum[[y[0] for y in schema_enum].index(d)][index]
         result.add(choice)
 
     return list(result)

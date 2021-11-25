@@ -1,0 +1,29 @@
+<%#
+# paramètres link
+
+* text (string, required) : contenu texte
+
+* left (bool, optionnal) : modifer icon à gauche
+
+%>
+
+<%
+ let classes = locals.classes || [];
+
+ classes.push(prefix + '-link');
+
+ switch(locals.size) {
+     case 'sm':
+       classes.push(prefix + '-link--sm');
+       break;
+
+     case 'lg':
+         classes.push(prefix + '-link--lg');
+         break;
+ }
+
+ if (locals.left !== undefined) classes.push(prefix +'-link--icon-left');
+
+ %>
+
+<a href="#" <%- includeClasses(classes)%>><%- text %></a>
