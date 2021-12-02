@@ -4,7 +4,7 @@
 {% load a4a %}
 {% load crispy_forms_tags %}
 
-{% block page_title %}Contact{% endblock%}
+{% block page_title %}Contact {% if erp %}Signaler une malveillance pour l'établissement "{{ erp.nom }}"{% endif %}{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
@@ -80,7 +80,7 @@
         <h2 class="h5">
           <i aria-hidden="true" class="icon icon-info-circled"></i>
           Problèmes techniques & rapport de bug
-        </h5>
+        </h2>
 
         <section>
           <p>Le code source de l'application est open source et

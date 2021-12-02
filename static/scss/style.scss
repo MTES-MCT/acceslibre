@@ -24,6 +24,11 @@ $viewport-xl: 1200px;
 @import "~bootstrap/scss/bootstrap";
 // App specific styles
 
+iframe{
+  border: 0px;
+  margin:0px;
+}
+
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
