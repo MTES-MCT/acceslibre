@@ -27,6 +27,7 @@ def test_contact(data, client):
             "name": TEST_NAME,
             "email": TEST_EMAIL,
             "body": TEST_BODY,
+            "robot": "on",
         },
     )
 
@@ -61,7 +62,6 @@ def test_contact_antispam(data, client):
             "name": TEST_NAME,
             "email": TEST_EMAIL,
             "body": TEST_BODY,
-            "robot": "on",
         },
     )
 
@@ -86,6 +86,7 @@ def test_contact_authenticated(data, client):
             "email": TEST_EMAIL,
             "body": TEST_BODY,
             "user": str(data.erp.user.pk),
+            "robot": "on",
         },
     )
 
@@ -118,6 +119,7 @@ def test_contact_topic(data, client):
             "email": TEST_EMAIL,
             "topic": "api",
             "body": TEST_BODY,
+            "robot": "on",
         },
     )
 
@@ -156,6 +158,7 @@ def test_contact_topic_erp(data, client):
             "email": TEST_EMAIL,
             "body": TEST_BODY,
             "erp": str(data.erp.pk),
+            "robot": "on",
         },
     )
 

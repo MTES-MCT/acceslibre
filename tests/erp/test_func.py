@@ -76,7 +76,7 @@ def test_registration_flow(data, browser):
     browser.fill("email", "john@doe.com")
     browser.fill("password1", "Abcdef123!")
     browser.fill("password2", "Abcdef123!")
-    browser.uncheck("robot")
+    browser.check("robot")
     button = browser.find_by_css("form.registration-form button[type=submit]")
     button.click()
 
