@@ -24,12 +24,16 @@ class ContactForm(forms.ModelForm):
         queryset=Erp.objects, widget=forms.HiddenInput, required=False
     )
 
+    email = forms.EmailField(
+        error_messages={"invalid": "Format de l'email attendu : nom@domaine.tld"}
+    )
+
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
     robot = forms.BooleanField(
-        label="Je suis un robot",
-        help_text="Merci de décocher cette case pour envoyer votre message",
-        initial=True,
+        label="Je ne suis pas un robot",
+        help_text="Merci de cocher cette case pour envoyer votre message",
+        initial=False,
         required=False,
     )
 
@@ -50,8 +54,8 @@ class ContactForm(forms.ModelForm):
 
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
-        if robot is True:
+        if not robot:
             raise ValidationError(
-                mark_safe("Décochez cette case pour soumettre le formulaire.")
+                mark_safe("Cochez cette case pour soumettre le formulaire.")
             )
         return robot

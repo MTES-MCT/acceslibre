@@ -4,7 +4,7 @@
 {% load a4a %}
 {% load crispy_forms_tags %}
 
-{% block page_title %}Contact {% if erp %}Signaler une malveillance pour l'établissement "{{ erp.nom }}"{% endif %}{% endblock%}
+{% block page_title %}Contact {% if erp %}- Signaler une malveillance pour l'établissement "{{ erp.nom }}"{% endif %}{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
@@ -12,7 +12,7 @@
   <h2 class="h3 text-center mb-4">Contactez-nous</h2>
 
   <div class="row justify-content-md-center">
-    <form id="contact-form" action="." method="POST" class="col-md-6 col-lg-7 mb-4">
+    <form id="contact-form" action="." method="POST" novalidate autocomplete class="col-md-6 col-lg-7 mb-4">
       {% csrf_token %}
 
       <p><small class="text-muted">

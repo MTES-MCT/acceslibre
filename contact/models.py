@@ -41,6 +41,7 @@ class Message(models.Model):
     email = models.EmailField(
         max_length=255,
         verbose_name="Adresse email",
+        error_messages={"invalid": ""},
     )
     body = models.TextField(
         max_length=5000,

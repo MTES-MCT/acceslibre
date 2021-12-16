@@ -6,11 +6,11 @@
   </label>
   <div class="form-group mb-1">
     <p>{{ field.help_text|safe }}</p>
-    <div class="a4a-form-choices{% if inline %} inline{% endif %}">
+    <div class="a4a-form-choices{% if inline %} inline{% endif %}" role="group">
       {{ field }}
     </div>
     {% for error in field.errors %}
-    <div class="form-text text-danger">{{ error }}</div>
+    <div class="form-text text-danger" role="alert">{{ error }}</div>
     {% endfor %}
   </div>
 </div>

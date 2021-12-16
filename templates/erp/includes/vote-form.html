@@ -2,19 +2,19 @@
   <h4 class="h5">Ces informations sont-elles fiables&nbsp;?</h4>
   <span class="text-nowrap">
     {% csrf_token %}
-    <button style="font-weight: bold" type="submit" name="action" value="UP" class="btn btn-link"
+    <button type="submit" name="action" value="UP" class="btn btn-link font-weight-bolder text-primary"
       data-track-event="vote,up,{{ erp.slug }}"
       {% if not user.is_authenticated %} disabled title="Vous devez vous connecter pour voter"{% else %}title="Oui"{% endif %}>
       <i aria-hidden="true" class="icon icon-thumbs-up{% if user_vote and user_vote.value == 1 %} text-primary{% endif %}"></i>
       {{ erp.count_positives|default_if_none:"0" }} oui
     </button>
     {% if user.is_authenticated and user_vote and user_vote.value == -1 %}
-    <button style="font-weight: bold" type="submit" name="action" value="DOWN" class="btn btn-link" title="Non">
+    <button type="submit" name="action" value="DOWN" class="btn btn-link font-weight-bolder text-primary" title="Non">
       <i aria-hidden="true" class="icon icon-thumbs-down text-primary"></i>
       {{ erp.count_negatives|default_if_none:"0" }} non
     </button>
     {% else %}
-    <button style="font-weight: bold" type="button" name="action" value="DOWN" class="btn btn-link btn-vote-no"
+    <button type="button" name="action" value="DOWN" class="btn btn-link btn-vote-no font-weight-bolder text-primary"
       {% if user.is_authenticated %}title="Non"{% else %}disabled title="Vous devez vous connecter pour voter"{% endif %}>
       <i aria-hidden="true" class="icon icon-thumbs-down{% if user_vote and user_vote.value == -1 %} text-primary{% endif %}"></i>
       {{ erp.count_negatives|default_if_none:"0" }} non
