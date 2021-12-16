@@ -1,18 +1,23 @@
 <div class="d-flex flex-column d-lg-block">
-  {% if prev_route %}
-  <a class="btn btn-link" href="{{ prev_route }}">&laquo; Précédent</a>
-  {% endif %}
+  <nav aria-label="Parcours de contribution" role="navigation">
+    <ul class="no-list p-0" style="display: inline-flex">
+    {% if prev_route %}
+      <li><a class="btn btn-link" href="{{ prev_route }}">&laquo; Précédent</a></li>
+    {% endif %}
 
-  <button type="submit" class="btn btn-primary"
-    {% if erp.user != request.user %}name="action" value="contribute"{% endif %}>
-    Enregistrer et continuer
-  </button>
+    <li><button type="submit" class="btn btn-primary"
+      {% if erp.user != request.user %}name="action" value="contribute"{% endif %}
+            aria-label="Enregistrez l'étape {{ libelle_step.current|capfirst }}{%  if libelle_step.next %} et continuez sur l'étape {{ libelle_step.next|capfirst }} {% endif %}">
+      Enregistrer et continuer
+    </button></li>
 
-  {% if next_route %}
-  <a class="btn btn-link" href="{{ next_route }}">Suivant &raquo;</a>
-  {% endif %}
+    {% if next_route %}
+      <li><a class="btn btn-link" href="{{ next_route }}">Suivant &raquo;</a></li>
+    {% endif %}
 
-  {% if erp and erp.is_online %}
-  <a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a>
-  {% endif %}
+    {% if erp and erp.is_online %}
+      <li><a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a></li>
+    {% endif %}
+    </ul>
+  </nav>
 </div>

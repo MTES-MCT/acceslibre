@@ -19,7 +19,7 @@
   {% else %}
   <h2 class="h3 text-center mb-4">Je me connecte</h2>
   <div class="row justify-content-md-center">
-    <form action="." method="POST" class="login-form col-md-6 col-lg-5 mb-4">
+    <form action="." method="POST" novalidate class="login-form col-md-6 col-lg-5 mb-4">
       <input type="hidden" name="next" value="{{ next }}">
       {% csrf_token %}
 
@@ -29,7 +29,7 @@
       </small></p>
 
       {% for error in form.non_field_errors %}
-        <p class="form-text text-danger">{{ error }}</p>
+        <p class="form-text text-danger" role="alert">{{ error }}</p>
       {% endfor %}
 
         {{ form.username|as_crispy_field }}

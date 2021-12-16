@@ -12,12 +12,12 @@
   {% for pid, partenaire in partenaires.items|shuffle %}
   <div class="card mb-3" id="{{ pid }}">
     <div class="card-body">
-      <h5 class="card-title">
+      <h3 class="h5 card-title">
         <a rel="noopener" aria-describedby="new_target" target="_blank" href="{{ partenaire.url }}">
           <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
             alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
         </a>
-      </h5>
+      </h3>
       {% include partenaire.template %}
     </div>
   </div>

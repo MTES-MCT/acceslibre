@@ -9,7 +9,7 @@
 <main role="main" id="content">
   <h3>L'activation de votre compte a échoué</h3>
   {% if activation_error %}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" role="alert">
     {% if activation_error.code == "already_activated" %}
       Votre compte a déjà été activé.
       Vous pouvez donc <a href="{% url "login" %}?next={{ request.GET.next }}">vous authentifier</a>.

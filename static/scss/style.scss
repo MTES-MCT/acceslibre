@@ -24,6 +24,11 @@ $viewport-xl: 1200px;
 @import "~bootstrap/scss/bootstrap";
 // App specific styles
 
+iframe{
+  border: 0px;
+  margin:0px;
+}
+
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
@@ -50,6 +55,14 @@ $viewport-xl: 1200px;
     z-index: 9999;
   }
 
+  .bold{
+    font-weight: bold;
+  }
+
+  .focus-img:focus img {
+    border: 2px solid white;
+    padding:2px;
+  }
   &-comment-block {
     p {
       margin: 0;
@@ -332,6 +345,10 @@ $viewport-xl: 1200px;
 
   .no-outline {
     outline: none;
+  }
+
+  .no-list {
+    list-style-type: none;
   }
 
   .text-bigger {
