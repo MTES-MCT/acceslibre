@@ -83,7 +83,7 @@ function SearchWhere(root) {
         <li class="list-group-item a4a-autocomplete-result ${active}" ${props}>
           ${icon ? `<i aria-hidden="true" class="icon icon-${icon}"></i>` : ""}
           ${text}
-          ${context ? `<small class="text-muted text-truncate">${context}</small>` : ""}
+          ${context ? `<small class="text-truncate">${context}</small>` : ""}
         </li>
       `;
     },

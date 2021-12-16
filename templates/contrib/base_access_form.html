@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block contrib_content %}
-  <form action="" method="POST" class="a4a-form a4a-conditional-form mb-4">
+  <form action="" method="POST" class="a4a-form a4a-conditional-form mb-4" novalidate>
     <h2 class="h3 mb-3">{% block page_title %}{% endblock%}</h2>
 
     <h3 class="h5 mb-0">
@@ -16,7 +16,7 @@
     </address>
 
     {% if erp.user != user %}
-    <div class="alert alert-info">
+    <div class="alert alert-info" role="status">
       <i aria-hidden="true" class="icon icon-info-circled"></i>
       Vous vous apprêtez à modifier les informations
       {% if erp.user %}
@@ -43,7 +43,7 @@
     {% endif %}
 
     {% if form.errors %}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">

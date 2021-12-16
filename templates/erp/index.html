@@ -20,7 +20,9 @@
 <main role="main" id="content">
   <article class="mt-5">
     {% include "erp/includes/header.html" %}
-
+    <aside class="mb-4 mt-2 order-1">
+      {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
+    </aside>
     <div class="d-flex flex-column">
       <div class="row order-2">
         <section id="a11y" class="col-lg-7 col-xl-8">
@@ -41,9 +43,7 @@
           {% include "erp/includes/sidebar.html" %}
         </aside>
       </div>
-      <aside class="mb-4 mt-2 order-1">
-        {% include "common/map.html" with map_classes="a4a-app-erp-map rounded shadow-sm" %}
-      </aside>
+
     </div>
   </article>
 </main>

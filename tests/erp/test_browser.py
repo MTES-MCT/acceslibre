@@ -253,6 +253,7 @@ def test_registration(data, client, capsys):
             "email": "julien@julien.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
+            "robot": "on",
         },
     )
     assert response.status_code == 302
@@ -270,6 +271,7 @@ def test_registration_with_first_and_last_name(data, client, capsys):
             "email": "julien@julien.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
+            "robot": "on",
         },
     )
     assert response.status_code == 302
@@ -289,7 +291,6 @@ def test_registration_not_a_robot(data, client, capsys):
             "email": "julien@julien.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
-            "robot": "on",
         },
     )
     assert response.status_code == 200
@@ -315,6 +316,7 @@ def test_registration_username_blacklisted(username, data, client, capsys):
             "email": "hacker@yoyo.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
+            "robot": "on",
         },
     )
     assert response.status_code == 200

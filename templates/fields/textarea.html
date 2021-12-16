@@ -8,7 +8,7 @@
     <p>{{ field.help_text|safe }}</p>
     {{ field|addclass:"form-control" }}
     {% for error in field.errors %}
-    <div class="form-text text-danger">{{ error }}</div>
+    <div class="form-text text-danger" role="alert">{{ error }}</div>
     {% endfor %}
   </div>
 </div>

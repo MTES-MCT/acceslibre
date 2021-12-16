@@ -258,8 +258,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
-<script src="{url_widget_js}" type="text/javascript" async="true"></script>\n
-<a href="#" aria-haspopup="dialog" aria-controls="dialog">Afficher les informations d'accessibilité</a>"""
+<a href="#" aria-haspopup="dialog" aria-controls="dialog">Afficher les informations d'accessibilité</a>
+<script src="{url_widget_js}" type="text/javascript" async="true"></script>\n"""
     return render(
         request,
         "erp/index.html",
@@ -553,7 +553,14 @@ def contrib_start(request):
     return render(
         request,
         template_name="contrib/0-start.html",
-        context={"step": 1, "form": form},
+        context={
+            "step": 1,
+            "form": form,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
+        },
     )
 
 
@@ -576,6 +583,10 @@ def contrib_global_search(request):
             "search": form.cleaned_data["search"],
             "commune_search": form.cleaned_data["commune_search"],
             "step": 1,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
             "results": results,
             "form": form,
             "form_type": "global",
@@ -620,6 +631,10 @@ def contrib_admin_infos(request):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
             "form": form,
             "has_data": data is not None,
             "data_error": data_error,
@@ -648,6 +663,10 @@ def contrib_edit_infos(request, erp_slug):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
             "erp": erp,
             "form": form,
             "has_data": False,
@@ -681,6 +700,10 @@ def contrib_localisation(request, erp_slug):
             "step": 1,
             "erp": erp,
             "form": form,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
         },
     )
 
@@ -694,6 +717,7 @@ def process_accessibilite_form(
     redirect_route,
     prev_route=None,
     redirect_hash=None,
+    libelle_step=None,
 ):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
@@ -748,6 +772,7 @@ def process_accessibilite_form(
         template_name=template_name,
         context={
             "step": step,
+            "libelle_step": libelle_step,
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
@@ -770,6 +795,10 @@ def contrib_transport(request, erp_slug):
         "contrib_stationnement",
         prev_route="contrib_localisation",
         redirect_hash=schema.SECTION_TRANSPORT,
+        libelle_step={
+            "current": schema.SECTION_TRANSPORT,
+            "next": schema.SECTION_STATIONNEMENT,
+        },
     )
 
 
@@ -785,6 +814,10 @@ def contrib_stationnement(request, erp_slug):
         "contrib_exterieur",
         prev_route="contrib_transport",
         redirect_hash=schema.SECTION_STATIONNEMENT,
+        libelle_step={
+            "current": schema.SECTION_STATIONNEMENT,
+            "next": schema.SECTION_CHEMINEMENT_EXT,
+        },
     )
 
 
@@ -800,6 +833,10 @@ def contrib_exterieur(request, erp_slug):
         "contrib_entree",
         prev_route="contrib_stationnement",
         redirect_hash=schema.SECTION_CHEMINEMENT_EXT,
+        libelle_step={
+            "current": schema.SECTION_CHEMINEMENT_EXT,
+            "next": schema.SECTION_ENTREE,
+        },
     )
 
 
@@ -815,6 +852,7 @@ def contrib_entree(request, erp_slug):
         "contrib_accueil",
         prev_route="contrib_exterieur",
         redirect_hash=schema.SECTION_ENTREE,
+        libelle_step={"current": schema.SECTION_ENTREE, "next": schema.SECTION_ACCUEIL},
     )
 
 
@@ -830,6 +868,10 @@ def contrib_accueil(request, erp_slug):
         "contrib_sanitaires",
         prev_route="contrib_entree",
         redirect_hash=schema.SECTION_ACCUEIL,
+        libelle_step={
+            "current": schema.SECTION_ACCUEIL,
+            "next": schema.SECTION_SANITAIRES,
+        },
     )
 
 
@@ -845,6 +887,10 @@ def contrib_sanitaires(request, erp_slug):
         "contrib_labellisation",
         prev_route="contrib_accueil",
         redirect_hash=schema.SECTION_SANITAIRES,
+        libelle_step={
+            "current": schema.SECTION_SANITAIRES,
+            "next": schema.SECTION_LABELS,
+        },
     )
 
 
@@ -860,6 +906,10 @@ def contrib_labellisation(request, erp_slug):
         "contrib_commentaire",
         prev_route="contrib_sanitaires",
         redirect_hash=schema.SECTION_LABELS,
+        libelle_step={
+            "current": schema.SECTION_LABELS,
+            "next": schema.SECTION_COMMENTAIRE,
+        },
     )
 
 
@@ -875,6 +925,7 @@ def contrib_commentaire(request, erp_slug):
         "contrib_publication",
         prev_route="contrib_labellisation",
         redirect_hash=schema.SECTION_COMMENTAIRE,
+        libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": "publication"},
     )
 
 
@@ -921,6 +972,7 @@ def contrib_publication(request, erp_slug):
         template_name="contrib/11-publication.html",
         context={
             "step": 9,
+            "libelle_step": {"current": "publication", "next": None},
             "erp": erp,
             "form": form,
             "empty_a11y": empty_a11y,

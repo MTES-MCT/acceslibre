@@ -10,7 +10,7 @@
 {% block editorial_content %}
 <main role="main" id="content">
   {% if user.is_authenticated %}
-  <p class="alert alert-warning">
+  <p class="alert alert-warning" role="alert">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
     vous ne pouvez donc pas créer un nouveau compte.
     Veuillez <a href="{% url "logout" %}">vous déconnecter</a>
@@ -20,7 +20,7 @@
   <h2 class="h3 text-center mb-4">Créer un compte utilisateur</h2>
 
   <div class="row justify-content-md-center">
-    <form action="." method="POST" class="registration-form col-md-6 col-lg-5 mb-4" id="registration">
+    <form action="." method="POST" novalidate class="registration-form col-md-6 col-lg-5 mb-4" id="registration">
       {% csrf_token %}
 
       <input type="hidden" name="next" value="{{ request.GET.next }}">
