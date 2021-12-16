@@ -211,6 +211,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/accesmetrie.html",
         "url": "http://www.accesmetrie.com",
     },
+    "ONECOMPAGNON": {
+        "avatar": "onecompagnon_avatar.jpg",
+        "logo": "img/partenaires/onecompagnon.png",
+        "name": "One Compagnon",
+        "short_description": "L'assitant accessible à tous",
+        "template": "editorial/partenaires/onecompagnon.html",
+        "url": "https://www.onecompagnon.com<",
+    },
 }
 
 SECTION_TRANSPORT = "transport"

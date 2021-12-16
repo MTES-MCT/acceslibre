@@ -258,8 +258,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
-<script src="{url_widget_js}" type="text/javascript" async="true"></script>\n
-<a href="#" aria-haspopup="dialog" aria-controls="dialog">Afficher les informations d'accessibilité</a>"""
+<a href="#" aria-haspopup="dialog" aria-controls="dialog">Afficher les informations d'accessibilité</a>
+<script src="{url_widget_js}" type="text/javascript" async="true"></script>\n"""
     return render(
         request,
         "erp/index.html",
