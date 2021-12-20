@@ -1,4 +1,6 @@
 import datetime
+import urllib
+
 import reversion
 
 from django.conf import settings
@@ -547,9 +549,11 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):
-    form = forms.ProviderGlobalSearchForm(
-        initial={"code_insee": request.GET.get("code_insee")}
-    )
+    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
+    if form.is_valid():
+        return redirect(
+            f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}"
+        )
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -567,29 +571,24 @@ def contrib_start(request):
 @login_required
 def contrib_global_search(request):
     results = error = None
-    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
-    if form.is_valid():
-        try:
-            results = provider_search.global_search(
-                form.cleaned_data["search"],
-                form.cleaned_data["code_insee"],
-            )
-        except RuntimeError as err:
-            error = err
+    try:
+        results = provider_search.global_search(
+            request.GET.get("search"), request.GET.get("code_insee")
+        )
+    except RuntimeError as err:
+        error = err
     return render(
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "search": form.cleaned_data["search"],
-            "commune_search": form.cleaned_data["commune_search"],
+            "search": request.GET.get("search"),
+            "commune_search": request.GET.get("commune_search"),
             "step": 1,
             "libelle_step": {
                 "current": "informations",
                 "next": schema.SECTION_TRANSPORT,
             },
             "results": results,
-            "form": form,
-            "form_type": "global",
             "error": error,
         },
     )
