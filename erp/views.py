@@ -12,7 +12,7 @@ from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.forms import modelform_factory
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
@@ -253,6 +253,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     user_vote = (
         request.user.is_authenticated
         and Vote.objects.filter(user=request.user, erp=erp).first() is not None
+        and request.user != erp.user
     )
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
         request.user
@@ -505,6 +506,10 @@ def vote(request, erp_slug):
     erp = get_object_or_404(
         Erp, slug=erp_slug, published=True, accessibilite__isnull=False
     )
+    if request.user == erp.user:
+        return HttpResponseBadRequest(
+            "Vous ne pouvez pas voter sur votre établissement"
+        )
     if request.method == "POST":
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
