@@ -7,33 +7,29 @@
 {% block editorial_content %}
 <main role="main" id="content">
   <h2 class="my-3">Statistiques</h2>
-
-  <div class="card-deck my-4">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <h3 class="col-12 col-md-3 text-center text-count font-weight-bold">{{ nb_published_erps }}</h3>
-        <div class="col-12 col-md-9 h3 px-3 text-center text-md-left">
+  <div class="card-group my-4">
+    <div class="card col-md-6 p-0">
+      <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
+        <h3 class="text-center text-count font-weight-bold">{{ nb_published_erps }}</h3>
+        <div class="h3 px-3 text-center text-md-left">
           établissement{{ nb_published_erps|pluralize:"s" }} publié{{ nb_published_erps|pluralize:"s" }}
           sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }} grâce à la contribution de <strong>tous</strong>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="card-deck my-4">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <h3 class="col-12 col-md-3 text-center text-count font-weight-bold">{{ nb_contributors }}</h3>
-        <div class="col-12 col-md-9 h3 px-3 text-center text-md-left">
-          contributeur{{ nb_contributors|pluralize:"s" }}
-          sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }}
+    <div class="card md-6 p-0">
+        <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
+          <h3 class="text-center text-count font-weight-bold">{{ nb_contributors }}</h3>
+          <div class="h3 px-3 text-center text-md-left">
+            contributeur{{ nb_contributors|pluralize:"s" }}
+            sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }}
+          </div>
         </div>
-      </div>
     </div>
   </div>
-
   <div class="card-group my-4">
-    <div class="card shadow-sm">
+    <div class="card shadow-sm col-md-7 p-0">
       <div class="card-header text-truncate">
         <h3>Évolution du nombre d'établissements publiés</h3>
       </div>
@@ -61,7 +57,7 @@
       </div>
     </div>
 
-    <div class="card shadow-sm">
+    <div class="card shadow-sm col-md-5 p-0">
       <div class="card-header"><h3>Top contributeurs</h3></div>
       <div class="card-body">
         <ol class="mb-0">
