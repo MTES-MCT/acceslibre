@@ -802,24 +802,18 @@ def test_erp_vote_logged_in(data, client):
         follow=True,
     )
 
-    # ensure user is redirected to login page
-    assert_redirect(response, "/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/")
-    assert response.status_code == 200
+    assert response.status_code == 400
 
-    # Ensure votes are counted
+    # Ensure votes are not counted
     assert (
         Vote.objects.filter(
             erp=data.erp, user=data.niko, value=-1, comment="bouh"
         ).count()
-        == 1
+        == 0
     )
 
-    # test email notification sent
-    assert len(mail.outbox) == 1
-    assert mail.outbox[0].subject == "Vote négatif pour Aux bons croissants (Jacou)"
-    assert data.niko.username in mail.outbox[0].body
-    assert data.niko.email in mail.outbox[0].body
-    assert "bouh" in mail.outbox[0].body
+    # test email notification verify not send.
+    assert len(mail.outbox) == 0
 
 
 def test_erp_vote_counts(data, client):
@@ -832,7 +826,7 @@ def test_erp_vote_counts(data, client):
     )
 
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
-    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 0
 
     client.force_login(data.sophie)
 
@@ -843,7 +837,7 @@ def test_erp_vote_counts(data, client):
     )
 
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 0
-    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
 
     client.force_login(data.admin)
 
@@ -854,7 +848,7 @@ def test_erp_vote_counts(data, client):
     )
 
     assert Vote.objects.filter(erp=data.erp, value=1).count() == 1
-    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 2
+    assert Vote.objects.filter(erp=data.erp, value=-1).count() == 1
 
 
 def test_accessibilite_history(data, client):
