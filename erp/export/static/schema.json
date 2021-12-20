@@ -1358,32 +1358,15 @@
       "name": "accueil_cheminement_rampe",
       "title": "Rampe",
       "description": "Présence d'une rampe fixe ou amovible",
-      "type": "boolean",
-      "trueValues": [
-        "true",
-        "True",
-        "TRUE",
-        "1",
-        "vrai",
-        "Vrai",
-        "VRAI",
-        "oui",
-        "Oui",
-        "OUI"
-      ],
-      "falseValues": [
-        "false",
-        "False",
-        "FALSE",
-        "0",
-        "faux",
-        "Faux",
-        "FAUX",
-        "non",
-        "Non",
-        "NON"
-      ],
-      "example": "True"
+      "type": "string",
+      "constraints": {
+        "enum": [
+          "aucune",
+          "fixe",
+          "amovible"
+        ]
+      },
+      "example": "Valeurs possibles: aucune -> Aucune, fixe -> Fixe, amovible -> Amovible"
     },
     {
       "name": "accueil_cheminement_sens_marches",
