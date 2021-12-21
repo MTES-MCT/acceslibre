@@ -1,4 +1,6 @@
 import datetime
+import urllib
+
 import reversion
 
 from django.conf import settings
@@ -10,7 +12,7 @@ from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.forms import modelform_factory
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
@@ -251,6 +253,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     user_vote = (
         request.user.is_authenticated
         and Vote.objects.filter(user=request.user, erp=erp).first() is not None
+        and request.user != erp.user
     )
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
         request.user
@@ -503,6 +506,10 @@ def vote(request, erp_slug):
     erp = get_object_or_404(
         Erp, slug=erp_slug, published=True, accessibilite__isnull=False
     )
+    if request.user == erp.user:
+        return HttpResponseBadRequest(
+            "Vous ne pouvez pas voter sur votre établissement"
+        )
     if request.method == "POST":
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
@@ -547,9 +554,11 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):
-    form = forms.ProviderGlobalSearchForm(
-        initial={"code_insee": request.GET.get("code_insee")}
-    )
+    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
+    if form.is_valid():
+        return redirect(
+            f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}"
+        )
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -567,29 +576,24 @@ def contrib_start(request):
 @login_required
 def contrib_global_search(request):
     results = error = None
-    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
-    if form.is_valid():
-        try:
-            results = provider_search.global_search(
-                form.cleaned_data["search"],
-                form.cleaned_data["code_insee"],
-            )
-        except RuntimeError as err:
-            error = err
+    try:
+        results = provider_search.global_search(
+            request.GET.get("search"), request.GET.get("code_insee")
+        )
+    except RuntimeError as err:
+        error = err
     return render(
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "search": form.cleaned_data["search"],
-            "commune_search": form.cleaned_data["commune_search"],
+            "search": request.GET.get("search"),
+            "commune_search": request.GET.get("commune_search"),
             "step": 1,
             "libelle_step": {
                 "current": "informations",
                 "next": schema.SECTION_TRANSPORT,
             },
             "results": results,
-            "form": form,
-            "form_type": "global",
             "error": error,
         },
     )
