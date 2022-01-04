@@ -24,7 +24,7 @@ from erp.export.utils import (
     map_list_from_schema,
 )
 from erp.models import Accessibilite, Commune, Erp, Vote
-from erp.provider import geocoder, search as provider_search
+from erp.provider import geocoder, search as provider_search, acceslibre
 from subscription.models import ErpSubscription
 
 
@@ -580,6 +580,13 @@ def contrib_global_search(request):
         results = provider_search.global_search(
             request.GET.get("search"), request.GET.get("code_insee")
         )
+        qs_results_bdd = Erp.objects.filter(nom__icontains=request.GET.get("search"))
+
+        qs_results_bdd = qs_results_bdd.filter(
+            Q(code_insee=request.GET.get("code_insee"))
+            | Q(commune_ext__code_insee=request.GET.get("code_insee"))
+        )
+        results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
     except RuntimeError as err:
         error = err
     return render(
@@ -593,6 +600,7 @@ def contrib_global_search(request):
                 "current": "informations",
                 "next": schema.SECTION_TRANSPORT,
             },
+            "results_bdd": results_bdd,
             "results": results,
             "error": error,
         },
