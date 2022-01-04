@@ -252,7 +252,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     accessibilite_data = form.get_accessibilite_data()
     user_vote = (
         request.user.is_authenticated
-        and Vote.objects.filter(user=request.user, erp=erp).first() is not None
+        and not Vote.objects.filter(user=request.user, erp=erp).exists()
         and request.user != erp.user
     )
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
