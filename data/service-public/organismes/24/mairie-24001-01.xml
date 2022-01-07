@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24001-01" codeInsee="24001" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Abjat-sur-Bandiat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24300</CodePostal>
+      <NomCommune>Abjat-sur-Bandiat</NomCommune>
+      <Localisation>
+         <Latitude>45.584758</Latitude>
+         <Longitude>0.75791</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe en cours de création</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 56 81 08</Téléphone>
+      <Email>mairie@abjat-sur-bandiat.fr</Email>
+      <Url>http://www.abjat-sur-bandiat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

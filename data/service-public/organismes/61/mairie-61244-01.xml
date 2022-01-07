@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61244-01" codeInsee="61244" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mahéru</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>61380</CodePostal>
+      <NomCommune>Mahéru</NomCommune>
+      <Localisation>
+         <Latitude>48.7117996216</Latitude>
+         <Longitude>0.43695500493</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 34 54 15</Téléphone>
+      <Télécopie>02 33 34 54 15</Télécopie>
+      <Email>mairie.maheru@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

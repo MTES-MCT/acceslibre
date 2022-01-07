@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-01376-01" codeInsee="01376" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Ain - accueil de Saint-Maurice-de-Beynost</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre de paiement de la Caisse primaire d'assurance maladie</Ligne>
+      <Ligne>14 rue Honoré-de-Balzac</Ligne>
+      <CodePostal>01700</CodePostal>
+      <NomCommune>Saint-Maurice-de-Beynost</NomCommune>
+      <Localisation>
+         <Latitude>45.8301267</Latitude>
+         <Longitude>4.980983</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Ain</Ligne>
+      <Ligne>4 rue Aristide-Briand</Ligne>
+      <Ligne>CS 50314</Ligne>
+      <CodePostal>01011</CodePostal>
+      <NomCommune>Bourg-en-Bresse Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

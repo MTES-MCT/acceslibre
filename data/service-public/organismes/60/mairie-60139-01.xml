@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60139-01" codeInsee="60139" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chambly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 10110</Ligne>
+      <CodePostal>60542</CodePostal>
+      <NomCommune>Chambly Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1667233</Latitude>
+         <Longitude>2.2437194</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 37 44 00</Téléphone>
+      <Télécopie>01 39 37 44 01</Télécopie>
+      <Email>information@ville-chambly.fr</Email>
+      <Url>http://www.ville-chambly.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pour l'état civil uniquement les mardis jusqu'à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

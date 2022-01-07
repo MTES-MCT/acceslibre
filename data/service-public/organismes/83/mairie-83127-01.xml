@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83127-01" codeInsee="83127" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Signes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Saint-Jean</Ligne>
+      <CodePostal>83870</CodePostal>
+      <NomCommune>Signes</NomCommune>
+      <Localisation>
+         <Latitude>43.2910003662</Latitude>
+         <Longitude>5.863530159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 25 30 80</Téléphone>
+      <Télécopie>04 94 25 30 90</Télécopie>
+      <Email>mairie@signes.fr</Email>
+      <Url>http://www.signes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

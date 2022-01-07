@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88212-01" codeInsee="88212" dateMiseAJour="2021-10-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grand</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Guy-Lejeune</Ligne>
+      <CodePostal>88350</CodePostal>
+      <NomCommune>Grand</NomCommune>
+      <Localisation>
+         <Latitude>48.38528</Latitude>
+         <Longitude>5.489067</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 06 62 53</Téléphone>
+      <Email>mairiedegrand@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:15:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:15:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pendant la crise sanitaire téléphoner avant de se déplacer.</Commentaire>
+</Organisme>

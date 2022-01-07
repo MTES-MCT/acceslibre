@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08501-01" codeInsee="08501" dateMiseAJour="2017-10-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Williers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Principale</Ligne>
+      <CodePostal>08110</CodePostal>
+      <NomCommune>Williers</NomCommune>
+      <Localisation>
+         <Latitude>49.667085</Latitude>
+         <Longitude>5.310055</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 27 91 19</Téléphone>
+      <Email>mairie-williers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

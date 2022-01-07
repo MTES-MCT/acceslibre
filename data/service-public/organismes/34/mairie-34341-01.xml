@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34341-01" codeInsee="34341" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeveyrac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 route de Poussan</Ligne>
+      <CodePostal>34560</CodePostal>
+      <NomCommune>Villeveyrac</NomCommune>
+      <Localisation>
+         <Latitude>43.4995994568</Latitude>
+         <Longitude>3.60935997963</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 78 06 34</Téléphone>
+      <Email>mairie@villeveyrac.fr</Email>
+      <Url>http://www.villeveyrac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-46205-01" codeInsee="46205" dateMiseAJour="2021-12-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montgesty</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Émile-Vayssié</Ligne>
+      <CodePostal>46150</CodePostal>
+      <NomCommune>Montgesty</NomCommune>
+      <Localisation>
+         <Latitude>44.57964</Latitude>
+         <Longitude>1.295845</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée de plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 22 73 80</Téléphone>
+      <Email>mairie.de.montgesty@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34203-01" codeInsee="34203" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pinet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Pierre-Thieule</Ligne>
+      <CodePostal>34850</CodePostal>
+      <NomCommune>Pinet</NomCommune>
+      <Localisation>
+         <Latitude>43.4043006897</Latitude>
+         <Longitude>3.51004004478</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 77 011 5</Téléphone>
+      <Télécopie>04 67 77 19 88</Télécopie>
+      <Email>accueil@pinet-mairie.fr</Email>
+      <Url>http://www.pinet-mairie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

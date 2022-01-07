@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80754-01" codeInsee="80754" dateMiseAJour="2021-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thieulloy-l'Abbaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 Grande rue</Ligne>
+      <CodePostal>80640</CodePostal>
+      <NomCommune>Thieulloy-l'Abbaye</NomCommune>
+      <Localisation>
+         <Latitude>49.8266395</Latitude>
+         <Longitude>1.9397154</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 90 66 97</Téléphone>
+      <Télécopie>03 22 90 66 97</Télécopie>
+      <Email>mairie.thieulloy.labbaye@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

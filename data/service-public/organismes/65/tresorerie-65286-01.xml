@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-65286-01" codeInsee="65286" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie hospitalière de Lourdes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 A rue de Langelle</Ligne>
+      <Ligne>BP 719</Ligne>
+      <CodePostal>65107</CodePostal>
+      <NomCommune>Lourdes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.0973753</Latitude>
+         <Longitude>-0.0422427</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 94 64 06</Téléphone>
+      <Email>t065017@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Pendant la période de la crise sanitaire, accueil fermé les après-midis.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

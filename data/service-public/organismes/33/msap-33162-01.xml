@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-33162-01" codeInsee="33162" dateMiseAJour="2021-01-04"
+           pivotLocal="msap">
+   <Nom>France Services - Eysines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison Simone-Veil</Ligne>
+      <Ligne>1 place du Rouillaou</Ligne>
+      <CodePostal>33320</CodePostal>
+      <NomCommune>Eysines</NomCommune>
+      <Localisation>
+         <Latitude>44.879826</Latitude>
+         <Longitude>-0.635789</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 51 82 85</Téléphone>
+      <Email>msap@eysines.fr</Email>
+      <Url>https://www.eysines.frsolidarite-et-social/logement/la-maison-de-services-au-public</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

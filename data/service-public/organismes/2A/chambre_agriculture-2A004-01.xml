@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-2A004-01" codeInsee="2A004" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Corse-du-Sud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 avenue Noël-Franchini</Ligne>
+      <Ligne>CS 40913</Ligne>
+      <CodePostal>20700</CodePostal>
+      <NomCommune>Ajaccio Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>41.937984</Latitude>
+         <Longitude>8.754091</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 29 26 00</Téléphone>
+      <Télécopie>04 95 29 26 09</Télécopie>
+      <Email>direction@corse-du-sud.chambagri.fr</Email>
+      <Url>http://www.corse.chambres-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

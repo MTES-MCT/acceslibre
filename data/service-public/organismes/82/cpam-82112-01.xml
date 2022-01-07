@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-82112-01" codeInsee="82112" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) du Tarn-et-Garonne - accueil de Moissac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>27 rue de la Solidarité</Ligne>
+      <CodePostal>82200</CodePostal>
+      <NomCommune>Moissac</NomCommune>
+      <Localisation>
+         <Latitude>44.1035572</Latitude>
+         <Longitude>1.0900513</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie de Tarn-et-Garonne</Ligne>
+      <Ligne>592 boulevard Blaise-Doumerc</Ligne>
+      <Ligne>BP 778</Ligne>
+      <CodePostal>82015</CodePostal>
+      <NomCommune>Montauban Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, fermé pendant les vacances scolaires, accueil téléphonique du lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

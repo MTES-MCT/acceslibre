@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02544-01" codeInsee="02544" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuve-Maison</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>41 rue de Verdun</Ligne>
+      <CodePostal>02500</CodePostal>
+      <NomCommune>Neuve-Maison</NomCommune>
+      <Localisation>
+         <Latitude>49.9296518</Latitude>
+         <Longitude>4.0341695</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par l'école plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 58 04 79</Téléphone>
+      <Email>mairie.neuve.maison@gmail.com</Email>
+      <Url>https://www.neuve-maison.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="06:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

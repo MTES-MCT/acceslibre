@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-54323-01" codeInsee="54323" dateMiseAJour="2021-02-09" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Briey-Longwy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 avenue Albert-de-Briey</Ligne>
+      <CodePostal>54150</CodePostal>
+      <NomCommune>Briey</NomCommune>
+      <Localisation>
+         <Latitude>49.5243522</Latitude>
+         <Longitude>5.7618956</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 46 23 85</Téléphone>
+      <Email>ce.cio54-briey@ac-nancy-metz.fr</Email>
+      <Url>http://www4.ac-nancy-metz.fr/cio-briey</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

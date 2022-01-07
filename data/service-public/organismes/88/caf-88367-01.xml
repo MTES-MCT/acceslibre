@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-88367-01" codeInsee="88367" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) des Vosges - accueil de Rambervillers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison de services au public</Ligne>
+      <Ligne>1 rue de la Gare</Ligne>
+      <CodePostal>88700</CodePostal>
+      <NomCommune>Rambervillers</NomCommune>
+      <Localisation>
+         <Latitude>48.34006118774414</Latitude>
+         <Longitude>6.634637832641602</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales des Vosges</Ligne>
+      <Ligne>30 chemin de la Belle-au-Bois-Dormant</Ligne>
+      <CodePostal>88016</CodePostal>
+      <NomCommune>Épinal Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous les 1er et 3e vendredis du mois, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

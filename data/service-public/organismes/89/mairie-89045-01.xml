@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89045-01" codeInsee="89045" dateMiseAJour="2021-09-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bleigny-le-Carreau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Saule</Ligne>
+      <CodePostal>89230</CodePostal>
+      <NomCommune>Bleigny-le-Carreau</NomCommune>
+      <Localisation>
+         <Latitude>47.8353996277</Latitude>
+         <Longitude>3.68273997307</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 41 81 18</Téléphone>
+      <Email>mairie-bleigny-le-carreau@wanadoo.fr</Email>
+      <Url>http://bleigny-le-carreau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29037-01" codeInsee="29037" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Combrit</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>29120</CodePostal>
+      <NomCommune>Combrit-Sainte-Marine</NomCommune>
+      <Localisation>
+         <Latitude>47.887079</Latitude>
+         <Longitude>-4.155163</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 56 33 14</Téléphone>
+      <Télécopie>02 98 56 40 65</Télécopie>
+      <Email>mairie@combrit-saintemarine.fr</Email>
+      <Url>http://www.combrit-saintemarine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-31555-01" codeInsee="31555" dateMiseAJour="2019-04-19"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Haute-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 boulevard Armand-Duportal</Ligne>
+      <Ligne>BP 70001</Ligne>
+      <CodePostal>31074</CodePostal>
+      <NomCommune>Toulouse Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.6058869</Latitude>
+         <Longitude>1.4351834</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 81 97 72 58</Téléphone>
+      <Télécopie>05 81 97 72 63</Télécopie>
+      <Email>ddt-slcd-pl-uhp@haute-garonne.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Accueil téléphonique le matin uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Accueil téléphonique le matin uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

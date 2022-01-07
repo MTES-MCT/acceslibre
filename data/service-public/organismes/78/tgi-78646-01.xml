@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="78646" dateMiseAJour="2021-12-14" id="tgi-78646-01" idPresta="4cac9e87293594648a004cce" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Versailles</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>5 PLACE ANDRE-MIGNOT</Ligne>
+        <CodePostal>78011</CodePostal>
+        <NomCommune>VERSAILLES CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.803353</Latitude>
+            <Longitude>2.131024</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>5 PLACE ANDRE-MIGNOT</Ligne>
+        <CodePostal>78011</CodePostal>
+        <NomCommune>VERSAILLES CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 39 07 39 07</Téléphone>
+        <Télécopie>01 39 07 39 02</Télécopie>
+        <Email>mailto:tj1-versailles@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

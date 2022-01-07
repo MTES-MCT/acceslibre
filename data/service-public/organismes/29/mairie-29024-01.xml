@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29024-01" codeInsee="29024" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carhaix-Plouguer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <Ligne>BP 258</Ligne>
+      <CodePostal>29270</CodePostal>
+      <NomCommune>Carhaix-Plouguer</NomCommune>
+      <Localisation>
+         <Latitude>48.2757987976</Latitude>
+         <Longitude>-3.57381010056</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 99 33 33</Téléphone>
+      <Télécopie>02 98 99 34 77</Télécopie>
+      <Email>etatcivil@ville-carhaix.bzh</Email>
+      <Url>http://www.ville-carhaix.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

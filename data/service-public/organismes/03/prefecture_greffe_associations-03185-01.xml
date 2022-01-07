@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-03185-01" codeInsee="03185"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Allier (Montluçon)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Montluçon</Ligne>
+      <Ligne>Pôle départemental des associations</Ligne>
+      <Ligne>Rue de la Comédie</Ligne>
+      <Ligne>CS 61249</Ligne>
+      <CodePostal>03104</CodePostal>
+      <NomCommune>Montluçon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.340396</Latitude>
+         <Longitude>2.60591599999998</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="ou 04 70 02 24 97 (Service des associations)">04 70 02 25 04</Téléphone>
+      <Email>pref-associations@allier.gouv.fr</Email>
+      <Url>http://www.allier.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-70550-01" codeInsee="70550" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Vesoul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission locale de Vesoul</Ligne>
+      <Ligne>4 rue André-Maginot</Ligne>
+      <CodePostal>70000</CodePostal>
+      <NomCommune>Vesoul</NomCommune>
+      <Localisation>
+         <Latitude>47.6066895</Latitude>
+         <Longitude>6.1334816</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 76 38 19</Téléphone>
+      <Email>missionlocalevesoul@milobfc.fr</Email>
+      <Url>http://www.espacejeunes-vesoul.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

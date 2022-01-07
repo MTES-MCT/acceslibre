@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-07064-01" codeInsee="07064" dateMiseAJour="2020-12-08"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Le Cheylard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Rue du Temple</Ligne>
+      <CodePostal>07160</CodePostal>
+      <NomCommune>Le Cheylard</NomCommune>
+      <Localisation>
+         <Latitude>44.906985</Latitude>
+         <Longitude>4.425123</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.le-cheylard@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/le-cheylard-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33428-01" codeInsee="33428" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Laurent-du-Plan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 chemin de l'Église</Ligne>
+      <CodePostal>33190</CodePostal>
+      <NomCommune>Saint-Laurent-du-Plan</NomCommune>
+      <Localisation>
+         <Latitude>44.623698</Latitude>
+         <Longitude>-0.11822</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 76 40 15</Téléphone>
+      <Télécopie>05 56 76 47 37</Télécopie>
+      <Email>mairie.stlaurentduplan@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

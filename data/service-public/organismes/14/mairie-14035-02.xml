@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14035-02" codeInsee="14035" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Vaubadon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Vaubadon</Ligne>
+      <Ligne>15 route de Bayeux</Ligne>
+      <CodePostal>14490</CodePostal>
+      <NomCommune>Balleroy-Sur-Drôme</NomCommune>
+      <Localisation>
+         <Latitude>49.2070121765</Latitude>
+         <Longitude>-0.835097014904</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 92 31 49</Téléphone>
+      <Télécopie>02 31 21 83 53</Télécopie>
+      <Email>mairie@balleroy-sur-drome.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

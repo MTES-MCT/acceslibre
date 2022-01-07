@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23217-01" codeInsee="23217" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-Sainte-Catherine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Theil</Ligne>
+      <CodePostal>23430</CodePostal>
+      <NomCommune>Saint-Martin-Sainte-Catherine</NomCommune>
+      <Localisation>
+         <Latitude>45.9486999512</Latitude>
+         <Longitude>1.5654900074</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 64 80 20</Téléphone>
+      <Télécopie>05 55 64 39 70</Télécopie>
+      <Email>mairiedutheil@wanadoo.fr</Email>
+      <Url>http://www.saint-martin-sainte.sitew.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

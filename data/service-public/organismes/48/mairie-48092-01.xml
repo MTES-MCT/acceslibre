@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48092-01" codeInsee="48092" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marvejols</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 avenue Savorgnan-de-Brazza</Ligne>
+      <CodePostal>48100</CodePostal>
+      <NomCommune>Marvejols</NomCommune>
+      <Localisation>
+         <Latitude>44.5503997803</Latitude>
+         <Longitude>3.28952002525</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 32 00 45</Téléphone>
+      <Télécopie>04 66 32 33 50</Télécopie>
+      <Email>contact@ville-marvejols.fr</Email>
+      <Url>http://www.ville-marvejols.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57253-01" codeInsee="57253" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gondrexange</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>144 rue de l'Église</Ligne>
+      <CodePostal>57815</CodePostal>
+      <NomCommune>Gondrexange</NomCommune>
+      <Localisation>
+         <Latitude>48.6841011047</Latitude>
+         <Longitude>6.92784976959</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 25 00 41</Téléphone>
+      <Télécopie>03 87 25 00 41</Télécopie>
+      <Email>mairie.gondrexange@wanadoo.fr</Email>
+      <Url>http://www.gondrexange.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

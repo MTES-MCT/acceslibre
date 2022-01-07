@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-59122-01" codeInsee="59122"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Nord (Cambrai)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Cambrai</Ligne>
+      <Ligne>Service des associations</Ligne>
+      <Ligne>3 place Fénelon</Ligne>
+      <Ligne>CS 40393</Ligne>
+      <CodePostal>59407</CodePostal>
+      <NomCommune>Cambrai Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.1763884</Latitude>
+         <Longitude>3.2291716</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 72 59 75</Téléphone>
+      <Télécopie>03 27 78 11 00</Télécopie>
+      <Email>maryse.beague@nord.gouv.fr</Email>
+      <Url>http://www.nord.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

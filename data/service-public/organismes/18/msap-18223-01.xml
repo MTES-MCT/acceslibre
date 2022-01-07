@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-18223-01" codeInsee="18223" dateMiseAJour="2021-10-20"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Martin-d'Auxigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Terres du Haut Berry</Ligne>
+      <Ligne>3 route de Méry-ès-Bois</Ligne>
+      <CodePostal>18110</CodePostal>
+      <NomCommune>Saint-Martin-d'Auxigny</NomCommune>
+      <Localisation>
+         <Latitude>47.210985</Latitude>
+         <Longitude>2.410963</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 55 00 60</Téléphone>
+      <Email>franceservicesstmartin@terresduhautberry.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

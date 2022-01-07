@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74298-01" codeInsee="74298" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vétraz-Monthoux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>74100</CodePostal>
+      <NomCommune>Vétraz-Monthoux</NomCommune>
+      <Localisation>
+         <Latitude>46.1741981506</Latitude>
+         <Longitude>6.25843000412</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>BP 516</Ligne>
+      <CodePostal>74106</CodePostal>
+      <NomCommune>Annemasse Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 37 32 09</Téléphone>
+      <Télécopie>04 50 38 18 24</Télécopie>
+      <Email>accueil@vetraz-monthoux.fr</Email>
+      <Url>http://www.vetraz-monthoux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

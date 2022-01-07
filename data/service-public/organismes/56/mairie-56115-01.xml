@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56115-01" codeInsee="56115" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Locmaria-Grand-Champ</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Hortensias</Ligne>
+      <CodePostal>56390</CodePostal>
+      <NomCommune>Locmaria-Grand-Champ</NomCommune>
+      <Localisation>
+         <Latitude>47.757354</Latitude>
+         <Longitude>-2.788252</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 66 60 49</Téléphone>
+      <Email>mairie.locmaria.gd.ch@wanadoo.fr</Email>
+      <Url>http://www.locmariagrandchamp.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil urbanisme et état civil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Pendant la crise sanitaire accueil urbanisme et état civil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil urbanisme et état civil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Pendant la crise sanitaire accueil urbanisme et état civil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil urbanisme et état civil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil urbanisme et état civil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

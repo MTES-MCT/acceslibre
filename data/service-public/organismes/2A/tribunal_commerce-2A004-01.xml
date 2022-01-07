@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="2A004" dateMiseAJour="2021-12-14" id="tribunal_commerce-2A004-01" idPresta="4eb262982935944ef50000c3" pivotLocal="tribunal_commerce">
+    <Nom>Tribunal de commerce d'Ajaccio</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>AVENUE MARECHAL LYAUTEY</Ligne>
+        <Ligne>CS 20983</Ligne>
+        <CodePostal>20700</CodePostal>
+        <NomCommune>AJACCIO CEDEX 9</NomCommune>
+        <Localisation>
+            <Latitude>41.938904</Latitude>
+            <Longitude>8.748692</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>AVENUE MARECHAL LYAUTEY</Ligne>
+        <Ligne>CS 20983</Ligne>
+        <CodePostal>20700</CodePostal>
+        <NomCommune>AJACCIO CEDEX 9</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 95 23 17 82</Téléphone>
+        <Télécopie>04 95 20 75 93</Télécopie>
+        <Url>http://www.greffe-tc-ajaccio.fr</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="09:00:00" fin="11:30:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="11:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

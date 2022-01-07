@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89043-01" codeInsee="89043" dateMiseAJour="2020-12-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Blacy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de la Mairie</Ligne>
+      <CodePostal>89440</CodePostal>
+      <NomCommune>Blacy</NomCommune>
+      <Localisation>
+         <Latitude>47.5711625</Latitude>
+         <Longitude>4.0406469</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 32 14 57</Téléphone>
+      <Email>mairie.blacy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

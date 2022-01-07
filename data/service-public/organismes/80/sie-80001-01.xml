@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-80001-01" codeInsee="80001" dateMiseAJour="2021-03-15" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de la Somme - Antenne d'Abbeville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 85500</Ligne>
+      <Ligne>44 rue du Soleil-Levant</Ligne>
+      <CodePostal>80107</CodePostal>
+      <NomCommune>Abbeville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.1079744</Latitude>
+         <Longitude>1.8479438</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 25 49 00</Téléphone>
+      <Email>sie.somme@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

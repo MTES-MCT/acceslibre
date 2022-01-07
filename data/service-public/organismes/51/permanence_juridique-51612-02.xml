@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="51612" dateMiseAJour="2021-09-27" id="permanence_juridique-51612-02" idPresta="612f2ecdb473e40555deeffc" pivotLocal="permanence_juridique">
+    <Nom>Point-justice - France services</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>10, rue des Loriots,</Ligne>
+        <Ligne>Vertus</Ligne>
+        <Ligne>Maison de Communauté</Ligne>
+        <CodePostal>51200</CodePostal>
+        <NomCommune>BLANCS COTEAUX</NomCommune>
+        <Localisation>
+            <Latitude>48.899091</Latitude>
+            <Longitude>4.006936</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 26 52 69 46</Téléphone>
+        <Email>mailto:fseac@epernay-agglo.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:15:00"/>
+            <PlageH début="13:45:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

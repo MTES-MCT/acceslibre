@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62322-01" codeInsee="62322" dateMiseAJour="2021-10-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Famechon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue Principale</Ligne>
+      <CodePostal>62760</CodePostal>
+      <NomCommune>Famechon</NomCommune>
+      <Localisation>
+         <Latitude>50.142921</Latitude>
+         <Longitude>2.468515</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 75 49 69 65</Téléphone>
+      <Email>mairie.famechon@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33044-01" codeInsee="33044" dateMiseAJour="2021-02-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bellefond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 le Bourg</Ligne>
+      <CodePostal>33760</CodePostal>
+      <NomCommune>Bellefond</NomCommune>
+      <Localisation>
+         <Latitude>44.7661</Latitude>
+         <Longitude>-0.1702</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 64 35 27 22</Téléphone>
+      <Télécopie>05 56 23 94 79</Télécopie>
+      <Email>communedebellefond@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

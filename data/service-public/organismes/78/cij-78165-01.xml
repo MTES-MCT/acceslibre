@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-78165-01" codeInsee="78165" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Les Clayes-sous-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap Ados</Ligne>
+      <Ligne>1 rue Maurice-Jouet</Ligne>
+      <CodePostal>78340</CodePostal>
+      <NomCommune>Les Clayes-sous-Bois</NomCommune>
+      <Localisation>
+         <Latitude>48.821092</Latitude>
+         <Longitude>1.988447</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 79 39 85</Téléphone>
+      <Télécopie>01 30 79 39 89</Télécopie>
+      <Email>capados@lesclayessousbois.fr</Email>
+      <Url>http://www.lesclayessousbois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

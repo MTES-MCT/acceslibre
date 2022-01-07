@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-23008-01" codeInsee="23008"
+           dateMiseAJour="2018-02-14"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Creuse (Aubusson)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture d'Aubusson</Ligne>
+      <Ligne>5 rue Saint-Jean</Ligne>
+      <Ligne>BP 20960</Ligne>
+      <CodePostal>23200</CodePostal>
+      <NomCommune>Aubusson</NomCommune>
+      <Localisation>
+         <Latitude>45.9540946</Latitude>
+         <Longitude>2.1688653</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet : service payant + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">08 10 01 23 23</Téléphone>
+      <Télécopie>05 55 52 48 61</Télécopie>
+      <Email>standard-prefecture@creuse.gouv.fr</Email>
+      <Url>http://www.creuse.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

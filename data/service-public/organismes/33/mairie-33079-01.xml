@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33079-01" codeInsee="33079" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cadarsac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 bis avenue des Bergères</Ligne>
+      <CodePostal>33750</CodePostal>
+      <NomCommune>Cadarsac</NomCommune>
+      <Localisation>
+         <Latitude>44.8628005981</Latitude>
+         <Longitude>-0.287355005741</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">pente douce</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 24 81 39</Téléphone>
+      <Télécopie>05 57 24 81 39</Télécopie>
+      <Email>mairie-cadarsac@orange.fr</Email>
+      <Url>http://www.cadarsac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

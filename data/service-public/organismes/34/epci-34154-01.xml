@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-34154-01" codeInsee="34154" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Agglomération - Pays-de-l'Or</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Aéroport Montpellier-Méditerranée</Ligne>
+      <Ligne>CS 70040</Ligne>
+      <CodePostal>34137</CodePostal>
+      <NomCommune>Mauguio Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.5795991</Latitude>
+         <Longitude>3.96523720000005</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 12 35 00</Téléphone>
+      <Email>secretariat@paysdelor.fr</Email>
+      <Url>http://www.paysdelor.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

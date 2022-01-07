@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-72181-01" codeInsee="72181" dateMiseAJour="2020-08-04"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Sarthe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 boulevard Paixhans</Ligne>
+      <Ligne>CS 10013</Ligne>
+      <CodePostal>72042</CodePostal>
+      <NomCommune>Le Mans Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>47.9949353</Latitude>
+         <Longitude>0.209544400000027</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied porte automatique</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 72 16 40 19</Téléphone>
+      <Email>ddt-anah@sarthe.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>La délégation locale de l'Anah reçoit sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La délégation locale de l'Anah reçoit sur rendez-vous</Commentaire>
+</Organisme>

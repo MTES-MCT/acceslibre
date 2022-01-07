@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-97209-01" codeInsee="97209" dateMiseAJour="2021-06-07"
+           pivotLocal="banque_de_france">
+   <Nom>Institut d'émission des départements d'Outre-Mer (IEDOM) - Agence de la Martinique - Fort-de-France</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 boulevard du Général-de-Gaulle</Ligne>
+      <Ligne>CS 50512</Ligne>
+      <CodePostal>97206</CodePostal>
+      <NomCommune>Fort-de-France Cedex</NomCommune>
+      <Localisation>
+         <Latitude>14.6072147</Latitude>
+         <Longitude>-61.0678656</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 96 59 44 00</Téléphone>
+      <Email>agence@iedom-martinique.fr</Email>
+      <Url>https://www.iedom.fr/martinique/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:45:00" fin="11:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert les matins uniquement pour les dossiers de surendettement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

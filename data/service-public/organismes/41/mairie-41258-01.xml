@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41258-01" codeInsee="41258" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thésée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc du Vaulx-Saint-Georges</Ligne>
+      <CodePostal>41140</CodePostal>
+      <NomCommune>Thésée</NomCommune>
+      <Localisation>
+         <Latitude>47.3265228271</Latitude>
+         <Longitude>1.30216598511</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 71 40 20</Téléphone>
+      <Télécopie>02 54 71 37 28</Télécopie>
+      <Email>theseemairie@wanadoo.fr</Email>
+      <Url>http://www.communedethesee.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

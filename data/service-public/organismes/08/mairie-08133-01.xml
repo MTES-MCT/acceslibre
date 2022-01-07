@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08133-01" codeInsee="08133" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coucy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de la Mairie</Ligne>
+      <CodePostal>08300</CodePostal>
+      <NomCommune>Coucy</NomCommune>
+      <Localisation>
+         <Latitude>49.5170465</Latitude>
+         <Longitude>4.5041711</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 00 94</Téléphone>
+      <Email>contact@mairie-coucy.fr</Email>
+      <Url>http://www.mairie-coucy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Concerne l'annexe Mairie Coucy 2.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63069-01" codeInsee="63069" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Cendre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de la Mairie</Ligne>
+      <CodePostal>63670</CodePostal>
+      <NomCommune>Le Cendre</NomCommune>
+      <Localisation>
+         <Latitude>45.7224349976</Latitude>
+         <Longitude>3.18835997581</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 77 51 00</Téléphone>
+      <Télécopie>04 73 77 51 09</Télécopie>
+      <Email>mairie@lecendre.fr</Email>
+      <Url>http://www.lecendre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

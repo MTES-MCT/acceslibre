@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-33555-01" codeInsee="33555" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Marcheprime</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Jacques-Blieck</Ligne>
+      <CodePostal>33380</CodePostal>
+      <NomCommune>Marcheprime</NomCommune>
+      <Localisation>
+         <Latitude>44.6932265</Latitude>
+         <Longitude>-0.8510702</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 71 50 97</Téléphone>
+      <Télécopie>05 57 71 81 31</Télécopie>
+      <Email>pij@ville-marcheprime.fr</Email>
+      <Url>http://www.ville-marcheprime.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

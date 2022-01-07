@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40268-01" codeInsee="40268" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Laurent-de-Gosse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1250 route des Pyrénées</Ligne>
+      <CodePostal>40390</CodePostal>
+      <NomCommune>Saint-Laurent-de-Gosse</NomCommune>
+      <Localisation>
+         <Latitude>43.5331142</Latitude>
+         <Longitude>-1.2681459</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 56 31 08</Téléphone>
+      <Télécopie>05 59 56 39 61</Télécopie>
+      <Email>communesaintlaurentdegosse@orange.fr</Email>
+      <Url>http://saintlaurentdegosse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

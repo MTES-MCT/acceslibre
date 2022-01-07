@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-12198-01" codeInsee="12198" dateMiseAJour="2021-06-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Aveyron Bas Ségala Viaur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue de la Mairie</Ligne>
+      <CodePostal>12240</CodePostal>
+      <NomCommune>Rieupeyroux</NomCommune>
+      <Localisation>
+         <Latitude>44.30622</Latitude>
+         <Longitude>2.236582</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 65 67 38</Téléphone>
+      <Email>communaute.avesevi@wanadoo.fr</Email>
+      <Url>https://aveyronbassegalaviaur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

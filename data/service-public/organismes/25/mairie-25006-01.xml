@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25006-01" codeInsee="25006" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Adam-les-Passavant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 Grande rue</Ligne>
+      <CodePostal>25360</CodePostal>
+      <NomCommune>Adam-les-Passavant</NomCommune>
+      <Localisation>
+         <Latitude>47.2970275879</Latitude>
+         <Longitude>6.36055612564</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 61 66 10 14</Téléphone>
+      <Email>mairie.adamlespassavant@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

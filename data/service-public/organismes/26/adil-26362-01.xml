@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-26362-01" codeInsee="26362" dateMiseAJour="2021-04-15"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Drôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'Habitat</Ligne>
+      <Ligne>44 rue Faventines</Ligne>
+      <Ligne>BP 1022</Ligne>
+      <CodePostal>26010</CodePostal>
+      <NomCommune>Valence Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.9300119</Latitude>
+         <Longitude>4.8974077</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 79 04 04</Téléphone>
+      <Télécopie>04 75 79 04 43</Télécopie>
+      <Email>https://adil.dromenet.org/contact/</Email>
+      <Url>http://adil.dromenet.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

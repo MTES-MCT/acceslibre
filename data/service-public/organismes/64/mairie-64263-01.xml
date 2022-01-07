@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64263-01" codeInsee="64263" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Hôpital-d'Orion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 route du Coût</Ligne>
+      <CodePostal>64270</CodePostal>
+      <NomCommune>L'Hôpital-d'Orion</NomCommune>
+      <Localisation>
+         <Latitude>43.437011</Latitude>
+         <Longitude>-0.848591</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 65 02 75</Téléphone>
+      <Email>commune.hopitaldorion@wanadoo.fr</Email>
+      <Url>https://www.hopitaldorion.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

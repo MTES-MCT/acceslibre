@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11258-01" codeInsee="11258" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moussan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 avenue de la Mairie</Ligne>
+      <CodePostal>11120</CodePostal>
+      <NomCommune>Moussan</NomCommune>
+      <Localisation>
+         <Latitude>43.2302627</Latitude>
+         <Longitude>2.9491872</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 93 61 06</Téléphone>
+      <Télécopie>04 68 93 48 22</Télécopie>
+      <Email>commune.moussan@orange.fr</Email>
+      <Url>http://www.moussan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

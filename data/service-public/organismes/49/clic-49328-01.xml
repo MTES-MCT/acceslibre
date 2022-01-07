@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-49328-01" codeInsee="49328" dateMiseAJour="2020-02-06"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Saumur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du Grand-Saumurois</Ligne>
+      <Ligne>11 route de Rouen</Ligne>
+      <Ligne>Appartement 1</Ligne>
+      <CodePostal>49400</CodePostal>
+      <NomCommune>Saumur</NomCommune>
+      <Localisation>
+         <Latitude>47.2686382</Latitude>
+         <Longitude>-0.0684267</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 83 22 20</Téléphone>
+      <Télécopie>02 41 83 47 01</Télécopie>
+      <Email>accueil@coordination-autonomie.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

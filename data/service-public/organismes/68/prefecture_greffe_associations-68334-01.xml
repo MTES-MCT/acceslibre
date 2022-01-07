@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-68334-01" codeInsee="68334"
+           dateMiseAJour="2020-06-10"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Haut-Rhin (Thann)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Tribunal de proximité</Ligne>
+      <Ligne>Service des associations</Ligne>
+      <Ligne>41 place De-Lattre-de-Tassigny</Ligne>
+      <CodePostal>68802</CodePostal>
+      <NomCommune>Thann Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.8130199</Latitude>
+         <Longitude>7.0975938</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 37 41 44</Téléphone>
+      <Télécopie>03 89 37 52 79</Télécopie>
+      <Email>associations.tprx-thann@justice.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

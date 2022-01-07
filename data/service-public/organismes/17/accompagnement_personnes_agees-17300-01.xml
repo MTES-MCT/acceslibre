@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-17300-01" codeInsee="17300"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - La Rochelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Escale</Ligne>
+      <Ligne>68 rue des Voiliers</Ligne>
+      <CodePostal>17000</CodePostal>
+      <NomCommune>La Rochelle</NomCommune>
+      <Localisation>
+         <Latitude>46.166017</Latitude>
+         <Longitude>-1.141771</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 42 48 09</Téléphone>
+      <Télécopie>05 46 67 97 87</Télécopie>
+      <Email>nathalie.blin@escale-larochelle.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

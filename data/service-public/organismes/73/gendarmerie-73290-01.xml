@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie-73290-01" codeInsee="73290" dateMiseAJour="2020-03-10"
+           pivotLocal="gendarmerie"
+           idPresta="1009143">
+   <Nom>Brigade de gendarmerie - Val-Cenis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Mont-Cenis</Ligne>
+      <CodePostal>73480</CodePostal>
+      <NomCommune>Val-Cenis</NomCommune>
+      <Localisation>
+         <Latitude>45.28585374965582</Latitude>
+         <Longitude>6.883437329522936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 05 90 17</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67191-01" codeInsee="67191" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Herbitzheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de Kalhausen</Ligne>
+      <CodePostal>67260</CodePostal>
+      <NomCommune>Herbitzheim</NomCommune>
+      <Localisation>
+         <Latitude>49.0173988342</Latitude>
+         <Longitude>7.08404016495</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 00 81 79</Téléphone>
+      <Email>mairie.herbitzheim@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="16:00:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

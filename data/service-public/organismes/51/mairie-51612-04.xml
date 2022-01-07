@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51612-04" codeInsee="51612" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Voipreux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Voipreux</Ligne>
+      <Ligne>Avenue de l'Europe</Ligne>
+      <CodePostal>51130</CodePostal>
+      <NomCommune>Blancs-Coteaux</NomCommune>
+      <Localisation>
+         <Latitude>48.9119987488</Latitude>
+         <Longitude>4.05280017853</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 52 63 44</Téléphone>
+      <Email>secretariat@blancs-coteaux.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

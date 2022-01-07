@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-89086-01" codeInsee="89086" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Charny Orée de Puisaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Charny</Ligne>
+      <Ligne>3 route de Prunoy</Ligne>
+      <CodePostal>89120</CodePostal>
+      <NomCommune>Charny-Orée-de-Puisaye</NomCommune>
+      <Localisation>
+         <Latitude>47.887471</Latitude>
+         <Longitude>3.095688</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 80 54 09</Téléphone>
+      <Email>rsp@ccop.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

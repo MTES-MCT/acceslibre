@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-60176-01" codeInsee="60176" dateMiseAJour="2018-01-11"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Crépy-en-Valois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des finances publiques</Ligne>
+      <Ligne>62 route de Soissons</Ligne>
+      <Ligne>CS 56 000</Ligne>
+      <CodePostal>60800</CodePostal>
+      <NomCommune>Crépy-en-Valois</NomCommune>
+      <Localisation>
+         <Latitude>49.2342406</Latitude>
+         <Longitude>2.9021936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 59 21 31</Téléphone>
+      <Email>t060036@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

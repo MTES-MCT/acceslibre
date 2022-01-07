@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66017-01" codeInsee="66017" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Barcarès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 boulevard du 14-Juillet</Ligne>
+      <CodePostal>66420</CodePostal>
+      <NomCommune>Le Barcarès</NomCommune>
+      <Localisation>
+         <Latitude>42.787085</Latitude>
+         <Longitude>3.034846</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 86 11 64</Téléphone>
+      <Télécopie>04 68 86 02 72</Télécopie>
+      <Email>accueil@lebarcares.fr</Email>
+      <Url>http://www.portbarcares.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

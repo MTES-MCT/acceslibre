@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-54395-02" codeInsee="54395" dateMiseAJour="2021-08-20"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie municipale de Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 rue Sainte-Catherine</Ligne>
+      <Ligne>BP 94313</Ligne>
+      <CodePostal>54035</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.695305</Latitude>
+         <Longitude>6.187568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 85 46 10</Téléphone>
+      <Email>t054014@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Et sur rendez-vous les lundi, mardi et jeudi après-midi, fermé le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

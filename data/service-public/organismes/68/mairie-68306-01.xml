@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68306-01" codeInsee="68306" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seppois-le-Haut</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Moos</Ligne>
+      <CodePostal>68580</CodePostal>
+      <NomCommune>Seppois-le-Haut</NomCommune>
+      <Localisation>
+         <Latitude>47.5267982483</Latitude>
+         <Longitude>7.19524002075</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accès par une autre porte</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 25 60 25</Téléphone>
+      <Télécopie>03 89 25 67 88</Télécopie>
+      <Email>mairie.seppoislehaut@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

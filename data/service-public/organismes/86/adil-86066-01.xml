@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-86066-01" codeInsee="86066" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Vienne - Châtellerault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>57 boulevard Blossac</Ligne>
+      <CodePostal>86100</CodePostal>
+      <NomCommune>Châtellerault</NomCommune>
+      <Localisation>
+         <Latitude>46.8167794</Latitude>
+         <Longitude>0.5447341</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 23 50 24</Téléphone>
+      <Email>conseils@adil86.com</Email>
+      <Url>http://www.adil86.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

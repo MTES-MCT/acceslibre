@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-02408-01" codeInsee="02408"
+           dateMiseAJour="2021-02-17"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Laon (Préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Paul-Doumer</Ligne>
+      <CodePostal>02010</CodePostal>
+      <NomCommune>Laon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.564231</Latitude>
+         <Longitude>3.621034</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 21 82 82</Téléphone>
+      <Email>prefecture@aisne.gouv.fr</Email>
+      <Url>http://www.aisne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

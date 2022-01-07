@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A272-01" codeInsee="2A272" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sartène</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Libération</Ligne>
+      <Ligne>BP 15</Ligne>
+      <CodePostal>20100</CodePostal>
+      <NomCommune>Sartène</NomCommune>
+      <Localisation>
+         <Latitude>41.621822</Latitude>
+         <Longitude>8.97472</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 77 74 00</Téléphone>
+      <Télécopie>04 95 73 40 55</Télécopie>
+      <Email>mairiesartene.dgs@gmail.com</Email>
+      <Url>http://www.villedesartene.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

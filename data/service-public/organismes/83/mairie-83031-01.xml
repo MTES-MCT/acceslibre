@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83031-01" codeInsee="83031" dateMiseAJour="2021-08-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Cannet-des-Maures</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc Henri-Pellegrin</Ligne>
+      <CodePostal>83340</CodePostal>
+      <NomCommune>Le Cannet-des-Maures</NomCommune>
+      <Localisation>
+         <Latitude>43.39220047</Latitude>
+         <Longitude>6.34179019928</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 50 06 00</Téléphone>
+      <Télécopie>04 94 50 98 22</Télécopie>
+      <Email>accueil.mairie@lecannetdesmaures.com</Email>
+      <Url>http://www.lecannetdesmaures.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>(sauf scolarité, fermeture à 16h30)</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

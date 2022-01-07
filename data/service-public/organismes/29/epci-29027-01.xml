@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-29027-01" codeInsee="29027" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Haute Cornouaille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de Morlaix</Ligne>
+      <Ligne>BP 14</Ligne>
+      <CodePostal>29520</CodePostal>
+      <NomCommune>Châteauneuf-du-Faou</NomCommune>
+      <Localisation>
+         <Latitude>48.1950491</Latitude>
+         <Longitude>-3.8206774</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 73 25 36</Téléphone>
+      <Télécopie>02 98 73 25 28</Télécopie>
+      <Email>contact@haute-cornouaille.fr</Email>
+      <Url>http://www.haute-cornouaille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

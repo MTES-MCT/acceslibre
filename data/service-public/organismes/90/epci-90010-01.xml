@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-90010-01" codeInsee="90010" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Grand Belfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place d'Armes</Ligne>
+      <CodePostal>90020</CodePostal>
+      <NomCommune>Belfort Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.6382646</Latitude>
+         <Longitude>6.8627569</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 54 24 24</Téléphone>
+      <Télécopie>03 84 21 71 71</Télécopie>
+      <Email>courrier@grandbelfort.fr</Email>
+      <Url>http://www.grandbelfort.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement pour les services urbanisme et direction des ressources humaines.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

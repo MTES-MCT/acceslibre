@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-33243-01" codeInsee="33243" dateMiseAJour="2019-03-05"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Libourne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue Thiers</Ligne>
+      <Ligne>Maison de l’Avocat</Ligne>
+      <CodePostal>33500</CodePostal>
+      <NomCommune>Libourne</NomCommune>
+      <Localisation>
+         <Latitude>44.913934</Latitude>
+         <Longitude>-0.244429</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 51 59 70</Téléphone>
+      <Télécopie>05 57 74 15 88</Télécopie>
+      <Email>avocats.barreaulibourne@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

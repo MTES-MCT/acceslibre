@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-25411-01" codeInsee="25411" dateMiseAJour="2021-12-30"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable de Morteau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Charles-Brugger</Ligne>
+      <Ligne>BP 89</Ligne>
+      <CodePostal>25503</CodePostal>
+      <NomCommune>Morteau Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0570755</Latitude>
+         <Longitude>6.6024568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 67 30 13</Téléphone>
+      <Email>sgc.morteau@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

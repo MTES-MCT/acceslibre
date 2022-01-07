@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43076-01" codeInsee="43076" dateMiseAJour="2019-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Connangles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>43160</CodePostal>
+      <NomCommune>Connangles</NomCommune>
+      <Localisation>
+         <Latitude>45.299079895</Latitude>
+         <Longitude>3.64777588844</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 00 03 06</Téléphone>
+      <Email>mairie.connangles@orange.fr</Email>
+      <Url>http://www.connangles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

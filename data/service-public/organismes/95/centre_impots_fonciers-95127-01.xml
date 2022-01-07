@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-95127-01" codeInsee="95127"
+           dateMiseAJour="2021-02-12"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Service départemental des impôts foncier (SDIF) Val-d'Oise - Cergy</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2, avenue Bernard Hirsch</Ligne>
+      <Ligne>CS 20106</Ligne>
+      <CodePostal>95093</CodePostal>
+      <NomCommune>Cergy-Pontoise cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.03363</Latitude>
+         <Longitude>2.7923</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 75 72 00</Téléphone>
+      <Email>sdif.val-doise@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.impots.gouv.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous les Lundi, Mardi et Vendredi de 13h30 à 16h</Commentaire>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ademe-86194-01" codeInsee="86194" dateMiseAJour="2018-03-30"
+           pivotLocal="ademe">
+   <Nom>Agence de l’environnement et de la maîtrise de l’énergie (ADEME) - Direction régionale Nouvelle-Aquitaine - Siège de Poitiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>60 rue Jean-Jaurès</Ligne>
+      <CodePostal>86011</CodePostal>
+      <NomCommune>Poitiers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.581367</Latitude>
+         <Longitude>0.343919</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 50 12 19</Téléphone>
+      <Télécopie>05 49 41 61 11</Télécopie>
+      <Email>ademe.poitou-charentes@ademe.fr</Email>
+      <Url>http://www.ademe-poitou-charentes.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pas d'accueil pour les particuliers, ces derniers doivent contacter directement les espaces info énergie (coordonnées sur le site internet).</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

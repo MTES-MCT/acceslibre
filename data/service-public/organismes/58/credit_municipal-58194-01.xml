@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="credit_municipal-58194-01" codeInsee="58194" dateMiseAJour="2021-12-01"
+           pivotLocal="credit_municipal">
+   <Nom>Crédit municipal - Nevers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 avenue du Général de Gaulle</Ligne>
+      <CodePostal>58000</CodePostal>
+      <NomCommune>Nevers</NomCommune>
+      <Localisation>
+         <Latitude>46.988784</Latitude>
+         <Longitude>3.156108</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 71 66 86</Téléphone>
+      <Email>agencedenevers@ccmps.fr</Email>
+      <Url>http://www.ccmps.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:35:00" fin="16:45:00"/>
+         <Note>Le Jeudi après-midi de 14h15 à 16h45.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

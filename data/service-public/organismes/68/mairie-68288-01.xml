@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68288-01" codeInsee="68288" dateMiseAJour="2017-03-31"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ruederbach</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Principale</Ligne>
+      <CodePostal>68560</CodePostal>
+      <NomCommune>Ruederbach</NomCommune>
+      <Localisation>
+         <Latitude>47.5746994019</Latitude>
+         <Longitude>7.24462985992</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 40 50 27</Téléphone>
+      <Télécopie>03 89 40 59 38</Télécopie>
+      <Email>commune-ruederbach@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

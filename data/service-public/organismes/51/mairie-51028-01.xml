@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51028-01" codeInsee="51028" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Avenay-Val-d'Or</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Gaston-Paris</Ligne>
+      <CodePostal>51160</CodePostal>
+      <NomCommune>Avenay-Val-d'Or</NomCommune>
+      <Localisation>
+         <Latitude>49.1088981628</Latitude>
+         <Longitude>4.02305984497</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 52 31 33</Téléphone>
+      <Télécopie>03 26 59 09 02</Télécopie>
+      <Email>mairie.avenay@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

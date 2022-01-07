@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-78297-01" codeInsee="78297" dateMiseAJour="2021-09-17"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie amendes des Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue du Centre</Ligne>
+      <Ligne>CS 70506</Ligne>
+      <CodePostal>78042</CodePostal>
+      <NomCommune>Guyancourt Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.789111</Latitude>
+         <Longitude>2.052273</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique: du lundi au vendredi 8h30-12h30 / 14h-16h">01 30 48 28 49</Téléphone>
+      <Email>t078065@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.frtai</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

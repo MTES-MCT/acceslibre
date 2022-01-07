@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70339-01" codeInsee="70339" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mélisey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 Grande rue</Ligne>
+      <CodePostal>70270</CodePostal>
+      <NomCommune>Mélisey</NomCommune>
+      <Localisation>
+         <Latitude>47.7538565</Latitude>
+         <Longitude>6.5808907</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 20 84 38</Téléphone>
+      <Télécopie>03 84 20 87 19</Télécopie>
+      <Email>secretariat@mairie-melisey.com</Email>
+      <Url>https://melisey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

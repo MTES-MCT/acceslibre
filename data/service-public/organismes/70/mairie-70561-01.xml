@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70561-01" codeInsee="70561" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villersexel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>70110</CodePostal>
+      <NomCommune>Villersexel</NomCommune>
+      <Localisation>
+         <Latitude>47.5509986877</Latitude>
+         <Longitude>6.43204021454</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 20 54 49</Téléphone>
+      <Télécopie>03 84 20 57 34</Télécopie>
+      <Email>mairie@mairie-villersexel.com</Email>
+      <Url>http://www.villersexel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_metropole_lyon-69202-01" codeInsee="69202"
+           dateMiseAJour="2019-09-20"
+           pivotLocal="maison_metropole_lyon">
+   <Nom>Maison de la Métropole de Lyon - Sainte-Foy-lès-Lyon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 chemin de Montray</Ligne>
+      <CodePostal>69110</CodePostal>
+      <NomCommune>Sainte-Foy-lès-Lyon</NomCommune>
+      <Localisation>
+         <Latitude>45.73525482</Latitude>
+         <Longitude>4.79908588</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 16 32 40</Téléphone>
+      <Télécopie>04 26 99 31 64</Télécopie>
+      <Email>mdm.ste-foy-les-lyon@grandlyon.com</Email>
+      <Url>https://www.grandlyon.com/services/qu-est-ce-que-les-maisons-de-la-metropole.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermé le mardi matin et le vendredi à partir de 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

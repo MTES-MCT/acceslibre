@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-64102-01" codeInsee="64102" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Bayonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Marc-Aubert</Ligne>
+      <Ligne>71 rue Bourgneuf</Ligne>
+      <CodePostal>64100</CodePostal>
+      <NomCommune>Bayonne</NomCommune>
+      <Localisation>
+         <Latitude>43.4909888</Latitude>
+         <Longitude>-1.4721395</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 59 35 29</Téléphone>
+      <Email>bij@bayonne.fr</Email>
+      <Url>http://www.bayonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

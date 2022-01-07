@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-27367-01" codeInsee="27367" dateMiseAJour="2020-12-08"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Lieurey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Grande rue</Ligne>
+      <CodePostal>27560</CodePostal>
+      <NomCommune>Lieurey</NomCommune>
+      <Localisation>
+         <Latitude>49.2272924</Latitude>
+         <Longitude>0.4979852</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.lieurey@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/lieurey-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

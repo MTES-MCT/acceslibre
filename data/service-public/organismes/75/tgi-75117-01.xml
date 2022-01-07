@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="75117" dateMiseAJour="2021-09-02" id="tgi-75117-01" idPresta="4cac9e61293594648a0005f3" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Paris</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>Parvis du Tribunal de Paris</Ligne>
+        <Ligne>29-45 avenue de la Porte de Clichy</Ligne>
+        <CodePostal>75859</CodePostal>
+        <NomCommune>PARIS CEDEX 17</NomCommune>
+        <Localisation>
+            <Latitude>48.895297</Latitude>
+            <Longitude>2.310805</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>Parvis du Tribunal de Paris</Ligne>
+        <Ligne>29-45 avenue de la Porte de Clichy</Ligne>
+        <CodePostal>75859</CodePostal>
+        <NomCommune>PARIS CEDEX 17</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 44 32 51 51</Téléphone>
+        <Url>https://www.tribunal-de-paris.justice.fr/75</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="18:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

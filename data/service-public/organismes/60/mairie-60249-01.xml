@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60249-01" codeInsee="60249" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Foulangues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue des Coquets</Ligne>
+      <CodePostal>60250</CodePostal>
+      <NomCommune>Foulangues</NomCommune>
+      <Localisation>
+         <Latitude>49.2764</Latitude>
+         <Longitude>2.3171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 27 83 34</Téléphone>
+      <Email>mairie.foulangues@wanadoo.fr</Email>
+      <Url>http://www.paysdethelle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique et accueil sur rendez-vous de 9h30 à 11h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>Permanence téléphonique et accueil sur rendez-vous 15h à 18h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

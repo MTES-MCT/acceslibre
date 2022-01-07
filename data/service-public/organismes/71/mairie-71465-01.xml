@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71465-01" codeInsee="71465" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Micaud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 route du Bourg</Ligne>
+      <CodePostal>71460</CodePostal>
+      <NomCommune>Saint-Micaud</NomCommune>
+      <Localisation>
+         <Latitude>46.6516838074</Latitude>
+         <Longitude>4.5731959343</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">monte-escalier</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 49 20 38</Téléphone>
+      <Télécopie>03 85 49 20 38</Télécopie>
+      <Email>mairie.micaud@wanadoo.fr</Email>
+      <Url>http://www.saint-micaud.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

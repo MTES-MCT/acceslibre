@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-41106-01" codeInsee="41106" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Loir-et-Cher - accueil de Lamotte-Beuvron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison de services au public</Ligne>
+      <Ligne>34 rue Durfort-de-Duras</Ligne>
+      <CodePostal>41600</CodePostal>
+      <NomCommune>Lamotte-Beuvron</NomCommune>
+      <Localisation>
+         <Latitude>47.6020743</Latitude>
+         <Longitude>2.02340939</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Loir-et-Cher</Ligne>
+      <Ligne>6 rue Louis-Armand</Ligne>
+      <CodePostal>41015</CodePostal>
+      <NomCommune>Blois Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="12:30:00" fin="16:30:00"/>
+         <Note>Accueil à distance le mardi de 14h à 16h, accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="12:30:00" fin="16:30:00"/>
+         <Note>Accueil à distance le vendredi de 10h à 12h, accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

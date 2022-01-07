@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88451-01" codeInsee="88451" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Senones</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Constant-Verlot</Ligne>
+      <CodePostal>88210</CodePostal>
+      <NomCommune>Senones</NomCommune>
+      <Localisation>
+         <Latitude>48.3950996399</Latitude>
+         <Longitude>6.98134994507</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 57 91 43</Téléphone>
+      <Télécopie>03 29 57 61 74</Télécopie>
+      <Email>mairie.senones@wanadoo.fr</Email>
+      <Url>http://www.senones.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

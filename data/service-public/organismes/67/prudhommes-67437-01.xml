@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="67437" dateMiseAJour="2021-12-14" id="prudhommes-67437-01" idPresta="4cac9e6a293594648a001701" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Saverne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>9 RUE FRANCOIS CARABIN</Ligne>
+        <CodePostal>67703</CodePostal>
+        <NomCommune>SAVERNE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.733058</Latitude>
+            <Longitude>7.375128</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>9 RUE FRANCOIS CARABIN</Ligne>
+        <CodePostal>67703</CodePostal>
+        <NomCommune>SAVERNE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 88 01 19 24</Téléphone>
+        <Télécopie>03 69 37 40 01</Télécopie>
+        <Email>mailto:cph-saverne@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

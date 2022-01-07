@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-06069-01" codeInsee="06069" dateMiseAJour="2020-07-24" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Grasse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 traverse de la Paoute</Ligne>
+      <Ligne>BP 23150</Ligne>
+      <CodePostal>06131</CodePostal>
+      <NomCommune>Grasse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.6321271</Latitude>
+         <Longitude>6.9603111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 40 36 00</Téléphone>
+      <Email>sie.grasse@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous.</Commentaire>
+</Organisme>

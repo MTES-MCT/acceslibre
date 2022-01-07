@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08037-01" codeInsee="08037" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auvillers-les-Forges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 place de la Mairie</Ligne>
+      <CodePostal>08260</CodePostal>
+      <NomCommune>Auvillers-les-Forges</NomCommune>
+      <Localisation>
+         <Latitude>49.8632717</Latitude>
+         <Longitude>4.3577952</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 54 30 30</Téléphone>
+      <Email>mairie.auvillerslesforges@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Possibilité d'être reçu sur rendez-vous, permanence du maire et des adjoints les samedis de 10h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

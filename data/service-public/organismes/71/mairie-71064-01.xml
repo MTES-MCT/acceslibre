@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71064-01" codeInsee="71064" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bruailles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue des Écoles</Ligne>
+      <CodePostal>71500</CodePostal>
+      <NomCommune>Bruailles</NomCommune>
+      <Localisation>
+         <Latitude>46.595959</Latitude>
+         <Longitude>5.23500639999997</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 76 05 84</Téléphone>
+      <Email>mairie.bruailles@orange.fr</Email>
+      <Url>http://www.bruailles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

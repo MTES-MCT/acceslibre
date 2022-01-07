@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-92044-01" codeInsee="92044" dateMiseAJour="2021-06-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Levallois-Perret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la République</Ligne>
+      <CodePostal>92300</CodePostal>
+      <NomCommune>Levallois</NomCommune>
+      <Localisation>
+         <Latitude>48.8931616</Latitude>
+         <Longitude>2.2886643</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">le parking n'est pas accessible</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 68 31 56</Téléphone>
+      <Email>votre.maire@ville-levallois.fr</Email>
+      <Url>http://www.ville-levallois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="18:00:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires des différents services.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="19:00:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires des différents services.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="18:00:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires des différents services.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

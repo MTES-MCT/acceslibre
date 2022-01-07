@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11217-01" codeInsee="11217" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marcorignan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 avenue de Narbonne</Ligne>
+      <CodePostal>11120</CodePostal>
+      <NomCommune>Marcorignan</NomCommune>
+      <Localisation>
+         <Latitude>43.2235984802</Latitude>
+         <Longitude>2.92336988449</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 93 60 09</Téléphone>
+      <Télécopie>04 68 93 47 03</Télécopie>
+      <Email>contact@marcorignan.fr</Email>
+      <Url>http://www.marcorignan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

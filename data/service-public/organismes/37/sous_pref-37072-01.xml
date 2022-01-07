@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-37072-01" codeInsee="37072" dateMiseAJour="2021-02-16"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture de Chinon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1, rue Philippe-de-Commines</Ligne>
+      <Ligne>BP 156</Ligne>
+      <CodePostal>37501</CodePostal>
+      <NomCommune>Chinon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.165948</Latitude>
+         <Longitude>0.2435005</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="tarif local">+ 33 2 47 64 37 37</Téléphone>
+      <Télécopie>+33 2 47 98 35 09</Télécopie>
+      <Email>sous-prefecture-de-chinon@indre-et-loire.gouv.fr</Email>
+      <Url>http://www.indre-et-loire.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

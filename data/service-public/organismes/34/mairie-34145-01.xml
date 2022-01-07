@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34145-01" codeInsee="34145" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lunel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>240 avenue Victor-Hugo</Ligne>
+      <Ligne>CS 30403</Ligne>
+      <CodePostal>34403</CodePostal>
+      <NomCommune>Lunel Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.6789052</Latitude>
+         <Longitude>4.1325691</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">bâtiment A rampe et plan inclinée, bâtiment B plan inclinée, rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 87 83 00</Téléphone>
+      <Télécopie>04 67 87 84 42</Télécopie>
+      <Email>mairie@ville-lunel.fr</Email>
+      <Url>http://www.lunel.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert jusqu'à 18h mais les services administratifs ferment à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour les décès et les mariages.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

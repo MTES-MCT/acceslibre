@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91634-01" codeInsee="91634" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vaugrigneuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Héroard</Ligne>
+      <CodePostal>91640</CodePostal>
+      <NomCommune>Vaugrigneuse</NomCommune>
+      <Localisation>
+         <Latitude>48.6025775</Latitude>
+         <Longitude>2.1211176</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 58 90 59</Téléphone>
+      <Télécopie>01 64 58 83 90</Télécopie>
+      <Email>contact@ville-vaugrigneuse.fr</Email>
+      <Url>http://www.ville-vaugrigneuse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

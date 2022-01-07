@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61006-01" codeInsee="61006" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Argentan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Docteur-Couinaud</Ligne>
+      <Ligne>BP 60203</Ligne>
+      <CodePostal>61201</CodePostal>
+      <NomCommune>Argentan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.744052</Latitude>
+         <Longitude>-0.0166189</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 36 40 00</Téléphone>
+      <Télécopie>02 33 36 52 07</Télécopie>
+      <Email>mairie@argentan.fr</Email>
+      <Url>http://www.argentan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

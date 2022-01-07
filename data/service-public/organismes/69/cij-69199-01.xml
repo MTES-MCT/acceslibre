@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-69199-01" codeInsee="69199" dateMiseAJour="2021-11-03" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Fons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 allée du Merle-Rouge</Ligne>
+      <CodePostal>69190</CodePostal>
+      <NomCommune>Saint-Fons</NomCommune>
+      <Localisation>
+         <Latitude>45.6931421</Latitude>
+         <Longitude>4.823896</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 70 74 44</Téléphone>
+      <Email>h.soltani@mlrse.org</Email>
+      <Url>http://www.saint-fons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

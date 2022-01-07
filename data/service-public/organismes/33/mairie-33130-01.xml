@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33130-01" codeInsee="33130" dateMiseAJour="2021-10-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coimères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Jean-Jacques-Lafon</Ligne>
+      <CodePostal>33210</CodePostal>
+      <NomCommune>Coimères</NomCommune>
+      <Localisation>
+         <Latitude>44.4966545105</Latitude>
+         <Longitude>-0.209976002574</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 25 00 03</Téléphone>
+      <Télécopie>05 56 25 83 00</Télécopie>
+      <Email>contact@mairiecoimeres.fr</Email>
+      <Url>http://www.coimeres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mercredi</Commentaire>
+</Organisme>

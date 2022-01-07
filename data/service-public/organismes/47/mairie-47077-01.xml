@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47077-01" codeInsee="47077" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cuzorn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>47500</CodePostal>
+      <NomCommune>Cuzorn</NomCommune>
+      <Localisation>
+         <Latitude>44.544985</Latitude>
+         <Longitude>0.948224</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 40 94 33</Téléphone>
+      <Email>mairie.cuzorn@wanadoo.fr</Email>
+      <Url>http://www.cuzorn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil sur rendez-vous uniquement les lundi et jeudi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

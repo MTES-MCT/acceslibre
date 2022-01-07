@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-06088-01" codeInsee="06088" dateMiseAJour="2019-04-19"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Alpes-Maritimes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre administratif</Ligne>
+      <Ligne>Bâtiment Le Chiron</Ligne>
+      <Ligne>147 boulevard du Mercantour</Ligne>
+      <CodePostal>06286</CodePostal>
+      <NomCommune>Nice Cedex 3</NomCommune>
+      <Localisation>
+         <Latitude>43.674925</Latitude>
+         <Longitude>7.199334</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 72 72 70</Téléphone>
+      <Url>http://www.anah.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

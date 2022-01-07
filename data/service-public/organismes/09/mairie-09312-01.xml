@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09312-01" codeInsee="09312" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Tour-du-Crieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 avenue du Pal</Ligne>
+      <CodePostal>09100</CodePostal>
+      <NomCommune>La Tour-du-Crieu</NomCommune>
+      <Localisation>
+         <Latitude>43.1032981873</Latitude>
+         <Longitude>1.65347003937</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 34 01 33 43</Téléphone>
+      <Email>mairie-tourcrieu@wanadoo.fr</Email>
+      <Url>http://www.la-tour-du-crieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

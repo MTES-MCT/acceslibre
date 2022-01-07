@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10149-01" codeInsee="10149" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Feuges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Saint-Benoit</Ligne>
+      <CodePostal>10150</CodePostal>
+      <NomCommune>Feuges</NomCommune>
+      <Localisation>
+         <Latitude>48.3969993591</Latitude>
+         <Longitude>4.10575008392</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 41 03 09</Téléphone>
+      <Télécopie>03 25 40 44 61</Télécopie>
+      <Email>mairie.feuges@wanadoo.fr</Email>
+      <Url>http://www.feuges.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

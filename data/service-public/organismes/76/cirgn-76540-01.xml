@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirgn-76540-01" codeInsee="76540" dateMiseAJour="2021-12-16"
+           pivotLocal="cirgn"
+           idPresta="1006694">
+   <Nom>Centre d'information et de recrutement (CIR) de la gendarmerie nationale - Rouen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Général Sarrail</Ligne>
+      <Ligne>Caserne Hatry</Ligne>
+      <CodePostal>76000</CodePostal>
+      <NomCommune>Rouen</NomCommune>
+      <Localisation>
+         <Latitude>49.441094</Latitude>
+         <Longitude>1.103996</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="numéro d'appel et courriel uniquement destinés à l'information sur le recrutement - Pour toute urgence, composez le 17">02 35 14 43 91</Téléphone>
+      <Email>https://www.lagendarmerierecrute.fr/Contacts</Email>
+      <Url>https://www.lagendarmerierecrute.fr/Pres-de-chez-vous/ROUEN</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

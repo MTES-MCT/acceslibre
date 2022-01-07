@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03162-01" codeInsee="03162" dateMiseAJour="2020-01-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue de la Mairie</Ligne>
+      <CodePostal>03210</CodePostal>
+      <NomCommune>Marigny</NomCommune>
+      <Localisation>
+         <Latitude>46.5820219</Latitude>
+         <Longitude>3.2099941</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 43 93 57</Téléphone>
+      <Télécopie>04 70 43 93 64</Télécopie>
+      <Email>marigny.mairie@wanadoo.fr</Email>
+      <Url>https://mairie-marigny-allier.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="15:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

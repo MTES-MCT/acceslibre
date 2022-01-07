@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27311-01" codeInsee="27311" dateMiseAJour="2021-01-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Harcourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place du Général-Chrétien</Ligne>
+      <CodePostal>27800</CodePostal>
+      <NomCommune>Harcourt</NomCommune>
+      <Localisation>
+         <Latitude>49.166889</Latitude>
+         <Longitude>0.7857997</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 45 02 40</Téléphone>
+      <Télécopie>02 32 45 42 09</Télécopie>
+      <Email>mairie@communeharcourt.com</Email>
+      <Url>https://mairie-harcourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

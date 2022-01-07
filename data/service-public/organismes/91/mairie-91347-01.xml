@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91347-01" codeInsee="91347" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Longpont-sur-Orge</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place des Combattants</Ligne>
+      <CodePostal>91310</CodePostal>
+      <NomCommune>Longpont-sur-Orge</NomCommune>
+      <Localisation>
+         <Latitude>48.6424498</Latitude>
+         <Longitude>2.2923637</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 01 68 18</Téléphone>
+      <Télécopie>01 69 01 48 94</Télécopie>
+      <Email>accueil@mairie-longpont91.fr</Email>
+      <Url>http://www.mairie-longpont91.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé pour l'urbanisme,le service scolaire et le CCAS.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Accueil fermé pour le service scolaire.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

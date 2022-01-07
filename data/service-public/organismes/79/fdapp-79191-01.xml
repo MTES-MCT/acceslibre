@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-79191-01" codeInsee="79191" dateMiseAJour="2021-05-20"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Deux-Sèvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>33 rue du Galuchet</Ligne>
+      <Ligne>BP 88301</Ligne>
+      <CodePostal>79043</CodePostal>
+      <NomCommune>Niort Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>46.3235223</Latitude>
+         <Longitude>-0.4882494</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 09 23 33</Téléphone>
+      <Télécopie>05 49 73 24 17</Télécopie>
+      <Email>peche79@peche79.fr</Email>
+      <Url>http://www.peche-en-deux-sevres.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

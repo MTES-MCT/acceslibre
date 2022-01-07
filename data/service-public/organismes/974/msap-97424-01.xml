@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-97424-01" codeInsee="97424" dateMiseAJour="2020-12-23"
+           pivotLocal="msap">
+   <Nom>France Services - Cilaos (La Réunion)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue des écoles</Ligne>
+      <CodePostal>97413</CodePostal>
+      <NomCommune>Cilaos</NomCommune>
+      <Localisation>
+         <Latitude>-21.135155</Latitude>
+         <Longitude>55.470996</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 62 28 92 92</Téléphone>
+      <Email>maison.france.service@ville-cilaos.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

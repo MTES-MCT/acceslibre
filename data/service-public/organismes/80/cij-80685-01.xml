@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-80685-01" codeInsee="80685" dateMiseAJour="2020-11-24" pivotLocal="cij">
+   <Nom>Point information jeunesse - Roye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison Information Jeunesse</Ligne>
+      <Ligne>12 boulevard des Glycines</Ligne>
+      <CodePostal>80700</CodePostal>
+      <NomCommune>Roye</NomCommune>
+      <Localisation>
+         <Latitude>49.70734</Latitude>
+         <Longitude>2.777684</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 54 79 27 15</Téléphone>
+      <Email>mij@roye.eu</Email>
+      <Url>https://roye.eu/-Maison-Information-Jeunesse-.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

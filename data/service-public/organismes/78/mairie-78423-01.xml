@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78423-01" codeInsee="78423" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montigny-le-Bretonneux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>66 rue de la Mare-aux-Carats</Ligne>
+      <CodePostal>78180</CodePostal>
+      <NomCommune>Montigny-le-Bretonneux</NomCommune>
+      <Localisation>
+         <Latitude>48.7697601318</Latitude>
+         <Longitude>2.03700494766</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 30 31 32</Téléphone>
+      <Télécopie>01 39 30 31 33</Télécopie>
+      <Email>mairie@montigny78.fr</Email>
+      <Url>http://www.montigny78.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:15:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="20:00:00"/>
+         <Note>Accueil ouvert le mardi jusqu'à 17h15 pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

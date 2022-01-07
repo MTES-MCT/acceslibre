@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-39300-01" codeInsee="39300" dateMiseAJour="2021-02-08" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Lons-le-Saunier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Turgot</Ligne>
+      <CodePostal>39033</CodePostal>
+      <NomCommune>Lons-le-Saunier Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>46.6838343</Latitude>
+         <Longitude>5.5593778</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>08 09 40 14 01</Téléphone>
+      <Télécopie>03 84 43 46 30</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil exclusivement sur rendez-vous les jeudis de 13h30 à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil exclusivement sur rendez-vous les lundis, mardis de 13h30 à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

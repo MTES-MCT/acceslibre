@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-44116-01" codeInsee="44116" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Brevin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sud Estuaire</Ligne>
+      <Ligne>6 rue Jules-Ferry</Ligne>
+      <CodePostal>44250</CodePostal>
+      <NomCommune>Saint-Brevin</NomCommune>
+      <Localisation>
+         <Latitude>47.286787</Latitude>
+         <Longitude>-2.025678</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 39 37 01</Téléphone>
+      <Email>msap@cc-sudestuaire.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

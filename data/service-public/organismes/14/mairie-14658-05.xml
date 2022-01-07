@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14658-05" codeInsee="14658" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Gast</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Gast</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>14380</CodePostal>
+      <NomCommune>Noues de Sienne</NomCommune>
+      <Localisation>
+         <Latitude>48.823267</Latitude>
+         <Longitude>-1.10329</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 66 06 57</Téléphone>
+      <Télécopie>02 31 66 06 57</Télécopie>
+      <Email>mairie.legast14@orange.fr</Email>
+      <Url>http://www.nouesdesienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

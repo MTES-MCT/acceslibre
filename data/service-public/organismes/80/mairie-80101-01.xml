@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80101-01" codeInsee="80101" dateMiseAJour="2017-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beuvraignes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>80700</CodePostal>
+      <NomCommune>Beuvraignes</NomCommune>
+      <Localisation>
+         <Latitude>49.644936</Latitude>
+         <Longitude>2.768269</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 87 19 33</Téléphone>
+      <Télécopie>03 22 87 48 74</Télécopie>
+      <Email>mairie.beuvraignes@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

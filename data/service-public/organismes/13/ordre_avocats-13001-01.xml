@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-13001-01" codeInsee="13001" dateMiseAJour="2019-03-07"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau d'Aix-en-provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Rifle Rafle</Ligne>
+      <Ligne>Maison de l'Avocat</Ligne>
+      <CodePostal>13100</CodePostal>
+      <NomCommune>Aix-en-provence</NomCommune>
+      <Localisation>
+         <Latitude>43.529523</Latitude>
+         <Longitude>5.449712</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 21 72 30</Téléphone>
+      <Email>ordreavocats.aix@avocatline.com</Email>
+      <Url>http://www.barreau-aixenprovence.avocat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

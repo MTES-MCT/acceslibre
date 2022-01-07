@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63221-01" codeInsee="63221" dateMiseAJour="2021-12-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Medeyrolles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>63220</CodePostal>
+      <NomCommune>Medeyrolles</NomCommune>
+      <Localisation>
+         <Latitude>45.405463</Latitude>
+         <Longitude>3.8031</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 95 90 68</Téléphone>
+      <Email>http://www.medeyrolles.fr/formulaire-de-contact</Email>
+      <Url>http://www.medeyrolles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

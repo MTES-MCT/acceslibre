@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-2A004-02" codeInsee="2A004" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Ajaccio</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>52 rue Fesch</Ligne>
+      <CodePostal>20000</CodePostal>
+      <NomCommune>Ajaccio</NomCommune>
+      <Localisation>
+         <Latitude>41.9221544</Latitude>
+         <Longitude>8.7384316</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 50 13 44</Téléphone>
+      <Email>centre.u.borgu@wanadoo.fr</Email>
+      <Url>http://www.centre-u-borgu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="21:00:00"/>
+         <Note>Accueil ouvert de 8h à 18h pendant les congés scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-80001-01" codeInsee="80001" dateMiseAJour="2021-10-28"
+           pivotLocal="msap">
+   <Nom>France Services - Abbeville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue des Aubépines</Ligne>
+      <CodePostal>80100</CodePostal>
+      <NomCommune>Abbeville</NomCommune>
+      <Localisation>
+         <Latitude>50.107486</Latitude>
+         <Longitude>1.855537</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 20 07 80</Téléphone>
+      <Email>mfsaubepine@ca-baiedesomme.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-2A269-01" codeInsee="2A269" dateMiseAJour="2020-12-23"
+           pivotLocal="msap">
+   <Nom>France Services - Solenzara</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Solenzara</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>20145</CodePostal>
+      <NomCommune>Sari-Solenzara</NomCommune>
+      <Localisation>
+         <Latitude>41.859138</Latitude>
+         <Longitude>9.396206</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 36 36 70</Téléphone>
+      <Email>sari-solenzara@france-services.gouv.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/sari-solenzara-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

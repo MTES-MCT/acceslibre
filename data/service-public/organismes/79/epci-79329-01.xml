@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-79329-01" codeInsee="79329" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Thouarsais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel des Communes</Ligne>
+      <Ligne>4 rue de la Tremoille</Ligne>
+      <CodePostal>79100</CodePostal>
+      <NomCommune>Thouars</NomCommune>
+      <Localisation>
+         <Latitude>46.9842834473</Latitude>
+         <Longitude>-0.211770996451</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès de plain-pied par l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 66 77 00</Téléphone>
+      <Télécopie>05 49 66 77 01</Télécopie>
+      <Email>info@thouars-communaute.fr</Email>
+      <Url>http://www.thouars-communaute.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

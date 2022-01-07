@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-62525-01" codeInsee="62525" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Pays de Saint-Omer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CAPSO</Ligne>
+      <Ligne>2 rue Albert-Camus</Ligne>
+      <Ligne>CS 20079</Ligne>
+      <CodePostal>62968</CodePostal>
+      <NomCommune>Longuenesse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.740092</Latitude>
+         <Longitude>2.275745</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 74 18 20 01</Téléphone>
+      <Télécopie>03 21 39 22 23</Télécopie>
+      <Email>contact@ca-pso.fr</Email>
+      <Url>https://www.ca-pso.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement pour les services urbanisme, eaux et assainissement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

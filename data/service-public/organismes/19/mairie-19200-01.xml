@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19200-01" codeInsee="19200" dateMiseAJour="2021-01-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-la-Geneste</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de Liginiac</Ligne>
+      <CodePostal>19160</CodePostal>
+      <NomCommune>Saint-Étienne-la-Geneste</NomCommune>
+      <Localisation>
+         <Latitude>45.44821</Latitude>
+         <Longitude>2.34289</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 95 99 71</Téléphone>
+      <Télécopie>05 55 95 99 71</Télécopie>
+      <Email>mairie.stetiennelageneste@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

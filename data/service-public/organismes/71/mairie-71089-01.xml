@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71089-01" codeInsee="71089" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-de-Bragny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de l'École</Ligne>
+      <CodePostal>71240</CodePostal>
+      <NomCommune>La Chapelle-de-Bragny</NomCommune>
+      <Localisation>
+         <Latitude>46.6326787</Latitude>
+         <Longitude>4.7655875</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 92 22 42</Téléphone>
+      <Email>mairie.la-chapelle-de-bragny@wanadoo.fr</Email>
+      <Url>http://www.lachapelledebragny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

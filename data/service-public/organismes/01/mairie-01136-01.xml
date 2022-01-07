@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01136-01" codeInsee="01136" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cruzilles-lès-Mépillat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 route d'Illiat</Ligne>
+      <CodePostal>01290</CodePostal>
+      <NomCommune>Cruzilles-lès-Mépillat</NomCommune>
+      <Localisation>
+         <Latitude>46.2222977</Latitude>
+         <Longitude>4.8814215</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 31 52 27</Téléphone>
+      <Email>mairie.cruzilles@gmail.com</Email>
+      <Url>http://www.cruzilleslesmepillat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Au 1er janvier 2021 accueil le mardi de 13h30 à 17h, le mercredi de 9h à 12h30, le jeudi de 13h30 à 18h30, le vendredi de 9h à 12h et le samedi de 10h à 12 pour la permanence des adjoints.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

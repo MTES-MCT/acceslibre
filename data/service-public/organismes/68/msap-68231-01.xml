@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-68231-01" codeInsee="68231" dateMiseAJour="2021-03-01"
+           pivotLocal="msap">
+   <Nom>France Services - Neuf-Brisach</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 Rue de L Hôtel de ville</Ligne>
+      <CodePostal>68600</CodePostal>
+      <NomCommune>Neuf-Brisach</NomCommune>
+      <Localisation>
+         <Latitude>48.01796</Latitude>
+         <Longitude>7.53027</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 72 51 68</Téléphone>
+      <Email>mairie@neuf-brisach.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

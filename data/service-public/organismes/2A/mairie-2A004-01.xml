@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A004-01" codeInsee="2A004" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ajaccio</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Antoine-Serafini</Ligne>
+      <Ligne>BP 412</Ligne>
+      <CodePostal>20304</CodePostal>
+      <NomCommune>Ajaccio Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>41.9186477661</Latitude>
+         <Longitude>8.73687934875</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 51 52 53</Téléphone>
+      <Email>mairie@ajaccio.fr</Email>
+      <Url>http://www.ajaccio.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

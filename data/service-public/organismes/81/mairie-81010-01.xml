@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81010-01" codeInsee="81010" dateMiseAJour="2021-11-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ambialet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>149 route de Villefranche</Ligne>
+      <CodePostal>81430</CodePostal>
+      <NomCommune>Ambialet</NomCommune>
+      <Localisation>
+         <Latitude>43.9431437</Latitude>
+         <Longitude>2.3782171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 55 32 10</Téléphone>
+      <Email>mairie.ambialet@orange.fr</Email>
+      <Url>http://www.ambialet.ccmav.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

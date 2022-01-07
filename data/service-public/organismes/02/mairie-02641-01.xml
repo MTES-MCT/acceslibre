@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02641-01" codeInsee="02641" dateMiseAJour="2021-01-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Renneval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'École</Ligne>
+      <CodePostal>02340</CodePostal>
+      <NomCommune>Renneval</NomCommune>
+      <Localisation>
+         <Latitude>49.7405395508</Latitude>
+         <Longitude>4.04865884781</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 60 53 57 90</Téléphone>
+      <Email>commune.renneval@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

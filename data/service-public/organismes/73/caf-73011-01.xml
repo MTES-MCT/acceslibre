@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-73011-01" codeInsee="73011" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Savoie - accueil d'Albertville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Villa Aubry</Ligne>
+      <Ligne>2 rue Armand-Aubry</Ligne>
+      <CodePostal>73200</CodePostal>
+      <NomCommune>Albertville</NomCommune>
+      <Localisation>
+         <Latitude>45.6730003357</Latitude>
+         <Longitude>6.38905000687</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Savoie</Ligne>
+      <Ligne>20 avenue Jean-Jaurès</Ligne>
+      <Ligne>CS 90022</Ligne>
+      <CodePostal>73022</CodePostal>
+      <NomCommune>Chambéry Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil exclusivement sur rendez-vous, susceptible d'être suspendu pendant les vacances scolaires, accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-24322-01" codeInsee="24322" dateMiseAJour="2021-05-06"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Dordogne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 24</Ligne>
+      <Ligne>10 rue Sébastopol</Ligne>
+      <CodePostal>24000</CodePostal>
+      <NomCommune>Périgueux</NomCommune>
+      <Localisation>
+         <Latitude>45.186701</Latitude>
+         <Longitude>0.709798</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 54 70 76</Téléphone>
+      <Télécopie>05 53 06 90 54</Télécopie>
+      <Email>contact@capemploi24.fr</Email>
+      <Url>https://www.capemploi-24.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

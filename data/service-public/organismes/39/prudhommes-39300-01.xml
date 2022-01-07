@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="39300" dateMiseAJour="2021-12-14" id="prudhommes-39300-01" idPresta="4cac9ed6293594648a00ed69" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Lons-le-Saunier</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>295 RUE GEORGES TROUILLOT</Ligne>
+        <CodePostal>39004</CodePostal>
+        <NomCommune>LONS LE SAUNIER CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.679091</Latitude>
+            <Longitude>5.5554</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>295 RUE GEORGES TROUILLOT</Ligne>
+        <CodePostal>39004</CodePostal>
+        <NomCommune>LONS LE SAUNIER CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 63 67 80 58</Téléphone>
+        <Télécopie>09 84 24 18 09</Télécopie>
+        <Email>mailto:cph-lons-le-saunier@justice.fr et accueil-lons-le-saunier@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

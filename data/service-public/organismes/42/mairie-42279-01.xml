@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42279-01" codeInsee="42279" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Just-Saint-Rambert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier Saint-Rambert</Ligne>
+      <Ligne>4 rue Gonyn</Ligne>
+      <CodePostal>42170</CodePostal>
+      <NomCommune>Saint-Just-Saint-Rambert</NomCommune>
+      <Localisation>
+         <Latitude>45.499511</Latitude>
+         <Longitude>4.242426</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 52 48 53</Téléphone>
+      <Télécopie>04 77 52 09 15</Télécopie>
+      <Email>mairie@stjust-strambert.com</Email>
+      <Url>http://www.stjust-strambert.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

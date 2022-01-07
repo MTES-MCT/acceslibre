@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-69029-01" codeInsee="69029" dateMiseAJour="2019-12-16"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Rhône du Canton de Bron</Ligne>
+      <Ligne>4 rue Paul-Pic</Ligne>
+      <CodePostal>69500</CodePostal>
+      <NomCommune>Bron</NomCommune>
+      <Localisation>
+         <Latitude>45.729589</Latitude>
+         <Longitude>4.902355</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 15 64 00</Téléphone>
+      <Email>mdr.bron@rhone.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Commentaire>
+</Organisme>

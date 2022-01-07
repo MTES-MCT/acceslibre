@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70489-02" codeInsee="70489" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Miellin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Verrerie</Ligne>
+      <CodePostal>70440</CodePostal>
+      <NomCommune>Servance-Miellin</NomCommune>
+      <Localisation>
+         <Latitude>47.809702</Latitude>
+         <Longitude>6.736916</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">quelques marches à l'entrée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 63 81 34</Téléphone>
+      <Email>mairie.miellin@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

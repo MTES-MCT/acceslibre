@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27165-01" codeInsee="27165" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Conches-en-Ouche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Impasse de l'Hôtel-de-Ville</Ligne>
+      <Ligne>CS 20073</Ligne>
+      <CodePostal>27190</CodePostal>
+      <NomCommune>Conches-en-Ouche</NomCommune>
+      <Localisation>
+         <Latitude>48.9615216</Latitude>
+         <Longitude>0.9425897</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 30 20 41</Téléphone>
+      <Télécopie>02 32 30 05 76</Télécopie>
+      <Email>accueil@conchesenouche.com</Email>
+      <Url>http://www.conches-en-ouche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvel ordre l'accueil se fait uniquement sur rendez-vous et l'accueil se fait uniquement sur rendez-vous pour les passeports et les cartes nationales d'identité.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

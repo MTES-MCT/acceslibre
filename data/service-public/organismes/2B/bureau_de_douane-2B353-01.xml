@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-2B353-01" codeInsee="2B353" dateMiseAJour="2019-01-08"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Bastia - Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Port de commerce de Bastia</Ligne>
+      <Ligne>Batiment des douanes</Ligne>
+      <Ligne>BP 54</Ligne>
+      <CodePostal>20416</CodePostal>
+      <NomCommune>Ville Di Pietrabugno</NomCommune>
+      <Localisation>
+         <Latitude>42.705934</Latitude>
+         <Longitude>9.453462</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 89 31</Téléphone>
+      <Télécopie>04 95 34 87 69</Télécopie>
+      <Email>r-bastia-port@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

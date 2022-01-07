@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10349-01" codeInsee="10349" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Lyé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue de la Gare</Ligne>
+      <CodePostal>10180</CodePostal>
+      <NomCommune>Saint-Lyé</NomCommune>
+      <Localisation>
+         <Latitude>48.3605003357</Latitude>
+         <Longitude>4.00252008438</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 76 60 07</Téléphone>
+      <Télécopie>03 25 76 59 89</Télécopie>
+      <Email>mairie@saint-lye.fr</Email>
+      <Url>http://www.saint-lye.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

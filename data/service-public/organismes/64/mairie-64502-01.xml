@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64502-01" codeInsee="64502" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sames</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>75 route de Saint-Jean</Ligne>
+      <CodePostal>64520</CodePostal>
+      <NomCommune>Sames</NomCommune>
+      <Localisation>
+         <Latitude>43.5237195</Latitude>
+         <Longitude>-1.1639361</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 56 06 82</Téléphone>
+      <Email>mairie@sames64.fr</Email>
+      <Url>http://www.sames64.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les après midis uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pif-13208-01" codeInsee="13208" dateMiseAJour="2021-09-20" pivotLocal="pif">
+   <Nom>Point info famille - Marseille - 8e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social Mer et Colline</Ligne>
+      <Ligne>16 boulevard de la Verrerie</Ligne>
+      <CodePostal>13008</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.2329063416</Latitude>
+         <Longitude>5.3605132103</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 72 22 91</Téléphone>
+      <Télécopie>04 91 72 70 09</Télécopie>
+      <Email>contact@meretcolline.com</Email>
+      <Url>http://www.meretcolline.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

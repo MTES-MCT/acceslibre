@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-47001-01" codeInsee="47001" dateMiseAJour="2017-02-21"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Lot-et-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale des territoires</Ligne>
+      <Ligne>1722 avenue de Colmar</Ligne>
+      <CodePostal>47916</CodePostal>
+      <NomCommune>Agen Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>44.1940002441</Latitude>
+         <Longitude>0.635679006577</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 69 32 37</Téléphone>
+      <Télécopie>05 53 69 33 65</Télécopie>
+      <Email>anah47@developpement-durable.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

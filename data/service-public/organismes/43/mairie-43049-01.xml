@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43049-01" codeInsee="43049" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chamalières-sur-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>6 place Saint-Jacques</Ligne>
+      <CodePostal>43800</CodePostal>
+      <NomCommune>Chamalières-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>45.2012138367</Latitude>
+         <Longitude>3.98576188087</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 03 42 06</Téléphone>
+      <Télécopie>04 71 03 76 59</Télécopie>
+      <Email>chamalieresurloire@wanadoo.fr</Email>
+      <Url>http://www.chamalieres-sur-loire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert l'après-midi sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert l'après-midi sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

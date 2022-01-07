@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30233-01" codeInsee="30233" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Bauzély</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>30730</CodePostal>
+      <NomCommune>Saint-Bauzély</NomCommune>
+      <Localisation>
+         <Latitude>43.919154</Latitude>
+         <Longitude>4.19738000000007</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 81 61 54</Téléphone>
+      <Email>mairie-stbauzely@wanadoo.fr</Email>
+      <Url>http://www.mairiesaintbauzely.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+         <Note>Accueil ouvert de 10h30 à 12h30 en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement de 10h30 à 12h30 en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement de 10h30 à 12h30 en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

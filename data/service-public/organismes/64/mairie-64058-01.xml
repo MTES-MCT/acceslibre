@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64058-01" codeInsee="64058" dateMiseAJour="2021-01-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arthez-d'Asson</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>50 route du Soulor</Ligne>
+      <CodePostal>64800</CodePostal>
+      <NomCommune>Arthez-d'Asson</NomCommune>
+      <Localisation>
+         <Latitude>43.1089624</Latitude>
+         <Longitude>-0.2470542</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 71 40 15</Téléphone>
+      <Télécopie>05 59 71 40 15</Télécopie>
+      <Email>commune-darthez-dasson@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="85191" dateMiseAJour="2021-12-14" id="prudhommes-85191-01" idPresta="4cac9e60293594648a00035c" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de La Roche-sur-Yon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>18 IMPASSE GASTON CHAVATTE</Ligne>
+        <CodePostal>85018</CodePostal>
+        <NomCommune>LA ROCHE SUR YON CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.682365</Latitude>
+            <Longitude>-1.450947</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>18 IMPASSE GASTON CHAVATTE</Ligne>
+        <CodePostal>85018</CodePostal>
+        <NomCommune>LA ROCHE SUR YON CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 44 40 85 26</Téléphone>
+        <Télécopie>02 51 47 91 34</Télécopie>
+        <Email>mailto:cph-la roche-sur-yon@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32090-01" codeInsee="32090" dateMiseAJour="2021-01-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Castillon-Savès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 avenue du Cogotois</Ligne>
+      <CodePostal>32490</CodePostal>
+      <NomCommune>Castillon-Savès</NomCommune>
+      <Localisation>
+         <Latitude>43.56932</Latitude>
+         <Longitude>0.98496</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 07 94 62</Téléphone>
+      <Email>mairie@castillon-saves.fr</Email>
+      <Url>https://www.castillon-saves.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus le premier samedi du mois</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

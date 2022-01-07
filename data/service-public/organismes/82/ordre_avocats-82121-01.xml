@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-82121-01" codeInsee="82121" dateMiseAJour="2019-03-06"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau du Tarn-et-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place du Coq</Ligne>
+      <CodePostal>82000</CodePostal>
+      <NomCommune>Montauban Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.016901</Latitude>
+         <Longitude>1.35301</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 03 27 89</Téléphone>
+      <Télécopie>05 63 63 82 44</Télécopie>
+      <Email>contact@avocats-tarnetgaronne.fr</Email>
+      <Url>https://avocats-tarnetgaronne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

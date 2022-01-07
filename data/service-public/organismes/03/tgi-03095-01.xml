@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="03095" dateMiseAJour="2021-12-14" id="tgi-03095-01" idPresta="4cac9ed7293594648a00edf6" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Cusset</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>RUE DU DRAPEAU</Ligne>
+        <CodePostal>03306</CodePostal>
+        <NomCommune>CUSSET CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.130871</Latitude>
+            <Longitude>3.460498</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>RUE DU DRAPEAU</Ligne>
+        <CodePostal>03306</CodePostal>
+        <NomCommune>CUSSET CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 70 30 98 30</Téléphone>
+        <Télécopie>04 70 98 16 17</Télécopie>
+        <Email>mailto:tj-cusset@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

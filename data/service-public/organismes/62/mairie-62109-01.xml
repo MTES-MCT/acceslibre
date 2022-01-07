@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62109-01" codeInsee="62109" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bergueneuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Teneur</Ligne>
+      <CodePostal>62134</CodePostal>
+      <NomCommune>Bergueneuse</NomCommune>
+      <Localisation>
+         <Latitude>50.4509010315</Latitude>
+         <Longitude>2.28529000282</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 04 60 59</Téléphone>
+      <Télécopie>03 21 04 63 03</Télécopie>
+      <Email>mairiedebergueneuse@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

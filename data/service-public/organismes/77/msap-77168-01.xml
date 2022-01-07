@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-77168-01" codeInsee="77168" dateMiseAJour="2020-12-03"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Égreville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>23 rue Saint-Martin</Ligne>
+      <CodePostal>77620</CodePostal>
+      <NomCommune>Égreville</NomCommune>
+      <Localisation>
+         <Latitude>48.175828</Latitude>
+         <Longitude>2.872585</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.egreville@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/egreville-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

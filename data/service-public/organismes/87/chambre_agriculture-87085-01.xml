@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-87085-01" codeInsee="87085" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Haute-Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Safran</Ligne>
+      <Ligne>2 avenue Georges-Guingouin</Ligne>
+      <CodePostal>87017</CodePostal>
+      <NomCommune>Limoges Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.835197</Latitude>
+         <Longitude>45.835197</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 87 50 40 00</Téléphone>
+      <Télécopie>05 87 50 40 10</Télécopie>
+      <Email>accueil@haute-vienne.chambagri.fr</Email>
+      <Url>http://www.haute-vienne.chambre.agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="urssaf-65440-01" codeInsee="65440" dateMiseAJour="2021-09-20"
+           pivotLocal="urssaf">
+   <Nom>Urssaf Midi-Pyrénées - site des Hautes-Pyrénées</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>15 rue Latil</Ligne>
+      <CodePostal>65000</CodePostal>
+      <NomCommune>Tarbes</NomCommune>
+      <Localisation>
+         <Latitude>43.2294759</Latitude>
+         <Longitude>0.0799805</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Urssaf Midi-Pyrénées</Ligne>
+      <Ligne>Labège</Ligne>
+      <Ligne>166 rue Pierre-et-Marie-Curie</Ligne>
+      <CodePostal>31061</CodePostal>
+      <NomCommune>Toulouse Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 57</Téléphone>
+      <Email>https://www.contact.urssaf.fr</Email>
+      <Url>https://www.urssaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Accueil exclusivement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

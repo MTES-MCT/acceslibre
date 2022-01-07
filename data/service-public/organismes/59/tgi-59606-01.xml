@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="59606" dateMiseAJour="2021-10-11" id="tgi-59606-01" idPresta="4cac9e61293594648a0005ad" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Valenciennes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 AVENUE DES DENTELLIERES</Ligne>
+        <Ligne>BP 10349</Ligne>
+        <CodePostal>59304</CodePostal>
+        <NomCommune>VALENCIENNES CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>50.356549</Latitude>
+            <Longitude>3.520573</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 AVENUE DES DENTELLIERES</Ligne>
+        <Ligne>BP 10349</Ligne>
+        <CodePostal>59304</CodePostal>
+        <NomCommune>VALENCIENNES CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 27 14 67 00</Téléphone>
+        <Email>mailto:tj-valenciennes@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

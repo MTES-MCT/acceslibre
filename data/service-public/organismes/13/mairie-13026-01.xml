@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13026-01" codeInsee="13026" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châteauneuf-les-Martigues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Bellot</Ligne>
+      <CodePostal>13220</CodePostal>
+      <NomCommune>Châteauneuf-les-Martigues</NomCommune>
+      <Localisation>
+         <Latitude>43.382900238</Latitude>
+         <Longitude>5.16391992569</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 76 89 00</Téléphone>
+      <Email>direction.generale@chateauneuf-les-martigues.fr</Email>
+      <Url>http://www.chateauneuflesmartigues.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Accueil fermé pendant la période de crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

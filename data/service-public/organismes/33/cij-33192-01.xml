@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-33192-01" codeInsee="33192" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Gradignan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 avenue Jean-Larrieu</Ligne>
+      <CodePostal>33170</CodePostal>
+      <NomCommune>Gradignan</NomCommune>
+      <Localisation>
+         <Latitude>44.7734342</Latitude>
+         <Longitude>-0.6166045</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 89 12 46</Téléphone>
+      <Email>bij@ville-gradignan.fr</Email>
+      <Url>https://www.gradignan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert en juillet-août le lundi de 13h à 18h et du mardi au vendredi du 10h à 12h et de 13h à 18h, accueil fermé le samedi jusqu'à nouvel ordre se référer à l'affichage, pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33394-01" codeInsee="33394" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Émilion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 place Pioceau</Ligne>
+      <Ligne>BP 101</Ligne>
+      <CodePostal>33330</CodePostal>
+      <NomCommune>Saint-Émilion</NomCommune>
+      <Localisation>
+         <Latitude>44.8943958</Latitude>
+         <Longitude>-0.1558337</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 24 72 09</Téléphone>
+      <Télécopie>05 57 24 69 17</Télécopie>
+      <Email>accueil@ville-stemilion.fr</Email>
+      <Url>http://www.saint-emilion.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

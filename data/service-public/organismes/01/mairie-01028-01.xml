@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01028-01" codeInsee="01028" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Baneins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue Athaneins</Ligne>
+      <CodePostal>01990</CodePostal>
+      <NomCommune>Baneins</NomCommune>
+      <Localisation>
+         <Latitude>46.1110678</Latitude>
+         <Longitude>4.9036521</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 55 24 75</Téléphone>
+      <Télécopie>09 70 32 83 89</Télécopie>
+      <Email>communebaneins@wanadoo.fr</Email>
+      <Url>http://www.mairie-baneins.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

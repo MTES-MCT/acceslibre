@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13090-01" codeInsee="13090" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Antonin-sur-Bayon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chemin départemental 17</Ligne>
+      <CodePostal>13100</CodePostal>
+      <NomCommune>Saint-Antonin-sur-Bayon</NomCommune>
+      <Localisation>
+         <Latitude>43.5466995239</Latitude>
+         <Longitude>5.52179002762</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 66 91 51</Téléphone>
+      <Télécopie>04 42 66 84 44</Télécopie>
+      <Email>mairiestantonin@wanadoo.fr</Email>
+      <Url>http://www.mairiesaintantoninsurbayon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <Note>Accueil ouvert de 9h à 12h pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <Note>Accueil ouvert de 9h à 12h pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

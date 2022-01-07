@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-53103-01" codeInsee="53103" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Genest-Saint-Isle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Église</Ligne>
+      <CodePostal>53940</CodePostal>
+      <NomCommune>Le Genest-Saint-Isle</NomCommune>
+      <Localisation>
+         <Latitude>48.0972945</Latitude>
+         <Longitude>-0.887455</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 02 11 95</Téléphone>
+      <Télécopie>02 43 02 41 34</Télécopie>
+      <Email>mairie.le.genest.saint.isle@wanadoo.fr</Email>
+      <Url>http://www.le-genest-saint-isle.mairie53.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil fermé en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:15:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

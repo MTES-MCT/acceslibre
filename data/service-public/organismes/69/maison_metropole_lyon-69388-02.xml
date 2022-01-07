@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_metropole_lyon-69388-02" codeInsee="69388"
+           dateMiseAJour="2019-09-18"
+           pivotLocal="maison_metropole_lyon">
+   <Nom>Maison de la Métropole de Lyon - 8ème arrondissement Ouest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>60 boulevard Jean XXIII</Ligne>
+      <CodePostal>69008</CodePostal>
+      <NomCommune>Lyon</NomCommune>
+      <Localisation>
+         <Latitude>45.73740997</Latitude>
+         <Longitude>4.87040998</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 78 84 40</Téléphone>
+      <Télécopie>04 26 99 31 55</Télécopie>
+      <Email>mdm.lyon8-ouest@grandlyon.com</Email>
+      <Url>https://www.grandlyon.com/services/qu-est-ce-que-les-maisons-de-la-metropole.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermé le mardi matin et le vendredi à partir de 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

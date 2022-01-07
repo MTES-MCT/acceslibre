@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie-72023-01" codeInsee="72023" dateMiseAJour="2019-05-17"
+           pivotLocal="gendarmerie"
+           idPresta="1007640">
+   <Nom>Brigade de gendarmerie - Ballon-Saint-mars</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>74 rue Saint-Laurent</Ligne>
+      <CodePostal>72290</CodePostal>
+      <NomCommune>Ballon-St-Mars</NomCommune>
+      <Localisation>
+         <Latitude>48.169865</Latitude>
+         <Longitude>0.23488</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 27 30 05</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

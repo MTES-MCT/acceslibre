@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-33063-01" codeInsee="33063" dateMiseAJour="2020-01-06"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bordeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Plateforme autonomie seniors</Ligne>
+      <Ligne>Cité municipale</Ligne>
+      <Ligne>4 rue Claude-Bonnier</Ligne>
+      <CodePostal>33077</CodePostal>
+      <NomCommune>Bordeaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.838142</Latitude>
+         <Longitude>-0.584867</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>08 00 62 58 85</Téléphone>
+      <Télécopie>05 57 89 37 20</Télécopie>
+      <Email>clicdebordeaux@mairie-bordeaux.fr</Email>
+      <Url>http://www.autonomieseniors-bordeaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

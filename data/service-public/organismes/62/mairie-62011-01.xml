@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62011-01" codeInsee="62011" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Agnez-lès-Duisans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>51 rue de l'Église</Ligne>
+      <CodePostal>62161</CodePostal>
+      <NomCommune>Agnez-lès-Duisans</NomCommune>
+      <Localisation>
+         <Latitude>50.3064002</Latitude>
+         <Longitude>2.6590299</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 48 68 13</Téléphone>
+      <Télécopie>03 21 55 56 25</Télécopie>
+      <Email>agnez@wanadoo.fr</Email>
+      <Url>http://agnezlesduisans.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

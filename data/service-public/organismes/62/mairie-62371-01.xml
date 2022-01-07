@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62371-01" codeInsee="62371" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Givenchy-en-Gohelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place Raoul-Briquet</Ligne>
+      <CodePostal>62580</CodePostal>
+      <NomCommune>Givenchy-en-Gohelle</NomCommune>
+      <Localisation>
+         <Latitude>50.4324989319</Latitude>
+         <Longitude>2.83553004265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 60 90 90</Téléphone>
+      <Télécopie>03 21 60 90 99</Télécopie>
+      <Email>accueil.mairie.givenchy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

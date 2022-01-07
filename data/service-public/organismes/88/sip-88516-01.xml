@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-88516-01" codeInsee="88516" dateMiseAJour="2021-08-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Vittel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38, place de la Marne</Ligne>
+      <Ligne>BP 89</Ligne>
+      <CodePostal>88303</CodePostal>
+      <NomCommune>Vittel Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.2024363</Latitude>
+         <Longitude>5.9423551</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 08 11 80</Téléphone>
+      <Télécopie>03 29 08 66 23</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>avec ou sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

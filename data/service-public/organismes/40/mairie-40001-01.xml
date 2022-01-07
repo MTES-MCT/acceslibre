@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40001-01" codeInsee="40001" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aire-sur-l'Adour</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>40800</CodePostal>
+      <NomCommune>Aire-sur-l'Adour</NomCommune>
+      <Localisation>
+         <Latitude>43.700062</Latitude>
+         <Longitude>-0.262294</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 71 47 00</Téléphone>
+      <Télécopie>05 58 71 84 49</Télécopie>
+      <Email>mairie@aire-sur-adour.fr</Email>
+      <Url>http://www.aire-sur-adour.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Le service carte d'identité et passeport reçoit uniquement sur rendez-vous, accueil ouvert le vendredi pour l'état civil de 17h à 19h uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

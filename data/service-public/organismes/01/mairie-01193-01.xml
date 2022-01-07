@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01193-01" codeInsee="01193" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Izieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue des Lauzes</Ligne>
+      <CodePostal>01300</CodePostal>
+      <NomCommune>Izieu</NomCommune>
+      <Localisation>
+         <Latitude>45.6515594</Latitude>
+         <Longitude>5.6407676</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 87 23 00</Téléphone>
+      <Télécopie>04 79 87 25 06</Télécopie>
+      <Email>mairie-izieu@orange.fr</Email>
+      <Url>https://izieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="droit_travail-39300-01" codeInsee="39300" dateMiseAJour="2021-09-17"
+           pivotLocal="droit_travail">
+   <Nom>Service de renseignement en droit du travail - Jura</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>DDETSPP - Jura</Ligne>
+      <Ligne>165 avenue Paul Seguin</Ligne>
+      <Ligne>CS 40372</Ligne>
+      <CodePostal>39016</CodePostal>
+      <NomCommune>Lons-le-Saunier Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.674446984818886</Latitude>
+         <Longitude>5.559586226500862</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="renseignements téléphoniques sur le droit du travail du lundi au vendredi de 9h à 12h">0 806 000 126</Téléphone>
+      <Email>ddetspp-polet@jura.gouv.fr</Email>
+      <Url>https://bourgogne-franche-comte.dreets.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-93062-01" codeInsee="93062"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Seine-Saint-Denis (Le Raincy)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction de la citoyenneté et de la l'égalité</Ligne>
+      <Ligne>Bureau des associations et des élections</Ligne>
+      <Ligne>Section association</Ligne>
+      <Ligne>1 esplanade Jean- Moulin</Ligne>
+      <CodePostal>93007</CodePostal>
+      <NomCommune>Bobigny Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9051595</Latitude>
+         <Longitude>2.45008619</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 60 60 22</Téléphone>
+      <Email>pref-associations@seine-saint-denis.gouv.fr</Email>
+      <Url>http://www.seine-saint-denis.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

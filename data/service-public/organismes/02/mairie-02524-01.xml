@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02524-01" codeInsee="02524" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mont-Saint-Père</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue Léon-Lhermitte</Ligne>
+      <CodePostal>02400</CodePostal>
+      <NomCommune>Mont-Saint-Père</NomCommune>
+      <Localisation>
+         <Latitude>49.104598999</Latitude>
+         <Longitude>3.44548988342</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonner</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 70 30 76</Téléphone>
+      <Télécopie>03 23 70 19 11</Télécopie>
+      <Email>mairie.mont.st.pere@gmail.com</Email>
+      <Url>http://www.mont-saint-pere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

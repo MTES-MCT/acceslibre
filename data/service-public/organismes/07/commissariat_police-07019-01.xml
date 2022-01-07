@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-07019-01" codeInsee="07019" dateMiseAJour="2021-01-04"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police d'Aubenas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Léon Rouveyrol</Ligne>
+      <CodePostal>07200</CodePostal>
+      <NomCommune>Aubenas</NomCommune>
+      <Localisation>
+         <Latitude>44.6159672</Latitude>
+         <Longitude>4.3944626</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">04 75 89 22 22</Téléphone>
+      <Email>police-aubenas@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

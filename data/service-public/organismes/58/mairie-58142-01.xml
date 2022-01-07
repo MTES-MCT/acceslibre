@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58142-01" codeInsee="58142" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Limanton</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>58290</CodePostal>
+      <NomCommune>Limanton</NomCommune>
+      <Localisation>
+         <Latitude>46.9890938852</Latitude>
+         <Longitude>3.73899936676</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 84 94 77</Téléphone>
+      <Email>mairie.limanton@wanadoo.fr</Email>
+      <Url>http://www.limanton.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

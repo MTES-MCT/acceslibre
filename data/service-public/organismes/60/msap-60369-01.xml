@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-60369-01" codeInsee="60369" dateMiseAJour="2020-12-08"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Longueil-Sainte-Marie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>36 rue du Grand-Ferré</Ligne>
+      <CodePostal>60126</CodePostal>
+      <NomCommune>Longueil-Sainte-Marie</NomCommune>
+      <Localisation>
+         <Latitude>49.355026</Latitude>
+         <Longitude>2.71841</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.longueil-ste-marie@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/longueil-sainte-marie-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

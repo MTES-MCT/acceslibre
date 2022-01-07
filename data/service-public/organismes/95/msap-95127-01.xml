@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-95127-01" codeInsee="95127" dateMiseAJour="2021-11-04"
+           pivotLocal="msap">
+   <Nom>France Services - Cergy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point Information Médiation Multi Services</Ligne>
+      <Ligne>4 place des Institutions</Ligne>
+      <CodePostal>95800</CodePostal>
+      <NomCommune>Cergy</NomCommune>
+      <Localisation>
+         <Latitude>49.047296</Latitude>
+         <Longitude>2.03291</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 22 18 10</Téléphone>
+      <Email>cergy@pimms.org</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

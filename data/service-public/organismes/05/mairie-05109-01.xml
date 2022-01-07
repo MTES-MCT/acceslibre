@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05109-01" codeInsee="05109" dateMiseAJour="2021-12-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puy-Saint-Pierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>86 route de Puy-Saint-Pierre</Ligne>
+      <CodePostal>05100</CodePostal>
+      <NomCommune>Puy-Saint-Pierre</NomCommune>
+      <Localisation>
+         <Latitude>44.893688</Latitude>
+         <Longitude>6.6281124</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 21 09 45</Téléphone>
+      <Email>accueil@puysaintpierre.fr</Email>
+      <Url>https://www.puysaintpierre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Permanence téléphonique lundi au samedi de 9h à 12 h</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence téléphonique du lundi au vendredi de 9h à 12h.</Commentaire>
+</Organisme>

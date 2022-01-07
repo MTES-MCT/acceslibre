@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-11069-01" codeInsee="11069" dateMiseAJour="2021-07-30"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue du Moulin-de-la-Seigne</Ligne>
+      <CodePostal>11855</CodePostal>
+      <NomCommune>Carcassonne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>44.346673</Latitude>
+         <Longitude>5.885646</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro vert : service et appel gratuits.">08 00 77 77 32</Téléphone>
+      <Télécopie>04 68 77 23 39</Télécopie>
+      <Email>mdph@aude.fr</Email>
+      <Url>https://www.aude.fr/la-maison-departementale-des-personnes-handicapees-de-laude</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

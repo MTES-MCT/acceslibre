@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60683-01" codeInsee="60683" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-Saint-Genest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue de l'Église</Ligne>
+      <CodePostal>60620</CodePostal>
+      <NomCommune>Villers-Saint-Genest</NomCommune>
+      <Localisation>
+         <Latitude>49.1393013</Latitude>
+         <Longitude>2.90842008591</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 87 35 79</Téléphone>
+      <Email>mairie.villers-st-genest@orange.fr</Email>
+      <Url>http://villers-saint-genest.pagesperso-orange.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

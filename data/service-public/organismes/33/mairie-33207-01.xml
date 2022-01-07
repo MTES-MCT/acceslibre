@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33207-01" codeInsee="33207" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Izon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>207 avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>33450</CodePostal>
+      <NomCommune>Izon</NomCommune>
+      <Localisation>
+         <Latitude>44.9190964</Latitude>
+         <Longitude>-0.3567101</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 55 45 46</Téléphone>
+      <Télécopie>05 57 55 49 69</Télécopie>
+      <Email>contact@izon.fr</Email>
+      <Url>http://www.izon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire et des élus sur rendez-vous uniquement, pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

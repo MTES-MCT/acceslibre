@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="13004" dateMiseAJour="2021-12-14" id="prudhommes-13004-01" idPresta="4cac9e5f293594648a000201" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Arles</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>41 RUE DE LA REPUBLIQUE</Ligne>
+        <CodePostal>13200</CodePostal>
+        <NomCommune>ARLES</NomCommune>
+        <Localisation>
+            <Latitude>43.676318</Latitude>
+            <Longitude>4.626766</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>41 RUE DE LA REPUBLIQUE</Ligne>
+        <CodePostal>13200</CodePostal>
+        <NomCommune>ARLES</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 90 52 08 70</Téléphone>
+        <Télécopie>04 90 52 08 71</Télécopie>
+        <Email>mailto:cph-arles@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

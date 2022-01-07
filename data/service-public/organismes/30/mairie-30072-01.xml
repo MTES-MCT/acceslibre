@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30072-01" codeInsee="30072" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Castelnau-Valence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>92 rue du 19-Mars-1962</Ligne>
+      <CodePostal>30190</CodePostal>
+      <NomCommune>Castelnau-Valence</NomCommune>
+      <Localisation>
+         <Latitude>44.008</Latitude>
+         <Longitude>4.25272999999993</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 83 20 42</Téléphone>
+      <Télécopie>04 66 56 93 98</Télécopie>
+      <Email>mairie.castelnau.valence@wanadoo.fr</Email>
+      <Url>https://sites.google.com/site/mairiecastelnauvalence</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement un samedi sur deux, voir les dates sur le site internet de la mairie.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-97311-01" codeInsee="97311" dateMiseAJour="2021-07-27" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 973 - Guyane - Antenne de Saint-Laurent-du-Maroni</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1-9 avenue Christophe Colomb</Ligne>
+      <CodePostal>97393</CodePostal>
+      <NomCommune>Saint-Laurent-du-Maroni</NomCommune>
+      <Localisation>
+         <Latitude>5.499444</Latitude>
+         <Longitude>-54.031111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 94 29 86 30</Téléphone>
+      <Télécopie>05 94 34 17 09</Télécopie>
+      <Email>stlaurent@guyane.cci.fr</Email>
+      <Url>https://www.guyane.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

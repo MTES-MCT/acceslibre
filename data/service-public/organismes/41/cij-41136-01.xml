@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-41136-01" codeInsee="41136" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue du Sergent-Bernard</Ligne>
+      <CodePostal>41500</CodePostal>
+      <NomCommune>Mer</NomCommune>
+      <Localisation>
+         <Latitude>47.701536</Latitude>
+         <Longitude>1.5016842</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 33 38 40</Téléphone>
+      <Email>pij@beaucevaldeloire.fr</Email>
+      <Url>http://www.beaucevaldeloire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+         <Note>Accueil ouvert du lundi au vendredi uniquement de 9h à 12h pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

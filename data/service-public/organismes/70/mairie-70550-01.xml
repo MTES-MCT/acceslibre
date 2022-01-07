@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70550-01" codeInsee="70550" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vesoul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>58 rue Paul-Morel</Ligne>
+      <Ligne>BP 80392</Ligne>
+      <CodePostal>70014</CodePostal>
+      <NomCommune>Vesoul Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.619342</Latitude>
+         <Longitude>6.1545529</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 78 64 00</Téléphone>
+      <Email>ville-vesoul@vesoul.fr</Email>
+      <Url>http://www.vesoul.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

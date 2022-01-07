@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62587-01" codeInsee="62587" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montigny-en-Gohelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Uriane-Sorriaux</Ligne>
+      <CodePostal>62640</CodePostal>
+      <NomCommune>Montigny-en-Gohelle</NomCommune>
+      <Localisation>
+         <Latitude>50.4282989502</Latitude>
+         <Longitude>2.92703008652</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 79 30 80</Téléphone>
+      <Email>montignyengohelle@mairie-montigny.fr</Email>
+      <Url>http://www.mairie-montigny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

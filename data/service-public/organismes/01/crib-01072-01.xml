@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-01072-01" codeInsee="01072" dateMiseAJour="2021-06-07"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Ain profession sport et culture</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZA de Domagne</Ligne>
+      <Ligne>539 chemin de la Zone-Artisanale</Ligne>
+      <CodePostal>01250</CodePostal>
+      <NomCommune>Ceyzériat</NomCommune>
+      <Localisation>
+         <Latitude>46.18302</Latitude>
+         <Longitude>5.30561609999995</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 22 50 57</Téléphone>
+      <Télécopie>04 74 22 72 61</Télécopie>
+      <Email>contact@ain-profession-sport.fr</Email>
+      <Url>http://www.ain-profession-sport.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Possibilité de prendre rendez-vous en dehors de ces horaires d'ouverture.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

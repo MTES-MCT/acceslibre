@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56010-01" codeInsee="56010" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Baud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Mathurin-Martin</Ligne>
+      <CodePostal>56150</CodePostal>
+      <NomCommune>Baud</NomCommune>
+      <Localisation>
+         <Latitude>47.8741989136</Latitude>
+         <Longitude>-3.0209300518</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 51 02 29</Téléphone>
+      <Télécopie>02 97 39 07 22</Télécopie>
+      <Email>accueil@mairie-baud.fr</Email>
+      <Url>http://www.mairie-baud.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire service urbanisme sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire service urbanisme sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

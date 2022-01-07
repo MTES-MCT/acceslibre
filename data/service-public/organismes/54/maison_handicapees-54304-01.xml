@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-54304-01" codeInsee="54304" dateMiseAJour="2021-04-12"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Meurthe-et-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>123 rue Ernest-Albert</Ligne>
+      <Ligne>CS 31030</Ligne>
+      <CodePostal>54521</CodePostal>
+      <NomCommune>Laxou Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.686989</Latitude>
+         <Longitude>6.1544449</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 97 44 20</Téléphone>
+      <Télécopie>03 83 97 47 90</Télécopie>
+      <Email>mdphaccueil@mdph.departement54.fr</Email>
+      <Url>http://www.mdph.meurthe-et-moselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

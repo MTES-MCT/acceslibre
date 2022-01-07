@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82087-01" codeInsee="82087" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lafrançaise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la République</Ligne>
+      <CodePostal>82130</CodePostal>
+      <NomCommune>Lafrançaise</NomCommune>
+      <Localisation>
+         <Latitude>44.125691</Latitude>
+         <Longitude>1.24099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 26 48 48</Téléphone>
+      <Télécopie>05 63 65 94 65</Télécopie>
+      <Email>mairie@lafrancaise.fr</Email>
+      <Url>http://www.lafrancaise.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

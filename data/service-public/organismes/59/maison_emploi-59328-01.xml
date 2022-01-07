@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_emploi-59328-01" codeInsee="59328" dateMiseAJour="2021-06-29"
+           pivotLocal="maison_emploi">
+   <Nom>Maison de l’emploi Métropole Nord-Ouest - Lambersart</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>48 avenue du Parc</Ligne>
+      <Ligne>BP 60115</Ligne>
+      <CodePostal>59130</CodePostal>
+      <NomCommune>Lambersart Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.65408</Latitude>
+         <Longitude>3.02811</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 14 52 80</Téléphone>
+      <Télécopie>03 20 14 52 84</Télécopie>
+      <Email>mdemno@gmail.com</Email>
+      <Url>https://emploi-mno.fr/maison-de-lemploi-mno/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

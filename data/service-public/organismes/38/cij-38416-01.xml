@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-38416-01" codeInsee="38416" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Marcellin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pays de Saint-Marcellin</Ligne>
+      <Ligne>7 rue du Colombier</Ligne>
+      <CodePostal>38160</CodePostal>
+      <NomCommune>Saint-Marcellin</NomCommune>
+      <Localisation>
+         <Latitude>45.1498406</Latitude>
+         <Longitude>5.3234716</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 64 86 82</Téléphone>
+      <Télécopie>04 76 38 03 03</Télécopie>
+      <Email>pij@smvic.fr</Email>
+      <Url>http://www.saintmarcellin-vercors-isere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-33056-01" codeInsee="33056" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Blanquefort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Association ABC</Ligne>
+      <Ligne>8 rue Raymond-Valet</Ligne>
+      <CodePostal>33290</CodePostal>
+      <NomCommune>Blanquefort</NomCommune>
+      <Localisation>
+         <Latitude>44.9098947</Latitude>
+         <Longitude>-0.6329429</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 93 12 93</Téléphone>
+      <Télécopie>05 57 93 12 90</Télécopie>
+      <Email>jeunesse@abc-blanquefort.com</Email>
+      <Url>http://abc-blanquefort.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

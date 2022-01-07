@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89013-01" codeInsee="89013" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Appoigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue Châtel-Bourgeois</Ligne>
+      <CodePostal>89380</CodePostal>
+      <NomCommune>Appoigny</NomCommune>
+      <Localisation>
+         <Latitude>47.8773155212</Latitude>
+         <Longitude>3.52589511871</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 53 24 22</Téléphone>
+      <Email>mairie.appoigny@wanadoo.fr</Email>
+      <Url>http://www.mairie-appoigny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

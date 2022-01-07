@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-37261-01" codeInsee="37261" dateMiseAJour="2019-02-20"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Tours</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place Jean Jaurès</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>37000</CodePostal>
+      <NomCommune>Tours</NomCommune>
+      <Localisation>
+         <Latitude>47.390459</Latitude>
+         <Longitude>0.688449</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 05 61 64</Téléphone>
+      <Url>http://www.barreaudetours.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

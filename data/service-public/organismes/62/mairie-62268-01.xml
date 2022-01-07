@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62268-01" codeInsee="62268" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Desvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Léon-Blum</Ligne>
+      <Ligne>BP 77</Ligne>
+      <CodePostal>62240</CodePostal>
+      <NomCommune>Desvres</NomCommune>
+      <Localisation>
+         <Latitude>50.6683006287</Latitude>
+         <Longitude>1.83287000656</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 91 67 61</Téléphone>
+      <Télécopie>03 21 83 28 65</Télécopie>
+      <Email>mairie@ville-desvres.fr</Email>
+      <Url>http://www.ville-desvres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-76351-01" codeInsee="76351"
+           dateMiseAJour="2021-03-08"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Havre (Sous-préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>95 boulevard de Strasbourg</Ligne>
+      <Ligne>Sous-préfecture</Ligne>
+      <CodePostal>76600</CodePostal>
+      <NomCommune>Le Havre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.4930033</Latitude>
+         <Longitude>0.1132675</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 76 50 00</Téléphone>
+      <Url>http://www.seine-maritime.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous sur le site internet</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

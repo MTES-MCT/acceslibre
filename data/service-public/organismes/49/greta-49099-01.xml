@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-49099-01" codeInsee="49099" dateMiseAJour="2021-11-23"
+           pivotLocal="greta">
+   <Nom>Greta CFA 49 - Site de Cholet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 avenue Kennedy</Ligne>
+      <CodePostal>49304</CodePostal>
+      <NomCommune>Cholet Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0497488</Latitude>
+         <Longitude>-0.8879683</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 49 06 50</Téléphone>
+      <Email>greta.cholet@ac-nantes.fr</Email>
+      <Url>https://www.greta-cfa-paysdelaloire.fr/nos-centres-de-formation/greta-cfa-49/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

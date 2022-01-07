@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-53152-01" codeInsee="53152" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Meslay-Grez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace France services</Ligne>
+      <Ligne>1 voie de la Guiternière</Ligne>
+      <Ligne>BP 16</Ligne>
+      <CodePostal>53170</CodePostal>
+      <NomCommune>Meslay-du-Maine</NomCommune>
+      <Localisation>
+         <Latitude>47.9566521</Latitude>
+         <Longitude>-0.5494298</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 64 29 00</Téléphone>
+      <Télécopie>02 43 98 75 52</Télécopie>
+      <Email>servicejeunesse@paysmeslaygrez.fr</Email>
+      <Url>http://www.paysmeslaygrez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

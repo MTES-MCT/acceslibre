@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-51291-01" codeInsee="51291" dateMiseAJour="2021-10-28"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Hermonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue du Moncet</Ligne>
+      <CodePostal>51220</CodePostal>
+      <NomCommune>Hermonville</NomCommune>
+      <Localisation>
+         <Latitude>49.335929</Latitude>
+         <Longitude>3.9071253</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 61 50 24</Téléphone>
+      <Email>t051205@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

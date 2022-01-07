@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cnfpt-56260-01" codeInsee="56260" dateMiseAJour="2021-06-07"
+           pivotLocal="cnfpt">
+   <Nom>Centre national de la fonction publique territoriale (CNFPT) - Délégation régionale - Bretagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue de Tizé</Ligne>
+      <CodePostal>35236</CodePostal>
+      <NomCommune>Thorigné-Fouillard</NomCommune>
+      <Localisation>
+         <Latitude>47.6547164917</Latitude>
+         <Longitude>-2.75951004028</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 47 71 00</Téléphone>
+      <Url>http://www.cnfpt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

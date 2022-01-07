@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-79191-01" codeInsee="79191" dateMiseAJour="2021-10-26"
+           pivotLocal="banque_de_france">
+   <Nom>Banque de France - Succursale départementale Deux-Sèvres - Niort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue Langlois</Ligne>
+      <CodePostal>79000</CodePostal>
+      <NomCommune>Niort</NomCommune>
+      <Localisation>
+         <Latitude>46.3201037</Latitude>
+         <Longitude>-0.456717</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 06 62 50</Téléphone>
+      <Url>https://accueil.banque-france.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous : au 05 49 06 62 99 ou en ligne sur https://accueil.banque-france.fr</Commentaire>
+</Organisme>

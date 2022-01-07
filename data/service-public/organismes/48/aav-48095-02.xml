@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="48095" dateMiseAJour="2021-09-13" id="aav-48095-02" idPresta="51b08cceb473e41478001034" pivotLocal="aav">
+    <Nom>Centre de documentation et d'information des femmes et de la famille de la Lozère (CIDFF 48) - Mende</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>5 boulevard Britexte</Ligne>
+        <Ligne>Immeuble Britexte</Ligne>
+        <CodePostal>48000</CodePostal>
+        <NomCommune>MENDE</NomCommune>
+        <Localisation>
+            <Latitude>44.518204</Latitude>
+            <Longitude>3.495099</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>5 boulevard Britexte</Ligne>
+        <Ligne>Immeuble Britexte</Ligne>
+        <CodePostal>48000</CodePostal>
+        <NomCommune>MENDE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 66 49 32 65</Téléphone>
+        <Télécopie>04 66 49 32 65</Télécopie>
+        <Email>mailto:cidff48@orange.fr</Email>
+        <Url>https://lozere.cidff.info/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

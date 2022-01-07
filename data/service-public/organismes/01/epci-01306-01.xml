@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-01306-01" codeInsee="01306" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - La Veyle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle des services publics</Ligne>
+      <Ligne>10 rue de la Poste</Ligne>
+      <Ligne>BP 7</Ligne>
+      <CodePostal>01290</CodePostal>
+      <NomCommune>Pont-de-Veyle</NomCommune>
+      <Localisation>
+         <Latitude>46.2660293</Latitude>
+         <Longitude>4.8850638</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 23 90 15</Téléphone>
+      <Email>accueil@cc-laveyle.fr</Email>
+      <Url>http://www.cc-laveyle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

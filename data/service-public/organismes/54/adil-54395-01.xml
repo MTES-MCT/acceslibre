@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-54395-01" codeInsee="54395" dateMiseAJour="2021-04-15"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Meurthe-et-Moselle - Meuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>48 esplanade Jacques Baudot</Ligne>
+      <CodePostal>54000</CodePostal>
+      <NomCommune>Nancy</NomCommune>
+      <Localisation>
+         <Latitude>48.679155</Latitude>
+         <Longitude>6.165932</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 27 62 72</Téléphone>
+      <Télécopie>03 83 27 95 60</Télécopie>
+      <Email>contact@adil54-55.fr</Email>
+      <Url>https://www.adil54-55.org/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>conseil par téléphone, mail et visioconférence sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

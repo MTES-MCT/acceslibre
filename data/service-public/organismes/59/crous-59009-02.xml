@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-59009-02" codeInsee="59009" dateMiseAJour="2018-08-07"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - Villeneuve-d'Ascq</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pavillon O</Ligne>
+      <Ligne>Résidence universitaire Bachelard</Ligne>
+      <CodePostal>59650</CodePostal>
+      <NomCommune>Villeneuve-d'Ascq</NomCommune>
+      <Localisation>
+         <Latitude>50.610613</Latitude>
+         <Longitude>3.136221</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 05 13 82</Téléphone>
+      <Télécopie>03 20 05 11 12</Télécopie>
+      <Email>antenne.lille1@crous-lille.fr</Email>
+      <Url>http://www.crous-lille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

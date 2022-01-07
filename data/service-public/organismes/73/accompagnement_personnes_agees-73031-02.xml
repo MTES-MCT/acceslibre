@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-73031-02" codeInsee="73031"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Bassens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CHS de la Savoie</Ligne>
+      <Ligne>11 avenue de Bassens</Ligne>
+      <CodePostal>73000</CodePostal>
+      <NomCommune>Bassens</NomCommune>
+      <Localisation>
+         <Latitude>45.586299</Latitude>
+         <Longitude>5.940779</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 60 31 48</Téléphone>
+      <Email>francealzheimer.savoie@orange.fr</Email>
+      <Url>http://www.francealzheimer.org/savoie</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48078-02" codeInsee="48078" dateMiseAJour="2019-04-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Lachamp</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lachamp</Ligne>
+      <Ligne>Le Village</Ligne>
+      <CodePostal>48100</CodePostal>
+      <NomCommune>Lachamp-Ribennes</NomCommune>
+      <Localisation>
+         <Latitude>44.611175</Latitude>
+         <Longitude>3.369777</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 47 32 48</Téléphone>
+      <Email>mairielachamp48@wanadoo.fr</Email>
+      <Url>http://www.lachamp48.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>A compter du 1er janvier 2019, la commune nouvelle de Lachamp-Ribennes est créée en lieu et place des communes de Lachamp et de Ribennes (canton de Marvejols, arrondissement de Mende).</Commentaire>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="credit_municipal-67482-01" codeInsee="67482" dateMiseAJour="2021-12-02"
+           pivotLocal="credit_municipal">
+   <Nom>Crédit municipal - Strasbourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue d’Ingwiller</Ligne>
+      <CodePostal>67000</CodePostal>
+      <NomCommune>Strasbourg</NomCommune>
+      <Localisation>
+         <Latitude>48.588174</Latitude>
+         <Longitude>7.742653</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 32 04 21</Téléphone>
+      <Email>contact@credit-municipal-strasbourg.fr</Email>
+      <Url>http://www.credit-municipal-strasbourg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

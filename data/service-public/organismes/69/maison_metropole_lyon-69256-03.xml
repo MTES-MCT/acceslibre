@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_metropole_lyon-69256-03" codeInsee="69256"
+           dateMiseAJour="2019-09-20"
+           pivotLocal="maison_metropole_lyon">
+   <Nom>Maison de la Métropole de Lyon - Vaulx-en-Velin (Jean-Jaurès)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 rue Georges Chevallier</Ligne>
+      <CodePostal>69120</CodePostal>
+      <NomCommune>Vaulx-en-Velin</NomCommune>
+      <Localisation>
+         <Latitude>45.78505996</Latitude>
+         <Longitude>4.91758999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 37 42 01 12</Téléphone>
+      <Télécopie>04 26 99 31 66</Télécopie>
+      <Email>mdm.vaulx-en-velin@grandlyon.com</Email>
+      <Url>https://www.grandlyon.com/services/qu-est-ce-que-les-maisons-de-la-metropole.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermé le mardi matin et le vendredi à partir de 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

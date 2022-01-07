@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34003-01" codeInsee="34003" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Agde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Alsace-Lorraine</Ligne>
+      <Ligne>CS 20007</Ligne>
+      <CodePostal>34306</CodePostal>
+      <NomCommune>Agde Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.3144989014</Latitude>
+         <Longitude>3.47956991196</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 94 60 00</Téléphone>
+      <Email>contact@ville-agde.fr</Email>
+      <Url>http://www.ville-agde.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87174-01" codeInsee="87174" dateMiseAJour="2020-10-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Paul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>48 avenue de Limoges</Ligne>
+      <CodePostal>87260</CodePostal>
+      <NomCommune>Saint-Paul</NomCommune>
+      <Localisation>
+         <Latitude>45.752572</Latitude>
+         <Longitude>1.429428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 09 71 25</Téléphone>
+      <Télécopie>05 55 09 74 96</Télécopie>
+      <Email>mairie-stpaul87@wanadoo.fr</Email>
+      <Url>http://www.saintpaulenlimousin.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

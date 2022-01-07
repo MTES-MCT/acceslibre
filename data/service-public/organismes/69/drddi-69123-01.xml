@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-69123-01" codeInsee="69123" dateMiseAJour="2018-07-03"
+           pivotLocal="drddi">
+   <Nom>Direction interrégionale des douanes - Auvergne-Rhône-Alpes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Charles-Biennier</Ligne>
+      <Ligne>BP 2353</Ligne>
+      <CodePostal>69215</CodePostal>
+      <NomCommune>Lyon Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>45.7550299</Latitude>
+         <Longitude>4.8335465</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 27 00</Téléphone>
+      <Télécopie>04 78 42 88 39</Télécopie>
+      <Email>di-lyon@douane.finances.gouv.fr</Email>
+      <Url>http://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

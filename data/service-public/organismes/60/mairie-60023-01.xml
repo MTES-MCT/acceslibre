@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60023-01" codeInsee="60023" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Armancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Vignes-Blanches</Ligne>
+      <CodePostal>60880</CodePostal>
+      <NomCommune>Armancourt</NomCommune>
+      <Localisation>
+         <Latitude>49.3728981018</Latitude>
+         <Longitude>2.76260995865</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">contacter la mairie avant de vous déplacer, l'accueil se fera dans la salle du conseil</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 83 43 07</Téléphone>
+      <Télécopie>03 44 83 71 68</Télécopie>
+      <Email>mairie.armancourt@wanadoo.fr</Email>
+      <Url>http://www.armancourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

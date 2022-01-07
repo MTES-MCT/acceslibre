@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33375-01" codeInsee="33375" dateMiseAJour="2021-01-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Aubin-de-Branne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 le Bourg</Ligne>
+      <CodePostal>33420</CodePostal>
+      <NomCommune>Saint-Aubin-de-Branne</NomCommune>
+      <Localisation>
+         <Latitude>44.8085123</Latitude>
+         <Longitude>-0.1692622</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">pente</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 62 60 91 39</Téléphone>
+      <Télécopie>05 57 74 34 46</Télécopie>
+      <Email>staubindebranne@wanadoo.fr</Email>
+      <Url>http://www.saint-aubin-de-branne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

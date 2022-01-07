@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-75118-01" codeInsee="75118" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Paris - accueil La Chapelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>47 rue de la Chapelle</Ligne>
+      <CodePostal>75018</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.893901825</Latitude>
+         <Longitude>2.35953998566</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible aux personnes à mobilité réduite, équipé d’une boucle magnétique, accueil en langue des signes le mardi après-midi de 13h à 16h30 et le jeudi matin de 8h30 à 12h au centre de gestion de Finlay, 50 rue du Docteur-Finlay 75015 Paris</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Paris</Ligne>
+      <CodePostal>75656</CodePostal>
+      <NomCommune>Paris Cedex 13</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:00:00"/>
+         <Note>Accompagnement sur des questions d'ordre général, l'accueil sur rendez-vous et l'espace numérique restent fermés pour le moment, accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

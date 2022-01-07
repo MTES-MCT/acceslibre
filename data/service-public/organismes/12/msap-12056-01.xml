@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-12056-01" codeInsee="12056" dateMiseAJour="2021-06-04"
+           pivotLocal="msap">
+   <Nom>France Services - Baraqueville (itinérant)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>533 Rue du Puech</Ligne>
+      <Ligne>Foyer Les Fontanilles</Ligne>
+      <CodePostal>12160</CodePostal>
+      <NomCommune>Baraqueville</NomCommune>
+      <Localisation>
+         <Latitude>44.27585</Latitude>
+         <Longitude>2.43913</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 72 29 19</Téléphone>
+      <Email>cscps.franceservices@orange.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

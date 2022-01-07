@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-75112-01" codeInsee="75112" dateMiseAJour="2021-09-03" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) - Paris (pour les départements 75, 77, 93, 94 et Saint-Pierre-et-Miquelon)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Fort Neuf de Vincennes</Ligne>
+      <Ligne>Cours des Maréchaux</Ligne>
+      <Ligne>Case 158</Ligne>
+      <CodePostal>75614</CodePostal>
+      <NomCommune>Paris Cedex 12</NomCommune>
+      <Localisation>
+         <Latitude>48.8424782</Latitude>
+         <Longitude>2.4390743</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csnj-paris.trait.fct@intradef.gouv.fr</Email>
+      <Url>http://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

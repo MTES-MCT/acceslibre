@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33070-01" codeInsee="33070" dateMiseAJour="2021-04-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brach</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Église</Ligne>
+      <CodePostal>33480</CodePostal>
+      <NomCommune>Brach</NomCommune>
+      <Localisation>
+         <Latitude>45.0417387</Latitude>
+         <Longitude>-0.9370172</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 58 23 66</Téléphone>
+      <Email>mairie.brach@orange.fr</Email>
+      <Url>http://www.mairie-brach.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="11:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

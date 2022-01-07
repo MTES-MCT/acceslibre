@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80796-01" codeInsee="80796" dateMiseAJour="2015-07-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeroy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 rue de la Place</Ligne>
+      <CodePostal>80140</CodePostal>
+      <NomCommune>Villeroy</NomCommune>
+      <Localisation>
+         <Latitude>49.936000824</Latitude>
+         <Longitude>1.72093999386</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 25 12 65</Téléphone>
+      <Télécopie>03 22 25 12 65</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="10:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

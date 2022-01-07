@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-28085-01" codeInsee="28085" dateMiseAJour="2021-08-06"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Eure-et-Loir</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>57 bis rue du Docteur-Maunoury</Ligne>
+      <CodePostal>28000</CodePostal>
+      <NomCommune>Chartres</NomCommune>
+      <Localisation>
+         <Latitude>48.4436171</Latitude>
+         <Longitude>1.4835117</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 33 46 46</Téléphone>
+      <Télécopie>02 37 33 46 45</Télécopie>
+      <Email>contact@mda28.fr</Email>
+      <Url>https://www.eurelien.fr/guide/autonomie</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01173-01" codeInsee="01173" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gex</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>77 rue de l'Horloge</Ligne>
+      <Ligne>BP 407</Ligne>
+      <CodePostal>01174</CodePostal>
+      <NomCommune>Gex Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.3339004517</Latitude>
+         <Longitude>6.05843019485</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 42 63 00</Téléphone>
+      <Télécopie>04 50 41 68 77</Télécopie>
+      <Email>mairie@ville-gex.fr</Email>
+      <Url>http://www.gex.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

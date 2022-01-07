@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-69259-01" codeInsee="69259" dateMiseAJour="2021-02-11" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Vénissieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment du Centre académique Michel-Delay</Ligne>
+      <Ligne>10 bis avenue Jean-Cagne</Ligne>
+      <CodePostal>69200</CodePostal>
+      <NomCommune>Vénissieux</NomCommune>
+      <Localisation>
+         <Latitude>45.697832</Latitude>
+         <Longitude>4.868369</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 70 72 40</Téléphone>
+      <Email>cio-venissieux@ac-lyon.fr</Email>
+      <Url>http://venissieux.cio.ac-lyon.fr/spip/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

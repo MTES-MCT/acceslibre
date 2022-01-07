@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47286-01" codeInsee="47286" dateMiseAJour="2021-02-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sauméjan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>63 route de Lartigue</Ligne>
+      <CodePostal>47420</CodePostal>
+      <NomCommune>Sauméjan</NomCommune>
+      <Localisation>
+         <Latitude>44.236482</Latitude>
+         <Longitude>-0.004211</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 89 58 33</Téléphone>
+      <Télécopie>05 53 89 58 33</Télécopie>
+      <Email>mairie.saumejan@collectivite47.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

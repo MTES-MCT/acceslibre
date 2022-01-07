@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-68004-02" codeInsee="68004" dateMiseAJour="2021-08-24"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) d'Altkirch</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du 2e Cuirassiers</Ligne>
+      <CodePostal>68130</CodePostal>
+      <NomCommune>Altkirch</NomCommune>
+      <Localisation>
+         <Latitude>47.616529</Latitude>
+         <Longitude>7.236818</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 40 01 97</Téléphone>
+      <Email>sgc.altkirch@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

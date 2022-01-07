@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67481-01" codeInsee="67481" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Stotzheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>39 route Romaine</Ligne>
+      <CodePostal>67140</CodePostal>
+      <NomCommune>Stotzheim</NomCommune>
+      <Localisation>
+         <Latitude>48.3778991699</Latitude>
+         <Longitude>7.48786020279</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 08 94 06</Téléphone>
+      <Télécopie>03 88 08 57 59</Télécopie>
+      <Email>mairie@stotzheim.fr</Email>
+      <Url>https://www.paysdebarr.frfrles-communes/stotzheim</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

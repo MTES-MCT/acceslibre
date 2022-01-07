@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54322-01" codeInsee="54322" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Longuyon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>54260</CodePostal>
+      <NomCommune>Longuyon</NomCommune>
+      <Localisation>
+         <Latitude>49.446024</Latitude>
+         <Longitude>5.600803</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 44 55 00</Téléphone>
+      <Télécopie>03 59 81 80 67</Télécopie>
+      <Email>ville.longuyon@longuyon.fr</Email>
+      <Url>https://www.longuyon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

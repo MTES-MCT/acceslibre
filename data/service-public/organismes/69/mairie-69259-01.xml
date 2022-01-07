@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69259-01" codeInsee="69259" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vénissieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 avenue Marcel-Houël</Ligne>
+      <Ligne>BP 24</Ligne>
+      <CodePostal>69631</CodePostal>
+      <NomCommune>Vénissieux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.6968002319</Latitude>
+         <Longitude>4.88656997681</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 21 44 44</Téléphone>
+      <Télécopie>04 72 21 44 77</Télécopie>
+      <Email>contact@ville-venissieux.fr</Email>
+      <Url>http://www.ville-venissieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

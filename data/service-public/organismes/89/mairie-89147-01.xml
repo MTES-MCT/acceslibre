@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89147-01" codeInsee="89147" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dracy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Grande rue</Ligne>
+      <CodePostal>89130</CodePostal>
+      <NomCommune>Dracy</NomCommune>
+      <Localisation>
+         <Latitude>47.7027015686</Latitude>
+         <Longitude>3.16900992393</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 44 14 73</Téléphone>
+      <Email>mairie.dracy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:15:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

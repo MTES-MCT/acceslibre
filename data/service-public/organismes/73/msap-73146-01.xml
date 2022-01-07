@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-73146-01" codeInsee="73146" dateMiseAJour="2020-12-08"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Lescheraines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Le Pont</Ligne>
+      <CodePostal>73340</CodePostal>
+      <NomCommune>Lescheraines</NomCommune>
+      <Localisation>
+         <Latitude>45.714675</Latitude>
+         <Longitude>6.106408</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.lescheraines@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/lescheraines-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

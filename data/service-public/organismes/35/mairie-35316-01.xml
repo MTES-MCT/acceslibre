@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35316-01" codeInsee="35316" dateMiseAJour="2021-01-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Sulpice-des-Landes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>35390</CodePostal>
+      <NomCommune>Saint-Sulpice-des-Landes</NomCommune>
+      <Localisation>
+         <Latitude>47.766473</Latitude>
+         <Longitude>-1.621139</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 72 91 65</Téléphone>
+      <Télécopie>02 99 72 96 14</Télécopie>
+      <Email>mairie.stsulpicedeslandes@wanadoo.fr</Email>
+      <Url>http://www.mairie-saintsulpicedeslandes35.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Autres créneaux horaires possibles sur RDV</Commentaire>
+</Organisme>

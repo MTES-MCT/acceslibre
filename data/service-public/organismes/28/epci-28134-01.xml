@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-28134-01" codeInsee="28134" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Pays de Dreux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de Châteaudun</Ligne>
+      <Ligne>BP 20159</Ligne>
+      <CodePostal>28103</CodePostal>
+      <NomCommune>Dreux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7365846</Latitude>
+         <Longitude>1.3700915</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 64 82 00</Téléphone>
+      <Télécopie>02 37 42 89 68</Télécopie>
+      <Email>k.pilet@dreux-agglomeration.fr</Email>
+      <Url>http://www.dreux-agglomeration.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires de 8h30 à 12h30 et de 13h30 à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

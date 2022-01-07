@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62592-01" codeInsee="62592" dateMiseAJour="2021-03-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moringhem</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>55 rue Principale</Ligne>
+      <CodePostal>62910</CodePostal>
+      <NomCommune>Moringhem</NomCommune>
+      <Localisation>
+         <Latitude>50.8050003052</Latitude>
+         <Longitude>2.15285992622</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 93 48 60</Téléphone>
+      <Télécopie>03 21 39 59 89</Télécopie>
+      <Email>commune.moringhem@wanadoo.fr</Email>
+      <Url>http://www.mairie-moringhem.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58117-01" codeInsee="58117" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fourchambault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>59 rue Gambetta</Ligne>
+      <Ligne>BP 50252</Ligne>
+      <CodePostal>58642</CodePostal>
+      <NomCommune>Fourchambault Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.014448</Latitude>
+         <Longitude>3.082998</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 90 99 07</Téléphone>
+      <Email>accueil.administration@mairie-fourchambault.fr</Email>
+      <Url>http://www.ville-fourchambault.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

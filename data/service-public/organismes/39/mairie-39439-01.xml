@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39439-01" codeInsee="39439" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Port-Lesney</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue Edgar-Faure</Ligne>
+      <CodePostal>39600</CodePostal>
+      <NomCommune>Port-Lesney</NomCommune>
+      <Localisation>
+         <Latitude>47.0015154</Latitude>
+         <Longitude>5.824241</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 37 82 72</Téléphone>
+      <Télécopie>09 65 02 95 10</Télécopie>
+      <Email>mairie.port-lesney@wanadoo.fr</Email>
+      <Url>http://www.port-lesney.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

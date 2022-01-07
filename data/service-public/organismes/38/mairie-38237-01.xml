@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38237-01" codeInsee="38237" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mizoën</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>62 route d'Emparis</Ligne>
+      <CodePostal>38142</CodePostal>
+      <NomCommune>Mizoën</NomCommune>
+      <Localisation>
+         <Latitude>45.0498695374</Latitude>
+         <Longitude>6.142786026</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 80 11 39</Téléphone>
+      <Télécopie>04 76 80 31 45</Télécopie>
+      <Email>mairie.mizoen@orange.fr</Email>
+      <Url>http://www.mizoen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73057-01" codeInsee="73057" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brides-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Centenaire</Ligne>
+      <Ligne>BP 32</Ligne>
+      <CodePostal>73571</CodePostal>
+      <NomCommune>Brides-les-Bains Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.4524993896</Latitude>
+         <Longitude>6.56650018692</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe en passant par l'église</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 55 21 55</Téléphone>
+      <Télécopie>04 79 55 28 91</Télécopie>
+      <Email>secretariatgeneral@mairie-brideslesbains.fr</Email>
+      <Url>http://www.mairie-brideslesbains.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

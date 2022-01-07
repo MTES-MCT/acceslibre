@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="76540" dateMiseAJour="2021-12-14" id="tgi-76540-01" idPresta="4cac9e6a293594648a0017b7" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Rouen</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>34 RUE AUX JUIFS</Ligne>
+        <CodePostal>76037</CodePostal>
+        <NomCommune>ROUEN CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.442132</Latitude>
+            <Longitude>1.092166</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>34 RUE AUX JUIFS</Ligne>
+        <CodePostal>76037</CodePostal>
+        <NomCommune>ROUEN CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 35 52 87 52</Téléphone>
+        <Télécopie>02 35 70 17 41</Télécopie>
+        <Email>mailto:tj-rouen@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

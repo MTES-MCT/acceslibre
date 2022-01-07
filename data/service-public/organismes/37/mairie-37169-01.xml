@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37169-01" codeInsee="37169" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuville-sur-Brenne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue du 8-Mai-1945</Ligne>
+      <CodePostal>37110</CodePostal>
+      <NomCommune>Neuville-sur-Brenne</NomCommune>
+      <Localisation>
+         <Latitude>47.5994987488</Latitude>
+         <Longitude>0.915410995483</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 29 52 13</Téléphone>
+      <Télécopie>02 47 56 88 19</Télécopie>
+      <Email>communedeneuvillesurbrenne@outlook.fr</Email>
+      <Url>http://www.neuville-sur-brenne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique les lundis, mardis, jeudis et vendredis de 10h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

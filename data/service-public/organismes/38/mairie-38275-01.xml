@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38275-01" codeInsee="38275" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Serre-Nerpol</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>233 route de Vinay</Ligne>
+      <CodePostal>38470</CodePostal>
+      <NomCommune>Serre-Nerpol</NomCommune>
+      <Localisation>
+         <Latitude>45.2659988403</Latitude>
+         <Longitude>5.38221979141</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 64 26 56</Téléphone>
+      <Email>commune.serre-nerpol@wanadoo.fr</Email>
+      <Url>http://serre-nerpol.sud-gresivaudan.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

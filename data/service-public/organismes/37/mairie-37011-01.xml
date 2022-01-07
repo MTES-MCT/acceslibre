@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37011-01" codeInsee="37011" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Avoine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 rue Marcel-Vignaud</Ligne>
+      <CodePostal>37420</CodePostal>
+      <NomCommune>Avoine</NomCommune>
+      <Localisation>
+         <Latitude>47.2053928</Latitude>
+         <Longitude>0.1827197</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 98 11 11</Téléphone>
+      <Télécopie>02 47 98 11 12</Télécopie>
+      <Email>mairie@ville-avoine.fr</Email>
+      <Url>http://www.ville-avoine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

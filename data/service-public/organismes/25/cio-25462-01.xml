@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-25462-01" codeInsee="25462" dateMiseAJour="2021-01-27" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Pontarlier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue des Abbés-Cattet</Ligne>
+      <CodePostal>25300</CodePostal>
+      <NomCommune>Pontarlier</NomCommune>
+      <Localisation>
+         <Latitude>46.907828</Latitude>
+         <Longitude>6.351949</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 46 80 50</Téléphone>
+      <Télécopie>03 81 46 76 71</Télécopie>
+      <Email>cio.pontarlier@ac-besancon.fr</Email>
+      <Url>http://cio-pontarlier.ac-besancon.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

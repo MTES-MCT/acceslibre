@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89303-01" codeInsee="89303" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Poilly-sur-Serein</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>48 rue d'En-Bas</Ligne>
+      <CodePostal>89310</CodePostal>
+      <NomCommune>Poilly-sur-Serein</NomCommune>
+      <Localisation>
+         <Latitude>47.7642052</Latitude>
+         <Longitude>3.89186629999995</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 75 90 29</Téléphone>
+      <Télécopie>09 62 11 16 93</Télécopie>
+      <Email>poillyserein-mairie@wanadoo.fr</Email>
+      <Url>http://www.poillysurserein.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:30:00"/>
+         <Note>Permanence des élus.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

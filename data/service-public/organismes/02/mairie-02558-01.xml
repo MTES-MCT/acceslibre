@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02558-01" codeInsee="02558" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Nouvion-en-Thiérache</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-de-Gaulle</Ligne>
+      <Ligne>BP 43</Ligne>
+      <CodePostal>02170</CodePostal>
+      <NomCommune>Le Nouvion-en-Thiérache</NomCommune>
+      <Localisation>
+         <Latitude>50.01639</Latitude>
+         <Longitude>3.7853998</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 97 53 00</Téléphone>
+      <Email>mairie-nouvion@orange.fr</Email>
+      <Url>http://www.lenouvion.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

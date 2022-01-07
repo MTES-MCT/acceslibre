@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-92050-03" codeInsee="92050" dateMiseAJour="2021-06-29"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Nanterre 3</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>235 avenue Georges Clemenceau</Ligne>
+      <CodePostal>92756</CodePostal>
+      <NomCommune>Nanterre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.886218</Latitude>
+         <Longitude>2.218313</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Contact enregistrement : enr.nanterre@dgfip.finances.gouv.fr">01 41 37 84 95</Téléphone>
+      <Email>spf.nanterre3@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Réception exclusivement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Vous pouvez prendre rendez-vous sur impots.gouv.fr rubrique « contact » ou par téléphone</Commentaire>
+</Organisme>

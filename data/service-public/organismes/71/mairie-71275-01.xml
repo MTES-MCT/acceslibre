@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71275-01" codeInsee="71275" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marcigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>71110</CodePostal>
+      <NomCommune>Marcigny</NomCommune>
+      <Localisation>
+         <Latitude>46.2759865</Latitude>
+         <Longitude>4.0415122</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">interphone</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 25 03 51</Téléphone>
+      <Télécopie>03 85 25 20 09</Télécopie>
+      <Email>mairie.marcigny@wanadoo.fr</Email>
+      <Url>http://www.marcigny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

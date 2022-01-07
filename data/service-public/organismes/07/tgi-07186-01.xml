@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="07186" dateMiseAJour="2021-12-14" id="tgi-07186-01" idPresta="4cac9e6a293594648a00178d" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Privas</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>10 COURS DU PALAIS</Ligne>
+        <CodePostal>07000</CodePostal>
+        <NomCommune>PRIVAS</NomCommune>
+        <Localisation>
+            <Latitude>44.734712</Latitude>
+            <Longitude>4.601013</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>COURS DU PALAIS</Ligne>
+        <CodePostal>07000</CodePostal>
+        <NomCommune>PRIVAS</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 75 66 40 00</Téléphone>
+        <Télécopie>04 75 64 51 95</Télécopie>
+        <Email>mailto:tj1-privas@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

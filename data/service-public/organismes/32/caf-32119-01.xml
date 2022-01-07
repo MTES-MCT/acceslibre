@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-32119-01" codeInsee="32119" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Gers - accueil d'Eauze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Mairie</Ligne>
+      <Ligne>Place de la République</Ligne>
+      <CodePostal>32800</CodePostal>
+      <NomCommune>Eauze</NomCommune>
+      <Localisation>
+         <Latitude>43.8611188</Latitude>
+         <Longitude>0.10156129999995755</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Gers </Ligne>
+      <Ligne>11 rue de Châteaudun</Ligne>
+      <CodePostal>32013</CodePostal>
+      <NomCommune>Auch Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil possible sur rendez-vous au 05 62 09 94 80 ou par mail à msap@mairie-eauze.fr du lundi au vendredi.Point informatique en libre-service aux horaires d'ouverture de l'accueil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

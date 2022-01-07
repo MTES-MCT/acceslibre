@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-69029-01" codeInsee="69029" dateMiseAJour="2021-12-23" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises Est Lyonnais - Bron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14, rue Albert-Camus</Ligne>
+      <Ligne>CS 7</Ligne>
+      <CodePostal>69676</CodePostal>
+      <NomCommune>Bron Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.727549</Latitude>
+         <Longitude>4.918782</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 15 20 30</Téléphone>
+      <Email>sie.est-lyonnais@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel ou pour prendre rendez-vous, utilisez votre messagerie sécurisée sur le site impots.gouv.fr</Commentaire>
+</Organisme>

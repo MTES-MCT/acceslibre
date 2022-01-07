@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-93015-01" codeInsee="93015" dateMiseAJour="2020-06-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coubron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>133 rue Jean-Jaurès</Ligne>
+      <CodePostal>93470</CodePostal>
+      <NomCommune>Coubron</NomCommune>
+      <Localisation>
+         <Latitude>48.915764</Latitude>
+         <Longitude>2.576869</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur par l'arrière de la mairie</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 43 88 51 45</Téléphone>
+      <Télécopie>01 43 88 63 85</Télécopie>
+      <Email>https://www.coubron.fr/contact-service-communication</Email>
+      <Url>http://www.coubron.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>les 2e et 4e samedis du mois de 9h30 à 12h</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06001-01" codeInsee="06001" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aiglun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 place de la Mairie</Ligne>
+      <CodePostal>06910</CodePostal>
+      <NomCommune>Aiglun</NomCommune>
+      <Localisation>
+         <Latitude>43.8577346802</Latitude>
+         <Longitude>6.91463804245</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 05 85 35</Téléphone>
+      <Email>aiglun06@gmail.com</Email>
+      <Url>http://www.aiglun06.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:15:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Permanence téléphonique le lundi et vendredi matin.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:15:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

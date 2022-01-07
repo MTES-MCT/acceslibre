@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02803-01" codeInsee="02803" dateMiseAJour="2020-07-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Ville-aux-Bois-lès-Pontavert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Saint-Jean</Ligne>
+      <CodePostal>02160</CodePostal>
+      <NomCommune>La Ville-aux-Bois-lès-Pontavert</NomCommune>
+      <Localisation>
+         <Latitude>49.426902</Latitude>
+         <Longitude>3.849936</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 20 74 69</Téléphone>
+      <Email>mairie.villeauxboislespontavert@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+         <Note>semaines impaires de 08h00 à 13h00</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <Note>semaines impaires de 08h00 à 13h00</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>semaines paires</Commentaire>
+</Organisme>

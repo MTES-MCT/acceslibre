@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-2B033-01" codeInsee="2B033"
+           dateMiseAJour="2018-05-31"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Haute-Corse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Palais de la mer</Ligne>
+      <Ligne>5 bis rue Chanoine-Leschi</Ligne>
+      <CodePostal>20296</CodePostal>
+      <NomCommune>Bastia</NomCommune>
+      <Localisation>
+         <Latitude>42.704309</Latitude>
+         <Longitude>9.453399</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 34 59 59</Téléphone>
+      <Télécopie>04 95 34 59 01</Télécopie>
+      <Email>webia2b@ac-corse.fr</Email>
+      <Url>https://ia2b.ac-corse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires du lundi au vendredi 8h à 12h et de 13h à 15h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

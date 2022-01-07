@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52419-01" codeInsee="52419" dateMiseAJour="2021-07-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rennepont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place de la Mairie</Ligne>
+      <CodePostal>52370</CodePostal>
+      <NomCommune>Rennepont</NomCommune>
+      <Localisation>
+         <Latitude>48.147983551</Latitude>
+         <Longitude>4.85580921173</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 31 42 22</Téléphone>
+      <Email>mairie.de.rennepont@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

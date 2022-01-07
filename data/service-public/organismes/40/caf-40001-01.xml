@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-40001-01" codeInsee="40001" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) des Landes - accueil d'Aire-sur-l'Adour</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>France services</Ligne>
+      <Ligne>4 rue René-Méricam</Ligne>
+      <CodePostal>40800</CodePostal>
+      <NomCommune>Aire-sur-l'Adour</NomCommune>
+      <Localisation>
+         <Latitude>43.700299</Latitude>
+         <Longitude>-0.261233</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales des Landes</Ligne>
+      <Ligne>207 rue Fontainebleau</Ligne>
+      <CodePostal>40023</CodePostal>
+      <NomCommune>Mont-de-Marsan Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+         <Note>Espace multi- services en libre accès ouvert au mêmes horaires, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

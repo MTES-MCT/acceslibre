@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-55122-01" codeInsee="55122" dateMiseAJour="2021-08-16"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Commercy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Château Stanislas</Ligne>
+      <Ligne>BP 70115</Ligne>
+      <CodePostal>55205</CodePostal>
+      <NomCommune>Commercy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7632767</Latitude>
+         <Longitude>5.5912106</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 91 46 66</Téléphone>
+      <Email>t055006@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Appels téléphoniques du lundi au vendredi de 8h30 à 12h00 et de 13h30 à
+16h00</Commentaire>
+</Organisme>

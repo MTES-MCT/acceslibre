@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68365-01" codeInsee="68365" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wettolsheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place du Général-de-Gaulle</Ligne>
+      <CodePostal>68920</CodePostal>
+      <NomCommune>Wettolsheim</NomCommune>
+      <Localisation>
+         <Latitude>48.0579986572</Latitude>
+         <Longitude>7.29846000671</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 22 90 30</Téléphone>
+      <Télécopie>03 89 22 90 39</Télécopie>
+      <Email>mairie.wettolsheim@wanadoo.fr</Email>
+      <Url>http://www.wettolsheim.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="07:45:00" fin="10:00:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:45:00" fin="10:00:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="07:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25514-01" codeInsee="25514" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Antoine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>25370</CodePostal>
+      <NomCommune>Saint-Antoine</NomCommune>
+      <Localisation>
+         <Latitude>46.7902984619</Latitude>
+         <Longitude>6.37019014359</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 49 11 15</Téléphone>
+      <Télécopie>09 71 70 56 38</Télécopie>
+      <Email>mairie.saintantoine@wanadoo.fr</Email>
+      <Url>http://www.mairiesaintantoine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Permanence ouverte uniquement les semaines impaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

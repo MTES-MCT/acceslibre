@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43017-01" codeInsee="43017" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Azérat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>43390</CodePostal>
+      <NomCommune>Azérat</NomCommune>
+      <Localisation>
+         <Latitude>45.362417</Latitude>
+         <Longitude>3.38400100000001</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 76 10 56</Téléphone>
+      <Télécopie>04 71 76 10 56</Télécopie>
+      <Email>mairie.azerat43@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="dimanche" fin="dimanche">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

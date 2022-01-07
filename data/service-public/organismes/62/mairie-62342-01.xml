@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62342-01" codeInsee="62342" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontaine-lès-Boulans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Prédefin</Ligne>
+      <CodePostal>62134</CodePostal>
+      <NomCommune>Fontaine-lès-Boulans</NomCommune>
+      <Localisation>
+         <Latitude>50.5167007446</Latitude>
+         <Longitude>2.28320002556</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 04 63 68</Téléphone>
+      <Télécopie>03 21 04 63 68</Télécopie>
+      <Email>mairie.de.fontaine.les.boulans@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

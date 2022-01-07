@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-31458-01" codeInsee="31458" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Haute-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 chemin de Bramofam</Ligne>
+      <CodePostal>31120</CodePostal>
+      <NomCommune>Roques-sur-Garonne</NomCommune>
+      <Localisation>
+         <Latitude>43.504335</Latitude>
+         <Longitude>1.342987</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 42 58 64</Téléphone>
+      <Email>federation@fede-peche31.com</Email>
+      <Url>http://www.fede-peche31.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-06069-01" codeInsee="06069" dateMiseAJour="2021-01-04"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Grasse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue du Maréchal de Lattre de Tassigny</Ligne>
+      <CodePostal>06130</CodePostal>
+      <NomCommune>Grasse</NomCommune>
+      <Localisation>
+         <Latitude>43.6503404</Latitude>
+         <Longitude>6.9225477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">04 93 40 91 91</Téléphone>
+      <Télécopie>04 93 40 91 98</Télécopie>
+      <Email>police-grasse@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="dimanche">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

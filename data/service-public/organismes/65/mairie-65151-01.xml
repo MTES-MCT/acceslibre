@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65151-01" codeInsee="65151" dateMiseAJour="2020-11-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Collongues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>33 rue des Cultivateurs</Ligne>
+      <CodePostal>65350</CodePostal>
+      <NomCommune>Collongues</NomCommune>
+      <Localisation>
+         <Latitude>43.287706</Latitude>
+         <Longitude>43.287706</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 35 38 84</Téléphone>
+      <Email>communedecollongues@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence mairie Lundi 9h00 12h00</Commentaire>
+</Organisme>

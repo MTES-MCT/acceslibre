@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56177-01" codeInsee="56177" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pluvigner</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Saint-Michel</Ligne>
+      <Ligne>BP 10</Ligne>
+      <CodePostal>56330</CodePostal>
+      <NomCommune>Pluvigner</NomCommune>
+      <Localisation>
+         <Latitude>47.777282</Latitude>
+         <Longitude>-3.009527</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 24 71 34</Téléphone>
+      <Télécopie>02 97 24 92 44</Télécopie>
+      <Email>mairie@pluvigner.fr</Email>
+      <Url>http://www.pluvigner.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

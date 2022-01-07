@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34005-01" codeInsee="34005" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Agonès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>46 rue Saint-Micisse</Ligne>
+      <CodePostal>34190</CodePostal>
+      <NomCommune>Agonès</NomCommune>
+      <Localisation>
+         <Latitude>43.9038276672</Latitude>
+         <Longitude>3.72745299339</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 73 70 25</Téléphone>
+      <Télécopie>04 67 73 70 25</Télécopie>
+      <Email>mairie@agones.fr</Email>
+      <Url>http://www.agones.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="18:00:00"/>
+         <Note>Le maire reçoit uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

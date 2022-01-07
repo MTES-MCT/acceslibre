@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="afpa-83144-01" codeInsee="83144" dateMiseAJour="2021-09-20"
+           pivotLocal="afpa">
+   <Nom>Agence nationale pour la formation professionnelle des adultes (Afpa) - Centre de Toulon - La Valette</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>395 avenue de la Libération</Ligne>
+      <CodePostal>83160</CodePostal>
+      <NomCommune>La Valette-du-Var</NomCommune>
+      <Localisation>
+         <Latitude>43.1428894</Latitude>
+         <Longitude>5.9933329</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 36</Téléphone>
+      <Url>https://www.afpa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35174-01" codeInsee="35174" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mellé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place des Marches-de-Bretagne</Ligne>
+      <CodePostal>35420</CodePostal>
+      <NomCommune>Mellé</NomCommune>
+      <Localisation>
+         <Latitude>48.488243</Latitude>
+         <Longitude>-1.189895</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 98 03 20</Téléphone>
+      <Email>contact@melle.bzh</Email>
+      <Url>http://www.melle.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <Note>Accueil possible les mardis, jeudis et vendredis après midis sur rendez-vous, pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

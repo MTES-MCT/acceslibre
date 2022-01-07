@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-59249-01" codeInsee="59249" dateMiseAJour="2019-12-18"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Fourmies</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de l'Avesnois</Ligne>
+      <Ligne>Centre hospitalier du pays d'Avesnes</Ligne>
+      <Ligne>Route d'Haut-Lieu</Ligne>
+      <Ligne>BP 10209</Ligne>
+      <CodePostal>59363</CodePostal>
+      <NomCommune>Avesnes-sur-Helpe</NomCommune>
+      <Localisation>
+         <Latitude>50.115119</Latitude>
+         <Longitude>3.922548</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 57 54 33</Téléphone>
+      <Email>clic.centre@clic-avesnois.fr</Email>
+      <Url>http://www.clic-avesnois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21247-01" codeInsee="21247" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Époisses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue des Forges</Ligne>
+      <CodePostal>21460</CodePostal>
+      <NomCommune>Époisses</NomCommune>
+      <Localisation>
+         <Latitude>47.5065994263</Latitude>
+         <Longitude>4.17383003235</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 96 44 09</Téléphone>
+      <Télécopie>03 80 96 33 83</Télécopie>
+      <Email>mairie.epoisses@wanadoo.fr</Email>
+      <Url>http://www.epoisses.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

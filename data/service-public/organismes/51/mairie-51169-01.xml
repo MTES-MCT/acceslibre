@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51169-01" codeInsee="51169" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Corbeil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Cruchière</Ligne>
+      <CodePostal>51320</CodePostal>
+      <NomCommune>Corbeil</NomCommune>
+      <Localisation>
+         <Latitude>48.5760282</Latitude>
+         <Longitude>4.4166645</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 74 29 11</Téléphone>
+      <Email>mairie.corbeil@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+         <Note>A compter de la rentrée 2021 l'accueil sera fermé le lundi et se fera uniquement le jeudi de 14h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-45234-01" codeInsee="45234" dateMiseAJour="2021-09-08"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Orléans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 54211</Ligne>
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>Cité administrative Coligny</Ligne>
+      <Ligne>131 faubourg Bannier</Ligne>
+      <CodePostal>45042</CodePostal>
+      <NomCommune>Orléans Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>47.915733</Latitude>
+         <Longitude>1.895709</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 24 19 00</Téléphone>
+      <Télécopie>02 38 24 19 30</Télécopie>
+      <Email>spf.orleans1@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi : de 14h00 à 16h00</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous l'après-midi : de 14h00 à 16h00</Commentaire>
+</Organisme>

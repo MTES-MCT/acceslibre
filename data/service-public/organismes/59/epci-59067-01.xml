@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-59067-01" codeInsee="59067" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Hauts de Flandre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>468 rue de la Couronne-de-Bierne</Ligne>
+      <Ligne>BP 50061</Ligne>
+      <CodePostal>59380</CodePostal>
+      <NomCommune>Bergues</NomCommune>
+      <Localisation>
+         <Latitude>50.9685609</Latitude>
+         <Longitude>2.4325842</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 29 09 99</Téléphone>
+      <Télécopie>03 28 68 70 04</Télécopie>
+      <Email>contact@cchf.fr</Email>
+      <Url>http://www.cchf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

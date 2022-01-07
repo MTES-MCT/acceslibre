@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83046-01" codeInsee="83046" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cotignac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>83570</CodePostal>
+      <NomCommune>Cotignac</NomCommune>
+      <Localisation>
+         <Latitude>43.5290049</Latitude>
+         <Longitude>6.1486598</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseurs</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 72 60 20</Téléphone>
+      <Télécopie>04 94 72 60 30</Télécopie>
+      <Email>contact@mairiecotignac.fr</Email>
+      <Url>http://www.mairiecotignac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

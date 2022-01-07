@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B192-01" codeInsee="2B192" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Olmo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mairie Casa Cumula</Ligne>
+      <Ligne>18 quartier de Funtana</Ligne>
+      <CodePostal>20290</CodePostal>
+      <NomCommune>Olmo</NomCommune>
+      <Localisation>
+         <Latitude>42.3356403</Latitude>
+         <Longitude>9.5310207</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 36 24 93</Téléphone>
+      <Email>mairieolmo@orange.fr</Email>
+      <Url>http://www.olmo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

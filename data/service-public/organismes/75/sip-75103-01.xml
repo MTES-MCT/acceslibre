@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-75103-01" codeInsee="75103" dateMiseAJour="2021-07-01" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Paris 3e et 4e arrondissements</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Michel-le-Comte</Ligne>
+      <CodePostal>75152</CodePostal>
+      <NomCommune>Paris Cedex 03</NomCommune>
+      <Localisation>
+         <Latitude>48.8621567</Latitude>
+         <Longitude>2.3562861</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="0809 401 401 : service gratuit + prix de l'appel">01 58 28 12 10</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:45:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Egalement sur rendez-vous. Pour prendre rendez-vous, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

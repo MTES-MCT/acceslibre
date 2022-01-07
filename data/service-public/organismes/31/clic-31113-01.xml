@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-31113-01" codeInsee="31113" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Castanet-Tolosan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des solidarités de Castanet</Ligne>
+      <Ligne>68 avenue du Lauraguais</Ligne>
+      <CodePostal>31320</CodePostal>
+      <NomCommune>Castanet-Tolosan</NomCommune>
+      <Localisation>
+         <Latitude>43.51224</Latitude>
+         <Longitude>1.499779</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 71 91 80</Téléphone>
+      <Télécopie>05 62 71 91 98</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-73065-01" codeInsee="73065" dateMiseAJour="2021-02-24"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Savoie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale des territoires Savoie</Ligne>
+      <Ligne>Service habitat et construction</Ligne>
+      <Ligne>TSA 20153</Ligne>
+      <CodePostal>73019</CodePostal>
+      <NomCommune>Chambéry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.5891990662</Latitude>
+         <Longitude>5.91967010498</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 71 74 49</Téléphone>
+      <Télécopie>04 79 71 74 40</Télécopie>
+      <Email>ddt-anah@savoie.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous.</Commentaire>
+</Organisme>

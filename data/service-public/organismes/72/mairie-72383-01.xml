@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-72383-01" codeInsee="72383" dateMiseAJour="2019-04-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vouvray-sur-Huisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue Auguste-Boulard</Ligne>
+      <CodePostal>72160</CodePostal>
+      <NomCommune>Vouvray-sur-Huisne</NomCommune>
+      <Localisation>
+         <Latitude>48.087048</Latitude>
+         <Longitude>0.549167</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 93 45 76</Téléphone>
+      <Email>commune-de-vouvray-sur-huisne@wanadoo.fr</Email>
+      <Url>https://vouvraysurhuisne.fr/category/commune/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

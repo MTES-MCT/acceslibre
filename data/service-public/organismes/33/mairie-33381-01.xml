@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33381-01" codeInsee="33381" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Caprais-de-Bordeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue de Mercade</Ligne>
+      <CodePostal>33880</CodePostal>
+      <NomCommune>Saint-Caprais-de-Bordeaux</NomCommune>
+      <Localisation>
+         <Latitude>44.7507019043</Latitude>
+         <Longitude>-0.440245985985</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 97 94 00</Téléphone>
+      <Télécopie>05 57 97 94 01</Télécopie>
+      <Email>mairie@saintcapraisdebordeaux.fr</Email>
+      <Url>http://www.stcapraisbx.blogspot.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

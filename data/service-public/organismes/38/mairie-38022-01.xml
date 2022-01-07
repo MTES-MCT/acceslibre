@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38022-01" codeInsee="38022" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Avenières-Veyrins-Thuellin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 square Émile-Richerd</Ligne>
+      <CodePostal>38630</CodePostal>
+      <NomCommune>Les Avenières-Veyrins-Thuellin</NomCommune>
+      <Localisation>
+         <Latitude>45.634915</Latitude>
+         <Longitude>5.562628</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 33 61 87</Téléphone>
+      <Télécopie>04 74 33 79 41</Télécopie>
+      <Email>mairie@lesavenieres.fr</Email>
+      <Url>http://www.lesavenieres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé le lundi pendant les vacances scolaires et ouvert du mardi au jeudi de 9h à 12h et de 14h à 17h30, le vendredi et le samedi matin de 9h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

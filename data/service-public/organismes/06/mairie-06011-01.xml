@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06011-01" codeInsee="06011" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaulieu-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 boulevard du Maréchal-Leclerc</Ligne>
+      <CodePostal>06310</CodePostal>
+      <NomCommune>Beaulieu-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>43.7094307</Latitude>
+         <Longitude>7.3351238</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 76 47 00</Téléphone>
+      <Télécopie>04 93 01 31 55</Télécopie>
+      <Email>mairie@beaulieusurmer.fr</Email>
+      <Url>http://www.beaulieusurmer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

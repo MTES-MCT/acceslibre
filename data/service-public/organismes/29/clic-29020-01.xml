@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-29020-01" codeInsee="29020" dateMiseAJour="2020-01-10"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Briec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Clic de Quimper - Bretagne occidentale</Ligne>
+      <Ligne>Place du Ruthin</Ligne>
+      <CodePostal>29510</CodePostal>
+      <NomCommune>Briec</NomCommune>
+      <Localisation>
+         <Latitude>48.102425</Latitude>
+         <Longitude>-3.999877</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 57 71 46</Téléphone>
+      <Email>clic@glazik.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

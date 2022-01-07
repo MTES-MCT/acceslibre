@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="47001" dateMiseAJour="2021-12-14" id="tgi-47001-01" idPresta="4cac9e6a293594648a00179f" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire d'Agen</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>AVENUE DE LATTRE DE TASSIGNY</Ligne>
+        <CodePostal>47916</CodePostal>
+        <NomCommune>AGEN CEDEX 9</NomCommune>
+        <Localisation>
+            <Latitude>44.199514</Latitude>
+            <Longitude>0.616566</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>AVENUE DE LATTRE DE TASSIGNY</Ligne>
+        <CodePostal>47916</CodePostal>
+        <NomCommune>AGEN CEDEX 9</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 53 77 95 00</Téléphone>
+        <Télécopie>05 53 98 07 51</Télécopie>
+        <Email>mailto:tj-agen@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

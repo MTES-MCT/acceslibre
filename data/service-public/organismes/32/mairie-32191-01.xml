@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32191-01" codeInsee="32191" dateMiseAJour="2021-09-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lanne-Soubiran</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>85 Route de Saint-Griède</Ligne>
+      <CodePostal>32110</CodePostal>
+      <NomCommune>Lanne-Soubiran</NomCommune>
+      <Localisation>
+         <Latitude>43.747654</Latitude>
+         <Longitude>-0.110505</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 09 10 98</Téléphone>
+      <Email>lannesoubiran@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

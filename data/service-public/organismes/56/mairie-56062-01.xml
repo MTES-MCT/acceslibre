@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56062-01" codeInsee="56062" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gâvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue des Sardiniers</Ligne>
+      <CodePostal>56680</CodePostal>
+      <NomCommune>Gâvres</NomCommune>
+      <Localisation>
+         <Latitude>47.6964621</Latitude>
+         <Longitude>-3.3532587</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 82 46 55</Téléphone>
+      <Télécopie>02 97 82 13 89</Télécopie>
+      <Email>mairie.gavres@orange.fr</Email>
+      <Url>http://www.gavres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

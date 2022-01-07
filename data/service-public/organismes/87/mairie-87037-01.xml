@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87037-01" codeInsee="87037" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-Montbrandeix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>87440</CodePostal>
+      <NomCommune>La Chapelle-Montbrandeix</NomCommune>
+      <Localisation>
+         <Latitude>45.6461029053</Latitude>
+         <Longitude>0.849164009094</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">sonnette à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 78 70 87</Téléphone>
+      <Télécopie>05 55 78 75 69</Télécopie>
+      <Email>chapelle-montbrandeix@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement deux samedis par mois, contacter l'accueil avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

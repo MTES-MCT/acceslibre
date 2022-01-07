@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-26362-01" codeInsee="26362" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Drôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>145 avenue Georges-Brassens</Ligne>
+      <Ligne>CS 30418</Ligne>
+      <CodePostal>26504</CodePostal>
+      <NomCommune>Bourg-lès-Valence Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.957579</Latitude>
+         <Longitude>4.900754</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 82 40 00</Téléphone>
+      <Télécopie>04 75 42 85 76</Télécopie>
+      <Email>accueil@drome.chambagri.fr</Email>
+      <Url>https://extranet-drome.chambres-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

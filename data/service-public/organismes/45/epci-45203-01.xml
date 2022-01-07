@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-45203-01" codeInsee="45203" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Terres du Val de Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>45130</CodePostal>
+      <NomCommune>Meung-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>47.828588</Latitude>
+         <Longitude>1.69815</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 45 11 11</Téléphone>
+      <Email>accueil@ccterresduvaldeloire.fr</Email>
+      <Url>http://www.ccterresduvaldeloire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

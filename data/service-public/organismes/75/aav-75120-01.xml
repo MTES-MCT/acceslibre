@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="75120" dateMiseAJour="2021-09-02" id="aav-75120-01" idPresta="5d1dbd3cb473e43ea7d02940" pivotLocal="aav">
+    <Nom>Association enfance et partage - Paris</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>96 rue Orfila</Ligne>
+        <CodePostal>75020</CodePostal>
+        <NomCommune>PARIS</NomCommune>
+        <Localisation>
+            <Latitude>48.85985</Latitude>
+            <Longitude>2.342377</Longitude>
+            <Précision>4</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>96 rue Orfila</Ligne>
+        <CodePostal>75020</CodePostal>
+        <NomCommune>PARIS</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 55 25 65 65</Téléphone>
+        <Email>mailto:contacts@enfance-et-partage.org</Email>
+        <Url>https://enfance-et-partage.org/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="09:00:00" fin="13:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+            <Note>Du lundi au jeudi de 9h à 13h et de 14h à 17h, le vendredi de 9h à 13h.</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-57631-01" codeInsee="57631" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Sarreguemines Confluences</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de la communauté</Ligne>
+      <Ligne>99 rue du Maréchal-Foch</Ligne>
+      <Ligne>BP 80805</Ligne>
+      <CodePostal>57208</CodePostal>
+      <NomCommune>Sarreguemines Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1139064</Latitude>
+         <Longitude>7.0719157</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 28 30 30</Téléphone>
+      <Télécopie>03 87 28 30 31</Télécopie>
+      <Email>contact@agglo-sarreguemines.fr</Email>
+      <Url>http://www.agglo-sarreguemines.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

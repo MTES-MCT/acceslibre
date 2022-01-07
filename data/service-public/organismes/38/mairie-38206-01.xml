@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38206-01" codeInsee="38206" dateMiseAJour="2020-05-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Laval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue de la mairie</Ligne>
+      <CodePostal>38190</CodePostal>
+      <NomCommune>Laval</NomCommune>
+      <Localisation>
+         <Latitude>45.252827</Latitude>
+         <Longitude>5.932699</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 71 42 88</Téléphone>
+      <Télécopie>04 76 71 66 24</Télécopie>
+      <Email>mairiedelaval2@orange.fr</Email>
+      <Url>http://www.laval-en-belledonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

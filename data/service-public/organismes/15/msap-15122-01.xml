@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-15122-01" codeInsee="15122" dateMiseAJour="2020-11-27"
+           pivotLocal="msap">
+   <Nom>France Services - Maurs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place du 11-Novembre</Ligne>
+      <CodePostal>15600</CodePostal>
+      <NomCommune>Maurs</NomCommune>
+      <Localisation>
+         <Latitude>44.7104296</Latitude>
+         <Longitude>2.1963266</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 46 87 17</Téléphone>
+      <Email>msp.maurs@chataigneraie15.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-88151-01" codeInsee="88151" dateMiseAJour="2021-01-12"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Dompaire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Charles-Gérôme</Ligne>
+      <CodePostal>88270</CodePostal>
+      <NomCommune>Dompaire</NomCommune>
+      <Localisation>
+         <Latitude>48.220983</Latitude>
+         <Longitude>6.22625</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 36 69 99</Téléphone>
+      <Email>msapdompaire@ccmirecourtdompaire.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/dompaire</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

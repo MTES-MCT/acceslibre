@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="95018" dateMiseAJour="2021-12-14" id="prudhommes-95018-01" idPresta="4cac9e60293594648a000388" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Argenteuil</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>9 RUE DES CELTES</Ligne>
+        <CodePostal>95813</CodePostal>
+        <NomCommune>ARGENTEUIL CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.955498</Latitude>
+            <Longitude>2.233356</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>9 RUE DES CELTES</Ligne>
+        <CodePostal>95813</CodePostal>
+        <NomCommune>ARGENTEUIL CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 39 80 40 40</Téléphone>
+        <Télécopie>01 39 80 95 25</Télécopie>
+        <Email>mailto:cph-argenteuil@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

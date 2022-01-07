@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-33366-01" codeInsee="33366" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Le Grand Cubzaguais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>365 avenue Boucicaut</Ligne>
+      <Ligne>BP 59</Ligne>
+      <CodePostal>33240</CodePostal>
+      <NomCommune>Saint-André-de-Cubzac</NomCommune>
+      <Localisation>
+         <Latitude>44.99499806932463</Latitude>
+         <Longitude>-0.44739674072266533</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 43 96 37</Téléphone>
+      <Télécopie>05 57 43 83 13</Télécopie>
+      <Email>accueil@grand-cubzaguais.fr</Email>
+      <Url>http://www.grand-cubzaguais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81202-01" codeInsee="81202" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parisot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place du Lavoir</Ligne>
+      <CodePostal>81310</CodePostal>
+      <NomCommune>Parisot</NomCommune>
+      <Localisation>
+         <Latitude>43.7984576</Latitude>
+         <Longitude>1.831123</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 33 38 03</Téléphone>
+      <Email>mairie@parisot-tarn.fr</Email>
+      <Url>http://www.parisot-tarn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

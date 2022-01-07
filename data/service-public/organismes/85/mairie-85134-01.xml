@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85134-01" codeInsee="85134" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mallièvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 place des Tisserands</Ligne>
+      <CodePostal>85590</CodePostal>
+      <NomCommune>Mallièvre</NomCommune>
+      <Localisation>
+         <Latitude>46.9107646</Latitude>
+         <Longitude>-0.8644508</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 65 30 69</Téléphone>
+      <Télécopie>02 51 65 33 10</Télécopie>
+      <Email>mairie@mallievre.fr</Email>
+      <Url>http://www.mallievre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

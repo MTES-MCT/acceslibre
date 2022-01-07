@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-01053-01" codeInsee="01053" dateMiseAJour="2019-02-19"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de l'Ain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue Bourgmayer</Ligne>
+      <Ligne>Maison de l'avocat</Ligne>
+      <CodePostal>01000</CodePostal>
+      <NomCommune>Bourg-en-Bresse</NomCommune>
+      <Localisation>
+         <Latitude>45.992976</Latitude>
+         <Longitude>4.71516</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 22 47 63</Téléphone>
+      <Télécopie>04 74 23 73 47</Télécopie>
+      <Email>ordre@bourg-avocats.com</Email>
+      <Url>http://www.bourg-avocats.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

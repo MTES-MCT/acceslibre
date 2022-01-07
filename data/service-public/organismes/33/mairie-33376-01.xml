@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33376-01" codeInsee="33376" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Aubin-de-Médoc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Joli-Bois</Ligne>
+      <CodePostal>33160</CodePostal>
+      <NomCommune>Saint-Aubin-de-Médoc</NomCommune>
+      <Localisation>
+         <Latitude>44.9161464</Latitude>
+         <Longitude>-0.7219342</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 70 15 15</Téléphone>
+      <Télécopie>05 56 95 92 90</Télécopie>
+      <Email>accueil@saintaubindemedoc.fr</Email>
+      <Url>http://www.saint-aubin-de-medoc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Fermeture en juillet et août tous les jours à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Pas de permanence en juillet-août le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60405-01" codeInsee="60405" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moliens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Picardie</Ligne>
+      <CodePostal>60220</CodePostal>
+      <NomCommune>Moliens</NomCommune>
+      <Localisation>
+         <Latitude>49.6682014465</Latitude>
+         <Longitude>1.80824005604</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 46 07 52</Téléphone>
+      <Télécopie>03 44 46 03 16</Télécopie>
+      <Email>mairie.moliens@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

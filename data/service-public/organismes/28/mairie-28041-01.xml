@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28041-01" codeInsee="28041" dateMiseAJour="2021-03-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Blandainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Plaine</Ligne>
+      <CodePostal>28120</CodePostal>
+      <NomCommune>Blandainville</NomCommune>
+      <Localisation>
+         <Latitude>48.30914</Latitude>
+         <Longitude>1.292204</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 24 04 01</Téléphone>
+      <Email>mairie.blandainville@wanadoo.fr</Email>
+      <Url>https://communeblandainville.wixsite.com/petitblandainvillain</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

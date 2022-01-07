@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-81065-02" codeInsee="81065" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Castres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département Augustin-Malroux</Ligne>
+      <Ligne>Service médico-social personnes âgées</Ligne>
+      <Ligne>8 avenue Augustin-Malroux</Ligne>
+      <CodePostal>81100</CodePostal>
+      <NomCommune>Castres</NomCommune>
+      <Localisation>
+         <Latitude>43.6105838</Latitude>
+         <Longitude>2.2380069</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 71 53 70</Téléphone>
+      <Télécopie>05 63 71 53 77</Télécopie>
+      <Email>smpa@tarn.fr</Email>
+      <Url>http://personne-agee.tarn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

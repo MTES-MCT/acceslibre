@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-15014-01" codeInsee="15014" dateMiseAJour="2021-09-14"
+           pivotLocal="msap">
+   <Nom>France Services - Aurillac (itinérant)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CyberCantal</Ligne>
+      <Ligne>28 avenue Gambetta</Ligne>
+      <CodePostal>15015</CodePostal>
+      <NomCommune>Aurillac</NomCommune>
+      <Localisation>
+         <Latitude>44.92687</Latitude>
+         <Longitude>2.445714</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">la diffusion d'informations de fait par bus itinérants</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 7146 59 81</Téléphone>
+      <Email>vpoyet@cantal.fr</Email>
+      <Url>https://www.cantal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

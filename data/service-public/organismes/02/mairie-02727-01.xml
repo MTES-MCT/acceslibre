@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02727-01" codeInsee="02727" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sons-et-Ronchères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Grand-Gué</Ligne>
+      <CodePostal>02270</CodePostal>
+      <NomCommune>Sons-et-Ronchères</NomCommune>
+      <Localisation>
+         <Latitude>49.7621614</Latitude>
+         <Longitude>3.6737149</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 20 52 77</Téléphone>
+      <Email>mairie.sonsetroncheres@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Permanence du maire ou 1er adjoint, permanence téléphonique de 10h à 12h et de 14h à 18h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique de 10h à 12h et de 14h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

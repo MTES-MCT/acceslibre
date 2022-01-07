@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04155-01" codeInsee="04155" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Prads-Haute-Bléone</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village de Prads</Ligne>
+      <CodePostal>04420</CodePostal>
+      <NomCommune>Prads-Haute-Bléone</NomCommune>
+      <Localisation>
+         <Latitude>44.2197265625</Latitude>
+         <Longitude>6.44176483154</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 34 90 81</Téléphone>
+      <Télécopie>04 92 32 21 83</Télécopie>
+      <Email>prads.mairie04@hotmail.fr</Email>
+      <Url>http://prads-haute-bleone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

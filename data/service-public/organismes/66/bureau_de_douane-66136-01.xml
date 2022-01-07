@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-66136-01" codeInsee="66136" dateMiseAJour="2019-01-11"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Perpignan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 avenue de Rome</Ligne>
+      <Ligne>BP 5156</Ligne>
+      <Ligne>Immeuble le Carre</Ligne>
+      <CodePostal>66031</CodePostal>
+      <NomCommune>Perpignan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.681267</Latitude>
+         <Longitude>2.853483</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 72 18</Téléphone>
+      <Télécopie>0468540785</Télécopie>
+      <Email>r-perpignan@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

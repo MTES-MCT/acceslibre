@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-27226-01" codeInsee="27226" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Étrépagny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Maison-de-Vatimesnil</Ligne>
+      <CodePostal>27150</CodePostal>
+      <NomCommune>Étrépagny</NomCommune>
+      <Localisation>
+         <Latitude>49.303332</Latitude>
+         <Longitude>1.612583</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 27 41 87</Téléphone>
+      <Email>franceservices@ccvexin-normand.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

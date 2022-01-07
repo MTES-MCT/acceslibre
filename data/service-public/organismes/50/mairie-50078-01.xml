@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50078-01" codeInsee="50078" dateMiseAJour="2021-10-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bretteville-sur-Ay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>50430</CodePostal>
+      <NomCommune>Bretteville-sur-Ay</NomCommune>
+      <Localisation>
+         <Latitude>49.2602996826</Latitude>
+         <Longitude>-1.63273000717</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 07 10 67</Téléphone>
+      <Email>mairedebrettevillesuray@wanadoo.fr</Email>
+      <Url>http://www.brettevillesuray.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

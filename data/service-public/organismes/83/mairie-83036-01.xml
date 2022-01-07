@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83036-01" codeInsee="83036" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cavalaire-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>109 avenue Gabriel Peri</Ligne>
+      <Ligne>CS 50150</Ligne>
+      <CodePostal>83240</CodePostal>
+      <NomCommune>Cavalaire-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>43.1734399</Latitude>
+         <Longitude>6.5316507</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 00 48 00</Téléphone>
+      <Télécopie>04 94 64 60 43</Télécopie>
+      <Email>courrier@cavalaire.fr</Email>
+      <Url>http://www.cavalaire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert l'après-midi uniquement pour les affaires générales et titres sécurisés, pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

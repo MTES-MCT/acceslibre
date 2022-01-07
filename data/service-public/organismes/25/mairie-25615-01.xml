@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25615-01" codeInsee="25615" dateMiseAJour="2021-06-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villars-lès-Blamont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>25310</CodePostal>
+      <NomCommune>Villars-lès-Blamont</NomCommune>
+      <Localisation>
+         <Latitude>47.3734016418</Latitude>
+         <Longitude>6.87326002121</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 35 10 79</Téléphone>
+      <Email>mairie-villars-les-blamont@wanadoo.fr</Email>
+      <Url>https://www.villars-les-blamont.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

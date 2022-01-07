@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55153-01" codeInsee="55153" dateMiseAJour="2021-12-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dieppe-sous-Douaumont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 rue Mazel</Ligne>
+      <CodePostal>55400</CodePostal>
+      <NomCommune>Dieppe-sous-Douaumont</NomCommune>
+      <Localisation>
+         <Latitude>49.2205302</Latitude>
+         <Longitude>5.5097489</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 88 31 93</Téléphone>
+      <Email>mairie@dieppe-sous-douaumont.fr</Email>
+      <Url>http://www.dieppe-sous-douaumont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

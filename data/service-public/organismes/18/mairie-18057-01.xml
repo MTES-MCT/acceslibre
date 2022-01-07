@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18057-01" codeInsee="18057" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châteaumeillant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de la Mairie</Ligne>
+      <CodePostal>18370</CodePostal>
+      <NomCommune>Châteaumeillant</NomCommune>
+      <Localisation>
+         <Latitude>46.5601005554</Latitude>
+         <Longitude>2.19475007057</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 61 33 17</Téléphone>
+      <Télécopie>02 48 61 33 73</Télécopie>
+      <Email>mairie@chateaumeillant.fr</Email>
+      <Url>http://www.chateaumeillant.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

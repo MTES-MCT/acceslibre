@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80404-01" codeInsee="80404" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Guyencourt-Saulcourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue Paul-Lejeune</Ligne>
+      <CodePostal>80240</CodePostal>
+      <NomCommune>Guyencourt-Saulcourt</NomCommune>
+      <Localisation>
+         <Latitude>49.9990997314</Latitude>
+         <Longitude>3.07924294472</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 86 66 11</Téléphone>
+      <Email>mairie.guyencourt-saulcourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

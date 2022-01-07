@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54547-01" codeInsee="54547" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vandoeuvre-lès-Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de Parme</Ligne>
+      <CodePostal>54500</CodePostal>
+      <NomCommune>Vandoeuvre-lès-Nancy</NomCommune>
+      <Localisation>
+         <Latitude>48.6598008</Latitude>
+         <Longitude>6.1727239</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 51 80 00</Téléphone>
+      <Télécopie>03 83 51 80 01</Télécopie>
+      <Email>contact@vandoeuvre.fr</Email>
+      <Url>http://www.vandoeuvre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

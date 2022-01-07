@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38245-01" codeInsee="38245" dateMiseAJour="2020-12-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>262 rue du Village</Ligne>
+      <CodePostal>38160</CodePostal>
+      <NomCommune>Montagne</NomCommune>
+      <Localisation>
+         <Latitude>45.139137</Latitude>
+         <Longitude>5.190849</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 36 40 15</Téléphone>
+      <Télécopie>04 76 36 40 15</Télécopie>
+      <Email>mairie.montagne@wanadoo.fr</Email>
+      <Url>http://www.commune-montagne.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

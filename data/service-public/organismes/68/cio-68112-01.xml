@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-68112-01" codeInsee="68112" dateMiseAJour="2021-02-10" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Guebwiller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 place du Marché</Ligne>
+      <CodePostal>68500</CodePostal>
+      <NomCommune>Guebwiller</NomCommune>
+      <Localisation>
+         <Latitude>47.9122009277</Latitude>
+         <Longitude>7.20995998383</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 62 16 62</Téléphone>
+      <Email>cio.guebwiller@ac-strasbourg.fr</Email>
+      <Url>http://www.ac-strasbourg.fr/orientation-formation/trouver-un-cio/guebwiller</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pendant les vacances scolaires : 
+
+du lundi au vendredi de 9h00 à 12h00 et de 13h00 à 16h00 sur rendez-vous.</Commentaire>
+</Organisme>

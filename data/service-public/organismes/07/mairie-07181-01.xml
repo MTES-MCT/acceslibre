@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07181-01" codeInsee="07181" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Pouzin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 avenue Marcel-Nicolas</Ligne>
+      <Ligne>BP 6</Ligne>
+      <CodePostal>07250</CodePostal>
+      <NomCommune>Le Pouzin</NomCommune>
+      <Localisation>
+         <Latitude>44.7560997009</Latitude>
+         <Longitude>4.74766016006</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 63 81 48</Téléphone>
+      <Télécopie>04 75 63 95 25</Télécopie>
+      <Email>mairie@lepouzin.fr</Email>
+      <Url>http://www.lepouzin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

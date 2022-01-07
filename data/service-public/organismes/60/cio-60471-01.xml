@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-60471-01" codeInsee="60471" dateMiseAJour="2021-02-09" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Noyon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>324 rue du Moulin-Saint-Blaise</Ligne>
+      <CodePostal>60400</CodePostal>
+      <NomCommune>Noyon</NomCommune>
+      <Localisation>
+         <Latitude>49.5758194</Latitude>
+         <Longitude>3.0031043</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 44 32 37</Téléphone>
+      <Email>ce.0601746x@ac-amiens.fr</Email>
+      <Url>http://cio.ac-amiens.fr/022-noyon.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pendant les congés scolaires de 9h30 à 12h et de 13h30 à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

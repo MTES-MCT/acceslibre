@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71027-01" codeInsee="71027" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaurepaire-en-Bresse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>335 route de Bourgogne</Ligne>
+      <CodePostal>71580</CodePostal>
+      <NomCommune>Beaurepaire-en-Bresse</NomCommune>
+      <Localisation>
+         <Latitude>46.669378</Latitude>
+         <Longitude>5.389571</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 74 13 24</Téléphone>
+      <Télécopie>03 85 74 13 10</Télécopie>
+      <Email>mairiebeaurepaire71@wanadoo.fr</Email>
+      <Url>http://www.beaurepaire-en-bresse.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

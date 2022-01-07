@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-76322-01" codeInsee="76322" dateMiseAJour="2021-12-15"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du Grand-Quevilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 avenue Léon-Blum</Ligne>
+      <Ligne>BP 166</Ligne>
+      <CodePostal>76122</CodePostal>
+      <NomCommune>Le Grand-Quevilly Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.4058484</Latitude>
+         <Longitude>1.0523294</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 68 33 88</Téléphone>
+      <Email>t076050@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous le mardi et vendredi après midi</Commentaire>
+</Organisme>

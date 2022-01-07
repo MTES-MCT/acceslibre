@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14654-10" codeInsee="14654" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Sainte-Marguerite-de-Viette</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <Ligne>Sainte-Marguerite-de-Viette</Ligne>
+      <CodePostal>14140</CodePostal>
+      <NomCommune>Saint-Pierre-en-Auge</NomCommune>
+      <Localisation>
+         <Latitude>49.012424469</Latitude>
+         <Longitude>0.087327003479</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 20 62 96</Téléphone>
+      <Email>stemarguerite@stpauge.fr</Email>
+      <Url>http://www.saint-pierre-en-auge.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

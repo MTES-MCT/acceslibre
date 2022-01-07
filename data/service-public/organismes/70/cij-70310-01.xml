@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-70310-01" codeInsee="70310" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Lure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 esplanade Charles-de-Gaulle</Ligne>
+      <CodePostal>70200</CodePostal>
+      <NomCommune>Lure</NomCommune>
+      <Localisation>
+         <Latitude>47.686168</Latitude>
+         <Longitude>6.497513</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 62 94 90</Téléphone>
+      <Email>ijlure@jeunes-bfc.fr</Email>
+      <Url>https://ijlure.jeunes-fc.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

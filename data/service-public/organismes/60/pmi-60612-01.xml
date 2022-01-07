@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-60612-01" codeInsee="60612" dateMiseAJour="2021-04-30" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Senlis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 avenue Étienne Audibert</Ligne>
+      <Ligne>Maison départementale de la solidarité</Ligne>
+      <CodePostal>60300</CodePostal>
+      <NomCommune>Senlis</NomCommune>
+      <Localisation>
+         <Latitude>49.2049248</Latitude>
+         <Longitude>2.6044375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 10 78 90</Téléphone>
+      <Télécopie>03 44 53 37 58</Télécopie>
+      <Url>https://www.oise.fr/actions/sante-social-solidarite/enfance-famille/protection-maternelle-et-infantile</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

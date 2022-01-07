@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63371-01" codeInsee="63371" dateMiseAJour="2019-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Just</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>63600</CodePostal>
+      <NomCommune>Saint-Just</NomCommune>
+      <Localisation>
+         <Latitude>45.469858</Latitude>
+         <Longitude>3.787966</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 95 64 05</Téléphone>
+      <Email>mairie.stjust@gmail.com</Email>
+      <Url>http://www.saintjust-63.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:15:00" fin="11:15:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

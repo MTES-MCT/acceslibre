@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52353-01" codeInsee="52353" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nogent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-de-Gaulle</Ligne>
+      <Ligne>BP 1</Ligne>
+      <CodePostal>52800</CodePostal>
+      <NomCommune>Nogent</NomCommune>
+      <Localisation>
+         <Latitude>48.0272409</Latitude>
+         <Longitude>5.341178</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 31 85 77</Téléphone>
+      <Télécopie>03 25 31 80 13</Télécopie>
+      <Email>mairie@villedenogent52.com</Email>
+      <Url>http://www.villedenogent52.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

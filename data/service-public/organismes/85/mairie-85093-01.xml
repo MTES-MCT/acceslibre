@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85093-01" codeInsee="85093" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fougeré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>58 rue de la Forêt</Ligne>
+      <CodePostal>85480</CodePostal>
+      <NomCommune>Fougeré</NomCommune>
+      <Localisation>
+         <Latitude>46.6592288</Latitude>
+         <Longitude>-1.2325396</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 05 71 78</Téléphone>
+      <Télécopie>02 51 05 74 37</Télécopie>
+      <Email>mairie@fougere.fr</Email>
+      <Url>http://www.fougere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>Consulter le site internet de la mairie pour d'éventuels changements d'horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

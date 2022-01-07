@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pif-05145-01" codeInsee="05145" dateMiseAJour="2021-09-14" pivotLocal="pif">
+   <Nom>Point info famille - Saint-Jean-Saint-Nicolas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pont du Fossé</Ligne>
+      <Ligne>Centre social Planète Champsaur</Ligne>
+      <CodePostal>05260</CodePostal>
+      <NomCommune>Saint-Jean-Saint-Nicolas</NomCommune>
+      <Localisation>
+         <Latitude>44.6691207</Latitude>
+         <Longitude>6.217501</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 55 97 11</Téléphone>
+      <Email>brigitte@planetechampsaur.fr</Email>
+      <Url>https://www.planetechampsaur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

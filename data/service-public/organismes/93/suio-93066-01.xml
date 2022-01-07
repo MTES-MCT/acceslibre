@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-93066-01" codeInsee="93066" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Paris 8 - Vincennes-Saint-Denis - Service commun universitaire d'information d'orientation et d'insertion professionnelle (SCUIO-IP)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment A</Ligne>
+      <Ligne>3e étage</Ligne>
+      <Ligne>Salle 347</Ligne>
+      <Ligne>2 rue de la Liberté</Ligne>
+      <CodePostal>93526</CodePostal>
+      <NomCommune>Saint-Denis Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9452421</Latitude>
+         <Longitude>2.3639438</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 40 67 17</Téléphone>
+      <Email>scuio@univ-paris8.fr</Email>
+      <Url>https://www.univ-paris8.fr/Orientation</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

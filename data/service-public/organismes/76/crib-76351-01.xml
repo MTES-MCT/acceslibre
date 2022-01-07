@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-76351-01" codeInsee="76351" dateMiseAJour="2021-06-07"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Association havraise pour l’accueil la médiation et l’insertion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Anfray</Ligne>
+      <CodePostal>76600</CodePostal>
+      <NomCommune>Le Havre</NomCommune>
+      <Localisation>
+         <Latitude>49.4924724</Latitude>
+         <Longitude>0.1142615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 42 32 20</Téléphone>
+      <Email>contact@aham.fr</Email>
+      <Url>http://www.aham.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

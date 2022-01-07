@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03066-01" codeInsee="03066" dateMiseAJour="2021-10-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châtel-Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Alphonse-Corre</Ligne>
+      <CodePostal>03250</CodePostal>
+      <NomCommune>Châtel-Montagne</NomCommune>
+      <Localisation>
+         <Latitude>46.1134204</Latitude>
+         <Longitude>3.6830664</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 59 72 17</Téléphone>
+      <Email>mairiechatel.montagne@orange.fr</Email>
+      <Url>https://www.chatel-montagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Sans rendez-vous de 10h à 12h et sur rendez-vous de 13 à 16h</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Sans rendez-vous de 10h à 12h et sur rendez-vous de 13h à 16h</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

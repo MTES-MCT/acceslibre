@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04173-01" codeInsee="04173" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-André-les-Alpes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Charles-Bron</Ligne>
+      <Ligne>BP 52</Ligne>
+      <CodePostal>04170</CodePostal>
+      <NomCommune>Saint-André-les-Alpes</NomCommune>
+      <Localisation>
+         <Latitude>43.9673106</Latitude>
+         <Longitude>6.5087678</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 89 02 04</Téléphone>
+      <Télécopie>04 92 89 02 56</Télécopie>
+      <Email>mairie.st-andre.les.alpes@wanadoo.fr</Email>
+      <Url>http://www.saint-andre-les-alpes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

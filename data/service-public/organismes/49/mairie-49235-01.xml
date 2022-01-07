@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-49235-01" codeInsee="49235" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parnay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Saumur</Ligne>
+      <CodePostal>49730</CodePostal>
+      <NomCommune>Parnay</NomCommune>
+      <Localisation>
+         <Latitude>47.2313737</Latitude>
+         <Longitude>0.0104471</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 38 11 61</Téléphone>
+      <Email>mairie-parnay@wanadoo.fr</Email>
+      <Url>http://www.parnay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Consulter le site internet de la mairie pour d'éventuels changements d'horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

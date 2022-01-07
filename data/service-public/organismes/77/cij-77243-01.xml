@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-77243-01" codeInsee="77243" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Lagny-sur-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>7-9 rue Vacheresse</Ligne>
+      <CodePostal>77400</CodePostal>
+      <NomCommune>Lagny-sur-Marne</NomCommune>
+      <Localisation>
+         <Latitude>48.8768882</Latitude>
+         <Longitude>2.703378</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mairie de Lagny-sur-Marne</Ligne>
+      <CodePostal>77400</CodePostal>
+      <NomCommune>Lagny-sur-Marne</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 35 92 64</Téléphone>
+      <Télécopie>01 60 35 93 50</Télécopie>
+      <Email>point-information-jeunesse@lagny-sur-marne.fr</Email>
+      <Url>http://www.lagny-sur-marne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

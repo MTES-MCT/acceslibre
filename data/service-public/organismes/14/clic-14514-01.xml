@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-14514-01" codeInsee="14514" dateMiseAJour="2019-12-30"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Pont-l'Évèque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du pays d'Auge - nord</Ligne>
+      <Ligne>14 rue de la Chaussée-Nival</Ligne>
+      <CodePostal>14130</CodePostal>
+      <NomCommune>Pont-l'Évèque</NomCommune>
+      <Localisation>
+         <Latitude>49.289823</Latitude>
+         <Longitude>0.189262</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 65 38 71</Téléphone>
+      <Email>clicpaysdaugenord@calvados.fr</Email>
+      <Url>http://www.calvados.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-13203-01" codeInsee="13203" dateMiseAJour="2021-03-19"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Bouches-du-Rhône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Paul-Peytral</Ligne>
+      <CodePostal>13282</CodePostal>
+      <NomCommune>Marseille Cedex 20</NomCommune>
+      <Localisation>
+         <Latitude>43.2904243469</Latitude>
+         <Longitude>5.37958812714</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 84 35 40 00</Téléphone>
+      <Télécopie>+33 4 84 35 48 55</Télécopie>
+      <Email>contact@bouches-du-rhone.pref.gouv.fr</Email>
+      <Url>http://www.bouches-du-rhone.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

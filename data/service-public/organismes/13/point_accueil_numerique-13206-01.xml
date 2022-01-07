@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-13206-01" codeInsee="13206"
+           dateMiseAJour="2021-02-18"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Marseille 6e (Préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>66B rue Saint-Sébastien</Ligne>
+      <CodePostal>13006</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.28247824734472</Latitude>
+         <Longitude>5.3840402639238985</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 84 35 40 00</Téléphone>
+      <Email>contact@bouches-du-rhone.pref.gouv.fr</Email>
+      <Url>https://www.bouches-du-rhone.gouv.fr/Demarches-administratives/Nos-points-numeriques</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

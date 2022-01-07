@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57620-01" codeInsee="57620" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Marie-aux-Chênes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place François-Mitterrand</Ligne>
+      <CodePostal>57255</CodePostal>
+      <NomCommune>Sainte-Marie-aux-Chênes</NomCommune>
+      <Localisation>
+         <Latitude>49.191947937</Latitude>
+         <Longitude>5.99978590012</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 61 91 01</Téléphone>
+      <Télécopie>03 87 61 84 93</Télécopie>
+      <Email>commune-smac@orange.fr</Email>
+      <Url>http://www.saintemarieauxchenes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

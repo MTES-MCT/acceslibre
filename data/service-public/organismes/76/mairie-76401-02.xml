@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-76401-02" codeInsee="76401" dateMiseAJour="2020-12-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Nicolas-de-Bliquetuit</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Nicolas-de-Bliquetuit</Ligne>
+      <Ligne>1100 Grande rue</Ligne>
+      <CodePostal>76940</CodePostal>
+      <NomCommune>Arelaune</NomCommune>
+      <Localisation>
+         <Latitude>49.50806499</Latitude>
+         <Longitude>0.728124999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 96 21 53</Téléphone>
+      <Email>mairiestnicolas@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La commune fusionne avec La Mailleraye-sur-Seine le 1er janvier 2016 pour former la commune nouvelle d'Arelaune-en-Seine et prend à cette date le statut de commune déléguée.</Commentaire>
+</Organisme>

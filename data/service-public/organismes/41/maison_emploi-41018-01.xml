@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_emploi-41018-01" codeInsee="41018" dateMiseAJour="2021-06-24"
+           pivotLocal="maison_emploi">
+   <Nom>Maison de l’emploi du Blaisois - Blois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 Avenue de Vendôme</Ligne>
+      <CodePostal>41000</CodePostal>
+      <NomCommune>Blois</NomCommune>
+      <Localisation>
+         <Latitude>47.59598</Latitude>
+         <Longitude>1.32827</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 51 17 67</Téléphone>
+      <Télécopie>02 54 51 17 46</Télécopie>
+      <Email>maisondelemploiblois@orange.fr</Email>
+      <Url>http://www.maison-emploi-blaisois.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>sauf le mardi après midi</Commentaire>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89118-01" codeInsee="89118" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coulanges-la-Vineuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>39 rue André-Vildieu</Ligne>
+      <CodePostal>89580</CodePostal>
+      <NomCommune>Coulanges-la-Vineuse</NomCommune>
+      <Localisation>
+         <Latitude>47.7001775</Latitude>
+         <Longitude>3.5811978</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 42 20 59</Téléphone>
+      <Télécopie>03 86 42 51 77</Télécopie>
+      <Email>mairie-coulanges-la-vse@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18139-01" codeInsee="18139" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marseilles-lès-Aubigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue du Port</Ligne>
+      <CodePostal>18320</CodePostal>
+      <NomCommune>Marseilles-lès-Aubigny</NomCommune>
+      <Localisation>
+         <Latitude>47.0648994446</Latitude>
+         <Longitude>3.0153400898</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 76 44 99</Téléphone>
+      <Email>marseilles@wanadoo.fr</Email>
+      <Url>http://www.marseilles-les-aubigny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>L'agence postale est située dans la mairie et ouverte aux mêmes horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

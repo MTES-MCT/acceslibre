@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-92073-01" codeInsee="92073" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Suresnes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Coordination gérontologique de Suresnes</Ligne>
+      <Ligne>7-9 rue du Mont-Valérien</Ligne>
+      <CodePostal>92150</CodePostal>
+      <NomCommune>Suresnes</NomCommune>
+      <Localisation>
+         <Latitude>48.870342</Latitude>
+         <Longitude>2.226428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>2 rue Carnot</Ligne>
+      <CodePostal>92150</CodePostal>
+      <NomCommune>Suresnes</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 18 38 57</Téléphone>
+      <Télécopie>01 41 18 38 51</Télécopie>
+      <Email>cgrandiere@ville-suresnes.fr</Email>
+      <Url>http://suresnes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

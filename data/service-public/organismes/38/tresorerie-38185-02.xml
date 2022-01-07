@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-38185-02" codeInsee="38185" dateMiseAJour="2021-02-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie amendes et produits divers de Grenoble</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Joseph Chanrion</Ligne>
+      <Ligne>BP 398</Ligne>
+      <Ligne>Bâtiment 1</Ligne>
+      <CodePostal>38023</CodePostal>
+      <NomCommune>Grenoble Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.191851</Latitude>
+         <Longitude>5.735194</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="accueil téléphonique du lundi mardi jeudi vendredi de 8h 30 à 12h et de 13h&#xA;30 à 16h">04 76 43 41 46</Téléphone>
+      <Email>t038018@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermeture le mercredi.</Commentaire>
+</Organisme>

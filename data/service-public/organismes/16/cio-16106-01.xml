@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-16106-01" codeInsee="16106" dateMiseAJour="2021-01-22" pivotLocal="cio">
+   <Nom>Centre d'information et d'orientation (CIO) - Confolens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Émile-Roux</Ligne>
+      <CodePostal>16500</CodePostal>
+      <NomCommune>Confolens</NomCommune>
+      <Localisation>
+         <Latitude>46.012806</Latitude>
+         <Longitude>0.670275</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 16 52 69 11</Téléphone>
+      <Email>cio-confolens@ac-poitiers.fr</Email>
+      <Url>http://www.cio.ac-poitiers.fr/confolens</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

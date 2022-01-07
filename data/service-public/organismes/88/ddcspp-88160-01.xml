@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddcspp-88160-01" codeInsee="88160" dateMiseAJour="2021-04-15"
+           pivotLocal="ddcspp">
+   <Nom>Direction départementale de l'emploi, du travail, des solidarités et de la protection des populations (DDETSPP) (ex DDCSPP) - Vosges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 Avenue Rose Poirier</Ligne>
+      <Ligne>BP 61029</Ligne>
+      <Ligne>Parc économique du Saut le Cerf</Ligne>
+      <CodePostal>88050</CodePostal>
+      <NomCommune>Épinal Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>48.1980775</Latitude>
+         <Longitude>6.4654116</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 68 48 48</Téléphone>
+      <Télécopie>03 29 36 18 11</Télécopie>
+      <Email>ddcspp@vosges.gouv.fr</Email>
+      <Url>https://www.vosges.gouv.fr/Actualites/La-direction-departementale-de-l-emploi-du-travail-des-solidarites-et-la-protection-des-populations</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

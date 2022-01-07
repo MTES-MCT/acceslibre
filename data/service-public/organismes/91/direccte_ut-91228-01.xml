@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-91228-01" codeInsee="91228" dateMiseAJour="2021-10-25"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Essonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>98 allée des Champs-Élysées</Ligne>
+      <CodePostal>91042</CodePostal>
+      <NomCommune>Évry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.630095</Latitude>
+         <Longitude>2.4243</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 78 05 41 00</Téléphone>
+      <Url>https://idf.drieets.gouv.fr/Adresse-et-horaires-d-ouverture-de-la-DDETS-91</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires d'ouverture des différents services.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

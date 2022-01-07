@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-38185-01" codeInsee="38185" dateMiseAJour="2021-02-22"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 71046</Ligne>
+      <Ligne>Place de Verdun</Ligne>
+      <CodePostal>38021</CodePostal>
+      <NomCommune>Grenoble Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.1891326904</Latitude>
+         <Longitude>5.73173809052</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 60 34 00</Téléphone>
+      <Télécopie>+33 4 76 51 34 88</Télécopie>
+      <Url>http://www.isere.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

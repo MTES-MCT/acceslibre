@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-76540-01" codeInsee="76540"
+           dateMiseAJour="2021-04-01"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Seine-Maritime</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Immeuble POLARIS</Ligne>
+      <Ligne>156 Boulevard de l'Europe</Ligne>
+      <Ligne>Préfecture - DDT</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <CodePostal>76000</CodePostal>
+      <NomCommune>Rouen</NomCommune>
+      <Localisation>
+         <Latitude>49.433316</Latitude>
+         <Longitude>1.07876</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>2 rue Saint-Sever</Ligne>
+      <Ligne>BP 76001</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>DDTM 76 - SCH</Ligne>
+      <CodePostal>76032</CodePostal>
+      <NomCommune>Rouen Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 18 10 64</Téléphone>
+      <Email>ddtm-sch-bha@seine-maritime.gouv.fr</Email>
+      <Url>http://www.seine-maritime.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>(accueil sur place uniquement sur rendez-vous)</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

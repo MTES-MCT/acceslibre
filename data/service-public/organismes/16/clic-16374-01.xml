@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-16374-01" codeInsee="16374" dateMiseAJour="2020-02-25"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Soyaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale des Solidarités</Ligne>
+      <Ligne>4 rue Maurice Ravel</Ligne>
+      <CodePostal>16800</CodePostal>
+      <NomCommune>Soyaux</NomCommune>
+      <Localisation>
+         <Latitude>45.64533</Latitude>
+         <Longitude>0.182944</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 16 09 51 10</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Commentaire>
+</Organisme>

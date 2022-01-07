@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-50237-01" codeInsee="50237" dateMiseAJour="2021-02-15"
+           pivotLocal="msap">
+   <Nom>France Services - La Haye-Pesnel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Guillaume le Conquérant</Ligne>
+      <Ligne>Bureau de Poste</Ligne>
+      <CodePostal>50320</CodePostal>
+      <NomCommune>La Haye-Pesnel</NomCommune>
+      <Localisation>
+         <Latitude>48.795668</Latitude>
+         <Longitude>-1.397472</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 61 41 21</Téléphone>
+      <Email>franceserviceslahaye@cocm.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/la-haye-pesnel-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

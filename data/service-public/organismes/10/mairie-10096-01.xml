@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10096-01" codeInsee="10096" dateMiseAJour="2021-10-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chennegy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue des Fourmis</Ligne>
+      <CodePostal>10190</CodePostal>
+      <NomCommune>Chennegy</NomCommune>
+      <Localisation>
+         <Latitude>48.2220001221</Latitude>
+         <Longitude>3.92340993881</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 75 85 00</Téléphone>
+      <Email>mairie.chennegy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21219-01" codeInsee="21219" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Curtil-Vergy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue des Sires-de-Vergy</Ligne>
+      <CodePostal>21220</CodePostal>
+      <NomCommune>Curtil-Vergy</NomCommune>
+      <Localisation>
+         <Latitude>47.169782</Latitude>
+         <Longitude>4.887684</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 61 43 64</Téléphone>
+      <Email>mairie-curtil-vergy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

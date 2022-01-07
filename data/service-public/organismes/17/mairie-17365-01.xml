@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17365-01" codeInsee="17365" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-d'Ary</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 route de Royan</Ligne>
+      <CodePostal>17270</CodePostal>
+      <NomCommune>Saint-Martin-d'Ary</NomCommune>
+      <Localisation>
+         <Latitude>45.226912</Latitude>
+         <Longitude>-0.214281</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 04 20 20</Téléphone>
+      <Télécopie>05 46 04 05 62</Télécopie>
+      <Email>mairie@saintmartindary.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

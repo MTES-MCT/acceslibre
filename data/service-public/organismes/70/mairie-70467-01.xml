@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70467-01" codeInsee="70467" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Loup-sur-Semouse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Henry-Guy</Ligne>
+      <CodePostal>70800</CodePostal>
+      <NomCommune>Saint-Loup-sur-Semouse</NomCommune>
+      <Localisation>
+         <Latitude>47.885113</Latitude>
+         <Longitude>6.273027</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 49 06 22</Téléphone>
+      <Télécopie>03 84 94 20 74</Télécopie>
+      <Email>mairie@saint-loup.eu</Email>
+      <Url>http://www.saint-loup.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement pour les cartes d'identité et passeport.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

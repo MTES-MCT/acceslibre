@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89324-01" codeInsee="89324" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rogny-les-Sept-Écluses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Grande-Montagne</Ligne>
+      <CodePostal>89220</CodePostal>
+      <NomCommune>Rogny-les-Sept-Écluses</NomCommune>
+      <Localisation>
+         <Latitude>47.7468926</Latitude>
+         <Longitude>2.8840312</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 74 51 78</Téléphone>
+      <Télécopie>03 86 74 56 91</Télécopie>
+      <Email>mairie.rogny@orange.fr</Email>
+      <Url>http://www.rogny-les-7-ecluses.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement un samedi par mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

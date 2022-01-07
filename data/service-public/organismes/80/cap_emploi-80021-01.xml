@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-80021-01" codeInsee="80021" dateMiseAJour="2021-05-11"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Somme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 80</Ligne>
+      <Ligne>Allée de la Pépinière</Ligne>
+      <Ligne>Bâtiment Cercis</Ligne>
+      <Ligne>Centre Oasis Dury</Ligne>
+      <CodePostal>80044</CodePostal>
+      <NomCommune>Amiens Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>49.861048</Latitude>
+         <Longitude>2.279848</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 89 00 99</Téléphone>
+      <Télécopie>03 22 95 08 66</Télécopie>
+      <Email>accueil@capemploi80.com</Email>
+      <Url>https://www.capemploi-80.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

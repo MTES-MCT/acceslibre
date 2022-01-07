@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-15196-01" codeInsee="15196" dateMiseAJour="2021-08-30"
+           pivotLocal="msap">
+   <Nom>France Services  - Saint-Mamet-la-Salvetat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue des Placettes</Ligne>
+      <CodePostal>15220</CodePostal>
+      <NomCommune>Saint-Mamet-la-Salvetat</NomCommune>
+      <Localisation>
+         <Latitude>44.858279</Latitude>
+         <Longitude>2.307308</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 49 33 30</Téléphone>
+      <Télécopie>04 71 49 33 31</Télécopie>
+      <Email>msp.stmamet@chataigneraie15.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

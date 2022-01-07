@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66222-01" codeInsee="66222" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vernet-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Entente-Cordiale</Ligne>
+      <CodePostal>66820</CodePostal>
+      <NomCommune>Vernet-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>42.5489997864</Latitude>
+         <Longitude>2.39014005661</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 05 53 25</Téléphone>
+      <Télécopie>04 68 05 66 67</Télécopie>
+      <Email>mairie.vernetlesbains@wanadoo.fr</Email>
+      <Url>https://mairie-vernet-les-bains.jimdo.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

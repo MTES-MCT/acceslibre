@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-53130-01" codeInsee="53130"
+           dateMiseAJour="2019-04-26"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Mayenne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Rue Mac-Donald</Ligne>
+      <CodePostal>53000</CodePostal>
+      <NomCommune>Laval</NomCommune>
+      <Localisation>
+         <Latitude>48.06307</Latitude>
+         <Longitude>-0.756537</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 59 92 00</Téléphone>
+      <Télécopie>02 43 59 92 80</Télécopie>
+      <Email>ce.ia53@ac-nantes.fr</Email>
+      <Url>http://www.ia53.ac-nantes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

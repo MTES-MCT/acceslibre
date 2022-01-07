@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38235-01" codeInsee="38235" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Miribel-Lanchâtre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>Rue de Chapoteyre</Ligne>
+      <CodePostal>38450</CodePostal>
+      <NomCommune>Miribel-Lanchâtre</NomCommune>
+      <Localisation>
+         <Latitude>44.9747543335</Latitude>
+         <Longitude>5.61999893188</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 34 00 42</Téléphone>
+      <Télécopie>04 76 34 12 28</Télécopie>
+      <Email>miribellanchatre.mairie@wanadoo.fr</Email>
+      <Url>http://miribel.lanchatre.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="12:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

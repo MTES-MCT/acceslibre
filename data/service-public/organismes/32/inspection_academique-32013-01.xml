@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-32013-01" codeInsee="32013"
+           dateMiseAJour="2018-05-31"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale  (DSDEN) - Gers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 place Jean-David</Ligne>
+      <CodePostal>32000</CodePostal>
+      <NomCommune>Auch</NomCommune>
+      <Localisation>
+         <Latitude>43.648322</Latitude>
+         <Longitude>0.584111</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 67 76 51 32</Téléphone>
+      <Télécopie>05 67 76 51 97</Télécopie>
+      <Email>ia32@ac-toulouse.fr</Email>
+      <Url>https://web.ac-toulouse.fr/web/dsden-gers/5945-actualites.php?action=search&amp;cat=67</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

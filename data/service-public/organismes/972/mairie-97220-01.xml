@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97220-01" codeInsee="97220" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rivière-Pilote</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue des Insurrections-Anti-Esclavagistes</Ligne>
+      <CodePostal>97211</CodePostal>
+      <NomCommune>Rivière-Pilote</NomCommune>
+      <Localisation>
+         <Latitude>14.4864694</Latitude>
+         <Longitude>-60.9060102</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 62 60 03</Téléphone>
+      <Télécopie>+596 5 96 62 73 65</Télécopie>
+      <Email>secretariat@mairie-riviere-pilote.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

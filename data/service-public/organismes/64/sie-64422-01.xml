@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-64422-01" codeInsee="64422" dateMiseAJour="2021-12-31" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques d'Oloron-Sainte-Marie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Adoue</Ligne>
+      <Ligne>BP139</Ligne>
+      <CodePostal>64404</CodePostal>
+      <NomCommune>Oloron-Sainte-Marie</NomCommune>
+      <Localisation>
+         <Latitude>43.1871155</Latitude>
+         <Longitude>-0.6100835</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 88 66 50</Téléphone>
+      <Télécopie>05 59 88 66 40</Télécopie>
+      <Email>sip-sie.oloron-sainte-marie@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil uniquement sur rendez-vous.</Commentaire>
+</Organisme>

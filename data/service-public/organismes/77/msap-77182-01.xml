@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-77182-01" codeInsee="77182" dateMiseAJour="2021-11-15"
+           pivotLocal="msap">
+   <Nom>France Services - La Ferté-Gaucher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Ernest-Delbet</Ligne>
+      <CodePostal>77320</CodePostal>
+      <NomCommune>La Ferté-Gaucher</NomCommune>
+      <Localisation>
+         <Latitude>48.7822103</Latitude>
+         <Longitude>3.3066549</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied derrière le bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 20 54 72</Téléphone>
+      <Email>msap@cc2m.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

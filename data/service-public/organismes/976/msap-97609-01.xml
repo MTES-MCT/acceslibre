@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-97609-01" codeInsee="97609" dateMiseAJour="2021-11-15"
+           pivotLocal="msap">
+   <Nom>France Services - Kani-Kéli (Mayotte)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>97625</CodePostal>
+      <NomCommune>Kani-Kéli</NomCommune>
+      <Localisation>
+         <Latitude>-12.957126</Latitude>
+         <Longitude>45.10423</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 39 09 82 01</Téléphone>
+      <Email>france-services.kani-keli@laposte.frboinahalikinga.ambdi-madi@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

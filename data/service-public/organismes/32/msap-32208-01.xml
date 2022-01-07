@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-32208-01" codeInsee="32208" dateMiseAJour="2021-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Lectoure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 cours Gambetta</Ligne>
+      <CodePostal>32700</CodePostal>
+      <NomCommune>Lectoure</NomCommune>
+      <Localisation>
+         <Latitude>43.9332433</Latitude>
+         <Longitude>0.6263476</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et monte-charge</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 68 75 47</Téléphone>
+      <Email>ccas.accueil@mairie-lectoure.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

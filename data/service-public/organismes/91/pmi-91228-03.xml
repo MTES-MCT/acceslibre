@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-91228-03" codeInsee="91228" dateMiseAJour="2021-04-22" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Évry - Parc-aux-Lièvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>Place du Parc aux Lièvres</Ligne>
+      <CodePostal>91000</CodePostal>
+      <NomCommune>Évry-Courcouronnes</NomCommune>
+      <Localisation>
+         <Latitude>48.624713</Latitude>
+         <Longitude>2.430844</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 77 05 49</Téléphone>
+      <Url>https://www.essonne.fr/les-annuaires/liste/thematique/les-centres-de-protection-maternelle-et-infantile-pmi</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

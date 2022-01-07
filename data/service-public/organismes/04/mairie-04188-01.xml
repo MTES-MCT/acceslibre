@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04188-01" codeInsee="04188" dateMiseAJour="2021-09-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Maime</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue de la Calade</Ligne>
+      <Ligne>Le Village</Ligne>
+      <CodePostal>04300</CodePostal>
+      <NomCommune>Saint-Maime</NomCommune>
+      <Localisation>
+         <Latitude>43.90398527554089</Latitude>
+         <Longitude>5.792424192052872</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 79 58 15</Téléphone>
+      <Email>mairie.saintmaime@orange.fr</Email>
+      <Url>http://www.saint-maime.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

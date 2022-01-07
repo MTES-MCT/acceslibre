@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28209-01" codeInsee="28209" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lèves</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de l'Église</Ligne>
+      <CodePostal>28300</CodePostal>
+      <NomCommune>Lèves</NomCommune>
+      <Localisation>
+         <Latitude>48.469994</Latitude>
+         <Longitude>1.480882</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 18 01 80</Téléphone>
+      <Télécopie>02 37 36 60 16</Télécopie>
+      <Email>contact@leves.fr</Email>
+      <Url>http://www.leves.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

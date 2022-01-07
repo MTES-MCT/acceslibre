@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-18109-01" codeInsee="18109" dateMiseAJour="2021-08-27"
+           pivotLocal="msap">
+   <Nom>France Services - Henrichemont</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 place de l'Hôtel de Ville</Ligne>
+      <Ligne>Terres du Haut Berry - Rosa Parks</Ligne>
+      <CodePostal>18250</CodePostal>
+      <NomCommune>Henrichemont</NomCommune>
+      <Localisation>
+         <Latitude>47.3037</Latitude>
+         <Longitude>2.52441</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 50 64 15</Téléphone>
+      <Email>franceserviceshenrichemont@terresduhautberry.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

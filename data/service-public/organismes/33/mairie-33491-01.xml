@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33491-01" codeInsee="33491" dateMiseAJour="2021-01-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vivien-de-Monségur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de l'Église</Ligne>
+      <CodePostal>33580</CodePostal>
+      <NomCommune>Saint Vivien de Monségur</NomCommune>
+      <Localisation>
+         <Latitude>44.6510049</Latitude>
+         <Longitude>0.0806577</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 61 62 77</Téléphone>
+      <Email>saint-vivien-de-monsegur@wanadoo.fr</Email>
+      <Url>http://www.saint-vivien-de-monsegur.com/contact</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:45:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

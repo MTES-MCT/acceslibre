@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60062-01" codeInsee="60062" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Berlancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>435 rue de l'Église</Ligne>
+      <CodePostal>60640</CodePostal>
+      <NomCommune>Berlancourt</NomCommune>
+      <Localisation>
+         <Latitude>49.6988983154</Latitude>
+         <Longitude>3.11185002327</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 43 30 07</Téléphone>
+      <Email>berlancourt@paysnoyonnais.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:15:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

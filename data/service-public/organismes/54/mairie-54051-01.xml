@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54051-01" codeInsee="54051" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Batilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 ter avenue des Tilleuls</Ligne>
+      <CodePostal>54980</CodePostal>
+      <NomCommune>Batilly</NomCommune>
+      <Localisation>
+         <Latitude>49.170501709</Latitude>
+         <Longitude>5.97099018097</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 22 64 13</Téléphone>
+      <Télécopie>03 82 22 62 00</Télécopie>
+      <Email>mairiebatilly@wanadoo.fr</Email>
+      <Url>http://www.communedebatilly.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

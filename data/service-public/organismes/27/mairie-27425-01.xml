@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27425-01" codeInsee="27425" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nassandres-sur-Risle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Joliot-Curie</Ligne>
+      <CodePostal>27550</CodePostal>
+      <NomCommune>Nassandres-sur-Risle</NomCommune>
+      <Localisation>
+         <Latitude>49.12879</Latitude>
+         <Longitude>0.732617</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 45 02 96</Téléphone>
+      <Email>accueil@nassandres-sur-risle.fr</Email>
+      <Url>http://www.nassandres-sur-risle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

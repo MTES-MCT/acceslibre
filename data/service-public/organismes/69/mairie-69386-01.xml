@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69386-01" codeInsee="69386" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lyon - 6e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>58 rue de Sèze</Ligne>
+      <CodePostal>69006</CodePostal>
+      <NomCommune>Lyon</NomCommune>
+      <Localisation>
+         <Latitude>45.7683968</Latitude>
+         <Longitude>4.8493863</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 83 15 00</Téléphone>
+      <Télécopie>04 72 83 15 35</Télécopie>
+      <Email>mairie6@mairie-lyon.fr</Email>
+      <Url>http://www.mairie6.lyon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="16:45:00"/>
+         <Note>Ouverture à 10h le 1er mardi du mois. Accueil ouvert de 8h45 à 12h30 et de 13h45 à 16h45 du lundi au vendredi pendant les congés scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil sur rendez-vous pour le service des passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

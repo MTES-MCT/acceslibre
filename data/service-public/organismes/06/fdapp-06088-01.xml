@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-06088-01" codeInsee="06088" dateMiseAJour="2021-05-17"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Alpes-Maritimes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chemin de Saint Roman</Ligne>
+      <Ligne>Le Clos Manda</Ligne>
+      <Ligne>682 Boulevard du Mercantour</Ligne>
+      <CodePostal>06200</CodePostal>
+      <NomCommune>Nice</NomCommune>
+      <Localisation>
+         <Latitude>43.741186</Latitude>
+         <Longitude>7.195903</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 72 06 04</Téléphone>
+      <Email>peche06.contact@gmail.com</Email>
+      <Url>https://www.peche06.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

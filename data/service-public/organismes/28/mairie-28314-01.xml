@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28314-01" codeInsee="28314" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Ressuintes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>3 rue du Perche</Ligne>
+      <CodePostal>28340</CodePostal>
+      <NomCommune>Les Ressuintes</NomCommune>
+      <Localisation>
+         <Latitude>48.6063732</Latitude>
+         <Longitude>0.884716</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette en cas de besoin</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 37 60 79</Téléphone>
+      <Email>mairie@ressuintes28.fr</Email>
+      <Url>http://www.lesforetsduperche.frles-communes/les-ressuintes</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-17306-01" codeInsee="17306" dateMiseAJour="2021-08-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Royan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Cormorans</Ligne>
+      <Ligne>BP 213</Ligne>
+      <CodePostal>17205</CodePostal>
+      <NomCommune>Royan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.637204</Latitude>
+         <Longitude>-1.028955</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 39 51 00</Téléphone>
+      <Télécopie>05 46 39 20 40</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

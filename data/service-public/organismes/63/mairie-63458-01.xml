@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63458-01" codeInsee="63458" dateMiseAJour="2019-07-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeneuve</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>63340</CodePostal>
+      <NomCommune>Villeneuve</NomCommune>
+      <Localisation>
+         <Latitude>45.476851</Latitude>
+         <Longitude>3.1871182</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 96 46 79</Téléphone>
+      <Télécopie>04 73 96 46 79</Télécopie>
+      <Email>communedevilleneuve@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

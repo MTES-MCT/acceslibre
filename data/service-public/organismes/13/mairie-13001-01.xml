@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13001-01" codeInsee="13001" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aix-en-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>CS 30715</Ligne>
+      <CodePostal>13616</CodePostal>
+      <NomCommune>Aix-en-Provence Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>43.529938</Latitude>
+         <Longitude>5.447652</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 91 90 00</Téléphone>
+      <Télécopie>04 42 91 94 92</Télécopie>
+      <Email>communication@mairie-aixenprovence.fr</Email>
+      <Url>http://www.aixenprovence.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

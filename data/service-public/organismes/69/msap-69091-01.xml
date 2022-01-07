@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-69091-01" codeInsee="69091" dateMiseAJour="2021-01-13"
+           pivotLocal="msap">
+   <Nom>France Services - Givors</Nom>
+   <EditeurSource>La Direction de l’Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Jacques Prévert</Ligne>
+      <CodePostal>69700</CodePostal>
+      <NomCommune>Givors</NomCommune>
+      <Localisation>
+         <Latitude>45.58447</Latitude>
+         <Longitude>4.76777</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 49 18 34</Téléphone>
+      <Email>franceservices-givors@ville-givors.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41267-01" codeInsee="41267" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vallières-les-Grandes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Église</Ligne>
+      <CodePostal>41400</CodePostal>
+      <NomCommune>Vallières-les-Grandes</NomCommune>
+      <Localisation>
+         <Latitude>47.4229011536</Latitude>
+         <Longitude>1.14682996273</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 20 95 07</Téléphone>
+      <Email>mairie-vallieres-les-grandes@orange.fr</Email>
+      <Url>http://www.valliereslesgrandes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement les 1er et 3e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

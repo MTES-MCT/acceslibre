@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12262-01" codeInsee="12262" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sauveterre-de-Rouergue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place des Arcades</Ligne>
+      <CodePostal>12800</CodePostal>
+      <NomCommune>Sauveterre-de-Rouergue</NomCommune>
+      <Localisation>
+         <Latitude>44.221098</Latitude>
+         <Longitude>2.317693</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 47 05 32</Téléphone>
+      <Email>mairie@sauveterre-de-rouergue.fr</Email>
+      <Url>http://www.sauveterre-de-rouergue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement ouvert le samedi en semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28255-01" codeInsee="28255" dateMiseAJour="2020-06-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moinville-la-Jeulin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue de la Mairie</Ligne>
+      <CodePostal>28700</CodePostal>
+      <NomCommune>Moinville-la-Jeulin</NomCommune>
+      <Localisation>
+         <Latitude>48.380967</Latitude>
+         <Longitude>1.700482</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 24 98 68</Téléphone>
+      <Télécopie>02 37 24 98 68</Télécopie>
+      <Email>mairiemoinvillelajeulin@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

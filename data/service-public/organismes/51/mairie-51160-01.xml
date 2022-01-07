@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51160-01" codeInsee="51160" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Compertrix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 bis rue Jules-Ferry</Ligne>
+      <CodePostal>51510</CodePostal>
+      <NomCommune>Compertrix</NomCommune>
+      <Localisation>
+         <Latitude>48.9401016235</Latitude>
+         <Longitude>4.34990978241</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 68 31 42</Téléphone>
+      <Télécopie>03 26 68 98 15</Télécopie>
+      <Email>mairie.compertrix@orange.fr</Email>
+      <Url>http://www.compertrix.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

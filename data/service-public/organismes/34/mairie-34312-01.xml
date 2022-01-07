@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34312-01" codeInsee="34312" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Tour-sur-Orb</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>34260</CodePostal>
+      <NomCommune>La Tour-sur-Orb</NomCommune>
+      <Localisation>
+         <Latitude>43.6212997437</Latitude>
+         <Longitude>3.07118010521</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 95 05 44</Téléphone>
+      <Télécopie>04 67 95 31 91</Télécopie>
+      <Email>mairie.latoursurorb@orange.fr</Email>
+      <Url>http://www.latoursurorb.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

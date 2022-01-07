@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38004-01" codeInsee="38004" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Albenc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>65 rue de l'École</Ligne>
+      <CodePostal>38470</CodePostal>
+      <NomCommune>L'Albenc</NomCommune>
+      <Localisation>
+         <Latitude>45.2232014</Latitude>
+         <Longitude>5.4392596</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 64 74 16</Téléphone>
+      <Télécopie>04 57 33 14 00</Télécopie>
+      <Email>mairie@albenc.fr</Email>
+      <Url>http://www.albenc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

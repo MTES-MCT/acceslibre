@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-61145-01" codeInsee="61145" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Domfront-Poiraie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du Bocage</Ligne>
+      <Ligne>28 rue de la Gare</Ligne>
+      <CodePostal>61700</CodePostal>
+      <NomCommune>Domfront-Poiraie</NomCommune>
+      <Localisation>
+         <Latitude>48.590879</Latitude>
+         <Longitude>-0.658565</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 37 15 95</Téléphone>
+      <Email>clic.bocage@wanadoo.fr</Email>
+      <Url>http://clic-orne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

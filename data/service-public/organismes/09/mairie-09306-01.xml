@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09306-01" codeInsee="09306" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tarascon-sur-Ariège</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 avenue Victor-Pilhes</Ligne>
+      <CodePostal>09400</CodePostal>
+      <NomCommune>Tarascon-sur-Ariège</NomCommune>
+      <Localisation>
+         <Latitude>42.8489990234</Latitude>
+         <Longitude>1.60491001606</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 34 09 88 88</Téléphone>
+      <Télécopie>05 34 09 88 89</Télécopie>
+      <Email>mairie@mairie-tarascon.com</Email>
+      <Url>http://www.mairie-tarascon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

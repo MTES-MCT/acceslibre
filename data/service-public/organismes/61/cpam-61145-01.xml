@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-61145-01" codeInsee="61145" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) de l'Orne - accueil de Domfront</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>15 rue Montgomery</Ligne>
+      <CodePostal>61700</CodePostal>
+      <NomCommune>Domfront</NomCommune>
+      <Localisation>
+         <Latitude>48.592461</Latitude>
+         <Longitude>-0.649863</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie de l'Orne</Ligne>
+      <Ligne>34 place Bonet</Ligne>
+      <Ligne>CS 30020</Ligne>
+      <CodePostal>61012</CodePostal>
+      <NomCommune>Alençon Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil ouvert sans planning fixe, les plages de rendez-vous sont ouvertes pour le mois suivant en fonction des disponibilités, accueil téléphonique du lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

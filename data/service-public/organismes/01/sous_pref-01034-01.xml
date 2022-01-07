@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-01034-01" codeInsee="01034" dateMiseAJour="2021-02-10"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture - Belley</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24, rue des Barons</Ligne>
+      <Ligne>BP 149</Ligne>
+      <CodePostal>01306</CodePostal>
+      <NomCommune>Belley</NomCommune>
+      <Localisation>
+         <Latitude>45.7581710815</Latitude>
+         <Longitude>5.68733596802</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 41 81 57</Téléphone>
+      <Email>sp-belley@ain.gouv.fr</Email>
+      <Url>http://www.ain.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

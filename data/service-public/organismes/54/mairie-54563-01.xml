@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54563-01" codeInsee="54563" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vézelise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Palais de justice</Ligne>
+      <Ligne>Rue Léonard-Boursier</Ligne>
+      <CodePostal>54330</CodePostal>
+      <NomCommune>Vézelise</NomCommune>
+      <Localisation>
+         <Latitude>48.4860038757</Latitude>
+         <Longitude>6.08697891235</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 26 90 14</Téléphone>
+      <Télécopie>03 83 26 22 44</Télécopie>
+      <Email>mairie@vezelise.com</Email>
+      <Url>http://www.vezelise.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+         <Note>Accueil possible sur rendez-vous de 17h30 à 19h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+         <Note>Accueil sur rendez-vous uniquement de 15h30 à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="19:00:00"/>
+         <Note>Accueil sur rendez-vous uniquement de 15h30 à 19h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

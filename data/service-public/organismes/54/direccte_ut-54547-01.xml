@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-54547-01" codeInsee="54547" dateMiseAJour="2018-05-15"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Meurthe-et-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Nations</Ligne>
+      <Ligne>23 boulevard de l'Europe</Ligne>
+      <CodePostal>54500</CodePostal>
+      <NomCommune>Vandœuvre-lès-Nancy</NomCommune>
+      <Localisation>
+         <Latitude>48.662177</Latitude>
+         <Longitude>6.174911</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 50 39 00</Téléphone>
+      <Télécopie>03 83 57 66 38</Télécopie>
+      <Email>acal-ud54.direction@direccte.gouv.fr</Email>
+      <Url>http://grand-est.direccte.gouv.fr/Meurthe-et-Moselle</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

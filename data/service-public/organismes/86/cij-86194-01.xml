@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-86194-01" codeInsee="86194" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Centre régional information jeunesse (CRIJ) - Nouvelle-Aquitaine - Poitiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 place du Général-de-Gaulle</Ligne>
+      <CodePostal>86000</CodePostal>
+      <NomCommune>Poitiers</NomCommune>
+      <Localisation>
+         <Latitude>46.584203</Latitude>
+         <Longitude>0.344034</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 60 68 68</Téléphone>
+      <Email>poitiers@crijna.fr</Email>
+      <Url>http://www.jeuneapoitiers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15176-01" codeInsee="15176" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Chamant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Roger-Rigaudière</Ligne>
+      <CodePostal>15140</CodePostal>
+      <NomCommune>Saint-Chamant</NomCommune>
+      <Localisation>
+         <Latitude>45.091253</Latitude>
+         <Longitude>2.436127</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 69 22 20</Téléphone>
+      <Télécopie>09 70 61 17 10</Télécopie>
+      <Email>mairie.saintchamant@wanadoo.fr</Email>
+      <Url>http://saint-chamant-cantal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil par téléphone le lundi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59649-01" codeInsee="59649" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wattignies-la-Victoire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Carnot</Ligne>
+      <CodePostal>59680</CodePostal>
+      <NomCommune>Wattignies-la-Victoire</NomCommune>
+      <Localisation>
+         <Latitude>50.200390461063364</Latitude>
+         <Longitude>4.010007552903726</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 67 82 16</Téléphone>
+      <Télécopie>03 27 64 07 16</Télécopie>
+      <Email>mairie@wattignieslavictoire.fr</Email>
+      <Url>http://www.wattignieslavictoire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

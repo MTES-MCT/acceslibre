@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-29124-01" codeInsee="29124" dateMiseAJour="2020-01-10"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Lesneven</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de Lesneven et du pays des Abers</Ligne>
+      <Ligne>Centre hospitalier</Ligne>
+      <Ligne>Rue Barbier-de-Lescoat</Ligne>
+      <CodePostal>29260</CodePostal>
+      <NomCommune>Lesneven</NomCommune>
+      <Localisation>
+         <Latitude>48.571144</Latitude>
+         <Longitude>-4.319554</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 21 02 02</Téléphone>
+      <Email>clic-lesneven@orange.fr</Email>
+      <Url>http://www.clic-lesneven-abers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence d’accueil sur rendez-vous.</Commentaire>
+</Organisme>

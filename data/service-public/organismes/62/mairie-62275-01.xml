@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62275-01" codeInsee="62275" dateMiseAJour="2017-07-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Douriez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10, place du Chapitre</Ligne>
+      <CodePostal>62870</CodePostal>
+      <NomCommune>Douriez</NomCommune>
+      <Localisation>
+         <Latitude>50.3325386047</Latitude>
+         <Longitude>1.87624394894</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 77 60 73 11</Téléphone>
+      <Télécopie>03 21 86 33 55</Télécopie>
+      <Email>douriez.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

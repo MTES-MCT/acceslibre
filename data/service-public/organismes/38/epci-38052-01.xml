@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-38052-01" codeInsee="38052" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Oisans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 bis rue Hunbert</Ligne>
+      <CodePostal>38520</CodePostal>
+      <NomCommune>Le Bourg d'Oisans</NomCommune>
+      <Localisation>
+         <Latitude>45.0521318</Latitude>
+         <Longitude>6.0298844</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 11 01 09</Téléphone>
+      <Télécopie>04 76 11 01 65</Télécopie>
+      <Email>accueil@ccoisans.fr</Email>
+      <Url>http://www.ccoisans.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

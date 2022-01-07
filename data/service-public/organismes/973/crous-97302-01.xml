@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-97302-01" codeInsee="97302" dateMiseAJour="2021-06-07"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - Cayenne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chemin Source-de-Baduel</Ligne>
+      <Ligne>BP 60522</Ligne>
+      <CodePostal>97332</CodePostal>
+      <NomCommune>Cayenne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>4.9277228</Latitude>
+         <Longitude>-52.3084075</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 94 37 85 00</Téléphone>
+      <Télécopie>05 94 30 77 46</Télécopie>
+      <Email>cite-baduel-troubiran@crous-antillesguyane.fr</Email>
+      <Url>http://www.crous-antillesguyane.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

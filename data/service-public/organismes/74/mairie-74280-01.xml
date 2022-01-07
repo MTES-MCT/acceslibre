@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74280-01" codeInsee="74280" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thônes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 82</Ligne>
+      <CodePostal>74230</CodePostal>
+      <NomCommune>Thônes</NomCommune>
+      <Localisation>
+         <Latitude>45.8824272156</Latitude>
+         <Longitude>6.32499885559</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 02 91 72</Téléphone>
+      <Télécopie>04 50 02 15 39</Télécopie>
+      <Email>accueil@mairie-thones.fr</Email>
+      <Url>http://www.mairie-thones.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Les demandes de passeport sont possible jusqu'à 17h du lundi au jeudi et 16h le vendredi, pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

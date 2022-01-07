@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31311-01" codeInsee="31311" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Magdelaine-sur-Tarn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Souvenir</Ligne>
+      <CodePostal>31340</CodePostal>
+      <NomCommune>La Magdelaine-sur-Tarn</NomCommune>
+      <Localisation>
+         <Latitude>43.827999115</Latitude>
+         <Longitude>1.50929999352</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 35 33 44</Téléphone>
+      <Télécopie>09 72 63 98 84</Télécopie>
+      <Email>mairie.magdelaine@gmail.com</Email>
+      <Url>https://www.la-magdelaine-sur-tarn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

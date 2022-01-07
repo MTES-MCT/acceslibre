@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-79014-01" codeInsee="79014" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Argenton-l'Église</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>57 place Charles-de-Gaulle</Ligne>
+      <CodePostal>79290</CodePostal>
+      <NomCommune>Loretz-d'Argenton</NomCommune>
+      <Localisation>
+         <Latitude>47.0446014404</Latitude>
+         <Longitude>-0.260742992163</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 67 02 14</Téléphone>
+      <Email>mairie@loretz-argenton.fr</Email>
+      <Url>https://www.loretzdargenton.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La commune nouvelle de Loretz-d'Argenton résulte de la fusion au 1er janvier 2019 des communes d'Argenton-l'Église et Bouillé-Loretz.</Commentaire>
+</Organisme>

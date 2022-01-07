@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-94028-01" codeInsee="94028" dateMiseAJour="2021-02-17" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Créteil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue Louis-Blériot</Ligne>
+      <CodePostal>94000</CodePostal>
+      <NomCommune>Créteil</NomCommune>
+      <Localisation>
+         <Latitude>48.775100708</Latitude>
+         <Longitude>2.46810007095</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 56 06 94</Téléphone>
+      <Télécopie>01 43 77 49 70</Télécopie>
+      <Email>cio.creteil@ac-creteil.fr</Email>
+      <Url>http://orientation.ac-creteil.fr/cio-creteil</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>de 17h30 à 19h le mardi uniquement sur rendez-vous, en accueil uniquement documentaire le vendredi matin.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous. Pendant les vacances scolaires, le CIO est ouvert au public :
+
+du lundi au vendredi sauf les jours de fermeture,
+
+de 9h30 à 13h puis de 13h30 à 17h,</Commentaire>
+</Organisme>

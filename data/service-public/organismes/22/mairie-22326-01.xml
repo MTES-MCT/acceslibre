@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22326-01" codeInsee="22326" dateMiseAJour="2021-02-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Rieul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Forge</Ligne>
+      <CodePostal>22270</CodePostal>
+      <NomCommune>Saint-Rieul</NomCommune>
+      <Localisation>
+         <Latitude>48.443901</Latitude>
+         <Longitude>-2.4198308</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 34 13 95</Téléphone>
+      <Email>saintrieul.mairie@wanadoo.fr</Email>
+      <Url>https://www.lamballe-terre-mer.bzh/accueil/institution/le-territoire/les-38-communes/saint-rieul</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

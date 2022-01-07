@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33210-01" codeInsee="33210" dateMiseAJour="2021-09-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Juillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>33890</CodePostal>
+      <NomCommune>Juillac</NomCommune>
+      <Localisation>
+         <Latitude>44.8107666</Latitude>
+         <Longitude>0.0401936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 40 51 11</Téléphone>
+      <Télécopie>05.57.40.27.53</Télécopie>
+      <Email>juillac.mairie@wanadoo.fr</Email>
+      <Url>https://www.castillonpujols.fr/la-cdc/les-31-communes/juillac/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mardi et le vendredi.</Commentaire>
+</Organisme>

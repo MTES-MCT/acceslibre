@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-33063-01" codeInsee="33063" dateMiseAJour="2021-06-07" pivotLocal="cdg">
+   <Nom>Centre de gestion de la fonction publique territoriale - Gironde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Horiopolis</Ligne>
+      <Ligne>25 rue du Cardinal-Richaud</Ligne>
+      <Ligne>CS 10019</Ligne>
+      <CodePostal>33049</CodePostal>
+      <NomCommune>Bordeaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.8873605</Latitude>
+         <Longitude>-0.563283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 11 94 30</Téléphone>
+      <Télécopie>05 56 11 94 44</Télécopie>
+      <Email>cdg33@cdg33.fr</Email>
+      <Url>http://www.cdg33.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

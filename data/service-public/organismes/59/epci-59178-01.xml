@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-59178-01" codeInsee="59178" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Douaisis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc d'activité de Dorignies</Ligne>
+      <Ligne>746 rue Jean-Perrin</Ligne>
+      <Ligne>BP 300</Ligne>
+      <CodePostal>59351</CodePostal>
+      <NomCommune>Douai Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.3679122209</Latitude>
+         <Longitude>3.08166503906</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 99 89 89</Téléphone>
+      <Télécopie>03 27 99 89 00</Télécopie>
+      <Email>communaute@douaisis-agglo.com</Email>
+      <Url>http://www.douaisis-agglo.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

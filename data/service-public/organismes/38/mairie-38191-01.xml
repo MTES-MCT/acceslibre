@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38191-01" codeInsee="38191" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alpe-d'Huez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>226 route de la Poste</Ligne>
+      <CodePostal>38750</CodePostal>
+      <NomCommune>Alpes-d'Huez</NomCommune>
+      <Localisation>
+         <Latitude>45.09179</Latitude>
+         <Longitude>6.063401</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 11 21 21</Téléphone>
+      <Email>info@mairie-alpedhuez.fr</Email>
+      <Url>http://www.alpedhuez-mairie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Pendant la crise sanitaire service urbanisme sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

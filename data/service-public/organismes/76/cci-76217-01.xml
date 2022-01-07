@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-76217-01" codeInsee="76217" dateMiseAJour="2021-08-06" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 76 - Rouen Métropole - Délégation de Dieppe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Quai de l'Avenir</Ligne>
+      <CodePostal>76200</CodePostal>
+      <NomCommune>Dieppe</NomCommune>
+      <Localisation>
+         <Latitude>49.932875</Latitude>
+         <Longitude>1.087799</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">porte d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 10 05 00</Téléphone>
+      <Email>rouenmetropole@normandie.cci.fr</Email>
+      <Url>https://www.rouen-metropole.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Les autres jours de la semaine uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

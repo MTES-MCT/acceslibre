@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18241-01" codeInsee="18241" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sancerre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Panneterie</Ligne>
+      <Ligne>BP 30</Ligne>
+      <CodePostal>18300</CodePostal>
+      <NomCommune>Sancerre</NomCommune>
+      <Localisation>
+         <Latitude>47.329583</Latitude>
+         <Longitude>2.839867</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 78 52 52</Téléphone>
+      <Télécopie>02 48 54 24 52</Télécopie>
+      <Email>mairie@ville-sancerre.fr</Email>
+      <Url>http://www.ville-sancerre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

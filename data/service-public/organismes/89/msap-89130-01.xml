@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-89130-01" codeInsee="89130" dateMiseAJour="2021-01-12"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Cravant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cravant</Ligne>
+      <Ligne>1 bis rue des écossais</Ligne>
+      <CodePostal>89460</CodePostal>
+      <NomCommune>Deux Rivières</NomCommune>
+      <Localisation>
+         <Latitude>47.682857</Latitude>
+         <Longitude>3.690938</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 42 23 44</Téléphone>
+      <Email>cravant.rsp@orange.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/agence-postale-cravant-msap</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

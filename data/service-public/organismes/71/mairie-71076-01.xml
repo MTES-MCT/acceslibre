@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71076-01" codeInsee="71076" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chalon-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 70092</Ligne>
+      <CodePostal>71321</CodePostal>
+      <NomCommune>Chalon-sur-Saône Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.7805809</Latitude>
+         <Longitude>4.8536275</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 90 50 50</Téléphone>
+      <Email>https://www.chalon.frcontact-9.html</Email>
+      <Url>https://www.chalon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

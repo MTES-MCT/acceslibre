@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-18165-01" codeInsee="18165" dateMiseAJour="2020-12-10"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Neuvy-sur-Barangeon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>1 bis route de Nançay</Ligne>
+      <CodePostal>18330</CodePostal>
+      <NomCommune>Neuvy-sur-Barangeon</NomCommune>
+      <Localisation>
+         <Latitude>47.3152212</Latitude>
+         <Longitude>2.2538686</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 51 62 63</Téléphone>
+      <Email>msap.neuvy-sur-barangeon@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/neuvy-sur-barangeon-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

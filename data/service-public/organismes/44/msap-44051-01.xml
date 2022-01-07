@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-44051-01" codeInsee="44051" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Derval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue de la Garlais</Ligne>
+      <CodePostal>44590</CodePostal>
+      <NomCommune>Derval</NomCommune>
+      <Localisation>
+         <Latitude>47.668335</Latitude>
+         <Longitude>-1.670414</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 81 82 26</Téléphone>
+      <Email>msap@cc-chateaubriant-derval.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

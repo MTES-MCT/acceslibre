@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-51108-01" codeInsee="51108" dateMiseAJour="2021-02-23"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38, rue Carnot</Ligne>
+      <CodePostal>51036</CodePostal>
+      <NomCommune>Châlons-en-Champagne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.953427</Latitude>
+         <Longitude>4.3666337</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 26 10 10</Téléphone>
+      <Télécopie>+33 3 26 26 12 03</Télécopie>
+      <Email>contact@marne.gouv.fr</Email>
+      <Url>http://www.marne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Uniquement sur rendez-vous, fermé les mardi et jeudi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

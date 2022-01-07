@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11266-01" codeInsee="11266" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Port-la-Nouvelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du 21-Juillet-1844</Ligne>
+      <Ligne>BP 59</Ligne>
+      <CodePostal>11210</CodePostal>
+      <NomCommune>Port-la-Nouvelle</NomCommune>
+      <Localisation>
+         <Latitude>43.020324707</Latitude>
+         <Longitude>3.04230189323</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 40 30 30</Téléphone>
+      <Télécopie>04 68 48 27 62</Télécopie>
+      <Email>secmaire@mairiepln.com</Email>
+      <Url>http://www.portlanouvelle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence de l'accueil uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

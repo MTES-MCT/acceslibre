@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-62193-01" codeInsee="62193" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Calaisis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>76 boulevard Gambetta</Ligne>
+      <Ligne>CS 40021</Ligne>
+      <CodePostal>62101</CodePostal>
+      <NomCommune>Calais Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.9515060945</Latitude>
+         <Longitude>1.85754776001</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 19 55 00</Téléphone>
+      <Télécopie>03 21 19 55 09</Télécopie>
+      <Email>info@grandcalais.fr</Email>
+      <Url>http://www.grandcalaisterresetmers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29032-01" codeInsee="29032" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Clohars-Fouesnant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>29950</CodePostal>
+      <NomCommune>Clohars-Fouesnant</NomCommune>
+      <Localisation>
+         <Latitude>47.897689</Latitude>
+         <Longitude>-4.064098</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 54 60 09</Téléphone>
+      <Télécopie>02 98 54 88 83</Télécopie>
+      <Email>mairie-de-clohars-fouesnant@wanadoo.fr</Email>
+      <Url>http://www.clohars-fouesnant.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

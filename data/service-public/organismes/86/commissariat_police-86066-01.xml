@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-86066-01" codeInsee="86066" dateMiseAJour="2021-09-20"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Châtellerault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 allée du Réseau Alfred</Ligne>
+      <CodePostal>86100</CodePostal>
+      <NomCommune>Châtellerault</NomCommune>
+      <Localisation>
+         <Latitude>46.81097416932996</Latitude>
+         <Longitude>0.5475250357164854</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">l'annexe située à la même adresse est accessible</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">05 49 20 05 49</Téléphone>
+      <Email>ddsp86-csp-chatellerault@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

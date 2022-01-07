@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83139-01" codeInsee="83139" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tourtour</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Château Raphélis</Ligne>
+      <CodePostal>83690</CodePostal>
+      <NomCommune>Tourtour</NomCommune>
+      <Localisation>
+         <Latitude>43.589302063</Latitude>
+         <Longitude>6.30224895477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 98 10 25 25</Téléphone>
+      <Télécopie>04 98 10 25 26</Télécopie>
+      <Email>accueil@mairietourtour.com</Email>
+      <Url>http://www.mairietourtour.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

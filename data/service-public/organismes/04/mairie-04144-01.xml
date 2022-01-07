@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04144-01" codeInsee="04144" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Palud-sur-Verdon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Château</Ligne>
+      <CodePostal>04120</CodePostal>
+      <NomCommune>La Palud-sur-Verdon</NomCommune>
+      <Localisation>
+         <Latitude>43.7769470215</Latitude>
+         <Longitude>6.33928585052</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">monte-personne qui nécessite d'être accompagné</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 77 38 02</Téléphone>
+      <Télécopie>04 92 77 30 87</Télécopie>
+      <Email>mairielapaludsurverdon@wanadoo.fr</Email>
+      <Url>http://www.lapaludsurverdon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

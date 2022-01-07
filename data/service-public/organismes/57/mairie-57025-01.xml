@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57025-01" codeInsee="57025" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Anzeling</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place du Général-de-Gaulle</Ligne>
+      <CodePostal>57320</CodePostal>
+      <NomCommune>Anzeling</NomCommune>
+      <Localisation>
+         <Latitude>49.2630767822</Latitude>
+         <Longitude>6.46734905243</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 35 78 83</Téléphone>
+      <Email>mairie@anzeling.fr</Email>
+      <Url>http://www.anzeling.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="19:30:00"/>
+         <Note>Permanence des élus uniquement de 18h30 à 19h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

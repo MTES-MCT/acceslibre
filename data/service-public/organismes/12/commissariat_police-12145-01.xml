@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-12145-01" codeInsee="12145" dateMiseAJour="2021-01-05"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Millau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue de la Condamine</Ligne>
+      <CodePostal>12100</CodePostal>
+      <NomCommune>Millau</NomCommune>
+      <Localisation>
+         <Latitude>44.1003986</Latitude>
+         <Longitude>3.0758784</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">05 65 61 23 00</Téléphone>
+      <Télécopie>05 65 60 91 08</Télécopie>
+      <Email>police-millau@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

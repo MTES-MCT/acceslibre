@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65048-01" codeInsee="65048" dateMiseAJour="2020-12-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aurensan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place François-Mitterrand</Ligne>
+      <CodePostal>65390</CodePostal>
+      <NomCommune>Aurensan</NomCommune>
+      <Localisation>
+         <Latitude>43.3042182922</Latitude>
+         <Longitude>0.087135002017</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 33 47 33</Téléphone>
+      <Email>commune.aurensan@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

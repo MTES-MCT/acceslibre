@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-24553-01" codeInsee="24553" dateMiseAJour="2020-01-06"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Tocane</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Tocane</Ligne>
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>2 place Saint-Apre</Ligne>
+      <CodePostal>24350</CodePostal>
+      <NomCommune>Tocane-Saint-Apre</NomCommune>
+      <Localisation>
+         <Latitude>45.254554</Latitude>
+         <Longitude>0.500079</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 90 32 86</Téléphone>
+      <Télécopie>01 57 67 90 74</Télécopie>
+      <Url>http://www.dordogne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

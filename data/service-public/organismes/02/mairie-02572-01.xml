@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02572-01" codeInsee="02572" dateMiseAJour="2021-10-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Orainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Jean-Moulin</Ligne>
+      <CodePostal>02190</CodePostal>
+      <NomCommune>Orainville</NomCommune>
+      <Localisation>
+         <Latitude>49.3801994324</Latitude>
+         <Longitude>4.02991008759</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 23 86 61</Téléphone>
+      <Email>mairie@orainville.fr</Email>
+      <Url>https://www.orainville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

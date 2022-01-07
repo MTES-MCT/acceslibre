@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dreal_ut-78646-01" codeInsee="78646" dateMiseAJour="2018-01-11"
+           pivotLocal="dreal_ut">
+   <Nom>Direction régionale et interdépartementale de l'environnement, de l'aménagement et des transports (DRIEAT) (ex DRIEE) - Île-de-France - Unité départementale des Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue de Noailles</Ligne>
+      <Ligne>Bâtiment B1</Ligne>
+      <CodePostal>78000</CodePostal>
+      <NomCommune>Versailles</NomCommune>
+      <Localisation>
+         <Latitude>48.797244</Latitude>
+         <Longitude>2.132529</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 24 82 40</Téléphone>
+      <Télécopie>01 30 21 54 71</Télécopie>
+      <Email>ud78.driee-if@developpement-durable.gouv.fr</Email>
+      <Url>http://www.driee.ile-de-france.developpement-durable.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="15:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

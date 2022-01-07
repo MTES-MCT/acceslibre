@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-49020-01" codeInsee="49020" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Pays de la Loire - accueil de Beaucouzé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>3 rue Charles-Lacretelle</Ligne>
+      <CodePostal>49070</CodePostal>
+      <NomCommune>Beaucouzé</NomCommune>
+      <Localisation>
+         <Latitude>47.4652086</Latitude>
+         <Longitude>-0.6167835</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole de Maine-et-Loire</Ligne>
+      <CodePostal>49938</CodePostal>
+      <NomCommune>Angers Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 31 75 75</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

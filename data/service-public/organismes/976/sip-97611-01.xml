@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-97611-01" codeInsee="97611" dateMiseAJour="2017-10-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Mamoudzou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue de l'Hôpital</Ligne>
+      <Ligne>BP 501</Ligne>
+      <CodePostal>97600</CodePostal>
+      <NomCommune>Mamoudzou</NomCommune>
+      <Localisation>
+         <Latitude>-12.7806</Latitude>
+         <Longitude>45.2278</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 269 61 81 10</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

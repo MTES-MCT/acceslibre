@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51308-01" codeInsee="51308" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jonchery-sur-Vesle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place René-Sarrette</Ligne>
+      <Ligne>BP 3</Ligne>
+      <CodePostal>51140</CodePostal>
+      <NomCommune>Jonchery-sur-Vesle</NomCommune>
+      <Localisation>
+         <Latitude>49.2869987488</Latitude>
+         <Longitude>3.8145198822</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 48 50 03</Téléphone>
+      <Email>mairie.joncherysurvesle@wanadoo.fr</Email>
+      <Url>http://www.joncherysurvesle.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

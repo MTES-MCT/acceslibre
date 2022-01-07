@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23056-01" codeInsee="23056" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châtelus-le-Marcheix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Écoliers</Ligne>
+      <CodePostal>23430</CodePostal>
+      <NomCommune>Châtelus-le-Marcheix</NomCommune>
+      <Localisation>
+         <Latitude>46.0065002441</Latitude>
+         <Longitude>1.60949003696</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 64 30 09</Téléphone>
+      <Télécopie>05 55 64 35 44</Télécopie>
+      <Email>mairie.chatelus.lemeix@wanadoo.fr</Email>
+      <Url>http://www.chateluslemarcheix.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

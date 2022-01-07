@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33256-01" codeInsee="33256" dateMiseAJour="2021-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ludon-Médoc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <Ligne>BP 02</Ligne>
+      <CodePostal>33290</CodePostal>
+      <NomCommune>Ludon-Médoc</NomCommune>
+      <Localisation>
+         <Latitude>44.9816017151</Latitude>
+         <Longitude>-0.602504014969</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 88 44 09</Téléphone>
+      <Télécopie>05 57 88 54 80</Télécopie>
+      <Email>contact@ludonmedoc.fr</Email>
+      <Url>https://ludonmedoc.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé en juillet-août et en période de confinement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

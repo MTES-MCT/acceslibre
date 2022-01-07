@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35055-01" codeInsee="35055" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chantepie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 avenue André-Bonnin</Ligne>
+      <Ligne>CS 67407</Ligne>
+      <CodePostal>35574</CodePostal>
+      <NomCommune>Chantepie Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.0886764526</Latitude>
+         <Longitude>-1.62008798122</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 41 42 33</Téléphone>
+      <Télécopie>02 99 41 48 69</Télécopie>
+      <Email>communication@ville-chantepie.fr</Email>
+      <Url>http://www.chantepie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil les 1er samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-33063-01" codeInsee="33063"
+           dateMiseAJour="2018-11-14"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Bordeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>EHPAD</Ligne>
+      <Ligne>Villa Pia</Ligne>
+      <Ligne>52 rue des Treuils</Ligne>
+      <CodePostal>33000</CodePostal>
+      <NomCommune>Bordeaux</NomCommune>
+      <Localisation>
+         <Latitude>44.825161</Latitude>
+         <Longitude>-0.583399</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 10 43 38</Téléphone>
+      <Email>accueil-plateforme@cos-asso.org</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

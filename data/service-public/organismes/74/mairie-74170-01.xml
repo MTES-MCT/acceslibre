@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74170-01" codeInsee="74170" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Massingy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route du Chef-lieu</Ligne>
+      <CodePostal>74150</CodePostal>
+      <NomCommune>Massingy</NomCommune>
+      <Localisation>
+         <Latitude>45.829813</Latitude>
+         <Longitude>5.919564</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 01 30 01</Téléphone>
+      <Télécopie>04 50 64 59 01</Télécopie>
+      <Email>mairie.massingy74@wanadoo.fr</Email>
+      <Url>http://www.massingy74.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire contacter la mairie par mail pour obtenir un rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

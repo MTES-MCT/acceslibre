@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-34172-01" codeInsee="34172" dateMiseAJour="2021-02-19"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Hérault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34, place des Martyrs-de-la-Résistance</Ligne>
+      <CodePostal>34062</CodePostal>
+      <NomCommune>Montpellier Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>43.6109542847</Latitude>
+         <Longitude>3.87658905983</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 61 61 61</Téléphone>
+      <Télécopie>+33 4 67 66 36 30</Télécopie>
+      <Url>http://www.herault.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

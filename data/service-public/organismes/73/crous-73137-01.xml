@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-73137-01" codeInsee="73137" dateMiseAJour="2019-06-17"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - Chambéry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Résidence universitaire Jacob-Chaney</Ligne>
+      <Ligne>17 rue du Chaney</Ligne>
+      <CodePostal>73000</CodePostal>
+      <NomCommune>Jacob-Bellecombette</NomCommune>
+      <Localisation>
+         <Latitude>45.560642</Latitude>
+         <Longitude>5.914251</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 69 57 45</Téléphone>
+      <Email>residence.jacob@crous-grenoble.fr</Email>
+      <Url>http://www.crous-grenoble.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

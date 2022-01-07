@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-86194-01" codeInsee="86194" dateMiseAJour="2021-04-06" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) - Poitiers (pour les départements 16, 17, 79, 86)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>7 boulevard du Colonel-Barthal</Ligne>
+      <CodePostal>86000</CodePostal>
+      <NomCommune>Poitiers</NomCommune>
+      <Localisation>
+         <Latitude>46.5808534</Latitude>
+         <Longitude>0.3557932</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">non accessible au public</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Quartier Aboville</Ligne>
+      <Ligne>BP 90647</Ligne>
+      <CodePostal>86023</CodePostal>
+      <NomCommune>Poitiers Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csnj-poitiers.trait.fct@intradef.gouv.fr</Email>
+      <Url>https://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:15:00" fin="15:30:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="15:45:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

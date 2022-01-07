@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37248-01" codeInsee="37248" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seuilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place François-Rabelais</Ligne>
+      <CodePostal>37500</CodePostal>
+      <NomCommune>Seuilly</NomCommune>
+      <Localisation>
+         <Latitude>47.1341743469</Latitude>
+         <Longitude>0.171405002475</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 95 90 35</Téléphone>
+      <Télécopie>02 47 95 85 55</Télécopie>
+      <Email>mairie.seuilly@orange.fr</Email>
+      <Url>http://www.seuilly.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

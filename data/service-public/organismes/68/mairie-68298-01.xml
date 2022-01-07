@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68298-01" codeInsee="68298" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Marie-aux-Mines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>114 rue du Maréchal-de-Lattre-de-Tassigny</Ligne>
+      <CodePostal>68160</CodePostal>
+      <NomCommune>Sainte-Marie-aux-Mines</NomCommune>
+      <Localisation>
+         <Latitude>48.2492980957</Latitude>
+         <Longitude>7.18893003464</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 58 33 60</Téléphone>
+      <Télécopie>03 89 58 33 88</Télécopie>
+      <Email>contact@ville-saintemarieauxmines.fr</Email>
+      <Url>http://www.saintemarieauxmines.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

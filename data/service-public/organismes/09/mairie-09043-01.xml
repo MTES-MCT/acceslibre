@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09043-01" codeInsee="09043" dateMiseAJour="2021-11-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Bastide-sur-l'Hers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 avenue du 8-Mai-1945</Ligne>
+      <CodePostal>09600</CodePostal>
+      <NomCommune>La Bastide-sur-l'Hers</NomCommune>
+      <Localisation>
+         <Latitude>42.9569898</Latitude>
+         <Longitude>1.9126403</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">une personne descend pour ouvrir</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 01 11 13</Téléphone>
+      <Télécopie>05 61 01 11 13</Télécopie>
+      <Email>la.bastide.sur.lhers.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

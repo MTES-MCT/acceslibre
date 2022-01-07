@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11196-01" codeInsee="11196" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Laurac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Place Blanche-de-Laurac</Ligne>
+      <CodePostal>11270</CodePostal>
+      <NomCommune>Laurac</NomCommune>
+      <Localisation>
+         <Latitude>43.2279035</Latitude>
+         <Longitude>1.9751304</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>8 rue du Pont</Ligne>
+      <CodePostal>11270</CodePostal>
+      <NomCommune>Laurac</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 24 76 51</Téléphone>
+      <Email>commune.laurac@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé pendant la période de crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert de 10h à 12h pendant la période de crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

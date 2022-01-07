@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-29235-01" codeInsee="29235" dateMiseAJour="2020-01-10"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Le Relecq-Kerhuon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du Relecq-Kerhuon</Ligne>
+      <Ligne>1 place de la Libération</Ligne>
+      <CodePostal>29480</CodePostal>
+      <NomCommune>Le Relecq-Kerhuon</NomCommune>
+      <Localisation>
+         <Latitude>48.407531</Latitude>
+         <Longitude>-4.396705</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 28 44 96</Téléphone>
+      <Télécopie>02 98 28 44 93</Télécopie>
+      <Email>ccas@mairie-relecq-kerhun.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Commentaire>
+</Organisme>

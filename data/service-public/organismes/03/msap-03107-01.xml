@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-03107-01" codeInsee="03107" dateMiseAJour="2021-09-08"
+           pivotLocal="msap">
+   <Nom>France Services - Ébreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté de communes Saint-Pourçain Sioule Limagne</Ligne>
+      <Ligne>21 allée du Chemin-de-Fer</Ligne>
+      <CodePostal>03450</CodePostal>
+      <NomCommune>Ébreuil</NomCommune>
+      <Localisation>
+         <Latitude>46.1178</Latitude>
+         <Longitude>3.090237</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 58 43 65</Téléphone>
+      <Email>msap-ebreuil@ccspsl.fr</Email>
+      <Url>https://comcom-ccspsl.fr/-Maison-de-service-public-MSAP-.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil l'après-midi uniquement sur rendez-vous de 13h30 à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil l'après-midi uniquement sur rendez-vous de 13h30 à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

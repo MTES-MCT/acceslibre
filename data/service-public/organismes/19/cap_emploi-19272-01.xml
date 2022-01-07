@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-19272-01" codeInsee="19272" dateMiseAJour="2021-05-06"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Corrèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 19</Ligne>
+      <Ligne>Maison de la Solidarité</Ligne>
+      <Ligne>25 quai Gabriel Péri</Ligne>
+      <CodePostal>19000</CodePostal>
+      <NomCommune>Tulle</NomCommune>
+      <Localisation>
+         <Latitude>45.26416</Latitude>
+         <Longitude>1.770137</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 20 83 88</Téléphone>
+      <Télécopie>05 55 20 83 89</Télécopie>
+      <Email>secretariat@capemploi19.com</Email>
+      <Url>https://www.capemploi-19.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

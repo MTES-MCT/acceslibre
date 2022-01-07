@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-36161-01" codeInsee="36161" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Pont-Chrétien-Chabenet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 allée du Broutet</Ligne>
+      <CodePostal>36800</CodePostal>
+      <NomCommune>Le Pont-Chrétien-Chabenet</NomCommune>
+      <Localisation>
+         <Latitude>46.6279983521</Latitude>
+         <Longitude>1.47807002068</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 25 81 40</Téléphone>
+      <Télécopie>02 54 25 87 50</Télécopie>
+      <Email>secretariat@lepontchretienchabenet.fr</Email>
+      <Url>http://www.lepontchretienchabenet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

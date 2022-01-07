@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68008-01" codeInsee="68008" dateMiseAJour="2020-11-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Appenwihr</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Principale</Ligne>
+      <CodePostal>68280</CodePostal>
+      <NomCommune>Appenwihr</NomCommune>
+      <Localisation>
+         <Latitude>48.028312</Latitude>
+         <Longitude>7.439665</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 71 40 60</Téléphone>
+      <Email>mairie@appenwihr.fr</Email>
+      <Url>https://www.paysrhinbrisach.fr/les-communes/appenwihr-2/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

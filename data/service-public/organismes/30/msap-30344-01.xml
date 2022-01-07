@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-30344-01" codeInsee="30344" dateMiseAJour="2021-02-15"
+           pivotLocal="msap">
+   <Nom>France Services - Vergèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la République</Ligne>
+      <CodePostal>30310</CodePostal>
+      <NomCommune>Vergèze</NomCommune>
+      <Localisation>
+         <Latitude>43.742257</Latitude>
+         <Longitude>4.219722</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 35 80 00</Téléphone>
+      <Télécopie>04 66 73 79 80</Télécopie>
+      <Email>msap@vergeze.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/vergeze</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Accueil ouvert également au centre social Marcel Pagnol de 14h à 18h.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert également mardi et jeudi au centre social Marcel Pagnol de 14h à 18h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

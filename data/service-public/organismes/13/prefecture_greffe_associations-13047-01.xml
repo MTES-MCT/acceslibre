@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-13047-01" codeInsee="13047"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Bouches-du-Rhône (Istres)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission départementale vie associative</Ligne>
+      <Ligne>Sous-préfecture d'Istres</Ligne>
+      <Ligne>Avenue des Bolles</Ligne>
+      <Ligne>CS 60004</Ligne>
+      <CodePostal>13808</CodePostal>
+      <NomCommune>Istres Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.503794</Latitude>
+         <Longitude>4.994542</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 86 57 69</Téléphone>
+      <Email>sp-istres-associations@bouches-du-rhone.gouv.fr</Email>
+      <Url>http://www.bouches-du-rhone.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil téléphonique</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

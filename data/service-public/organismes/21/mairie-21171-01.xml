@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21171-01" codeInsee="21171" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chevigny-Saint-Sauveur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-de-Gaulle</Ligne>
+      <CodePostal>21806</CodePostal>
+      <NomCommune>Chevigny-Saint-Sauveur</NomCommune>
+      <Localisation>
+         <Latitude>47.2784004211</Latitude>
+         <Longitude>5.10483980179</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 48 15 15</Téléphone>
+      <Email>contact@chevigny-saint-saveur.fr</Email>
+      <Url>http://www.chevigny-saint-sauveur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire la mairie ferme à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

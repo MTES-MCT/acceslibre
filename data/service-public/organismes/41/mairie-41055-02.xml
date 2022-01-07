@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41055-02" codeInsee="41055" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Seillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Seillac</Ligne>
+      <Ligne>10 rue Fernand-Boulon</Ligne>
+      <CodePostal>41150</CodePostal>
+      <NomCommune>Valloire-sur-Cisse</NomCommune>
+      <Localisation>
+         <Latitude>47.5431556702</Latitude>
+         <Longitude>1.15796995163</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">entrée libre pour les personnes à mobilité réduite par une porte secondaire</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 20 84 84</Téléphone>
+      <Email>seillac@valloire-sur-cisse.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

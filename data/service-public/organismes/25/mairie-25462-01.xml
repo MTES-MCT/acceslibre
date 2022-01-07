@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25462-01" codeInsee="25462" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pontarlier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 rue de la République</Ligne>
+      <Ligne>BP 259</Ligne>
+      <CodePostal>25304</CodePostal>
+      <NomCommune>Pontarlier Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.9041003</Latitude>
+         <Longitude>6.3541968</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 38 81 38</Téléphone>
+      <Télécopie>03 81 39 56 64</Télécopie>
+      <Email>mairie.pontarlier@ville-pontarlier.com</Email>
+      <Url>http://www.ville-pontarlier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire consulter le site internet de la mairie pour connaître les modalités d'accès aux différents services.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

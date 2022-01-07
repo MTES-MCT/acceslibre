@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31484-01" codeInsee="31484" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Geniès-Bellevue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue Principale</Ligne>
+      <CodePostal>31180</CodePostal>
+      <NomCommune>Saint-Geniès-Bellevue</NomCommune>
+      <Localisation>
+         <Latitude>43.6842486</Latitude>
+         <Longitude>1.4859663</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 89 00 00</Téléphone>
+      <Email>mairie-sgb@wanadoo.fr</Email>
+      <Url>http://www.saint-genies-bellevue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous et fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

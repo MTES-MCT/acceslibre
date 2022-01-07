@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-33316-01" codeInsee="33316" dateMiseAJour="2021-01-13"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Pellegrue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place du 8-Mai-1945</Ligne>
+      <CodePostal>33790</CodePostal>
+      <NomCommune>Pellegrue</NomCommune>
+      <Localisation>
+         <Latitude>44.743734</Latitude>
+         <Longitude>0.075612</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 61 30 18</Téléphone>
+      <Email>rsp-pellegrue@paysfoyen.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/pays-foyen-antenne-de-pellegrue</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

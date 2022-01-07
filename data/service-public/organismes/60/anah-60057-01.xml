@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-60057-01" codeInsee="60057" dateMiseAJour="2017-02-21"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Oise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 boulevard Amyot-d'Inville</Ligne>
+      <Ligne>BP 20317</Ligne>
+      <CodePostal>60021</CodePostal>
+      <NomCommune>Beauvais Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.4336523</Latitude>
+         <Longitude>2.078952</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 06 50 11</Téléphone>
+      <Télécopie>03 44 06 50 01</Télécopie>
+      <Email>beatrice.baillard-herlem@oise.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

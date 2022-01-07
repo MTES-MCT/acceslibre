@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67222-01" codeInsee="67222" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ingwiller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>85 rue du Général-Goureau</Ligne>
+      <CodePostal>67340</CodePostal>
+      <NomCommune>Ingwiller</NomCommune>
+      <Localisation>
+         <Latitude>48.8732643127</Latitude>
+         <Longitude>7.47967910767</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 89 47 20</Téléphone>
+      <Télécopie>03 88 89 41 72</Télécopie>
+      <Email>accueil.mairieingwiller@orange.fr</Email>
+      <Url>http://www.mairie-ingwiller.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

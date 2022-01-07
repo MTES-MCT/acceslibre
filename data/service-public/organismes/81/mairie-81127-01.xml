@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81127-01" codeInsee="81127" dateMiseAJour="2021-11-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lacroisille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>81470</CodePostal>
+      <NomCommune>Lacroisille</NomCommune>
+      <Localisation>
+         <Latitude>43.582721</Latitude>
+         <Longitude>1.931953</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 70 32 29</Téléphone>
+      <Email>mairielacroisille@orange.fr</Email>
+      <Url>http://www.lacroisille.e-monsite.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

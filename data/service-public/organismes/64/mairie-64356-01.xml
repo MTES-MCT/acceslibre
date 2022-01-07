@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64356-01" codeInsee="64356" dateMiseAJour="2021-02-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Luc-Armau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de la Mairie</Ligne>
+      <CodePostal>64350</CodePostal>
+      <NomCommune>Luc-Armau</NomCommune>
+      <Localisation>
+         <Latitude>43.421836</Latitude>
+         <Longitude>-0.064983</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 68 50 76</Téléphone>
+      <Télécopie>05 59 68 50 76</Télécopie>
+      <Email>mairie.luc.armau@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

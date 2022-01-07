@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-07010-01" codeInsee="07010" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Annonay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction territoriale d'action sociale - Nord</Ligne>
+      <Ligne>10 rue de la Lombardière</Ligne>
+      <CodePostal>07100</CodePostal>
+      <NomCommune>Annonay</NomCommune>
+      <Localisation>
+         <Latitude>45.2554788</Latitude>
+         <Longitude>4.69779159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 32 42 01</Téléphone>
+      <Télécopie>04 75 32 72 40</Télécopie>
+      <Email>pa.utn@ardeche.fr</Email>
+      <Url>http://www.ardeche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

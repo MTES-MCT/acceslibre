@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-63113-02" codeInsee="63113" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Puy-de-Dôme - accueil de Clermont-Ferrand - Champratel (ex Neyrat)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>13 rue Adrien-Mabrut</Ligne>
+      <CodePostal>63000</CodePostal>
+      <NomCommune>Clermont-Ferrand</NomCommune>
+      <Localisation>
+         <Latitude>45.813900002</Latitude>
+         <Longitude>3.1207900043</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Puy-de-Dôme</Ligne>
+      <Ligne>2 rue Auger</Ligne>
+      <CodePostal>63032</CodePostal>
+      <NomCommune>Clermont-Ferrand Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil ouvert les 1er, 3e et 5e lundis du mois.Les 2e et 4e lundi du mois, accueil ouvert de 9h à 12h et de 13h30 à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-14257-01" codeInsee="14257" dateMiseAJour="2021-03-03"
+           pivotLocal="msap">
+   <Nom>France Services - Évrecy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue d'Yverdon</Ligne>
+      <CodePostal>14210</CodePostal>
+      <NomCommune>Évrecy</NomCommune>
+      <Localisation>
+         <Latitude>49.09963</Latitude>
+         <Longitude>-0.498973</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 71 96 93</Téléphone>
+      <Email>pi14evrecy@vallees-orne-odon.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le vendredi</Commentaire>
+</Organisme>

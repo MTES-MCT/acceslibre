@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="59606" dateMiseAJour="2021-12-14" id="prudhommes-59606-01" idPresta="4cac9e5f293594648a0002b9" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Valenciennes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>18 PLACE DU 8 MAI 1945</Ligne>
+        <CodePostal>59326</CodePostal>
+        <NomCommune>VALENCIENNES CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>50.357038</Latitude>
+            <Longitude>3.518408</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>18 PLACE DU 8 MAI 1945</Ligne>
+        <CodePostal>59326</CodePostal>
+        <NomCommune>VALENCIENNES CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 27 32 28 50</Téléphone>
+        <Télécopie>03 27 28 95 03</Télécopie>
+        <Email>mailto:cph-valenciennes@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="jeudi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-27467-01" codeInsee="27467" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Pont-Audemer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle-social</Ligne>
+      <Ligne>9 rue des Papetiers</Ligne>
+      <CodePostal>27500</CodePostal>
+      <NomCommune>Pont-Audemer</NomCommune>
+      <Localisation>
+         <Latitude>49.35779953</Latitude>
+         <Longitude>0.507773995399</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">prévenir avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 41 11 57</Téléphone>
+      <Email>pole-pmi@eure.fr</Email>
+      <Url>http://www.eure.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

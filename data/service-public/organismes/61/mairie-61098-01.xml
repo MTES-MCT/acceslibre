@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61098-01" codeInsee="61098" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-près-Sées</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place de la Mairie</Ligne>
+      <CodePostal>61500</CodePostal>
+      <NomCommune>La Chapelle-près-Sées</NomCommune>
+      <Localisation>
+         <Latitude>48.571085</Latitude>
+         <Longitude>0.1610112</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 27 83 11</Téléphone>
+      <Email>mairie.lachapelle-pres-sees@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

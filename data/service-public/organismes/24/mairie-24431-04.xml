@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24431-04" codeInsee="24431" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Julien-de-Crempse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Julien-de-Crempse</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24140</CodePostal>
+      <NomCommune>Eyraud-Crempse-Maurens</NomCommune>
+      <Localisation>
+         <Latitude>44.980229</Latitude>
+         <Longitude>0.546312</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 24 22 19</Téléphone>
+      <Email>st.julien.de.crempse@wanadoo.fr</Email>
+      <Url>http://www.eyraud-crempse-maurens.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

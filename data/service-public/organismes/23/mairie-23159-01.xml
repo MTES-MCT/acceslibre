@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23159-01" codeInsee="23159" dateMiseAJour="2019-02-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puy-Malsignat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 route d'Aubusson</Ligne>
+      <CodePostal>23130</CodePostal>
+      <NomCommune>Puy-Malsignat</NomCommune>
+      <Localisation>
+         <Latitude>46.037277</Latitude>
+         <Longitude>2.218005</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 83 30 95</Téléphone>
+      <Télécopie>05 55 83 30 95</Télécopie>
+      <Email>mairie.puy-malsignat@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

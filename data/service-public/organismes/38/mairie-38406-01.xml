@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38406-01" codeInsee="38406" dateMiseAJour="2020-06-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Julien-de-l'Herms</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>38122</CodePostal>
+      <NomCommune>Saint-Julien-de-l'Herms</NomCommune>
+      <Localisation>
+         <Latitude>45.3996824</Latitude>
+         <Longitude>5.1191236</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 59 24 77</Téléphone>
+      <Télécopie>04 74 59 23 42</Télécopie>
+      <Email>mairie.saint-julien@entre-bievreetrhone.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

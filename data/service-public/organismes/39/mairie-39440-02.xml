@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39440-02" codeInsee="39440" dateMiseAJour="2019-04-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Pratz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pratz</Ligne>
+      <Ligne>9 rue du Tacot</Ligne>
+      <CodePostal>39170</CodePostal>
+      <NomCommune>Lavans-lès-Saint-Claude</NomCommune>
+      <Localisation>
+         <Latitude>46.377347</Latitude>
+         <Longitude>5.762597</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 42 84 87</Téléphone>
+      <Télécopie>03 84 42 27 40</Télécopie>
+      <Email>mairie.pratz@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>A compter du 1er janvier 2019, la commune nouvelle de Lavans-lès-Saint-Claude est créée en lieu et place des communes de Lavans-lès-Saint-Claude et de Pratz (canton de Moirans-en-Montagne pour Pratz et canton de Saint-Lupicin pour Lavans-lès-Saint-Claude, arrondissement de Saint-Claude).</Commentaire>
+</Organisme>

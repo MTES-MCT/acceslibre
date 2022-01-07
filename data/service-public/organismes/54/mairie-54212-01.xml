@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54212-01" codeInsee="54212" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fresnois-la-Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 bis rue de la Huilière</Ligne>
+      <CodePostal>54260</CodePostal>
+      <NomCommune>Fresnois-la-Montagne</NomCommune>
+      <Localisation>
+         <Latitude>49.492673</Latitude>
+         <Longitude>5.648334</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 26 77 14</Téléphone>
+      <Email>mairie.fresnois.montagne@orange.fr</Email>
+      <Url>http://www.fresnois-la-montagne.mairie54.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>En cas d'absence, contacter le maire au 0771142180 pour toute demande.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>En cas d'absence,contacter le maire au 0771142180 pour toute demande.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

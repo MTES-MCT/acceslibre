@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17013-01" codeInsee="17013" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Antezant-la-Chapelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 allée des Tilleuls</Ligne>
+      <CodePostal>17400</CodePostal>
+      <NomCommune>Antezant-la-Chapelle</NomCommune>
+      <Localisation>
+         <Latitude>45.982764</Latitude>
+         <Longitude>-0.460757</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 59 91 29</Téléphone>
+      <Email>mairie@antezant-lachapelle.fr</Email>
+      <Url>http://www.antezant.wix.com/antezant-la-chapelle</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

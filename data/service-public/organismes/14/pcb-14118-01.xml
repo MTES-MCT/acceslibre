@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pcb-14118-01" codeInsee="14118" dateMiseAJour="2021-11-26" pivotLocal="pcb">
+   <Nom>Point conseil budget - Union départementale des associations familiales (UDAF 14) - Caen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 place Champlain</Ligne>
+      <Ligne>France Services</Ligne>
+      <CodePostal>14000</CodePostal>
+      <NomCommune>Caen</NomCommune>
+      <Localisation>
+         <Latitude>49.198068</Latitude>
+         <Longitude>-0.3468446</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02.31.94.65.94</Téléphone>
+      <Email>PCB.caen@udaf14.fr</Email>
+      <Url>http://www.udaf14.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

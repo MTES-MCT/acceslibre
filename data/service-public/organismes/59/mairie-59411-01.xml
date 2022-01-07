@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59411-01" codeInsee="59411" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mons-en-Pévèle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>230 rue du Moulin</Ligne>
+      <CodePostal>59246</CodePostal>
+      <NomCommune>Mons-en-Pévèle</NomCommune>
+      <Localisation>
+         <Latitude>50.480352</Latitude>
+         <Longitude>3.099575</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 59 21 10</Téléphone>
+      <Télécopie>03 20 84 92 37</Télécopie>
+      <Email>contact@mairie-monsenpevele.fr</Email>
+      <Url>http://www.mairie-monsenpevele.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

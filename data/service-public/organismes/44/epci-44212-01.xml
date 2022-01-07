@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-44212-01" codeInsee="44212" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Sèvre et Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Charles-de-Gaulle</Ligne>
+      <CodePostal>44330</CodePostal>
+      <NomCommune>Vallet</NomCommune>
+      <Localisation>
+         <Latitude>47.1613003</Latitude>
+         <Longitude>-1.2663481</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 71 92 12</Téléphone>
+      <Email>contact@cc-sevreloire.fr</Email>
+      <Url>http://www.cc-sevreloire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

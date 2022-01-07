@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33271-01" codeInsee="33271" dateMiseAJour="2021-01-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marions</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 le Bourg Nord</Ligne>
+      <CodePostal>33690</CodePostal>
+      <NomCommune>Marions</NomCommune>
+      <Localisation>
+         <Latitude>44.38386</Latitude>
+         <Longitude>-0.08937</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 25 57 00</Téléphone>
+      <Email>mairie.marions@orange.fr</Email>
+      <Url>http://www.marions.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

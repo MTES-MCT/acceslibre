@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39021-01" codeInsee="39021" dateMiseAJour="2017-11-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chailleuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Arthenas</Ligne>
+      <Ligne>269 Grande rue</Ligne>
+      <CodePostal>39270</CodePostal>
+      <NomCommune>La Chailleuse</NomCommune>
+      <Localisation>
+         <Latitude>46.5597324</Latitude>
+         <Longitude>5.5571128</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 44 21 82</Téléphone>
+      <Télécopie>03 84 44 21 82</Télécopie>
+      <Email>mairie@lachailleuse.fr</Email>
+      <Url>http://www.lachailleuse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-59462-01" codeInsee="59462" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Phalempin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Eollis</Ligne>
+      <Ligne>7 rue Jean-Baptiste-Lebas</Ligne>
+      <CodePostal>59133</CodePostal>
+      <NomCommune>Phalempin</NomCommune>
+      <Localisation>
+         <Latitude>50.517852</Latitude>
+         <Longitude>3.018571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">par l'arrière</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 90 01 01</Téléphone>
+      <Télécopie>03 20 90 39 06</Télécopie>
+      <Email>contact@eollis.net</Email>
+      <Url>http://www.eollis.net</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 9h à 12h et de 14h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

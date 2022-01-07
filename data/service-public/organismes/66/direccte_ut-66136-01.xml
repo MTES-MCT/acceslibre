@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-66136-01" codeInsee="66136" dateMiseAJour="2018-05-17"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Pyrénées-Orientales</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>76 boulevard Aristide-Briand</Ligne>
+      <CodePostal>66000</CodePostal>
+      <NomCommune>Perpignan</NomCommune>
+      <Localisation>
+         <Latitude>42.692422</Latitude>
+         <Longitude>2.899166</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 11 64 39 00</Téléphone>
+      <Télécopie>04 11 64 39 01</Télécopie>
+      <Email>lrmp-ud66.direction@direccte.gouv.fr</Email>
+      <Url>http://www.occitanie.direccte.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

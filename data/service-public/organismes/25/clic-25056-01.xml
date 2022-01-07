@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-25056-01" codeInsee="25056" dateMiseAJour="2020-01-13"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Besançon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination</Ligne>
+      <Ligne>Maison des séniors</Ligne>
+      <Ligne>8 rue Pasteur</Ligne>
+      <CodePostal>25000</CodePostal>
+      <NomCommune>Besançon</NomCommune>
+      <Localisation>
+         <Latitude>47.23821</Latitude>
+         <Longitude>6.021917</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 41 22 04</Téléphone>
+      <Email>maison-des-seniors@besancon.fr</Email>
+      <Url>http://www.besancon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

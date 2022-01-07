@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48027-06" codeInsee="48027" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Belvezet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Belvezet</Ligne>
+      <CodePostal>48170</CodePostal>
+      <NomCommune>Mont Lozère et Goulet</NomCommune>
+      <Localisation>
+         <Latitude>44.563313</Latitude>
+         <Longitude>3.74394</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 47 97 50</Téléphone>
+      <Email>mairie@montlozereetgoulet.fr</Email>
+      <Url>http://www.mont-lozère-et-goulet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

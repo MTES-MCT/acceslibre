@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24040-01" codeInsee="24040" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beynac-et-Cazenac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>1 rue de la Laïcité</Ligne>
+      <CodePostal>24220</CodePostal>
+      <NomCommune>Beynac-et-Cazenac</NomCommune>
+      <Localisation>
+         <Latitude>44.8556036</Latitude>
+         <Longitude>1.1304516</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 31 34 00</Téléphone>
+      <Télécopie>05 53 31 34 04</Télécopie>
+      <Email>mairiebeynacetcazenac@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

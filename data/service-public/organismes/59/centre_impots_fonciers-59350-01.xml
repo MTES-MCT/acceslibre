@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-59350-01" codeInsee="59350"
+           dateMiseAJour="2021-06-16"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Service départemental des impôts foncier (SDIF) Nord - Lille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Lavoisier</Ligne>
+      <CodePostal>59466</CodePostal>
+      <NomCommune>Lomme Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.64548320287932</Latitude>
+         <Longitude>3.0047914684337043</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Depuis le 1er janvier 2021, les services en charge de la mission foncière du département du Nord ont fusionné sous l'appellation &#34;Service Départemental des Impôts Fonciers&#34;. Le siège du service est implanté à Lille. Pour entrer en contact, privilégiez la messagerie sécurisée via impots.gouv.">03 20 95 65 53</Téléphone>
+      <Email>sdif.nord@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

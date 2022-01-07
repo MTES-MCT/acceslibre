@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30148-01" codeInsee="30148" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Liouc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>62 montée de l'Aire</Ligne>
+      <CodePostal>30260</CodePostal>
+      <NomCommune>Liouc</NomCommune>
+      <Localisation>
+         <Latitude>43.893794</Latitude>
+         <Longitude>3.998827</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 77 30 44</Téléphone>
+      <Email>mairie.de.liouc@wanadoo.fr</Email>
+      <Url>http://www.mairie-liouc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

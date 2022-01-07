@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64249-01" codeInsee="64249" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Guéthary</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>450 avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>64210</CodePostal>
+      <NomCommune>Guéthary</NomCommune>
+      <Localisation>
+         <Latitude>43.4247163</Latitude>
+         <Longitude>-1.6089898</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 26 57 83</Téléphone>
+      <Email>mairie.guethary@orange.fr</Email>
+      <Url>http://www.guethary.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

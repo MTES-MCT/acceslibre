@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04126-01" codeInsee="04126" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montclar</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment communal</Ligne>
+      <CodePostal>04140</CodePostal>
+      <NomCommune>Montclar</NomCommune>
+      <Localisation>
+         <Latitude>44.3974304199</Latitude>
+         <Longitude>6.33355379105</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 30 92 00</Téléphone>
+      <Télécopie>04 92 30 92 09</Télécopie>
+      <Email>secretariat@mairie-montclar.com</Email>
+      <Url>http://www.mairie-montclar.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

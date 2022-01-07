@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-24352-01" codeInsee="24352" dateMiseAJour="2021-05-05"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Ribérac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Amiral-Augey-Dufraisse</Ligne>
+      <CodePostal>24600</CodePostal>
+      <NomCommune>Ribérac</NomCommune>
+      <Localisation>
+         <Latitude>45.246394</Latitude>
+         <Longitude>0.337651</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 92 46 00</Téléphone>
+      <Email>t024027@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Sans rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous les Lundi et Jeudi de 13h30 à 15h30.</Commentaire>
+</Organisme>

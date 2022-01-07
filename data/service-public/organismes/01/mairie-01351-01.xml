@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01351-01" codeInsee="01351" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-sur-Chalaronne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place des Combattants</Ligne>
+      <CodePostal>01140</CodePostal>
+      <NomCommune>Saint-Étienne-sur-Chalaronne</NomCommune>
+      <Localisation>
+         <Latitude>46.1476476</Latitude>
+         <Longitude>4.8659529</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 24 01 18</Téléphone>
+      <Télécopie>04 74 24 01 03</Télécopie>
+      <Email>mairie.st.etienne@wanadoo.fr</Email>
+      <Url>http://www.saintetiennesurchalaronne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="11:00:00"/>
+         <Note>Accueil ouvert uniquement en semaine impaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

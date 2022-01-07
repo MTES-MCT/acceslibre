@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91035-01" codeInsee="91035" dateMiseAJour="2018-10-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Authon-la-Plaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place de l'Église</Ligne>
+      <CodePostal>91410</CodePostal>
+      <NomCommune>Authon-la-Plaine</NomCommune>
+      <Localisation>
+         <Latitude>48.450967</Latitude>
+         <Longitude>1.9573541</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 95 51 07</Téléphone>
+      <Télécopie>01 69 58 57 23</Télécopie>
+      <Email>mairiedauthonlaplaine@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

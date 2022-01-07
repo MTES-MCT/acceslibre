@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25152-01" codeInsee="25152" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chevillotte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Verdeline</Ligne>
+      <CodePostal>25620</CodePostal>
+      <NomCommune>La Chevillotte</NomCommune>
+      <Localisation>
+         <Latitude>47.2208</Latitude>
+         <Longitude>6.1669</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 55 76 88</Téléphone>
+      <Email>mairiedelachevillotte@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Permanence du maire uniquement de 15h à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

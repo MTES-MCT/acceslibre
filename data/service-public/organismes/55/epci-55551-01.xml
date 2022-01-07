@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-55551-01" codeInsee="55551" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Côtes de Meuse Woëvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Raymond-Poincaré</Ligne>
+      <CodePostal>55210</CodePostal>
+      <NomCommune>Vigneulles-lès-Hattonchâtel</NomCommune>
+      <Localisation>
+         <Latitude>48.9807877</Latitude>
+         <Longitude>5.7048595</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 90 00 60</Téléphone>
+      <Télécopie>03 29 90 00 61</Télécopie>
+      <Email>accueil@cc-cotesdemeuse-woevre.fr</Email>
+      <Url>http://www.cc-cotesdemeuse-woevre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

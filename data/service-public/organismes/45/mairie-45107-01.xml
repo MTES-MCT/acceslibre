@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45107-01" codeInsee="45107" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coudroy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de Choiseau</Ligne>
+      <CodePostal>45260</CodePostal>
+      <NomCommune>Coudroy</NomCommune>
+      <Localisation>
+         <Latitude>47.9056396484</Latitude>
+         <Longitude>2.47023105621</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 63 20 50 87</Téléphone>
+      <Télécopie>02 38 94 84 52</Télécopie>
+      <Email>mairie.coudroy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+         <Note>Permanences téléphonique les lundis, mardis, jeudis et vendredis à partir de 9h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

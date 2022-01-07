@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="06069" dateMiseAJour="2021-12-14" id="prudhommes-06069-01" idPresta="4cac9ed6293594648a00ed5c" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Grasse</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>37 AVENUE PIERRE SEMARD</Ligne>
+        <Ligne>BP 71029</Ligne>
+        <CodePostal>06133</CodePostal>
+        <NomCommune>GRASSE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>43.65631</Latitude>
+            <Longitude>6.926526</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>37 AVENUE PIERRE SEMARD</Ligne>
+        <Ligne>BP 71029</Ligne>
+        <CodePostal>06133</CodePostal>
+        <NomCommune>GRASSE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 92 60 71 20</Téléphone>
+        <Télécopie>04 92 60 74 71</Télécopie>
+        <Email>mailto:cph-grasse@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

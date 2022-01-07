@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57578-01" codeInsee="57578" dateMiseAJour="2019-01-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rezonville-Vionville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rezonville</Ligne>
+      <Ligne>78 rue de Metz</Ligne>
+      <CodePostal>57130</CodePostal>
+      <NomCommune>Rezonville-Vionville</NomCommune>
+      <Localisation>
+         <Latitude>49.0982017517</Latitude>
+         <Longitude>5.99042987823</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette d'appel</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 31 41 30</Téléphone>
+      <Email>mairie.rezonville@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Permanence des élus le lundi de 19h à 20h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Permanence des élus le jeudi de 19h à 20h.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le 1er janvier 2019, la commune nouvelle de Rezonville-Vionville est créée en lieu et place des communes de Rezonville et de Vionville (canton des Coteaux de Moselle, arrondissement de Metz)</Commentaire>
+</Organisme>

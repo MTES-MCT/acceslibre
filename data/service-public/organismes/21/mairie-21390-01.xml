@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21390-01" codeInsee="21390" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marsannay-la-Côte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-Bart</Ligne>
+      <CodePostal>21160</CodePostal>
+      <NomCommune>Marsannay-la-Côte</NomCommune>
+      <Localisation>
+         <Latitude>47.2711621</Latitude>
+         <Longitude>4.9887797</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 54 09 00</Téléphone>
+      <Télécopie>03 80 54 09 01</Télécopie>
+      <Email>ville@mairie-marsannaylacote.fr</Email>
+      <Url>http://www.ville-marsannay-la-cote.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

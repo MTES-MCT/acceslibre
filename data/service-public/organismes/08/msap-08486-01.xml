@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-08486-01" codeInsee="08486" dateMiseAJour="2021-02-16"
+           pivotLocal="msap">
+   <Nom>France Services - Vireux-Molhain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 avenue Roger-Posty</Ligne>
+      <CodePostal>08320</CodePostal>
+      <NomCommune>Virheux-Molhain</NomCommune>
+      <Localisation>
+         <Latitude>50.086347</Latitude>
+         <Longitude>4.72451</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 40 16 16</Téléphone>
+      <Email>msapvireux.cslelien@orange.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/vireux-molhain</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50532-01" codeInsee="50532" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pair-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>255 rue de la Mairie</Ligne>
+      <CodePostal>50380</CodePostal>
+      <NomCommune>Saint-Pair-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>48.8132896423</Latitude>
+         <Longitude>-1.56676900387</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 50 06 50</Téléphone>
+      <Télécopie>02 33 50 08 10</Télécopie>
+      <Email>mairie.stpair@wanadoo.fr</Email>
+      <Url>http://www.saintpairsurmer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

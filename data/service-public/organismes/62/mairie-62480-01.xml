@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62480-01" codeInsee="62480" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Labourse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Achille-Larue</Ligne>
+      <Ligne>BP 4</Ligne>
+      <CodePostal>62113</CodePostal>
+      <NomCommune>Labourse</NomCommune>
+      <Localisation>
+         <Latitude>50.4998397827</Latitude>
+         <Longitude>2.68201804161</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 61 92 61</Téléphone>
+      <Télécopie>03 21 61 92 62</Télécopie>
+      <Email>mairie.labourse@wanadoo.fr</Email>
+      <Url>http://ville-labourse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé pendant les vacances scolaires le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

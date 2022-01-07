@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30195-01" codeInsee="30195" dateMiseAJour="2021-09-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Peyrolles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>400 route du Serre</Ligne>
+      <Ligne>L'Arbous</Ligne>
+      <CodePostal>30124</CodePostal>
+      <NomCommune>Peyrolles</NomCommune>
+      <Localisation>
+         <Latitude>44.110501</Latitude>
+         <Longitude>3.833641</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 85 13 01</Téléphone>
+      <Email>maire@peyrolles.fr</Email>
+      <Url>https://www.peyrolles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

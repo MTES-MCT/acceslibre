@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-50484-01" codeInsee="50484" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Hilaire-du-Harcouët</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>65 place Delaporte</Ligne>
+      <CodePostal>50600</CodePostal>
+      <NomCommune>Saint-Hilaire-du-Harcouët</NomCommune>
+      <Localisation>
+         <Latitude>48.5786018372</Latitude>
+         <Longitude>-1.09104001522</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 69 28 00</Téléphone>
+      <Télécopie>02 33 49 85 84</Télécopie>
+      <Email>cms-saint-hilaire@manche.fr</Email>
+      <Url>http://www.manche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

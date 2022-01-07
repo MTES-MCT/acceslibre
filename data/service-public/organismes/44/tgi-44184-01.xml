@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="44184" dateMiseAJour="2021-12-14" id="tgi-44184-01" idPresta="4cac9e6a293594648a00179c" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Saint-Nazaire</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>77 RUE ALBERT DE MUN</Ligne>
+        <Ligne>CS 40263</Ligne>
+        <CodePostal>44606</CodePostal>
+        <NomCommune>ST NAZAIRE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.27884</Latitude>
+            <Longitude>-2.21478</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>77 RUE ALBERT DE MUN</Ligne>
+        <Ligne>CS 40263</Ligne>
+        <CodePostal>44606</CodePostal>
+        <NomCommune>ST NAZAIRE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 72 27 30 30</Téléphone>
+        <Télécopie>02 72 27 30 50</Télécopie>
+        <Email>mailto:tj-st-nazaire@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="00:00:00" fin="00:00:00"/>
+            <Note>de 9 h à 12 h et de 13 h 30 à 17 h</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

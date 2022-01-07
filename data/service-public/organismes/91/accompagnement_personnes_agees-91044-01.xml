@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-91044-01" codeInsee="91044"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Ballainvilliers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôpital gériatrique Les Magnolias</Ligne>
+      <Ligne>EHPAD</Ligne>
+      <Ligne>Accueil de jour</Ligne>
+      <CodePostal>91160</CodePostal>
+      <NomCommune>Ballainvilliers</NomCommune>
+      <Localisation>
+         <Latitude>48.659125</Latitude>
+         <Longitude>2.283815</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 80 59 72</Téléphone>
+      <Email>noa@hpgm.fr</Email>
+      <Url>http://www.hopital-les-magnolias.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

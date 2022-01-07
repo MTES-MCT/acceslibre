@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-2B033-01" codeInsee="2B033"
+           dateMiseAJour="2021-03-29"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Haute-Corse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture - DDT</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>Rue Paratojo Immeuble Bella Vista</Ligne>
+      <Ligne>CS 60011</Ligne>
+      <CodePostal>20288</CodePostal>
+      <NomCommune>Bastia Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.7037149</Latitude>
+         <Longitude>9.4401862</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 58 50 50</Téléphone>
+      <Email>ddcspp@haute-corse.gouv.fr</Email>
+      <Url>http://www.haute-corse.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

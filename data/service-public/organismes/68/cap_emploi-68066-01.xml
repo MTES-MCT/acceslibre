@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-68066-01" codeInsee="68066" dateMiseAJour="2021-05-07"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Haut-Rhin et Bas-Rhin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 67-68</Ligne>
+      <Ligne>Action et compétence</Ligne>
+      <Ligne>entrée n°4</Ligne>
+      <Ligne>140 rue du Logelbach</Ligne>
+      <CodePostal>68000</CodePostal>
+      <NomCommune>colmar</NomCommune>
+      <Localisation>
+         <Latitude>48.084437</Latitude>
+         <Longitude>7.327753</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 41 88 12</Téléphone>
+      <Télécopie>03 89 41 47 97</Télécopie>
+      <Email>info@capemploi68-67.com</Email>
+      <Url>https://www.capemploi-67-68.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

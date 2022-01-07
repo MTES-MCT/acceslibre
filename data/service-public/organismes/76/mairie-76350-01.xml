@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-76350-01" codeInsee="76350" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hautot-sur-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Poullard</Ligne>
+      <CodePostal>76113</CodePostal>
+      <NomCommune>Hautot-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>49.3611984253</Latitude>
+         <Longitude>0.97893601656</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">contacter l'accueil avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 32 72 82</Téléphone>
+      <Email>mairie-sg.hautot.sur.seine@wanadoo.fr</Email>
+      <Url>http://www.hautot-sur-seine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

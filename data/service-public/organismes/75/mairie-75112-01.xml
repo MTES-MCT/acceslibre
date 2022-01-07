@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-75112-01" codeInsee="75112" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Paris - 12e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>130 avenue Daumesnil</Ligne>
+      <CodePostal>75570</CodePostal>
+      <NomCommune>Paris Cedex 12</NomCommune>
+      <Localisation>
+         <Latitude>48.841217041</Latitude>
+         <Longitude>2.38853788376</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 44 68 12 24</Téléphone>
+      <Email>https://www.mairie12.paris.fr/contact</Email>
+      <Url>http://www.mairie12.paris.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement pour les mariages et les décès.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

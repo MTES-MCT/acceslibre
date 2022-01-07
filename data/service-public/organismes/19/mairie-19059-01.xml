@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19059-01" codeInsee="19059" dateMiseAJour="2019-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Concèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>19350</CodePostal>
+      <NomCommune>Concèze</NomCommune>
+      <Localisation>
+         <Latitude>45.355451</Latitude>
+         <Longitude>1.344007</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 25 61 51</Téléphone>
+      <Email>mairie.conceze@wanadoo.fr</Email>
+      <Url>http://www.lubersacpompadour.fr/communes/conceze.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-77059-01" codeInsee="77059" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Marne et Gondoire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Domaine de Rentilly</Ligne>
+      <Ligne>1 rue de l'Étang</Ligne>
+      <CodePostal>77600</CodePostal>
+      <NomCommune>Bussy-Saint-Martin</NomCommune>
+      <Localisation>
+         <Latitude>48.8511618572</Latitude>
+         <Longitude>2.69079208374</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 35 43 50</Téléphone>
+      <Télécopie>01 60 35 43 63</Télécopie>
+      <Email>accueil@marneetgondoire.fr</Email>
+      <Url>http://www.marneetgondoire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

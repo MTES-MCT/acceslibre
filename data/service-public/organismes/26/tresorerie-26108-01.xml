@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-26108-01" codeInsee="26108" dateMiseAJour="2021-12-07"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Crest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cours de Verdun</Ligne>
+      <Ligne>CS 80516</Ligne>
+      <CodePostal>26401</CodePostal>
+      <NomCommune>Crest Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.7273723</Latitude>
+         <Longitude>5.022381</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 25 40 50</Téléphone>
+      <Email>sgc.crest@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

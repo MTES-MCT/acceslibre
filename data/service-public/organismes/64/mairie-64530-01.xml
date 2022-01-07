@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64530-01" codeInsee="64530" dateMiseAJour="2022-01-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Susmiou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue de la Mairie</Ligne>
+      <CodePostal>64190</CodePostal>
+      <NomCommune>Susmiou</NomCommune>
+      <Localisation>
+         <Latitude>43.314975</Latitude>
+         <Longitude>-0.777638</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 66 53 86</Téléphone>
+      <Email>mairie.susmiou@wanadoo.fr</Email>
+      <Url>https://www.ccbearndesgaves.fr/communes/susmiou</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

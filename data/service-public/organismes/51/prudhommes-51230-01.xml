@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="51230" dateMiseAJour="2021-12-14" id="prudhommes-51230-01" idPresta="4cac9ed6293594648a00ed6c" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Epernay</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 AVENUE DE MIDDELKERKE</Ligne>
+        <CodePostal>51200</CodePostal>
+        <NomCommune>EPERNAY</NomCommune>
+        <Localisation>
+            <Latitude>49.03672</Latitude>
+            <Longitude>3.969299</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 AVENUE DE MIDDELKERKE</Ligne>
+        <CodePostal>51200</CodePostal>
+        <NomCommune>EPERNAY</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 26 54 61 76</Téléphone>
+        <Télécopie>03 26 52 65 76</Télécopie>
+        <Email>mailto:cph-epernay@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/organisation-de-la-justice-10031/lordre-judiciaire-10033/conseil-de-prudhommes-12033.html</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

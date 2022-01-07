@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13215-01" codeInsee="13215" dateMiseAJour="2021-09-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marseille - 15e et 16e arrondissements</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc François-Billoux</Ligne>
+      <Ligne>246 rue de Lyon</Ligne>
+      <CodePostal>13015</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.3321647644</Latitude>
+         <Longitude>5.3645567894</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 14 60 40</Téléphone>
+      <Télécopie>04 91 14 60 41</Télécopie>
+      <Email>https://mairie-marseille15-16.fr/contactez-nous</Email>
+      <Url>https://mairie-marseille15-16.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Accueil ouvert uniquement pour les déclarations de décès et de naissance.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14431-13" codeInsee="14431" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Julien-le-Faucon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Julien-le-Faucon</Ligne>
+      <Ligne>45 rue de Lisieux</Ligne>
+      <CodePostal>14140</CodePostal>
+      <NomCommune>Mézidon Vallée d'Auge</NomCommune>
+      <Localisation>
+         <Latitude>49.069667</Latitude>
+         <Longitude>0.084432</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 63 80 81</Téléphone>
+      <Email>mairie.saintjulienlefaucon@mva14.fr</Email>
+      <Url>https://www.mva14.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

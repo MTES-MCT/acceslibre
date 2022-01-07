@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57666-01" codeInsee="57666" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Terville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Verdun</Ligne>
+      <CodePostal>57180</CodePostal>
+      <NomCommune>Terville</NomCommune>
+      <Localisation>
+         <Latitude>49.336101532</Latitude>
+         <Longitude>6.13415002823</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 88 82 88</Téléphone>
+      <Télécopie>03 82 34 22 21</Télécopie>
+      <Email>contact@terville.fr</Email>
+      <Url>http://www.terville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-49218-01" codeInsee="49218" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Montrevault-sur-Èvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Montrevault</Ligne>
+      <Ligne>17 rue Saint-Nicolas</Ligne>
+      <CodePostal>49110</CodePostal>
+      <NomCommune>Montrevault-sur-Èvre</NomCommune>
+      <Localisation>
+         <Latitude>47.2594199</Latitude>
+         <Longitude>-1.0478039</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 30 0632</Téléphone>
+      <Email>pij@montrevaultsurevre.fr</Email>
+      <Url>https://www.montrevaultsurevre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88089-01" codeInsee="88089" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-devant-Bruyères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 place de la Mairie</Ligne>
+      <CodePostal>88600</CodePostal>
+      <NomCommune>La Chapelle-devant-Bruyères</NomCommune>
+      <Localisation>
+         <Latitude>48.1846008301</Latitude>
+         <Longitude>6.78543996811</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 58 51 78</Téléphone>
+      <Email>mairiedelachapelle@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

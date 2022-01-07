@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67400-01" codeInsee="67400" dateMiseAJour="2021-09-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Riedseltz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de la Gare</Ligne>
+      <CodePostal>67160</CodePostal>
+      <NomCommune>Riedseltz</NomCommune>
+      <Localisation>
+         <Latitude>48.993586</Latitude>
+         <Longitude>7.9555904</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">passer par la porte située à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 94 01 48</Téléphone>
+      <Email>info@riedseltz.fr</Email>
+      <Url>http://www.riedseltz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="06:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

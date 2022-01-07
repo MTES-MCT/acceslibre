@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-31044-01" codeInsee="31044" dateMiseAJour="2021-09-07" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises (SIE) du centre des finances publiques de Balma</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>76 rue Saint-Jean</Ligne>
+      <Ligne>BP 33385</Ligne>
+      <CodePostal>31133</CodePostal>
+      <NomCommune>Balma Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.6259022</Latitude>
+         <Longitude>1.4853573</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 57 28 10</Téléphone>
+      <Télécopie>05 62 57 28 69</Télécopie>
+      <Email>sie.balma@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception exclusivement sur rdv</Commentaire>
+</Organisme>

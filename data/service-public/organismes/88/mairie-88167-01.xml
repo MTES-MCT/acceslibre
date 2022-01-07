@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88167-01" codeInsee="88167" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Faucompierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Henri-Ferry</Ligne>
+      <CodePostal>88460</CodePostal>
+      <NomCommune>Faucompierre</NomCommune>
+      <Localisation>
+         <Latitude>48.1383018494</Latitude>
+         <Longitude>6.66677999496</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 33 23 24</Téléphone>
+      <Email>mairie.faucompierre@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+         <Note>Permanence du maire et des élus le vendredi de 16h30 à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

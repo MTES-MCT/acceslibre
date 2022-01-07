@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-27112-01" codeInsee="27112" dateMiseAJour="2020-11-18"
+           pivotLocal="msap">
+   <Nom>France Services - Breteuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue d'Huckelhoven</Ligne>
+      <CodePostal>27160</CodePostal>
+      <NomCommune>Breteuil</NomCommune>
+      <Localisation>
+         <Latitude>48.836154</Latitude>
+         <Longitude>0.913286</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 29 76 50</Téléphone>
+      <Email>franceservices.breteuil@inse27.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

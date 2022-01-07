@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-34172-02" codeInsee="34172" dateMiseAJour="2019-06-17"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Profession sport et loisirs - Auvergne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale des sports</Ligne>
+      <Ligne>4 rue de Refembre</Ligne>
+      <CodePostal>03000</CodePostal>
+      <NomCommune>Moulins</NomCommune>
+      <Localisation>
+         <Latitude>46.5605208</Latitude>
+         <Longitude>3.3434804</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 71 49 12 14</Téléphone>
+      <Télécopie>04 70 44 79 21</Télécopie>
+      <Email>auvergne@profession-sport-loisirs.fr</Email>
+      <Url>http://www.auvergne.profession-sport-loisirs.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

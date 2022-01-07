@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29163-01" codeInsee="29163" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pleyber-Christ</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Square Anne-de-Bretagne</Ligne>
+      <CodePostal>29410</CodePostal>
+      <NomCommune>Pleyber-Christ</NomCommune>
+      <Localisation>
+         <Latitude>48.5049362183</Latitude>
+         <Longitude>-3.87565207481</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 78 41 67</Téléphone>
+      <Télécopie>02 98 78 47 85</Télécopie>
+      <Email>pleyber.christ-mairie@wanadoo.fr</Email>
+      <Url>http://www.pleyber-christ.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé le mercredi après-midi pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

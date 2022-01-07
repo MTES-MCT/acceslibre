@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35057-01" codeInsee="35057" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-Bouëxic</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 rue de la Mairie</Ligne>
+      <CodePostal>35330</CodePostal>
+      <NomCommune>La Chapelle-Bouëxic</NomCommune>
+      <Localisation>
+         <Latitude>47.8856010437</Latitude>
+         <Longitude>-1.89225995541</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 92 01 15</Téléphone>
+      <Email>mairie.de.la.chapelle.bouexic@orange.fr</Email>
+      <Url>http://www.lachapellebouexic.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines impaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

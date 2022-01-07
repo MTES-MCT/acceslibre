@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-53130-01" codeInsee="53130" dateMiseAJour="2021-08-03" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 53 - Mayenne - Siège de Laval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue de Verdun</Ligne>
+      <CodePostal>53000</CodePostal>
+      <NomCommune>Laval</NomCommune>
+      <Localisation>
+         <Latitude>48.070451</Latitude>
+         <Longitude>-0.772036</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 49 50 00</Téléphone>
+      <Email>CCI53-Accueil@mayenne.cci.fr</Email>
+      <Url>https://www.mayenne.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

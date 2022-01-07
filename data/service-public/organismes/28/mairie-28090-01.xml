@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28090-01" codeInsee="28090" dateMiseAJour="2017-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Châtelets</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Mairie</Ligne>
+      <CodePostal>28270</CodePostal>
+      <NomCommune>Les Châtelets</NomCommune>
+      <Localisation>
+         <Latitude>48.648717</Latitude>
+         <Longitude>1.0099324</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 48 21 55</Téléphone>
+      <Télécopie>02 37 48 21 55</Télécopie>
+      <Email>mairieleschatelets@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

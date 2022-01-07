@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dreal_ut-59273-01" codeInsee="59273" dateMiseAJour="2018-06-12"
+           pivotLocal="dreal_ut">
+   <Nom>Direction régionale de l'environnement, de l'aménagement et du logement (DREAL) - Hauts-de-France - Unité départementale Nord (Littoral)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Pont-de-Pierre</Ligne>
+      <CodePostal>59820</CodePostal>
+      <NomCommune>Gravelines</NomCommune>
+      <Localisation>
+         <Latitude>50.98128</Latitude>
+         <Longitude>2.148372</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 23 81 50</Téléphone>
+      <Télécopie>03 28 65 59 45</Télécopie>
+      <Email>ud-littoral.dreal-hauts-de-france@developpement-durable.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:15:00"/>
+         <Note>Pas d’accueil "véhicules" à Gravelines - Uniquement par téléphone au 0825 300 763 du lundi au vendredi de 8h30 à 12h00 et de 13h45 à 16h30</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

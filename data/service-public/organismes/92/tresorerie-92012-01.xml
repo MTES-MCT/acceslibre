@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-92012-01" codeInsee="92012" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie municipale de Boulogne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue Fessart</Ligne>
+      <CodePostal>92100</CodePostal>
+      <NomCommune>Boulogne-Billancourt</NomCommune>
+      <Localisation>
+         <Latitude>48.843541</Latitude>
+         <Longitude>2.239278</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 46 03 99 86</Téléphone>
+      <Email>t092007@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

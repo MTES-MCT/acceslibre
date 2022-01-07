@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-66136-01" codeInsee="66136" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté urbaine - Perpignan Méditerranée Métropole</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 boulevard Saint-Assiscle</Ligne>
+      <Ligne>BP 20641</Ligne>
+      <CodePostal>66006</CodePostal>
+      <NomCommune>Perpignan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.6961139</Latitude>
+         <Longitude>2.8781261</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 08 60 00</Téléphone>
+      <Télécopie>04 68 08 60 01</Télécopie>
+      <Email>accueil.pmca@perpignan-mediterranee.org</Email>
+      <Url>https://www.perpignanmediterraneemetropole.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82017-01" codeInsee="82017" dateMiseAJour="2021-02-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bessens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Fraternité</Ligne>
+      <CodePostal>82170</CodePostal>
+      <NomCommune>Bessens</NomCommune>
+      <Localisation>
+         <Latitude>43.8788986206</Latitude>
+         <Longitude>1.25240004063</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 02 57 73</Téléphone>
+      <Email>mairie-bessens@info82.com</Email>
+      <Url>http://www.bessens.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Le 1er Samedi du mois</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé au public les Mardis et Vendredis après-midi.</Commentaire>
+</Organisme>

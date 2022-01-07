@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-64104-01" codeInsee="64104" dateMiseAJour="2021-12-31"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Bedous</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Moulin</Ligne>
+      <Ligne>BP 16</Ligne>
+      <CodePostal>64490</CodePostal>
+      <NomCommune>Bedous</NomCommune>
+      <Localisation>
+         <Latitude>43.000428</Latitude>
+         <Longitude>-0.602195</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 34 70 22</Téléphone>
+      <Email>t064008@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous le mardi, mercredi, jeudi de 13h30 à 16H</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

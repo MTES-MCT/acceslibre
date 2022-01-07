@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-76351-05" codeInsee="76351" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Havre - Jules-Vallès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>38 rue Jules-Vallès</Ligne>
+      <CodePostal>76610</CodePostal>
+      <NomCommune>Le Havre</NomCommune>
+      <Localisation>
+         <Latitude>49.5125638</Latitude>
+         <Longitude>0.1762903</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 13 02 85</Téléphone>
+      <Télécopie>02 35 13 02 88</Télécopie>
+      <Url>http://www.seinemaritime.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+         <Note>Accueil fermé le 2e lundi matin du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

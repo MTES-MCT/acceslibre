@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33530-01" codeInsee="33530" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Teuillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>84 route des Côtes-de-Bourg</Ligne>
+      <CodePostal>33710</CodePostal>
+      <NomCommune>Teuillac</NomCommune>
+      <Localisation>
+         <Latitude>45.0968332</Latitude>
+         <Longitude>-0.5368763</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 64 34 55</Téléphone>
+      <Télécopie>05 57 64 22 25</Télécopie>
+      <Email>accueil@mairie-teuillac.com</Email>
+      <Url>http://www.teuillac.a3w.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

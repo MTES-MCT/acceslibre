@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55517-01" codeInsee="55517" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seuil-d'Argonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Raymond-Poincaré</Ligne>
+      <CodePostal>55250</CodePostal>
+      <NomCommune>Seuil-d'Argonne</NomCommune>
+      <Localisation>
+         <Latitude>48.9785003662</Latitude>
+         <Longitude>5.06381988525</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 70 77 78</Téléphone>
+      <Télécopie>09 70 06 97 21</Télécopie>
+      <Email>commune.seuil.d.argonne@wanadoo.fr</Email>
+      <Url>http://www.seuildargonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

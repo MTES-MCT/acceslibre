@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-29259-01" codeInsee="29259" dateMiseAJour="2021-02-15"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Pol-de-Léon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue des Carmes</Ligne>
+      <CodePostal>29250</CodePostal>
+      <NomCommune>Saint-Pol-de-Léon</NomCommune>
+      <Localisation>
+         <Latitude>48.682866</Latitude>
+         <Longitude>-3.98966</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 69 10 44</Téléphone>
+      <Email>msap.carmes@hlc.bzh</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/msap-des-carmes</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

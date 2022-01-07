@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88226-01" codeInsee="88226" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hagécourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>210 rue Haut-de-la-Moise</Ligne>
+      <CodePostal>88270</CodePostal>
+      <NomCommune>Hagécourt</NomCommune>
+      <Localisation>
+         <Latitude>48.2346000671</Latitude>
+         <Longitude>6.15340995789</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 37 30 52</Téléphone>
+      <Email>mairie.hagecourt@wanadoo.fr</Email>
+      <Url>https://sites.google.com/site/hagecourt88</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

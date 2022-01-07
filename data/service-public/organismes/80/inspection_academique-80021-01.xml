@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-80021-01" codeInsee="80021"
+           dateMiseAJour="2018-06-07"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Somme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>20 boulevard d'Alsace-Lorraine</Ligne>
+      <CodePostal>80000</CodePostal>
+      <NomCommune>Amiens</NomCommune>
+      <Localisation>
+         <Latitude>49.891651</Latitude>
+         <Longitude>2.309107</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>20 boulevard d'Alsace-Lorraine</Ligne>
+      <CodePostal>80063</CodePostal>
+      <NomCommune>Amiens Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 82 38 23</Téléphone>
+      <Télécopie>03 22 92 82 12</Télécopie>
+      <Email>ce.dsden80@ac-amiens.fr</Email>
+      <Url>http://www.ac-amiens.fr/dsden80/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

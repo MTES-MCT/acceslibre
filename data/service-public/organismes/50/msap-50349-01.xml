@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-50349-01" codeInsee="50349" dateMiseAJour="2021-12-06"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Montmartin-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Pierre-des-Touches</Ligne>
+      <CodePostal>50590</CodePostal>
+      <NomCommune>Montmartin-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>48.989043</Latitude>
+         <Longitude>-1.5259</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 76 22 75</Téléphone>
+      <Email>montmartin-sur-mer@france-services.gouv.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/montmartin-sur-mer-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

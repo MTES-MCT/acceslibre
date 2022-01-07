@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="46042" dateMiseAJour="2021-07-05" id="cdad-46042-01" idPresta="58b943fcb473e45d93eac158" pivotLocal="cdad">
+    <Nom>Conseil départemental d'accès au droit - Point justice Lot</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>boulevard LéonGambetta</Ligne>
+        <Ligne>BP 247</Ligne>
+        <CodePostal>46010</CodePostal>
+        <NomCommune>CAHORS CEDEX 9</NomCommune>
+        <Localisation>
+            <Latitude>44.443966</Latitude>
+            <Longitude>1.441871</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>boulevard LéonGambetta</Ligne>
+        <Ligne>BP 247</Ligne>
+        <CodePostal>46010</CodePostal>
+        <NomCommune>CAHORS CEDEX 9</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>07 87 06 35 01</Téléphone>
+        <Email>mailto:cdad-lot@orange.fr</Email>
+        <Url>https://point-justice46.blogspot.com</Url>
+    <Sve>['cdad-lot@orange.fr']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

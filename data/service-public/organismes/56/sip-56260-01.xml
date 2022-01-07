@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-56260-01" codeInsee="56260" dateMiseAJour="2021-04-22" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Vannes Golfe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 allée du Général Le Troadec</Ligne>
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <CodePostal>56000</CodePostal>
+      <NomCommune>Vannes</NomCommune>
+      <Localisation>
+         <Latitude>47.667098</Latitude>
+         <Longitude>-2.740235</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 01 50 50</Téléphone>
+      <Email>sip.vannes@dgfip.finances</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous les après-midi</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous les après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-2B033-01" codeInsee="2B033" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Haute-Corse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Résidence Rive-Gauche</Ligne>
+      <Ligne>25 rue du Juge-Falcone</Ligne>
+      <CodePostal>20200</CodePostal>
+      <NomCommune>Bastia</NomCommune>
+      <Localisation>
+         <Latitude>42.706182</Latitude>
+         <Longitude>9.441665</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 32 83 00</Téléphone>
+      <Email>contact@cmahc.fr</Email>
+      <Url>http://www.cmahc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-50099-01" codeInsee="50099" dateMiseAJour="2019-12-30"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Carentan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28, rue de la 101e Airborne</Ligne>
+      <Ligne>Maison du social et de l'emploi</Ligne>
+      <CodePostal>50500</CodePostal>
+      <NomCommune>Carentan</NomCommune>
+      <Localisation>
+         <Latitude>49.305075</Latitude>
+         <Longitude>-1.2504</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 22 22 22</Téléphone>
+      <Email>clicdesmarais@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

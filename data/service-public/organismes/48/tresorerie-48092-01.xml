@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-48092-01" codeInsee="48092" dateMiseAJour="2021-05-03"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Marvejols</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 place du Barry</Ligne>
+      <CodePostal>48100</CodePostal>
+      <NomCommune>Marvejols</NomCommune>
+      <Localisation>
+         <Latitude>44.5530808</Latitude>
+         <Longitude>3.2935153</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 32 00 95</Téléphone>
+      <Email>sgc.marvejols@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Exclusivement sur rendez-vous de 8h30 à 12h00 le mercredi et le vendredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

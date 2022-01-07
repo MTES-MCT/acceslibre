@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14605-01" codeInsee="14605" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Laurent-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 chemin de l'Église</Ligne>
+      <CodePostal>14710</CodePostal>
+      <NomCommune>Saint-Laurent-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.359887</Latitude>
+         <Longitude>-0.877663</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 21 58 29</Téléphone>
+      <Email>mairie.stlaurent904@orange.fr</Email>
+      <Url>http://www.mairieslm.blogspot.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les 1er et 3e samedis du mois en permanence des élus uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

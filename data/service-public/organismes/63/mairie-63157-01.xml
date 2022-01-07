@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63157-01" codeInsee="63157" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fayet-le-Château</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>63160</CodePostal>
+      <NomCommune>Fayet-le-Château</NomCommune>
+      <Localisation>
+         <Latitude>45.6776008606</Latitude>
+         <Longitude>3.41050004959</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 70 93 04</Téléphone>
+      <Email>secretariat@fayetlechateau.fr</Email>
+      <Url>http://www.fayet-le-chateau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

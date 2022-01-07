@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-32013-01" codeInsee="32013"
+           dateMiseAJour="2021-03-30"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Gers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 place du Foirail</Ligne>
+      <Ligne>BP 342</Ligne>
+      <Ligne>Préfecture - DDCS</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <CodePostal>32007</CodePostal>
+      <NomCommune>AUCH CEDEX</NomCommune>
+      <Localisation>
+         <Latitude>43.6500015</Latitude>
+         <Longitude>0.58214002</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 58 12 66</Téléphone>
+      <Email>ddcspp@gers.gouv.fr</Email>
+      <Url>https://www.gers.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

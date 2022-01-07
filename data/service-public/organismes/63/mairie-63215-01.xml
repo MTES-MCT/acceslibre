@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63215-01" codeInsee="63215" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Martres-sur-Morge</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue des Écoles</Ligne>
+      <CodePostal>63720</CodePostal>
+      <NomCommune>Martres-sur-Morge</NomCommune>
+      <Localisation>
+         <Latitude>45.9199981689</Latitude>
+         <Longitude>3.24660992622</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 97 00 65</Téléphone>
+      <Email>lesmartressurmorge@wanadoo.fr</Email>
+      <Url>http://www.mairie-martressurmorge.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

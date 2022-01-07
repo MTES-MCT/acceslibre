@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="agefiph-59350-01" codeInsee="59350" dateMiseAJour="2021-09-20"
+           pivotLocal="agefiph">
+   <Nom>Association de gestion du fonds pour l'insertion professionnelle des personnes handicapées (Agefiph) - Hauts-de-France - Lille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 bis rue du Vieux-Faubourg</Ligne>
+      <Ligne>3e étage</Ligne>
+      <CodePostal>59040</CodePostal>
+      <NomCommune>Lille</NomCommune>
+      <Localisation>
+         <Latitude>50.6382</Latitude>
+         <Longitude>3.0700500000000375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro vert : service et appel gratuits.">08 00 11 10 09</Téléphone>
+      <Email>hauts-de-france@agefiph.asso.fr</Email>
+      <Url>http://www.agefiph.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-51454-01" codeInsee="51454"
+           dateMiseAJour="2018-02-12"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Marne (Reims)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Reims</Ligne>
+      <Ligne>Place Royale</Ligne>
+      <CodePostal>51096</CodePostal>
+      <NomCommune>Reims Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.255411</Latitude>
+         <Longitude>4.03428680000002</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 86 71 00</Téléphone>
+      <Télécopie>03 26 86 71 65</Télécopie>
+      <Email>sp-reims@marne.gouv.fr</Email>
+      <Url>http://www.marne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

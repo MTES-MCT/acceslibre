@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-2A004-01" codeInsee="2A004" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Pays Ajaccien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Antoine-Sollacaro</Ligne>
+      <Ligne>CS 70206</Ligne>
+      <CodePostal>20000</CodePostal>
+      <NomCommune>Ajaccio</NomCommune>
+      <Localisation>
+         <Latitude>41.9299003</Latitude>
+         <Longitude>8.73862239</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 52 95 00</Téléphone>
+      <Email>capa@ca-ajaccien.fr</Email>
+      <Url>http://www.ca-ajaccien.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert en juillet-août de 8h à 12h et de 12h45 à 16h45.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

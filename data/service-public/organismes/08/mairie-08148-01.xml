@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08148-01" codeInsee="08148" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Écaille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Blanche-Terre</Ligne>
+      <CodePostal>08300</CodePostal>
+      <NomCommune>L'Écaille</NomCommune>
+      <Localisation>
+         <Latitude>49.4175336</Latitude>
+         <Longitude>4.2117678</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 93 79</Téléphone>
+      <Télécopie>03 24 72 93 79</Télécopie>
+      <Email>mairie.l-ecaille@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-69220-01" codeInsee="69220" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Laurent-de-Chamousset</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>122 avenue des Quatre-Cantons</Ligne>
+      <CodePostal>69930</CodePostal>
+      <NomCommune>Saint-Laurent-de-Chamousset</NomCommune>
+      <Localisation>
+         <Latitude>45.7393</Latitude>
+         <Longitude>4.46482</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 26 50 78</Téléphone>
+      <Email>msap@cc-mdl.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

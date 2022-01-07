@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59167-01" codeInsee="59167" dateMiseAJour="2018-04-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cuvillers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1, rue Camille-Tribou</Ligne>
+      <CodePostal>59268</CodePostal>
+      <NomCommune>Cuvillers</NomCommune>
+      <Localisation>
+         <Latitude>50.223197937</Latitude>
+         <Longitude>3.23789596558</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 79 90 87</Téléphone>
+      <Télécopie>03 27 79 97 19</Télécopie>
+      <Email>mairie.cuvillers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

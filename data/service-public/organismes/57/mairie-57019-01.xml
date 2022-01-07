@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57019-01" codeInsee="57019" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Amnéville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>36 rue des Romains</Ligne>
+      <Ligne>BP 50080</Ligne>
+      <CodePostal>57363</CodePostal>
+      <NomCommune>Amnéville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.257900238</Latitude>
+         <Longitude>6.14268016815</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 71 22 22</Téléphone>
+      <Télécopie>03 87 71 13 87</Télécopie>
+      <Email>mairie@amneville-les-thermes.com</Email>
+      <Url>http://www.amneville-les-thermes.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88417-01" codeInsee="88417" dateMiseAJour="2018-10-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Gorgon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue du Centre</Ligne>
+      <CodePostal>88700</CodePostal>
+      <NomCommune>Saint-Gorgon</NomCommune>
+      <Localisation>
+         <Latitude>48.3246002197</Latitude>
+         <Longitude>6.64861011505</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 65 26 82</Téléphone>
+      <Email>saint-gorgon.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="15:45:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

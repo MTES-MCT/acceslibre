@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62646-01" codeInsee="62646" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Palluel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue d'En-Haut</Ligne>
+      <CodePostal>62860</CodePostal>
+      <NomCommune>Palluel</NomCommune>
+      <Localisation>
+         <Latitude>50.2672996</Latitude>
+         <Longitude>3.0993499</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 48 35 86</Téléphone>
+      <Télécopie>03 21 55 65 53</Télécopie>
+      <Email>mairie@palluel.fr</Email>
+      <Url>http://www.palluel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="18:00:00" fin="19:30:00"/>
+         <Note>Permanence du maire uniquement sans rendez-vous de 18h à 19h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

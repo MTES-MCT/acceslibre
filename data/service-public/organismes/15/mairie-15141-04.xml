@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15141-04" codeInsee="15141" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Chalinargues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg de Chalinargues</Ligne>
+      <Ligne>4 route de Rachaldrat</Ligne>
+      <CodePostal>15170</CodePostal>
+      <NomCommune>Neussargues en Pinatelle</NomCommune>
+      <Localisation>
+         <Latitude>45.1546923</Latitude>
+         <Longitude>2.9343259</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 20 07 60</Téléphone>
+      <Télécopie>04 71 20 20 82</Télécopie>
+      <Email>chalinargues.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

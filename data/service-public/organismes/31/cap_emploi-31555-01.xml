@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-31555-01" codeInsee="31555" dateMiseAJour="2021-05-06"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Haute-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Paul Mesplé</Ligne>
+      <Ligne>Immeuble Anthyllis</Ligne>
+      <Ligne>Cap emploi 31</Ligne>
+      <CodePostal>31100</CodePostal>
+      <NomCommune>toulouse</NomCommune>
+      <Localisation>
+         <Latitude>43.569898</Latitude>
+         <Longitude>1.386376</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 34 40 91 91</Téléphone>
+      <Télécopie>04 34 40 91 90</Télécopie>
+      <Email>site@capemploi31.com</Email>
+      <Url>https://www.capemploi-31.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70228-01" codeInsee="70228" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Faverney</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de la Mairie</Ligne>
+      <Ligne>BP 8</Ligne>
+      <CodePostal>70160</CodePostal>
+      <NomCommune>Faverney</NomCommune>
+      <Localisation>
+         <Latitude>47.7676839</Latitude>
+         <Longitude>6.1051407</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 91 30 71</Téléphone>
+      <Email>faverney@orange.fr</Email>
+      <Url>http://www.ville-faverney.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:00:00"/>
+         <Note>ermanence des élus uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

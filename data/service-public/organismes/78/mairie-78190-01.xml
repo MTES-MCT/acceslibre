@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78190-01" codeInsee="78190" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Croissy-sur-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 avenue de Verdun</Ligne>
+      <Ligne>CS 40021</Ligne>
+      <CodePostal>78290</CodePostal>
+      <NomCommune>Croissy-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>48.8801806</Latitude>
+         <Longitude>2.1476333</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 09 31 00</Téléphone>
+      <Télécopie>01 30 09 31 11</Télécopie>
+      <Email>accueil@croissy.com</Email>
+      <Url>http://www.croissy.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

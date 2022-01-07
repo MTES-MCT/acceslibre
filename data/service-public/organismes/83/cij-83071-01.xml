@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-83071-01" codeInsee="83071" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - La Londe-les-Maures</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison des associations</Ligne>
+      <Ligne>Rue Aristide-Perrin</Ligne>
+      <CodePostal>83250</CodePostal>
+      <NomCommune>La Londe-les-Maures</NomCommune>
+      <Localisation>
+         <Latitude>43.1399262</Latitude>
+         <Longitude>6.2334646</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Place du 11-Novembre</Ligne>
+      <Ligne>BP 62</Ligne>
+      <CodePostal>83250</CodePostal>
+      <NomCommune>La Londe-les-Maures</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 01 54 38</Téléphone>
+      <Email>bij@lalondelesmaures.fr</Email>
+      <Url>https://www.ville-lalondelesmaures.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

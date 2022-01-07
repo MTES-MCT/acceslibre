@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-97306-01" codeInsee="97306" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Ouest Guyanais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZA Gaston-Cesaire</Ligne>
+      <Ligne>2 rue Bruno-Aubert</Ligne>
+      <Ligne>BP 26</Ligne>
+      <CodePostal>97360</CodePostal>
+      <NomCommune>Mana</NomCommune>
+      <Localisation>
+         <Latitude>5.66861737764</Latitude>
+         <Longitude>-53.7820726633</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+594 5 94 34 34 94</Téléphone>
+      <Télécopie>+594 5 94 34 83 37</Télécopie>
+      <Email>info@ouestguyane.fr</Email>
+      <Url>http://ouestguyane.frla-ccog</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73326-01" codeInsee="73326" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vimines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chef-lieu</Ligne>
+      <CodePostal>73160</CodePostal>
+      <NomCommune>Vimines</NomCommune>
+      <Localisation>
+         <Latitude>45.545915</Latitude>
+         <Longitude>5.865122</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 69 07 69</Téléphone>
+      <Télécopie>04 79 69 40 65</Télécopie>
+      <Email>contact@vimines.com</Email>
+      <Url>http://www.vimines.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+         <Note>Accueil possible le vendredi sur rendez-vous, compte tenu du contexte sanitaire actuel et jusqu'à nouvel ordre l'accueil se fait uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

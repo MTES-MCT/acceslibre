@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22266-01" codeInsee="22266" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rostrenen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>6 rue Joseph-Pennec</Ligne>
+      <CodePostal>22110</CodePostal>
+      <NomCommune>Rostrenen</NomCommune>
+      <Localisation>
+         <Latitude>48.2360992432</Latitude>
+         <Longitude>-3.32037997246</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 57 42 00</Téléphone>
+      <Télécopie>02 96 29 08 25</Télécopie>
+      <Email>mairie@rostrenen.com</Email>
+      <Url>http://www.rostrenen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert également sur rendez-vous de 8h30 à 10h30 pour les passeports et fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

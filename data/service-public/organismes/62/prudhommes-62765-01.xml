@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="62765" dateMiseAJour="2021-12-14" id="prudhommes-62765-01" idPresta="4cac9e5f293594648a0002ce" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Saint-Omer</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 RUE DE L&#39;ECU D&#39;ARTOIS</Ligne>
+        <CodePostal>62505</CodePostal>
+        <NomCommune>ST OMER CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>50.752902</Latitude>
+            <Longitude>2.250651</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 RUE DE L&#39;ECU D&#39;ARTOIS</Ligne>
+        <CodePostal>62505</CodePostal>
+        <NomCommune>ST OMER CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 21 93 92 78</Téléphone>
+        <Télécopie>03 21 12 17 79</Télécopie>
+        <Email>mailto:cph-saint-omer@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-76462-01" codeInsee="76462" dateMiseAJour="2020-02-25" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Neufchâtel-en-Bray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue du Pot-d'Étain</Ligne>
+      <CodePostal>76270</CodePostal>
+      <NomCommune>Neufchâtel-en-Bray</NomCommune>
+      <Localisation>
+         <Latitude>49.7322097</Latitude>
+         <Longitude>1.4419395</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 95 57 17</Téléphone>
+      <Télécopie>02 32 97 57 55</Télécopie>
+      <Email>sip-sie.neufchatel-en-bray@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil uniquement sur rendez-vous. Professionnels, la réception se fait uniquement sur rendez-vous. Pensez à prendre RDV sur impots.gouv.fr, rubrique "Contact", ou par téléphone.</Commentaire>
+</Organisme>

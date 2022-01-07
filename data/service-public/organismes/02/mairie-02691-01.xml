@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02691-01" codeInsee="02691" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Quentin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 345</Ligne>
+      <CodePostal>02100</CodePostal>
+      <NomCommune>Saint-Quentin Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.8464179</Latitude>
+         <Longitude>3.2884023</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 06 90 00</Téléphone>
+      <Télécopie>03 23 06 90 90</Télécopie>
+      <Email>mairie@saint-quentin.fr</Email>
+      <Url>http://www.saint-quentin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pour l'état civil de 8h30 à 12h et de 13h30 à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

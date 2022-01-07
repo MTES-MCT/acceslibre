@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-61214-01" codeInsee="61214" dateMiseAJour="2020-02-13"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - L'Aigle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Orne est</Ligne>
+      <Ligne>Antenne du pays d'Ouche</Ligne>
+      <Ligne>5 place de l'Europe</Ligne>
+      <CodePostal>61300</CodePostal>
+      <NomCommune>L'Aigle</NomCommune>
+      <Localisation>
+         <Latitude>48.763942</Latitude>
+         <Longitude>0.624441</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 24 67 28</Téléphone>
+      <Email>ouche@clic-orne.com</Email>
+      <Url>http://www.clic-orne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

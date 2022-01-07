@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-32013-01" codeInsee="32013" dateMiseAJour="2021-02-19"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Gers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3, place du Préfet Claude-Erignac</Ligne>
+      <CodePostal>32007</CodePostal>
+      <NomCommune>Auch Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.6476631165</Latitude>
+         <Longitude>0.585160017014</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 61 44 00</Téléphone>
+      <Télécopie>+33 5 62 05 47 78</Télécopie>
+      <Email>prefecture@gers.gouv.fr</Email>
+      <Url>http://www.gers.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

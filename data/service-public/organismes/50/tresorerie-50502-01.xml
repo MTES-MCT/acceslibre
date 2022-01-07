@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-50502-01" codeInsee="50502" dateMiseAJour="2018-01-30"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Lô - Canisy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Préfecture</Ligne>
+      <Ligne>BP 225</Ligne>
+      <CodePostal>50015</CodePostal>
+      <NomCommune>Saint-Lô Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.116207</Latitude>
+         <Longitude>-1.0956178</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 77 87 20</Téléphone>
+      <Email>t050018@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

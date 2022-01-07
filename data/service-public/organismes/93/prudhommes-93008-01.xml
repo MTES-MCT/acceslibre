@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="93008" dateMiseAJour="2021-12-14" id="prudhommes-93008-01" idPresta="4cac9e60293594648a00037a" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Bobigny</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1-13 RUE MICHEL DE L&#39;HOSPITAL</Ligne>
+        <CodePostal>93008</CodePostal>
+        <NomCommune>BOBIGNY CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.90674</Latitude>
+            <Longitude>2.454191</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1-13 RUE MICHEL DE L&#39;HOSPITAL</Ligne>
+        <CodePostal>93008</CodePostal>
+        <NomCommune>BOBIGNY CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 48 96 22 22</Téléphone>
+        <Télécopie>01 48 30 85 74</Télécopie>
+        <Email>mailto:cph-bobigny@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:45:00" fin="12:00:00"/>
+            <PlageH début="13:15:00" fin="16:15:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62448-01" codeInsee="62448" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hesdin-l'Abbé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>303 rue du Mont-de-Thunes</Ligne>
+      <CodePostal>62360</CodePostal>
+      <NomCommune>Hesdin-l'Abbé</NomCommune>
+      <Localisation>
+         <Latitude>50.6646646</Latitude>
+         <Longitude>1.6842447</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 83 57 82</Téléphone>
+      <Télécopie>03 21 87 23 16</Télécopie>
+      <Email>hesdinlabbe@wanadoo.fr</Email>
+      <Url>http://www.ville-hesdinlabbe.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26180-01" codeInsee="26180" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mérindol-les-Oliviers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place des Oliviers</Ligne>
+      <CodePostal>26170</CodePostal>
+      <NomCommune>Mérindol-les-Oliviers</NomCommune>
+      <Localisation>
+         <Latitude>44.2350997925</Latitude>
+         <Longitude>5.18837976456</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 28 73 91</Téléphone>
+      <Email>secretariat-de-la-mairie@merindol-les-oliviers.fr</Email>
+      <Url>http://www.merindol-les-oliviers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

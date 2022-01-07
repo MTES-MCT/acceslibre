@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11369-01" codeInsee="11369" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sallèles-d'Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 avenue René-Iché</Ligne>
+      <CodePostal>11590</CodePostal>
+      <NomCommune>Sallèles-d'Aude</NomCommune>
+      <Localisation>
+         <Latitude>43.2566986084</Latitude>
+         <Longitude>2.94580006599</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 46 68 46</Téléphone>
+      <Email>mairie@sallelesdaude.fr</Email>
+      <Url>http://www.sallelesdaude.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="16:30:00" fin="17:30:00"/>
+         <Note>CCAS joignable au 04 68 46 68 64 prise de rendez-vous obligatoire pendant la crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

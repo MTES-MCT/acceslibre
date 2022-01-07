@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19176-01" codeInsee="19176" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rosiers-d'Égletons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de l'Ancien-Lavoir</Ligne>
+      <CodePostal>19300</CodePostal>
+      <NomCommune>Rosiers-d'Égletons</NomCommune>
+      <Localisation>
+         <Latitude>45.3777199</Latitude>
+         <Longitude>2.008513</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 93 08 14</Téléphone>
+      <Télécopie>05 55 93 26 30</Télécopie>
+      <Email>mairie.rosiers@wanadoo.fr</Email>
+      <Url>http://www.rosiers-egletons.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

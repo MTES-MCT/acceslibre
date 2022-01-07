@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="afpa-60684-01" codeInsee="60684" dateMiseAJour="2021-09-20"
+           pivotLocal="afpa">
+   <Nom>Agence nationale pour la formation professionnelle des adultes (Afpa) - Centre de Creil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Grand'Pré</Ligne>
+      <CodePostal>60870</CodePostal>
+      <NomCommune>Villers-Saint-Paul</NomCommune>
+      <Localisation>
+         <Latitude>49.2770264</Latitude>
+         <Longitude>2.4850647</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 36</Téléphone>
+      <Url>https://www.afpa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

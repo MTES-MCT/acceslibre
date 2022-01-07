@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05133-01" codeInsee="05133" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Chaffrey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>563 route du Pont-Levis</Ligne>
+      <CodePostal>05330</CodePostal>
+      <NomCommune>Saint-Chaffrey</NomCommune>
+      <Localisation>
+         <Latitude>44.9275726</Latitude>
+         <Longitude>6.6060238</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 24 15 70</Téléphone>
+      <Télécopie>04 92 24 11 19</Télécopie>
+      <Email>accueilmairie@saintchaffrey.fr</Email>
+      <Url>http://www.saint-chaffrey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

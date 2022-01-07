@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-08490-01" codeInsee="08490" dateMiseAJour="2021-05-23"
+           pivotLocal="msap">
+   <Nom>France Services - Vouziers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Gambetta</Ligne>
+      <CodePostal>08400</CodePostal>
+      <NomCommune>Vouziers</NomCommune>
+      <Localisation>
+         <Latitude>49.396479</Latitude>
+         <Longitude>4.69986</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 71 64 65</Téléphone>
+      <Email>sp-vouziers@ardennes.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

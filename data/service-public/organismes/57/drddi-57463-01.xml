@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-57463-01" codeInsee="57463" dateMiseAJour="2021-12-15"
+           pivotLocal="drddi">
+   <Nom>Direction interrégionale des douanes - Grand Est</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 avenue Foch</Ligne>
+      <Ligne>BP 61074</Ligne>
+      <CodePostal>57036</CodePostal>
+      <NomCommune>Metz Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>49.111686</Latitude>
+         <Longitude>6.177625</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 74 00</Téléphone>
+      <Télécopie>03 87 36 96 66</Télécopie>
+      <Email>di-metz@douane.finances.gouv.fr</Email>
+      <Url>http://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

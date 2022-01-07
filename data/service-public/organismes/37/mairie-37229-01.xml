@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37229-01" codeInsee="37229" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Nicolas-des-Motets</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de Touraine</Ligne>
+      <CodePostal>37110</CodePostal>
+      <NomCommune>Saint-Nicolas-des-Motets</NomCommune>
+      <Localisation>
+         <Latitude>47.5854988098</Latitude>
+         <Longitude>1.03714001179</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 29 65 20</Téléphone>
+      <Télécopie>02 47 56 98 77</Télécopie>
+      <Email>mairie-saintnicolasdesmotets@wanadoo.fr</Email>
+      <Url>http://www.saint-nicolas-des-motets.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

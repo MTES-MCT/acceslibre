@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62790-01" codeInsee="62790" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Senlis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue de Fruges</Ligne>
+      <CodePostal>62310</CodePostal>
+      <NomCommune>Senlis</NomCommune>
+      <Localisation>
+         <Latitude>50.5383797</Latitude>
+         <Longitude>2.1553904</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 04 46 68</Téléphone>
+      <Télécopie>03 21 47 22 51</Télécopie>
+      <Email>mairiesenlis@wanadoo.fr</Email>
+      <Url>http://www.senlis.site.voila.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

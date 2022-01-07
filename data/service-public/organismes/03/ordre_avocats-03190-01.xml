@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-03190-01" codeInsee="03190" dateMiseAJour="2019-02-19"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Moulins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue de Paris</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>03000</CodePostal>
+      <NomCommune>Moulins</NomCommune>
+      <Localisation>
+         <Latitude>46.568338</Latitude>
+         <Longitude>3.330888</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 46 01 65</Téléphone>
+      <Télécopie>04 70 20 90 82</Télécopie>
+      <Email>ordre.avocats.moulins@wanadoo.fr</Email>
+      <Url>http://www.ordre-avocats-moulins.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="14:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

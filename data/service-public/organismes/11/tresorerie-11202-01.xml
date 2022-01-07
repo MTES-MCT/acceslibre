@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-11202-01" codeInsee="11202" dateMiseAJour="2021-04-26"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Leucate</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue du Moulin</Ligne>
+      <CodePostal>11370</CodePostal>
+      <NomCommune>Leucate</NomCommune>
+      <Localisation>
+         <Latitude>42.9088795</Latitude>
+         <Longitude>3.0320731</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 40 02 89</Téléphone>
+      <Email>t011045@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception au guichet et sur rendez-vous et fermeture au public le Mercredi.</Commentaire>
+</Organisme>

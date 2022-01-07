@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89086-01" codeInsee="89086" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Charny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>60 route de la Mothe</Ligne>
+      <CodePostal>89120</CodePostal>
+      <NomCommune>Charny-Orée-de-Puisaye</NomCommune>
+      <Localisation>
+         <Latitude>47.8913993835</Latitude>
+         <Longitude>3.0941400528</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 63 63 56</Téléphone>
+      <Email>mairie.charny@wanadoo.fr</Email>
+      <Url>http://www.ccop.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

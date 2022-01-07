@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45015-01" codeInsee="45015" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Autruy-sur-Juine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Essarts</Ligne>
+      <CodePostal>45480</CodePostal>
+      <NomCommune>Autruy-sur-Juine</NomCommune>
+      <Localisation>
+         <Latitude>48.2753982544</Latitude>
+         <Longitude>2.09938001633</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 32 50 76</Téléphone>
+      <Télécopie>02 38 32 52 56</Télécopie>
+      <Email>commune.autruy-sur-juine@wanadoo.fr</Email>
+      <Url>http://www.autruy-sur-juine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

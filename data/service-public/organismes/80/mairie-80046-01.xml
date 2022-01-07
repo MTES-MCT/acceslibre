@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80046-01" codeInsee="80046" dateMiseAJour="2017-06-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Avelesges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26, rue du Général-Leclerc</Ligne>
+      <CodePostal>80270</CodePostal>
+      <NomCommune>Avelesges</NomCommune>
+      <Localisation>
+         <Latitude>49.915541</Latitude>
+         <Longitude>1.934014</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 29 29 96</Téléphone>
+      <Télécopie>09 70 62 03 47</Télécopie>
+      <Email>mairieavelesges@orange.</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>Permanence du maire uniquement</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

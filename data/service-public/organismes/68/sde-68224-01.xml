@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sde-68224-01" codeInsee="68224" dateMiseAJour="2022-01-03" pivotLocal="sde">
+   <Nom>Service départemental de l'enregistrement - Haut-Rhin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue Coehorn</Ligne>
+      <Ligne>Cité administrative - Bât. C</Ligne>
+      <CodePostal>68085</CodePostal>
+      <NomCommune>Mulhouse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.758394</Latitude>
+         <Longitude>7.339517</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 33 32 49</Téléphone>
+      <Email>sde.mulhouse@dgfip.finances.gouv.fr</Email>
+      <Url>http://impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Exclusivement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

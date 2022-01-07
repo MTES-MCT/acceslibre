@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24026-06" codeInsee="24026" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Antoine-d'Auberoche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Antoine-d'Auberoche</Ligne>
+      <CodePostal>24330</CodePostal>
+      <NomCommune>Bassillac et Auberoche</NomCommune>
+      <Localisation>
+         <Latitude>45.1418762207</Latitude>
+         <Longitude>0.943762004375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 04 56 31</Téléphone>
+      <Email>mairie.saintantoinedauberoche@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

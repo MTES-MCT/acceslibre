@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-22259-01" codeInsee="22259" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 22 - Côtes-d'Armor - Antenne de Dinan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Miroir du Temps</Ligne>
+      <Ligne>Antenne de Dinan</Ligne>
+      <Ligne>ZAC des Landes Fleuries</Ligne>
+      <CodePostal>22100</CodePostal>
+      <NomCommune>Quévert</NomCommune>
+      <Localisation>
+         <Latitude>48.446544</Latitude>
+         <Longitude>-2.075015</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 39 59 70</Téléphone>
+      <Télécopie>02 96 39 59 30</Télécopie>
+      <Email>votrecci@cotesdarmor.cci.fr</Email>
+      <Url>https://www.cotesdarmor.cci.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

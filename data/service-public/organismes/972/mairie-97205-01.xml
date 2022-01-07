@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97205-01" codeInsee="97205" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Case-Pilote</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Gaston-Monnerville</Ligne>
+      <CodePostal>97222</CodePostal>
+      <NomCommune>Case-Pilote</NomCommune>
+      <Localisation>
+         <Latitude>14.6430374</Latitude>
+         <Longitude>-61.1388068</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 78 81 44</Téléphone>
+      <Télécopie>+596 5 96 78 74 72</Télécopie>
+      <Email>contact@mairiecasepilote.fr</Email>
+      <Url>http://www.mairiecasepilote.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

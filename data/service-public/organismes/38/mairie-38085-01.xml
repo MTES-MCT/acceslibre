@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38085-01" codeInsee="38085" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Charvieu-Chavagneux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue Alexandre-Grammont</Ligne>
+      <CodePostal>38230</CodePostal>
+      <NomCommune>Charvieu-Chavagneux</NomCommune>
+      <Localisation>
+         <Latitude>45.7461013794</Latitude>
+         <Longitude>5.16226005554</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 46 19 80</Téléphone>
+      <Télécopie>04 72 46 19 89</Télécopie>
+      <Url>http://www.charvieu-chavagneux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

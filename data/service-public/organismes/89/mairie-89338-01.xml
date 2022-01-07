@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89338-01" codeInsee="89338" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Clément</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue du Général-Leclerc</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Saint-Clément</NomCommune>
+      <Localisation>
+         <Latitude>48.202525</Latitude>
+         <Longitude>3.2807021</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 83 16 16</Téléphone>
+      <Télécopie>03 86 83 16 19</Télécopie>
+      <Email>contact@saint-clement-yonne.fr</Email>
+      <Url>http://www.saint-clement-yonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

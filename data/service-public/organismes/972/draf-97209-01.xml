@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="draf-97209-01" codeInsee="97209" dateMiseAJour="2020-07-28"
+           pivotLocal="draf">
+   <Nom>Direction de l'alimentation, de l'agriculture et de la forêt (DAAF) - Martinique</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Jardin Desclieux</Ligne>
+      <Ligne>BP 642</Ligne>
+      <CodePostal>97262</CodePostal>
+      <NomCommune>Fort-de-France Cedex</NomCommune>
+      <Localisation>
+         <Latitude>14.609371</Latitude>
+         <Longitude>-61.07256</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 96 71 20 40</Téléphone>
+      <Télécopie>05 96 71 20 39</Télécopie>
+      <Email>daaf972@agriculture.gouv.fr</Email>
+      <Url>http://daaf972.agriculture.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert l'après-midi uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

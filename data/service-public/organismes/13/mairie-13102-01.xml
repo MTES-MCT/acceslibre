@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13102-01" codeInsee="13102" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Victoret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Esplanade Albert Mairot</Ligne>
+      <Ligne>CS 42025</Ligne>
+      <CodePostal>13729</CodePostal>
+      <NomCommune>Saint-Victoret Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.42094</Latitude>
+         <Longitude>5.233104</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 15 32 00</Téléphone>
+      <Télécopie>04 42 89 21 47</Télécopie>
+      <Email>secretariatdgs@mairiesaintvictoret.fr</Email>
+      <Url>http://www.saintvictoret.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

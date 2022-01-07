@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-53130-01" codeInsee="53130" dateMiseAJour="2019-02-20"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Laval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>place Saint-Tugal</Ligne>
+      <CodePostal>53006</CodePostal>
+      <NomCommune>Laval Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.069346</Latitude>
+         <Longitude>-0.773195</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 49 33 05</Téléphone>
+      <Télécopie>02 43 67 02 48</Télécopie>
+      <Email>ordre.avocats.laval@wanadoo.fr</Email>
+      <Url>https://www.barreau-de-laval.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

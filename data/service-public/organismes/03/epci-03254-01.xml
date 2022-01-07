@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-03254-01" codeInsee="03254" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Saint Pourçain Sioule Limagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue Marcelin-Berthelot</Ligne>
+      <Ligne>BP 56</Ligne>
+      <CodePostal>03500</CodePostal>
+      <NomCommune>Saint-Pourçain-sur-Sioule</NomCommune>
+      <Localisation>
+         <Latitude>46.3072488</Latitude>
+         <Longitude>3.2873337</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 47 67 20</Téléphone>
+      <Télécopie>04 70 47 55 09</Télécopie>
+      <Email>accueil@ccspsl.fr</Email>
+      <Url>http://comcom-ccspsl.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

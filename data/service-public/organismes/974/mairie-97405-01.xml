@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97405-01" codeInsee="97405" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Petite-Île</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>192 rue Mahé-de-Labourdonnais</Ligne>
+      <Ligne>BP 28</Ligne>
+      <CodePostal>97429</CodePostal>
+      <NomCommune>Petite-Île</NomCommune>
+      <Localisation>
+         <Latitude>-21.3601682</Latitude>
+         <Longitude>55.5660462</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 56 79 79</Téléphone>
+      <Télécopie>+262 2 62 56 79 70</Télécopie>
+      <Email>mairie@petite-ile.re</Email>
+      <Url>http://www.petite-ile.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

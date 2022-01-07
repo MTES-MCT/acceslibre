@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-47157-01" codeInsee="47157" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Centre information jeunesse - Marmande</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Terrasse des Capucins</Ligne>
+      <Ligne>Rue de l'Observance</Ligne>
+      <CodePostal>47200</CodePostal>
+      <NomCommune>Marmande</NomCommune>
+      <Localisation>
+         <Latitude>44.4990715</Latitude>
+         <Longitude>0.1582171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 93 46 49</Téléphone>
+      <Email>bij@mairie-marmande.fr</Email>
+      <Url>http://www.mairie-marmande.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="12:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="12:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires le lundi de 13h à 17h et du mardi au vendredi de 10h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

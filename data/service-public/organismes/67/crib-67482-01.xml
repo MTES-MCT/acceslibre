@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-67482-01" codeInsee="67482" dateMiseAJour="2021-08-04"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Ligue de l'enseignement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de l’Industrie</Ligne>
+      <Ligne>BP 70437</Ligne>
+      <CodePostal>67412</CodePostal>
+      <NomCommune>Illkirch-Graffenstaden Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.5346844</Latitude>
+         <Longitude>7.7321893</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 90 40 63 60</Téléphone>
+      <Email>conatct@laligue67.org</Email>
+      <Url>http://www.laligue67.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="81004" dateMiseAJour="2021-12-14" id="spip-81004-02" idPresta="4d2575692935941a920001d7" pivotLocal="spip">
+    <Nom>service pénitentiaire d'insertion et de probation du Tarn</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>20 avenue Maréchal Joffre</Ligne>
+        <CodePostal>81000</CodePostal>
+        <NomCommune>ALBI</NomCommune>
+        <Localisation>
+            <Latitude>43.922449</Latitude>
+            <Longitude>2.139732</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>20 avenue Maréchal Joffre</Ligne>
+        <CodePostal>81000</CodePostal>
+        <NomCommune>ALBI</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 81 27 52 31</Téléphone>
+        <Télécopie>05 81 27 52 33</Télécopie>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="18:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

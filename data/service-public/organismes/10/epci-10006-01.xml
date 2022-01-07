@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-10006-01" codeInsee="10006" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Arcis Mailly Ramerupt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Aristide-Briand</Ligne>
+      <CodePostal>10700</CodePostal>
+      <NomCommune>Arcis-sur-Aube</NomCommune>
+      <Localisation>
+         <Latitude>48.5347396</Latitude>
+         <Longitude>4.138824</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 37 69 42</Téléphone>
+      <Email>contact@ccamr.fr</Email>
+      <Url>http://www.arcismaillyramerupt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

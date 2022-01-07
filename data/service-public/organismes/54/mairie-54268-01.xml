@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54268-01" codeInsee="54268" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Housséville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 Grande rue</Ligne>
+      <CodePostal>54930</CodePostal>
+      <NomCommune>Housséville</NomCommune>
+      <Localisation>
+         <Latitude>48.4034004211</Latitude>
+         <Longitude>6.11984109879</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 25 35 70</Téléphone>
+      <Télécopie>03 83 25 35 70</Télécopie>
+      <Email>commune-housseville@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <PlageH début="17:30:00" fin="18:30:00"/>
+         <Note>Permanence des adjoints uniquement de 17h30 à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

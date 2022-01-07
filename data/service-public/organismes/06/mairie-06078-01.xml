@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06078-01" codeInsee="06078" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Malaussène</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Traverse</Ligne>
+      <Ligne>3 rue de l'École</Ligne>
+      <CodePostal>06710</CodePostal>
+      <NomCommune>Malaussène</NomCommune>
+      <Localisation>
+         <Latitude>43.9273376465</Latitude>
+         <Longitude>7.13111782074</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 05 34 00</Téléphone>
+      <Email>mairie-malaussene@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

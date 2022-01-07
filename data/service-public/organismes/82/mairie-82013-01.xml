@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82013-01" codeInsee="82013" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaumont-de-Lomagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 place Gambetta</Ligne>
+      <Ligne>BP 39</Ligne>
+      <CodePostal>82500</CodePostal>
+      <NomCommune>Beaumont-de-Lomagne</NomCommune>
+      <Localisation>
+         <Latitude>43.8824541</Latitude>
+         <Longitude>0.9886713</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et rampe plus monte-personne pour l'accès à l'étage</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 02 32 52</Téléphone>
+      <Télécopie>05 63 02 43 01</Télécopie>
+      <Email>mairie-beaumont.de.lomagne@info82.com</Email>
+      <Url>http://www.beaumont-de-lomagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 2e samedi du mois,pendant la crise sanitaire accueil sur rendez-vous uniquement pour le service état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-49301-01" codeInsee="49301" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Macaire-en-Mauges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social Indigo</Ligne>
+      <Ligne>22 rue Jules-Verne</Ligne>
+      <CodePostal>49450</CodePostal>
+      <NomCommune>Saint-Macaire-en-Mauges</NomCommune>
+      <Localisation>
+         <Latitude>47.1265379</Latitude>
+         <Longitude>-0.9958842</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 49 06 49</Téléphone>
+      <Email>pij.indigo@gmail.com</Email>
+      <Url>http://csindigo.centres-sociaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+         <Note>Téléphoner avant de se déplacer, accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

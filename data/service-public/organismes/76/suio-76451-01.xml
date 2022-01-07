@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-76451-01" codeInsee="76451" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Rouen Normandie - Mont-Saint-Aignan - Mission Information-Orientation (MIO)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Thomas Becket</Ligne>
+      <Ligne>Bâtiment 4 Michel Serres</Ligne>
+      <Ligne>Rez de chaussée</Ligne>
+      <Ligne>Campus de Mont-Saint-Aignan</Ligne>
+      <CodePostal>76821</CodePostal>
+      <NomCommune>Mont-Saint-Aignan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.461553</Latitude>
+         <Longitude>1.072629</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">sur le côté du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 76 93 73</Téléphone>
+      <Email>mio@univ-rouen.fr</Email>
+      <Url>https://www.univ-rouen.fr/formation/sorienter/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Prise de rendez-vous uniquement par téléphone</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

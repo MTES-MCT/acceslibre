@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="13001" dateMiseAJour="2021-12-14" id="prudhommes-13001-01" idPresta="4cac9e5f293594648a000200" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Aix-en-Provence</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>RUE GAUFFREDY</Ligne>
+        <CodePostal>13602</CodePostal>
+        <NomCommune>AIX EN PROVENCE CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>43.530085</Latitude>
+            <Longitude>5.439982</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>RUE GAUFFREDY</Ligne>
+        <CodePostal>13602</CodePostal>
+        <NomCommune>AIX EN PROVENCE CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 42 93 35 05</Téléphone>
+        <Télécopie>04 42 38 58 88</Télécopie>
+        <Email>mailto:cph-aix-en-provence@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="mardi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="mercredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

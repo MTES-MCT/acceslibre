@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54540-01" codeInsee="54540" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Val-et-Châtillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 Grande rue</Ligne>
+      <CodePostal>54480</CodePostal>
+      <NomCommune>Val-et-Châtillon</NomCommune>
+      <Localisation>
+         <Latitude>48.559299469</Latitude>
+         <Longitude>6.96551990509</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 71 26 36 98</Téléphone>
+      <Télécopie>08 26 99 41 07</Télécopie>
+      <Email>mairie.val-et-chatillon@orange.fr</Email>
+      <Url>http://www.val-et-chatillon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

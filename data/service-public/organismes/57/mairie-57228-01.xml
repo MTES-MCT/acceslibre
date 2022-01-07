@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57228-01" codeInsee="57228" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fossieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue des Templiers</Ligne>
+      <CodePostal>57590</CodePostal>
+      <NomCommune>Fossieux</NomCommune>
+      <Localisation>
+         <Latitude>48.8506011963</Latitude>
+         <Longitude>6.32610988617</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 63 65 36 99</Téléphone>
+      <Télécopie>03 87 05 49 54</Télécopie>
+      <Email>mairie-fossieux@orange.fr</Email>
+      <Url>http://www.fossieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

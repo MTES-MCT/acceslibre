@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-19171-01" codeInsee="19171" dateMiseAJour="2020-01-03"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Reygade</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Instance de coordination de l'autonomie des Xaintries</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>19430</CodePostal>
+      <NomCommune>Reygade</NomCommune>
+      <Localisation>
+         <Latitude>45.016315</Latitude>
+         <Longitude>1.909223</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 28 12 59</Téléphone>
+      <Télécopie>05 55 28 12 59</Télécopie>
+      <Email>icgmercoeur@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

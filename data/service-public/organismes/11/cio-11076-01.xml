@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-11076-01" codeInsee="11076" dateMiseAJour="2021-01-21" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Castelnaudary</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue des Moulins</Ligne>
+      <CodePostal>11400</CodePostal>
+      <NomCommune>Castelnaudary</NomCommune>
+      <Localisation>
+         <Latitude>43.320756</Latitude>
+         <Longitude>1.954481</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 34 42 91 88</Téléphone>
+      <Email>ce.0110843g@ac-montpellier.fr</Email>
+      <Url>https://www.ac-montpellier.fr/cid87174/centre-d-information-et-d-orientation-de-castelnaudary.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous</Commentaire>
+</Organisme>

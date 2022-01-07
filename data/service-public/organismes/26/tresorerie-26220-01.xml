@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-26220-01" codeInsee="26220" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Nyons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 rue Draye-de-Meyne</Ligne>
+      <Ligne>BP 106</Ligne>
+      <CodePostal>26111</CodePostal>
+      <NomCommune>Nyons Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.361204</Latitude>
+         <Longitude>5.139882</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 26 05 46</Téléphone>
+      <Email>sgc.nyons@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

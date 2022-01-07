@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62719-01" codeInsee="62719" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rollancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Principale</Ligne>
+      <CodePostal>62770</CodePostal>
+      <NomCommune>Rollancourt</NomCommune>
+      <Localisation>
+         <Latitude>50.4725990295</Latitude>
+         <Longitude>2.17839002609</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 44 91 13</Téléphone>
+      <Email>mairie.rollancourt@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique de 8h15 à 11h15 et de 13h45 à 18h.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+         <Note>Permanence téléphonique de 16h à 19h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

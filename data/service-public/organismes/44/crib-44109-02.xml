@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-44109-02" codeInsee="44109" dateMiseAJour="2021-08-04"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Luge de l'enseignement FAL 44</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue des Olivettes</Ligne>
+      <Ligne>BP 74107</Ligne>
+      <CodePostal>44041</CodePostal>
+      <NomCommune>Nantes Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>47.2123526</Latitude>
+         <Longitude>-1.5500637</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 86 33 09</Téléphone>
+      <Email>associations@laliguepaysdelaloire.org</Email>
+      <Url>http://www.associations-lpdl.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

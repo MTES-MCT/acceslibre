@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28052-01" codeInsee="28052" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bouglainval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue de Châteauneuf</Ligne>
+      <CodePostal>28130</CodePostal>
+      <NomCommune>Bouglainval</NomCommune>
+      <Localisation>
+         <Latitude>48.5658248</Latitude>
+         <Longitude>1.504659</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 22 88 08</Téléphone>
+      <Email>accueil@mairie-bouglainval.fr</Email>
+      <Url>http://www.mairie-bouglainval.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Les semaines impaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

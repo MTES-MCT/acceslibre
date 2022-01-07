@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02283-01" codeInsee="02283" dateMiseAJour="2021-12-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Erlon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <EditeurEMail>mairiederlon@wanadoo.fr</EditeurEMail>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de l'Arbrisseau</Ligne>
+      <CodePostal>02250</CodePostal>
+      <NomCommune>Erlon</NomCommune>
+      <Localisation>
+         <Latitude>49.728883</Latitude>
+         <Longitude>3.714713</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 20 58 46</Téléphone>
+      <Email>mairiederlon@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

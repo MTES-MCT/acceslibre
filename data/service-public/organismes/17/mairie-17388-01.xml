@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17388-01" codeInsee="17388" dateMiseAJour="2021-12-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Quantin-de-Rançanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue des Marchegays</Ligne>
+      <CodePostal>17800</CodePostal>
+      <NomCommune>Saint-Quantin-de-Rançanne</NomCommune>
+      <Localisation>
+         <Latitude>45.534198761</Latitude>
+         <Longitude>-0.596104025841</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plan-incliné</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 49 80 89</Téléphone>
+      <Email>mairie@saintquantinderancannnes.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

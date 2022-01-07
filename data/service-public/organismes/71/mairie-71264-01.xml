@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71264-01" codeInsee="71264" dateMiseAJour="2021-05-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lournand</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 Grande Rue</Ligne>
+      <CodePostal>71250</CodePostal>
+      <NomCommune>Lournand</NomCommune>
+      <Localisation>
+         <Latitude>46.4573489</Latitude>
+         <Longitude>4.6474313</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 59 01 09</Téléphone>
+      <Email>mairie@lournand.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

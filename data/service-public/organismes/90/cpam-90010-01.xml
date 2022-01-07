@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-90010-01" codeInsee="90010" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) du Territoire de Belfort - siège de Belfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue du Général-Strolz</Ligne>
+      <CodePostal>90021</CodePostal>
+      <NomCommune>Belfort Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.6388320923</Latitude>
+         <Longitude>6.86222076416</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 8h30 à 17h, possibilité de prendre rendez-vous par SMS 06 45 61 65 87 : indiquez vos nom, prénom, numéro de sécurité sociale et le motif de votre demande : un conseiller vous recontactera pour fixer un rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

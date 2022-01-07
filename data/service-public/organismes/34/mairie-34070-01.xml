@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34070-01" codeInsee="34070" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cébazan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 avenue de Béziers</Ligne>
+      <CodePostal>34360</CodePostal>
+      <NomCommune>Cébazan</NomCommune>
+      <Localisation>
+         <Latitude>43.403094</Latitude>
+         <Longitude>2.974647</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 38 02 09</Téléphone>
+      <Télécopie>04 67 38 27 88</Télécopie>
+      <Email>mairie.cebazan@wanadoo.fr</Email>
+      <Url>http://www.cebazan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

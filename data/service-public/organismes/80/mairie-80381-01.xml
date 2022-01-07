@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80381-01" codeInsee="80381" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gorges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>80370</CodePostal>
+      <NomCommune>Gorges</NomCommune>
+      <Localisation>
+         <Latitude>50.1101881</Latitude>
+         <Longitude>2.1780377</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe mobile</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 32 55 80</Téléphone>
+      <Télécopie>03 22 32 55 80</Télécopie>
+      <Email>mairie.gorges@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous au 0670673914.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

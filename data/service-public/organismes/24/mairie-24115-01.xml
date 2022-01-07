@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24115-01" codeInsee="24115" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Château-l'Évêque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue d'Angoulême</Ligne>
+      <CodePostal>24460</CodePostal>
+      <NomCommune>Château-l'Évêque</NomCommune>
+      <Localisation>
+         <Latitude>45.2464485</Latitude>
+         <Longitude>0.6856247</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 54 30 77</Téléphone>
+      <Télécopie>05 53 04 36 06</Télécopie>
+      <Email>chateau.leveque@gmail.com</Email>
+      <Url>http://www.chateauleveque.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:15:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:15:00" fin="11:00:00"/>
+         <PlageH début="14:15:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82085-01" codeInsee="82085" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lacourt-Saint-Pierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue de la Mairie</Ligne>
+      <CodePostal>82290</CodePostal>
+      <NomCommune>Lacourt-Saint-Pierre</NomCommune>
+      <Localisation>
+         <Latitude>43.9860992432</Latitude>
+         <Longitude>1.26451003551</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 67 49 31</Téléphone>
+      <Télécopie>05 63 67 53 00</Télécopie>
+      <Email>mairie-lacourt.saint.pierre@info82.com</Email>
+      <Url>http://lacourt-saint-pierre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

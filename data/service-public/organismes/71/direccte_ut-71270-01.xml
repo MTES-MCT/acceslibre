@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-71270-01" codeInsee="71270" dateMiseAJour="2019-03-20"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Saône-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>173 boulevard Henri-Dunant</Ligne>
+      <CodePostal>71000</CodePostal>
+      <NomCommune>Mâcon</NomCommune>
+      <Localisation>
+         <Latitude>46.31111</Latitude>
+         <Longitude>4.837848</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 32 72 32</Téléphone>
+      <Email>bfc-ud71.direction@direccte.gouv.fr</Email>
+      <Url>http://bourgogne-franche-comte.direccte.gouv.fr/Saone-et-Loire</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

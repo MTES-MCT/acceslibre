@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06040-01" codeInsee="06040" dateMiseAJour="2021-07-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châteauneuf-d'Entraunes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Mairie</Ligne>
+      <CodePostal>06470</CodePostal>
+      <NomCommune>Châteauneuf-d'Entraunes</NomCommune>
+      <Localisation>
+         <Latitude>44.128367</Latitude>
+         <Longitude>6.832522</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 05 54 76</Téléphone>
+      <Email>chateauneufdentraunes@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Un mercredi sur deux.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

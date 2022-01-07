@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-10387-01" codeInsee="10387" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Troyes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative des Vassaules</Ligne>
+      <Ligne>CS 50770</Ligne>
+      <CodePostal>10026</CodePostal>
+      <NomCommune>Troyes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.2974700928</Latitude>
+         <Longitude>4.07480096817</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 42 48 51</Téléphone>
+      <Télécopie>03 25 42 49 62</Télécopie>
+      <Email>pmi@aube.fr</Email>
+      <Url>http://www.aube.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

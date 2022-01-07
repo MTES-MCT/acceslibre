@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08491-01" codeInsee="08491" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vrigne-aux-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 avenue Jean-Jaurès</Ligne>
+      <CodePostal>08330</CodePostal>
+      <NomCommune>Vrigne-aux-Bois</NomCommune>
+      <Localisation>
+         <Latitude>49.7378997803</Latitude>
+         <Longitude>4.86552000046</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 52 12 22</Téléphone>
+      <Url>http://www.vrigne-aux-bois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="18:00:00"/>
+         <Note>Accueil ouvert le lundi, mercredi vendredi de 14h à 16h et le mardi et jeudi de 8h30 à 10h30 pendant la période de la crise sanitaire, accueil fermé à 17h pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

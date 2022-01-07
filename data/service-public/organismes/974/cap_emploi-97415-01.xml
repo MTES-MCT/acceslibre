@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-97415-01" codeInsee="97415" dateMiseAJour="2021-05-10"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Réunion - Agence Ouest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Jules Thirel</Ligne>
+      <Ligne>Bloc B 2ème étage Porte n°14</Ligne>
+      <Ligne>La Balance Savanna</Ligne>
+      <Ligne>Cap emploi Saint-Paul Ouest</Ligne>
+      <CodePostal>97460</CodePostal>
+      <NomCommune>Saint-Paul</NomCommune>
+      <Localisation>
+         <Latitude>20.986668</Latitude>
+         <Longitude>55.297295</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 45 99 47</Téléphone>
+      <Email>capemploi@capemploi97reunion.fr</Email>
+      <Url>https://www.capemploi-974.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

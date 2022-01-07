@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-08105-01" codeInsee="08105"
+           dateMiseAJour="2021-04-01"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Charleville-Mézières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>2 esplanade du Palais-de-Justice</Ligne>
+      <Ligne>CS 50004</Ligne>
+      <CodePostal>08011</CodePostal>
+      <NomCommune>Charleville-Mézières Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.7609519</Latitude>
+         <Longitude>4.7212683</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 56 60 54</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous les mercredis de 8 h 30 à 12 h et de 13 h 30 à
+16 h et les vendredis de 8 h 30 à 12 h.</Commentaire>
+</Organisme>

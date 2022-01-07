@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pif-13211-01" codeInsee="13211" dateMiseAJour="2021-09-13" pivotLocal="pif">
+   <Nom>Point info famille - Marseille - 11e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 traverse de la Solitude</Ligne>
+      <Ligne>Centre social des Escourtines</Ligne>
+      <CodePostal>13011</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.291935</Latitude>
+         <Longitude>5.42805</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 18 70 90</Téléphone>
+      <Email>accueil@aec-escourtines.com</Email>
+      <Url>https://aec-escourtines.com/fr/service/pif</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

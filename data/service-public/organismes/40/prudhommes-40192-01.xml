@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="40192" dateMiseAJour="2021-12-14" id="prudhommes-40192-01" idPresta="4cac9e5f293594648a000263" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Mont-de-Marsan</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>249 AV DU COLONEL ROZANOFF</Ligne>
+        <CodePostal>40000</CodePostal>
+        <NomCommune>MONT DE MARSAN</NomCommune>
+        <Localisation>
+            <Latitude>43.895456</Latitude>
+            <Longitude>-0.502707</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>7 PLACE FRANCIS PLANTE</Ligne>
+        <CodePostal>40003</CodePostal>
+        <NomCommune>MONT DE MARSAN CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 58 51 38 80</Téléphone>
+        <Télécopie>05 58 05 95 34</Télécopie>
+        <Email>mailto:cph-mont-de-marsan@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

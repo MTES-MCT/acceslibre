@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82147-01" codeInsee="82147" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puylagarde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>82160</CodePostal>
+      <NomCommune>Puylagarde</NomCommune>
+      <Localisation>
+         <Latitude>44.2649993896</Latitude>
+         <Longitude>1.85757994652</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 65 74 05</Téléphone>
+      <Email>mairie-puylagarde@info82.com</Email>
+      <Url>https://www.puylagarde.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

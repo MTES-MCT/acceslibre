@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28286-01" codeInsee="28286" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ollé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue d'Aigremont</Ligne>
+      <CodePostal>28120</CodePostal>
+      <NomCommune>Ollé</NomCommune>
+      <Localisation>
+         <Latitude>48.3871002197</Latitude>
+         <Longitude>1.29600000381</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 25 38 25</Téléphone>
+      <Télécopie>02 34 40 10 88</Télécopie>
+      <Email>mairie.olle@wanadoo.fr</Email>
+      <Url>http://www.olle28.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

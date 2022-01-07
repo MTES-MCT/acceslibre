@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-32013-01" codeInsee="32013" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Gers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>755 route de Toulouse</Ligne>
+      <CodePostal>32000</CodePostal>
+      <NomCommune>Auch</NomCommune>
+      <Localisation>
+         <Latitude>43.6539137</Latitude>
+         <Longitude>0.6221862</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 63 41 50</Téléphone>
+      <Télécopie>05 62 63 41 91</Télécopie>
+      <Email>federationpeche32@orange.fr</Email>
+      <Url>http://www.gers-peche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

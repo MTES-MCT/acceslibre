@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-25228-01" codeInsee="25228" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Doubs - Montbéliard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 chemin de Ronde-du-Fort-Griffon</Ligne>
+      <CodePostal>25000</CodePostal>
+      <NomCommune>Besançon</NomCommune>
+      <Localisation>
+         <Latitude>47.2428474</Latitude>
+         <Longitude>6.01984596</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 61 92 41</Téléphone>
+      <Email>contact@maisonhabitatdoubs.fr</Email>
+      <Url>http://www.adil25.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire pas d'accueil physique du public.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

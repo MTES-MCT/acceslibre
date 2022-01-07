@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-57089-01" codeInsee="57089" dateMiseAJour="2021-09-03"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Bitche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 rue du Maréchal-Foch</Ligne>
+      <Ligne>BP 70060</Ligne>
+      <CodePostal>57232</CodePostal>
+      <NomCommune>Bitche Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.0498574</Latitude>
+         <Longitude>7.4276034</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 96 00 25</Téléphone>
+      <Email>t057101@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>fermée au public le mercredi et le vendredi.</Commentaire>
+</Organisme>

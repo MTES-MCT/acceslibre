@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-25462-01" codeInsee="25462" dateMiseAJour="2021-06-02" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Pontarlier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue des Capucins</Ligne>
+      <Ligne>BP 289</Ligne>
+      <CodePostal>25304</CodePostal>
+      <NomCommune>Pontarlier Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.906676</Latitude>
+         <Longitude>6.350044</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 38 55 55</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <Note>Accueil avec ou sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil avec ou sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil avec ou sans rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un. Accueil exclusivement sur rendez-vous les lundi et jeudi après-midi.</Commentaire>
+</Organisme>

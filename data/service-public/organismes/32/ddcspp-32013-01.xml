@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddcspp-32013-01" codeInsee="32013" dateMiseAJour="2021-04-13"
+           pivotLocal="ddcspp">
+   <Nom>Direction départementale de l'emploi, du travail, des solidarités et de la protection des populations (DDETSPP) (ex DDCSPP) - Gers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Place de l'Ancien Foirail</Ligne>
+      <CodePostal>32020</CodePostal>
+      <NomCommune>Auch Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.6486</Latitude>
+         <Longitude>0.582967</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 81 67 22 03</Téléphone>
+      <Télécopie>05 62 58 18 58</Télécopie>
+      <Email>ddetspp@gers.gouv.fr</Email>
+      <Url>https://www.gers.gouv.fr/Services-de-l-Etat/Emploi-travail-solidarite-et-protection-des-populations</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

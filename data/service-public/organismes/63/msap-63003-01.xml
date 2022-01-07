@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-63003-01" codeInsee="63003" dateMiseAJour="2021-08-19"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Olliergues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 avenue du Maréchal-de-Lattre-de-Tassigny</Ligne>
+      <CodePostal>63880</CodePostal>
+      <NomCommune>Olliergues</NomCommune>
+      <Localisation>
+         <Latitude>46.67704</Latitude>
+         <Longitude>3.63425</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 95 29 58</Téléphone>
+      <Email>msap.olliergues@ambertlivradoisferez.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/olliergues</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-69238-01" codeInsee="69238" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Symphorien-sur-Coise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Rhône</Ligne>
+      <Ligne>57 rue des Tanneries</Ligne>
+      <CodePostal>69590</CodePostal>
+      <NomCommune>Saint-Symphorien-sur-Coise</NomCommune>
+      <Localisation>
+         <Latitude>45.6338507</Latitude>
+         <Longitude>4.4560661</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 44 54 95</Téléphone>
+      <Télécopie>04 78 44 53 06</Télécopie>
+      <Email>mdr.st-symphorien-coise@rhone.fr</Email>
+      <Url>http://www.rhone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

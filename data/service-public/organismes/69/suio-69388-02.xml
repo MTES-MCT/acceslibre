@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-69388-02" codeInsee="69388" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Lyon 3 - Jean Moulin - Centre d'Information de Documentation et d'Orientation (CIDO) -</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Manufacture des Tabacs Espace rue Sud</Ligne>
+      <Ligne>6 rue Rollet</Ligne>
+      <Ligne>Rez-de-Chaussée</Ligne>
+      <Ligne>Université Jean-Moulin</Ligne>
+      <CodePostal>69008</CodePostal>
+      <NomCommune>Lyon Cedex 8</NomCommune>
+      <Localisation>
+         <Latitude>45.748165</Latitude>
+         <Longitude>4.859927</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 78 78 40</Téléphone>
+      <Email>cido@univ-lyon3.fr</Email>
+      <Url>https://www.univ-lyon3.fr/centre-d-information-de-documentation-et-d-orientation</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

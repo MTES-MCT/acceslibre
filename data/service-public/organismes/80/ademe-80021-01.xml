@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ademe-80021-01" codeInsee="80021" dateMiseAJour="2018-03-30"
+           pivotLocal="ademe">
+   <Nom>Agence de l’environnement et de la maîtrise de l’énergie (ADEME) - Direction régionale Hauts-de-France - Site d'Amiens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Apotika</Ligne>
+      <Ligne>67 avenue d'Italie</Ligne>
+      <CodePostal>80090</CodePostal>
+      <NomCommune>Amiens</NomCommune>
+      <Localisation>
+         <Latitude>49.87368</Latitude>
+         <Longitude>2.283087</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 45 18 90</Téléphone>
+      <Télécopie>03 22 45 19 47</Télécopie>
+      <Email>ademe.picardie@ademe.fr</Email>
+      <Url>http://www.ademe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

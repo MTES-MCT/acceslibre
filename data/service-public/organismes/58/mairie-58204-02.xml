@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58204-02" codeInsee="58204" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Balleray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Balleray</Ligne>
+      <Ligne>39 route de Ourouer</Ligne>
+      <CodePostal>58130</CodePostal>
+      <NomCommune>Vaux d'Amognes</NomCommune>
+      <Localisation>
+         <Latitude>47.034026</Latitude>
+         <Longitude>3.295473</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 38 54 71</Téléphone>
+      <Télécopie>03 86 38 14 63</Télécopie>
+      <Email>vauxdamognes@orange.fr</Email>
+      <Url>http://www.vauxdamognes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="07:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-85092-01" codeInsee="85092"
+           dateMiseAJour="2020-06-10"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Vendée (Fontenay-le-Comte)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Fontenay-le-Comte</Ligne>
+      <Ligne>16-18 quai Victor-Hugo</Ligne>
+      <CodePostal>85200</CodePostal>
+      <NomCommune>Fontenay-le-Comte</NomCommune>
+      <Localisation>
+         <Latitude>46.4637783</Latitude>
+         <Longitude>-0.8051035</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 50 14 25</Téléphone>
+      <Télécopie>02 51 69 90 98</Télécopie>
+      <Email>sp-fontenay-le-comte@vendee.gouv.fr</Email>
+      <Url>http://www.vendee.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Le point numérique est fermé le vendredi .</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

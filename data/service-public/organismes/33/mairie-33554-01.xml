@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33554-01" codeInsee="33554" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Yvrac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 avenue Blanzac</Ligne>
+      <CodePostal>33370</CodePostal>
+      <NomCommune>Yvrac</NomCommune>
+      <Localisation>
+         <Latitude>44.8782629</Latitude>
+         <Longitude>-0.4551826</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 06 68 78</Téléphone>
+      <Télécopie>05 56 06 26 51</Télécopie>
+      <Email>yvrac.mairie@wanadoo.fr</Email>
+      <Url>http://www.yvrac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

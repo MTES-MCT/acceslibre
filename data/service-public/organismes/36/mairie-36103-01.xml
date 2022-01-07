@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-36103-01" codeInsee="36103" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Luçay-le-Mâle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Docteur-Réau</Ligne>
+      <CodePostal>36360</CodePostal>
+      <NomCommune>Luçay-le-Mâle</NomCommune>
+      <Localisation>
+         <Latitude>47.1250211</Latitude>
+         <Longitude>1.4370656</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 40 43 31</Téléphone>
+      <Télécopie>02 54 40 42 47</Télécopie>
+      <Email>mairie@ville-lucaylemale.fr</Email>
+      <Url>http://www.lucaylemale.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

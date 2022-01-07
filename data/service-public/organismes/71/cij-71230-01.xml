@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-71230-01" codeInsee="71230" dateMiseAJour="2020-11-02" pivotLocal="cij">
+   <Nom>Point information jeunesse - Gueugnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>47 rue de la Convention</Ligne>
+      <CodePostal>71130</CodePostal>
+      <NomCommune>Gueugnon</NomCommune>
+      <Localisation>
+         <Latitude>46.5983775</Latitude>
+         <Longitude>4.0678901</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 85 18 99</Téléphone>
+      <Email>ijgueugnon@jeunes-bfc.fr</Email>
+      <Url>http://www.ijbourgogne.com/pij-de-gueugnon</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65310-01" codeInsee="65310" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mérilheu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Liberté</Ligne>
+      <CodePostal>65200</CodePostal>
+      <NomCommune>Mérilheu</NomCommune>
+      <Localisation>
+         <Latitude>43.095241</Latitude>
+         <Longitude>0.175311</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 91 23 91</Téléphone>
+      <Email>mairie.merilheu@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="20:00:00" fin="21:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="20:00:00" fin="21:00:00"/>
+         <Note>Horaire d'ouverture le lundi et vendredi de 19h à 20h pour la saison d'hiver.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

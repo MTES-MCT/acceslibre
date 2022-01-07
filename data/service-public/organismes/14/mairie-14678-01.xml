@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14678-01" codeInsee="14678" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Soumont-Saint-Quentin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>14420</CodePostal>
+      <NomCommune>Soumont-Saint-Quentin</NomCommune>
+      <Localisation>
+         <Latitude>48.9802017212</Latitude>
+         <Longitude>-0.229782000184</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 90 60 11</Téléphone>
+      <Télécopie>09 70 32 21 99</Télécopie>
+      <Email>mairie.soumont-saint-quentin@wanadoo.fr</Email>
+      <Url>http://soumont-saint-quentin-site-de-la-commune.e-monsite.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

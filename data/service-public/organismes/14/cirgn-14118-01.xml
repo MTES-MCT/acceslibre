@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirgn-14118-01" codeInsee="14118" dateMiseAJour="2021-12-15"
+           pivotLocal="cirgn"
+           idPresta="1006950">
+   <Nom>Centre d'information et de recrutement (CIR) de la gendarmerie nationale - Caen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 avenue du 43e régiment d'artillerie</Ligne>
+      <CodePostal>14020</CodePostal>
+      <NomCommune>Caen Cedex 3</NomCommune>
+      <Localisation>
+         <Latitude>49.165555</Latitude>
+         <Longitude>-0.34475</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="numéro d'appel et courriel uniquement destinés à l'information sur le recrutement - Pour toute urgence, composez le 17">+33 2 31 35 93 36</Téléphone>
+      <Email>https://www.lagendarmerierecrute.fr/Contacts</Email>
+      <Url>https://www.lagendarmerierecrute.fr/Pres-de-chez-vous/CAEN</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

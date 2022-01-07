@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11435-01" codeInsee="11435" dateMiseAJour="2021-07-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villerouge-Termenès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 plaça de la Comuna</Ligne>
+      <CodePostal>11330</CodePostal>
+      <NomCommune>Villerouge-Termenès</NomCommune>
+      <Localisation>
+         <Latitude>43.006346</Latitude>
+         <Longitude>2.628143</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette, accueil possible à la mairie annexe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 70 06 99</Téléphone>
+      <Télécopie>04 68 70 07 17</Télécopie>
+      <Email>mairie.villerouge@villerouge.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

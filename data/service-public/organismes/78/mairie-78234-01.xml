@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78234-01" codeInsee="78234" dateMiseAJour="2017-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flacourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>78200</CodePostal>
+      <NomCommune>Flacourt</NomCommune>
+      <Localisation>
+         <Latitude>48.8913993</Latitude>
+         <Longitude>1.63065</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 42 44 51</Téléphone>
+      <Email>mairieflacourt@wanadoo.fr</Email>
+      <Url>http://www.flacourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

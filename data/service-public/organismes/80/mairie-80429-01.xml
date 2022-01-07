@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80429-01" codeInsee="80429" dateMiseAJour="2017-08-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Henencourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Neuve</Ligne>
+      <CodePostal>80300</CodePostal>
+      <NomCommune>Hénencourt</NomCommune>
+      <Localisation>
+         <Latitude>50.00333</Latitude>
+         <Longitude>2.564576</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 75 17 81</Téléphone>
+      <Télécopie>03 22 75 17 81</Télécopie>
+      <Email>mairie.henencourt@free.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

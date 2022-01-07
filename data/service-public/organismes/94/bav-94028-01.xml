@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="94028" dateMiseAJour="2021-12-14" id="bav-94028-01" idPresta="4d5e64df2935941fe9000040" pivotLocal="bav">
+    <Nom>Bureau d'aide aux victimes du tribunal judiciaire de Créteil</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS</Ligne>
+        <CodePostal>94011</CodePostal>
+        <NomCommune>CRETEIL CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.785747</Latitude>
+            <Longitude>2.444272</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>0800 17 18 05</Téléphone>
+        <Télécopie>01 48 99 07 39</Télécopie>
+        <Email>mailto:victimes@sajir.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

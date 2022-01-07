@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27618-01" codeInsee="27618" dateMiseAJour="2016-12-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sébécourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>27190</CodePostal>
+      <NomCommune>Sébécourt</NomCommune>
+      <Localisation>
+         <Latitude>48.9691009521</Latitude>
+         <Longitude>0.878596007824</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 30 74 74</Téléphone>
+      <Télécopie>02 32 30 74 74</Télécopie>
+      <Email>mairie.sebecourt@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

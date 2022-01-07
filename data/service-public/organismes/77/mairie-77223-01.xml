@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77223-01" codeInsee="77223" dateMiseAJour="2017-07-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gurcy-le-Châtel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Raymond-Lambert</Ligne>
+      <CodePostal>77520</CodePostal>
+      <NomCommune>Gurcy-le-Châtel</NomCommune>
+      <Localisation>
+         <Latitude>48.470534</Latitude>
+         <Longitude>3.085854</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 37 34 09</Téléphone>
+      <Télécopie>01 60 67 45 22</Télécopie>
+      <Email>mairie-gurcy-le-chatel@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="09:15:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="09:15:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>ouverture le samedi : le dernier samedi de chaque mois de 9h00 à 12h00</Commentaire>
+</Organisme>

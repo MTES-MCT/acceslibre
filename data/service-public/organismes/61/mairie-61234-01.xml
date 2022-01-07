@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61234-01" codeInsee="61234" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lonrai</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Point-de-Beauvais</Ligne>
+      <CodePostal>61250</CodePostal>
+      <NomCommune>Lonrai</NomCommune>
+      <Localisation>
+         <Latitude>48.4602546692</Latitude>
+         <Longitude>0.0393670015037</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 26 38 75</Téléphone>
+      <Télécopie>02 33 32 07 25</Télécopie>
+      <Email>secretariat@mairielonrai.fr</Email>
+      <Url>http://www.lonrai.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert le vendredi uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

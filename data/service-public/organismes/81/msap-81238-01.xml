@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-81238-01" codeInsee="81238" dateMiseAJour="2020-12-14"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Saint-Amans-Soult</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>50 avenue de la Méditerranée</Ligne>
+      <CodePostal>81240</CodePostal>
+      <NomCommune>Saint-Amans-Soult</NomCommune>
+      <Localisation>
+         <Latitude>43.4780225</Latitude>
+         <Longitude>2.4869631</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.saint-amans-soult@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/saint-amans-soult-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="14:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

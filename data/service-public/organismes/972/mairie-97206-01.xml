@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97206-01" codeInsee="97206" dateMiseAJour="2017-12-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Diamant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 rue Justin-Roc</Ligne>
+      <CodePostal>97223</CodePostal>
+      <NomCommune>Le Diamant</NomCommune>
+      <Localisation>
+         <Latitude>14.4799759</Latitude>
+         <Longitude>-61.025226</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 76 40 11</Téléphone>
+      <Télécopie>+596 5 96 76 18 35</Télécopie>
+      <Email>dgs@mairie-diamant.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

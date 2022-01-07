@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22186-01" codeInsee="22186" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pléneuf-Val-André</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 rue de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 6</Ligne>
+      <CodePostal>22370</CodePostal>
+      <NomCommune>Pléneuf-Val-André</NomCommune>
+      <Localisation>
+         <Latitude>48.5846290588</Latitude>
+         <Longitude>-2.53800797462</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 63 13 00</Téléphone>
+      <Télécopie>02 99 63 10 48</Télécopie>
+      <Email>ville.pva@pva.bzh</Email>
+      <Url>http://www.pleneuf-val-andre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

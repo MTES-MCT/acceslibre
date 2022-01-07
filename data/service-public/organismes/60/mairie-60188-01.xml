@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60188-01" codeInsee="60188" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cuise-la-Motte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Russon</Ligne>
+      <CodePostal>60350</CodePostal>
+      <NomCommune>Cuise-la-Motte</NomCommune>
+      <Localisation>
+         <Latitude>49.3869018555</Latitude>
+         <Longitude>3.00672006607</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 85 70 66</Téléphone>
+      <Télécopie>03 44 85 24 55</Télécopie>
+      <Email>mairie.cuise-la-motte@wanadoo.fr</Email>
+      <Url>http://www.cuiselamotte.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous de 9h à 11h.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous de 9h à 11h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

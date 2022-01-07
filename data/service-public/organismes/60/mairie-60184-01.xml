@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60184-01" codeInsee="60184" dateMiseAJour="2020-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Croutoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de Jaulzy</Ligne>
+      <CodePostal>60350</CodePostal>
+      <NomCommune>Croutoy</NomCommune>
+      <Localisation>
+         <Latitude>49.385799408</Latitude>
+         <Longitude>3.04369997978</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 42 13 43</Téléphone>
+      <Email>mairie.croutoy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

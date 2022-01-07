@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08022-01" codeInsee="08022" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arreux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grand'rue</Ligne>
+      <CodePostal>08090</CodePostal>
+      <NomCommune>Arreux</NomCommune>
+      <Localisation>
+         <Latitude>49.824835</Latitude>
+         <Longitude>4.651242</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 54 93 97</Téléphone>
+      <Email>mairie.arreux@orange.fr</Email>
+      <Url>http://www.arreux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+         <Note>Permanence téléphonique de 8h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

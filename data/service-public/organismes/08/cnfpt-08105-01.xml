@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cnfpt-08105-01" codeInsee="08105" dateMiseAJour="2019-06-17"
+           pivotLocal="cnfpt">
+   <Nom>Centre national de la fonction publique territoriale (CNFPT) - Antenne départementale - Ardennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de Clèves</Ligne>
+      <Ligne>CS 40042</Ligne>
+      <CodePostal>08000</CodePostal>
+      <NomCommune>Charleville-Mézières Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.7699012756</Latitude>
+         <Longitude>4.72574996948</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 56 21 05</Téléphone>
+      <Email>secretariat.drca08@cnfpt.fr</Email>
+      <Url>http://www.cnfpt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

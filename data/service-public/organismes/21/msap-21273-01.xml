@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-21273-01" codeInsee="21273" dateMiseAJour="2020-12-04"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Fleurey-sur-Ouche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>1 rue du Sophora</Ligne>
+      <CodePostal>21410</CodePostal>
+      <NomCommune>Fleurey-sur-Ouche</NomCommune>
+      <Localisation>
+         <Latitude>47.312122</Latitude>
+         <Longitude>4.859477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.fleurey-sur-ouche@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/fleurey-sur-ouche-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Fermeture à 15h50.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+         <Note>Fermeture à 16h50.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

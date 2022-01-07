@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-29103-01" codeInsee="29103" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Landerneau-Daoulas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté de communes du Pays de Landerneau-Daoulas</Ligne>
+      <Ligne>59 rue de Brest</Ligne>
+      <CodePostal>29800</CodePostal>
+      <NomCommune>Landerneau</NomCommune>
+      <Localisation>
+         <Latitude>48.450606</Latitude>
+         <Longitude>-4.257566</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 21 37 67</Téléphone>
+      <Email>msap@ccpld.bzh</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/du-pays-de-landerneau-daoulas</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

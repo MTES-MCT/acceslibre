@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-60104-01" codeInsee="60104" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Oise - accueil de Breteuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre socio-culturel Michel-Jubert</Ligne>
+      <Ligne>4 rue Raoul-Levavasseur</Ligne>
+      <CodePostal>60120</CodePostal>
+      <NomCommune>Breteuil</NomCommune>
+      <Localisation>
+         <Latitude>49.6312742</Latitude>
+         <Longitude>2.2931286</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Oise</Ligne>
+      <Ligne>2 rue Jules-Ferry</Ligne>
+      <Ligne>CS 90729</Ligne>
+      <CodePostal>60012</CodePostal>
+      <NomCommune>Beauvais Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

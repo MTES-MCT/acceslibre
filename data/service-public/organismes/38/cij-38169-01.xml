@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-38169-01" codeInsee="38169" dateMiseAJour="2021-11-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Fontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 bis Mail Marcel Cachin</Ligne>
+      <CodePostal>38600</CodePostal>
+      <NomCommune>Fontaine</NomCommune>
+      <Localisation>
+         <Latitude>45.19537</Latitude>
+         <Longitude>5.6872</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 56 21 91</Téléphone>
+      <Email>pij@ville-fontaine.fr</Email>
+      <Url>http://www.ville-fontaine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Horaires des vacances scolaires du lundi au vendredi de 9h00 à 12h00 et de 13h00 à 16h00.</Commentaire>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-78646-02" codeInsee="78646"
+           dateMiseAJour="2021-11-08"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Yvelines - Baux d'habitation</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture - DDCS</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>1 rue Jean Houdon</Ligne>
+      <CodePostal>78000</CodePostal>
+      <NomCommune>Versailles</NomCommune>
+      <Localisation>
+         <Latitude>48.813668</Latitude>
+         <Longitude>2.1363306</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 71 59 55 71</Téléphone>
+      <Email>ddets@yvelines.gouv.fr</Email>
+      <Url>https://www.yvelines.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

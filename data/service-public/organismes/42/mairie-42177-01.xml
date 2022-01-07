@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42177-01" codeInsee="42177" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pouilly-sous-Charlieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>230 rue de la République</Ligne>
+      <CodePostal>42720</CodePostal>
+      <NomCommune>Pouilly-sous-Charlieu</NomCommune>
+      <Localisation>
+         <Latitude>46.1439384</Latitude>
+         <Longitude>4.1074419</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 60 90 22</Téléphone>
+      <Télécopie>04 77 60 79 44</Télécopie>
+      <Email>accueilmairie@pouillysouscharlieu.com</Email>
+      <Url>http://www.pouillysouscharlieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

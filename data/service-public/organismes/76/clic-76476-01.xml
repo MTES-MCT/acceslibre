@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-76476-01" codeInsee="76476" dateMiseAJour="2017-04-21"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Notre-Dame-de-Gravenchon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Maill'Âges</Ligne>
+      <Ligne>14 rue Émile-Zola</Ligne>
+      <CodePostal>76330</CodePostal>
+      <NomCommune>Notre-Dame-de-Gravenchon</NomCommune>
+      <Localisation>
+         <Latitude>49.49016</Latitude>
+         <Longitude>0.573033</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 84 12 54</Téléphone>
+      <Email>clic@cauxseine.fr</Email>
+      <Url>http://seniors.cauxseine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83122-01" codeInsee="83122" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Salles-sur-Verdon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Sainte-Anne</Ligne>
+      <CodePostal>83630</CodePostal>
+      <NomCommune>Les Salles-sur-Verdon</NomCommune>
+      <Localisation>
+         <Latitude>43.773656</Latitude>
+         <Longitude>6.20835699</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 98 10 63 56</Téléphone>
+      <Email>mairie@lessallessurverdon.fr</Email>
+      <Url>http://www.lessallessurverdon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

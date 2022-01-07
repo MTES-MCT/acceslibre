@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26362-01" codeInsee="26362" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Valence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Liberté</Ligne>
+      <Ligne>BP 2119</Ligne>
+      <CodePostal>26000</CodePostal>
+      <NomCommune>Valence</NomCommune>
+      <Localisation>
+         <Latitude>44.933199</Latitude>
+         <Longitude>4.892137</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 79 20 00</Téléphone>
+      <Email>http://www.valence.frfrcontactez-nous.html</Email>
+      <Url>http://www.valence.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>Accueil pour l'état civil uniquement de 8h à 17h30 du lundi au mercredi et le vendredi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="18:30:00"/>
+         <Note>Accueil pour l'état civil uniquement de 12h30 à 17h30 le jeudi.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-66049-01" codeInsee="66049" dateMiseAJour="2021-12-31"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable de Céret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue Gaston-Cardonne</Ligne>
+      <Ligne>BP 309</Ligne>
+      <CodePostal>66403</CodePostal>
+      <NomCommune>Céret Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.4862627</Latitude>
+         <Longitude>2.7524654</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 87 76 66</Téléphone>
+      <Email>sgc.ceret@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-82121-01" codeInsee="82121" dateMiseAJour="2021-06-01"
+           pivotLocal="msap">
+   <Nom>France Services - Montauban (itinérante)</Nom>
+   <EditeurSource>La Direction de l’Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>100 Boulevard Hubert Gouze</Ligne>
+      <Ligne>Itinérante départementale 82</Ligne>
+      <CodePostal>82000</CodePostal>
+      <NomCommune>Montauban</NomCommune>
+      <Localisation>
+         <Latitude>44.008448</Latitude>
+         <Longitude>1.359565</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02540-01" codeInsee="02540" dateMiseAJour="2020-12-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nesles-la-Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Joliot-Curie</Ligne>
+      <CodePostal>02400</CodePostal>
+      <NomCommune>Nesles-la-Montagne</NomCommune>
+      <Localisation>
+         <Latitude>49.0199239</Latitude>
+         <Longitude>3.4261049</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 83 31 46</Téléphone>
+      <Email>mairie.neslelamontagne@wanadoo.fr</Email>
+      <Url>http://www.nesleslamontagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

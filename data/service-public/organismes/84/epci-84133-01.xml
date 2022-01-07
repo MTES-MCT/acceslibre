@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-84133-01" codeInsee="84133" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté territoriale - Sud Luberon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc d'activité Le Revol</Ligne>
+      <Ligne>128 chemin des Vieilles-Vignes</Ligne>
+      <Ligne>CS 20128</Ligne>
+      <CodePostal>84240</CodePostal>
+      <NomCommune>La Tour-d'Aigues</NomCommune>
+      <Localisation>
+         <Latitude>43.725239</Latitude>
+         <Longitude>5.548023</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 07 48 12</Téléphone>
+      <Télécopie>04 90 07 53 52</Télécopie>
+      <Email>contact@cotelub.fr</Email>
+      <Url>http://www.cotelub.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

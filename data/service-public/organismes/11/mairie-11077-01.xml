@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11077-01" codeInsee="11077" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Castelnau-d'Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>11700</CodePostal>
+      <NomCommune>Castelnau-d'Aude</NomCommune>
+      <Localisation>
+         <Latitude>43.2324905396</Latitude>
+         <Longitude>2.67331290245</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 43 75 64</Téléphone>
+      <Télécopie>04 68 43 73 63</Télécopie>
+      <Email>castelnau.aude@wanadoo.fr</Email>
+      <Url>http://www.castelnaudaude.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique de 8h à 12h30 et de 14h à 18h30 du lundi au vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

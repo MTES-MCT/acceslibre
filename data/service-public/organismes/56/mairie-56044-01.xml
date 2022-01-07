@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56044-01" codeInsee="56044" dateMiseAJour="2021-06-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cournon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Juberde</Ligne>
+      <CodePostal>56200</CodePostal>
+      <NomCommune>Cournon</NomCommune>
+      <Localisation>
+         <Latitude>47.7460086</Latitude>
+         <Longitude>-2.0988967</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 08 12 76</Téléphone>
+      <Email>mairiedecournon@wanadoo.fr</Email>
+      <Url>https://www.cournon.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Pendant la crise sanitaire accueil fermé le jeudi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

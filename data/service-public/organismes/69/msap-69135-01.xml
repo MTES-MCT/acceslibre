@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-69135-01" codeInsee="69135" dateMiseAJour="2020-11-27"
+           pivotLocal="msap">
+   <Nom>France Services - Monsols</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>6 Place de la Fontaine</Ligne>
+      <CodePostal>69860</CodePostal>
+      <NomCommune>Monsols</NomCommune>
+      <Localisation>
+         <Latitude>46.219907</Latitude>
+         <Longitude>4.520813</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 04 71 51</Téléphone>
+      <Email>france-services.monsols@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

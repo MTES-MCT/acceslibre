@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57508-01" codeInsee="57508" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nilvange</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Victor-Hugo</Ligne>
+      <CodePostal>57240</CodePostal>
+      <NomCommune>Nilvange</NomCommune>
+      <Localisation>
+         <Latitude>49.3415985107</Latitude>
+         <Longitude>6.0510802269</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 86 40 30</Téléphone>
+      <Télécopie>03 82 85 24 40</Télécopie>
+      <Email>contact@mairie-nilvange.fr</Email>
+      <Url>http://nilvange.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

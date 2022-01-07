@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50094-01" codeInsee="50094" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Camprond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 le Bourg</Ligne>
+      <CodePostal>50210</CodePostal>
+      <NomCommune>Camprond</NomCommune>
+      <Localisation>
+         <Latitude>49.088974</Latitude>
+         <Longitude>-1.346586</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">appeler la mairie avant de s'y rendre afin d'être reçu dans la salle de réunion</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 62 30 07 13</Téléphone>
+      <Email>mairie.camprond@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

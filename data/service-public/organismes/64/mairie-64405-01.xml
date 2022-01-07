@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64405-01" codeInsee="64405" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Morlaàs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Sainte-Foy</Ligne>
+      <CodePostal>64160</CodePostal>
+      <NomCommune>Morlaàs</NomCommune>
+      <Localisation>
+         <Latitude>43.3449619</Latitude>
+         <Longitude>-0.2634216</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 33 40 41</Téléphone>
+      <Email>contact@mairie-morlaas.fr</Email>
+      <Url>http://www.mairie-morlaas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08225-01" codeInsee="08225" dateMiseAJour="2019-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Herpy-l'Arlésienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de Ham</Ligne>
+      <CodePostal>08360</CodePostal>
+      <NomCommune>Herpy-l'Arlésienne</NomCommune>
+      <Localisation>
+         <Latitude>49.5227737427</Latitude>
+         <Longitude>4.20895814896</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied par la porte communal à l'arrière</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 89 54</Téléphone>
+      <Email>mairie.herpy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

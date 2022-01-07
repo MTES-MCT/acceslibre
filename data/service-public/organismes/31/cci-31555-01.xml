@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-31555-01" codeInsee="31555" dateMiseAJour="2021-07-27" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 31 - Haute-Garonne - Siège de Toulouse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Alsace-Lorraine</Ligne>
+      <Ligne>BP 10202</Ligne>
+      <CodePostal>31002</CodePostal>
+      <NomCommune>Toulouse Cedex 6</NomCommune>
+      <Localisation>
+         <Latitude>43.6005207</Latitude>
+         <Longitude>1.4457043</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 33 65 00</Téléphone>
+      <Email>accueil@toulouse.cci.fr</Email>
+      <Url>https://www.toulouse.cci.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

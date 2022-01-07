@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-54459-01" codeInsee="54459" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Kiosque information jeunesse - Richardmenil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>72 rue de Nancy</Ligne>
+      <CodePostal>54630</CodePostal>
+      <NomCommune>Richardmenil</NomCommune>
+      <Localisation>
+         <Latitude>48.594443</Latitude>
+         <Longitude>6.169286</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 25 29 25</Téléphone>
+      <Email>jeunesse.richardmenil@orange.fr</Email>
+      <Url>http://www.informationjeunesselorraine.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

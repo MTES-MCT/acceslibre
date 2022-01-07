@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-15187-01" codeInsee="15187" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Cantal - accueil de Saint-Flour</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre social Jean Julhes</Ligne>
+      <Ligne>5 avenue du Docteur-Mallet</Ligne>
+      <CodePostal>15100</CodePostal>
+      <NomCommune>Saint-Flour</NomCommune>
+      <Localisation>
+         <Latitude>45.032832</Latitude>
+         <Longitude>3.085873</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Cantal</Ligne>
+      <Ligne>15 rue Pierre-Marty</Ligne>
+      <Ligne>BP 219</Ligne>
+      <CodePostal>15002</CodePostal>
+      <NomCommune>Aurillac Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil fermé pendant les vacances scolaires, ouvert en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-18033-01" codeInsee="18033"
+           dateMiseAJour="2018-05-30"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Cher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative Condé</Ligne>
+      <Ligne>Bâtiment F</Ligne>
+      <Ligne>Rue du 95e-de-Ligne</Ligne>
+      <CodePostal>18016</CodePostal>
+      <NomCommune>Bourges</NomCommune>
+      <Localisation>
+         <Latitude>47.080355</Latitude>
+         <Longitude>2.397457</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 36 08 20 00</Téléphone>
+      <Télécopie>02 36 08 20 01</Télécopie>
+      <Email>ce.ia18@ac-orleans-tours.fr</Email>
+      <Url>https://www.ac-orleans-tours.fr/dsden18</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

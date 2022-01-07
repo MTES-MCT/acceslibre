@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03050-01" codeInsee="03050" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chabanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Mairie</Ligne>
+      <CodePostal>03250</CodePostal>
+      <NomCommune>La Chabanne</NomCommune>
+      <Localisation>
+         <Latitude>46.021983</Latitude>
+         <Longitude>3.752052</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette, salle à disposition</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 56 41 59</Téléphone>
+      <Email>mairielachabanne@gmail.com</Email>
+      <Url>http://www.lachabanne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

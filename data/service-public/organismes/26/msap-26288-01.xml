@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-26288-01" codeInsee="26288" dateMiseAJour="2021-11-15"
+           pivotLocal="msap">
+   <Nom>France Services - Sahune</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>285 rue du Village</Ligne>
+      <CodePostal>26510</CodePostal>
+      <NomCommune>Sahune</NomCommune>
+      <Localisation>
+         <Latitude>44.413782</Latitude>
+         <Longitude>5.267203</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 27 02 02</Téléphone>
+      <Email>contact@france-services-sahune.fr</Email>
+      <Url>https://www.france-services-sahune.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Espace France Services de Rémuzat le Lundi de 13h30 à 16h30 et le
+Vendredi de 9h30 à 12h. Téléphone : 06-14-86-45-36</Commentaire>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62705-01" codeInsee="62705" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rety</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Jules-Ferry</Ligne>
+      <CodePostal>62720</CodePostal>
+      <NomCommune>Rety</NomCommune>
+      <Localisation>
+         <Latitude>50.7977981567</Latitude>
+         <Longitude>1.77488005161</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 92 89 75</Téléphone>
+      <Télécopie>03 21 87 53 57</Télécopie>
+      <Email>mairiederety@mairie-rety.fr</Email>
+      <Url>http://www.mairie-rety.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

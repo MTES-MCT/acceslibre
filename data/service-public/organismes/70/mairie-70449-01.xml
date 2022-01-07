@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70449-01" codeInsee="70449" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Roche-sur-Linotte-et-Sorans-les-Cordiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Principale</Ligne>
+      <CodePostal>70230</CodePostal>
+      <NomCommune>Roche-Linotte-Sorans-Cordiers</NomCommune>
+      <Localisation>
+         <Latitude>47.4837989807</Latitude>
+         <Longitude>6.23681020737</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 68 32 61</Téléphone>
+      <Télécopie>03 84 68 32 61</Télécopie>
+      <Email>rochesurlinotte@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

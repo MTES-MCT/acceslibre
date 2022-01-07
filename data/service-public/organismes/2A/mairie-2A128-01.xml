@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A128-01" codeInsee="2A128" dateMiseAJour="2016-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Granace</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Village</Ligne>
+      <CodePostal>20100</CodePostal>
+      <NomCommune>Granace</NomCommune>
+      <Localisation>
+         <Latitude>41.645862</Latitude>
+         <Longitude>9.007683</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 77 12 11</Téléphone>
+      <Télécopie>04 95 77 09 10</Télécopie>
+      <Email>mairie.granace@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

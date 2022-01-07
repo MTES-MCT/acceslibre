@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60253-01" codeInsee="60253" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Francastel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l'Église</Ligne>
+      <CodePostal>60480</CodePostal>
+      <NomCommune>Francastel</NomCommune>
+      <Localisation>
+         <Latitude>49.5887985229</Latitude>
+         <Longitude>2.14848995209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 46 90 75</Téléphone>
+      <Télécopie>03 44 46 90 75</Télécopie>
+      <Email>mairiefrancastel@wanadoo.fr</Email>
+      <Url>http://www.francastel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

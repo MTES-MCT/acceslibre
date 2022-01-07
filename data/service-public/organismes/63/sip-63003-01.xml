@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-63003-01" codeInsee="63003" dateMiseAJour="2022-01-04" pivotLocal="sip">
+   <Nom>Antenne du Service des impôts des particuliers de Thiers - centre des finances publiques d'Ambert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-de-Gaulle</Ligne>
+      <CodePostal>63600</CodePostal>
+      <NomCommune>Ambert</NomCommune>
+      <Localisation>
+         <Latitude>45.549696</Latitude>
+         <Longitude>3.73928</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 82 54 05</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil sur rendez-vous téléphonique et/ou physique.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80748-01" codeInsee="80748" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Templeux-le-Guérard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Dessous</Ligne>
+      <CodePostal>80240</CodePostal>
+      <NomCommune>Templeux-le-Guérard</NomCommune>
+      <Localisation>
+         <Latitude>49.9384002686</Latitude>
+         <Longitude>3.12383008003</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 86 57 85</Téléphone>
+      <Télécopie>03 22 86 57 85</Télécopie>
+      <Email>mairie.templeux-le-guerard@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="14:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

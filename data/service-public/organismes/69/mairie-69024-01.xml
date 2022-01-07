@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69024-01" codeInsee="69024" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Bois-d'Oingt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bois-d'Oingt</Ligne>
+      <Ligne>1 avenue du 8-Mai-1945</Ligne>
+      <CodePostal>69620</CodePostal>
+      <NomCommune>Val d'Oingt</NomCommune>
+      <Localisation>
+         <Latitude>45.9203647</Latitude>
+         <Longitude>4.5864755</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 71 60 51</Téléphone>
+      <Télécopie>04 74 71 84 20</Télécopie>
+      <Email>mairie@valdoingt.org</Email>
+      <Url>http://www.valdoingt.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-40310-01" codeInsee="40310" dateMiseAJour="2021-04-07"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Soustons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Bernard-Pontneau</Ligne>
+      <Ligne>BP 68</Ligne>
+      <CodePostal>40141</CodePostal>
+      <NomCommune>Soustons Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.7510566</Latitude>
+         <Longitude>-1.3287449</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 41 11 12</Téléphone>
+      <Email>t040030@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Sans rendez-vous le matin et uniquement sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

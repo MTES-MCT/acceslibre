@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-55029-01" codeInsee="55029" dateMiseAJour="2020-11-05"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Meuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Roises-Savonnières-devant-Bar</Ligne>
+      <Ligne>CS 10229</Ligne>
+      <CodePostal>55005</CodePostal>
+      <NomCommune>Bar-le-Duc Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.761168</Latitude>
+         <Longitude>5.181608</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 83 30 30</Téléphone>
+      <Télécopie>03 29 76 29 29</Télécopie>
+      <Email>accueil@meuse.chambagri.fr</Email>
+      <Url>http://www.meuse.chambre-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80259-01" codeInsee="80259" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dromesnil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Arthur-Gellé</Ligne>
+      <CodePostal>80640</CodePostal>
+      <NomCommune>Dromesnil</NomCommune>
+      <Localisation>
+         <Latitude>49.8794746399</Latitude>
+         <Longitude>1.86651003361</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 90 80 83</Téléphone>
+      <Email>commune.dromesnil@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus 11h à 13h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

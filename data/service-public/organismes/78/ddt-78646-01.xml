@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-78646-01" codeInsee="78646" dateMiseAJour="2021-03-16" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires (DDT) - Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue de Noailles</Ligne>
+      <CodePostal>78000</CodePostal>
+      <NomCommune>Versailles</NomCommune>
+      <Localisation>
+         <Latitude>48.7969904</Latitude>
+         <Longitude>2.1315894</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 84 30 00</Téléphone>
+      <Télécopie>01 39 50 27 14</Télécopie>
+      <Email>https://www.yvelines.gouv.fr/Services-de-l-Etat/Direction-Departementale-des-Territoires</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

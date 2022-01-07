@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68368-01" codeInsee="68368" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wihr-au-Val</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 Grande rue</Ligne>
+      <CodePostal>68230</CodePostal>
+      <NomCommune>Wihr-au-Val</NomCommune>
+      <Localisation>
+         <Latitude>48.0412274</Latitude>
+         <Longitude>7.1361458</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 71 11 22</Téléphone>
+      <Télécopie>03 89 71 07 56</Télécopie>
+      <Email>wihr-au-val@wanadoo.fr</Email>
+      <Url>http://www.wihr-au-val.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement de 8h à 12h du lundi au vendredi en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

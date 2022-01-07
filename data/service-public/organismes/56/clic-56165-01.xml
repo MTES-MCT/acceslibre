@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-56165-01" codeInsee="56165" dateMiseAJour="2020-02-17"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Ploërmel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace autonomie seniors ploërmelais</Ligne>
+      <Ligne>Le Trait d'union</Ligne>
+      <Ligne>8 rue Jean-Noël-Goujeon</Ligne>
+      <CodePostal>56800</CodePostal>
+      <NomCommune>Ploërmel</NomCommune>
+      <Localisation>
+         <Latitude>47.931002</Latitude>
+         <Longitude>-2.398192</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 74 17 61</Téléphone>
+      <Email>eas@pays-ploermel.fr</Email>
+      <Url>http://www.paysdeploermel-coeurdebretagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62259-01" codeInsee="62259" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Croisilles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grand'place</Ligne>
+      <Ligne>BP 35</Ligne>
+      <CodePostal>62128</CodePostal>
+      <NomCommune>Croisilles</NomCommune>
+      <Localisation>
+         <Latitude>50.1510009766</Latitude>
+         <Longitude>2.90550994873</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied à l’arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 07 57 57</Téléphone>
+      <Télécopie>03 21 07 57 37</Télécopie>
+      <Email>gdue@mairie-croisilles.fr</Email>
+      <Url>http://www.mairie-croisilles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

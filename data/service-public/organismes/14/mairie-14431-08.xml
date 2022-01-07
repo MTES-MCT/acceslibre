@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14431-08" codeInsee="14431" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Magny-la-Campagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Magny-la-Campagne</Ligne>
+      <Ligne>15 rue des Écoles</Ligne>
+      <CodePostal>14270</CodePostal>
+      <NomCommune>Mézidon Vallée d'Auge</NomCommune>
+      <Localisation>
+         <Latitude>49.049659</Latitude>
+         <Longitude>0.104715</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 20 00 96</Téléphone>
+      <Email>mairie.magnylacampagne@mva14.fr</Email>
+      <Url>https://mva14.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

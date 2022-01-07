@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-49007-05" codeInsee="49007" dateMiseAJour="2021-02-26"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie amendes d'Angers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue Dupetit Thouars</Ligne>
+      <Ligne>BP 73523</Ligne>
+      <Ligne>Cité administrative Bât. D</Ligne>
+      <CodePostal>49035</CodePostal>
+      <NomCommune>Angers Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>47.462999</Latitude>
+         <Longitude>-0.551615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 74 51 34</Téléphone>
+      <Télécopie>02 41 37 54 79</Télécopie>
+      <Email>t049066@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.fr/tai</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

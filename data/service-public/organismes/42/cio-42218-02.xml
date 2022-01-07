@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-42218-02" codeInsee="42218" dateMiseAJour="2021-02-04" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Saint-Étienne - Couriot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l’emploi</Ligne>
+      <Ligne>18 avenue Augustin-Dupré</Ligne>
+      <CodePostal>42000</CodePostal>
+      <NomCommune>Saint-Étienne</NomCommune>
+      <Localisation>
+         <Latitude>45.4374313</Latitude>
+         <Longitude>4.3791515</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 01 33 60</Téléphone>
+      <Télécopie>04 77 01 33 62</Télécopie>
+      <Email>cio-saint-etienne-couriot@ac-lyon.fr</Email>
+      <Url>http://saint-etienne.cio.ac-lyon.fr/spip/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires de 9h à 12h et de 13h30 à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous.</Commentaire>
+</Organisme>

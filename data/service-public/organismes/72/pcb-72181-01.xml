@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pcb-72181-01" codeInsee="72181" dateMiseAJour="2021-11-26" pivotLocal="pcb">
+   <Nom>Point conseil budget - Union départementale des associations familiales (UDAF 72) - Le Mans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>67 boulevard Winston Churchill</Ligne>
+      <CodePostal>72000</CodePostal>
+      <NomCommune>Le Mans</NomCommune>
+      <Localisation>
+         <Latitude>47.990855</Latitude>
+         <Longitude>0.222977</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 61 48 11</Téléphone>
+      <Email>institution@udaf72.fr</Email>
+      <Url>https://udaf72.blogspot.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

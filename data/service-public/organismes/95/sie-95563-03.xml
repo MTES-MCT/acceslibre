@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-95563-03" codeInsee="95563" dateMiseAJour="2022-01-03" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises Val-d'Oise Est</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances publiques de Saint-Leu-la-Forêt</Ligne>
+      <Ligne>131 rue d'Ermont</Ligne>
+      <CodePostal>95328</CodePostal>
+      <NomCommune>Saint-Leu-la-Forêt Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.005961</Latitude>
+         <Longitude>2.249405</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 40 66 00</Téléphone>
+      <Email>sie.garges@dgfip.finances.gouv.fr</Email>
+      <Url>impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous</Commentaire>
+</Organisme>

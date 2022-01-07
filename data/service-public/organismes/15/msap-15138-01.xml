@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-15138-01" codeInsee="15138" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Murat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Faubourg-Notre-Dame</Ligne>
+      <CodePostal>15300</CodePostal>
+      <NomCommune>Murat</NomCommune>
+      <Localisation>
+         <Latitude>45.110936</Latitude>
+         <Longitude>2.869997</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 20 28 88</Téléphone>
+      <Télécopie>04 71 20 28 87</Télécopie>
+      <Email>mdsmurat@hautesterres.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

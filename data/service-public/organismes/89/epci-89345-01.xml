@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-89345-01" codeInsee="89345" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Serein et Armance</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 avenue du Général-Leclerc</Ligne>
+      <CodePostal>89600</CodePostal>
+      <NomCommune>Saint-Florentin</NomCommune>
+      <Localisation>
+         <Latitude>48.000552</Latitude>
+         <Longitude>3.729512</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 80 50 50</Téléphone>
+      <Email>contact@cc-sereinarmance.fr</Email>
+      <Url>http://cc-sereinarmance.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

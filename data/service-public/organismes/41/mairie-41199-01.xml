@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41199-01" codeInsee="41199" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Amand-Longpré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue Jules-Ferry</Ligne>
+      <CodePostal>41310</CodePostal>
+      <NomCommune>Saint-Amand-Longpré</NomCommune>
+      <Localisation>
+         <Latitude>47.6894202</Latitude>
+         <Longitude>1.0161588</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 82 83 74</Téléphone>
+      <Télécopie>02 54 82 89 95</Télécopie>
+      <Email>secretariat@saintamandlongpre.fr</Email>
+      <Url>http://www.saintamandlongpre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

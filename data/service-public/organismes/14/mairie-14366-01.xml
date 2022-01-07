@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14366-01" codeInsee="14366" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lisieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Henry-Chéron</Ligne>
+      <Ligne>BP 87222</Ligne>
+      <CodePostal>14100</CodePostal>
+      <NomCommune>Lisieux</NomCommune>
+      <Localisation>
+         <Latitude>49.1459999084</Latitude>
+         <Longitude>0.227253004909</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 48 40 40</Téléphone>
+      <Télécopie>02 31 48 40 41</Télécopie>
+      <Email>contact@ville-lisieux.fr</Email>
+      <Url>http://www.ville-lisieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Uniquement pour les demandes de cartes d'identité et passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="80001" dateMiseAJour="2021-12-14" id="prudhommes-80001-01" idPresta="4cac9ed6293594648a00ed7b" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Abbeville</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>79 RUE DU MARECHAL FOCH</Ligne>
+        <CodePostal>80142</CodePostal>
+        <NomCommune>ABBEVILLE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>50.103833</Latitude>
+            <Longitude>1.83723</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>79 RUE DU MARECHAL FOCH</Ligne>
+        <CodePostal>80142</CodePostal>
+        <NomCommune>ABBEVILLE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 22 25 37 31</Téléphone>
+        <Télécopie>03 22 25 37 55</Télécopie>
+        <Email>mailto:cph-abbeville@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="09:00:00" fin="11:45:00"/>
+            <PlageH début="14:00:00" fin="16:45:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="09:00:00" fin="11:45:00"/>
+            <PlageH début="14:00:00" fin="16:45:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="11:45:00"/>
+            <PlageH début="14:00:00" fin="16:45:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="09:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

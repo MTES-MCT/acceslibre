@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38146-01" codeInsee="38146" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dizimieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 rue de l'Église</Ligne>
+      <CodePostal>38460</CodePostal>
+      <NomCommune>Dizimieu</NomCommune>
+      <Localisation>
+         <Latitude>45.718796</Latitude>
+         <Longitude>5.297208</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 90 72 39</Téléphone>
+      <Télécopie>04 74 90 54 74</Télécopie>
+      <Email>mairie.dizimieu@wanadoo.fr</Email>
+      <Url>http://www.dizimieu.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement le 2e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

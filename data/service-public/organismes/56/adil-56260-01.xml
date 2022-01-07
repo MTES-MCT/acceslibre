@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-56260-01" codeInsee="56260" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Morbihan - Vannes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc d'activités de Laroiseau</Ligne>
+      <Ligne>14 rue Ella-Maillart</Ligne>
+      <CodePostal>56000</CodePostal>
+      <NomCommune>Vannes</NomCommune>
+      <Localisation>
+         <Latitude>47.6682268744</Latitude>
+         <Longitude>-2.78043150902</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 47 02 30</Téléphone>
+      <Télécopie>02 97 47 58 93</Télécopie>
+      <Email>adil.56@wanadoo.fr</Email>
+      <Url>https://www.adil56.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, accueil téléphonique du lundi au vendredi à partir de 13h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

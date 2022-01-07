@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62013-01" codeInsee="62013" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Agny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Ferdinand-Buisson</Ligne>
+      <CodePostal>62217</CodePostal>
+      <NomCommune>Agny</NomCommune>
+      <Localisation>
+         <Latitude>50.2605018616</Latitude>
+         <Longitude>2.75841999054</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 23 68 59</Téléphone>
+      <Télécopie>03 21 51 47 17</Télécopie>
+      <Email>contact@agny.fr</Email>
+      <Url>http://agny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert durant les vacances scolaires du lundi au vendredi de 8h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="15:00:00"/>
+         <Note>Accueil fermé le matin en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95219-01" codeInsee="95219" dateMiseAJour="2020-06-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ermont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>100 rue Louis-Savoie</Ligne>
+      <CodePostal>95123</CodePostal>
+      <NomCommune>Ermont Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9916222</Latitude>
+         <Longitude>2.2585406</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 72 38 38</Téléphone>
+      <Email>mairie@ville-ermont.fr</Email>
+      <Url>http://www.ermont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

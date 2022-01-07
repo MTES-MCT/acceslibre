@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-02408-01" codeInsee="02408"
+           dateMiseAJour="2018-06-11"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale  (DSDEN) - Aisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <CodePostal>02000</CodePostal>
+      <NomCommune>Laon</NomCommune>
+      <Localisation>
+         <Latitude>49.564627</Latitude>
+         <Longitude>3.63003</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 26 22 00</Téléphone>
+      <Télécopie>03 23 26 26 14</Télécopie>
+      <Email>dsden02@ac-amiens.fr</Email>
+      <Url>http://www.ac-amiens.frdsden02</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

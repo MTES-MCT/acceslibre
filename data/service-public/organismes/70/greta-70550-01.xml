@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-70550-01" codeInsee="70550" dateMiseAJour="2021-11-23"
+           pivotLocal="greta">
+   <Nom>Greta CFA Haute-Saône et Nord Franche-Comté - Vesoul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue Édouard-Belin</Ligne>
+      <Ligne>BP 404</Ligne>
+      <CodePostal>70014</CodePostal>
+      <NomCommune>Vesoul Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.632798</Latitude>
+         <Longitude>6.162012</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 76 07 46</Téléphone>
+      <Télécopie>03 84 75 15 11</Télécopie>
+      <Email>greta.hsnfc@ac-besancon.fr</Email>
+      <Url>https://greta-franche-comte.fr/greta/haute-saone-nord-franche-comte/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_region-97209-01" codeInsee="97209" dateMiseAJour="2017-10-09"
+           pivotLocal="prefecture_region">
+   <Nom>Préfecture de région - Martinique</Nom>
+   <EditeurSource>la Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>82 rue Victor-Sévère</Ligne>
+      <Ligne>BP 647-648</Ligne>
+      <CodePostal>97262</CodePostal>
+      <NomCommune>Fort-de-France Cedex</NomCommune>
+      <Localisation>
+         <Latitude>14.605047</Latitude>
+         <Longitude>-61.067297</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 39 36 00</Téléphone>
+      <Télécopie>+596 5 96 71 40 29</Télécopie>
+      <Email>http://www.martinique.pref.gouv.fr/Contactez-nous</Email>
+      <Url>http://www.martinique.pref.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique lundi, mardi et jeudi de 14h30 à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

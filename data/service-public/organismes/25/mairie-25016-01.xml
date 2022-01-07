@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25016-01" codeInsee="25016" dateMiseAJour="2019-04-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Amathay-Vésigneux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 Grande rue</Ligne>
+      <CodePostal>25330</CodePostal>
+      <NomCommune>Amathay-Vésigneux</NomCommune>
+      <Localisation>
+         <Latitude>47.024017</Latitude>
+         <Longitude>6.199278</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 86 53 95</Téléphone>
+      <Email>mairie.amathay@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

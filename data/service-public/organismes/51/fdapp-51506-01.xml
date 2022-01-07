@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-51506-01" codeInsee="51506" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZAC du Mont Michaud</Ligne>
+      <Ligne>14 rue Clément Ader</Ligne>
+      <CodePostal>51470</CodePostal>
+      <NomCommune>Saint-Memmie</NomCommune>
+      <Localisation>
+         <Latitude>48.9460602</Latitude>
+         <Longitude>4.4035524</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 70 50 52</Téléphone>
+      <Télécopie>03 26 68 28 74</Télécopie>
+      <Email>contact@peche51.fr</Email>
+      <Url>http://www.peche51.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Fermé à 16 h 30 le vendredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

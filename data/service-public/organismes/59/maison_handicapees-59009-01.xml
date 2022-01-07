@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-59009-01" codeInsee="59009" dateMiseAJour="2019-05-02"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue de la Toison-d'Or</Ligne>
+      <Ligne>CS 20372</Ligne>
+      <CodePostal>59669</CodePostal>
+      <NomCommune>Villeneuve-d'Ascq Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.6166926</Latitude>
+         <Longitude>3.1376067</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 59 73 73 73</Téléphone>
+      <Télécopie>03 59 73 73 00</Télécopie>
+      <Email>mdph@lenord.fr</Email>
+      <Url>https://mdph.lenord.fr/site/dac_50770/accueil</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil téléphonique de 8h30 à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

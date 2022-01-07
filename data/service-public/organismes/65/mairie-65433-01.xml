@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65433-01" codeInsee="65433" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Soues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue André-Fourcade</Ligne>
+      <CodePostal>65430</CodePostal>
+      <NomCommune>Soues</NomCommune>
+      <Localisation>
+         <Latitude>43.2043991089</Latitude>
+         <Longitude>0.0997449979186</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 33 07 29</Téléphone>
+      <Télécopie>05 62 33 07 30</Télécopie>
+      <Email>mairie@soues.fr</Email>
+      <Url>http://www.soues.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

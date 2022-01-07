@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-29232-01" codeInsee="29232" dateMiseAJour="2021-11-02"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Quimper 1</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 31720</Ligne>
+      <Ligne>3 Boulevard du Finistère</Ligne>
+      <Ligne>Centre des finances publiques de Quimper</Ligne>
+      <CodePostal>29107</CodePostal>
+      <NomCommune>Quimper Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.013387</Latitude>
+         <Longitude>-4.092907</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 55 81 50</Téléphone>
+      <Email>spf.quimper1@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>APM : lundi, mardi, jeudi : sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous uniquement.</Commentaire>
+</Organisme>

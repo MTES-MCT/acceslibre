@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-90010-01" codeInsee="90010" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Territoire de Belfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Jonxion 1</Ligne>
+      <Ligne>1 avenue de la Gare-TGV</Ligne>
+      <CodePostal>90400</CodePostal>
+      <NomCommune>Meroux-Moval</NomCommune>
+      <Localisation>
+         <Latitude>47.585926</Latitude>
+         <Longitude>6.897375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 46 61 50</Téléphone>
+      <Télécopie>03 84 22 28 08</Télécopie>
+      <Email>accueil@territoire-de-belfort.chambagri.fr</Email>
+      <Url>http://www.franche-comte.chambagri.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

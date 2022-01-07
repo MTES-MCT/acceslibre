@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64189-01" codeInsee="64189" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ciboure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Camille-Jullian</Ligne>
+      <Ligne>BP 321</Ligne>
+      <CodePostal>64503</CodePostal>
+      <NomCommune>Ciboure Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.3843752</Latitude>
+         <Longitude>-1.6676314</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 47 26 06</Téléphone>
+      <Télécopie>05 59 47 64 59</Télécopie>
+      <Email>mairie@mairiedeciboure.com</Email>
+      <Url>http://www.mairie-ciboure.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

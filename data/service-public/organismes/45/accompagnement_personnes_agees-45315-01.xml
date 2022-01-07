@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-45315-01" codeInsee="45315"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Sully-sur-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôpital de Sully-sur-Loire</Ligne>
+      <Ligne>EHPAD</Ligne>
+      <Ligne>Accueil de jour</Ligne>
+      <CodePostal>45600</CodePostal>
+      <NomCommune>Sully-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>47.765018</Latitude>
+         <Longitude>2.380744</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 27 55 30</Téléphone>
+      <Email>ADJ@hopital-sully.fr</Email>
+      <Url>http://www.hopital-sully.frplateforme-de-repit-pour-les-aidants.php</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

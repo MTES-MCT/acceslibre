@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60327-01" codeInsee="60327" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jouy-sous-Thelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>57 rue Saint-Michel</Ligne>
+      <CodePostal>60240</CodePostal>
+      <NomCommune>Jouy-sous-Thelle</NomCommune>
+      <Localisation>
+         <Latitude>49.318151</Latitude>
+         <Longitude>1.97171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 47 52 22</Téléphone>
+      <Télécopie>03 44 47 52 24</Télécopie>
+      <Email>mairie.jouysousthelle@wanadoo.fr</Email>
+      <Url>http://www.jouysousthelle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

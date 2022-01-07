@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-67507-01" codeInsee="67507" dateMiseAJour="2020-12-18"
+           pivotLocal="msap">
+   <Nom>France Services - Villé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>2 A rue du Haut-Koenigsbourg</Ligne>
+      <CodePostal>67220</CodePostal>
+      <NomCommune>Villé</NomCommune>
+      <Localisation>
+         <Latitude>48.3413815</Latitude>
+         <Longitude>7.30889209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 58 93 43</Téléphone>
+      <Email>france-services.ville@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:05:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:05:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

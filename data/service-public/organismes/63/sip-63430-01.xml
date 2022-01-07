@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-63430-01" codeInsee="63430" dateMiseAJour="2022-01-04" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Thiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue du Bon-Repos</Ligne>
+      <Ligne>BP 121</Ligne>
+      <CodePostal>63303</CodePostal>
+      <NomCommune>Thiers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.844962</Latitude>
+         <Longitude>3.529279</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 51 77 11</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil sur rendez-vous téléphonique et/ou physique. Pour prendre rendez-vous ou contacter ce service par courriel, utilisez votre messagerie sécurisée disponible sur le site impots.gouv.fr. Si vous
+ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

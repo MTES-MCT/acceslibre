@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59206-01" codeInsee="59206" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Escaudœuvres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>221 rue Jean-Jaurès</Ligne>
+      <CodePostal>59161</CodePostal>
+      <NomCommune>Escaudœuvres</NomCommune>
+      <Localisation>
+         <Latitude>50.1912994385</Latitude>
+         <Longitude>3.26284003258</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 72 70 70</Téléphone>
+      <Télécopie>03 27 72 70 92</Télécopie>
+      <Email>hoteldeville@escaudoeuvres.fr</Email>
+      <Url>http://www.escaudoeuvres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

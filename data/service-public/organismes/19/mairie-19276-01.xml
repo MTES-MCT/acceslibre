@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19276-01" codeInsee="19276" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Uzerche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Libération</Ligne>
+      <CodePostal>19140</CodePostal>
+      <NomCommune>Uzerche</NomCommune>
+      <Localisation>
+         <Latitude>45.4244003296</Latitude>
+         <Longitude>1.56376004219</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 73 17 00</Téléphone>
+      <Télécopie>05 55 98 44 55</Télécopie>
+      <Email>mairie@uzerche.fr</Email>
+      <Url>http://www.uzerche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 2e et le 4e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

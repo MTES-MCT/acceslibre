@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-02408-01" codeInsee="02408" dateMiseAJour="2021-03-12" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires (DDT) - Aisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>50, boulevard de Lyon</Ligne>
+      <CodePostal>02011</CodePostal>
+      <NomCommune>Laon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.5694229</Latitude>
+         <Longitude>3.6289792</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 24 64 00</Téléphone>
+      <Télécopie>03 23 24 64 01</Télécopie>
+      <Email>ddt@aisne.gouv.fr</Email>
+      <Url>https://www.aisne.gouv.fr/Services-de-l-Etat/Presentation-des-services/Direction-Departementale-des-Territoires-DDT</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

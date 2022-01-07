@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70002-01" codeInsee="70002" dateMiseAJour="2017-11-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aboncourt-Gesincourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>70500</CodePostal>
+      <NomCommune>Aboncourt-Gesincourt</NomCommune>
+      <Localisation>
+         <Latitude>47.7647163</Latitude>
+         <Longitude>5.9271255</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 68 72 13</Téléphone>
+      <Email>mairie.aboncourt.gesincourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

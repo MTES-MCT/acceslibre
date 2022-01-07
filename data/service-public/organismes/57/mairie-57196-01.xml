@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57196-01" codeInsee="57196" dateMiseAJour="2020-11-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Erching</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue Principale</Ligne>
+      <CodePostal>57720</CodePostal>
+      <NomCommune>Erching</NomCommune>
+      <Localisation>
+         <Latitude>49.10945</Latitude>
+         <Longitude>7.266692</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 09 98 24</Téléphone>
+      <Télécopie>03 87 95 31 76</Télécopie>
+      <Email>erchingmairie@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>1er mercredi du mois permanence administrative pour personnes âgées</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

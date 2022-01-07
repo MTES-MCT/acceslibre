@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11103-01" codeInsee="11103" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Couiza</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route des Pyrénées</Ligne>
+      <Ligne>BP 46</Ligne>
+      <CodePostal>11190</CodePostal>
+      <NomCommune>Couiza</NomCommune>
+      <Localisation>
+         <Latitude>42.9474983215</Latitude>
+         <Longitude>2.25343990326</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">monte personne</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 74 02 90</Téléphone>
+      <Télécopie>04 68 74 26 83</Télécopie>
+      <Email>mairie.couiza@wanadoo.fr</Email>
+      <Url>http://www.mairie-couiza.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

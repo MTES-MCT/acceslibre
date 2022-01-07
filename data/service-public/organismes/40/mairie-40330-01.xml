@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40330-01" codeInsee="40330" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villenave</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de Rion-des-Landes</Ligne>
+      <CodePostal>40110</CodePostal>
+      <NomCommune>Villenave</NomCommune>
+      <Localisation>
+         <Latitude>43.9685707092</Latitude>
+         <Longitude>-0.808376014233</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 51 79 73</Téléphone>
+      <Télécopie>05 58 51 81 75</Télécopie>
+      <Email>mairie.villenave@wanadoo.fr</Email>
+      <Url>http://www.villenave.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

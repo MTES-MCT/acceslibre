@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70386-01" codeInsee="70386" dateMiseAJour="2020-09-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Neuvelle-lès-Scey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue du Paradis</Ligne>
+      <CodePostal>70360</CodePostal>
+      <NomCommune>La Neuvelle-lès-Scey</NomCommune>
+      <Localisation>
+         <Latitude>47.6942989</Latitude>
+         <Longitude>5.9340477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 92 75 38</Téléphone>
+      <Email>la-neuvelle-les-scey@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

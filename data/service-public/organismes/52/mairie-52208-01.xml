@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52208-01" codeInsee="52208" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fresnes-sur-Apance</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Halles</Ligne>
+      <CodePostal>52400</CodePostal>
+      <NomCommune>Fresnes-sur-Apance</NomCommune>
+      <Localisation>
+         <Latitude>47.9414712</Latitude>
+         <Longitude>5.83391200000005</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 90 08 96</Téléphone>
+      <Email>mairie.fresnes-sur-apance@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:45:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

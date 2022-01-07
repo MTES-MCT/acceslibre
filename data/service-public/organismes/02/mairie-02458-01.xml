@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02458-01" codeInsee="02458" dateMiseAJour="2021-05-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dhuys-et-Morin-en-Brie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Marchais-en-Brie</Ligne>
+      <Ligne>13 rue Village</Ligne>
+      <CodePostal>02540</CodePostal>
+      <NomCommune>Dhuys-et-Morin-en-Brie</NomCommune>
+      <Localisation>
+         <Latitude>48.88326</Latitude>
+         <Longitude>3.48476</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 69 81 65</Téléphone>
+      <Télécopie>03 23 69 76 15</Télécopie>
+      <Email>mairiedhuysetmorinenbrie@orange.fr</Email>
+      <Url>http://www.dhuys-et-morin-en-brie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22203-01" codeInsee="22203" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plœuc-L'Hermitage</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Louis-Morel</Ligne>
+      <Ligne>BP 18</Ligne>
+      <CodePostal>22150</CodePostal>
+      <NomCommune>Plœuc-L'Hermitage</NomCommune>
+      <Localisation>
+         <Latitude>48.3462982178</Latitude>
+         <Longitude>-2.75687003136</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 64 22 00</Téléphone>
+      <Email>accueil@ploeuclhermitage.bzh</Email>
+      <Url>http://www.ploeuclhermitage.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Contacter l'accueil pour vérifier l'ouverture du service le mardi après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirfa-41018-01" codeInsee="41018" dateMiseAJour="2018-11-27"
+           pivotLocal="cirfa">
+   <Nom>Centre d'information et de recrutement des forces armées (CIRFA) - Blois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 boulevard Vauban</Ligne>
+      <CodePostal>41000</CodePostal>
+      <NomCommune>Blois</NomCommune>
+      <Localisation>
+         <Latitude>47.59293</Latitude>
+         <Longitude>1.340208</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 57 62 42</Téléphone>
+      <Email>https://www.recrutement.terre.defense.gouv.fr/contactez-nous</Email>
+      <Url>https://www.recrutement.terre.defense.gouv.fr/ou-nous-rencontrer/cirfa-de-blois</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

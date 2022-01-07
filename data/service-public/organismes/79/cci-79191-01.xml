@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-79191-01" codeInsee="79191" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 79 - Deux-Sèvres - Siège de Niort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 place du Temple</Ligne>
+      <CodePostal>79003</CodePostal>
+      <NomCommune>Niort Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.323508</Latitude>
+         <Longitude>-0.4612994</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 28 79 79</Téléphone>
+      <Télécopie>05 49 24 57 11</Télécopie>
+      <Email>webmaster@cci79.com</Email>
+      <Url>https://www.deux-sevres.cci.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-75114-01" codeInsee="75114" dateMiseAJour="2021-04-16"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>46 bis boulevard Edgar Quinet</Ligne>
+      <CodePostal>75014</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.8405990601</Latitude>
+         <Longitude>2.32674002647</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 42 79 50 50</Téléphone>
+      <Email>info@adil75.org</Email>
+      <Url>http://www.adil75.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:45:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:45:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour une information rapide, contactez un conseiller juriste et financier au 01 42 79 50 50 - Pour une question liée à un impayé de loyer, une expulsion : 01 42 79 50 39 - L’ADIL de Paris reçoit sur rendez-vous dans toutesles mairies d’arrondissement, dans lesPAD (Points d’Accès au Droit) et dans lesMJD (Maison de Justice et du Droit)</Commentaire>
+</Organisme>

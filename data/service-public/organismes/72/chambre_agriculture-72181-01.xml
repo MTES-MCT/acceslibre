@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-72181-01" codeInsee="72181" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Sarthe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue Jean-Grémillon</Ligne>
+      <Ligne>CS 21312</Ligne>
+      <CodePostal>72013</CodePostal>
+      <NomCommune>Le Mans Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>48.013635</Latitude>
+         <Longitude>0.163172</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 29 24 24</Téléphone>
+      <Email>accueil@sarthe.chambagri.fr</Email>
+      <Url>https://pays-de-la-loire.chambres-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-81004-01" codeInsee="81004" dateMiseAJour="2019-03-06"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau d'Albi</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'Avocat</Ligne>
+      <Ligne>1 rue de la Berchère</Ligne>
+      <CodePostal>81000</CodePostal>
+      <NomCommune>Albi</NomCommune>
+      <Localisation>
+         <Latitude>43.924638</Latitude>
+         <Longitude>2.144402</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 54 85 90</Téléphone>
+      <Email>ordredesavocats.albi@orange.fr</Email>
+      <Url>http://www.barreau-avocat-albi.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56259-01" codeInsee="56259" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Trinité-Surzur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 route d'Armorique</Ligne>
+      <CodePostal>56190</CodePostal>
+      <NomCommune>La Trinité-Surzur</NomCommune>
+      <Localisation>
+         <Latitude>47.603099823</Latitude>
+         <Longitude>-2.58774995804</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 42 16 02</Téléphone>
+      <Télécopie>02 97 42 05 17</Télécopie>
+      <Email>accueil@mairie-latrinitesurzur.fr</Email>
+      <Url>http://www.latrinitesurzur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les 2e et 4e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

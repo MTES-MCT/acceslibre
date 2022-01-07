@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-25462-01" codeInsee="25462" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Franche-Comté - accueil de Pontarlier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>3 rue du Parc</Ligne>
+      <CodePostal>25300</CodePostal>
+      <NomCommune>Pontarlier</NomCommune>
+      <Localisation>
+         <Latitude>46.9039</Latitude>
+         <Longitude>6.351069999999936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole Franche-Comté</Ligne>
+      <Ligne>13 avenue Élisée-Cusenier</Ligne>
+      <CodePostal>25090</CodePostal>
+      <NomCommune>Besançon Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 35 25 25</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+         <Note>Sur rendez-vous les lundi et mercredi.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

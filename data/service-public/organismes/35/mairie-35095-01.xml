@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35095-01" codeInsee="35095" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dol-de-Bretagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Grande rue des Stuarts</Ligne>
+      <Ligne>BP 67</Ligne>
+      <CodePostal>35120</CodePostal>
+      <NomCommune>Dol-de-Bretagne</NomCommune>
+      <Localisation>
+         <Latitude>48.549772</Latitude>
+         <Longitude>-1.753519</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 48 00 17</Téléphone>
+      <Email>mairie@dol.bzh</Email>
+      <Url>http://www.dol-de-bretagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire téléphoner de préférence avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

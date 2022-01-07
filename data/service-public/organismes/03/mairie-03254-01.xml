@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03254-01" codeInsee="03254" dateMiseAJour="2019-07-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pourçain-sur-Sioule</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 place du Maréchal-Foch</Ligne>
+      <CodePostal>03500</CodePostal>
+      <NomCommune>Saint-Pourçain-sur-Sioule</NomCommune>
+      <Localisation>
+         <Latitude>46.307293</Latitude>
+         <Longitude>3.289067</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 45 35 27</Téléphone>
+      <Télécopie>04 70 45 55 27</Télécopie>
+      <Email>accueil@ville-saint-pourcain-sur-sioule.com</Email>
+      <Url>http://www.ville-saint-pourcain-sur-sioule.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

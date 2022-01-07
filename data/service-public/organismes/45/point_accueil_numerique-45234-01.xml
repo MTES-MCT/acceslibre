@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-45234-01" codeInsee="45234"
+           dateMiseAJour="2021-02-22"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Orléans (Préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>181 rue de Bourgogne</Ligne>
+      <Ligne>Préfecture du Loiret</Ligne>
+      <CodePostal>45000</CodePostal>
+      <NomCommune>Orléans</NomCommune>
+      <Localisation>
+         <Latitude>47.9002532959</Latitude>
+         <Longitude>1.91084599495</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 91 45 45</Téléphone>
+      <Email>http://www.loiret.gouv.fr/Contactez-nous</Email>
+      <Url>http://www.loiret.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="15:30:00"/>
+         <Note>Uniquement sur rendez-vous au 07 86 48 82 46</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

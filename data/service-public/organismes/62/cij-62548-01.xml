@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-62548-01" codeInsee="62548" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Marck</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social et culturel Jacques-Yves-Cousteau</Ligne>
+      <Ligne>181 allée de la Découverte</Ligne>
+      <CodePostal>62730</CodePostal>
+      <NomCommune>Marck</NomCommune>
+      <Localisation>
+         <Latitude>50.957113</Latitude>
+         <Longitude>1.927017</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 00 72 00</Téléphone>
+      <Email>csc.marck@gmail.com</Email>
+      <Url>http://www.marck62cousteau.centres-sociaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

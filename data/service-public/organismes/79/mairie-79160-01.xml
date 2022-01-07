@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-79160-01" codeInsee="79160" dateMiseAJour="2017-07-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lusseray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3, rue de la Mairie</Ligne>
+      <CodePostal>79170</CodePostal>
+      <NomCommune>Lusseray</NomCommune>
+      <Localisation>
+         <Latitude>46.1459</Latitude>
+         <Longitude>-0.166769</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 07 58 07</Téléphone>
+      <Télécopie>05 49 07 58 07</Télécopie>
+      <Email>mairie-lusseray@paysmellois.org</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

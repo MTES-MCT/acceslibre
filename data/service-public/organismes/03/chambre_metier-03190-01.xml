@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-03190-01" codeInsee="03190" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Allier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Émile-Guillaumin</Ligne>
+      <Ligne>BP 03017</Ligne>
+      <CodePostal>03017</CodePostal>
+      <NomCommune>Moulins Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.572368</Latitude>
+         <Longitude>3.33588</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 46 20 20</Téléphone>
+      <Télécopie>04 70 44 09 95</Télécopie>
+      <Email>contact.allier@cma-auvergnerhonealpes.fr</Email>
+      <Url>http://www.cma-allier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

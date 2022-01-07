@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23129-01" codeInsee="23129" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Mazière-aux-Bons-Hommes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>23260</CodePostal>
+      <NomCommune>La Mazière-aux-Bons-Hommes</NomCommune>
+      <Localisation>
+         <Latitude>45.8835906982</Latitude>
+         <Longitude>2.44095897675</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 67 44 90</Téléphone>
+      <Email>mairie.lamaziere23260@laposte.net</Email>
+      <Url>http://www.la-maziere-aux-bons-hommes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

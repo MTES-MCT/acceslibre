@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03234-01" codeInsee="03234" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Gérand-de-Vaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>03340</CodePostal>
+      <NomCommune>Saint-Gérand-de-Vaux</NomCommune>
+      <Localisation>
+         <Latitude>46.380431</Latitude>
+         <Longitude>3.400077</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">contacter l'accueil avant de se rendre sur place afin d'accéder à la mairie par l'entrée située à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 45 08 83</Téléphone>
+      <Email>contact@mairiestgeranddevaux.fr</Email>
+      <Url>http://www.st-gerand-de-vaux.interco-abl.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

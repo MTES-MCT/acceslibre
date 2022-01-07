@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08069-01" codeInsee="08069" dateMiseAJour="2021-02-02"
+           pivotLocal="mairie">
+   <Nom>Mairie - Blanchefosse-et-Bay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue les Autels</Ligne>
+      <CodePostal>08290</CodePostal>
+      <NomCommune>Blanchefosse-et-Bay</NomCommune>
+      <Localisation>
+         <Latitude>49.771226</Latitude>
+         <Longitude>4.233585</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 35 46 19</Téléphone>
+      <Email>blanchefosse-et-bay@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

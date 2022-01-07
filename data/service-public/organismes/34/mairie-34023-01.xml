@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34023-01" codeInsee="34023" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Balaruc-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue de Montpellier</Ligne>
+      <Ligne>BP 1</Ligne>
+      <CodePostal>34540</CodePostal>
+      <NomCommune>Balaruc-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>43.4458007812</Latitude>
+         <Longitude>3.68139004707</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 46 81 00</Téléphone>
+      <Email>contact@ville-balaruc-les-bains.com</Email>
+      <Url>http://www.ville-balaruc-les-bains.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

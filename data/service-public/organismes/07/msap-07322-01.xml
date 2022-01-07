@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-07322-01" codeInsee="07322" dateMiseAJour="2020-11-30"
+           pivotLocal="msap">
+   <Nom>France Services - Thueyts</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Pouget</Ligne>
+      <CodePostal>07330</CodePostal>
+      <NomCommune>Thueyts</NomCommune>
+      <Localisation>
+         <Latitude>44.675733</Latitude>
+         <Longitude>4.222047</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>07 75 39 75 33</Téléphone>
+      <Email>msap-thueyts@inforoutes.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

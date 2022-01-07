@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-07078-01" codeInsee="07078" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Annonay Rhône Agglo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Château de la Lombardière</Ligne>
+      <Ligne>BP 8</Ligne>
+      <CodePostal>07430</CodePostal>
+      <NomCommune>Davézieux</NomCommune>
+      <Localisation>
+         <Latitude>45.256666</Latitude>
+         <Longitude>4.702261</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 67 55 57</Téléphone>
+      <Email>accueil@annonayrhoneagglo.fr</Email>
+      <Url>http://www.annonayrhoneagglo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

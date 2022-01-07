@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21704-01" codeInsee="21704" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villiers-le-Duc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de Châtillon</Ligne>
+      <CodePostal>21400</CodePostal>
+      <NomCommune>Villiers-le-Duc</NomCommune>
+      <Localisation>
+         <Latitude>47.8216196</Latitude>
+         <Longitude>4.7060748</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 81 84 12</Téléphone>
+      <Email>mairie.villiersleduc@gmail.com</Email>
+      <Url>http://www.villiers-le-duc.monclocher.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

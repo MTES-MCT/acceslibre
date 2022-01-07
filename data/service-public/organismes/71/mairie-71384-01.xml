@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71384-01" codeInsee="71384" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Ambreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Malherbe</Ligne>
+      <CodePostal>71240</CodePostal>
+      <NomCommune>Saint-Ambreuil</NomCommune>
+      <Localisation>
+         <Latitude>46.691335</Latitude>
+         <Longitude>4.863145</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 44 20 78</Téléphone>
+      <Télécopie>03 85 44 16 55</Télécopie>
+      <Email>mairie@stambreuil.fr</Email>
+      <Url>http://www.saintambreuil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

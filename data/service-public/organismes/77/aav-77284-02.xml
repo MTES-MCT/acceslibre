@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="77284" dateMiseAJour="2021-09-17" id="aav-77284-02" idPresta="5aaf8b75b473e433973cdf8b" pivotLocal="aav">
+    <Nom>SOS Femmes 77 - Meaux</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>13 rue Georges Courteline</Ligne>
+        <CodePostal>77100</CodePostal>
+        <NomCommune>MEAUX</NomCommune>
+        <Localisation>
+            <Latitude>48.96061</Latitude>
+            <Longitude>2.875564</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>13 rue Georges Courteline</Ligne>
+        <CodePostal>77100</CodePostal>
+        <NomCommune>MEAUX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 60 09 27 99</Téléphone>
+        <Télécopie>01 60 44 21 05</Télécopie>
+        <Email>mailto:contact@sos-femmes.com</Email>
+        <Url>https://www.sos-femmes77.com/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="13:00:00"/>
+            <PlageH début="14:00:00" fin="18:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

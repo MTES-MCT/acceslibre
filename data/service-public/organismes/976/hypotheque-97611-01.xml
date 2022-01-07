@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-97611-01" codeInsee="97611" dateMiseAJour="2020-12-18"
+           pivotLocal="hypotheque">
+   <Nom>Conservation de la Propriété immobilière (SPF) - Mamoudzou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>20 Boulevard Halidi Sélémani</Ligne>
+      <CodePostal>97600</CodePostal>
+      <NomCommune>Mamoudzou</NomCommune>
+      <Localisation>
+         <Latitude>-12.78101</Latitude>
+         <Longitude>45.22765</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>0 269 61 81 10</Téléphone>
+      <Email>cpi.mamoudzou@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="11:30:00"/>
+         <Note>Et sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

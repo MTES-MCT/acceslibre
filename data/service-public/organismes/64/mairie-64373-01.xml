@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64373-01" codeInsee="64373" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mazères-Lezons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>64110</CodePostal>
+      <NomCommune>Mazères-Lezons</NomCommune>
+      <Localisation>
+         <Latitude>43.277965</Latitude>
+         <Longitude>-0.352911</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 06 56 61</Téléphone>
+      <Télécopie>05 59 35 05 84</Télécopie>
+      <Email>mairie@mazeres-lezons.fr</Email>
+      <Url>http://www.mazeres-lezons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

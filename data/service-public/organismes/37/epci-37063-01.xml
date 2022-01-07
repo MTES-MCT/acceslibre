@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-37063-01" codeInsee="37063" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Castelrenaudais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du Four-Brûlé</Ligne>
+      <Ligne>BP 54</Ligne>
+      <CodePostal>37110</CodePostal>
+      <NomCommune>Château-Renault</NomCommune>
+      <Localisation>
+         <Latitude>47.5919079</Latitude>
+         <Longitude>0.90921</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 29 57 40</Téléphone>
+      <Télécopie>02 47 29 57 06</Télécopie>
+      <Email>contact@cc-castelrenaudais.fr</Email>
+      <Url>http://www.cc-castelrenaudais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

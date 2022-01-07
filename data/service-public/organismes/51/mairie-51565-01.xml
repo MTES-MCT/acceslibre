@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51565-01" codeInsee="51565" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thaas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grand'rue</Ligne>
+      <CodePostal>51230</CodePostal>
+      <NomCommune>Thaas</NomCommune>
+      <Localisation>
+         <Latitude>48.6485900879</Latitude>
+         <Longitude>3.87902593613</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 80 16 08</Téléphone>
+      <Email>mairie-de-thaas@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="12:00:00" fin="12:30:00"/>
+         <Note>Permanence du maire uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

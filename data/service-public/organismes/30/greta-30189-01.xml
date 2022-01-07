@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-30189-01" codeInsee="30189" dateMiseAJour="2021-11-22"
+           pivotLocal="greta">
+   <Nom>Greta Gard - Nîmes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 Rue Dhuoda</Ligne>
+      <Ligne>Lycée Dhuoda</Ligne>
+      <CodePostal>30913</CodePostal>
+      <NomCommune>Nîmes cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>43.82795</Latitude>
+         <Longitude>4.356911</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 04 24 50</Téléphone>
+      <Email>greta-nimes@ac-montpellier.fr</Email>
+      <Url>https://gretamediterranee.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

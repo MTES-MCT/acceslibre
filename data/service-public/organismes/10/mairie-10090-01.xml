@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10090-01" codeInsee="10090" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chauchigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue des Grandes-Communications</Ligne>
+      <CodePostal>10170</CodePostal>
+      <NomCommune>Chauchigny</NomCommune>
+      <Localisation>
+         <Latitude>48.4226989746</Latitude>
+         <Longitude>3.96860003471</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 76 33 29</Téléphone>
+      <Email>mairie.chauchigny@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

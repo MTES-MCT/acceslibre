@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-44020-01" codeInsee="44020" dateMiseAJour="2019-01-15"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bouguenais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre local d'information et de coordination Loire-Acheneau</Ligne>
+      <Ligne>9 rue de la Grande-Ouche</Ligne>
+      <CodePostal>44340</CodePostal>
+      <NomCommune>Bouguenais</NomCommune>
+      <Localisation>
+         <Latitude>47.180564</Latitude>
+         <Longitude>-1.58043</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mairie de Bouguenais</Ligne>
+      <Ligne>Point d'information local dédié aux personnes âgées</Ligne>
+      <Ligne>1 rue de la Commune-de-Paris</Ligne>
+      <Ligne>BP 4109</Ligne>
+      <CodePostal>44341</CodePostal>
+      <NomCommune>Bouguenais Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 69 41 10</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

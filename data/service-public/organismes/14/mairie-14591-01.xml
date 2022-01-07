@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14591-01" codeInsee="14591" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie – Aure sur Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sainte-Honorine-des-Pertes</Ligne>
+      <Ligne>8 rue de la Mairie</Ligne>
+      <CodePostal>14520</CodePostal>
+      <NomCommune>Aure sur Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.346945</Latitude>
+         <Longitude>-0.808397</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 21 77 39</Téléphone>
+      <Email>mairie@auresurmer.fr</Email>
+      <Url>http://auresurmer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

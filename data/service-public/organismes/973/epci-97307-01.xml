@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-97307-01" codeInsee="97307" dateMiseAJour="2021-09-13"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Centre Littoral</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 36029</Ligne>
+      <Ligne>4 esplanade de la Cité-d'Affaires</Ligne>
+      <CodePostal>97357</CodePostal>
+      <NomCommune>Matoury Cedex</NomCommune>
+      <Localisation>
+         <Latitude>4.8496712</Latitude>
+         <Longitude>-52.3268695</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="aux horaires d'ouverture, coût d'un appel local">+594 5 94 28 28 28</Téléphone>
+      <Télécopie>+594 5 94 28 28 20</Télécopie>
+      <Email>infos@cacl-guyane.fr</Email>
+      <Url>http://www.cacl-guyane.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Horaires de juillet / août : de 7h30 à 14h30</Commentaire>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88351-01" codeInsee="88351" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plombières-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Beaumarchais</Ligne>
+      <Ligne>BP 5</Ligne>
+      <CodePostal>88370</CodePostal>
+      <NomCommune>Plombières-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>47.9669848</Latitude>
+         <Longitude>6.4636193</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 66 00 24</Téléphone>
+      <Email>mairie@plombieres.fr</Email>
+      <Url>http://www.plombieres-les-bains.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

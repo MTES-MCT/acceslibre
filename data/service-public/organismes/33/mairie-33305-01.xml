@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33305-01" codeInsee="33305" dateMiseAJour="2021-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Nizan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 lieu dit Andrivet</Ligne>
+      <CodePostal>33430</CodePostal>
+      <NomCommune>Le Nizan</NomCommune>
+      <Localisation>
+         <Latitude>44.475553</Latitude>
+         <Longitude>-0.267751</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 25 11 58</Téléphone>
+      <Télécopie>05 56 25 26 90</Télécopie>
+      <Email>mairie.le-nizan@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

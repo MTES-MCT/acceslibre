@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-57463-01" codeInsee="57463" dateMiseAJour="2021-12-17"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 boulevard de la Défense</Ligne>
+      <CodePostal>57078</CodePostal>
+      <NomCommune>Metz Cedex 3</NomCommune>
+      <Localisation>
+         <Latitude>49.1068992615</Latitude>
+         <Longitude>6.21557998657</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="coût d'un appel local">03 87 39 31 00</Téléphone>
+      <Télécopie>03 87 62 71 25</Télécopie>
+      <Email>serviceclient@cma-moselle.fr</Email>
+      <Url>http://www.cma-moselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

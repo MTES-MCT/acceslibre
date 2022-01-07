@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pole_emploi-62193-02" codeInsee="62193" dateMiseAJour="2020-09-15"
+           pivotLocal="pole_emploi">
+   <Nom>Pôle emploi - Calais - Saint-Exupéry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>60 avenue Antoine-de-Saint-Exupéry</Ligne>
+      <CodePostal>62100</CodePostal>
+      <NomCommune>Calais</NomCommune>
+      <Localisation>
+         <Latitude>50.9462814</Latitude>
+         <Longitude>1.8938305</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet : service gratuit + prix appel (depuis l’étranger composez le +33 1 77 86 39 49) ; Employeur : 3995 (depuis l'étranger composez le +33 1 77 86 39 95)">3949</Téléphone>
+      <Url>https://www.pole-emploi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64077-01" codeInsee="64077" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auga</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 chemin du Château</Ligne>
+      <CodePostal>64450</CodePostal>
+      <NomCommune>Auga</NomCommune>
+      <Localisation>
+         <Latitude>43.4765171</Latitude>
+         <Longitude>-0.3822527</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 04 58 87</Téléphone>
+      <Email>mairie.auga@orange.fr</Email>
+      <Url>http://www.auga.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:30:00"/>
+         <Note>Permanence téléphonique le vendredi de 9h à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-71153-01" codeInsee="71153" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Le Creusot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Association Agire</Ligne>
+      <Ligne>5 avenue Francois-Mitterand</Ligne>
+      <CodePostal>71200</CodePostal>
+      <NomCommune>Le Creusot</NomCommune>
+      <Localisation>
+         <Latitude>46.8064517</Latitude>
+         <Longitude>4.42976759999999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 77 68 01</Téléphone>
+      <Email>accueil.creusot@agire-cucm.fr</Email>
+      <Url>http://www.agire-cucm.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

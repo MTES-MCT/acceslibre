@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-38169-01" codeInsee="38169" dateMiseAJour="2019-05-02"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Fontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 boulevard Paul-Langevin</Ligne>
+      <Ligne>BP 47</Ligne>
+      <CodePostal>38601</CodePostal>
+      <NomCommune>Fontaine Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.1864915</Latitude>
+         <Longitude>5.687882</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 27 41 62</Téléphone>
+      <Email>t038041@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Fermé le mercredi</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mercredi ou sur rendez-vous.</Commentaire>
+</Organisme>

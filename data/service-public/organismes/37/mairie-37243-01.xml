@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37243-01" codeInsee="37243" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Savonnières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Principale</Ligne>
+      <CodePostal>37510</CodePostal>
+      <NomCommune>Savonnières</NomCommune>
+      <Localisation>
+         <Latitude>47.3476905</Latitude>
+         <Longitude>0.5430421</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">en cours</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 43 53 63</Téléphone>
+      <Télécopie>02 47 43 53 64</Télécopie>
+      <Email>mairie@savonnieres.fr</Email>
+      <Url>http://www.savonnieres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

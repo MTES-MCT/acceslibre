@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-89024-01" codeInsee="89024" dateMiseAJour="2019-02-19"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Bourgogne-Franche-Comté</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place du Palais</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>26000</CodePostal>
+      <NomCommune>Valence</NomCommune>
+      <Localisation>
+         <Latitude>44.931567</Latitude>
+         <Longitude>4.892072</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 61 56 54</Téléphone>
+      <Email>valence.ordre-des-avocats@wanadoo.fr</Email>
+      <Url>https://www.avocats-valence.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

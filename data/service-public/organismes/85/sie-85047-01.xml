@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-85047-01" codeInsee="85047" dateMiseAJour="2020-11-24" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Challans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Albert-Schweitzer</Ligne>
+      <CodePostal>85307</CodePostal>
+      <NomCommune>Challans Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.8381737</Latitude>
+         <Longitude>-1.8850586</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 49 55 91</Téléphone>
+      <Télécopie>02 51 49 55 86</Télécopie>
+      <Email>sie.challans@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

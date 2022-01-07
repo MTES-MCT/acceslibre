@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-41018-01" codeInsee="41018" dateMiseAJour="2021-05-04"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Loir-et-Cher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>34 avenue Maunoury</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>porte D 34</Ligne>
+      <CodePostal>41000</CodePostal>
+      <NomCommune>Blois</NomCommune>
+      <Localisation>
+         <Latitude>47.5926249</Latitude>
+         <Longitude>1.3376121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 58 44 40</Téléphone>
+      <Télécopie>02 54 58 44 41</Télécopie>
+      <Email>accueil.mdph(@)departement41.fr</Email>
+      <Url>https://www.departement41.fr/services-en-ligne/etre-accompagne/vivre-autonome-41-personnes-agees-handicapees/la-mdph/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil téléphonique MDPH en ligne : 02 54 58 44 44
+du lundi au vendredi de 9 h à 12 h  30 et de 13 h 30 à 17 h
+par mail : mdphenligne(@)departement41.fr</Commentaire>
+</Organisme>

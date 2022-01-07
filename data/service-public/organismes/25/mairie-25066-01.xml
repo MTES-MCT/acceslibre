@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25066-01" codeInsee="25066" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Blussangeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Tour</Ligne>
+      <CodePostal>25250</CodePostal>
+      <NomCommune>Blussangeaux</NomCommune>
+      <Localisation>
+         <Latitude>47.433916</Latitude>
+         <Longitude>6.620555</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 92 77 43</Téléphone>
+      <Email>mairie.blussangeaux@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert du lundi au vendredi sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

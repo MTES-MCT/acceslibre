@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30177-01" codeInsee="30177" dateMiseAJour="2021-10-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Monteils</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>384 traversée du Village</Ligne>
+      <CodePostal>30360</CodePostal>
+      <NomCommune>Monteils</NomCommune>
+      <Localisation>
+         <Latitude>44.089326</Latitude>
+         <Longitude>4.180996</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 83 50 04</Téléphone>
+      <Télécopie>04 66 83 59 40</Télécopie>
+      <Email>mairie.monteils@orange.fr</Email>
+      <Url>http://www.mairie-monteils30.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

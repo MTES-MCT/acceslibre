@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirfa-35238-01" codeInsee="35238" dateMiseAJour="2018-11-29"
+           pivotLocal="cirfa">
+   <Nom>Centre d'information et de recrutement des forces armées (CIRFA) - Rennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Mabilais</Ligne>
+      <CodePostal>35000</CodePostal>
+      <NomCommune>Rennes</NomCommune>
+      <Localisation>
+         <Latitude>48.106795</Latitude>
+         <Longitude>-1.694336</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 57 21 80 12</Téléphone>
+      <Email>https://www.recrutement.terre.defense.gouv.fr/contactez-nous</Email>
+      <Url>https://www.recrutement.terre.defense.gouv.fr/ou-nous-rencontrer/cirfa-de-rennes</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

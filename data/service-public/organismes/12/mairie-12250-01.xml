@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12250-01" codeInsee="12250" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Symphorien-de-Thénières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Fontaines</Ligne>
+      <CodePostal>12460</CodePostal>
+      <NomCommune>Saint-Symphorien-de-Thénières</NomCommune>
+      <Localisation>
+         <Latitude>44.7371799986517</Latitude>
+         <Longitude>2.7293200058533387</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 44 30 20</Téléphone>
+      <Télécopie>05 65 48 12 86</Télécopie>
+      <Email>mairie.st-symphorien@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16116-01" codeInsee="16116" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Criteuil-la-Magdeleine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Victor-Savin</Ligne>
+      <CodePostal>16300</CodePostal>
+      <NomCommune>Criteuil-la-Magdeleine</NomCommune>
+      <Localisation>
+         <Latitude>45.538251</Latitude>
+         <Longitude>-0.215418</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 80 54 17</Téléphone>
+      <Email>mairie.criteuil-la-magdeleine@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil fermé les vendredis après-midi en juillet 2021.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

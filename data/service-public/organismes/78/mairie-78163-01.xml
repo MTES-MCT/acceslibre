@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78163-01" codeInsee="78163" dateMiseAJour="2021-09-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Civry-la-Forêt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>564 Grande rue</Ligne>
+      <CodePostal>78910</CodePostal>
+      <NomCommune>Civry-la-Forêt</NomCommune>
+      <Localisation>
+         <Latitude>48.8312988281</Latitude>
+         <Longitude>1.66658997536</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 87 71 27</Téléphone>
+      <Email>mairie.civrylaforet@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

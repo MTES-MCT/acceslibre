@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10315-01" codeInsee="10315" dateMiseAJour="2021-10-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rances</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de la Rotrate</Ligne>
+      <CodePostal>10500</CodePostal>
+      <NomCommune>Rances</NomCommune>
+      <Localisation>
+         <Latitude>48.4666009</Latitude>
+         <Longitude>4.5460167</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 92 22 67</Téléphone>
+      <Email>mairie.rances@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

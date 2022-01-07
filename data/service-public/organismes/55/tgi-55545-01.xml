@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="55545" dateMiseAJour="2021-06-25" id="tgi-55545-01" idPresta="4cac9e61293594648a0005a4" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Verdun</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE SAINT-PAUL</Ligne>
+        <Ligne>CO 724</Ligne>
+        <CodePostal>55107</CodePostal>
+        <NomCommune>VERDUN CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.163996</Latitude>
+            <Longitude>5.384389</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE SAINT-PAUL</Ligne>
+        <Ligne>CO 724</Ligne>
+        <CodePostal>55107</CodePostal>
+        <NomCommune>VERDUN CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 29 86 14 05</Téléphone>
+        <Télécopie>03 29 86 19 83</Télécopie>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

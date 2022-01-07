@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62778-01" codeInsee="62778" dateMiseAJour="2018-04-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sars-le-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue d'Anbrines</Ligne>
+      <CodePostal>62810</CodePostal>
+      <NomCommune>Sars-le-Bois</NomCommune>
+      <Localisation>
+         <Latitude>50.2945976257</Latitude>
+         <Longitude>2.42883610725</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 55 39 74</Téléphone>
+      <Télécopie>03 21 55 39 74</Télécopie>
+      <Email>mairiedesarslebois@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

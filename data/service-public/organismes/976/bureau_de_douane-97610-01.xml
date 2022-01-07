@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-97610-01" codeInsee="97610" dateMiseAJour="2019-01-16"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Longoni - Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>BP 404</Ligne>
+      <Ligne>Zone portuaire Longoni</Ligne>
+      <CodePostal>97600</CodePostal>
+      <NomCommune>Koungou</NomCommune>
+      <Localisation>
+         <Latitude>-12.731351</Latitude>
+         <Longitude>45.165684</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 2 69 60 86 67</Téléphone>
+      <Email>r-longoni@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

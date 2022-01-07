@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-67348-01" codeInsee="67348" dateMiseAJour="2021-07-22"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays de Sainte Odile</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 rue du Maréchal-Koenig</Ligne>
+      <Ligne>BP 85</Ligne>
+      <CodePostal>67213</CodePostal>
+      <NomCommune>Obernai Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4581312</Latitude>
+         <Longitude>7.4959673</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 95 53 52</Téléphone>
+      <Email>ccpso@ccpso.com</Email>
+      <Url>http://www.cc-paysdesainteodile.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15118-01" codeInsee="15118" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marmanhac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place du Monument-des-Anciens-Combattants</Ligne>
+      <CodePostal>15250</CodePostal>
+      <NomCommune>Marmanhac</NomCommune>
+      <Localisation>
+         <Latitude>45.004031</Latitude>
+         <Longitude>2.4826233</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 47 30 43</Téléphone>
+      <Email>mairie.marmanhac@orange.fr</Email>
+      <Url>http://www.marmanhac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="12:15:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02417-01" codeInsee="02417" dateMiseAJour="2021-03-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lempire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 Grande Rue</Ligne>
+      <CodePostal>02420</CodePostal>
+      <NomCommune>Lempire</NomCommune>
+      <Localisation>
+         <Latitude>49.991159</Latitude>
+         <Longitude>3.170273</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 66 20 30</Téléphone>
+      <Email>mairie.lempire@wanadoo.fr</Email>
+      <Url>http://www.lempire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

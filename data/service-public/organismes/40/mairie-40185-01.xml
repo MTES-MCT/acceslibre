@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40185-01" codeInsee="40185" dateMiseAJour="2021-01-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Miramont-Sensacq</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>101 rue de la Mairie</Ligne>
+      <CodePostal>40320</CodePostal>
+      <NomCommune>Miramont-Sensacq</NomCommune>
+      <Localisation>
+         <Latitude>43.595539</Latitude>
+         <Longitude>-0.327203</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 79 91 23</Téléphone>
+      <Télécopie>05 58 79 93 96</Télécopie>
+      <Email>mairie@miramont-sensacq.fr</Email>
+      <Url>http://miramont-sensacq.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Mardi, mercredi et vendredi matin sur rendez-vous</Commentaire>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97403-01" codeInsee="97403" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Entre-Deux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Fortuné-Hoarau</Ligne>
+      <CodePostal>97414</CodePostal>
+      <NomCommune>Entre-Deux</NomCommune>
+      <Localisation>
+         <Latitude>-21.2488961</Latitude>
+         <Longitude>55.4699924</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 39 50 50</Téléphone>
+      <Télécopie>+262 2 62 39 57 70</Télécopie>
+      <Email>accueil.mairie@entredeux.re</Email>
+      <Url>http://www.village-entredeux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:45:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:45:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>
