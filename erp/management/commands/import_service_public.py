@@ -1,5 +1,4 @@
 import os
-import sys
 
 from django.core.management.base import BaseCommand
 
@@ -57,13 +56,13 @@ def extract_adresse(xml, fieldname):
         lieu_dit = fields[0].text
         try:
             num, ligne = fields[1].text.split(None, 1)
-        except:
+        except Exception:
             ligne = fields[1].text
     elif len(fields) == 1:
         lieu_dit = None
         try:
             num, ligne = fields[0].text.split(None, 1)
-        except:
+        except Exception:
             ligne = fields[0].text
     return num, ligne, lieu_dit
 
@@ -170,59 +169,60 @@ class Command(BaseCommand):
         return data
 
     def handle(self, *args, **options):
+        self.add_files()
+        self.parse_files()
+        print("Importation effectuée.")
+        print(f"{len(self.all_files)} fichiers")
+        print(f"{self.imported_erps} erps importés")
+        print(f"{self.existed_erps} erps déjà existants")
+        print(f"{self.erps_with_access_changed} erps avec données d'access modifiées")
+
+    def add_files(self):
         csv_dirpath = self.get_xml_dirpath()
         self.stdout.write(f"Récupération des fichiers depuis {csv_dirpath}")
 
         list_dir = os.listdir(csv_dirpath)
         self.stdout.write(f"{len(list_dir)} dossier(s) à traiter")
 
-        all_files = []
-        imported_erps = 0
-        existed_erps = 0
-        erps_with_access_changed = 0
+        self.all_files = []
+        self.imported_erps = 0
+        self.existed_erps = 0
+        self.erps_with_access_changed = 0
         for root, directories, files in os.walk(csv_dirpath, topdown=False):
             for name in files:
                 path_file = os.path.join(root, name)
                 if os.path.splitext(path_file)[-1] == ".xml":
-                    all_files.append(path_file)
-        self.stdout.write(f"{len(all_files)} fichier(s) à traiter")
+                    self.all_files.append(path_file)
+        self.stdout.write(f"{len(self.all_files)} fichier(s) à traiter")
 
         self.activites = [(a.pk, a.nom.lower().strip()) for a in Activite.objects.all()]
 
-        try:
-            for f in all_files:
-                self.stdout.write(f"{f}")
-                tree = ET.parse(f)
-                root = tree.getroot()
-                try:
-                    data_access = self.get_access(root)
-                except Exception as e:
-                    self.stdout.write(f"Access Data Error : {e}")
-                    raise e
-                try:
-                    erp = self.import_row(root)
-                except Exception as e:
-                    self.stdout.write(f"ERP Data Error : {e}")
-                    raise e
-                else:
-                    if erp:
-                        if hasattr(erp, "pk") and erp.pk:
-                            existed_erps += 1
-                            print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
-                        else:
-                            erp.save()
-                            print(f"ADD {erp}")
-                            imported_erps += 1
-                        if data_access:
-                            if not hasattr(erp, "accessibilite"):
-                                erp.accessibilite = Accessibilite(**data_access)
-                                erp.accessibilite.save()
-                                erps_with_access_changed += 1
-
-        except Exception as err:
-            sys.exit(f"Error : {err}")
-        print("Importation effectuée.")
-        print(f"{len(all_files)} fichiers")
-        print(f"{imported_erps} erps importés")
-        print(f"{existed_erps} erps déjà existants")
-        print(f"{erps_with_access_changed} erps avec données d'access modifiées")
+    def parse_files(self):
+        for f in self.all_files:
+            self.stdout.write(f"{f}")
+            tree = ET.parse(f)
+            root = tree.getroot()
+            try:
+                data_access = self.get_access(root)
+            except Exception as e:
+                self.stdout.write(f"Access Data Error : {e}")
+                raise e
+            try:
+                erp = self.import_row(root)
+            except Exception as e:
+                self.stdout.write(f"ERP Data Error : {e}")
+                raise e
+            else:
+                if erp:
+                    if hasattr(erp, "pk") and erp.pk:
+                        self.existed_erps += 1
+                        print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
+                    else:
+                        erp.save()
+                        print(f"ADD {erp}")
+                        self.imported_erps += 1
+                    if data_access:
+                        if not hasattr(erp, "accessibilite"):
+                            erp.accessibilite = Accessibilite(**data_access)
+                            erp.accessibilite.save()
+                            self.erps_with_access_changed += 1
