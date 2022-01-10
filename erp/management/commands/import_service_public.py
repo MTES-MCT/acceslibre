@@ -1,10 +1,13 @@
 import os
 
+from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 
 from core.lib import geo
-from erp.models import Activite, Erp, Accessibilite
+from erp.models import Activite, Erp, Accessibilite, Commune
 from xml.etree import ElementTree as ET
+
+from erp.provider import arrondissements
 
 VALEURS_VIDES = [
     "nr",
@@ -78,6 +81,7 @@ class Command(BaseCommand):
 
     def import_row(self, xml, **kwargs):
         fields = {}
+        fields["user_id"] = self.get_user()
         fields["nom"] = extract(xml, fieldname="Nom")
         fields["telephone"] = extract(xml, fieldname="*Téléphone")
         fields["contact_email"] = extract(xml, fieldname="*Email")
@@ -94,6 +98,11 @@ class Command(BaseCommand):
             extract(xml, fieldname="*CodePostal")
         )
         fields["commune"] = clean_commune(extract(xml, fieldname="*NomCommune"))
+        fields["commune_ext_id"] = self._retrieve_commune_ext(
+            commune=fields["commune"],
+            code_insee=fields["code_insee"],
+            code_postal=fields["code_postal"],
+        )
         lat = extract(xml, fieldname="**Latitude")
         long = extract(xml, fieldname="**Longitude")
         if lat != "None" and long != "None" and (lat and long):
@@ -144,6 +153,33 @@ class Command(BaseCommand):
         return os.path.join(
             os.path.dirname(here), "data", "service-public", "organismes"
         )
+
+    def _retrieve_commune_ext(self, commune, code_insee=None, code_postal=None):
+        "Assigne une commune normalisée à l'Erp en cours de génération"
+        if code_insee:
+            commune_ext = Commune.objects.filter(code_insee=code_insee).first()
+            if not commune_ext:
+                arrdt = arrondissements.get_by_code_insee(code_insee)
+                if arrdt:
+                    commune_ext = Commune.objects.filter(
+                        nom__iexact=arrdt["commune"]
+                    ).first()
+        elif code_postal:
+            commune_ext = Commune.objects.filter(
+                code_postaux__contains=[code_postal]
+            ).first()
+        else:
+            raise RuntimeError(
+                f"Champ code_insee et code_postal nuls (commune: {commune})"
+            )
+
+        if not commune_ext:
+            raise RuntimeError(
+                f"Impossible de résoudre la commune depuis le code INSEE ({code_insee}) "
+                f"ou le code postal ({code_postal}) "
+            )
+
+        return commune_ext.pk
 
     def get_access(self, xml):
         data = {}
