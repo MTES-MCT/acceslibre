@@ -213,7 +213,7 @@ class Command(BaseCommand):
                 self.stdout.write(f"ERP Data Error : {e}")
                 raise e
             else:
-                if erp:
+                if erp and data_access:
                     if hasattr(erp, "pk") and erp.pk:
                         self.existed_erps += 1
                         print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
@@ -221,7 +221,6 @@ class Command(BaseCommand):
                         erp.save()
                         print(f"ADD {erp}")
                         self.imported_erps += 1
-                    if data_access:
                         if not hasattr(erp, "accessibilite"):
                             erp.accessibilite = Accessibilite(**data_access)
                             erp.accessibilite.save()
