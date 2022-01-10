@@ -1,6 +1,5 @@
 import os
 
-from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 
 from core.lib import geo
@@ -81,7 +80,6 @@ class Command(BaseCommand):
 
     def import_row(self, xml, **kwargs):
         fields = {}
-        fields["user_id"] = self.get_user()
         fields["nom"] = extract(xml, fieldname="Nom")
         fields["telephone"] = extract(xml, fieldname="*Téléphone")
         fields["contact_email"] = extract(xml, fieldname="*Email")
