@@ -190,13 +190,15 @@ class Command(BaseCommand):
                 f"Impossible de résoudre la commune depuis le code INSEE ({code_insee}) "
                 f"ou le code postal ({code_postal}) "
             )
+            breakpoint()
+
             commune_ext = Commune(
                 departement=code_insee[:2],
                 nom=commune,
                 code_insee=code_insee,
                 geom=Point(
-                    extract(xml, fieldname="**Longitude"),
-                    extract(xml, fieldname="**Latitude"),
+                    float(extract(xml, fieldname="**Longitude")),
+                    float(extract(xml, fieldname="**Latitude")),
                 ),
                 code_postaux=[code_postal],
             )
