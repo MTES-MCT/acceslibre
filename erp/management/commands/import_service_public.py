@@ -190,21 +190,22 @@ class Command(BaseCommand):
                 f"Impossible de résoudre la commune depuis le code INSEE ({code_insee}) "
                 f"ou le code postal ({code_postal}) "
             )
-            breakpoint()
-
-            commune_ext = Commune(
-                departement=code_insee[:2],
-                nom=commune,
-                code_insee=code_insee,
-                geom=Point(
-                    float(extract(xml, fieldname="**Longitude")),
-                    float(extract(xml, fieldname="**Latitude")),
-                ),
-                code_postaux=[code_postal],
-            )
-            commune_ext.save()
-
-            return commune_ext.pk
+            try:
+                commune_ext = Commune(
+                    departement=code_insee[:2],
+                    nom=commune,
+                    code_insee=code_insee,
+                    geom=Point(
+                        float(extract(xml, fieldname="**Longitude")),
+                        float(extract(xml, fieldname="**Latitude")),
+                    ),
+                    code_postaux=[code_postal],
+                )
+            except ValueError:
+                return None
+            else:
+                commune_ext.save()
+                return commune_ext.pk
         return commune_ext.pk
 
     def get_access(self, xml):
