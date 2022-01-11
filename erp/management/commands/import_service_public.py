@@ -1,5 +1,6 @@
 import os
 
+from django.contrib.gis.geos import Point
 from django.core.management.base import BaseCommand
 
 from core.lib import geo
@@ -103,10 +104,11 @@ class Command(BaseCommand):
             extract(xml, fieldname="*CodePostal")
         )
         fields["commune"] = clean_commune(extract(xml, fieldname="*NomCommune"))
-        fields["commune_ext_id"] = self._retrieve_commune_ext(
+        fields["commune_ext_id"] = self._retrieve_or_create_commune_ext(
             commune=fields["commune"],
             code_insee=fields["code_insee"],
             code_postal=fields["code_postal"],
+            xml=xml
         )
         lat = extract(xml, fieldname="**Latitude")
         long = extract(xml, fieldname="**Longitude")
@@ -162,7 +164,7 @@ class Command(BaseCommand):
             os.path.dirname(here), "data", "service-public", "organismes"
         )
 
-    def _retrieve_commune_ext(self, commune, code_insee=None, code_postal=None):
+    def _retrieve_or_create_commune_ext(self, commune, code_insee=None, code_postal=None, xml):
         "Assigne une commune normalisée à l'Erp en cours de génération"
         if code_insee:
             commune_ext = Commune.objects.filter(code_insee=code_insee).first()
@@ -186,7 +188,19 @@ class Command(BaseCommand):
                 f"Impossible de résoudre la commune depuis le code INSEE ({code_insee}) "
                 f"ou le code postal ({code_postal}) "
             )
-            return None
+            commune_ext = Commune(
+                departement=code_insee[:2],
+                nom=commune,
+                code_insee=code_insee,
+                geom=Point(
+                    extract(xml, fieldname="**Longitude"),
+                    extract(xml, fieldname="**Latitude"),
+                ),
+                code_postaux=[code_postal],
+            )
+            commune_ext.save()
+
+            return commune_ext.pk
         return commune_ext.pk
 
     def get_access(self, xml):
