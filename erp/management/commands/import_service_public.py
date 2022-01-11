@@ -164,7 +164,9 @@ class Command(BaseCommand):
             os.path.dirname(here), "data", "service-public", "organismes"
         )
 
-    def _retrieve_or_create_commune_ext(self, commune, code_insee=None, code_postal=None, xml):
+    def _retrieve_or_create_commune_ext(
+        self, commune, code_insee=None, code_postal=None, xml=None
+    ):
         "Assigne une commune normalisée à l'Erp en cours de génération"
         if code_insee:
             commune_ext = Commune.objects.filter(code_insee=code_insee).first()
