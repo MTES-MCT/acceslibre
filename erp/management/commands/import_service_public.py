@@ -72,6 +72,13 @@ def extract_adresse(xml, fieldname):
 class Command(BaseCommand):
     help = "Importe les données Service Public"
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--force-update",
+            action="store_true",
+            help="Forcer la mise à jour de la fiche ERP.",
+        )
+
     def handle_5digits_code(self, cpost):
         cpost = clean(cpost).strip()
         if len(cpost) == 4:
@@ -203,6 +210,7 @@ class Command(BaseCommand):
         return data
 
     def handle(self, *args, **options):
+        self.force_update = options.get("force-update", False)
         self.add_files()
         self.parse_files()
         print("Importation effectuée.")
@@ -251,6 +259,11 @@ class Command(BaseCommand):
                     if hasattr(erp, "pk") and erp.pk:
                         self.existed_erps += 1
                         print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
+                        if self.force_update:
+                            print(
+                                f"\tUPDATE FORCED on {erp.nom} {erp.voie} {erp.commune}"
+                            )
+                            erp.save()
                     else:
                         erp.save()
                         print(f"ADD {erp}")
