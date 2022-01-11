@@ -182,10 +182,11 @@ class Command(BaseCommand):
             )
 
         if not commune_ext:
-            raise RuntimeError(
+            print(
                 f"Impossible de résoudre la commune depuis le code INSEE ({code_insee}) "
                 f"ou le code postal ({code_postal}) "
             )
+            return None
         return commune_ext.pk
 
     def get_access(self, xml):
