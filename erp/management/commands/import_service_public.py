@@ -74,7 +74,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "--force-update",
+            "--forceupdate",
             action="store_true",
             help="Forcer la mise à jour de la fiche ERP.",
         )
@@ -133,7 +133,7 @@ class Command(BaseCommand):
         ):
             return None
 
-        erp = Erp(**fields)
+        erp = None
         # check doublons
         try:
             erp = Erp.objects.get(
@@ -142,14 +142,17 @@ class Command(BaseCommand):
                 commune=fields["commune"],
                 activite__pk=fields["activite_id"],
             )
-            return erp
         except Erp.MultipleObjectsReturned:
             # des doublons existent déjà malheureusement :(
             return None
         except Erp.DoesNotExist:
             pass
 
-        return erp
+        if erp and self.force_update:
+            Erp.objects.filter(pk=erp.pk).update(**fields)
+            erp.refresh_from_db()
+
+        return erp if erp else Erp(**fields)
 
     def get_xml_dirpath(self):
         here = os.path.abspath(
@@ -183,7 +186,6 @@ class Command(BaseCommand):
                 f"Impossible de résoudre la commune depuis le code INSEE ({code_insee}) "
                 f"ou le code postal ({code_postal}) "
             )
-
         return commune_ext.pk
 
     def get_access(self, xml):
@@ -210,7 +212,7 @@ class Command(BaseCommand):
         return data
 
     def handle(self, *args, **options):
-        self.force_update = options.get("force-update", False)
+        self.force_update = options.get("forceupdate")
         self.add_files()
         self.parse_files()
         print("Importation effectuée.")
@@ -258,11 +260,11 @@ class Command(BaseCommand):
                 if erp and data_access:
                     if hasattr(erp, "pk") and erp.pk:
                         self.existed_erps += 1
-                        print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
+                        print(
+                            f"EXIST {erp.nom} {erp.voie} {erp.commune} {self.force_update}"
+                        )
                         if self.force_update:
-                            print(
-                                f"\tUPDATE FORCED on {erp.nom} {erp.voie} {erp.commune}"
-                            )
+                            print("\tUPDATE FORCED on this ERP")
                             erp.save()
                     else:
                         erp.save()
