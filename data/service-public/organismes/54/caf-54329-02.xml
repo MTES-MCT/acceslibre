@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-54329-02" codeInsee="54329" dateMiseAJour="2020-09-15" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Meurthe-et-Moselle - accueil de Lunéville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison du département</Ligne>
+      <Ligne>28 rue de la République</Ligne>
+      <CodePostal>54300</CodePostal>
+      <NomCommune>Lunéville</NomCommune>
+      <Localisation>
+         <Latitude>48.5925643</Latitude>
+         <Longitude>6.49075960000005</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Meurthe-et-Moselle</Ligne>
+      <Ligne>21 rue de Saint-Lambert</Ligne>
+      <CodePostal>54046</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="coût d'un appel local">3230</Téléphone>
+      <Email>http://www.caf.fr/allocataires/ma-caf-recherche/</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:30:00"/>
+         <Note>Accueil exclusivement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

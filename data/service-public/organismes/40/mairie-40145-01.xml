@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40145-01" codeInsee="40145" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Larrivière-Saint-Savin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 avenue des Arènes</Ligne>
+      <CodePostal>40270</CodePostal>
+      <NomCommune>Larrivière-Saint-Savin</NomCommune>
+      <Localisation>
+         <Latitude>43.7697184</Latitude>
+         <Longitude>-0.4276166</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 45 92 79</Téléphone>
+      <Télécopie>05 58 45 12 66</Télécopie>
+      <Email>mairie.larriviere@wanadoo.fr</Email>
+      <Url>http://larrivieresaintsavin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

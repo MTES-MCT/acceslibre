@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43260-01" codeInsee="43260" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Vernet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>43320</CodePostal>
+      <NomCommune>Le Vernet</NomCommune>
+      <Localisation>
+         <Latitude>45.0362548</Latitude>
+         <Longitude>3.6726376</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 08 63 33</Téléphone>
+      <Email>le.vernet.43@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

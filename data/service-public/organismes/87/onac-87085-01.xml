@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="onac-87085-01" codeInsee="87085" dateMiseAJour="2021-12-17"
+           pivotLocal="onac">
+   <Nom>Office national des anciens combattants et victimes de guerre (ONACVG) - Service départemental - Haute-Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Haute-de-la-Comédie</Ligne>
+      <CodePostal>87000</CodePostal>
+      <NomCommune>Limoges</NomCommune>
+      <Localisation>
+         <Latitude>45.831355</Latitude>
+         <Longitude>1.257484</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="le matin accueil téléphonique dès 9h">05 55 33 51 30</Téléphone>
+      <Email>https://www.onac-vg.fr/contact</Email>
+      <Url>https://www.onac-vg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

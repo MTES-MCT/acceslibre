@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02398-01" codeInsee="02398" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Juvigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Louis-Philipon</Ligne>
+      <CodePostal>02880</CodePostal>
+      <NomCommune>Juvigny</NomCommune>
+      <Localisation>
+         <Latitude>49.4475708008</Latitude>
+         <Longitude>3.32023191452</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 54 82 82</Téléphone>
+      <Télécopie>03 23 54 82 82</Télécopie>
+      <Email>mairiejuvigny02@nordnet.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

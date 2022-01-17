@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02670-01" codeInsee="02670" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Algis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 rue Haution</Ligne>
+      <CodePostal>02260</CodePostal>
+      <NomCommune>Saint-Algis</NomCommune>
+      <Localisation>
+         <Latitude>49.9057006836</Latitude>
+         <Longitude>3.7925798893</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 97 90 05</Téléphone>
+      <Email>mairie.saint-algis@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="12:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="12:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

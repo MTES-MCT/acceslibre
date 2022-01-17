@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-40217-01" codeInsee="40217" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Parentis-en-Born</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison landaise de la solidarité</Ligne>
+      <Ligne>434 avenue Nicolas-Brémontier</Ligne>
+      <CodePostal>40160</CodePostal>
+      <NomCommune>Parentis-en-Born</NomCommune>
+      <Localisation>
+         <Latitude>44.3488998413</Latitude>
+         <Longitude>-1.07256996632</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 82 73 65</Téléphone>
+      <Email>pmi@landes.fr</Email>
+      <Url>http://www.landes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

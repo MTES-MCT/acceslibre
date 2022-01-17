@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-86137-01" codeInsee="86137" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays Loudunais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Fontaine-d'Adam</Ligne>
+      <Ligne>BP 30004</Ligne>
+      <CodePostal>86201</CodePostal>
+      <NomCommune>Loudun Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0224606</Latitude>
+         <Longitude>0.0906562</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 22 54 02</Téléphone>
+      <Télécopie>05 49 22 99 77</Télécopie>
+      <Email>contact@pays-loudunais.fr</Email>
+      <Url>http://www.pays-loudunais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

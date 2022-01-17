@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57300-01" codeInsee="57300" dateMiseAJour="2019-09-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Haselbourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Principale</Ligne>
+      <CodePostal>57850</CodePostal>
+      <NomCommune>Haselbourg</NomCommune>
+      <Localisation>
+         <Latitude>48.68546</Latitude>
+         <Longitude>7.20484</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 08 82 80</Téléphone>
+      <Email>mairie.haselbourg@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-56007-01" codeInsee="56007" dateMiseAJour="2020-02-17"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Auray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Pratel</Ligne>
+      <Ligne>Espace Autonomie Seniors Alréen</Ligne>
+      <Ligne>Hôpital Le Pratel</Ligne>
+      <Ligne>BP 60125</Ligne>
+      <CodePostal>56400</CodePostal>
+      <NomCommune>Auray</NomCommune>
+      <Localisation>
+         <Latitude>47.666526</Latitude>
+         <Longitude>-2.983773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 29 20 90</Téléphone>
+      <Email>clicpaysdauray@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Commentaire>
+</Organisme>

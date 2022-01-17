@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03103-01" codeInsee="03103" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Donjon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 le Plessis</Ligne>
+      <CodePostal>03130</CodePostal>
+      <NomCommune>Le Donjon</NomCommune>
+      <Localisation>
+         <Latitude>46.3527444</Latitude>
+         <Longitude>3.7945902</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 99 50 25</Téléphone>
+      <Télécopie>04 70 99 58 02</Télécopie>
+      <Email>mairie.le.donjon@wanadoo.fr</Email>
+      <Url>http://www.mairie-le-donjon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

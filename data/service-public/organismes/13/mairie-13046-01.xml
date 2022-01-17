@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13046-01" codeInsee="13046" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gréasque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 boulevard Marius-Olive</Ligne>
+      <CodePostal>13850</CodePostal>
+      <NomCommune>Gréasque</NomCommune>
+      <Localisation>
+         <Latitude>43.4323005676</Latitude>
+         <Longitude>5.54278993607</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">mairie annexe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 69 86 06</Téléphone>
+      <Télécopie>04 42 69 86 16</Télécopie>
+      <Email>secretariatdumaire@greasque.fr</Email>
+      <Url>http://www.ville-greasque.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les 1er et 3e samedis du mois, uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

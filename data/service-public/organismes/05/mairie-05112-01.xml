@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05112-01" codeInsee="05112" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rabou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>05400</CodePostal>
+      <NomCommune>Rabou</NomCommune>
+      <Localisation>
+         <Latitude>44.5901069641</Latitude>
+         <Longitude>6.0050778389</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 57 92 16</Téléphone>
+      <Email>mairie.rabou@ccbd.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

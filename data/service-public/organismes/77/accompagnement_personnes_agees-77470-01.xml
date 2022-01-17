@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-77470-01" codeInsee="77470"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Tournan-en-Brie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accueil de jour</Ligne>
+      <Ligne>EHPAD</Ligne>
+      <Ligne>Hôpital local</Ligne>
+      <CodePostal>77220</CodePostal>
+      <NomCommune>Tournan-en-Brie</NomCommune>
+      <Localisation>
+         <Latitude>48.738814</Latitude>
+         <Longitude>2.753562</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 42 18 00</Téléphone>
+      <Télécopie>01 64 06 46 13</Télécopie>
+      <Email>accueil@epgtournan.fr</Email>
+      <Url>http://www.epgtournan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

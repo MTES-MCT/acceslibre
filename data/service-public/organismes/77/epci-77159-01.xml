@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-77159-01" codeInsee="77159" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Bassée-Montois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>80 rue de la Fontaine</Ligne>
+      <CodePostal>77480</CodePostal>
+      <NomCommune>Bray-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>48.415497</Latitude>
+         <Longitude>3.240306</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 67 09 10</Téléphone>
+      <Télécopie>01 60 67 17 88</Télécopie>
+      <Email>contact@cc-basseemontois.fr</Email>
+      <Url>http://www.cc-basseemontois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

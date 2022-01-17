@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23183-01" codeInsee="23183" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Avit-le-Pauvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Principale</Ligne>
+      <CodePostal>23480</CodePostal>
+      <NomCommune>Saint-Avit-le-Pauvre</NomCommune>
+      <Localisation>
+         <Latitude>45.9968986511</Latitude>
+         <Longitude>2.04482007027</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 66 68 20</Téléphone>
+      <Télécopie>05 55 66 68 20</Télécopie>
+      <Email>mairie.saintavitlepauvre@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

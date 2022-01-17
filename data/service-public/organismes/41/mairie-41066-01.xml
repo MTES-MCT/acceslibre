@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41066-01" codeInsee="41066" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Courbouzon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Champsort</Ligne>
+      <CodePostal>41500</CodePostal>
+      <NomCommune>Courbouzon</NomCommune>
+      <Localisation>
+         <Latitude>47.714099884</Latitude>
+         <Longitude>1.54338002205</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 81 01 90</Téléphone>
+      <Email>mairie.courbouzon@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64541-01" codeInsee="64541" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Urdès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 hameau de l'Église</Ligne>
+      <CodePostal>64370</CodePostal>
+      <NomCommune>Urdès</NomCommune>
+      <Localisation>
+         <Latitude>43.4454345703</Latitude>
+         <Longitude>-0.591068029404</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 67 79 22</Téléphone>
+      <Télécopie>05 59 67 43 56</Télécopie>
+      <Email>commune.urdes@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

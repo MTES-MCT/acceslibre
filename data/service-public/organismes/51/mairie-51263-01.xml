@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51263-01" codeInsee="51263" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fromentières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 route de Montmort</Ligne>
+      <CodePostal>51210</CodePostal>
+      <NomCommune>Fromentières</NomCommune>
+      <Localisation>
+         <Latitude>48.890111</Latitude>
+         <Longitude>3.706287</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 81 61 94</Téléphone>
+      <Email>mairie.fromentieres@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="12:30:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

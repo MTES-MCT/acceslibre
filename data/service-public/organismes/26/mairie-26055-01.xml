@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26055-01" codeInsee="26055" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Boulc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>2 route de Bonneval</Ligne>
+      <CodePostal>26410</CodePostal>
+      <NomCommune>Boulc</NomCommune>
+      <Localisation>
+         <Latitude>44.6484451294</Latitude>
+         <Longitude>5.5654759407</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 21 15 69</Téléphone>
+      <Télécopie>04 75 21 15 69</Télécopie>
+      <Email>mairie.boulc@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Contacter la mairie pour connaître les horaires d'ouverture.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

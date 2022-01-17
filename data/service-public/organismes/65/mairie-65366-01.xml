@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65366-01" codeInsee="65366" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Poueyferré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>65100</CodePostal>
+      <NomCommune>Poueyferré</NomCommune>
+      <Localisation>
+         <Latitude>43.1036987305</Latitude>
+         <Longitude>-0.117665998638</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 94 60 14</Téléphone>
+      <Télécopie>05 62 94 89 79</Télécopie>
+      <Email>mairiedepoueyferre@wanadoo.fr</Email>
+      <Url>http://www.poueyferre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

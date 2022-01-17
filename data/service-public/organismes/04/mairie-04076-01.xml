@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04076-01" codeInsee="04076" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Entrevaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-Panier</Ligne>
+      <CodePostal>04320</CodePostal>
+      <NomCommune>Entrevaux</NomCommune>
+      <Localisation>
+         <Latitude>43.9499784</Latitude>
+         <Longitude>6.8101685</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 05 34 10</Téléphone>
+      <Télécopie>04 93 05 43 91</Télécopie>
+      <Email>administration@mairie-entrevaux.fr</Email>
+      <Url>http://mairie-entrevaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

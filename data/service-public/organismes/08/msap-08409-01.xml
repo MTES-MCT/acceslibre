@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-08409-01" codeInsee="08409" dateMiseAJour="2020-12-21"
+           pivotLocal="msap">
+   <Nom>France Services - Sedan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social Ouest Avenue</Ligne>
+      <Ligne>75 avenue de la Marne</Ligne>
+      <CodePostal>08200</CodePostal>
+      <NomCommune>Sedan</NomCommune>
+      <Localisation>
+         <Latitude>49.696101</Latitude>
+         <Longitude>4.914719</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 53 73 24</Téléphone>
+      <Email>msap.sedan@gmail.com</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/sedan</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

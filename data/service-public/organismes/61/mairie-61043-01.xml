@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61043-01" codeInsee="61043" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Berd'huis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 route de Bellême</Ligne>
+      <CodePostal>61340</CodePostal>
+      <NomCommune>Berd'huis</NomCommune>
+      <Localisation>
+         <Latitude>48.3457984924</Latitude>
+         <Longitude>0.743888020515</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 85 23 60</Téléphone>
+      <Email>mairie@berdhuis.com</Email>
+      <Url>http://www.mairie-berdhuis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01423-01" codeInsee="01423" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Toussieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>346 route du Morbier</Ligne>
+      <CodePostal>01600</CodePostal>
+      <NomCommune>Toussieux</NomCommune>
+      <Localisation>
+         <Latitude>45.9603996277</Latitude>
+         <Longitude>4.82667016983</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 00 19 03</Téléphone>
+      <Email>mairie@toussieux.fr</Email>
+      <Url>http://www.toussieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

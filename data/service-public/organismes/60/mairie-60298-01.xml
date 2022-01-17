@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60298-01" codeInsee="60298" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hanvoile</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>67 Grande rue</Ligne>
+      <CodePostal>60650</CodePostal>
+      <NomCommune>Hanvoile</NomCommune>
+      <Localisation>
+         <Latitude>49.4860572815</Latitude>
+         <Longitude>1.8350520134</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 82 73 51</Téléphone>
+      <Email>mairie.hanvoile@wanadoo.fr</Email>
+      <Url>http://www.mairie-hanvoile.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Permanence du maire de 17h à 19h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Permanence du maire de 16h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

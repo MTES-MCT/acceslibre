@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59370-01" codeInsee="59370" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mairieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue Haute</Ligne>
+      <CodePostal>59600</CodePostal>
+      <NomCommune>Mairieux</NomCommune>
+      <Localisation>
+         <Latitude>50.3106002808</Latitude>
+         <Longitude>3.99058008194</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 67 91 34</Téléphone>
+      <Télécopie>03 27 68 42 87</Télécopie>
+      <Email>contact@mairiemairieux.fr</Email>
+      <Url>http://www.mairieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

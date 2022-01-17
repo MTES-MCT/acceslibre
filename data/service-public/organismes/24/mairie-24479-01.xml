@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24479-01" codeInsee="24479" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pardoux-la-Rivière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>BP 7</Ligne>
+      <CodePostal>24470</CodePostal>
+      <NomCommune>Saint-Pardoux-la-Rivière</NomCommune>
+      <Localisation>
+         <Latitude>45.4960649</Latitude>
+         <Longitude>0.7432397</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 60 81 70</Téléphone>
+      <Télécopie>05 53 60 81 79</Télécopie>
+      <Email>communestpardouxlariviere@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

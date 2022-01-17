@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33138-01" codeInsee="33138" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coutras</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 place Ernest-Barraud</Ligne>
+      <Ligne>BP 69</Ligne>
+      <CodePostal>33230</CodePostal>
+      <NomCommune>Coutras</NomCommune>
+      <Localisation>
+         <Latitude>45.0401656</Latitude>
+         <Longitude>-0.1298855</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 56 09 09</Téléphone>
+      <Télécopie>05 57 56 09 04</Télécopie>
+      <Email>accueil@mairie-coutras.fr</Email>
+      <Url>http://www.coutras.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Le service état civil est fermé le mardi matin, dépôt des demandes de cartes d'identité et passeports sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

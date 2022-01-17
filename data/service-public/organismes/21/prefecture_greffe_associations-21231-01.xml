@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-21231-01" codeInsee="21231"
+           dateMiseAJour="2019-05-20"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Côte-d'Or (Dijon)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale de la cohésion sociale de la Côte-d'Or</Ligne>
+      <Ligne>Cité Dampierre</Ligne>
+      <Ligne>6 rue Chancelier-de-l'Hospital</Ligne>
+      <Ligne>CS 15381</Ligne>
+      <CodePostal>21053</CodePostal>
+      <NomCommune>Dijon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.3193685</Latitude>
+         <Longitude>5.0457632</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 68 31 00</Téléphone>
+      <Email>ddcs-associations@cote-dor.gouv.fr</Email>
+      <Url>http://www.bourgogne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

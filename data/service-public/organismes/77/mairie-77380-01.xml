@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77380-01" codeInsee="77380" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puisieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 Grand'rue</Ligne>
+      <CodePostal>77139</CodePostal>
+      <NomCommune>Puisieux</NomCommune>
+      <Localisation>
+         <Latitude>49.0668983459</Latitude>
+         <Longitude>2.88161993027</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 36 68 60</Téléphone>
+      <Email>mairie-puisieux@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er vendredi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

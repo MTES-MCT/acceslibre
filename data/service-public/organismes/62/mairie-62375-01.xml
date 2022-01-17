@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62375-01" codeInsee="62375" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gommecourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de la Chapelle</Ligne>
+      <CodePostal>62111</CodePostal>
+      <NomCommune>Gommecourt</NomCommune>
+      <Localisation>
+         <Latitude>50.1517982483</Latitude>
+         <Longitude>2.63358998299</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 59 16 69</Téléphone>
+      <Télécopie>03 21 59 16 69</Télécopie>
+      <Email>gommecourt.mairie@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

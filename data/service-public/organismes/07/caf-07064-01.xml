@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-07064-01" codeInsee="07064" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Ardèche - accueil du Cheylard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Rue du Temple</Ligne>
+      <CodePostal>07160</CodePostal>
+      <NomCommune>Le Cheylard</NomCommune>
+      <Localisation>
+         <Latitude>44.9067718</Latitude>
+         <Longitude>4.4251127</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Ardèche</Ligne>
+      <Ligne>27 avenue de l'Europe</Ligne>
+      <Ligne>BP 121</Ligne>
+      <CodePostal>07101</CodePostal>
+      <NomCommune>Annonay Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

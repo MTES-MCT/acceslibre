@@ -1009,7 +1009,7 @@ FIELDS = {
         "warn_if": False,
     },
     "accueil_cheminement_rampe": {
-        "type": "boolean",
+        "type": "string",
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",

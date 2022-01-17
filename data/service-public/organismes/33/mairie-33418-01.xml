@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33418-01" codeInsee="33418" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Hilaire-de-la-Noaille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 le Pont</Ligne>
+      <CodePostal>33190</CodePostal>
+      <NomCommune>Saint-Hilaire-de-la-Noaille</NomCommune>
+      <Localisation>
+         <Latitude>44.6029014587</Latitude>
+         <Longitude>-0.0035729999654</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 71 00 09</Téléphone>
+      <Télécopie>05 56 71 02 37</Télécopie>
+      <Email>secretariat@sainthilairedelanoaille.fr</Email>
+      <Url>http://www.sainthilairedelanoaille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

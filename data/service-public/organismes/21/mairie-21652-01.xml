@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21652-01" codeInsee="21652" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vandenesse-en-Auxois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>21320</CodePostal>
+      <NomCommune>Vandenesse-en-Auxois</NomCommune>
+      <Localisation>
+         <Latitude>47.2207984924</Latitude>
+         <Longitude>4.61585998535</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 49 24 32</Téléphone>
+      <Email>commune.vandenesseenauxois@wanadoo.fr</Email>
+      <Url>http://www.vandenesseenauxois.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

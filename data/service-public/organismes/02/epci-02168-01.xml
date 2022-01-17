@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-02168-01" codeInsee="02168" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - La Région de Château-Thierry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>L’Aiguillage</Ligne>
+      <Ligne>2 avenue Ernest-Couvrecelle</Ligne>
+      <CodePostal>02400</CodePostal>
+      <NomCommune>Étampes-sur-Marne</NomCommune>
+      <Localisation>
+         <Latitude>49.0373439</Latitude>
+         <Longitude>3.4116817</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 69 75 41</Téléphone>
+      <Email>contact@carct.fr</Email>
+      <Url>http://www.carct.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

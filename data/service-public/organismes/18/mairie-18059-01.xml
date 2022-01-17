@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18059-01" codeInsee="18059" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Châtelet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Gaston-Guillemain</Ligne>
+      <CodePostal>18170</CodePostal>
+      <NomCommune>Le Châtelet</NomCommune>
+      <Localisation>
+         <Latitude>46.6424560547</Latitude>
+         <Longitude>2.28171610832</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 56 21 21</Téléphone>
+      <Télécopie>02 48 56 27 62</Télécopie>
+      <Email>mairie.lechatelet@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

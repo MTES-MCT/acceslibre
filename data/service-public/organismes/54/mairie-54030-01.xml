@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54030-01" codeInsee="54030" dateMiseAJour="2018-09-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Autrepierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 place de la Mairie</Ligne>
+      <CodePostal>54450</CodePostal>
+      <NomCommune>Autrepierre</NomCommune>
+      <Localisation>
+         <Latitude>48.6125144958</Latitude>
+         <Longitude>6.80083179474</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 83 03 59 39</Téléphone>
+      <Email>mairie.autrepierre@bbox.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Permanence téléphonique éventuelle uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

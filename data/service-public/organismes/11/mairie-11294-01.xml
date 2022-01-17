@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11294-01" codeInsee="11294" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pomy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>11300</CodePostal>
+      <NomCommune>Pomy</NomCommune>
+      <Localisation>
+         <Latitude>43.0618858337</Latitude>
+         <Longitude>2.06795406342</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 69 59 11</Téléphone>
+      <Email>mairie-pomy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

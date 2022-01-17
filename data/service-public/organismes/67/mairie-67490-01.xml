@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67490-01" codeInsee="67490" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thanvillé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de l’École</Ligne>
+      <CodePostal>67220</CodePostal>
+      <NomCommune>Thanvillé</NomCommune>
+      <Localisation>
+         <Latitude>48.3386001587</Latitude>
+         <Longitude>7.32407999039</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">par l'entrée située au 5 rue du Château</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 85 62 66</Téléphone>
+      <Email>mairie@thanville.fr</Email>
+      <Url>http://www.thanville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence des adjoints uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

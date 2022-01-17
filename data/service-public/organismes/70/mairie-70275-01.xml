@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70275-01" codeInsee="70275" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grandvelle-et-le-Perrenot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Nicolas-Perrenot</Ligne>
+      <CodePostal>70190</CodePostal>
+      <NomCommune>Grandvelle-et-le-Perrenot</NomCommune>
+      <Localisation>
+         <Latitude>47.537399292</Latitude>
+         <Longitude>6.05220985413</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 78 27 37</Téléphone>
+      <Email>mairie.grandvelle-perrenot@orange.fr</Email>
+      <Url>http://mairiegrandvelle-et-le-perrenot.e-monsite.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

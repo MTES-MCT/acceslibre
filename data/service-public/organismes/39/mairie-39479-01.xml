@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39479-01" codeInsee="39479" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Cyr-Montmalin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue du Verger</Ligne>
+      <CodePostal>39600</CodePostal>
+      <NomCommune>Saint-Cyr-Montmalin</NomCommune>
+      <Localisation>
+         <Latitude>46.9504013062</Latitude>
+         <Longitude>5.7306599617</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 37 49 86</Téléphone>
+      <Email>mairie.st-cyrmontmalin@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

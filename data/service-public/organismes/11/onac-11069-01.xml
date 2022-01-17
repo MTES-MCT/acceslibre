@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="onac-11069-01" codeInsee="11069" dateMiseAJour="2021-12-06"
+           pivotLocal="onac">
+   <Nom>Office national des anciens combattants et victimes de guerre (ONACVG) - Service départemental - Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 20001</Ligne>
+      <Ligne>Préfecture de l'Aude</Ligne>
+      <Ligne>52 rue Jean Bringer</Ligne>
+      <CodePostal>11836</CodePostal>
+      <NomCommune>Carcassonne Cedex 09</NomCommune>
+      <Localisation>
+         <Latitude>43.21459</Latitude>
+         <Longitude>2.353249</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique : lundi et mercredi  de 13h30 à 17h , vendredi de 13:30 à 16h">04 68 10 27 00</Téléphone>
+      <Email>https://www.onac-vg.fr/contact</Email>
+      <Url>https://www.onac-vg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14676-01" codeInsee="14676" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sommervieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue de l'Église</Ligne>
+      <CodePostal>14400</CodePostal>
+      <NomCommune>Sommervieu</NomCommune>
+      <Localisation>
+         <Latitude>49.2960494</Latitude>
+         <Longitude>-0.652507499999956</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 21 74 96</Téléphone>
+      <Email>sommervieu.mairie@orange.fr</Email>
+      <Url>http://www.sommervieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

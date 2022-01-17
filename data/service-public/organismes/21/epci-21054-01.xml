@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-21054-01" codeInsee="21054" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Beaune Côte et Sud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Philippe-Trinquet</Ligne>
+      <Ligne>BP 40288</Ligne>
+      <CodePostal>21208</CodePostal>
+      <NomCommune>Beaune Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0175676</Latitude>
+         <Longitude>4.8470627</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 24 56 80</Téléphone>
+      <Télécopie>03 80 22 72 84</Télécopie>
+      <Email>dgs@beaunecoteetsud.com</Email>
+      <Url>http://www.beaunecoteetsud.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-77108-01" codeInsee="77108" dateMiseAJour="2017-04-21"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Chelles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination partage Nord-Ouest 77</Ligne>
+      <Ligne>2 avenue Aimé-Auberville</Ligne>
+      <CodePostal>77500</CodePostal>
+      <NomCommune>Chelles</NomCommune>
+      <Localisation>
+         <Latitude>48.877792</Latitude>
+         <Longitude>2.586363</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 21 75 58</Téléphone>
+      <Télécopie>01 60 08 58 54</Télécopie>
+      <Email>infoclic@clic-partage.fr</Email>
+      <Url>http://www.clic-partage.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

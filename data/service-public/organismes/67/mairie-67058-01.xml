@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67058-01" codeInsee="67058" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bossendorf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Haute</Ligne>
+      <CodePostal>67270</CodePostal>
+      <NomCommune>Bossendorf</NomCommune>
+      <Localisation>
+         <Latitude>48.78099823</Latitude>
+         <Longitude>7.55964994431</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 91 50 69</Téléphone>
+      <Email>mairie.bossendorf@payszorn.com</Email>
+      <Url>http://bossendorf.payszorn.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

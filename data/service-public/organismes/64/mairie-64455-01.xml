@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64455-01" codeInsee="64455" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Portet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Corps-Franc-Pommies</Ligne>
+      <CodePostal>64330</CodePostal>
+      <NomCommune>Portet</NomCommune>
+      <Localisation>
+         <Latitude>43.579913</Latitude>
+         <Longitude>-0.188446</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">utiliser la sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 04 02 17</Téléphone>
+      <Email>mairie.portet@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35321-01" codeInsee="35321" dateMiseAJour="2021-01-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saulnières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue Saint Martin</Ligne>
+      <CodePostal>35320</CodePostal>
+      <NomCommune>Saulnières</NomCommune>
+      <Localisation>
+         <Latitude>47.9146214</Latitude>
+         <Longitude>-1.5845057</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 44 60 03</Téléphone>
+      <Télécopie>09 70 60 11 85</Télécopie>
+      <Email>mairie@saulnieres35.fr</Email>
+      <Url>http://www.saulnieres35.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

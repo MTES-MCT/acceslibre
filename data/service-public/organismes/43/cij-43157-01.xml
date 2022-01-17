@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-43157-01" codeInsee="43157" dateMiseAJour="2020-11-24" pivotLocal="cij">
+   <Nom>Point information jeunesse - Puy-en-Velay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité Négocia</Ligne>
+      <Ligne>2 rue Pierret</Ligne>
+      <CodePostal>43000</CodePostal>
+      <NomCommune>Le Puy-en-Velay</NomCommune>
+      <Localisation>
+         <Latitude>45.0417098</Latitude>
+         <Longitude>3.8867051</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 07 09 09</Téléphone>
+      <Email>pijduvelay@gmail.com</Email>
+      <Url>https://www.pij-velay.org/c-est-quoi-un-pij.php</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

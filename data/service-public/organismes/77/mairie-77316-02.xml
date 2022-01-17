@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77316-02" codeInsee="77316" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Veneux-les-Sablons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Veneux-les-Sablons</Ligne>
+      <Ligne>Place du 11-Novembre-1918</Ligne>
+      <CodePostal>77250</CodePostal>
+      <NomCommune>Moret-Loing-et-Orvanne</NomCommune>
+      <Localisation>
+         <Latitude>48.3779983</Latitude>
+         <Longitude>2.7948899</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 70 52 38</Téléphone>
+      <Email>accueil.veneux@moretloingetorvanne.fr</Email>
+      <Url>http://www.moret-loing-et-orvanne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65338-01" codeInsee="65338" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Orignac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 cami deth Casteriou</Ligne>
+      <CodePostal>65200</CodePostal>
+      <NomCommune>Orignac</NomCommune>
+      <Localisation>
+         <Latitude>43.1235122681</Latitude>
+         <Longitude>0.168670997024</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 91 25 95</Téléphone>
+      <Télécopie>05 62 91 25 95</Télécopie>
+      <Email>mairie.orignac65@wanadoo.fr</Email>
+      <Url>http://www.mairie-orignac.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous le mercredi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

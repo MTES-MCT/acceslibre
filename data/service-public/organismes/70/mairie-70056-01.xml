@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70056-01" codeInsee="70056" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Baulay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'Église</Ligne>
+      <CodePostal>70160</CodePostal>
+      <NomCommune>Baulay</NomCommune>
+      <Localisation>
+         <Latitude>47.787053</Latitude>
+         <Longitude>6.0075257</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 68 71 37</Téléphone>
+      <Télécopie>03 84 68 73 03</Télécopie>
+      <Email>mairie.baulay@wanadoo.fr</Email>
+      <Url>http://www.baulay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

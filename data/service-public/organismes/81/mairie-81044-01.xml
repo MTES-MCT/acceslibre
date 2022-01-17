@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81044-01" codeInsee="81044" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cabanès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>401 route des Pyrénées</Ligne>
+      <CodePostal>81500</CodePostal>
+      <NomCommune>Cabanès</NomCommune>
+      <Localisation>
+         <Latitude>43.728662</Latitude>
+         <Longitude>1.940833</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 42 04 34</Téléphone>
+      <Email>mairiecabanes@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

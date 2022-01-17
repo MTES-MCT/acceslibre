@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-86137-01" codeInsee="86137" dateMiseAJour="2019-12-17" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Loudun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 rue du Palais</Ligne>
+      <Ligne>CS 80067</Ligne>
+      <CodePostal>86206</CodePostal>
+      <NomCommune>Loudun</NomCommune>
+      <Localisation>
+         <Latitude>47.0105774</Latitude>
+         <Longitude>0.0815345</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 98 86 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

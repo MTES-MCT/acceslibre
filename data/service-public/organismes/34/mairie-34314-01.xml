@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34314-01" codeInsee="34314" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Triadou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 Grand'rue</Ligne>
+      <CodePostal>34270</CodePostal>
+      <NomCommune>Le Triadou</NomCommune>
+      <Localisation>
+         <Latitude>43.7398019</Latitude>
+         <Longitude>3.8523252</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">suivre le fléchage</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 55 25 80</Téléphone>
+      <Email>mairie@letriadou.fr</Email>
+      <Url>http://www.letriadou.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

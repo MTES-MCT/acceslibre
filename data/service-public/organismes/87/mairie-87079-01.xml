@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87079-01" codeInsee="87079" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Jonchère-Saint-Maurice</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue de Limoges</Ligne>
+      <CodePostal>87340</CodePostal>
+      <NomCommune>La Jonchère-Saint-Maurice</NomCommune>
+      <Localisation>
+         <Latitude>46.0032997131</Latitude>
+         <Longitude>1.47476994991</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 39 80 18</Téléphone>
+      <Télécopie>05 55 39 80 37</Télécopie>
+      <Email>mairiedelajonchere@wanadoo.fr</Email>
+      <Url>http://www.jonchere-saint-maurice.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

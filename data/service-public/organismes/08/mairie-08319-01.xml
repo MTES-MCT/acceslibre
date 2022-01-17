@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08319-01" codeInsee="08319" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuville-lez-Beaulieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de la Courcinette</Ligne>
+      <CodePostal>08380</CodePostal>
+      <NomCommune>Neuville-lez-Beaulieu</NomCommune>
+      <Localisation>
+         <Latitude>49.8663215637</Latitude>
+         <Longitude>4.32507896423</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 54 33 39</Téléphone>
+      <Email>mairie.neuville-lez-beaulieu@wanadoo.fr</Email>
+      <Url>http://www.mairie-neuville-lez-beaulieu.jimdofree.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

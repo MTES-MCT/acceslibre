@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10117-01" codeInsee="10117" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Crespy-le-Neuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 rue Charles-Herbelot</Ligne>
+      <CodePostal>10500</CodePostal>
+      <NomCommune>Crespy-le-Neuf</NomCommune>
+      <Localisation>
+         <Latitude>48.397891</Latitude>
+         <Longitude>4.594972</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 92 98 71</Téléphone>
+      <Email>mairie-crespyleneuf@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

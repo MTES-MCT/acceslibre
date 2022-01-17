@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-62045-01" codeInsee="62045" dateMiseAJour="2020-12-01"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Aubigny-en-Artois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>23 rue Saint-Kilien</Ligne>
+      <CodePostal>62690</CodePostal>
+      <NomCommune>Aubigny-en-Artois</NomCommune>
+      <Localisation>
+         <Latitude>50.3512638</Latitude>
+         <Longitude>2.63330849</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 51 97 65</Téléphone>
+      <Email>msap.aubigny-en-artois@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/aubigny-en-artois-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

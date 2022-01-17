@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-11069-02" codeInsee="11069" dateMiseAJour="2021-04-26"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Carcassonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>90 avenue Pierre Sémard</Ligne>
+      <Ligne>CS 10045</Ligne>
+      <CodePostal>11890</CodePostal>
+      <NomCommune>Carcassonne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.21531</Latitude>
+         <Longitude>2.34121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 10 21 60</Téléphone>
+      <Email>sgc.carcassonne@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Fermeture au public tous les après-midi, sauf le lundi 13h30 à 16h00 (Accueil sur RDV exclusif)</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception au guichet et sur rendez-vous.</Commentaire>
+</Organisme>

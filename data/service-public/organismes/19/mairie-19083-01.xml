@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19083-01" codeInsee="19083" dateMiseAJour="2019-04-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Feyt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>19340</CodePostal>
+      <NomCommune>Feyt</NomCommune>
+      <Localisation>
+         <Latitude>45.689855</Latitude>
+         <Longitude>2.474489</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 94 33 03</Téléphone>
+      <Télécopie>05 55 94 33 03</Télécopie>
+      <Email>mairiedefeyt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil ouvert uniquement les deux premiers samedis du mois</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La mairie est fermée tous les samedis.</Commentaire>
+</Organisme>

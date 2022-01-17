@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-02304-01" codeInsee="02304" dateMiseAJour="2019-12-18"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - La Fère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination - La Fère</Ligne>
+      <Ligne>1 avenue Dupuis</Ligne>
+      <CodePostal>02800</CodePostal>
+      <NomCommune>La Fère</NomCommune>
+      <Localisation>
+         <Latitude>49.663095</Latitude>
+         <Longitude>3.36022</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 56 21 82</Téléphone>
+      <Email>clic@ch-lafere.fr</Email>
+      <Url>http://www.ch-lafere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-41194-01" codeInsee="41194" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Romorantin-Lanthenay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 mail de l'Hôtel-Dieu</Ligne>
+      <CodePostal>41206</CodePostal>
+      <NomCommune>Romorantin-Lanthenay Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.3599888</Latitude>
+         <Longitude>1.7415511</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 95 29 29</Téléphone>
+      <Email>sgc.romorantin-lanthenay@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:15:00"/>
+         <Note>Pendant la crise sanitaire, accueil uniquement sur rendez-vous du lundi au vendredi à prendre par téléphone.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

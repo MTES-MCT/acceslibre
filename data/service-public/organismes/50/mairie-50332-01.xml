@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50332-01" codeInsee="50332" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Moitiers-d'Allonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue des Trois-Forges</Ligne>
+      <CodePostal>50270</CodePostal>
+      <NomCommune>Les Moitiers-d'Allonne</NomCommune>
+      <Localisation>
+         <Latitude>49.4014015198</Latitude>
+         <Longitude>-1.77806997299</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 53 81 88</Téléphone>
+      <Email>moitiersdallonne@wanadoo.fr</Email>
+      <Url>http://www.lesmoitiersdallonne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Permanence des élus le samedi matin de 11h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

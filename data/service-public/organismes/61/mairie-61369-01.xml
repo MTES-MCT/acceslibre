@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61369-01" codeInsee="61369" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Bômer-les-Forges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de la Mairie</Ligne>
+      <CodePostal>61700</CodePostal>
+      <NomCommune>Saint-Bômer-les-Forges</NomCommune>
+      <Localisation>
+         <Latitude>48.6439054</Latitude>
+         <Longitude>-0.6343055</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 37 61 22</Téléphone>
+      <Télécopie>02 33 37 61 02</Télécopie>
+      <Email>mairie.stbomer@orange.fr</Email>
+      <Url>http://www.saint-bomer-les-forges.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

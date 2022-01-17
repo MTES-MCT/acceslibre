@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07232-01" codeInsee="07232" dateMiseAJour="2021-07-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-de-Lugdarès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>788 route de Luc</Ligne>
+      <CodePostal>07590</CodePostal>
+      <NomCommune>Saint-Étienne-de-Lugdarès</NomCommune>
+      <Localisation>
+         <Latitude>44.65071</Latitude>
+         <Longitude>3.95266</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 46 60 49</Téléphone>
+      <Email>contact@mairie-stedl.fr</Email>
+      <Url>http://www.mairie-stedl.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

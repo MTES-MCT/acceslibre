@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-34301-01" codeInsee="34301" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Sète</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>AEJ Les Voutes</Ligne>
+      <Ligne>39 rue Révolution</Ligne>
+      <CodePostal>34200</CodePostal>
+      <NomCommune>Sète</NomCommune>
+      <Localisation>
+         <Latitude>43.401315</Latitude>
+         <Longitude>3.693105</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 99 04 74 79</Téléphone>
+      <Email>pij-ccas@ville-sete.fr</Email>
+      <Url>http://herault.informationjeunesselr.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

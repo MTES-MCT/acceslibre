@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65035-01" codeInsee="65035" dateMiseAJour="2021-12-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Artagnan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Centre</Ligne>
+      <CodePostal>65500</CodePostal>
+      <NomCommune>Artagnan</NomCommune>
+      <Localisation>
+         <Latitude>43.402866</Latitude>
+         <Longitude>0.076824</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 96 72 63</Téléphone>
+      <Télécopie>05 62 96 72 63</Télécopie>
+      <Email>artagnan.cne@wanadoo.fr</Email>
+      <Url>https://artagnan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

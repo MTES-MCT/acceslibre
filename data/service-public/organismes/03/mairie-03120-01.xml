@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03120-01" codeInsee="03120" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Garnat-sur-Engièvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue de la Mairie</Ligne>
+      <CodePostal>03230</CodePostal>
+      <NomCommune>Garnat-sur-Engièvre</NomCommune>
+      <Localisation>
+         <Latitude>46.6020583</Latitude>
+         <Longitude>3.6729004</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 42 73 26</Téléphone>
+      <Télécopie>04 70 42 48 06</Télécopie>
+      <Email>com.garnat@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-40119-01" codeInsee="40119" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Hagetmau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison landaise de la solidarité</Ligne>
+      <Ligne>198 avenue de la Gare</Ligne>
+      <CodePostal>40700</CodePostal>
+      <NomCommune>Hagetmau</NomCommune>
+      <Localisation>
+         <Latitude>43.6582</Latitude>
+         <Longitude>-0.5886738</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 79 32 25</Téléphone>
+      <Email>pmi.hagetmau@landes.fr</Email>
+      <Url>http://www.landes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

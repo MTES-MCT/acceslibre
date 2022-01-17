@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78265-01" codeInsee="78265" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Garancières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Saint-Pierre</Ligne>
+      <CodePostal>78890</CodePostal>
+      <NomCommune>Garancières</NomCommune>
+      <Localisation>
+         <Latitude>48.8218994</Latitude>
+         <Longitude>1.7534699</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 86 41 33</Téléphone>
+      <Télécopie>01 34 86 60 16</Télécopie>
+      <Email>contact@mairie-garancieres.com</Email>
+      <Url>http://www.mairie-garancieres78.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:15:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:15:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

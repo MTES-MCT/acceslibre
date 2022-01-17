@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95166-01" codeInsee="95166" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cléry-en-Vexin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de la Fontaine-d'Ascot</Ligne>
+      <CodePostal>95420</CodePostal>
+      <NomCommune>Cléry-en-Vexin</NomCommune>
+      <Localisation>
+         <Latitude>49.127412</Latitude>
+         <Longitude>1.8423199</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 67 42 38</Téléphone>
+      <Télécopie>01 34 67 43 98</Télécopie>
+      <Email>commune-de-clery@wanadoo.fr</Email>
+      <Url>http://www.clery-en-vexin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

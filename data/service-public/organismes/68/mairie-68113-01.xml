@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68113-01" codeInsee="68113" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Guémar</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue du Maréchal-Lefèbvre</Ligne>
+      <Ligne>BP 13</Ligne>
+      <CodePostal>68970</CodePostal>
+      <NomCommune>Guémar</NomCommune>
+      <Localisation>
+         <Latitude>48.1878013611</Latitude>
+         <Longitude>7.39895009995</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 71 83 12</Téléphone>
+      <Télécopie>03 89 71 83 52</Télécopie>
+      <Email>mairie@ville-guemar.fr</Email>
+      <Url>http://www.ville-guemar.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

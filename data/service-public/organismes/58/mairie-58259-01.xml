@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58259-01" codeInsee="58259" dateMiseAJour="2021-09-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Parize-en-Viry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>58300</CodePostal>
+      <NomCommune>Saint-Parize-en-Viry</NomCommune>
+      <Localisation>
+         <Latitude>46.7521018982</Latitude>
+         <Longitude>3.35538005829</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 50 61 77</Téléphone>
+      <Télécopie>03 86 50 61 77</Télécopie>
+      <Email>mlemaireparize@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>En dehors de ces horaires vous pouvez contacter la Mairie de Dornes au 03
+86 50 60 47</Commentaire>
+</Organisme>

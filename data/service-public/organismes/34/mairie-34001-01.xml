@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34001-01" codeInsee="34001" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Abeilhan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 avenue Georges-Guynemer</Ligne>
+      <CodePostal>34290</CodePostal>
+      <NomCommune>Abeilhan</NomCommune>
+      <Localisation>
+         <Latitude>43.4477005005</Latitude>
+         <Longitude>3.29554009438</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 39 00 21</Téléphone>
+      <Télécopie>04 67 39 26 87</Télécopie>
+      <Email>mairie.abeilhan@wanadoo.fr</Email>
+      <Url>http://www.ville-abeilhan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

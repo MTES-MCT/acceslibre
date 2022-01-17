@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="74042" dateMiseAJour="2021-09-10" id="aav-74042-01" idPresta="51b08cc9b473e41478000f23" pivotLocal="aav">
+    <Nom>aide aux victimes et insertion judiciaire (AVIJ) des Savoie - Bonneville</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>99 boulevard des Allobroges</Ligne>
+        <Ligne>Le Majestic</Ligne>
+        <CodePostal>74130</CodePostal>
+        <NomCommune>BONNEVILLE</NomCommune>
+        <Localisation>
+            <Latitude>45.903488</Latitude>
+            <Longitude>6.128694</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>99 boulevard des Allobroges</Ligne>
+        <Ligne>Le Majestic</Ligne>
+        <CodePostal>74130</CodePostal>
+        <NomCommune>BONNEVILLE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 50 07 37 00</Téléphone>
+        <Télécopie>04 50 07 56 47</Télécopie>
+        <Email>mailto:avij.des.savoie@gmail.fr</Email>
+        <Url>https://avij-des-savoie.fr</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

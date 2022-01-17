@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54382-01" codeInsee="54382" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mont-Saint-Martin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 boulevard du 8-Mai-1945</Ligne>
+      <CodePostal>54350</CodePostal>
+      <NomCommune>Mont-Saint-Martin</NomCommune>
+      <Localisation>
+         <Latitude>49.543800354</Latitude>
+         <Longitude>5.78629016876</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 25 23 70</Téléphone>
+      <Télécopie>03 82 25 23 50</Télécopie>
+      <Email>mairie@mairie-montsaintmartin.fr</Email>
+      <Url>http://www.mairie-montsaintmartin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67057-01" codeInsee="67057" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bosselshausen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 A rue de l'École</Ligne>
+      <CodePostal>67330</CodePostal>
+      <NomCommune>Bosselshausen</NomCommune>
+      <Localisation>
+         <Latitude>48.8022872</Latitude>
+         <Longitude>7.4527699</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 70 72 20</Téléphone>
+      <Email>mairie.de.bosselshausen@orange.fr</Email>
+      <Url>http://www.bosselshausen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

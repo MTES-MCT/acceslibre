@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-87085-01" codeInsee="87085" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Haute-Vienne - siège de Limoges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue Firmin-Delage</Ligne>
+      <CodePostal>87046</CodePostal>
+      <NomCommune>Limoges Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.8258018494</Latitude>
+         <Longitude>1.22739005089</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible aux personnes à mobilité réduite, accueil en langue des signes pour les personnes malentendantes tous les jours de 9h à 12h et de 13h30 à 16h30 en accès est libre, il suffit de se présenter à l'accueil</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Télécopie>05 55 43 40 76</Télécopie>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Accueil sur rendez-vous possible, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

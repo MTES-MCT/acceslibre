@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14427-01" codeInsee="14427" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Mesnil-Villement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue des Écoles</Ligne>
+      <CodePostal>14690</CodePostal>
+      <NomCommune>Le Mesnil-Villement</NomCommune>
+      <Localisation>
+         <Latitude>48.8532958</Latitude>
+         <Longitude>-0.3713338</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 69 82 11</Téléphone>
+      <Email>mairiemesnilvillement@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

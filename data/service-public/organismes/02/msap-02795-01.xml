@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-02795-01" codeInsee="02795" dateMiseAJour="2020-12-21"
+           pivotLocal="msap">
+   <Nom>France Services - Vic-sur-Aisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Saint-Christophe</Ligne>
+      <Ligne>Communauté de Communes Retz-en-Valois</Ligne>
+      <CodePostal>02290</CodePostal>
+      <NomCommune>Vic-sur-Aisne</NomCommune>
+      <Localisation>
+         <Latitude>49.40605</Latitude>
+         <Longitude>3.115098</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 55 46 54</Téléphone>
+      <Email>franceservices@retzenvalois</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

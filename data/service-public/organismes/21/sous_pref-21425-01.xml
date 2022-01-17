@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-21425-01" codeInsee="21425" dateMiseAJour="2021-02-15"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture de Montbard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25, rue du Champfleury</Ligne>
+      <Ligne>CS 60</Ligne>
+      <CodePostal>21502</CodePostal>
+      <NomCommune>Montbard Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.6239013672</Latitude>
+         <Longitude>4.35090017319</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 89 22 22</Téléphone>
+      <Télécopie>+33 3 80 89 22 02</Télécopie>
+      <Email>sp-montbard@cote-dor.gouv.fr</Email>
+      <Url>http://www.cote-dor.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

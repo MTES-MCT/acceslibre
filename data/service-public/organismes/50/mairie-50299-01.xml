@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50299-01" codeInsee="50299" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Mesnil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>50580</CodePostal>
+      <NomCommune>Le Mesnil</NomCommune>
+      <Localisation>
+         <Latitude>49.3685967</Latitude>
+         <Longitude>-1.6939303</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 53 88 02</Téléphone>
+      <Email>mairielemesnil@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

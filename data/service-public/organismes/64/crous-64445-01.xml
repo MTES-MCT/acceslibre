@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-64445-01" codeInsee="64445" dateMiseAJour="2021-06-07"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - Pau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Saint-John-Perse</Ligne>
+      <CodePostal>64000</CodePostal>
+      <NomCommune>Pau</NomCommune>
+      <Localisation>
+         <Latitude>43.318515</Latitude>
+         <Longitude>-0.364514</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 30 89 00</Téléphone>
+      <Télécopie>05 59 30 89 19</Télécopie>
+      <Email>accueil.clous-pau@crous-bordeaux.fr</Email>
+      <Url>http://www.crous-bordeaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

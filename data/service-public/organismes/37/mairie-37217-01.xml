@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37217-01" codeInsee="37217" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-de-Chigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de la Chappe</Ligne>
+      <CodePostal>37230</CodePostal>
+      <NomCommune>Saint-Étienne-de-Chigny</NomCommune>
+      <Localisation>
+         <Latitude>47.3698409</Latitude>
+         <Longitude>0.5154479</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">bureau annexe au rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 55 52 15</Téléphone>
+      <Email>mairiesedc@orange.fr</Email>
+      <Url>http://www.saintetiennedechigny-mairie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

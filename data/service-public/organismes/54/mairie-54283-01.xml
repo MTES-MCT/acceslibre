@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54283-01" codeInsee="54283" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jouaville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 bis rue de l'Église</Ligne>
+      <CodePostal>54800</CodePostal>
+      <NomCommune>Jouaville</NomCommune>
+      <Localisation>
+         <Latitude>49.1929016113</Latitude>
+         <Longitude>5.9091501236</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 33 01 67</Téléphone>
+      <Télécopie>03 82 33 01 67</Télécopie>
+      <Email>mairie.jouaville@free.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

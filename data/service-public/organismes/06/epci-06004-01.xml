@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-06004-01" codeInsee="06004" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Sophia Antipolis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Cours Masséna</Ligne>
+      <Ligne>BP 2205</Ligne>
+      <CodePostal>06606</CodePostal>
+      <NomCommune>Antibes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.581091</Latitude>
+         <Longitude>7.127499</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Les Genêts</Ligne>
+      <Ligne>449 route des Crêtes</Ligne>
+      <Ligne>BP 43</Ligne>
+      <CodePostal>06901</CodePostal>
+      <NomCommune>Sophia Antipolis Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 89 87 70 00</Téléphone>
+      <Télécopie>04 89 87 70 01</Télécopie>
+      <Email>info@agglo-casa.fr</Email>
+      <Url>http://www.casa-infos.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

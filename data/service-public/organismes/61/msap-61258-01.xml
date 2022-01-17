@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-61258-01" codeInsee="61258" dateMiseAJour="2020-12-08"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Le Mêle-sur-Sarthe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>57 Grande rue</Ligne>
+      <CodePostal>61170</CodePostal>
+      <NomCommune>Le Mêle-sur-Sarthe</NomCommune>
+      <Localisation>
+         <Latitude>48.511278</Latitude>
+         <Longitude>0.35512</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.le-mele-sur-sarthe@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/le-mele-sur-sarthe-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

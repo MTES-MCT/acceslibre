@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="76351" dateMiseAJour="2021-12-14" id="tgi-76351-01" idPresta="4cac9ed7293594648a00ee19" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire du Havre</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>133 BOULEVARD DE STRASBOURG</Ligne>
+        <Ligne>BP 6</Ligne>
+        <CodePostal>76083</CodePostal>
+        <NomCommune>LE HAVRE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.493097</Latitude>
+            <Longitude>0.117369</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>133 BOULEVARD DE STRASBOURG</Ligne>
+        <Ligne>BP 6</Ligne>
+        <CodePostal>76083</CodePostal>
+        <NomCommune>LE HAVRE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 32 92 57 00</Téléphone>
+        <Télécopie>02 35 22 73 64</Télécopie>
+        <Email>mailto:tj1-le-havre@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:15:00" fin="12:00:00"/>
+            <PlageH début="13:15:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

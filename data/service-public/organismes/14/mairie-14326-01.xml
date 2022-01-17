@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14326-01" codeInsee="14326" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hermival-les-Vaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la Mairie</Ligne>
+      <CodePostal>14100</CodePostal>
+      <NomCommune>Hermival-les-Vaux</NomCommune>
+      <Localisation>
+         <Latitude>49.169677</Latitude>
+         <Longitude>0.281759</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 62 23 57</Téléphone>
+      <Télécopie>02 31 62 23 57</Télécopie>
+      <Email>hermival.commune@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence des adjoints, accueil fermé en août.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+         <Note>Une permanence est assurée par le maire de 17h à 19h, accueil ouvert uniquement le jeudi de 10h à 12h en août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

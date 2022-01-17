@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-92075-01" codeInsee="92075" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Vanves</Nom>
+   <EditeurSource>Caisse nationale de solidarité pour l'autonomie</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre communal d'action sociale</Ligne>
+      <Ligne>Coordination gérontologique</Ligne>
+      <Ligne>23 rue Mary-Besseyre</Ligne>
+      <CodePostal>92170</CodePostal>
+      <NomCommune>Vanves</NomCommune>
+      <Localisation>
+         <Latitude>48.8210912</Latitude>
+         <Longitude>2.2897283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 33 92 13</Téléphone>
+      <Télécopie>01 41 33 92 94</Télécopie>
+      <Url>http://www.vanves.fra-tout-age/seniors</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

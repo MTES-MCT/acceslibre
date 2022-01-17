@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-97103-01" codeInsee="97103" dateMiseAJour="2021-09-08" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) - Guadeloupe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Baie Mahault</Ligne>
+      <Ligne>Camp Dugommier</Ligne>
+      <Ligne>CS 70011</Ligne>
+      <CodePostal>97196</CodePostal>
+      <NomCommune>Jarry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>16.2431018</Latitude>
+         <Longitude>-61.554848</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csnj-guadeloupe.contact.fct@def.gouv.fr</Email>
+      <Url>https://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-12202-01" codeInsee="12202" dateMiseAJour="2021-05-17"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Aveyron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Moulin de la Gascarie</Ligne>
+      <CodePostal>12000</CodePostal>
+      <NomCommune>Rodez</NomCommune>
+      <Localisation>
+         <Latitude>44.3509239</Latitude>
+         <Longitude>2.5735101</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 68 41 52</Téléphone>
+      <Télécopie>05 65 68 50 20</Télécopie>
+      <Email>contact@pecheaveyron.fr</Email>
+      <Url>https://www.pecheaveyron.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

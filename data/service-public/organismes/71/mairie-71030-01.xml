@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71030-01" codeInsee="71030" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bergesserin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>71250</CodePostal>
+      <NomCommune>Bergesserin</NomCommune>
+      <Localisation>
+         <Latitude>46.4015731812</Latitude>
+         <Longitude>4.56188011169</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 50 80 46</Téléphone>
+      <Email>mairie.bergesserin@hotmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

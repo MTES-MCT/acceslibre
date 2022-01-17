@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08486-01" codeInsee="08486" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vireux-Molhain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Henri-Pecqueur</Ligne>
+      <CodePostal>08320</CodePostal>
+      <NomCommune>Vireux-Molhain</NomCommune>
+      <Localisation>
+         <Latitude>50.0860466</Latitude>
+         <Longitude>4.72457310000004</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 41 50 00</Téléphone>
+      <Télécopie>03 24 41 50 07</Télécopie>
+      <Email>mairie.de.vireux-molhain@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

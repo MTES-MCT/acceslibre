@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54545-01" codeInsee="54545" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vandeléville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de la Tournelle</Ligne>
+      <CodePostal>54115</CodePostal>
+      <NomCommune>Vandeléville</NomCommune>
+      <Localisation>
+         <Latitude>48.42787</Latitude>
+         <Longitude>5.994219</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 52 34 63</Téléphone>
+      <Email>commune-de-vandeleville@orange.fr</Email>
+      <Url>http://www.vandeleville.mairie54.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

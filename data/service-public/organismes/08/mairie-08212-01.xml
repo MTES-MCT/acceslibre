@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08212-01" codeInsee="08212" dateMiseAJour="2019-09-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Harcy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Albert-Poulain</Ligne>
+      <CodePostal>08150</CodePostal>
+      <NomCommune>Harcy</NomCommune>
+      <Localisation>
+         <Latitude>49.8366012573</Latitude>
+         <Longitude>4.56162977219</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 35 10 49</Téléphone>
+      <Télécopie>03 24 59 95 58</Télécopie>
+      <Email>commune-harcy@wanadoo.fr</Email>
+      <Url>http://www.mairie-harcy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+         <Note>Permanence du maire de 17h30 à 18h30 uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

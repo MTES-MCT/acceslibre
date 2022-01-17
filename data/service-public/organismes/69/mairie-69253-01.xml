@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69253-01" codeInsee="69253" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tupin-et-Semons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de la Mairie</Ligne>
+      <CodePostal>69420</CodePostal>
+      <NomCommune>Tupin-et-Semons</NomCommune>
+      <Localisation>
+         <Latitude>45.4835662842</Latitude>
+         <Longitude>4.7896771431</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 59 81 08</Téléphone>
+      <Télécopie>04 74 56 80 04</Télécopie>
+      <Email>mairie@tupinetsemons.fr</Email>
+      <Url>http://www.tupinetsemons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

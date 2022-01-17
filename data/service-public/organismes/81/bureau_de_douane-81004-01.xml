@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-81004-01" codeInsee="81004" dateMiseAJour="2021-12-16"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Albi</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Gabriel Pech</Ligne>
+      <Ligne>BP 155</Ligne>
+      <CodePostal>81005</CodePostal>
+      <NomCommune>Albi Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.920947</Latitude>
+         <Longitude>2.136823</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 61 60</Téléphone>
+      <Télécopie>05 63 38 16 44</Télécopie>
+      <Email>r-albi@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

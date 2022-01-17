@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78305-01" codeInsee="78305" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Herbeville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Saint-Clair</Ligne>
+      <CodePostal>78580</CodePostal>
+      <NomCommune>Herbeville</NomCommune>
+      <Localisation>
+         <Latitude>48.9056015015</Latitude>
+         <Longitude>1.88723003864</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">une personne descend aider</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 90 80 94</Téléphone>
+      <Télécopie>01 30 90 79 38</Télécopie>
+      <Email>mairie.herbeville@gmail.com</Email>
+      <Url>http://www.herbeville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les 1er et 3e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

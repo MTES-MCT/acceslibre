@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67111-01" codeInsee="67111" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Durstel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Diemeringen</Ligne>
+      <CodePostal>67320</CodePostal>
+      <NomCommune>Durstel</NomCommune>
+      <Localisation>
+         <Latitude>48.8908996582</Latitude>
+         <Longitude>7.19820022583</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 01 70 34</Téléphone>
+      <Télécopie>03 88 01 75 88</Télécopie>
+      <Email>mairie.durstel@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

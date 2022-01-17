@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71034-01" codeInsee="71034" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bissey-sous-Cruchaud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Liberté</Ligne>
+      <CodePostal>71390</CodePostal>
+      <NomCommune>Bissey-sous-Cruchaud</NomCommune>
+      <Localisation>
+         <Latitude>46.7321526</Latitude>
+         <Longitude>4.6843323</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 92 18 40</Téléphone>
+      <Email>mairie@bissey-sous-cruchaud.fr</Email>
+      <Url>http://www.bissey-sous-cruchaud.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

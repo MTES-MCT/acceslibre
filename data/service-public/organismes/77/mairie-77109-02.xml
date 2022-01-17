@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77109-02" codeInsee="77109" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Cucharmoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cucharmoy</Ligne>
+      <Ligne>Foyer rural</Ligne>
+      <Ligne>Place de l'Église</Ligne>
+      <CodePostal>77160</CodePostal>
+      <NomCommune>Chenoise-Cucharmoy</NomCommune>
+      <Localisation>
+         <Latitude>48.61097</Latitude>
+         <Longitude>3.19039</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 58 75 93</Téléphone>
+      <Email>mairie.cucharmoy@wanadoo.fr</Email>
+      <Url>http://www.chenoise-cucharmoy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

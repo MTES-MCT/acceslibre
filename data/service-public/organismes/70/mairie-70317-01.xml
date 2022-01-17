@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70317-01" codeInsee="70317" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Magny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Mairie</Ligne>
+      <CodePostal>70110</CodePostal>
+      <NomCommune>Les Magny</NomCommune>
+      <Localisation>
+         <Latitude>47.5264206</Latitude>
+         <Longitude>6.4531127</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 63 44 45</Téléphone>
+      <Email>lesmagny@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

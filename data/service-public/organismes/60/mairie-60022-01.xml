@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60022-01" codeInsee="60022" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Apremont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue Louis-Wallon</Ligne>
+      <CodePostal>60300</CodePostal>
+      <NomCommune>Apremont</NomCommune>
+      <Localisation>
+         <Latitude>49.2242012024</Latitude>
+         <Longitude>2.50728988647</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 25 35 14</Téléphone>
+      <Email>accueil@mairieapremont.fr</Email>
+      <Url>http://www.mairie-apremont60.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement les 1er et 3e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

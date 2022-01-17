@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63107-01" codeInsee="63107" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chavaroux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Mairie</Ligne>
+      <CodePostal>63720</CodePostal>
+      <NomCommune>Chavaroux</NomCommune>
+      <Localisation>
+         <Latitude>45.8511009216</Latitude>
+         <Longitude>3.26286005974</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 33 20 87</Téléphone>
+      <Email>mairie.chavaroux@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

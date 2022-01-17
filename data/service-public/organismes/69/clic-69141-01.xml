@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-69141-01" codeInsee="69141" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Mornant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Rhône du canton de Mornant</Ligne>
+      <Ligne>7 avenue du Souvenir</Ligne>
+      <CodePostal>69440</CodePostal>
+      <NomCommune>Mornant</NomCommune>
+      <Localisation>
+         <Latitude>45.620349</Latitude>
+         <Longitude>4.672713</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 19 93 20</Téléphone>
+      <Télécopie>04 78 44 14 99</Télécopie>
+      <Email>mdr.mornant@rhone.fr</Email>
+      <Url>http://www.rhone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

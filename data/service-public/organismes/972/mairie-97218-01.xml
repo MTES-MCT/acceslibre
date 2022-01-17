@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97218-01" codeInsee="97218" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Morne-Rouge</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Edgard-Nestoret</Ligne>
+      <CodePostal>97260</CodePostal>
+      <NomCommune>Le Morne-Rouge</NomCommune>
+      <Localisation>
+         <Latitude>14.7696428</Latitude>
+         <Longitude>-61.1385059</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 52 30 23</Téléphone>
+      <Télécopie>+596 5 96 52 39 64</Télécopie>
+      <Email>mairie@ville-mornerouge.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

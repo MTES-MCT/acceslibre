@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50041-19" codeInsee="50041" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Vauville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Vauville</Ligne>
+      <Ligne>1 rue de la Grande-Vallée</Ligne>
+      <CodePostal>50440</CodePostal>
+      <NomCommune>La Hague</NomCommune>
+      <Localisation>
+         <Latitude>49.6368</Latitude>
+         <Longitude>-1.84597</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 19 87 29</Téléphone>
+      <Email>mairie.vauville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

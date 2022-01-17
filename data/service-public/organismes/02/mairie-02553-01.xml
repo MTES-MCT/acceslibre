@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02553-01" codeInsee="02553" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nizy-le-Comte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Famille-Julien</Ligne>
+      <CodePostal>02150</CodePostal>
+      <NomCommune>Nizy-le-Comte</NomCommune>
+      <Localisation>
+         <Latitude>49.568119</Latitude>
+         <Longitude>4.0543129</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 80 35 45</Téléphone>
+      <Email>mairie.nizylecomte@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

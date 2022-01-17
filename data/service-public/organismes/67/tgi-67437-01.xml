@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="67437" dateMiseAJour="2021-12-14" id="tgi-67437-01" idPresta="4cac9e6a293594648a0017b2" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Saverne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>7 RUE DU TRIBUNAL</Ligne>
+        <Ligne>CS 50135</Ligne>
+        <CodePostal>67703</CodePostal>
+        <NomCommune>SAVERNE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.740553</Latitude>
+            <Longitude>7.365228</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>7 RUE DU TRIBUNAL</Ligne>
+        <Ligne>CS 50135</Ligne>
+        <CodePostal>67703</CodePostal>
+        <NomCommune>SAVERNE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 88 71 61 51</Téléphone>
+        <Télécopie>03 88 71 61 61</Télécopie>
+        <Email>mailto:tj1-colmar@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

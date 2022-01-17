@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-01093-01" codeInsee="01093" dateMiseAJour="2019-12-02"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Châtillon-sur-Chalaronne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination des 3 Cantons</Ligne>
+      <Ligne>EHPAD public La Montagne</Ligne>
+      <Ligne>114 route de Relevant</Ligne>
+      <CodePostal>01400</CodePostal>
+      <NomCommune>Châtillon-sur-Chalaronne</NomCommune>
+      <Localisation>
+         <Latitude>46.111581</Latitude>
+         <Longitude>4.95211</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 55 15 39</Téléphone>
+      <Email>clicdes3cantons@mrchatillon.fr</Email>
+      <Url>https://www.ehpad-lamontagne.fr/clic-des-3-cantons/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

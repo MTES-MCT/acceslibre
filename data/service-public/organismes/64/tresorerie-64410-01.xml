@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-64410-01" codeInsee="64410" dateMiseAJour="2021-12-31"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable - mourenx-Orthez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Pierre-Angot</Ligne>
+      <Ligne>BP 27</Ligne>
+      <CodePostal>64150</CodePostal>
+      <NomCommune>Mourenx</NomCommune>
+      <Localisation>
+         <Latitude>43.3698809</Latitude>
+         <Longitude>-0.6251034</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 60 33 87</Téléphone>
+      <Email>sgc.mourenx-orthez@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous du lundi au jeudi de 13h30 à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

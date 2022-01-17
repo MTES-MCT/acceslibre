@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-59410-01" codeInsee="59410" dateMiseAJour="2020-11-30" pivotLocal="cij">
+   <Nom>Point information jeunesse - Mons-en-Baroeul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 ter rue d'Alsace</Ligne>
+      <CodePostal>59370</CodePostal>
+      <NomCommune>Mons-en-Baroeul</NomCommune>
+      <Localisation>
+         <Latitude>50.642397</Latitude>
+         <Longitude>3.116176</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 67 08 36</Téléphone>
+      <Email>pij@ville-mons-en-baroeul.fr</Email>
+      <Url>https://www.monsenbaroeul.fr/vivre-mons-en-baroeul/grandir-et-apprendre/jeunesse/12-17-ans-et-18-25-ans/point-information</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Horaires d'ouverture / uniquement sur Rendez-vous jusqu'à nouvel ordre</Commentaire>
+</Organisme>

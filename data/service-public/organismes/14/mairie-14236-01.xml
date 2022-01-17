@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14236-01" codeInsee="14236" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ellon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hameau de l'Église</Ligne>
+      <Ligne>2 rue de la Mairie</Ligne>
+      <CodePostal>14250</CodePostal>
+      <NomCommune>Ellon</NomCommune>
+      <Localisation>
+         <Latitude>49.2202880839</Latitude>
+         <Longitude>-0.677804946899</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 92 58 47</Téléphone>
+      <Email>mairie.ellon@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

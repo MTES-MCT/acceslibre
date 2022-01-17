@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89066-01" codeInsee="89066" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cerisiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>89320</CodePostal>
+      <NomCommune>Cerisiers</NomCommune>
+      <Localisation>
+         <Latitude>48.1319999695</Latitude>
+         <Longitude>3.48706007004</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 96 21 95</Téléphone>
+      <Télécopie>03 86 96 26 96</Télécopie>
+      <Email>mairie.cerisiers@wanadoo.fr</Email>
+      <Url>http://www.cerisiers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

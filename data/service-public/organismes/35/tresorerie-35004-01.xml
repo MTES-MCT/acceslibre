@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-35004-01" codeInsee="35004" dateMiseAJour="2021-11-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Val-Couesnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Général-Lavigne
+BP 16
+Antrain</Ligne>
+      <Ligne>BP 16</Ligne>
+      <CodePostal>35560</CodePostal>
+      <NomCommune>Val-Couesnon</NomCommune>
+      <Localisation>
+         <Latitude>48.4598846</Latitude>
+         <Longitude>-1.4858924</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique : lundi de 13h30 à 16h00, mardi et jeudi de 9h00 à 12h15 et de 13h30 à 16h00, le vendredi de 9h00 à 12h15">02 99 98 31 48</Téléphone>
+      <Email>t035001@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>sans rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="80021" dateMiseAJour="2021-12-14" id="prudhommes-80021-01" idPresta="4cac9e6a293594648a00170a" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Amiens</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>18 RUE LAMARTINE</Ligne>
+        <CodePostal>80027</CodePostal>
+        <NomCommune>AMIENS CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>49.89193</Latitude>
+            <Longitude>2.304927</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>18 RUE LAMARTINE</Ligne>
+        <CodePostal>80027</CodePostal>
+        <NomCommune>AMIENS CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 22 82 46 50</Téléphone>
+        <Télécopie>03 22 82 46 48</Télécopie>
+        <Email>mailto:cph-amiens@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:15:00"/>
+            <PlageH début="12:45:00" fin="17:15:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:15:00" fin="17:15:00"/>
+            <PlageH début="09:00:00" fin="12:15:00"/>
+            <Note>Pendant toutes les vacances scolaires : de 9h00 à 12h15 et de13h15 à 17h00</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

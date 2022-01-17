@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60434-01" codeInsee="60434" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mortemer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>62 Grande rue</Ligne>
+      <CodePostal>60490</CodePostal>
+      <NomCommune>Mortemer</NomCommune>
+      <Localisation>
+         <Latitude>49.6094017029</Latitude>
+         <Longitude>2.70758008957</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 85 01 05</Téléphone>
+      <Télécopie>03 44 85 01 05</Télécopie>
+      <Email>commune.mortemer@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

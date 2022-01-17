@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60256-01" codeInsee="60256" dateMiseAJour="2021-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montchevreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Montagne</Ligne>
+      <CodePostal>60240</CodePostal>
+      <NomCommune>Montchevreuil</NomCommune>
+      <Localisation>
+         <Latitude>49.2811631</Latitude>
+         <Longitude>2.00454079</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 08 71 16</Téléphone>
+      <Email>mairie.montchevreuil@orange.fr</Email>
+      <Url>https://www.mairiemontchevreuil.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26052-01" codeInsee="26052" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bonlieu-sur-Roubion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 place de la Mairie</Ligne>
+      <CodePostal>26160</CodePostal>
+      <NomCommune>Bonlieu-sur-Roubion</NomCommune>
+      <Localisation>
+         <Latitude>44.5942345</Latitude>
+         <Longitude>4.881765</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 53 92 08</Téléphone>
+      <Email>bonlieu.mairie@orange.fr</Email>
+      <Url>http://www.bonlieu-sur-roubion.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement les 1er et le 3e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

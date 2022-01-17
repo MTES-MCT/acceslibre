@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A247-01" codeInsee="2A247" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Porto-Vecchio</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Fred-Scamaroni</Ligne>
+      <Ligne>BP A129</Ligne>
+      <CodePostal>20537</CodePostal>
+      <NomCommune>Porto-Vecchio Cedex</NomCommune>
+      <Localisation>
+         <Latitude>41.5917015076</Latitude>
+         <Longitude>9.27819919586</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 70 95 30</Téléphone>
+      <Télécopie>04 95 72 11 41</Télécopie>
+      <Email>contact@porto-vecchio.fr</Email>
+      <Url>http://www.porto-vecchio.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

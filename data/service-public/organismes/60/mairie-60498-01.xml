@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60498-01" codeInsee="60498" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Plessier-sur-Saint-Just</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>355 rue de Compiègne</Ligne>
+      <CodePostal>60130</CodePostal>
+      <NomCommune>Le Plessier-sur-Saint-Just</NomCommune>
+      <Localisation>
+         <Latitude>49.50908</Latitude>
+         <Longitude>2.450372</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 78 51 53</Téléphone>
+      <Email>commune.leplessierstjust@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:15:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

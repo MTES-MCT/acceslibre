@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62846-01" codeInsee="62846" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vermelles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la République</Ligne>
+      <CodePostal>62980</CodePostal>
+      <NomCommune>Vermelles</NomCommune>
+      <Localisation>
+         <Latitude>50.4873008728</Latitude>
+         <Longitude>2.74592995644</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 64 58 10</Téléphone>
+      <Télécopie>03 21 26 29 47</Télécopie>
+      <Email>secretariat@mairie-vermelles.fr</Email>
+      <Url>http://www.vermelles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

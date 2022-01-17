@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-94028-01" codeInsee="94028"
+           dateMiseAJour="2018-06-08"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale  (DSDEN) - Val-de-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Saint Simon</Ligne>
+      <Ligne>68 avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>94000</CodePostal>
+      <NomCommune>Créteil</NomCommune>
+      <Localisation>
+         <Latitude>48.794448</Latitude>
+         <Longitude>2.447879</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 45 17 60 00</Téléphone>
+      <Télécopie>01 45 17 62 80</Télécopie>
+      <Email>ce.94ia@ac-creteil.fr</Email>
+      <Url>http://www.ia94.ac-creteil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

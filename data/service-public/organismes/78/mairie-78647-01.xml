@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78647-01" codeInsee="78647" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>64 Grande rue</Ligne>
+      <CodePostal>78930</CodePostal>
+      <NomCommune>Vert</NomCommune>
+      <Localisation>
+         <Latitude>48.9390563</Latitude>
+         <Longitude>1.6909156</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 76 30 71</Téléphone>
+      <Télécopie>01 34 76 40 52</Télécopie>
+      <Email>mairiedevert@orange.fr</Email>
+      <Url>http://www.vert-vaucouleurs.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

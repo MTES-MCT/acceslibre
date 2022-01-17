@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63300-01" codeInsee="63300" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Riom</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 50020</Ligne>
+      <CodePostal>63201</CodePostal>
+      <NomCommune>Riom Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.893901825</Latitude>
+         <Longitude>3.11519002914</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 33 79 00</Téléphone>
+      <Télécopie>04 73 33 79 01</Télécopie>
+      <Email>contact@ville-riom.fr</Email>
+      <Url>http://www.ville-riom.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

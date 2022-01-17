@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77153-01" codeInsee="77153" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dammartin-en-Goële</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>79 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>77230</CodePostal>
+      <NomCommune>Dammartin-en-Goële</NomCommune>
+      <Localisation>
+         <Latitude>49.0540008545</Latitude>
+         <Longitude>2.67855000496</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur sur le côté du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 03 85 50</Téléphone>
+      <Télécopie>01 64 02 78 65</Télécopie>
+      <Email>contact@dammartin-en-goele.fr</Email>
+      <Url>http://www.dammartin-en-goele.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermeture 30min avant pour les services délivrant les passeports et les cartes d'identité, pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

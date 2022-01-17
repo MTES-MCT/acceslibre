@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80647-01" codeInsee="80647" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puzeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Forge</Ligne>
+      <CodePostal>80320</CodePostal>
+      <NomCommune>Puzeaux</NomCommune>
+      <Localisation>
+         <Latitude>49.7966546</Latitude>
+         <Longitude>2.8216432</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 85 55 09</Téléphone>
+      <Télécopie>03 22 85 55 09</Télécopie>
+      <Email>mairiedepuzeaux@wanadoo.fr</Email>
+      <Url>http://www.puzeaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

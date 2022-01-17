@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-01053-01" codeInsee="01053" dateMiseAJour="2021-10-18"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Ain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 70417</Ligne>
+      <Ligne>Quartier Bourg-Centre</Ligne>
+      <Ligne>34 avenue des Belges</Ligne>
+      <CodePostal>01012</CodePostal>
+      <NomCommune>Bourg-en-Bresse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.207589</Latitude>
+         <Longitude>5.235362</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 45 91 39</Téléphone>
+      <Email>ddets-direction@ain.gouv.fr</Email>
+      <Url>http://www.ain.gouv.fr/direction-departementale-de-l-emploi-du-travail-et-r1919.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

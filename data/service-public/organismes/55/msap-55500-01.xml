@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-55500-01" codeInsee="55500" dateMiseAJour="2021-04-14"
+           pivotLocal="msap">
+   <Nom>France Services - Spincourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Louise Bertrand</Ligne>
+      <CodePostal>55230</CodePostal>
+      <NomCommune>Spincourt</NomCommune>
+      <Localisation>
+         <Latitude>49.329257</Latitude>
+         <Longitude>5.665398</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 85 56 23</Téléphone>
+      <Email>codecom@damvillers-spincourt.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

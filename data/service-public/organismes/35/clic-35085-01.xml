@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-35085-01" codeInsee="35085" dateMiseAJour="2021-09-03"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Combourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination AGECLIC</Ligne>
+      <Ligne>3 rue de la Mairie</Ligne>
+      <CodePostal>35270</CodePostal>
+      <NomCommune>Combourg</NomCommune>
+      <Localisation>
+         <Latitude>48.409635</Latitude>
+         <Longitude>-1.752904</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 23 16 45 45</Téléphone>
+      <Email>clic@ageclic.fr</Email>
+      <Url>https://www.ageclic.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04149-01" codeInsee="04149" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Peyruis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>04310</CodePostal>
+      <NomCommune>Peyruis</NomCommune>
+      <Localisation>
+         <Latitude>44.0272426</Latitude>
+         <Longitude>5.9371075</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 33 21 00</Téléphone>
+      <Email>mairie@peyruis.fr</Email>
+      <Url>http://www.peyruis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>CCAS ouvert le lundi de 9h à 12h, le mardi de 8h30 à 17h et le jeudi de 9h à 12h sur rendez-vous uniquement, pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

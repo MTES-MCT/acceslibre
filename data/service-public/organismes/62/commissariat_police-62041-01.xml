@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-62041-01" codeInsee="62041" dateMiseAJour="2017-06-13"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police d'Arras</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 boulevard de la Liberté</Ligne>
+      <CodePostal>62000</CodePostal>
+      <NomCommune>Arras</NomCommune>
+      <Localisation>
+         <Latitude>50.2930094</Latitude>
+         <Longitude>2.7817826</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">03 21 24 50 17</Téléphone>
+      <Télécopie>03 21 24 50 52</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="08:00:00" fin="19:00:00"/>
+         <Note>Accueil pour les dépôts de plainte.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

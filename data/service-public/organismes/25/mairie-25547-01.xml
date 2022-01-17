@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25547-01" codeInsee="25547" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sochaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative Maurice-Thievent</Ligne>
+      <Ligne>4 rue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>25603</CodePostal>
+      <NomCommune>Sochaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.513075</Latitude>
+         <Longitude>6.830703</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 94 16 34</Téléphone>
+      <Télécopie>03 81 94 11 93</Télécopie>
+      <Email>contact-mairie@sochaux.fr</Email>
+      <Url>http://www.sochaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

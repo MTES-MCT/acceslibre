@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-08362-01" codeInsee="08362" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Rethel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission locale Sud-Ardennes</Ligne>
+      <Ligne>16 rue Louise-Weiss</Ligne>
+      <CodePostal>08300</CodePostal>
+      <NomCommune>Rethel</NomCommune>
+      <Localisation>
+         <Latitude>49.5126213</Latitude>
+         <Longitude>4.3632796</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 38 29 17</Téléphone>
+      <Télécopie>03 24 38 36 91</Télécopie>
+      <Email>contact@mlsudardennes.fr</Email>
+      <Url>http://www.crij-ca.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

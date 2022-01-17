@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-63300-01" codeInsee="63300" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Riom Limagne et Volcans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 mail Jost-Pasquier</Ligne>
+      <Ligne>BP 80045</Ligne>
+      <CodePostal>63201</CodePostal>
+      <NomCommune>Riom Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.8937120034</Latitude>
+         <Longitude>3.11496734619</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 67 11 00</Téléphone>
+      <Email>contact@rlv.eu</Email>
+      <Url>http://www.rlv.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

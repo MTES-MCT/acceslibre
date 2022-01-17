@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51617-01" codeInsee="51617" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Veuve</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue de Champagne</Ligne>
+      <CodePostal>51520</CodePostal>
+      <NomCommune>La Veuve</NomCommune>
+      <Localisation>
+         <Latitude>49.0284614</Latitude>
+         <Longitude>4.318571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 67 32 76</Téléphone>
+      <Télécopie>03 26 67 32 76</Télécopie>
+      <Email>mairie.la-veuve@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Permanence du maire et un élu uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B346-01" codeInsee="2B346" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vescovato</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Luce-de-Casabianca</Ligne>
+      <CodePostal>20215</CodePostal>
+      <NomCommune>Vescovato</NomCommune>
+      <Localisation>
+         <Latitude>42.492576</Latitude>
+         <Longitude>9.439183</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">possibilité d'être reçu à la mairie annexe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 36 70 19</Téléphone>
+      <Télécopie>04 95 36 61 55</Télécopie>
+      <Email>mairie@vescovato.fr</Email>
+      <Url>http://www.vescovato.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

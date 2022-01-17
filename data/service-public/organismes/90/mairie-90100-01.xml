@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90100-01" codeInsee="90100" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vauthiermont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue du Lavoir</Ligne>
+      <CodePostal>90150</CodePostal>
+      <NomCommune>Vauthiermont</NomCommune>
+      <Localisation>
+         <Latitude>47.6846008301</Latitude>
+         <Longitude>7.03003978729</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 23 83 92</Téléphone>
+      <Email>mairie.vauthiermont@orange.fr</Email>
+      <Url>http://www.vauthiermont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

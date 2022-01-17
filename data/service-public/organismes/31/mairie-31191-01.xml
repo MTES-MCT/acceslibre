@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31191-01" codeInsee="31191" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fougaron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>31160</CodePostal>
+      <NomCommune>Fougaron</NomCommune>
+      <Localisation>
+         <Latitude>42.9859886169</Latitude>
+         <Longitude>0.931100010872</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 90 29 26</Téléphone>
+      <Email>mairiedefougaron@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+         <Note>Permanence des élus le samedi de 10h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ademe-97307-01" codeInsee="97307" dateMiseAJour="2020-11-04"
+           pivotLocal="ademe">
+   <Nom>Agence de l’environnement et de la maîtrise de l’énergie (ADEME) - Direction régionale Guyane</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 esplanade Éco Cité d'Affaire</Ligne>
+      <Ligne>La Fabrique amazonienne</Ligne>
+      <CodePostal>97351</CodePostal>
+      <NomCommune>Matoury</NomCommune>
+      <Localisation>
+         <Latitude>4.849671</Latitude>
+         <Longitude>-52.326869</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+594 5 94 29 73 60</Téléphone>
+      <Email>ademe.guyane@ademe.fr</Email>
+      <Url>https://www.guyane.ademe.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:20:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:20:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:20:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:20:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

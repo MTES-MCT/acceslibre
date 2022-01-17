@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80360-01" codeInsee="80360" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fressenneville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue Jean-Jaurès</Ligne>
+      <CodePostal>80390</CodePostal>
+      <NomCommune>Fressenneville</NomCommune>
+      <Localisation>
+         <Latitude>50.0672988892</Latitude>
+         <Longitude>1.57414996624</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 2260 39 60</Téléphone>
+      <Télécopie>03 22 60 39 69</Télécopie>
+      <Email>mairie.fressenneville@wanadoo.fr</Email>
+      <Url>http://www.fressenneville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

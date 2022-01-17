@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67079-01" codeInsee="67079" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Croettwiller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Principale</Ligne>
+      <CodePostal>67470</CodePostal>
+      <NomCommune>Croettwiller</NomCommune>
+      <Localisation>
+         <Latitude>48.9276008606</Latitude>
+         <Longitude>8.02933979034</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 61 38 94 48</Téléphone>
+      <Télécopie>03 88 94 78 60</Télécopie>
+      <Email>mairie.croettwiller@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

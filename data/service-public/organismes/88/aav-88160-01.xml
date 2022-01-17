@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="88160" dateMiseAJour="2021-09-14" id="aav-88160-01" idPresta="51b08ccab473e41478000f34" pivotLocal="aav">
+    <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Vosges - Epinal</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>19 rue d&#39;Ambrail</Ligne>
+        <CodePostal>88000</CodePostal>
+        <NomCommune>EPINAL</NomCommune>
+        <Localisation>
+            <Latitude>48.1741397</Latitude>
+            <Longitude>6.452877</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>19 rue d&#39;Ambrail</Ligne>
+        <CodePostal>88000</CodePostal>
+        <NomCommune>EPINAL</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 29 35 49 15</Téléphone>
+        <Email>mailto:contact@cidff88.com</Email>
+        <Url>https://vosges.cidff.info/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

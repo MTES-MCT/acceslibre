@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-41018-01" codeInsee="41018" dateMiseAJour="2021-11-26"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Loir-et-Cher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 mail Pierre Charlot</Ligne>
+      <CodePostal>41000</CodePostal>
+      <NomCommune>Blois</NomCommune>
+      <Localisation>
+         <Latitude>47.60112</Latitude>
+         <Longitude>1.34436</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 55 75 27</Téléphone>
+      <Email>ddt-shbru@loir-et-cher.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

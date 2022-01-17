@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-25056-01" codeInsee="25056" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Doubs et Territoire de Belfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>130 bis rue de Belfort</Ligne>
+      <Ligne>BP 939</Ligne>
+      <CodePostal>25021</CodePostal>
+      <NomCommune>Besançon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.255902</Latitude>
+         <Longitude>6.041234</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 65 52 52</Téléphone>
+      <Email>chambagri.cda-25@agridoubs.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

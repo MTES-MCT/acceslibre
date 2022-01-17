@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16404-01" codeInsee="16404" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vieux-Ruffec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 le Bourg</Ligne>
+      <CodePostal>16350</CodePostal>
+      <NomCommune>Vieux-Ruffec</NomCommune>
+      <Localisation>
+         <Latitude>46.0093955994</Latitude>
+         <Longitude>0.388657987118</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 31 99 72</Téléphone>
+      <Email>mairie-vxruffec@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

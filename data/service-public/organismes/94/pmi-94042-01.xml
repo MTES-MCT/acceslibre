@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-94042-01" codeInsee="94042" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Joinville-le-Pont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>33 rue du Port</Ligne>
+      <CodePostal>94340</CodePostal>
+      <NomCommune>Joinville-le-Pont</NomCommune>
+      <Localisation>
+         <Latitude>48.820400238</Latitude>
+         <Longitude>2.47137999535</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 56 71 41 73</Téléphone>
+      <Télécopie>01 48 83 42 37</Télécopie>
+      <Email>pi.joinville.cpam_creteil@assurance-maladie.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Jours de pesée : mardi et jeudi matin. Les consultations se font uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

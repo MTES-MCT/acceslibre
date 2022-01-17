@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57389-01" codeInsee="57389" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lelling</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Jardins</Ligne>
+      <CodePostal>57660</CodePostal>
+      <NomCommune>Lelling</NomCommune>
+      <Localisation>
+         <Latitude>49.0475997925</Latitude>
+         <Longitude>6.7501001358</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 90 90 09</Téléphone>
+      <Email>mairie.lelling@orange.fr</Email>
+      <Url>http://www.lelling.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

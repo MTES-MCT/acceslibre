@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10441-01" codeInsee="10441" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vosnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>64 rue de la Mairie</Ligne>
+      <CodePostal>10130</CodePostal>
+      <NomCommune>Vosnon</NomCommune>
+      <Localisation>
+         <Latitude>48.0667991638</Latitude>
+         <Longitude>3.87493991852</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 42 03 16</Téléphone>
+      <Email>mairievosnon@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

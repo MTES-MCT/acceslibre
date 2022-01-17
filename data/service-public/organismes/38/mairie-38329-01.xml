@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38329-01" codeInsee="38329" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Quet-en-Beaumont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Lamberts</Ligne>
+      <Ligne>1360 route du Chatel</Ligne>
+      <CodePostal>38970</CodePostal>
+      <NomCommune>Quet-en-Beaumont</NomCommune>
+      <Localisation>
+         <Latitude>44.8340988159</Latitude>
+         <Longitude>5.87380981445</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 30 43 03</Téléphone>
+      <Email>quet-en-beaumont.mairie@wanadoo.fr</Email>
+      <Url>https://sites.google.com/view/quet-en-beaumont</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

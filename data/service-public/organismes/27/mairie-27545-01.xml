@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27545-01" codeInsee="27545" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Germain-de-Pasquier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route départementale 86</Ligne>
+      <CodePostal>27370</CodePostal>
+      <NomCommune>Saint-Germain-de-Pasquier</NomCommune>
+      <Localisation>
+         <Latitude>49.246403</Latitude>
+         <Longitude>1.00079189999997</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 87 53 00</Téléphone>
+      <Télécopie>02 35 87 53 00</Télécopie>
+      <Email>mairiestgermaindepasquier@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

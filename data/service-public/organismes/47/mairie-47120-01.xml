@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47120-01" codeInsee="47120" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jusix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>47180</CodePostal>
+      <NomCommune>Jusix</NomCommune>
+      <Localisation>
+         <Latitude>44.541514</Latitude>
+         <Longitude>0.048581</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'employée de mairie peut descendre dans une salle en bas, contacter l'accueil avant de vous déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 94 28 24</Téléphone>
+      <Télécopie>05 53 94 28 24</Télécopie>
+      <Email>communedejusix.47@wanadoo.fr</Email>
+      <Url>https://jusix-47.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

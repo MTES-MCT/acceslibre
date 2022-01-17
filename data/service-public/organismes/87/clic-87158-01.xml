@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-87158-01" codeInsee="87158" dateMiseAJour="2020-01-07"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Saint-Laurent-sur-Gorre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département</Ligne>
+      <Ligne>7 avenue Maryse-Bastié</Ligne>
+      <CodePostal>87310</CodePostal>
+      <NomCommune>Saint-Laurent-sur-Gorre</NomCommune>
+      <Localisation>
+         <Latitude>45.771491</Latitude>
+         <Longitude>0.965591</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 00 03 23</Téléphone>
+      <Télécopie>05 55 00 09 74</Télécopie>
+      <Email>mdd-saintjunien@haute-vienne.fr</Email>
+      <Url>http://www.haute-vienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

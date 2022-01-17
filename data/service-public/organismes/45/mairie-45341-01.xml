@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45341-01" codeInsee="45341" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeneuve-sur-Conie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 Grande rue</Ligne>
+      <CodePostal>45310</CodePostal>
+      <NomCommune>Villeneuve-sur-Conie</NomCommune>
+      <Localisation>
+         <Latitude>48.043952</Latitude>
+         <Longitude>1.650183</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 80 81 56</Téléphone>
+      <Email>mairievilleneuvesurconie@orange.fr</Email>
+      <Url>http://club.quomodo.com/mairie-villeneuve-sur-conie/contact.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

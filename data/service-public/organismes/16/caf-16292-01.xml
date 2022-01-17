@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-16292-01" codeInsee="16292" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Charente - accueil de Ruffec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre socio-culturel Val de Charente La Chrysalide</Ligne>
+      <Ligne>Maison de services au public</Ligne>
+      <Ligne>Place Aristide-Briand</Ligne>
+      <CodePostal>16700</CodePostal>
+      <NomCommune>Ruffec</NomCommune>
+      <Localisation>
+         <Latitude>46.0289085</Latitude>
+         <Longitude>0.1962026</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Charente</Ligne>
+      <Ligne>30-32 boulevard de Bury</Ligne>
+      <Ligne>CS 90000</Ligne>
+      <CodePostal>16911</CodePostal>
+      <NomCommune>Angoulême Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Un conseiller Caf vous accueille le vendredi de 9h30 à 12h et de 13h30 à 16h, accueil uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

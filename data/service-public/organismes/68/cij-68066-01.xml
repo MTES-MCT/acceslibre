@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-68066-01" codeInsee="68066" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Colmar</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 cours Sainte-Anne</Ligne>
+      <CodePostal>68000</CodePostal>
+      <NomCommune>Colmar</NomCommune>
+      <Localisation>
+         <Latitude>48.0803866</Latitude>
+         <Longitude>7.3580443</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 20 67 91</Téléphone>
+      <Email>bij.info@colmar.fr</Email>
+      <Url>https://www.colmar.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

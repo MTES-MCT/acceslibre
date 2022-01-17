@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62202-01" codeInsee="62202" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Campagne-lès-Boulonnais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue des Écoles</Ligne>
+      <CodePostal>62650</CodePostal>
+      <NomCommune>Campagne-lès-Boulonnais</NomCommune>
+      <Localisation>
+         <Latitude>50.5833015442</Latitude>
+         <Longitude>1.97739994526</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 86 52 72</Téléphone>
+      <Email>mairie.campagnelesboulonnais@wanadoo.fr</Email>
+      <Url>http://mairie-campagnelesboulonnais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

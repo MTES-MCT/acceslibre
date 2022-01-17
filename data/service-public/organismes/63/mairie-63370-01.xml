@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63370-01" codeInsee="63370" dateMiseAJour="2021-10-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Julien-Puy-Lavèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>63820</CodePostal>
+      <NomCommune>Saint-Julien-Puy-Lavèze</NomCommune>
+      <Localisation>
+         <Latitude>45.6658782959</Latitude>
+         <Longitude>2.67297101021</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 22 02 04</Téléphone>
+      <Email>mairie.st.julien.puy.laveze@wanadoo.fr</Email>
+      <Url>http://www.saintjulienpuylaveze.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

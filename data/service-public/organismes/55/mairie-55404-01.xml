@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55404-01" codeInsee="55404" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pierrefitte-sur-Aire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de Condé</Ligne>
+      <CodePostal>55260</CodePostal>
+      <NomCommune>Pierrefitte-sur-Aire</NomCommune>
+      <Localisation>
+         <Latitude>48.8984985352</Latitude>
+         <Longitude>5.32907009125</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 75 59 87</Téléphone>
+      <Email>mairie.pierrefitte55@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert le 2e samedi du mois uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

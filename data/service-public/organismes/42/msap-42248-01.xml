@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-42248-01" codeInsee="42248" dateMiseAJour="2021-05-27"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Just-en-Chevalet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>42430</CodePostal>
+      <NomCommune>Saint-Just-en-Chevalet</NomCommune>
+      <Localisation>
+         <Latitude>45.9137576</Latitude>
+         <Longitude>3.8452846</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 65 03 30</Téléphone>
+      <Email>msap.saint-just-en-chevalet@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

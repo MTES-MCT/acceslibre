@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27601-01" codeInsee="27601" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Samson-de-la-Roque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 route du Village</Ligne>
+      <CodePostal>27680</CodePostal>
+      <NomCommune>Saint-Samson-de-la-Roque</NomCommune>
+      <Localisation>
+         <Latitude>49.4057006836</Latitude>
+         <Longitude>0.440091013908</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 57 64 47</Téléphone>
+      <Email>mairie.st.samsondelaroque@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

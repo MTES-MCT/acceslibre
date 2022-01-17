@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91547-01" codeInsee="91547" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Escobille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>2 rue du Château</Ligne>
+      <CodePostal>91410</CodePostal>
+      <NomCommune>Saint-Escobille</NomCommune>
+      <Localisation>
+         <Latitude>48.4296989441</Latitude>
+         <Longitude>1.96723997593</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 95 52 62</Téléphone>
+      <Email>mairieescobille@wanadoo.fr</Email>
+      <Url>http://www.saintescobille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

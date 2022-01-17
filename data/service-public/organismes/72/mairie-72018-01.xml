@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-72018-01" codeInsee="72018" dateMiseAJour="2020-12-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Avesnes-en-Saosnois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Pâtis</Ligne>
+      <CodePostal>72260</CodePostal>
+      <NomCommune>Avesnes-en-Saosnois</NomCommune>
+      <Localisation>
+         <Latitude>48.26438</Latitude>
+         <Longitude>0.372263</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 97 87 13</Téléphone>
+      <Email>mairiedavesnes@outlook.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

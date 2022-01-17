@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31221-01" codeInsee="31221" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gouaux-de-Larboust</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Village d'en-Haut</Ligne>
+      <CodePostal>31110</CodePostal>
+      <NomCommune>Gouaux-de-Larboust</NomCommune>
+      <Localisation>
+         <Latitude>42.7944145203</Latitude>
+         <Longitude>0.489078998566</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 79 17 82</Téléphone>
+      <Télécopie>05 61 79 78 14</Télécopie>
+      <Email>gouaux.de.larboust@orange.fr</Email>
+      <Url>http://www.gouaux-de-larboust-peyragudes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

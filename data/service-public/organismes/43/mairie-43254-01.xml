@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43254-01" codeInsee="43254" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vazeilles-Limandre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Vazeilles</Ligne>
+      <Ligne>1 rue de l'École</Ligne>
+      <CodePostal>43320</CodePostal>
+      <NomCommune>Vazeilles-Limandre</NomCommune>
+      <Localisation>
+         <Latitude>45.11277</Latitude>
+         <Longitude>3.69801</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 08 61 81</Téléphone>
+      <Email>mairie.vazeilles.limandre0@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

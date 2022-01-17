@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-72209-01" codeInsee="72209" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montreuil-le-Chétif</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 le Bourg-Neuf</Ligne>
+      <CodePostal>72130</CodePostal>
+      <NomCommune>Montreuil-le-Chétif</NomCommune>
+      <Localisation>
+         <Latitude>48.2457008</Latitude>
+         <Longitude>-0.035985</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 97 29 05</Téléphone>
+      <Email>montreuil.chetif@orange.fr</Email>
+      <Url>http://www.montreuillechetif.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

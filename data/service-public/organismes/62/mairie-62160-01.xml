@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62160-01" codeInsee="62160" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Boulogne-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Godefroy-de-Bouillon</Ligne>
+      <Ligne>BP 729</Ligne>
+      <CodePostal>62200</CodePostal>
+      <NomCommune>Boulogne-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>50.7246538</Latitude>
+         <Longitude>1.6133847</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 87 80 80</Téléphone>
+      <Télécopie>03 21 87 80 99</Télécopie>
+      <Email>mairie@ville-boulogne-sur-mer.fr</Email>
+      <Url>http://www.ville-boulogne-sur-mer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et les cartes d'identité.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

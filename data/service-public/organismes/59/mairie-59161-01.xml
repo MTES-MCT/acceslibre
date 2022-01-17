@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59161-01" codeInsee="59161" dateMiseAJour="2018-04-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Crèvecoeur-sur-l'Escaut</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-de-Gaulle</Ligne>
+      <CodePostal>59258</CodePostal>
+      <NomCommune>Crèvecoeur-sur-l'Escaut</NomCommune>
+      <Localisation>
+         <Latitude>50.0322990417</Latitude>
+         <Longitude>3.29833006859</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 78 91 96</Téléphone>
+      <Télécopie>03 27 74 44 98</Télécopie>
+      <Email>mairie.crevecoeursurescaut@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

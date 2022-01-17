@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25303-01" codeInsee="25303" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hauterive-la-Fresse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 Mont-d'Hauterive</Ligne>
+      <CodePostal>25650</CodePostal>
+      <NomCommune>Hauterive-la-Fresse</NomCommune>
+      <Localisation>
+         <Latitude>46.9756011963</Latitude>
+         <Longitude>6.44620990753</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 38 12 76</Téléphone>
+      <Email>mairie.hauterivelafresse@wanadoo.fr</Email>
+      <Url>http://www.hauterive-la-fresse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

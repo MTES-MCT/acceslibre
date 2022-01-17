@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67138-01" codeInsee="67138" dateMiseAJour="2021-11-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fessenheim-le-Bas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de l’Église</Ligne>
+      <CodePostal>67117</CodePostal>
+      <NomCommune>Fessenheim-le-Bas</NomCommune>
+      <Localisation>
+         <Latitude>48.63319</Latitude>
+         <Longitude>7.54057</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 87 52 38</Téléphone>
+      <Email>mairie@fessenheim-le-bas.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

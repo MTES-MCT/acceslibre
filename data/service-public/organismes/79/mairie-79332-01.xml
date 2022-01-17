@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-79332-01" codeInsee="79332" dateMiseAJour="2021-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trayes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>79240</CodePostal>
+      <NomCommune>Trayes</NomCommune>
+      <Localisation>
+         <Latitude>46.6904983521</Latitude>
+         <Longitude>-0.503087997437</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 63 06 77</Téléphone>
+      <Email>mairietrayes@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:15:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:45:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:15:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

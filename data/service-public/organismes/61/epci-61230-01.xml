@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-61230-01" codeInsee="61230" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Hauts du Perche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Vieux-Moulin</Ligne>
+      <CodePostal>61290</CodePostal>
+      <NomCommune>Longny-au-Perche</NomCommune>
+      <Localisation>
+         <Latitude>48.5302444</Latitude>
+         <Longitude>0.7546419</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 25 56 00</Téléphone>
+      <Email>accueil@cdchautsperche.fr</Email>
+      <Url>https://www.leshautsduperche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

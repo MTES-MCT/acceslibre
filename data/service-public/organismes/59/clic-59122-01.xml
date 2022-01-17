@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-59122-01" codeInsee="59122" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Cambrai et Marpoing</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Clic Cambrai-ouest relais autonomie</Ligne>
+      <Ligne>24 boulevard Faidherbe</Ligne>
+      <CodePostal>59400</CodePostal>
+      <NomCommune>Cambrai</NomCommune>
+      <Localisation>
+         <Latitude>50.173869</Latitude>
+         <Longitude>3.242703</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 82 80 53</Téléphone>
+      <Télécopie>03 27 74 51 83</Télécopie>
+      <Email>relaisautonomiecisouest@gmail.com</Email>
+      <Url>http://www.clic-cambresis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

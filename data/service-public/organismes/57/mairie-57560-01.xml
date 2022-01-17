@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57560-01" codeInsee="57560" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Racrange</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Alphonse-Grosse</Ligne>
+      <CodePostal>57340</CodePostal>
+      <NomCommune>Racrange</NomCommune>
+      <Localisation>
+         <Latitude>48.9225692749</Latitude>
+         <Longitude>6.67465114594</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 86 12 75</Téléphone>
+      <Télécopie>09 70 60 12 00</Télécopie>
+      <Email>mairie.racrange@wanadoo.fr</Email>
+      <Url>http://www.mairie-racrange.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

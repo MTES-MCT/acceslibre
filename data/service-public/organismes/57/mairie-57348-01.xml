@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57348-01" codeInsee="57348" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ippling</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Gare</Ligne>
+      <CodePostal>57990</CodePostal>
+      <NomCommune>Ippling</NomCommune>
+      <Localisation>
+         <Latitude>49.1049003601</Latitude>
+         <Longitude>7.00326013565</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 02 50 58</Téléphone>
+      <Télécopie>03 87 02 85 06</Télécopie>
+      <Email>ippling.mairie@numericable.fr</Email>
+      <Url>http://www.mairie-ippling.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

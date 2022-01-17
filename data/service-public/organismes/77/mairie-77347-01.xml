@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77347-01" codeInsee="77347" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Ormes-sur-Voulzie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Grande rue de Couture</Ligne>
+      <CodePostal>77134</CodePostal>
+      <NomCommune>Les Ormes-sur-Voulzie</NomCommune>
+      <Localisation>
+         <Latitude>48.4608001709</Latitude>
+         <Longitude>3.21853995323</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 01 77 73</Téléphone>
+      <Télécopie>01 64 01 70 11</Télécopie>
+      <Email>mairie.ormes-s-voulzie@wanadoo.fr</Email>
+      <Url>http://www.les-ormes-sur-voulzie.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

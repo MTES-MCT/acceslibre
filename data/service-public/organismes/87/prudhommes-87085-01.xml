@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="87085" dateMiseAJour="2021-12-14" id="prudhommes-87085-01" idPresta="4cac9e60293594648a00035f" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Limoges</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>41 BOULEVARD CARNOT</Ligne>
+        <CodePostal>87001</CodePostal>
+        <NomCommune>LIMOGES CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>45.832992</Latitude>
+            <Longitude>1.25864</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>41 BOULEVARD CARNOT</Ligne>
+        <CodePostal>87001</CodePostal>
+        <NomCommune>LIMOGES CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 87 19 34 00</Téléphone>
+        <Email>mailto:chg.cph-limoges@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

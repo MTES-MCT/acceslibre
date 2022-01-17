@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89342-01" codeInsee="89342" dateMiseAJour="2020-10-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Denis-lès-Sens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Saint-Denis-lès-Sens</NomCommune>
+      <Localisation>
+         <Latitude>48.228558</Latitude>
+         <Longitude>3.265136</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 65 73 24</Téléphone>
+      <Télécopie>03 86 95 18 97</Télécopie>
+      <Email>mairie.saintdenislessens.89@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

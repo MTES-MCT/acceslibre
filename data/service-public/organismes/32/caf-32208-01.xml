@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-32208-01" codeInsee="32208" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Gers - accueil de Lectoure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre communal d'action sociale</Ligne>
+      <Ligne>2 cours Gambetta</Ligne>
+      <CodePostal>32700</CodePostal>
+      <NomCommune>Lectoure</NomCommune>
+      <Localisation>
+         <Latitude>43.933646</Latitude>
+         <Longitude>0.6270039</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Gers </Ligne>
+      <Ligne>11 rue de Châteaudun</Ligne>
+      <CodePostal>32013</CodePostal>
+      <NomCommune>Auch Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil possible sur rendez-vous au 05 62 68 77 88.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

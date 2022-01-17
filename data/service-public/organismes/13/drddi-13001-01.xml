@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-13001-01" codeInsee="13001" dateMiseAJour="2021-12-15"
+           pivotLocal="drddi">
+   <Nom>Direction régionale des douanes - Aix-en-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 80437</Ligne>
+      <Ligne>6 boulevard du Château-Double</Ligne>
+      <CodePostal>13090</CodePostal>
+      <NomCommune>Aix-en-Provence Cedex 02</NomCommune>
+      <Localisation>
+         <Latitude>43.530526</Latitude>
+         <Longitude>5.424071</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 91 09</Téléphone>
+      <Télécopie>04 42 59 46 58</Télécopie>
+      <Email>dr-provence@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

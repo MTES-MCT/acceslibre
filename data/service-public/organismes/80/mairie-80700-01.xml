@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80700-01" codeInsee="80700" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Blimont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l'Église</Ligne>
+      <CodePostal>80960</CodePostal>
+      <NomCommune>Saint-Blimont</NomCommune>
+      <Localisation>
+         <Latitude>50.120084</Latitude>
+         <Longitude>1.567789</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 30 24 08</Téléphone>
+      <Email>saint.blimont@akeonet.com</Email>
+      <Url>http://www.mairiedesaintblimont.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Permanence de l'adjoint sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

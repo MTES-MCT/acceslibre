@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10143-01" codeInsee="10143" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Étourvy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>10210</CodePostal>
+      <NomCommune>Étourvy</NomCommune>
+      <Localisation>
+         <Latitude>47.9566469</Latitude>
+         <Longitude>4.1308536</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonner pour qu'une personne se déplace</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 70 04 39</Téléphone>
+      <Email>mairie.etourvy@wanadoo.fr</Email>
+      <Url>http://www.etourvy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

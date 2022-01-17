@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50188-01" codeInsee="50188" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Folligny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>42 rue de la Libération</Ligne>
+      <CodePostal>50320</CodePostal>
+      <NomCommune>Folligny</NomCommune>
+      <Localisation>
+         <Latitude>48.8244018555</Latitude>
+         <Longitude>-1.41150999069</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 61 33 11</Téléphone>
+      <Télécopie>02 33 61 09 96</Télécopie>
+      <Email>mairie@folligny.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

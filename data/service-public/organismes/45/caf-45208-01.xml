@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-45208-01" codeInsee="45208" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Loiret - accueil de Montargis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre Saint-Roch</Ligne>
+      <Ligne>61 rue André-Coquillet</Ligne>
+      <CodePostal>45200</CodePostal>
+      <NomCommune>Montargis</NomCommune>
+      <Localisation>
+         <Latitude>47.991422</Latitude>
+         <Longitude>2.732648</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Loiret</Ligne>
+      <Ligne>TSA 61295</Ligne>
+      <CodePostal>72034</CodePostal>
+      <NomCommune>Le Mans Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

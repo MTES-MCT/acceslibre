@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-40134-01" codeInsee="40134" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Labouheyre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mairie</Ligne>
+      <Ligne>106 rue Alexandre-Léon</Ligne>
+      <CodePostal>40210</CodePostal>
+      <NomCommune>Labouheyre</NomCommune>
+      <Localisation>
+         <Latitude>44.2110423</Latitude>
+         <Longitude>-0.9185675</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 04 52 15</Téléphone>
+      <Email>pijmairie@labouheyre.fr</Email>
+      <Url>http://www.labouheyre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

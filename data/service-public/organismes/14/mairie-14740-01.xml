@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14740-01" codeInsee="14740" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Vespière-Friardel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>65 rue de Mervilly</Ligne>
+      <CodePostal>14290</CodePostal>
+      <NomCommune>La Vespière-Friardel</NomCommune>
+      <Localisation>
+         <Latitude>49.0150978</Latitude>
+         <Longitude>0.4308301</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 32 83 84</Téléphone>
+      <Télécopie>02 31 32 08 81</Télécopie>
+      <Email>communelavespiere@wanadoo.fr</Email>
+      <Url>http://www.mairie-la-vespiere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

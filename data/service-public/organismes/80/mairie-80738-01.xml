@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80738-01" codeInsee="80738" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Soues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Émilienne-Derycke</Ligne>
+      <CodePostal>80310</CodePostal>
+      <NomCommune>Soues</NomCommune>
+      <Localisation>
+         <Latitude>49.956728</Latitude>
+         <Longitude>2.053137</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 11 42 02 91</Téléphone>
+      <Email>mairie.soues@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:45:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25246-01" codeInsee="25246" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontaine-lès-Clerval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Principale</Ligne>
+      <CodePostal>25340</CodePostal>
+      <NomCommune>Fontaine-lès-Clerval</NomCommune>
+      <Localisation>
+         <Latitude>47.4249992371</Latitude>
+         <Longitude>6.47135019302</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 93 82 90</Téléphone>
+      <Télécopie>03 81 93 82 90</Télécopie>
+      <Email>mairie.fontainelesclerval@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="14:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

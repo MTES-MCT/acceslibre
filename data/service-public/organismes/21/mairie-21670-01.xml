@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21670-01" codeInsee="21670" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Verrey-sous-Salmaise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue des Écoles</Ligne>
+      <CodePostal>21690</CodePostal>
+      <NomCommune>Verrey-sous-Salmaise</NomCommune>
+      <Localisation>
+         <Latitude>47.4391676</Latitude>
+         <Longitude>4.6684547</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 35 80 01</Téléphone>
+      <Email>mairie.verrey.sous.salmaise@wanadoo.fr</Email>
+      <Url>http://www.verrey-sous-salmaise.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02320-01" codeInsee="02320" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontaine-lès-Clercs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Saint-Quentin</Ligne>
+      <CodePostal>02680</CodePostal>
+      <NomCommune>Fontaine-lès-Clercs</NomCommune>
+      <Localisation>
+         <Latitude>49.8063091</Latitude>
+         <Longitude>3.2257297</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 67 39 24</Téléphone>
+      <Email>mairie.fontainelesclercs@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

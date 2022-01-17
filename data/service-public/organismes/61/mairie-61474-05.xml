@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61474-05" codeInsee="61474" dateMiseAJour="2021-03-01"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Chambois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chambois</Ligne>
+      <Ligne>1 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>61160</CodePostal>
+      <NomCommune>Gouffern-en-Auge</NomCommune>
+      <Localisation>
+         <Latitude>48.806353</Latitude>
+         <Longitude>0.104779</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 36 72 91</Téléphone>
+      <Email>mairie@gouffernenauge.fr</Email>
+      <Url>https://www.gouffernenauge.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

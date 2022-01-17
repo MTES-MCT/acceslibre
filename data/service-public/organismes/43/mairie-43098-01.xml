@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43098-01" codeInsee="43098" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Freycenet-la-Tour</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>2 route des Barthes</Ligne>
+      <CodePostal>43150</CodePostal>
+      <NomCommune>Freycenet-la-Tour</NomCommune>
+      <Localisation>
+         <Latitude>44.937874</Latitude>
+         <Longitude>4.060122</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">monte personne</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 03 83 55</Téléphone>
+      <Email>mairiefreycenetlatour@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

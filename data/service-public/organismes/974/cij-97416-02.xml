@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-97416-02" codeInsee="97416" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Centre information jeunesse - Saint-Pierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission locale Sud</Ligne>
+      <Ligne>69-71 rue des Bons-Enfants</Ligne>
+      <Ligne>BP 189</Ligne>
+      <CodePostal>97455</CodePostal>
+      <NomCommune>Saint-Pierre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-21.3395637</Latitude>
+         <Longitude>55.4731653</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 25 77 20</Téléphone>
+      <Télécopie>+262 2 62 35 25 16</Télécopie>
+      <Email>stpierre@missionlocalesud.com</Email>
+      <Url>http://www.missionlocalesud.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="07:45:00" fin="12:00:00"/>
+         <PlageH début="12:45:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28058-01" codeInsee="28058" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bréchamps</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>28210</CodePostal>
+      <NomCommune>Bréchamps</NomCommune>
+      <Localisation>
+         <Latitude>48.6467399597</Latitude>
+         <Longitude>1.53939700127</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonner</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 51 46 09</Téléphone>
+      <Email>mairie@brechamps.net</Email>
+      <Url>http://www.brechamps.net</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

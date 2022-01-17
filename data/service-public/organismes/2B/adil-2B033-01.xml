@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-2B033-01" codeInsee="2B033" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence d'information sur le logement de Corse - antenne de Bastia</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue José-Luccioni</Ligne>
+      <CodePostal>20200</CodePostal>
+      <NomCommune>Bastia</NomCommune>
+      <Localisation>
+         <Latitude>42.702838</Latitude>
+         <Longitude>9.452263</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 58 15 32</Téléphone>
+      <Email>adil2b@orange.fr</Email>
+      <Url>http://www.adil2b.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Fermé en août.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Fermé en août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

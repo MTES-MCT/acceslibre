@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77113-01" codeInsee="77113" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chevru</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Médéric-Charot</Ligne>
+      <CodePostal>77320</CodePostal>
+      <NomCommune>Chevru</NomCommune>
+      <Localisation>
+         <Latitude>48.7355995178</Latitude>
+         <Longitude>3.19333004951</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 04 60 91</Téléphone>
+      <Email>mairiedechevru@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement à prendre par téléphone ou mail.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

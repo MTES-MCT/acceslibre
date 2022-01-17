@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02589-01" codeInsee="02589" dateMiseAJour="2018-03-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pargny-Filain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 route du Lac</Ligne>
+      <CodePostal>02000</CodePostal>
+      <NomCommune>Pargny-Filain</NomCommune>
+      <Localisation>
+         <Latitude>49.4633865356</Latitude>
+         <Longitude>3.54403710365</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 21 68 59</Téléphone>
+      <Email>commune.pargnyfilain@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

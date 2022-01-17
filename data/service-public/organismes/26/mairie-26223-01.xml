@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26223-01" codeInsee="26223" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Oriol-en-Royans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 rue du Village</Ligne>
+      <CodePostal>26190</CodePostal>
+      <NomCommune>Oriol-en-Royans</NomCommune>
+      <Localisation>
+         <Latitude>44.997916</Latitude>
+         <Longitude>5.273908</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 48 64 97</Téléphone>
+      <Télécopie>04 75 48 42 39</Télécopie>
+      <Email>communedoriolenroyans@orange.fr</Email>
+      <Url>https://mairie-oriol-en-royans.frfr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

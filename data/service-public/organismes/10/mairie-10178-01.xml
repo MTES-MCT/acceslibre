@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10178-01" codeInsee="10178" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jessains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Saint-Nicolas</Ligne>
+      <CodePostal>10140</CodePostal>
+      <NomCommune>Jessains</NomCommune>
+      <Localisation>
+         <Latitude>48.297076</Latitude>
+         <Longitude>4.577928</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 92 72 06</Téléphone>
+      <Télécopie>03 25 92 72 06</Télécopie>
+      <Email>mairie.jessains@orange.fr</Email>
+      <Url>http://www.communedejessains.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

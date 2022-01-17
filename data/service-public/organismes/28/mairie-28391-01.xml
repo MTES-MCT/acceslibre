@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28391-01" codeInsee="28391" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Toury</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place Suger</Ligne>
+      <CodePostal>28310</CodePostal>
+      <NomCommune>Toury</NomCommune>
+      <Localisation>
+         <Latitude>48.1960983276</Latitude>
+         <Longitude>1.93725001812</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 90 50 60</Téléphone>
+      <Télécopie>02 37 90 58 61</Télécopie>
+      <Email>mairie@ville-toury.fr</Email>
+      <Url>http://www.ville-toury.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

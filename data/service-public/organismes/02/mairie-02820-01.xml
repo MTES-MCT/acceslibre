@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02820-01" codeInsee="02820" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Viry-Noureuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Gaston-Trioux</Ligne>
+      <CodePostal>02300</CodePostal>
+      <NomCommune>Viry-Noureuil</NomCommune>
+      <Localisation>
+         <Latitude>49.6305999756</Latitude>
+         <Longitude>3.24688005447</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 52 15 60</Téléphone>
+      <Télécopie>03 23 39 82 57</Télécopie>
+      <Email>mairie.virynoureuil@wanadoo.fr</Email>
+      <Url>http://www.viry-noureuil.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

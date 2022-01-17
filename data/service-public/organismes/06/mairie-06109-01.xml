@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06109-01" codeInsee="06109" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Roquette-sur-Var</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 place de la Libération</Ligne>
+      <CodePostal>06670</CodePostal>
+      <NomCommune>La Roquette-sur-Var</NomCommune>
+      <Localisation>
+         <Latitude>43.8279002</Latitude>
+         <Longitude>7.1981157</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 08 40 21</Téléphone>
+      <Email>mairie@laroquettesurvar.fr</Email>
+      <Url>https://www.laroquettesurvar.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil également ouvert à la mairie annexe place Louis Pagliardini le mardi et le vendredi de 14h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

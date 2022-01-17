@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18038-01" codeInsee="18038" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bruère-Allichamps</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Louis-Margueritat</Ligne>
+      <CodePostal>18200</CodePostal>
+      <NomCommune>Bruère-Allichamps</NomCommune>
+      <Localisation>
+         <Latitude>46.768196</Latitude>
+         <Longitude>2.432664</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 61 02 68</Téléphone>
+      <Email>bruere-mairie@wanadoo.fr</Email>
+      <Url>http://www.bruere-allichamps.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire ouverture de 13h à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire ouverture de 13h à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire ouverture de 13h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="urssaf-29232-01" codeInsee="29232" dateMiseAJour="2021-09-20"
+           pivotLocal="urssaf">
+   <Nom>Urssaf Bretagne - site de Quimper</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>18 rue de la République</Ligne>
+      <CodePostal>29000</CodePostal>
+      <NomCommune>Quimper</NomCommune>
+      <Localisation>
+         <Latitude>48.003271</Latitude>
+         <Longitude>-4.088846</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Urssaf Bretagne</Ligne>
+      <Ligne>TSA 40015</Ligne>
+      <CodePostal>93517</CodePostal>
+      <NomCommune>Montreuil Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 57</Téléphone>
+      <Email>https://www.contact.urssaf.fr</Email>
+      <Url>https://www.urssaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil sur rendez-vous les lundis et jeudis de 13h30 à 16h30, accueil téléphonique du lundi au vendredi de 9h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

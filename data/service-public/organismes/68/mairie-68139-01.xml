@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68139-01" codeInsee="68139" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hirtzbach</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Château</Ligne>
+      <CodePostal>68118</CodePostal>
+      <NomCommune>Hirtzbach</NomCommune>
+      <Localisation>
+         <Latitude>47.5980987549</Latitude>
+         <Longitude>7.22373008728</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 40 99 21</Téléphone>
+      <Télécopie>03 89 40 96 40</Télécopie>
+      <Email>mairie@hirtzbach.fr</Email>
+      <Url>http://www.hirtzbach.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

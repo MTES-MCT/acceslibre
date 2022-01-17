@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-80021-01" codeInsee="80021" dateMiseAJour="2021-12-15"
+           pivotLocal="drddi">
+   <Nom>Direction régionale des douanes - Amiens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>BP 90009</Ligne>
+      <Ligne>39 rue Pierre-Rollin</Ligne>
+      <CodePostal>80091</CodePostal>
+      <NomCommune>Amiens Cedex3</NomCommune>
+      <Localisation>
+         <Latitude>49.87501</Latitude>
+         <Longitude>2.316773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 11 00</Téléphone>
+      <Télécopie>03 22 46 40 13</Télécopie>
+      <Email>dr-picardie@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

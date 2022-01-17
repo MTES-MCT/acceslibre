@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-77379-01" codeInsee="77379" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Provins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale des solidarités</Ligne>
+      <Ligne>11 rue du Colonel-Arnaud-Beltrame</Ligne>
+      <CodePostal>77160</CodePostal>
+      <NomCommune>Provins</NomCommune>
+      <Localisation>
+         <Latitude>48.5580128</Latitude>
+         <Longitude>3.3051737</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">places de parking avec accord de l'accueil pour ouvrir les portes</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 52 51 43</Téléphone>
+      <Url>http://www.seine-et-marne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

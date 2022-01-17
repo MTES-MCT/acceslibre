@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69206-01" codeInsee="69206" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Georges-de-Reneins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc de Montchervet</Ligne>
+      <Ligne>BP 7</Ligne>
+      <CodePostal>69830</CodePostal>
+      <NomCommune>Saint-Georges-de-Reneins</NomCommune>
+      <Localisation>
+         <Latitude>46.060674</Latitude>
+         <Longitude>4.725297</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 67 61 45</Téléphone>
+      <Télécopie>04 74 67 77 60</Télécopie>
+      <Email>mairie@saintgeorgesdereneins.fr</Email>
+      <Url>http://www.saintgeorgesdereneins.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

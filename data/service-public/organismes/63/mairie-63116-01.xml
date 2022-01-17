@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63116-01" codeInsee="63116" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Combronde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>63460</CodePostal>
+      <NomCommune>Combronde</NomCommune>
+      <Localisation>
+         <Latitude>45.9793014526</Latitude>
+         <Longitude>3.09007000923</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 97 10 25</Téléphone>
+      <Email>commune-combronde@wanadoo.fr</Email>
+      <Url>http://www.combronde.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

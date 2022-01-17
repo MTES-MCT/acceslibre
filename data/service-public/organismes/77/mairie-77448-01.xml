@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77448-01" codeInsee="77448" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sept-Sorts</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue de la Mairie</Ligne>
+      <CodePostal>77260</CodePostal>
+      <NomCommune>Sept-Sorts</NomCommune>
+      <Localisation>
+         <Latitude>48.937307</Latitude>
+         <Longitude>3.102748</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 22 30 80</Téléphone>
+      <Télécopie>01 60 22 29 79</Télécopie>
+      <Email>mairie@sept-sorts.fr</Email>
+      <Url>http://www.sept-sorts.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Secrétariat ouvert uniquement en semaine paire, permanence des élus de 10h30 à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

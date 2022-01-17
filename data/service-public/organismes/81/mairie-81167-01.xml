@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81167-01" codeInsee="81167" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Miolles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>81250</CodePostal>
+      <NomCommune>Miolles</NomCommune>
+      <Localisation>
+         <Latitude>43.889501</Latitude>
+         <Longitude>2.54674</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 55 92 31</Téléphone>
+      <Email>mairie.miolles@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil uniquement ouvert sur rendez-vous le mardi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

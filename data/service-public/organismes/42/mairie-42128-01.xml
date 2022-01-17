@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42128-01" codeInsee="42128" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Machézal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 place de la Mairie</Ligne>
+      <CodePostal>42114</CodePostal>
+      <NomCommune>Machézal</NomCommune>
+      <Localisation>
+         <Latitude>45.9223389</Latitude>
+         <Longitude>4.3024289</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 62 40 35</Téléphone>
+      <Télécopie>04 77 62 48 62</Télécopie>
+      <Email>mairie.machezal@copler.fr</Email>
+      <Url>http://www.machezal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

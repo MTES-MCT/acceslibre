@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52083-01" codeInsee="52083" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Champsevraine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 bis montée Thiberge</Ligne>
+      <CodePostal>52500</CodePostal>
+      <NomCommune>Champsevraine</NomCommune>
+      <Localisation>
+         <Latitude>47.746095</Latitude>
+         <Longitude>5.55112080000004</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe amovible</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 88 62 92</Téléphone>
+      <Télécopie>03 25 90 23 82</Télécopie>
+      <Email>mairie.champsevraine@wanadoo.fr</Email>
+      <Url>http://www.champsevraine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

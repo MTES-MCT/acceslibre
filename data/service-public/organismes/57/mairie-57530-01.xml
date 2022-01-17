@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57530-01" codeInsee="57530" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ottonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Lorraine</Ligne>
+      <CodePostal>57220</CodePostal>
+      <NomCommune>Ottonville</NomCommune>
+      <Localisation>
+         <Latitude>49.1808013916</Latitude>
+         <Longitude>6.49877977371</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 79 25 14</Téléphone>
+      <Email>mairie.ottonville@wanadoo.fr</Email>
+      <Url>http://www.ottonville-ricrange.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

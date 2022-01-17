@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-12033-01" codeInsee="12033" dateMiseAJour="2019-12-20"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bozouls</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point info seniors</Ligne>
+      <Ligne>6 rue du Trou</Ligne>
+      <CodePostal>12340</CodePostal>
+      <NomCommune>Bozouls</NomCommune>
+      <Localisation>
+         <Latitude>44.470505</Latitude>
+         <Longitude>2.719954</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 48 92 83</Téléphone>
+      <Email>pointinfoseniors@3clt.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

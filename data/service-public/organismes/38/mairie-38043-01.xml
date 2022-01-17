@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38043-01" codeInsee="38043" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bilieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>75 route de Charavines</Ligne>
+      <CodePostal>38850</CodePostal>
+      <NomCommune>Bilieu</NomCommune>
+      <Localisation>
+         <Latitude>45.4482053</Latitude>
+         <Longitude>5.5517873</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 06 62 41</Téléphone>
+      <Télécopie>04 76 06 67 15</Télécopie>
+      <Email>mairie@ville-bilieu.fr</Email>
+      <Url>http://www.mairie-bilieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

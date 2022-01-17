@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-94028-01" codeInsee="94028" dateMiseAJour="2021-02-25"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Val-de-Marne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21-29, avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>94038</CodePostal>
+      <NomCommune>Créteil Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7823039</Latitude>
+         <Longitude>2.4511617</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 56 60 00</Téléphone>
+      <Email>prefecture@val-de-marne.gouv.fr</Email>
+      <Url>http://www.val-de-marne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

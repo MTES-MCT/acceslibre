@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-23096-01" codeInsee="23096" dateMiseAJour="2020-11-10" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Guéret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 bis place du Marché</Ligne>
+      <Ligne>ALISO</Ligne>
+      <CodePostal>23000</CodePostal>
+      <NomCommune>Guéret</NomCommune>
+      <Localisation>
+         <Latitude>46.1708803</Latitude>
+         <Longitude>1.8672467</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 52 00 40</Téléphone>
+      <Email>contact@aliso.fr</Email>
+      <Url>http://www.aliso.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

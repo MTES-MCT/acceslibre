@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-57433-01" codeInsee="57433" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Rives de Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Gare</Ligne>
+      <Ligne>CS 40303</Ligne>
+      <CodePostal>57280</CodePostal>
+      <NomCommune>Maizières-lès-Metz</NomCommune>
+      <Localisation>
+         <Latitude>49.2155168</Latitude>
+         <Longitude>6.1593396</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 51 77 02</Téléphone>
+      <Télécopie>03 87 51 78 48</Télécopie>
+      <Email>accueil@rivesdemoselle.fr</Email>
+      <Url>http://www.rivesdemoselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

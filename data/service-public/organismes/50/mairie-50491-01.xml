@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50491-01" codeInsee="50491" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-de-Savigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 place de la Mairie</Ligne>
+      <CodePostal>50680</CodePostal>
+      <NomCommune>Saint-Jean-de-Savigny</NomCommune>
+      <Localisation>
+         <Latitude>49.0260561</Latitude>
+         <Longitude>-1.2833935</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 05 80 16</Téléphone>
+      <Email>mairie.st.jean.de.savigny@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus le mercredi de 18h à 20h et le samedi de 10h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-78029-01" codeInsee="78029" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté urbaine - Grand Paris Seine et Oise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue des Chevries</Ligne>
+      <CodePostal>78410</CodePostal>
+      <NomCommune>Aubergenville</NomCommune>
+      <Localisation>
+         <Latitude>48.9584323</Latitude>
+         <Longitude>1.8558349</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 82 86 00 86</Téléphone>
+      <Email>accueil@gpseo.fr</Email>
+      <Url>https://gpseo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-39368-01" codeInsee="39368" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie des Hauts de Bienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de l'Industrie</Ligne>
+      <Ligne>BP 92</Ligne>
+      <CodePostal>39400</CodePostal>
+      <NomCommune>Les Hauts de Bienne</NomCommune>
+      <Localisation>
+         <Latitude>46.5224059</Latitude>
+         <Longitude>6.0204369</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 33 07 37</Téléphone>
+      <Email>t039039@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil exclusivement sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil exclusivement sur rendez-vous l'après-midi et les mercredi et vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

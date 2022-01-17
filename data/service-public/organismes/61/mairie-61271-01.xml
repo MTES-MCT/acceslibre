@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61271-01" codeInsee="61271" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Ménil-Scelleur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>61320</CodePostal>
+      <NomCommune>Le Ménil-Scelleur</NomCommune>
+      <Localisation>
+         <Latitude>48.6102218628</Latitude>
+         <Longitude>-0.120839998126</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 27 77 49</Téléphone>
+      <Email>mairielemenilscelleur@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

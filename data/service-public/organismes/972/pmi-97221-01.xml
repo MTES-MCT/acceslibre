@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-97221-01" codeInsee="97221" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Rivière-Salée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Alexandre-Zonzon</Ligne>
+      <CodePostal>97215</CodePostal>
+      <NomCommune>Rivière-Salée</NomCommune>
+      <Localisation>
+         <Latitude>14.530914</Latitude>
+         <Longitude>-60.98168</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 96 68 25 95</Téléphone>
+      <Télécopie>05 96 48 19 26</Télécopie>
+      <Url>http://www.cg972.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28310-01" codeInsee="28310" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Puisaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>28250</CodePostal>
+      <NomCommune>La Puisaye</NomCommune>
+      <Localisation>
+         <Latitude>48.608543396</Latitude>
+         <Longitude>0.957324981689</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 37 60 55</Téléphone>
+      <Télécopie>02 37 37 60 55</Télécopie>
+      <Email>mairie-puisaye@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

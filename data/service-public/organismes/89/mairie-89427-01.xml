@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89427-01" codeInsee="89427" dateMiseAJour="2021-09-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vallan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 bis rue de l'Abreuvoir</Ligne>
+      <CodePostal>89580</CodePostal>
+      <NomCommune>Vallan</NomCommune>
+      <Localisation>
+         <Latitude>47.743598938</Latitude>
+         <Longitude>3.53789997101</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette, un agent vient accueillir l’usager</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 41 30 18</Téléphone>
+      <Email>mairie.vallan@wanadoo.fr</Email>
+      <Url>http://www.mairie-vallan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="10:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>Sur rendez-vous de 18h00 à 19h00</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57277-01" codeInsee="57277" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Guinkirchen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>41 rue Principale</Ligne>
+      <CodePostal>57220</CodePostal>
+      <NomCommune>Guinkirchen</NomCommune>
+      <Localisation>
+         <Latitude>49.2066001892</Latitude>
+         <Longitude>6.44763994217</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 57 30 00</Téléphone>
+      <Email>guinkirchen.mairie@wanadoo.fr</Email>
+      <Url>http://www.guinkirchen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38038-01" codeInsee="38038" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Belmont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Mairie</Ligne>
+      <CodePostal>38690</CodePostal>
+      <NomCommune>Belmont</NomCommune>
+      <Localisation>
+         <Latitude>45.4743995667</Latitude>
+         <Longitude>5.36439990997</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 92 21 67</Téléphone>
+      <Email>mairie.belmont2@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="10:30:00"/>
+         <Note>Accueil ouvert le samedi uniquement les semaines impaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

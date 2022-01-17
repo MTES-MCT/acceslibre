@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-40192-01" codeInsee="40192" dateMiseAJour="2021-01-14"
+           pivotLocal="msap">
+   <Nom>France Services - Mont-de-Marsan (itinérant)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>575 avenue Maréchal Foch</Ligne>
+      <Ligne>BP 70171</Ligne>
+      <Ligne>Mont-de-Marsan agglomération</Ligne>
+      <CodePostal>40003</CodePostal>
+      <NomCommune>Mont-de-Marsan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.896597</Latitude>
+         <Longitude>-0.491069</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 46 64 10</Téléphone>
+      <Email>busfranceservice@montdemarsan-agglo.fr</Email>
+      <Url>http://www.montdemarsan-agglo.fr/agglo/jsp/site/Portal.jsp?page_id=497</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="16:30:00" fin="19:00:00"/>
+         <Note>Se renseigner auprès de l'agglo pour connaître les jours et heures de passage dans votre commune.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42181-01" codeInsee="42181" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Régny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jacques-Fougerat</Ligne>
+      <CodePostal>42630</CodePostal>
+      <NomCommune>Régny</NomCommune>
+      <Localisation>
+         <Latitude>45.9914054871</Latitude>
+         <Longitude>4.21713590622</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 63 00 34</Téléphone>
+      <Télécopie>04 77 63 07 81</Télécopie>
+      <Email>accueil@regny.fr</Email>
+      <Url>http://www.regny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

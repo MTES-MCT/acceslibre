@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-36070-01" codeInsee="36070" dateMiseAJour="2020-12-03"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Éguzon-Chantôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>13 rue Jules-Ferry</Ligne>
+      <CodePostal>36270</CodePostal>
+      <NomCommune>Éguzon-Chantôme</NomCommune>
+      <Localisation>
+         <Latitude>46.441235</Latitude>
+         <Longitude>1.584064</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 47 47 13</Téléphone>
+      <Email>msap.eguzon-chantome@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/eguzon-chantome-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

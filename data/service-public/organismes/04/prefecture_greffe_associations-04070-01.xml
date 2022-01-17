@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-04070-01" codeInsee="04070"
+           dateMiseAJour="2020-06-10"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Alpes-de-Haute-Provence (Digne-les-Bains)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Pasteur</Ligne>
+      <Ligne>BP 9028</Ligne>
+      <CodePostal>04990</CodePostal>
+      <NomCommune>Digne-les-Bains Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.839929</Latitude>
+         <Longitude>3.486776</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 30 37 72</Téléphone>
+      <Télécopie>04 92 30 37 50</Télécopie>
+      <Email>yveline.meyer@alpes-de-haute-provence.gouv.fr</Email>
+      <Url>http://www.alpes-de-haute-provence.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

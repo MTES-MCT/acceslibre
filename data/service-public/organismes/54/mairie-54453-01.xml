@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54453-01" codeInsee="54453" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rembercourt-sur-Mad</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>54470</CodePostal>
+      <NomCommune>Rembercourt-sur-Mad</NomCommune>
+      <Localisation>
+         <Latitude>48.9707984924</Latitude>
+         <Longitude>5.88723993301</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">entrée adaptée du côté de l'école au 1 route de Jaulny</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 81 81 49</Téléphone>
+      <Email>mairie.rembercourt@wanadoo.fr</Email>
+      <Url>http://www.rembercourt-sur-mad.mairie54.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Permanence des élus 17h30 à 18h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Permanence des élus 17h30 à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

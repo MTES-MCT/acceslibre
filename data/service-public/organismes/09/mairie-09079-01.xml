@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09079-01" codeInsee="09079" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carla-Bayle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Europe</Ligne>
+      <CodePostal>09130</CodePostal>
+      <NomCommune>Carla-Bayle</NomCommune>
+      <Localisation>
+         <Latitude>43.1501998901</Latitude>
+         <Longitude>1.39365005493</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 68 51 32</Téléphone>
+      <Télécopie>05 61 68 51 21</Télécopie>
+      <Email>carla.bayle@wanadoo.fr</Email>
+      <Url>http://www.carla-bayle.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

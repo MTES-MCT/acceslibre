@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74311-01" codeInsee="74311" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Viuz-en-Sallaz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1040 avenue de Savoie</Ligne>
+      <CodePostal>74250</CodePostal>
+      <NomCommune>Viuz-en-Sallaz</NomCommune>
+      <Localisation>
+         <Latitude>46.1473007202</Latitude>
+         <Longitude>6.41051006317</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 36 80 39</Téléphone>
+      <Email>accueil.population@viuz-en-sallaz.fr</Email>
+      <Url>http://www.viuz-en-sallaz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er et 3e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

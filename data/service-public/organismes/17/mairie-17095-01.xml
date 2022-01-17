@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17095-01" codeInsee="17095" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chatenet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Billette</Ligne>
+      <CodePostal>17210</CodePostal>
+      <NomCommune>Chatenet</NomCommune>
+      <Localisation>
+         <Latitude>45.298031</Latitude>
+         <Longitude>-0.291078</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe et sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 49 25 89</Téléphone>
+      <Email>https://sve.soluris.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil téléphonique le lundi et le mercredi de 14h à 18h, ainsi que le jeudi de 9h à 13h.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

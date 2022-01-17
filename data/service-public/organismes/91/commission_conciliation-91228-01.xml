@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-91228-01" codeInsee="91228"
+           dateMiseAJour="2021-04-02"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Essonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>5-7 rue François Truffaut</Ligne>
+      <Ligne>DDETS 91</Ligne>
+      <CodePostal>91080</CodePostal>
+      <NomCommune>Evry-Courcouronnes</NomCommune>
+      <Localisation>
+         <Latitude>48.6310905</Latitude>
+         <Longitude>2.42096</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>DDETS de l’Essonne</Ligne>
+      <Ligne>PHL/BLADLL</Ligne>
+      <Ligne>Secrétariat de la Commission départementale de conciliation des baux
+locatifs</Ligne>
+      <Ligne>TSA 91105</Ligne>
+      <CodePostal>91010</CodePostal>
+      <NomCommune>Evry-Courcouronnes Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Permanence téléphonique du secrétariat uniquement le matin, du lundi au vendredi de 08h30 à 12h00">01 69 87 30 22</Téléphone>
+      <Télécopie>01 60 77 38 56</Télécopie>
+      <Email>ddets-conciliation@essonne.gouv.fr</Email>
+      <Url>https://www.essonne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78048-01" codeInsee="78048" dateMiseAJour="2020-08-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bazainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 Grand'rue</Ligne>
+      <CodePostal>78550</CodePostal>
+      <NomCommune>Bazainville</NomCommune>
+      <Localisation>
+         <Latitude>48.7907481</Latitude>
+         <Longitude>1.6009841</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 94 29 29</Téléphone>
+      <Télécopie>01 34 94 29 28</Télécopie>
+      <Email>http://www.mairie-bazainville.fr/fr/nous-contacte</Email>
+      <Url>http://www.mairie-bazainville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

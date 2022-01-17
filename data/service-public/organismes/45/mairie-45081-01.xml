@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45081-01" codeInsee="45081" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Charsonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Moulin</Ligne>
+      <CodePostal>45130</CodePostal>
+      <NomCommune>Charsonville</NomCommune>
+      <Localisation>
+         <Latitude>47.9288513</Latitude>
+         <Longitude>1.58256510000001</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 74 23 06</Téléphone>
+      <Télécopie>02 38 74 24 21</Télécopie>
+      <Email>mairiecharsonville@wanadoo.fr</Email>
+      <Url>http://www.charsonville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

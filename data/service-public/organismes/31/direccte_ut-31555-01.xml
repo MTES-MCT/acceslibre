@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-31555-01" codeInsee="31555" dateMiseAJour="2021-11-25"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Haute-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 esplanade Compans-Caffarelli</Ligne>
+      <CodePostal>31000</CodePostal>
+      <NomCommune>Toulouse</NomCommune>
+      <Localisation>
+         <Latitude>43.611134</Latitude>
+         <Longitude>1.435667</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 89 81 00</Téléphone>
+      <Email>ddets-renseignements-travail@haute-garonne.gouv.fr</Email>
+      <Url>http://occitanie.direccte.gouv.fr/Haute-Garonne</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

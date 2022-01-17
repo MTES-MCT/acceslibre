@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="26307" dateMiseAJour="2021-09-27" id="permanence_juridique-26307-01" idPresta="612f2ec3b473e40555deeba2" pivotLocal="permanence_juridique">
+    <Nom>Point-justice - France services</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>78 rue Jean-Jaurès</Ligne>
+        <CodePostal>26190</CodePostal>
+        <NomCommune>ST JEAN EN ROYANS</NomCommune>
+        <Localisation>
+            <Latitude>45.015301</Latitude>
+            <Longitude>5.291459</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 75 82 06 10</Téléphone>
+        <Email>mailto:france-service@association-tracols.fr</Email>
+        <Url>http://www.association-tracols.fr</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:30:00"/>
+            <Note>Lundi 8h30-12h et 13h30-17h30, Mardi 8h30-12h et 13h30-19h, Mercredi 13h30-17h30, Jeudi 8h30-12h et 13h30-17h30
+Lundi 8h30-12h et 13h30-17h30, Mardi 8h30-12h et 13h30-19h, Mercredi 13h30-17h30, Jeudi 8h30-12h et 13h30-17h30
+Lundi 8h30-12h et 13h30-17h30, Mardi 8h30-12h et 13h30-19h, Mercredi 13h30-17h30, Jeudi 8h30-12h et 13h30-17h30
+Lundi 8h30-12h et 13h30-17h30, Mardi 8h30-12h et 13h30-19h, Mercredi 13h30-17h30, Jeudi 8h30-12h et 13h30-17h30
+Lundi 8h30-12h et 13h30-17h30, Mardi 8h30-12h et 13h30-19h, Mercredi 13h30-17h30, Jeudi 8h30-12h et 13h30-17h30</Note>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+            <Note>RDV au 04.75.55.39.34</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

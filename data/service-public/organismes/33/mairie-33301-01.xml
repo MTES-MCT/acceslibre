@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33301-01" codeInsee="33301" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Naujan-et-Postiac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 route de Bordeaux</Ligne>
+      <CodePostal>33420</CodePostal>
+      <NomCommune>Naujan-et-Postiac</NomCommune>
+      <Localisation>
+         <Latitude>44.7888374329</Latitude>
+         <Longitude>-0.180643007159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 84 55 77</Téléphone>
+      <Email>mairienaujanpostiac@wanadoo.fr</Email>
+      <Url>http://www.naujan-et-postiac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

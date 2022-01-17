@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43051-01" codeInsee="43051" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Chambon-sur-Lignon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace des Droits-de-l'Homme</Ligne>
+      <CodePostal>43400</CodePostal>
+      <NomCommune>Le Chambon-sur-Lignon</NomCommune>
+      <Localisation>
+         <Latitude>45.0593223572</Latitude>
+         <Longitude>4.30117416382</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 65 71 90</Téléphone>
+      <Télécopie>04 71 65 71 99</Télécopie>
+      <Email>chambon@ville-lechambonsurlignon.fr</Email>
+      <Url>http://www.ville-lechambonsurlignon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Permanence état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

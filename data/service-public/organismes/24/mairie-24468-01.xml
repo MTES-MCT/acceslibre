@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24468-01" codeInsee="24468" dateMiseAJour="2021-02-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Michel-de-Villadeix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>141 route de l’Hôtel de Ville</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24380</CodePostal>
+      <NomCommune>Saint-Michel-de-Villadeix</NomCommune>
+      <Localisation>
+         <Latitude>44.9855574</Latitude>
+         <Longitude>0.7219049</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 54 77 00</Téléphone>
+      <Email>mairie.stmicheldevilladeix@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

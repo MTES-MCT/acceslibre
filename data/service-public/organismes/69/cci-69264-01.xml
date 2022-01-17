@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-69264-01" codeInsee="69264" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 69 - Beaujolais - Siège de Villefranche-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>267  Boulevard Gambetta</Ligne>
+      <CodePostal>69400</CodePostal>
+      <NomCommune>Villefranche-sur-Saône</NomCommune>
+      <Localisation>
+         <Latitude>45.9927696</Latitude>
+         <Longitude>4.7151425</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 62 73 00</Téléphone>
+      <Télécopie>04 74 65 31 79</Télécopie>
+      <Email>cci@villefranche.cci.fr</Email>
+      <Url>http://www.beaujolais-cci.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

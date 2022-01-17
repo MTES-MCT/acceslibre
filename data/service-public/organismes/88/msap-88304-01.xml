@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-88304-01" codeInsee="88304" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Mirecourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 bis rue des Pampres</Ligne>
+      <CodePostal>88500</CodePostal>
+      <NomCommune>Mirecourt</NomCommune>
+      <Localisation>
+         <Latitude>48.301122</Latitude>
+         <Longitude>6.139943</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 37 10 35</Téléphone>
+      <Email>msapmirecourt@ccmirecourtdompaire.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/mirecourt</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

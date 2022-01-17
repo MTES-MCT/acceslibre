@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38034-01" codeInsee="38034" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaurepaire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue Français</Ligne>
+      <CodePostal>38270</CodePostal>
+      <NomCommune>Beaurepaire</NomCommune>
+      <Localisation>
+         <Latitude>45.3385893</Latitude>
+         <Longitude>5.0520608</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 79 22 60</Téléphone>
+      <Email>mairie.beaurepaire@entre-bievreetrhone.fr</Email>
+      <Url>http://www.ville-beaurepaire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

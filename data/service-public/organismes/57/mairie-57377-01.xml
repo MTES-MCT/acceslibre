@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57377-01" codeInsee="57377" dateMiseAJour="2019-07-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Landange</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Vigne-l'Abbé</Ligne>
+      <CodePostal>57830</CodePostal>
+      <NomCommune>Landange</NomCommune>
+      <Localisation>
+         <Latitude>48.672546</Latitude>
+         <Longitude>6.959751</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 25 93 03</Téléphone>
+      <Email>mairie.landange@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

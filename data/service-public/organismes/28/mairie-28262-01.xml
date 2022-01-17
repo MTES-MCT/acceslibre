@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28262-01" codeInsee="28103" dateMiseAJour="2017-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Montigny-le-Gannelon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Montigny-le-Gannelon</Ligne>
+      <Ligne>14 rue Grande</Ligne>
+      <CodePostal>28220</CodePostal>
+      <NomCommune>Cloyes-les-Trois-Rivières</NomCommune>
+      <Localisation>
+         <Latitude>48.0153999329</Latitude>
+         <Longitude>1.23335003853</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 98 45 07</Téléphone>
+      <Télécopie>02 37 98 52 17</Télécopie>
+      <Email>mairie.montignylegannelon@orange.fr</Email>
+      <Url>http://www.montigny-le-gannelon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

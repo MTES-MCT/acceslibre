@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02127-01" codeInsee="02127" dateMiseAJour="2018-03-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bruyères-sur-Fère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 Grande rue</Ligne>
+      <CodePostal>02130</CodePostal>
+      <NomCommune>Bruyères-sur-Fère</NomCommune>
+      <Localisation>
+         <Latitude>49.1887016296</Latitude>
+         <Longitude>3.44794011116</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 71 24 07</Téléphone>
+      <Email>mairiebruyeres.surfere@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

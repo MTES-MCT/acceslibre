@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15002-01" codeInsee="15002" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alleuze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Barge</Ligne>
+      <CodePostal>15100</CodePostal>
+      <NomCommune>Alleuze</NomCommune>
+      <Localisation>
+         <Latitude>44.9619140625</Latitude>
+         <Longitude>3.08616399765</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">travaux en cours</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 73 04 87</Téléphone>
+      <Email>mairie@alleuze.com</Email>
+      <Url>http://www.gites-alleuze.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

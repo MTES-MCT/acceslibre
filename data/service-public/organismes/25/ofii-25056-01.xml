@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ofii-25056-01" codeInsee="25056" dateMiseAJour="2018-09-05"
+           pivotLocal="ofii">
+   <Nom>Office français de l'immigration et de l'intégration (OFII) - Direction territoriale de Besançon (dép. 25, 70, 39, 90)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 avenue de la Gare-d'Eau</Ligne>
+      <CodePostal>25000</CodePostal>
+      <NomCommune>Besançon</NomCommune>
+      <Localisation>
+         <Latitude>47.232963</Latitude>
+         <Longitude>6.020382</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 25 14 50</Téléphone>
+      <Email>besancon@ofii.fr</Email>
+      <Url>http://www.ofii.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

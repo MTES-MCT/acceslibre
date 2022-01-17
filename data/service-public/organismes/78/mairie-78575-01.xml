@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78575-01" codeInsee="78575" dateMiseAJour="2020-08-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Rémy-lès-Chevreuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Victor-Hugo</Ligne>
+      <Ligne>BP 38</Ligne>
+      <CodePostal>78470</CodePostal>
+      <NomCommune>Saint-Rémy-lès-Chevreuse</NomCommune>
+      <Localisation>
+         <Latitude>48.705989</Latitude>
+         <Longitude>2.072721</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 47 05 00</Téléphone>
+      <Email>https://www.ville-st-remy-chevreuse.fr/nous-contacter/</Email>
+      <Url>http://www.ville-st-remy-chevreuse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le Mardi après-midi</Commentaire>
+</Organisme>

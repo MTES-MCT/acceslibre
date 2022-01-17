@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78029-01" codeInsee="78029" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aubergenville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue de la Division-Leclerc</Ligne>
+      <Ligne>CS 20516</Ligne>
+      <CodePostal>78410</CodePostal>
+      <NomCommune>Aubergenville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9584999084</Latitude>
+         <Longitude>1.85555005074</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 90 45 00</Téléphone>
+      <Télécopie>01 30 95 70 96</Télécopie>
+      <Email>mairienet@aubergenville.fr</Email>
+      <Url>http://www.aubergenville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21616-01" codeInsee="21616" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tailly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de l'Église</Ligne>
+      <CodePostal>21190</CodePostal>
+      <NomCommune>Tailly</NomCommune>
+      <Localisation>
+         <Latitude>46.9703588</Latitude>
+         <Longitude>4.814586</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">entrée à l'arrière du bâtiment pour les personne à mobilité réduite</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 21 47 37</Téléphone>
+      <Email>mairie.de.tailly@wanadoo.fr</Email>
+      <Url>http://tailly21.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

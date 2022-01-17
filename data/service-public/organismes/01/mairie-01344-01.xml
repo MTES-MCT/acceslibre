@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01344-01" codeInsee="01344" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Denis-lès-Bourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>01000</CodePostal>
+      <NomCommune>Saint-Denis-lès-Bourg</NomCommune>
+      <Localisation>
+         <Latitude>46.2013015747</Latitude>
+         <Longitude>5.18969011307</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 24 24 64</Téléphone>
+      <Télécopie>04 74 24 35 05</Télécopie>
+      <Email>mairie@stdenislesbourg.fr</Email>
+      <Url>http://www.stdenislesbourg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

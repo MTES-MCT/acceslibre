@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62368-01" codeInsee="62368" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gaudiempré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de Saint-Amand</Ligne>
+      <CodePostal>62760</CodePostal>
+      <NomCommune>Gaudiempré</NomCommune>
+      <Localisation>
+         <Latitude>50.1741981506</Latitude>
+         <Longitude>2.46167993546</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 48 23 15</Téléphone>
+      <Télécopie>03 21 48 23 15</Télécopie>
+      <Email>mairie-gaudiempre@orange.fr</Email>
+      <Url>http://gaudiempre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

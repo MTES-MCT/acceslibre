@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34257-01" codeInsee="34257" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Geniès-de-Varensal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu-dit Plaisance</Ligne>
+      <Ligne>Carreau de la Mine</Ligne>
+      <CodePostal>34610</CodePostal>
+      <NomCommune>Saint-Geniès-de-Varensal</NomCommune>
+      <Localisation>
+         <Latitude>43.6715331</Latitude>
+         <Longitude>3.0045503</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 23 60 95</Téléphone>
+      <Télécopie>04 67 97 82 55</Télécopie>
+      <Email>mairie.stgeniesdevarensal@orange.fr</Email>
+      <Url>http://www.stgeniesdevarensal.wix.com/mairie</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="onac-12202-01" codeInsee="12202" dateMiseAJour="2021-12-06"
+           pivotLocal="onac">
+   <Nom>Office national des anciens combattants et victimes de guerre (ONACVG) - Service départemental - Aveyron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place d'Armes</Ligne>
+      <Ligne>BP 118</Ligne>
+      <CodePostal>12001</CodePostal>
+      <NomCommune>Rodez Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.351462</Latitude>
+         <Longitude>2.573171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="accueil téléphonique tous les jours de 9h00 à 12h00 et 13h30 à 17h00 (16h30 le vendredi).">05 65 75 40 47</Téléphone>
+      <Email>https://www.onac-vg.fr/contact</Email>
+      <Url>https://www.onac-vg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Le matin uniquement sur rendez-vous et sans rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

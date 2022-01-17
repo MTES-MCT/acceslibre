@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57187-01" codeInsee="57187" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Éblange</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 rue Jean-Moulin</Ligne>
+      <CodePostal>57220</CodePostal>
+      <NomCommune>Éblange</NomCommune>
+      <Localisation>
+         <Latitude>49.2239074707</Latitude>
+         <Longitude>6.48187303543</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 35 78 47</Téléphone>
+      <Email>mairie-eblange@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

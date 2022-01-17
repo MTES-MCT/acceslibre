@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57366-01" codeInsee="57366" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Kirviller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Principale</Ligne>
+      <CodePostal>57430</CodePostal>
+      <NomCommune>Kirviller</NomCommune>
+      <Localisation>
+         <Latitude>48.9886016846</Latitude>
+         <Longitude>7.005879879</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 01 27 59</Téléphone>
+      <Télécopie>03 87 01 27 59</Télécopie>
+      <Email>mairie.kirviller@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

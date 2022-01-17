@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18145-01" codeInsee="18145" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Menetou-Salon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue de la Mairie</Ligne>
+      <CodePostal>18510</CodePostal>
+      <NomCommune>Menetou-Salon</NomCommune>
+      <Localisation>
+         <Latitude>47.2319984436</Latitude>
+         <Longitude>2.48839998245</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 64 81 21</Téléphone>
+      <Télécopie>02 48 64 85 56</Télécopie>
+      <Email>mairie.menetou.salon@wanadoo.fr</Email>
+      <Url>http://www.menetou-salon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60671-01" codeInsee="60671" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Versigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>125 rue Jacques-de-Kersaint</Ligne>
+      <CodePostal>60440</CodePostal>
+      <NomCommune>Versigny</NomCommune>
+      <Localisation>
+         <Latitude>49.1599178</Latitude>
+         <Longitude>2.761369</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 88 05 94</Téléphone>
+      <Télécopie>03 44 88 05 94</Télécopie>
+      <Email>mairie-de-versigny@orange.fr</Email>
+      <Url>http://www.versigny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

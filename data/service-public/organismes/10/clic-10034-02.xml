@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-10034-02" codeInsee="10034" dateMiseAJour="2019-12-31"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bar-sur-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Personnes handicapées de Bar-sur-Seine</Ligne>
+      <Ligne>Unité personnes âgées</Ligne>
+      <Ligne>80 Grande rue Résistance</Ligne>
+      <CodePostal>10110</CodePostal>
+      <NomCommune>Bar-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>48.097408</Latitude>
+         <Longitude>4.350074</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 29 03 54</Téléphone>
+      <Télécopie>03 25 29 14 25</Télécopie>
+      <Email>circo.cotedesbar@aube.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-21663-01" codeInsee="21663" dateMiseAJour="2021-04-30"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Venarey-les-Laumes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 avenue de Dijon</Ligne>
+      <CodePostal>21150</CodePostal>
+      <NomCommune>Venarey-les-Laumes</NomCommune>
+      <Localisation>
+         <Latitude>47.5391425</Latitude>
+         <Longitude>4.4622175</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 45 43 81 40</Téléphone>
+      <Email>sgc.venarey-les-laumes@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous le Vendredi matin</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

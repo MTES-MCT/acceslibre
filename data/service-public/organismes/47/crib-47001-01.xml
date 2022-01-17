@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-47001-01" codeInsee="47001" dateMiseAJour="2021-06-07"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Comité départemental olympique et sportif du Lot-et-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des sports</Ligne>
+      <Ligne>997 A avenue du Docteur-Jean-Bru</Ligne>
+      <CodePostal>47000</CodePostal>
+      <NomCommune>Agen</NomCommune>
+      <Localisation>
+         <Latitude>44.1942125</Latitude>
+         <Longitude>0.6256304</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur et rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 48 32 50</Téléphone>
+      <Email>lotetgaronne@franceolympique.com</Email>
+      <Url>http://www.cdos47.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

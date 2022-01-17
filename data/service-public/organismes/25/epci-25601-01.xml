@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-25601-01" codeInsee="25601" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Portes du Haut Doubs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Denis-Papin</Ligne>
+      <CodePostal>25800</CodePostal>
+      <NomCommune>Valdahon</NomCommune>
+      <Localisation>
+         <Latitude>47.147594</Latitude>
+         <Longitude>6.3455229</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 65 15 15</Téléphone>
+      <Email>contact@portes-haut-doubs.fr</Email>
+      <Url>http://www.portes-haut-doubs.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

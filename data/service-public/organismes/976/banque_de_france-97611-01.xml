@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-97611-01" codeInsee="97611" dateMiseAJour="2021-08-24"
+           pivotLocal="banque_de_france">
+   <Nom>Institut d'émission des départements d'Outre-Mer (IEDOM) - Agence de Mayotte - Mamoudzou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue de la Préfecture</Ligne>
+      <Ligne>BP 500</Ligne>
+      <CodePostal>97600</CodePostal>
+      <NomCommune>Mamoudzou</NomCommune>
+      <Localisation>
+         <Latitude>-12.7770592</Latitude>
+         <Longitude>45.2288204</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 69 61 05 05</Téléphone>
+      <Télécopie>02 69 61 05 02</Télécopie>
+      <Url>https://www.iedom.fr/mayotte/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Sur rendez-vous l'après-midi au 02 69 61 05 05.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

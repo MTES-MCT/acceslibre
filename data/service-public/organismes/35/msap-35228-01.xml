@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-35228-01" codeInsee="35228" dateMiseAJour="2021-01-05"
+           pivotLocal="msap">
+   <Nom>France Services - Pleurtuit</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 esplanade des Equipages</Ligne>
+      <Ligne>Cap Emeraude</Ligne>
+      <CodePostal>35730</CodePostal>
+      <NomCommune>Pleurtuit</NomCommune>
+      <Localisation>
+         <Latitude>48.61233</Latitude>
+         <Longitude>-2.06419</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 57 11 01 13</Téléphone>
+      <Email>france.services@cote-emeraude.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

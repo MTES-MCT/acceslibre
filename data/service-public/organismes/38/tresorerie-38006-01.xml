@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-38006-01" codeInsee="38006" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie d'Allevard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 avenue Louaraz</Ligne>
+      <CodePostal>38580</CodePostal>
+      <NomCommune>Allevard</NomCommune>
+      <Localisation>
+         <Latitude>45.393653</Latitude>
+         <Longitude>6.072053</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 97 51 14</Téléphone>
+      <Email>t038002@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

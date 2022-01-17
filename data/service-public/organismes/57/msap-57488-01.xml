@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-57488-01" codeInsee="57488" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Moussey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue Tomas-Bata</Ligne>
+      <CodePostal>57770</CodePostal>
+      <NomCommune>Moussey</NomCommune>
+      <Localisation>
+         <Latitude>48.688243</Latitude>
+         <Longitude>6.803272</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 07 42 02</Téléphone>
+      <Email>m.thomas@cc-sms.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

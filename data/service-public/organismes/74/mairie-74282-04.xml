@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74282-04" codeInsee="74282" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Les Ollières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Ollières</Ligne>
+      <Ligne>1 route du Praz</Ligne>
+      <CodePostal>74370</CodePostal>
+      <NomCommune>Fillière</NomCommune>
+      <Localisation>
+         <Latitude>45.9676703</Latitude>
+         <Longitude>6.1716723</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 60 31 59</Téléphone>
+      <Télécopie>04 50 60 83 56</Télécopie>
+      <Email>accueil.les-ollieres@commune-filliere.fr</Email>
+      <Url>http://www.commune-filliere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

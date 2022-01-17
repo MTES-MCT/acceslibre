@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23042-01" codeInsee="23042" dateMiseAJour="2016-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ceyroux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>23210</CodePostal>
+      <NomCommune>Ceyroux</NomCommune>
+      <Localisation>
+         <Latitude>46.0938987732</Latitude>
+         <Longitude>1.67569994926</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 62 02 05</Téléphone>
+      <Télécopie>05 55 62 02 05</Télécopie>
+      <Email>mairie.ceyroux@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

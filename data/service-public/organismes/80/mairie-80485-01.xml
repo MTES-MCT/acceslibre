@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80485-01" codeInsee="80485" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ô-de-Selle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de la Fontaine</Ligne>
+      <CodePostal>80160</CodePostal>
+      <NomCommune>Ô-de-Selle</NomCommune>
+      <Localisation>
+         <Latitude>49.7762985229</Latitude>
+         <Longitude>2.16869997978</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 38 15 90</Téléphone>
+      <Email>contact@odeselle.fr</Email>
+      <Url>http://www.mairie-loeuilly.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

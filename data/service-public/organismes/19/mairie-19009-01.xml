@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19009-01" codeInsee="19009" dateMiseAJour="2017-03-31"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Angles-sur-Corrèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>19000</CodePostal>
+      <NomCommune>Les Angles-sur-Corrèze</NomCommune>
+      <Localisation>
+         <Latitude>45.3099822998</Latitude>
+         <Longitude>1.79706096649</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 26 66 45</Téléphone>
+      <Télécopie>05 55 26 66 45</Télécopie>
+      <Email>les-angles-sur-correze@mairie19.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:15:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:15:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

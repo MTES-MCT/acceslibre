@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31133-01" codeInsee="31133" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cazeaux-de-Larboust</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'École</Ligne>
+      <CodePostal>31110</CodePostal>
+      <NomCommune>Cazeaux-de-Larboust</NomCommune>
+      <Localisation>
+         <Latitude>42.745509</Latitude>
+         <Longitude>0.563565</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 79 43 01</Téléphone>
+      <Télécopie>05 61 79 43 01</Télécopie>
+      <Email>mairiecazeauxdelarboust@wanadoo.fr</Email>
+      <Url>https://cazeauxdelarboust.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

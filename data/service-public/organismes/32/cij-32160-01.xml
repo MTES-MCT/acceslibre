@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-32160-01" codeInsee="32160" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - L'Isle-Jourdain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité de la Vierge</Ligne>
+      <CodePostal>32600</CodePostal>
+      <NomCommune>L'Isle-Jourdain</NomCommune>
+      <Localisation>
+         <Latitude>43.6138369</Latitude>
+         <Longitude>1.081741</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 07 70 41</Téléphone>
+      <Email>dir-csefj32@wanadoo.fr</Email>
+      <Url>http://www.social-islejourdain.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="11:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

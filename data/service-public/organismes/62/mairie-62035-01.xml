@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62035-01" codeInsee="62035" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Annezin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-de-Gaulle</Ligne>
+      <Ligne>BP 49</Ligne>
+      <CodePostal>62232</CodePostal>
+      <NomCommune>Annezin</NomCommune>
+      <Localisation>
+         <Latitude>50.5237007141</Latitude>
+         <Longitude>2.60411000252</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 57 18 33</Téléphone>
+      <Télécopie>03 21 56 46 01</Télécopie>
+      <Email>mairie.annezin@yahoo.fr</Email>
+      <Url>http://www.mairie-annezin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Durant la crise sanitaire, l’accueil est ouvert du lundi au vendredi de 9h à 12h et de 14h à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

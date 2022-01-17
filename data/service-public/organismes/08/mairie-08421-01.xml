@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08421-01" codeInsee="08421" dateMiseAJour="2017-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Signy-Montlibert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grande rue</Ligne>
+      <CodePostal>08370</CodePostal>
+      <NomCommune>Signy-Montlibert</NomCommune>
+      <Localisation>
+         <Latitude>49.579039</Latitude>
+         <Longitude>5.301243</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 26 71 13</Téléphone>
+      <Email>mairie-signy-montlibert@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

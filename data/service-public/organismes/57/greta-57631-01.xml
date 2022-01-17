@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-57631-01" codeInsee="57631" dateMiseAJour="2021-11-24"
+           pivotLocal="greta">
+   <Nom>Greta Lorraine Est - Siège de Sarreguemines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 rue du Champ de Mars</Ligne>
+      <Ligne>BP 61165</Ligne>
+      <CodePostal>57215</CodePostal>
+      <NomCommune>Sarreguemines cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1148039</Latitude>
+         <Longitude>7.0808297</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 98 96 00</Téléphone>
+      <Télécopie>03 87 95 12 70</Télécopie>
+      <Email>greta-lorraine-est@ac-nancy-metz.fr</Email>
+      <Url>https://www.greta-lorraine-est.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

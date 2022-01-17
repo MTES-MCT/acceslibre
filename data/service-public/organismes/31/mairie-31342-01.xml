@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31342-01" codeInsee="31342" dateMiseAJour="2021-11-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Milhas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de Paloumère</Ligne>
+      <CodePostal>31160</CodePostal>
+      <NomCommune>Milhas</NomCommune>
+      <Localisation>
+         <Latitude>42.9880561829</Latitude>
+         <Longitude>0.80654001236</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">possibilité qu'un agent descende pour accueillir l'usager au rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 88 51 81</Téléphone>
+      <Télécopie>09 85 75 41 09</Télécopie>
+      <Email>commune-de-milhas@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

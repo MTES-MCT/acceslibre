@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01227-02" codeInsee="01227" dateMiseAJour="2020-05-07"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Champ</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Champ</Ligne>
+      <Ligne>2 la Palotière</Ligne>
+      <CodePostal>01300</CodePostal>
+      <NomCommune>Magnieu</NomCommune>
+      <Localisation>
+         <Latitude>45.7746489</Latitude>
+         <Longitude>5.738138</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 42 16 69</Téléphone>
+      <Email>mairie.st.champ@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le 1er janvier 2019, la commune nouvelle de Magnieu est créée en lieu et place des communes de Magnieu et de Saint-Champ (canton de Belley, arrondissement de Belley)</Commentaire>
+</Organisme>

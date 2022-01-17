@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26168-01" codeInsee="26168" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lus-la-Croix-Haute</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>26620</CodePostal>
+      <NomCommune>Lus-la-Croix-Haute</NomCommune>
+      <Localisation>
+         <Latitude>44.665318</Latitude>
+         <Longitude>5.705256</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 58 50 39</Téléphone>
+      <Télécopie>04 92 58 50 39</Télécopie>
+      <Email>mairie.luslacroixhaute@orange.fr</Email>
+      <Url>http://www.lus-la-croix-haute.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 3e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

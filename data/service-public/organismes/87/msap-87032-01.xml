@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-87032-01" codeInsee="87032" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Châlus</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté de communes Pays de Nexon Monts de Châlus</Ligne>
+      <Ligne>28 avenue François-Mitterrand</Ligne>
+      <CodePostal>87230</CodePostal>
+      <NomCommune>Châlus</NomCommune>
+      <Localisation>
+         <Latitude>45.651402</Latitude>
+         <Longitude>0.980665</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 19 09 00 04</Téléphone>
+      <Email>franceservices@paysdenexon-montsdechalus.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

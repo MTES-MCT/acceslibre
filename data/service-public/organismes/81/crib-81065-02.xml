@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-81065-02" codeInsee="81065" dateMiseAJour="2021-08-03"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d’information des bénévoles (CRIB) - Université pour tous du Tarn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des associations</Ligne>
+      <Ligne>Place du 1er mai</Ligne>
+      <CodePostal>81100</CodePostal>
+      <NomCommune>Castres</NomCommune>
+      <Localisation>
+         <Latitude>43.606214</Latitude>
+         <Longitude>2.241295</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 50 12 99</Téléphone>
+      <Email>contact@universitepourtous81.fr</Email>
+      <Url>https://www.universitepourtous81.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

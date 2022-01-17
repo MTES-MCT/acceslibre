@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-63113-01" codeInsee="63113" dateMiseAJour="2020-05-25" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) -  Clermont-Ferrand (pour les départements 03, 15, 43, 63)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Auger</Ligne>
+      <Ligne>BP 106</Ligne>
+      <CodePostal>63035</CodePostal>
+      <NomCommune>Clermont-Ferrand Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.7838382</Latitude>
+         <Longitude>3.1091439</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csn-clermont.jdc.fct@intradef.gouv.fr</Email>
+      <Url>https://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="15:30:00"/>
+         <Note>Accueil téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:15:00" fin="16:15:00"/>
+         <Note>Accueil téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

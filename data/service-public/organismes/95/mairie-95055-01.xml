@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95055-01" codeInsee="95055" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bellefontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Sablons</Ligne>
+      <CodePostal>95270</CodePostal>
+      <NomCommune>Bellefontaine</NomCommune>
+      <Localisation>
+         <Latitude>49.0978012085</Latitude>
+         <Longitude>2.46606993675</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 71 01 76</Téléphone>
+      <Email>mairiesecretariat@bellefontaine.fr</Email>
+      <Url>http://www.bellefontaine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-33240-01" codeInsee="33240" dateMiseAJour="2022-01-04" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Lesparre-Médoc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue Abbé Bergey</Ligne>
+      <CodePostal>33341</CodePostal>
+      <NomCommune>Lesparre-Médoc Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.301519</Latitude>
+         <Longitude>-0.929548</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 41 88 03</Téléphone>
+      <Télécopie>05 56 41 88 63</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="16:15:00"/>
+         <Note>sur rendez-vous de 13h45 à 16h15</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <Note>Fermé le mardi après-midi</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="16:15:00"/>
+         <Note>Sur rendez-vous de 13h45 à 16h15</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <Note>Fermé le jeudi après-midi</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="16:15:00"/>
+         <Note>Sur rendez-vous de 13h45 à 16h15.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

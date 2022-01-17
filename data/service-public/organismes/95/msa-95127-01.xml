@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-95127-01" codeInsee="95127" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Île-de-France - accueil de Cergy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Immeuble Ordinal</Ligne>
+      <Ligne>Rue des Chauffours</Ligne>
+      <CodePostal>95000</CodePostal>
+      <NomCommune>Cergy</NomCommune>
+      <Localisation>
+         <Latitude>49.041479649840994</Latitude>
+         <Longitude>2.0780477930214873</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole Île-de-France</Ligne>
+      <CodePostal>75691</CodePostal>
+      <NomCommune>Paris Cedex 14</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 63 88 80</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Les mardis et les jeudis sont exclusivement réservés aux rendez-vous via le téléservice "Demande de rendez-vous" disponible dans votre espace privé.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

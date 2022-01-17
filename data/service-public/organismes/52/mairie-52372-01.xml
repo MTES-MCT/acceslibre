@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52372-01" codeInsee="52372" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Outremécourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Grande-Cour</Ligne>
+      <CodePostal>52150</CodePostal>
+      <NomCommune>Outremécourt</NomCommune>
+      <Localisation>
+         <Latitude>48.2234840393</Latitude>
+         <Longitude>5.68349790573</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 01 73 43</Téléphone>
+      <Email>mairie.outremecourt@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

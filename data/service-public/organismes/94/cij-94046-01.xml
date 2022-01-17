@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-94046-01" codeInsee="94046" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Maisons-Alfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 bis avenue de la République</Ligne>
+      <CodePostal>94700</CodePostal>
+      <NomCommune>Maisons-Alfort</NomCommune>
+      <Localisation>
+         <Latitude>48.8059974</Latitude>
+         <Longitude>2.4416606</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">élévateur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 77 80 38</Téléphone>
+      <Email>info.j@bij-maisons-alfort.com</Email>
+      <Url>http://www.bij-maisons-alfort.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-52250-01" codeInsee="52250" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Joinville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>39 avenue de la Marne</Ligne>
+      <CodePostal>52300</CodePostal>
+      <NomCommune>Joinville</NomCommune>
+      <Localisation>
+         <Latitude>48.4491004944</Latitude>
+         <Longitude>5.14475011826</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 94 18 86</Téléphone>
+      <Télécopie>03 25 94 38 83</Télécopie>
+      <Url>http://www.haute-marne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la période de la crise sanitaire, accueil ouvert de 9h à 12h et de 14h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04025-01" codeInsee="04025" dateMiseAJour="2021-07-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beauvezer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>04370</CodePostal>
+      <NomCommune>Beauvezer</NomCommune>
+      <Localisation>
+         <Latitude>44.143249</Latitude>
+         <Longitude>6.591834</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 83 40 61</Téléphone>
+      <Télécopie>04 92 83 44 64</Télécopie>
+      <Email>mairie@beauvezer.fr</Email>
+      <Url>https://www.beauvezer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

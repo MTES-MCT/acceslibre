@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-38185-01" codeInsee="38185"
+           dateMiseAJour="2019-05-15"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale  (DSDEN) - Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Joseph-Chanrion</Ligne>
+      <Ligne>Cité administrative - Bâtiment 1</Ligne>
+      <CodePostal>38032</CodePostal>
+      <NomCommune>Grenoble Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.191864</Latitude>
+         <Longitude>5.735178</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 74 79 79</Téléphone>
+      <Télécopie>04 76 74 79 95</Télécopie>
+      <Email>ce.dsden38@ac-grenoble.fr</Email>
+      <Url>http://www.ac-grenoble.fr/ia38/siteiaspip/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

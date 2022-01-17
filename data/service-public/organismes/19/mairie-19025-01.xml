@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19025-01" codeInsee="19025" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beyssenac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>19230</CodePostal>
+      <NomCommune>Beyssenac</NomCommune>
+      <Localisation>
+         <Latitude>45.4041748047</Latitude>
+         <Longitude>1.28553795815</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 73 31 77</Téléphone>
+      <Télécopie>05 55 73 97 21</Télécopie>
+      <Email>mairie@beyssenac.com</Email>
+      <Url>http://www.beyssenac.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

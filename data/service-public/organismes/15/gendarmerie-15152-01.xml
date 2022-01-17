@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie-15152-01" codeInsee="15152" dateMiseAJour="2020-07-09"
+           pivotLocal="gendarmerie"
+           idPresta="1009693">
+   <Nom>Brigade de gendarmerie - Pierrefort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Rue de Bellevue</Ligne>
+      <CodePostal>15230</CodePostal>
+      <NomCommune>Pierrefort</NomCommune>
+      <Localisation>
+         <Latitude>44.92454351</Latitude>
+         <Longitude>2.83945509</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 23 30 15</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>hors cas de dépôt de plainte</Commentaire>
+</Organisme>

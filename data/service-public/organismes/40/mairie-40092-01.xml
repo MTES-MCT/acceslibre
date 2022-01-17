@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40092-01" codeInsee="40092" dateMiseAJour="2021-02-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dumes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>100 rue de l'Église</Ligne>
+      <CodePostal>40500</CodePostal>
+      <NomCommune>Dumes</NomCommune>
+      <Localisation>
+         <Latitude>43.706428</Latitude>
+         <Longitude>-0.58091</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 76 12 96</Téléphone>
+      <Email>mairie@dumes.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="07:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

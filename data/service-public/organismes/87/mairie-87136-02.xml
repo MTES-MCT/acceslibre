@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87136-02" codeInsee="87136" dateMiseAJour="2019-04-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Barbant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Barbant</Ligne>
+      <Ligne>9 rue Principale</Ligne>
+      <CodePostal>87330</CodePostal>
+      <NomCommune>Val-d'Oire-et-Gartempe</NomCommune>
+      <Localisation>
+         <Latitude>46.171967</Latitude>
+         <Longitude>0.849294</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 68 32 14</Téléphone>
+      <Télécopie>05 55 68 33 61</Télécopie>
+      <Email>communedesaintbarbant@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>A compter du 1er janvier 2019, la commune nouvelle de Val-d'Oire-et-Gartempe est créée en lieu et place des communes de Bussière-Poitevine, de Saint-Barbant, de Darnac et de Thiat (canton de Bellac pour Bussière-Poitevine et Saint-Barbant et canton de Châteauponsac pour Darnac et Thiat, arrondissement de Bellac).</Commentaire>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74049-01" codeInsee="74049" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brison</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>67 allée de la Mairie</Ligne>
+      <CodePostal>74130</CodePostal>
+      <NomCommune>Brison</NomCommune>
+      <Localisation>
+         <Latitude>46.049217</Latitude>
+         <Longitude>6.445168</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">contacter l'accueil, un agent peut se déplacer à domicile</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 96 91 61</Téléphone>
+      <Email>mairie@mairie-brison.fr</Email>
+      <Url>http://www.mairie-brison.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38468-01" codeInsee="38468" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Salaise-sur-Sanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 rue Avit-Nicolas</Ligne>
+      <Ligne>BP 20318</Ligne>
+      <CodePostal>38150</CodePostal>
+      <NomCommune>Salaise-sur-Sanne</NomCommune>
+      <Localisation>
+         <Latitude>45.3443411</Latitude>
+         <Longitude>4.8185753</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 29 00 80</Téléphone>
+      <Télécopie>04 74 86 52 02</Télécopie>
+      <Email>secretariat@mairie-salaise-sur-sanne.fr</Email>
+      <Url>http://www.mairie-salaise-sur-sanne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

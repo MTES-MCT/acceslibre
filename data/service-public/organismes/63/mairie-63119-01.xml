@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63119-01" codeInsee="63119" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Condat-lès-Montboissier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 place de la Mairie</Ligne>
+      <CodePostal>63490</CodePostal>
+      <NomCommune>Condat-lès-Montboissier</NomCommune>
+      <Localisation>
+         <Latitude>45.5498123169</Latitude>
+         <Longitude>3.4981379509</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 72 10 19</Téléphone>
+      <Email>condat-les-montboissier.mairie@wanadoo.fr</Email>
+      <Url>http://www.condat-les-montboissier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

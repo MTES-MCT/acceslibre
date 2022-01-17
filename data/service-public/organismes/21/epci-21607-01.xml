@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-21607-01" codeInsee="21607" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Rives de Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 bis Grande rue du Faubourg-Saint-Michel</Ligne>
+      <Ligne>BP 67</Ligne>
+      <CodePostal>21250</CodePostal>
+      <NomCommune>Seurre</NomCommune>
+      <Localisation>
+         <Latitude>47.0002046</Latitude>
+         <Longitude>5.150434</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 20 48 54</Téléphone>
+      <Télécopie>03 80 20 89 39</Télécopie>
+      <Email>secretariat@rivesdesaone.fr</Email>
+      <Url>http://www.rivesdesaone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

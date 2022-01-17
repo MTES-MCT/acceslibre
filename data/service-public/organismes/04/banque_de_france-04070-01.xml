@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-04070-01" codeInsee="04070" dateMiseAJour="2021-08-24"
+           pivotLocal="banque_de_france">
+   <Nom>Banque de France - Succursale départementale Alpes de Haute-Provence - Digne-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble La Source</Ligne>
+      <Ligne>1 rue du Trélus</Ligne>
+      <CodePostal>04000</CodePostal>
+      <NomCommune>Digne-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>44.089906</Latitude>
+         <Longitude>6.238738</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique au 0811 901 801 du lundi au vendredi de 8h à 18h. Tarif 5 cts d'euro par mn plus le prix d'un appel. Informations générales sur la réglementation bancaire, le crédit, le surendettement -commission de surendettement : dépôt de dossier, suivi et information-, les fichiers d'incidents de paiement et le droit au compte.">04 92 36 70 30</Téléphone>
+      <Url>https://accueil.banque-france.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous : au 04 92 36 70 44 ou en ligne sur https://accueil.banque-france.fr</Commentaire>
+</Organisme>

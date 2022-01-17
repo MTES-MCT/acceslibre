@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-73181-01" codeInsee="73181" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Moûtiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de Tarentaise Vanoise</Ligne>
+      <Ligne>159 rue de la Chaudanne</Ligne>
+      <CodePostal>73600</CodePostal>
+      <NomCommune>Moûtiers</NomCommune>
+      <Localisation>
+         <Latitude>45.488436</Latitude>
+         <Longitude>6.528652</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 24 73 77</Téléphone>
+      <Télécopie>04 79 24 76 70</Télécopie>
+      <Url>http://www.savoie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

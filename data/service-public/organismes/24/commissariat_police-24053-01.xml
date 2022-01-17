@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-24053-01" codeInsee="24053" dateMiseAJour="2017-06-13"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Boulazac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Agora</Ligne>
+      <CodePostal>24000</CodePostal>
+      <NomCommune>Boulazac</NomCommune>
+      <Localisation>
+         <Latitude>45.180548</Latitude>
+         <Longitude>0.768949</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">05 53 35 16 41</Téléphone>
+      <Télécopie>05 53 09 53 58</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:30:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

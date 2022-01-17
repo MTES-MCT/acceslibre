@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-51108-01" codeInsee="51108" dateMiseAJour="2019-02-21"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Châlons-en-Champagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Perrot d'ablancourt</Ligne>
+      <Ligne>Maison de l'Avocat</Ligne>
+      <CodePostal>51000</CodePostal>
+      <NomCommune>Châlons-en-Champagne</NomCommune>
+      <Localisation>
+         <Latitude>48.959064</Latitude>
+         <Longitude>4.362556</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 68 08 08</Téléphone>
+      <Télécopie>03 26 68 40 80</Télécopie>
+      <Email>contact@barreau-chalons.fr</Email>
+      <Url>https://www.barreau-chalons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

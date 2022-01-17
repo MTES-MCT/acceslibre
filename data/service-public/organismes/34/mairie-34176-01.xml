@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34176-01" codeInsee="34176" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mudaison</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la République</Ligne>
+      <CodePostal>34130</CodePostal>
+      <NomCommune>Mudaison</NomCommune>
+      <Localisation>
+         <Latitude>43.6490593</Latitude>
+         <Longitude>4.041344</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 70 34 30</Téléphone>
+      <Télécopie>04 67 87 39 20</Télécopie>
+      <Email>contact@mudaison.com</Email>
+      <Url>http://www.mudaison.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

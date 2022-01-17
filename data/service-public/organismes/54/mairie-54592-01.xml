@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54592-01" codeInsee="54592" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vroncourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 Grande rue</Ligne>
+      <CodePostal>54330</CodePostal>
+      <NomCommune>Vroncourt</NomCommune>
+      <Localisation>
+         <Latitude>48.4647728</Latitude>
+         <Longitude>6.0800832</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 26 27 29</Téléphone>
+      <Email>mairiedevroncourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="11:00:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

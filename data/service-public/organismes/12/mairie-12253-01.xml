@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12253-01" codeInsee="12253" dateMiseAJour="2021-11-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Salles-Curan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>12410</CodePostal>
+      <NomCommune>Salles-Curan</NomCommune>
+      <Localisation>
+         <Latitude>44.1819000244</Latitude>
+         <Longitude>2.78937005997</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenceur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 46 35 21</Téléphone>
+      <Email>contact@salles-curan.fr</Email>
+      <Url>http://www.salles-curan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

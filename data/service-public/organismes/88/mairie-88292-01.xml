@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88292-01" codeInsee="88292" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mattaincourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Notre-Dame</Ligne>
+      <Ligne>BP 2</Ligne>
+      <CodePostal>88500</CodePostal>
+      <NomCommune>Mattaincourt</NomCommune>
+      <Localisation>
+         <Latitude>48.2811012268</Latitude>
+         <Longitude>6.1318898201</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par l'arrière de la mairie</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 37 00 68</Téléphone>
+      <Télécopie>03 29 37 39 64</Télécopie>
+      <Email>mattaincourt@wanadoo.fr</Email>
+      <Url>http://www.mattaincourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

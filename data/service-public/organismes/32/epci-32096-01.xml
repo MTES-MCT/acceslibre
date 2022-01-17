@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-32096-01" codeInsee="32096" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Grand Armagnac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 allée Julien-Laudet</Ligne>
+      <CodePostal>32800</CodePostal>
+      <NomCommune>Éauze</NomCommune>
+      <Localisation>
+         <Latitude>43.8604228</Latitude>
+         <Longitude>0.1099438</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 08 78 22</Téléphone>
+      <Télécopie>05 62 08 46 82</Télécopie>
+      <Email>dgs@grand-armagnac.fr</Email>
+      <Url>http://www.grandarmagnac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

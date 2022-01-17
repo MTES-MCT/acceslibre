@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-81004-01" codeInsee="81004" dateMiseAJour="2020-06-10"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Tarn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale des territoires du Tarn</Ligne>
+      <Ligne>19 rue de Ciron</Ligne>
+      <CodePostal>81013</CodePostal>
+      <NomCommune>Albi Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.9239006042</Latitude>
+         <Longitude>2.14028000832</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 81 27 50 02</Téléphone>
+      <Télécopie>05 81 27 50 06</Télécopie>
+      <Email>annah.balhi.plhvc.schat.ddt-81@equipement-agricultutre.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:15:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

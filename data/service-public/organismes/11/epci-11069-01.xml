@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-11069-01" codeInsee="11069" dateMiseAJour="2020-11-18"
+           pivotLocal="epci">
+   <Nom>Agglomération - Carcassonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Pierre-Germain</Ligne>
+      <CodePostal>11890</CodePostal>
+      <NomCommune>Carcassonne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.2131929</Latitude>
+         <Longitude>2.3580898</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 10 56 00</Téléphone>
+      <Télécopie>04 68 47 81 60</Télécopie>
+      <Email>https://www.carcassonne-agglo.fr/fr/contact.html</Email>
+      <Url>http://www.carcassonne-agglo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

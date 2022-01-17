@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-36044-01" codeInsee="36044" dateMiseAJour="2022-01-04" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Châteauroux-Nord Indre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 bis rue du 14e-Régiment-des-Tirailleurs-Algériens</Ligne>
+      <Ligne>BP 597</Ligne>
+      <CodePostal>36019</CodePostal>
+      <NomCommune>Châteauroux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.8063574</Latitude>
+         <Longitude>1.6887109</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 53 16 36</Téléphone>
+      <Email>sip.chateauroux@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>lundi - mardi - jeudi après-midi : sur RV uniquement de 13h30 à 16h00
+Fermé au public le mercredi après-midi et vendredi après-midi .Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

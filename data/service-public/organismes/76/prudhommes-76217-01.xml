@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="76217" dateMiseAJour="2021-12-14" id="prudhommes-76217-01" idPresta="4cac9ed6293594648a00ed76" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Dieppe</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>54 RUE DU FAUBOURG DE LA BARRE</Ligne>
+        <CodePostal>76201</CodePostal>
+        <NomCommune>DIEPPE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.92238</Latitude>
+            <Longitude>1.070261</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>54 RUE DU FAUBOURG DE LA BARRE</Ligne>
+        <CodePostal>76201</CodePostal>
+        <NomCommune>DIEPPE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 35 84 32 91</Téléphone>
+        <Télécopie>02 35 84 62 58</Télécopie>
+        <Email>mailto:cph-dieppe@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-65440-01" codeInsee="65440" dateMiseAJour="2017-06-13"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Tarbes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28-30 rue Georges-Clemenceau</Ligne>
+      <CodePostal>65000</CodePostal>
+      <NomCommune>Tarbes</NomCommune>
+      <Localisation>
+         <Latitude>43.2335186</Latitude>
+         <Longitude>0.0768099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">05 62 44 31 31</Téléphone>
+      <Télécopie>05 62 44 11 46</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

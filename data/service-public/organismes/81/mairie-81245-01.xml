@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81245-01" codeInsee="81245" dateMiseAJour="2021-11-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Christophe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 Place du 27 août 1876</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>81190</CodePostal>
+      <NomCommune>Saint-Christophe</NomCommune>
+      <Localisation>
+         <Latitude>44.152077</Latitude>
+         <Longitude>2.048249</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">pente inclinée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 76 92 50</Téléphone>
+      <Email>saintchristophe.mairie@orange.fr</Email>
+      <Url>https://saint-christophe-tarn.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

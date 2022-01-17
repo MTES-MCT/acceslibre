@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cidf-54329-01" codeInsee="54329" dateMiseAJour="2021-06-07"
+           pivotLocal="cidf">
+   <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Meurthe-et-Moselle - Lunéville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue René-Basset</Ligne>
+      <CodePostal>54300</CodePostal>
+      <NomCommune>Lunéville</NomCommune>
+      <Localisation>
+         <Latitude>48.592044</Latitude>
+         <Longitude>6.49608799999999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 74 21 07</Téléphone>
+      <Email>secretariat@cidff-luneville.fr</Email>
+      <Url>http://meurtheetmoselle-luneville.cidff.info</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

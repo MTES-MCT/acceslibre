@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18073-02" codeInsee="18073" dateMiseAJour="2019-04-11"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Sainte-Lunaise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sainte-lunaise</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>18340</CodePostal>
+      <NomCommune>Corquoy</NomCommune>
+      <Localisation>
+         <Latitude>46.920501</Latitude>
+         <Longitude>2.349392</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 25 33 09</Téléphone>
+      <Email>sainte-lunaise@nordnet.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>A compter du 1er janvier 2019, la commune nouvelle de Corquoy est créée en lieu et place des communes de Corquoy et de Sainte-Lunaise (canton de Trouy, arrondissement de Saint-Amand-Montrond).</Commentaire>
+</Organisme>

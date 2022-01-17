@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-85092-01" codeInsee="85092" dateMiseAJour="2020-11-24" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Fontenay-le-Comte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Marcel-Henri</Ligne>
+      <Ligne>BP 81</Ligne>
+      <CodePostal>85202</CodePostal>
+      <NomCommune>Fontenay-le-Comte Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.465972</Latitude>
+         <Longitude>-0.8065</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 50 11 11</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Exclusivement sur rendez-vous de 13h30 à 16h15</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Exclusivement sur rendez-vous de 13h30 à 16h15</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69179-02" codeInsee="69179" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beauvallon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chassagny</Ligne>
+      <Ligne>360 route de la Chaudane</Ligne>
+      <CodePostal>69700</CodePostal>
+      <NomCommune>Beauvallon</NomCommune>
+      <Localisation>
+         <Latitude>45.6282997131</Latitude>
+         <Longitude>4.74422979355</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 48 75 35</Téléphone>
+      <Télécopie>04 78 48 70 04</Télécopie>
+      <Email>accueil.chassagny@beauvallon69.fr</Email>
+      <Url>http://www.beauvallon69.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

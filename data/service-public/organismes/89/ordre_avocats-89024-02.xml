@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-89024-02" codeInsee="89024" dateMiseAJour="2019-02-19"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau d'Auxerre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Palais de justice</Ligne>
+      <CodePostal>89000</CodePostal>
+      <NomCommune>Auxerre</NomCommune>
+      <Localisation>
+         <Latitude>47.798388</Latitude>
+         <Longitude>3.568161</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 52 06 07</Téléphone>
+      <Télécopie>03 86 51 29 01</Télécopie>
+      <Email>ordre-des-avocats89@orange.fr</Email>
+      <Url>http://www.avocats-auxerre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

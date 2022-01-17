@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85103-01" codeInsee="85103" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grosbreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Mairie</Ligne>
+      <CodePostal>85440</CodePostal>
+      <NomCommune>Grosbreuil</NomCommune>
+      <Localisation>
+         <Latitude>46.5456008911</Latitude>
+         <Longitude>-1.67172002792</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 22 69 75</Téléphone>
+      <Email>mairie.grosbreuil@wanadoo.fr</Email>
+      <Url>http://www.grosbreuil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

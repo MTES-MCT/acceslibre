@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-97411-02" codeInsee="97411" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de La Réunion - accueil de La Montagne 15e - Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Mairie annexe</Ligne>
+      <Ligne>87 chemin du Père-Raimbault</Ligne>
+      <CodePostal>97417</CodePostal>
+      <NomCommune>La Montagne</NomCommune>
+      <Localisation>
+         <Latitude>-20.882057</Latitude>
+         <Longitude>55.450675</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de La Réunion</Ligne>
+      <Ligne>412 rue Fleur-de-Jade</Ligne>
+      <Ligne>CS 61038</Ligne>
+      <CodePostal>97833</CodePostal>
+      <NomCommune>Sainte-Marie Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+         <Note>Sur rendez-vous, accueil téléphonique du lundi au jeudi de 8h à 15h30 et le vendredi du 8h à 13h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

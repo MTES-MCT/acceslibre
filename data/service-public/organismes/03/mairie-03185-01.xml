@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03185-01" codeInsee="03185" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montluçon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Esplanade Georges-Pompidou</Ligne>
+      <Ligne>1 rue des Conches</Ligne>
+      <Ligne>CS 13249</Ligne>
+      <CodePostal>03106</CodePostal>
+      <NomCommune>Montluçon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.3431454</Latitude>
+         <Longitude>2.6055073</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 02 55 00</Téléphone>
+      <Télécopie>04 70 02 55 19</Télécopie>
+      <Email>contact@mairie-montlucon.fr</Email>
+      <Url>http://www.montlucon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil physique du lundi au vendredi de 9h à 12h et de 13h à 16h sur rendez-vous uniquement et accueil téléphonique du lundi au vendredi de 8h15 à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24372-01" codeInsee="24372" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Astier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue Jules-Ferry</Ligne>
+      <Ligne>BP 75</Ligne>
+      <CodePostal>24110</CodePostal>
+      <NomCommune>Saint-Astier</NomCommune>
+      <Localisation>
+         <Latitude>45.1452</Latitude>
+         <Longitude>0.527741</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 02 42 80</Téléphone>
+      <Email>mairie@saint-astier.fr</Email>
+      <Url>http://www.saint-astier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement du lundi au vendredi de 9h30 à 12h et de 14h à 16h30 pour les titres d'identité.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour la permanence de l'état civil et pour les passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

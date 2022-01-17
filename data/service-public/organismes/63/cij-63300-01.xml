@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-63300-01" codeInsee="63300" dateMiseAJour="2021-11-22" pivotLocal="cij">
+   <Nom>Point information jeunesse - Riom</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place Saint-Jean</Ligne>
+      <Ligne>RLV Info Jeunes</Ligne>
+      <CodePostal>63200</CodePostal>
+      <NomCommune>Riom</NomCommune>
+      <Localisation>
+         <Latitude>45.893847</Latitude>
+         <Longitude>3.112129</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 64 16 12</Téléphone>
+      <Email>infojeunes@rlv.eu</Email>
+      <Url>https://www.rlv.eu/grandir/enfance-jeunesse/rlv-info-jeunes.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

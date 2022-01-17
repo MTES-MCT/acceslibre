@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55029-01" codeInsee="55029" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bar-le-Duc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue Lapique</Ligne>
+      <Ligne>BP 60559</Ligne>
+      <CodePostal>55012</CodePostal>
+      <NomCommune>Bar-le-Duc Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7713012695</Latitude>
+         <Longitude>5.1620798111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 79 56 00</Téléphone>
+      <Télécopie>03 29 79 56 23</Télécopie>
+      <Email>communication@barleduc.fr</Email>
+      <Url>https://www.barleduc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>En juillet-août fermeture de l'accueil à 17h30 le lundi et à 12h le jeudi, pendant la crise sanitaire le service eau et assainissement reçoit sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

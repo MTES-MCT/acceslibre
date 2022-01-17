@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-55029-01" codeInsee="55029" dateMiseAJour="2020-12-28" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Bar-le-Duc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24, avenue du 94e-Régiment-d'Infanterie</Ligne>
+      <Ligne>BP 40611</Ligne>
+      <CodePostal>55013</CodePostal>
+      <NomCommune>Bar-le-Duc Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.766759</Latitude>
+         <Longitude>5.171232</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 79 48 55</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil avec ou sans rendez-vous. Fermé le mercredi. Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

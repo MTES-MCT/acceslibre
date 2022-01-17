@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-75113-01" codeInsee="75113" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Paris - Émeraude sud</Ligne>
+      <Ligne>20 rue de la Glacière</Ligne>
+      <CodePostal>75013</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.835962</Latitude>
+         <Longitude>2.345084</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 45 88 21 09</Téléphone>
+      <Télécopie>01 45 80 94 62</Télécopie>
+      <Email>contactparissud@clicparisemeraude.fr</Email>
+      <Url>http://www.paris.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="17:30:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

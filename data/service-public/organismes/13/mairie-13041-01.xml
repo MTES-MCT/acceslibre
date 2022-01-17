@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13041-01" codeInsee="13041" dateMiseAJour="2021-07-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gardanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cours de la République</Ligne>
+      <CodePostal>13120</CodePostal>
+      <NomCommune>Gardanne</NomCommune>
+      <Localisation>
+         <Latitude>43.455669</Latitude>
+         <Longitude>5.470649</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 51 79 00</Téléphone>
+      <Télécopie>04 42 51 79 37</Télécopie>
+      <Email>accueil@ville-gardanne.fr</Email>
+      <Url>http://www.ville-gardanne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

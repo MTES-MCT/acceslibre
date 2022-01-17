@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="60159" dateMiseAJour="2021-12-14" id="prudhommes-60159-01" idPresta="4cac9e5f293594648a0002bc" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Compiègne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 RUE DU DAHOMEY</Ligne>
+        <CodePostal>60200</CodePostal>
+        <NomCommune>COMPIEGNE</NomCommune>
+        <Localisation>
+            <Latitude>49.417928</Latitude>
+            <Longitude>2.829089</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 RUE DU DAHOMEY</Ligne>
+        <CodePostal>60200</CodePostal>
+        <NomCommune>COMPIEGNE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 60 45 60 00</Téléphone>
+        <Télécopie>03 44 40 34 40</Télécopie>
+        <Email>mailto:cph-compiegne@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:15:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

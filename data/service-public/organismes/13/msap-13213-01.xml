@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-13213-01" codeInsee="13213" dateMiseAJour="2020-12-21"
+           pivotLocal="msap">
+   <Nom>France Services - Marseille 13e - Malpassé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Oliviers C</Ligne>
+      <Ligne>57 avenue de Saint-Paul</Ligne>
+      <CodePostal>13013</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.32828</Latitude>
+         <Longitude>5.406634</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 66 05 87</Téléphone>
+      <Email>maisonservicesaupublicmalpasse@gmail.com</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/marseille-malpasse</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

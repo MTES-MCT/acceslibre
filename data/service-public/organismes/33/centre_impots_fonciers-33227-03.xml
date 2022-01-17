@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-33227-03" codeInsee="33227"
+           dateMiseAJour="2021-10-13"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Langon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques
+70 Crs du Général Leclerc</Ligne>
+      <CodePostal>33213</CodePostal>
+      <NomCommune>Langon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.55517</Latitude>
+         <Longitude>-0.24977</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 63 66 90</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous les lundi, mercredi et vendredi de 13h30 à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

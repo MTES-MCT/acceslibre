@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-60342-01" codeInsee="60342" dateMiseAJour="2021-11-15"
+           pivotLocal="msap">
+   <Nom>France Services - Laigneville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>1 rue de Nogent</Ligne>
+      <Ligne>La Vallée Dorée</Ligne>
+      <NomCommune>Laigneville</NomCommune>
+      <Localisation>
+         <Latitude>49.29101</Latitude>
+         <Longitude>2.4519</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 75 19 03 10</Téléphone>
+      <Email>franceservices@ccl-valleedoree.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

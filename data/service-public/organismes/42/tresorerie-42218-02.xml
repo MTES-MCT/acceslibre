@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-42218-02" codeInsee="42218" dateMiseAJour="2021-07-05"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Étienne Amendes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>BP 60515</Ligne>
+      <Ligne>12 rue Marcellin-Allard</Ligne>
+      <CodePostal>42007</CodePostal>
+      <NomCommune>Saint-Étienne Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.4366902</Latitude>
+         <Longitude>4.392543</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 43 46 70</Téléphone>
+      <Email>t042015@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.fr/tai</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

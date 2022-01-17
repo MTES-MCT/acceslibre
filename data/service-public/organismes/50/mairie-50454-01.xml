@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50454-01" codeInsee="50454" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Christophe-du-Foc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 village de l'Église</Ligne>
+      <CodePostal>50340</CodePostal>
+      <NomCommune>Saint-Christophe-du-Foc</NomCommune>
+      <Localisation>
+         <Latitude>49.5321747</Latitude>
+         <Longitude>-1.7201204</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 04 46 80</Téléphone>
+      <Télécopie>09 61 29 21 09</Télécopie>
+      <Email>mairie.stchristophedufoc@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

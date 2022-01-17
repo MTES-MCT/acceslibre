@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68020-01" codeInsee="68020" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bantzenheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>68490</CodePostal>
+      <NomCommune>Bantzenheim</NomCommune>
+      <Localisation>
+         <Latitude>47.8244018555</Latitude>
+         <Longitude>7.51470994949</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 26 04 21</Téléphone>
+      <Télécopie>03 89 26 28 27</Télécopie>
+      <Email>mairie-bantzenheim@wanadoo.fr</Email>
+      <Url>http://www.bantzenheim.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

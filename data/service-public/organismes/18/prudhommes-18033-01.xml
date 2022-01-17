@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="18033" dateMiseAJour="2021-12-14" id="prudhommes-18033-01" idPresta="4cac9e5f293594648a000216" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Bourges</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 PLACE HENRI MIRPIED</Ligne>
+        <CodePostal>18014</CodePostal>
+        <NomCommune>BOURGES CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.086254</Latitude>
+            <Longitude>2.392874</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 PLACE HENRI MIRPIED</Ligne>
+        <CodePostal>18014</CodePostal>
+        <NomCommune>BOURGES CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 48 23 01 20</Téléphone>
+        <Télécopie>02 48 69 06 85</Télécopie>
+        <Email>mailto:cph-bourges@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="11:45:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

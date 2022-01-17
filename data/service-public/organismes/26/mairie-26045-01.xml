@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26045-01" codeInsee="26045" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Bégude-de-Mazenc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>120 avenue Jean-Jaurès</Ligne>
+      <CodePostal>26160</CodePostal>
+      <NomCommune>La Bégude-de-Mazenc</NomCommune>
+      <Localisation>
+         <Latitude>44.5450134277</Latitude>
+         <Longitude>4.93518686295</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 46 21 22</Téléphone>
+      <Télécopie>04 75 46 28 08</Télécopie>
+      <Email>contact@bmazenc.fr</Email>
+      <Url>http://www.la-begude-de-mazenc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

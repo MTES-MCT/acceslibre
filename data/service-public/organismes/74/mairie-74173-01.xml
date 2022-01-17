@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74173-01" codeInsee="74173" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Megève</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Église</Ligne>
+      <Ligne>BP 23</Ligne>
+      <CodePostal>74120</CodePostal>
+      <NomCommune>Megève</NomCommune>
+      <Localisation>
+         <Latitude>45.8567008972</Latitude>
+         <Longitude>6.61799001694</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 93 29 29</Téléphone>
+      <Télécopie>04 50 93 07 79</Télécopie>
+      <Email>mairie.megeve@megeve.fr</Email>
+      <Url>http://www.megeve.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence de l'état-civil uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

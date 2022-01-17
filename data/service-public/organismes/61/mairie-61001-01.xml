@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61001-01" codeInsee="61001" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alençon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Maréchal-Foch</Ligne>
+      <Ligne>CS 50362</Ligne>
+      <CodePostal>61014</CodePostal>
+      <NomCommune>Alençon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.430111</Latitude>
+         <Longitude>0.0826102</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 32 40 00</Téléphone>
+      <Télécopie>02 33 32 13 22</Télécopie>
+      <Email>cabinet@ville-alencon.fr</Email>
+      <Url>http://www.ville-alencon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+         <Note>Journée continue le jeudi uniquement pour le service état civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-97422-01" codeInsee="97422" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Sud de La Réunion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>379 rue Hubert-Delisle</Ligne>
+      <Ligne>BP 437</Ligne>
+      <CodePostal>97430</CodePostal>
+      <NomCommune>Le Tampon</NomCommune>
+      <Localisation>
+         <Latitude>-21.2683013</Latitude>
+         <Longitude>55.5106302</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 57 97 77</Téléphone>
+      <Télécopie>+262 2 62 57 97 78</Télécopie>
+      <Email>contact@casud.re</Email>
+      <Url>http://www.casud.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

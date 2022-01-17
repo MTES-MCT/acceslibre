@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-29042-01" codeInsee="29042" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Presqu'île de Crozon Aulne Maritime</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZA de Kerdanvez</Ligne>
+      <Ligne>BP 25</Ligne>
+      <CodePostal>29160</CodePostal>
+      <NomCommune>Crozon</NomCommune>
+      <Localisation>
+         <Latitude>48.2460563</Latitude>
+         <Longitude>-4.4899641</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 27 24 76</Téléphone>
+      <Télécopie>02 98 16 00 71</Télécopie>
+      <Email>contact@comcom-crozon.bzh</Email>
+      <Url>http://www.comcom-crozon.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

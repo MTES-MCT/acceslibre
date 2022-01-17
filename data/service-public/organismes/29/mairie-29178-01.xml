@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29178-01" codeInsee="29178" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ploudalmézeau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place André-Colin</Ligne>
+      <Ligne>BP 16</Ligne>
+      <CodePostal>29830</CodePostal>
+      <NomCommune>Ploudalmézeau</NomCommune>
+      <Localisation>
+         <Latitude>48.5414009</Latitude>
+         <Longitude>-4.6578612</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 48 10 48</Téléphone>
+      <Télécopie>02 98 48 02 54</Télécopie>
+      <Email>accueil@ploudalmezeau.fr</Email>
+      <Url>http://www.ploudalmezeau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:15:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

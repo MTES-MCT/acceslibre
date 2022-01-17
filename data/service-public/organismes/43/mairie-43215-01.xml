@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43215-01" codeInsee="43215" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Paul-de-Tartas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Mairie</Ligne>
+      <CodePostal>43420</CodePostal>
+      <NomCommune>Saint-Paul-de-Tartas</NomCommune>
+      <Localisation>
+         <Latitude>44.802755</Latitude>
+         <Longitude>3.905207</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 00 81 44</Téléphone>
+      <Email>stpauldetartas@gmail.com</Email>
+      <Url>http://www.saint-paul-de-tartas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

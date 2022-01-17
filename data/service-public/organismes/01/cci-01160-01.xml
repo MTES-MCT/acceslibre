@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-01160-01" codeInsee="01160" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 01- Ain - Agence de Ferney-Voltaire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Le Jean-Baptiste Say</Ligne>
+      <Ligne>13B chemin du Levant</Ligne>
+      <CodePostal>01210</CodePostal>
+      <NomCommune>Ferney-Voltaire</NomCommune>
+      <Localisation>
+         <Latitude>46.26088420417269</Latitude>
+         <Longitude>6.114423299588795</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 42 64 64</Téléphone>
+      <Télécopie>04 50 40 84 91</Télécopie>
+      <Email>cci@ain.cci.fr</Email>
+      <Url>http://www.ain.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Fermeture à 16h le vendredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

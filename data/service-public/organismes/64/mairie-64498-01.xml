@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64498-01" codeInsee="64498" dateMiseAJour="2021-02-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vincent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place de l'Église</Ligne>
+      <CodePostal>64800</CodePostal>
+      <NomCommune>Saint-Vincent</NomCommune>
+      <Localisation>
+         <Latitude>43.1615833</Latitude>
+         <Longitude>-0.1494499</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 53 50 65</Téléphone>
+      <Email>comstvincent@cdg-64.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

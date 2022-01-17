@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80617-01" codeInsee="80617" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parvillers-le-Quesnoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grande rue</Ligne>
+      <CodePostal>80700</CodePostal>
+      <NomCommune>Parvillers-le-Quesnoy</NomCommune>
+      <Localisation>
+         <Latitude>49.7464337</Latitude>
+         <Longitude>2.7420767</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonner</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 87 05 51</Téléphone>
+      <Télécopie>03 22 87 05 51</Télécopie>
+      <Email>mairieparvillersquesnoy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

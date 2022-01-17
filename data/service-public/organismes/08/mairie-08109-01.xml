@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08109-01" codeInsee="08109" dateMiseAJour="2016-07-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chatel-Chéhéry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Laloy-Chenet</Ligne>
+      <CodePostal>08250</CodePostal>
+      <NomCommune>Chatel-Chéhéry</NomCommune>
+      <Localisation>
+         <Latitude>49.2818422</Latitude>
+         <Longitude>4.9539896</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 71 47 39</Téléphone>
+      <Télécopie>03 24 71 47 39</Télécopie>
+      <Email>mairie.chatelchehery@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

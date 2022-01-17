@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42269-01" codeInsee="42269" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Paul-d'Uzore</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>152 chemin de la Pierre</Ligne>
+      <CodePostal>42600</CodePostal>
+      <NomCommune>Saint-Paul-d'Uzore</NomCommune>
+      <Localisation>
+         <Latitude>45.678034</Latitude>
+         <Longitude>4.08025</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 97 19 46</Téléphone>
+      <Email>mairiestpaulduzore@orange.fr</Email>
+      <Url>http://www.saintpaulduzore.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

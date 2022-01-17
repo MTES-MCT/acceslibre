@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="onac-74010-01" codeInsee="74010" dateMiseAJour="2021-12-03"
+           pivotLocal="onac">
+   <Nom>Office national des anciens combattants et victimes de guerre (ONACVG) - Service départemental - Haute-Savoie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>7 rue Dupanloup</Ligne>
+      <CodePostal>74040</CodePostal>
+      <NomCommune>Annecy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.903976</Latitude>
+         <Longitude>6.133351</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 88 40 93</Téléphone>
+      <Email>https://www.onac-vg.fr/contact</Email>
+      <Url>https://www.onac-vg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

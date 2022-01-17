@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-40284-01" codeInsee="40284" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Vincent-de-Tyrosse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison landaise de la solidarité</Ligne>
+      <Ligne>4 allée des Magnolias</Ligne>
+      <CodePostal>40231</CodePostal>
+      <NomCommune>Saint-Vincent-de-Tyrosse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.6598014832</Latitude>
+         <Longitude>-1.3121099472</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 77 06 48</Téléphone>
+      <Télécopie>05 58 77 49 48</Télécopie>
+      <Email>cms.tyrosse@landes.fr</Email>
+      <Url>http://www.landes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17118-01" codeInsee="17118" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Corignac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Claude-Poget</Ligne>
+      <CodePostal>17130</CodePostal>
+      <NomCommune>Corignac</NomCommune>
+      <Localisation>
+         <Latitude>45.249370575</Latitude>
+         <Longitude>-0.391339987516</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 12 48 44</Téléphone>
+      <Télécopie>05 46 49 48 44</Télécopie>
+      <Email>commune-de-corignac@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

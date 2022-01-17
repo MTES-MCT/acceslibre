@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-53084-01" codeInsee="53084" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays de Craon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Zone de Villeneuve</Ligne>
+      <Ligne>BP 71</Ligne>
+      <CodePostal>53400</CodePostal>
+      <NomCommune>Craon</NomCommune>
+      <Localisation>
+         <Latitude>47.8424757</Latitude>
+         <Longitude>-0.96729089</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 09 61 61</Téléphone>
+      <Email>accueil@paysdecraon.fr</Email>
+      <Url>http://www.paysdecraon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

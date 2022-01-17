@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-84087-01" codeInsee="84087"
+           dateMiseAJour="2021-04-21"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Service départemental des impôts foncier (SDIF) Vaucluse - Orange</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>132 allée d'Auvergne</Ligne>
+      <Ligne>BP 50200</Ligne>
+      <CodePostal>84873</CodePostal>
+      <NomCommune>Orange Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.133448</Latitude>
+         <Longitude>4.79706</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="0 809 401 401 : service gratuit + prix d'un appel">04 90 51 29 21</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour prendre rendez-vous ou contacter ce service par courriel, utilisez
+votre messagerie sécurisée disponible dans votre espace particulier sur le
+site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous
+vous invitons à en créer un.</Commentaire>
+</Organisme>

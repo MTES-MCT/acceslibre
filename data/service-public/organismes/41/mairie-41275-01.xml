@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41275-01" codeInsee="41275" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Ville-aux-Clercs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de la Mairie</Ligne>
+      <CodePostal>41160</CodePostal>
+      <NomCommune>La Ville-aux-Clercs</NomCommune>
+      <Localisation>
+         <Latitude>47.9187011719</Latitude>
+         <Longitude>1.08523905277</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">pente douce sur le côté</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 80 62 35</Téléphone>
+      <Email>mairie.la-ville-aux-clercs@wanadoo.fr</Email>
+      <Url>http://www.la-ville-aux-clercs.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement le dernier samedi du mois.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="16:00:00" fin="18:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ferme à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

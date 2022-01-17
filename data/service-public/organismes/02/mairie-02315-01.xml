@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02315-01" codeInsee="02315" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flavy-le-Martel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place du Général-de-Gaulle</Ligne>
+      <CodePostal>02520</CodePostal>
+      <NomCommune>Flavy-le-Martel</NomCommune>
+      <Localisation>
+         <Latitude>49.7439002991</Latitude>
+         <Longitude>3.17217993736</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 52 50 37</Téléphone>
+      <Télécopie>03 23 52 95 14</Télécopie>
+      <Email>marianne.mairie@wanadoo.fr</Email>
+      <Url>http://www.flavy-le-martel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

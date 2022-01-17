@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="22278" dateMiseAJour="2021-12-14" id="tgi-22278-01" idPresta="4cac9e87293594648a004cc1" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Saint-Brieuc</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PARC DES PROMENADES</Ligne>
+        <Ligne>BP 2357</Ligne>
+        <CodePostal>22023</CodePostal>
+        <NomCommune>ST BRIEUC CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>48.513306</Latitude>
+            <Longitude>-2.758313</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PARC DES PROMENADES</Ligne>
+        <Ligne>BP 2357</Ligne>
+        <CodePostal>22023</CodePostal>
+        <NomCommune>ST BRIEUC CEDEX 1</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 96 62 30 00</Téléphone>
+        <Télécopie>02 96 33 11 52</Télécopie>
+        <Email>mailto:tj1-st-brieuc@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

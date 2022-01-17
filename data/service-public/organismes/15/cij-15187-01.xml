@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-15187-01" codeInsee="15187" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Flour</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social municipal</Ligne>
+      <Ligne>5 avenue du Docteur-Mallet</Ligne>
+      <CodePostal>15100</CodePostal>
+      <NomCommune>Saint-Flour</NomCommune>
+      <Localisation>
+         <Latitude>45.0329785</Latitude>
+         <Longitude>3.0858377</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 23 75 98</Téléphone>
+      <Email>pij@saint-flour.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

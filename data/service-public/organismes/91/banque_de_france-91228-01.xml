@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-91228-01" codeInsee="91228" dateMiseAJour="2021-08-24"
+           pivotLocal="banque_de_france">
+   <Nom>Banque de France - Succursale départementale Essonne - Evry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue des Mazières</Ligne>
+      <Ligne>CS 30045</Ligne>
+      <CodePostal>91002</CodePostal>
+      <NomCommune>Evry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.627283</Latitude>
+         <Longitude>2.433042</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique au 0811 901 801 du lundi au vendredi de 8h à 18h. Tarif 5 cts d'euro par mn plus le prix d'un appel. Informations générales sur la réglementation bancaire, le crédit, le surendettement -commission de surendettement : dépôt de dossier, suivi et information-, les fichiers d'incidents de paiement et le droit au compte.">01 46 41 15 00</Téléphone>
+      <Url>https://accueil.banque-france.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous : au 01 46 41 15 00 ou en ligne sur  https://accueil.banque-france.fr</Commentaire>
+</Organisme>

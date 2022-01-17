@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59213-01" codeInsee="59213" dateMiseAJour="2017-09-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Estourmel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Notre Dame</Ligne>
+      <CodePostal>59400</CodePostal>
+      <NomCommune>Estourmel</NomCommune>
+      <Localisation>
+         <Latitude>50.149042</Latitude>
+         <Longitude>3.322282</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 78 65 15</Téléphone>
+      <Télécopie>03 27 78 63 34</Télécopie>
+      <Email>estourmel.mairie@wanadoo.fr</Email>
+      <Url>http://www.caudresis-catesis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

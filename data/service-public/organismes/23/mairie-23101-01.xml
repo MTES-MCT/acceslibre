@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23101-01" codeInsee="23101" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jouillat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de la Mairie</Ligne>
+      <CodePostal>23220</CodePostal>
+      <NomCommune>Jouillat</NomCommune>
+      <Localisation>
+         <Latitude>46.2571983337</Latitude>
+         <Longitude>1.93529999256</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 51 20 54</Téléphone>
+      <Télécopie>05 55 51 22 44</Télécopie>
+      <Email>mairie.jouillat@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

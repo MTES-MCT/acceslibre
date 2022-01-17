@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dreal_ut-38185-01" codeInsee="38185" dateMiseAJour="2018-06-14"
+           pivotLocal="dreal_ut">
+   <Nom>Direction régionale de l'environnement, de l'aménagement et du logement (DREAL) - Auvergne-Rhône-Alpes - Unité départementale Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 boulevard Joseph Vallier</Ligne>
+      <CodePostal>38030</CodePostal>
+      <NomCommune>Grenoble Cedex 02</NomCommune>
+      <Localisation>
+         <Latitude>45.179886</Latitude>
+         <Longitude>5.71267</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 69 34 34</Téléphone>
+      <Télécopie>04 38 49 91 95</Télécopie>
+      <Email>ud-i.dreal-auvergne-rhone-alpes@developpement-durable.gouv.fr</Email>
+      <Url>http://www.auvergne-rhone-alpes.developpement-durable.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

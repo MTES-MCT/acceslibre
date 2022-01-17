@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14098-01" codeInsee="14098" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie – Thue et Mue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bretteville-l'Orgueilleuse</Ligne>
+      <Ligne>8 avenue de la Stèle</Ligne>
+      <CodePostal>14740</CodePostal>
+      <NomCommune>Thue et Mue</NomCommune>
+      <Localisation>
+         <Latitude>49.2113990784</Latitude>
+         <Longitude>-0.515133976936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 80 78 25</Téléphone>
+      <Télécopie>02 31 08 06 52</Télécopie>
+      <Email>accueil@thueetmue.fr</Email>
+      <Url>https://www.thueetmue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

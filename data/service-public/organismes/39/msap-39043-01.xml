@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-39043-01" codeInsee="39043" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Beaufort-Orbagna</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 Grande rue</Ligne>
+      <CodePostal>39190</CodePostal>
+      <NomCommune>Beaufort-Orbagna</NomCommune>
+      <Localisation>
+         <Latitude>46.573117</Latitude>
+         <Longitude>5.438511</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 48 96 67</Téléphone>
+      <Email>efs@ccportedujura.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

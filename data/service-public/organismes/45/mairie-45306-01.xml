@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45306-01" codeInsee="45306" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Selle-en-Hermoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>45210</CodePostal>
+      <NomCommune>La Selle-en-Hermoy</NomCommune>
+      <Localisation>
+         <Latitude>48.0383987427</Latitude>
+         <Longitude>2.88129997253</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 92 10 04</Téléphone>
+      <Télécopie>02 38 92 91 70</Télécopie>
+      <Email>mairielaselleenhermoy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

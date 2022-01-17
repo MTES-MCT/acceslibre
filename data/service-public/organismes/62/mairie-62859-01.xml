@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62859-01" codeInsee="62859" dateMiseAJour="2019-07-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-l'Hôpital</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de la Mairie</Ligne>
+      <CodePostal>62390</CodePostal>
+      <NomCommune>Villers-l'Hôpital</NomCommune>
+      <Localisation>
+         <Latitude>50.2282947</Latitude>
+         <Longitude>2.2137969</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 41 16 12</Téléphone>
+      <Télécopie>09 77 45 07 10</Télécopie>
+      <Email>mairie.villers-lhopital@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

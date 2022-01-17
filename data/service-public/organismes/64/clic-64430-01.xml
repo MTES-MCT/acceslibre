@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-64430-01" codeInsee="64430" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Orthez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle gérontologique Béarn-Adour</Ligne>
+      <Ligne>5 rue Jean-Marie-Lhoste</Ligne>
+      <CodePostal>64300</CodePostal>
+      <NomCommune>Orthez</NomCommune>
+      <Localisation>
+         <Latitude>43.48506</Latitude>
+         <Longitude>-0.768679</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 69 34 11</Téléphone>
+      <Télécopie>05 59 67 13 87</Télécopie>
+      <Url>http://www.le64.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

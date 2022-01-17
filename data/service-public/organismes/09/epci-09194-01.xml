@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-09194-01" codeInsee="09194" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays de Mirepoix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 chemin de la Mestrise</Ligne>
+      <Ligne>BP 70136</Ligne>
+      <CodePostal>09500</CodePostal>
+      <NomCommune>Mirepoix</NomCommune>
+      <Localisation>
+         <Latitude>43.0879491</Latitude>
+         <Longitude>1.8712946</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 68 13 02</Téléphone>
+      <Email>contact@paysdemirepoix.org</Email>
+      <Url>http://www.paysdemirepoix.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16097-01" codeInsee="16097" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cherves-Richemont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 place du Champ-de-Foire</Ligne>
+      <CodePostal>16370</CodePostal>
+      <NomCommune>Cherves-Richemont</NomCommune>
+      <Localisation>
+         <Latitude>45.6949005127</Latitude>
+         <Longitude>-0.316870003939</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>CS 20009</Ligne>
+      <CodePostal>16121</CodePostal>
+      <NomCommune>Cognac Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 83 25 69</Téléphone>
+      <Télécopie>05 45 83 18 11</Télécopie>
+      <Email>mairie@cherves-richemont.fr</Email>
+      <Url>https://cherves-richemont.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

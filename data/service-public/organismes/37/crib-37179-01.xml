@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-37179-01" codeInsee="37179" dateMiseAJour="2021-06-07"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Comité départemental olympique et sportif d'Indre-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des sports</Ligne>
+      <Ligne>Rue de l'Aviation</Ligne>
+      <CodePostal>37210</CodePostal>
+      <NomCommune>Parçay-Meslay</NomCommune>
+      <Localisation>
+         <Latitude>47.4388033</Latitude>
+         <Longitude>0.7100632</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur pour se rendre au 1er étage bureau 144</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 40 25 15</Téléphone>
+      <Email>indreetloire@franceolympique.com</Email>
+      <Url>http://indreetloire.franceolympique.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

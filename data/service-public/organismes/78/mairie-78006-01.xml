@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78006-01" codeInsee="78006" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Adainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Grande rue</Ligne>
+      <CodePostal>78113</CodePostal>
+      <NomCommune>Adainville</NomCommune>
+      <Localisation>
+         <Latitude>48.7227709</Latitude>
+         <Longitude>1.6531324</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 87 03 24</Téléphone>
+      <Télécopie>01 34 87 00 78</Télécopie>
+      <Email>mairie@mairie-adainville.fr</Email>
+      <Url>http://www.mairie-adainville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement un samedi sur deux.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ademe-45234-01" codeInsee="45234" dateMiseAJour="2018-03-29"
+           pivotLocal="ademe">
+   <Nom>Agence de l’environnement et de la maîtrise de l’énergie (ADEME) - Direction régionale Centre-Val de Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Alsace-Lorraine</Ligne>
+      <CodePostal>45000</CodePostal>
+      <NomCommune>Orléans</NomCommune>
+      <Localisation>
+         <Latitude>47.904983</Latitude>
+         <Longitude>1.0908167</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 24 00 00</Téléphone>
+      <Email>ademe.centre@ademe.fr</Email>
+      <Url>http://www.centre.ademe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

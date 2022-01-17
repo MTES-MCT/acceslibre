@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31265-01" codeInsee="31265" dateMiseAJour="2021-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lagraulet-Saint-Nicolas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>74 rue Bertrand</Ligne>
+      <CodePostal>31480</CodePostal>
+      <NomCommune>Lagraulet-Saint-Nicolas</NomCommune>
+      <Localisation>
+         <Latitude>43.79317</Latitude>
+         <Longitude>1.078357</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par la porte à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 85 59 56</Téléphone>
+      <Email>mairie.lagraulet31@wanadoo.fr</Email>
+      <Url>https://www.lagraulet31.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

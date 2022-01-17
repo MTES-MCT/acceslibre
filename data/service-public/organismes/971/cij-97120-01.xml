@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-97120-01" codeInsee="97120" dateMiseAJour="2018-10-09" pivotLocal="cij">
+   <Nom>Centre régional information jeunesse (CRIJ) - Guadeloupe - Pointe-à-Pitre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble des Fonctionnaires</Ligne>
+      <Ligne>Rond-point Miquel</Ligne>
+      <Ligne>2 boulevard Légitimus</Ligne>
+      <Ligne>Escalier 6</Ligne>
+      <CodePostal>97110</CodePostal>
+      <NomCommune>Pointe-à-Pitre</NomCommune>
+      <Localisation>
+         <Latitude>16.2441789</Latitude>
+         <Longitude>-61.5341634</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+590 5 90 90 13 10</Téléphone>
+      <Télécopie>+590 5 90 90 13 11</Télécopie>
+      <Email>info@crij-guadeloupe.org</Email>
+      <Url>http://www.crij-guadeloupe.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

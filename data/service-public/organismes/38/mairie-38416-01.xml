@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38416-01" codeInsee="38416" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Marcellin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 place d'Armes</Ligne>
+      <Ligne>BP 49</Ligne>
+      <CodePostal>38162</CodePostal>
+      <NomCommune>Saint-Marcellin Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.1542205811</Latitude>
+         <Longitude>5.32068014145</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 38 41 61</Téléphone>
+      <Télécopie>04 76 38 64 62</Télécopie>
+      <Email>contact.ville@saint-marcellin.fr</Email>
+      <Url>http://www.saint-marcellin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

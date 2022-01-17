@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95424-01" codeInsee="95424" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montigny-lès-Cormeilles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>3 avenue Aristide-Maillol</Ligne>
+      <CodePostal>95370</CodePostal>
+      <NomCommune>Montigny-lès-Cormeilles</NomCommune>
+      <Localisation>
+         <Latitude>48.987412</Latitude>
+         <Longitude>2.187929</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>14 rue Fortuné-Charlot</Ligne>
+      <Ligne>BP 90237</Ligne>
+      <CodePostal>95370</CodePostal>
+      <NomCommune>Montigny-lès-Cormeilles</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 26 30 26</Téléphone>
+      <Télécopie>01 30 26 30 29</Télécopie>
+      <Email>secretariatgeneral@ville-montigny95.fr</Email>
+      <Url>http://www.montigny95.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:15:00"/>
+         <Note>Service de l'état civil fermé de 8h30 à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="19:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Service de l'état civil fermé de 8h30 à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

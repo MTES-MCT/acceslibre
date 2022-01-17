@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_emploi-77284-01" codeInsee="77284" dateMiseAJour="2021-06-25"
+           pivotLocal="maison_emploi">
+   <Nom>Maison de l’emploi et de la formation mission locale Nord-Est 77 - Meaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 boulevard Jean Rose</Ligne>
+      <Ligne>BP 103</Ligne>
+      <CodePostal>77105</CodePostal>
+      <NomCommune>Meaux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.960214</Latitude>
+         <Longitude>2.882121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 24 77 99</Téléphone>
+      <Email>info@mdene77-mlidf.org</Email>
+      <Url>https://mdene77.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Fermé au public l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

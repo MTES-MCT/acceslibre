@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62841-01" codeInsee="62841" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vendin-lès-Béthune</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>209 rue François-Mitterrand</Ligne>
+      <CodePostal>62232</CodePostal>
+      <NomCommune>Vendin-lès-Béthune</NomCommune>
+      <Localisation>
+         <Latitude>50.5416984558</Latitude>
+         <Longitude>2.60770988464</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 57 26 21</Téléphone>
+      <Télécopie>03 21 01 00 03</Télécopie>
+      <Email>mairie.vendinlesbethune@wanadoo.fr</Email>
+      <Url>https://www.vendin-lez-bethune.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-54129-01" codeInsee="54129" dateMiseAJour="2021-01-11"
+           pivotLocal="msap">
+   <Nom>France Services - Cirey-sur-Vezouze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 place Chevandier</Ligne>
+      <CodePostal>54480</CodePostal>
+      <NomCommune>Cirey-sur-Vezouze</NomCommune>
+      <Localisation>
+         <Latitude>48.581353</Latitude>
+         <Longitude>6.946084</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 71 45 81</Téléphone>
+      <Email>msap.cirey@ccvp.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:15:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

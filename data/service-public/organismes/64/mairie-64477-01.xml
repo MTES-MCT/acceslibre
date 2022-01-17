@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64477-01" codeInsee="64477" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-de-Baïgorry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>64430</CodePostal>
+      <NomCommune>Saint-Étienne-de-Baïgorry</NomCommune>
+      <Localisation>
+         <Latitude>43.1749992371</Latitude>
+         <Longitude>-1.34739005566</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 37 40 80</Téléphone>
+      <Télécopie>05 59 37 48 20</Télécopie>
+      <Email>mairie.baigorri@orange.fr</Email>
+      <Url>http://www.baigorry.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

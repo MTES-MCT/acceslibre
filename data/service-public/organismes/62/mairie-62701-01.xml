@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62701-01" codeInsee="62701" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rely</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la Place</Ligne>
+      <CodePostal>62120</CodePostal>
+      <NomCommune>Rely</NomCommune>
+      <Localisation>
+         <Latitude>50.5736999512</Latitude>
+         <Longitude>2.35777997971</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 02 09 19</Téléphone>
+      <Télécopie>03 21 25 89 11</Télécopie>
+      <Email>mairie.rely@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

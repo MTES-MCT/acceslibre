@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62909-01" codeInsee="62909" dateMiseAJour="2019-02-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ytres</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue pierre Watel</Ligne>
+      <CodePostal>62124</CodePostal>
+      <NomCommune>Ytres</NomCommune>
+      <Localisation>
+         <Latitude>50.06457</Latitude>
+         <Longitude>2.99384</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 73 32 23</Téléphone>
+      <Email>mairie.ytres@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

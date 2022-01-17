@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-72181-01" codeInsee="72181"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Sarthe (Le Mans)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale de la cohésion sociale de la Sarthe</Ligne>
+      <Ligne>19 boulevard Paixhans</Ligne>
+      <Ligne>Bureau 25</Ligne>
+      <Ligne>CS 51912</Ligne>
+      <CodePostal>72019</CodePostal>
+      <NomCommune>Le Mans Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>47.9949353</Latitude>
+         <Longitude>0.2095444</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 72 16 43 06</Téléphone>
+      <Email>ddcs-associations@sarthe.gouv.fr</Email>
+      <Url>http://www.associations.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

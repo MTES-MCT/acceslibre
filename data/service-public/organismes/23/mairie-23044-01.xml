@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23044-01" codeInsee="23044" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chambon-Sainte-Croix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue de la Mairie</Ligne>
+      <CodePostal>23220</CodePostal>
+      <NomCommune>Chambon-Sainte-Croix</NomCommune>
+      <Localisation>
+         <Latitude>46.3540000916</Latitude>
+         <Longitude>1.77535998821</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 89 84 84</Téléphone>
+      <Télécopie>05 55 89 22 15</Télécopie>
+      <Email>mairie-chambon.sainte.croix@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

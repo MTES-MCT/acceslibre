@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62752-01" codeInsee="62752" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Josse-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Mairie</Ligne>
+      <CodePostal>62170</CodePostal>
+      <NomCommune>Saint-Josse-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>50.470785</Latitude>
+         <Longitude>1.673274</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 94 75 51</Téléphone>
+      <Email>mairie@saintjossesurmer.fr</Email>
+      <Url>http://www.saint-josse-sur-mer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

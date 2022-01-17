@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23109-01" codeInsee="23109" dateMiseAJour="2019-03-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Linard-Malval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Linard</Ligne>
+      <Ligne>7 rue Abbé-Guy</Ligne>
+      <CodePostal>23220</CodePostal>
+      <NomCommune>Linard-Malval</NomCommune>
+      <Localisation>
+         <Latitude>46.358001709</Latitude>
+         <Longitude>1.87223100662</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 62 82 05</Téléphone>
+      <Email>mairie.linard@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le 1er janvier 2019, la commune nouvelle de Linard-Malval est créée en lieu et place des communes de Linard et de Malval (canton de Bonnat, arrondissement de Guéret)</Commentaire>
+</Organisme>

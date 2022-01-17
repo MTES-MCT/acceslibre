@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11113-01" codeInsee="11113" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cucugnan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place du Platane</Ligne>
+      <CodePostal>11350</CodePostal>
+      <NomCommune>Cucugnan</NomCommune>
+      <Localisation>
+         <Latitude>42.850669</Latitude>
+         <Longitude>2.602978</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 45 43 08</Téléphone>
+      <Email>contact@cucugnan.fr</Email>
+      <Url>http://www.cucugnan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

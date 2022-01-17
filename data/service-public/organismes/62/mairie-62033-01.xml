@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62033-01" codeInsee="62033" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Annay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Roger-Salengro</Ligne>
+      <CodePostal>62880</CodePostal>
+      <NomCommune>Annay</NomCommune>
+      <Localisation>
+         <Latitude>50.4626555</Latitude>
+         <Longitude>2.8771165</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 13 44 20</Téléphone>
+      <Télécopie>03 21 70 35 74</Télécopie>
+      <Email>mairie@annaysouslens.fr</Email>
+      <Url>http://www.annaysouslens.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

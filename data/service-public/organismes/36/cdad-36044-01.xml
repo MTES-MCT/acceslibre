@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="36044" dateMiseAJour="2021-12-14" id="cdad-36044-01" idPresta="58b943f2b473e45d93eac029" pivotLocal="cdad">
+    <Nom>Conseil départemental d'accès au droit de l'Indre</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE LUCIEN GERMEREAU</Ligne>
+        <CodePostal>36019</CodePostal>
+        <NomCommune>CHATEAUROUX CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.808977</Latitude>
+            <Longitude>1.693542</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE LUCIEN GERMEREAU</Ligne>
+        <CodePostal>36019</CodePostal>
+        <NomCommune>CHATEAUROUX CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 54 60 35 35</Téléphone>
+        <Email>mailto:cdad-indre@justice.fr</Email>
+        <Url>http://www.cdad-indre.justice.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+            <Note>ouvert du lundi au jeudi de 8h30-12h - 13h00- 17h et le vendredi de 8h30 à 12h.</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

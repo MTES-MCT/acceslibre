@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-97411-01" codeInsee="97411"
+           dateMiseAJour="2019-02-05"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale  (DSDEN) - La Réunion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 avenue Georges Brassens - Le Moufia</Ligne>
+      <CodePostal>97702</CodePostal>
+      <NomCommune>Saint-Denis Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>-20.903698</Latitude>
+         <Longitude>55.482504</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 48 10 10</Téléphone>
+      <Télécopie>+262 2 62 48 12 97</Télécopie>
+      <Url>https://www.ac-reunion.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:45:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="07:45:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="07:45:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

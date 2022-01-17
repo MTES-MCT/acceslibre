@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25569-01" codeInsee="25569" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trépot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>25620</CodePostal>
+      <NomCommune>Trépot</NomCommune>
+      <Localisation>
+         <Latitude>47.1576004028</Latitude>
+         <Longitude>6.13673019409</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 86 73 32</Téléphone>
+      <Email>mairie.trepot@orange.fr</Email>
+      <Url>http://www.trepot.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

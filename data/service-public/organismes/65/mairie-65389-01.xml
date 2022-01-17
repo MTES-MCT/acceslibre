@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65389-01" codeInsee="65389" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Laurent-de-Neste</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>65150</CodePostal>
+      <NomCommune>Saint-Laurent-de-Neste</NomCommune>
+      <Localisation>
+         <Latitude>43.077473</Latitude>
+         <Longitude>0.482939</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 99 00 48</Téléphone>
+      <Télécopie>05 62 39 77 46</Télécopie>
+      <Email>mairie.stlaurent1@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>Accueil possible sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

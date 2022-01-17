@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27215-01" codeInsee="27215" dateMiseAJour="2020-06-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ecquetot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Canadiens</Ligne>
+      <CodePostal>27110</CodePostal>
+      <NomCommune>Ecquetot</NomCommune>
+      <Localisation>
+         <Latitude>49.168466</Latitude>
+         <Longitude>1.006977</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 35 13 65</Téléphone>
+      <Télécopie>02 32 35 13 65</Télécopie>
+      <Email>ecquetot.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

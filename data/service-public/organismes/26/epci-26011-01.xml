@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-26011-01" codeInsee="26011" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Crestois et de Pays de Saillans Coeur de Drôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 chemin des Senteurs</Ligne>
+      <CodePostal>26400</CodePostal>
+      <NomCommune>Aouste-sur-Sye</NomCommune>
+      <Localisation>
+         <Latitude>44.710552</Latitude>
+         <Longitude>5.067347</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">uniquement le rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 40 03 89</Téléphone>
+      <Télécopie>04 75 40 04 27</Télécopie>
+      <Email>accueil@cccps.fr</Email>
+      <Url>https://www.cccps.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

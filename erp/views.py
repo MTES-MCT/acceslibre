@@ -1,4 +1,6 @@
 import datetime
+import urllib
+
 import reversion
 
 from django.conf import settings
@@ -10,7 +12,7 @@ from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
 from django.forms import modelform_factory
-from django.http import Http404
+from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
@@ -22,7 +24,7 @@ from erp.export.utils import (
     map_list_from_schema,
 )
 from erp.models import Accessibilite, Commune, Erp, Vote
-from erp.provider import geocoder, search as provider_search
+from erp.provider import geocoder, search as provider_search, acceslibre
 from subscription.models import ErpSubscription
 
 
@@ -250,7 +252,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     accessibilite_data = form.get_accessibilite_data()
     user_vote = (
         request.user.is_authenticated
-        and Vote.objects.filter(user=request.user, erp=erp).first() is not None
+        and not Vote.objects.filter(user=request.user, erp=erp).exists()
+        and request.user != erp.user
     )
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
         request.user
@@ -503,6 +506,10 @@ def vote(request, erp_slug):
     erp = get_object_or_404(
         Erp, slug=erp_slug, published=True, accessibilite__isnull=False
     )
+    if request.user == erp.user:
+        return HttpResponseBadRequest(
+            "Vous ne pouvez pas voter sur votre établissement"
+        )
     if request.method == "POST":
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
@@ -547,38 +554,54 @@ def contrib_delete(request, erp_slug):
 
 @login_required
 def contrib_start(request):
-    form = forms.ProviderGlobalSearchForm(
-        initial={"code_insee": request.GET.get("code_insee")}
-    )
+    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
+    if form.is_valid():
+        return redirect(
+            f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}"
+        )
     return render(
         request,
         template_name="contrib/0-start.html",
-        context={"step": 1, "form": form},
+        context={
+            "step": 1,
+            "form": form,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
+        },
     )
 
 
 @login_required
 def contrib_global_search(request):
     results = error = None
-    form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
-    if form.is_valid():
-        try:
-            results = provider_search.global_search(
-                form.cleaned_data["search"],
-                form.cleaned_data["code_insee"],
-            )
-        except RuntimeError as err:
-            error = err
+    try:
+        results = provider_search.global_search(
+            request.GET.get("search"), request.GET.get("code_insee")
+        )
+        qs_results_bdd = Erp.objects.filter(nom__icontains=request.GET.get("search"))
+
+        qs_results_bdd = qs_results_bdd.filter(
+            Q(code_insee=request.GET.get("code_insee"))
+            | Q(commune_ext__code_insee=request.GET.get("code_insee"))
+        )
+        results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
+    except RuntimeError as err:
+        error = err
     return render(
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "search": form.cleaned_data["search"],
-            "commune_search": form.cleaned_data["commune_search"],
+            "search": request.GET.get("search"),
+            "commune_search": request.GET.get("commune_search"),
             "step": 1,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
+            "results_bdd": results_bdd,
             "results": results,
-            "form": form,
-            "form_type": "global",
             "error": error,
         },
     )
@@ -620,6 +643,10 @@ def contrib_admin_infos(request):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
             "form": form,
             "has_data": data is not None,
             "data_error": data_error,
@@ -648,6 +675,10 @@ def contrib_edit_infos(request, erp_slug):
         template_name="contrib/1-admin-infos.html",
         context={
             "step": 1,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
             "erp": erp,
             "form": form,
             "has_data": False,
@@ -681,6 +712,10 @@ def contrib_localisation(request, erp_slug):
             "step": 1,
             "erp": erp,
             "form": form,
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
+            },
         },
     )
 
@@ -694,6 +729,7 @@ def process_accessibilite_form(
     redirect_route,
     prev_route=None,
     redirect_hash=None,
+    libelle_step=None,
 ):
     "Traitement générique des requêtes sur les formulaires d'accessibilité"
 
@@ -748,6 +784,7 @@ def process_accessibilite_form(
         template_name=template_name,
         context={
             "step": step,
+            "libelle_step": libelle_step,
             "erp": erp,
             "form": form,
             "accessibilite": accessibilite,
@@ -770,6 +807,10 @@ def contrib_transport(request, erp_slug):
         "contrib_stationnement",
         prev_route="contrib_localisation",
         redirect_hash=schema.SECTION_TRANSPORT,
+        libelle_step={
+            "current": schema.SECTION_TRANSPORT,
+            "next": schema.SECTION_STATIONNEMENT,
+        },
     )
 
 
@@ -785,6 +826,10 @@ def contrib_stationnement(request, erp_slug):
         "contrib_exterieur",
         prev_route="contrib_transport",
         redirect_hash=schema.SECTION_STATIONNEMENT,
+        libelle_step={
+            "current": schema.SECTION_STATIONNEMENT,
+            "next": schema.SECTION_CHEMINEMENT_EXT,
+        },
     )
 
 
@@ -800,6 +845,10 @@ def contrib_exterieur(request, erp_slug):
         "contrib_entree",
         prev_route="contrib_stationnement",
         redirect_hash=schema.SECTION_CHEMINEMENT_EXT,
+        libelle_step={
+            "current": schema.SECTION_CHEMINEMENT_EXT,
+            "next": schema.SECTION_ENTREE,
+        },
     )
 
 
@@ -815,6 +864,7 @@ def contrib_entree(request, erp_slug):
         "contrib_accueil",
         prev_route="contrib_exterieur",
         redirect_hash=schema.SECTION_ENTREE,
+        libelle_step={"current": schema.SECTION_ENTREE, "next": schema.SECTION_ACCUEIL},
     )
 
 
@@ -830,6 +880,10 @@ def contrib_accueil(request, erp_slug):
         "contrib_sanitaires",
         prev_route="contrib_entree",
         redirect_hash=schema.SECTION_ACCUEIL,
+        libelle_step={
+            "current": schema.SECTION_ACCUEIL,
+            "next": schema.SECTION_SANITAIRES,
+        },
     )
 
 
@@ -845,6 +899,10 @@ def contrib_sanitaires(request, erp_slug):
         "contrib_labellisation",
         prev_route="contrib_accueil",
         redirect_hash=schema.SECTION_SANITAIRES,
+        libelle_step={
+            "current": schema.SECTION_SANITAIRES,
+            "next": schema.SECTION_LABELS,
+        },
     )
 
 
@@ -860,6 +918,10 @@ def contrib_labellisation(request, erp_slug):
         "contrib_commentaire",
         prev_route="contrib_sanitaires",
         redirect_hash=schema.SECTION_LABELS,
+        libelle_step={
+            "current": schema.SECTION_LABELS,
+            "next": schema.SECTION_COMMENTAIRE,
+        },
     )
 
 
@@ -875,6 +937,7 @@ def contrib_commentaire(request, erp_slug):
         "contrib_publication",
         prev_route="contrib_labellisation",
         redirect_hash=schema.SECTION_COMMENTAIRE,
+        libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": "publication"},
     )
 
 
@@ -921,6 +984,7 @@ def contrib_publication(request, erp_slug):
         template_name="contrib/11-publication.html",
         context={
             "step": 9,
+            "libelle_step": {"current": "publication", "next": None},
             "erp": erp,
             "form": form,
             "empty_a11y": empty_a11y,

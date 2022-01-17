@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16345-01" codeInsee="16345" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Quentin-sur-Charente</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 route des Écoles</Ligne>
+      <CodePostal>16150</CodePostal>
+      <NomCommune>Saint-Quentin-sur-Charente</NomCommune>
+      <Localisation>
+         <Latitude>45.8377037048</Latitude>
+         <Longitude>0.670046985149</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 89 20 79</Téléphone>
+      <Télécopie>05 45 89 20 79</Télécopie>
+      <Email>st-quentin-sur-charente.cne@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

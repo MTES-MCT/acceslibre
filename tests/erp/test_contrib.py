@@ -77,6 +77,18 @@ def test_contrib_start_home(client):
     assert response.status_code == 200
 
 
+def test_empty_search_results(data, client):
+    response = client.get(
+        reverse("contrib_global_search"),
+        data={
+            "commune_search": "",
+            "code_insee": "",
+            "search": "",
+        },
+    )
+    assert response.status_code == 200
+
+
 def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_result):
     mocker.patch(
         "erp.provider.search.global_search",

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68135-01" codeInsee="68135" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hésingue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>68220</CodePostal>
+      <NomCommune>Hésingue</NomCommune>
+      <Localisation>
+         <Latitude>47.5761985779</Latitude>
+         <Longitude>7.52087020874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 89 70 30</Téléphone>
+      <Télécopie>03 89 89 70 39</Télécopie>
+      <Email>mairie@hesingue.fr</Email>
+      <Url>http://www.ville-hesingue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="15:30:00" fin="18:00:00"/>
+         <Note>Accueil fermé le vendredi à 17h en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

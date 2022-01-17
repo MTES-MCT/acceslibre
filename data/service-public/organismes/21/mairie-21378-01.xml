@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21378-01" codeInsee="21378" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marcenay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue Principale</Ligne>
+      <CodePostal>21330</CodePostal>
+      <NomCommune>Marcenay</NomCommune>
+      <Localisation>
+         <Latitude>47.862363</Latitude>
+         <Longitude>4.406703</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 81 61 22</Téléphone>
+      <Télécopie>03 80 81 61 22</Télécopie>
+      <Email>mairie.marcenay@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

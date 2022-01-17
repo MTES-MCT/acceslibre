@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61463-01" codeInsee="61463" dateMiseAJour="2021-06-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Monts-d'Andaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Sauvagère</Ligne>
+      <Ligne>3 route de Bellou</Ligne>
+      <CodePostal>61600</CodePostal>
+      <NomCommune>Les Monts-d'Andaine</NomCommune>
+      <Localisation>
+         <Latitude>48.6232795715</Latitude>
+         <Longitude>-0.416022986174</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 37 21 81</Téléphone>
+      <Email>lesmontsdandaine@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

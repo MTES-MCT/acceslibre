@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14509-01" codeInsee="14509" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plumetot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>14440</CodePostal>
+      <NomCommune>Plumetot</NomCommune>
+      <Localisation>
+         <Latitude>49.278556</Latitude>
+         <Longitude>-0.3556599</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 37 38 04</Téléphone>
+      <Email>mairie.plumetot@orange.fr</Email>
+      <Url>http://www.plumetot.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <Note>D'autres horaires possibles sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>D'autres horaires possibles sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

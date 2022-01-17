@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B234-01" codeInsee="2B234" dateMiseAJour="2016-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Piobetta</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mairie</Ligne>
+      <CodePostal>20234</CodePostal>
+      <NomCommune>Piobetta</NomCommune>
+      <Localisation>
+         <Latitude>42.3447761536</Latitude>
+         <Longitude>9.38271141052</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 35 88 76</Téléphone>
+      <Télécopie>04 95 35 88 76</Télécopie>
+      <Email>mairiedepiobbeta@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous du mardi au vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

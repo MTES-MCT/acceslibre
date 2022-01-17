@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95462-01" codeInsee="95462" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Omerville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'École</Ligne>
+      <CodePostal>95420</CodePostal>
+      <NomCommune>Omerville</NomCommune>
+      <Localisation>
+         <Latitude>49.140375</Latitude>
+         <Longitude>1.7216392</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 67 73 06</Téléphone>
+      <Email>mairie.omerville@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

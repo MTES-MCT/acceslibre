@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-04070-01" codeInsee="04070"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Digne-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accueil de jour</Ligne>
+      <Ligne>2 avenue du Maréchal-Leclerc</Ligne>
+      <CodePostal>04000</CodePostal>
+      <NomCommune>Digne-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>44.097486</Latitude>
+         <Longitude>6.234488</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 07 47 16 27</Téléphone>
+      <Email>accueildejour@nd-bourg.fr</Email>
+      <Url>http://www.association-saintmartin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

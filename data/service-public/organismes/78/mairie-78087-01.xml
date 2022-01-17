@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78087-01" codeInsee="78087" dateMiseAJour="2020-08-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bonnelles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue de la Libération</Ligne>
+      <CodePostal>78830</CodePostal>
+      <NomCommune>Bonnelles</NomCommune>
+      <Localisation>
+         <Latitude>48.61834</Latitude>
+         <Longitude>2.028088</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 88 47 30</Téléphone>
+      <Télécopie>01 30 41 48 84</Télécopie>
+      <Email>info@mairie-bonnelles.fr</Email>
+      <Url>http://www.mairie-bonnelles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence téléphonique les Lundi, Mardi, Jeudi et Vendredi de 09h00 à12h30 et de 14h00 à 18h30</Commentaire>
+</Organisme>

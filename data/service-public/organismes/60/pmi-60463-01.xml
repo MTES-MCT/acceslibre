@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-60463-01" codeInsee="60463" dateMiseAJour="2018-06-07" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Nogent-sur-Oise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale de la solidarité</Ligne>
+      <Ligne>3 rue Jean-de-la-Fontaine</Ligne>
+      <CodePostal>60180</CodePostal>
+      <NomCommune>Nogent-sur-Oise</NomCommune>
+      <Localisation>
+         <Latitude>49.2785987854</Latitude>
+         <Longitude>2.47318005562</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 10 80 50</Téléphone>
+      <Télécopie>03 44 71 40 42</Télécopie>
+      <Url>http://www.oise.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

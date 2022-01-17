@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38139-01" codeInsee="38139" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Creys-Mépieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 place de la Mairie</Ligne>
+      <CodePostal>38510</CodePostal>
+      <NomCommune>Creys-Mépieu</NomCommune>
+      <Localisation>
+         <Latitude>45.727897</Latitude>
+         <Longitude>5.489067</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 97 72 86</Téléphone>
+      <Télécopie>04 74 97 70 88</Télécopie>
+      <Email>mairie@creys-mepieu.com</Email>
+      <Url>http://www.creys-mepieu.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

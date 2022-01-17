@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23228-01" codeInsee="23228" dateMiseAJour="2021-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pardoux-le-Neuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>23200</CodePostal>
+      <NomCommune>Saint-Pardoux-le-Neuf</NomCommune>
+      <Localisation>
+         <Latitude>45.931673</Latitude>
+         <Longitude>2.23088</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 66 39 85</Téléphone>
+      <Télécopie>05 55 66 39 85</Télécopie>
+      <Email>mairie.stpardouxleneuf@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

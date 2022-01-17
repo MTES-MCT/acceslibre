@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11070-01" codeInsee="11070" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carlipa</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard des Tilleuls</Ligne>
+      <CodePostal>11170</CodePostal>
+      <NomCommune>Carlipa</NomCommune>
+      <Localisation>
+         <Latitude>43.3069992065</Latitude>
+         <Longitude>2.12726998329</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 94 23 51</Téléphone>
+      <Email>mairie.carlipa@wanadoo.fr</Email>
+      <Url>http://www.carlipa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil possible sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

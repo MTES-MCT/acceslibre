@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-72181-01" codeInsee="72181" dateMiseAJour="2021-08-02" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 72 - Le Mans Sarthe - Siège du Mans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 boulevard René Levasseur</Ligne>
+      <CodePostal>72002</CodePostal>
+      <NomCommune>Le Mans Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>48.0031032</Latitude>
+         <Longitude>0.1976856</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 21 00 00</Téléphone>
+      <Télécopie>02 43 21 00 50</Télécopie>
+      <Email>https://www.lemans.sarthe.cci.fr/24h-pour-vous-repondre/types</Email>
+      <Url>https://www.lemans.sarthe.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

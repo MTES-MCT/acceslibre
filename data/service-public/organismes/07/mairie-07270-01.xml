@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07270-01" codeInsee="07270" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-sur-Lavezon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>59 place du Champ-de-Mars</Ligne>
+      <CodePostal>07400</CodePostal>
+      <NomCommune>Saint-Martin-sur-Lavezon</NomCommune>
+      <Localisation>
+         <Latitude>44.637536</Latitude>
+         <Longitude>4.65164700000003</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 52 98 48</Téléphone>
+      <Télécopie>04 75 52 89 06</Télécopie>
+      <Email>mairie@saintmartinsurlavezon.fr</Email>
+      <Url>http://www.saintmartinsurlavezon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

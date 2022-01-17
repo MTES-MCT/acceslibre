@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-35125-01" codeInsee="35125" dateMiseAJour="2020-01-13"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - La Guerche-de-Bretagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de la Roche aux Fées</Ligne>
+      <Ligne>3 rue du Docteur-Pontais</Ligne>
+      <CodePostal>35130</CodePostal>
+      <NomCommune>La Guerche-de-Bretagne</NomCommune>
+      <Localisation>
+         <Latitude>47.94295</Latitude>
+         <Longitude>-1.239058</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 23 55 51 44</Téléphone>
+      <Email>clic.rocheauxfees@orange.fr</Email>
+      <Url>http://www.clicrocheauxfees.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="49328" dateMiseAJour="2021-10-22" id="tgi-49328-01" idPresta="54201a7cb473e41de13b0d9f" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Saumur</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE ST MICHEL</Ligne>
+        <CodePostal>49412</CodePostal>
+        <NomCommune>SAUMUR CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.258094</Latitude>
+            <Longitude>-0.071841</Longitude>
+            <Précision>4</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE ST MICHEL</Ligne>
+        <CodePostal>49412</CodePostal>
+        <NomCommune>SAUMUR CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 41 83 47 47</Téléphone>
+        <Email>mailto:accueil-saumur@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

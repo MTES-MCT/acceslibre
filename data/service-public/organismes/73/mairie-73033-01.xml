@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73033-01" codeInsee="73033" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Bauche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 chemin du Guillot</Ligne>
+      <CodePostal>73360</CodePostal>
+      <NomCommune>La Bauche</NomCommune>
+      <Localisation>
+         <Latitude>45.4798774719</Latitude>
+         <Longitude>5.76286411285</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 36 65 17</Téléphone>
+      <Email>mairiedelabauche@orange.fr</Email>
+      <Url>http://www.labauche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

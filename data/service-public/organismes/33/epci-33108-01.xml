@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-33108-01" codeInsee="33108" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Castillon Pujols</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 allée de la République</Ligne>
+      <Ligne>BP 116</Ligne>
+      <CodePostal>33350</CodePostal>
+      <NomCommune>Castillon-la-Bataille</NomCommune>
+      <Localisation>
+         <Latitude>44.853212</Latitude>
+         <Longitude>-0.0426382</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 56 08 70</Téléphone>
+      <Télécopie>05 57 40 23 80</Télécopie>
+      <Email>secretariat@castillonpujols.fr</Email>
+      <Url>http://www.castillonpujols.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

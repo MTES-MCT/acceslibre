@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29107-01" codeInsee="29107" dateMiseAJour="2021-11-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Landudal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jacques le Page</Ligne>
+      <CodePostal>29510</CodePostal>
+      <NomCommune>Landudal</NomCommune>
+      <Localisation>
+         <Latitude>48.063866</Latitude>
+         <Longitude>-3.979084</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 57 40 17</Téléphone>
+      <Télécopie>02 98 57 40 08</Télécopie>
+      <Email>mairie@landudal.fr</Email>
+      <Url>http://www.landudal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

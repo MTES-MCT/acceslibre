@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02489-01" codeInsee="02489" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Molinchart</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Catignet</Ligne>
+      <CodePostal>02000</CodePostal>
+      <NomCommune>Molinchart</NomCommune>
+      <Localisation>
+         <Latitude>49.561056</Latitude>
+         <Longitude>3.53952</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 23 36 33</Téléphone>
+      <Email>mairie.molinchart@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="13:00:00"/>
+         <PlageH début="17:30:00" fin="19:00:00"/>
+         <Note>En raison du contexte sanitaire et jusqu'à nouvel ordre les horaires sont les suivants, le lundi de 17h30 à 19h, sur rendez-vous exclusivement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

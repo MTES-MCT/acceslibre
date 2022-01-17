@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28015-01" codeInsee="28015" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auneau-Bleury-Saint-Symphorien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Gambetta</Ligne>
+      <Ligne>BP 90090</Ligne>
+      <CodePostal>28702</CodePostal>
+      <NomCommune>Auneau-Bleury-Saint-Symphorien</NomCommune>
+      <Localisation>
+         <Latitude>48.4640235901</Latitude>
+         <Longitude>1.77660596371</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 31 70 20</Téléphone>
+      <Télécopie>02 37 31 29 47</Télécopie>
+      <Email>contact@ville-ab2s.fr</Email>
+      <Url>http://www.ville-ab2s.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

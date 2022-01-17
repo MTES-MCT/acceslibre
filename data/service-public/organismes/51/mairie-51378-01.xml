@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51378-01" codeInsee="51378" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Monthelon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Henri-Martin</Ligne>
+      <CodePostal>51530</CodePostal>
+      <NomCommune>Monthelon</NomCommune>
+      <Localisation>
+         <Latitude>48.993749</Latitude>
+         <Longitude>3.93573</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 59 70 00</Téléphone>
+      <Email>mairie-monthelon51@wanadoo.fr</Email>
+      <Url>http://monthelon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-53185-01" codeInsee="53185" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Pré-en-Pail-Saint-Samson</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pré-en-Pail</Ligne>
+      <Ligne>1 rue de la Corniche-de-Pail</Ligne>
+      <CodePostal>53140</CodePostal>
+      <NomCommune>Pré-en-Pail-Saint-Samson</NomCommune>
+      <Localisation>
+         <Latitude>48.455353</Latitude>
+         <Longitude>-0.200806</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 04 63 75</Téléphone>
+      <Email>rsp@cc-montdesavaloirs.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

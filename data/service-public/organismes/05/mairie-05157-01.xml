@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05157-01" codeInsee="05157" dateMiseAJour="2021-07-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Véran</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Ville</Ligne>
+      <CodePostal>05350</CodePostal>
+      <NomCommune>Saint-Véran</NomCommune>
+      <Localisation>
+         <Latitude>44.700836</Latitude>
+         <Longitude>6.86857</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 45 83 91</Téléphone>
+      <Télécopie>04 92 45 81 98</Télécopie>
+      <Email>mairie.stveran@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

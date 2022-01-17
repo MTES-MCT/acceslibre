@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80198-01" codeInsee="80198" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Clairy-Saulchoix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>80540</CodePostal>
+      <NomCommune>Clairy-Saulchoix</NomCommune>
+      <Localisation>
+         <Latitude>49.856300354</Latitude>
+         <Longitude>2.17999005318</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 38 90 79</Téléphone>
+      <Télécopie>03 22 38 90 79</Télécopie>
+      <Email>b.dumeige@amiens-metropole.com</Email>
+      <Url>http://www.commune-clairysaulchoix.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+         <Note>Accueil également possible sur rendez-vous les autres jours de la semaine.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

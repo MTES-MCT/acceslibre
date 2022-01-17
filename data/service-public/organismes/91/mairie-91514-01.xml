@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91514-01" codeInsee="91514" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Quincy-sous-Sénart</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Combs-la-Ville</Ligne>
+      <CodePostal>91480</CodePostal>
+      <NomCommune>Quincy-sous-Sénart</NomCommune>
+      <Localisation>
+         <Latitude>48.6711006165</Latitude>
+         <Longitude>2.54044008255</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 00 14 14</Téléphone>
+      <Télécopie>01 69 00 14 42</Télécopie>
+      <Email>mairie@mairie-quincy-sous-senart.fr</Email>
+      <Url>http://www.mairie-quincy-sous-senart.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et la régie.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

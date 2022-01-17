@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-63001-01" codeInsee="63001" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Plaine Limagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>158 Grande rue</Ligne>
+      <Ligne>BP 23</Ligne>
+      <CodePostal>63260</CodePostal>
+      <NomCommune>Aigueperse</NomCommune>
+      <Localisation>
+         <Latitude>46.0232792</Latitude>
+         <Longitude>3.2031244</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 86 89 80</Téléphone>
+      <Télécopie>04 73 86 89 81</Télécopie>
+      <Email>contact@plainelimagne.fr</Email>
+      <Url>http://www.plainelimagne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

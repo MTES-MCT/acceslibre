@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54202-01" codeInsee="54202" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontenoy-sur-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de l'Église</Ligne>
+      <CodePostal>54840</CodePostal>
+      <NomCommune>Fontenoy-sur-Moselle</NomCommune>
+      <Localisation>
+         <Latitude>48.710899353</Latitude>
+         <Longitude>5.98246002197</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 63 90 38</Téléphone>
+      <Email>mairie.fontenoysm@orange.fr</Email>
+      <Url>http://www.fontenoy-sur-moselle.mairie54.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

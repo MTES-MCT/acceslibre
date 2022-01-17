@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34101-01" codeInsee="34101" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Florensac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Jean-Jaurès</Ligne>
+      <Ligne>BP 20</Ligne>
+      <CodePostal>34510</CodePostal>
+      <NomCommune>Florensac</NomCommune>
+      <Localisation>
+         <Latitude>43.3838701</Latitude>
+         <Longitude>3.4647769</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 77 00 15</Téléphone>
+      <Télécopie>04 67 77 86 11</Télécopie>
+      <Email>accueil@ville-florensac.fr</Email>
+      <Url>http://www.ville-florensac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64203-01" codeInsee="64203" dateMiseAJour="2021-01-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Doumy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>755 cami de Lacarrère</Ligne>
+      <CodePostal>64450</CodePostal>
+      <NomCommune>Doumy</NomCommune>
+      <Localisation>
+         <Latitude>43.47621</Latitude>
+         <Longitude>-0.348837</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 33 89 24</Téléphone>
+      <Email>mairie-de-doumy@orange.fr</Email>
+      <Url>http://www.mairiededoumy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

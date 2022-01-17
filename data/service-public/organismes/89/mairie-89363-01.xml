@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89363-01" codeInsee="89363" dateMiseAJour="2021-10-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Pallaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Grande rue</Ligne>
+      <CodePostal>89460</CodePostal>
+      <NomCommune>Sainte-Pallaye</NomCommune>
+      <Localisation>
+         <Latitude>47.6484778</Latitude>
+         <Longitude>3.6695636</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 81 40 44</Téléphone>
+      <Télécopie>03 86 40 69 81</Télécopie>
+      <Email>mairiestepallaye@wanadoo.fr</Email>
+      <Url>https://www.mairie-sainte-pallaye.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

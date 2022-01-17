@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26003-01" codeInsee="26003" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aleyrac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Pontillac</Ligne>
+      <CodePostal>26770</CodePostal>
+      <NomCommune>Aleyrac</NomCommune>
+      <Localisation>
+         <Latitude>44.5042476</Latitude>
+         <Longitude>4.9459671</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 46 25 10</Téléphone>
+      <Email>mairie@aleyrac.fr</Email>
+      <Url>http://www.aleyrac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

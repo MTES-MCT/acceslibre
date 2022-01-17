@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddcspp-2B033-01" codeInsee="2B033" dateMiseAJour="2021-04-13"
+           pivotLocal="ddcspp">
+   <Nom>Direction départementale de l'emploi, du travail, des solidarités et de la protection des populations (DDETSPP) (ex DDCSPP) - Haute-Corse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Bella Vista</Ligne>
+      <Ligne>Rue Paratojo</Ligne>
+      <Ligne>CS 60011</Ligne>
+      <CodePostal>20288</CodePostal>
+      <NomCommune>Bastia Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.7037149</Latitude>
+         <Longitude>9.4401862</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 58 50 50</Téléphone>
+      <Email>ddcspp@haute-corse.gouv.fr</Email>
+      <Url>http://www.haute-corse.gouv.fr/horaires-et-coordonnees-de-la-ddcspp-de-la-haute-a2767.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

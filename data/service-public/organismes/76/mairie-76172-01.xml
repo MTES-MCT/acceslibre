@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-76172-01" codeInsee="76172" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-sur-Dun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>151 rue de la Mairie</Ligne>
+      <CodePostal>76740</CodePostal>
+      <NomCommune>La Chapelle-sur-Dun</NomCommune>
+      <Localisation>
+         <Latitude>49.8610574</Latitude>
+         <Longitude>0.8448635</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 57 19 12</Téléphone>
+      <Email>lachapellesurdun@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

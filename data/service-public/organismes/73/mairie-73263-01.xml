@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73263-01" codeInsee="73263" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Offenge</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 route Sainte-Euphémie</Ligne>
+      <CodePostal>73100</CodePostal>
+      <NomCommune>Saint-Offenge</NomCommune>
+      <Localisation>
+         <Latitude>45.7344722</Latitude>
+         <Longitude>6.0031397</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 54 91 71</Téléphone>
+      <Télécopie>04 79 54 97 32</Télécopie>
+      <Email>mairie.saintoffenge@orange.fr</Email>
+      <Url>http://www.mairie-stoffenge.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <PlageH début="16:45:00" fin="19:00:00"/>
+         <Note>Permanence du maire et des adjoints de 17h30 à 19h sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="84138" dateMiseAJour="2021-10-11" id="permanence_juridique-84138-01" idPresta="612f2edbb473e40555def5b2" pivotLocal="permanence_juridique">
+    <Nom>Point-justice - France services</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>place Aristide Briand</Ligne>
+        <CodePostal>84600</CodePostal>
+        <NomCommune>VALREAS</NomCommune>
+        <Localisation>
+            <Latitude>44.383294</Latitude>
+            <Longitude>4.990578</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 90 65 62 40</Téléphone>
+        <Email>mailto:franceservices@mairie-valreas.fr</Email>
+        <Url>https://www.valreas.net</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

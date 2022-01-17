@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-13005-01" codeInsee="13005" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Aubagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble La Boussole</Ligne>
+      <Ligne>80 avenue des Soeurs-Gastine</Ligne>
+      <CodePostal>13400</CodePostal>
+      <NomCommune>Aubagne</NomCommune>
+      <Localisation>
+         <Latitude>43.2926157</Latitude>
+         <Longitude>5.5626211</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur et une place handicapé</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 62 83 30</Téléphone>
+      <Télécopie>04 42 62 83 35</Télécopie>
+      <Email>contact@missionlocaleaubagne.org</Email>
+      <Url>http://www.missionlocaleaubagne.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

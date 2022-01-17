@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57216-01" codeInsee="57216" dateMiseAJour="2021-02-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fleisheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 place de l'Église</Ligne>
+      <CodePostal>57635</CodePostal>
+      <NomCommune>Fleisheim</NomCommune>
+      <Localisation>
+         <Latitude>48.788762</Latitude>
+         <Longitude>7.16258</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 23 62 23</Téléphone>
+      <Télécopie>03 87 23 62 23</Télécopie>
+      <Email>mairiefleisheim@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A228-01" codeInsee="2A228" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pietrosella</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Annexe Sorbella</Ligne>
+      <CodePostal>20166</CodePostal>
+      <NomCommune>Pietrosella</NomCommune>
+      <Localisation>
+         <Latitude>41.836696</Latitude>
+         <Longitude>8.845757</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 53 50 50</Téléphone>
+      <Télécopie>04 95 25 56 71</Télécopie>
+      <Email>mairie.pietrosella@wanadoo.fr</Email>
+      <Url>http://www.pietrosella.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

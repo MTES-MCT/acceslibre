@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03101-01" codeInsee="03101" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Domérat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue du Treignat</Ligne>
+      <CodePostal>03410</CodePostal>
+      <NomCommune>Domérat</NomCommune>
+      <Localisation>
+         <Latitude>46.3599014282</Latitude>
+         <Longitude>2.53655004501</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 64 20 01</Téléphone>
+      <Télécopie>04 70 64 29 11</Télécopie>
+      <Email>contact@domerat.agglo-montlucon.fr</Email>
+      <Url>http://www.domerat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

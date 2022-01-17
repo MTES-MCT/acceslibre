@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-97422-01" codeInsee="97422" dateMiseAJour="2020-12-23"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du Tampon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Victor-Hugo</Ligne>
+      <Ligne>Bâtiment A - Local 1102</Ligne>
+      <Ligne>CS 71014</Ligne>
+      <CodePostal>97831</CodePostal>
+      <NomCommune>Le Tampon</NomCommune>
+      <Localisation>
+         <Latitude>-21.28078</Latitude>
+         <Longitude>55.5209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 262 57 23 57</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

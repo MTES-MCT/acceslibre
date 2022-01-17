@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-31395-01" codeInsee="31395" dateMiseAJour="2021-09-07" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises (SIE) du centre des finances publiques de Muret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>159 avenue Jacques-Douzans</Ligne>
+      <Ligne>BP 30097</Ligne>
+      <CodePostal>31604</CodePostal>
+      <NomCommune>Muret Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.4688473</Latitude>
+         <Longitude>1.3274834</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 23 12 50</Téléphone>
+      <Télécopie>05 62 23 12 35</Télécopie>
+      <Email>sie.muret@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception exclusivement sur rdv</Commentaire>
+</Organisme>

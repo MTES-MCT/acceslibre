@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83148-01" codeInsee="83148" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vidauban</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Georges-Clemenceau</Ligne>
+      <CodePostal>83550</CodePostal>
+      <NomCommune>Vidauban</NomCommune>
+      <Localisation>
+         <Latitude>43.4268989563</Latitude>
+         <Longitude>6.4310798645</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 99 99 00</Téléphone>
+      <Télécopie>04 94 99 99 16</Télécopie>
+      <Email>accueil@vidauban.fr</Email>
+      <Url>http://www.mairie-vidauban.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Le service état civil est ouvert le mardi jusqu'à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

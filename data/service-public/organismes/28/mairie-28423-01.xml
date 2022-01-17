@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28423-01" codeInsee="28423" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Yermenonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Gallardon</Ligne>
+      <CodePostal>28130</CodePostal>
+      <NomCommune>Yermenonville</NomCommune>
+      <Localisation>
+         <Latitude>48.5567016602</Latitude>
+         <Longitude>1.62021005154</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 32 32 14</Téléphone>
+      <Email>mairie-yermenonville@wanadoo.fr</Email>
+      <Url>http://www.yermenonville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert le mardi sur rendez-vous uniquement à prendre via le site internet.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

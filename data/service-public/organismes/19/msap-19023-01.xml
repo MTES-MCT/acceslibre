@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-19023-01" codeInsee="19023" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Beynat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Foirail</Ligne>
+      <CodePostal>19190</CodePostal>
+      <NomCommune>Beynat</NomCommune>
+      <Localisation>
+         <Latitude>45.1242065</Latitude>
+         <Longitude>1.7232982</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 19 07 81 21</Téléphone>
+      <Télécopie>05 55 93 78 18</Télécopie>
+      <Email>nderieux@correze.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/beynat</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

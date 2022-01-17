@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34194-01" codeInsee="34194" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Paulhan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 cours National</Ligne>
+      <CodePostal>34230</CodePostal>
+      <NomCommune>Paulhan</NomCommune>
+      <Localisation>
+         <Latitude>43.5396003723</Latitude>
+         <Longitude>3.45775008202</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 25 00 08</Téléphone>
+      <Télécopie>04 67 25 28 91</Télécopie>
+      <Email>mairie@paulhan.fr</Email>
+      <Url>http://www.paulhan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

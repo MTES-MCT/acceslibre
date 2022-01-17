@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95509-01" codeInsee="95509" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Puiseux-en-France</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-Moulin</Ligne>
+      <CodePostal>95380</CodePostal>
+      <NomCommune>Puiseux-en-France</NomCommune>
+      <Localisation>
+         <Latitude>49.034198761</Latitude>
+         <Longitude>2.45272994041</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 72 68 94</Téléphone>
+      <Télécopie>01 34 72 52 44</Télécopie>
+      <Email>mairie.puiseux@roissy-online.com</Email>
+      <Url>http://www.puiseux-en-france.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:45:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:45:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

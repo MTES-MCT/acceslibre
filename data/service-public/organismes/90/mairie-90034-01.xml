@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90034-01" codeInsee="90034" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Denney</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Yvan-Damidaux</Ligne>
+      <CodePostal>90160</CodePostal>
+      <NomCommune>Denney</NomCommune>
+      <Localisation>
+         <Latitude>47.6550579</Latitude>
+         <Longitude>6.90672</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 29 82 04</Téléphone>
+      <Email>mairie@denney.fr</Email>
+      <Url>http://www.denney.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

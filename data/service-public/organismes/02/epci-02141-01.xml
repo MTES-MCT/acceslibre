@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-02141-01" codeInsee="02141" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - La Thiérache du Centre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Villa Pasques</Ligne>
+      <Ligne>13 rue de l'Armistice</Ligne>
+      <CodePostal>02260</CodePostal>
+      <NomCommune>La Capelle</NomCommune>
+      <Localisation>
+         <Latitude>49.9726914</Latitude>
+         <Longitude>3.9223803</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 97 36 00</Téléphone>
+      <Télécopie>03 23 97 30 60</Télécopie>
+      <Email>s.carton@cc-tc.com</Email>
+      <Url>http://www.cc-thieracheducentre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

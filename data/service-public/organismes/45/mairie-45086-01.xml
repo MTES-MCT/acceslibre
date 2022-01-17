@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45086-01" codeInsee="45086" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Châtillon-le-Roi</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue du Château</Ligne>
+      <CodePostal>45480</CodePostal>
+      <NomCommune>Châtillon-le-Roi</NomCommune>
+      <Localisation>
+         <Latitude>48.163024</Latitude>
+         <Longitude>2.106371</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 61 51 95 46</Téléphone>
+      <Email>chatillon.le.roi@orange.fr</Email>
+      <Url>http://www.chatillon-le-roi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

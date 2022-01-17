@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80665-01" codeInsee="80665" dateMiseAJour="2021-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Regnière-Écluse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 avenue du Régiment-de-la-Chaudière</Ligne>
+      <CodePostal>80120</CodePostal>
+      <NomCommune>Regnière-Écluse</NomCommune>
+      <Localisation>
+         <Latitude>50.2796804</Latitude>
+         <Longitude>1.7696373</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 29 93 44</Téléphone>
+      <Email>mairie.regniere.ecluse@orange.fr</Email>
+      <Url>https://lapagelocale.fr/80120-regniere-ecluse</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

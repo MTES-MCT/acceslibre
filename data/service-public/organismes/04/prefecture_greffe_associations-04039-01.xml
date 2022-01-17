@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-04039-01" codeInsee="04039"
+           dateMiseAJour="2018-02-14"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Alpes-de-Haute-Provence (Castellane)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Castellane</Ligne>
+      <Ligne>Bureau des associations</Ligne>
+      <Ligne>Rue du 8-Mai</Ligne>
+      <CodePostal>04120</CodePostal>
+      <NomCommune>Castellane</NomCommune>
+      <Localisation>
+         <Latitude>43.847325</Latitude>
+         <Longitude>6.51003</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 36 77 65</Téléphone>
+      <Télécopie>04 92 83 76 82</Télécopie>
+      <Email>sp-castellane@alpes-de-haute-provence.gouv.fr</Email>
+      <Url>http://www.alpes-de-haute-provence.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:15:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

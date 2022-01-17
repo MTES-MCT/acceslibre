@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="73011" dateMiseAJour="2021-12-14" id="prudhommes-73011-01" idPresta="4cac9e5f293594648a0002fb" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Albertville</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 AVENUE DES CHASSEURS ALPINS</Ligne>
+        <CodePostal>73208</CodePostal>
+        <NomCommune>ALBERTVILLE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.673798</Latitude>
+            <Longitude>6.39157</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 AVENUE DES CHASSEURS ALPINS</Ligne>
+        <CodePostal>73208</CodePostal>
+        <NomCommune>ALBERTVILLE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 79 32 59 30</Téléphone>
+        <Télécopie>04 79 37 81 22</Télécopie>
+        <Email>mailto:cph-albertville@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="11:30:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-83042-01" codeInsee="83042" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Golfe de Saint-Tropez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment le Grand Sud</Ligne>
+      <Ligne>2 rue Blaise-Pascal</Ligne>
+      <CodePostal>83310</CodePostal>
+      <NomCommune>Cogolin</NomCommune>
+      <Localisation>
+         <Latitude>43.256282</Latitude>
+         <Longitude>6.522278</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 55 70 30</Téléphone>
+      <Télécopie>04 94 54 56 39</Télécopie>
+      <Email>contact@cc-golfedesainttropez.fr</Email>
+      <Url>http://www.cc-golfedesainttropez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

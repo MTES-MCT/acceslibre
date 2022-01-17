@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73300-01" codeInsee="73300" dateMiseAJour="2021-09-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tresserve</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 chemin de Belledonne</Ligne>
+      <CodePostal>73100</CodePostal>
+      <NomCommune>Tresserve</NomCommune>
+      <Localisation>
+         <Latitude>45.6731452942</Latitude>
+         <Longitude>5.89970111847</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'agent descend au besoin</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 61 45 20</Téléphone>
+      <Télécopie>04 79 35 68 31</Télécopie>
+      <Email>direction.mairie@tresserve.fr</Email>
+      <Url>http://www.tresserve.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

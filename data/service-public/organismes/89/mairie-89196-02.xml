@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89196-02" codeInsee="89196" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Valravillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Villemer</Ligne>
+      <Ligne>9 route de Briare</Ligne>
+      <CodePostal>89113</CodePostal>
+      <NomCommune>Valravillon</NomCommune>
+      <Localisation>
+         <Latitude>47.9158325195</Latitude>
+         <Longitude>3.47323608398</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 73 76 95</Téléphone>
+      <Email>villemer@valravillon.fr</Email>
+      <Url>http://www.villemer89.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="10:30:00"/>
+         <Note>Permanence des élus.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

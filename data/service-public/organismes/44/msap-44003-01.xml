@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-44003-01" codeInsee="44003" dateMiseAJour="2021-02-24"
+           pivotLocal="msap">
+   <Nom>France Services - Ancenis</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Rue du Dr Bousseau</Ligne>
+      <CodePostal>44150</CodePostal>
+      <NomCommune>Ancenis</NomCommune>
+      <Localisation>
+         <Latitude>47.36397</Latitude>
+         <Longitude>-1.18485</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 83 08 50</Téléphone>
+      <Email>ancenis@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

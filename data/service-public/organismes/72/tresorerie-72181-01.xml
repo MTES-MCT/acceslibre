@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-72181-01" codeInsee="72181" dateMiseAJour="2021-04-28"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du Mans ville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Résidence Eugène-Delacroix</Ligne>
+      <Ligne>11 boulevard Lamartine</Ligne>
+      <Ligne>BP 21243</Ligne>
+      <CodePostal>72001</CodePostal>
+      <NomCommune>Le Mans Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>48.000208</Latitude>
+         <Longitude>0.191597</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 47 09 80</Téléphone>
+      <Email>t072033@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mercredi</Commentaire>
+</Organisme>

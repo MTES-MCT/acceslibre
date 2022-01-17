@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90048-01" codeInsee="90048" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontenelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Chenevières</Ligne>
+      <CodePostal>90340</CodePostal>
+      <NomCommune>Fontenelle</NomCommune>
+      <Localisation>
+         <Latitude>47.6198005676</Latitude>
+         <Longitude>6.95476007462</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 23 44 93</Téléphone>
+      <Email>mairie.fontenelle90@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

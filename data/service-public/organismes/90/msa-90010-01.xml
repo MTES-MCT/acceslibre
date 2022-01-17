@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-90010-01" codeInsee="90010" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Franche-Comté - accueil de Belfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>ZAC Gare TGV</Ligne>
+      <Ligne>Immeuble Tour la Jonxion</Ligne>
+      <CodePostal>90400</CodePostal>
+      <NomCommune>Meroux</NomCommune>
+      <Localisation>
+         <Latitude>47.594865246865425</Latitude>
+         <Longitude>6.9000088841933325</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole Franche-Comté</Ligne>
+      <Ligne>13 avenue Élisée-Cusenier</Ligne>
+      <CodePostal>25090</CodePostal>
+      <NomCommune>Besançon Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 35 25 25</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71199-01" codeInsee="71199" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flagy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue de la Mairie</Ligne>
+      <CodePostal>71250</CodePostal>
+      <NomCommune>Flagy</NomCommune>
+      <Localisation>
+         <Latitude>46.4871878</Latitude>
+         <Longitude>4.6675545</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 59 47 00</Téléphone>
+      <Email>flagy.mairie@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

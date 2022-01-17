@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-49023-01" codeInsee="49023" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Mauges Communauté</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Beaupréau</Ligne>
+      <Ligne>La Loge</Ligne>
+      <Ligne>CS 60111</Ligne>
+      <CodePostal>49600</CodePostal>
+      <NomCommune>Beaupréau-en-Mauges</NomCommune>
+      <Localisation>
+         <Latitude>47.206472</Latitude>
+         <Longitude>-0.9916559</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 71 77 10</Téléphone>
+      <Télécopie>02 41 71 77 01</Télécopie>
+      <Email>contact@maugescommunaute.fr</Email>
+      <Url>http://www.maugescommunaute.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

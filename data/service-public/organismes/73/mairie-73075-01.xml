@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73075-01" codeInsee="73075" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-Blanche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>165 rue de l'Église</Ligne>
+      <CodePostal>73110</CodePostal>
+      <NomCommune>La Chapelle-Blanche</NomCommune>
+      <Localisation>
+         <Latitude>45.449889</Latitude>
+         <Longitude>6.073193</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 25 51 64</Téléphone>
+      <Télécopie>04 79 69 07 45</Télécopie>
+      <Email>mairie.lachapelleblanche@orange.fr</Email>
+      <Url>http://www.lachapelleblanche73.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="12:00:00" fin="14:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires, permanence des élus sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

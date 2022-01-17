@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40068-01" codeInsee="40068" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cassen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 promenade de la Marnière</Ligne>
+      <CodePostal>40380</CodePostal>
+      <NomCommune>Cassen</NomCommune>
+      <Localisation>
+         <Latitude>43.7608745</Latitude>
+         <Longitude>-0.8599697</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 98 92 06</Téléphone>
+      <Email>mairie@cassen.fr</Email>
+      <Url>http://www.cassen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-69123-01" codeInsee="69123" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Métropole - Lyon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue du Lac</Ligne>
+      <Ligne>CS 33569</Ligne>
+      <CodePostal>69505</CodePostal>
+      <NomCommune>Lyon Cedex 3</NomCommune>
+      <Localisation>
+         <Latitude>45.7581224</Latitude>
+         <Longitude>4.8537226</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 63 40 40</Téléphone>
+      <Url>http://www.grandlyon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

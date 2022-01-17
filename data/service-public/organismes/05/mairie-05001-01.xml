@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05001-01" codeInsee="05001" dateMiseAJour="2021-07-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Abriès-Ristolas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Abriès</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>Place des Halles</Ligne>
+      <CodePostal>05460</CodePostal>
+      <NomCommune>Abriès-Ristolas</NomCommune>
+      <Localisation>
+         <Latitude>44.793953</Latitude>
+         <Longitude>6.926206</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 46 71 03</Téléphone>
+      <Télécopie>04 92 46 83 70</Télécopie>
+      <Email>mairie@abries-ristolas.fr</Email>
+      <Url>http://www.abries-ristolas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

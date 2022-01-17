@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-77316-01" codeInsee="77316" dateMiseAJour="2021-06-10"
+           pivotLocal="msap">
+   <Nom>France Services - Moret Loing et Orvanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Allée Gustave Prugnat</Ligne>
+      <Ligne>Communauté de Communes de Moret Seine &amp; Loing</Ligne>
+      <CodePostal>77250</CodePostal>
+      <NomCommune>Moret Loing et Orvanne</NomCommune>
+      <Localisation>
+         <Latitude>48.375598</Latitude>
+         <Longitude>2.821637</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 70 66 14</Téléphone>
+      <Email>ccmsl@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77447-01" codeInsee="77447" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seine-Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 bis rue de Melun</Ligne>
+      <CodePostal>77240</CodePostal>
+      <NomCommune>Seine-Port</NomCommune>
+      <Localisation>
+         <Latitude>48.5564002991</Latitude>
+         <Longitude>2.55947995186</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">le hall est accessible mais les bureaux, y compris l'accueil, se trouvent à l'étage sans ascenseur, cependant il y a un interphone et une personne peut descendre</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 63 51 50</Téléphone>
+      <Télécopie>01 64 41 90 69</Télécopie>
+      <Email>accueil@seine-port.fr</Email>
+      <Url>http://www.seine-port.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

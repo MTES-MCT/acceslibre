@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-25527-01" codeInsee="25527" dateMiseAJour="2020-12-23"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Vit</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>25410</CodePostal>
+      <NomCommune>Saint-Vit</NomCommune>
+      <Localisation>
+         <Latitude>47.18087</Latitude>
+         <Longitude>5.8099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 87 40 46</Téléphone>
+      <Email>msap@saintvit.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>sur rendez-vous chaque 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

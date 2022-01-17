@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="23096" dateMiseAJour="2021-12-14" id="prudhommes-23096-01" idPresta="4cac9e5f293594648a00021b" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Guéret</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>4 RUE DE L&#39;ANCIENNE MAIRIE</Ligne>
+        <CodePostal>23000</CodePostal>
+        <NomCommune>GUERET</NomCommune>
+        <Localisation>
+            <Latitude>46.169997</Latitude>
+            <Longitude>1.869163</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>4 RUE DE L&#39;ANCIENNE MAIRIE</Ligne>
+        <CodePostal>23000</CodePostal>
+        <NomCommune>GUERET</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 55 52 31 64</Téléphone>
+        <Télécopie>05 55 41 15 33</Télécopie>
+        <Email>mailto:chg.cph-gueret@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

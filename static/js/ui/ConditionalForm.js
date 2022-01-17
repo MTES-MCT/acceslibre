@@ -198,9 +198,11 @@ function processTargets(root, rule, value) {
     }
     if (rule.values.indexOf(value) !== -1) {
       el.classList.add("indented" + rule.indent);
+      el.setAttribute("aria-label", el.children[0].children[0].innerHTML);
       el.classList.remove("hidden");
     } else {
       el.classList.add("hidden");
+      el.removeAttribute("aria-label");
       resetField(el);
     }
   });

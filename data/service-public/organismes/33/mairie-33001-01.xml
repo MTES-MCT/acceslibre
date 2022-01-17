@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33001-01" codeInsee="33001" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Abzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue du Docteur-Texier</Ligne>
+      <CodePostal>33230</CodePostal>
+      <NomCommune>Abzac</NomCommune>
+      <Localisation>
+         <Latitude>45.0168931</Latitude>
+         <Longitude>-0.1286568</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 49 07 38</Téléphone>
+      <Email>mairieabzac2@wanadoo.fr</Email>
+      <Url>http://www.commune-abzac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

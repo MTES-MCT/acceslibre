@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-55029-01" codeInsee="55029" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de la Meuse - siège de Bar-le-Duc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue de Polval</Ligne>
+      <Ligne>BP 20520</Ligne>
+      <CodePostal>55012</CodePostal>
+      <NomCommune>Bar-le-Duc Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7682996</Latitude>
+         <Longitude>5.1627048</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+         <Note>Accueil possible sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

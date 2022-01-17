@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34096-01" codeInsee="34096" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Faugères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>964 route de Pézénas</Ligne>
+      <CodePostal>34600</CodePostal>
+      <NomCommune>Faugères</NomCommune>
+      <Localisation>
+         <Latitude>43.5646726</Latitude>
+         <Longitude>3.1898823</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 95 06 09</Téléphone>
+      <Email>mairie.faugeres@wanadoo.fr</Email>
+      <Url>http://www.faugeres34.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

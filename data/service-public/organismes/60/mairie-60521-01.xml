@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60521-01" codeInsee="60521" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Quincampoix-Fleuzy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Lucien-Jouen</Ligne>
+      <CodePostal>60220</CodePostal>
+      <NomCommune>Quincampoix-Fleuzy</NomCommune>
+      <Localisation>
+         <Latitude>49.7467002869</Latitude>
+         <Longitude>1.77190101147</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 04 21 65</Téléphone>
+      <Télécopie>03 44 04 21 65</Télécopie>
+      <Email>quincampoix.fleuzy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

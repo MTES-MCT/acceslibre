@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23023-01" codeInsee="23023" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Blaudeix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'Église</Ligne>
+      <CodePostal>23140</CodePostal>
+      <NomCommune>Blaudeix</NomCommune>
+      <Localisation>
+         <Latitude>46.2307014465</Latitude>
+         <Longitude>2.08406305313</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">prendre rendez-vous par téléphone avant de se rendre à la mairie</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 80 86 28</Téléphone>
+      <Email>mairie.blaudeix@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

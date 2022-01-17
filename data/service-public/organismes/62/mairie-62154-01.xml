@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62154-01" codeInsee="62154" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bonnières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>36 Grand'rue</Ligne>
+      <CodePostal>62270</CodePostal>
+      <NomCommune>Bonnières</NomCommune>
+      <Localisation>
+         <Latitude>50.2431733</Latitude>
+         <Longitude>2.2623949</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 03 64 22</Téléphone>
+      <Télécopie>03 21 03 65 36</Télécopie>
+      <Email>mairie-bonnieres@orange.fr</Email>
+      <Url>http://bonnieres-ternois.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le samedi uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

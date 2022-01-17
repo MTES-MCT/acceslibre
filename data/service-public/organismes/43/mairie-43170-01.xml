@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43170-01" codeInsee="43170" dateMiseAJour="2019-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Beauzire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>43100</CodePostal>
+      <NomCommune>Saint-Beauzire</NomCommune>
+      <Localisation>
+         <Latitude>45.2752761841</Latitude>
+         <Longitude>3.26755094528</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 76 80 42</Téléphone>
+      <Télécopie>04 71 76 80 42</Télécopie>
+      <Email>mairie.stbeauzire@laposte.net</Email>
+      <Url>http://www.cc-brivadois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

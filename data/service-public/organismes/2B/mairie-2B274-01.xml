@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B274-01" codeInsee="2B274" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Scolca</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Scolca</Ligne>
+      <CodePostal>20290</CodePostal>
+      <NomCommune>Scolca</NomCommune>
+      <Localisation>
+         <Latitude>42.5309410095</Latitude>
+         <Longitude>9.36249256134</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 38 20 27</Téléphone>
+      <Télécopie>04 95 38 20 27</Télécopie>
+      <Email>mairiedescolca@yahoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

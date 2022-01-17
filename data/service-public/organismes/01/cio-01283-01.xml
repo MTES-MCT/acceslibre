@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-01283-01" codeInsee="01283" dateMiseAJour="2021-01-20" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Oyonnax</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Victor-Hugo</Ligne>
+      <CodePostal>01100</CodePostal>
+      <NomCommune>Oyonnax</NomCommune>
+      <Localisation>
+         <Latitude>46.2575592</Latitude>
+         <Longitude>5.654668</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 77 94 22</Téléphone>
+      <Télécopie>04 74 73 47 06</Télécopie>
+      <Email>cio-oyonnax@ac-lyon.fr</Email>
+      <Url>https://www.education.gouv.fr/annuaire/01-ain/oyonnax/cio/centre-d-information-et-d-orientation-oyonnax.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires du lundi au vendredi de 9h à 12h et de 13h30 à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95277-01" codeInsee="95277" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gonesse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>66 rue de Paris</Ligne>
+      <Ligne>BP 10060</Ligne>
+      <CodePostal>95503</CodePostal>
+      <NomCommune>Gonesse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9863014221</Latitude>
+         <Longitude>2.44970989227</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">travaux en cours</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 45 11 11</Téléphone>
+      <Télécopie>01 39 87 13 22</Télécopie>
+      <Url>http://www.ville-gonesse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Merci de se référer au site de la mairie pour plus de précisions sur les horaires des différents services.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

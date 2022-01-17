@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-69290-01" codeInsee="69290" dateMiseAJour="2021-04-29" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Priest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de la métropole</Ligne>
+      <Ligne>21 rue Maréchal Leclerc</Ligne>
+      <CodePostal>69800</CodePostal>
+      <NomCommune>Saint-Priest</NomCommune>
+      <Localisation>
+         <Latitude>45.695301</Latitude>
+         <Longitude>4.934899</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="04 26 99 31 63">04 28 67 27 60</Téléphone>
+      <Email>mdm.st-priest@grandlyon.com</Email>
+      <Url>https://www.grandlyon.com/maisons-metropole/maison-de-la-metropole-principale-de-saint-priest.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

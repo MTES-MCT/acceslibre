@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89472-01" codeInsee="89472" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villiers-Saint-Benoît</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Marie-Guillemot</Ligne>
+      <CodePostal>89130</CodePostal>
+      <NomCommune>Villiers-Saint-Benoît</NomCommune>
+      <Localisation>
+         <Latitude>47.78353</Latitude>
+         <Longitude>3.201755</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 45 70 37</Téléphone>
+      <Email>mairie.villierssaintbenoit@orange.fr</Email>
+      <Url>http://www.villiers-saint-benoit.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

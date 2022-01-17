@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73190-01" codeInsee="73190" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Notre-Dame-du-Pré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chef-lieu</Ligne>
+      <Ligne>115 rue de la Mairie</Ligne>
+      <CodePostal>73600</CodePostal>
+      <NomCommune>Notre-Dame-du-Pré</NomCommune>
+      <Localisation>
+         <Latitude>45.5117359</Latitude>
+         <Longitude>6.5950449</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 24 01 74</Téléphone>
+      <Email>mairienddp@orange.fr</Email>
+      <Url>http://www.notredamedupre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-73290-01" codeInsee="73290" dateMiseAJour="2022-01-05"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Val-Cenis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Jardins</Ligne>
+      <CodePostal>73480</CodePostal>
+      <NomCommune>Val-Cenis</NomCommune>
+      <Localisation>
+         <Latitude>45.285561</Latitude>
+         <Longitude>6.875663</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 05 91 82</Téléphone>
+      <Email>t073017@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

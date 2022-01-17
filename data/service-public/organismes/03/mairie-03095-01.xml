@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03095-01" codeInsee="03095" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cusset</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Victor-Hugo</Ligne>
+      <Ligne>BP 20305</Ligne>
+      <CodePostal>03306</CodePostal>
+      <NomCommune>Cusset Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.131889</Latitude>
+         <Longitude>3.456201</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 30 95 00</Téléphone>
+      <Télécopie>04 70 30 95 01</Télécopie>
+      <Email>mairie@ville-cusset.fr</Email>
+      <Url>http://www.ville-cusset.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert et permanence des élus.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

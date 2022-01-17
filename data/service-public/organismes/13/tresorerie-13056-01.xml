@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-13056-01" codeInsee="13056" dateMiseAJour="2020-10-23"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Martigues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue Léonard-Combes</Ligne>
+      <CodePostal>13695</CodePostal>
+      <NomCommune>Martigues Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.4011185</Latitude>
+         <Longitude>5.0567284</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 81 20 90</Téléphone>
+      <Télécopie>04 42 81 06 91</Télécopie>
+      <Email>t013215@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

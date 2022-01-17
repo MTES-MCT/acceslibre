@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64435-01" codeInsee="64435" dateMiseAJour="2021-01-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Osserain-Rivareyte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>64390</CodePostal>
+      <NomCommune>Osserain-Rivareyte</NomCommune>
+      <Localisation>
+         <Latitude>43.378032</Latitude>
+         <Longitude>-0.952913</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 38 92 08</Téléphone>
+      <Email>comosserain@cdg-64.fr</Email>
+      <Url>http://www.osserain-rivareyte.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

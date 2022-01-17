@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67028-01" codeInsee="67028" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Benfeld</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue du Château</Ligne>
+      <CodePostal>67230</CodePostal>
+      <NomCommune>Benfeld</NomCommune>
+      <Localisation>
+         <Latitude>48.3711013794</Latitude>
+         <Longitude>7.5973200798</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 74 42 17</Téléphone>
+      <Télécopie>03 88 74 00 22</Télécopie>
+      <Email>mairie@ville-de-benfeld.fr</Email>
+      <Url>http://www.benfeld.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="77186" dateMiseAJour="2021-12-14" id="tgi-77186-01" idPresta="4cac9e6a293594648a0017b8" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Fontainebleau</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>159 RUE GRANDE</Ligne>
+        <CodePostal>77305</CodePostal>
+        <NomCommune>FONTAINEBLEAU CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.409468</Latitude>
+            <Longitude>2.704048</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>159 RUE GRANDE</Ligne>
+        <CodePostal>77305</CodePostal>
+        <NomCommune>FONTAINEBLEAU CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 60 71 23 00</Téléphone>
+        <Télécopie>01 60 71 06 35</Télécopie>
+        <Email>mailto:tj1-fontainebleau@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

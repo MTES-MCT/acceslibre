@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26043-01" codeInsee="26043" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beauvoisin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Grange</Ligne>
+      <Ligne>507 route de Buis</Ligne>
+      <CodePostal>26170</CodePostal>
+      <NomCommune>Beauvoisin</NomCommune>
+      <Localisation>
+         <Latitude>44.306411</Latitude>
+         <Longitude>5.204807</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 28 02 71</Téléphone>
+      <Télécopie>04 75 28 02 71</Télécopie>
+      <Email>mairiebeauvoisin@gmail.com</Email>
+      <Url>http://www.beauvoisin-drome.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-04112-01" codeInsee="04112" dateMiseAJour="2021-11-17"
+           pivotLocal="msap">
+   <Nom>France Services - Manosque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Blaise Pascal</Ligne>
+      <Ligne>ZI Saint-Joseph</Ligne>
+      <CodePostal>04100</CodePostal>
+      <NomCommune>Manosque</NomCommune>
+      <Localisation>
+         <Latitude>43.82285</Latitude>
+         <Longitude>5.7994</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 75 36 48</Téléphone>
+      <Email>mfs-manosque@alpesvaucluse.msa.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

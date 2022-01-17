@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02481-01" codeInsee="02481" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mesnil-Saint-Laurent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue de la Grange-aux-Bois</Ligne>
+      <CodePostal>02720</CodePostal>
+      <NomCommune>Mesnil-Saint-Laurent</NomCommune>
+      <Localisation>
+         <Latitude>49.8302001953</Latitude>
+         <Longitude>3.3566300869</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 08 69 27</Téléphone>
+      <Télécopie>03 23 08 69 27</Télécopie>
+      <Email>mairie.mesnil-st-laurent@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

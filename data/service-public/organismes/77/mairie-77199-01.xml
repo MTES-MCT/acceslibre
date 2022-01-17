@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77199-01" codeInsee="77199" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fublaines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue Alphonse-Cabon</Ligne>
+      <CodePostal>77470</CodePostal>
+      <NomCommune>Fublaines</NomCommune>
+      <Localisation>
+         <Latitude>48.9375</Latitude>
+         <Longitude>2.93754005432</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 25 80 00</Téléphone>
+      <Email>mairie.fublaines@wanadoo.fr</Email>
+      <Url>http://www.fublaines.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Un samedi sur deux.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

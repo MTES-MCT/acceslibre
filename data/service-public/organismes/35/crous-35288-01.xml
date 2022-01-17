@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-35288-01" codeInsee="35288" dateMiseAJour="2021-06-07"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - Saint-Malo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 bis rue Henri-Lemarié</Ligne>
+      <CodePostal>35404</CodePostal>
+      <NomCommune>Saint-Malo</NomCommune>
+      <Localisation>
+         <Latitude>48.656743</Latitude>
+         <Longitude>-1.974289</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 23 18 11 40</Téléphone>
+      <Email>ru.stmalo@crous-rennes.fr</Email>
+      <Url>http://www.crous-rennes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

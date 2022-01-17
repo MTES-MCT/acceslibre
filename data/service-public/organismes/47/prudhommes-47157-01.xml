@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="47157" dateMiseAJour="2021-12-14" id="prudhommes-47157-01" idPresta="4cac9e61293594648a0005cb" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Marmande</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 PLACE DES DROITS DE L&#39;HOMME</Ligne>
+        <CodePostal>47200</CodePostal>
+        <NomCommune>MARMANDE</NomCommune>
+        <Localisation>
+            <Latitude>44.500483</Latitude>
+            <Longitude>0.163112</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 PLACE DES DROITS DE L&#39;HOMME</Ligne>
+        <CodePostal>47200</CodePostal>
+        <NomCommune>MARMANDE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 40 40 51 20</Téléphone>
+        <Télécopie>05 40 40 51 25</Télécopie>
+        <Email>mailto:cph-marmande@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-29024-01" codeInsee="29024" dateMiseAJour="2020-12-14"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Carhaix-Plouguer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Tour d'Auvergne</Ligne>
+      <Ligne>Poher communauté</Ligne>
+      <CodePostal>29270</CodePostal>
+      <NomCommune>Carhaix-Plouguer</NomCommune>
+      <Localisation>
+         <Latitude>48.275626</Latitude>
+         <Longitude>-3.571893</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 99 09 39</Téléphone>
+      <Email>MSAP@poher.bzh</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/poher-communaute</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le bus peut se dérouter à la demande sur la commune de Carhaix les 20 dernières minutes de chaque heure. Pour cela composer le numéro indigo : 0 820 029 270</Commentaire>
+</Organisme>

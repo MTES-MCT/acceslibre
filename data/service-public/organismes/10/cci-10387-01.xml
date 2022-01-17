@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-10387-01" codeInsee="10387" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 10 - Aube - Siège de Troyes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Régley</Ligne>
+      <Ligne>CS 60706</Ligne>
+      <Ligne>1 boulevard Charles Baltet</Ligne>
+      <CodePostal>10001</CodePostal>
+      <NomCommune>Troyes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.2956183</Latitude>
+         <Longitude>4.0718792</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 43 70 00</Téléphone>
+      <Télécopie>03 25 43 70 43</Télécopie>
+      <Email>accueil@troyes.cci.fr</Email>
+      <Url>https://www.troyes.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

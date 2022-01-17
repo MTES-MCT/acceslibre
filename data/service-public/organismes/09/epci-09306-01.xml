@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-09306-01" codeInsee="09306" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays de Tarascon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 avenue de Sabart</Ligne>
+      <Ligne>BP 30133</Ligne>
+      <CodePostal>09401</CodePostal>
+      <NomCommune>Tarascon-sur-Ariège</NomCommune>
+      <Localisation>
+         <Latitude>42.84115</Latitude>
+         <Longitude>1.6024365</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 34 09 86 30</Téléphone>
+      <Email>contact@cc-paystarascon.fr</Email>
+      <Url>http://www.cc-paysdetarascon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80347-01" codeInsee="80347" dateMiseAJour="2017-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fransart</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Fouquescourt</Ligne>
+      <CodePostal>80700</CodePostal>
+      <NomCommune>Fransart</NomCommune>
+      <Localisation>
+         <Latitude>49.767172</Latitude>
+         <Longitude>2.773013</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 87 06 97</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

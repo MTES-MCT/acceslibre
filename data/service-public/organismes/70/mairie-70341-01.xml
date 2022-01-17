@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70341-01" codeInsee="70341" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Menoux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>16 rue Collot</Ligne>
+      <CodePostal>70160</CodePostal>
+      <NomCommune>Menoux</NomCommune>
+      <Localisation>
+         <Latitude>47.7677001953</Latitude>
+         <Longitude>6.10502004623</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par l'arrière de la mairie</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 91 15 06</Téléphone>
+      <Email>mairie-de-menoux@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-09225-01" codeInsee="09225" dateMiseAJour="2020-02-11"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Pamiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de Pamiers</Ligne>
+      <Ligne>12 place Albert-Tourmier</Ligne>
+      <CodePostal>09100</CodePostal>
+      <NomCommune>Pamiers</NomCommune>
+      <Localisation>
+         <Latitude>43.111687</Latitude>
+         <Longitude>1.611533</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 60 72 59</Téléphone>
+      <Email>accueil@clicdepamiers.org</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

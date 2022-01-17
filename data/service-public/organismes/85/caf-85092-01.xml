@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-85092-01" codeInsee="85092" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Vendée - accueil de Fontenay-le-Comte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Résidence Simone-Signoret</Ligne>
+      <Ligne>Allée Jean-Renoir</Ligne>
+      <Ligne>Rue de la Lamproie</Ligne>
+      <CodePostal>85200</CodePostal>
+      <NomCommune>Fontenay-le-Comte</NomCommune>
+      <Localisation>
+         <Latitude>46.4659524</Latitude>
+         <Longitude>-0.8060646</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible aux personnes à mobilité réduite</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Vendée</Ligne>
+      <Ligne>109 boulevard Louis-Blanc</Ligne>
+      <CodePostal>85932</CodePostal>
+      <NomCommune>La Roche-sur-Yon Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les lundi et mardi après-midis uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

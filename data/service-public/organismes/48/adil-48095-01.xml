@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-48095-01" codeInsee="48095" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Lozère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 bis avenue du Maréchal-Foch</Ligne>
+      <CodePostal>48000</CodePostal>
+      <NomCommune>Mende</NomCommune>
+      <Localisation>
+         <Latitude>44.5163002014</Latitude>
+         <Longitude>3.49762010574</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 49 36 65</Téléphone>
+      <Email>contact.adil48@orange.fr</Email>
+      <Url>http://www.adil48.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

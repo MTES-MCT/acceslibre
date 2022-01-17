@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05054-01" codeInsee="05054" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Fare-en-Champsaur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Barraques</Ligne>
+      <Ligne>5 route de Grenoble</Ligne>
+      <CodePostal>05500</CodePostal>
+      <NomCommune>La Fare-en-Champsaur</NomCommune>
+      <Localisation>
+         <Latitude>44.6775627</Latitude>
+         <Longitude>6.0701398</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 50 10 35</Téléphone>
+      <Email>la-fare.mairie@orange.fr</Email>
+      <Url>http://www.mairie-la-fare-en-champsaur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69049-01" codeInsee="69049" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chasselay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 le Promenoir</Ligne>
+      <Ligne>BP 22</Ligne>
+      <CodePostal>69380</CodePostal>
+      <NomCommune>Chasselay</NomCommune>
+      <Localisation>
+         <Latitude>45.8734016418</Latitude>
+         <Longitude>4.77217006683</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 47 62 43</Téléphone>
+      <Télécopie>04 78 47 61 86</Télécopie>
+      <Email>mairie@chasselay.fr</Email>
+      <Url>http://www.mairie-chasselay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

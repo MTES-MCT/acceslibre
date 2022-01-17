@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-61414-01" codeInsee="61414" dateMiseAJour="2022-01-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Mortagne-au-Perche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route d'Alençon</Ligne>
+      <Ligne>BP 90</Ligne>
+      <CodePostal>61400</CodePostal>
+      <NomCommune>Saint-Langis-lès-Mortagne</NomCommune>
+      <Localisation>
+         <Latitude>48.5259564</Latitude>
+         <Longitude>0.5338749</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 85 86 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous de 13h30 à 16h</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous de 13h30 à 16h. Fermé le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

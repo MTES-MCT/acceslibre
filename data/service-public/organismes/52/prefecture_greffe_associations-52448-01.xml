@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-52448-01" codeInsee="52448"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Haute-Marne (Saint-Dizier)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Saint-Dizier</Ligne>
+      <Ligne>54 rue Gambetta</Ligne>
+      <Ligne>BP 135</Ligne>
+      <CodePostal>52101</CodePostal>
+      <NomCommune>Saint-Dizier Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.636652</Latitude>
+         <Longitude>4.9521067</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette et rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 56 94 71</Téléphone>
+      <Télécopie>03 25 56 94 58</Télécopie>
+      <Email>sous-prefecture-de-saint-dizier@haute-marne.pref.gouv.fr</Email>
+      <Url>http://www.haute-marne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

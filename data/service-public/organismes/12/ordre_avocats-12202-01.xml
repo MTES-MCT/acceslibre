@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-12202-01" codeInsee="12202" dateMiseAJour="2019-03-06"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de l'Aveyron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Palais de Justice</Ligne>
+      <Ligne>boulevard de Guizard</Ligne>
+      <CodePostal>12000</CodePostal>
+      <NomCommune>Rodez</NomCommune>
+      <Localisation>
+         <Latitude>44.348945</Latitude>
+         <Longitude>2.572227</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 68 29 83</Téléphone>
+      <Télécopie>05 65 68 26 74</Télécopie>
+      <Email>contact@avocats-aveyron.com</Email>
+      <Url>https://www.avocats12.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

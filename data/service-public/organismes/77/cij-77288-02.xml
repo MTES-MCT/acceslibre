@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-77288-02" codeInsee="77288" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Centre information jeunesse - Melun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 bis quai de la Courtille</Ligne>
+      <CodePostal>77000</CodePostal>
+      <NomCommune>Melun</NomCommune>
+      <Localisation>
+         <Latitude>48.5365955</Latitude>
+         <Longitude>2.659677</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 39 60 70</Téléphone>
+      <Email>marlise.ostrowski@cij77.asso.fr</Email>
+      <Url>http://www.cij77.asso.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

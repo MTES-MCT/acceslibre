@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54367-01" codeInsee="54367" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mexy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue Jules-Ferry</Ligne>
+      <Ligne>BP 18</Ligne>
+      <CodePostal>54135</CodePostal>
+      <NomCommune>Mexy</NomCommune>
+      <Localisation>
+         <Latitude>49.5022010803</Latitude>
+         <Longitude>5.77862977982</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 24 28 22</Téléphone>
+      <Télécopie>03 82 24 36 19</Télécopie>
+      <Email>mairie.mexy@wanadoo.fr</Email>
+      <Url>http://www.mairie-de-mexy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil ouvert pendant la crise sanitaire le lundi, mercredi et vendredi de 8h à 12h, le mardi et jeudi de 13h30 à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pendant la crise sanitaire le lundi, mercredi et vendredi de 8h à 12h, le mardi et jeudi de 13h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

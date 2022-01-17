@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-71394-01" codeInsee="71394" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Bonnet-de-Joux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Poste</Ligne>
+      <CodePostal>71220</CodePostal>
+      <NomCommune>Saint-Bonnet-de-Joux</NomCommune>
+      <Localisation>
+         <Latitude>46.48022049</Latitude>
+         <Longitude>4.430563</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 70 93 26</Téléphone>
+      <Email>valdejoux@pimms.org</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

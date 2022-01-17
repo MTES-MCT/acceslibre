@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-83137-01" codeInsee="83137" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie amendes du Var</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>155 rue Saint-Bernard</Ligne>
+      <Ligne>Porte C</Ligne>
+      <Ligne>CS 10233</Ligne>
+      <CodePostal>83071</CodePostal>
+      <NomCommune>Toulon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.122936</Latitude>
+         <Longitude>5.936248</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 12 53 30</Téléphone>
+      <Email>t083023@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

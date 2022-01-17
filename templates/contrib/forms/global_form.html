@@ -1,13 +1,13 @@
 {% load a4a %}
 {% load crispy_forms_tags %}
 
-<form action="{% url "contrib_global_search" %}#content" method="get" class="card mb-4">
+<form action="{% url "contrib_start" %}" method="get" novalidate class="card mb-4">
   <div class="card-header">
     <h3 class="h6 mb-0 text-center">Saisie automatique</h3>
   </div>
   <div class="card-body">
     {% if error %}
-      <div class="alert alert-danger">{{ error }}</div>
+      <div class="alert alert-danger" role="alert">{{ error }}</div>
     {% endif %}
     {{ form|crispy }}
     <button type="submit" class="btn btn-primary w-100">

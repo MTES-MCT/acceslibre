@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57014-01" codeInsee="57014" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Altrippe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Principale</Ligne>
+      <CodePostal>57660</CodePostal>
+      <NomCommune>Altrippe</NomCommune>
+      <Localisation>
+         <Latitude>49.0280990601</Latitude>
+         <Longitude>6.82096004486</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 01 84 61</Téléphone>
+      <Télécopie>03 87 01 84 53</Télécopie>
+      <Email>mairie.altrippe@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

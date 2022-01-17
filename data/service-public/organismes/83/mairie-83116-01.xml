@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83116-01" codeInsee="83116" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Maximin-la-Sainte-Baume</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parvis Charles-II-d'Anjou</Ligne>
+      <CodePostal>83470</CodePostal>
+      <NomCommune>Saint-Maximin-la-Sainte-Baume</NomCommune>
+      <Localisation>
+         <Latitude>43.4530105</Latitude>
+         <Longitude>5.8632473</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 72 93 00</Téléphone>
+      <Télécopie>04 94 78 09 40</Télécopie>
+      <Email>secretariatgeneral@st-maximin.fr</Email>
+      <Url>http://www.st-maximin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29197-01" codeInsee="29197" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plouhinec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>29780</CodePostal>
+      <NomCommune>Plouhinec</NomCommune>
+      <Localisation>
+         <Latitude>48.0133018494</Latitude>
+         <Longitude>-4.48050022125</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 70 87 33</Téléphone>
+      <Email>mairie@ville-plouhinec29.fr</Email>
+      <Url>http://www.plouhinec.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-33424-01" codeInsee="33424" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Gironde - accueil de Saint-Laurent-Médoc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre communal d'action sociale</Ligne>
+      <Ligne>2 rue Saint-Julien</Ligne>
+      <CodePostal>33112</CodePostal>
+      <NomCommune>Saint-Laurent-Médoc</NomCommune>
+      <Localisation>
+         <Latitude>45.15045166015625</Latitude>
+         <Longitude>-0.8192725777626038</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Gironde</Ligne>
+      <Ligne>Rue du Docteur-Gabriel-Péry</Ligne>
+      <CodePostal>33078</CodePostal>
+      <NomCommune>Bordeaux Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

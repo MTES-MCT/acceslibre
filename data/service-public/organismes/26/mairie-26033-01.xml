@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26033-01" codeInsee="26033" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Baume-de-Transit</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place du Tricastin</Ligne>
+      <CodePostal>26790</CodePostal>
+      <NomCommune>La Baume-de-Transit</NomCommune>
+      <Localisation>
+         <Latitude>44.3367156982</Latitude>
+         <Longitude>4.86444187164</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 98 10 31</Téléphone>
+      <Email>mairie@baume-transit.fr</Email>
+      <Url>http://www.la-baume-de-transit.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé en juillet et août le vendredi après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-76351-05" codeInsee="76351" dateMiseAJour="2017-06-13"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat police du Havre - Mont-Gaillard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Miroglio</Ligne>
+      <CodePostal>76620</CodePostal>
+      <NomCommune>Le Havre</NomCommune>
+      <Localisation>
+         <Latitude>49.5217933</Latitude>
+         <Longitude>0.1146428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">02 35 54 66 10</Téléphone>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

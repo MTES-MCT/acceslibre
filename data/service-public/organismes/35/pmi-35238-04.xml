@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-35238-04" codeInsee="35238" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Rennes - Doyen-Colas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Antenne Villejean</Ligne>
+      <Ligne>9 rue Doyen-Colas</Ligne>
+      <CodePostal>35000</CodePostal>
+      <NomCommune>Rennes</NomCommune>
+      <Localisation>
+         <Latitude>48.12031936645508</Latitude>
+         <Longitude>-1.7071248292922974</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>42 cours J-F.-Kennedy</Ligne>
+      <CodePostal>35000</CodePostal>
+      <NomCommune>Rennes</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 02 20 10</Téléphone>
+      <Télécopie>02 99 02 37 37</Télécopie>
+      <Url>https://www.ille-et-vilaine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

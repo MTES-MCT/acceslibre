@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-91223-01" codeInsee="91223" dateMiseAJour="2021-06-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie municipale d'Étampes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Salvador-Allende</Ligne>
+      <CodePostal>91156</CodePostal>
+      <NomCommune>Étampes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.427235</Latitude>
+         <Longitude>2.146849</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 94 78 70</Téléphone>
+      <Email>t091038@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

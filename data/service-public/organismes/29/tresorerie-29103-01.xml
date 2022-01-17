@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-29103-01" codeInsee="29103" dateMiseAJour="2021-09-23"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Landerneau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>59 rue de Brest</Ligne>
+      <Ligne>CS 90709</Ligne>
+      <CodePostal>29207</CodePostal>
+      <NomCommune>Landerneau Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4502618</Latitude>
+         <Longitude>-4.2575268</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 85 11 61</Téléphone>
+      <Email>sgc.landerneau@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Et uniquement sur rendez-vous le Lundi, mardi et jeudi de de 14h00 à 16h00</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

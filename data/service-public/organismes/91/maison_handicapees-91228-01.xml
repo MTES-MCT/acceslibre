@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-91228-01" codeInsee="91228" dateMiseAJour="2021-09-22"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Essonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>93 rue Henri Rochefort</Ligne>
+      <CodePostal>91000</CodePostal>
+      <NomCommune>Évry</NomCommune>
+      <Localisation>
+         <Latitude>48.624298</Latitude>
+         <Longitude>2.4370307</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 76 11 00</Téléphone>
+      <Email>mdphe@cd-essonne.fr</Email>
+      <Url>https://www.essonne.fr/sante-social-solidarite/handicap/la-mdph</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

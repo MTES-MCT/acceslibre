@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-30189-01" codeInsee="30189" dateMiseAJour="2020-08-24"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Gard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Directions départementales des territoires et de la mer</Ligne>
+      <Ligne>Service de l'Anah</Ligne>
+      <Ligne>89, rue Weber</Ligne>
+      <Ligne>CS 52002</Ligne>
+      <CodePostal>30907</CodePostal>
+      <NomCommune>Nîmes Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>43.8268013</Latitude>
+         <Longitude>4.33495998383</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 62 63 00</Téléphone>
+      <Télécopie>04 66 62 63 84</Télécopie>
+      <Email>ddtm@gard.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

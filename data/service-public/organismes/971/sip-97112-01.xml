@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-97112-01" codeInsee="97112" dateMiseAJour="2021-06-24" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Marie-Galante</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu dit Bambara</Ligne>
+      <CodePostal>97112</CodePostal>
+      <NomCommune>Grand-Bourg</NomCommune>
+      <Localisation>
+         <Latitude>15.887406</Latitude>
+         <Longitude>-61.309473</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="ou 08 09 40 14 01 (coût d'un appel local)">05 90 97 90 11</Téléphone>
+      <Email>sip-sie.marie-galante@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <Note>(également sur rendez-vous par téléphone ou sur impots.gouv.fr rubrique Contact)</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous, par téléphone ou sur impots.gouv.fr rubrique Contact. Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

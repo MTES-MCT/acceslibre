@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21527-01" codeInsee="21527" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Rochepot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Saint-Georges</Ligne>
+      <CodePostal>21340</CodePostal>
+      <NomCommune>La Rochepot</NomCommune>
+      <Localisation>
+         <Latitude>46.957698822</Latitude>
+         <Longitude>4.67767000198</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 21 77 62</Téléphone>
+      <Email>mairielarochepot@wanadoo.fr</Email>
+      <Url>http://mairiedelarochepot.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

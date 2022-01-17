@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-94033-01" codeInsee="94033" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontenay-sous-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 esplanade Louis-Bayeurte</Ligne>
+      <CodePostal>94125</CodePostal>
+      <NomCommune>Fontenay-sous-Bois</NomCommune>
+      <Localisation>
+         <Latitude>48.851211</Latitude>
+         <Longitude>2.474345</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 74 74 74</Téléphone>
+      <Télécopie>01 49 74 74 75</Télécopie>
+      <Email>dircom@fontenay-sous-bois.fr</Email>
+      <Url>http://www.fontenay-sous-bois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-33039-01" codeInsee="33039" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Bègles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Calixte-Camelle</Ligne>
+      <CodePostal>33130</CodePostal>
+      <NomCommune>Bègles</NomCommune>
+      <Localisation>
+         <Latitude>44.8076615</Latitude>
+         <Longitude>-0.5476125</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 49 06 34</Téléphone>
+      <Email>bij@mairie-begles.fr</Email>
+      <Url>http://www.mairie-begles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Horaires et adresse susceptibles de changer, consulter le site de la mairie avant de vous déplacer.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

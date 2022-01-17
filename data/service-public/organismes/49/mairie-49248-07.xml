@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-49248-07" codeInsee="49248" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Noëllet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue de la Mairie</Ligne>
+      <Ligne>Noëllet</Ligne>
+      <CodePostal>49520</CodePostal>
+      <NomCommune>Ombrée d'Anjou</NomCommune>
+      <Localisation>
+         <Latitude>47.6907997131</Latitude>
+         <Longitude>-1.08335995674</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 94 30 59</Téléphone>
+      <Email>mairie.de.noellet@wanadoo.fr</Email>
+      <Url>https://www.ombreedanjou.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 3e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-76108-01" codeInsee="76108" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bois-Guillaume</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination seniors du plateau nord</Ligne>
+      <Ligne>28 chemin de Clères</Ligne>
+      <CodePostal>76230</CodePostal>
+      <NomCommune>Bois-Guillaume</NomCommune>
+      <Localisation>
+         <Latitude>49.456931</Latitude>
+         <Longitude>1.095159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 10 27 80</Téléphone>
+      <Télécopie>02 32 10 27 39</Télécopie>
+      <Email>clic.seniors@yahoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

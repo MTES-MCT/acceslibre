@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04152-01" codeInsee="04152" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pierrevert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 avenue Auguste-Bastide</Ligne>
+      <Ligne>BP 6</Ligne>
+      <CodePostal>04860</CodePostal>
+      <NomCommune>Pierrevert</NomCommune>
+      <Localisation>
+         <Latitude>43.8100013733</Latitude>
+         <Longitude>5.75051021576</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 72 86 87</Téléphone>
+      <Télécopie>04 92 72 88 60</Télécopie>
+      <Email>info@mairie-pierrevert.fr</Email>
+      <Url>http://www.mairie-pierrevert.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

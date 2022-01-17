@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57472-01" codeInsee="57472" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moncheux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>58 route de Juville</Ligne>
+      <CodePostal>57420</CodePostal>
+      <NomCommune>Moncheux</NomCommune>
+      <Localisation>
+         <Latitude>48.9352145</Latitude>
+         <Longitude>6.3368165</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 65 37 61 86</Téléphone>
+      <Email>mairie.moncheux@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

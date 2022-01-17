@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="78646" dateMiseAJour="2021-09-14" id="aav-78646-01" idPresta="51b08ca3b473e414780006d9" pivotLocal="aav">
+    <Nom>France victimes 78 (SOS victimes) - Versailles</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>36 rue des Etats Généraux</Ligne>
+        <Ligne>Bâtiment A, 1er étage</Ligne>
+        <CodePostal>78000</CodePostal>
+        <NomCommune>VERSAILLES</NomCommune>
+        <Localisation>
+            <Latitude>48.802851</Latitude>
+            <Longitude>2.131312</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>36 rue des Etats Généraux</Ligne>
+        <Ligne>Bâtiment A, 1er étage</Ligne>
+        <CodePostal>78000</CodePostal>
+        <NomCommune>VERSAILLES</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 30 21 51 89</Téléphone>
+        <Email>mailto:contact@francevictimes78.fr</Email>
+        <Url>https://www.francevictimes78.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:30:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

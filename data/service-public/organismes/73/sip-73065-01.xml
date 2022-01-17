@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-73065-01" codeInsee="73065" dateMiseAJour="2022-01-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Chambéry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>51, avenue de Bassens</Ligne>
+      <CodePostal>73018</CodePostal>
+      <NomCommune>Chambéry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.56682</Latitude>
+         <Longitude>5.92949</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 70 72 03</Téléphone>
+      <Email>sip.chambery@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous les Mercredi et Vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil sur RDV pour vos questions complexes sur impôts.gouv.fr rubrique « contact »</Commentaire>
+</Organisme>

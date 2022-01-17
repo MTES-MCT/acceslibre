@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-36044-01" codeInsee="36044" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Indre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17-19 rue des États-Unis</Ligne>
+      <CodePostal>36000</CodePostal>
+      <NomCommune>Châteauroux</NomCommune>
+      <Localisation>
+         <Latitude>46.814793</Latitude>
+         <Longitude>1.697316</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 34 59 69</Téléphone>
+      <Télécopie>02 54 27 19 01</Télécopie>
+      <Email>fede.peche.indre@wanadoo.fr</Email>
+      <Url>http://www.peche36.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

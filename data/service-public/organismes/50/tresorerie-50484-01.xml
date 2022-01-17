@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-50484-01" codeInsee="50484" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Hilaire-du-Harcouët</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>76 rue de Paris</Ligne>
+      <CodePostal>50600</CodePostal>
+      <NomCommune>Saint-Hilaire-du-Harcouët</NomCommune>
+      <Localisation>
+         <Latitude>48.5770754</Latitude>
+         <Longitude>-1.0892689</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 49 12 10</Téléphone>
+      <Email>t050032@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

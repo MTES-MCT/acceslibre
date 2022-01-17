@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-26281-01" codeInsee="26281" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Drôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Clos des Tanneurs</Ligne>
+      <Ligne>Rue Étienne-Dolet</Ligne>
+      <Ligne>BP 153</Ligne>
+      <CodePostal>26104</CodePostal>
+      <NomCommune>Romans-sur-Isère Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.043800354</Latitude>
+         <Longitude>5.06209993362</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 48 72 00</Téléphone>
+      <Email>catherine.francois@cma-auvergnerhonealpes.fr</Email>
+      <Url>http://www.cma-drome.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

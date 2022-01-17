@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-17197-01" codeInsee="17197" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Jonzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 avenue Foch</Ligne>
+      <CodePostal>17500</CodePostal>
+      <NomCommune>Jonzac</NomCommune>
+      <Localisation>
+         <Latitude>45.4478599</Latitude>
+         <Longitude>-0.4287571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 48 00 05</Téléphone>
+      <Email>t017029@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

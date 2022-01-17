@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41032-01" codeInsee="41032" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chailles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>78 rue Nationale</Ligne>
+      <CodePostal>41120</CodePostal>
+      <NomCommune>Chailles</NomCommune>
+      <Localisation>
+         <Latitude>47.5322990417</Latitude>
+         <Longitude>1.30716001987</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 79 72 00</Téléphone>
+      <Télécopie>02 54 79 72 09</Télécopie>
+      <Email>accueil@chailles41.fr</Email>
+      <Url>http://www.chailles41.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="18:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

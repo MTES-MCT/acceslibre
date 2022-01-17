@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-15014-01" codeInsee="15014" dateMiseAJour="2021-08-23"
+           pivotLocal="banque_de_france">
+   <Nom>Banque de France - Succursale départementale Cantal - Aurillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 boulevard du Pont Rouge</Ligne>
+      <CodePostal>15000</CodePostal>
+      <NomCommune>Aurillac</NomCommune>
+      <Localisation>
+         <Latitude>44.926453</Latitude>
+         <Longitude>2.447715</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Informations générales sur la réglementation bancaire, le crédit, le surendettement, les fichiers d'incidents de paiement et le droit au compte au 0811 901 801 du lundi au vendredi de 8h à 18h, tarif 5 cts d'euro par mn plus le prix d'un appel.">04 71 46 24 96</Téléphone>
+      <Url>https://accueil.banque-france.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous : au 04 71 46 24 96 ou en ligne sur https://accueil.banque-france.fr</Commentaire>
+</Organisme>

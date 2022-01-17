@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-33522-01" codeInsee="33522" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Talence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du département et des solidarités</Ligne>
+      <Ligne>226 cours Gambetta</Ligne>
+      <CodePostal>33400</CodePostal>
+      <NomCommune>Talence</NomCommune>
+      <Localisation>
+         <Latitude>44.8134094</Latitude>
+         <Longitude>-0.600507500000049</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 80 54 64</Téléphone>
+      <Télécopie>05 56 04 36 47</Télécopie>
+      <Email>solidarite-graves@gironde.fr</Email>
+      <Url>http://www.gironde.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

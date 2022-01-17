@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37228-01" codeInsee="37228" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Nicolas-de-Bourgueil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Treille</Ligne>
+      <CodePostal>37140</CodePostal>
+      <NomCommune>Saint-Nicolas-de-Bourgueil</NomCommune>
+      <Localisation>
+         <Latitude>47.2855249</Latitude>
+         <Longitude>0.1250873</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 97 75 16</Téléphone>
+      <Télécopie>02 47 97 36 87</Télécopie>
+      <Email>contact@saint-nicolas-de-bourgueil.fr</Email>
+      <Url>http://www.saint-nicolas-de-bourgueil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

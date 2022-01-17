@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-78646-01" codeInsee="78646" dateMiseAJour="2021-02-25"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1, rue Jean-Houdon</Ligne>
+      <CodePostal>78000</CodePostal>
+      <NomCommune>Versailles</NomCommune>
+      <Localisation>
+         <Latitude>48.8029567</Latitude>
+         <Longitude>2.133916</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 49 78 00</Téléphone>
+      <Email>pref-communication78@yvelines.gouv.fr</Email>
+      <Url>http://www.yvelines.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

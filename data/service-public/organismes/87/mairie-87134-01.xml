@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87134-01" codeInsee="87134" dateMiseAJour="2019-07-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Anne-Saint-Priest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>87120</CodePostal>
+      <NomCommune>Sainte-Anne-Saint-Priest</NomCommune>
+      <Localisation>
+         <Latitude>45.704758</Latitude>
+         <Longitude>1.684654</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 69 16 78</Téléphone>
+      <Email>mairie.sainte.anne.saint.priest@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="12:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="12:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

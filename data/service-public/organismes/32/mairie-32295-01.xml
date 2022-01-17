@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32295-01" codeInsee="32295" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nizas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>289 chemin de l'Église</Ligne>
+      <CodePostal>32130</CodePostal>
+      <NomCommune>Nizas</NomCommune>
+      <Localisation>
+         <Latitude>43.498083</Latitude>
+         <Longitude>0.999048</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 62 56 49</Téléphone>
+      <Email>communenizas32@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil uniquement sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

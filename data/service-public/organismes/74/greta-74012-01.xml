@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-74012-01" codeInsee="74012" dateMiseAJour="2021-11-19"
+           pivotLocal="greta">
+   <Nom>Greta Lac Leman Annecy Chablais - Annemasse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Siège social</Ligne>
+      <Ligne>9 rue des Marronniers</Ligne>
+      <Ligne>BP 503</Ligne>
+      <CodePostal>74100</CodePostal>
+      <NomCommune>Annemasse</NomCommune>
+      <Localisation>
+         <Latitude>46.1899341</Latitude>
+         <Longitude>6.240155</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 43 91 81</Téléphone>
+      <Email>contact.gretalac@ac-grenoble.fr</Email>
+      <Url>http://www.greta-lac.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

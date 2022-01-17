@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25512-01" codeInsee="25512" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Russey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place Dominique-Parrenin</Ligne>
+      <CodePostal>25210</CodePostal>
+      <NomCommune>Le Russey</NomCommune>
+      <Localisation>
+         <Latitude>47.1627235413</Latitude>
+         <Longitude>6.72879695892</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 43 72 35</Téléphone>
+      <Télécopie>03 81 43 83 08</Télécopie>
+      <Email>secretariat.mairie@lerussey.fr</Email>
+      <Url>http://www.lerussey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

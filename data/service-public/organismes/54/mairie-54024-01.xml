@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54024-01" codeInsee="54024" dateMiseAJour="2018-09-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arraye-et-Han</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de Lunéville</Ligne>
+      <CodePostal>54760</CodePostal>
+      <NomCommune>Arraye-et-Han</NomCommune>
+      <Localisation>
+         <Latitude>48.8319702148</Latitude>
+         <Longitude>6.32782077789</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 73 01 32 85</Téléphone>
+      <Télécopie>03 83 31 80 84</Télécopie>
+      <Email>arraye.han54760@gmail.com</Email>
+      <Url>http://www.commune-arrayeethan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

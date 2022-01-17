@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10423-01" codeInsee="10423" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Villeneuve-au-Chêne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 Grand' rue</Ligne>
+      <CodePostal>10140</CodePostal>
+      <NomCommune>La Villeneuve-au-Chêne</NomCommune>
+      <Localisation>
+         <Latitude>48.2382788</Latitude>
+         <Longitude>4.3891153</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 41 35 05</Téléphone>
+      <Email>mairie-lvac@wanadoo.fr</Email>
+      <Url>http://www.lavilleneuveauchene.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

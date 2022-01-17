@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-86274-01" codeInsee="86274" dateMiseAJour="2021-04-21"
+           pivotLocal="msap">
+   <Nom>France Services - Les Trois-Moutiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>3 rue des Deniers</Ligne>
+      <CodePostal>86120</CodePostal>
+      <NomCommune>Trois-Moutiers</NomCommune>
+      <Localisation>
+         <Latitude>47.063985</Latitude>
+         <Longitude>0.017315</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 22
+26 77</Téléphone>
+      <Email>les-trois-moutiers@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:50:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:50:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

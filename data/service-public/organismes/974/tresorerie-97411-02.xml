@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-97411-02" codeInsee="97411" dateMiseAJour="2021-08-26"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie municipale de Saint-Denis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de l'Amiral Lacaze</Ligne>
+      <Ligne>CS 41008</Ligne>
+      <CodePostal>97744</CodePostal>
+      <NomCommune>Saint-Denis Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>-20.87453</Latitude>
+         <Longitude>55.44774</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>t104013@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

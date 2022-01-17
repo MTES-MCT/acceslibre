@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11071-01" codeInsee="11071" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cascastel-des-Corbières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>43 Grand'rue</Ligne>
+      <CodePostal>11360</CodePostal>
+      <NomCommune>Cascastel-des-Corbières</NomCommune>
+      <Localisation>
+         <Latitude>42.9849014282</Latitude>
+         <Longitude>2.75973010063</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 45 90 78</Téléphone>
+      <Email>mairie.cascastel@wanadoo.fr</Email>
+      <Url>http://www.cascastelvillage.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

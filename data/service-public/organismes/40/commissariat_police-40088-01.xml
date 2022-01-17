@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-40088-01" codeInsee="40088" dateMiseAJour="2020-01-27"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Dax</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue des Fusillés</Ligne>
+      <CodePostal>40107</CodePostal>
+      <NomCommune>Dax</NomCommune>
+      <Localisation>
+         <Latitude>43.7100072</Latitude>
+         <Longitude>-1.0514248</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">05 58 56 58 58</Téléphone>
+      <Télécopie>05 58 56 58 48</Télécopie>
+      <Email>ddsp40-csp-dax-secretariat@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

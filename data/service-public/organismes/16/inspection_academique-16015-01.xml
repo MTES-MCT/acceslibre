@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-16015-01" codeInsee="16015"
+           dateMiseAJour="2018-05-29"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Charente</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative du Champ-de-Mars</Ligne>
+      <Ligne>Bâtiment B</Ligne>
+      <Ligne>Rue Raymond-Poincaré</Ligne>
+      <CodePostal>16006</CodePostal>
+      <NomCommune>Angoulême</NomCommune>
+      <Localisation>
+         <Latitude>45.649297</Latitude>
+         <Longitude>0.162786</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 17 84 01 30</Téléphone>
+      <Email>dasen16@ac-poitiers.fr</Email>
+      <Url>http://www.ac-poitiers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

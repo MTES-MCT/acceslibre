@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-24311-01" codeInsee="24311" dateMiseAJour="2021-09-01"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Nontron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 boulevard Gambetta</Ligne>
+      <CodePostal>24300</CodePostal>
+      <NomCommune>Nontron</NomCommune>
+      <Localisation>
+         <Latitude>45.5277373</Latitude>
+         <Longitude>0.6588667</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 56 01 60</Téléphone>
+      <Email>sgc.nontron@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:40:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Sans rendez-vous le matin et uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:40:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Sans rendez-vous le matin et uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

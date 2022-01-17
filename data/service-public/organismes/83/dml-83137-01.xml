@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dml-83137-01" codeInsee="83137" dateMiseAJour="2019-06-17" pivotLocal="dml">
+   <Nom>Délégation à la mer et au littoral - Var</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>244 avenue de l'Infanterie-de-Marine</Ligne>
+      <Ligne>BP 501</Ligne>
+      <CodePostal>83041</CodePostal>
+      <NomCommune>Toulon</NomCommune>
+      <Localisation>
+         <Latitude>43.1151845</Latitude>
+         <Longitude>5.9346171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Direction départementale des territoires et de la mer</Ligne>
+      <Ligne>Préfecture du Var</Ligne>
+      <Ligne>CS 31209</Ligne>
+      <CodePostal>83070</CodePostal>
+      <NomCommune>Toulon</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 46 83 83</Téléphone>
+      <Télécopie>04 94 46 32 50</Télécopie>
+      <Email>ddtm-dml@var.gouv.fr</Email>
+      <Url>http://www.var.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

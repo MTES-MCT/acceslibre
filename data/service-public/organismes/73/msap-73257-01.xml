@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-73257-01" codeInsee="73257" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Les Belleville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Galerie de l'Adret</Ligne>
+      <CodePostal>73440</CodePostal>
+      <NomCommune>Les Belleville</NomCommune>
+      <Localisation>
+         <Latitude>45.379186</Latitude>
+         <Longitude>6.497865</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 00 23 20</Téléphone>
+      <Email>saisonniers@lesbelleville.fr</Email>
+      <Url>https://emploi.lesbelleville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>MSAP de Val-Thorens joignable 04 79 00 22 11.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

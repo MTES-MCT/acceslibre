@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-15162-01" codeInsee="15162" dateMiseAJour="2020-01-07"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Riom-ès-Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté de communes Pays de Gentiane</Ligne>
+      <Ligne>Place de la gare</Ligne>
+      <CodePostal>15400</CodePostal>
+      <NomCommune>Riom-ès-Montagnes</NomCommune>
+      <Localisation>
+         <Latitude>45.284909</Latitude>
+         <Longitude>2.657998</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 78 29 50</Téléphone>
+      <Email>eps@pays-gentiane.com</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/communaute-de-communes-pays-de-gentiane</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

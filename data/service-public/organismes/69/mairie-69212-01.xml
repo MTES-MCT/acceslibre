@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69212-01" codeInsee="69212" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-des-Vignes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>67 rue Saint-Vincent</Ligne>
+      <CodePostal>69380</CodePostal>
+      <NomCommune>Saint-Jean-des-Vignes</NomCommune>
+      <Localisation>
+         <Latitude>45.8605995178</Latitude>
+         <Longitude>4.67804002762</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 43 72 89</Téléphone>
+      <Télécopie>04 78 43 64 76</Télécopie>
+      <Email>mairie@saintjeandesvignes.fr</Email>
+      <Url>http://www.saintjeandesvignes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

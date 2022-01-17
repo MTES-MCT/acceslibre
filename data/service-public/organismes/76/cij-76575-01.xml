@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-76575-01" codeInsee="76575" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Étienne-du-Rouvray - La Station</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>La Station</Ligne>
+      <Ligne>11 avenue Olivier-Goubert</Ligne>
+      <CodePostal>76800</CodePostal>
+      <NomCommune>Saint-Étienne-du-Rouvray</NomCommune>
+      <Localisation>
+         <Latitude>49.3809914</Latitude>
+         <Longitude>1.1059743</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <CodePostal>76806</CodePostal>
+      <NomCommune>Saint-Étienne-du-Rouvray Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 91 51 10</Téléphone>
+      <Email>cmaugard@ser76.com</Email>
+      <Url>http://www.saintetiennedurouvray.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="74042" dateMiseAJour="2021-12-14" id="prudhommes-74042-01" idPresta="4cac9e5f293594648a0002ff" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Bonneville</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>70 RUE DU CARROZ</Ligne>
+        <CodePostal>74130</CodePostal>
+        <NomCommune>BONNEVILLE</NomCommune>
+        <Localisation>
+            <Latitude>46.077055</Latitude>
+            <Longitude>6.407185</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>70 RUE DU CARROZ</Ligne>
+        <CodePostal>74130</CodePostal>
+        <NomCommune>BONNEVILLE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 50 97 14 10</Téléphone>
+        <Télécopie>04 50 25 28 76</Télécopie>
+        <Email>mailto:cph-bonneville@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="11:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

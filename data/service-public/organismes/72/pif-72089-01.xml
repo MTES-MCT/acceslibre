@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pif-72089-01" codeInsee="72089" dateMiseAJour="2021-09-20" pivotLocal="pif">
+   <Nom>Point info famille - Conlie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre social du canton de Conlie</Ligne>
+      <Ligne>9 allée Marie-Louise-Souty</Ligne>
+      <CodePostal>72240</CodePostal>
+      <NomCommune>Conlie</NomCommune>
+      <Localisation>
+         <Latitude>48.1220828</Latitude>
+         <Longitude>-0.015076</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 52 11 50</Téléphone>
+      <Email>csconlie72@wanadoo.fr</Email>
+      <Url>https://www.unaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Pendant les vacances scolaires, fermeture le vendredi à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

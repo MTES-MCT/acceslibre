@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62009-01" codeInsee="62009" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Adinfer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'Église</Ligne>
+      <CodePostal>62116</CodePostal>
+      <NomCommune>Adinfer</NomCommune>
+      <Localisation>
+         <Latitude>50.1944313049</Latitude>
+         <Longitude>2.70801305771</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">passage par la salle des fêtes</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 59 30 79</Téléphone>
+      <Email>mairie-adinfer@nordnet.fr</Email>
+      <Url>http://adinfer.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+         <Note>Permanence des adjoints les mardi des 18h30 à 19h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

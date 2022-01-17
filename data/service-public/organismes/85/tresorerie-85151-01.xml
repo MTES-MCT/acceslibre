@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-85151-01" codeInsee="85151" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Mortagne-sur-Sèvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Mairie</Ligne>
+      <Ligne>BP 42</Ligne>
+      <CodePostal>85290</CodePostal>
+      <NomCommune>Mortagne-sur-Sèvre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.992526</Latitude>
+         <Longitude>-0.953414</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 65 01 02</Téléphone>
+      <Télécopie>02 51 63 01 96</Télécopie>
+      <Email>t085010@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

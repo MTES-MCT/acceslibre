@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60120-01" codeInsee="60120" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cambronne-lès-Clermont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 rue de Vaux</Ligne>
+      <CodePostal>60290</CodePostal>
+      <NomCommune>Cambronne-lès-Clermont</NomCommune>
+      <Localisation>
+         <Latitude>49.3315010071</Latitude>
+         <Longitude>2.40230989456</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 73 00 06</Téléphone>
+      <Télécopie>03 44 73 40 26</Télécopie>
+      <Email>mairie.cambronne-les-clermont@wanadoo.fr</Email>
+      <Url>http://www.cambronne-les-clermont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert pendant les vacances scolaires : lundi, mardi, jeudi et vendredi de 8h30 à 11h30 et de 14h15 à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

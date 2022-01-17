@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64450-01" codeInsee="64450" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pomps</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de Billère</Ligne>
+      <CodePostal>64370</CodePostal>
+      <NomCommune>Pomps</NomCommune>
+      <Localisation>
+         <Latitude>43.492977</Latitude>
+         <Longitude>-0.539855</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 81 60 61</Téléphone>
+      <Email>mairie-de-pomps@orange.fr</Email>
+      <Url>http://www.pomps.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines impaires.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le samedi uniquement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

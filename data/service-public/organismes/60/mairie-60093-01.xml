@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60093-01" codeInsee="60093" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Boulogne-la-Grasse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>60490</CodePostal>
+      <NomCommune>Boulogne-la-Grasse</NomCommune>
+      <Localisation>
+         <Latitude>49.6116267</Latitude>
+         <Longitude>2.7062676</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer et accès par l'école</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 85 02 09</Téléphone>
+      <Email>mairiedeboulognelagrasse@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

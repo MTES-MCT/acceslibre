@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25474-01" codeInsee="25474" dateMiseAJour="2016-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Puy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Saint-Hilaire</Ligne>
+      <CodePostal>25640</CodePostal>
+      <NomCommune>Le Puy</NomCommune>
+      <Localisation>
+         <Latitude>47.344549</Latitude>
+         <Longitude>6.2282</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 72 41 80 22</Téléphone>
+      <Email>mairie-lepuy25@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>Permanence du maire uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

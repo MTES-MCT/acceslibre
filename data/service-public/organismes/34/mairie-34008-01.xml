@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34008-01" codeInsee="34008" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Aires</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>2 place de l'Aire</Ligne>
+      <CodePostal>34600</CodePostal>
+      <NomCommune>Les Aires</NomCommune>
+      <Localisation>
+         <Latitude>43.5825048169</Latitude>
+         <Longitude>3.10363769531</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 95 61 44</Téléphone>
+      <Télécopie>09 58 95 82 41</Télécopie>
+      <Email>mairie.lesaires@yahoo.fr</Email>
+      <Url>http://www.lesaireslevillage.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Accueil possible uniquement sur rendez-vous de 14 h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

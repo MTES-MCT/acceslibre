@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="77186" dateMiseAJour="2021-12-14" id="prudhommes-77186-01" idPresta="4cac9e6a293594648a001705" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Fontainebleau</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 PLACE DE LA REPUBLIQUE</Ligne>
+        <CodePostal>77305</CodePostal>
+        <NomCommune>FONTAINEBLEAU CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.406622</Latitude>
+            <Longitude>2.701114</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 PLACE DE LA REPUBLIQUE</Ligne>
+        <CodePostal>77305</CodePostal>
+        <NomCommune>FONTAINEBLEAU CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 60 74 54 10</Téléphone>
+        <Télécopie>01 64 22 42 15</Télécopie>
+        <Email>mailto:cph-fontainebleau@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="09:15:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="09:15:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="mercredi">
+            <PlageH début="09:15:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="09:15:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:15:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

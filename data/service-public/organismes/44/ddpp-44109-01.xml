@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddpp-44109-01" codeInsee="44109" dateMiseAJour="2021-04-09"
+           pivotLocal="ddpp">
+   <Nom>Direction départementale de la protection des populations (DDPP) - Loire-Atlantique</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 boulevard Gaston Doumergue</Ligne>
+      <Ligne>BP 76315</Ligne>
+      <CodePostal>44263</CodePostal>
+      <NomCommune>Nantes Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>47.207554</Latitude>
+         <Longitude>-1.5466494</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 08 86 55</Téléphone>
+      <Télécopie>02 40 08 86 66</Télécopie>
+      <Email>ddpp@loire-atlantique.gouv.fr</Email>
+      <Url>https://www.loire-atlantique.gouv.fr/Services-de-l-Etat/Direction-Departementale-de-la-Protection-des-Populations-DDPP</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil physique des consommateurs uniquement sur rendez-vous pris par courriel : ddpp-ccrf-pec@loire-atlantique.gouv.fr</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

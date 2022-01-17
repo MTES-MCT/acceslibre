@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06041-01" codeInsee="06041" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cipières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 la Place</Ligne>
+      <CodePostal>06620</CodePostal>
+      <NomCommune>Cipières</NomCommune>
+      <Localisation>
+         <Latitude>43.7831993103</Latitude>
+         <Longitude>6.95580005646</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 59 96 48</Téléphone>
+      <Télécopie>04 93 59 96 78</Télécopie>
+      <Email>mairie.cipieres@wanadoo.fr</Email>
+      <Url>http://www.cipieres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

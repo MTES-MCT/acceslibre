@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-50484-01" codeInsee="50484" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Hilaire-du-Harcouët</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>65 place Louis-Delaporte</Ligne>
+      <CodePostal>50600</CodePostal>
+      <NomCommune>Saint-Hilaire-du-Harcouët</NomCommune>
+      <Localisation>
+         <Latitude>48.5789046</Latitude>
+         <Longitude>-1.0905553</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 69 28 05</Téléphone>
+      <Email>msap.sthilaire@msm-normandie.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

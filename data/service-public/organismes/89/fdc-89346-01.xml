@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdc-89346-01" codeInsee="89346" dateMiseAJour="2021-05-20" pivotLocal="fdc">
+   <Nom>Fédération départementale des chasseurs - Yonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>20 avenue de la Paix</Ligne>
+      <CodePostal>89000</CodePostal>
+      <NomCommune>Saint-Georges-sur-Baulche</NomCommune>
+      <Localisation>
+         <Latitude>47.799329</Latitude>
+         <Longitude>3.527451</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>BP 80168</Ligne>
+      <CodePostal>89003</CodePostal>
+      <NomCommune>Auxerre Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 94 22 94</Téléphone>
+      <Télécopie>03 86 46 84 00</Télécopie>
+      <Email>fdc89@fdc89.fr</Email>
+      <Url>http://www.chasseurdelyonne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32319-01" codeInsee="32319" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plaisance</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place du 8-Mai</Ligne>
+      <CodePostal>32160</CodePostal>
+      <NomCommune>Plaisance</NomCommune>
+      <Localisation>
+         <Latitude>43.6064987183</Latitude>
+         <Longitude>0.0492389984429</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 69 32 17</Téléphone>
+      <Télécopie>05 62 69 40 95</Télécopie>
+      <Email>mairie-plaisance-du-gers@wanadoo.fr</Email>
+      <Url>http://www.plaisancedugers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

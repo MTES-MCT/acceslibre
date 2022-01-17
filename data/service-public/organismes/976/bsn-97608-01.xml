@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-97608-01" codeInsee="97608" dateMiseAJour="2021-09-17" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) - La Réunion Mayotte - Antenne de Mayotte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier Cabaribère</Ligne>
+      <Ligne>BP 44</Ligne>
+      <Ligne>Petite terre</Ligne>
+      <CodePostal>97610</CodePostal>
+      <NomCommune>Dzaoudzi</NomCommune>
+      <Localisation>
+         <Latitude>-12.782066769739112</Latitude>
+         <Longitude>45.256847389192906</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csnj-Réunion-Mayotte.sec-cdt.fct@intradef.gouv.fr</Email>
+      <Url>https://www.defense.gouv.fr/jdc/csnj/coordonnees-du-csnj-de-la-reunion-mayotte</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

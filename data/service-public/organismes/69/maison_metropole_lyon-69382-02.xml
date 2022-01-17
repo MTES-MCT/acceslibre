@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_metropole_lyon-69382-02" codeInsee="69382"
+           dateMiseAJour="2019-09-18"
+           pivotLocal="maison_metropole_lyon">
+   <Nom>Maison de la Métropole de Lyon - 2ème arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>60 rue Delandine</Ligne>
+      <CodePostal>69002</CodePostal>
+      <NomCommune>Lyon</NomCommune>
+      <Localisation>
+         <Latitude>45.74297126</Latitude>
+         <Longitude>4.82388123</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 49 14 00</Téléphone>
+      <Télécopie>04 26 99 31 45</Télécopie>
+      <Url>https://www.grandlyon.com/services/qu-est-ce-que-les-maisons-de-la-metropole.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil sur rendez-vous à la Maison de la Métropole 9 rue Saint-Hélène à Lyon (2ème arrondissement).</Commentaire>
+</Organisme>

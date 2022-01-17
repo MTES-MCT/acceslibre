@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie-88160-01" codeInsee="88160" dateMiseAJour="2019-03-19"
+           pivotLocal="gendarmerie"
+           idPresta="1011720">
+   <Nom>Brigade de gendarmerie - Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 Rue du Professeur Roux</Ligne>
+      <CodePostal>88000</CodePostal>
+      <NomCommune>Épinal</NomCommune>
+      <Localisation>
+         <Latitude>48.17842024</Latitude>
+         <Longitude>6.43388229</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 33 17 17</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="dimanche" fin="dimanche">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>le dimanche et jours fériés : de 09h00 à
+12h00 et de 15h00 à 19h00.</Commentaire>
+</Organisme>

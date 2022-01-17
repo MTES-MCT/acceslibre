@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85054-01" codeInsee="85054" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-Hermier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Maréchal-de-Lattre-de-Tassigny</Ligne>
+      <CodePostal>85220</CodePostal>
+      <NomCommune>La Chapelle-Hermier</NomCommune>
+      <Localisation>
+         <Latitude>46.6833000183</Latitude>
+         <Longitude>-1.72318005562</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 34 61 66</Téléphone>
+      <Télécopie>02 51 34 64 24</Télécopie>
+      <Email>mairie@lachapelle-hermier.fr</Email>
+      <Url>http://www.lachapellehermier.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

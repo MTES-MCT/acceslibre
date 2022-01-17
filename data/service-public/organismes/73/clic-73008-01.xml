@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-73008-01" codeInsee="73008" dateMiseAJour="2020-03-02"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Aix-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination d'Aix-les-bains</Ligne>
+      <Ligne>78 boulevard Wilson</Ligne>
+      <Ligne>CS 70611</Ligne>
+      <CodePostal>73106</CodePostal>
+      <NomCommune>Aix-les-Bains Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.690813</Latitude>
+         <Longitude>5.909223</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 85 05 25 09</Téléphone>
+      <Email>dt-aixlesbains@savoie.fr</Email>
+      <Url>http://www.savoie.fr/aides-et-service-fiche/id_aide/344/profil/11/2758-infos-pratiques.htm</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18033-01" codeInsee="18033" dateMiseAJour="2021-07-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bourges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Jacques-Rimbault</Ligne>
+      <Ligne>CS 50003</Ligne>
+      <CodePostal>18020</CodePostal>
+      <NomCommune>Bourges Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0806007385</Latitude>
+         <Longitude>2.39867997169</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 57 80 00</Téléphone>
+      <Télécopie>02 48 65 00 77</Télécopie>
+      <Email>contact@ville-bourges.fr</Email>
+      <Url>http://www.ville-bourges.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et fermé durant la crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

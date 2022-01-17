@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-52292-01" codeInsee="52292" dateMiseAJour="2021-06-09"
+           pivotLocal="msap">
+   <Nom>France Services - Longeau-Percey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue du champagne</Ligne>
+      <CodePostal>52250</CodePostal>
+      <NomCommune>Longeau-Percey</NomCommune>
+      <Localisation>
+         <Latitude>47.76702</Latitude>
+         <Longitude>5.31041</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 87 78 98</Téléphone>
+      <Email>karine.barbe@ccavm.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

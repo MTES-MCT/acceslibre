@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-75112-01" codeInsee="75112"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Paris - 11er 12e et 20e arrondissements</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Club des aidants Joseph-Weill</Ligne>
+      <Ligne>10 rue de Santerre</Ligne>
+      <CodePostal>75012</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.842811</Latitude>
+         <Longitude>2.398667</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 43 47 30 01</Téléphone>
+      <Email>clubdesaidants@ose-france.org</Email>
+      <Url>https://www.ose-france.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

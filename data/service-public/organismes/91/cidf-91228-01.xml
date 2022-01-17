@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cidf-91228-01" codeInsee="91228" dateMiseAJour="2021-06-07"
+           pivotLocal="cidf">
+   <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Essonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 cours Blaise-Pascal</Ligne>
+      <CodePostal>91000</CodePostal>
+      <NomCommune>Évry-Courcouronnes</NomCommune>
+      <Localisation>
+         <Latitude>48.6268951</Latitude>
+         <Longitude>2.430745</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 79 42 26</Téléphone>
+      <Télécopie>01 60 78 80 60</Télécopie>
+      <Email>contact@cidff91.org</Email>
+      <Url>http://www.cidffessonne.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

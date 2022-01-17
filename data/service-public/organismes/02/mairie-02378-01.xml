@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02378-01" codeInsee="02378" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Hérie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue Maurice-Brugnon</Ligne>
+      <CodePostal>02500</CodePostal>
+      <NomCommune>La Hérie</NomCommune>
+      <Localisation>
+         <Latitude>49.8824157715</Latitude>
+         <Longitude>4.04481601715</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 98 47 02</Téléphone>
+      <Télécopie>03 23 98 47 02</Télécopie>
+      <Email>mairie.la-herie@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

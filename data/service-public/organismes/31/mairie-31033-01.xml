@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31033-01" codeInsee="31033" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auterive</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du 11-Novembre-1918</Ligne>
+      <CodePostal>31190</CodePostal>
+      <NomCommune>Auterive</NomCommune>
+      <Localisation>
+         <Latitude>43.3522987366</Latitude>
+         <Longitude>1.47803997993</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 50 96 70</Téléphone>
+      <Télécopie>05 61 50 96 71</Télécopie>
+      <Email>accueil@auterive-ville.fr</Email>
+      <Url>http://www.auterive31.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

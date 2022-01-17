@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45077-01" codeInsee="45077" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-sur-Aveyron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>59 route de Châtillon</Ligne>
+      <CodePostal>45230</CodePostal>
+      <NomCommune>La Chapelle-sur-Aveyron</NomCommune>
+      <Localisation>
+         <Latitude>47.8490982056</Latitude>
+         <Longitude>2.91880989075</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 97 50 21</Téléphone>
+      <Email>mairiedelachapelle@free.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

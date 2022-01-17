@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-77477-01" codeInsee="77477" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Ury</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>11 rue de Fontainebleau</Ligne>
+      <CodePostal>77760</CodePostal>
+      <NomCommune>Ury</NomCommune>
+      <Localisation>
+         <Latitude>48.344158</Latitude>
+         <Longitude>2.602208</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 24 41 06</Téléphone>
+      <Télécopie>01 64 24 41 06</Télécopie>
+      <Email>msap.ury@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

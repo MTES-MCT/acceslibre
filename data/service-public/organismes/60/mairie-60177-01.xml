@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60177-01" codeInsee="60177" dateMiseAJour="2021-04-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cressonsacq</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Neuve</Ligne>
+      <CodePostal>60190</CodePostal>
+      <NomCommune>Cressonsacq</NomCommune>
+      <Localisation>
+         <Latitude>49.4581985474</Latitude>
+         <Longitude>2.56579995155</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 51 83 78</Téléphone>
+      <Email>cressonsacq.mairie@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

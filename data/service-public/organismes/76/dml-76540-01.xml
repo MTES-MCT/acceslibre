@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="dml-76540-01" codeInsee="76540" dateMiseAJour="2021-06-07" pivotLocal="dml">
+   <Nom>Délégation à la mer et au littoral - Seine-Maritime - Rouen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>2 rue Saint-Sever</Ligne>
+      <Ligne>BP 76001</Ligne>
+      <CodePostal>76032</CodePostal>
+      <NomCommune>Rouen Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.4355203</Latitude>
+         <Longitude>1.0899018</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 58 53 27</Téléphone>
+      <Télécopie>02 35 58 56 22</Télécopie>
+      <Email>ddtm-sml@seine-maritime.gouv.fr</Email>
+      <Url>http://www.seine-maritime.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

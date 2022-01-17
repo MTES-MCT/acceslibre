@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45031-01" codeInsee="45031" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bellegarde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cour d'Antin</Ligne>
+      <CodePostal>45270</CodePostal>
+      <NomCommune>Bellegarde</NomCommune>
+      <Localisation>
+         <Latitude>47.9909172058</Latitude>
+         <Longitude>2.4439868927</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 90 10 03</Téléphone>
+      <Télécopie>02 38 90 24 95</Télécopie>
+      <Email>direction@bellegarde45.fr</Email>
+      <Url>http://www.bellegarde45.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour les cartes d'identité et les passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

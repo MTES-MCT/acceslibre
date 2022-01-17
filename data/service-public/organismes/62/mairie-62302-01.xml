@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62302-01" codeInsee="62302" dateMiseAJour="2020-09-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ergny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'École</Ligne>
+      <CodePostal>62650</CodePostal>
+      <NomCommune>Ergny</NomCommune>
+      <Localisation>
+         <Latitude>50.583973</Latitude>
+         <Longitude>1.981121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 86 53 79</Téléphone>
+      <Email>mairie.ergny@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

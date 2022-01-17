@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maia-13206-01" codeInsee="13206" dateMiseAJour="2016-10-04"
+           pivotLocal="maia">
+   <Nom>Mission d'accueil et d'information des associations (MAIA) - Bouches-du-Rhône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale de la cohésion sociale</Ligne>
+      <Ligne>66 A, rue Saint-Sébastien</Ligne>
+      <CodePostal>13006</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.2830541</Latitude>
+         <Longitude>5.3838399</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 00 57 60</Téléphone>
+      <Télécopie>04 91 00 57 22</Télécopie>
+      <Email>ddcs-ddva@bouches-du-rhone.gouv.fr</Email>
+      <Url>http://www.associations.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Permanence téléphonique uniquement</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

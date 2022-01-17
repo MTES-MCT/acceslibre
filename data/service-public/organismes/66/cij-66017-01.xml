@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-66017-01" codeInsee="66017" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Barcarès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 boulevard du 14-Juillet</Ligne>
+      <CodePostal>66420</CodePostal>
+      <NomCommune>Le Barcarès</NomCommune>
+      <Localisation>
+         <Latitude>42.7850626</Latitude>
+         <Longitude>3.0338512</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 86 11 64</Téléphone>
+      <Télécopie>04 68 86 02 72</Télécopie>
+      <Email>pij@lebarcares.fr</Email>
+      <Url>https://www.lebarcares.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

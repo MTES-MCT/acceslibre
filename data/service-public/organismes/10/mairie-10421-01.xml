@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10421-01" codeInsee="10421" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Villeneuve-au-Châtelot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l'École</Ligne>
+      <CodePostal>10400</CodePostal>
+      <NomCommune>La Villeneuve-au-Châtelot</NomCommune>
+      <Localisation>
+         <Latitude>48.5503005981</Latitude>
+         <Longitude>3.61194300652</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 21 41 46</Téléphone>
+      <Télécopie>03 25 21 41 46</Télécopie>
+      <Email>mairie.la.villeneuve.au.chatelot@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

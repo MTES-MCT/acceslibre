@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28166-01" codeInsee="28166" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Friaize</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Cours-Basses</Ligne>
+      <CodePostal>28240</CodePostal>
+      <NomCommune>Friaize</NomCommune>
+      <Localisation>
+         <Latitude>48.4313774</Latitude>
+         <Longitude>1.1348122</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 49 83 13</Téléphone>
+      <Télécopie>02 34 40 08 59</Télécopie>
+      <Email>mairie.friaize@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43091-01" codeInsee="43091" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Estables</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route des Boutières</Ligne>
+      <CodePostal>43150</CodePostal>
+      <NomCommune>Les Estables</NomCommune>
+      <Localisation>
+         <Latitude>44.90351</Latitude>
+         <Longitude>4.1560629</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 08 34 38</Téléphone>
+      <Email>mairie.lesestables@wanadoo.fr</Email>
+      <Url>https://www.lesestables.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 2e et le 4e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

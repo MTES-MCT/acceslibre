@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28332-01" codeInsee="28332" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Gemme-Moronval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route du Vallon</Ligne>
+      <CodePostal>28500</CodePostal>
+      <NomCommune>Sainte-Gemme-Moronval</NomCommune>
+      <Localisation>
+         <Latitude>48.7393989563</Latitude>
+         <Longitude>1.41373002529</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner au préalable, accès par une porte sur le côté</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 43 72 15</Téléphone>
+      <Email>mairie.stegemmemoronval@wanadoo.fr</Email>
+      <Url>http://www.sainte-gemme-moronval.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

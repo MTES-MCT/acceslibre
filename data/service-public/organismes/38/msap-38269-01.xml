@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-38269-01" codeInsee="38269" dateMiseAJour="2021-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - La Mure</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 avenue Docteur Tagnard</Ligne>
+      <Ligne>La Matheysine</Ligne>
+      <CodePostal>38350</CodePostal>
+      <NomCommune>La Mure</NomCommune>
+      <Localisation>
+         <Latitude>44.90815</Latitude>
+         <Longitude>5.79031</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 81 53 20</Téléphone>
+      <Email>matheysine@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

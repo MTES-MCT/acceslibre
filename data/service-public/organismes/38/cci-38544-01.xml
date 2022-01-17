@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-38544-01" codeInsee="38544" dateMiseAJour="2021-08-03" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 38 - Nord-Isère - Siège de Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Saint Pierre</Ligne>
+      <CodePostal>38217</CodePostal>
+      <NomCommune>Vienne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.523781</Latitude>
+         <Longitude>4.870856</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur et rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 31 44 00</Téléphone>
+      <Télécopie>04 74 95 24 01</Télécopie>
+      <Email>infos@nord-isere.cci.fr</Email>
+      <Url>https://www.ccinordisere.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

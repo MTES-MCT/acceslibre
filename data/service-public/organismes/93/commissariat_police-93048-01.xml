@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-93048-01" codeInsee="93048" dateMiseAJour="2017-06-13"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Montreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 bis-20 avenue Paul-Vaillant-Couturier</Ligne>
+      <CodePostal>93100</CodePostal>
+      <NomCommune>Montreuil</NomCommune>
+      <Localisation>
+         <Latitude>48.8644341</Latitude>
+         <Longitude>2.4426356</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">01 49 88 89 00</Téléphone>
+      <Télécopie>01 49 88 89 38</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89304-01" codeInsee="89304" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Poilly-sur-Tholon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Saint-Germain</Ligne>
+      <CodePostal>89110</CodePostal>
+      <NomCommune>Poilly-sur-Tholon</NomCommune>
+      <Localisation>
+         <Latitude>47.8657989502</Latitude>
+         <Longitude>3.39379000664</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 91 56 50</Téléphone>
+      <Télécopie>03 86 91 54 54</Télécopie>
+      <Email>mairie.poilly.tholon@wanadoo.fr</Email>
+      <Url>http://www.poilly-sur-tholon.a3w.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

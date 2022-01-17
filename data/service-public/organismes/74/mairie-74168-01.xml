@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74168-01" codeInsee="74168" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marlioz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>74270</CodePostal>
+      <NomCommune>Marlioz</NomCommune>
+      <Localisation>
+         <Latitude>46.03148</Latitude>
+         <Longitude>6.00867</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied par l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 77 84 22</Téléphone>
+      <Email>mairie@marlioz.fr</Email>
+      <Url>http://www.marlioz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert deux samedis par mois, contacter l'accueil pour obtenir les dates d'ouverture, elles sont affichées en mairie et consultables sur le site internet de la mairie.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69043-01" codeInsee="69043" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chaponost</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 avenue du Maréchal-Joffre</Ligne>
+      <CodePostal>69630</CodePostal>
+      <NomCommune>Chaponost</NomCommune>
+      <Localisation>
+         <Latitude>45.710212</Latitude>
+         <Longitude>4.742272</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 45 31 33</Téléphone>
+      <Télécopie>04 78 45 37 45</Télécopie>
+      <Email>contact@mairie-chaponost.fr</Email>
+      <Url>http://www.mairie-chaponost.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil fermé le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

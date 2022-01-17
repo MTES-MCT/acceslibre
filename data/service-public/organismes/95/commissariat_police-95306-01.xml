@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-95306-01" codeInsee="95306" dateMiseAJour="2019-08-30"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Herblay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 boulevard du 11-Novembre</Ligne>
+      <CodePostal>95220</CodePostal>
+      <NomCommune>Herblay</NomCommune>
+      <Localisation>
+         <Latitude>48.9887689</Latitude>
+         <Longitude>2.1657276</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">01 70 29 82 17</Téléphone>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

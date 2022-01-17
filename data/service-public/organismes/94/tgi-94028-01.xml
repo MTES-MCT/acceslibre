@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="94028" dateMiseAJour="2021-12-14" id="tgi-94028-01" idPresta="4cac9e6a293594648a0017c0" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Créteil</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS</Ligne>
+        <CodePostal>94011</CodePostal>
+        <NomCommune>CRETEIL CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.785747</Latitude>
+            <Longitude>2.444272</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PALAIS</Ligne>
+        <CodePostal>94011</CodePostal>
+        <NomCommune>CRETEIL CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 49 81 16 00</Téléphone>
+        <Télécopie>01 49 81 19 03</Télécopie>
+        <Email>mailto:tj-creteil@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="18:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

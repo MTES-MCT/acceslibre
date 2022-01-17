@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14689-01" codeInsee="14689" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Hom</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-de-Gaulle</Ligne>
+      <Ligne>BP 76</Ligne>
+      <Ligne>Thury-Harcourt</Ligne>
+      <CodePostal>14220</CodePostal>
+      <NomCommune>Le Hom</NomCommune>
+      <Localisation>
+         <Latitude>48.985823</Latitude>
+         <Longitude>-0.478576</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 79 72 71</Téléphone>
+      <Télécopie>02 31 79 09 95</Télécopie>
+      <Email>mairie@le-hom.fr</Email>
+      <Url>http://www.le-hom.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

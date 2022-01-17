@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27290-02" codeInsee="27290" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Tilleul-Othon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Tilleul-Othon</Ligne>
+      <Ligne>4 rue de l'Église</Ligne>
+      <CodePostal>27170</CodePostal>
+      <NomCommune>Goupil-Othon</NomCommune>
+      <Localisation>
+         <Latitude>49.114321</Latitude>
+         <Longitude>0.789076</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 45 25 10</Téléphone>
+      <Télécopie>02 32 45 25 10</Télécopie>
+      <Email>goupil.othon@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

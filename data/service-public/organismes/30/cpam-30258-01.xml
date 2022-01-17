@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-30258-01" codeInsee="30258" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) du Gard - accueil de Saint-Gilles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison des services publics</Ligne>
+      <Ligne>Rue des Tourterelles</Ligne>
+      <CodePostal>30800</CodePostal>
+      <NomCommune>Saint-Gilles</NomCommune>
+      <Localisation>
+         <Latitude>43.6802328</Latitude>
+         <Longitude>4.4344206</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie du Gard</Ligne>
+      <Ligne>14 rue du Cirque-Romain</Ligne>
+      <CodePostal>30921</CodePostal>
+      <NomCommune>Nîmes Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, accueil téléphonique du lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

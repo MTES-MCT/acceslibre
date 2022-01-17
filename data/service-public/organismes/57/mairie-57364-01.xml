@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57364-01" codeInsee="57364" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Kirsch-lès-Sierck</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue de Verdun</Ligne>
+      <CodePostal>57480</CodePostal>
+      <NomCommune>Kirsch-lès-Sierck</NomCommune>
+      <Localisation>
+         <Latitude>49.4435348511</Latitude>
+         <Longitude>6.40046787262</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 83 72 05</Téléphone>
+      <Email>mairie.kirschlessierck@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

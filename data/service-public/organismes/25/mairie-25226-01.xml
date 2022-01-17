@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25226-01" codeInsee="25226" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Étrappe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue Principale</Ligne>
+      <CodePostal>25250</CodePostal>
+      <NomCommune>Étrappe</NomCommune>
+      <Localisation>
+         <Latitude>47.4743003845</Latitude>
+         <Longitude>6.58000993729</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 96 34 28</Téléphone>
+      <Télécopie>03 81 96 34 28</Télécopie>
+      <Email>mairie.etrappe@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

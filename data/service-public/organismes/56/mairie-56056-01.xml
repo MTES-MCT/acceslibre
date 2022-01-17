@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56056-01" codeInsee="56056" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Évriguet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place René-Marcadé</Ligne>
+      <CodePostal>56490</CodePostal>
+      <NomCommune>Évriguet</NomCommune>
+      <Localisation>
+         <Latitude>48.0778</Latitude>
+         <Longitude>-2.410257</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied par la salle du conseil municipal</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 22 80 47</Téléphone>
+      <Télécopie>02 97 22 85 23</Télécopie>
+      <Email>mairie.evriguet@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

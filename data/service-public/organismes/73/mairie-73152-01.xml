@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73152-01" codeInsee="73152" dateMiseAJour="2021-10-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marcieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chef-lieu</Ligne>
+      <CodePostal>73470</CodePostal>
+      <NomCommune>Marcieux</NomCommune>
+      <Localisation>
+         <Latitude>45.612378</Latitude>
+         <Longitude>5.765639</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 28 78 68</Téléphone>
+      <Télécopie>04 79 28 73 66</Télécopie>
+      <Email>mairie.marcieux@orange.fr</Email>
+      <Url>http://marcieux.wixsite.com/marcieux</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

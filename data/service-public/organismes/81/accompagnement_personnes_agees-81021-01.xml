@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-81021-01" codeInsee="81021"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Aussillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre d'accueil de jour</Ligne>
+      <Ligne>104 avenue de Toulouse</Ligne>
+      <CodePostal>81200</CodePostal>
+      <NomCommune>Aussillon</NomCommune>
+      <Localisation>
+         <Latitude>43.507306</Latitude>
+         <Longitude>2.35967</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 97 70 40</Téléphone>
+      <Email>contact@serenitarn.fr</Email>
+      <Url>http://www.adar81.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

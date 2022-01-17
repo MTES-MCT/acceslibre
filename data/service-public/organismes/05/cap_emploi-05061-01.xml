@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-05061-01" codeInsee="05061" dateMiseAJour="2021-05-07"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Hautes-Alpes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 05</Ligne>
+      <Ligne>Immeuble le Rubis</Ligne>
+      <Ligne>Impasse des Hypothèques</Ligne>
+      <CodePostal>05000</CodePostal>
+      <NomCommune>Gap</NomCommune>
+      <Localisation>
+         <Latitude>44.564982</Latitude>
+         <Longitude>6.08571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 53 21 83</Téléphone>
+      <Email>contact@capemploi05.fr</Email>
+      <Url>https://www.capemploi-05.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

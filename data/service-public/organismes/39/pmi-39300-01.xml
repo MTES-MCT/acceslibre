@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-39300-01" codeInsee="39300" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Lons-le-Saunier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des solidarités</Ligne>
+      <Ligne>5 rue du Colonel-Mahon</Ligne>
+      <CodePostal>39000</CodePostal>
+      <NomCommune>Lons-le-Saunier</NomCommune>
+      <Localisation>
+         <Latitude>46.6739235</Latitude>
+         <Longitude>5.548339</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 87 13 02</Téléphone>
+      <Email>pmi@jura.fr</Email>
+      <Url>http://www.jura.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

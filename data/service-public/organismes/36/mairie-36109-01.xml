@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-36109-01" codeInsee="36109" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Magny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Domaine du Prieuré</Ligne>
+      <Ligne>21 rue Principale</Ligne>
+      <CodePostal>36400</CodePostal>
+      <NomCommune>Le Magny</NomCommune>
+      <Localisation>
+         <Latitude>46.5661358</Latitude>
+         <Longitude>1.95971869999994</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 62 10 00</Téléphone>
+      <Télécopie>02 54 62 10 01</Télécopie>
+      <Email>mairie.lemagny36@wanadoo.fr</Email>
+      <Url>http://www.lemagny36.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

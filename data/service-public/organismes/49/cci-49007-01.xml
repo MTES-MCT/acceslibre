@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-49007-01" codeInsee="49007" dateMiseAJour="2021-08-03" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 49 - Maine-et-Loire - Siège d'Angers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 boulevard du Roi René</Ligne>
+      <CodePostal>49006</CodePostal>
+      <NomCommune>Angers Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>47.4683981</Latitude>
+         <Longitude>-0.5581115</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accès par la cour, téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 20 49 00</Téléphone>
+      <Télécopie>02 41 20 54 14</Télécopie>
+      <Email>info@maineetloire.cci.fr</Email>
+      <Url>https://www.maineetloire.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

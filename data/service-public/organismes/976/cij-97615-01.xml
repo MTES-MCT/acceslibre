@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-97615-01" codeInsee="97615" dateMiseAJour="2020-11-23" pivotLocal="cij">
+   <Nom>Point information jeunesse - Pamandzi</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'AJP</Ligne>
+      <CodePostal>97615</CodePostal>
+      <NomCommune>Pamandzi</NomCommune>
+      <Localisation>
+         <Latitude>-12.7902467</Latitude>
+         <Longitude>45.2708432</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 269 60 12 82</Téléphone>
+      <Email>pij.pamandzi@gmail.com</Email>
+      <Url>https://www.facebook.com/PointInformationJeunesseDePamandzi</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

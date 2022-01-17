@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01343-01" codeInsee="01343" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Cyr-sur-Menthon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>65 place de la Mairie</Ligne>
+      <CodePostal>01380</CodePostal>
+      <NomCommune>Saint-Cyr-sur-Menthon</NomCommune>
+      <Localisation>
+         <Latitude>46.2747001648</Latitude>
+         <Longitude>4.9726600647</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 36 30 43</Téléphone>
+      <Email>accueil@saintcyrsurmenthon.fr</Email>
+      <Url>http://www.mairie-saint-cyr-sur-menthon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

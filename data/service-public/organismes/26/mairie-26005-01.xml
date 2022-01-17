@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26005-01" codeInsee="26005" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Allan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Champ-de-Mars</Ligne>
+      <CodePostal>26780</CodePostal>
+      <NomCommune>Allan</NomCommune>
+      <Localisation>
+         <Latitude>44.4982877</Latitude>
+         <Longitude>4.786892</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 46 60 62</Téléphone>
+      <Télécopie>04 75 46 60 51</Télécopie>
+      <Email>accueil@mairie-allan.fr</Email>
+      <Url>http://mairie-allan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

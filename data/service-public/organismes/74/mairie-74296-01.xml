@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74296-01" codeInsee="74296" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 route de Valleiry</Ligne>
+      <CodePostal>74160</CodePostal>
+      <NomCommune>Vers</NomCommune>
+      <Localisation>
+         <Latitude>46.092043</Latitude>
+         <Longitude>6.021096</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 35 20 33</Téléphone>
+      <Email>mairie@vers74.fr</Email>
+      <Url>http://www.vers74.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

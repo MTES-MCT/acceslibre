@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cnfpt-25056-01" codeInsee="25056" dateMiseAJour="2021-06-07"
+           pivotLocal="cnfpt">
+   <Nom>Centre national de la fonction publique territoriale (CNFPT) - Délégation régionale - Bourgogne-Franche-Comté - Besançon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 bis rue André-Boulloche</Ligne>
+      <Ligne>BP 2087</Ligne>
+      <CodePostal>25051</CodePostal>
+      <NomCommune>Besançon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.2173995972</Latitude>
+         <Longitude>5.97032022476</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 41 98 49</Téléphone>
+      <Télécopie>03 81 41 98 30</Télécopie>
+      <Url>http://www.cnfpt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

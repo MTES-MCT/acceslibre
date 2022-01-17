@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-56121-01" codeInsee="56121" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Lorient</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre communal d'action sociale La Passerelle</Ligne>
+      <Ligne>Galerie commerciale L'Orientis</Ligne>
+      <Ligne>7 boulevard Cosmao-Dumanoir</Ligne>
+      <CodePostal>56100</CodePostal>
+      <NomCommune>Lorient</NomCommune>
+      <Localisation>
+         <Latitude>47.75487409</Latitude>
+         <Longitude>-3.3640487</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Centre communal d'action sociale La Passerelle</Ligne>
+      <Ligne>53 cours de Chazelles</Ligne>
+      <Ligne>CS 24491</Ligne>
+      <CodePostal>56323</CodePostal>
+      <NomCommune>Lorient Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 84 15 50</Téléphone>
+      <Télécopie>02 97 02 23 47</Télécopie>
+      <Email>ccas@mairie-lorient.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

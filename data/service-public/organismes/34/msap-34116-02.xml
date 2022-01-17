@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-34116-02" codeInsee="34116" dateMiseAJour="2021-09-08"
+           pivotLocal="msap">
+   <Nom>France Services - Sète</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Delille</Ligne>
+      <Ligne>APIJE-Etang de Thau</Ligne>
+      <Ligne>Résidence les terrasses sur port</Ligne>
+      <CodePostal>34200</CodePostal>
+      <NomCommune>Sète</NomCommune>
+      <Localisation>
+         <Latitude>43.404824</Latitude>
+         <Longitude>3.700579</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 74 08 29</Téléphone>
+      <Email>contact@apije.org</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

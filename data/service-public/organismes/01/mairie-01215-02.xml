@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01215-02" codeInsee="01215" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Surjoux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Surjoux</Ligne>
+      <Ligne>2 place de l'Europe</Ligne>
+      <CodePostal>01420</CodePostal>
+      <NomCommune>Surjoux-Lhopital</NomCommune>
+      <Localisation>
+         <Latitude>46.025224</Latitude>
+         <Longitude>5.802503</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 59 50 39</Téléphone>
+      <Email>commune.lhopital@wibox.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

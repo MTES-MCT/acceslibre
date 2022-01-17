@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="03190" dateMiseAJour="2021-12-14" id="tgi-03190-01" idPresta="4cac9ed7293594648a00edf8" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Moulins</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>20 RUE DE PARIS</Ligne>
+        <Ligne>CS 81627</Ligne>
+        <CodePostal>03016</CodePostal>
+        <NomCommune>MOULINS CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.568443</Latitude>
+            <Longitude>3.33052</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>20 rue de Paris</Ligne>
+        <Ligne>CS 81627</Ligne>
+        <CodePostal>03016</CodePostal>
+        <NomCommune>MOULINS CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 70 35 14 55</Téléphone>
+        <Télécopie>04 70 20 42 90</Télécopie>
+        <Email>mailto:tj1-moulins@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:45:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

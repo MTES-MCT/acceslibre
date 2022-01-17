@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89257-01" codeInsee="89257" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Migennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 85</Ligne>
+      <CodePostal>89400</CodePostal>
+      <NomCommune>Migennes</NomCommune>
+      <Localisation>
+         <Latitude>47.9649009705</Latitude>
+         <Longitude>3.52270007133</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 80 09 45</Téléphone>
+      <Télécopie>03 86 80 98 40</Télécopie>
+      <Email>accueil@ville-migennes.fr</Email>
+      <Url>http://www.ville-migennes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

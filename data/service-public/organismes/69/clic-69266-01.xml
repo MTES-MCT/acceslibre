@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-69266-01" codeInsee="69266" dateMiseAJour="2020-01-02"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Villeurbanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de la métropole - territoire de Villeurbanne</Ligne>
+      <Ligne>30 rue de la Baïsse</Ligne>
+      <CodePostal>69100</CodePostal>
+      <NomCommune>Villeurbanne</NomCommune>
+      <Localisation>
+         <Latitude>45.762573</Latitude>
+         <Longitude>4.893292</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 03 46 00</Téléphone>
+      <Télécopie>04 26 99 31 68</Télécopie>
+      <Email>mdm.villeurbanne@grandlyon.com</Email>
+      <Url>http://grandlyon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

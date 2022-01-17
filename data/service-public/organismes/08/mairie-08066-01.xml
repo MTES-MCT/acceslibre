@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08066-01" codeInsee="08066" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bignicourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue Principale</Ligne>
+      <CodePostal>08310</CodePostal>
+      <NomCommune>Bignicourt</NomCommune>
+      <Localisation>
+         <Latitude>49.399116</Latitude>
+         <Longitude>4.423659</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 38 08 05</Téléphone>
+      <Télécopie>03 24 38 08 05</Télécopie>
+      <Email>mairie.bignicourt@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

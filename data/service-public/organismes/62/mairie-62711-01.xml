@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62711-01" codeInsee="62711" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rinxent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>62720</CodePostal>
+      <NomCommune>Rinxent</NomCommune>
+      <Localisation>
+         <Latitude>50.8042984009</Latitude>
+         <Longitude>1.73880004883</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 99 90 60</Téléphone>
+      <Télécopie>03 21 99 90 64</Télécopie>
+      <Email>mairie@ville-rinxent.fr</Email>
+      <Url>http://www.ville-rinxent.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le samedi uniquement une semaine sur deux, fermé en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

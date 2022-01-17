@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-09225-01" codeInsee="09225" dateMiseAJour="2020-11-23" pivotLocal="cij">
+   <Nom>Point information jeunesse - Pamiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace accueil infos</Ligne>
+      <Ligne>4 rue des Carmes</Ligne>
+      <CodePostal>09100</CodePostal>
+      <NomCommune>Pamiers</NomCommune>
+      <Localisation>
+         <Latitude>43.1164213</Latitude>
+         <Longitude>1.6090647</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 67 45 71 ou 05 82 21 00 10</Téléphone>
+      <Email>espace.accueil.infos@ville-pamiers.fr</Email>
+      <Url>http://ville-pamiers.fr/72-espace-accueil-infos-et-cyberbase.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

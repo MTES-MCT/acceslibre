@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B304-01" codeInsee="2B304" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - San-Lorenzo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu-dit Tribio</Ligne>
+      <CodePostal>20244</CodePostal>
+      <NomCommune>San-Lorenzo</NomCommune>
+      <Localisation>
+         <Latitude>42.3838691711</Latitude>
+         <Longitude>9.28895568848</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 48 40 15</Téléphone>
+      <Télécopie>04 95 34 19 36</Télécopie>
+      <Email>mairie.sanlorenzo@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

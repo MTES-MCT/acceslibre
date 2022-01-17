@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-62080-01" codeInsee="62080" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Sud Artois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Neuve</Ligne>
+      <Ligne>CS 30002</Ligne>
+      <CodePostal>62452</CodePostal>
+      <NomCommune>Bapaume Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.105016</Latitude>
+         <Longitude>2.850057</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 59 17 17</Téléphone>
+      <Télécopie>03 21 59 20 17</Télécopie>
+      <Email>accueil@cc-sudartois.fr</Email>
+      <Url>http://www.cc-sudartois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

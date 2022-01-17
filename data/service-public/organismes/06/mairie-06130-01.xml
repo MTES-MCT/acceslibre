@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06130-01" codeInsee="06130" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vallier-de-Thiey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Apié</Ligne>
+      <Ligne>BP 36</Ligne>
+      <CodePostal>06460</CodePostal>
+      <NomCommune>Saint-Vallier-de-Thiey</NomCommune>
+      <Localisation>
+         <Latitude>43.6983985901</Latitude>
+         <Longitude>6.84811019897</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 60 32 00</Téléphone>
+      <Télécopie>04 92 60 32 09</Télécopie>
+      <Email>mairie@mairie-saintvallierdethiey.fr</Email>
+      <Url>http://www.mairie-saintvallierdethiey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

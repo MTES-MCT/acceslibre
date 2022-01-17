@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27582-01" codeInsee="27582" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Ouen-du-Tilleul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Mairie</Ligne>
+      <CodePostal>27670</CodePostal>
+      <NomCommune>Saint-Ouen-du-Tilleul</NomCommune>
+      <Localisation>
+         <Latitude>49.2933425903</Latitude>
+         <Longitude>0.948836028576</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 87 70 25</Téléphone>
+      <Télécopie>02 35 81 05 42</Télécopie>
+      <Email>secretariat-general@mairie-saintouendutilleul.fr</Email>
+      <Url>http://www.saint-ouen-du-tilleul.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

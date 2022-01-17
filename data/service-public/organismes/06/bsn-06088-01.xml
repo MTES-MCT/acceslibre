@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-06088-01" codeInsee="06088" dateMiseAJour="2021-04-20" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) - Nice (pour les départements 06, 20, 83)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Caserne Filley</Ligne>
+      <Ligne>2 rue Sincaire</Ligne>
+      <CodePostal>06300</CodePostal>
+      <NomCommune>Nice</NomCommune>
+      <Localisation>
+         <Latitude>43.6996732</Latitude>
+         <Longitude>7.2803199</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csnj-nice.jdc.fct@intradef.gouv.fr</Email>
+      <Url>https://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61341-01" codeInsee="61341" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Écouves</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>61250</CodePostal>
+      <NomCommune>Écouves</NomCommune>
+      <Localisation>
+         <Latitude>48.5044403076</Latitude>
+         <Longitude>0.101493000984</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 28 10 60</Téléphone>
+      <Email>mairie.radon@orange.fr</Email>
+      <Url>http://www.commune-ecouves.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:15:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

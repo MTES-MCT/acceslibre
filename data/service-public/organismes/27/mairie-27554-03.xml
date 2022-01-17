@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27554-03" codeInsee="27554" dateMiseAJour="2021-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Pierre d'Autils</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Pierre-d'Autils</Ligne>
+      <Ligne>59 rue du Puits</Ligne>
+      <CodePostal>27950</CodePostal>
+      <NomCommune>La Chapelle-Longueville</NomCommune>
+      <Localisation>
+         <Latitude>49.119430542</Latitude>
+         <Longitude>1.43711197376</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 52 22 17</Téléphone>
+      <Télécopie>02 32 52 94 97</Télécopie>
+      <Email>contact@lachapellelongueville.fr</Email>
+      <Url>http://www.lachapellelongueville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

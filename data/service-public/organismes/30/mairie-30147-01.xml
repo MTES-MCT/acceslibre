@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30147-01" codeInsee="30147" dateMiseAJour="2021-07-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lézan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 avenue de la Gare</Ligne>
+      <CodePostal>30350</CodePostal>
+      <NomCommune>Lézan</NomCommune>
+      <Localisation>
+         <Latitude>44.0163002014</Latitude>
+         <Longitude>4.05120992661</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 83 00 25</Téléphone>
+      <Télécopie>04 66 83 08 43</Télécopie>
+      <Email>secretariat@mairielezan.fr</Email>
+      <Url>http://www.lezan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

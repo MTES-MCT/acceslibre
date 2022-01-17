@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73100-01" codeInsee="73100" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Domessin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>120 rue du Chef-lieu</Ligne>
+      <CodePostal>73330</CodePostal>
+      <NomCommune>Domessin</NomCommune>
+      <Localisation>
+         <Latitude>45.5401306152</Latitude>
+         <Longitude>5.70803594589</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 37 23 14</Téléphone>
+      <Email>mairie.domessin@orange.fr</Email>
+      <Url>http://www.domessin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement, permanence téléphonique du lundi au vendredi de 8h30 à 12h et de 13h30 à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

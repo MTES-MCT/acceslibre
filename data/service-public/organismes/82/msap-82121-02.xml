@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-82121-02" codeInsee="82121" dateMiseAJour="2021-06-01"
+           pivotLocal="msap">
+   <Nom>France Services - Montauban</Nom>
+   <EditeurSource>La Direction de l’Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>180 Avenue Marcel Unal</Ligne>
+      <Ligne>Moissac Confluences</Ligne>
+      <CodePostal>82000</CodePostal>
+      <NomCommune>Montauban</NomCommune>
+      <Localisation>
+         <Latitude>44.0072</Latitude>
+         <Longitude>1.377427</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06.45.51.36.83</Téléphone>
+      <Email>franceservices.confluences@mpn.msa.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

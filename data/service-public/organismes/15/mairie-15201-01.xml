@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15201-01" codeInsee="15201" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-sous-Vigouroux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue du 19-Mars-1962</Ligne>
+      <CodePostal>15230</CodePostal>
+      <NomCommune>Saint-Martin-sous-Vigouroux</NomCommune>
+      <Localisation>
+         <Latitude>44.923234</Latitude>
+         <Longitude>2.802928</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">accès partiel</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 23 33 16</Téléphone>
+      <Email>mairie.stmartinvigouroux@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

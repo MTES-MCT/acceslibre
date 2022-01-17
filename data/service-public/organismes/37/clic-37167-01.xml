@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-37167-01" codeInsee="37167" dateMiseAJour="2020-02-17"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Neuillé-Pont-Pierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Nongrenières</Ligne>
+      <CodePostal>37360</CodePostal>
+      <NomCommune>Neuillé-Pont-Pierre</NomCommune>
+      <Localisation>
+         <Latitude>47.547414</Latitude>
+         <Longitude>0.546587</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 24 30 11</Téléphone>
+      <Télécopie>02 47 24 34 79</Télécopie>
+      <Url>http://www.touraine-reperage.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

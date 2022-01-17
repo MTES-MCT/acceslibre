@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-26035-01" codeInsee="26035" dateMiseAJour="2020-12-01"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) -  Beaufort-sur-Gervanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Suze</Ligne>
+      <Ligne>Vallée de Gervanne- Sye</Ligne>
+      <CodePostal>26400</CodePostal>
+      <NomCommune>Beaufort-sur-Gervanne</NomCommune>
+      <Localisation>
+         <Latitude>44.77682</Latitude>
+         <Longitude>5.141927</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Contact:&#xA;msapgervanne-sye@val-de-drome.com ou par téléphone au 06-27-63-97-44">04 75 56 22 18</Téléphone>
+      <Email>mponty@val-de-drome.com</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/vallee-de-gervanne-sye</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>L'animatrice est également joignable par téléphone les après-midi de 14h à 17h.</Commentaire>
+</Organisme>

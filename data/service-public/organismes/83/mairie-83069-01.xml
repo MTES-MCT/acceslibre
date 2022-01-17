@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83069-01" codeInsee="83069" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hyères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 avenue Joseph-Clotis</Ligne>
+      <Ligne>BP 709</Ligne>
+      <CodePostal>83412</CodePostal>
+      <NomCommune>Hyères Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.120098114</Latitude>
+         <Longitude>6.13016986847</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 00 78 78</Téléphone>
+      <Télécopie>04 94 00 79 30</Télécopie>
+      <Email>mairie@ville-hyeres.fr</Email>
+      <Url>http://www.hyeres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60407-01" codeInsee="60407" dateMiseAJour="2021-02-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Monceaux-l'Abbaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Grand-Chemin</Ligne>
+      <CodePostal>60220</CodePostal>
+      <NomCommune>Monceaux-l'Abbaye</NomCommune>
+      <Localisation>
+         <Latitude>49.6525001526</Latitude>
+         <Longitude>1.79075205326</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 46 11 64</Téléphone>
+      <Email>mairie.monceaux.abbaye@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

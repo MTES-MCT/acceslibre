@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80824-01" codeInsee="80824" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wiencourt-l'Équipée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Gaston-Blanchard</Ligne>
+      <CodePostal>80170</CodePostal>
+      <NomCommune>Wiencourt-l'Équipée</NomCommune>
+      <Localisation>
+         <Latitude>49.8443984985</Latitude>
+         <Longitude>2.61221003532</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 42 30 97</Téléphone>
+      <Télécopie>03 22 42 30 97</Télécopie>
+      <Email>mairie.wiencourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

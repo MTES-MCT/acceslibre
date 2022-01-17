@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23247-01" codeInsee="23247" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vaury</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Église</Ligne>
+      <CodePostal>23320</CodePostal>
+      <NomCommune>Saint-Vaury</NomCommune>
+      <Localisation>
+         <Latitude>46.2583999</Latitude>
+         <Longitude>1.76285</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 80 20 17</Téléphone>
+      <Télécopie>05 55 80 22 16</Télécopie>
+      <Email>secretariat.mairie@saint-vaury.fr</Email>
+      <Url>http://www.saintvaury.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

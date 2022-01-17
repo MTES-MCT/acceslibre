@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25057-01" codeInsee="25057" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bethoncourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Léon-Contejean</Ligne>
+      <CodePostal>25200</CodePostal>
+      <NomCommune>Bethoncourt</NomCommune>
+      <Localisation>
+         <Latitude>47.5340003967</Latitude>
+         <Longitude>6.79638004303</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 96 62 32</Téléphone>
+      <Télécopie>03 81 96 62 91</Télécopie>
+      <Email>secretariat.general@mairie-bethoncourt.fr</Email>
+      <Url>http://www.bethoncourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert du lundi au vendredi de 9h à 12h, accueil possible sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

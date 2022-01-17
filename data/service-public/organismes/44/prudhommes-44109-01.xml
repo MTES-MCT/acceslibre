@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="44109" dateMiseAJour="2021-12-14" id="prudhommes-44109-01" idPresta="4cac9e6a293594648a0016ef" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Nantes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>26 BOULEVARD VINCENT GACHE</Ligne>
+        <Ligne>BP 90311</Ligne>
+        <CodePostal>44203</CodePostal>
+        <NomCommune>NANTES CEDEX 2</NomCommune>
+        <Localisation>
+            <Latitude>47.206196</Latitude>
+            <Longitude>-1.546866</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>26 BOULEVARD VINCENT GACHE</Ligne>
+        <Ligne>BP 90311</Ligne>
+        <CodePostal>44203</CodePostal>
+        <NomCommune>NANTES CEDEX 2</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 40 20 61 30</Téléphone>
+        <Télécopie>02 40 20 61 31</Télécopie>
+        <Email>mailto:cph-nantes@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-71120-01" codeInsee="71120" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Chauffailles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Canton</Ligne>
+      <Ligne>4 rue Élie-Maurette</Ligne>
+      <CodePostal>71170</CodePostal>
+      <NomCommune>Chauffailles</NomCommune>
+      <Localisation>
+         <Latitude>46.207208</Latitude>
+         <Longitude>4.339674</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par l'entrée de la bibliothèque</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 26 48 07</Téléphone>
+      <Télécopie>03 85 84 69 64</Télécopie>
+      <Email>mds.chauffailles@saoneetloire71.fr</Email>
+      <Url>http://www.saoneetloire71.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

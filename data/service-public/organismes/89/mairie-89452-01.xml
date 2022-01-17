@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89452-01" codeInsee="89452" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villecien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'Église</Ligne>
+      <CodePostal>89300</CodePostal>
+      <NomCommune>Villecien</NomCommune>
+      <Localisation>
+         <Latitude>48.0060005188</Latitude>
+         <Longitude>3.32886004448</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">entrée à l’arrière</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 63 10 10</Téléphone>
+      <Email>mairie.villecien@wanadoo.fr</Email>
+      <Url>http://www.mairie-villecien.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

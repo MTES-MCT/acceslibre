@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23040-01" codeInsee="23040" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Celle-sous-Gouzon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Tilleul</Ligne>
+      <CodePostal>23230</CodePostal>
+      <NomCommune>La Celle-sous-Gouzon</NomCommune>
+      <Localisation>
+         <Latitude>46.214517</Latitude>
+         <Longitude>2.209868</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 62 27 19</Téléphone>
+      <Télécopie>05 55 62 27 19</Télécopie>
+      <Email>mairielacellesousgouzon@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

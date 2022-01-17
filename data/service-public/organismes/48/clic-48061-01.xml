@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-48061-01" codeInsee="48061" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Florac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de Florac</Ligne>
+      <Ligne>5 rue de la Croisette</Ligne>
+      <CodePostal>48400</CodePostal>
+      <NomCommune>Florac</NomCommune>
+      <Localisation>
+         <Latitude>44.320055</Latitude>
+         <Longitude>3.597319</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'usager est invité à téléphoner avant son arrivée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 49 95 04</Téléphone>
+      <Email>cms_florac@lozere.fr</Email>
+      <Url>http://www.lozere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

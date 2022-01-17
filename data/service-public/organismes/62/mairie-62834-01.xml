@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62834-01" codeInsee="62834" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vacqueriette-Erquières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>107 rue Grande</Ligne>
+      <CodePostal>62140</CodePostal>
+      <NomCommune>Vacqueriette-Erquières</NomCommune>
+      <Localisation>
+         <Latitude>50.3582992554</Latitude>
+         <Longitude>2.09992003441</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 47 11 13</Téléphone>
+      <Télécopie>03 21 03 39 07</Télécopie>
+      <Email>vacq.erq@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

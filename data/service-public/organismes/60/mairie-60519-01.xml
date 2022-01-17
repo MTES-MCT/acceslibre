@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60519-01" codeInsee="60519" dateMiseAJour="2021-05-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Quesmy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de la Croix</Ligne>
+      <CodePostal>60640</CodePostal>
+      <NomCommune>Quesmy</NomCommune>
+      <Localisation>
+         <Latitude>49.6336152</Latitude>
+         <Longitude>3.0589221</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 43 24 99</Téléphone>
+      <Email>mairie.quesmy@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

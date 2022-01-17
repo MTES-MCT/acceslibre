@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55489-01" codeInsee="55489" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sivry-la-Perche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du Cul-de-Sac</Ligne>
+      <CodePostal>55100</CodePostal>
+      <NomCommune>Sivry-la-Perche</NomCommune>
+      <Localisation>
+         <Latitude>49.1443862915</Latitude>
+         <Longitude>5.25102376938</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 86 93 48</Téléphone>
+      <Email>sivrylaperchemairie@orange.fr</Email>
+      <Url>http://www.sivrylaperche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

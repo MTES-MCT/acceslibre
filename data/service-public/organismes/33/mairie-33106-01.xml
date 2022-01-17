@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33106-01" codeInsee="33106" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Castets-et-Castillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 Grand'rue</Ligne>
+      <CodePostal>33210</CodePostal>
+      <NomCommune>Castets-et-Castillon</NomCommune>
+      <Localisation>
+         <Latitude>44.5616895</Latitude>
+         <Longitude>-0.1530983</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 62 83 09</Téléphone>
+      <Télécopie>05 56 62 76 06</Télécopie>
+      <Email>contact@castetsendorthe.fr</Email>
+      <Url>http://www.castetsendorthe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

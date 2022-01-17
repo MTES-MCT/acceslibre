@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74282-03" codeInsee="74282" dateMiseAJour="2021-03-25"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Évires</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Évires</Ligne>
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>74570</CodePostal>
+      <NomCommune>Fillière</NomCommune>
+      <Localisation>
+         <Latitude>46.0375918</Latitude>
+         <Longitude>6.2244943</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 62 01 72</Téléphone>
+      <Email>accueil.evires@commune-filliere.fr</Email>
+      <Url>https://www.commune-filliere.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

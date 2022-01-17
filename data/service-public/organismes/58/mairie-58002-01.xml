@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58002-01" codeInsee="58002" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alligny-Cosne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 route Saint-Amand</Ligne>
+      <CodePostal>58200</CodePostal>
+      <NomCommune>Alligny-Cosne</NomCommune>
+      <Localisation>
+         <Latitude>47.4539985</Latitude>
+         <Longitude>3.0605497</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 26 25 13</Téléphone>
+      <Télécopie>03 86 39 91 00</Télécopie>
+      <Email>mairie.alligny@wanadoo.fr</Email>
+      <Url>http://www.alligny-cosne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

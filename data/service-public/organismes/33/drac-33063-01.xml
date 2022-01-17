@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drac-33063-01" codeInsee="33063" dateMiseAJour="2018-05-25"
+           pivotLocal="drac">
+   <Nom>Direction régionale des affaires culturelles (DRAC) - Nouvelle-Aquitaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>54 rue Magendie</Ligne>
+      <CodePostal>33000</CodePostal>
+      <NomCommune>Bordeaux</NomCommune>
+      <Localisation>
+         <Latitude>44.833111</Latitude>
+         <Longitude>-0.575667</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 95 02 02</Téléphone>
+      <Télécopie>05 57 95 01 25</Télécopie>
+      <Email>http://www.culturecommunication.gouv.fr/Regions/Drac-Nouvelle-Aquitaine/Nous-contacter</Email>
+      <Url>http://www.culturecommunication.gouv.fr/Regions/Drac-Nouvelle-Aquitaine</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

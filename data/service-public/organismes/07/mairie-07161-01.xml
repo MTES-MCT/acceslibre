@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07161-01" codeInsee="07161" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montpezat-sous-Bauzon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 place de la République</Ligne>
+      <CodePostal>07560</CodePostal>
+      <NomCommune>Montpezat-sous-Bauzon</NomCommune>
+      <Localisation>
+         <Latitude>44.7121009827</Latitude>
+         <Longitude>4.20636987686</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 94 41 29</Téléphone>
+      <Télécopie>04 75 94 55 09</Télécopie>
+      <Email>mairie.montpezatsousbauzon@wanadoo.fr</Email>
+      <Url>http://www.montpezatsousbauzon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

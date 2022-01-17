@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08449-01" codeInsee="08449" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thin-le-Moutier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>08460</CodePostal>
+      <NomCommune>Thin-le-Moutier</NomCommune>
+      <Localisation>
+         <Latitude>49.6534996033</Latitude>
+         <Longitude>4.53921985626</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 54 76 41</Téléphone>
+      <Télécopie>03 24 37 93 16</Télécopie>
+      <Email>mairie-thinlemoutier@wanadoo.fr</Email>
+      <Url>http://www.commune-thin-le-moutier-08.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique le lundi, mardi, jeudi et vendredi de 9h à 16h30 et le samedi de 9h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique le lundi, mardi, jeudi et vendredi de 9h à 16h30 et le samedi de 9h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

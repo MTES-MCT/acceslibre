@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22093-01" codeInsee="22093" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lamballe-Armor</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lamballe</Ligne>
+      <Ligne>5 rue Simone-Veil</Ligne>
+      <Ligne>BP 90242</Ligne>
+      <CodePostal>22402</CodePostal>
+      <NomCommune>Lamballe-Armor Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4688355</Latitude>
+         <Longitude>-2.5171821</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 50 13 50</Téléphone>
+      <Télécopie>02 96 31 17 33</Télécopie>
+      <Email>contact@lamballe-armor.bzh</Email>
+      <Url>http://www.lamballe-armor.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+         <Note>Accueil état civil et urbanisme fermés au public le jeudi après-midi, accueil affaires civiles ouvert tous les mardis jusqu'à 19h30, hors vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

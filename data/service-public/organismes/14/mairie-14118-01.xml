@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14118-01" codeInsee="14118" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Caen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Esplanade Jean-Marie-Louvel</Ligne>
+      <CodePostal>14027</CodePostal>
+      <NomCommune>Caen Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>49.1810872</Latitude>
+         <Longitude>-0.3724727</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 30 41 00</Téléphone>
+      <Télécopie>02 31 86 02 38</Télécopie>
+      <Email>https://caen.frcontact</Email>
+      <Url>http://www.caen.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>Accueil du public à l'Hôtel de Ville.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+         <Note>Accueil du public à l'Hôtel de Ville.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

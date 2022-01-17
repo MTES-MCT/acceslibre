@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-11262-02" codeInsee="11262" dateMiseAJour="2021-04-26"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie hospitalière du Narbonnais à Narbonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue du Maréchal-Juin</Ligne>
+      <Ligne>CS 10816</Ligne>
+      <CodePostal>11785</CodePostal>
+      <NomCommune>Narbonne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.1807668</Latitude>
+         <Longitude>3.0148738</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe sur le côté du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 90 24 88</Téléphone>
+      <Email>t011057@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Fermeture au public tous les après-midi .</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Commentaire>
+</Organisme>

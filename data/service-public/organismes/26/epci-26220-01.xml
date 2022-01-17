@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-26220-01" codeInsee="26220" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Baronnies en Drôme Provençale</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Laurons</Ligne>
+      <Ligne>170 rue Ferdinand-Fert</Ligne>
+      <CodePostal>26110</CodePostal>
+      <NomCommune>Nyons</NomCommune>
+      <Localisation>
+         <Latitude>44.35233</Latitude>
+         <Longitude>5.118313</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 26 34 37</Téléphone>
+      <Télécopie>04 75 26 28 54</Télécopie>
+      <Email>ccbdp@cc-bdp.fr</Email>
+      <Url>http://www.cc-bdp.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-12151-01" codeInsee="12151"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Montézic</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre de ressources Alzheimer du Valadou</Ligne>
+      <CodePostal>12460</CodePostal>
+      <NomCommune>Montézic</NomCommune>
+      <Localisation>
+         <Latitude>44.709419</Latitude>
+         <Longitude>2.640329</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 44 89 42</Téléphone>
+      <Email>contact@levaladou.com</Email>
+      <Url>http://www.levaladou.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Accueil réservé uniquement aux jeunes malades le vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

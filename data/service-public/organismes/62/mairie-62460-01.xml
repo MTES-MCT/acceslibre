@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62460-01" codeInsee="62460" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hubersent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Cormont</Ligne>
+      <CodePostal>62630</CodePostal>
+      <NomCommune>Hubersent</NomCommune>
+      <Localisation>
+         <Latitude>50.5638999939</Latitude>
+         <Longitude>1.70258998871</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 90 77 80</Téléphone>
+      <Télécopie>03 21 90 77 80</Télécopie>
+      <Email>mairie.hubersent@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-28134-02" codeInsee="28134" dateMiseAJour="2021-04-28"
+           pivotLocal="commissariat_police">
+   <Nom>Bureau de police de Dreux (quartier Oriels)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier des Oriels</Ligne>
+      <Ligne>1 place des Oriels</Ligne>
+      <CodePostal>28100</CodePostal>
+      <NomCommune>Dreux</NomCommune>
+      <Localisation>
+         <Latitude>48.7375096</Latitude>
+         <Longitude>1.3896769</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">02 37 64 29 53</Téléphone>
+      <Télécopie>02 37 42 50 90</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

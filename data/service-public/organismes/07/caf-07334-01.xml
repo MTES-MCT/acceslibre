@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-07334-01" codeInsee="07334" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Ardèche - accueil des Vans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>12 avenue des Droits-de-l'Homme</Ligne>
+      <CodePostal>07140</CodePostal>
+      <NomCommune>Les Vans</NomCommune>
+      <Localisation>
+         <Latitude>44.4040565491</Latitude>
+         <Longitude>4.1328868866</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Ardèche</Ligne>
+      <Ligne>27 avenue de l'Europe</Ligne>
+      <Ligne>BP 121</Ligne>
+      <CodePostal>07101</CodePostal>
+      <NomCommune>Annonay Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>De préférence sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>De préférence sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

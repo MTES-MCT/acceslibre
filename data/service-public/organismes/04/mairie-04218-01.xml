@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04218-01" codeInsee="04218" dateMiseAJour="2021-07-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thorame-Basse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>04170</CodePostal>
+      <NomCommune>Thorame-Basse</NomCommune>
+      <Localisation>
+         <Latitude>44.090541</Latitude>
+         <Longitude>6.499424</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 83 92 97</Téléphone>
+      <Télécopie>04 92 83 42 02</Télécopie>
+      <Email>mairie.thoramebasse@orange.fr</Email>
+      <Url>http://www.thorame-basse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

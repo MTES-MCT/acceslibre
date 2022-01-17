@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38430-01" codeInsee="38430" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Mury-Monteymond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Palud</Ligne>
+      <Ligne>49 impasse de la Mairie</Ligne>
+      <CodePostal>38190</CodePostal>
+      <NomCommune>Saint-Mury-Monteymond</NomCommune>
+      <Localisation>
+         <Latitude>45.221617</Latitude>
+         <Longitude>5.927982</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 71 43 92</Téléphone>
+      <Email>mairiestmury-monteymond@wanadoo.fr</Email>
+      <Url>http://saint-mury-monteymond.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

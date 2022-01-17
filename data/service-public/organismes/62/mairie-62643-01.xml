@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62643-01" codeInsee="62643" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Outreau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Biez</Ligne>
+      <CodePostal>62230</CodePostal>
+      <NomCommune>Outreau</NomCommune>
+      <Localisation>
+         <Latitude>50.7080806</Latitude>
+         <Longitude>1.5929312</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 99 07 77</Téléphone>
+      <Email>mairie@ville-outreau.fr</Email>
+      <Url>http://www.ville-outreau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-97407-01" codeInsee="97407" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Territoire de la Côte Ouest (TCO)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Eliard-Laude</Ligne>
+      <Ligne>BP 50049</Ligne>
+      <CodePostal>97822</CodePostal>
+      <NomCommune>Le Port Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.9373584</Latitude>
+         <Longitude>55.2995538</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 2 62 32 12 12</Téléphone>
+      <Télécopie>+269 2 62 32 22 22</Télécopie>
+      <Email>courrier@tco.re</Email>
+      <Url>http://www.tco.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

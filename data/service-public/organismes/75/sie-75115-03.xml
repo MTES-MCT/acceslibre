@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-75115-03" codeInsee="75115" dateMiseAJour="2021-10-04" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Paris 15e arrondissement Est</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue de Général-Beuret</Ligne>
+      <CodePostal>75712</CodePostal>
+      <NomCommune>Paris Cedex 15</NomCommune>
+      <Localisation>
+         <Latitude>48.841258</Latitude>
+         <Longitude>2.30266</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 44 19 55 71</Téléphone>
+      <Email>sie.paris-15e-est@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:45:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

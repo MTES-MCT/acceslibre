@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38112-01" codeInsee="38112" dateMiseAJour="2020-05-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Clavans-en-Haut-Oisans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Clavans-le-Haut</Ligne>
+      <CodePostal>38142</CodePostal>
+      <NomCommune>Clavans-en-Haut-Oisans</NomCommune>
+      <Localisation>
+         <Latitude>45.0716</Latitude>
+         <Longitude>6.15546</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 80 11 73</Téléphone>
+      <Télécopie>04 76 80 11 73</Télécopie>
+      <Email>mairieclavanshtoisans@orange.fr</Email>
+      <Url>http://clavans-en-oisans.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

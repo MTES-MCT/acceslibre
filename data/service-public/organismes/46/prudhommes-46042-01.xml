@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="46042" dateMiseAJour="2021-12-14" id="prudhommes-46042-01" idPresta="4cac9e5f293594648a00026d" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Cahors</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>QUAI CAVAIGNAC</Ligne>
+        <CodePostal>46000</CodePostal>
+        <NomCommune>CAHORS</NomCommune>
+        <Localisation>
+            <Latitude>44.441601</Latitude>
+            <Longitude>1.439266</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>QUAI CAVAIGNAC</Ligne>
+        <CodePostal>46000</CodePostal>
+        <NomCommune>CAHORS</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 65 22 62 70</Téléphone>
+        <Télécopie>05 65 35 44 26</Télécopie>
+        <Email>mailto:cph-cahors@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:45:00" fin="12:00:00"/>
+            <PlageH début="13:45:00" fin="16:45:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

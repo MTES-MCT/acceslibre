@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-76014-01" codeInsee="76014" dateMiseAJour="2020-11-30"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Angerville-l'Orcher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>33 rue de l'Europe</Ligne>
+      <CodePostal>76280</CodePostal>
+      <NomCommune>Angerville-l'Orcher</NomCommune>
+      <Localisation>
+         <Latitude>49.588563</Latitude>
+         <Longitude>0.283069</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Url>https://www.maisondeservicesaupublic.fr/content/angerville-lorcher-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-16015-01" codeInsee="16015" dateMiseAJour="2018-05-07"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Charente</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue des Frères-Lumière</Ligne>
+      <CodePostal>16000</CodePostal>
+      <NomCommune>Angoulême</NomCommune>
+      <Localisation>
+         <Latitude>45.649222</Latitude>
+         <Longitude>0.164684</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 66 68 68</Téléphone>
+      <Télécopie>05 45 66 68 51</Télécopie>
+      <Email>alpc-ud16.direction@direccte.gouv.fr</Email>
+      <Url>http://www.nouvelle-aquitaine.direccte.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-31555-02" codeInsee="31555" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Toulouse 2 - Jean Jaurès - Campus Mirail - Service commun universitaire d'information d'orientation et d'insertion professionnelle  (SUIO-IP)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 allée Antonio Machado</Ligne>
+      <Ligne>Campus Mirail</Ligne>
+      <Ligne>Bâtiment Candilis</Ligne>
+      <CodePostal>31058</CodePostal>
+      <NomCommune>Toulouse Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.5776992</Latitude>
+         <Longitude>1.4040191</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 50 45 15</Téléphone>
+      <Email>scuio-ip@univ-tlse2.fr</Email>
+      <Url>https://www.univ-tlse2.fr/accueil/universite/organisation/service-commun-universitaire-dinformation-dorientation-et-dinsertion-professionnelle-scuio-ip</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>sur rendez-vous uniquement</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

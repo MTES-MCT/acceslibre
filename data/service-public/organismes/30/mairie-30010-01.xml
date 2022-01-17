@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30010-01" codeInsee="30010" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Anduze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Plan de Brie</Ligne>
+      <CodePostal>30140</CodePostal>
+      <NomCommune>Anduze</NomCommune>
+      <Localisation>
+         <Latitude>44.053699</Latitude>
+         <Longitude>3.9866</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 61 80 08</Téléphone>
+      <Email>contact@mairie-anduze.com</Email>
+      <Url>http://www.mairie-anduze.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Service passeport et carte d'identité ouvert sur rendez-vous du lundi au vendredi de 9h à 11h , le mercredi de 13h30 à 16h et le vendredi de 13h30 à 15h.Récupération des documents aux mêmes horaires sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

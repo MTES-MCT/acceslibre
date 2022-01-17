@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97416-01" codeInsee="97416" dateMiseAJour="2020-10-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pierre (La Réunion)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Méziaire-Guignard</Ligne>
+      <Ligne>BP 342</Ligne>
+      <CodePostal>97448</CodePostal>
+      <NomCommune>Saint-Pierre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-21.341629</Latitude>
+         <Longitude>55.477773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 35 78 00</Téléphone>
+      <Télécopie>+262 2 62 35 78 09</Télécopie>
+      <Email>courrier@saintpierre.re</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="15:15:00"/>
+         <Note>Fermeture de l'état civil à 14h15.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="16:15:00"/>
+         <Note>Fermeture de l'état civil à 15h15.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

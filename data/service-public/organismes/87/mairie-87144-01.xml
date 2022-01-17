@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87144-01" codeInsee="87144" dateMiseAJour="2020-08-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Genest-sur-Roselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du 19-Mars-1962</Ligne>
+      <CodePostal>87260</CodePostal>
+      <NomCommune>Saint-Genest-sur-Roselle</NomCommune>
+      <Localisation>
+         <Latitude>45.7029939</Latitude>
+         <Longitude>1.425934</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 75 53 03</Téléphone>
+      <Télécopie>05 55 08 45 41</Télécopie>
+      <Email>mairiestgenest@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

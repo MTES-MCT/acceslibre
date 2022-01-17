@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33527-01" codeInsee="33527" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Teich</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>64 bis avenue de la Côte-d'Argent</Ligne>
+      <Ligne>CS 90505</Ligne>
+      <CodePostal>33470</CodePostal>
+      <NomCommune>Le Teich</NomCommune>
+      <Localisation>
+         <Latitude>44.6355309</Latitude>
+         <Longitude>-1.02084569</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 22 33 60</Téléphone>
+      <Télécopie>05 56 22 33 61</Télécopie>
+      <Email>contact@leteich.fr</Email>
+      <Url>http://www.leteich.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

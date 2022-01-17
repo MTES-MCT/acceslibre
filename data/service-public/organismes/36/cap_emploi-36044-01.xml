@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-36044-01" codeInsee="36044" dateMiseAJour="2021-05-07"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Indre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 36</Ligne>
+      <Ligne>107 rue Ampère</Ligne>
+      <Ligne>Ohé Prométhée Indre</Ligne>
+      <CodePostal>36003</CodePostal>
+      <NomCommune>Châteauroux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.812621</Latitude>
+         <Longitude>1.716646</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 60 54 30</Téléphone>
+      <Télécopie>02 54 60 54 39</Télécopie>
+      <Email>contact@capemploi36.com</Email>
+      <Url>https://www.capemploi-36.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

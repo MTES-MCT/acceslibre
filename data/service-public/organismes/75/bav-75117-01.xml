@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="75117" dateMiseAJour="2021-06-25" id="bav-75117-01" idPresta="4d5e62cf2935941fe900003a" pivotLocal="bav">
+    <Nom>Bureau d'aide aux victimes du tribunal judiciaire de Paris</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PARVIS DU TRIBUNAL DE PARIS</Ligne>
+        <CodePostal>75859</CodePostal>
+        <NomCommune>PARIS CEDEX 17</NomCommune>
+        <Localisation>
+            <Latitude>48.895297</Latitude>
+            <Longitude>2.310805</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 44 32 51 51</Téléphone>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:30:00" fin="12:30:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

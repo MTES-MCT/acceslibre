@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pole_emploi-97311-01" codeInsee="97311" dateMiseAJour="2020-09-15"
+           pivotLocal="pole_emploi">
+   <Nom>Pôle emploi - Saint-Laurent-du-Maroni</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 allée des Ibis</Ligne>
+      <CodePostal>97320</CodePostal>
+      <NomCommune>Saint-Laurent-du-Maroni</NomCommune>
+      <Localisation>
+         <Latitude>5.495556</Latitude>
+         <Longitude>-54.030833</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet : service gratuit + prix appel (depuis l’étranger composez le +33 1 77 86 39 49) ; Employeur : 3995 (depuis l'étranger composez le +33 1 77 86 39 95)">3949</Téléphone>
+      <Url>https://www.pole-emploi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

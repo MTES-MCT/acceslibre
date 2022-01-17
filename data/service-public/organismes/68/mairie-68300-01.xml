@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68300-01" codeInsee="68300" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sausheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 Grand’rue</Ligne>
+      <CodePostal>68390</CodePostal>
+      <NomCommune>Sausheim</NomCommune>
+      <Localisation>
+         <Latitude>47.7894973755</Latitude>
+         <Longitude>7.37023115158</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 45 90 90</Téléphone>
+      <Télécopie>03 89 56 34 74</Télécopie>
+      <Email>en-direct@ville-sausheim.fr</Email>
+      <Url>http://www.ville-sausheim.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Mairie annexe à Sausheim joignable au 03 89 56 09 90 au 29 rue de Mulhouse s'occupant du culturel, du social, des affaires scolaires et des personnes âgées.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

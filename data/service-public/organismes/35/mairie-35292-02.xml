@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35292-02" codeInsee="35292" dateMiseAJour="2021-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Baillé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 allée Fadhma Amrouche</Ligne>
+      <Ligne>Baillé</Ligne>
+      <CodePostal>35460</CodePostal>
+      <NomCommune>Saint-Marc-le-Blanc</NomCommune>
+      <Localisation>
+         <Latitude>48.3601341</Latitude>
+         <Longitude>-1.3793528</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 95 04 15</Téléphone>
+      <Télécopie>09 70 32 30 89</Télécopie>
+      <Email>mairie.de.baille@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-35236-01" codeInsee="35236" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Redon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Charles-Sillard</Ligne>
+      <Ligne>CS 60287</Ligne>
+      <CodePostal>35602</CodePostal>
+      <NomCommune>Redon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.653437</Latitude>
+         <Longitude>-2.09538129999999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 72 19 50</Téléphone>
+      <Email>mlprv@ml-redon.com</Email>
+      <Url>http://www.ml-redon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

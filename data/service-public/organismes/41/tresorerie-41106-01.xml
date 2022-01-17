@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-41106-01" codeInsee="41106" dateMiseAJour="2018-12-26"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Lamotte-Beuvron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Maréchal-Leclerc</Ligne>
+      <CodePostal>41600</CodePostal>
+      <NomCommune>Lamotte-Beuvron</NomCommune>
+      <Localisation>
+         <Latitude>47.601677</Latitude>
+         <Longitude>2.025165</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 88 10 02</Téléphone>
+      <Email>t041009@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

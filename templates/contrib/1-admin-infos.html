@@ -40,14 +40,14 @@
   </div>
   {% endif %}
 
-  <form action="" method="POST" class="mb-4">
+  <form action="" method="POST" class="mb-4" novalidate>
     {% csrf_token %}
     {{ form.geom|as_crispy_field }}
     {{ form.source|as_crispy_field }}
     {{ form.source_id|as_crispy_field }}
 
     {% if form.non_field_errors %}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" role="alert">
       <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">

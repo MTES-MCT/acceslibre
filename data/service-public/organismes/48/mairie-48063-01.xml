@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48063-01" codeInsee="48063" dateMiseAJour="2021-07-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>48700</CodePostal>
+      <NomCommune>Fontans</NomCommune>
+      <Localisation>
+         <Latitude>44.7392272949</Latitude>
+         <Longitude>3.38664698601</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 48 31 00</Téléphone>
+      <Télécopie>04 66 48 31 00</Télécopie>
+      <Email>communedefontans@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

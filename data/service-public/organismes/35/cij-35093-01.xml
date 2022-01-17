@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-35093-01" codeInsee="35093" dateMiseAJour="2020-11-16" pivotLocal="cij">
+   <Nom>Point information jeunesse - Dinard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le SPOT – Pôle Jeunesse</Ligne>
+      <Ligne>2 rue de la Saudrais</Ligne>
+      <CodePostal>35800</CodePostal>
+      <NomCommune>Dinard</NomCommune>
+      <Localisation>
+         <Latitude>48.624007</Latitude>
+         <Longitude>-2.066984</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 56 27 85 44</Téléphone>
+      <Email>centre.social@ville-dinard.fr</Email>
+      <Url>https://www.ville-dinard.fr/la-jeunesse/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Période vacances scolaires : Du lundi au vendredi de 14 h à 18 h</Commentaire>
+</Organisme>

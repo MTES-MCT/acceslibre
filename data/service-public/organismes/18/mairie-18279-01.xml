@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18279-01" codeInsee="18279" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vierzon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 337</Ligne>
+      <CodePostal>18100</CodePostal>
+      <NomCommune>Vierzon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.221402</Latitude>
+         <Longitude>2.069673</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 52 65 00</Téléphone>
+      <Email>info@ville-vierzon.fr</Email>
+      <Url>http://www.ville-vierzon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et le guichet unique.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

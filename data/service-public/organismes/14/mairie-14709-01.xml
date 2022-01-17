@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14709-01" codeInsee="14709" dateMiseAJour="2018-09-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tracy-Sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de Bayeux</Ligne>
+      <CodePostal>14117</CodePostal>
+      <NomCommune>Tracy-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.323531</Latitude>
+         <Longitude>-0.651252</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 92 47 01</Téléphone>
+      <Email>mairietracysurmer@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="10:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

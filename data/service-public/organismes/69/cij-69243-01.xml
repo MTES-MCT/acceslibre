@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-69243-01" codeInsee="69243" dateMiseAJour="2021-11-22" pivotLocal="cij">
+   <Nom>Point information jeunesse - Tarare</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 allée de l'Europe</Ligne>
+      <Ligne>Pôle éducation jeunesse enfance et sports</Ligne>
+      <CodePostal>69170</CodePostal>
+      <NomCommune>Tarare</NomCommune>
+      <Localisation>
+         <Latitude>45.891859</Latitude>
+         <Longitude>4.438404</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 63 57 66</Téléphone>
+      <Email>pij@ville-tarare.fr</Email>
+      <Url>https://ville-tarare.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

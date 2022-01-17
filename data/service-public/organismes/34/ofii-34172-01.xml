@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ofii-34172-01" codeInsee="34172" dateMiseAJour="2017-11-27"
+           pivotLocal="ofii">
+   <Nom>Office français de l'immigration et de l'intégration (OFII) - Direction territoriale de Montpellier (dép. 30, 34, 48, 66)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Régent</Ligne>
+      <Ligne>4 rue Jules-Ferry</Ligne>
+      <Ligne>1er étage</Ligne>
+      <CodePostal>34000</CodePostal>
+      <NomCommune>Montpellier</NomCommune>
+      <Localisation>
+         <Latitude>43.605836</Latitude>
+         <Longitude>3.881184</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 99 77 25 50</Téléphone>
+      <Télécopie>04 99 77 25 51</Télécopie>
+      <Email>montpellier@ofii.fr</Email>
+      <Url>http://www.ofii.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

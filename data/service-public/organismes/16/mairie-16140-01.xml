@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16140-01" codeInsee="16140" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontclaireau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Font-Bonneau</Ligne>
+      <CodePostal>16230</CodePostal>
+      <NomCommune>Fontclaireau</NomCommune>
+      <Localisation>
+         <Latitude>45.89478</Latitude>
+         <Longitude>0.200286</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 22 72 63</Téléphone>
+      <Télécopie>05 45 69 35 19</Télécopie>
+      <Email>mairie.fontclaireau@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

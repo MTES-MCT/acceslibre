@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70235-01" codeInsee="70235" dateMiseAJour="2018-04-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flagy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 Grande rue</Ligne>
+      <CodePostal>70000</CodePostal>
+      <NomCommune>Flagy</NomCommune>
+      <Localisation>
+         <Latitude>48.2678985596</Latitude>
+         <Longitude>2.87409996986</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 95 87 21</Téléphone>
+      <Télécopie>03 84 95 87 21</Télécopie>
+      <Email>mairie.flagy@ozone.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

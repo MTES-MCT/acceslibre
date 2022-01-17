@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-66149-01" codeInsee="66149"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Prades</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Catllar</Ligne>
+      <CodePostal>66500</CodePostal>
+      <NomCommune>Prades</NomCommune>
+      <Localisation>
+         <Latitude>42.6265391</Latitude>
+         <Longitude>2.41999169</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 05 44 00</Téléphone>
+      <Télécopie>04 68 05 47 86</Télécopie>
+      <Email>hopital@hopital-prades.fr</Email>
+      <Url>http://www.hopital-prades.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>Contacter l'accueil pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

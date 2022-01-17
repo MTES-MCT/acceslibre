@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-34129-01" codeInsee="34129" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Hérault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment A</Ligne>
+      <Ligne>Maison des Agriculteurs</Ligne>
+      <Ligne>Mas de Saporta</Ligne>
+      <CodePostal>34875</CodePostal>
+      <NomCommune>Lattes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.5682403</Latitude>
+         <Longitude>3.903613</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 20 88 00</Téléphone>
+      <Email>contact@herault.chambagri.fr</Email>
+      <Url>http://www.herault.chambagri.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

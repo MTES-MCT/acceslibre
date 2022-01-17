@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-62186-01" codeInsee="62186" dateMiseAJour="2021-04-19" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Bully-les-Mines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale de la solidarité</Ligne>
+      <Ligne>3 bis rue François Brasme</Ligne>
+      <CodePostal>62160</CodePostal>
+      <NomCommune>Bully-les-Mines</NomCommune>
+      <Localisation>
+         <Latitude>50.445499</Latitude>
+         <Longitude>2.7209107</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 45 67 45</Téléphone>
+      <Télécopie>03 21 60 91 32</Télécopie>
+      <Url>https://www.pasdecalais.fr/Solidarite-Sante/Enfance-et-famille/La-Protection-Maternelle-et-Infantile</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Les 2èmes lundis de chaque mois</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Les 2èmes vendredis de chaque mois</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Les 4èmes jeudis de chaque mois</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

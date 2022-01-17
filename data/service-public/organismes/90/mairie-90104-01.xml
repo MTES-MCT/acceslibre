@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90104-01" codeInsee="90104" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vézelois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>118 rue de Brebotte</Ligne>
+      <CodePostal>90400</CodePostal>
+      <NomCommune>Vézelois</NomCommune>
+      <Localisation>
+         <Latitude>47.6069984436</Latitude>
+         <Longitude>6.91719007492</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 56 04 95</Téléphone>
+      <Télécopie>09 70 62 45 58</Télécopie>
+      <Email>mairie@vezelois.fr</Email>
+      <Url>https://www.vezelois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

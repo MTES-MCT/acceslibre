@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35348-01" codeInsee="35348" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vendel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la Mairie</Ligne>
+      <CodePostal>35140</CodePostal>
+      <NomCommune>Vendel</NomCommune>
+      <Localisation>
+         <Latitude>48.2738723755</Latitude>
+         <Longitude>-1.29136896133</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 97 62 39</Téléphone>
+      <Email>mairie@rivesducouesnon.fr</Email>
+      <Url>http://www.rivesducouesnon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Depuis le 1er janvier 2019, une commune nouvelle située dans le département d'Ille-et-Vilaine en région Bretagne. Elle est issue de la fusion des communes de Saint-Georges-de-Chesné, Saint-Jean-sur-Couesnon, Saint-Marc-sur-Couesnon et Vendel.</Commentaire>
+</Organisme>

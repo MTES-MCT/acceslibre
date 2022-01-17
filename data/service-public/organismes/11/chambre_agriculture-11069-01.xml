@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-11069-01" codeInsee="11069" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Trèbes</Ligne>
+      <CodePostal>11878</CodePostal>
+      <NomCommune>Carcassonne Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.206653</Latitude>
+         <Longitude>2.420965</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 11 79 79</Téléphone>
+      <Email>services.generaux@aude.chambagri.fr</Email>
+      <Url>http://www.aude.chambagri.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

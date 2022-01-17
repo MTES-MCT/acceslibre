@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52196-01" codeInsee="52196" dateMiseAJour="2019-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Faverolles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Théodore-Daigney</Ligne>
+      <CodePostal>52260</CodePostal>
+      <NomCommune>Faverolles</NomCommune>
+      <Localisation>
+         <Latitude>47.9463996887</Latitude>
+         <Longitude>5.20958995819</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 84 78 06</Téléphone>
+      <Email>commune.faverolles@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement tous les 15 jours.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

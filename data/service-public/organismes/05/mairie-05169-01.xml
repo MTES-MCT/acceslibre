@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05169-01" codeInsee="05169" dateMiseAJour="2021-07-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sorbiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>05150</CodePostal>
+      <NomCommune>Sorbiers</NomCommune>
+      <Localisation>
+         <Latitude>44.3746185303</Latitude>
+         <Longitude>5.56372976303</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 66 21 87</Téléphone>
+      <Email>mairiesorbiers@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="16:30:00"/>
+         <Note>Semaines impaires</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

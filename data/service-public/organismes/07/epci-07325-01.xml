@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-07325-01" codeInsee="07325" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Bassin d'Aubenas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Deydier</Ligne>
+      <Ligne>16 route de la Manufacture-Royale</Ligne>
+      <CodePostal>07200</CodePostal>
+      <NomCommune>Ucel</NomCommune>
+      <Localisation>
+         <Latitude>47.8000433</Latitude>
+         <Longitude>6.9530311</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 94 61 12</Téléphone>
+      <Télécopie>04 75 94 07 78</Télécopie>
+      <Email>contact@cdcba.fr</Email>
+      <Url>http://www.bassin-aubenas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

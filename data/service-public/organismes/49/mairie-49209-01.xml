@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-49209-01" codeInsee="49209" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montigné-lès-Rairies</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la Mairie</Ligne>
+      <CodePostal>49430</CodePostal>
+      <NomCommune>Montigné-lès-Rairies</NomCommune>
+      <Localisation>
+         <Latitude>47.6222000122</Latitude>
+         <Longitude>-0.204872995615</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">interphone</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 32 50 54</Téléphone>
+      <Email>mairie.montignelesrairies@wanadoo.fr</Email>
+      <Url>http://www.montignelesrairies.mairie49.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

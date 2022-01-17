@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10013-01" codeInsee="10013" dateMiseAJour="2017-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Assenay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 B rue Pincipale</Ligne>
+      <CodePostal>10320</CodePostal>
+      <NomCommune>Assenay</NomCommune>
+      <Localisation>
+         <Latitude>48.1520996094</Latitude>
+         <Longitude>4.00630998611</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 40 33 60</Téléphone>
+      <Télécopie>03 25 40 33 60</Télécopie>
+      <Email>mairieassenay@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour les élus.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

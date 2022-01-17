@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-50532-01" codeInsee="50532" dateMiseAJour="2021-08-03" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 50 - Ouest Normandie - Délégation Centre et Sud Manche de Saint-Pair-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>ZA de la Lande</Ligne>
+      <Ligne>270 rue Ampère</Ligne>
+      <CodePostal>50380</CodePostal>
+      <NomCommune>Saint-Pair-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>48.8083123</Latitude>
+         <Longitude>-1.53773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 91 33 91</Téléphone>
+      <Email>cci@normandie.cci.fr</Email>
+      <Url>https://www.ouestnormandie.cci.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34243-01" codeInsee="34243" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Bauzille-de-Putois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1115 avenue Chemin-Neuf</Ligne>
+      <CodePostal>34190</CodePostal>
+      <NomCommune>Saint-Bauzille-de-Putois</NomCommune>
+      <Localisation>
+         <Latitude>43.893901825</Latitude>
+         <Longitude>3.73829007149</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 73 70 12</Téléphone>
+      <Télécopie>04 67 73 31 84</Télécopie>
+      <Email>contact@saintbauzilledeputois.fr</Email>
+      <Url>http://www.saintbauzilledeputois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

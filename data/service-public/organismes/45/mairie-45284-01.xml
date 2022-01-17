@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45284-01" codeInsee="45284" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-de-Braye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>43 rue de la Mairie</Ligne>
+      <Ligne>CS 90009</Ligne>
+      <CodePostal>45801</CodePostal>
+      <NomCommune>Saint-Jean-de-Braye Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.9127006531</Latitude>
+         <Longitude>1.97132003307</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 52 40 40</Téléphone>
+      <Email>accueil.mairie@ville-saintjeandebraye.fr</Email>
+      <Url>http://www.saintjeandebraye.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

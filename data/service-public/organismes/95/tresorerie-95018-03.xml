@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-95018-03" codeInsee="95018" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du centre hospitalier d'Argenteuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 bis avenue Général-de-Gaulle</Ligne>
+      <Ligne>BP 40711</Ligne>
+      <CodePostal>95103</CodePostal>
+      <NomCommune>Argenteuil Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.941678</Latitude>
+         <Longitude>2.244693</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 47 62 42</Téléphone>
+      <Email>t095004@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <Note>Uniquement sur rendez-vous les Lundi, Mardi, Vendredi de 12h45 à 16h00 et Mercredi matin.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

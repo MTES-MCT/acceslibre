@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22293-01" codeInsee="22293" dateMiseAJour="2021-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Gilles-les-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Forge</Ligne>
+      <CodePostal>22290</CodePostal>
+      <NomCommune>Saint-Gilles-les-Bois</NomCommune>
+      <Localisation>
+         <Latitude>48.545084</Latitude>
+         <Longitude>-3.5739716</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 21 76 08</Téléphone>
+      <Télécopie>02 96 21 91 12</Télécopie>
+      <Email>communegilles@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-94078-01" codeInsee="94078" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Val-de-Marne - accueil de Villeneuve-Saint-Georges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Relais interservices</Ligne>
+      <Ligne>85 avenue du Président-Kennedy</Ligne>
+      <CodePostal>94190</CodePostal>
+      <NomCommune>Villeneuve-Saint-Georges</NomCommune>
+      <Localisation>
+         <Latitude>48.7355118</Latitude>
+         <Longitude>2.4654277</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Val-de-Marne</Ligne>
+      <Ligne>2 voie Félix-Éboué</Ligne>
+      <CodePostal>94033</CodePostal>
+      <NomCommune>Créteil Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous, fermé jusqu'au 1er octobre 2021 inclus.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

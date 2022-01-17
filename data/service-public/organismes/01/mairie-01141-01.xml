@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01141-01" codeInsee="01141" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cuzieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>183 route de Fesnes</Ligne>
+      <CodePostal>01300</CodePostal>
+      <NomCommune>Cuzieu</NomCommune>
+      <Localisation>
+         <Latitude>45.815806</Latitude>
+         <Longitude>5.682851</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 81 70 03</Téléphone>
+      <Télécopie>04 79 81 44 47</Télécopie>
+      <Email>mairie.cuzieu01@wanadoo.fr</Email>
+      <Url>http://www.cuzieu01.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

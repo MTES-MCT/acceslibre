@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18256-01" codeInsee="18256" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Subligny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Grangier</Ligne>
+      <CodePostal>18260</CodePostal>
+      <NomCommune>Subligny</NomCommune>
+      <Localisation>
+         <Latitude>47.4031524658</Latitude>
+         <Longitude>2.75393295288</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">par l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 73 74 55</Téléphone>
+      <Télécopie>02 48 73 84 84</Télécopie>
+      <Email>mairie.subligny@wanadoo.fr</Email>
+      <Url>https://www.sublignypaysfort.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

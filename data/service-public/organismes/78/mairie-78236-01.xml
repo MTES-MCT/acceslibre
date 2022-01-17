@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78236-01" codeInsee="78236" dateMiseAJour="2017-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flexanville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Mairie</Ligne>
+      <CodePostal>78910</CodePostal>
+      <NomCommune>Flexanville</NomCommune>
+      <Localisation>
+         <Latitude>48.8558006287</Latitude>
+         <Longitude>1.73859000206</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 87 23 05</Téléphone>
+      <Télécopie>01 30 88 30 65</Télécopie>
+      <Email>mairie.flexanville@wanadoo.fr</Email>
+      <Url>http://www.flexanville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

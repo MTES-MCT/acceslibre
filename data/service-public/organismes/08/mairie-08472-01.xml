@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08472-01" codeInsee="08472" dateMiseAJour="2019-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Viel-Saint-Remy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Devant-l'Église</Ligne>
+      <CodePostal>08270</CodePostal>
+      <NomCommune>Viel-Saint-Remy</NomCommune>
+      <Localisation>
+         <Latitude>49.6294224</Latitude>
+         <Longitude>4.5028307</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">courant 2020</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 16 59</Téléphone>
+      <Télécopie>03 24 72 11 38</Télécopie>
+      <Email>mairievielstremy@orange.fr</Email>
+      <Url>http://mairie-viel.pagesperso-orange.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:30:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

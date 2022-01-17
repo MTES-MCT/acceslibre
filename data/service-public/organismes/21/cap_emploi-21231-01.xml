@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-21231-01" codeInsee="21231" dateMiseAJour="2021-05-06"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Côte d'Or</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 21</Ligne>
+      <Ligne>15 rue de l'Arquebuse</Ligne>
+      <CodePostal>21000</CodePostal>
+      <NomCommune>Dijon</NomCommune>
+      <Localisation>
+         <Latitude>47.319047</Latitude>
+         <Longitude>5.03099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 53 18 70</Téléphone>
+      <Télécopie>03 80 53 18 71</Télécopie>
+      <Email>info@cap-emploi21.com</Email>
+      <Url>https://www.capemploi-21.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

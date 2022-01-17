@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45051-02" codeInsee="45051" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Aignan-des-Gués</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Aignan-des-Gués</Ligne>
+      <Ligne>11 route de Bray-en-Val</Ligne>
+      <CodePostal>45460</CodePostal>
+      <NomCommune>Bray-Saint-Aignan</NomCommune>
+      <Localisation>
+         <Latitude>47.8381737</Latitude>
+         <Longitude>2.324619</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 58 26 70</Téléphone>
+      <Télécopie>02 38 46 29 12</Télécopie>
+      <Email>mairie-st-aignan-gues@orange.fr</Email>
+      <Url>http://www.saint-aignan-des-gues.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

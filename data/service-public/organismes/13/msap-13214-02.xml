@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-13214-02" codeInsee="13214" dateMiseAJour="2020-12-21"
+           pivotLocal="msap">
+   <Nom>France Services - Marseille 14e - Bon Secours Saint-Gabriel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 allée Marcel Soulat</Ligne>
+      <CodePostal>13014</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.324783</Latitude>
+         <Longitude>5.390095</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 47 47 40</Téléphone>
+      <Email>pfsp.lecanet@leolagrange.org</Email>
+      <Url>htts://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>fermé les lundi et mercredi après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

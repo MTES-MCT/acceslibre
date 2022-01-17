@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11360-01" codeInsee="11360" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Nazaire-d'Aude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>210 avenue de la République</Ligne>
+      <CodePostal>11120</CodePostal>
+      <NomCommune>Saint-Nazaire-d'Aude</NomCommune>
+      <Localisation>
+         <Latitude>43.2440986633</Latitude>
+         <Longitude>2.89629006386</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 93 61 55</Téléphone>
+      <Télécopie>04 68 93 30 17</Télécopie>
+      <Email>stnazaire.accueil@orange.fr</Email>
+      <Url>http://www.mairie-saintnazaire-aude.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

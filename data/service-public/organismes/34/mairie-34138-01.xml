@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34138-01" codeInsee="34138" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lieuran-Cabrières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>34800</CodePostal>
+      <NomCommune>Lieuran-Cabrières</NomCommune>
+      <Localisation>
+         <Latitude>43.585471</Latitude>
+         <Longitude>3.416024</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 96 38 24</Téléphone>
+      <Télécopie>04 99 90 19 24</Télécopie>
+      <Email>mairie.lieuran.cabrieres@wanadoo.fr</Email>
+      <Url>http://www.lieuran-cabrieres.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

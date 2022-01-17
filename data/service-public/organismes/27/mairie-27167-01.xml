@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27167-01" codeInsee="27167" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Condé-sur-Risle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du Village</Ligne>
+      <CodePostal>27290</CodePostal>
+      <NomCommune>Condé-sur-Risle</NomCommune>
+      <Localisation>
+         <Latitude>49.314773</Latitude>
+         <Longitude>0.61436</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 57 00 65</Téléphone>
+      <Télécopie>02 32 57 79 04</Télécopie>
+      <Email>mairieconde2@wanadoo.fr</Email>
+      <Url>http://www.conde-sur-risle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

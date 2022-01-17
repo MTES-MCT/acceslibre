@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-50099-01" codeInsee="50099" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Carentan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des jeunes</Ligne>
+      <Ligne>8 rue Sivard-de-Beaulieu</Ligne>
+      <CodePostal>50500</CodePostal>
+      <NomCommune>Carentan-les-Marais</NomCommune>
+      <Localisation>
+         <Latitude>49.3039895</Latitude>
+         <Longitude>-1.2397762</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 23 92 18</Téléphone>
+      <Email>s.heron@ccbdc.fr</Email>
+      <Url>http://www.ccbdc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

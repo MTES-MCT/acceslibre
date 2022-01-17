@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77253-01" codeInsee="77253" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lissy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Roger-Chauveau</Ligne>
+      <CodePostal>77550</CodePostal>
+      <NomCommune>Lissy</NomCommune>
+      <Localisation>
+         <Latitude>48.6264572144</Latitude>
+         <Longitude>2.69506788254</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 38 85 90</Téléphone>
+      <Email>mairie.lissy@ville-lissy.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="15:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

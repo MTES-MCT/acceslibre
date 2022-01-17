@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37050-01" codeInsee="37050" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chambray-lès-Tours</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de la Mairie</Ligne>
+      <Ligne>BP 246</Ligne>
+      <CodePostal>37172</CodePostal>
+      <NomCommune>Chambray-lès-Tours Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.338722229</Latitude>
+         <Longitude>0.713329970837</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 48 45 67</Téléphone>
+      <Télécopie>02 47 48 45 68</Télécopie>
+      <Email>mairie@ville-chambray-les-tours.fr</Email>
+      <Url>http://www.ville-chambray-les-tours.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14349-02" codeInsee="14349" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Clinchamps-sur-Orne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Laize-la-Ville</Ligne>
+      <Ligne>20 rue du Régiment-Mont-Royal</Ligne>
+      <CodePostal>14320</CodePostal>
+      <NomCommune>Laize-Clinchamps</NomCommune>
+      <Localisation>
+         <Latitude>49.0818137</Latitude>
+         <Longitude>-0.3820874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 39 53 50</Téléphone>
+      <Télécopie>02 31 79 02 31</Télécopie>
+      <Email>mairie.laize-clinchamps@orange.fr</Email>
+      <Url>http://www.laize-clinchamps.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence à Clinchamps de 14h à 16h30.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

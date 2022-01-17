@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="19272" dateMiseAJour="2021-12-14" id="prudhommes-19272-01" idPresta="4cac9e5f293594648a000218" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Tulle</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>QUAI GABRIEL PERI</Ligne>
+        <CodePostal>19012</CodePostal>
+        <NomCommune>TULLE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.264544</Latitude>
+            <Longitude>1.770049</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>QUAI GABRIEL PERI</Ligne>
+        <CodePostal>19012</CodePostal>
+        <NomCommune>TULLE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 55 20 24 01</Téléphone>
+        <Email>mailto:accueil-tulle@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:45:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

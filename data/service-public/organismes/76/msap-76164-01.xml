@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-76164-01" codeInsee="76164" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Rives-en-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Caux Seine agglo</Ligne>
+      <Ligne>5 rue de la Sainte-Gertrude</Ligne>
+      <CodePostal>76490</CodePostal>
+      <NomCommune>Rives-en-Seine</NomCommune>
+      <Localisation>
+         <Latitude>49.5274739</Latitude>
+         <Longitude>0.7239899</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 70 43 80</Téléphone>
+      <Email>maisonservicesaupublic@cauxseine.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

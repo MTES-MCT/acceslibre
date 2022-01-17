@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64142-01" codeInsee="64142" dateMiseAJour="2021-01-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bougarber</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Carrère</Ligne>
+      <CodePostal>64230</CodePostal>
+      <NomCommune>Bougarber</NomCommune>
+      <Localisation>
+         <Latitude>43.398169</Latitude>
+         <Longitude>-0.4726754</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 83 20 21</Téléphone>
+      <Télécopie>05 59 83 28 85</Télécopie>
+      <Email>mairie@bougarber.fr</Email>
+      <Url>http://www.bougarber.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

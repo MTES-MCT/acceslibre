@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80270-01" codeInsee="80270" dateMiseAJour="2017-11-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Épécamps</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'Église</Ligne>
+      <CodePostal>80370</CodePostal>
+      <NomCommune>Épécamps</NomCommune>
+      <Localisation>
+         <Latitude>50.1180267334</Latitude>
+         <Longitude>2.11541604996</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 32 74 74</Téléphone>
+      <Email>mairie.epecamps@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

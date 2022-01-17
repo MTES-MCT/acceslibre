@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21412-01" codeInsee="21412" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Meursault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>21190</CodePostal>
+      <NomCommune>Meursault</NomCommune>
+      <Localisation>
+         <Latitude>46.9784011841</Latitude>
+         <Longitude>4.76871013641</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 21 22 62</Téléphone>
+      <Télécopie>03 80 21 26 00</Télécopie>
+      <Email>contact@mairie-meursault.fr</Email>
+      <Url>http://www.mairie-meursault.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

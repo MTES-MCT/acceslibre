@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="77288" dateMiseAJour="2021-12-14" id="prudhommes-77288-01" idPresta="4cac9ed6293594648a00ed78" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Melun</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 AVENUE DU GENERAL LECLERC</Ligne>
+        <CodePostal>77000</CodePostal>
+        <NomCommune>MELUN</NomCommune>
+        <Localisation>
+            <Latitude>48.526772</Latitude>
+            <Longitude>2.652454</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 AVENUE DU GENERAL LECLERC</Ligne>
+        <CodePostal>77000</CodePostal>
+        <NomCommune>MELUN</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 64 79 83 50</Téléphone>
+        <Télécopie>01 64 79 83 51</Télécopie>
+        <Email>mailto:cph-melun@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="09:00:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mercredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="09:00:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

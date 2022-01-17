@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-72216-01" codeInsee="72216" dateMiseAJour="2021-01-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuvillalais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 place de l'Église</Ligne>
+      <CodePostal>72240</CodePostal>
+      <NomCommune>Neuvillalais</NomCommune>
+      <Localisation>
+         <Latitude>48.1552927</Latitude>
+         <Longitude>-0.0011499</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 20 52 73</Téléphone>
+      <Email>mairie.de.neuvillalais@wanadoo.fr</Email>
+      <Url>http://www.mairie-neuvillalais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

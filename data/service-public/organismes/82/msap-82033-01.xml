@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-82033-01" codeInsee="82033" dateMiseAJour="2022-01-03"
+           pivotLocal="msap">
+   <Nom>France Services - Castelsarrasin</Nom>
+   <EditeurSource>La Direction de l’Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue de la fraternité</Ligne>
+      <CodePostal>82100</CodePostal>
+      <NomCommune>Castelsarrasin</NomCommune>
+      <Localisation>
+         <Latitude>44.04146</Latitude>
+         <Longitude>1.10598</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 22 85 98</Téléphone>
+      <Email>pref-franceservicescastelsarrasin@tarn-et-garonne.gouv.fr</Email>
+      <Url>https://www.tarn-et-garonne.gouv.fr/Services-de-l-Etat/Maison-de-l-Etat-France-Services/France-services-de-Castelsarrasin</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

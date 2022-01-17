@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27275-01" codeInsee="27275" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gaillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Général-de-Gaulle</Ligne>
+      <Ligne>BP 16</Ligne>
+      <CodePostal>27600</CodePostal>
+      <NomCommune>Gaillon</NomCommune>
+      <Localisation>
+         <Latitude>49.1603012085</Latitude>
+         <Longitude>1.33384001255</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 77 50 00</Téléphone>
+      <Télécopie>02 32 77 50 10</Télécopie>
+      <Email>accueil@ville-gaillon.fr</Email>
+      <Url>http://www.ville-gaillon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

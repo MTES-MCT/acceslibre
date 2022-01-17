@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-88160-01" codeInsee="88160" dateMiseAJour="2021-04-15" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques d'Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Docteur-Laflotte</Ligne>
+      <Ligne>BP 41009</Ligne>
+      <CodePostal>88060</CodePostal>
+      <NomCommune>Épinal Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>48.1718783</Latitude>
+         <Longitude>6.4432152</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 69 22 74</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>avec ou sans rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

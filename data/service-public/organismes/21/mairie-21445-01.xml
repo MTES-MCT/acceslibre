@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21445-01" codeInsee="21445" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Motte-Ternant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Montlaville</Ligne>
+      <CodePostal>21210</CodePostal>
+      <NomCommune>La Motte-Ternant</NomCommune>
+      <Localisation>
+         <Latitude>47.3233607</Latitude>
+         <Longitude>4.331602</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 84 32 72</Téléphone>
+      <Email>mairielamotteternant@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

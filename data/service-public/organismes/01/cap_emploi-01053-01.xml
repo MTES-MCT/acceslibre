@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-01053-01" codeInsee="01053" dateMiseAJour="2021-05-04"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Ain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 01</Ligne>
+      <Ligne>1 avenue Jean Marie Verne</Ligne>
+      <CodePostal>01000</CodePostal>
+      <NomCommune>Bourg-en-Bresse</NomCommune>
+      <Localisation>
+         <Latitude>46.199527</Latitude>
+         <Longitude>5.226151</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 47 20 90</Téléphone>
+      <Télécopie>04 74 23 78 05</Télécopie>
+      <Email>accueil@capemploi01.org</Email>
+      <Url>https://www.capemploi-01.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

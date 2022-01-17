@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34032-01" codeInsee="34032" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Béziers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Gabriel-Péri</Ligne>
+      <CodePostal>34500</CodePostal>
+      <NomCommune>Béziers</NomCommune>
+      <Localisation>
+         <Latitude>43.3428001404</Latitude>
+         <Longitude>3.21311998367</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 36 73 73</Téléphone>
+      <Télécopie>04 67 36 73 99</Télécopie>
+      <Email>contact@beziers.fr</Email>
+      <Url>http://www.ville-beziers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Services état civil, réglementation et élections ouverts en continu.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

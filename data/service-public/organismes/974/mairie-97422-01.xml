@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97422-01" codeInsee="97422" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Tampon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>256 rue Hubert-Delisle</Ligne>
+      <Ligne>BP 449</Ligne>
+      <CodePostal>97430</CodePostal>
+      <NomCommune>Le Tampon</NomCommune>
+      <Localisation>
+         <Latitude>-21.3114398</Latitude>
+         <Longitude>55.519603</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 57 86 86</Téléphone>
+      <Télécopie>+262 2 62 57 84 26</Télécopie>
+      <Email>courrier@mairie-tampon.fr</Email>
+      <Url>http://www.letampon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

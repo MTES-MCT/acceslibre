@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-60143-01" codeInsee="60143" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Vexin Thelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Bertinot-Juel</Ligne>
+      <Ligne>5 espace Vexin-Thelle</Ligne>
+      <CodePostal>60240</CodePostal>
+      <NomCommune>Chaumont-en-Vexin</NomCommune>
+      <Localisation>
+         <Latitude>49.2621619</Latitude>
+         <Longitude>1.882324</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 49 15 15</Téléphone>
+      <Télécopie>03 44 49 41 59</Télécopie>
+      <Email>accueil@vexinthelle.com</Email>
+      <Url>http://www.vexinthelle.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

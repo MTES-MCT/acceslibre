@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35214-01" codeInsee="35214" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parcé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Bascule</Ligne>
+      <CodePostal>35210</CodePostal>
+      <NomCommune>Parcé</NomCommune>
+      <Localisation>
+         <Latitude>48.2729988098</Latitude>
+         <Longitude>-1.20273995399</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 97 64 63</Téléphone>
+      <Email>contact@parce.fr</Email>
+      <Url>http://www.parce.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <Note>Pendant la crise sanitaire accueil les lundis aux horaires habituels, les jeudis et vendredis de 8h30 à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

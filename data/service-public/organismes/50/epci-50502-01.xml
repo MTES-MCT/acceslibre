@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-50502-01" codeInsee="50502" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Saint-Lô Agglo</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>101 rue Alexis-de-Tocqueville</Ligne>
+      <Ligne>CS 43708</Ligne>
+      <CodePostal>50008</CodePostal>
+      <NomCommune>Saint-Lô Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1023846</Latitude>
+         <Longitude>-1.076249</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 14 29 00 00</Téléphone>
+      <Télécopie>02 14 29 00 09</Télécopie>
+      <Email>contact@saint-lo-agglo.fr</Email>
+      <Url>http://www.saint-lo-agglo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

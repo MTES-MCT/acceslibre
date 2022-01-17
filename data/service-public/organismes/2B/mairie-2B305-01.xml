@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B305-01" codeInsee="2B305" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - San-Martino-di-Lota</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route du Cap</Ligne>
+      <Ligne>BP 32</Ligne>
+      <CodePostal>20200</CodePostal>
+      <NomCommune>San-Martino-di-Lota</NomCommune>
+      <Localisation>
+         <Latitude>42.7284856</Latitude>
+         <Longitude>9.459131</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 31 02 85</Téléphone>
+      <Télécopie>04 95 32 00 93</Télécopie>
+      <Email>mairie@sanmartino.corsica</Email>
+      <Url>http://www.san-martino-di-lota.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

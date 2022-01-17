@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-60533-01" codeInsee="60533" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Ressons-sur-Matz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du conseil départemental</Ligne>
+      <Ligne>91 rue de Compiègne</Ligne>
+      <CodePostal>60490</CodePostal>
+      <NomCommune>Ressons-sur-Matz</NomCommune>
+      <Localisation>
+         <Latitude>49.53781</Latitude>
+         <Longitude>2.74489</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 10 82 43</Téléphone>
+      <Télécopie>03 44 10 84 54</Télécopie>
+      <Email>mfs-ressons@oise.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

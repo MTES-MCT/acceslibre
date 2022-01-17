@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13208-01" codeInsee="13208" dateMiseAJour="2021-07-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marseille - 6e et 8e arrondissements</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Villa Bagatelle</Ligne>
+      <Ligne>125 rue du Commandant-Rolland</Ligne>
+      <CodePostal>13008</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.2702385</Latitude>
+         <Longitude>5.3823151</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès et plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 55 15 84</Téléphone>
+      <Email>ymcabinet@marseille.fr</Email>
+      <Url>http://www.mairie-marseille6-8.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>Accueil état civil de 7h45 à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

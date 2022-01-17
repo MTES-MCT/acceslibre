@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-23176-01" codeInsee="23176" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de La Souterraine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'Hermitage</Ligne>
+      <Ligne>BP 41</Ligne>
+      <CodePostal>23300</CodePostal>
+      <NomCommune>La Souterraine</NomCommune>
+      <Localisation>
+         <Latitude>46.2401283</Latitude>
+         <Longitude>1.4819284</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 63 05 67</Téléphone>
+      <Email>sgc.lasouterraine@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

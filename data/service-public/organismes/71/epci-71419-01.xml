@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-71419-01" codeInsee="71419" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Bresse Revermont 71</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Pontpierre</Ligne>
+      <CodePostal>71330</CodePostal>
+      <NomCommune>Saint-Germain-du-Bois</NomCommune>
+      <Localisation>
+         <Latitude>46.7534436</Latitude>
+         <Longitude>5.24607</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 72 02 19</Téléphone>
+      <Télécopie>03 85 72 39 66</Télécopie>
+      <Email>ccbr71@orange.fr</Email>
+      <Url>http://www.ccbresserevermont71.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

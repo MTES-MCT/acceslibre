@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45182-01" codeInsee="45182" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ligny-le-Ribault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du 11-Novembre</Ligne>
+      <CodePostal>45240</CodePostal>
+      <NomCommune>Ligny-le-Ribault</NomCommune>
+      <Localisation>
+         <Latitude>47.6838989258</Latitude>
+         <Longitude>1.78253996372</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonner</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 45 42 01</Téléphone>
+      <Télécopie>02 38 45 42 44</Télécopie>
+      <Email>mairie.ligny.le.ribault@wanadoo.fr</Email>
+      <Url>http://www.lignyleribault.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

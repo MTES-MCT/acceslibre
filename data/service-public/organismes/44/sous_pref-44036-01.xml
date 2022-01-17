@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-44036-01" codeInsee="44036" dateMiseAJour="2021-02-16"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture de Châteaubriant</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Gabriel Delatour</Ligne>
+      <Ligne>BP 199</Ligne>
+      <CodePostal>44146</CodePostal>
+      <NomCommune>Châteaubriant Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.713211</Latitude>
+         <Longitude>-1.374659</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 81 02 13</Téléphone>
+      <Télécopie>+33 2 40 28 23 62</Télécopie>
+      <Email>sp-chateaubriant@loire-atlantique.gouv.fr</Email>
+      <Url>http://www.loire-atlantique.equipement-agriculture.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>uniquement sur RDV l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

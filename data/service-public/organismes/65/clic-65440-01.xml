@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-65440-01" codeInsee="65440" dateMiseAJour="2019-12-26"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Tarbes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Sage</Ligne>
+      <Ligne>Bâtiment Cpam</Ligne>
+      <Ligne>8 place Bois</Ligne>
+      <CodePostal>65000</CodePostal>
+      <NomCommune>Tarbes</NomCommune>
+      <Localisation>
+         <Latitude>43.22968</Latitude>
+         <Longitude>0.080381</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 31 09 83</Téléphone>
+      <Email>asso.clicsage@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Téléphoner avant de vous déplacer pour prendre rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

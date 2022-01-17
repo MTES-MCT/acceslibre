@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56179-01" codeInsee="56179" dateMiseAJour="2021-01-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pont-Scorff</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de la Maison des Princes</Ligne>
+      <CodePostal>56620</CodePostal>
+      <NomCommune>Pont-Scorff</NomCommune>
+      <Localisation>
+         <Latitude>47.834999</Latitude>
+         <Longitude>-3.398969</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 32 60 37</Téléphone>
+      <Télécopie>02 97 32 61 61</Télécopie>
+      <Email>contact@pontscorff.bzh</Email>
+      <Url>http://www.pontscorff.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

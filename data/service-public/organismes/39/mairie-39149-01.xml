@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39149-01" codeInsee="39149" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chissey-sur-Loue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 Grande rue</Ligne>
+      <CodePostal>39380</CodePostal>
+      <NomCommune>Chissey-sur-Loue</NomCommune>
+      <Localisation>
+         <Latitude>47.0214362</Latitude>
+         <Longitude>5.7203909</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 37 63 21</Téléphone>
+      <Télécopie>03 84 37 63 21</Télécopie>
+      <Email>mairie.chisseysurloue@wanadoo.fr</Email>
+      <Url>http://chisseysurloue.e-monsite.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

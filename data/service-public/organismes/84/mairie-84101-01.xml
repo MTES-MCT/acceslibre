@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-84101-01" codeInsee="84101" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Roque-sur-Pernes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue Eugène-Imbert</Ligne>
+      <CodePostal>84210</CodePostal>
+      <NomCommune>La Roque-sur-Pernes</NomCommune>
+      <Localisation>
+         <Latitude>43.978981</Latitude>
+         <Longitude>5.107173</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 66 53 33</Téléphone>
+      <Télécopie>04 90 66 14 61</Télécopie>
+      <Email>accueillaroque@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

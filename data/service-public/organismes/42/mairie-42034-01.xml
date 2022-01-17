@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42034-01" codeInsee="42034" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cervières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Marchande</Ligne>
+      <CodePostal>42440</CodePostal>
+      <NomCommune>Cervières</NomCommune>
+      <Localisation>
+         <Latitude>45.84817</Latitude>
+         <Longitude>3.79344</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 24 76 79</Téléphone>
+      <Email>mairie-de-cervieres@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence de la secrétaire, le lundi de 15h30 à 18h30 et le vendredi de 8h à 15h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

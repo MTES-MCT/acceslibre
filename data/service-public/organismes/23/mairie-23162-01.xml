@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23162-01" codeInsee="23162" dateMiseAJour="2019-01-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Roches</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue du Marbre</Ligne>
+      <CodePostal>23270</CodePostal>
+      <NomCommune>Roches</NomCommune>
+      <Localisation>
+         <Latitude>46.2823485</Latitude>
+         <Longitude>2.0012071</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 80 73 69</Téléphone>
+      <Email>mairiederoches.23@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

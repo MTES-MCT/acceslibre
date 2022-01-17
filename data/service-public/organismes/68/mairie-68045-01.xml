@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68045-01" codeInsee="68045" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bourbach-le-Bas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue de l'Église</Ligne>
+      <CodePostal>68290</CodePostal>
+      <NomCommune>Bourbach-le-Bas</NomCommune>
+      <Localisation>
+         <Latitude>47.773601532</Latitude>
+         <Longitude>7.05995988846</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 82 50 45</Téléphone>
+      <Télécopie>03 89 82 85 22</Télécopie>
+      <Email>mairie.bourbachlebas@numericable.fr</Email>
+      <Url>http://www.bourbach-le-bas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

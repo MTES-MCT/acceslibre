@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-59183-01" codeInsee="59183" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Dunkerque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du littoral</Ligne>
+      <Ligne>112 avenue de la Libération</Ligne>
+      <CodePostal>59140</CodePostal>
+      <NomCommune>Dunkerque</NomCommune>
+      <Localisation>
+         <Latitude>51.043528</Latitude>
+         <Longitude>2.388891</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 62 87 08</Téléphone>
+      <Télécopie>03 28 64 58 14</Télécopie>
+      <Email>contact@clic-littoral.fr</Email>
+      <Url>http://www.clic-littoral.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

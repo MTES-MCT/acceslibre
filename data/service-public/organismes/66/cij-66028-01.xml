@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-66028-01" codeInsee="66028" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Cabestany</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Avenue du 19-Mars-1962</Ligne>
+      <CodePostal>66330</CodePostal>
+      <NomCommune>Cabestany</NomCommune>
+      <Localisation>
+         <Latitude>42.6805048</Latitude>
+         <Longitude>2.934645</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mairie</Ligne>
+      <Ligne>Service jeunesse</Ligne>
+      <Ligne>Place des Droits-de-l'Homme</Ligne>
+      <CodePostal>66330</CodePostal>
+      <NomCommune>Cabestany</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 67 59 81</Téléphone>
+      <Email>espace.jeunes@cabestany.com</Email>
+      <Url>http://www.ville-cabestany.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+         <Note>Accueil possible le matin sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

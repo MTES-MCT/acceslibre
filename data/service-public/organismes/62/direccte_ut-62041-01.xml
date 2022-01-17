@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-62041-01" codeInsee="62041" dateMiseAJour="2018-05-16"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Pas-de-Calais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Pierre-Bérégovoy</Ligne>
+      <CodePostal>62000</CodePostal>
+      <NomCommune>Arras</NomCommune>
+      <Localisation>
+         <Latitude>50.293097</Latitude>
+         <Longitude>2.770666</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 60 28 00</Téléphone>
+      <Télécopie>03 21 60 28 50</Télécopie>
+      <Email>nordpasdecalais-ud62.direction@direccte.gouv.fr</Email>
+      <Url>http://hauts-de-france.direccte.gouv.fr/La-Direccte-Hauts-de-France</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:45:00" fin="16:45:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires d'ouverture des différents services.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

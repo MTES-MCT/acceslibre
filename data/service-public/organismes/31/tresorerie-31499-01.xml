@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-31499-01" codeInsee="31499" dateMiseAJour="2021-09-09"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Lys</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue du 11-Novembre-1918</Ligne>
+      <CodePostal>31470</CodePostal>
+      <NomCommune>Saint-Lys</NomCommune>
+      <Localisation>
+         <Latitude>43.5137755</Latitude>
+         <Longitude>1.175021</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 91 71 44</Téléphone>
+      <Email>t031062@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Mardi : exclusivement sur rdv de 13h à 16h</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>exclusivement sur rdv de 13h à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Réception exclusivement sur rdv le mardi après-midi et le jeudi après-midi</Commentaire>
+</Organisme>

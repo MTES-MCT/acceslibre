@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-73218-01" codeInsee="73218" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Ruffieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZA Saumont</Ligne>
+      <Ligne>Relais Grand Lac</Ligne>
+      <Ligne>172 B rue de Jérusalem</Ligne>
+      <CodePostal>73310</CodePostal>
+      <NomCommune>Ruffieux</NomCommune>
+      <Localisation>
+         <Latitude>45.850057</Latitude>
+         <Longitude>5.836729</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 63 87 45</Téléphone>
+      <Email>relais.chautagne@grand-lac.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors des ces horaires.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors des ces horaires.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors des ces horaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors des ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

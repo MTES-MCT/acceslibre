@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-27681-01" codeInsee="27681" dateMiseAJour="2021-02-23"
+           pivotLocal="msap">
+   <Nom>France Services - Vernon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue des Grands Renards</Ligne>
+      <Ligne>Espace information médiation – SNA</Ligne>
+      <CodePostal>27220</CodePostal>
+      <NomCommune>Vernon</NomCommune>
+      <Localisation>
+         <Latitude>49.082694</Latitude>
+         <Longitude>1.480526</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 64 21 30</Téléphone>
+      <Email>eim@sna27.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

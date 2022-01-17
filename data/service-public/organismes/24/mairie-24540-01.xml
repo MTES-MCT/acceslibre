@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24540-01" codeInsee="24540" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Sorges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>24420</CodePostal>
+      <NomCommune>Sorges-et-Ligueux-en-Périgord</NomCommune>
+      <Localisation>
+         <Latitude>45.307042</Latitude>
+         <Longitude>0.872023</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 35 68 00</Téléphone>
+      <Email>sorges.24@wanadoo.fr</Email>
+      <Url>http://www.sorges-perigord.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique de 14h à 17h du lundi au vendredi.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique de 14h à 17h du lundi au vendredi, accueil ouvert les 1er et 3e samedis du mois, pendant la crise sanitaire accueil sur rendez-vous uniquement. La mairie annexe de Ligueux est joignable au 05 53 05 03 05 du mardi au vendredi de 13h45 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

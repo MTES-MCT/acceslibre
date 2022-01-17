@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28395-01" codeInsee="28395" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trizay-Coutretot-Saint-Serge</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Mairie</Ligne>
+      <CodePostal>28400</CodePostal>
+      <NomCommune>Trizay-Coutretot-Saint-Serge</NomCommune>
+      <Localisation>
+         <Latitude>48.2929878235</Latitude>
+         <Longitude>0.866995990276</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 52 16 55</Téléphone>
+      <Télécopie>02 37 52 16 55</Télécopie>
+      <Email>trizay.mairie@wanadoo.fr</Email>
+      <Url>http://www.trizay-perche.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

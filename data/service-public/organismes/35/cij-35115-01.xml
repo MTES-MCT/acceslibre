@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-35115-01" codeInsee="35115" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Fougères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Cristallerie</Ligne>
+      <Ligne>19 rue Hippolyte-Réhault</Ligne>
+      <CodePostal>35303</CodePostal>
+      <NomCommune>Fougères Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.348322</Latitude>
+         <Longitude>-1.191177</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 30 27 01 60</Téléphone>
+      <Email>pij@mlf.bzh</Email>
+      <Url>http://www.ij-bretagne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

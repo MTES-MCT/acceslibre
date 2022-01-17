@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-12068-01" codeInsee="12068" dateMiseAJour="2021-06-04"
+           pivotLocal="msap">
+   <Nom>France Services - Colombiès (itinérant)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment de la Mairie</Ligne>
+      <Ligne>Rue de la Mairie</Ligne>
+      <CodePostal>12240</CodePostal>
+      <NomCommune>Colombiès</NomCommune>
+      <Localisation>
+         <Latitude>44.345759</Latitude>
+         <Longitude>2.339786</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 72 29 19</Téléphone>
+      <Email>cscps.franceservices@orange.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

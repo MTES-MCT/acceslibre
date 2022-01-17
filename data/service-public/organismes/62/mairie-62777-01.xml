@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62777-01" codeInsee="62777" dateMiseAJour="2018-04-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Sars</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 route Nationale</Ligne>
+      <CodePostal>62450</CodePostal>
+      <NomCommune>Le Sars</NomCommune>
+      <Localisation>
+         <Latitude>50.0704652</Latitude>
+         <Longitude>2.781085</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 24 63 14</Téléphone>
+      <Télécopie>03 21 24 63 14</Télécopie>
+      <Email>mairie.lesars@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

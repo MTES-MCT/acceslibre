@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-44184-01" codeInsee="44184" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Loire-Atlantique - Saint-Nazaire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 avenue Albert-de-Mun</Ligne>
+      <CodePostal>44600</CodePostal>
+      <NomCommune>Saint-Nazaire</NomCommune>
+      <Localisation>
+         <Latitude>47.2781677</Latitude>
+         <Longitude>-2.2077159</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 66 80 29</Téléphone>
+      <Email>contact.stnazaire@adil44.fr</Email>
+      <Url>http://www.adil44.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

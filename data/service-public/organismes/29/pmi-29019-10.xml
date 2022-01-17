@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-29019-10" codeInsee="29019" dateMiseAJour="2021-04-19" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Brest - Quéliverzan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'enfance</Ligne>
+      <Ligne>33 rue Saint Exupéry</Ligne>
+      <CodePostal>29200</CodePostal>
+      <NomCommune>Brest</NomCommune>
+      <Localisation>
+         <Latitude>48.387798</Latitude>
+         <Longitude>-4.5033202</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 45 98 67</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Consultations médicales uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Permanence de la puéricultrice uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Permanence de la puéricultrice uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

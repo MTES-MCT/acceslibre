@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-59350-04" codeInsee="59350" dateMiseAJour="2020-05-14" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Lille Seclin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5, rue Pierre-Legrand</Ligne>
+      <CodePostal>59046</CodePostal>
+      <NomCommune>Lille Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.632478</Latitude>
+         <Longitude>3.0845645</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 55 15 15</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>COVID 19 :Accueil sur rendez-vous du lundi au vendredi 8H30-12H - 13H30-16H00. Le
+rendez-vous doit être pris en allant dans votre espace particulier ou sur
+la page contact sur le site impot.gouv.fr :
+https://www.impots.gouv.fr/portail/ Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

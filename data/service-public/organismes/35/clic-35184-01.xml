@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-35184-01" codeInsee="35184" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Montauban-de-Bretagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du syndicat mixte du pays de Brocéliande</Ligne>
+      <Ligne>Manoir de la veille Cotterel</Ligne>
+      <Ligne>48 rue de Saint-Malo</Ligne>
+      <Ligne>BP 86048</Ligne>
+      <CodePostal>35360</CodePostal>
+      <NomCommune>Montauban-de-Bretagne</NomCommune>
+      <Localisation>
+         <Latitude>48.205649</Latitude>
+         <Longitude>-2.043471</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 06 32 45</Téléphone>
+      <Email>clic@pays-broceliande.fr</Email>
+      <Url>http://www.pays-broceliande.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <Note>Possibilité d'être reçu sur rendez-vous du lundi au vendredi de 9h à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

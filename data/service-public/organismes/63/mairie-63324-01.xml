@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63324-01" codeInsee="63324" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Bonnet-le-Chastel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grand'rue</Ligne>
+      <CodePostal>63630</CodePostal>
+      <NomCommune>Saint-Bonnet-le-Chastel</NomCommune>
+      <Localisation>
+         <Latitude>45.4996604919</Latitude>
+         <Longitude>3.58160710335</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 65 32 27 03</Téléphone>
+      <Email>stbonnetlechastel.mairie@wanadoo.fr</Email>
+      <Url>http://www.saintbonnetlechastel.over-blog.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17203-01" codeInsee="17203" dateMiseAJour="2021-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Landrais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>17290</CodePostal>
+      <NomCommune>Landrais</NomCommune>
+      <Localisation>
+         <Latitude>46.0693016</Latitude>
+         <Longitude>-0.8620319</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 27 73 69</Téléphone>
+      <Email>mairie@landrais.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert l'après-midi, uniquement sur rendez–vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

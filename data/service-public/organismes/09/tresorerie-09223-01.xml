@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-09223-01" codeInsee="09223" dateMiseAJour="2019-04-19"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie d'Oust - Massat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grande rue</Ligne>
+      <Ligne>BP 7</Ligne>
+      <CodePostal>09140</CodePostal>
+      <NomCommune>Oust</NomCommune>
+      <Localisation>
+         <Latitude>42.874653</Latitude>
+         <Longitude>1.215936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 05 48 88</Téléphone>
+      <Télécopie>05 61 66 81 93</Télécopie>
+      <Email>t009012@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

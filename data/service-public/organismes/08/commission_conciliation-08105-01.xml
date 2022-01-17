@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-08105-01" codeInsee="08105"
+           dateMiseAJour="2021-03-19"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation -  Ardennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture - DDT</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>3 rue des Granges moulues</Ligne>
+      <Ligne>BP 852</Ligne>
+      <CodePostal>08011</CodePostal>
+      <NomCommune>Charleville-Mézières Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.7545013428</Latitude>
+         <Longitude>4.70788002014</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 51 16 50 00</Téléphone>
+      <Email>ddt@ardennes.gouv.fr</Email>
+      <Url>http://www.ardennes.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

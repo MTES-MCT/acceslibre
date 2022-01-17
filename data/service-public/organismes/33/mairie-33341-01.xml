@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33341-01" codeInsee="33341" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pugnac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>558 rue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>33710</CodePostal>
+      <NomCommune>Pugnac</NomCommune>
+      <Localisation>
+         <Latitude>45.0822689</Latitude>
+         <Longitude>-0.4962513</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 68 80 31</Téléphone>
+      <Télécopie>05 57 68 92 72</Télécopie>
+      <Email>mairiepugnac@wanadoo.fr</Email>
+      <Url>http://www.pugnac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

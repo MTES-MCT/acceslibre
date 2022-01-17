@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52017-01" codeInsee="52017" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arc-en-Barrois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Moreau</Ligne>
+      <CodePostal>52210</CodePostal>
+      <NomCommune>Arc-en-Barrois</NomCommune>
+      <Localisation>
+         <Latitude>47.9481481</Latitude>
+         <Longitude>5.0076258</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 02 51 33</Téléphone>
+      <Télécopie>09 70 06 11 06</Télécopie>
+      <Email>mairie.arc.en.barrois@wanadoo.fr</Email>
+      <Url>http://www.arc-en-barrois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

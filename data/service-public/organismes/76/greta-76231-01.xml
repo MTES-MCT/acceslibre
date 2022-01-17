@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-76231-01" codeInsee="76231" dateMiseAJour="2020-10-20"
+           pivotLocal="greta">
+   <Nom>Greta Normandie - Elbeuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 B cours Carnot</Ligne>
+      <CodePostal>76500</CodePostal>
+      <NomCommune>Elbeuf</NomCommune>
+      <Localisation>
+         <Latitude>49.2872285</Latitude>
+         <Longitude>1.0173305</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 96 94 94</Téléphone>
+      <Télécopie>02 35 81 33 98</Télécopie>
+      <Email>contact.greta.elbeuf@ac-rouen.fr</Email>
+      <Url>https://greta.ac-normandie.fr/greta/greta-elbeuf-vallee-de-seine/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62895-01" codeInsee="62895" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wingles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 rue Jules-Guesde</Ligne>
+      <CodePostal>62410</CodePostal>
+      <NomCommune>Wingles</NomCommune>
+      <Localisation>
+         <Latitude>50.495042</Latitude>
+         <Longitude>2.8531574</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 08 69 00</Téléphone>
+      <Télécopie>03 21 08 69 01</Télécopie>
+      <Url>http://www.wingles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

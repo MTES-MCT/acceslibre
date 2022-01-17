@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28119-01" codeInsee="28119" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Croix-du-Perche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de l'Église</Ligne>
+      <CodePostal>28480</CodePostal>
+      <NomCommune>La Croix-du-Perche</NomCommune>
+      <Localisation>
+         <Latitude>48.2743911743</Latitude>
+         <Longitude>1.05074501038</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 29 59 85</Téléphone>
+      <Télécopie>02 37 29 59 85</Télécopie>
+      <Email>croixduperche@wanadoo.fr</Email>
+      <Url>http://www.lacroixduperche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

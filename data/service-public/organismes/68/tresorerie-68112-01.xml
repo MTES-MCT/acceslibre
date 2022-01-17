@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-68112-01" codeInsee="68112" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable de Guebwiller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Lecocq</Ligne>
+      <CodePostal>68500</CodePostal>
+      <NomCommune>Guebwiller</NomCommune>
+      <Localisation>
+         <Latitude>47.909305</Latitude>
+         <Longitude>7.208852</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 74 93 51</Téléphone>
+      <Email>sgc.guebwiller@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

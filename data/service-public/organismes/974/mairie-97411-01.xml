@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97411-01" codeInsee="97411" dateMiseAJour="2020-11-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Denis-de-La-Réunion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Paris</Ligne>
+      <CodePostal>97717</CodePostal>
+      <NomCommune>Saint-Denis Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>-20.8803156</Latitude>
+         <Longitude>55.4491326</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 40 04 04</Téléphone>
+      <Télécopie>+262 40 07 88</Télécopie>
+      <Email>https://www.saintdenis.re/?page=contact</Email>
+      <Url>http://www.saintdenis.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

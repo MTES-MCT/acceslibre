@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77412-01" codeInsee="77412" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Germain-sur-École</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de Fontainebleau</Ligne>
+      <CodePostal>77930</CodePostal>
+      <NomCommune>Saint-Germain-sur-École</NomCommune>
+      <Localisation>
+         <Latitude>48.4739990234</Latitude>
+         <Longitude>2.5113298893</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 38 01 05</Téléphone>
+      <Télécopie>01 64 38 08 04</Télécopie>
+      <Email>mairie@saintgermainsurecole.fr</Email>
+      <Url>http://www.saintgermainsurecole.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:15:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:15:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

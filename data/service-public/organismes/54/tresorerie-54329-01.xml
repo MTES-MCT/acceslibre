@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-54329-01" codeInsee="54329" dateMiseAJour="2021-08-19"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Lunéville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue Edmond-Delorme</Ligne>
+      <Ligne>CS 20214</Ligne>
+      <CodePostal>54301</CodePostal>
+      <NomCommune>Lunéville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.598713</Latitude>
+         <Longitude>6.4854795</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 74 67 95</Téléphone>
+      <Email>t054038@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous les lundi, mardi et jeudi après-midis, fermé le Mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

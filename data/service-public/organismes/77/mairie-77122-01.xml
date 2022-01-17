@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77122-01" codeInsee="77122" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Combs-la-Ville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Esplanade Charles-de-Gaulle</Ligne>
+      <Ligne>BP 116</Ligne>
+      <CodePostal>77385</CodePostal>
+      <NomCommune>Combs-la-Ville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.66602</Latitude>
+         <Longitude>2.55769</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 13 16 00</Téléphone>
+      <Télécopie>01 60 18 06 15</Télécopie>
+      <Email>contact@mairie-combs-la-ville.fr</Email>
+      <Url>http://www.combs-la-ville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

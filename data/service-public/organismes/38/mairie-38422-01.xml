@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38422-01" codeInsee="38422" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-d'Uriage</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>38410</CodePostal>
+      <NomCommune>Saint-Martin-d'Uriage</NomCommune>
+      <Localisation>
+         <Latitude>45.1035101</Latitude>
+         <Longitude>5.803891</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 59 77 10</Téléphone>
+      <Télécopie>04 76 59 78 03</Télécopie>
+      <Email>affaires.generales@mairie-smu.fr</Email>
+      <Url>http://www.saint-martin-uriage.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="19:00:00"/>
+         <Note>Accueil ouvert de 17h à 19h uniquement pour les affaires civiles et générales.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-69264-01" codeInsee="69264" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Villefranche-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point d'information médiation multiservices agglomération Villefranche-Beaujolais-Saône</Ligne>
+      <Ligne>40 place Laurent-Bonnevay</Ligne>
+      <CodePostal>69400</CodePostal>
+      <NomCommune>Villefranche-sur-Saône</NomCommune>
+      <Localisation>
+         <Latitude>45.984648</Latitude>
+         <Longitude>4.706203</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 81 70 04 64</Téléphone>
+      <Email>villefranche@pimms.org</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

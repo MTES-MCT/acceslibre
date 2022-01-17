@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-13028-01" codeInsee="13028" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - La-Ciotat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>241 avenue Fernand-Gassion</Ligne>
+      <CodePostal>13600</CodePostal>
+      <NomCommune>La-Ciotat</NomCommune>
+      <Localisation>
+         <Latitude>43.1784</Latitude>
+         <Longitude>5.60572</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 08 80 50</Téléphone>
+      <Email>contact@ml-laciotat.asso.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

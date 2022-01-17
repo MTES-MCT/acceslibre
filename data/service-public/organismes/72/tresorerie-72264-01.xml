@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-72264-01" codeInsee="72264" dateMiseAJour="2021-12-31"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable de Sablé-sur-Sarthe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 avenue Joël-Le-Theule</Ligne>
+      <Ligne>BP 80189</Ligne>
+      <CodePostal>72305</CodePostal>
+      <NomCommune>Sablé-sur-Sarthe Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.8393195</Latitude>
+         <Longitude>-0.3257765</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 95 03 92</Téléphone>
+      <Email>sgc.sablesursarthe@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous les Mardi et Jeudi de 13h30 à 16h00</Commentaire>
+</Organisme>

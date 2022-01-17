@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57566-01" codeInsee="57566" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Réding</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du 21-Novembre</Ligne>
+      <CodePostal>57445</CodePostal>
+      <NomCommune>Réding</NomCommune>
+      <Localisation>
+         <Latitude>48.7456016541</Latitude>
+         <Longitude>7.10044002533</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 25 75 60</Téléphone>
+      <Télécopie>03 87 25 75 69</Télécopie>
+      <Email>info@reding.fr</Email>
+      <Url>http://www.reding.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

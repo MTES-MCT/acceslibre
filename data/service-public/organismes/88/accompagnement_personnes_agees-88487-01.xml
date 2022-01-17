@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-88487-01" codeInsee="88487"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Le Val-d'Ajol</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Réseau gérontologique des établissements des Hautes-Vosges</Ligne>
+      <Ligne>71 Grande rue</Ligne>
+      <CodePostal>88340</CodePostal>
+      <NomCommune>Le Val-d'Ajol</NomCommune>
+      <Localisation>
+         <Latitude>47.927441</Latitude>
+         <Longitude>6.488181</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 30 67 04</Téléphone>
+      <Email>direction@chasvm-valdajol.fr</Email>
+      <Url>http://chasvm-valdajol.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

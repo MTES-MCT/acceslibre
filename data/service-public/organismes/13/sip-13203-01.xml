@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-13203-01" codeInsee="13203" dateMiseAJour="2020-10-06" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers (SIP) du centre des finances publiques de Marseille 3e et 14e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3, place Sadi-Carnot</Ligne>
+      <Ligne>CS 30115</Ligne>
+      <CodePostal>13235</CodePostal>
+      <NomCommune>Marseille Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>43.2992593</Latitude>
+         <Longitude>5.3713221</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 99 91 94</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>ou sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Vous pouvez prendre rendez-vous sur impôts.gouv.fr rubrique "contact" ou par téléphone. Si vous souhaitez contacter ce service par courriel : utilisez votre messagerie sécurisée disponible dans votre espace particuliers sur le site impôts.gouv.fr</Commentaire>
+</Organisme>

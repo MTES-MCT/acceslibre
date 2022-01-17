@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74269-01" codeInsee="74269" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seyssel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 place de l'Orme</Ligne>
+      <CodePostal>74910</CodePostal>
+      <NomCommune>Seyssel</NomCommune>
+      <Localisation>
+         <Latitude>45.958782</Latitude>
+         <Longitude>5.8356418</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 59 27 67</Téléphone>
+      <Télécopie>04 50 59 00 59</Télécopie>
+      <Email>administration@seyssel74.fr</Email>
+      <Url>https://www.mairie-seyssel74.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

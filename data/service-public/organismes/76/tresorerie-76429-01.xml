@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-76429-01" codeInsee="76429" dateMiseAJour="2022-01-05"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie du Mesnil-Esnard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Trésorerie secteur public local</Ligne>
+      <Ligne>36 rue de la République</Ligne>
+      <Ligne>BP 27</Ligne>
+      <CodePostal>76240</CodePostal>
+      <NomCommune>Le Mesnil-Esnard</NomCommune>
+      <Localisation>
+         <Latitude>49.414136</Latitude>
+         <Longitude>1.1483349</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 80 46 01</Téléphone>
+      <Email>t076028@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous de 14h00 à 16h00</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

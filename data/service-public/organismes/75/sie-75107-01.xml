@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-75107-01" codeInsee="75107" dateMiseAJour="2021-10-04" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Paris 7e arrondissement</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 place Saint-Sulpice</Ligne>
+      <CodePostal>75292</CodePostal>
+      <NomCommune>Paris Cedex 06</NomCommune>
+      <Localisation>
+         <Latitude>48.8503862</Latitude>
+         <Longitude>2.3333426</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 40 46 67 40</Téléphone>
+      <Télécopie>01 40 46 67 08</Télécopie>
+      <Email>sie.paris-7e@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:45:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

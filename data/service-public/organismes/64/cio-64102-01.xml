@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-64102-01" codeInsee="64102" dateMiseAJour="2021-02-10" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Bayonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>26 chemin d'Arancette</Ligne>
+      <CodePostal>64100</CodePostal>
+      <NomCommune>Bayonne</NomCommune>
+      <Localisation>
+         <Latitude>43.4828514</Latitude>
+         <Longitude>-1.4875494</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 52 14 58</Téléphone>
+      <Télécopie>05 59 52 16 36</Télécopie>
+      <Url>http://www.ac-bordeaux.fr/cid78539/cio-de-bayonne.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>le CIO est ouvert du lundi au vendredi de 9h00 à 12h00 et de 14h00 à 17h00 sur rendez-vous.</Commentaire>
+</Organisme>

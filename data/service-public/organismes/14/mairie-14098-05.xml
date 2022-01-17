@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14098-05" codeInsee="14098" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Putot-en-Bessin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Putot-en-Bessin</Ligne>
+      <Ligne>Rue du 7-Juin</Ligne>
+      <CodePostal>14740</CodePostal>
+      <NomCommune>Thue et Mue</NomCommune>
+      <Localisation>
+         <Latitude>49.2113983</Latitude>
+         <Longitude>-0.5423693</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 80 72 07</Téléphone>
+      <Email>putotenbessin@thueetmue.fr</Email>
+      <Url>https://www.thueetmue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

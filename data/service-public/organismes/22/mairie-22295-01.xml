@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22295-01" codeInsee="22295" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Gilles-Vieux-Marché</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Mairie</Ligne>
+      <CodePostal>22530</CodePostal>
+      <NomCommune>Saint-Gilles-Vieux-Marché</NomCommune>
+      <Localisation>
+         <Latitude>48.2559356</Latitude>
+         <Longitude>-3.0057869</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 28 53 39</Téléphone>
+      <Télécopie>02 96 26 33 35</Télécopie>
+      <Email>mairie-stgilles-vieux-marche@wanadoo.fr</Email>
+      <Url>http://www.saint-gilles-vieux-marche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

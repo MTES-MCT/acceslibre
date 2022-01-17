@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="39300" dateMiseAJour="2021-12-14" id="cdad-39300-01" idPresta="58b943e3b473e45d93eabe0e" pivotLocal="cdad">
+    <Nom>Conseil départemental d'accès au droit du Jura</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>11 RUE PASTEUR</Ligne>
+        <Ligne>BP 344</Ligne>
+        <CodePostal>39015</CodePostal>
+        <NomCommune>LONS LE SAUNIER CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.673509</Latitude>
+            <Longitude>5.556534</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>11 RUE PASTEUR</Ligne>
+        <Ligne>BP 344</Ligne>
+        <CodePostal>39015</CodePostal>
+        <NomCommune>LONS LE SAUNIER CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 84 47 19 46</Téléphone>
+        <Email>mailto:cdad-jura@orange.fr</Email>
+        <Url>https://www.cdad-jura.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="12:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:30:00" fin="12:30:00"/>
+            <Note>Fermé le mercredi, jeudi, vendredi, samedi et dimanche.</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

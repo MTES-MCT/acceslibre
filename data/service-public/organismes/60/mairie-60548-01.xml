@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60548-01" codeInsee="60548" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rosoy-en-Multien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 Grande rue</Ligne>
+      <CodePostal>60620</CodePostal>
+      <NomCommune>Rosoy-en-Multien</NomCommune>
+      <Localisation>
+         <Latitude>49.0961117</Latitude>
+         <Longitude>2.9962594</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 87 21 55</Téléphone>
+      <Télécopie>03 44 87 65 88</Télécopie>
+      <Email>mairie.rosoy-multien@wanadoo.fr</Email>
+      <Url>http://www.rosoy-en-multien.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence à prendre par téléphone.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

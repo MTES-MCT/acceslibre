@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56208-01" codeInsee="56208" dateMiseAJour="2021-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Brieuc-de-Mauron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue de Camet</Ligne>
+      <CodePostal>56430</CodePostal>
+      <NomCommune>Saint-Brieuc-de-Mauron</NomCommune>
+      <Localisation>
+         <Latitude>48.089949</Latitude>
+         <Longitude>-2.3645382</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 22 60 75</Téléphone>
+      <Télécopie>02 97 22 74 31</Télécopie>
+      <Email>mairie.saint.brieuc.de.mauron@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

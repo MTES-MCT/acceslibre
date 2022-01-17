@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-23096-01" codeInsee="23096" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Creuse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 avenue d'Auvergne</Ligne>
+      <Ligne>CS 60089</Ligne>
+      <CodePostal>23011</CodePostal>
+      <NomCommune>Guéret Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.170017</Latitude>
+         <Longitude>1.882854</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 61 50 00</Téléphone>
+      <Télécopie>05 55 52 84 20</Télécopie>
+      <Email>accueil@creuse.chambagri.fr</Email>
+      <Url>https://creuse.chambre-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

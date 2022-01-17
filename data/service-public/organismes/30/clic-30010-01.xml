@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-30010-01" codeInsee="30010" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Anduze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>Service territorialisé de l'autonomie</Ligne>
+      <Ligne>Équipe personnes âgées et personnes handicapées</Ligne>
+      <Ligne>34 avenue Rollin</Ligne>
+      <CodePostal>30140</CodePostal>
+      <NomCommune>Anduze</NomCommune>
+      <Localisation>
+         <Latitude>44.050423</Latitude>
+         <Longitude>3.985103</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 61 78 17</Téléphone>
+      <Télécopie>04 66 61 78 18</Télécopie>
+      <Email>daut-sta.anduze@gard.fr</Email>
+      <Url>http://www.pour-les-personnes-agees.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

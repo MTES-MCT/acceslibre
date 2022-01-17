@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-94065-01" codeInsee="94065" dateMiseAJour="2019-01-11"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Rungis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau des douanes de Rungis</Ligne>
+      <Ligne>CS 90413</Ligne>
+      <CodePostal>94514</CodePostal>
+      <NomCommune>Rungis Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.753847</Latitude>
+         <Longitude>2.366682</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 22 53</Téléphone>
+      <Télécopie>01 45 60 46 52</Télécopie>
+      <Email>r-rungis@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

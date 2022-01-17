@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34168-01" codeInsee="34168" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montesquieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hameau du Mas-Rolland</Ligne>
+      <Ligne>6 route de Bédarieux</Ligne>
+      <CodePostal>34320</CodePostal>
+      <NomCommune>Montesquieu</NomCommune>
+      <Localisation>
+         <Latitude>43.6169161</Latitude>
+         <Longitude>3.31685659</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 24 83 58</Téléphone>
+      <Télécopie>04 67 24 83 58</Télécopie>
+      <Email>mairie.montesquieu@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_emploi-51230-01" codeInsee="51230" dateMiseAJour="2021-06-28"
+           pivotLocal="maison_emploi">
+   <Nom>Maison de l’emploi et des métiers d’Epernay et sa région - Épernay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Jean Moët</Ligne>
+      <CodePostal>51200</CodePostal>
+      <NomCommune>Épernay</NomCommune>
+      <Localisation>
+         <Latitude>49.04427</Latitude>
+         <Longitude>3.9581</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 54 85 85</Téléphone>
+      <Télécopie>03 26 54 85 86</Télécopie>
+      <Email>contact@mden-epernay.fr</Email>
+      <Url>http://www.mdem-epernay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

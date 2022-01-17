@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62199-01" codeInsee="62199" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Camblain-l'Abbé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue de l'Église</Ligne>
+      <CodePostal>62690</CodePostal>
+      <NomCommune>Camblain-l'Abbé</NomCommune>
+      <Localisation>
+         <Latitude>50.3712997437</Latitude>
+         <Longitude>2.63293004036</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 22 06 51</Téléphone>
+      <Télécopie>03 21 59 21 38</Télécopie>
+      <Email>mairiedecamblainlabbe@wanadoo.fr</Email>
+      <Url>http://www.camblainlabbe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

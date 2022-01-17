@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52221-01" codeInsee="52221" dateMiseAJour="2021-07-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gillancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>52330</CodePostal>
+      <NomCommune>Gillancourt</NomCommune>
+      <Localisation>
+         <Latitude>48.1618003845</Latitude>
+         <Longitude>4.99105978012</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 02 02 98</Téléphone>
+      <Télécopie>03 25 02 02 98</Télécopie>
+      <Email>mairie.gillancourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

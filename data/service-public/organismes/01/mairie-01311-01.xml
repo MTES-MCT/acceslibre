@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01311-01" codeInsee="01311" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Prémillieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 rue du Lavoir</Ligne>
+      <CodePostal>01110</CodePostal>
+      <NomCommune>Prémillieu</NomCommune>
+      <Localisation>
+         <Latitude>45.8743849</Latitude>
+         <Longitude>5.571974</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 37 56 75</Téléphone>
+      <Email>mairie.premillieu01@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil possible sur rendez-vous du lundi au vendredi de 9h à 19h et le samedi de 9h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

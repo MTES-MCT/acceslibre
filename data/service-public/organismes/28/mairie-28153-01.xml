@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28153-01" codeInsee="28153" dateMiseAJour="2017-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flacey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de la Mairie</Ligne>
+      <CodePostal>28800</CodePostal>
+      <NomCommune>Flacey</NomCommune>
+      <Localisation>
+         <Latitude>48.1478566</Latitude>
+         <Longitude>1.3498774</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 47 26 10</Téléphone>
+      <Télécopie>02 37 47 26 10</Télécopie>
+      <Email>mairieflacey@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+         <Note>Permanence des élus uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

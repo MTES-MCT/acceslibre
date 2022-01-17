@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-10387-01" codeInsee="10387" dateMiseAJour="2018-08-07"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - Troyes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Petite-Courtine</Ligne>
+      <CodePostal>10000</CodePostal>
+      <NomCommune>Troyes</NomCommune>
+      <Localisation>
+         <Latitude>48.299417</Latitude>
+         <Longitude>4.084249</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 40 06 24</Téléphone>
+      <Email>antenne-troyes@crous-reims.fr</Email>
+      <Url>http://www.crous-reims.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

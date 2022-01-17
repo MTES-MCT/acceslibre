@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64342-01" codeInsee="64342" dateMiseAJour="2021-01-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Licq-Athérey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>64560</CodePostal>
+      <NomCommune>Licq-Athérey</NomCommune>
+      <Localisation>
+         <Latitude>43.06883</Latitude>
+         <Longitude>-0.876352</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 28 60 52</Téléphone>
+      <Télécopie>05 59 28 63 52</Télécopie>
+      <Email>mairie.licq-atherey@sfr.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

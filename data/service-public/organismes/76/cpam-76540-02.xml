@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-76540-02" codeInsee="76540" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) de Rouen-Elbeuf-Dieppe-Seine-Maritime - siège de Rouen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>50 avenue de Bretagne</Ligne>
+      <Ligne>CS 76039</Ligne>
+      <CodePostal>76039</CodePostal>
+      <NomCommune>Rouen Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>49.4332663</Latitude>
+         <Longitude>1.0853643</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, accueil téléphonique lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

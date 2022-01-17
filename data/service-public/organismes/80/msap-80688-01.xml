@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-80688-01" codeInsee="80688" dateMiseAJour="2021-01-14"
+           pivotLocal="msap">
+   <Nom>France Services - Rue</Nom>
+   <EditeurSource>La Direction de l’Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>33 bis route du Crotoy</Ligne>
+      <Ligne>BP 40038</Ligne>
+      <CodePostal>80120</CodePostal>
+      <NomCommune>Rue</NomCommune>
+      <Localisation>
+         <Latitude>50.26657</Latitude>
+         <Longitude>1.66674</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 27 86 94</Téléphone>
+      <Email>msap@ponthieu-marquenterre.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Antennes à Crécy-en-Ponthieu et à Ailly-le-Haut-Clocher</Commentaire>
+</Organisme>

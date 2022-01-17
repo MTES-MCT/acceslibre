@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71202-01" codeInsee="71202" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontaines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 Grande rue</Ligne>
+      <CodePostal>71150</CodePostal>
+      <NomCommune>Fontaines</NomCommune>
+      <Localisation>
+         <Latitude>46.8497009277</Latitude>
+         <Longitude>4.76699018478</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">élévateur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 45 87 50</Téléphone>
+      <Email>accueil.mairie@fontainesenbourgogne.fr</Email>
+      <Url>http://www.fontainesenbourgogne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

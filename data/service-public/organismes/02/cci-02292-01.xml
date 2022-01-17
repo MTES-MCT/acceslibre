@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-02292-01" codeInsee="02292" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 02 - Aisne - Agence de Château-Thierry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue Ernest Couvrecelle</Ligne>
+      <Ligne>L’Aiguillage</Ligne>
+      <CodePostal>02400</CodePostal>
+      <NomCommune>Étampes-sur-Marne</NomCommune>
+      <Localisation>
+         <Latitude>49.036653</Latitude>
+         <Longitude>3.407355</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 06 02 02</Téléphone>
+      <Email>ccia@aisne.cci.fr</Email>
+      <Url>https://hautsdefrance.cci.fr/cci-aisne/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

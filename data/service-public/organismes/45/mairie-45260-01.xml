@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45260-01" codeInsee="45260" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ramoulu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place du Calvaire</Ligne>
+      <CodePostal>45300</CodePostal>
+      <NomCommune>Ramoulu</NomCommune>
+      <Localisation>
+         <Latitude>48.2254714966</Latitude>
+         <Longitude>2.29396605492</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 30 14 62</Téléphone>
+      <Télécopie>02 38 30 14 62</Télécopie>
+      <Email>communederamoulu@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>En raison du contexte sanitaire, la mairie est actuellement fermée, accueil téléphonique les mardi et jeudi.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

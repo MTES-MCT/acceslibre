@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="95500" dateMiseAJour="2021-12-14" id="prudhommes-95500-01" idPresta="4cac9ed6293594648a00ed80" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Cergy-Pontoise</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>3 RUE VICTOR HUGO</Ligne>
+        <CodePostal>95302</CodePostal>
+        <NomCommune>CERGY PONTOISE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.051931</Latitude>
+            <Longitude>2.100645</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>3 RUE VICTOR HUGO</Ligne>
+        <CodePostal>95302</CodePostal>
+        <NomCommune>CERGY PONTOISE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 72 58 74 30</Téléphone>
+        <Email>mailto:cph-cergy-pontoise@justice.fr</Email>
+        <Url>http://www.cph-cergypontoise.justice.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16186-01" codeInsee="16186" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lignières-Sonneville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>16130</CodePostal>
+      <NomCommune>Lignières-Sonneville</NomCommune>
+      <Localisation>
+         <Latitude>45.5591506958</Latitude>
+         <Longitude>-0.182666003704</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">en cours</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 80 50 10</Téléphone>
+      <Télécopie>05 45 80 57 70</Télécopie>
+      <Email>mairie-lignieres-sonneville@orange.fr</Email>
+      <Url>http://www.lignieres-sonneville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

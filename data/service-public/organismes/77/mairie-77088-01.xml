@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77088-01" codeInsee="77088" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-la-Reine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue du Docteur-Battesti</Ligne>
+      <CodePostal>77760</CodePostal>
+      <NomCommune>La Chapelle-la-Reine</NomCommune>
+      <Localisation>
+         <Latitude>48.3160018921</Latitude>
+         <Longitude>2.56927990913</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 74 96 01</Téléphone>
+      <Télécopie>01 64 69 10 76</Télécopie>
+      <Email>mairie@lachapellelareine.fr</Email>
+      <Url>http://www.lachapellelareine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

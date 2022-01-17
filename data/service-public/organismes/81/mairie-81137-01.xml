@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81137-01" codeInsee="81137" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lasfaillades</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>924 route de Bouisset-Lasfaillades</Ligne>
+      <CodePostal>81260</CodePostal>
+      <NomCommune>Lasfaillades</NomCommune>
+      <Localisation>
+         <Latitude>43.57639503</Latitude>
+         <Longitude>2.494875072</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 70 98 66</Téléphone>
+      <Email>mairie.lasfaillades@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

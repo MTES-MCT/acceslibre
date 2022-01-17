@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-92004-03" codeInsee="92004" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Asnières-sur-Seine - Mourinoux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue des Mourinoux</Ligne>
+      <CodePostal>92600</CodePostal>
+      <NomCommune>Asnières-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>48.931322</Latitude>
+         <Longitude>2.27563</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro vert : service et appel gratuits.">08 00 00 00 92</Téléphone>
+      <Email>apmi4@hauts-de-seine.fr</Email>
+      <Url>http://www.hauts-de-seine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Uniquement sur rendez-vous, accueil fermé à 16h pendant la période de la crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

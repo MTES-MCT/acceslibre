@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62541-01" codeInsee="62541" dateMiseAJour="2018-04-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Maisoncelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Principale</Ligne>
+      <CodePostal>62310</CodePostal>
+      <NomCommune>Maisoncelle</NomCommune>
+      <Localisation>
+         <Latitude>50.4482367</Latitude>
+         <Longitude>2.143439</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 47 17 95</Téléphone>
+      <Télécopie>03 21 47 17 95</Télécopie>
+      <Email>mairiedemaisoncelle@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

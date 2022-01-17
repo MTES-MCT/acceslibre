@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-24028-01" codeInsee="24028" dateMiseAJour="2020-01-06"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Beaumont-du-Périgord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Beaumont-du-Périgord</Ligne>
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>5 avenue Rhinau</Ligne>
+      <CodePostal>24440</CodePostal>
+      <NomCommune>Beaumontois-en-Périgord</NomCommune>
+      <Localisation>
+         <Latitude>44.770235</Latitude>
+         <Longitude>0.767161</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 02 06 10</Téléphone>
+      <Email>g.gendreau@dordogne.fr</Email>
+      <Url>http://www.dordogne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31317-01" codeInsee="31317" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marignac-Lasclares</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>149 rue de la Mairie</Ligne>
+      <CodePostal>31430</CodePostal>
+      <NomCommune>Marignac-Lasclares</NomCommune>
+      <Localisation>
+         <Latitude>43.3065071</Latitude>
+         <Longitude>1.0985262</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 98 51 65</Téléphone>
+      <Email>mairie@marignac-lasclares.fr</Email>
+      <Url>http://www.marignac-lasclares.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

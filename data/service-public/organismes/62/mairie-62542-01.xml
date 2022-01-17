@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62542-01" codeInsee="62542" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Maizières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Mairie</Ligne>
+      <CodePostal>62127</CodePostal>
+      <NomCommune>Maizières</NomCommune>
+      <Localisation>
+         <Latitude>50.3235225</Latitude>
+         <Longitude>2.4469088</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 47 92 01</Téléphone>
+      <Télécopie>03 21 47 92 01</Télécopie>
+      <Email>communemaizieres@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

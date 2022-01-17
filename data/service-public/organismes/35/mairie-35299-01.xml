@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35299-01" codeInsee="35299" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Méloir-des-Ondes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <Ligne>BP 30</Ligne>
+      <CodePostal>35350</CodePostal>
+      <NomCommune>Saint-Méloir-des-Ondes</NomCommune>
+      <Localisation>
+         <Latitude>48.6375999451</Latitude>
+         <Longitude>-1.90447998047</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 89 10 78</Téléphone>
+      <Télécopie>02 99 89 15 71</Télécopie>
+      <Email>secretariatdumaire@smdo35.fr</Email>
+      <Url>http://www.saintmeloirdesondes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le 1er et le 3e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

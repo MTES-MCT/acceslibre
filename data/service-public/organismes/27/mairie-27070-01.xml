@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27070-01" codeInsee="27070" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Frenelles-en-Vexin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boisemont</Ligne>
+      <Ligne>9 rue de l'Église</Ligne>
+      <CodePostal>27150</CodePostal>
+      <NomCommune>Frenelles-en-Vexin</NomCommune>
+      <Localisation>
+         <Latitude>49.2904014587</Latitude>
+         <Longitude>1.49442005157</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 69 41 26</Téléphone>
+      <Email>secretariat@frenelles-en-vexin.fr</Email>
+      <Url>https://www.frenellesenvexin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Téléphones et horaires des mairies déléguées, Corny : 02 32 69 43 04, le mardi de 9h à 12h, le jeudi de 14h à 18h30, et un samedi sur deux de 10h à 12h; Fresne-l'Archevêque : 02 32 69 42 39, le mardi de 14h à 18h30, le jeudi de 9h à 12h et un samedi sur deux de 10h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

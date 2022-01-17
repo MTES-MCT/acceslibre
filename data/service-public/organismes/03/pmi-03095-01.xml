@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-03095-01" codeInsee="03095" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Cusset</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue du Président-Wilson</Ligne>
+      <CodePostal>03300</CodePostal>
+      <NomCommune>Cusset</NomCommune>
+      <Localisation>
+         <Latitude>46.130799</Latitude>
+         <Longitude>3.4561791</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 98 58 66</Téléphone>
+      <Télécopie>04 70 30 43 26</Télécopie>
+      <Email>msd-cusset@allier.fr</Email>
+      <Url>http://www.allier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous du lundi au vendredi de 8h30 à 12h30 et de 13h30 à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

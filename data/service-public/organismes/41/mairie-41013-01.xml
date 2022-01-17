@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41013-01" codeInsee="41013" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bauzy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de Neuvy</Ligne>
+      <CodePostal>41250</CodePostal>
+      <NomCommune>Bauzy</NomCommune>
+      <Localisation>
+         <Latitude>47.5546989441</Latitude>
+         <Longitude>1.55253005028</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 46 41 93</Téléphone>
+      <Email>mairie@bauzy.fr</Email>
+      <Url>http://www.bauzy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

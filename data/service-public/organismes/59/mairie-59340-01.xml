@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59340-01" codeInsee="59340" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Leffrinckoucke</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>330 rue Roger-Salengro</Ligne>
+      <CodePostal>59495</CodePostal>
+      <NomCommune>Leffrinckoucke</NomCommune>
+      <Localisation>
+         <Latitude>51.0508003235</Latitude>
+         <Longitude>2.43734002113</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 28 51 41 90</Téléphone>
+      <Télécopie>03 28 20 06 80</Télécopie>
+      <Email>mairie@ville-leffrinckoucke.fr</Email>
+      <Url>http://www.ville-leffrinckoucke.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

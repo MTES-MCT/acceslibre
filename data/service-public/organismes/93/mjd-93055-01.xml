@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="93055" dateMiseAJour="2021-10-18" id="mjd-93055-01" idPresta="612f2ed9b473e40555def49c" pivotLocal="mjd">
+    <Nom>Point-justice - Maison de la justice et du droit de Pantin</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>25 ter rue du Pré Saint Gervais</Ligne>
+        <CodePostal>93500</CodePostal>
+        <NomCommune>PANTIN</NomCommune>
+        <Localisation>
+            <Latitude>48.88985</Latitude>
+            <Longitude>2.403298</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 83 74 57 70</Téléphone>
+        <Email>mailto:mjd-pantin@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:30:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

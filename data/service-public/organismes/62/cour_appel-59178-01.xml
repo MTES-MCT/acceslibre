@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="59178" dateMiseAJour="2021-12-14" id="cour_appel-59178-01" idPresta="4cac9e60293594648a000346" pivotLocal="cour_appel">
+    <Nom>Cour d'appel de Douai</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE CHARLES DE POLLINCHOVE</Ligne>
+        <Ligne>CS 20705</Ligne>
+        <CodePostal>59507</CodePostal>
+        <NomCommune>DOUAI CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>50.370411</Latitude>
+            <Longitude>3.078218</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE CHARLES DE POLLINCHOVE</Ligne>
+        <Ligne>CS 20705</Ligne>
+        <CodePostal>59507</CodePostal>
+        <NomCommune>DOUAI CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 27 93 27 00</Téléphone>
+        <Télécopie>03 33 27 13 01</Télécopie>
+        <Email>mailto:ca-douai@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

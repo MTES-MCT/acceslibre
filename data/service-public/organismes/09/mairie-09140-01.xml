@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09140-01" codeInsee="09140" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ignaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>09110</CodePostal>
+      <NomCommune>Ignaux</NomCommune>
+      <Localisation>
+         <Latitude>42.729163</Latitude>
+         <Longitude>1.817246</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 72 93 77 30</Téléphone>
+      <Email>commune.ignaux09@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

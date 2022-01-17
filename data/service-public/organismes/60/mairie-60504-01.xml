@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60504-01" codeInsee="60504" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ponchon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>81 rue de la Mairie</Ligne>
+      <CodePostal>60430</CodePostal>
+      <NomCommune>Ponchon</NomCommune>
+      <Localisation>
+         <Latitude>49.3488514</Latitude>
+         <Longitude>2.1953498</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 03 31 58</Téléphone>
+      <Télécopie>03 44 03 46 17</Télécopie>
+      <Email>mairie.de.ponchon@orange.fr</Email>
+      <Url>http://www.ponchon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

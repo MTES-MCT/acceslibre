@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38099-01" codeInsee="38099" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chevrières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 place Vincendon-Dumoulin</Ligne>
+      <CodePostal>38160</CodePostal>
+      <NomCommune>Chevrières</NomCommune>
+      <Localisation>
+         <Latitude>45.187454</Latitude>
+         <Longitude>5.289904</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 64 10 56</Téléphone>
+      <Email>mairie.chevrieres38@orange.fr</Email>
+      <Url>http://www.chevrieres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 8h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

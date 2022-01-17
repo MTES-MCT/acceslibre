@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01388-01" codeInsee="01388" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Trivier-de-Courtes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>111 Grande rue</Ligne>
+      <Ligne>BP 29</Ligne>
+      <CodePostal>01560</CodePostal>
+      <NomCommune>Saint-Trivier-de-Courtes</NomCommune>
+      <Localisation>
+         <Latitude>46.4594993591</Latitude>
+         <Longitude>5.08093976974</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 30 70 32</Téléphone>
+      <Télécopie>04 74 30 76 50</Télécopie>
+      <Email>mairie@stdc.fr</Email>
+      <Url>http://www.saint-trivier-de-courtes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

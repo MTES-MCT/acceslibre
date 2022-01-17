@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-40313-01" codeInsee="40313" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Landes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>102 allées Marines</Ligne>
+      <CodePostal>40400</CodePostal>
+      <NomCommune>Tartas</NomCommune>
+      <Localisation>
+         <Latitude>43.830173</Latitude>
+         <Longitude>-0.806999</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 73 43 79</Téléphone>
+      <Télécopie>05 58 73 31 63</Télécopie>
+      <Email>contact@peche-landes.com</Email>
+      <Url>http://www.peche-landes.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

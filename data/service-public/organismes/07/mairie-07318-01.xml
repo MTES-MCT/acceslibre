@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07318-01" codeInsee="07318" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tauriers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place des Sarpe-Bruges</Ligne>
+      <CodePostal>07110</CodePostal>
+      <NomCommune>Tauriers</NomCommune>
+      <Localisation>
+         <Latitude>44.5522918701</Latitude>
+         <Longitude>4.28076410294</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 39 22 07</Téléphone>
+      <Email>mairie.tauriers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:45:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

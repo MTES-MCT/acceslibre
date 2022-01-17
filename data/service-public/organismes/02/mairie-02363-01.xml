@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02363-01" codeInsee="02363" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Guny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Saint-Georges</Ligne>
+      <CodePostal>02300</CodePostal>
+      <NomCommune>Guny</NomCommune>
+      <Localisation>
+         <Latitude>49.5191612244</Latitude>
+         <Longitude>3.26713490486</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 38 86 79</Téléphone>
+      <Télécopie>03 23 52 81 25</Télécopie>
+      <Email>mairie.guny@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:45:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

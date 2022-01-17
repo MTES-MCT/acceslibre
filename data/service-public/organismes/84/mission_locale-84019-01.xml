@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-84019-01" codeInsee="84019" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Bollène</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre Georges-Brassens</Ligne>
+      <Ligne>Avenue Jean-Moulin</Ligne>
+      <CodePostal>84500</CodePostal>
+      <NomCommune>Bollène</NomCommune>
+      <Localisation>
+         <Latitude>44.292</Latitude>
+         <Longitude>4.7524</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 30 36 40</Téléphone>
+      <Télécopie>04 90 30 36 48</Télécopie>
+      <Email>accueil.bollene@mlhv.com</Email>
+      <Url>http://www.cnml.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:30:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

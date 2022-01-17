@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="49007" dateMiseAJour="2021-12-14" id="cour_appel-49007-01" idPresta="4cac9e5f293594648a0002e9" pivotLocal="cour_appel">
+    <Nom>Cour d'appel d'Angers</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>RUE WALDECK ROUSSEAU</Ligne>
+        <CodePostal>49043</CodePostal>
+        <NomCommune>ANGERS CEDEX 01</NomCommune>
+        <Localisation>
+            <Latitude>47.471103</Latitude>
+            <Longitude>-0.544266</Longitude>
+            <Précision>6</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>RUE WALDECK ROUSSEAU</Ligne>
+        <CodePostal>49043</CodePostal>
+        <NomCommune>ANGERS CEDEX 01</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 41 20 51 00</Téléphone>
+        <Email>mailto:ca-angers@justice.fr</Email>
+        <Url>https://www.cours-appel.justice.fr/angers</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

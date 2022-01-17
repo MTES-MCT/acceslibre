@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51441-01" codeInsee="51441" dateMiseAJour="2016-07-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ponthion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'Église</Ligne>
+      <CodePostal>51300</CodePostal>
+      <NomCommune>Ponthion</NomCommune>
+      <Localisation>
+         <Latitude>48.7588920593</Latitude>
+         <Longitude>4.71209096909</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 73 44 04</Téléphone>
+      <Télécopie>03 26 73 44 04</Télécopie>
+      <Email>mairie.commune-de-ponthion@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

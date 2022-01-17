@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24495-01" codeInsee="24495" dateMiseAJour="2021-02-02"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Romain-de-Monpazier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24540</CodePostal>
+      <NomCommune>Saint-Romain-de-Monpazier</NomCommune>
+      <Localisation>
+         <Latitude>44.717238</Latitude>
+         <Longitude>0.872666</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 23 99 80</Téléphone>
+      <Email>mairie.saint.romain.de.monpazier@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

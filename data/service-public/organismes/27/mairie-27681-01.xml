@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27681-01" codeInsee="27681" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vernon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Barette</Ligne>
+      <Ligne>BP 903</Ligne>
+      <CodePostal>27207</CodePostal>
+      <NomCommune>Vernon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.0929985046</Latitude>
+         <Longitude>1.48512995243</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro vert : service et appel gratuits.">08 00 02 72 00</Téléphone>
+      <Télécopie>02 32 64 38 01</Télécopie>
+      <Email>mairie@vernon27.fr</Email>
+      <Url>http://www.vernon27.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvelle ordre l'accueil de 17h30 à 19h se fait uniquement sur rendez-vous, fermeture à 17h30 en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

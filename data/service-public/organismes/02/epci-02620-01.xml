@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-02620-01" codeInsee="02620" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Val de l'Aisne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 ter rue du Bois-Morin</Ligne>
+      <CodePostal>02370</CodePostal>
+      <NomCommune>Presles-et-Boves</NomCommune>
+      <Localisation>
+         <Latitude>49.395026</Latitude>
+         <Longitude>3.5126358</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 54 05 81</Téléphone>
+      <Télécopie>03 23 54 52 70</Télécopie>
+      <Email>accueil@cc-valdeaisne.fr</Email>
+      <Url>http://www.cc-valdeaisne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

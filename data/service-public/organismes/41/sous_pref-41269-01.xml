@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-41269-01" codeInsee="41269" dateMiseAJour="2021-02-15"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture de Vendôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8, place Saint-Martin</Ligne>
+      <CodePostal>41106</CodePostal>
+      <NomCommune>Vendôme Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.7918263</Latitude>
+         <Longitude>1.06660599999</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet ou majoré : coût d'un appel vers un numéro fixe + service payant. Pour connaître le tarif, écoutez le message en début d’appel  ou composez le 30 08 (appel gratuit)">0810 02 41 41</Téléphone>
+      <Télécopie>+33 2 54 73 20 98</Télécopie>
+      <Email>sous-prefecture-de-vendome@loir-et-cher.pref.gouv.fr</Email>
+      <Url>http://www.loir-et-cher.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-28134-02" codeInsee="28134" dateMiseAJour="2021-11-30" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Dreux 3</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Henri-Dunant</Ligne>
+      <CodePostal>28100</CodePostal>
+      <NomCommune>Dreux</NomCommune>
+      <Localisation>
+         <Latitude>48.736634</Latitude>
+         <Longitude>1.384723</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 65 82 66</Téléphone>
+      <Email>pmi.dreux3@eurelien.fr</Email>
+      <Url>https://www.eurelien.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

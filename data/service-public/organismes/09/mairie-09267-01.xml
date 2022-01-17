@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09267-01" codeInsee="09267" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Lary</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Portet</Ligne>
+      <CodePostal>09800</CodePostal>
+      <NomCommune>Saint-Lary</NomCommune>
+      <Localisation>
+         <Latitude>42.9292</Latitude>
+         <Longitude>0.894</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 96 81 08</Téléphone>
+      <Email>mairie.saint-lary@wanadoo.fr</Email>
+      <Url>http://www.saint-lary-ariege-pyrenees.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

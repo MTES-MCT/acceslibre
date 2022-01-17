@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="89024" dateMiseAJour="2021-12-14" id="prudhommes-89024-01" idPresta="4cac9ed6293594648a00ed7d" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Auxerre</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>90 RUE DE PARIS</Ligne>
+        <CodePostal>89011</CodePostal>
+        <NomCommune>AUXERRE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.798361</Latitude>
+            <Longitude>3.569269</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>90 RUE DE PARIS</Ligne>
+        <CodePostal>89011</CodePostal>
+        <NomCommune>AUXERRE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 86 72 07 89</Téléphone>
+        <Télécopie>03 86 72 07 90</Télécopie>
+        <Email>mailto:cph-auxerre@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="09:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="mercredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="vendredi">
+            <PlageH début="09:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

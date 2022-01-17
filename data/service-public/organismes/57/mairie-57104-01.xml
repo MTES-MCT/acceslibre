@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57104-01" codeInsee="57104" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Boust</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>63 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>57570</CodePostal>
+      <NomCommune>Boust</NomCommune>
+      <Localisation>
+         <Latitude>49.4356002808</Latitude>
+         <Longitude>6.19407987595</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 50 30 48</Téléphone>
+      <Télécopie>03 82 50 30 36</Télécopie>
+      <Email>communedeboust@orange.fr</Email>
+      <Url>http://www.boust.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé pendant les congés scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

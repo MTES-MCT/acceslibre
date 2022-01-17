@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42136-01" codeInsee="42136" dateMiseAJour="2020-05-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marcoux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>280 rue du Bourg</Ligne>
+      <CodePostal>42130</CodePostal>
+      <NomCommune>Marcoux</NomCommune>
+      <Localisation>
+         <Latitude>45.7371927</Latitude>
+         <Longitude>4.0534559</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 97 41 16</Téléphone>
+      <Email>mairiedemarcoux42@wanadoo.fr</Email>
+      <Url>http://www.villagedemarcoux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

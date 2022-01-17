@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-27229-01" codeInsee="27229" dateMiseAJour="2021-10-25"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Eure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>Boulevard Georges-Chauvin</Ligne>
+      <CodePostal>27023</CodePostal>
+      <NomCommune>Évreux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.025496</Latitude>
+         <Longitude>1.14302</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 24 86 01</Téléphone>
+      <Email>ddets@eure.gouv.fr</Email>
+      <Url>https://www.eure.gouv.fr/index.php/Services-de-l-Etat/Emploi-travail-et-solidarites/Direction-departementale-de-l-emploi-du-travail-et-des-solidarites-DDETS</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>De préférence sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

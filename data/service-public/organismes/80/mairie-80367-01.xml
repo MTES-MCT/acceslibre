@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80367-01" codeInsee="80367" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Frise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'Église</Ligne>
+      <CodePostal>80340</CodePostal>
+      <NomCommune>Frise</NomCommune>
+      <Localisation>
+         <Latitude>49.941538</Latitude>
+         <Longitude>2.819176</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accueil accessible et l'agent descend au rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 84 46 45</Téléphone>
+      <Télécopie>03 22 84 46 45</Télécopie>
+      <Email>mairie.frise@wanadoo.fr</Email>
+      <Url>http://www.commune-frise.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

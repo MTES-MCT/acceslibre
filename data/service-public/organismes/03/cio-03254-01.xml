@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-03254-01" codeInsee="03254" dateMiseAJour="2021-01-20" pivotLocal="cio">
+   <Nom>Centre d'information et d'orientation (CIO) - Moulins-Yzeure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pavillon des Marronniers</Ligne>
+      <Ligne>20 rue Aristide-Briand</Ligne>
+      <CodePostal>03400</CodePostal>
+      <NomCommune>Yzeure</NomCommune>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 43 57 21 10</Téléphone>
+      <Email>cio.yzeure@ac-clermont.fr</Email>
+      <Url>http://www.ac-clermont.fr/cio/yzeure/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57234-01" codeInsee="57234" dateMiseAJour="2021-08-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Frauenberg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 A rue Principale</Ligne>
+      <CodePostal>57200</CodePostal>
+      <NomCommune>Frauenberg</NomCommune>
+      <Localisation>
+         <Latitude>49.1370105</Latitude>
+         <Longitude>7.1274441</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 95 25 24</Téléphone>
+      <Email>frauenberg.mairie@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence du maire le Mercredi de 9h à 12h et le Vendredi de 14h à 18h. Permanence des adjoints au maire le Lundi de 18h à 19h et le Vendredi de 17h à 18h.</Commentaire>
+</Organisme>

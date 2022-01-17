@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60277-01" codeInsee="60277" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Goincourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue Jean-Jaurès</Ligne>
+      <CodePostal>60000</CodePostal>
+      <NomCommune>Goincourt</NomCommune>
+      <Localisation>
+         <Latitude>49.4257011414</Latitude>
+         <Longitude>2.03816008568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 45 14 87</Téléphone>
+      <Télécopie>03 44 45 14 89</Télécopie>
+      <Email>mairie-goincourt@orange.fr</Email>
+      <Url>http://www.goincourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

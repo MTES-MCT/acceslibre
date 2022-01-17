@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68112-01" codeInsee="68112" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Guebwiller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>73 rue de la République</Ligne>
+      <Ligne>BP 159</Ligne>
+      <CodePostal>68503</CodePostal>
+      <NomCommune>Guebwiller Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.9095993042</Latitude>
+         <Longitude>7.21100997925</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 76 80 61</Téléphone>
+      <Télécopie>03 89 74 13 23</Télécopie>
+      <Email>accueil@ville-guebwiller.fr</Email>
+      <Url>http://www.ville-guebwiller.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35258-01" codeInsee="35258" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Brieuc-des-Iffs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue du Lin-et-du-Chanvre</Ligne>
+      <CodePostal>35630</CodePostal>
+      <NomCommune>Saint-Brieuc-des-Iffs</NomCommune>
+      <Localisation>
+         <Latitude>48.292748</Latitude>
+         <Longitude>-1.849827</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 45 87 14</Téléphone>
+      <Email>mairie@saintbrieucdesiffs.fr</Email>
+      <Url>http://www.saintbrieucdesiffs.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="18:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

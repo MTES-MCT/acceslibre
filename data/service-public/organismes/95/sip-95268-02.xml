@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-95268-02" codeInsee="95268" dateMiseAJour="2022-01-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers de Garges-lès-Gonesse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Louis Marteau</Ligne>
+      <Ligne>BP 200</Ligne>
+      <CodePostal>95143</CodePostal>
+      <NomCommune>Garges-lès-Gonesse</NomCommune>
+      <Localisation>
+         <Latitude>48.971143</Latitude>
+         <Longitude>2.385297</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 53 38 00</Téléphone>
+      <Email>sip.garges-exterieur@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <Note>Uniquement sur rendez-vous les Lundi, Mardi, Vendredi de 13h30 à 16h00 et Mercredi matin.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée
+disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

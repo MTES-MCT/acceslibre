@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-73231-01" codeInsee="73231" dateMiseAJour="2021-09-14"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Étienne-de-Cuines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>98 route de la Combe</Ligne>
+      <CodePostal>73130</CodePostal>
+      <NomCommune>Saint-Étienne-de-Cuines</NomCommune>
+      <Localisation>
+         <Latitude>45.341694</Latitude>
+         <Longitude>6.290453</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 56 22 66</Téléphone>
+      <Email>franceservice@declicc73.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

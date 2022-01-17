@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07255-01" codeInsee="07255" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Julien-en-Saint-Alban</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Fernand-Vinson</Ligne>
+      <CodePostal>07000</CodePostal>
+      <NomCommune>Saint-Julien-en-Saint-Alban</NomCommune>
+      <Localisation>
+         <Latitude>44.754249</Latitude>
+         <Longitude>4.6971229</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied sur le côté du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 20 90 00</Téléphone>
+      <Télécopie>04 75 20 90 09</Télécopie>
+      <Email>mairie@saint-julien-en-saint-alban.fr</Email>
+      <Url>http://www.saint-julien-en-saint-alban.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire contact par téléphone ou mail de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

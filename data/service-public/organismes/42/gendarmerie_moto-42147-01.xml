@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie_moto-42147-01" codeInsee="42147" dateMiseAJour="2021-01-18"
+           pivotLocal="gendarmerie_moto"
+           idPresta="1009001">
+   <Nom>Gendarmerie - Brigade motorisée - Montbrison</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 Avenue Paul Cézanne</Ligne>
+      <Ligne>Caserne Gabriel</Ligne>
+      <CodePostal>42600</CodePostal>
+      <NomCommune>Montbrison</NomCommune>
+      <Localisation>
+         <Latitude>45.61131107</Latitude>
+         <Longitude>4.05538279</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 96 62 20</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

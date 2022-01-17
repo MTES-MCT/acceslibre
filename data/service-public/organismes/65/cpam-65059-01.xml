@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-65059-01" codeInsee="65059" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) des Hautes-Pyrénées - accueil de Bagnères-de-Bigorre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>30 avenue Géruzet</Ligne>
+      <CodePostal>65200</CodePostal>
+      <NomCommune>Bagnères-de-Bigorre</NomCommune>
+      <Localisation>
+         <Latitude>43.0678618</Latitude>
+         <Longitude>0.1498955</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie des Hautes-Pyrénées</Ligne>
+      <Ligne>8 place au Bois</Ligne>
+      <CodePostal>65021</CodePostal>
+      <NomCommune>Tarbes Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>La CPAM vous reçoit essentiellement sur rendez-vous téléphonique (ou physique, si votre demande ne peut être traitée par téléphone), pour prendre rendez-vous connectez-vous à votre compte ameli ou contactez le 36 46 du lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

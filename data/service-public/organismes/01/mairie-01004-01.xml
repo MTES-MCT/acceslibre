@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01004-01" codeInsee="01004" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ambérieu-en-Bugey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Robert-Marcelpoil</Ligne>
+      <Ligne>BP 429</Ligne>
+      <CodePostal>01504</CodePostal>
+      <NomCommune>Ambérieu-en-Bugey Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.9578018188</Latitude>
+         <Longitude>5.35882997513</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 46 17 00</Téléphone>
+      <Email>secretariat@mairie-amberieuenbugey.fr</Email>
+      <Url>http://www.ville-amberieuenbugey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

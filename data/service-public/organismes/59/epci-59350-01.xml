@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-59350-01" codeInsee="59350" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Métropole - Européenne de Lille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 boulevards des Citées-Unies</Ligne>
+      <Ligne>CS 70043</Ligne>
+      <CodePostal>59040</CodePostal>
+      <NomCommune>Lille Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.631568908691406</Latitude>
+         <Longitude>3.0794219970703125</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 21 22 23</Téléphone>
+      <Télécopie>03 20 83 03 82</Télécopie>
+      <Email>contact@lillemetropole.fr</Email>
+      <Url>http://www.lillemetropole.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:45:00"/>
+         <PlageH début="13:15:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03018-01" codeInsee="03018" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bayet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue des Luminaires</Ligne>
+      <CodePostal>03500</CodePostal>
+      <NomCommune>Bayet</NomCommune>
+      <Localisation>
+         <Latitude>46.2506905</Latitude>
+         <Longitude>3.2694377</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 45 32 26</Téléphone>
+      <Télécopie>04 70 45 69 32</Télécopie>
+      <Email>mairie-bayet@wanadoo.fr</Email>
+      <Url>http://www.bayet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54339-01" codeInsee="54339" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Malzéville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue du Général-de-Gaulle</Ligne>
+      <Ligne>BP 20016</Ligne>
+      <CodePostal>54220</CodePostal>
+      <NomCommune>Malzéville</NomCommune>
+      <Localisation>
+         <Latitude>48.7082739</Latitude>
+         <Longitude>6.1824116</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 29 43 78</Téléphone>
+      <Télécopie>03 83 21 29 49</Télécopie>
+      <Email>administration@malzeville.fr</Email>
+      <Url>http://www.malzeville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61278-01" codeInsee="61278" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Messei</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 boulevard du Général-de-Gaulle</Ligne>
+      <CodePostal>61440</CodePostal>
+      <NomCommune>Messei</NomCommune>
+      <Localisation>
+         <Latitude>48.711314</Latitude>
+         <Longitude>-0.540809</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 96 71 99</Téléphone>
+      <Télécopie>02 33 64 82 03</Télécopie>
+      <Email>mairie.accueil@messei-normandie.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90064-01" codeInsee="90064" dateMiseAJour="2018-05-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lepuix Neuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Amitié et de la Fraternité</Ligne>
+      <CodePostal>90100</CodePostal>
+      <NomCommune>Lepuix Neuf</NomCommune>
+      <Localisation>
+         <Latitude>47.5378723145</Latitude>
+         <Longitude>7.10135793686</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 29 66 90</Téléphone>
+      <Télécopie>03 84 29 66 90</Télécopie>
+      <Email>lepuixneuf.mairie@free.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

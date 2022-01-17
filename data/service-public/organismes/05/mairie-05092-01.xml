@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05092-01" codeInsee="05092" dateMiseAJour="2021-10-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neffes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>05000</CodePostal>
+      <NomCommune>Neffes</NomCommune>
+      <Localisation>
+         <Latitude>44.5044708252</Latitude>
+         <Longitude>6.02252817154</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 57 80 87</Téléphone>
+      <Télécopie>04 92 57 96 28</Télécopie>
+      <Email>mairie.neffes@wanadoo.fr</Email>
+      <Url>https://www.mairieneffes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Permanence du maire le vendredi à partir de 17h30 sans rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence du maire :
+
+vendredi de 17h30 à 18h30</Commentaire>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-89418-01" codeInsee="89418" dateMiseAJour="2021-02-16"
+           pivotLocal="msap">
+   <Nom>France Services - Tonnerre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Sémaphore</Ligne>
+      <Ligne>2 avenue de la Gare</Ligne>
+      <CodePostal>89700</CodePostal>
+      <NomCommune>Tonnerre</NomCommune>
+      <Localisation>
+         <Latitude>47.858908</Latitude>
+         <Longitude>3.974357</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 54 87 00</Téléphone>
+      <Email>msap@ccltb.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/tonnerre</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

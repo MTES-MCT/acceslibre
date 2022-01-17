@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="27229" dateMiseAJour="2021-12-14" id="prudhommes-27229-01" idPresta="4cac9ed6293594648a00ed64" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Evreux</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>7 RUE DE LA PETITE CITE</Ligne>
+        <CodePostal>27009</CodePostal>
+        <NomCommune>EVREUX CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.025202</Latitude>
+            <Longitude>1.149696</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>7 RUE DE LA PETITE CITE</Ligne>
+        <CodePostal>27009</CodePostal>
+        <NomCommune>EVREUX CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 32 07 02 95</Téléphone>
+        <Email>mailto:cph-evreux@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

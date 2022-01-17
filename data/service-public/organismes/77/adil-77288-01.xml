@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-77288-01" codeInsee="77288" dateMiseAJour="2021-04-12"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Seine-et-Marne - Melun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 place Praslin</Ligne>
+      <CodePostal>77000</CodePostal>
+      <NomCommune>Melun</NomCommune>
+      <Localisation>
+         <Latitude>48.536985</Latitude>
+         <Longitude>2.657248</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 87 09 87</Téléphone>
+      <Email>info@adil77.org</Email>
+      <Url>http://www.adil77.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

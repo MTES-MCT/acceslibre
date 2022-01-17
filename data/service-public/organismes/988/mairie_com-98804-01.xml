@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie_com-98804-01" codeInsee="98804" dateMiseAJour="2021-10-20"
+           pivotLocal="mairie_com">
+   <Nom>Mairie - Canala</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Marcel Nonnaro</Ligne>
+      <CodePostal>98813</CodePostal>
+      <NomCommune>Canala</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+687 42 31 09</Téléphone>
+      <Télécopie>+687 42 32 67</Télécopie>
+      <Email>accueil@mairie-canala.nc</Email>
+      <Url>https://service-public.nc/annuaire/mairie-de-canala</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:45:00" fin="11:30:00"/>
+         <PlageH début="12:30:00" fin="15:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:45:00" fin="11:30:00"/>
+         <PlageH début="12:30:00" fin="14:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

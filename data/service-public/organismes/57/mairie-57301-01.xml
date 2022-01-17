@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57301-01" codeInsee="57301" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Haspelschiedt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue du Général-Stuhl</Ligne>
+      <CodePostal>57230</CodePostal>
+      <NomCommune>Haspelschiedt</NomCommune>
+      <Localisation>
+         <Latitude>49.0867004395</Latitude>
+         <Longitude>7.4841799736</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 96 54 24</Téléphone>
+      <Télécopie>03 87 96 67 14</Télécopie>
+      <Email>mairie.haspelschiedt@tubeo.fr</Email>
+      <Url>http://www.haspelschiedt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

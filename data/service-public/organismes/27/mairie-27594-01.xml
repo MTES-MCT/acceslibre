@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27594-01" codeInsee="27594" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pierre-des-Ifs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1099 Grande rue</Ligne>
+      <CodePostal>27450</CodePostal>
+      <NomCommune>Saint-Pierre-des-Ifs</NomCommune>
+      <Localisation>
+         <Latitude>49.270024</Latitude>
+         <Longitude>0.608151</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 56 02 67</Téléphone>
+      <Email>st-pierre-des-ifs-27@orange.fr</Email>
+      <Url>http://www.saintpierredesifs27.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

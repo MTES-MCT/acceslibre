@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-06057-01" codeInsee="06057" dateMiseAJour="2018-05-02"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Blaussac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>221 avenue Honoré Donadey</Ligne>
+      <Ligne>Centre local d'information et de coordination des Paillons</Ligne>
+      <Ligne>Quartier L'Olivier</Ligne>
+      <CodePostal>06440</CodePostal>
+      <NomCommune>L'Escarène</NomCommune>
+      <Localisation>
+         <Latitude>43.842103</Latitude>
+         <Longitude>7.37702</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 55 79 78</Téléphone>
+      <Télécopie>04 93 91 65 50</Télécopie>
+      <Email>clic-des-paillons@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

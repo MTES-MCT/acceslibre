@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="30189" dateMiseAJour="2021-06-25" id="bav-30189-01" idPresta="4d5e57a02935941fe900001e" pivotLocal="bav">
+    <Nom>Bureau d'aide aux victimes du tribunal judiciaire de Nimes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>BOULEVARD DES ARENES</Ligne>
+        <CodePostal>30031</CodePostal>
+        <NomCommune>NIMES CEDEX 1</NomCommune>
+        <Localisation>
+            <Latitude>43.835382</Latitude>
+            <Longitude>4.359208</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 66 76 47 00</Téléphone>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

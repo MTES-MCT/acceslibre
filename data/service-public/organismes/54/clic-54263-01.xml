@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-54263-01" codeInsee="54263" dateMiseAJour="2019-12-31"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Homécourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de Briey</Ligne>
+      <Ligne>Maison du département</Ligne>
+      <Ligne>3 place de l'Hôtel-des-Ouvriers</Ligne>
+      <CodePostal>54310</CodePostal>
+      <NomCommune>Homécourt</NomCommune>
+      <Localisation>
+         <Latitude>49.218163</Latitude>
+         <Longitude>6.003123</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 57 49 81 10</Téléphone>
+      <Email>stabriey@departement54.fr</Email>
+      <Url>http://www.meurthe-et-moselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

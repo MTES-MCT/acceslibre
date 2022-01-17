@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14752-01" codeInsee="14752" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-Bocage</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Maréchal-Leclerc</Ligne>
+      <Ligne>BP 48</Ligne>
+      <CodePostal>14310</CodePostal>
+      <NomCommune>Villers-Bocage</NomCommune>
+      <Localisation>
+         <Latitude>49.0806884766</Latitude>
+         <Longitude>-0.654726028442</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 77 02 18</Téléphone>
+      <Télécopie>02 31 77 34 02</Télécopie>
+      <Email>mairie@villersbocage14.fr</Email>
+      <Url>http://www.villers-bocage.info</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

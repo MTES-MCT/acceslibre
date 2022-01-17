@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-62525-01" codeInsee="62525"
+           dateMiseAJour="2017-10-05"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Saint-Omer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Site des particuliers</Ligne>
+      <Ligne>1 allée Honoré-de-Balzac</Ligne>
+      <Ligne>BP 30009</Ligne>
+      <CodePostal>62967</CodePostal>
+      <NomCommune>Longuenesse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.7402000427</Latitude>
+         <Longitude>2.27255988121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 98 76 76</Téléphone>
+      <Télécopie>03 21 98 76 90</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

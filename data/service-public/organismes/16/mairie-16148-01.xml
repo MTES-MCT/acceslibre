@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16148-01" codeInsee="16148" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Genac-Bignac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Genac</Ligne>
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>16170</CodePostal>
+      <NomCommune>Genac-Bignac</NomCommune>
+      <Localisation>
+         <Latitude>47.7688572</Latitude>
+         <Longitude>-2.3183591</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 21 72 06</Téléphone>
+      <Télécopie>09 70 61 57 07</Télécopie>
+      <Email>mairie-genac@wanadoo.fr</Email>
+      <Url>http://www.genac-bignac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25628-01" codeInsee="25628" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-sous-Montrond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de l'Église</Ligne>
+      <CodePostal>25620</CodePostal>
+      <NomCommune>Villers-sous-Montrond</NomCommune>
+      <Localisation>
+         <Latitude>47.1447982788</Latitude>
+         <Longitude>6.08720016479</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 86 70 64</Téléphone>
+      <Email>mairievillerssousmontrond@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique le mardi de 8h30 à 11h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

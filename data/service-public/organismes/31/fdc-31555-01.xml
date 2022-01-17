@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdc-31555-01" codeInsee="31555" dateMiseAJour="2021-05-18" pivotLocal="fdc">
+   <Nom>Fédération départementale des chasseurs - Haute-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 avenue Jean-Gonord</Ligne>
+      <Ligne>CS 85861</Ligne>
+      <CodePostal>31506</CodePostal>
+      <NomCommune>Toulouse Cedex 5</NomCommune>
+      <Localisation>
+         <Latitude>43.5887731</Latitude>
+         <Longitude>1.491158</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 71 59 39</Téléphone>
+      <Télécopie>05 62 71 59 38</Télécopie>
+      <Email>fdc31@chasseurdefrance.com</Email>
+      <Url>https://www.chasse-nature-occitanie.fr/haute-garonne/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

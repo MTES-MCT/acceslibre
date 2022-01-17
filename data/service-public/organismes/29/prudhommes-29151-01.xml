@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="29151" dateMiseAJour="2021-12-14" id="prudhommes-29151-01" idPresta="4cac9e5e293594648a00006c" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Morlaix</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 ALLEE DU POAN BEN</Ligne>
+        <CodePostal>29679</CodePostal>
+        <NomCommune>MORLAIX CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.576512</Latitude>
+            <Longitude>-3.823123</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 ALLEE DU POAN BEN</Ligne>
+        <CodePostal>29679</CodePostal>
+        <NomCommune>MORLAIX CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 98 88 64 51</Téléphone>
+        <Télécopie>02 98 88 30 01</Télécopie>
+        <Email>mailto:cph-morlaix@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

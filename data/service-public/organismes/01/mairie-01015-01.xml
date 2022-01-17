@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01015-01" codeInsee="01015" dateMiseAJour="2021-10-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arboys-en-Bugey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>01300</CodePostal>
+      <NomCommune>Arboys-en-Bugey</NomCommune>
+      <Localisation>
+         <Latitude>45.7286338806</Latitude>
+         <Longitude>5.65058994293</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 81 34 92</Téléphone>
+      <Email>mairie@arboysenbugey.com</Email>
+      <Url>http://www.arboysenbugey.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

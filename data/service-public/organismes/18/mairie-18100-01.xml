@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18100-01" codeInsee="18100" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Genouilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>49 rue du Bas-Bourg</Ligne>
+      <CodePostal>18310</CodePostal>
+      <NomCommune>Genouilly</NomCommune>
+      <Localisation>
+         <Latitude>47.1913986206</Latitude>
+         <Longitude>1.88827002048</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 52 21 62</Téléphone>
+      <Télécopie>02 48 52 26 35</Télécopie>
+      <Email>mairie.genouillycher@orange.fr</Email>
+      <Url>http://www.cc-vierzon.frcommune/genouilly</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

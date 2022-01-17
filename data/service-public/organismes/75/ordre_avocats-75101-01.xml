@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-75101-01" codeInsee="75101" dateMiseAJour="2019-02-22"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 place Dauphine</Ligne>
+      <CodePostal>75053</CodePostal>
+      <NomCommune>Paris Cedex 01</NomCommune>
+      <Localisation>
+         <Latitude>48.856236</Latitude>
+         <Longitude>2.34238</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 80 27 19 20</Téléphone>
+      <Email>accueil_palais@avocatparis.org</Email>
+      <Url>http://www.avocatparis.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

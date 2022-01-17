@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="54395" dateMiseAJour="2021-12-14" id="cour_appel-54395-01" idPresta="4cac9e5f293594648a000308" pivotLocal="cour_appel">
+    <Nom>Cour d'appel de Nancy</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>3 RUE SUZANNE REGNAULT-GOUSSET</Ligne>
+        <Ligne>CO 90010</Ligne>
+        <CodePostal>54035</CodePostal>
+        <NomCommune>NANCY CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.694744</Latitude>
+            <Longitude>6.183152</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>3 RUE SUZANNE REGNAULT-GOUSSET</Ligne>
+        <Ligne>CO 90010</Ligne>
+        <CodePostal>54035</CodePostal>
+        <NomCommune>NANCY CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 83 17 24 00</Téléphone>
+        <Télécopie>03 83 17 24 84</Télécopie>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+            <Note>Chaque service a son numéro de télécopieur :
+- Parquet général : 03 83 17 24 88,
+- 1ère Présidence : 03 83 17 24 27,
+- Chambre sociale : 03 83 17 24 87,
+- Chaîne pénale : 03 83 17 24 83,</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

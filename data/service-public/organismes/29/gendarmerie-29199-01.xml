@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie-29199-01" codeInsee="29199" dateMiseAJour="2019-01-22"
+           pivotLocal="gendarmerie"
+           idPresta="1006348">
+   <Nom>Brigade de gendarmerie - Plouigneau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>39 Avenue du Maréchal Leclerc</Ligne>
+      <CodePostal>29610</CodePostal>
+      <NomCommune>Plouigneau</NomCommune>
+      <Localisation>
+         <Latitude>48.5692046</Latitude>
+         <Longitude>-3.69980658</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 67 70 05</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

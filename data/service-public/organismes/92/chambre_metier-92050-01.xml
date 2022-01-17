@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-92050-01" codeInsee="92050" dateMiseAJour="2019-06-17"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Hauts-de-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 bis rue des Venêts</Ligne>
+      <Ligne>BP 1410</Ligne>
+      <CodePostal>92014</CodePostal>
+      <NomCommune>Nanterre</NomCommune>
+      <Localisation>
+         <Latitude>48.8899993896</Latitude>
+         <Longitude>2.20307993889</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur coté parking, accès plain-pied au sous sol pour accéder a l’ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 47 29 43 43</Téléphone>
+      <Télécopie>01 47 29 43 00</Télécopie>
+      <Email>contact@cma-nanterre.fr</Email>
+      <Url>http://www.cma92.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert en juillet-août de 8h30 à 16h, fermé du 1er au 15 août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02585-01" codeInsee="02585" dateMiseAJour="2017-11-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parcy-et-Tigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>02210</CodePostal>
+      <NomCommune>Parcy-et-Tigny</NomCommune>
+      <Localisation>
+         <Latitude>49.2773017883</Latitude>
+         <Longitude>3.39312005043</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 55 35 72</Téléphone>
+      <Télécopie>03 23 55 35 72</Télécopie>
+      <Email>mairie.parcy-tigny@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42313-01" codeInsee="42313" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Trelins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue de l'Église</Ligne>
+      <CodePostal>42130</CodePostal>
+      <NomCommune>Trelins</NomCommune>
+      <Localisation>
+         <Latitude>45.7317395</Latitude>
+         <Longitude>4.0078841</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 24 02 02</Téléphone>
+      <Email>mairie.trelins@wanadoo.fr</Email>
+      <Url>http://www.trelins.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert au public uniquement le vendredi les autres jours sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert au public uniquement le vendredi les autres jours sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert au public uniquement le vendredi les autres jours sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert au public uniquement le vendredi les autres jours sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

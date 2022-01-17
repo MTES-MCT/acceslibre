@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-49174-02" codeInsee="49174" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Huillé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Huillé</Ligne>
+      <Ligne>18 rue Pierre-le-Loyer</Ligne>
+      <CodePostal>49430</CodePostal>
+      <NomCommune>Huillé-Lézigné</NomCommune>
+      <Localisation>
+         <Latitude>47.6477470398</Latitude>
+         <Longitude>-0.304811000824</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 76 91 64</Téléphone>
+      <Email>accueil@huille-Lezigne.fr</Email>
+      <Url>http://www.huille-lezigne.mairie49.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

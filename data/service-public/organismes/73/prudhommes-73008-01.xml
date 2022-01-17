@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="73008" dateMiseAJour="2021-12-14" id="prudhommes-73008-01" idPresta="4cac9ed6293594648a00ed74" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Aix-les-Bains</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>12 RUE ISALINE</Ligne>
+        <CodePostal>73100</CodePostal>
+        <NomCommune>AIX LES BAINS</NomCommune>
+        <Localisation>
+            <Latitude>45.685027</Latitude>
+            <Longitude>5.914304</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>12 RUE ISALINE</Ligne>
+        <CodePostal>73100</CodePostal>
+        <NomCommune>AIX LES BAINS</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 79 61 37 24</Téléphone>
+        <Télécopie>04 79 88 98 25</Télécopie>
+        <Email>mailto:cph-aix-les-bains@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

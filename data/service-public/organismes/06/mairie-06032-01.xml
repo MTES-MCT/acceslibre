@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06032-01" codeInsee="06032" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cap-d'Ail</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>62 avenue du 3-Septembre</Ligne>
+      <CodePostal>06320</CodePostal>
+      <NomCommune>Cap-d'Ail</NomCommune>
+      <Localisation>
+         <Latitude>43.72208</Latitude>
+         <Longitude>7.405839</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 10 59 59</Téléphone>
+      <Télécopie>04 92 10 59 60</Télécopie>
+      <Email>secretariatmaire@cap-dail.fr</Email>
+      <Url>http://www.cap-dail.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

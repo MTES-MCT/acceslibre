@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25539-01" codeInsee="25539" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seloncourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>131 rue du Général-Leclerc</Ligne>
+      <Ligne>CS 29009</Ligne>
+      <CodePostal>25230</CodePostal>
+      <NomCommune>Seloncourt</NomCommune>
+      <Localisation>
+         <Latitude>47.4613451</Latitude>
+         <Longitude>6.8595443</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 34 11 31</Téléphone>
+      <Télécopie>03 81 37 19 94</Télécopie>
+      <Email>contact@mairie-seloncourt.fr</Email>
+      <Url>http://www.seloncourt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

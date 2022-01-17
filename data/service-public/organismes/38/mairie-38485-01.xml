@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38485-01" codeInsee="38485" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seyssinet-Pariset</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place André-Balme</Ligne>
+      <Ligne>BP 44</Ligne>
+      <CodePostal>38170</CodePostal>
+      <NomCommune>Seyssinet-Pariset</NomCommune>
+      <Localisation>
+         <Latitude>45.1804008484</Latitude>
+         <Longitude>5.69712018967</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 70 53 53</Téléphone>
+      <Télécopie>04 76 70 12 03</Télécopie>
+      <Email>ville@seyssinet-pariset.fr</Email>
+      <Url>http://www.ville-seyssinet-pariset.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

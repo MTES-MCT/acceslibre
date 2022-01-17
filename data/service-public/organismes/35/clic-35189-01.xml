@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-35189-01" codeInsee="35189" dateMiseAJour="2020-02-03"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Montgermont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Marin Marie</Ligne>
+      <Ligne>Centre local d'information et de coordination - Noroit</Ligne>
+      <CodePostal>35760</CodePostal>
+      <NomCommune>Montgermont</NomCommune>
+      <Localisation>
+         <Latitude>48.154443</Latitude>
+         <Longitude>-1.718521</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 35 49 52</Téléphone>
+      <Email>contact@clic-noroit.fr</Email>
+      <Url>http://www.clic-noroit.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous mercredi matin et tous les après-midi</Commentaire>
+</Organisme>

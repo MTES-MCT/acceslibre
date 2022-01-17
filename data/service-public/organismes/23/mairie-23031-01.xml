@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23031-01" codeInsee="23031" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Boussac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>23600</CodePostal>
+      <NomCommune>Boussac</NomCommune>
+      <Localisation>
+         <Latitude>46.3484992981</Latitude>
+         <Longitude>2.21447992325</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 65 01 09</Téléphone>
+      <Télécopie>05 55 65 83 97</Télécopie>
+      <Email>mairieboussac23@wanadoo.fr</Email>
+      <Url>http://www.boussac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence administrative et du maire. Accueil fermé du 15 juillet au 15 août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

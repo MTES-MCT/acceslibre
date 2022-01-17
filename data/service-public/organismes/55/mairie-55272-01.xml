@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-55272-01" codeInsee="55272" dateMiseAJour="2020-02-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Laimont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Basse</Ligne>
+      <CodePostal>55800</CodePostal>
+      <NomCommune>Laimont</NomCommune>
+      <Localisation>
+         <Latitude>48.834148</Latitude>
+         <Longitude>5.04417</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 70 58 65</Téléphone>
+      <Télécopie>03 29 70 51 82</Télécopie>
+      <Email>mairie.laimont@wanadoo.fr</Email>
+      <Url>http://www.laimont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="09:45:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="09:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Le premier samedi de chaque mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

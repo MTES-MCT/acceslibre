@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_metropole_lyon-69256-01" codeInsee="69256"
+           dateMiseAJour="2019-09-20"
+           pivotLocal="maison_metropole_lyon">
+   <Nom>Maison de la Métropole de Lyon - Vaulx-en-Velin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue Condorcet</Ligne>
+      <Ligne>Îlot A</Ligne>
+      <CodePostal>69120</CodePostal>
+      <NomCommune>Vaulx-en-Velin</NomCommune>
+      <Localisation>
+         <Latitude>45.77826959</Latitude>
+         <Longitude>4.91888917</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 79 52 40</Téléphone>
+      <Télécopie>04 26 99 31 66</Télécopie>
+      <Email>mdm.vaulx-en-velin@grandlyon.com</Email>
+      <Url>https://www.grandlyon.com/services/qu-est-ce-que-les-maisons-de-la-metropole.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermé le mardi matin et le vendredi à partir de 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

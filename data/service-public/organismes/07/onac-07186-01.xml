@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="onac-07186-01" codeInsee="07186" dateMiseAJour="2021-12-03"
+           pivotLocal="onac">
+   <Nom>Office national des anciens combattants et victimes de guerre (ONACVG) - Service départemental - Ardèche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Simone Veil</Ligne>
+      <Ligne>CS 40309</Ligne>
+      <Ligne>Immeuble de la DDT</Ligne>
+      <CodePostal>07003</CodePostal>
+      <NomCommune>Privas Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.736507</Latitude>
+         <Longitude>44.736507</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 65 50 50</Téléphone>
+      <Email>https://www.onac-vg.fr/contact</Email>
+      <Url>https://www.onac-vg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

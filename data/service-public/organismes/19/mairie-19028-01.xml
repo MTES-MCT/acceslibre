@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19028-01" codeInsee="19028" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bort-les-Orgues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>33 place du 19-Octobre</Ligne>
+      <CodePostal>19110</CodePostal>
+      <NomCommune>Bort-les-Orgues</NomCommune>
+      <Localisation>
+         <Latitude>45.4011993408</Latitude>
+         <Longitude>2.49568009377</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 46 17 60</Téléphone>
+      <Télécopie>05 55 46 17 65</Télécopie>
+      <Email>mairie@bort-les-orgues.com</Email>
+      <Url>http://www.bort-les-orgues.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

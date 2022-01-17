@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-32256-01" codeInsee="32256" dateMiseAJour="2021-02-02" pivotLocal="sip">
+   <Nom>Service de gestion comptable (SGC) de Mirande</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 Place de la Halle</Ligne>
+      <Ligne>Espace des Clarisses</Ligne>
+      <CodePostal>32300</CodePostal>
+      <NomCommune>Mirande</NomCommune>
+      <Localisation>
+         <Latitude>43.515605</Latitude>
+         <Longitude>0.40618</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 59 00 70</Téléphone>
+      <Télécopie>05 62 66 80 86</Télécopie>
+      <Email>t032023@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous le lundi après-midi de 13h30 à 16h30</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.Pour prendre rendez-vous
+avec le SIP de MIRANDE, utilisez prioritairement votre messagerie sécurisée
+accessible via votre espace particulier sur le site impôt.gouv.fr.</Commentaire>
+</Organisme>

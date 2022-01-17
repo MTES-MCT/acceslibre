@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54177-01" codeInsee="54177" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Emberménil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Abbé-Grégoire</Ligne>
+      <CodePostal>54370</CodePostal>
+      <NomCommune>Emberménil</NomCommune>
+      <Localisation>
+         <Latitude>48.5948982239</Latitude>
+         <Longitude>6.70767021179</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 71 20 57</Téléphone>
+      <Email>mairieembermenil@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement sur rendez-vous de 16h 19h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:30:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement sur rendez-vous de 11h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

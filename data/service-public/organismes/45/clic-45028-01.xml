@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-45028-01" codeInsee="45028" dateMiseAJour="2018-04-27"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Beaugency</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>59 avenue de vendôme</Ligne>
+      <Ligne>Centre local d'information et de coordination relais Entour'Âge</Ligne>
+      <CodePostal>45190</CodePostal>
+      <NomCommune>Beaugency</NomCommune>
+      <Localisation>
+         <Latitude>47.780986</Latitude>
+         <Longitude>1.620342</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 44 90 20</Téléphone>
+      <Email>relais.entourage@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Possibilité d'accueil sur rendez-vous le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

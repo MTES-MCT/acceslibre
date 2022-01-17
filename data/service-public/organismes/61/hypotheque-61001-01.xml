@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-61001-01" codeInsee="61001" dateMiseAJour="2020-12-14"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Alençon 1</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général Bonet</Ligne>
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <Ligne>BP 540</Ligne>
+      <CodePostal>61007</CodePostal>
+      <NomCommune>Alençon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.431155</Latitude>
+         <Longitude>0.093269</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 32 71 00</Téléphone>
+      <Email>spf.alencon1@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <Note>Uniquement sur rendez-vous. Fermé tous les après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous. Fermé tous les après-midis.</Commentaire>
+</Organisme>

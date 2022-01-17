@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-37092-01" codeInsee="37092" dateMiseAJour="2021-08-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Crotelles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-de-Gaulle</Ligne>
+      <CodePostal>37380</CodePostal>
+      <NomCommune>Crotelles</NomCommune>
+      <Localisation>
+         <Latitude>47.5424003601</Latitude>
+         <Longitude>0.836844027042</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 55 04 13</Téléphone>
+      <Email>mairie.crotelles@wanadoo.fr</Email>
+      <Url>http://www.crotelles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="19:00:00"/>
+         <Note>Permanence des adjoints le lundi à partir de 17h</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Permanence des adjoint le lundi à partir de 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

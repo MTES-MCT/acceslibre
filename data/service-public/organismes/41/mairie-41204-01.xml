@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41204-01" codeInsee="41204" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Claude-de-Diray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>41350</CodePostal>
+      <NomCommune>Saint-Claude-de-Diray</NomCommune>
+      <Localisation>
+         <Latitude>47.6147994995</Latitude>
+         <Longitude>1.41679000854</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 20 66 17</Téléphone>
+      <Email>contact@saintclaudedediray.fr</Email>
+      <Url>http://www.saintclaudedediray.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire, sonnez avant d'entrer dans le hall.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

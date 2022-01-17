@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87097-01" codeInsee="87097" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Val-d'Issoire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mézières-sur-Issoire</Ligne>
+      <Ligne>2 centre administratif André-Reynaud</Ligne>
+      <CodePostal>87330</CodePostal>
+      <NomCommune>Val-d'Issoire</NomCommune>
+      <Localisation>
+         <Latitude>46.1073989868</Latitude>
+         <Longitude>0.910817027092</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 68 31 82</Téléphone>
+      <Télécopie>05 55 68 30 92</Télécopie>
+      <Email>mezieres-issoire@wanadoo.fr</Email>
+      <Url>http://www.mezieressurissoire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

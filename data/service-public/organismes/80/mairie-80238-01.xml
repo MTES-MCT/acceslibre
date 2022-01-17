@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80238-01" codeInsee="80238" dateMiseAJour="2022-01-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dernancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Georges-Clemenceau</Ligne>
+      <CodePostal>80300</CodePostal>
+      <NomCommune>Dernancourt</NomCommune>
+      <Localisation>
+         <Latitude>50.0044670105</Latitude>
+         <Longitude>2.64599895477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 75 17 38</Téléphone>
+      <Email>mairie.dernancourt@laposte.net</Email>
+      <Url>http://www.dernancourt.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Permanence du maire ou des élus de 18h à 18h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

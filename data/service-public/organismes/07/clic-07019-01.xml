@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-07019-01" codeInsee="07019" dateMiseAJour="2017-04-21"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Aubenas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Unité territoriale- Sud-Ouest</Ligne>
+      <Ligne>30 rue Albert-Seibel</Ligne>
+      <CodePostal>07200</CodePostal>
+      <NomCommune>Aubenas</NomCommune>
+      <Localisation>
+         <Latitude>44.614989</Latitude>
+         <Longitude>4.387158</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 35 82 10</Téléphone>
+      <Télécopie>07 75 35 82 20</Télécopie>
+      <Email>paph.utso@ardeche.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil fermé pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

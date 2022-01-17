@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08158-01" codeInsee="08158" dateMiseAJour="2016-07-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Étrépigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Meslier</Ligne>
+      <CodePostal>08160</CodePostal>
+      <NomCommune>Étrépigny</NomCommune>
+      <Localisation>
+         <Latitude>49.6847576</Latitude>
+         <Longitude>4.7536519</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 54 51 09</Téléphone>
+      <Télécopie>03 24 54 51 09</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

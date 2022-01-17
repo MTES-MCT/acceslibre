@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-34245-01" codeInsee="34245" dateMiseAJour="2021-09-13"
+           pivotLocal="msap">
+   <Nom>France Services - Sud Hérault (itinérant) - Saint-Chinian</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Grand'rue</Ligne>
+      <CodePostal>34360</CodePostal>
+      <NomCommune>Saint-Chinian</NomCommune>
+      <Localisation>
+         <Latitude>43.420961</Latitude>
+         <Longitude>2.946998</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 43 95 11 95</Téléphone>
+      <Email>franceservicesitinerante@cc-sud-herault.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

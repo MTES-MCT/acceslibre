@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51402-01" codeInsee="51402" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuvy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Émile-Jugnot</Ligne>
+      <CodePostal>51310</CodePostal>
+      <NomCommune>Neuvy</NomCommune>
+      <Localisation>
+         <Latitude>48.7700004578</Latitude>
+         <Longitude>3.44665002823</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 81 43 77</Téléphone>
+      <Email>neuvy.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les 1er et 3e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

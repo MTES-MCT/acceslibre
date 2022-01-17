@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89375-01" codeInsee="89375" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Santigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l'École</Ligne>
+      <CodePostal>89420</CodePostal>
+      <NomCommune>Santigny</NomCommune>
+      <Localisation>
+         <Latitude>47.5680151</Latitude>
+         <Longitude>4.1221731</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette, un agent se déplace</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 32 18 63</Téléphone>
+      <Télécopie>03 86 32 18 63</Télécopie>
+      <Email>mairie.santigny@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

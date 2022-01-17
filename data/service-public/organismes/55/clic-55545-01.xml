@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-55545-01" codeInsee="55545" dateMiseAJour="2017-04-21"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Verdun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination gérontologique - Nord-Meusien</Ligne>
+      <Ligne>8 rue Couten</Ligne>
+      <CodePostal>55100</CodePostal>
+      <NomCommune>Verdun</NomCommune>
+      <Localisation>
+         <Latitude>49.1582794</Latitude>
+         <Longitude>5.3886742</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 86 99 31</Téléphone>
+      <Email>jocelyne.chazal@meuse.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

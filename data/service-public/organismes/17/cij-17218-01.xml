@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-17218-01" codeInsee="17218" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Marans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Dinot</Ligne>
+      <CodePostal>17230</CodePostal>
+      <NomCommune>Marans</NomCommune>
+      <Localisation>
+         <Latitude>46.3095103</Latitude>
+         <Longitude>-0.994414</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 01 10 40</Téléphone>
+      <Télécopie>05 46 01 14 00</Télécopie>
+      <Email>csclespictons@orange.fr</Email>
+      <Url>https://csclespictons.blogspot.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

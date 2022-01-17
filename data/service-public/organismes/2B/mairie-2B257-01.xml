@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B257-01" codeInsee="2B257" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rapale</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu-dit Pastino</Ligne>
+      <CodePostal>20246</CodePostal>
+      <NomCommune>Rapale</NomCommune>
+      <Localisation>
+         <Latitude>42.5897088</Latitude>
+         <Longitude>9.3023564</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 37 66 47</Téléphone>
+      <Télécopie>09 64 14 54 12</Télécopie>
+      <Email>mairiederapale@wanadoo.fr</Email>
+      <Url>http://www.mairiederapale.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="21231" dateMiseAJour="2021-12-14" id="cour_appel-21231-01" idPresta="4cac9e5f293594648a0001ba" pivotLocal="cour_appel">
+    <Nom>Cour d'appel de Dijon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>8 RUE AMIRAL ROUSSIN</Ligne>
+        <Ligne>BP 33432</Ligne>
+        <CodePostal>21034</CodePostal>
+        <NomCommune>DIJON CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.320421</Latitude>
+            <Longitude>5.041711</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>8 RUE AMIRAL ROUSSIN</Ligne>
+        <Ligne>BP 33432</Ligne>
+        <CodePostal>21034</CodePostal>
+        <NomCommune>DIJON CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 80 44 61 00</Téléphone>
+        <Télécopie>03 80 30 58 41</Télécopie>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:45:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

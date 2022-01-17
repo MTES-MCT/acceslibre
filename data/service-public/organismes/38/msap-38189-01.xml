@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-38189-01" codeInsee="38189" dateMiseAJour="2021-09-06"
+           pivotLocal="msap">
+   <Nom>France Services - Heyrieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>316 rue du Colombier</Ligne>
+      <CodePostal>38540</CodePostal>
+      <NomCommune>Heyrieux</NomCommune>
+      <Localisation>
+         <Latitude>45.628402</Latitude>
+         <Longitude>5.067345</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 48 19 89</Téléphone>
+      <Email>communaute@collines.org</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

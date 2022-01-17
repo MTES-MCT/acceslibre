@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69234-01" codeInsee="69234" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Romain-de-Popey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 place de la Mairie</Ligne>
+      <CodePostal>69490</CodePostal>
+      <NomCommune>Saint-Romain-de-Popey</NomCommune>
+      <Localisation>
+         <Latitude>45.8784828186</Latitude>
+         <Longitude>4.55889511108</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 05 82 66</Téléphone>
+      <Télécopie>04 74 05 85 18</Télécopie>
+      <Email>mairie@saintromaindepopey.fr</Email>
+      <Url>http://www.mairie-saintromaindepopey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Compte tenu du contexte sanitaire actuel et jusqu'à nouvel ordre l'accueil se fait les mardi, jeudi et samedi de 9h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

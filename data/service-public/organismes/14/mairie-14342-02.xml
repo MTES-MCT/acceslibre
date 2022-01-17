@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14342-02" codeInsee="14342" dateMiseAJour="2021-05-19"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Castilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>519 route du Coudray</Ligne>
+      <CodePostal>14330</CodePostal>
+      <NomCommune>Isigny-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>49.2746426</Latitude>
+         <Longitude>-1.0133429</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 22 82 76</Téléphone>
+      <Télécopie>02 31 22 82 76</Télécopie>
+      <Email>mairie.castilly@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

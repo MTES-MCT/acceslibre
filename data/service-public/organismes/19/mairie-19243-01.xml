@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19243-01" codeInsee="19243" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Sornin-Lavolps</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Grande rue</Ligne>
+      <CodePostal>19230</CodePostal>
+      <NomCommune>Saint-Sornin-Lavolps</NomCommune>
+      <Localisation>
+         <Latitude>45.3779373169</Latitude>
+         <Longitude>1.38339602947</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 73 32 61</Téléphone>
+      <Télécopie>05 55 73 37 02</Télécopie>
+      <Email>mairie.saintsornin@wanadoo.fr</Email>
+      <Url>http://www.saint-sornin-lavolps.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

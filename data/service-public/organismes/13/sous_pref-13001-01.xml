@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sous_pref-13001-01" codeInsee="13001" dateMiseAJour="2021-02-12"
+           pivotLocal="sous_pref">
+   <Nom>Sous-préfecture d'Aix-en-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24, rue Mignet</Ligne>
+      <CodePostal>13617</CodePostal>
+      <NomCommune>Aix-en-Provence Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>43.5309047</Latitude>
+         <Longitude>5.4507747</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 17 56 00</Téléphone>
+      <Télécopie>+33 4 42 63 07 15</Télécopie>
+      <Email>sp-aix-en-provence@bouches-du-rhone.pref.gouv.fr</Email>
+      <Url>http://www.bouches-du-rhone.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

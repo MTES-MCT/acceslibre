@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21182-01" codeInsee="21182" dateMiseAJour="2018-06-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Collonges-lès-Bévy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>21220</CodePostal>
+      <NomCommune>Collonges-lès-Bévy</NomCommune>
+      <Localisation>
+         <Latitude>47.169091</Latitude>
+         <Longitude>4.851536</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 61 44 37</Téléphone>
+      <Télécopie>03 80 61 44 37</Télécopie>
+      <Email>collonges.les.bevy725@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

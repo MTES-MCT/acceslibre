@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97613-01" codeInsee="97613" dateMiseAJour="2021-11-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - M'Tsangamouji</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>97650</CodePostal>
+      <NomCommune>M'Tsangamouji</NomCommune>
+      <Localisation>
+         <Latitude>-12.7597</Latitude>
+         <Longitude>45.0827</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 69 62 15 20</Téléphone>
+      <Télécopie>+262 2 69 62 00 21</Télécopie>
+      <Email>mairiedemtsangamouji@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

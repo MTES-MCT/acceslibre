@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54559-01" codeInsee="54559" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Velle-sur-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Moselle</Ligne>
+      <CodePostal>54290</CodePostal>
+      <NomCommune>Velle-sur-Moselle</NomCommune>
+      <Localisation>
+         <Latitude>48.5289372</Latitude>
+         <Longitude>6.2776727</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 26 60 62</Téléphone>
+      <Email>mairie.velle-sur-moselle@orange.fr</Email>
+      <Url>http://www.vellesurmoselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

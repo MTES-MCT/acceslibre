@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-33318-01" codeInsee="33318" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Gironde - accueil de Pessac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>22 boulevard Saint-Martin</Ligne>
+      <CodePostal>33600</CodePostal>
+      <NomCommune>Pessac</NomCommune>
+      <Localisation>
+         <Latitude>44.803657</Latitude>
+         <Longitude>-0.629677</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Gironde</Ligne>
+      <Ligne>Rue du Docteur-Gabriel-Péry</Ligne>
+      <CodePostal>33078</CodePostal>
+      <NomCommune>Bordeaux Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

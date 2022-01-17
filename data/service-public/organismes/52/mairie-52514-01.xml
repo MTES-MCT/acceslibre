@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52514-01" codeInsee="52514" dateMiseAJour="2021-07-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Verbiesles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Marne</Ligne>
+      <CodePostal>52000</CodePostal>
+      <NomCommune>Verbiesles</NomCommune>
+      <Localisation>
+         <Latitude>48.0696983337</Latitude>
+         <Longitude>5.18158006668</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 31 14 32</Téléphone>
+      <Email>mairie.verbiesles@wanadoo.fr</Email>
+      <Url>http://www.verbiesles.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

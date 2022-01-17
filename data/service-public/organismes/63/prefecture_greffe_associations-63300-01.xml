@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-63300-01" codeInsee="63300"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Puy-de-Dôme (Riom)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Riom</Ligne>
+      <Ligne>Service des associations</Ligne>
+      <Ligne>9 rue Gilbert-Romme</Ligne>
+      <Ligne>CS 20008</Ligne>
+      <CodePostal>63201</CodePostal>
+      <NomCommune>Riom Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.892731</Latitude>
+         <Longitude>3.115009</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 64 65 00</Téléphone>
+      <Email>sp-riom@puy-de-dome.gouv.fr</Email>
+      <Url>http://www.puy-de-dome.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

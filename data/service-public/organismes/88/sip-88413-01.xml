@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-88413-01" codeInsee="88413" dateMiseAJour="2021-04-15" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Saint-Dié-des-Vosges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jules-Ferry</Ligne>
+      <Ligne>BP 263</Ligne>
+      <CodePostal>88107</CodePostal>
+      <NomCommune>Saint-Dié Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.286911</Latitude>
+         <Longitude>6.947055</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 55 27 26</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>avec ou sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

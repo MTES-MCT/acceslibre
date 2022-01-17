@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13011-01" codeInsee="13011" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Baux-de-Provence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Manville</Ligne>
+      <CodePostal>13520</CodePostal>
+      <NomCommune>Les Baux-de-Provence</NomCommune>
+      <Localisation>
+         <Latitude>43.7433128357</Latitude>
+         <Longitude>4.79481077194</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 54 34 03</Téléphone>
+      <Email>accueil-mairie@lesbauxdeprovence.com</Email>
+      <Url>http://www.lesbauxdeprovence.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

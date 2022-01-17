@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90053-01" codeInsee="90053" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grandvillars</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place Charles-de-Gaulle</Ligne>
+      <Ligne>BP 22</Ligne>
+      <CodePostal>90600</CodePostal>
+      <NomCommune>Grandvillars</NomCommune>
+      <Localisation>
+         <Latitude>47.537214</Latitude>
+         <Longitude>6.967851</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 27 80 34</Téléphone>
+      <Email>mairie@grandvillars.fr</Email>
+      <Url>http://www.grandvillars.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert en juillet et août du lundi au vendredi de 10h à 12h et de 16h à 18h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermée en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-91228-01" codeInsee="91228" dateMiseAJour="2021-06-07"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Ligue de l'enseignement d'Évry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 allée Stéphane-Mallarmé</Ligne>
+      <Ligne>BP 58</Ligne>
+      <CodePostal>91002</CodePostal>
+      <NomCommune>Évry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6365143</Latitude>
+         <Longitude>2.4300035</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 36 08 10</Téléphone>
+      <Télécopie>01 69 36 08 12</Télécopie>
+      <Email>crib@ligue91.org</Email>
+      <Url>http://www.ligue91.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

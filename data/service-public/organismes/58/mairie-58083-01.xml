@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58083-01" codeInsee="58083" dateMiseAJour="2021-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Corbigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>58800</CodePostal>
+      <NomCommune>Corbigny</NomCommune>
+      <Localisation>
+         <Latitude>47.257358551</Latitude>
+         <Longitude>3.68437194824</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 20 11 98</Téléphone>
+      <Télécopie>03 86 20 18 28</Télécopie>
+      <Email>accueil@corbigny.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

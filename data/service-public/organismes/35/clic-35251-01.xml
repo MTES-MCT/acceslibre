@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-35251-01" codeInsee="35251" dateMiseAJour="2020-01-13"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Saint-Aubin-d'Aubigné</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination - L'Ille et L'Illet</Ligne>
+      <Ligne>1 place du Marché</Ligne>
+      <CodePostal>35250</CodePostal>
+      <NomCommune>Saint-Aubin-d'Aubigné</NomCommune>
+      <Localisation>
+         <Latitude>48.26173</Latitude>
+         <Longitude>-1.604439</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 23 37 13 99</Téléphone>
+      <Email>clic-ille-illet@orange.fr</Email>
+      <Url>http://www.clic-ille-illet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous l’après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous. Fermé le mercredi après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous l’après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83075-01" codeInsee="83075" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Mayons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>143 Grande rue</Ligne>
+      <CodePostal>83340</CodePostal>
+      <NomCommune>Les Mayons</NomCommune>
+      <Localisation>
+         <Latitude>43.3139407</Latitude>
+         <Longitude>6.3578289</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 60 00 93</Téléphone>
+      <Télécopie>04 94 60 00 95</Télécopie>
+      <Email>mairielesmayons@wanadoo.fr</Email>
+      <Url>http://mairielesmayons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

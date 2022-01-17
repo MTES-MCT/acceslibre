@@ -53,20 +53,27 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "robot",
         ]
 
+    email = forms.EmailField(
+        error_messages={
+            "invalid": "Format de l'email attendu : nom@domaine.tld",
+            "unique": "Cet email est déja utilisé. Merci de fournir un email différent.",
+        }
+    )
+
     username = define_username_field()
     next = forms.CharField(required=False)
     robot = forms.BooleanField(
-        label="Je suis un robot",
-        help_text="Merci de décocher cette case avant de soumettre le formulaire",
-        initial=True,
+        label="Je ne suis pas un robot",
+        help_text="Merci de cocher cette case avant de soumettre le formulaire",
+        initial=False,
         required=False,
     )
 
     def clean_robot(self):
         robot = self.cleaned_data["robot"]
-        if robot:
+        if not robot:
             raise ValidationError(
-                "Vous devez décocher cette case pour soumettre le formulaire"
+                "Vous devez cocher cette case pour soumettre le formulaire"
             )
         return robot
 

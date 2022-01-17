@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08398-01" codeInsee="08398" dateMiseAJour="2019-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Vaubourg</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Mi-Lope-Ville</Ligne>
+      <CodePostal>08130</CodePostal>
+      <NomCommune>Sainte-Vaubourg</NomCommune>
+      <Localisation>
+         <Latitude>49.4614677429</Latitude>
+         <Longitude>4.58890295029</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 71 23 78</Téléphone>
+      <Télécopie>03 24 71 23 78</Télécopie>
+      <Email>mairie.stevaubourg@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

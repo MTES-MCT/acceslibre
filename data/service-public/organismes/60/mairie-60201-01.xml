@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60201-01" codeInsee="60201" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dompierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l'École</Ligne>
+      <CodePostal>60420</CodePostal>
+      <NomCommune>Dompierre</NomCommune>
+      <Localisation>
+         <Latitude>49.5952079</Latitude>
+         <Longitude>2.534143</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 51 16 19</Téléphone>
+      <Email>mairie.dompierre60@wanadoo.fr</Email>
+      <Url>http://www.dompierre60.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:15:00" fin="11:00:00"/>
+         <PlageH début="17:00:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique uniquement au 07 86 41 41 62 pour prise de rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

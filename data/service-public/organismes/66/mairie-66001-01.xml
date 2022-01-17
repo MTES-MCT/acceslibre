@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66001-01" codeInsee="66001" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Albère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Jean d'Albère</Ligne>
+      <CodePostal>66480</CodePostal>
+      <NomCommune>L'Albère</NomCommune>
+      <Localisation>
+         <Latitude>42.483433</Latitude>
+         <Longitude>2.893916</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette et rampe amovible</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 83 60 46</Téléphone>
+      <Email>mairie-sg.albere@wanadoo.fr</Email>
+      <Url>http://lalbere.net</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="16:30:00"/>
+         <Note>En juillet et août accueil ouvert les lundi et jeudi de 8h à 15h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

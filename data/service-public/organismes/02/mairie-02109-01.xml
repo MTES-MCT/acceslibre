@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02109-01" codeInsee="02109" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Bouteille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Vervins</Ligne>
+      <CodePostal>02140</CodePostal>
+      <NomCommune>La Bouteille</NomCommune>
+      <Localisation>
+         <Latitude>49.8535003662</Latitude>
+         <Longitude>3.90322995186</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 98 18 52</Téléphone>
+      <Télécopie>03 23 98 18 52</Télécopie>
+      <Email>mairiedelabouteille@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

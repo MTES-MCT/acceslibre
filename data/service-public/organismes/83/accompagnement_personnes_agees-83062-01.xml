@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-83062-01" codeInsee="83062"
+           dateMiseAJour="2018-11-14"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - La Garde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accueil de jour Le Fil d'Argent</Ligne>
+      <Ligne>831 chemin des Plantades</Ligne>
+      <CodePostal>83130</CodePostal>
+      <NomCommune>La Garde</NomCommune>
+      <Localisation>
+         <Latitude>43.1429483</Latitude>
+         <Longitude>6.0228282</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 28 22 65</Téléphone>
+      <Email>fildargent.ceas@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="18:00:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

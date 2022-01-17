@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02705-01" codeInsee="02705" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Selve</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Lappion</Ligne>
+      <CodePostal>02150</CodePostal>
+      <NomCommune>La Selve</NomCommune>
+      <Localisation>
+         <Latitude>49.5705986023</Latitude>
+         <Longitude>3.89974999428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 80 86 74</Téléphone>
+      <Email>mairiedelaselve@orange.fr</Email>
+      <Url>http://www.laselve.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

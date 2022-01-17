@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62137-01" codeInsee="62137" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Blangerval-Blangermont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue Principale</Ligne>
+      <CodePostal>62270</CodePostal>
+      <NomCommune>Blangerval-Blangermont</NomCommune>
+      <Localisation>
+         <Latitude>50.3255004883</Latitude>
+         <Longitude>2.22434997559</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 03 00 60</Téléphone>
+      <Email>mairie-blangerval@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

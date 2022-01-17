@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-26362-01" codeInsee="26362"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Drôme (Valence)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale de la cohésion sociale de la Drôme</Ligne>
+      <Ligne>Service des associations</Ligne>
+      <Ligne>33 avenue de Romans</Ligne>
+      <Ligne>BP 2108</Ligne>
+      <CodePostal>26021</CodePostal>
+      <NomCommune>Valence Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.9330878</Latitude>
+         <Longitude>4.9004697</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 26 52 22 61</Téléphone>
+      <Email>ddcs-associations@drome.gouv.fr</Email>
+      <Url>http://www.drome.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="02408" dateMiseAJour="2021-12-14" id="prudhommes-02408-01" idPresta="4cac9ed6293594648a00ed57" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Laon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PARVIS</Ligne>
+        <CodePostal>02001</CodePostal>
+        <NomCommune>LAON CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.564376</Latitude>
+            <Longitude>3.62388</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE DU PARVIS</Ligne>
+        <CodePostal>02001</CodePostal>
+        <NomCommune>LAON CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 23 26 75 45</Téléphone>
+        <Email>mailto:cph-laon@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mardi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="jeudi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:15:00"/>
+            <Note>HO pendant les vacances scloaires :
+8h30/12h et 13h30/16h</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

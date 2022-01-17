@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-69255-01" codeInsee="69255" dateMiseAJour="2022-01-03"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Vaugneray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place du Marché</Ligne>
+      <CodePostal>69670</CodePostal>
+      <NomCommune>Vaugneray</NomCommune>
+      <Localisation>
+         <Latitude>45.7380722</Latitude>
+         <Longitude>4.657583</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 45 98 45</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil uniquement sur rendez-vous.</Commentaire>
+</Organisme>

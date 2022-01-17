@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38254-01" codeInsee="38254" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Monteynard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>142 rue des Blais</Ligne>
+      <CodePostal>38770</CodePostal>
+      <NomCommune>Monteynard</NomCommune>
+      <Localisation>
+         <Latitude>44.9757995605</Latitude>
+         <Longitude>5.70345020294</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 30 63 43</Téléphone>
+      <Email>mairiemonteynard38@gmail.com</Email>
+      <Url>http://www.monteynard.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

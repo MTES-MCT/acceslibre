@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34078-01" codeInsee="34078" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Claret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Hermet</Ligne>
+      <CodePostal>34270</CodePostal>
+      <NomCommune>Claret</NomCommune>
+      <Localisation>
+         <Latitude>43.8613878</Latitude>
+         <Longitude>3.9061599</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 02 93 80</Téléphone>
+      <Télécopie>04 67 02 93 84</Télécopie>
+      <Email>mairie@claret.fr</Email>
+      <Url>http://www.claret.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil les mardis et jeudi aux horaires habituels uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

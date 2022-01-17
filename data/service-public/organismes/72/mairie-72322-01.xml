@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-72322-01" codeInsee="72322" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Ulphace</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue d'Authon</Ligne>
+      <CodePostal>72320</CodePostal>
+      <NomCommune>Saint-Ulphace</NomCommune>
+      <Localisation>
+         <Latitude>48.1585655212</Latitude>
+         <Longitude>0.81722599268</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 93 27 06</Téléphone>
+      <Télécopie>02 43 93 69 05</Télécopie>
+      <Email>mairie-saint-ulphace@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er ,3e et 5e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

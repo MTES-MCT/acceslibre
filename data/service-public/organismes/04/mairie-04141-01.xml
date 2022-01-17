@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-04141-01" codeInsee="04141" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ongles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>7 place de la Fontaine</Ligne>
+      <CodePostal>04230</CodePostal>
+      <NomCommune>Ongles</NomCommune>
+      <Localisation>
+         <Latitude>44.02763341469189</Latitude>
+         <Longitude>5.7339230848861575</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 73 06 22</Téléphone>
+      <Email>secretariat@mairie-ongles.fr</Email>
+      <Url>http://www.mairie-ongles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Agence postale ouverte aux mêmes horaires.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Agence postale ouverte aux mêmes horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

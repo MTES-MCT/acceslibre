@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54157-01" codeInsee="54157" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dieulouard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Saint-Laurent</Ligne>
+      <Ligne>BP 13</Ligne>
+      <CodePostal>54380</CodePostal>
+      <NomCommune>Dieulouard</NomCommune>
+      <Localisation>
+         <Latitude>48.8413734</Latitude>
+         <Longitude>6.0680423</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accès par une entrée secondaire</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 23 57 18</Téléphone>
+      <Télécopie>03 83 23 66 98</Télécopie>
+      <Email>contact@dieulouard.fr</Email>
+      <Url>http://www.dieulouard.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

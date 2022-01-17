@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdc-92012-01" codeInsee="92012" dateMiseAJour="2021-05-20" pivotLocal="fdc">
+   <Nom>Fédération interdépartementale des chasseurs - Île-de-France (siège social)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>58 avenue du Général-Leclerc</Ligne>
+      <CodePostal>92154</CodePostal>
+      <NomCommune>Boulogne-Billancourt Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8320999146</Latitude>
+         <Longitude>2.23844003677</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 55 60 18 70</Téléphone>
+      <Télécopie>01 55 60 07 15</Télécopie>
+      <Email>http://www.ficif.com/contact.html</Email>
+      <Url>http://www.ficif.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

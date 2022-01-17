@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57123-01" codeInsee="57123" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carling</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>199  rue Principale</Ligne>
+      <Ligne>BP 34</Ligne>
+      <CodePostal>57490</CodePostal>
+      <NomCommune>Carling</NomCommune>
+      <Localisation>
+         <Latitude>49.1687011719</Latitude>
+         <Longitude>6.71714019775</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 93 21 11</Téléphone>
+      <Télécopie>03 87 82 61 43</Télécopie>
+      <Email>mairiedecarling@wanadoo.fr</Email>
+      <Url>http://www.carling.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

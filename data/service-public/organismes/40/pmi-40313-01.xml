@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-40313-01" codeInsee="40313" dateMiseAJour="2020-06-10" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Tartas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de la Piscine</Ligne>
+      <CodePostal>40400</CodePostal>
+      <NomCommune>Tartas</NomCommune>
+      <Localisation>
+         <Latitude>43.8288002014</Latitude>
+         <Longitude>-0.807214021683</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 73 54 33</Téléphone>
+      <Email>cms.tartas@orange.fr</Email>
+      <Url>http://www.landes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

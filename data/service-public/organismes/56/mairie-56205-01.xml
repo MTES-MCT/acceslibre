@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56205-01" codeInsee="56205" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Armel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 rue de la Mairie</Ligne>
+      <CodePostal>56450</CodePostal>
+      <NomCommune>Saint-Armel</NomCommune>
+      <Localisation>
+         <Latitude>47.5718002319</Latitude>
+         <Longitude>-2.71088004112</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 26 40 72</Téléphone>
+      <Télécopie>02 97 26 40 14</Télécopie>
+      <Email>mairie.saint.armel@wanadoo.fr</Email>
+      <Url>http://www.mairie-saint-armel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

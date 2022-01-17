@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42303-01" codeInsee="42303" dateMiseAJour="2020-05-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Souternon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 place de l'Église</Ligne>
+      <CodePostal>42260</CodePostal>
+      <NomCommune>Souternon</NomCommune>
+      <Localisation>
+         <Latitude>45.868527</Latitude>
+         <Longitude>3.986666</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 65 54 56</Téléphone>
+      <Email>souternonmairie@yahoo.fr</Email>
+      <Url>http://www.souternon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>sauf le dernier samedi du mois</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

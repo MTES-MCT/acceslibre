@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65062-01" codeInsee="65062" dateMiseAJour="2019-10-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Barbazan-Debat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 bis rue des Pyrénées</Ligne>
+      <CodePostal>65690</CodePostal>
+      <NomCommune>Barbazan-Debat</NomCommune>
+      <Localisation>
+         <Latitude>43.1962013245</Latitude>
+         <Longitude>0.118832997978</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 33 95 67</Téléphone>
+      <Télécopie>05 62 33 92 93</Télécopie>
+      <Email>http://www.barbazan-debat.frindex.php?page=contact#contact</Email>
+      <Url>http://www.barbazan-debat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

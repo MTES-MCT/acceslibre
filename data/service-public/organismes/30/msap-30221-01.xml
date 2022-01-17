@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-30221-01" codeInsee="30221" dateMiseAJour="2021-11-22"
+           pivotLocal="msap">
+   <Nom>France Services - Roquemaure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace CLIC</Ligne>
+      <Ligne>Place Châteauneuf</Ligne>
+      <CodePostal>30150</CodePostal>
+      <NomCommune>Roquemaure</NomCommune>
+      <Localisation>
+         <Latitude>44.0521308</Latitude>
+         <Longitude>4.7801881</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 90 27 28</Téléphone>
+      <Email>france.services@mairie-roquemaure.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé les Mardis après-midi.
+Sans rendez-vous les matins pour les démarches courtes.
+Sur rendez-vous les après-midi pour les démarches plus longues.</Commentaire>
+</Organisme>

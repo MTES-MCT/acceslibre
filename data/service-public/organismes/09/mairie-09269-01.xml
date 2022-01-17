@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09269-01" codeInsee="09269" dateMiseAJour="2021-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-de-Caralp</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>09000</CodePostal>
+      <NomCommune>Saint-Martin-de-Caralp</NomCommune>
+      <Localisation>
+         <Latitude>42.9905891418</Latitude>
+         <Longitude>1.54464495182</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 65 12 01</Téléphone>
+      <Email>smc09@micso.fr</Email>
+      <Url>http://www.saintmartindecaralp.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

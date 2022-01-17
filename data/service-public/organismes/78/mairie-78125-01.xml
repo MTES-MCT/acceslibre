@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78125-01" codeInsee="78125" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Celle-les-Bordes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue du Bois-des-Gaules</Ligne>
+      <CodePostal>78720</CodePostal>
+      <NomCommune>La Celle-les-Bordes</NomCommune>
+      <Localisation>
+         <Latitude>48.6404777</Latitude>
+         <Longitude>1.9558663</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 85 22 28</Téléphone>
+      <Télécopie>01 34 85 10 95</Télécopie>
+      <Email>mairie@lacellelesbordes.fr</Email>
+      <Url>http://www.lacellelesbordes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

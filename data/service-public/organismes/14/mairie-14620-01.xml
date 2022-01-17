@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14620-01" codeInsee="14620" dateMiseAJour="2021-10-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-aux-Chartrains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>51 route de Trouville</Ligne>
+      <CodePostal>14130</CodePostal>
+      <NomCommune>Saint-Martin-aux-Chartrains</NomCommune>
+      <Localisation>
+         <Latitude>49.294923</Latitude>
+         <Longitude>0.18532</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 65 21 37</Téléphone>
+      <Email>mairie.smac14@orange.fr</Email>
+      <Url>http://www.smac14.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

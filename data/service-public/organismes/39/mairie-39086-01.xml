@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39086-01" codeInsee="39086" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cernon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Principale</Ligne>
+      <CodePostal>39240</CodePostal>
+      <NomCommune>Cernon</NomCommune>
+      <Localisation>
+         <Latitude>46.4268989563</Latitude>
+         <Longitude>5.59344005585</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 48 40 93</Téléphone>
+      <Email>mairie.cernon@orange.fr</Email>
+      <Url>https://www.terredemeraude.frcernon</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Permanence du mairie uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

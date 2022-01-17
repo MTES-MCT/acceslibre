@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-29026-01" codeInsee="29026" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pleyben Châteaulin Porzay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Camille-Danguillaume</Ligne>
+      <Ligne>CS 60043</Ligne>
+      <CodePostal>29150</CodePostal>
+      <NomCommune>Châteaulin</NomCommune>
+      <Localisation>
+         <Latitude>48.212671</Latitude>
+         <Longitude>-4.058993</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 16 14 00</Téléphone>
+      <Télécopie>02 98 86 36 46</Télécopie>
+      <Email>accueil@ccpcp.bzh</Email>
+      <Url>http://www.ccpcp.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="38544" dateMiseAJour="2021-12-14" id="prudhommes-38544-01" idPresta="4cac9e6a293594648a0016ec" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Vienne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>28 BIS/TER AVENUE GENERAL LECLERC</Ligne>
+        <CodePostal>38217</CodePostal>
+        <NomCommune>VIENNE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.513712</Latitude>
+            <Longitude>4.866273</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>28 BIS/TER AVENUE GENERAL LECLERC</Ligne>
+        <CodePostal>38217</CodePostal>
+        <NomCommune>VIENNE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 74 85 14 84</Téléphone>
+        <Télécopie>04 74 85 27 01</Télécopie>
+        <Email>mailto:cph-vienne@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

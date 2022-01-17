@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51537-01" codeInsee="51537" dateMiseAJour="2017-09-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sivry Ante</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>24 rue de Champagne</Ligne>
+      <CodePostal>51800</CodePostal>
+      <NomCommune>Sivry-Ante</NomCommune>
+      <Localisation>
+         <Latitude>49.00031</Latitude>
+         <Longitude>4.868252</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 60 62 61</Téléphone>
+      <Télécopie>03 26 60 62 61</Télécopie>
+      <Email>commune.sivry-ante@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>A Sivry : le jeudi 17h30 à 18h
+A Ante : le jeudi 17h à 17h30</Commentaire>
+</Organisme>

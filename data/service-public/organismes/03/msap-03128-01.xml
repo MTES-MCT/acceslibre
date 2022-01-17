@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-03128-01" codeInsee="03128" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Huriel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue des Calaubys</Ligne>
+      <CodePostal>03380</CodePostal>
+      <NomCommune>Huriel</NomCommune>
+      <Localisation>
+         <Latitude>46.373174</Latitude>
+         <Longitude>2.475088</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 09 33 25</Téléphone>
+      <Email>maison.services.huriel@orange.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

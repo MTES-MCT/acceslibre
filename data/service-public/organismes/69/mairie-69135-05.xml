@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69135-05" codeInsee="69135" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Jacques-des-Arrêts</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Jacques-des-Arrêts</Ligne>
+      <Ligne>32 impasse de la Petite-École</Ligne>
+      <CodePostal>69860</CodePostal>
+      <NomCommune>Deux-Grosnes</NomCommune>
+      <Localisation>
+         <Latitude>46.2563552856</Latitude>
+         <Longitude>4.59651994705</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 04 61 60</Téléphone>
+      <Email>mairie@saintjacquesdesarrets.fr</Email>
+      <Url>http://www.saintjacquesdesarrets.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

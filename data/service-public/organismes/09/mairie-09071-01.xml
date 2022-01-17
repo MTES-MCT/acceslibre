@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09071-01" codeInsee="09071" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cadarcet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Grégoire-Calvet</Ligne>
+      <CodePostal>09240</CodePostal>
+      <NomCommune>Cadarcet</NomCommune>
+      <Localisation>
+         <Latitude>43.013696</Latitude>
+         <Longitude>1.500166</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 64 58 42</Téléphone>
+      <Télécopie>05 61 64 58 42</Télécopie>
+      <Email>ecole-cadarcet@wanadoo.fr</Email>
+      <Url>http://www.pyrenees-seronais.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

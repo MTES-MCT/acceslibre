@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="97209" dateMiseAJour="2021-12-14" id="prudhommes-97209-01" idPresta="4cac9e6a293594648a001711" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Fort-de-France</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>35 BOULEVARD DU GENERAL DE GAULLE</Ligne>
+        <Ligne>BP 633</Ligne>
+        <CodePostal>97200</CodePostal>
+        <NomCommune>FORT DE FRANCE</NomCommune>
+        <Localisation>
+            <Latitude>14.606927</Latitude>
+            <Longitude>-61.067386</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>35 BOULEVARD DU GENERAL DE GAULLE</Ligne>
+        <Ligne>BP 633</Ligne>
+        <CodePostal>97200</CodePostal>
+        <NomCommune>FORT DE FRANCE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>0(596)484141</Téléphone>
+        <Télécopie>0(596)484206</Télécopie>
+        <Email>mailto:cph-fort-de-france@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="07:30:00" fin="12:30:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

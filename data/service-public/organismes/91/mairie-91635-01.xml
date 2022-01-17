@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91635-01" codeInsee="91635" dateMiseAJour="2020-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vauhallan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 Grande rue du 8-Mai-1945</Ligne>
+      <CodePostal>91430</CodePostal>
+      <NomCommune>Vauhallan</NomCommune>
+      <Localisation>
+         <Latitude>48.7341958</Latitude>
+         <Longitude>2.2073369</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 35 53 00</Téléphone>
+      <Télécopie>01 69 35 53 07</Télécopie>
+      <Email>mairie@vauhallan.fr</Email>
+      <Url>http://www.vauhallan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="18:30:00"/>
+         <Note>Accueil fermé à 17h30 le mardi en août.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé en août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

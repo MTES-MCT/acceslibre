@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33452-01" codeInsee="33452" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Michel-de-Rieufret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 le Bourg</Ligne>
+      <CodePostal>33720</CodePostal>
+      <NomCommune>Saint-Michel-de-Rieufret</NomCommune>
+      <Localisation>
+         <Latitude>44.6218757629</Latitude>
+         <Longitude>-0.432590007782</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 62 52 25</Téléphone>
+      <Télécopie>05 56 62 48 67</Télécopie>
+      <Email>mairie.smrieufret@orange.fr</Email>
+      <Url>http://www.saintmichel-de-rieufret.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28290-01" codeInsee="28290" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Orrouer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu-dit Serez</Ligne>
+      <Ligne>7 rue de la Mairie</Ligne>
+      <CodePostal>28190</CodePostal>
+      <NomCommune>Orrouer</NomCommune>
+      <Localisation>
+         <Latitude>48.4356956482</Latitude>
+         <Longitude>1.31369996071</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 23 23 43</Téléphone>
+      <Email>mairie.orrouer@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence du mairie uniquement et sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

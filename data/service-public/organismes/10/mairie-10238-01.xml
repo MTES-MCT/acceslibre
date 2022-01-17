@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10238-01" codeInsee="10238" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mesnil-Saint-Père</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue du 28-Août-1944</Ligne>
+      <CodePostal>10140</CodePostal>
+      <NomCommune>Mesnil-Saint-Père</NomCommune>
+      <Localisation>
+         <Latitude>48.2486991882</Latitude>
+         <Longitude>4.33383989334</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 41 28 78</Téléphone>
+      <Télécopie>03 25 41 21 08</Télécopie>
+      <Email>mairie-de-mesnil-saint-pere@wanadoo.fr</Email>
+      <Url>http://www.mesnil-saint-pere.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

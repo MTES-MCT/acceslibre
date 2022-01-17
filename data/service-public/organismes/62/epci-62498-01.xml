@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-62498-01" codeInsee="62498" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Lens Liévin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Marcel-Sembat</Ligne>
+      <Ligne>BP 65</Ligne>
+      <CodePostal>62302</CodePostal>
+      <NomCommune>Lens Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.4300647086</Latitude>
+         <Longitude>2.83224105835</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">passer par l'arrière du bâtiment, il y a des places handicapés, puis une rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 79 07 90</Téléphone>
+      <Télécopie>03 21 79 07 99</Télécopie>
+      <Email>contact@agglo-lenslievin.fr</Email>
+      <Url>http://www.agglo-lenslievin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

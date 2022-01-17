@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80261-01" codeInsee="80261" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dury</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Maréchal-Foch</Ligne>
+      <CodePostal>80480</CodePostal>
+      <NomCommune>Dury</NomCommune>
+      <Localisation>
+         <Latitude>49.8457984924</Latitude>
+         <Longitude>2.2688601017</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 95 04 45</Téléphone>
+      <Télécopie>03 22 89 41 80</Télécopie>
+      <Email>secretariat@dury80.com</Email>
+      <Url>http://www.dury80.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

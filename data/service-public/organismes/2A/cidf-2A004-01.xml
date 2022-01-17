@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cidf-2A004-01" codeInsee="2A004" dateMiseAJour="2021-06-07"
+           pivotLocal="cidf">
+   <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Corse-du-Sud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Logirem</Ligne>
+      <Ligne>Immeuble Le Ciste</Ligne>
+      <Ligne>Les Hauts-de-Bodiccione</Ligne>
+      <CodePostal>20090</CodePostal>
+      <NomCommune>Ajaccio</NomCommune>
+      <Localisation>
+         <Latitude>41.9474201</Latitude>
+         <Longitude>8.753897</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 23 01 85</Téléphone>
+      <Email>direction.cidff2a@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

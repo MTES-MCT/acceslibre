@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66048-01" codeInsee="66048" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cerbère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>66290</CodePostal>
+      <NomCommune>Cerbère</NomCommune>
+      <Localisation>
+         <Latitude>42.4421005249</Latitude>
+         <Longitude>3.16559004784</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 88 41 85</Téléphone>
+      <Email>mairiecerbere@gmail.com</Email>
+      <Url>http://www.cerbere-village.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

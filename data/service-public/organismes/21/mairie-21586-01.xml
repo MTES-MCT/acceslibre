@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21586-01" codeInsee="21586" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saulon-la-Rue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 rue des Chênetaux</Ligne>
+      <CodePostal>21910</CodePostal>
+      <NomCommune>Saulon-la-Rue</NomCommune>
+      <Localisation>
+         <Latitude>47.222118</Latitude>
+         <Longitude>5.064059</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 36 60 50</Téléphone>
+      <Télécopie>09 85 83 76 43</Télécopie>
+      <Email>mairie@saulonlarue.fr</Email>
+      <Url>http://www.saulonlarue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil uniquement les semaines impaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-03185-01" codeInsee="03185" dateMiseAJour="2021-11-22"
+           pivotLocal="greta">
+   <Nom>Greta Bourbonnais-Combraille - Montluçon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée Paul-Constans</Ligne>
+      <Ligne>Rue Christophe-Thivrier</Ligne>
+      <Ligne>BP 416</Ligne>
+      <CodePostal>03100</CodePostal>
+      <NomCommune>Montluçon</NomCommune>
+      <Localisation>
+         <Latitude>46.3359499</Latitude>
+         <Longitude>2.577509</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 08 32 60</Téléphone>
+      <Télécopie>04 70 08 32 69</Télécopie>
+      <Email>greta.bc@ac-clermont.fr</Email>
+      <Url>http://greta.ac-clermont.fr/nos-greta/greta-bourbonnais-combaille-montlucon/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

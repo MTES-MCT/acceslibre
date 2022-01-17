@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-62865-01" codeInsee="62865" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Osartis Marquion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Jean-Monet</Ligne>
+      <CodePostal>62490</CodePostal>
+      <NomCommune>Vitry-en-Artois</NomCommune>
+      <Localisation>
+         <Latitude>50.3264744</Latitude>
+         <Longitude>2.9805447</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 60 06 00</Téléphone>
+      <Télécopie>03 21 60 06 01</Télécopie>
+      <Email>administration@cc-osartis.com</Email>
+      <Url>http://www.cc-osartis.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Permanence téléphonique de 8h30 à 9h.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

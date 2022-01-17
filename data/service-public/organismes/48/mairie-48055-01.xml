@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48055-01" codeInsee="48055" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cultures</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Village</Ligne>
+      <CodePostal>48230</CodePostal>
+      <NomCommune>Cultures</NomCommune>
+      <Localisation>
+         <Latitude>44.4927635193</Latitude>
+         <Longitude>3.37816500664</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 48 25 75</Téléphone>
+      <Email>communedecultures@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert les lundis et vendredis de 13h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

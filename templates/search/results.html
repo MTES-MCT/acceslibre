@@ -87,7 +87,7 @@
                 <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
                   <!-- rank: {{ erp.rank }} -->
                   <a href="{{ erp.get_absolute_url }}">
-                    <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
+                    <img alt="" class="act-icon act-icon-20 mb-1"
                       src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
                     {% if where|startswith:"Autour de moi" and erp.distance %}
                       <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>

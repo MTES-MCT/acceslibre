@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95487-01" codeInsee="95487" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Persan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>65 avenue Gaston-Vermeire</Ligne>
+      <CodePostal>95340</CodePostal>
+      <NomCommune>Persan</NomCommune>
+      <Localisation>
+         <Latitude>49.1510009766</Latitude>
+         <Longitude>2.27654004097</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 37 48 80</Téléphone>
+      <Télécopie>01 39 37 48 81</Télécopie>
+      <Email>mairie@ville-persan.fr</Email>
+      <Url>http://www.ville-persan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

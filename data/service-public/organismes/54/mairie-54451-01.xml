@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54451-01" codeInsee="54451" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Réhon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue de Longwy</Ligne>
+      <CodePostal>54430</CodePostal>
+      <NomCommune>Réhon</NomCommune>
+      <Localisation>
+         <Latitude>49.5008010864</Latitude>
+         <Longitude>5.75581979752</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 24 90 70</Téléphone>
+      <Télécopie>03 82 23 93 66</Télécopie>
+      <Email>accueil@mairie-rehon.fr</Email>
+      <Url>http://www.rehon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66068-01" codeInsee="66068" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Escaro-Aytua</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Saint-Martin</Ligne>
+      <CodePostal>66360</CodePostal>
+      <NomCommune>Escaro-Aytua</NomCommune>
+      <Localisation>
+         <Latitude>42.536215</Latitude>
+         <Longitude>2.314297</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette pour les personnes à mobilité réduite</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 97 02 43</Téléphone>
+      <Email>commune-d-escaro@orange.fr</Email>
+      <Url>http://www.escaro-aytua.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:15:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:15:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:15:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14687-01" codeInsee="14687" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Theil-en-Auge</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>371 route de Bernay</Ligne>
+      <CodePostal>14130</CodePostal>
+      <NomCommune>Le Theil-en-Auge</NomCommune>
+      <Localisation>
+         <Latitude>49.348023</Latitude>
+         <Longitude>0.250366</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 89 44 10</Téléphone>
+      <Télécopie>02 31 89 44 10</Télécopie>
+      <Email>mairie38@nordnet.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

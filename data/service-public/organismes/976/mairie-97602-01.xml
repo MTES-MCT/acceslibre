@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97602-01" codeInsee="97602" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bandraboua</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>238  rue de l’Hôtel-de-Ville</Ligne>
+      <Ligne>BP 48</Ligne>
+      <CodePostal>97650</CodePostal>
+      <NomCommune>Bandraboua</NomCommune>
+      <Localisation>
+         <Latitude>-12.6971671</Latitude>
+         <Longitude>45.0699213</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 2 69 62 54 18</Téléphone>
+      <Télécopie>+269 2 69 62 54 17</Télécopie>
+      <Email>secretariat.direction@mairie-bandraboua.fr</Email>
+      <Url>http://www.mairie-bandraboua.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71153-01" codeInsee="71153" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Creusot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Henri-Paul-Schneider</Ligne>
+      <Ligne>BP 91</Ligne>
+      <CodePostal>71206</CodePostal>
+      <NomCommune>Le Creusot Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.8056488037</Latitude>
+         <Longitude>4.42787122726</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 77 59 59</Téléphone>
+      <Télécopie>03 85 77 59 99</Télécopie>
+      <Email>mairie.creusot@ville-lecreusot.fr</Email>
+      <Url>http://www.le-creusot.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

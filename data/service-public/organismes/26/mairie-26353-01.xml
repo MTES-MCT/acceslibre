@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26353-01" codeInsee="26353" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Tourrettes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>26740</CodePostal>
+      <NomCommune>Les Tourrettes</NomCommune>
+      <Localisation>
+         <Latitude>44.667851</Latitude>
+         <Longitude>4.8028237</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 90 06 27</Téléphone>
+      <Email>mairie@lestourrettes.fr</Email>
+      <Url>http://www.lestourrettes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert de 8h à 12h pendant les congés scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert de 8h à 12h pendant les congés scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

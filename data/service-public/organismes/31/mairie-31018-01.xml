@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31018-01" codeInsee="31018" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arnaud-Guilhem</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>95 rue de Montraisin</Ligne>
+      <CodePostal>31360</CodePostal>
+      <NomCommune>Arnaud-Guilhem</NomCommune>
+      <Localisation>
+         <Latitude>43.1428833</Latitude>
+         <Longitude>0.8974879</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 90 31 83</Téléphone>
+      <Email>arnaud-guilhem.mairie@wanadoo.fr</Email>
+      <Url>https://www.arnaud-guilhem.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

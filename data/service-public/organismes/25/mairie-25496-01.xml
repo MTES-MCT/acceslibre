@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25496-01" codeInsee="25496" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Roche-lès-Clerval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Principale</Ligne>
+      <CodePostal>25340</CodePostal>
+      <NomCommune>Roche-lès-Clerval</NomCommune>
+      <Localisation>
+         <Latitude>47.3676872253</Latitude>
+         <Longitude>6.48123884201</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 93 82 88</Téléphone>
+      <Email>mairie.rochelesclerval@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Semaines impaires.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

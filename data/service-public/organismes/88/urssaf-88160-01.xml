@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="urssaf-88160-01" codeInsee="88160" dateMiseAJour="2021-09-20"
+           pivotLocal="urssaf">
+   <Nom>Urssaf Lorraine - site d'Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>La Chênaie</Ligne>
+      <Ligne>6 avenue Pierre-Blanck</Ligne>
+      <CodePostal>88000</CodePostal>
+      <NomCommune>Épinal</NomCommune>
+      <Localisation>
+         <Latitude>48.1996959</Latitude>
+         <Longitude>6.4601171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Urssaf Lorraine</Ligne>
+      <Ligne>TSA 80400</Ligne>
+      <CodePostal>21037</CodePostal>
+      <NomCommune>Dijon Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 57</Téléphone>
+      <Email>https://www.contact.urssaf.fr</Email>
+      <Url>https://www.urssaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

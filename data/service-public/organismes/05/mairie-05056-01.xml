@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05056-01" codeInsee="05056" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Forest-Saint-Julien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Manse</Ligne>
+      <CodePostal>05260</CodePostal>
+      <NomCommune>Forest-Saint-Julien</NomCommune>
+      <Localisation>
+         <Latitude>44.6451225281</Latitude>
+         <Longitude>6.13068723679</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'usager est invité à utiliser la sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 50 43 84</Téléphone>
+      <Email>mairie.forest.st.julien@wanadoo.fr</Email>
+      <Url>http://mairieforeststjulien.wordpress.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Permanence du maire de 10h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

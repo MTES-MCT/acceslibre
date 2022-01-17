@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60601-01" codeInsee="60601" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Vaast-lès-Mello</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>60660</CodePostal>
+      <NomCommune>Saint-Vaast-lès-Mello</NomCommune>
+      <Localisation>
+         <Latitude>49.269479</Latitude>
+         <Longitude>2.390125</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">contacter la mairie avant de vous déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 27 10 02</Téléphone>
+      <Télécopie>03 44 27 11 11</Télécopie>
+      <Email>mairie@saintvaastlesmello.fr</Email>
+      <Url>http://www.saintvaastlesmello.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert les 1er et 3e samedi du mois, en juillet-août accueil ouvert uniquement les mardi et vendredi de 16h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

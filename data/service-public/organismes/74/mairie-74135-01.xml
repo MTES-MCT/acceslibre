@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74135-01" codeInsee="74135" dateMiseAJour="2021-08-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Giez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>360 route du Bourgeal</Ligne>
+      <CodePostal>74210</CodePostal>
+      <NomCommune>Giez</NomCommune>
+      <Localisation>
+         <Latitude>45.7523017</Latitude>
+         <Longitude>6.2467611</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 44 54 84</Téléphone>
+      <Télécopie>04 50 44 64 92</Télécopie>
+      <Email>mairie@giez.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

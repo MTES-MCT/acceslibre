@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-18141-01" codeInsee="18141" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Cher - accueil de Mehun-sur-Yèvre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>3 rue Catherine-Pâteux</Ligne>
+      <CodePostal>18500</CodePostal>
+      <NomCommune>Mehun-sur-Yèvre</NomCommune>
+      <Localisation>
+         <Latitude>47.144249983</Latitude>
+         <Longitude>2.2171500149</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Cher</Ligne>
+      <Ligne>TSA 71296</Ligne>
+      <CodePostal>72034</CodePostal>
+      <NomCommune>Le Mans Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Accueil sur rendez-vous en visio les mardis de 9h à 12h et de 14h à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

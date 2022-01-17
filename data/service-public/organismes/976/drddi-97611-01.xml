@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drddi-97611-01" codeInsee="97611" dateMiseAJour="2021-12-15"
+           pivotLocal="drddi">
+   <Nom>Direction régionale des douanes - Mayotte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Immeuble Jacaranda</Ligne>
+      <Ligne>Rue Mariaze</Ligne>
+      <Ligne>BP 404</Ligne>
+      <CodePostal>97647</CodePostal>
+      <NomCommune>Mamoudzou</NomCommune>
+      <Localisation>
+         <Latitude>-12.7806</Latitude>
+         <Longitude>45.2278</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 2 69 61 42 22</Téléphone>
+      <Email>douane.mayotte@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

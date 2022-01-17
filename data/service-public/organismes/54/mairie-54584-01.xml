@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54584-01" codeInsee="54584" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villey-Saint-Étienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 rue Neuve</Ligne>
+      <CodePostal>54200</CodePostal>
+      <NomCommune>Villey-Saint-Étienne</NomCommune>
+      <Localisation>
+         <Latitude>48.7302017212</Latitude>
+         <Longitude>5.97854995728</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 62 97 34</Téléphone>
+      <Email>mairie.vse@wanadoo.fr</Email>
+      <Url>http://www.villey-saint-etienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Le 1er samedi du mois uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01400-01" codeInsee="01400" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seillonnaz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue des Alinières</Ligne>
+      <CodePostal>01470</CodePostal>
+      <NomCommune>Seillonnaz</NomCommune>
+      <Localisation>
+         <Latitude>45.80675</Latitude>
+         <Longitude>5.490048</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 36 10 24</Téléphone>
+      <Email>mairie.seillonnaz@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

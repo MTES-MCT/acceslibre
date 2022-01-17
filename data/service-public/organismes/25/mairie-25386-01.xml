@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25386-01" codeInsee="25386" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montancy-Brémoncourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lieu-dit Brémoncourt</Ligne>
+      <Ligne>9 rue Principale</Ligne>
+      <CodePostal>25190</CodePostal>
+      <NomCommune>Montancy</NomCommune>
+      <Localisation>
+         <Latitude>47.3875472</Latitude>
+         <Longitude>7.0369046</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe et sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 93 91 50</Téléphone>
+      <Télécopie>03 81 93 91 50</Télécopie>
+      <Email>mairiedemontancy@nordnet.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

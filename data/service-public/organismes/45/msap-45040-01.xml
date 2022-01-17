@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-45040-01" codeInsee="45040" dateMiseAJour="2021-09-07"
+           pivotLocal="msap">
+   <Nom>France Services - Bonny-sur-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la République</Ligne>
+      <CodePostal>45420</CodePostal>
+      <NomCommune>Bonny-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>47.559546</Latitude>
+         <Longitude>2.840338</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 05 18 75</Téléphone>
+      <Email>msap.bonny-sur-loire@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

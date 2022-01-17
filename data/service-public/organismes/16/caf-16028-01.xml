@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-16028-01" codeInsee="16028" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Charente - accueil de Barbezieux-Saint-Hilaire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison communautaire pour l'emploi</Ligne>
+      <Ligne>Espace France services - Barbezieux</Ligne>
+      <Ligne>32 rue de la Motte</Ligne>
+      <CodePostal>16300</CodePostal>
+      <NomCommune>Barbezieux-Saint-Hilaire</NomCommune>
+      <Localisation>
+         <Latitude>45.4729001</Latitude>
+         <Longitude>-0.1559839</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Charente</Ligne>
+      <Ligne>30-32 boulevard de Bury</Ligne>
+      <Ligne>CS 90000</Ligne>
+      <CodePostal>16911</CodePostal>
+      <NomCommune>Angoulême Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cr-97209-01" codeInsee="97209" dateMiseAJour="2020-03-19" pivotLocal="cr">
+   <Nom>Collectivité territoriale de Martinique</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Gaston-Defferre</Ligne>
+      <Ligne>CS 30137</Ligne>
+      <CodePostal>97201</CodePostal>
+      <NomCommune>Fort-de-France Cedex</NomCommune>
+      <Localisation>
+         <Latitude>14.6114916397</Latitude>
+         <Longitude>-61.081237793</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 59 63 00</Téléphone>
+      <Télécopie>+596 5 96 59 64 84</Télécopie>
+      <Email>courrier@collectivitedemartinique.mq</Email>
+      <Url>http://www.collectivitedemartinique.mq</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

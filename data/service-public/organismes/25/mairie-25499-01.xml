@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25499-01" codeInsee="25499" dateMiseAJour="2014-08-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Romain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Nationale</Ligne>
+      <CodePostal>25680</CodePostal>
+      <NomCommune>Romain</NomCommune>
+      <Localisation>
+         <Latitude>47.4820961</Latitude>
+         <Longitude>6.3453261</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 84 21 61</Téléphone>
+      <Email>mairie.romain@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:45:00" fin="19:45:00"/>
+         <Note>Accueil ouvert le mercredi après-midi sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

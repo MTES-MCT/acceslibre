@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73160-01" codeInsee="73160" dateMiseAJour="2021-02-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montagnole</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>73000</CodePostal>
+      <NomCommune>Montagnole</NomCommune>
+      <Localisation>
+         <Latitude>45.5394804</Latitude>
+         <Longitude>5.9092401</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 69 54 17</Téléphone>
+      <Email>mairie.montagnole@wanadoo.fr</Email>
+      <Url>http://www.mairie-montagnole.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

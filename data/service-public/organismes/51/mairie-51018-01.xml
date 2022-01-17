@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51018-01" codeInsee="51018" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Athis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Camille-Soudant</Ligne>
+      <CodePostal>51150</CodePostal>
+      <NomCommune>Athis</NomCommune>
+      <Localisation>
+         <Latitude>49.016998291</Latitude>
+         <Longitude>4.12814998627</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 57 62 94</Téléphone>
+      <Email>mairieathis@wanadoo.fr</Email>
+      <Url>https://www.athis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

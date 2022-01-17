@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-13208-01" codeInsee="13208" dateMiseAJour="2021-04-26" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Marseille - 8e arrondissement - Baptistin-Cayol</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de la solidarité de Bonneveine</Ligne>
+      <Ligne>35 boulevard Baptistin Cayol</Ligne>
+      <CodePostal>13008</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.250802</Latitude>
+         <Longitude>5.385507</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 13 31 77 60</Téléphone>
+      <Télécopie>04 13 31 77 56</Télécopie>
+      <Url>https://www.departement13.fr/nos-actions/enfance-famille/les-dispositifs/la-protection-maternelle-et-infantile/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-36046-01" codeInsee="36046" dateMiseAJour="2021-06-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de La Châtre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Général-de-Gaulle</Ligne>
+      <CodePostal>36400</CodePostal>
+      <NomCommune>La Châtre</NomCommune>
+      <Localisation>
+         <Latitude>46.578646</Latitude>
+         <Longitude>1.986653</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 06 13 80</Téléphone>
+      <Email>t036039@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-59068-01" codeInsee="59068" dateMiseAJour="2020-06-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Berlaimont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 Grande rue</Ligne>
+      <CodePostal>59145</CodePostal>
+      <NomCommune>Berlaimont</NomCommune>
+      <Localisation>
+         <Latitude>50.2025443</Latitude>
+         <Longitude>3.8156248</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 67 34 61</Téléphone>
+      <Email>t059519@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <Note>Accueil fermé pendant la période de crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

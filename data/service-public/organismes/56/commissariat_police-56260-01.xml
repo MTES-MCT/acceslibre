@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-56260-01" codeInsee="56260" dateMiseAJour="2021-06-11"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Vannes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 boulevard de la Paix</Ligne>
+      <Ligne>BP 513</Ligne>
+      <CodePostal>56019</CodePostal>
+      <NomCommune>Vannes</NomCommune>
+      <Localisation>
+         <Latitude>47.6603831</Latitude>
+         <Longitude>-2.7615309</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">02 22 07 41 00</Téléphone>
+      <Télécopie>02 97 68 33 56</Télécopie>
+      <Email>ddsp56@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

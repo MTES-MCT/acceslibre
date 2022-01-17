@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42007-01" codeInsee="42007" dateMiseAJour="2020-07-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arcinges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>55 rue de la Mairie</Ligne>
+      <CodePostal>42460</CodePostal>
+      <NomCommune>Arcinges</NomCommune>
+      <Localisation>
+         <Latitude>46.0997756</Latitude>
+         <Longitude>4.3214169</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 60 52 44</Téléphone>
+      <Email>communearcinges@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

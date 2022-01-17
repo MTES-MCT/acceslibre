@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33038-01" codeInsee="33038" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bégadan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du 8-Mai</Ligne>
+      <CodePostal>33340</CodePostal>
+      <NomCommune>Bégadan</NomCommune>
+      <Localisation>
+         <Latitude>45.357182</Latitude>
+         <Longitude>-0.893171</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 41 50 15</Téléphone>
+      <Télécopie>05 56 41 56 98</Télécopie>
+      <Email>mairie.begadan@wanadoo.fr</Email>
+      <Url>https://mairie-begadan.jimdofree.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

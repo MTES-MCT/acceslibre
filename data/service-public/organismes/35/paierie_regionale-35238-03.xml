@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_regionale-35238-03" codeInsee="35238" dateMiseAJour="2021-09-01"
+           pivotLocal="paierie_regionale">
+   <Nom>Paierie régionale - Bretagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>283 avenue du Général Patton</Ligne>
+      <Ligne>Centre des Finances publiques</Ligne>
+      <CodePostal>35000</CodePostal>
+      <NomCommune>Rennes</NomCommune>
+      <Localisation>
+         <Latitude>48.135178</Latitude>
+         <Longitude>-1.662075</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>283 avenue du Général Patton</Ligne>
+      <Ligne>CS 21101</Ligne>
+      <CodePostal>35711</CodePostal>
+      <NomCommune>Rennes Cedex 7</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Accueil téléphonique : du lundi au vendredi de 9h00 à 12h00 et de 13h30 à 16h30">02 23 07 00 00</Téléphone>
+      <Email>t035080@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil physique : sur rendez-vous uniquement du lundi au vendredi de 8h45 à 12h00 et les lundi, mardi et jeudi de 13h30 à 16h00</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

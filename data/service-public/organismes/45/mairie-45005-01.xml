@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45005-01" codeInsee="45005" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Andonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 impasse du Château</Ligne>
+      <CodePostal>45480</CodePostal>
+      <NomCommune>Andonville</NomCommune>
+      <Localisation>
+         <Latitude>48.2573013306</Latitude>
+         <Longitude>1.98582994938</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 39 58 49</Téléphone>
+      <Télécopie>02 38 39 64 10</Télécopie>
+      <Email>mairie.andonville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="14:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

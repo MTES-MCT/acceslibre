@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-83054-01" codeInsee="83054" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - La Farlède</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination - Vallée-du-Gapeau</Ligne>
+      <Ligne>1193 avenue des Senes</Ligne>
+      <CodePostal>83210</CodePostal>
+      <NomCommune>Solliès-Pont</NomCommune>
+      <Localisation>
+         <Latitude>43.2006168</Latitude>
+         <Longitude>6.03054569999995</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 33 10 60</Téléphone>
+      <Télécopie>04 94 33 10 68</Télécopie>
+      <Email>social@ccvg.fr</Email>
+      <Url>http://www.ccvg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

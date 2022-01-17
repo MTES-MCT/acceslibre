@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02614-01" codeInsee="02614" dateMiseAJour="2018-03-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pontru</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4, rue du Moulin</Ligne>
+      <CodePostal>02490</CodePostal>
+      <NomCommune>Pontru</NomCommune>
+      <Localisation>
+         <Latitude>49.876499176</Latitude>
+         <Longitude>3.15052008629</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 64 30 70</Téléphone>
+      <Télécopie>03 23 64 12 16</Télécopie>
+      <Email>mairie.pontru@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

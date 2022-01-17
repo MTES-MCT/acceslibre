@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08450-01" codeInsee="08450" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - This</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place André Migeot</Ligne>
+      <CodePostal>08090</CodePostal>
+      <NomCommune>This</NomCommune>
+      <Localisation>
+         <Latitude>49.748998</Latitude>
+         <Longitude>4.609958</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">interphone</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 53 50 43</Téléphone>
+      <Télécopie>03 24 53 50 43</Télécopie>
+      <Email>mairie.this@wanadoo.fr</Email>
+      <Url>http://www.mairie-this.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>Permanence des élus uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

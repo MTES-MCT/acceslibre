@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-61168-01" codeInsee="61168" dateMiseAJour="2018-02-09"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - La Ferté-Macé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Association de formation et d information des paysans de Normandie</Ligne>
+      <Ligne>Les Trois-Îles</Ligne>
+      <Ligne>Route de Domfront</Ligne>
+      <CodePostal>61600</CodePostal>
+      <NomCommune>La Ferté-Macé</NomCommune>
+      <Localisation>
+         <Latitude>48.5854264</Latitude>
+         <Longitude>-0.369674</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 30 05 05 06</Téléphone>
+      <Email>denis.c@afip-normandie.fr</Email>
+      <Url>http://www.afip.asso.fr/normandie</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

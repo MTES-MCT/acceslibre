@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50002-01" codeInsee="50002" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Agneaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc de la Palière</Ligne>
+      <Ligne>BP 1</Ligne>
+      <CodePostal>50180</CodePostal>
+      <NomCommune>Agneaux</NomCommune>
+      <Localisation>
+         <Latitude>49.1187067</Latitude>
+         <Longitude>-1.1145607</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 77 33 50</Téléphone>
+      <Télécopie>02 33 05 51 09</Télécopie>
+      <Email>mairie@agneaux.fr</Email>
+      <Url>http://www.agneaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

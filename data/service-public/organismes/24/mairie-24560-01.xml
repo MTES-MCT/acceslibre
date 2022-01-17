@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24560-01" codeInsee="24560" dateMiseAJour="2021-03-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Urval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24480</CodePostal>
+      <NomCommune>Urval</NomCommune>
+      <Localisation>
+         <Latitude>44.812395</Latitude>
+         <Longitude>0.948609</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 22 07 76</Téléphone>
+      <Télécopie>05 53 27 34 16</Télécopie>
+      <Email>mairie@urval.fr</Email>
+      <Url>http://urval.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>
