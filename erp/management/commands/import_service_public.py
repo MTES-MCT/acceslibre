@@ -88,6 +88,8 @@ class Command(BaseCommand):
 
     def import_row(self, xml, **kwargs):
         fields = {}
+        fields["source"] = "service_public"
+        fields["source_id"] = extract(xml, attribute="id")
         fields["nom"] = extract(xml, fieldname="Nom")
         fields["telephone"] = extract(xml, fieldname="*Téléphone")
         fields["contact_email"] = extract(xml, fieldname="*Email")
@@ -278,11 +280,12 @@ class Command(BaseCommand):
                 raise e
             else:
                 if erp and data_access:
+                    self.stdout.write(
+                        f"Ajout de l'ERP depuis {erp.source} (id: {erp.source_id})"
+                    )
                     if hasattr(erp, "pk") and erp.pk:
                         self.existed_erps += 1
-                        print(
-                            f"EXIST {erp.nom} {erp.voie} {erp.commune} {self.force_update}"
-                        )
+                        print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
                         if self.force_update:
                             print("\tUPDATE FORCED on this ERP")
                             erp.save()

@@ -344,6 +344,7 @@ class Erp(models.Model):
     SOURCE_ODS = "opendatasoft"
     SOURCE_PUBLIC = "public"
     SOURCE_PUBLIC_ERP = "public_erp"
+    SOURCE_SERVICE_PUBLIC = "service_public"
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
     SOURCE_VACCINATION = "centres-vaccination"
@@ -357,6 +358,7 @@ class Erp(models.Model):
         (SOURCE_ODS, "API OpenDataSoft"),
         (SOURCE_PUBLIC, "Saisie manuelle publique"),
         (SOURCE_PUBLIC_ERP, "API des établissements publics"),
+        (SOURCE_SERVICE_PUBLIC, "Service Public"),
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
