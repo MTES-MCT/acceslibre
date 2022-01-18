@@ -145,7 +145,7 @@ def _search_commune_around(qs, point, code_insee):
         commune = Commune.objects.filter(code_insee=code_insee).first()
     return (
         commune,
-        qs.in_and_around_commune(commune) if commune else qs.nearest(point),
+        qs.in_and_around_commune(point, commune) if commune else qs.nearest(point),
     )
 
 

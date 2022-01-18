@@ -16,13 +16,13 @@
     </div>
   </div>
     {% if results_bdd %}
-  <h4>Établissements existants dans Acceslibre</h4>
+      <h4>Établissements existants dans Acceslibre <span class="text-muted">({{ results_bdd|length }} résultat{{ results_bdd|length|pluralize }})</span></h4>
   <div class="card p-3">
      {% include "contrib/includes/result_search_erps.html" with results=results_bdd %}
   </div>
     {% endif %}
   {% if results %}
-  <h4>Etablissements dont les informations administratives sont disponibles</h4>
+  <h4>Etablissements dont les informations administratives sont disponibles <span class="text-muted">({{ results|length }} résultat{{ results|length|pluralize }})</span></h4>
 <div class="card p-3">
     {% include "contrib/includes/result_search_erps.html" with results=results %}
 </div>
