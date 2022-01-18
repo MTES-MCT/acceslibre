@@ -81,8 +81,8 @@ def test_empty_search_results(data, client):
     response = client.get(
         reverse("contrib_global_search"),
         data={
-            "commune_search": "",
-            "code_insee": "",
+            "where": "",
+            "code": "",
             "search": "",
         },
     )

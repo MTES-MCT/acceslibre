@@ -129,13 +129,23 @@ def communes(request):
     )
 
 
+def _search_commune_code_postal(qs, code_insee):
+    commune = None
+    if code_insee:
+        commune = Commune.objects.filter(code_insee=code_insee).first()
+    return (
+        commune,
+        qs.in_code_postal(commune) if commune else qs,
+    )
+
+
 def _search_commune_around(qs, point, code_insee):
     commune = None
     if code_insee:
         commune = Commune.objects.filter(code_insee=code_insee).first()
     return (
         commune,
-        qs.in_and_around_commune(point, commune) if commune else qs.nearest(point),
+        qs.in_and_around_commune(commune) if commune else qs.nearest(point),
     )
 
 
@@ -578,14 +588,16 @@ def contrib_global_search(request):
     results = error = None
     try:
         results = provider_search.global_search(
-            request.GET.get("search"), request.GET.get("code_insee")
+            request.GET.get("search"), request.GET.get("code")
         )
-        qs_results_bdd = Erp.objects.filter(nom__icontains=request.GET.get("search"))
+        qs_results_bdd = Erp.objects.select_related(
+            "accessibilite", "activite", "commune_ext"
+        ).search_what(request.GET.get("search"))
 
-        qs_results_bdd = qs_results_bdd.filter(
-            Q(code_insee=request.GET.get("code_insee"))
-            | Q(commune_ext__code_insee=request.GET.get("code_insee"))
+        commune, qs_results_bdd = _search_commune_code_postal(
+            qs_results_bdd, request.GET.get("code")
         )
+
         results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
     except RuntimeError as err:
         error = err
@@ -594,7 +606,7 @@ def contrib_global_search(request):
         template_name="contrib/0a-search_results.html",
         context={
             "search": request.GET.get("search"),
-            "commune_search": request.GET.get("commune_search"),
+            "commune_search": commune,
             "step": 1,
             "libelle_step": {
                 "current": "informations",

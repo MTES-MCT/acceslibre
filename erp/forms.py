@@ -516,6 +516,9 @@ class PublicLocalisationForm(forms.Form):
 
 
 class ProviderGlobalSearchForm(forms.Form):
+    lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
+    lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
+    code = forms.DecimalField(required=True, widget=forms.HiddenInput)
     search = forms.CharField(
         label="Recherche",
         help_text=mark_safe(
@@ -529,25 +532,30 @@ class ProviderGlobalSearchForm(forms.Form):
             attrs={"placeholder": "ex. Mairie", "autocomplete": "off"}
         ),
     )
-    commune_search = forms.CharField(widget=forms.HiddenInput)
-    code_insee = forms.CharField(
+    where = forms.CharField(
         label="Commune",
-        required=True,
-        widget=forms.Select(),
+        required=False,
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Rechercher une commune",
+                "autocomplete": "off",
+                "class": "autocomplete-input form-control",
+            }
+        ),
     )
 
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
-        code_insee = initial.get("code_insee")
-        if code_insee:
-            commune = Commune.objects.filter(code_insee=code_insee).first()
+        code = initial.get("code")
+        if code:
+            commune = Commune.objects.filter(code_insee=code).first()
             if commune:
                 nom_departement = departements.DEPARTEMENTS[commune.departement]["nom"]
                 commune_search = (
                     f"{commune.nom} ({commune.departement} - {nom_departement})"
                 )
                 initial["commune_search"] = commune_search
-                initial["code_insee"] = code_insee
+                initial["code_insee"] = code
         super().__init__(*args, **kwargs)
 
 
