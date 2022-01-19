@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38551-01" codeInsee="38551" dateMiseAJour="2020-05-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villard-Reymond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>38520</CodePostal>
+      <NomCommune>Villard-Reymond</NomCommune>
+      <Localisation>
+         <Latitude>45.034482</Latitude>
+         <Longitude>6.017917</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 80 60 64</Téléphone>
+      <Télécopie>04 76 80 60 64</Télécopie>
+      <Email>contact-mairie@villard-reymond.fr</Email>
+      <Url>http://www.villard-reymond.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Et sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

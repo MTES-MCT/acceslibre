@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-89257-01" codeInsee="89257" dateMiseAJour="2021-03-02"
+           pivotLocal="msap">
+   <Nom>France Services - Migennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>75 Avenue Jaurès</Ligne>
+      <Ligne>CCAS de Migennes (Centre commmunal d’action sociale)</Ligne>
+      <CodePostal>89400</CodePostal>
+      <NomCommune>Migennes</NomCommune>
+      <Localisation>
+         <Latitude>47.96367</Latitude>
+         <Longitude>3.511797</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 92 90 89</Téléphone>
+      <Email>ccas@ville-migennes.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

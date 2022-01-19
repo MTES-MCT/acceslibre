@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-37261-01" codeInsee="37261"
+           dateMiseAJour="2021-03-30"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Indre-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>61 avenue Grammont</Ligne>
+      <Ligne>CS 92735</Ligne>
+      <Ligne>Préfecture - DDCS</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <CodePostal>37027</CodePostal>
+      <NomCommune>Tours Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>47.388712</Latitude>
+         <Longitude>0.6986431</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 70 11 00</Téléphone>
+      <Télécopie>02 47 70 11 11</Télécopie>
+      <Email>ddcs@indre-et-loire.gouv.fr</Email>
+      <Url>https://www.indre-et-loire.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

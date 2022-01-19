@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51075-02" codeInsee="51075" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Fresne-lès-Reims</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Fresne-lès-Reims</Ligne>
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>51110</CodePostal>
+      <NomCommune>Bourgogne-Fresne</NomCommune>
+      <Localisation>
+         <Latitude>49.3344993591</Latitude>
+         <Longitude>4.14746999741</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 97 50 90</Téléphone>
+      <Email>mairiefresnelesreims@orange.fr</Email>
+      <Url>https://www.bourgogne-fresne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil possible sur rendez-vous les mercredis et jeudis de 9h 12h et de 14h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

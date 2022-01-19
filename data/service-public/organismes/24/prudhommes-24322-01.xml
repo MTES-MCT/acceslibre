@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="24322" dateMiseAJour="2021-12-14" id="prudhommes-24322-01" idPresta="4cac9e86293594648a004c80" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Périgueux</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 BIS COURS FENELON</Ligne>
+        <CodePostal>24019</CodePostal>
+        <NomCommune>PERIGUEUX CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.181838</Latitude>
+            <Longitude>0.720719</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 BIS COURS FENELON</Ligne>
+        <CodePostal>24019</CodePostal>
+        <NomCommune>PERIGUEUX CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 53 08 64 43</Téléphone>
+        <Email>mailto:cph-perigueux@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

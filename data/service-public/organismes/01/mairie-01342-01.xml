@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01342-01" codeInsee="01342" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Croix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>126 route du Creux-Dollens</Ligne>
+      <CodePostal>01120</CodePostal>
+      <NomCommune>Sainte-Croix</NomCommune>
+      <Localisation>
+         <Latitude>45.914100647</Latitude>
+         <Longitude>5.03522014618</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 06 60 94</Téléphone>
+      <Télécopie>04 78 06 60 94</Télécopie>
+      <Email>ville-saintecroix@wanadoo.fr</Email>
+      <Url>http://www.ville-saintecroix.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

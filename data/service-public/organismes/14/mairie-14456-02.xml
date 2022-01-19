@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14456-02" codeInsee="14456" dateMiseAJour="2021-05-17"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Chicheboville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>80 rue Éole</Ligne>
+      <CodePostal>14370</CodePostal>
+      <NomCommune>Moult-Chicheboville</NomCommune>
+      <Localisation>
+         <Latitude>49.0702018738</Latitude>
+         <Longitude>-0.180485993624</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 50 28 87 99</Téléphone>
+      <Email>mairie@chicheboville.fr</Email>
+      <Url>http://www.moult.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-41269-01" codeInsee="41269" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Vendôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Transfo</Ligne>
+      <Ligne>140 faubourg Chartrain</Ligne>
+      <CodePostal>41100</CodePostal>
+      <NomCommune>Vendôme</NomCommune>
+      <Localisation>
+         <Latitude>47.7996146</Latitude>
+         <Longitude>1.0678757</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 89 13 00</Téléphone>
+      <Email>transfo@territoiresvendomois.fr</Email>
+      <Url>http://www.territoiresvendomois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

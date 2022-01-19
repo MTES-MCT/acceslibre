@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-40088-01" codeInsee="40088" dateMiseAJour="2021-11-23"
+           pivotLocal="greta">
+   <Nom>Greta CFA Aquitaine - Agence des Landes - Dax</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée de Borda</Ligne>
+      <Ligne>7 Avenue Paul Doumer</Ligne>
+      <CodePostal>40100</CodePostal>
+      <NomCommune>Dax Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.701998</Latitude>
+         <Longitude>-1.056211</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 58 12 34</Téléphone>
+      <Email>Agence-dax@greta-cfa-aquitaine.fr</Email>
+      <Url>https://greta-cfa-aquitaine.fr/decouvrir-le-reseau-des-greta-en-aquitaine/agence-des-landes/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

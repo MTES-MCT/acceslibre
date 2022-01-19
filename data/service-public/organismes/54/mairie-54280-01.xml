@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54280-01" codeInsee="54280" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jœuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>54240</CodePostal>
+      <NomCommune>Jœuf</NomCommune>
+      <Localisation>
+         <Latitude>49.2299995422</Latitude>
+         <Longitude>6.00834989548</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 22 20 60</Téléphone>
+      <Télécopie>03 82 22 97 64</Télécopie>
+      <Email>communication@ville-joeuf.fr</Email>
+      <Url>http://www.ville-joeuf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

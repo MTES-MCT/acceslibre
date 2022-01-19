@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01325-01" codeInsee="01325" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rignieux-le-Franc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de l'Église</Ligne>
+      <CodePostal>01800</CodePostal>
+      <NomCommune>Rignieux-le-Franc</NomCommune>
+      <Localisation>
+         <Latitude>45.9037674</Latitude>
+         <Longitude>5.1921767</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 61 07 61</Téléphone>
+      <Télécopie>04 74 61 25 47</Télécopie>
+      <Email>mairie@rignieuxlefranc.com</Email>
+      <Url>http://www.rignieux-le-franc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les 1er et 3e samedis du mois.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

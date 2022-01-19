@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28357-01" codeInsee="28357" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Piat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Marcel-Binet</Ligne>
+      <CodePostal>28130</CodePostal>
+      <NomCommune>Saint-Piat</NomCommune>
+      <Localisation>
+         <Latitude>48.5467165</Latitude>
+         <Longitude>1.5846636</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 32 30 20</Téléphone>
+      <Télécopie>02 37 32 49 44</Télécopie>
+      <Email>saint-piat@wanadoo.fr</Email>
+      <Url>http://www.saint-piat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:00:00"/>
+         <Note>Permanence des élus.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

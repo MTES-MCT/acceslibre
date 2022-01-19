@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crib-59009-01" codeInsee="59009" dateMiseAJour="2021-06-07"
+           pivotLocal="crib">
+   <Nom>Centre de ressources et d'information des bénévoles (CRIB) - Comité régional olympique et sportif des Hauts-de-France</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison régionale des sports</Ligne>
+      <Ligne>367 rue Jules-Guesde</Ligne>
+      <CodePostal>59650</CodePostal>
+      <NomCommune>Villeneuve-d'Ascq</NomCommune>
+      <Localisation>
+         <Latitude>50.6397683</Latitude>
+         <Longitude>3.1393218</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 20 05 68 50</Téléphone>
+      <Email>hautsdefrance@franceolympique.com</Email>
+      <Url>https://www.croshautsdefrance.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

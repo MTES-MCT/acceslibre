@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-83023-01" codeInsee="83023"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Var (Brignoles)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Brignoles</Ligne>
+      <Ligne>92 rue de la République</Ligne>
+      <Ligne>CS 20302</Ligne>
+      <CodePostal>83175</CodePostal>
+      <NomCommune>Brignoles Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.3947184</Latitude>
+         <Longitude>6.03932050000003</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 37 03 54</Téléphone>
+      <Télécopie>04 94 37 03 65</Télécopie>
+      <Email>sp-brignoles-citoyennete-reglementation@var.gouv.fr</Email>
+      <Url>http://www.var.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

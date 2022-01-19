@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-14478-01" codeInsee="14478" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Calvados - accueil d'Orbec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 bis rue de Verdun</Ligne>
+      <CodePostal>14290</CodePostal>
+      <NomCommune>Orbec</NomCommune>
+      <Localisation>
+         <Latitude>49.0206645</Latitude>
+         <Longitude>0.4050215</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Calvados</Ligne>
+      <Ligne>8 avenue du 6-Juin</Ligne>
+      <Ligne>CS 20001</Ligne>
+      <CodePostal>14023</CodePostal>
+      <NomCommune>Caen Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Télécopie>02 31 61 08 37</Télécopie>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

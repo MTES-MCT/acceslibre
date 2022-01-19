@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27472-01" codeInsee="27472" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Portes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Garenne</Ligne>
+      <CodePostal>27190</CodePostal>
+      <NomCommune>Portes</NomCommune>
+      <Localisation>
+         <Latitude>49.0283203</Latitude>
+         <Longitude>0.9547118</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 30 00 99</Téléphone>
+      <Email>mairie.portes472@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+         <Note>Permanence.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+         <Note>Permanence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

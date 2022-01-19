@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80162-01" codeInsee="80162" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Caix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du 8-Mai</Ligne>
+      <CodePostal>80170</CodePostal>
+      <NomCommune>Caix</NomCommune>
+      <Localisation>
+         <Latitude>49.817199707</Latitude>
+         <Longitude>2.64667010307</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 88 29 00</Téléphone>
+      <Email>mairie.caix@orange.fr</Email>
+      <Url>http://www.caix.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire le lundi de 17h à 19h et le mercredi de 17h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

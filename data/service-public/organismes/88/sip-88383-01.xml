@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-88383-01" codeInsee="88383" dateMiseAJour="2021-08-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Remiremont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15, rue Paul Doumer</Ligne>
+      <CodePostal>88206</CodePostal>
+      <NomCommune>Remiremont Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.0150578</Latitude>
+         <Longitude>6.5929809</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 23 44 44</Téléphone>
+      <Télécopie>03 29 23 44 58</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>avec ou sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40251-01" codeInsee="40251" dateMiseAJour="2021-01-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Barthélemy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route des Barthes</Ligne>
+      <CodePostal>40390</CodePostal>
+      <NomCommune>Saint-Barthélemy</NomCommune>
+      <Localisation>
+         <Latitude>43.515228</Latitude>
+         <Longitude>-1.330784</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 56 21 01</Téléphone>
+      <Email>mairie.saintbarthelemy@wanadoo.fr</Email>
+      <Url>http://www.saintbarthelemy40.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

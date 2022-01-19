@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77405-01" codeInsee="77405" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Cyr-sur-Morin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Daniel-Simon</Ligne>
+      <CodePostal>77750</CodePostal>
+      <NomCommune>Saint-Cyr-sur-Morin</NomCommune>
+      <Localisation>
+         <Latitude>48.6349542</Latitude>
+         <Longitude>3.2856513</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 23 80 24</Téléphone>
+      <Email>mairie.stcyrsurmorin@orange.fr</Email>
+      <Url>http://www.saint-cyr-sur-morin.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement le matin du lundi au samedi pendant les vacances scolaires, ouvert lundi, mardi et jeudi de 9h à 12h pour le service urbanisme.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

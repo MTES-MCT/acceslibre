@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-37130-01" codeInsee="37130" dateMiseAJour="2015-06-17"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Ligueil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Sud Touraine</Ligne>
+      <Ligne>17 rue de l'Eglise</Ligne>
+      <CodePostal>37240</CodePostal>
+      <NomCommune>Ligueil</NomCommune>
+      <Localisation>
+         <Latitude>47.043743</Latitude>
+         <Longitude>0.817794</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 47 92 09 72</Téléphone>
+      <Email>clicsudtouraine@wanadoo.fr</Email>
+      <Url>http://www.touraine-reperage.fr/les-maisons-departementales-de-la-solidarite.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Commentaire>
+</Organisme>

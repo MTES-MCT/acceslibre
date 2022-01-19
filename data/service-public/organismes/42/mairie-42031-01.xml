@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42031-01" codeInsee="42031" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Çaloire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 chemin de la Mairie</Ligne>
+      <CodePostal>42240</CodePostal>
+      <NomCommune>Çaloire</NomCommune>
+      <Localisation>
+         <Latitude>45.418668</Latitude>
+         <Longitude>4.242624</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 35 71 06</Téléphone>
+      <Télécopie>04 77 35 78 26</Télécopie>
+      <Email>mairie-caloire@orange.fr</Email>
+      <Url>http://www.caloire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

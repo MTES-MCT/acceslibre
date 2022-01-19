@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62385-01" codeInsee="62385" dateMiseAJour="2018-01-03"
+           pivotLocal="mairie">
+   <Nom>Mairie - Grand Rullecourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de la Mairie</Ligne>
+      <CodePostal>62810</CodePostal>
+      <NomCommune>Grand-Rullecourt</NomCommune>
+      <Localisation>
+         <Latitude>50.255439</Latitude>
+         <Longitude>2.473233</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 48 41 18</Téléphone>
+      <Télécopie>03 21 48 41 18</Télécopie>
+      <Email>mairie.grandrullecourt@wanadoo.fr</Email>
+      <Url>https://www.cc-2sources.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

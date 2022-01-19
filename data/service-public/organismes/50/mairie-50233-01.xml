@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50233-01" codeInsee="50233" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hautteville-Bocage</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 village de l'Église</Ligne>
+      <CodePostal>50390</CodePostal>
+      <NomCommune>Hautteville-Bocage</NomCommune>
+      <Localisation>
+         <Latitude>49.426636</Latitude>
+         <Longitude>-1.467471</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 41 62 22</Téléphone>
+      <Email>mairie-hautteville.bocage@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+         <Note>Accueil ouvert uniquement le 2e jeudi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

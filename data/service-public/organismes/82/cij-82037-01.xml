@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-82037-01" codeInsee="82037" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Quercy-Caussadais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'emploi Midi-Quercy</Ligne>
+      <Ligne>1 place de la Gare</Ligne>
+      <CodePostal>82300</CodePostal>
+      <NomCommune>Caussade</NomCommune>
+      <Localisation>
+         <Latitude>44.157997</Latitude>
+         <Longitude>1.542131</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 26 09 40</Téléphone>
+      <Télécopie>05 63 66 54 35</Télécopie>
+      <Email>pij@quercycaussadais.fr</Email>
+      <Url>http://www.quercycaussadais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

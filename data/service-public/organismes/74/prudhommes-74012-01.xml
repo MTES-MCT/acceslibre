@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="74012" dateMiseAJour="2021-11-19" id="prudhommes-74012-01" idPresta="4cac9e5f293594648a0002fe" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Annemasse</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>20 RUE LEANDRE VAILLAT</Ligne>
+        <CodePostal>74100</CodePostal>
+        <NomCommune>ANNEMASSE</NomCommune>
+        <Localisation>
+            <Latitude>46.189776</Latitude>
+            <Longitude>6.23757</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>20 RUE LEANDRE VAILLAT</Ligne>
+        <CodePostal>74100</CodePostal>
+        <NomCommune>ANNEMASSE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 50 84 05 50</Téléphone>
+        <Email>mailto:accueil-annemasse@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

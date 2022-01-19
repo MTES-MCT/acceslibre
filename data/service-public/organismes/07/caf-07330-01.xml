@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-07330-01" codeInsee="07330" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Ardèche - accueil de Vallon-Pont-d'Arc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Place Salvador-Allende-et-Pablo-Neruda</Ligne>
+      <CodePostal>07150</CodePostal>
+      <NomCommune>Vallon-Pont-d'Arc</NomCommune>
+      <Localisation>
+         <Latitude>44.406955719</Latitude>
+         <Longitude>4.39484596252</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Ardèche</Ligne>
+      <Ligne>27 avenue de l'Europe</Ligne>
+      <Ligne>BP 121</Ligne>
+      <CodePostal>07101</CodePostal>
+      <NomCommune>Annonay Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+         <Note>Fermé le 2e mardi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

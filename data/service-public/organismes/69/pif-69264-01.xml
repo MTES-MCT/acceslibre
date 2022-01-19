@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pif-69264-01" codeInsee="69264" dateMiseAJour="2021-09-20" pivotLocal="pif">
+   <Nom>Point info famille - Villefranche-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Caisse d'allocations familiales du Rhône</Ligne>
+      <Ligne>236 rue Boiron</Ligne>
+      <CodePostal>69400</CodePostal>
+      <NomCommune>Villefranche-sur-Saône</NomCommune>
+      <Localisation>
+         <Latitude>45.991703</Latitude>
+         <Longitude>4.715615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 02 78 23</Téléphone>
+      <Email>pifvillefranche69@laposte.net</Email>
+      <Url>https://www.unaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Rendez-vous téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

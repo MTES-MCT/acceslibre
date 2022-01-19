@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11345-01" codeInsee="11345" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-de-Barrou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 avenue de la Mer</Ligne>
+      <CodePostal>11360</CodePostal>
+      <NomCommune>Saint-Jean-de-Barrou</NomCommune>
+      <Localisation>
+         <Latitude>42.9571878</Latitude>
+         <Longitude>2.840561</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 45 91 73</Téléphone>
+      <Télécopie>04 68 42 47 22</Télécopie>
+      <Email>st.jean.de.barrou.cne@wanadoo.fr</Email>
+      <Url>http://www.saintjeandebarrou.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

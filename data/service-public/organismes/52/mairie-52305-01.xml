@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52305-01" codeInsee="52305" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mandres-la-Côte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Bourgogne</Ligne>
+      <CodePostal>52800</CodePostal>
+      <NomCommune>Mandres-la-Côte</NomCommune>
+      <Localisation>
+         <Latitude>48.0619546</Latitude>
+         <Longitude>5.334705</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 31 97 79</Téléphone>
+      <Email>mairiedemandres@wanadoo.fr</Email>
+      <Url>http://www.mandres-la-cote.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+         <Note>Permanence des élus les lundi et jeudi de 17h30 à 18h30 et sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

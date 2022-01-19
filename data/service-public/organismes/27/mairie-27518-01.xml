@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27518-01" codeInsee="27518" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Aubin-sur-Quillebeuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>330 rue de l'Église</Ligne>
+      <CodePostal>27680</CodePostal>
+      <NomCommune>Saint-Aubin-sur-Quillebeuf</NomCommune>
+      <Localisation>
+         <Latitude>49.4621009827</Latitude>
+         <Longitude>0.526287019253</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 57 54 79</Téléphone>
+      <Télécopie>02 32 56 92 53</Télécopie>
+      <Email>mairie-st-aubin-s-quillebeuf@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88509-01" codeInsee="88509" dateMiseAJour="2018-10-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villoncourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 Grande rue</Ligne>
+      <CodePostal>88150</CodePostal>
+      <NomCommune>Villoncourt</NomCommune>
+      <Localisation>
+         <Latitude>48.263228</Latitude>
+         <Longitude>6.512257</Longitude>
+         <Précision>1</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 65 87 70</Téléphone>
+      <Email>mairie.villoncourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

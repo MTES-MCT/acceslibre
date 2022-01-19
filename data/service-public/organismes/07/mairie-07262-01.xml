@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07262-01" codeInsee="07262" dateMiseAJour="2020-01-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Laurent-les-Bains-Laval-d'Aurelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>07590</CodePostal>
+      <NomCommune>Saint-Laurent-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>44.606854</Latitude>
+         <Longitude>3.9706</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 46 00 71</Téléphone>
+      <Télécopie>04 66 46 08 87</Télécopie>
+      <Email>https://www.saint-laurent-les-bains.fr/?p=3929</Email>
+      <Url>http://www.saint-laurent-les-bains.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

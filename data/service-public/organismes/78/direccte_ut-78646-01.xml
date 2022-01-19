@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-78646-01" codeInsee="78646" dateMiseAJour="2018-05-22"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>34 avenue du Centre</Ligne>
+      <CodePostal>78180</CodePostal>
+      <NomCommune>Montigny-le-Bretonneux</NomCommune>
+      <Localisation>
+         <Latitude>48.785015</Latitude>
+         <Longitude>2.04508</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Immeuble La Diagonale</Ligne>
+      <Ligne>34 avenue du Centre</Ligne>
+      <CodePostal>78182</CodePostal>
+      <NomCommune>Saint-Quentin-en-Yvelines Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 61 37 10 00</Téléphone>
+      <Télécopie>01 61 37 10 01</Télécopie>
+      <Email>dd-78.direction@direccte.gouv.fr</Email>
+      <Url>http://idf.direccte.gouv.fr/Yvelines</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires d'ouverture des différents services.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires d'ouverture des différents services.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

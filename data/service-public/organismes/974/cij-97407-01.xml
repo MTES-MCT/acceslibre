@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-97407-01" codeInsee="97407" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission intercommunale de l'ouest</Ligne>
+      <Ligne>99 avenue du 20-Décembre-1848</Ligne>
+      <Ligne>BP 204</Ligne>
+      <CodePostal>97825</CodePostal>
+      <NomCommune>Le Port Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.9797007</Latitude>
+         <Longitude>55.302935</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 55 22 44</Téléphone>
+      <Télécopie>+262 2 62 55 22 45</Télécopie>
+      <Email>mio.leport@mio.re</Email>
+      <Url>http://www.mio.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

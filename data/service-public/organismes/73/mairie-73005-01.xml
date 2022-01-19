@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73005-01" codeInsee="73005" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aillon-le-Vieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>782 route du Mollard</Ligne>
+      <CodePostal>73340</CodePostal>
+      <NomCommune>Aillon-le-Vieux</NomCommune>
+      <Localisation>
+         <Latitude>45.62909698486328</Latitude>
+         <Longitude>6.087527275085449</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">avec sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 54 63 15</Téléphone>
+      <Email>mairie.aillonlevieux@wanadoo.fr</Email>
+      <Url>http://www.aillonlevieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+         <Note>Permanence du maire sur rendez-vous uniquement le samedi matin et le lundi.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

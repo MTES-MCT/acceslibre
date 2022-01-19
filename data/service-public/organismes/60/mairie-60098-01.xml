@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60098-01" codeInsee="60098" dateMiseAJour="2021-02-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bouvresse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Principale</Ligne>
+      <CodePostal>60220</CodePostal>
+      <NomCommune>Bouvresse</NomCommune>
+      <Localisation>
+         <Latitude>49.6954994202</Latitude>
+         <Longitude>1.76498997211</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 46 18 40</Téléphone>
+      <Email>mairie.bouvresse@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

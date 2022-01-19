@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62108-01" codeInsee="62108" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Berck-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Henri-Elby</Ligne>
+      <CodePostal>62600</CodePostal>
+      <NomCommune>Berck-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>50.4079023</Latitude>
+         <Longitude>1.5919842</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 89 90 00</Téléphone>
+      <Télécopie>03 21 89 90 01</Télécopie>
+      <Email>mairie@berck-sur-mer.com</Email>
+      <Url>http://www.berck.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

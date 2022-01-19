@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30179-01" codeInsee="30179" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montfrin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 avenue Pierre-Mendès-France</Ligne>
+      <Ligne>BP 13</Ligne>
+      <CodePostal>30490</CodePostal>
+      <NomCommune>Montfrin</NomCommune>
+      <Localisation>
+         <Latitude>43.8773002625</Latitude>
+         <Longitude>4.59240007401</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 57 52 20</Téléphone>
+      <Email>dgs@montfrin.fr</Email>
+      <Url>http://www.montfrin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

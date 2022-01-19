@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21198-01" codeInsee="21198" dateMiseAJour="2021-08-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Corrombles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue de la Croix-Blanche</Ligne>
+      <CodePostal>21460</CodePostal>
+      <NomCommune>Corrombles</NomCommune>
+      <Localisation>
+         <Latitude>47.516228</Latitude>
+         <Longitude>4.1952114</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 96 30 16</Téléphone>
+      <Email>mairie.corrombles@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

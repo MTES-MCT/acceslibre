@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-88327-01" codeInsee="88327" dateMiseAJour="2021-05-21"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Vosges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 rue de l'Estrey</Ligne>
+      <CodePostal>88440</CodePostal>
+      <NomCommune>Nomexy</NomCommune>
+      <Localisation>
+         <Latitude>48.310298</Latitude>
+         <Longitude>6.384059</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 31 18 89</Téléphone>
+      <Email>fede.peche.vosges@wanadoo.fr</Email>
+      <Url>http://www.peche88.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

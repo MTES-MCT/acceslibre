@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-76217-01" codeInsee="76217" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) de Rouen-Elbeuf-Dieppe-Seine-Maritime - accueil de Dieppe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>19 rue de Stalingrad</Ligne>
+      <CodePostal>76200</CodePostal>
+      <NomCommune>Dieppe</NomCommune>
+      <Localisation>
+         <Latitude>49.9171981812</Latitude>
+         <Longitude>1.08315002918</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie de Rouen-Elbeuf-Dieppe</Ligne>
+      <Ligne>CS 76039</Ligne>
+      <CodePostal>76039</CodePostal>
+      <NomCommune>Rouen Cedex 1</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, accueil téléphonique lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

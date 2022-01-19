@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87113-01" codeInsee="87113" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Palais-sur-Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue Jules-Ferry</Ligne>
+      <CodePostal>87410</CodePostal>
+      <NomCommune>Le Palais-sur-Vienne</NomCommune>
+      <Localisation>
+         <Latitude>45.8657989502</Latitude>
+         <Longitude>1.32304000854</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 04 34 00</Téléphone>
+      <Télécopie>05 55 04 34 25</Télécopie>
+      <Email>affairesgenerales@lepalaissurvienne.fr</Email>
+      <Url>http://www.lepalaissurvienne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

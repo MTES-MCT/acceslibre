@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-57463-01" codeInsee="57463" dateMiseAJour="2021-08-30"
+           pivotLocal="msap">
+   <Nom>France Services - Metz (itinérant)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>1 rue du pont Moreau</Ligne>
+      <Ligne>Itinérante département de la Moselle</Ligne>
+      <CodePostal>57000</CodePostal>
+      <NomCommune>Metz</NomCommune>
+      <Localisation>
+         <Latitude>49.110632</Latitude>
+         <Longitude>6.705267</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03.56.42.02.00</Téléphone>
+      <Email>busfranceservices@moselle.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

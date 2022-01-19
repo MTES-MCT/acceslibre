@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62524-01" codeInsee="62524" dateMiseAJour="2019-08-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Longfossé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue de l'Église</Ligne>
+      <CodePostal>62240</CodePostal>
+      <NomCommune>Longfossé</NomCommune>
+      <Localisation>
+         <Latitude>50.6674003601</Latitude>
+         <Longitude>1.83461999893</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 91 66 98</Téléphone>
+      <Télécopie>03 21 87 26 98</Télécopie>
+      <Email>mairie-de-longfosse@wanadoo.fr</Email>
+      <Url>http://www.longfosse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

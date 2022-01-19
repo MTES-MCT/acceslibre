@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="afpa-45232-01" codeInsee="45232" dateMiseAJour="2021-09-20"
+           pivotLocal="afpa">
+   <Nom>Agence nationale pour la formation professionnelle des adultes (Afpa) - Centre d'Orléans - Olivet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Basse-Mouillère</Ligne>
+      <CodePostal>45160</CodePostal>
+      <NomCommune>Olivet</NomCommune>
+      <Localisation>
+         <Latitude>47.8736251</Latitude>
+         <Longitude>1.9078965</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 36</Téléphone>
+      <Url>https://www.afpa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

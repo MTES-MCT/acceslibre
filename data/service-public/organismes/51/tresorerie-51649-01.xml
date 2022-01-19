@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-51649-01" codeInsee="51649" dateMiseAJour="2021-02-23"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Vitry-le-François</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 boulevard Carnot</Ligne>
+      <CodePostal>51307</CodePostal>
+      <NomCommune>Vitry-le-François Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.72340474583119</Latitude>
+         <Longitude>4.5882900641187</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Pour tout renseignement concernant vos impôts, merci de&#xA;contacter le 03 26 87 95 00 ou le 0809 401 401. Pour les questions portant sur vos factures locales, merci d’utiliser le numéro figurant sur votre facture.">03 26 87 95 00</Téléphone>
+      <Email>t051028@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

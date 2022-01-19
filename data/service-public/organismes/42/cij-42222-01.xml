@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-42222-01" codeInsee="42222" dateMiseAJour="2021-11-22" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Galmier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de la Thiery</Ligne>
+      <Ligne>Espace Jeunesse</Ligne>
+      <CodePostal>42230</CodePostal>
+      <NomCommune>Saint-Galmier</NomCommune>
+      <Localisation>
+         <Latitude>45.589469</Latitude>
+         <Longitude>4.329353</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 54 13 61</Téléphone>
+      <Email>ej.stgalmier@gmail.com</Email>
+      <Url>https://loire.info-jeunes.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

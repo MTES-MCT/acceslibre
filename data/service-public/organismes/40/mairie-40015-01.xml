@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40015-01" codeInsee="40015" dateMiseAJour="2021-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arx</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>40310</CodePostal>
+      <NomCommune>Arx</NomCommune>
+      <Localisation>
+         <Latitude>44.106412</Latitude>
+         <Longitude>0.075155</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 93 63 20</Téléphone>
+      <Email>arx.mairie@wanadoo.fr</Email>
+      <Url>https://www.landesdarmagnac.fr/CCLA/Territoire-27-communes/Arx</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

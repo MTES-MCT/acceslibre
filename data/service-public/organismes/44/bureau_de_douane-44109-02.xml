@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-44109-02" codeInsee="44109" dateMiseAJour="2019-01-07"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane (viticulture) - Nantes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>50 boulevard Saint-Aignan</Ligne>
+      <Ligne>BP 58613</Ligne>
+      <CodePostal>44186</CodePostal>
+      <NomCommune>Nantes Cedex 4</NomCommune>
+      <Localisation>
+         <Latitude>47.208273</Latitude>
+         <Longitude>-1.578445</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 51 25</Téléphone>
+      <Télécopie>02 51 84 33 89</Télécopie>
+      <Email>viti-ci-nantes@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

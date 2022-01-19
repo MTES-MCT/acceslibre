@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-89024-01" codeInsee="89024" dateMiseAJour="2021-05-11"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Yonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 89 - CITHY</Ligne>
+      <Ligne>Hall D</Ligne>
+      <Ligne>Les jardins de Vaulabelle</Ligne>
+      <Ligne>6 boulevard Vaulabelle</Ligne>
+      <CodePostal>89000</CodePostal>
+      <NomCommune>Auxerre</NomCommune>
+      <Localisation>
+         <Latitude>47.792198</Latitude>
+         <Longitude>3.573036</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 52 45 11</Téléphone>
+      <Email>info@capemploi89.com</Email>
+      <Url>https://www.capemploi-89.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

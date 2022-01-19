@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56090-01" codeInsee="56090" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Inzinzac-Lochrist</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-de-Gaulle</Ligne>
+      <CodePostal>56650</CodePostal>
+      <NomCommune>Inzinzac-Lochrist</NomCommune>
+      <Localisation>
+         <Latitude>47.8433990479</Latitude>
+         <Longitude>-3.26654005051</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 85 30 30</Téléphone>
+      <Télécopie>02 97 85 30 40</Télécopie>
+      <Email>contact.mairie@inzinzac-lochrist.fr</Email>
+      <Url>http://www.inzinzac-lochrist.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

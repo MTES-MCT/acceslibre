@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35282-03" codeInsee="35282" dateMiseAJour="2021-01-18"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Marc-sur-Couesnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Marc-sur-Couesnon</Ligne>
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>35140</CodePostal>
+      <NomCommune>Rives-du-Couesnon</NomCommune>
+      <Localisation>
+         <Latitude>48.304075</Latitude>
+         <Longitude>-1.364964</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 39 12 54</Téléphone>
+      <Télécopie>02 99 39 26 33</Télécopie>
+      <Email>mairie@rivesducouesnon.fr</Email>
+      <Url>https://www.rivesducouesnon.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Et le 2e samedi du mois de 9 h à 12 h.</Commentaire>
+</Organisme>

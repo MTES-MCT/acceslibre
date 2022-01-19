@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-92044-01" codeInsee="92044" dateMiseAJour="2021-04-06" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Levallois-Perret</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>40 rue d'Alsace</Ligne>
+      <Ligne>CS 50054</Ligne>
+      <CodePostal>92309</CodePostal>
+      <NomCommune>Levallois-Perret</NomCommune>
+      <Localisation>
+         <Latitude>48.8934556</Latitude>
+         <Longitude>2.2993161</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 84 82 41 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Réception avec ou sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Réception avec ou sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Réception avec ou sans rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Réception uniquement sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Réception uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Vous pouvez également prendre rendez-vous sur impots.gouv.fr rubrique « contact » ou par téléphone
+Si vous souhaitez contacter ce service par courriel : utilisez votre messagerie sécurisée disponible dans votre espace particuliers sur le site impots.gouv.fr.</Commentaire>
+</Organisme>

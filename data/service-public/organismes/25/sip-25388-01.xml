@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-25388-01" codeInsee="25388" dateMiseAJour="2021-06-08" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Montbéliard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Pierre-Brossolette</Ligne>
+      <CodePostal>25214</CodePostal>
+      <NomCommune>Montbéliard Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.4998533</Latitude>
+         <Longitude>6.803265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 32 62 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Fermeture le mercredi toute la journée.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un. Accueil exclusivement sur rendez-vous les lundi matin et vendredi après midi. Accueil avec ou sans rendez-vous tous les jours 08h30 à 12h00
+Accueil exclusivement sur rendez-vous le lundi et jeudi de 13h15 à 16h15
+Fermeture le mercredi toute la journée et, le mardi et vendredi après-midi</Commentaire>
+</Organisme>

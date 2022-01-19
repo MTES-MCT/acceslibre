@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-40192-01" codeInsee="40192" dateMiseAJour="2021-08-02" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 40 - Landes - Siège de Mont-de-Marsan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>293 avenue du Maréchal Foch</Ligne>
+      <Ligne>Hôtel Consulaire de Mont-de-Marsan</Ligne>
+      <CodePostal>40003</CodePostal>
+      <NomCommune>Mont-de-Marsan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.8951765</Latitude>
+         <Longitude>-0.4934561</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 05 44 50</Téléphone>
+      <Télécopie>05 58 06 18 33</Télécopie>
+      <Email>accueil@landes.cci.fr</Email>
+      <Url>https://www.landes.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

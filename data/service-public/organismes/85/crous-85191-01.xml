@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="crous-85191-01" codeInsee="85191" dateMiseAJour="2021-06-07"
+           pivotLocal="crous">
+   <Nom>Centre local des œuvres universitaires et scolaires (CLOUS) - La Roche-sur-Yon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Résidence La Simbrandière</Ligne>
+      <Ligne>1 rue de la Simbrandière</Ligne>
+      <CodePostal>85000</CodePostal>
+      <NomCommune>La Roche-sur-Yon</NomCommune>
+      <Localisation>
+         <Latitude>46.664228</Latitude>
+         <Longitude>-1.424562</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 31 64 46</Téléphone>
+      <Télécopie>02 51 31 64 68</Télécopie>
+      <Email>heb.simbrandiere@crous-nantes.fr</Email>
+      <Url>http://www.crous-nantes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

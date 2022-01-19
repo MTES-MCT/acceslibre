@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35317-01" codeInsee="35317" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Symphorien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue d'Armorique</Ligne>
+      <CodePostal>35630</CodePostal>
+      <NomCommune>Saint-Symphorien</NomCommune>
+      <Localisation>
+         <Latitude>48.256767</Latitude>
+         <Longitude>-2.0665087</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 45 52 41</Téléphone>
+      <Télécopie>02 99 37 09 32</Télécopie>
+      <Email>mairie.saintsymphorien@orange.fr</Email>
+      <Url>http://www.saint-symphorien35.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

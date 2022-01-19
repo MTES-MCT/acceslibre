@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24253-08" codeInsee="24253" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Monsec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Monsec</Ligne>
+      <Ligne>Place René-Dubut</Ligne>
+      <CodePostal>24340</CodePostal>
+      <NomCommune>Mareuil-en-Périgord</NomCommune>
+      <Localisation>
+         <Latitude>45.4214096069</Latitude>
+         <Longitude>0.533546984196</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 60 92 49</Téléphone>
+      <Email>mairie.monsec@wanadoo.fr</Email>
+      <Url>http://www.mareuilsurbelle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

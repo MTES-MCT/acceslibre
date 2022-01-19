@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-53097-01" codeInsee="53097" dateMiseAJour="2021-10-29" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de la Mayenne - accueil d'Évron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison de services au public</Ligne>
+      <Ligne>6 rue de Hertford</Ligne>
+      <CodePostal>53600</CodePostal>
+      <NomCommune>Évron</NomCommune>
+      <Localisation>
+         <Latitude>48.15629</Latitude>
+         <Longitude>-0.40058</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>11 quai Paul Boudet</Ligne>
+      <Ligne>Caf de la Mayenne</Ligne>
+      <Ligne>Service Allocataires</Ligne>
+      <CodePostal>53088</CodePostal>
+      <NomCommune>Laval cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <Note>Contact avec un conseiller Caf en accueil à distance (Visio) de 9h à 11h30, prendre rendez-vous au 02 43 01 93 94, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

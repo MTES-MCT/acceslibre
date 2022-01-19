@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-41194-01" codeInsee="41194" dateMiseAJour="2020-08-25" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Romorantin-Lanthenay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 mail de l'Hôtel-Dieu</Ligne>
+      <CodePostal>41206</CodePostal>
+      <NomCommune>Romorantin Lanthenay Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.3601285</Latitude>
+         <Longitude>1.7412872</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité>L'accès aux personnes à mobilité réduite s'effectue par une rampe extérieure. Une place de parking devant le bâtiment leur est réservée (rue en face).</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 95 35 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Accueil fermé le mercredi après-midi et le vendredi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

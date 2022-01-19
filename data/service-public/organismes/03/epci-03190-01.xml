@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-03190-01" codeInsee="03190" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Moulins communauté</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 place du Maréchal-de-Lattre-de-Tassigny</Ligne>
+      <CodePostal>03000</CodePostal>
+      <NomCommune>Moulins</NomCommune>
+      <Localisation>
+         <Latitude>46.5619582</Latitude>
+         <Longitude>3.3307895</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 48 54 54</Téléphone>
+      <Email>contact.agglo@agglo-moulins.fr</Email>
+      <Url>http://www.agglo-moulins.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

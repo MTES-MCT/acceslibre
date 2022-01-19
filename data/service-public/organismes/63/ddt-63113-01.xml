@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-63113-01" codeInsee="63113" dateMiseAJour="2021-11-02" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires (DDT) - Puy-de-Dôme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Léo Lagrange</Ligne>
+      <CodePostal>63033</CodePostal>
+      <NomCommune>Clermont-Ferrand Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.7701426</Latitude>
+         <Longitude>3.0855437</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 43 16 00</Téléphone>
+      <Télécopie>04 73 43 16 22</Télécopie>
+      <Email>ddt@puy-de-dome.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

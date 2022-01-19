@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-74188-01" codeInsee="74188" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Montriond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 route de Morzine</Ligne>
+      <CodePostal>74110</CodePostal>
+      <NomCommune>Montriond</NomCommune>
+      <Localisation>
+         <Latitude>46.196543</Latitude>
+         <Longitude>6.694431</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 43 37 70 62</Téléphone>
+      <Email>franceservices@hautchablais.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Du 1er octobre au 31 mars accueil du lundi au jeudi de 8h30 à 12h30 et de 13h30 à 16h30 et le vendredi de 8h30 à 12h30, pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

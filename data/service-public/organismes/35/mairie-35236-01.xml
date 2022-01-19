@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35236-01" codeInsee="35236" dateMiseAJour="2021-01-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Redon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 80254</Ligne>
+      <Ligne>18 place Saint Sauveur</Ligne>
+      <CodePostal>35601</CodePostal>
+      <NomCommune>Redon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.650901</Latitude>
+         <Longitude>-2.084209</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 71 05 27</Téléphone>
+      <Télécopie>02 99 72 24 54</Télécopie>
+      <Email>communication@mairie-redon.fr</Email>
+      <Url>http://www.redon.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

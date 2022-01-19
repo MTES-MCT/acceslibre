@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81247-01" codeInsee="81247" dateMiseAJour="2021-11-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Cirgue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>400 route des Magnolias</Ligne>
+      <CodePostal>81340</CodePostal>
+      <NomCommune>Saint-Cirgue</NomCommune>
+      <Localisation>
+         <Latitude>43.964933</Latitude>
+         <Longitude>2.370598</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 56 41 96</Téléphone>
+      <Télécopie>05 63 56 41 96</Télécopie>
+      <Email>mairie-st-cirgue@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

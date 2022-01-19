@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22265-01" codeInsee="22265" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rospez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>22300</CodePostal>
+      <NomCommune>Rospez</NomCommune>
+      <Localisation>
+         <Latitude>48.7039985657</Latitude>
+         <Longitude>-3.37601995468</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 38 07 15</Téléphone>
+      <Email>rospez.mairie@orange.fr</Email>
+      <Url>http://www.rospez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

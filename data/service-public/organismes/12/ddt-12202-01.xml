@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-12202-01" codeInsee="12202" dateMiseAJour="2021-03-12" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires (DDT) - Aveyron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZAC de Bourran</Ligne>
+      <Ligne>9, rue de Bruxelles</Ligne>
+      <Ligne>BP 3370</Ligne>
+      <CodePostal>12033</CodePostal>
+      <NomCommune>Rodez Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>44.3587714</Latitude>
+         <Longitude>2.55899</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 73 50 00</Téléphone>
+      <Télécopie>05 65 75 48 32</Télécopie>
+      <Email>ddt@aveyron.gouv.fr</Email>
+      <Url>http://www.aveyron.gouv.fr/direction-departementale-des-terrritoires-r34.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

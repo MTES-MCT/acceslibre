@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-24037-01" codeInsee="24037" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Dordogne-Lot-et-Garonne - accueil de Bergerac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>31-33 place Gambetta</Ligne>
+      <CodePostal>24100</CodePostal>
+      <NomCommune>Bergerac</NomCommune>
+      <Localisation>
+         <Latitude>44.8551733</Latitude>
+         <Longitude>0.4829953</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole Dordogne-Lot-et-Garonne</Ligne>
+      <Ligne>7 place du Général-Leclerc</Ligne>
+      <CodePostal>24012</CodePostal>
+      <NomCommune>Périgueux Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 67 77 77</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Le lundi sur rendez-vous uniquement, fermé le dernier jeudi du mois.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

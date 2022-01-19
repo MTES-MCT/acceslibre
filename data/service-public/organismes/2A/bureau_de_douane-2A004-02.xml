@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-2A004-02" codeInsee="2A004" dateMiseAJour="2019-01-03"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane (viticulture) - Ajaccio</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 parc Cuneo d'Ornano</Ligne>
+      <Ligne>BP 328</Ligne>
+      <Ligne>Direction régionale des Douanes</Ligne>
+      <CodePostal>20179</CodePostal>
+      <NomCommune>Ajaccio 1</NomCommune>
+      <Localisation>
+         <Latitude>41.921243</Latitude>
+         <Longitude>8.735477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 89 76</Téléphone>
+      <Télécopie>04 95 51 39 00</Télécopie>
+      <Email>viti-ajaccio@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>fermé le mercredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

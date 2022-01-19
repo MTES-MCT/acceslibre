@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="71076" dateMiseAJour="2021-12-14" id="tgi-71076-01" idPresta="4cac9e6a293594648a0017b5" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Chalon-sur-Saône</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>RUE EMILAND-MENAND</Ligne>
+        <CodePostal>71100</CodePostal>
+        <NomCommune>CHALON SUR SAONE</NomCommune>
+        <Localisation>
+            <Latitude>46.784815</Latitude>
+            <Longitude>4.854185</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>RUE EMILAND-MENAND</Ligne>
+        <CodePostal>71100</CodePostal>
+        <NomCommune>CHALON SUR SAONE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 85 93 77 00</Téléphone>
+        <Télécopie>03 85 93 77 47</Télécopie>
+        <Email>mailto:tj-chalon-sur-saone@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

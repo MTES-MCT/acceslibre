@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17157-01" codeInsee="17157" dateMiseAJour="2019-07-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fenioux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Notre-Dame</Ligne>
+      <CodePostal>17350</CodePostal>
+      <NomCommune>Fenioux</NomCommune>
+      <Localisation>
+         <Latitude>45.8897537</Latitude>
+         <Longitude>-0.5963149</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 60 54 91 03</Téléphone>
+      <Email>mairie@17fenioux.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

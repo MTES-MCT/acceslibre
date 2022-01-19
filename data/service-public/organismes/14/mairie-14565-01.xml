@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14565-01" codeInsee="14565" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Côme-de-Fresné</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de la Mer</Ligne>
+      <CodePostal>14960</CodePostal>
+      <NomCommune>Saint-Côme-de-Fresné</NomCommune>
+      <Localisation>
+         <Latitude>49.3414001465</Latitude>
+         <Longitude>-0.58888399601</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 22 30 92</Téléphone>
+      <Email>mairie.stcomedefresne@wanadoo.fr</Email>
+      <Url>http://saintcomedefresne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:45:00" fin="18:45:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois pour la permanence des élus.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:45:00" fin="18:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

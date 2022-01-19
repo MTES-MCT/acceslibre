@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08328-01" codeInsee="08328" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nouzonville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 place Gambetta</Ligne>
+      <CodePostal>08700</CodePostal>
+      <NomCommune>Nouzonville</NomCommune>
+      <Localisation>
+         <Latitude>49.8141256</Latitude>
+         <Longitude>4.7449571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 53 80 30</Téléphone>
+      <Télécopie>03 24 53 75 11</Télécopie>
+      <Email>mairie@villedenouzonville.fr</Email>
+      <Url>http://www.nouzonville.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement pour les cartes nationale d'identité et passeports.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement pour les cartes nationale d'identité et passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

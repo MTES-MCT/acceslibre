@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64260-01" codeInsee="64260" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hendaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la République</Ligne>
+      <Ligne>BP 60150</Ligne>
+      <CodePostal>64701</CodePostal>
+      <NomCommune>Hendaye Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.3583395354</Latitude>
+         <Longitude>-1.77459776402</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 48 23 23</Téléphone>
+      <Télécopie>05 59 48 23 24</Télécopie>
+      <Email>mairiehendaye@hendaye.com</Email>
+      <Url>http://www.hendaye.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

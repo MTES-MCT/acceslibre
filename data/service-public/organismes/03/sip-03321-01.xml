@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-03321-01" codeInsee="03321" dateMiseAJour="2021-04-06" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Moulins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14, rue Aristide-Briand</Ligne>
+      <CodePostal>03405</CodePostal>
+      <NomCommune>Yzeure Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.5589611</Latitude>
+         <Longitude>3.3449164</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 48 29 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil avec ou sans rendez-vous. Uniquement sur rendez-vous le lundi, mercredi et vendredi après-midi et fermé le mardi et jeudi après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

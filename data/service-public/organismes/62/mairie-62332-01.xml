@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62332-01" codeInsee="62332" dateMiseAJour="2021-04-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ficheux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Hector-Bonnel</Ligne>
+      <CodePostal>62173</CodePostal>
+      <NomCommune>Ficheux</NomCommune>
+      <Localisation>
+         <Latitude>50.226989</Latitude>
+         <Longitude>2.738442</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 22 40 84</Téléphone>
+      <Email>mairie.ficheux@yahoo.com</Email>
+      <Url>https://communeficheux4.webnode.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

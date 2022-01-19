@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-54395-01" codeInsee="54395" dateMiseAJour="2021-03-04"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Nancy 1</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>45 rue Sainte Catherine</Ligne>
+      <Ligne>Bât H2</Ligne>
+      <Ligne>BP 70664</Ligne>
+      <CodePostal>54036</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.695171</Latitude>
+         <Longitude>6.187568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">l'usager est invité à téléphoner avant son arrivée et à se rendre à l'accueil principal</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 85 48 26</Téléphone>
+      <Email>spf.nancy1@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil uniquement sur rendez-vous. Fermé au public les après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

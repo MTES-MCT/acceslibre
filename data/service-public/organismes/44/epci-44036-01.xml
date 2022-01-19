@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-44036-01" codeInsee="44036" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Châteaubriant Derval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Gabriel-Delatour</Ligne>
+      <Ligne>BP 203</Ligne>
+      <CodePostal>44110</CodePostal>
+      <NomCommune>Châteaubriant</NomCommune>
+      <Localisation>
+         <Latitude>47.7188841</Latitude>
+         <Longitude>-1.378495</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 28 04 06 33</Téléphone>
+      <Télécopie>02 40 81 27 67</Télécopie>
+      <Email>accueil@cc-chateaubriant-derval.fr</Email>
+      <Url>http://www.cc-chateaubriant-derval.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

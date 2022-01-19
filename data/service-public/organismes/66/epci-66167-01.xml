@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-66167-01" codeInsee="66167" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pyrénées Cerdagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Torrent</Ligne>
+      <CodePostal>66800</CodePostal>
+      <NomCommune>Saillagouse</NomCommune>
+      <Localisation>
+         <Latitude>42.4596412</Latitude>
+         <Longitude>2.03833269</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 04 53 30</Téléphone>
+      <Télécopie>04 68 04 19 58</Télécopie>
+      <Email>contact@pyrenees-cerdagne.com</Email>
+      <Url>http://www.pyrenees-cerdagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

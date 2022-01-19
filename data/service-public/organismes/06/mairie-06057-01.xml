@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06057-01" codeInsee="06057" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Escarène</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place d'Audiffret</Ligne>
+      <CodePostal>06440</CodePostal>
+      <NomCommune>L'Escarène</NomCommune>
+      <Localisation>
+         <Latitude>43.8337514</Latitude>
+         <Longitude>7.3554372</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 91 64 00</Téléphone>
+      <Télécopie>04 93 91 64 01</Télécopie>
+      <Email>mairie@escarene.fr</Email>
+      <Url>http://www.escarene.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

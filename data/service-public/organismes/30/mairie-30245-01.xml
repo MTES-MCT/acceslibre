@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30245-01" codeInsee="30245" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Côme-et-Maruéjols</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>30870</CodePostal>
+      <NomCommune>Saint-Côme-et-Maruéjols</NomCommune>
+      <Localisation>
+         <Latitude>43.8268013</Latitude>
+         <Longitude>4.21764993668</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 30 06 52 80</Téléphone>
+      <Télécopie>04 30 06 52 81</Télécopie>
+      <Email>mairie@st-come-et-maruejols.fr</Email>
+      <Url>http://www.st-come-et-maruejols.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

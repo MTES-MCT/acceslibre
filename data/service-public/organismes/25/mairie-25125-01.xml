@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25125-01" codeInsee="25125" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Charmoille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Conot</Ligne>
+      <CodePostal>25380</CodePostal>
+      <NomCommune>Charmoille</NomCommune>
+      <Localisation>
+         <Latitude>47.2464981079</Latitude>
+         <Longitude>6.67232990265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 44 32 63</Téléphone>
+      <Télécopie>03 81 44 30 35</Télécopie>
+      <Email>mairie.charmoille.doubs@wanadoo.fr</Email>
+      <Url>http://www.charmoille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

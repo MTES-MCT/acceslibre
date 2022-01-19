@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-38412-01" codeInsee="38412" dateMiseAJour="2021-11-24" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Laurent-du-Pont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Association pour l'action jeunes</Ligne>
+      <Ligne>4 Place du dixième groupement</Ligne>
+      <CodePostal>38380</CodePostal>
+      <NomCommune>Saint-Laurent-du-Pont</NomCommune>
+      <Localisation>
+         <Latitude>45.390196</Latitude>
+         <Longitude>5.737642</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 71 20 48 18</Téléphone>
+      <Email>Paj.infos@gmail.com</Email>
+      <Url>https://www.paj-jeunes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

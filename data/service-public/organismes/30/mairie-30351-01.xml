@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30351-01" codeInsee="30351" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeneuve-lès-Avignon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la République</Ligne>
+      <Ligne>BP 45</Ligne>
+      <CodePostal>30404</CodePostal>
+      <NomCommune>Villeneuve-lès-Avignon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.9641356</Latitude>
+         <Longitude>4.7968429</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 27 49 49</Téléphone>
+      <Télécopie>04 90 27 49 79</Télécopie>
+      <Email>mairie@villeneuvelezavignon.fr</Email>
+      <Url>http://www.villeneuvelezavignon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

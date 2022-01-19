@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38340-01" codeInsee="38340" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Roches-de-Condrieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Jean-Jaurès</Ligne>
+      <Ligne>BP 6</Ligne>
+      <CodePostal>38370</CodePostal>
+      <NomCommune>Les Roches-de-Condrieu</NomCommune>
+      <Localisation>
+         <Latitude>45.4526471</Latitude>
+         <Longitude>4.770357</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 56 56 00</Téléphone>
+      <Télécopie>04 74 56 56 05</Télécopie>
+      <Email>mairie@lesrochesdecondrieu.com</Email>
+      <Url>http://www.lesrochesdecondrieu.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

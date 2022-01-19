@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52011-01" codeInsee="52011" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Annéville-la-Prairie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Prairie</Ligne>
+      <CodePostal>52310</CodePostal>
+      <NomCommune>Annéville-la-Prairie</NomCommune>
+      <Localisation>
+         <Latitude>48.196512</Latitude>
+         <Longitude>5.085338</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 01 62 46</Téléphone>
+      <Email>anneville52@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:45:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="15:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

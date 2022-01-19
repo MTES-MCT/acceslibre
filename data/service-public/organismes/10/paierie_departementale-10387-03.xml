@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_departementale-10387-03" codeInsee="10387"
+           dateMiseAJour="2021-07-06"
+           pivotLocal="paierie_departementale">
+   <Nom>Paierie départementale - Aube - Troyes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>143 avenue Pierre Brossolette</Ligne>
+      <Ligne>BP 196</Ligne>
+      <CodePostal>10026</CodePostal>
+      <NomCommune>Troyes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.287297</Latitude>
+         <Longitude>4.07752</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 73 29 15</Téléphone>
+      <Email>t010090@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

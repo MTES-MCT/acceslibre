@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71190-01" codeInsee="71190" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Épinac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-de-Gaulle</Ligne>
+      <Ligne>BP 8</Ligne>
+      <CodePostal>71360</CodePostal>
+      <NomCommune>Épinac</NomCommune>
+      <Localisation>
+         <Latitude>46.990787</Latitude>
+         <Longitude>4.513816</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 82 10 12</Téléphone>
+      <Télécopie>03 85 82 90 23</Télécopie>
+      <Email>mairie-epinac@wanadoo.fr</Email>
+      <Url>http://www.epinac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

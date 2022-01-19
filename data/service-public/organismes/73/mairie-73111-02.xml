@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73111-02" codeInsee="73111" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Étable</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Étable</Ligne>
+      <Ligne>406 route du Pic-de-l'Huile</Ligne>
+      <CodePostal>73110</CodePostal>
+      <NomCommune>Valgelon-La Rochette</NomCommune>
+      <Localisation>
+         <Latitude>45.46401</Latitude>
+         <Longitude>6.142866</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 25 74 45</Téléphone>
+      <Télécopie>04 79 36 85 91</Télécopie>
+      <Email>mairieannexeetable@valgelon-la-rochette.com</Email>
+      <Url>http://www.valgelon-la-rochette.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

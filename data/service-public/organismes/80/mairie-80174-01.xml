@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80174-01" codeInsee="80174" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Cardonnois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de Broyes</Ligne>
+      <CodePostal>80500</CodePostal>
+      <NomCommune>Le Cardonnois</NomCommune>
+      <Localisation>
+         <Latitude>49.6291957</Latitude>
+         <Longitude>2.481354</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 51 88 23</Téléphone>
+      <Email>mairie.le-cardonnois@laposte.net</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi, transfert sur le téléphone portable du maire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

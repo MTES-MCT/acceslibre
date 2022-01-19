@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-04209-01" codeInsee="04209" dateMiseAJour="2018-02-19" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Sisteron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place René-Cassin</Ligne>
+      <Ligne>BP 94</Ligne>
+      <CodePostal>04203</CodePostal>
+      <NomCommune>Sisteron Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.194713</Latitude>
+         <Longitude>5.943191</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 61 57 06</Téléphone>
+      <Email>sip-sie.sisteron@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>également sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

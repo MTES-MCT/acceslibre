@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02545-01" codeInsee="02545" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Neuville-Bosmont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>02250</CodePostal>
+      <NomCommune>La Neuville-Bosmont</NomCommune>
+      <Localisation>
+         <Latitude>49.7336006165</Latitude>
+         <Longitude>3.84556007385</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 20 54 21</Téléphone>
+      <Email>mlaneuvillebosmont@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

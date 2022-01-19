@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-64445-01" codeInsee="64445" dateMiseAJour="2021-11-23"
+           pivotLocal="greta">
+   <Nom>Greta CFA Aquitaine - Agence du Béarn - Pau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée Saint Cricq</Ligne>
+      <Ligne>3 bis avenue Nitot</Ligne>
+      <CodePostal>64000</CodePostal>
+      <NomCommune>Pau</NomCommune>
+      <Localisation>
+         <Latitude>43.2962501</Latitude>
+         <Longitude>-0.3535213</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 84 15 07</Téléphone>
+      <Email>agence-pau@greta-cfa-aquitaine.fr</Email>
+      <Url>https://greta-cfa-aquitaine.fr/decouvrir-le-reseau-des-greta-en-aquitaine/les-agences-des-pyrenees-atlantiques/agence-du-bearn/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

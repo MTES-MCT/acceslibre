@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01415-01" codeInsee="01415" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Talissieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 route de l'École</Ligne>
+      <CodePostal>01510</CodePostal>
+      <NomCommune>Talissieu</NomCommune>
+      <Localisation>
+         <Latitude>45.865959</Latitude>
+         <Longitude>5.724288</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">contacter l'accueil</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 87 33 27</Téléphone>
+      <Télécopie>04 79 87 47 19</Télécopie>
+      <Email>mairiedetalissieu@wanadoo.fr</Email>
+      <Url>http://www.talissieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="14:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

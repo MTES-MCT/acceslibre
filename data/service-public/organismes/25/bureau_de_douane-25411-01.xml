@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-25411-01" codeInsee="25411" dateMiseAJour="2019-01-04"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Morteau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue de la Gare</Ligne>
+      <CodePostal>25500</CodePostal>
+      <NomCommune>Morteau</NomCommune>
+      <Localisation>
+         <Latitude>47.054516</Latitude>
+         <Longitude>6.604789</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 66 90</Téléphone>
+      <Télécopie>0381672729</Télécopie>
+      <Email>r-morteau@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

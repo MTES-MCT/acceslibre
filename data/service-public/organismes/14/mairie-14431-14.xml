@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14431-14" codeInsee="14431" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Vieux-Fumé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Vieux-Fumé</Ligne>
+      <Ligne>1 rue des Écoliers</Ligne>
+      <CodePostal>14270</CodePostal>
+      <NomCommune>Mézidon Vallée d'Auge</NomCommune>
+      <Localisation>
+         <Latitude>49.057892</Latitude>
+         <Longitude>-0.117465</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 20 12 08</Téléphone>
+      <Email>mairie.vieuxfume@mva14.fr</Email>
+      <Url>https://mva14.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

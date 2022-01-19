@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38479-01" codeInsee="38479" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Porte-des-Bonnevaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Semons</Ligne>
+      <Ligne>306 route de Beaurepaire</Ligne>
+      <CodePostal>38260</CodePostal>
+      <NomCommune>Porte-des-Bonnevaux</NomCommune>
+      <Localisation>
+         <Latitude>45.4319000244</Latitude>
+         <Longitude>5.19791984558</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 54 22 15</Téléphone>
+      <Email>commune@portedesbonnevaux.fr</Email>
+      <Url>http://www.commelle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

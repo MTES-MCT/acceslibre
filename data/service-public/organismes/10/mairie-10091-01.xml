@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10091-01" codeInsee="10091" dateMiseAJour="2017-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chaudrey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue du Bourg</Ligne>
+      <CodePostal>10240</CodePostal>
+      <NomCommune>Chaudrey</NomCommune>
+      <Localisation>
+         <Latitude>48.5037994385</Latitude>
+         <Longitude>4.27427005768</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 37 66 88</Téléphone>
+      <Télécopie>03 25 47 31 99</Télécopie>
+      <Email>mairie.chaudrey@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

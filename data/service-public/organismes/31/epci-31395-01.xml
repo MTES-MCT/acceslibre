@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-31395-01" codeInsee="31395" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Agglomération - Muretain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 bis avenue Vincent-Auriol</Ligne>
+      <Ligne>CS 40029</Ligne>
+      <CodePostal>31601</CodePostal>
+      <NomCommune>Muret Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.4685852</Latitude>
+         <Longitude>1.3361539</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 34 46 30 30</Téléphone>
+      <Email>accueil@agglo-muretain.fr</Email>
+      <Url>http://www.agglo-muretain.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

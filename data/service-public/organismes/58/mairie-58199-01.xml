@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58199-01" codeInsee="58199" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Onlay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 route de Saint-Léger</Ligne>
+      <CodePostal>58370</CodePostal>
+      <NomCommune>Onlay</NomCommune>
+      <Localisation>
+         <Latitude>46.9663467407</Latitude>
+         <Longitude>3.89691710472</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 84 20 56</Téléphone>
+      <Email>mairie.onlay@orange.fr</Email>
+      <Url>http://www.mairie-onlay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>L'agence postale est ouverte du lundi au jeudi de 8h à 12h et le vendredi 8h30 à 12h, accueil téléphonique le vendredi après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-21231-01" codeInsee="21231" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Côte-d'Or - siège de Dijon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 boulevard Clemenceau</Ligne>
+      <CodePostal>21043</CodePostal>
+      <NomCommune>Dijon Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>47.327568</Latitude>
+         <Longitude>5.0487341</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur et accès facilité à l'espace libre-service, accueil adapté pour les personnes malvoyantes, accueil en langue des signes pour les personnes malentendantes sur rendez-vous le 1er ou 2e mardi de chaque mois, merci de contacter le "Réseau Sourds et Santé Bourgogne" par mail accueil.sourds@rssb.fr ou par téléphone 03 80 38 18 10</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:15:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

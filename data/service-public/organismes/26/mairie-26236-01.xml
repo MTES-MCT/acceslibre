@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26236-01" codeInsee="26236" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pierrelongue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>53 rue du Relais-de-Poste</Ligne>
+      <CodePostal>26170</CodePostal>
+      <NomCommune>Pierrelongue</NomCommune>
+      <Localisation>
+         <Latitude>44.243804</Latitude>
+         <Longitude>5.216909</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 28 74 96</Téléphone>
+      <Télécopie>04 75 28 74 96</Télécopie>
+      <Email>mairie@pierrelongue.fr</Email>
+      <Url>http://www.pierrelongue.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="14:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

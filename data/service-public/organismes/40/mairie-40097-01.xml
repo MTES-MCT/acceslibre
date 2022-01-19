@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40097-01" codeInsee="40097" dateMiseAJour="2021-01-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Eugénie-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>90 route de Mounon</Ligne>
+      <CodePostal>40320</CodePostal>
+      <NomCommune>Eugénie-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>43.6956045</Latitude>
+         <Longitude>-0.3773874</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 51 15 37</Téléphone>
+      <Email>mairie@eugenielesbains.fr</Email>
+      <Url>http://www.ville-eugenie-les-bains.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

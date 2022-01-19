@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35059-01" codeInsee="35059" dateMiseAJour="2021-01-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-des-Fougeretz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Mairie</Ligne>
+      <CodePostal>35520</CodePostal>
+      <NomCommune>La Chapelle-des-Fougeretz</NomCommune>
+      <Localisation>
+         <Latitude>48.1775016785</Latitude>
+         <Longitude>-1.73350000381</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 13 13 13</Téléphone>
+      <Email>mairie@lachapelledesfougeretz.fr</Email>
+      <Url>https://www.lachapelledesfougeretz.bzh/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="17:50:00"/>
+         <Note>(journée continue)</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

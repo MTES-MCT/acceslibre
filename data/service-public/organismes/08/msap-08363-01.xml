@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-08363-01" codeInsee="08363" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Revin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chemin du Vieux-Chêne</Ligne>
+      <CodePostal>08500</CodePostal>
+      <NomCommune>Revin</NomCommune>
+      <Localisation>
+         <Latitude>49.9294796</Latitude>
+         <Longitude>4.64629200000002</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 40 32 34</Téléphone>
+      <Email>eloise.franceservices.revin@gmail.com</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

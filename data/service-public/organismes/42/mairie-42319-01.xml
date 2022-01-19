@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42319-01" codeInsee="42319" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Valeille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>88 rue de la Mairie</Ligne>
+      <CodePostal>42110</CodePostal>
+      <NomCommune>Valeille</NomCommune>
+      <Localisation>
+         <Latitude>45.6511001587</Latitude>
+         <Longitude>4.29444980621</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 28 93 64</Téléphone>
+      <Email>mairie.valeille@wanadoo.fr</Email>
+      <Url>https://www.valeille.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="11:00:00"/>
+         <Note>Ouverture uniquement les semaines impaires.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Ouverture seulement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

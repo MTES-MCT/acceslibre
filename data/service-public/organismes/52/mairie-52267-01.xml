@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52267-01" codeInsee="52267" dateMiseAJour="2017-07-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Laneuville-au-Pont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route d'Ambrières</Ligne>
+      <CodePostal>52100</CodePostal>
+      <NomCommune>Laneuville-au-Pont</NomCommune>
+      <Localisation>
+         <Latitude>48.629898</Latitude>
+         <Longitude>4.856253</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 56 31 63</Téléphone>
+      <Télécopie>03 25 56 31 63</Télécopie>
+      <Email>commune.laneuvilleaupont@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

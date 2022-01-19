@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33396-01" codeInsee="33396" dateMiseAJour="2021-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Étienne-de-Lisse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>33330</CodePostal>
+      <NomCommune>Saint-Étienne-de-Lisse</NomCommune>
+      <Localisation>
+         <Latitude>44.879605</Latitude>
+         <Longitude>-0.096556</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 40 18 45</Téléphone>
+      <Télécopie>05 57 40 18 45</Télécopie>
+      <Email>mairie.st.etienne.de.lisse@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

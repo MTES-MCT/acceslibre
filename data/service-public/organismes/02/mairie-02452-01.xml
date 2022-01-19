@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02452-01" codeInsee="02452" dateMiseAJour="2020-08-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Maissemy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Croix-Saint-Claude</Ligne>
+      <CodePostal>02490</CodePostal>
+      <NomCommune>Maissemy</NomCommune>
+      <Localisation>
+         <Latitude>49.893207</Latitude>
+         <Longitude>3.188949</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 66 52 41</Téléphone>
+      <Email>mairie-maissemy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Des
+permanences sont assurées par le maire et un adjoint les lundis et
+vendredis de 18 heures à 19 heures</Commentaire>
+</Organisme>

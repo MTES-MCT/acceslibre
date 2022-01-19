@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddcspp-89024-01" codeInsee="89024" dateMiseAJour="2021-09-17"
+           pivotLocal="ddcspp">
+   <Nom>Direction départementale de l'emploi, du travail, des solidarités et de la protection des populations (DDETSPP) (ex DDCSPP) - Yonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Jehan Pinard</Ligne>
+      <Ligne>BP 19</Ligne>
+      <CodePostal>89010</CodePostal>
+      <NomCommune>Auxerre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.7926843</Latitude>
+         <Longitude>3.572577</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 72 69 00</Téléphone>
+      <Télécopie>03 86 72 69 01</Télécopie>
+      <Email>ddetspp@yonne.gouv.fr</Email>
+      <Url>https://www.yonne.gouv.fr/Services-de-l-Etat/Presentation-des-services/Fusion-des-services-de-la-DDCSPP-et-de-la-DIRECCTE</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

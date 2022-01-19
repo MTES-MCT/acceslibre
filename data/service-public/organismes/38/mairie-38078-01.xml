@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38078-01" codeInsee="38078" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-du-Bard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Chapelle</Ligne>
+      <Ligne>41 place de la République</Ligne>
+      <CodePostal>38580</CodePostal>
+      <NomCommune>La Chapelle-du-Bard</NomCommune>
+      <Localisation>
+         <Latitude>45.4230117798</Latitude>
+         <Longitude>6.09565782547</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 97 53 53</Téléphone>
+      <Email>chapelledubard@wanadoo.fr</Email>
+      <Url>https://lachapelledubard.wordpress.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

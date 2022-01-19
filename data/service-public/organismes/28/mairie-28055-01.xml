@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28055-01" codeInsee="28055" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Boullay-Thierry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Vieux-Puits</Ligne>
+      <CodePostal>28210</CodePostal>
+      <NomCommune>Le Boullay-Thierry</NomCommune>
+      <Localisation>
+         <Latitude>48.6379218</Latitude>
+         <Longitude>1.4312482</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 38 32 71</Téléphone>
+      <Email>mairie.boullaythierry@wanadoo.fr</Email>
+      <Url>http://www.le-boulay-thierry.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique le mardi de 9h à 17h30 et vendredi de 9h à 15h30.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les 1er et 3e samedis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

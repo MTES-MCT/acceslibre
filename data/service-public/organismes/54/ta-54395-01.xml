@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ta-54395-01" codeInsee="54395" dateMiseAJour="2021-12-01" pivotLocal="ta">
+   <Nom>Tribunal administratif - Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>C.O. n° 20038</Ligne>
+      <Ligne>5 place de la Carrière</Ligne>
+      <CodePostal>54036</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.694742</Latitude>
+         <Longitude>6.181922</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 17 43 43</Téléphone>
+      <Télécopie>03 83 17 43 50</Télécopie>
+      <Email>greffe.ta-nancy@juradm.fr</Email>
+      <Url>http://nancy.tribunal-administratif.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

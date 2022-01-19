@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-90010-01" codeInsee="90010" dateMiseAJour="2018-12-18"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Belfort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1-3 rue du Manège</Ligne>
+      <CodePostal>90000</CodePostal>
+      <NomCommune>Belfort</NomCommune>
+      <Localisation>
+         <Latitude>47.6396258</Latitude>
+         <Longitude>6.8624977</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">03 84 58 50 00</Téléphone>
+      <Télécopie>03 84 22 64 05</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

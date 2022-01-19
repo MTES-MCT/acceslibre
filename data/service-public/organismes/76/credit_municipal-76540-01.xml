@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="credit_municipal-76540-01" codeInsee="76540" dateMiseAJour="2021-12-02"
+           pivotLocal="credit_municipal">
+   <Nom>Crédit municipal - Rouen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 place Jacques Lelieur</Ligne>
+      <CodePostal>76000</CodePostal>
+      <NomCommune>Rouen</NomCommune>
+      <Localisation>
+         <Latitude>49.440032</Latitude>
+         <Longitude>1.091653</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 15 76 33</Téléphone>
+      <Télécopie>02 35 52 06 15</Télécopie>
+      <Email>contact.cmrouen@gmail.com</Email>
+      <Url>https://www.rouen.fr/credit-municipal</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:30:00"/>
+         <Note>Fermeture à 15h45 le vendredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

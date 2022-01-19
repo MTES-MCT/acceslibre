@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-62764-01" codeInsee="62764"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Saint-Nicolas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des aidants de l'Arrageois</Ligne>
+      <Ligne>38 rue Aristide-Briand</Ligne>
+      <CodePostal>62223</CodePostal>
+      <NomCommune>Saint-Nicolas</NomCommune>
+      <Localisation>
+         <Latitude>50.303231</Latitude>
+         <Longitude>2.773081</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 22 79 39</Téléphone>
+      <Email>maison-des-aidants@accueiletrelais.fr</Email>
+      <Url>http://www.asso-accueil-relais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62215-01" codeInsee="62215" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carvin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Thibaut</Ligne>
+      <Ligne>BP 80149</Ligne>
+      <CodePostal>62220</CodePostal>
+      <NomCommune>Carvin</NomCommune>
+      <Localisation>
+         <Latitude>50.491451</Latitude>
+         <Longitude>2.958199</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 74 76 00</Téléphone>
+      <Télécopie>03 21 74 76 01</Télécopie>
+      <Email>webmaster@carvin.fr</Email>
+      <Url>http://www.carvin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

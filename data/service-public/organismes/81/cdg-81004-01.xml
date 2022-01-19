@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-81004-01" codeInsee="81004" dateMiseAJour="2021-06-07" pivotLocal="cdg">
+   <Nom>Centre de gestion de la fonction publique territoriale - Tarn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des communes</Ligne>
+      <Ligne>188 rue de Jarlard</Ligne>
+      <CodePostal>81000</CodePostal>
+      <NomCommune>Albi</NomCommune>
+      <Localisation>
+         <Latitude>43.9257022</Latitude>
+         <Longitude>2.1747582</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 60 16 50</Téléphone>
+      <Télécopie>05 63 60 16 51</Télécopie>
+      <Email>cdg81@cdg81.fr</Email>
+      <Url>http://www.cdg81.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

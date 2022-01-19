@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26371-01" codeInsee="26371" dateMiseAJour="2020-05-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Véronne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>26340</CodePostal>
+      <NomCommune>Véronne</NomCommune>
+      <Localisation>
+         <Latitude>44.7410211</Latitude>
+         <Longitude>5.2162283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 21 51 13</Téléphone>
+      <Email>helene.saillans@yahoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Secrétariat intercommunal 12 rue Raoul Lambert 26340 Saillans.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Secrétariat intercommunal 12 rue Raoul Lambert 26340 Saillans</Commentaire>
+</Organisme>

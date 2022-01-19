@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57361-01" codeInsee="57361" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Kerling-lès-Sierck</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 rue Principale</Ligne>
+      <CodePostal>57480</CodePostal>
+      <NomCommune>Kerling-lès-Sierck</NomCommune>
+      <Localisation>
+         <Latitude>49.4520988464</Latitude>
+         <Longitude>6.32201004028</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 50 17 75</Téléphone>
+      <Télécopie>03 82 55 06 73</Télécopie>
+      <Email>mairie.kerling@wanadoo.fr</Email>
+      <Url>http://www.mairiekerling.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73073-01" codeInsee="73073" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chanaz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de Boigne</Ligne>
+      <Ligne>35 rue de la Mairie</Ligne>
+      <CodePostal>73310</CodePostal>
+      <NomCommune>Chanaz</NomCommune>
+      <Localisation>
+         <Latitude>45.8090744019</Latitude>
+         <Longitude>5.79379415512</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">contacter l'accueil avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 54 57 50</Téléphone>
+      <Email>mairie@chanaz.fr</Email>
+      <Url>http://www.mairie-chanaz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

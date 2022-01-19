@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-94068-01" codeInsee="94068"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Saint-Maur-des-Fossés</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accueil de jour</Ligne>
+      <Ligne>3 impasse de l'Abbaye</Ligne>
+      <CodePostal>94100</CodePostal>
+      <NomCommune>Saint-Maur-des-Fossés</NomCommune>
+      <Localisation>
+         <Latitude>48.813096</Latitude>
+         <Longitude>2.474847</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 55 12 17 20</Téléphone>
+      <Email>secretariatajour@abcd94.fr</Email>
+      <Url>http://www.abcd94.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

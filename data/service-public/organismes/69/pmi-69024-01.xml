@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-69024-01" codeInsee="69024" dateMiseAJour="2021-04-19" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Bois-d'Oingt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Rhône du canton du Bois d'Oingt</Ligne>
+      <Ligne>59 avenue du 8 Mai</Ligne>
+      <CodePostal>69620</CodePostal>
+      <NomCommune>Le Bois-d'Oingt</NomCommune>
+      <Localisation>
+         <Latitude>45.9199458</Latitude>
+         <Longitude>4.5869244</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 71 60 16</Téléphone>
+      <Télécopie>04 74 71 73 87</Télécopie>
+      <Email>mdr.bois-oingt@rhone.fr</Email>
+      <Url>http://www.rhone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

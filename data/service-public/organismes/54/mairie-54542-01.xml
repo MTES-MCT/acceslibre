@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54542-01" codeInsee="54542" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Valleroy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place de la Mairie</Ligne>
+      <CodePostal>54910</CodePostal>
+      <NomCommune>Valleroy</NomCommune>
+      <Localisation>
+         <Latitude>49.2095918</Latitude>
+         <Longitude>5.9348655</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">par la porte arrière de la mairie</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 82 46 26 78</Téléphone>
+      <Télécopie>03 82 46 32 57</Télécopie>
+      <Email>contactsmairie@valleroy54.fr</Email>
+      <Url>https://www.mairie-valleroy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-43268-01" codeInsee="43268" dateMiseAJour="2021-07-05"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) d'Yssingeaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 allée Blaise-Pascal</Ligne>
+      <Ligne>CS 40065</Ligne>
+      <CodePostal>43200</CodePostal>
+      <NomCommune>Yssingeaux</NomCommune>
+      <Localisation>
+         <Latitude>45.136122</Latitude>
+         <Longitude>4.124964</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 59 15 78</Téléphone>
+      <Email>sgc.yssingeaux@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil téléphonique tous les jours de 8h30 à 12h et de 13h30 à 16h</Commentaire>
+</Organisme>

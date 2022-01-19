@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80299-01" codeInsee="80299" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Faloise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 bis rue de l'Église</Ligne>
+      <CodePostal>80250</CodePostal>
+      <NomCommune>La Faloise</NomCommune>
+      <Localisation>
+         <Latitude>49.726600647</Latitude>
+         <Longitude>2.3331849575</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 41 42 40</Téléphone>
+      <Télécopie>03 22 41 42 40</Télécopie>
+      <Email>mairie.lafaloise@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

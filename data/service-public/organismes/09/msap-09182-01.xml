@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-09182-01" codeInsee="09182" dateMiseAJour="2021-02-16"
+           pivotLocal="msap">
+   <Nom>France Services - Massat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue des Prêtres</Ligne>
+      <Ligne>Bureau de Poste</Ligne>
+      <CodePostal>09320</CodePostal>
+      <NomCommune>Massat</NomCommune>
+      <Localisation>
+         <Latitude>42.889764</Latitude>
+         <Longitude>1.346069</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Url>https://www.maisondeservicesaupublic.fr/content/massat-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

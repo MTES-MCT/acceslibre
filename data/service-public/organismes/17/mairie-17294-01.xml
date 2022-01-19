@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17294-01" codeInsee="17294" dateMiseAJour="2021-03-22"
+           pivotLocal="mairie">
+   <Nom>Mairie -  Puyrolland</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 route de la Trézence</Ligne>
+      <CodePostal>17380</CodePostal>
+      <NomCommune>Puyrolland</NomCommune>
+      <Localisation>
+         <Latitude>46.0213178</Latitude>
+         <Longitude>-0.6281086</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 33 86 26</Téléphone>
+      <Télécopie>05 46 33 86 26</Télécopie>
+      <Email>commune.puyrolland@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

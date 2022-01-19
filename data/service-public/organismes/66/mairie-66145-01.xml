@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66145-01" codeInsee="66145" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ponteilla</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Conflent</Ligne>
+      <CodePostal>66300</CodePostal>
+      <NomCommune>Ponteilla</NomCommune>
+      <Localisation>
+         <Latitude>42.626593</Latitude>
+         <Longitude>2.8114103</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 53 06 70</Téléphone>
+      <Email>secretariat@mairie-ponteilla-nyls.fr</Email>
+      <Url>http://www.mairie-ponteilla-nyls.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-77131-01" codeInsee="77131" dateMiseAJour="2021-02-12" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Coulommiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace 34</Ligne>
+      <Ligne>64 rue du Général-Leclerc</Ligne>
+      <CodePostal>77120</CodePostal>
+      <NomCommune>Coulommiers</NomCommune>
+      <Localisation>
+         <Latitude>48.8118981</Latitude>
+         <Longitude>3.0781391</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 20 72 78</Téléphone>
+      <Email>cio.coulommiers@ac-creteil.fr</Email>
+      <Url>http://orientation.ac-creteil.fr/cio-coulommiers</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous. Deux mercredis par mois à partir de 17h sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Horaires durant les congés scolaires : 9h-12h puis 13h-16h</Commentaire>
+</Organisme>

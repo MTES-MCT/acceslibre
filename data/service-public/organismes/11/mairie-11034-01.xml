@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11034-01" codeInsee="11034" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Belvèze-du-Razès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 avenue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>11240</CodePostal>
+      <NomCommune>Belvèze-du-Razès</NomCommune>
+      <Localisation>
+         <Latitude>43.1248016357</Latitude>
+         <Longitude>2.09549999237</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 69 00 23</Téléphone>
+      <Télécopie>04 68 69 87 56</Télécopie>
+      <Email>mairie.belveze-du-razes@wanadoo.fr</Email>
+      <Url>http://www.belvezedurazescom.wordpress.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

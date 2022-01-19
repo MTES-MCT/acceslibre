@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="adil-89024-01" codeInsee="89024" dateMiseAJour="2021-04-16"
+           pivotLocal="adil">
+   <Nom>Agence départementale d'information sur le logement (ADIL) - Yonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Ballets</Ligne>
+      <CodePostal>89000</CodePostal>
+      <NomCommune>Auxerre</NomCommune>
+      <Localisation>
+         <Latitude>47.7999276</Latitude>
+         <Longitude>3.5674941</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 72 16 16</Téléphone>
+      <Email>contact@adil89.org</Email>
+      <Url>http://www.adil89.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil fermé pendant la crise sanitaire. Accueil téléphonique uniquement</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique uniquement</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

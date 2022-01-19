@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-97502-01" codeInsee="97502" dateMiseAJour="2021-08-24"
+           pivotLocal="banque_de_france">
+   <Nom>Institut d'émission des départements d'Outre-Mer (IEDOM) - Agence de Saint-Pierre-et-Miquelon - Saint-Pierre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>37 Boulevard Constant Colmay</Ligne>
+      <Ligne>BP 4202</Ligne>
+      <CodePostal>97500</CodePostal>
+      <NomCommune>Saint-Pierre</NomCommune>
+      <Localisation>
+         <Latitude>46.785515037816324</Latitude>
+         <Longitude>-56.16995894642291</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 08 41 06 00</Téléphone>
+      <Url>https://www.iedom.fr/saint-pierre-et-miquelon/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil l'après-midi sur rendez-vous au 05 08 41 06 00.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

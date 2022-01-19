@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67228-01" codeInsee="67228" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neugartheim-Ittlenheim</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>67370</CodePostal>
+      <NomCommune>Neugartheim-Ittlenheim</NomCommune>
+      <Localisation>
+         <Latitude>48.682598114</Latitude>
+         <Longitude>7.56787014008</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 69 90 45</Téléphone>
+      <Télécopie>03 88 69 95 60</Télécopie>
+      <Email>mairie.neugartheim-ittlenheim@wanadoo.fr</Email>
+      <Url>http://www.neugartheim-ittlenheim.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22039-01" codeInsee="22039" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue de la Madeleine</Ligne>
+      <CodePostal>22210</CodePostal>
+      <NomCommune>La Chèze</NomCommune>
+      <Localisation>
+         <Latitude>48.1317958</Latitude>
+         <Longitude>-2.6575105</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 26 70 99</Téléphone>
+      <Télécopie>02 96 26 78 78</Télécopie>
+      <Email>contact@mairie-lacheze.fr</Email>
+      <Url>http://www.communelacheze.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

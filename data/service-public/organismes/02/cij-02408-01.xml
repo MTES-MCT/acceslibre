@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-02408-01" codeInsee="02408" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Centre information jeunesse - Laon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 boulevard Gras-Brancourt</Ligne>
+      <CodePostal>02000</CodePostal>
+      <NomCommune>Laon</NomCommune>
+      <Localisation>
+         <Latitude>49.5706376</Latitude>
+         <Longitude>3.636897</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 23 70 09</Téléphone>
+      <Télécopie>03 23 23 61 59</Télécopie>
+      <Email>cij.aisne@gmail.com</Email>
+      <Url>http://www.cij02.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

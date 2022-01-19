@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-49099-01" codeInsee="49099" dateMiseAJour="2021-04-15" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Cholet - Paul-Bouyx</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison départementale des solidarités</Ligne>
+      <Ligne>28 rue Paul-Bouyx</Ligne>
+      <Ligne>CS 21983</Ligne>
+      <CodePostal>49319</CodePostal>
+      <NomCommune>Cholet Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.0443992615</Latitude>
+         <Longitude>-0.888432979584</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Tarif appel local">02 41 46 20 00</Téléphone>
+      <Télécopie>02 41 46 20 01</Télécopie>
+      <Url>http://www.maineetloire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé à 17h pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

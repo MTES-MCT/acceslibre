@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14452-01" codeInsee="14452" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Morteaux-Couliboeuf</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg-Neuf</Ligne>
+      <CodePostal>14620</CodePostal>
+      <NomCommune>Morteaux-Couliboeuf</NomCommune>
+      <Localisation>
+         <Latitude>48.926700592</Latitude>
+         <Longitude>-0.0750859975815</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 90 70 92</Téléphone>
+      <Email>mairie.morteaux-couliboeuf@wanadoo.fr</Email>
+      <Url>http://www.morteaux-couliboeuf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

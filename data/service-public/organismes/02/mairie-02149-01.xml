@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02149-01" codeInsee="02149" dateMiseAJour="2017-11-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cerizy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de l'Église</Ligne>
+      <CodePostal>02240</CodePostal>
+      <NomCommune>Cerizy</NomCommune>
+      <Localisation>
+         <Latitude>49.760272</Latitude>
+         <Longitude>3.329576</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 09 77 06</Téléphone>
+      <Email>mairie.cerizy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="14:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

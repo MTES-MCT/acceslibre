@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62624-01" codeInsee="62624" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Noyelles-Godault</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>38 rue de Verdun</Ligne>
+      <CodePostal>62950</CodePostal>
+      <NomCommune>Noyelles-Godault</NomCommune>
+      <Localisation>
+         <Latitude>50.4200372</Latitude>
+         <Longitude>2.9947663</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 13 97 77</Téléphone>
+      <Télécopie>03 21 13 97 78</Télécopie>
+      <Email>contact@mairie-noyelles-godault.fr</Email>
+      <Url>http://www.ville-noyelles-godault.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

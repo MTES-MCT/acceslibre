@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-31033-01" codeInsee="31033" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Auterive</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Maréchal-Leclerc</Ligne>
+      <CodePostal>31190</CodePostal>
+      <NomCommune>Auterive</NomCommune>
+      <Localisation>
+         <Latitude>43.3530761</Latitude>
+         <Longitude>1.4778312</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 50 74 97</Téléphone>
+      <Email>lefoyer.pijauterive31190@laposte.net</Email>
+      <Url>https://centresocialauterive.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Accueil l'après-midi sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Contacter l'accueil pour connaître les horaires d'ouverture.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

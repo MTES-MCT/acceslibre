@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67076-01" codeInsee="67076" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Colroy-la-Roche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Ban-de-la-Roche</Ligne>
+      <CodePostal>67420</CodePostal>
+      <NomCommune>Colroy-la-Roche</NomCommune>
+      <Localisation>
+         <Latitude>48.3905982</Latitude>
+         <Longitude>7.1841402</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible par l'arrière</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 97 60 08</Téléphone>
+      <Télécopie>03 88 47 24 83</Télécopie>
+      <Email>colroy-la-roche.mairie@wanadoo.fr</Email>
+      <Url>http://www.colroy-la-roche.valleedelabruche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

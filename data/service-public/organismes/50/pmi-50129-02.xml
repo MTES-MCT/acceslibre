@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-50129-02" codeInsee="50129" dateMiseAJour="2021-04-20" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Cherbourg Octeville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Octeville</Ligne>
+      <Ligne>Centre médico-social</Ligne>
+      <Ligne>Avenue de Normandie</Ligne>
+      <Ligne>BP 102</Ligne>
+      <CodePostal>50130</CodePostal>
+      <NomCommune>Cherbourg-en-Cotentin</NomCommune>
+      <Localisation>
+         <Latitude>49.626355</Latitude>
+         <Longitude>-1.629582</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 10 01 50</Téléphone>
+      <Télécopie>02 33 53 17 12</Télécopie>
+      <Email>cms-octeville@manche.fr</Email>
+      <Url>https://www.manche.fr/conseil-departemental/CMS.aspx</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

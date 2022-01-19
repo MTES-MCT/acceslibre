@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27217-01" codeInsee="27217" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Émanville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Saint-Étienne</Ligne>
+      <CodePostal>27190</CodePostal>
+      <NomCommune>Émanville</NomCommune>
+      <Localisation>
+         <Latitude>49.063189</Latitude>
+         <Longitude>0.915183</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">monte-personne</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 35 43 24</Téléphone>
+      <Email>commune-emanville@orange.fr</Email>
+      <Url>http://www.emanville-27.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Permanence du maire de 18h à 19h le jeudi et le samedi de 10h à 11h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

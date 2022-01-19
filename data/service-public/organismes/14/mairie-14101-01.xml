@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14101-01" codeInsee="14101" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bretteville-sur-Odon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue de Woodbury</Ligne>
+      <Ligne>BP 41</Ligne>
+      <CodePostal>14760</CodePostal>
+      <NomCommune>Bretteville-sur-Odon</NomCommune>
+      <Localisation>
+         <Latitude>49.1652711</Latitude>
+         <Longitude>-0.4175606</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 29 19 90</Téléphone>
+      <Télécopie>02 31 29 19 99</Télécopie>
+      <Email>mairie@brettevillesurodon.fr</Email>
+      <Url>http://www.brettevillesurodon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

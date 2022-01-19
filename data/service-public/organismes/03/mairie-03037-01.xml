@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03037-01" codeInsee="03037" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Braize</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de l’Hirondelle</Ligne>
+      <CodePostal>03360</CodePostal>
+      <NomCommune>Braize</NomCommune>
+      <Localisation>
+         <Latitude>46.661857605</Latitude>
+         <Longitude>2.65905499458</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 06 12 73</Téléphone>
+      <Email>mairie-braize@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <Note>Accueil possible sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

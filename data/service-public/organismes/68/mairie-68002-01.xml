@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68002-01" codeInsee="68002" dateMiseAJour="2017-03-31"
+           pivotLocal="mairie">
+   <Nom>Mairie - Altenach</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Cure</Ligne>
+      <CodePostal>68210</CodePostal>
+      <NomCommune>Altenach</NomCommune>
+      <Localisation>
+         <Latitude>47.6067811</Latitude>
+         <Longitude>7.1122618</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 25 02 54</Téléphone>
+      <Email>mairie.altenach@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

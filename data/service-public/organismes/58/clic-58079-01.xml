@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-58079-01" codeInsee="58079" dateMiseAJour="2017-04-21"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Clamecy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Site d'action médico-sociale</Ligne>
+      <Ligne>2 rue Porte-Randan</Ligne>
+      <Ligne>BP 20080</Ligne>
+      <CodePostal>58500</CodePostal>
+      <NomCommune>Clamecy</NomCommune>
+      <Localisation>
+         <Latitude>47.459969</Latitude>
+         <Longitude>3.517961</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 24 01 70</Téléphone>
+      <Télécopie>03 86 93 46 28</Télécopie>
+      <Email>site.clamecy.randan@nievre.fr</Email>
+      <Url>http://nievre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

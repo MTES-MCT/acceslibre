@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08090-01" codeInsee="08090" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carignan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place du Docteur-Gairal</Ligne>
+      <Ligne>BP 43</Ligne>
+      <CodePostal>08110</CodePostal>
+      <NomCommune>Carignan</NomCommune>
+      <Localisation>
+         <Latitude>49.6315994263</Latitude>
+         <Longitude>5.16774988174</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 22 07 89</Téléphone>
+      <Télécopie>03 24 27 90 00</Télécopie>
+      <Email>etatcivil@ville-carignan.fr</Email>
+      <Url>http://www.carignan-ardennes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

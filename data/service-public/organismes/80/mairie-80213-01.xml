@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80213-01" codeInsee="80213" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cottenchy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue Louis-Tribout</Ligne>
+      <CodePostal>80440</CodePostal>
+      <NomCommune>Cottenchy</NomCommune>
+      <Localisation>
+         <Latitude>49.809425354</Latitude>
+         <Longitude>2.38196396828</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 09 50 09</Téléphone>
+      <Télécopie>03 22 09 61 71</Télécopie>
+      <Email>mairie.cottenchy@wanadoo.fr</Email>
+      <Url>http://www.mairie-cottenchy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

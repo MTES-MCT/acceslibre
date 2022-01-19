@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11200-01" codeInsee="11200" dateMiseAJour="2019-11-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lespinassière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Pech</Ligne>
+      <CodePostal>11160</CodePostal>
+      <NomCommune>Lespinassière</NomCommune>
+      <Localisation>
+         <Latitude>43.402842</Latitude>
+         <Longitude>2.538319</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 25 80 13 07</Téléphone>
+      <Email>lespinassiere.mairie@gmail.com</Email>
+      <Url>http://www.lespinassiere.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire le vendredi de 9h à 12h ou sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

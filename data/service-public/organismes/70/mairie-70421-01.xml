@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70421-01" codeInsee="70421" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Port-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Gilberte-Lavaire</Ligne>
+      <Ligne>BP 9</Ligne>
+      <CodePostal>70170</CodePostal>
+      <NomCommune>Port-sur-Saône</NomCommune>
+      <Localisation>
+         <Latitude>47.6891407</Latitude>
+         <Longitude>6.0424988</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 78 18 00</Téléphone>
+      <Télécopie>03 84 78 18 09</Télécopie>
+      <Email>secretariat@port-sur-saone.fr</Email>
+      <Url>http://www.ville-port-sur-saone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

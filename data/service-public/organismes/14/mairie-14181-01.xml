@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14181-01" codeInsee="14181" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cormelles-le-Royal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue de l'Église</Ligne>
+      <CodePostal>14123</CodePostal>
+      <NomCommune>Cormelles-le-Royal</NomCommune>
+      <Localisation>
+         <Latitude>49.1543998718</Latitude>
+         <Longitude>-0.332675009966</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 52 12 29</Téléphone>
+      <Télécopie>02 31 84 21 54</Télécopie>
+      <Email>mairie@cormellesleroyal.fr</Email>
+      <Url>http://www.ville-de-cormelles-le-royal.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

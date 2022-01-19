@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33211-01" codeInsee="33211" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Labarde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 chemin de la Laurina</Ligne>
+      <CodePostal>33460</CodePostal>
+      <NomCommune>Labarde</NomCommune>
+      <Localisation>
+         <Latitude>45.0225982666</Latitude>
+         <Longitude>-0.640070021152</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 88 33 74</Téléphone>
+      <Télécopie>05 57 88 72 57</Télécopie>
+      <Email>mairie-labarde@wanadoo.fr</Email>
+      <Url>http://www.labarde.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

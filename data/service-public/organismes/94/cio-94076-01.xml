@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cio-94076-01" codeInsee="94076" dateMiseAJour="2021-02-17" pivotLocal="cio">
+   <Nom>Centre d’information et d’orientation (CIO) - Villejuif</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue Paul-Vaillant-Couturier</Ligne>
+      <CodePostal>94800</CodePostal>
+      <NomCommune>Villejuif</NomCommune>
+      <Localisation>
+         <Latitude>48.7858009338</Latitude>
+         <Longitude>2.37122011185</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 46 77 69 33</Téléphone>
+      <Email>cio.villejuif@ac-creteil.fr</Email>
+      <Url>http://orientation.ac-creteil.fr/cio-villejuif/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Les nocturnes : le mercredi de 17H-19H de octobre à mai</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous. Pendant les congés scolaires :
+
+Du lundi au vendredi : 9H30- 12H30 / 13H30 – 17H</Commentaire>
+</Organisme>

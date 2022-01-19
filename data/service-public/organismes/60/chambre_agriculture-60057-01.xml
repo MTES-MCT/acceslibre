@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-60057-01" codeInsee="60057" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Oise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Frère-Gagne</Ligne>
+      <Ligne>BP 40463</Ligne>
+      <CodePostal>60021</CodePostal>
+      <NomCommune>Beauvais Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.458494</Latitude>
+         <Longitude>2.066759</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 11 44 11</Téléphone>
+      <Télécopie>03 44 11 45 50</Télécopie>
+      <Email>accueil@oise.chambagri.fr</Email>
+      <Url>https://www.hautsdefrance.chambres-agriculture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

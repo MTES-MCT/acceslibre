@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-38416-01" codeInsee="38416" dateMiseAJour="2019-04-19"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Marcellin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel des finances</Ligne>
+      <Ligne>Avenue du Collège</Ligne>
+      <Ligne>BP 50</Ligne>
+      <CodePostal>38160</CodePostal>
+      <NomCommune>Saint-Marcellin</NomCommune>
+      <Localisation>
+         <Latitude>45.154119</Latitude>
+         <Longitude>5.3199379</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 64 09 98</Téléphone>
+      <Email>t038058@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

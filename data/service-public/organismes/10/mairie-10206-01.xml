@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10206-01" codeInsee="10206" dateMiseAJour="2018-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Longsols</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue Basse</Ligne>
+      <CodePostal>10240</CodePostal>
+      <NomCommune>Longsols</NomCommune>
+      <Localisation>
+         <Latitude>48.4308418</Latitude>
+         <Longitude>4.288548</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 37 28 18</Téléphone>
+      <Email>mairie.longsols@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

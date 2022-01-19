@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="drac-44109-01" codeInsee="44109" dateMiseAJour="2018-05-25"
+           pivotLocal="drac">
+   <Nom>Direction régionale des affaires culturelles (DRAC) - Pays de la Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Stanislas-Baudry</Ligne>
+      <CodePostal>44000</CodePostal>
+      <NomCommune>Nantes</NomCommune>
+      <Localisation>
+         <Latitude>47.218398</Latitude>
+         <Longitude>-1.543097</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 14 23 00</Téléphone>
+      <Télécopie>02 40 14 23 01</Télécopie>
+      <Email>drac.paysdelaloire@culture.gouv.fr</Email>
+      <Url>http://www.culture.gouv.fr/Regions/Drac-Pays-de-la-Loire</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

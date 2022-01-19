@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-04173-01" codeInsee="04173" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Alpes Provence Verdon Sources de Lumière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZA Les Iscles</Ligne>
+      <Ligne>BP 2</Ligne>
+      <CodePostal>04170</CodePostal>
+      <NomCommune>Saint-André-les-Alpes</NomCommune>
+      <Localisation>
+         <Latitude>43.965847</Latitude>
+         <Longitude>6.50736</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 83 68 99</Téléphone>
+      <Email>contact@ccapv.fr</Email>
+      <Url>http://www.ccapv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire consulter les horaires sur le site internet www.ccapv.fr.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

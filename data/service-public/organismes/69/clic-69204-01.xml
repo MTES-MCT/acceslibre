@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-69204-01" codeInsee="69204" dateMiseAJour="2019-12-16"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Saint-Genis-Laval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de la métropole de Saint-Genis-Laval</Ligne>
+      <Ligne>102 B avenue Clemenceau</Ligne>
+      <CodePostal>69230</CodePostal>
+      <NomCommune>Saint-Genis-Laval</NomCommune>
+      <Localisation>
+         <Latitude>45.698963</Latitude>
+         <Longitude>4.794919</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 56 04 88</Téléphone>
+      <Email>mdm.st-genis-laval@grandlyon.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sauf Mardi de 13h à 17h</Commentaire>
+</Organisme>

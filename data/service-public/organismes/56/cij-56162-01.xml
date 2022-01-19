@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-56162-01" codeInsee="56162" dateMiseAJour="2021-09-06" pivotLocal="cij">
+   <Nom>Point information jeunesse - Ploemeur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue de Kervam</Ligne>
+      <CodePostal>56270</CodePostal>
+      <NomCommune>Ploemeur</NomCommune>
+      <Localisation>
+         <Latitude>47.733942</Latitude>
+         <Longitude>-3.427162</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 86 41 03</Téléphone>
+      <Email>contact@crij.bzh</Email>
+      <Url>https://crij.bzh/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous de préférence.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

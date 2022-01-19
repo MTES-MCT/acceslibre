@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10111-01" codeInsee="10111" dateMiseAJour="2016-07-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Courteron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Église</Ligne>
+      <CodePostal>10250</CodePostal>
+      <NomCommune>Courteron</NomCommune>
+      <Localisation>
+         <Latitude>48.0203018188</Latitude>
+         <Longitude>4.44504976273</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 79 71 38 81</Téléphone>
+      <Télécopie>03 25 38 22 24</Télécopie>
+      <Email>mairie.courteron@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

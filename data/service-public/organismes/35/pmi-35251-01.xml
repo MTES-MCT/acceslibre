@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-35251-01" codeInsee="35251" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Aubin-d'Aubigné - Étang</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre départemental d'action sociale</Ligne>
+      <Ligne>1 rue de l'Étang</Ligne>
+      <CodePostal>35250</CodePostal>
+      <NomCommune>Saint-Aubin-d'Aubigné</NomCommune>
+      <Localisation>
+         <Latitude>48.261418</Latitude>
+         <Longitude>-1.603042</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 02 37 77</Téléphone>
+      <Email>cdas-staubin@ille-et-vilaine.fr</Email>
+      <Url>http://www.saint-aubin-daubigne.frindex.php/cdas-centre-departemental-daction-sociale</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil téléphonique le lundi matin de 9h à 12h30.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

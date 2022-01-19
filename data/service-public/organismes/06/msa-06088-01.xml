@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-06088-01" codeInsee="06088" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Provence-Azur - accueil de Nice</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>17 rue Robert-Latouche</Ligne>
+      <CodePostal>06200</CodePostal>
+      <NomCommune>Nice</NomCommune>
+      <Localisation>
+         <Latitude>43.68066000457884</Latitude>
+         <Longitude>7.226780023065771</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole de Provence-Azur</Ligne>
+      <Ligne>CS 70001</Ligne>
+      <CodePostal>13416</CodePostal>
+      <NomCommune>Marseille Cedex 20</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 60 38 38</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>L'après-midi sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>L'après-midi sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

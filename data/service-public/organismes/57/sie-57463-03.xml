@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-57463-03" codeInsee="57463" dateMiseAJour="2021-09-13" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Metz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Chanoine Collin</Ligne>
+      <Ligne>BP 71093</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <CodePostal>57036</CodePostal>
+      <NomCommune>Metz Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>49.1177185</Latitude>
+         <Longitude>6.1743792</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="pour l'accueil téléphonique: réponse tous les jours de 8h30-12h et 13h30-16h">03 87 34 78 60</Téléphone>
+      <Email>sie.metz@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Uniquement sur rendez-vous.</Commentaire>
+</Organisme>

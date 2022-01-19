@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-71153-01" codeInsee="71153" dateMiseAJour="2020-01-14"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Le Creusot</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison locale de l'autonomie</Ligne>
+      <Ligne>2 avenue de Verdun</Ligne>
+      <CodePostal>71201</CodePostal>
+      <NomCommune>Le Creusot</NomCommune>
+      <Localisation>
+         <Latitude>46.806901</Latitude>
+         <Longitude>4.432667</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 77 97 80</Téléphone>
+      <Télécopie>03 85 55 80 76</Télécopie>
+      <Email>mla71montceau@saoneetloire71.fr</Email>
+      <Url>https://www.saoneetloire71.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

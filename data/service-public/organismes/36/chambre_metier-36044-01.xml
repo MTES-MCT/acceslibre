@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-36044-01" codeInsee="36044" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Indre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>31 rue Robert-Mallet-Stevens</Ligne>
+      <Ligne>BP 296</Ligne>
+      <CodePostal>36006</CodePostal>
+      <NomCommune>Châteauroux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.8081016541</Latitude>
+         <Longitude>1.69429004192</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 08 80 00</Téléphone>
+      <Télécopie>02 54 08 80 08</Télécopie>
+      <Email>contacts@cm-indre.fr</Email>
+      <Url>http://www.cma36.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

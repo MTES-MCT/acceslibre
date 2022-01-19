@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-33058-01" codeInsee="33058" dateMiseAJour="2021-02-18" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Blaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Roger-Toziny</Ligne>
+      <CodePostal>33394</CodePostal>
+      <NomCommune>Blaye Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.1264615</Latitude>
+         <Longitude>-0.6612213</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 42 66 82</Téléphone>
+      <Télécopie>05 57 42 66 75</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Fermé le mardi après-midi</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous de 13h15 à 16h</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <Note>Fermé le jeudi après-midi</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous de 13h15 à 16h</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+         <Note>sur rendez-vous de 13h15 à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

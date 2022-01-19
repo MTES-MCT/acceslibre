@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-38185-01" codeInsee="38185" dateMiseAJour="2018-02-08"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 boulevard Joseph-Vallier</Ligne>
+      <Ligne>BP 45</Ligne>
+      <CodePostal>38040</CodePostal>
+      <NomCommune>Grenoble Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>45.1801986694</Latitude>
+         <Longitude>5.71291017532</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 56 59 45 00</Téléphone>
+      <Télécopie>04 56 59 44 35</Télécopie>
+      <Email>ddt-slc-lpa@isere.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Accueil téléphonique le matin de 9h à 11h du lundi au jeudi</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

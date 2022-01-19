@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27690-01" codeInsee="27690" dateMiseAJour="2021-01-05"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-en-Vexin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue Principale</Ligne>
+      <CodePostal>27420</CodePostal>
+      <NomCommune>Villers-en-Vexin</NomCommune>
+      <Localisation>
+         <Latitude>49.249629</Latitude>
+         <Longitude>1.586084</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 55 94 18</Téléphone>
+      <Télécopie>02 32 55 01 84</Télécopie>
+      <Email>villers-en-vexin@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:45:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

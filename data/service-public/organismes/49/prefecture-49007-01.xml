@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-49007-01" codeInsee="49007" dateMiseAJour="2021-02-23"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Maine-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Michel-Debré</Ligne>
+      <CodePostal>49934</CodePostal>
+      <NomCommune>Angers Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>47.4694290161</Latitude>
+         <Longitude>-0.549000024796</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 81 81 81</Téléphone>
+      <Télécopie>+33 2 41 88 04 63</Télécopie>
+      <Email>modernisation@maine-et-loire.pref.gouv.fr</Email>
+      <Url>http://www.maine-et-loire.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:15:00"/>
+         <Note>Uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

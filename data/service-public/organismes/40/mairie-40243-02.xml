@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40243-02" codeInsee="40243" dateMiseAJour="2021-01-19"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Boos</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 place de la Liberté</Ligne>
+      <Ligne>Boos</Ligne>
+      <CodePostal>40370</CodePostal>
+      <NomCommune>Rion-des-Landes</NomCommune>
+      <Localisation>
+         <Latitude>43.890998</Latitude>
+         <Longitude>-0.994174</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 57 22 91</Téléphone>
+      <Email>accueil@riondeslandes.fr</Email>
+      <Url>https://www.riondeslandes.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

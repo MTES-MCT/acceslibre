@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-38545-01" codeInsee="38545" dateMiseAJour="2019-05-02"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Vif</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place de la Libération</Ligne>
+      <CodePostal>38450</CodePostal>
+      <NomCommune>Vif</NomCommune>
+      <Localisation>
+         <Latitude>45.0559654</Latitude>
+         <Longitude>5.6688036</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 72 51 28</Téléphone>
+      <Télécopie>04 76 72 72 55</Télécopie>
+      <Email>t038048@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mercredi ou sur rendez-vous.</Commentaire>
+</Organisme>

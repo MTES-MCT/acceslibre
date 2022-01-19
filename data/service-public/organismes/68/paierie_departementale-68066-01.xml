@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_departementale-68066-01" codeInsee="68066"
+           dateMiseAJour="2021-12-31"
+           pivotLocal="paierie_departementale">
+   <Nom>Paierie de la CEA</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue Raymond Poincaré</Ligne>
+      <CodePostal>68000</CodePostal>
+      <NomCommune>Colmar</NomCommune>
+      <Localisation>
+         <Latitude>48.071761</Latitude>
+         <Longitude>7.348088</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 41 09 14</Téléphone>
+      <Email>t068090@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

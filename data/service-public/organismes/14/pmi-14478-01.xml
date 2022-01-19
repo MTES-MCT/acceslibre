@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-14478-01" codeInsee="14478" dateMiseAJour="2021-04-27" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Orbec</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre médico social</Ligne>
+      <Ligne>2 bis rue de Verdun</Ligne>
+      <CodePostal>14290</CodePostal>
+      <NomCommune>Orbec</NomCommune>
+      <Localisation>
+         <Latitude>49.0210232</Latitude>
+         <Longitude>0.4049159</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 14 47 54 18</Téléphone>
+      <Url>https://www.calvados.fr/accueil/le-departement/solidarite---familles/enfance--familles/protection-maternelle-et-infanti/corps/consultations-de-la-protection-m.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="credit_municipal-75104-01" codeInsee="75104" dateMiseAJour="2021-12-01"
+           pivotLocal="credit_municipal">
+   <Nom>Crédit municipal - Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 rue des Francs-Bourgeois</Ligne>
+      <CodePostal>75004</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.859519</Latitude>
+         <Longitude>2.357466</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 44 61 64 00</Téléphone>
+      <Url>https://www.creditmunicipal.fr/homepage.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

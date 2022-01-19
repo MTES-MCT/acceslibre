@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19118-01" codeInsee="19118" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Lonzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue de la Libération</Ligne>
+      <CodePostal>19470</CodePostal>
+      <NomCommune>Le Lonzac</NomCommune>
+      <Localisation>
+         <Latitude>45.4668312073</Latitude>
+         <Longitude>1.73705899715</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 98 27 17</Téléphone>
+      <Télécopie>05 55 98 25 09</Télécopie>
+      <Email>mairie.lelonzac@wanadoo.fr</Email>
+      <Url>http://www.lelonzac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Contacter l'accueil pour obtenir les samedis d'ouverture.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

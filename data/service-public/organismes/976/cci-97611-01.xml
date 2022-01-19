@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-97611-01" codeInsee="97611" dateMiseAJour="2021-08-03" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 976 - Mayotte - Siège Mamoudzou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Mariage Mamoudzou</Ligne>
+      <CodePostal>97600</CodePostal>
+      <NomCommune>Mamoudzou</NomCommune>
+      <Localisation>
+         <Latitude>-12.780556</Latitude>
+         <Longitude>45.227778</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 269 61 04 26</Téléphone>
+      <Télécopie>+269 269 61 85 59</Télécopie>
+      <Email>nbacar@mayotte.cci.fr</Email>
+      <Url>https://www.mayotte.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

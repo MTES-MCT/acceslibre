@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-36195-01" codeInsee="36195" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Georges-sur-Arnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route des Tilleuls</Ligne>
+      <CodePostal>36100</CodePostal>
+      <NomCommune>Saint-Georges-sur-Arnon</NomCommune>
+      <Localisation>
+         <Latitude>46.9958992004</Latitude>
+         <Longitude>2.08768010139</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 04 01 05</Téléphone>
+      <Télécopie>02 54 04 04 41</Télécopie>
+      <Email>mairie-st.georges.sur.arnon@wanadoo.fr</Email>
+      <Url>https://www.georges-arnon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

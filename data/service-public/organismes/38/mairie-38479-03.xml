@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38479-03" codeInsee="38479" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Commelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Commelle</Ligne>
+      <Ligne>156 chemin de l'Église</Ligne>
+      <CodePostal>38260</CodePostal>
+      <NomCommune>Porte-des-Bonnevaux</NomCommune>
+      <Localisation>
+         <Latitude>45.430667</Latitude>
+         <Longitude>5.230988</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 20 26 64</Téléphone>
+      <Email>commune-commelle@portedesbonnevaux.fr</Email>
+      <Url>http://www.commelle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="17:00:00"/>
+         <Note>Permanence du maire délégué, sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

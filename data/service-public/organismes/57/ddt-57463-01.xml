@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddt-57463-01" codeInsee="57463" dateMiseAJour="2021-03-15" pivotLocal="ddt">
+   <Nom>Direction départementale des territoires (DDT) - Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 quai Paul Wiltzer</Ligne>
+      <Ligne>BP 31035</Ligne>
+      <CodePostal>57036</CodePostal>
+      <NomCommune>Metz Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>49.1284493</Latitude>
+         <Longitude>6.1709554</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 34 34 34</Téléphone>
+      <Télécopie>03 87 34 33 85</Télécopie>
+      <Email>ddt@moselle.gouv.fr</Email>
+      <Url>https://www.moselle.gouv.fr/Services-de-l-Etat/Directions-Departementales/La-Direction-Departementale-des-Territoires</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

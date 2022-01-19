@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="29019" dateMiseAJour="2021-09-14" id="aav-29019-01" idPresta="58b9441fb473e45d93eac5da" pivotLocal="aav">
+    <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Finistère - Brest</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>26 rue Fautras</Ligne>
+        <CodePostal>29200</CodePostal>
+        <NomCommune>BREST</NomCommune>
+        <Localisation>
+            <Latitude>48.3907088</Latitude>
+            <Longitude>-4.4910526</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>26 rue Fautras</Ligne>
+        <CodePostal>29200</CodePostal>
+        <NomCommune>BREST</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 98 44 97 47</Téléphone>
+        <Email>mailto:direction@cidff29.fr</Email>
+        <Url>https://finistere.cidff.info/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

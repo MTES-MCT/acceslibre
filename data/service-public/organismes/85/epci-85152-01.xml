@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-85152-01" codeInsee="85152" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays des Achards</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Chapelle-Achard</Ligne>
+      <Ligne>ZA Sud-Est</Ligne>
+      <Ligne>2 rue Michel-Breton</Ligne>
+      <Ligne>CS 90116</Ligne>
+      <CodePostal>85150</CodePostal>
+      <NomCommune>Les Achards</NomCommune>
+      <Localisation>
+         <Latitude>46.6021045</Latitude>
+         <Longitude>-1.6535629</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 05 94 49</Téléphone>
+      <Email>contact@cc-paysdesachards.fr</Email>
+      <Url>http://www.cc-paysdesachards.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

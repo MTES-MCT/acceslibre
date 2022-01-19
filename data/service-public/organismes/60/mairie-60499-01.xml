@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60499-01" codeInsee="60499" dateMiseAJour="2021-10-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Plessis-de-Roye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>500 rue de Sanvic</Ligne>
+      <CodePostal>60310</CodePostal>
+      <NomCommune>Plessis-de-Roye</NomCommune>
+      <Localisation>
+         <Latitude>49.577734</Latitude>
+         <Longitude>2.832764</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 43 72 29</Téléphone>
+      <Télécopie>03 73 27 91 13</Télécopie>
+      <Email>mairie.plessierderoye@wanadoo.fr</Email>
+      <Url>https://www.plessisderoye.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:45:00" fin="15:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+         <Note>Le mardi de 18h à 19h: permanence élus</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

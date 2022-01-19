@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25236-01" codeInsee="25236" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fertans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 Grande rue</Ligne>
+      <CodePostal>25330</CodePostal>
+      <NomCommune>Fertans</NomCommune>
+      <Localisation>
+         <Latitude>47.0501474</Latitude>
+         <Longitude>6.0643045</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 86 02 51</Téléphone>
+      <Email>mairie.fertans@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Accueil ouvert de 16h à 18h pendant la période du couvre-feu.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-13005-01" codeInsee="13005" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) d'Aubagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 avenue Marcel-Paul</Ligne>
+      <Ligne>CS 11009</Ligne>
+      <CodePostal>13788</CodePostal>
+      <NomCommune>Aubagne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.302048</Latitude>
+         <Longitude>5.576841</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 36 92 40</Téléphone>
+      <Email>sgc.aubagne@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

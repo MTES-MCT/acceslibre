@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-02691-01" codeInsee="02691" dateMiseAJour="2019-01-04"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Saint-Quentin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Antoine Parmentier</Ligne>
+      <Ligne>BP 243</Ligne>
+      <CodePostal>02105</CodePostal>
+      <NomCommune>Saint-Quentin Cédex</NomCommune>
+      <Localisation>
+         <Latitude>49.852231</Latitude>
+         <Longitude>3.262422</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 11 20</Téléphone>
+      <Télécopie>03 23 67 61 07</Télécopie>
+      <Email>r-saint-quentin@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

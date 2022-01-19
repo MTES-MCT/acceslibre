@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-06104-01" codeInsee="06104" dateMiseAJour="2021-07-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Roquebrune-Cap-Martin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 avenue Paul-Doumer</Ligne>
+      <CodePostal>06190</CodePostal>
+      <NomCommune>Roquebrune-Cap-Martin</NomCommune>
+      <Localisation>
+         <Latitude>43.757818</Latitude>
+         <Longitude>7.473635</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 10 48 48</Téléphone>
+      <Email>direction.generale@mairiercm.fr</Email>
+      <Url>https://roquebrune-cap-martin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

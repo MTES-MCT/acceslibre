@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23224-01" codeInsee="23224" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Oradoux-de-Chirouze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Allée de la Paix</Ligne>
+      <CodePostal>23100</CodePostal>
+      <NomCommune>Saint-Oradoux-de-Chirouze</NomCommune>
+      <Localisation>
+         <Latitude>45.7320327759</Latitude>
+         <Longitude>2.3310379982</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 66 72 41</Téléphone>
+      <Télécopie>05 55 67 45 42</Télécopie>
+      <Email>mairiesaintoradoux@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement les semaines impaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

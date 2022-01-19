@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="72181" dateMiseAJour="2021-10-22" id="tgi-72181-01" idPresta="4cac9e87293594648a004ccc" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire du Mans</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 AVENUE PIERRE MENDES-FRANCE</Ligne>
+        <CodePostal>72014</CodePostal>
+        <NomCommune>LE MANS CEDEX 2</NomCommune>
+        <Localisation>
+            <Latitude>48.007</Latitude>
+            <Longitude>0.199783</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 AVENUE PIERRE MENDES-FRANCE</Ligne>
+        <CodePostal>72014</CodePostal>
+        <NomCommune>LE MANS CEDEX 2</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 43 83 77 00</Téléphone>
+        <Télécopie>02 43 83 78 79</Télécopie>
+        <Email>mailto:tj-le-mans@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

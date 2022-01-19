@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-2B033-01" codeInsee="2B033" dateMiseAJour="2021-12-02"
+           pivotLocal="greta">
+   <Nom>Greta-CFA de Haute-Corse - Bastia</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée Paul Vincensini</Ligne>
+      <Ligne>Avenue de la 4ème-Division-Marocaine-de-Montagne</Ligne>
+      <CodePostal>20600</CodePostal>
+      <NomCommune>Bastia</NomCommune>
+      <Localisation>
+         <Latitude>42.6701632</Latitude>
+         <Longitude>9.4417375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 54 53 30</Téléphone>
+      <Email>greta2b@ac-corse.fr</Email>
+      <Url>https://2b.gretacfa.corsica/qui-sommes-nous/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil secrétariat du lundi au vendredi de 08h30 à 12h et de 14h à 17h30.</Commentaire>
+</Organisme>

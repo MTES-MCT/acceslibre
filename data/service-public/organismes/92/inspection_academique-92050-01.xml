@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-92050-01" codeInsee="92050"
+           dateMiseAJour="2021-10-07"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Hauts-de-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>167-177 avenue Frédéric-et-Irène-Joliot-Curie</Ligne>
+      <CodePostal>92000</CodePostal>
+      <NomCommune>Nanterre</NomCommune>
+      <Localisation>
+         <Latitude>48.896768</Latitude>
+         <Longitude>2.216767</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 71 14 29 29</Téléphone>
+      <Télécopie>01 47 25 38 35</Télécopie>
+      <Email>ce.ia92@ac-versailles.fr</Email>
+      <Url>http://www.ac-versailles.fr/dsden92/pid35439/accueil.html?dmenu=1</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

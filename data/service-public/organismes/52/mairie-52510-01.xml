@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52510-01" codeInsee="52510" dateMiseAJour="2021-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vaux-sur-Blaise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>52130</CodePostal>
+      <NomCommune>Vaux-sur-Blaise</NomCommune>
+      <Localisation>
+         <Latitude>48.4715003967</Latitude>
+         <Longitude>4.97151994705</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">Usager invité à contacter la mairie afin qu'un agent se déplace à domicile</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 55 92 21</Téléphone>
+      <Email>communevauxsurblaise@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez vous les mercredi et vendredi entre 9h et 17h en dehors de ces horaires.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil ouvert uniquement sur rendez vous les mercredi et vendredi entre 9h
+et 17h en dehors de ces horaires.</Commentaire>
+</Organisme>

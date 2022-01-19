@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97413-01" codeInsee="97413" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Leu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>58 rue du Général-Lambert</Ligne>
+      <Ligne>BP 1004</Ligne>
+      <CodePostal>97436</CodePostal>
+      <NomCommune>Saint-Leu Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-21.1661786</Latitude>
+         <Longitude>55.2870004</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 34 80 03</Téléphone>
+      <Télécopie>+262 2 62 34 79 78</Télécopie>
+      <Email>secretariat@mairie-saintleu.fr</Email>
+      <Url>http://www.saintleu.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:15:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

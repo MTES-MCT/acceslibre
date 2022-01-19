@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-73065-02" codeInsee="73065" dateMiseAJour="2019-05-02"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie des établissements hospitaliers de Chambéry</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>400 faubourg Mache</Ligne>
+      <Ligne>BP 1053</Ligne>
+      <CodePostal>73010</CodePostal>
+      <NomCommune>Chambéry Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.564534</Latitude>
+         <Longitude>5.912206</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 69 23 09</Téléphone>
+      <Email>t073037@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:00:00" fin="15:35:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:00:00" fin="15:35:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

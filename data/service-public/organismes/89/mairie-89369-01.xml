@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89369-01" codeInsee="89369" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Sérotin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Écoles</Ligne>
+      <CodePostal>89140</CodePostal>
+      <NomCommune>Saint-Sérotin</NomCommune>
+      <Localisation>
+         <Latitude>48.246743</Latitude>
+         <Longitude>3.158355</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">portail électrique avec interphone</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 64 11 17 03</Téléphone>
+      <Télécopie>03 86 66 11 13</Télécopie>
+      <Email>mairie-st-serotin@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

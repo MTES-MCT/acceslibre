@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45218-01" codeInsee="45218" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Moulinet-sur-Solin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Langesse</Ligne>
+      <CodePostal>45290</CodePostal>
+      <NomCommune>Le Moulinet-sur-Solin</NomCommune>
+      <Localisation>
+         <Latitude>47.837548</Latitude>
+         <Longitude>2.627302</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 96 10 10</Téléphone>
+      <Email>mairie.lemoulinetsursolin@orange.fr</Email>
+      <Url>http://legiennois.frlemoulinetsursolin</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

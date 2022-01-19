@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02380-01" codeInsee="02380" dateMiseAJour="2021-01-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hinacourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>02440</CodePostal>
+      <NomCommune>Hinacourt</NomCommune>
+      <Localisation>
+         <Latitude>49.7196006775</Latitude>
+         <Longitude>3.2896399498</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">passer par la cour de l'ancienne école</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>07 86 17 74 28</Téléphone>
+      <Email>mairie.hinacourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+         <Note>Permanence assurée par le maire. Accueil possible également sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

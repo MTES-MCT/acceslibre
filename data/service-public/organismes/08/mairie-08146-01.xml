@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08146-01" codeInsee="08146" dateMiseAJour="2017-07-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Draize</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Principale</Ligne>
+      <CodePostal>08220</CodePostal>
+      <NomCommune>Draize</NomCommune>
+      <Localisation>
+         <Latitude>49.6943947</Latitude>
+         <Longitude>4.3299499</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 72 27 39</Téléphone>
+      <Email>commune.draize@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

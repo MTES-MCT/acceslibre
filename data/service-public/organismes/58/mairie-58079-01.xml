@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58079-01" codeInsee="58079" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Clamecy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du 19-Août</Ligne>
+      <CodePostal>58500</CodePostal>
+      <NomCommune>Clamecy</NomCommune>
+      <Localisation>
+         <Latitude>47.4598299</Latitude>
+         <Longitude>3.518962</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 27 50 70</Téléphone>
+      <Télécopie>03 86 27 12 72</Télécopie>
+      <Email>mairie.clamecy@wanadoo.fr</Email>
+      <Url>http://www.clamecy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

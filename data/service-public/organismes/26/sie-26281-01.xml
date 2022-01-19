@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-26281-01" codeInsee="26281" dateMiseAJour="2018-11-13" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Romans-sur-Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quai Sainte-Claire</Ligne>
+      <Ligne>BP 221</Ligne>
+      <CodePostal>26105</CodePostal>
+      <NomCommune>Romans-sur-Isère Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.043551</Latitude>
+         <Longitude>5.044103</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="(service 0,06 € par minute + prix d'un appel)">04 75 05 83 38</Téléphone>
+      <Email>sie.romans-sur-isere@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Fermé les mercredi et vendredi après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

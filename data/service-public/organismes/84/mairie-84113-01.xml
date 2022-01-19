@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-84113-01" codeInsee="84113" dateMiseAJour="2021-07-23"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-de-la-Brasque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 cours du Mont-Libre</Ligne>
+      <CodePostal>84760</CodePostal>
+      <NomCommune>Saint-Martin-de-la-Brasque</NomCommune>
+      <Localisation>
+         <Latitude>43.7687873</Latitude>
+         <Longitude>5.5358886</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 90 77 61 02</Téléphone>
+      <Télécopie>04 90 07 74 28</Télécopie>
+      <Email>mairiestmartin3@orange.fr</Email>
+      <Url>http://www.saintmartindelabrasque.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

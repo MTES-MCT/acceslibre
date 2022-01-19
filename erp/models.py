@@ -335,26 +335,32 @@ class Vote(models.Model):
 class Erp(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25  # Fix me : move to settings
 
+    SOURCE_ACCESLIBRE = "acceslibre"
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
     SOURCE_API_ENTREPRISE = "entreprise_api"
     SOURCE_CCONFORME = "cconforme"
     SOURCE_GENDARMERIE = "gendarmerie"
+    SOURCE_NESTENN = "nestenn"
     SOURCE_ODS = "opendatasoft"
     SOURCE_PUBLIC = "public"
     SOURCE_PUBLIC_ERP = "public_erp"
+    SOURCE_SERVICE_PUBLIC = "service_public"
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_CHOICES = (
+        (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
         (SOURCE_API_ENTREPRISE, "API Entreprise (publique)"),
         (SOURCE_CCONFORME, "cconforme"),
         (SOURCE_GENDARMERIE, "Gendarmerie"),
+        (SOURCE_NESTENN, "Nestenn"),
         (SOURCE_ODS, "API OpenDataSoft"),
         (SOURCE_PUBLIC, "Saisie manuelle publique"),
         (SOURCE_PUBLIC_ERP, "API des établissements publics"),
+        (SOURCE_SERVICE_PUBLIC, "Service Public"),
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
         (SOURCE_VACCINATION, "Centres de vaccination"),

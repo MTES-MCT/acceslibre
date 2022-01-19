@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45168-01" codeInsee="45168" dateMiseAJour="2020-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ingrannes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue de la Mairie</Ligne>
+      <CodePostal>45450</CodePostal>
+      <NomCommune>Ingrannes</NomCommune>
+      <Localisation>
+         <Latitude>47.99102</Latitude>
+         <Longitude>2.211226</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 57 13 08</Téléphone>
+      <Email>mairie.ingrannes@wanadoo.fr</Email>
+      <Url>http://www.ingrannes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

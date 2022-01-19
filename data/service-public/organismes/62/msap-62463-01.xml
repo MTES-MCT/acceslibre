@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-62463-01" codeInsee="62463" dateMiseAJour="2021-11-10"
+           pivotLocal="msap">
+   <Nom>France Services - Hucqueliers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 B rue de la Longeville</Ligne>
+      <Ligne>Centre socioculturel intercommunal</Ligne>
+      <CodePostal>62650</CodePostal>
+      <NomCommune>Hucqueliers</NomCommune>
+      <Localisation>
+         <Latitude>50.568598</Latitude>
+         <Longitude>1.9094707</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 90 91 10</Téléphone>
+      <Email>accueil.csc.hucqueliers@gmail.com</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

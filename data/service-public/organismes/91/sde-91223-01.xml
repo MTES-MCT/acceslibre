@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sde-91223-01" codeInsee="91223" dateMiseAJour="2021-09-29" pivotLocal="sde">
+   <Nom>Service départemental de l'enregistrement - Essonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Salvador Allende</Ligne>
+      <CodePostal>91156</CodePostal>
+      <NomCommune>Etampes</NomCommune>
+      <Localisation>
+         <Latitude>48.427263</Latitude>
+         <Longitude>2.146667</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 92 65 00</Téléphone>
+      <Email>sde.etampes@dgfip.finances.gouv.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>sur rendez-vous en dehors de ces plages horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

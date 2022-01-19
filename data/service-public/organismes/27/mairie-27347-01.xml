@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27347-01" codeInsee="27347" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Huest</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue de Vernon</Ligne>
+      <CodePostal>27930</CodePostal>
+      <NomCommune>Huest</NomCommune>
+      <Localisation>
+         <Latitude>49.038631</Latitude>
+         <Longitude>1.206991</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 27 34 17 34</Téléphone>
+      <Email>mairie.huest@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Permanence des élus les mardi et jeudi de 18h à 19h ou sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

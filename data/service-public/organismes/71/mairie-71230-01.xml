@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71230-01" codeInsee="71230" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gueugnon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Liberté</Ligne>
+      <Ligne>BP 56</Ligne>
+      <CodePostal>71130</CodePostal>
+      <NomCommune>Gueugnon</NomCommune>
+      <Localisation>
+         <Latitude>46.6006622314</Latitude>
+         <Longitude>4.0615568161</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 85 50 50</Téléphone>
+      <Télécopie>03 85 85 50 61</Télécopie>
+      <Email>mairie@ville-gueugnon.fr</Email>
+      <Url>http://www.gueugnon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-27275-01" codeInsee="27275" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Eure - accueil de Gaillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre social - Espace Condorcet</Ligne>
+      <Ligne>12-14 rue Jean-Moulin</Ligne>
+      <CodePostal>27600</CodePostal>
+      <NomCommune>Gaillon</NomCommune>
+      <Localisation>
+         <Latitude>49.16161</Latitude>
+         <Longitude>1.33663</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Eure</Ligne>
+      <Ligne>11 allée des Soupirs</Ligne>
+      <Ligne>CS 82601</Ligne>
+      <CodePostal>27026</CodePostal>
+      <NomCommune>Évreux Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:15:00" fin="18:00:00"/>
+         <Note>Accueil possible sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

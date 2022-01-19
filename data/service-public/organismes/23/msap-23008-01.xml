@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-23008-01" codeInsee="23008" dateMiseAJour="2021-11-02"
+           pivotLocal="msap">
+   <Nom>France Services - Aubusson</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Esplanade Charles de Gaulle</Ligne>
+      <CodePostal>23200</CodePostal>
+      <NomCommune>Aubusson</NomCommune>
+      <Localisation>
+         <Latitude>45.95536</Latitude>
+         <Longitude>2.16618</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 51 31 13</Téléphone>
+      <Email>aubusson@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

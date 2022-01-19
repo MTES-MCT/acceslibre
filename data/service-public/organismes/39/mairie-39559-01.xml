@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39559-01" codeInsee="39559" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Vieille-Loye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Turots</Ligne>
+      <CodePostal>39380</CodePostal>
+      <NomCommune>La Vieille-Loye</NomCommune>
+      <Localisation>
+         <Latitude>47.0419</Latitude>
+         <Longitude>5.633546</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 71 74 38</Téléphone>
+      <Email>mairie.lavieilleloye@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

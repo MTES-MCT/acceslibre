@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11351-01" codeInsee="11351" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Laurent-de-la-Cabrerisse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 place de la Mairie</Ligne>
+      <CodePostal>11220</CodePostal>
+      <NomCommune>Saint-Laurent-de-la-Cabrerisse</NomCommune>
+      <Localisation>
+         <Latitude>43.0848007202</Latitude>
+         <Longitude>2.70022988319</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 44 01 53</Téléphone>
+      <Télécopie>04 68 44 05 44</Télécopie>
+      <Email>st-laurent-11@wanadoo.fr</Email>
+      <Url>http://www.st-laurent-de-la-cabrerisse.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert du lundi au vendredi de 14h30 à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

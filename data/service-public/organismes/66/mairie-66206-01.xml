@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66206-01" codeInsee="66206" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Tech</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Royale</Ligne>
+      <CodePostal>66230</CodePostal>
+      <NomCommune>Le Tech</NomCommune>
+      <Localisation>
+         <Latitude>42.410187</Latitude>
+         <Longitude>2.5426007</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 39 61 37</Téléphone>
+      <Télécopie>04 68 39 63 18</Télécopie>
+      <Email>mairieletech@wanadoo.fr</Email>
+      <Url>http://www.le-tech-village.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:45:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

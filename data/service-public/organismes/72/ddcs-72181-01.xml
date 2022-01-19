@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddcs-72181-01" codeInsee="72181" dateMiseAJour="2021-04-08"
+           pivotLocal="ddcs">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DDCS) - Sarthe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 Boulevard Paixhans</Ligne>
+      <Ligne>CS 51912</Ligne>
+      <CodePostal>72019</CodePostal>
+      <NomCommune>Le Mans Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>47.99495</Latitude>
+         <Longitude>0.209523</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 72 16 43 00</Téléphone>
+      <Télécopie>02 72 16 42 99</Télécopie>
+      <Email>ddcs@sarthe.gouv.fr</Email>
+      <Url>http://www.sarthe.gouv.fr/direction-departementale-de-la-cohesion-sociale-a1620.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

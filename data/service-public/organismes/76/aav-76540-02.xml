@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="76540" dateMiseAJour="2021-09-14" id="aav-76540-02" idPresta="58b9441db473e45d93eac5a3" pivotLocal="aav">
+    <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Seine-Maritime - Rouen</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>33 rue du Pré de la Bataille</Ligne>
+        <CodePostal>76000</CodePostal>
+        <NomCommune>ROUEN</NomCommune>
+        <Localisation>
+            <Latitude>49.4454744</Latitude>
+            <Longitude>1.0768244</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>33 rue du Pré de la Bataille</Ligne>
+        <CodePostal>76000</CodePostal>
+        <NomCommune>ROUEN</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 35 63 99 99</Téléphone>
+        <Email>mailto:cidff76.direction@gmail.com</Email>
+        <Url>https://seinemaritime.cidff.info/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

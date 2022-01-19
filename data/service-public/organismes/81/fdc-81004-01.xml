@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdc-81004-01" codeInsee="81004" dateMiseAJour="2021-05-20" pivotLocal="fdc">
+   <Nom>Fédération départementale des chasseurs - Tarn</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chemin du Séminaire-du-Roc</Ligne>
+      <CodePostal>81000</CodePostal>
+      <NomCommune>Albi</NomCommune>
+      <Localisation>
+         <Latitude>43.9276907</Latitude>
+         <Longitude>2.1496217</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 49 19 00</Téléphone>
+      <Télécopie>05 63 47 14 78</Télécopie>
+      <Email>fdc81@chasseurdefrance.com</Email>
+      <Url>https://www.chasse-nature-occitanie.fr/tarn/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

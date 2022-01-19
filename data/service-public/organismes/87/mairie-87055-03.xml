@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87055-03" codeInsee="87055" dateMiseAJour="2019-04-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Darnac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Darnac</Ligne>
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>87320</CodePostal>
+      <NomCommune>Val-d'Oire-et-Gartempe</NomCommune>
+      <Localisation>
+         <Latitude>46.22316</Latitude>
+         <Longitude>0.958842</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 68 40 14</Téléphone>
+      <Télécopie>05 55 68 32 16</Télécopie>
+      <Email>mairiedarnac@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>A compter du 1er janvier 2019, la commune nouvelle de Val-d'Oire-et-Gartempe est créée en lieu et place des communes de Bussière-Poitevine, de Saint-Barbant, de Darnac et de Thiat (canton de Bellac pour Bussière-Poitevine et Saint-Barbant et canton de Châteauponsac pour Darnac et Thiat, arrondissement de Bellac).</Commentaire>
+</Organisme>

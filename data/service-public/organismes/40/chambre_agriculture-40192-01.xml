@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-40192-01" codeInsee="40192" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Landes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité Galliane</Ligne>
+      <Ligne>BP 279</Ligne>
+      <CodePostal>40005</CodePostal>
+      <NomCommune>Mont-de-Marsan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.893422</Latitude>
+         <Longitude>-0.495547</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 85 45 45</Téléphone>
+      <Télécopie>05 58 85 45 46</Télécopie>
+      <Email>accueil@landes.chambagri.fr</Email>
+      <Url>http://www.landes.chambagri.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:15:00"/>
+         <PlageH début="12:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

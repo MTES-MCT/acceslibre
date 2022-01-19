@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97202-01" codeInsee="97202" dateMiseAJour="2017-12-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Anses-d'Arlet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard des Arlésiens</Ligne>
+      <CodePostal>97217</CodePostal>
+      <NomCommune>Les Anses-d'Arlet</NomCommune>
+      <Localisation>
+         <Latitude>14.4900338</Latitude>
+         <Longitude>-61.0797756</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 68 62 02</Téléphone>
+      <Télécopie>+596 5 96 68 68 38</Télécopie>
+      <Email>mairie@mairie-anses-arlet.fr</Email>
+      <Url>http://www.ville-ansesdarlet.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

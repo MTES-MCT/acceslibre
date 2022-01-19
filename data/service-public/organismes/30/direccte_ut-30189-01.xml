@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-30189-01" codeInsee="30189" dateMiseAJour="2021-11-24"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Gard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1120 route de Saint-Gilles</Ligne>
+      <Ligne>BP 39081</Ligne>
+      <CodePostal>30972</CodePostal>
+      <NomCommune>Nîmes Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>43.81152</Latitude>
+         <Longitude>4.371094</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 30 08 61 20</Téléphone>
+      <Télécopie>04 30 08 61 21</Télécopie>
+      <Url>https://www.gard.gouv.fr/Services-de-l-Etat/Emploi-travail-et-solidarites/Siege-de-la-Direction-Departementale-de-l-Emploi-du-Travail-et-des-Solidarites-du-Gard</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

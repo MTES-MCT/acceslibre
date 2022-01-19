@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-49160-01" codeInsee="49160"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Ingrandes-le-Fresne-sur-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>EHPAD Les Moncellières</Ligne>
+      <Ligne>5 chemin des Moncellières</Ligne>
+      <CodePostal>49123</CodePostal>
+      <NomCommune>Ingrandes-le-Fresne-sur-Loire</NomCommune>
+      <Localisation>
+         <Latitude>47.403035</Latitude>
+         <Longitude>-0.9281</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 39 66 95</Téléphone>
+      <Email>escale-moncellieres@orange.fr</Email>
+      <Url>http://www.pole-ligerien.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

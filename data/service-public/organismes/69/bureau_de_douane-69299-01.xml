@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-69299-01" codeInsee="69299" dateMiseAJour="2019-01-09"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Lyon-Saint-Exupéry - Aéroport</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>125 rue des Pays-Bas</Ligne>
+      <Ligne>Lyon - Saint-Exépury Aéroport</Ligne>
+      <CodePostal>69125</CodePostal>
+      <NomCommune>Colombier-Saugnieu</NomCommune>
+      <Localisation>
+         <Latitude>45.712951</Latitude>
+         <Longitude>5.07851</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 28 45</Téléphone>
+      <Télécopie>04 72 22 78 28</Télécopie>
+      <Email>r-lyon-st-exupery@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

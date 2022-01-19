@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71504-01" codeInsee="71504" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saunières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Bords-du-Doubs</Ligne>
+      <CodePostal>71350</CodePostal>
+      <NomCommune>Saunières</NomCommune>
+      <Localisation>
+         <Latitude>46.9037742</Latitude>
+         <Longitude>5.0834469</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 05 76 23</Téléphone>
+      <Email>mairie.saunieres@wanadoo.fr</Email>
+      <Url>https://saunieres71.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:15:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

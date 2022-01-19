@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02336-01" codeInsee="02336" dateMiseAJour="2021-04-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Frières-Faillouël</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place André-Rullier</Ligne>
+      <CodePostal>02700</CodePostal>
+      <NomCommune>Frières-Faillouël</NomCommune>
+      <Localisation>
+         <Latitude>49.6874465942</Latitude>
+         <Longitude>3.23996090889</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 52 54 76</Téléphone>
+      <Télécopie>03 23 52 96 70</Télécopie>
+      <Email>mairiefrieres-faillouel@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

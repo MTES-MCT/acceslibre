@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-89024-01" codeInsee="89024" dateMiseAJour="2021-06-07" pivotLocal="cdg">
+   <Nom>Centre de gestion de la fonction publique territoriale - Yonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>47 rue Théodore-de-Bèze</Ligne>
+      <Ligne>BP 86</Ligne>
+      <CodePostal>89011</CodePostal>
+      <NomCommune>Auxerre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.7925638</Latitude>
+         <Longitude>3.5550553</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 51 43 43</Téléphone>
+      <Télécopie>03 86 51 75 48</Télécopie>
+      <Email>accueil@cdg89.fr</Email>
+      <Url>http://www.cdg89.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

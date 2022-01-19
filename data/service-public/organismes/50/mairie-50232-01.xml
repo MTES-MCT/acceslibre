@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50232-01" codeInsee="50232" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hauteville-la-Guichard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>50570</CodePostal>
+      <NomCommune>Hauteville-la-Guichard</NomCommune>
+      <Localisation>
+         <Latitude>49.1623001099</Latitude>
+         <Longitude>-1.33403003216</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 07 71 73</Téléphone>
+      <Email>mairie.hauteville.la-guichard@wanadoo.fr</Email>
+      <Url>http://www.hauteville-la-guichard.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="10:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

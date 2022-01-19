@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-51454-04" codeInsee="51454" dateMiseAJour="2021-10-28"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie amendes de Reims</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>130 rue Gambetta</Ligne>
+      <Ligne>CS 90001</Ligne>
+      <CodePostal>51713</CodePostal>
+      <NomCommune>Reims Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.2452694</Latitude>
+         <Longitude>4.0399204</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 82 60 04</Téléphone>
+      <Email>t051220@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.fr/tai</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Possibilité de prise de rendez-vous par téléphone ou au guichet du Centre des Finances Publiques.</Commentaire>
+</Organisme>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-42218-01" codeInsee="42218" dateMiseAJour="2021-07-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Saint-Étienne Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 avenue Grüner</Ligne>
+      <Ligne>BP 49530</Ligne>
+      <CodePostal>42953</CodePostal>
+      <NomCommune>Saint-Étienne Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>45.4398113</Latitude>
+         <Longitude>4.3977335</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Section recouvrement : 04 77 01 17 18">04 77 01 17 17</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Prendre rendez-vous pour vos questions complexes : sur impots.gouv.fr rubrique Contact ; par téléphone au 04 77 01 17 17 ; en libre-service à l'accueil de votre Centre des finances publiques.</Commentaire>
+</Organisme>

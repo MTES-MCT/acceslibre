@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-70311-01" codeInsee="70311" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pays de Luxeuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue Jules-Jeanneney</Ligne>
+      <CodePostal>70300</CodePostal>
+      <NomCommune>Luxeuil-les-Bains</NomCommune>
+      <Localisation>
+         <Latitude>47.81476</Latitude>
+         <Longitude>6.381228</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 40 63 00</Téléphone>
+      <Email>accueil@paysluxeuil.fr</Email>
+      <Url>http://www.paysdeluxeuil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

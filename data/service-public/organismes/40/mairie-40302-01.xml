@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40302-01" codeInsee="40302" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sindères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sindères</Ligne>
+      <Ligne>2 chemin Vicinal</Ligne>
+      <CodePostal>40110</CodePostal>
+      <NomCommune>Morcenx-la-Nouvelle</NomCommune>
+      <Localisation>
+         <Latitude>44.02886</Latitude>
+         <Longitude>-0.98516</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 04 16 30</Téléphone>
+      <Télécopie>05 58 04 17 79</Télécopie>
+      <Email>sinderes@morcenxlanouvelle.fr</Email>
+      <Url>http://www.sinderes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-83049-01" codeInsee="83049" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Cuers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre communal d'action sociale</Ligne>
+      <Ligne>Place Pasteur</Ligne>
+      <CodePostal>83390</CodePostal>
+      <NomCommune>Cuers</NomCommune>
+      <Localisation>
+         <Latitude>43.237388610839844</Latitude>
+         <Longitude>6.072052478790283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mairie</Ligne>
+      <Ligne>1 place du Général-Magnan</Ligne>
+      <CodePostal>83390</CodePostal>
+      <NomCommune>Cuers</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 33 11 00</Téléphone>
+      <Télécopie>04 94 33 11 01</Télécopie>
+      <Email>dcornara@cuers.fr</Email>
+      <Url>https://www.ville-de-cuers.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

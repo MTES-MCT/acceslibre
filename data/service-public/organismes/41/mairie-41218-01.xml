@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-41218-01" codeInsee="41218" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Julien-sur-Cher</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Dames</Ligne>
+      <CodePostal>41320</CodePostal>
+      <NomCommune>Saint-Julien-sur-Cher</NomCommune>
+      <Localisation>
+         <Latitude>47.28189</Latitude>
+         <Longitude>1.773963</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 96 42 28</Téléphone>
+      <Télécopie>02 54 96 57 50</Télécopie>
+      <Email>mairie.saintjuliensurcher@wanadoo.fr</Email>
+      <Url>http://www.mairie-saint-julien-sur-cher.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi de chaque mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

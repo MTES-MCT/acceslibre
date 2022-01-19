@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-74042-01" codeInsee="74042" dateMiseAJour="2021-08-24"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Bonneville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue du Manet</Ligne>
+      <Ligne>CS 40144</Ligne>
+      <Ligne>Eco-quartier des Sires du Faucigny</Ligne>
+      <CodePostal>74137</CodePostal>
+      <NomCommune>Bonneville Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.08053783633074</Latitude>
+         <Longitude>6.405959069499266</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 97 00 26</Téléphone>
+      <Email>sgc.bonneville@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

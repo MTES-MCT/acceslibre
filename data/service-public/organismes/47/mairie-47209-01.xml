@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47209-01" codeInsee="47209" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pont-du-Casse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-François-Poncet</Ligne>
+      <CodePostal>47480</CodePostal>
+      <NomCommune>Pont-du-Casse</NomCommune>
+      <Localisation>
+         <Latitude>44.232117</Latitude>
+         <Longitude>0.681278</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">monte-charge</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 67 96 41</Téléphone>
+      <Email>accueil@ville-pontducasse.fr</Email>
+      <Url>http://www.ville-pontducasse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

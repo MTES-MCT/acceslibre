@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21614-01" codeInsee="21614" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Spoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue Basse</Ligne>
+      <CodePostal>21120</CodePostal>
+      <NomCommune>Spoy</NomCommune>
+      <Localisation>
+         <Latitude>47.4444999695</Latitude>
+         <Longitude>5.18775987625</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 75 33 07</Téléphone>
+      <Télécopie>09 70 61 04 43</Télécopie>
+      <Email>mairie.spoy@orange.fr</Email>
+      <Url>https://www.covati.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:15:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="95500" dateMiseAJour="2021-12-14" id="tgi-95500-01" idPresta="4cac9e6a293594648a0017c1" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Pontoise</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>3 RUE VICTOR HUGO</Ligne>
+        <Ligne>BP 50220</Ligne>
+        <CodePostal>95302</CodePostal>
+        <NomCommune>CERGY PONTOISE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>49.051931</Latitude>
+            <Longitude>2.100645</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>3 RUE VICTOR HUGO</Ligne>
+        <Ligne>BP 50220</Ligne>
+        <CodePostal>95302</CodePostal>
+        <NomCommune>CERGY PONTOISE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 72 58 70 00</Téléphone>
+        <Télécopie>01 72 58 73 79</Télécopie>
+        <Email>mailto:tj-pontoise@justice.fr</Email>
+        <Url>http://www.tgi-pontoise.justice.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="17:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

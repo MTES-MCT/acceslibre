@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23089-01" codeInsee="23089" dateMiseAJour="2021-01-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Genouillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'École-d'Agriculture</Ligne>
+      <CodePostal>23350</CodePostal>
+      <NomCommune>Genouillac</NomCommune>
+      <Localisation>
+         <Latitude>46.351975</Latitude>
+         <Longitude>1.994003</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 80 74 25</Téléphone>
+      <Email>mairie@genouillac-23.fr</Email>
+      <Url>http://www.genouillac23.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

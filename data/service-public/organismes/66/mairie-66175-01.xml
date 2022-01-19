@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66175-01" codeInsee="66175" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Génis-des-Fontaines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Olympe-de-Gouges</Ligne>
+      <CodePostal>66740</CodePostal>
+      <NomCommune>Saint-Génis-des-Fontaines</NomCommune>
+      <Localisation>
+         <Latitude>42.5494187</Latitude>
+         <Longitude>2.918514697</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 95 00 01</Téléphone>
+      <Télécopie>04 68 89 66 22</Télécopie>
+      <Email>mairie.st.genis.des.fontaines@wanadoo.fr</Email>
+      <Url>http://www.saint-genis-des-fontaines.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

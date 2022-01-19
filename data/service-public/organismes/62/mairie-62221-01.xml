@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62221-01" codeInsee="62221" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chelers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue Basse</Ligne>
+      <CodePostal>62127</CodePostal>
+      <NomCommune>Chelers</NomCommune>
+      <Localisation>
+         <Latitude>50.374797821</Latitude>
+         <Longitude>2.48613095284</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 47 30 04</Téléphone>
+      <Télécopie>03 21 47 29 31</Télécopie>
+      <Email>chelers@cc-atrebatie.fr</Email>
+      <Url>http://www.ville-chelers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="17:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

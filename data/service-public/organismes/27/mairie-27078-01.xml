@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27078-01" codeInsee="27078" dateMiseAJour="2021-12-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Boissière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 route de l'Hermitage</Ligne>
+      <CodePostal>27220</CodePostal>
+      <NomCommune>La Boissière</NomCommune>
+      <Localisation>
+         <Latitude>48.9457478</Latitude>
+         <Longitude>1.3660555</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 36 01 17</Téléphone>
+      <Email>mairie-laboissiere@wanadoo.fr</Email>
+      <Url>http://laboissiere-eure.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

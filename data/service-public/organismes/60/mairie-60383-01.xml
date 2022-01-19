@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60383-01" codeInsee="60383" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Margny-sur-Matz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>79 rue de la Mairie</Ligne>
+      <CodePostal>60490</CodePostal>
+      <NomCommune>Margny-sur-Matz</NomCommune>
+      <Localisation>
+         <Latitude>49.5009002686</Latitude>
+         <Longitude>2.77624988556</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 60 11 15 46</Téléphone>
+      <Email>mairie.margny.sur.matz@wanadoo.fr</Email>
+      <Url>http://www.margnysurmatz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

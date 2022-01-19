@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-29046-01" codeInsee="29046" dateMiseAJour="2020-11-16" pivotLocal="cij">
+   <Nom>Point information jeunesse - Douarnenez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Structure Info Jeunesse</Ligne>
+      <Ligne>Maison Charles Tillon</Ligne>
+      <Ligne>18 rue Anatole France</Ligne>
+      <CodePostal>29100</CodePostal>
+      <NomCommune>Douarnenez</NomCommune>
+      <Localisation>
+         <Latitude>48.0936012268</Latitude>
+         <Longitude>-4.32547998428</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 92 47 00</Téléphone>
+      <Email>sij@douarnenez-communaute.fr</Email>
+      <Url>https://www.mairie-douarnenez.fr/a-tout-age/structure-info-jeunesse.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>En période de vacances scolaires (sur rendez-vous le matin) : du lundi au vendredi, de 14h à 18h.</Commentaire>
+</Organisme>

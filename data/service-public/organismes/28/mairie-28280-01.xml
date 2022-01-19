@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28280-01" codeInsee="28280" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nogent-le-Rotrou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue Villette-Gâté</Ligne>
+      <CodePostal>28400</CodePostal>
+      <NomCommune>Nogent-le-Rotrou</NomCommune>
+      <Localisation>
+         <Latitude>48.3216018677</Latitude>
+         <Longitude>0.82188397646</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 29 68 68</Téléphone>
+      <Télécopie>02 37 29 68 69</Télécopie>
+      <Email>contact@ville-nogent-le-rotrou.fr</Email>
+      <Url>http://www.ville-nogentlerotrou.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

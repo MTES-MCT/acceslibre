@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-14726-01" codeInsee="14726" dateMiseAJour="2021-03-03"
+           pivotLocal="msap">
+   <Nom>France Services - Valdallière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point Info 14 VALDALLIERE</Ligne>
+      <Ligne>Rue Pierre Ménochet</Ligne>
+      <CodePostal>14410</CodePostal>
+      <NomCommune>Valdallière</NomCommune>
+      <Localisation>
+         <Latitude>48.851926</Latitude>
+         <Longitude>-0.675025</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 09 09 17</Téléphone>
+      <Email>pi14-vassy@wanadoo.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous le jeudi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

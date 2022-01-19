@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64266-01" codeInsee="64266" dateMiseAJour="2021-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hours</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place de l'Église</Ligne>
+      <CodePostal>64420</CodePostal>
+      <NomCommune>Hours</NomCommune>
+      <Localisation>
+         <Latitude>43.392282</Latitude>
+         <Longitude>-0.841221</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 04 13 91</Téléphone>
+      <Email>mairiehours@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+         <PlageH début="12:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

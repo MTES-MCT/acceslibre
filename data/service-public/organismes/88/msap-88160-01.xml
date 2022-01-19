@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-88160-01" codeInsee="88160" dateMiseAJour="2021-04-22"
+           pivotLocal="msap">
+   <Nom>France Services - Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Tour T2</Ligne>
+      <Ligne>1 place d'Avrinsart</Ligne>
+      <CodePostal>88000</CodePostal>
+      <NomCommune>Épinal</NomCommune>
+      <Localisation>
+         <Latitude>48.182501</Latitude>
+         <Longitude>6.453748</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 30 39 05</Téléphone>
+      <Email>pbalazot@pays-epinal.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

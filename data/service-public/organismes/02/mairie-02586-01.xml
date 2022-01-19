@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02586-01" codeInsee="02586" dateMiseAJour="2020-11-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Parfondeval</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Principale</Ligne>
+      <CodePostal>02360</CodePostal>
+      <NomCommune>Parfondeval</NomCommune>
+      <Localisation>
+         <Latitude>49.7621002197</Latitude>
+         <Longitude>4.13443994522</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 97 78 97</Téléphone>
+      <Email>commune.parfondeval@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

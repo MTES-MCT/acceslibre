@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-62119-01" codeInsee="62119" dateMiseAJour="2019-12-17" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Béthune</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>85, rue Georges-Guynemer</Ligne>
+      <Ligne>CS 20712</Ligne>
+      <CodePostal>62407</CodePostal>
+      <NomCommune>Béthune Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.5319395</Latitude>
+         <Longitude>2.6297476</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 63 10 32</Téléphone>
+      <Télécopie>03 21 63 10 59</Télécopie>
+      <Email>sie.bethune@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Accueil uniquement sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <Note>Accueil uniquement sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

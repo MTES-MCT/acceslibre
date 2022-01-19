@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-60157-01" codeInsee="60157" dateMiseAJour="2020-01-16" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Clermont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue des Sables</Ligne>
+      <Ligne>CS 50085</Ligne>
+      <CodePostal>60607</CodePostal>
+      <NomCommune>Clermont Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.381932</Latitude>
+         <Longitude>2.402576</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 50 86 86</Téléphone>
+      <Télécopie>03 44 50 86 56</Télécopie>
+      <Email>sie.clermont-de-loise@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La réception du public se fait exclusivement sur rendez-vous.</Commentaire>
+</Organisme>

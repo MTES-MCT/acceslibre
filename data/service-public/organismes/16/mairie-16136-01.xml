@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16136-01" codeInsee="16136" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Faye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>214 rue des Écoles</Ligne>
+      <CodePostal>16700</CodePostal>
+      <NomCommune>La Faye</NomCommune>
+      <Localisation>
+         <Latitude>46.020477</Latitude>
+         <Longitude>0.145471</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 31 13 23</Téléphone>
+      <Email>communelafaye@orange.fr</Email>
+      <Url>http://www.lafaye-charente.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

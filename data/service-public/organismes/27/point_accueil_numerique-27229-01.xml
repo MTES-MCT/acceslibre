@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-27229-01" codeInsee="27229"
+           dateMiseAJour="2021-02-19"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Evreux (Préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Georges-Chauvin</Ligne>
+      <Ligne>Préfecture</Ligne>
+      <CodePostal>27000</CodePostal>
+      <NomCommune>Evreux</NomCommune>
+      <Localisation>
+         <Latitude>49.0254898071</Latitude>
+         <Longitude>1.14307999611</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 78 27 27</Téléphone>
+      <Email>courrier-web@eure.gouv.fr</Email>
+      <Url>http://www.seine-maritime.gouv.fr/Outils/Horaires-et-coordonnees/Prefecture-de-l-Eure</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

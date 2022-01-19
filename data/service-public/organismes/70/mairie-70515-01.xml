@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70515-01" codeInsee="70515" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Val-de-Gouhenans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Neuve</Ligne>
+      <CodePostal>70200</CodePostal>
+      <NomCommune>Le Val-de-Gouhenans</NomCommune>
+      <Localisation>
+         <Latitude>47.6057014465</Latitude>
+         <Longitude>6.46741008759</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 63 90 58</Téléphone>
+      <Télécopie>03 84 63 90 58</Télécopie>
+      <Email>mairie.valdegouhenans@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="12:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

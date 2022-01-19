@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-89387-01" codeInsee="89387" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Yonne - accueil de Sens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Ecoparc</Ligne>
+      <Ligne>Bâtiment F</Ligne>
+      <Ligne>43 rue du 19-Mars-1962</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Sens</NomCommune>
+      <Localisation>
+         <Latitude>48.1976034</Latitude>
+         <Longitude>3.2770099</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accessible aux personnes à mobilité réduite</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Yonne</Ligne>
+      <Ligne>12 rue du Clos</Ligne>
+      <CodePostal>89021</CodePostal>
+      <NomCommune>Auxerre Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

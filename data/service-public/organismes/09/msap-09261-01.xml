@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-09261-01" codeInsee="09261" dateMiseAJour="2020-11-27"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Girons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Joseph Sentenac</Ligne>
+      <CodePostal>09200</CodePostal>
+      <NomCommune>Saint-Girons</NomCommune>
+      <Localisation>
+         <Latitude>42.98353</Latitude>
+         <Longitude>1.14636</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 64 10 51</Téléphone>
+      <Email>france.services@couserans-pyrennes.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

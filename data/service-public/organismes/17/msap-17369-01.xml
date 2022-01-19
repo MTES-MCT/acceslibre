@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-17369-01" codeInsee="17369" dateMiseAJour="2021-07-02"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Martin-de-Ré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue docteur Kemmerer</Ligne>
+      <CodePostal>17410</CodePostal>
+      <NomCommune>Saint-Martin-de-Ré</NomCommune>
+      <Localisation>
+         <Latitude>46.202237</Latitude>
+         <Longitude>-1.368579</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 50 77 69</Téléphone>
+      <Email>saint-martin-de-re@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02546-01" codeInsee="02546" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Neuville-en-Beine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Robert-Bibaut</Ligne>
+      <CodePostal>02300</CodePostal>
+      <NomCommune>La Neuville-en-Beine</NomCommune>
+      <Localisation>
+         <Latitude>49.6751060486</Latitude>
+         <Longitude>3.15148997307</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 65 01 36 77</Téléphone>
+      <Télécopie>03 23 39 37 60</Télécopie>
+      <Email>mairie.laneuvilleenbeine@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-43112-01" codeInsee="43112" dateMiseAJour="2021-06-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Langeac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Favière</Ligne>
+      <Ligne>BP 30</Ligne>
+      <CodePostal>43300</CodePostal>
+      <NomCommune>Langeac</NomCommune>
+      <Localisation>
+         <Latitude>45.0988006592</Latitude>
+         <Longitude>3.49417996407</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 77 71 10</Téléphone>
+      <Télécopie>04 71 77 71 11</Télécopie>
+      <Email>secretariat.general@ville-langeac.com</Email>
+      <Url>http://www.langeac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

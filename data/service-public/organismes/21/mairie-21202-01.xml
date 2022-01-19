@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21202-01" codeInsee="21202" dateMiseAJour="2018-06-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Courban</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 Grande rue</Ligne>
+      <CodePostal>21520</CodePostal>
+      <NomCommune>Courban</NomCommune>
+      <Localisation>
+         <Latitude>47.917098999</Latitude>
+         <Longitude>4.73576021194</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 82 74 25</Téléphone>
+      <Email>commune-de-courban@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

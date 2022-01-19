@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38115-01" codeInsee="38115" dateMiseAJour="2021-12-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-de-la-Cluze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Émile-Gilioli</Ligne>
+      <CodePostal>38650</CodePostal>
+      <NomCommune>Saint-Martin-de-la-Cluze</NomCommune>
+      <Localisation>
+         <Latitude>45.0374984741</Latitude>
+         <Longitude>5.70163011551</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 72 52 91</Téléphone>
+      <Email>mairie.smdlc@wanadoo.fr</Email>
+      <Url>https://www.saintmartindelacluze.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire privilégier le dépôt des dossiers dans la boîte à lettres.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

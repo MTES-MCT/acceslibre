@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-38185-03" codeInsee="38185" dateMiseAJour="2020-12-10"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière (SPF) - Grenoble 3</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>38 avenue Rhin et Danube</Ligne>
+      <CodePostal>38047</CodePostal>
+      <NomCommune>Grenoble Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>45.177536</Latitude>
+         <Longitude>5.704115</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 39 39 59</Téléphone>
+      <Email>spf.grenoble3@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Fermé le Mercredi ou sur Rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

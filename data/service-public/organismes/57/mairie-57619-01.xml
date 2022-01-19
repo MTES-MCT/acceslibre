@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57619-01" codeInsee="57619" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Louis-lès-Bitche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>57620</CodePostal>
+      <NomCommune>Saint-Louis-lès-Bitche</NomCommune>
+      <Localisation>
+         <Latitude>48.9874992371</Latitude>
+         <Longitude>7.35338020325</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 06 40 20</Téléphone>
+      <Télécopie>03 87 06 84 80</Télécopie>
+      <Email>mairiestlouisbitche@wanadoo.fr</Email>
+      <Url>http://www.saintlouislesbitche.info</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

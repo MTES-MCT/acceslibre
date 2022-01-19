@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_emploi-17197-01" codeInsee="17197" dateMiseAJour="2021-06-23"
+           pivotLocal="maison_emploi">
+   <Nom>Maison de l’emploi de Haute-Saintonge - Jonzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bâtiment D</Ligne>
+      <Ligne>Résidence Philippe</Ligne>
+      <CodePostal>17500</CodePostal>
+      <NomCommune>Jonzac</NomCommune>
+      <Localisation>
+         <Latitude>45.451251</Latitude>
+         <Longitude>-0.447733</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 48 58 10</Téléphone>
+      <Télécopie>05 46 48 58 19</Télécopie>
+      <Email>contact@emploishautesaintonge.com</Email>
+      <Url>http://www.mde-haute-saintonge.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

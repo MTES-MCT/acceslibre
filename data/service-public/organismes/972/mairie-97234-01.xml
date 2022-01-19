@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97234-01" codeInsee="97234" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bellefontaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Simon-Charles-François</Ligne>
+      <CodePostal>97222</CodePostal>
+      <NomCommune>Bellefontaine</NomCommune>
+      <Localisation>
+         <Latitude>14.675</Latitude>
+         <Longitude>-61.1639</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 55 00 96</Téléphone>
+      <Télécopie>+596 5 96 55 00 58</Télécopie>
+      <Email>mairie@ville-bellefontaine.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

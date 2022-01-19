@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24089-01" codeInsee="24089" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cazoulès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Les Clédoux</Ligne>
+      <Ligne>1392 route de la Porte-du-Périgord</Ligne>
+      <CodePostal>24370</CodePostal>
+      <NomCommune>Cazoulès</NomCommune>
+      <Localisation>
+         <Latitude>44.882098</Latitude>
+         <Longitude>1.4302749</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 31 45 25</Téléphone>
+      <Télécopie>05 53 31 45 26</Télécopie>
+      <Email>secretariat@cazoules.fr</Email>
+      <Url>http://www.cazoules.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

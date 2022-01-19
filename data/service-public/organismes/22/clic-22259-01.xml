@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-22259-01" codeInsee="22259" dateMiseAJour="2020-01-10"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Dinan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination du pays de Dinan</Ligne>
+      <Ligne>2 place René-Pléven</Ligne>
+      <CodePostal>22106</CodePostal>
+      <NomCommune>Dinan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.444959</Latitude>
+         <Longitude>-2.045773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 80 05 18</Téléphone>
+      <Email>clic-dinan@cotesdarmor.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil physique sur rendez-vous</Commentaire>
+</Organisme>

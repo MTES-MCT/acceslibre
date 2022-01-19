@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64242-01" codeInsee="64242" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gestas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Montfort</Ligne>
+      <CodePostal>64190</CodePostal>
+      <NomCommune>Gestas</NomCommune>
+      <Localisation>
+         <Latitude>43.3500889</Latitude>
+         <Longitude>-0.890727</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 38 64 66</Téléphone>
+      <Email>comgestas@cdg-64.fr</Email>
+      <Url>http://www.gestasvillage.net</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

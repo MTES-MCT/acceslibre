@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-30189-01" codeInsee="30189"
+           dateMiseAJour="2021-02-19"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Nîmes (Préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 rue Guillemette</Ligne>
+      <Ligne>Préfecture</Ligne>
+      <CodePostal>30000</CodePostal>
+      <NomCommune>Nîmes</NomCommune>
+      <Localisation>
+         <Latitude>43.8321103</Latitude>
+         <Longitude>4.3625485</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>0820 09 11 72</Téléphone>
+      <Email>prefecture@gard.gouv.fr</Email>
+      <Url>http://www.gard.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

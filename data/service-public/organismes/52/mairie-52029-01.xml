@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52029-01" codeInsee="52029" dateMiseAJour="2021-07-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Autigny-le-Grand</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue Antoine-Labreveux</Ligne>
+      <CodePostal>52300</CodePostal>
+      <NomCommune>Autigny-le-Grand</NomCommune>
+      <Localisation>
+         <Latitude>48.4735336304</Latitude>
+         <Longitude>5.13618183136</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 94 84 58</Téléphone>
+      <Email>mairie.autignylegrand@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

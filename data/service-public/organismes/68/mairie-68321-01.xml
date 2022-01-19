@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68321-01" codeInsee="68321" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Staffelfelden</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Générations</Ligne>
+      <CodePostal>68850</CodePostal>
+      <NomCommune>Staffelfelden</NomCommune>
+      <Localisation>
+         <Latitude>47.8254623413</Latitude>
+         <Longitude>7.25048589706</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 55 08 21</Téléphone>
+      <Télécopie>03 89 55 57 77</Télécopie>
+      <Email>mairie@ville-staffelfelden.fr</Email>
+      <Url>http://www.ville-staffelfelden.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:00:00" fin="11:00:00"/>
+         <Note>Permanence administrative uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

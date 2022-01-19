@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-58062-01" codeInsee="58062" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Morvan Sommets et Grands Lacs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place François-Mitterrand</Ligne>
+      <Ligne>BP 8</Ligne>
+      <CodePostal>58120</CodePostal>
+      <NomCommune>Château-Chinon</NomCommune>
+      <Localisation>
+         <Latitude>47.064731</Latitude>
+         <Longitude>3.932902</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 79 43 99</Téléphone>
+      <Email>contact@ccmorvan.fr</Email>
+      <Url>http://www.ccmorvan.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-49125-01" codeInsee="49125" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Doué-en-Anjou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point information jeunesse du Douessin</Ligne>
+      <CodePostal>49700</CodePostal>
+      <NomCommune>Doué-en-Anjou</NomCommune>
+      <Localisation>
+         <Latitude>47.19338</Latitude>
+         <Longitude>-0.275516</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 59 77 09</Téléphone>
+      <Email>pij@cscdouessin.fr</Email>
+      <Url>http://www.cscdouessin.centres-sociaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Sur rendez-vous uniquement les lundis, mardis, jeudis et vendredis.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

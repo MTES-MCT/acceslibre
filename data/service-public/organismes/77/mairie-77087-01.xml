@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77087-01" codeInsee="77087" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Chapelle-Iger</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Maréchal-Leclerc</Ligne>
+      <CodePostal>77540</CodePostal>
+      <NomCommune>La Chapelle-Iger</NomCommune>
+      <Localisation>
+         <Latitude>48.6525154114</Latitude>
+         <Longitude>2.98872590065</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 25 68 09</Téléphone>
+      <Télécopie>01 64 25 68 09</Télécopie>
+      <Email>lachapelleiger@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

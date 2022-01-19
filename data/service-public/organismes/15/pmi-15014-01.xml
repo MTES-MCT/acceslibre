@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-15014-01" codeInsee="15014" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Aurillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Espace Georges-Pompidou</Ligne>
+      <Ligne>1 rue Alexandre-Pinard</Ligne>
+      <CodePostal>15015</CodePostal>
+      <NomCommune>Aurillac Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.9272863</Latitude>
+         <Longitude>2.4444406</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 46 20 47</Téléphone>
+      <Télécopie>04 71 46 49 10</Télécopie>
+      <Email>vsouquiere@cantal.fr</Email>
+      <Url>http://www.cg15.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

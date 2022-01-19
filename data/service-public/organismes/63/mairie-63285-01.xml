@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63285-01" codeInsee="63285" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pontgibaud</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l’Hôtel-de-Ville</Ligne>
+      <CodePostal>63230</CodePostal>
+      <NomCommune>Pontgibaud</NomCommune>
+      <Localisation>
+         <Latitude>45.8324012756</Latitude>
+         <Longitude>2.85114002228</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 88 70 42</Téléphone>
+      <Télécopie>04 73 88 77 77</Télécopie>
+      <Email>mairie.pontgibaud@wanadoo.fr</Email>
+      <Url>http://www.ville-pontgibaud.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

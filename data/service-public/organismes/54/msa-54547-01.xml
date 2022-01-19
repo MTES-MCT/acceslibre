@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-54547-01" codeInsee="54547" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Meurthe-et-Moselle - accueil de Vandœuvre-lès-Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 avenue Paul-Doumer</Ligne>
+      <CodePostal>54507</CodePostal>
+      <NomCommune>Vandœuvre-lès-Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6745152</Latitude>
+         <Longitude>6.1856427</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 50 35 00</Téléphone>
+      <Télécopie>03 83 50 35 40</Télécopie>
+      <Url>http://www.msalorraine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil téléphonique du lundi au jeudi de 9h à 12h et de 13h30 à 17h, le vendredi de 9h à 12h et de 13h30 à 16h30.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

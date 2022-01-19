@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-16341-01" codeInsee="16341" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie hospitalière de la Charente</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Combe</Ligne>
+      <Ligne>CS 72513</Ligne>
+      <CodePostal>16025</CodePostal>
+      <NomCommune>Angoulême Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.650051</Latitude>
+         <Longitude>0.194572</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 38 65 05</Téléphone>
+      <Email>t016004@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil possible également sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56069-01" codeInsee="56069" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Groix</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 place Joseph-Yvon</Ligne>
+      <CodePostal>56590</CodePostal>
+      <NomCommune>Groix</NomCommune>
+      <Localisation>
+         <Latitude>47.6394</Latitude>
+         <Longitude>-3.4536</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 86 80 15</Téléphone>
+      <Télécopie>02 97 86 59 97</Télécopie>
+      <Email>mairie@groix.fr</Email>
+      <Url>http://www.groix.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

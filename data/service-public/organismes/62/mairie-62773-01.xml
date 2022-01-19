@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62773-01" codeInsee="62773" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Samer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>84 place du Maréchal-Foch</Ligne>
+      <Ligne>BP 25</Ligne>
+      <CodePostal>62830</CodePostal>
+      <NomCommune>Samer</NomCommune>
+      <Localisation>
+         <Latitude>50.6394004822</Latitude>
+         <Longitude>1.74546003342</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 33 50 64</Téléphone>
+      <Télécopie>03 21 83 57 97</Télécopie>
+      <Email>mairie.samer@wanadoo.fr</Email>
+      <Url>http://www.ville-samer.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

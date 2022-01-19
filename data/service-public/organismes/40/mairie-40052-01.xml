@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40052-01" codeInsee="40052" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bourdalat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>100 rue du Bas-Armagnac</Ligne>
+      <CodePostal>40190</CodePostal>
+      <NomCommune>Bourdalat</NomCommune>
+      <Localisation>
+         <Latitude>43.838648</Latitude>
+         <Longitude>-0.206582</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 03 25 10</Téléphone>
+      <Télécopie>05 58 03 25 10</Télécopie>
+      <Email>mairiedebourdalat@wanadoo.fr</Email>
+      <Url>http://www.bourdalat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

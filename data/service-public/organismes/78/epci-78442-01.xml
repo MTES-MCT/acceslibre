@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-78442-01" codeInsee="78442" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Coeur d'Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place aux Herbes</Ligne>
+      <CodePostal>78640</CodePostal>
+      <NomCommune>Neauphle-le-Château</NomCommune>
+      <Localisation>
+         <Latitude>48.81349</Latitude>
+         <Longitude>1.899487</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 89 23 17</Téléphone>
+      <Email>accueil@cccy.fr</Email>
+      <Url>http://www.coeur-yvelines.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+         <Note>Pas d'accueil physique du public, permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

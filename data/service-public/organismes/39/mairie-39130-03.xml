@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39130-03" codeInsee="39130" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Villard-sur-Bienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Villard-sur-Bienne</Ligne>
+      <Ligne>11 route de la Vallée</Ligne>
+      <CodePostal>39200</CodePostal>
+      <NomCommune>Nanchez</NomCommune>
+      <Localisation>
+         <Latitude>46.4753202</Latitude>
+         <Longitude>5.8978249</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 60 42 69</Téléphone>
+      <Email>mairie@nanchez.fr</Email>
+      <Url>http://www.nanchez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Pendant la période de crise sanitaire, accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

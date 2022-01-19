@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-97608-01" codeInsee="97608" dateMiseAJour="2021-03-02"
+           pivotLocal="msap">
+   <Nom>France Services - Dzaoudzi (Mayotte)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de l'Hôtel de Ville</Ligne>
+      <Ligne>Communauté de Communes de Petite-Terre</Ligne>
+      <Ligne>Dzaoudzi-Labattoir</Ligne>
+      <CodePostal>97615</CodePostal>
+      <NomCommune>Dzaoudzi</NomCommune>
+      <Localisation>
+         <Latitude>-12.788000701796124</Latitude>
+         <Longitude>45.27268648451149</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61214-01" codeInsee="61214" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Aigle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Fulbert-de-Beina</Ligne>
+      <CodePostal>61300</CodePostal>
+      <NomCommune>L'Aigle</NomCommune>
+      <Localisation>
+         <Latitude>48.7648836</Latitude>
+         <Longitude>0.6291601</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 84 44 44</Téléphone>
+      <Email>accueil@ville-laigle.fr</Email>
+      <Url>http://www.ville-laigle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

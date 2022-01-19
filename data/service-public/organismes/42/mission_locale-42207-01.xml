@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-42207-01" codeInsee="42207" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Saint-Chamond</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle jeunesse</Ligne>
+      <Ligne>Esplanade Melchior</Ligne>
+      <Ligne>Mitte de Chevrières</Ligne>
+      <CodePostal>42400</CodePostal>
+      <NomCommune>Saint-Chamond</NomCommune>
+      <Localisation>
+         <Latitude>45.4772244</Latitude>
+         <Longitude>4.5054552</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 29 98 00</Téléphone>
+      <Télécopie>04 77 29 98 01</Télécopie>
+      <Email>contact@ml-gierpilat.org</Email>
+      <Url>http://www.ml-gierpilat.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-33529-01" codeInsee="33529" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - La Teste-de-Buch</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Caupos</Ligne>
+      <Ligne>2 allée Clemenceau</Ligne>
+      <CodePostal>33260</CodePostal>
+      <NomCommune>La Teste-de-Buch Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.630895</Latitude>
+         <Longitude>-1.148235</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 52 41 22</Téléphone>
+      <Email>lacentrale@latestedebuch.fr</Email>
+      <Url>http://www.latestedebuch.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="10:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="10:00:00" fin="18:30:00"/>
+         <Note>En juillet-août accueil ouvert les mardis, mercredis, vendredis et samedis de 9h à 17h30 et les jeudis de 14h à 17h30, pendant la crise sanitaire téléphoner avant de se déplacer.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

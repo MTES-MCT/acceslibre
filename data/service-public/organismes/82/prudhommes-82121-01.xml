@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="82121" dateMiseAJour="2021-12-14" id="prudhommes-82121-01" idPresta="4cac9e60293594648a00034d" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Montauban</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>16 PLACE DE L&#39;HOTEL DE VILLE</Ligne>
+        <CodePostal>82013</CodePostal>
+        <NomCommune>MONTAUBAN CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>44.016499</Latitude>
+            <Longitude>1.352826</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>16 PLACE DE L&#39;HOTEL DE VILLE</Ligne>
+        <CodePostal>82013</CodePostal>
+        <NomCommune>MONTAUBAN CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 63 63 51 13</Téléphone>
+        <Télécopie>05 63 66 41 10</Télécopie>
+        <Email>mailto:cph-montauban@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

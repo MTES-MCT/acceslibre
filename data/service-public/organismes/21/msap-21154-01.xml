@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-21154-01" codeInsee="21154" dateMiseAJour="2021-09-28"
+           pivotLocal="msap">
+   <Nom>France Services - Châtillon-sur-Seine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Albert-Camus</Ligne>
+      <CodePostal>21400</CodePostal>
+      <NomCommune>Châtillon-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>47.848305</Latitude>
+         <Longitude>4.574921</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 58 95 80 85</Téléphone>
+      <Email>msap@cscl-chatillonnais.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

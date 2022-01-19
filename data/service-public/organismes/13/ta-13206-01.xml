@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ta-13206-01" codeInsee="13206" dateMiseAJour="2018-05-02" pivotLocal="ta">
+   <Nom>Tribunal administratif - Marseille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22-24 rue Breteuil</Ligne>
+      <CodePostal>13006</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.290191</Latitude>
+         <Longitude>5.375856</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 13 48 13</Téléphone>
+      <Télécopie>04 91 81 13 87</Télécopie>
+      <Email>greffe.ta-marseille@juradm.fr</Email>
+      <Url>http://marseille.tribunal-administratif.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

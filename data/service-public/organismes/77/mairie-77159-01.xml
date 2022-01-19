@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77159-01" codeInsee="77159" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Donnemarie-Dontilly</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Cottereau</Ligne>
+      <CodePostal>77520</CodePostal>
+      <NomCommune>Donnemarie-Dontilly</NomCommune>
+      <Localisation>
+         <Latitude>48.4784883</Latitude>
+         <Longitude>3.1324602</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 60 21 80</Téléphone>
+      <Télécopie>01 64 01 31 98</Télécopie>
+      <Email>mairie-donnemarie@wanadoo.fr</Email>
+      <Url>http://www.donnemarie-dontilly.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

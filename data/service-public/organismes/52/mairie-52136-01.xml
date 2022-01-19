@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52136-01" codeInsee="52136" dateMiseAJour="2020-07-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coiffy-le-Haut</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue des Bourgeois</Ligne>
+      <CodePostal>52400</CodePostal>
+      <NomCommune>Coiffy-le-Haut</NomCommune>
+      <Localisation>
+         <Latitude>47.906827</Latitude>
+         <Longitude>5.696817</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 90 19 30</Téléphone>
+      <Email>mairie.coiffy-le-haut@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="10:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07158-01" codeInsee="07158" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mézilhac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <Ligne>26 place de l'Église</Ligne>
+      <CodePostal>07530</CodePostal>
+      <NomCommune>Mézilhac</NomCommune>
+      <Localisation>
+         <Latitude>44.807636261</Latitude>
+         <Longitude>4.35252189636</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 38 77 26</Téléphone>
+      <Email>mezilhac.mairie@orange.fr</Email>
+      <Url>http://mezilhac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>Permanence téléphonique du lundi au jeudi de 14h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

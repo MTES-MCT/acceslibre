@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60183-01" codeInsee="60183" dateMiseAJour="2020-10-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Croissy Sur Celle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de l'Église</Ligne>
+      <CodePostal>60120</CodePostal>
+      <NomCommune>Croissy-sur-Celle</NomCommune>
+      <Localisation>
+         <Latitude>49.697568</Latitude>
+         <Longitude>2.170947</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 82 91 77</Téléphone>
+      <Télécopie>03 44 82 91 77</Télécopie>
+      <Email>mairie-croissy.sur.celle@orange.fr</Email>
+      <Url>https://www.croissysurcelle.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

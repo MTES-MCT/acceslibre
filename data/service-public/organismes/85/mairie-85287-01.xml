@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85287-01" codeInsee="85287" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tallud-Sainte-Gemme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Réaumur</Ligne>
+      <CodePostal>85390</CodePostal>
+      <NomCommune>Tallud-Sainte-Gemme</NomCommune>
+      <Localisation>
+         <Latitude>46.6902008057</Latitude>
+         <Longitude>-0.880073010921</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 00 34 78</Téléphone>
+      <Télécopie>02 51 51 00 45</Télécopie>
+      <Email>mairietalludstegemme@wanadoo.fr</Email>
+      <Url>http://www.tallud-sainte-gemme.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

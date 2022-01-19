@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21648-01" codeInsee="21648" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Turcey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 Grande rue</Ligne>
+      <CodePostal>21540</CodePostal>
+      <NomCommune>Turcey</NomCommune>
+      <Localisation>
+         <Latitude>47.408</Latitude>
+         <Longitude>4.71574</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 33 25 16</Téléphone>
+      <Email>mairie.turcey@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Permanence des élus le vendredi de 18h30 à 19h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

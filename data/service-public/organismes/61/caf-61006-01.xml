@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-61006-01" codeInsee="61006" dateMiseAJour="2021-09-23" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de l'Orne - accueil d'Argentan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>CAF - CPAM</Ligne>
+      <Ligne>15-17 rue des Vieilles-Halles</Ligne>
+      <CodePostal>61200</CodePostal>
+      <NomCommune>Argentan</NomCommune>
+      <Localisation>
+         <Latitude>48.74574279785156</Latitude>
+         <Longitude>-0.018102500587701797</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de l'Orne</Ligne>
+      <Ligne>14 rue du 14e-Hussards</Ligne>
+      <CodePostal>61021</CodePostal>
+      <NomCommune>Alençon Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.fr/allocataires/ma-caf-recherche/</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accompagnement pour vos démarches numériques, accueil physique possible le jeudi, uniquement sur rendez-vous, sauf pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-75113-01" codeInsee="75113" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Métropole - Grand Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15-19 avenue Pierre-Mendès-France</Ligne>
+      <CodePostal>75013</CodePostal>
+      <NomCommune>Paris</NomCommune>
+      <Localisation>
+         <Latitude>48.837551</Latitude>
+         <Longitude>2.370824</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 82 28 78 00</Téléphone>
+      <Email>secretariat@metropolegrandparis.fr</Email>
+      <Url>http://www.metropolegrandparis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

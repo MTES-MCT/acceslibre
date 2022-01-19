@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31148-01" codeInsee="31148" dateMiseAJour="2021-11-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Clermont-le-Fort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 le Fort</Ligne>
+      <CodePostal>31810</CodePostal>
+      <NomCommune>Clermont-le-Fort</NomCommune>
+      <Localisation>
+         <Latitude>43.4586138</Latitude>
+         <Longitude>1.436812</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 76 29 45</Téléphone>
+      <Email>mairie@clermont-le-fort.fr</Email>
+      <Url>https://www.clermont-le-fort.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+         <Note>Permanence du maire le mercredi de 16 h à 19 h</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

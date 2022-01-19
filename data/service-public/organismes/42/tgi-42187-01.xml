@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="42187" dateMiseAJour="2021-12-14" id="tgi-42187-01" idPresta="4cac9e61293594648a000580" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Roanne</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>5 BIS PLACE GEORGES CLEMENCEAU</Ligne>
+        <Ligne>BP 515</Ligne>
+        <CodePostal>42328</CodePostal>
+        <NomCommune>ROANNE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.040012</Latitude>
+            <Longitude>4.072677</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>5 BIS PLACE GEORGES CLEMENCEAU</Ligne>
+        <Ligne>BP 515</Ligne>
+        <CodePostal>42328</CodePostal>
+        <NomCommune>ROANNE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 77 44 48 00</Téléphone>
+        <Télécopie>04 77 44 48 75</Télécopie>
+        <Email>mailto:accueil-roanne@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+            <Note>Pour les mois de juillet et août les horaires sont différents :
+8h30 - 12h00/ 14h00 -17h00</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08434-01" codeInsee="08434" dateMiseAJour="2016-07-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de la Petite-Ville</Ligne>
+      <CodePostal>08390</CodePostal>
+      <NomCommune>Sy</NomCommune>
+      <Localisation>
+         <Latitude>49.5153961182</Latitude>
+         <Longitude>4.86889410019</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 30 57 68</Téléphone>
+      <Télécopie>03 24 30 61 04</Télécopie>
+      <Email>mairie-de-sy@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="10:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

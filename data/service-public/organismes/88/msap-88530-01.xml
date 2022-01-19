@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-88530-01" codeInsee="88530" dateMiseAJour="2021-02-15"
+           pivotLocal="msap">
+   <Nom>France Services - Xertigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>32 rue de la Vallée-de-l'Aître</Ligne>
+      <CodePostal>88220</CodePostal>
+      <NomCommune>Xertigny</NomCommune>
+      <Localisation>
+         <Latitude>48.0439103</Latitude>
+         <Longitude>6.3975752</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 29 04 90</Téléphone>
+      <Email>ahaxaire@pays-epinal.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/xertigny</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

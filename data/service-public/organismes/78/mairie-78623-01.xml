@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78623-01" codeInsee="78623" dateMiseAJour="2020-07-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Tremblay-sur-Mauldre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17 rue du Pavé</Ligne>
+      <CodePostal>78490</CodePostal>
+      <NomCommune>Le Tremblay-sur-Mauldre</NomCommune>
+      <Localisation>
+         <Latitude>48.778409</Latitude>
+         <Longitude>1.875157</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 87 82 64</Téléphone>
+      <Télécopie>01 34 87 89 40</Télécopie>
+      <Email>mairie.tremblaysurmauldre@wanadoo.fr</Email>
+      <Url>http://www.letremblaysurmauldre.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

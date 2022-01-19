@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02722-01" codeInsee="02722" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Soissons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>02209</CodePostal>
+      <NomCommune>Soissons Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.383574</Latitude>
+         <Longitude>3.328181</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, monte-escalier</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 59 90 00</Téléphone>
+      <Télécopie>03 23 59 91 60</Télécopie>
+      <Email>contact@ville-soissons.fr</Email>
+      <Url>http://www.ville-soissons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil passeports et carte d’identité.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

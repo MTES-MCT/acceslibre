@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42109-01" codeInsee="42109" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Hôpital-sous-Rochefort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>117 rue des Remparts</Ligne>
+      <CodePostal>42130</CodePostal>
+      <NomCommune>L'Hôpital-sous-Rochefort</NomCommune>
+      <Localisation>
+         <Latitude>45.7733840942</Latitude>
+         <Longitude>3.93446588516</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 24 59 26</Téléphone>
+      <Email>mairie.hopital@wanadoo.fr</Email>
+      <Url>http://www.hopital-sous-rochefort.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

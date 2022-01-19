@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-08105-01" codeInsee="08105" dateMiseAJour="2021-07-26" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 08 - Ardennes - Siège de Charleville-Mézières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 A avenue Georges Corneau</Ligne>
+      <Ligne>CS60044</Ligne>
+      <CodePostal>08104</CodePostal>
+      <NomCommune>Charleville-Mézières Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.7673783</Latitude>
+         <Longitude>4.7219875</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 56 62 62</Téléphone>
+      <Email>cci@ardennes.cci.fr</Email>
+      <Url>https://www.ardennes.cci.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+         <Note>Accueil physique du Centre de Formalités et Entreprendre en France de 9h à 12h et de 14h à 17h</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

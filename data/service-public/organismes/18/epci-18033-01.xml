@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-18033-01" codeInsee="18033" dateMiseAJour="2019-11-13"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Bourges Plus</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>4 boulevard de l'Avenir</Ligne>
+      <CodePostal>18000</CodePostal>
+      <NomCommune>Bourges</NomCommune>
+      <Localisation>
+         <Latitude>47.0820181</Latitude>
+         <Longitude>2.3837525</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>23-31 boulevard Foch</Ligne>
+      <Ligne>CS 20321</Ligne>
+      <CodePostal>18023</CodePostal>
+      <NomCommune>Bourges Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>08 00 89 77 30</Téléphone>
+      <Télécopie>02 48 48 58 63</Télécopie>
+      <Email>service.clientele@agglo-bourgesplus.fr</Email>
+      <Url>http://www.agglo-bourgesplus.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

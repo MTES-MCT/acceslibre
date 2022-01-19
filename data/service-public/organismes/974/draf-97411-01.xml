@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="draf-97411-01" codeInsee="97411" dateMiseAJour="2017-01-04"
+           pivotLocal="draf">
+   <Nom>Direction de l'alimentation, de l'agriculture et de la forêt (DAAF) - La Réunion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard de la Providence</Ligne>
+      <CodePostal>97489</CodePostal>
+      <NomCommune>Saint-Denis Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.920396914</Latitude>
+         <Longitude>55.4205322266</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 30 89 89</Téléphone>
+      <Télécopie>+262 2 62 30 89 99</Télécopie>
+      <Email>daaf974@agriculture.gouv.fr</Email>
+      <Url>http://daaf.reunion.agriculture.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

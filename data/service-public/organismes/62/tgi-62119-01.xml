@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="62119" dateMiseAJour="2021-12-14" id="tgi-62119-01" idPresta="4cac9ed7293594648a00ee15" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Béthune</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>PLACE LAMARTINE</Ligne>
+        <Ligne>BP 716</Ligne>
+        <CodePostal>62407</CodePostal>
+        <NomCommune>BETHUNE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>50.534834</Latitude>
+            <Longitude>2.638203</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>PLACE LAMARTINE</Ligne>
+        <Ligne>BP 716</Ligne>
+        <CodePostal>62407</CodePostal>
+        <NomCommune>BETHUNE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 21 68 72 00</Téléphone>
+        <Email>mailto:tj1-bethune@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+            <Note>Horaires vacances scolaires:
+Pendant les vacances scolaires : de 8h30 à 12h00 et de 12h45 à 17h00
+</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

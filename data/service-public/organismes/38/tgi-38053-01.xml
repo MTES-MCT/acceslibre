@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="38053" dateMiseAJour="2021-12-14" id="tgi-38053-01" idPresta="4cac9ed7293594648a00ee09" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Bourgoin-Jallieu</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>12 RUE DU TRIBUNAL</Ligne>
+        <Ligne>CS 54007</Ligne>
+        <CodePostal>38307</CodePostal>
+        <NomCommune>BOURGOIN JALLIEU CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>45.586786</Latitude>
+            <Longitude>5.27673</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>12 RUE DU TRIBUNAL</Ligne>
+        <Ligne>CS 54007</Ligne>
+        <CodePostal>38307</CodePostal>
+        <NomCommune>BOURGOIN JALLIEU CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 74 28 78 78</Téléphone>
+        <Télécopie>04 74 93 37 45</Télécopie>
+        <Email>mailto:tj-bourgoin-jallieu@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

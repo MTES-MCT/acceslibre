@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="inspection_academique-19272-01" codeInsee="19272"
+           dateMiseAJour="2018-05-30"
+           pivotLocal="inspection_academique">
+   <Nom>Direction des services départementaux de l'Éducation nationale (DSDEN) - Corrèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité administrative Jean-Montalat</Ligne>
+      <Ligne>Place Martial-Brigouleix</Ligne>
+      <CodePostal>19000</CodePostal>
+      <NomCommune>Tulle</NomCommune>
+      <Localisation>
+         <Latitude>45.264565</Latitude>
+         <Longitude>1.769223</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 87 01 20 82</Téléphone>
+      <Télécopie>05 87 01 20 80</Télécopie>
+      <Email>ce.ia19@ac-limoges.fr</Email>
+      <Url>http://www.ac-limoges.fr/dsden19/pid33889/accueil.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

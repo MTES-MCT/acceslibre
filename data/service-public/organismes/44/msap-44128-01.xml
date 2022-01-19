@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-44128-01" codeInsee="44128" dateMiseAJour="2021-01-29"
+           pivotLocal="msap">
+   <Nom>France Services - Plessé</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Jules Verne</Ligne>
+      <CodePostal>44630</CodePostal>
+      <NomCommune>Plessé</NomCommune>
+      <Localisation>
+         <Latitude>47.54239</Latitude>
+         <Longitude>-1.88455</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 79 69 74</Téléphone>
+      <Email>efs@mairie-plesse.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Fermé le Jeudi après-midi</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

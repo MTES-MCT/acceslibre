@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-34079-01" codeInsee="34079" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Clermontais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 avenue Raymond-Lacombe</Ligne>
+      <Ligne>BP 40</Ligne>
+      <CodePostal>34800</CodePostal>
+      <NomCommune>Clermont-l'Hérault</NomCommune>
+      <Localisation>
+         <Latitude>43.6241501</Latitude>
+         <Longitude>3.4371543</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 88 95 50</Téléphone>
+      <Télécopie>04 67 88 95 57</Télécopie>
+      <Email>accueil@cc-clermontais.fr</Email>
+      <Url>http://www.cc-clermontais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

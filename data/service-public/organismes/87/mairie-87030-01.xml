@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87030-01" codeInsee="87030" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chaillac-sur-Vienne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Mimosas</Ligne>
+      <CodePostal>87200</CodePostal>
+      <NomCommune>Chaillac-sur-Vienne</NomCommune>
+      <Localisation>
+         <Latitude>45.8787994385</Latitude>
+         <Longitude>0.878624022007</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 02 13 16</Téléphone>
+      <Télécopie>05 55 02 42 02</Télécopie>
+      <Email>chaillacsurvienne.mairie@wanadoo.fr</Email>
+      <Url>http://www.porteoceane-dulimousin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-59172-01" codeInsee="59172" dateMiseAJour="2020-05-15" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Denain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard du 8-Mai-1945</Ligne>
+      <Ligne>BP 70233</Ligne>
+      <CodePostal>59723</CodePostal>
+      <NomCommune>Denain Cedex</NomCommune>
+      <Localisation>
+         <Latitude>50.32402</Latitude>
+         <Longitude>3.396566</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="du lundi au vendredi de  8H30 à 19H00&#xA; Service  0,06 € / min + prix appel">03 27 22 81 17</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>également sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>COVID 19  : Accueil uniquement sur rendez-vous du lundi au vendredi 8H30-12H -
+13H30-16H00. Le rendez-vous doit être pris en allant dans votre espace
+particulier ou sur la page contact sur le site impot.gouv.fr :
+https://www.impots.gouv.fr/portail. Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

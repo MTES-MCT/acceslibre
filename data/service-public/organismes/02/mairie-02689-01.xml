@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02689-01" codeInsee="02689" dateMiseAJour="2021-03-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pierremont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de l'Église</Ligne>
+      <CodePostal>02250</CodePostal>
+      <NomCommune>Saint-Pierremont</NomCommune>
+      <Localisation>
+         <Latitude>49.7219513</Latitude>
+         <Longitude>3.8815731</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 80 49 53</Téléphone>
+      <Email>mairie.st-pierremont@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

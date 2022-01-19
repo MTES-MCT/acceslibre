@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54399-01" codeInsee="54399" dateMiseAJour="2018-10-02"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuviller-sur-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>54290</CodePostal>
+      <NomCommune>Neuviller-sur-Moselle</NomCommune>
+      <Localisation>
+         <Latitude>48.4767990112</Latitude>
+         <Longitude>6.31309986115</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 72 51 32</Téléphone>
+      <Télécopie>03 83 72 51 32</Télécopie>
+      <Email>mairieneuviller@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

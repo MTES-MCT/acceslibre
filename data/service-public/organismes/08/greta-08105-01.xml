@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-08105-01" codeInsee="08105" dateMiseAJour="2021-11-19"
+           pivotLocal="greta">
+   <Nom>Greta CFA des Ardennes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée François-Bazin</Ligne>
+      <Ligne>145 avenue Charles-de-Gaulle</Ligne>
+      <CodePostal>08013</CodePostal>
+      <NomCommune>Charleville-Mézières Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.7734776</Latitude>
+         <Longitude>4.7050401</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 59 75 75</Téléphone>
+      <Télécopie>03 24 59 75 79</Télécopie>
+      <Email>direction@ardennes.greta.fr</Email>
+      <Url>http://moodgreta.eu/Site_GIP_FC/index.php/greta/greta-ardennes</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

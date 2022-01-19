@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35162-01" codeInsee="35162" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Louvigné-du-Désert</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 rue de Lariboisière</Ligne>
+      <CodePostal>35420</CodePostal>
+      <NomCommune>Louvigné-du-Désert</NomCommune>
+      <Localisation>
+         <Latitude>48.479781</Latitude>
+         <Longitude>-1.124075</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 98 01 50</Téléphone>
+      <Télécopie>02 99 98 54 23</Télécopie>
+      <Email>mairie@louvignedudesert.org</Email>
+      <Url>http://www.louvignedudesert.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Sur rendez-vous uniquement le jeudi après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil, fermé pendant les vacances scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

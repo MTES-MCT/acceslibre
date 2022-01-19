@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-93062-01" codeInsee="93062" dateMiseAJour="2021-11-30" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques du Raincy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22, allée de l'Église</Ligne>
+      <CodePostal>93340</CodePostal>
+      <NomCommune>Le Raincy</NomCommune>
+      <Localisation>
+         <Latitude>48.9012149</Latitude>
+         <Longitude>2.5216526</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 87 53 64 40</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+         <Note>Fermé le jeudi</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil avec ou sans rendez-vous. Pour prendre rendez-vous, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr "rubrique Contact". Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un ou au 0 809 401 401.</Commentaire>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97407-01" codeInsee="97407" dateMiseAJour="2018-12-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 rue Renaudière-Devaux</Ligne>
+      <Ligne>BP 62004</Ligne>
+      <CodePostal>97821</CodePostal>
+      <NomCommune>Le Port Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.9456859</Latitude>
+         <Longitude>55.295055</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 42 87 00</Téléphone>
+      <Télécopie>+262 2 62 42 86 39</Télécopie>
+      <Email>internet@ville-port.re</Email>
+      <Url>http://www.ville-port.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="16:30:00"/>
+         <Note>Accueil et état civil sont ouverts en continu, les autres services sont ouverts de 8h à 12h et de 13h à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

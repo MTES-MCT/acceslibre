@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87104-01" codeInsee="87104" dateMiseAJour="2021-12-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nedde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 place Pierre Thète</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>87120</CodePostal>
+      <NomCommune>Nedde</NomCommune>
+      <Localisation>
+         <Latitude>45.7195091248</Latitude>
+         <Longitude>1.82971704006</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 69 98 09</Téléphone>
+      <Email>mairie.nedde@wanadoo.fr</Email>
+      <Url>http://www.nedde.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>sur rendez-vous uniquement les lundis, mardis et jeudis de 13h30 à 16h</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

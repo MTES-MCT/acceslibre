@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-34301-01" codeInsee="34301" dateMiseAJour="2019-01-10"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Sète</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 quai Aspirant Herber</Ligne>
+      <CodePostal>34200</CodePostal>
+      <NomCommune>Sète</NomCommune>
+      <Localisation>
+         <Latitude>43.398533</Latitude>
+         <Longitude>3.698038</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 70 13</Téléphone>
+      <Télécopie>04 67 74 69 03</Télécopie>
+      <Email>r-sete@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

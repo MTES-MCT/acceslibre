@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-76351-02" codeInsee="76351" dateMiseAJour="2020-02-19"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie municipale du Havre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Général-Leclerc</Ligne>
+      <Ligne>BP 18</Ligne>
+      <CodePostal>76083</CodePostal>
+      <NomCommune>Le Havre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.4946266</Latitude>
+         <Longitude>0.1079733</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 35 19 46 50</Téléphone>
+      <Email>t076213@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

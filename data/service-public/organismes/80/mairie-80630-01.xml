@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80630-01" codeInsee="80630" dateMiseAJour="2020-11-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Poix-de-Picardie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Docteur-Barbier</Ligne>
+      <CodePostal>80290</CodePostal>
+      <NomCommune>Poix-de-Picardie</NomCommune>
+      <Localisation>
+         <Latitude>49.7759379</Latitude>
+         <Longitude>1.9852</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 90 32 90</Téléphone>
+      <Télécopie>03 22 90 32 91</Télécopie>
+      <Email>mairie@ville-poix-de-picardie.fr</Email>
+      <Url>http://www.ville-poix-de-picardie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

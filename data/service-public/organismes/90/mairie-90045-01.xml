@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-90045-01" codeInsee="90045" dateMiseAJour="2021-01-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fêche-l'Église</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>16 Grande rue</Ligne>
+      <CodePostal>90100</CodePostal>
+      <NomCommune>Fêche-l'Église</NomCommune>
+      <Localisation>
+         <Latitude>47.5047988892</Latitude>
+         <Longitude>6.95059013367</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 36 06 38</Téléphone>
+      <Télécopie>03 84 19 49 41</Télécopie>
+      <Email>mairie.feche@wanadoo.fr</Email>
+      <Url>http://www.mairiefecheleglise.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

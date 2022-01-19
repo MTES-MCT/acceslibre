@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14436-01" codeInsee="14436" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Monceaux-en-Bessin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>889 rue des Pommiers</Ligne>
+      <CodePostal>14400</CodePostal>
+      <NomCommune>Monceaux-en-Bessin</NomCommune>
+      <Localisation>
+         <Latitude>49.256322</Latitude>
+         <Longitude>-0.693054</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 21 96 43</Téléphone>
+      <Email>mairiemonceaux-en-bessin@wanadoo.fr</Email>
+      <Url>https://www.monceaux-en-bessin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

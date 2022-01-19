@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47088-01" codeInsee="47088" dateMiseAJour="2021-01-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Escassefort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Lévignac</Ligne>
+      <CodePostal>47350</CodePostal>
+      <NomCommune>Escassefort</NomCommune>
+      <Localisation>
+         <Latitude>44.5488243103</Latitude>
+         <Longitude>0.23776499927</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 20 06 07</Téléphone>
+      <Télécopie>09 72 52 75 58</Télécopie>
+      <Email>commune.escassefort@wanadoo.fr</Email>
+      <Url>http://vg-agglo.localeo.fr/escassefort/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

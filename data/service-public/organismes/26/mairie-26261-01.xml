@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26261-01" codeInsee="26261" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Réauville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>26230</CodePostal>
+      <NomCommune>Réauville</NomCommune>
+      <Localisation>
+         <Latitude>44.444041</Latitude>
+         <Longitude>4.844686</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 98 51 16</Téléphone>
+      <Télécopie>04 75 98 69 97</Télécopie>
+      <Email>mairie.reauville@wanadoo.fr</Email>
+      <Url>http://www.reauville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Contacter l’accueil pour obtenir les horaires d’ouverture en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

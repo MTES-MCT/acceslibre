@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67026-01" codeInsee="67026" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bellefosse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue Principale</Ligne>
+      <CodePostal>67130</CodePostal>
+      <NomCommune>Bellefosse</NomCommune>
+      <Localisation>
+         <Latitude>48.4095001221</Latitude>
+         <Longitude>7.23493003845</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 97 30 58</Téléphone>
+      <Email>mairie.bellefosse@gmail.com</Email>
+      <Url>http://www.lechampdufeu.com/bellefosse</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement le mardi de 8h à 12h en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

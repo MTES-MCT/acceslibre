@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-28422-01" codeInsee="28422" dateMiseAJour="2021-09-02"
+           pivotLocal="msap">
+   <Nom>France Services - Voves - Les Villages Vovéens</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Voves</Ligne>
+      <Ligne>4 rue Texier-Gallas</Ligne>
+      <CodePostal>28150</CodePostal>
+      <NomCommune>Les Villages Vovéens</NomCommune>
+      <Localisation>
+         <Latitude>48.275396</Latitude>
+         <Longitude>1.62871</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 46 72 05 10</Téléphone>
+      <Email>msapvoves@coeurdebeauce.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

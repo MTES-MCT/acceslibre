@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="84007" dateMiseAJour="2021-12-14" id="prudhommes-84007-01" idPresta="4cac9e6a293594648a00170c" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Avignon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>2 BOULEVARD LIMBERT</Ligne>
+        <Ligne>BP 959</Ligne>
+        <CodePostal>84092</CodePostal>
+        <NomCommune>AVIGNON CEDEX 9</NomCommune>
+        <Localisation>
+            <Latitude>43.944793</Latitude>
+            <Longitude>4.816159</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>2 BOULEVARD LIMBERT</Ligne>
+        <Ligne>BP 959</Ligne>
+        <CodePostal>84092</CodePostal>
+        <NomCommune>AVIGNON CEDEX 9</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 32 74 74 02</Téléphone>
+        <Télécopie>04 32 74 74 03</Télécopie>
+        <Email>mailto:cph-avignon@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

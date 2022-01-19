@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-19061-01" codeInsee="19061" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cornil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Jean-Marie-Dauzier</Ligne>
+      <CodePostal>19150</CodePostal>
+      <NomCommune>Cornil</NomCommune>
+      <Localisation>
+         <Latitude>45.2110595703</Latitude>
+         <Longitude>1.69166505337</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 27 20 12</Téléphone>
+      <Télécopie>09 71 70 23 64</Télécopie>
+      <Email>mairie.cornil@wanadoo.fr</Email>
+      <Url>http://www.cornil19.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

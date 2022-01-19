@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50353-01" codeInsee="50353" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Mont-Saint-Michel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Boulevard Porte-du-Roy</Ligne>
+      <Ligne>BP 20</Ligne>
+      <CodePostal>50170</CodePostal>
+      <NomCommune>Le Mont-Saint-Michel</NomCommune>
+      <Localisation>
+         <Latitude>48.6351415</Latitude>
+         <Longitude>-1.5116296</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 60 14 06</Téléphone>
+      <Email>mairie.mtstmichel@wanadoo.fr</Email>
+      <Url>http://www.mairie-lemontsaintmichel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

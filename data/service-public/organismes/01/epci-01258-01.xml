@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-01258-01" codeInsee="01258" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Val de Saône Centre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc Visiosport</Ligne>
+      <Ligne>166 route de Francheleins</Ligne>
+      <CodePostal>01090</CodePostal>
+      <NomCommune>Montceaux</NomCommune>
+      <Localisation>
+         <Latitude>46.094681</Latitude>
+         <Longitude>4.779584</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 06 46 26</Téléphone>
+      <Télécopie>04 74 06 46 20</Télécopie>
+      <Email>accueil@ccvsc01.org</Email>
+      <Url>http://www.ccvsc01.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34301-01" codeInsee="34301" dateMiseAJour="2021-09-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sète</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 bis rue Paul-Valéry</Ligne>
+      <CodePostal>34200</CodePostal>
+      <NomCommune>Sète Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.401788</Latitude>
+         <Longitude>3.6959515</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 99 04 70 00</Téléphone>
+      <Email>https://saisine.ville-sete.fr/</Email>
+      <Url>http://www.sete.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil de 8h à 16h30 du lundi au vendredi.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert pour l'état civil uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

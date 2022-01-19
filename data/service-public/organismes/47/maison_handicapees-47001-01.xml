@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-47001-01" codeInsee="47001" dateMiseAJour="2021-04-12"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Lot-et-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1633 avenue du Maréchal-Leclerc</Ligne>
+      <CodePostal>47000</CodePostal>
+      <NomCommune>Agen</NomCommune>
+      <Localisation>
+         <Latitude>44.192169</Latitude>
+         <Longitude>0.615382</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 69 20 50</Téléphone>
+      <Télécopie>05 53 69 20 89</Télécopie>
+      <Email>contact@mdph47.fr</Email>
+      <Url>https://www.mdph47.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

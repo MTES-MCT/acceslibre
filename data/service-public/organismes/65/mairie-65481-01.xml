@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-65481-01" codeInsee="65481" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Barèges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Urbain-Cazaux</Ligne>
+      <CodePostal>65120</CodePostal>
+      <NomCommune>Barèges</NomCommune>
+      <Localisation>
+         <Latitude>42.8967018127</Latitude>
+         <Longitude>0.0645719990134</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 92 68 01</Téléphone>
+      <Télécopie>05 62 92 65 91</Télécopie>
+      <Email>mairie.bareges@orange.fr</Email>
+      <Url>http://www.mairie-bareges.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

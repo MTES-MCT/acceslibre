@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-69388-01" codeInsee="69388" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Lyon 1 - Secteur santé - Service d'Orientation et d'Insertion Professionnelle des étudiant (S0IE)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau 1104</Ligne>
+      <Ligne>Bâtiment principal</Ligne>
+      <Ligne>Rez-de-Chaussée</Ligne>
+      <Ligne>8 avenue Rockefeller</Ligne>
+      <CodePostal>69008</CodePostal>
+      <NomCommune>Lyon Cedex 8</NomCommune>
+      <Localisation>
+         <Latitude>45.7406335</Latitude>
+         <Longitude>4.8822641</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 78 77 70 92</Téléphone>
+      <Email>soie.sante@univ-lyon1.fr</Email>
+      <Url>https://soie.univ-lyon1.fr/le-soie/contact-et-acces/venir-au-soie</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Uniquement sur rendez-vous pris par mail</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68044-01" codeInsee="68044" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Bonhomme</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>61 rue du 3e-Spahis-Algériens</Ligne>
+      <CodePostal>68650</CodePostal>
+      <NomCommune>Le Bonhomme</NomCommune>
+      <Localisation>
+         <Latitude>48.1713981628</Latitude>
+         <Longitude>7.10914993286</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 47 51 03</Téléphone>
+      <Télécopie>03 89 47 53 25</Télécopie>
+      <Email>mairie-du-bonhomme@orange.fr</Email>
+      <Url>http://www.lebonhomme.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

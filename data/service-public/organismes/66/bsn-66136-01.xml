@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bsn-66136-01" codeInsee="66136" dateMiseAJour="2021-04-06" pivotLocal="bsn">
+   <Nom>Centre du service national et de la jeunesse (CSNJ) -  Perpignan (pour les départements 11, 34, 66 et les résidents à l'étranger)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Caserne-Mangin</Ligne>
+      <Ligne>4 rue Rabelais</Ligne>
+      <CodePostal>66020</CodePostal>
+      <NomCommune>Perpignan</NomCommune>
+      <Localisation>
+         <Latitude>42.700732</Latitude>
+         <Longitude>2.898791</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 84 51 51</Téléphone>
+      <Email>csnj-perpignan.trait.fct@intradef.fr</Email>
+      <Url>http://www.defense.gouv.fr/jdc</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Permanence téléphonique uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

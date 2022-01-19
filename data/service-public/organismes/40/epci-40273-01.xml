@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-40273-01" codeInsee="40273" dateMiseAJour="2019-11-07"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Seignanx</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison Clairbois</Ligne>
+      <Ligne>1526 avenue de Barrère</Ligne>
+      <CodePostal>40390</CodePostal>
+      <NomCommune>Saint-Martin-de-Seignanx</NomCommune>
+      <Localisation>
+         <Latitude>43.5437154</Latitude>
+         <Longitude>-1.3864188</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 56 61 61</Téléphone>
+      <Télécopie>05 59 56 61 60</Télécopie>
+      <Email>accueil@cc-seignanx.fr</Email>
+      <Url>http://www.cc-seignanx.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

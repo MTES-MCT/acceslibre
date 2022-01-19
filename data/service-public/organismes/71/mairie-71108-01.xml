@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71108-01" codeInsee="71108" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chasselas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>342 rue du Château</Ligne>
+      <CodePostal>71570</CodePostal>
+      <NomCommune>Chasselas</NomCommune>
+      <Localisation>
+         <Latitude>46.273855</Latitude>
+         <Longitude>4.7191029</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 35 10 72</Téléphone>
+      <Email>communedechasselas@orange.fr</Email>
+      <Url>http://www.village-chasselas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil le 2e mardi du mois de 18h à 19h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

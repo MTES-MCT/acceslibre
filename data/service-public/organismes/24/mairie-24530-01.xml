@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24530-01" codeInsee="24530" dateMiseAJour="2021-02-02"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Sencenac-Puy-de-Fourches</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>Sencenac-Puy-de-Fourches</Ligne>
+      <CodePostal>24310</CodePostal>
+      <NomCommune>Brantôme-en-Périgord</NomCommune>
+      <Localisation>
+         <Latitude>45.311662</Latitude>
+         <Longitude>0.674205</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 46 34 18</Téléphone>
+      <Télécopie>05 53 46 34 18</Télécopie>
+      <Email>mairie@brantomeenperigord.fr</Email>
+      <Url>https://dronneetbelle.fr/Sencenac-Puy-de-Fourches.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

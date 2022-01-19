@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-06088-01" codeInsee="06088" dateMiseAJour="2022-01-03"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière (SPF) - Nice 1</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>22 rue Joseph Cadeï</Ligne>
+      <CodePostal>06172</CodePostal>
+      <NomCommune>Nice Cedex 2</NomCommune>
+      <Localisation>
+         <Latitude>43.714203</Latitude>
+         <Longitude>7.263663</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 09 47 69</Téléphone>
+      <Email>spf.nice1@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil physique de 8H30 à 12H les lundi, mercredi, jeudi et vendredi.
+Possibilité de prendre des RDV physique ou téléphonique à partir de votre espace personnel ou professionnel sécurisé sur le site impots.gouv.fr</Commentaire>
+</Organisme>

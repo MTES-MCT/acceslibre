@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57751-01" codeInsee="57751" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Woippy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Hôtel-de-Ville</Ligne>
+      <Ligne>BP 80820</Ligne>
+      <CodePostal>57148</CodePostal>
+      <NomCommune>Woippy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1515484</Latitude>
+         <Longitude>6.1512739</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 34 63 00</Téléphone>
+      <Télécopie>03 87 34 63 26</Télécopie>
+      <Email>courrier@mairie-woippy.fr</Email>
+      <Url>http://www.mairie-woippy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

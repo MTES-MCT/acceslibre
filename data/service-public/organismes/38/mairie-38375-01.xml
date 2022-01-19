@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38375-01" codeInsee="38375" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Christophe-en-Oisans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Ville</Ligne>
+      <CodePostal>38520</CodePostal>
+      <NomCommune>Saint-Christophe-en-Oisans</NomCommune>
+      <Localisation>
+         <Latitude>44.9578018188</Latitude>
+         <Longitude>6.17632007599</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 79 53 50</Téléphone>
+      <Email>mairie@saint-christophe-en-oisans.fr</Email>
+      <Url>https://www.mairie-st-christophe-en-oisans.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

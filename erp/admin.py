@@ -230,6 +230,10 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
     )
     view_on_site = True
 
+    readonly_fields = [
+        "commune_ext",
+    ]
+
     fieldsets = [
         (
             None,
@@ -253,7 +257,7 @@ class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
                     "lieu_dit",
                     "code_postal",
                     "commune",
-                    # "commune_ext", # note: this field is handled on model clean()
+                    "commune_ext",  # note: this field is handled on model clean()
                     "code_insee",
                     "geom",
                 ]

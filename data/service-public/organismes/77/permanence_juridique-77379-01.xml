@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="77379" dateMiseAJour="2021-10-18" id="permanence_juridique-77379-01" idPresta="612f2ed8b473e40555def40a" pivotLocal="permanence_juridique">
+    <Nom>Point-justice - Point d’accès au droit de Provins</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>17 rue Sainte Croix</Ligne>
+        <CodePostal>77160</CodePostal>
+        <NomCommune>PROVINS</NomCommune>
+        <Localisation>
+            <Latitude>48.561792</Latitude>
+            <Longitude>3.298027</Longitude>
+            <Précision>8</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 60 58 57 75</Téléphone>
+        <Email>mailto:pad.provins@gmail.com</Email>
+        <Url>https://www.cdad-77.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve-saisine-par-voie-electronique-12799/']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

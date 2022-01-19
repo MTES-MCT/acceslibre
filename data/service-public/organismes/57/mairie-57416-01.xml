@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57416-01" codeInsee="57416" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lorry-Mardigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 rue de Metz</Ligne>
+      <CodePostal>57420</CodePostal>
+      <NomCommune>Lorry-Mardigny</NomCommune>
+      <Localisation>
+         <Latitude>48.9757003784</Latitude>
+         <Longitude>6.15797996521</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 69 90 08</Téléphone>
+      <Télécopie>09 79 08 81 19</Télécopie>
+      <Email>mairie.lorry-mardigny@wanadoo.fr</Email>
+      <Url>http://www.lorry-mardigny.info</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <Note>Permanence des élus uniquement, de préférence sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

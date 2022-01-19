@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-03210-01" codeInsee="03210" dateMiseAJour="2021-06-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pouzy-Mésangy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <Ligne>9 rue Pierre-Péronneau</Ligne>
+      <CodePostal>03320</CodePostal>
+      <NomCommune>Pouzy-Mésangy</NomCommune>
+      <Localisation>
+         <Latitude>46.7088737488</Latitude>
+         <Longitude>3.00418400764</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 66 22 10</Téléphone>
+      <Email>mairie-pouzy-mesangy@wanadoo.fr</Email>
+      <Url>http://www.mairie-pouzy-mesangy.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

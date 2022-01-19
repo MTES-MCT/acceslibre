@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42316-01" codeInsee="42316" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Unieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Charles-Crouzet</Ligne>
+      <Ligne>BP 14</Ligne>
+      <CodePostal>42240</CodePostal>
+      <NomCommune>Unieux</NomCommune>
+      <Localisation>
+         <Latitude>45.3998733</Latitude>
+         <Longitude>4.2617681</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 40 30 80</Téléphone>
+      <Email>mairie-unieux@unieux.fr</Email>
+      <Url>http://www.ville-unieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil ouvert de 8h à 16h en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert de 8h à 16h en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

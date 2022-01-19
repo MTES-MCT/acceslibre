@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-83050-01" codeInsee="83050"
+           dateMiseAJour="2019-04-19"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Var (Draguignan)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Draguignan</Ligne>
+      <Ligne>1 boulevard du Maréchal-Foch</Ligne>
+      <Ligne>BP 275</Ligne>
+      <CodePostal>83007</CodePostal>
+      <NomCommune>Draguignan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.5383826</Latitude>
+         <Longitude>6.46215670000004</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 60 41 00</Téléphone>
+      <Email>sp-associations-draguignan@var.gouv.fr</Email>
+      <Url>http://www.var.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

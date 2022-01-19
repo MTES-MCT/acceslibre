@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-12223-01" codeInsee="12223" dateMiseAJour="2017-04-21"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Sainte-Geneviève-sur-Argence</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Point info séniors</Ligne>
+      <Ligne>Place des Tilleuls</Ligne>
+      <CodePostal>12420</CodePostal>
+      <NomCommune>Sainte-Geneviève-sur-Argence</NomCommune>
+      <Localisation>
+         <Latitude>44.803139</Latitude>
+         <Longitude>2.759085</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 66 41 46</Téléphone>
+      <Télécopie>05 65 66 29 28</Télécopie>
+      <Email>contact@argencesenaubrac.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

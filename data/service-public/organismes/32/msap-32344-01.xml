@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-32344-01" codeInsee="32344" dateMiseAJour="2020-12-14"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Riscle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>10 rue de la Poste</Ligne>
+      <CodePostal>32400</CodePostal>
+      <NomCommune>Riscle</NomCommune>
+      <Localisation>
+         <Latitude>43.6547364</Latitude>
+         <Longitude>-0.088418</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.riscle@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/riscle-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

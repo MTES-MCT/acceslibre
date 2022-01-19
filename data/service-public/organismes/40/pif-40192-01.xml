@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pif-40192-01" codeInsee="40192" dateMiseAJour="2021-09-20" pivotLocal="pif">
+   <Nom>Point info famille - Parentis-en-Born</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre administratif</Ligne>
+      <Ligne>Pôle des services</Ligne>
+      <Ligne>Avenue Brémontier</Ligne>
+      <CodePostal>40160</CodePostal>
+      <NomCommune>Parentis-en-Born</NomCommune>
+      <Localisation>
+         <Latitude>44.348998</Latitude>
+         <Longitude>-1.065639</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 82 73 31</Téléphone>
+      <Télécopie>05 58 82 73 33</Télécopie>
+      <Email>pole.services@parentis.fr</Email>
+      <Url>https://www.unaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

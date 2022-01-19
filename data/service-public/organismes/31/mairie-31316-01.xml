@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31316-01" codeInsee="31316" dateMiseAJour="2021-11-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Marignac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Lucien-Saint</Ligne>
+      <CodePostal>31440</CodePostal>
+      <NomCommune>Marignac</NomCommune>
+      <Localisation>
+         <Latitude>42.913794</Latitude>
+         <Longitude>0.65794</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 79 50 69</Téléphone>
+      <Télécopie>05 61 79 52 50</Télécopie>
+      <Email>mairie@marignac.fr</Email>
+      <Url>http://www.marignac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:45:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

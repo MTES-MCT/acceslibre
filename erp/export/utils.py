@@ -37,6 +37,8 @@ def map_value_from_schema(schema_enum, data):
 def map_list_from_schema(schema_enum, data, verbose=False):
     if verbose:
         index = 1
+    else:
+        index = 0
 
     if not data or not len(data):
         return None

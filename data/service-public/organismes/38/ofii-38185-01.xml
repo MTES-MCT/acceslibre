@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ofii-38185-01" codeInsee="38185" dateMiseAJour="2017-11-27"
+           pivotLocal="ofii">
+   <Nom>Office français de l'immigration et de l'intégration (OFII) - Direction territoriale de Grenoble (dép. 74, 38, 73)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>76 rue des Alliés</Ligne>
+      <Ligne>Parc de l'Alliance</Ligne>
+      <CodePostal>38100</CodePostal>
+      <NomCommune>Grenoble</NomCommune>
+      <Localisation>
+         <Latitude>45.172474</Latitude>
+         <Longitude>5.723436</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 40 95 45</Téléphone>
+      <Télécopie>04 76 40 59 89</Télécopie>
+      <Url>http://www.ofii.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

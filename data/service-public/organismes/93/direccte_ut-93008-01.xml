@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-93008-01" codeInsee="93008" dateMiseAJour="2018-12-19"
+           pivotLocal="direccte_ut">
+   <Nom>Direction régionale et interdépartementale de l'économie, de l'emploi, du travail et des solidarités (DRIEETS) (ex DIRECCTE) - Unité départementale de la Seine-Saint-Denis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 avenue Youri-Gagarine</Ligne>
+      <CodePostal>93016</CodePostal>
+      <NomCommune>Bobigny Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.907373</Latitude>
+         <Longitude>2.452022</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 60 53 00</Téléphone>
+      <Télécopie>01 41 60 53 01</Télécopie>
+      <Email>idf-ut93@direccte.gouv.fr</Email>
+      <Url>http://idf.direccte.gouv.fr/Seine-Saint-Denis</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-67437-01" codeInsee="67437" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse primaire d'assurance maladie (CPAM) du Bas-Rhin - accueil de Saverne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Sous-Préfecture</Ligne>
+      <Ligne>3 rue du Tribunal</Ligne>
+      <CodePostal>67700</CodePostal>
+      <NomCommune>Saverne</NomCommune>
+      <Localisation>
+         <Latitude>48.740779876708984</Latitude>
+         <Longitude>7.364609718322754</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse primaire d'assurance maladie du Bas-Rhin</Ligne>
+      <Ligne>16 rue de Lausanne</Ligne>
+      <CodePostal>67090</CodePostal>
+      <NomCommune>Strasbourg Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:15:00" fin="16:15:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 8h30 à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:15:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31220-01" codeInsee="31220" dateMiseAJour="2021-11-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gibel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 Grand'rue</Ligne>
+      <CodePostal>31560</CodePostal>
+      <NomCommune>Gibel</NomCommune>
+      <Localisation>
+         <Latitude>43.2934213</Latitude>
+         <Longitude>1.6782463</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 08 14 52</Téléphone>
+      <Télécopie>05 61 08 51 99</Télécopie>
+      <Email>contactgibel@gmail.com</Email>
+      <Url>http://www.gibel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

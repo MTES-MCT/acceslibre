@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47140-01" codeInsee="47140" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Laugnac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de la Mairie</Ligne>
+      <CodePostal>47360</CodePostal>
+      <NomCommune>Laugnac</NomCommune>
+      <Localisation>
+         <Latitude>44.306199</Latitude>
+         <Longitude>0.606306</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 68 82 93</Téléphone>
+      <Télécopie>05 53 68 78 38</Télécopie>
+      <Email>mairiedelaugnac@collectivite47.fr</Email>
+      <Url>http://www.laugnac47.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous et pour la permanence des élus.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

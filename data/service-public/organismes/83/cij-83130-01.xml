@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-83130-01" codeInsee="83130" dateMiseAJour="2020-11-27" pivotLocal="cij">
+   <Nom>Point information jeunesse - Solliès-Pont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>240 chemin de Sainte Christine</Ligne>
+      <CodePostal>83210</CodePostal>
+      <NomCommune>Solliès-Pont</NomCommune>
+      <Localisation>
+         <Latitude>43.19983</Latitude>
+         <Longitude>6.04397</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 31 24 32 / 06 11 28 24 73</Téléphone>
+      <Email>s.escaron@sollies-pont.fr</Email>
+      <Url>http://www.ville-sollies-pont.fr/fr/espace-information-jeunesse.htm</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="11:15:00"/>
+         <PlageH début="14:15:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="11:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="11:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

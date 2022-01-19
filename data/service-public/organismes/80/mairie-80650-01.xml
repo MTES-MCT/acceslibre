@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80650-01" codeInsee="80650" dateMiseAJour="2021-08-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Querrieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Four-des-Champs</Ligne>
+      <CodePostal>80115</CodePostal>
+      <NomCommune>Querrieu</NomCommune>
+      <Localisation>
+         <Latitude>49.9347991943</Latitude>
+         <Longitude>2.42990994453</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 40 16 09</Téléphone>
+      <Télécopie>03 22 43 72 67</Télécopie>
+      <Email>mairie.querrieu@wanadoo.fr</Email>
+      <Url>https://www.querrieu.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence des élus</Commentaire>
+</Organisme>

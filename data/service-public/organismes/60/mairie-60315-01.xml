@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60315-01" codeInsee="60315" dateMiseAJour="2021-12-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hodenc-en-Bray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Jehan-Legendre</Ligne>
+      <CodePostal>60650</CodePostal>
+      <NomCommune>Hodenc-en-Bray</NomCommune>
+      <Localisation>
+         <Latitude>49.4771003723</Latitude>
+         <Longitude>1.89951002598</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 84 26 86</Téléphone>
+      <Email>mairie.hodenc-en-bray@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

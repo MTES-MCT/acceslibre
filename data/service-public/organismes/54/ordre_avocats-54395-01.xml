@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-54395-01" codeInsee="54395" dateMiseAJour="2019-02-21"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Nancy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité Judiciaire</Ligne>
+      <Ligne>rue du Général Fabvier</Ligne>
+      <CodePostal>54000</CodePostal>
+      <NomCommune>Nancy</NomCommune>
+      <Localisation>
+         <Latitude>48.677847</Latitude>
+         <Longitude>6.175879</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 41 13 84</Téléphone>
+      <Email>ordre@avocats-nancy.com</Email>
+      <Url>http://www.avocats-nancy.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

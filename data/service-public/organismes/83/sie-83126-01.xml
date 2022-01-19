@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-83126-01" codeInsee="83126" dateMiseAJour="2019-02-08" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de La Seyne-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>76 allée de Paris</Ligne>
+      <Ligne>ZAC des Playes</Ligne>
+      <CodePostal>83506</CodePostal>
+      <NomCommune>La Seyne-sur-Mer Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.11043</Latitude>
+         <Longitude>5.850085</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 11 06 35</Téléphone>
+      <Email>sie.la-seyne-sur-mer@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

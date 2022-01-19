@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-36044-01" codeInsee="36044" dateMiseAJour="2019-02-20"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Châteauroux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Palais de Justice</Ligne>
+      <Ligne>Place Lucien Germereau</Ligne>
+      <CodePostal>36000</CodePostal>
+      <NomCommune>Châteauroux</NomCommune>
+      <Localisation>
+         <Latitude>46.80899</Latitude>
+         <Longitude>1.693568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 54 60 35 48</Téléphone>
+      <Télécopie>02 54 07 82 91</Télécopie>
+      <Email>ordre.avocats.chateauroux@wanadoo.fr</Email>
+      <Url>http://www.avocats-chateauroux.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

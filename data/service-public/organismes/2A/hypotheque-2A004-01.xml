@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="hypotheque-2A004-01" codeInsee="2A004" dateMiseAJour="2020-12-07"
+           pivotLocal="hypotheque">
+   <Nom>Service de la publicité foncière et de l'enregistrement (SPFE) - Ajaccio</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre des Finances Publiques</Ligne>
+      <Ligne>6 parc Cuneo d'Ornano</Ligne>
+      <Ligne>BP 409</Ligne>
+      <CodePostal>20195</CodePostal>
+      <NomCommune>Ajaccio cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>41.919229</Latitude>
+         <Longitude>8.738635</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 20 62 12</Téléphone>
+      <Email>spf.ajaccio@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Fermé au public le vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

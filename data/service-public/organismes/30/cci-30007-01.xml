@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-30007-01" codeInsee="30007" dateMiseAJour="2021-07-27" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 30 - Gard - Délégation d'Alès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>270 quai des Près-Rasclaux</Ligne>
+      <CodePostal>30100</CodePostal>
+      <NomCommune>Alès</NomCommune>
+      <Localisation>
+         <Latitude>44.124661</Latitude>
+         <Longitude>4.081088</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 78 49 49</Téléphone>
+      <Télécopie>04 66 78 49 00</Télécopie>
+      <Email>information@gard.cci.fr</Email>
+      <Url>https://gard.cci.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35280-01" codeInsee="35280" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Hilaire-des-Landes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 square de la Mairie</Ligne>
+      <CodePostal>35140</CodePostal>
+      <NomCommune>Saint-Hilaire-des-Landes</NomCommune>
+      <Localisation>
+         <Latitude>48.3515187</Latitude>
+         <Longitude>-1.3561202</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 98 80 17</Téléphone>
+      <Email>mairie.st.hilaire@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

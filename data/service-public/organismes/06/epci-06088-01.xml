@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-06088-01" codeInsee="06088" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Métropole - Nice Côte d'Azur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>06364</CodePostal>
+      <NomCommune>Nice Cedex 4</NomCommune>
+      <Localisation>
+         <Latitude>43.69622</Latitude>
+         <Longitude>7.2717076</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 89 98 10 00</Téléphone>
+      <Télécopie>04 89 98 10 33</Télécopie>
+      <Url>http://www.nicecotedazur.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="15:45:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

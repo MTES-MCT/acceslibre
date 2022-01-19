@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-38138-01" codeInsee="38138" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Crémieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>388 cours Baron-Raverat</Ligne>
+      <Ligne>BP 40004</Ligne>
+      <CodePostal>38460</CodePostal>
+      <NomCommune>Crémieu</NomCommune>
+      <Localisation>
+         <Latitude>45.72437286376953</Latitude>
+         <Longitude>5.2495036125183105</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 90 98 99</Téléphone>
+      <Email>t038105@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous en dehors de ces horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

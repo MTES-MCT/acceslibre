@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24082-01" codeInsee="24082" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Carsac-Aillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Tavernerie</Ligne>
+      <CodePostal>24200</CodePostal>
+      <NomCommune>Carsac-Aillac</NomCommune>
+      <Localisation>
+         <Latitude>44.841563</Latitude>
+         <Longitude>1.277553</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 31 52 00</Téléphone>
+      <Télécopie>05 53 31 52 05</Télécopie>
+      <Email>contact@carsac-aillac.com</Email>
+      <Url>http://www.carsac-aillac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+         <Note>Pendant la crise sanitaire ouvert uniquement le matin.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:30:00"/>
+         <Note>Pendant la crise sanitaire ouvert uniquement le matin.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-94028-01" codeInsee="94028"
+           dateMiseAJour="2018-02-14"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Val-de-Marne (Créteil)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture du Val-de-Marne</Ligne>
+      <Ligne>Direction de la citoyenneté et de la légalité</Ligne>
+      <Ligne>Bureau de la réglementation générale et des élections</Ligne>
+      <Ligne>21-29 avenue du Général-de-Gaulle</Ligne>
+      <CodePostal>94038</CodePostal>
+      <NomCommune>Créteil Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7839311</Latitude>
+         <Longitude>2.4517887</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 49 56 62 09</Téléphone>
+      <Email>pref-associations@val-de-marne.gouv.fr</Email>
+      <Url>http://www.val-de-marne.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+         <Note>Permanence téléphonique uniquement le lundi, mardi, jeudi et vendredi de 9h à 12h.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

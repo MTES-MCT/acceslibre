@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10211-01" codeInsee="10211" dateMiseAJour="2021-04-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Macey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue René-Cassin</Ligne>
+      <CodePostal>10300</CodePostal>
+      <NomCommune>Macey</NomCommune>
+      <Localisation>
+         <Latitude>48.2929992676</Latitude>
+         <Longitude>3.91494011879</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 70 32 77</Téléphone>
+      <Télécopie>03 25 70 36 46</Télécopie>
+      <Email>macey.mairie@wanadoo.fr</Email>
+      <Url>https://sites.google.com/site/mairiedemacey</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

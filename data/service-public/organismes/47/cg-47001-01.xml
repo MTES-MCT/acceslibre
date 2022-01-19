@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cg-47001-01" codeInsee="47001" dateMiseAJour="2018-04-12" pivotLocal="cg">
+   <Nom>Conseil départemental - Lot-et-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1633 avenue du Général-Leclerc</Ligne>
+      <CodePostal>47000</CodePostal>
+      <NomCommune>Agen</NomCommune>
+      <Localisation>
+         <Latitude>44.192138</Latitude>
+         <Longitude>0.615382</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 69 40 00</Téléphone>
+      <Télécopie>05 53 69 44 94</Télécopie>
+      <Email>departement@lotetgaronne.fr</Email>
+      <Url>http://www.lotetgaronne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61324-01" codeInsee="61324" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Passais Villages</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Passais</Ligne>
+      <Ligne>2 place des Justes</Ligne>
+      <CodePostal>61350</CodePostal>
+      <NomCommune>Passais Villages</NomCommune>
+      <Localisation>
+         <Latitude>48.518514</Latitude>
+         <Longitude>-0.759527</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 38 71 12</Téléphone>
+      <Télécopie>02 33 38 73 17</Télécopie>
+      <Email>accueil-mairie@ccandainepassais.fr</Email>
+      <Url>http://www.passais61.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

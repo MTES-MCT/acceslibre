@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09296-02" codeInsee="09296" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Aulos</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Aulos</Ligne>
+      <Ligne>2 rue du Lavoir</Ligne>
+      <CodePostal>09310</CodePostal>
+      <NomCommune>Aulos-Sinsat</NomCommune>
+      <Localisation>
+         <Latitude>42.79291</Latitude>
+         <Longitude>1.675217</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 64 95 75</Téléphone>
+      <Email>mairie.aulos-sinsat@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

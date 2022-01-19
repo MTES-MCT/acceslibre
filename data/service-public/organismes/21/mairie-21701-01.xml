@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21701-01" codeInsee="21701" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villers-Rotin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue du Tilleul</Ligne>
+      <CodePostal>21130</CodePostal>
+      <NomCommune>Villers-Rotin</NomCommune>
+      <Localisation>
+         <Latitude>47.1569404602</Latitude>
+         <Longitude>5.405564785</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 77 14 84</Téléphone>
+      <Email>mairie.villersrotin@wanadoo.fr</Email>
+      <Url>http://www.commune-villers-rotin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

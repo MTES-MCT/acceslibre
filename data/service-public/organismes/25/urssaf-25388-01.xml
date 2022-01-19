@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="urssaf-25388-01" codeInsee="25388" dateMiseAJour="2021-09-20"
+           pivotLocal="urssaf">
+   <Nom>Urssaf Franche-Comté - site du Doubs - Montbéliard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>3 rue Léon-Blum</Ligne>
+      <CodePostal>25200</CodePostal>
+      <NomCommune>Montbéliard</NomCommune>
+      <Localisation>
+         <Latitude>47.4997188</Latitude>
+         <Longitude>6.801789</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Urssaf - CNTFS Franche-Comté</Ligne>
+      <Ligne>TSA 41037</Ligne>
+      <CodePostal>69833</CodePostal>
+      <NomCommune>Saint-Priest Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 57</Téléphone>
+      <Email>https://www.contact.urssaf.fr</Email>
+      <Url>https://www.urssaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

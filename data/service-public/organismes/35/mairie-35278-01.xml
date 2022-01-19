@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35278-01" codeInsee="35278" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Grégoire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Chateaubriand</Ligne>
+      <Ligne>BP 96232</Ligne>
+      <CodePostal>35762</CodePostal>
+      <NomCommune>Saint-Grégoire Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.1538833</Latitude>
+         <Longitude>-1.6834112</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 23 19 23</Téléphone>
+      <Télécopie>02 99 68 70 32</Télécopie>
+      <Email>direction@saint-gregoire.fr</Email>
+      <Url>http://www.saint-gregoire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement pour les cartes d'identité, les passeports et l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

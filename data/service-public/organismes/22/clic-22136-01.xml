@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-22136-01" codeInsee="22136" dateMiseAJour="2020-01-10"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Loudéac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination</Ligne>
+      <Ligne>Rue de la Chesnaie</Ligne>
+      <CodePostal>22604</CodePostal>
+      <NomCommune>Loudéac Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>48.181007</Latitude>
+         <Longitude>-2.753161</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 28 11 01</Téléphone>
+      <Télécopie>02 96 66 21 31</Télécopie>
+      <Email>clic-loudeac@cotesdarmor.fr</Email>
+      <Url>http://cotesdarmor.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil téléphonique de 8h30 à 12h30 Accueil physique sur rendez-vous</Commentaire>
+</Organisme>

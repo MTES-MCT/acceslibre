@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-97229-01" codeInsee="97229" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Antilles - Martinique - Campus Schoelcher - Direction de l’Orientation des stages et de l’insertion professionnelle (DOSIP) -</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Campus de Schoelcher</Ligne>
+      <Ligne>BP 7004</Ligne>
+      <CodePostal>97275</CodePostal>
+      <NomCommune>Schoelcher</NomCommune>
+      <Localisation>
+         <Latitude>14.62</Latitude>
+         <Longitude>-61.1</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 96 72 73 18</Téléphone>
+      <Email>dosip972@univ-antilles.fr</Email>
+      <Url>http://univ-antilles.fr/services-universitaires/informationorientation</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

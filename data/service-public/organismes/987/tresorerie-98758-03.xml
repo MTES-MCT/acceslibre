@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-98758-03" codeInsee="98758" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie des Iles Sous-le-Vent (TISLV)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Gare maritime d’Uturoa</Ligne>
+      <Ligne>BP 4</Ligne>
+      <CodePostal>98735</CodePostal>
+      <NomCommune>Uturoa Raiatea</NomCommune>
+      <Localisation>
+         <Latitude>-16.730058</Latitude>
+         <Longitude>-151.442008</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>(689) 40 60 22 75</Téléphone>
+      <Télécopie>(689) 40 66 23 61</Télécopie>
+      <Email>t161001@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.polynesie-francaise.pref.gouv.fr/Les-services-de-l-Etat/Finances/Finances-publiques</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:15:00" fin="11:30:00"/>
+         <PlageH début="12:30:00" fin="14:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

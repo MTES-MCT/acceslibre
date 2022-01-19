@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-55009-01" codeInsee="55009" dateMiseAJour="2021-10-28"
+           pivotLocal="msap">
+   <Nom>France Services - Ancemont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Val de Meuse - Voie Sacrée</Ligne>
+      <Ligne>1 bis route de Senoncourt</Ligne>
+      <CodePostal>55320</CodePostal>
+      <NomCommune>Ancemont</NomCommune>
+      <Localisation>
+         <Latitude>49.071636</Latitude>
+         <Longitude>5.395626</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 85 73 90</Téléphone>
+      <Email>contact@valdemeuse.com</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

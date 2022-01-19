@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64212-01" codeInsee="64212" dateMiseAJour="2021-01-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Espéchède</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Clément Bergez</Ligne>
+      <CodePostal>64160</CodePostal>
+      <NomCommune>Espéchède</NomCommune>
+      <Localisation>
+         <Latitude>43.318866</Latitude>
+         <Longitude>-0.187773</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 68 47 41</Téléphone>
+      <Email>mairie.espechede@sfr.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56241-01" codeInsee="56241" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sauzon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Lieutenant-Riou</Ligne>
+      <CodePostal>56360</CodePostal>
+      <NomCommune>Sauzon</NomCommune>
+      <Localisation>
+         <Latitude>47.3711271</Latitude>
+         <Longitude>-3.2233199</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 31 62 79</Téléphone>
+      <Email>mairiedesauzon@wanadoo.fr</Email>
+      <Url>http://www.sauzon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 13h30 à 17h30 sauf le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

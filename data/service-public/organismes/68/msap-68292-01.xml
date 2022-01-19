@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-68292-01" codeInsee="68292" dateMiseAJour="2021-12-07"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Amarin</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 rue Charles de Gaulle</Ligne>
+      <CodePostal>68550</CodePostal>
+      <NomCommune>Saint-Amarin</NomCommune>
+      <Localisation>
+         <Latitude>47.8742</Latitude>
+         <Longitude>7.03067</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 82 62 05</Téléphone>
+      <Email>france.services@ville-saint-amarin.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

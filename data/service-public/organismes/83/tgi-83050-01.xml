@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="83050" dateMiseAJour="2021-12-14" id="tgi-83050-01" idPresta="4cac9e87293594648a004ccf" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Draguignan</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>11 RUE PIERRE CLEMENT</Ligne>
+        <Ligne>BP 273</Ligne>
+        <CodePostal>83007</CodePostal>
+        <NomCommune>DRAGUIGNAN CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>43.536805</Latitude>
+            <Longitude>6.465502</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>11 RUE PIERRE CLEMENT</Ligne>
+        <Ligne>BP 273</Ligne>
+        <CodePostal>83007</CodePostal>
+        <NomCommune>DRAGUIGNAN CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 94 60 57 00</Téléphone>
+        <Télécopie>04 94 47 01 92</Télécopie>
+        <Email>mailto:tj1-draguignan@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

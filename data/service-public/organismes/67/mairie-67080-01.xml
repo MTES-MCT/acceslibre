@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67080-01" codeInsee="67080" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Dachstein</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Principale</Ligne>
+      <CodePostal>67120</CodePostal>
+      <NomCommune>Dachstein</NomCommune>
+      <Localisation>
+         <Latitude>48.5573997498</Latitude>
+         <Longitude>7.53127002716</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 47 90 60</Téléphone>
+      <Télécopie>03 88 47 90 61</Télécopie>
+      <Email>mairie@dachstein.fr</Email>
+      <Url>http://www.dachstein.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-59574-01" codeInsee="59574" dateMiseAJour="2020-08-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Somain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-Jaurès</Ligne>
+      <Ligne>BP 39</Ligne>
+      <CodePostal>59490</CodePostal>
+      <NomCommune>Somain</NomCommune>
+      <Localisation>
+         <Latitude>50.3588981628</Latitude>
+         <Longitude>3.28115010262</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 27 86 93 00</Téléphone>
+      <Télécopie>03 27 86 93 04</Télécopie>
+      <Email>mairie@ville-somain.fr</Email>
+      <Url>http://www.ville-somain.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

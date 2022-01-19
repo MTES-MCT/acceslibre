@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02014-01" codeInsee="02014" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Amigny-Rouy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place André-Moroy</Ligne>
+      <CodePostal>02700</CodePostal>
+      <NomCommune>Amigny-Rouy</NomCommune>
+      <Localisation>
+         <Latitude>49.6086997986</Latitude>
+         <Longitude>3.30328011513</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 52 14 30</Téléphone>
+      <Télécopie>03 23 38 18 17</Télécopie>
+      <Email>mairie.amignyrouy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Permanence du Maire les mardis de 18h30 à 19h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

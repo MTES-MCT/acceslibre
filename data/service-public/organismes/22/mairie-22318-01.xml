@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22318-01" codeInsee="22318" dateMiseAJour="2021-10-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Michel-de-Plélan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue des Terre-Neuvas</Ligne>
+      <CodePostal>22980</CodePostal>
+      <NomCommune>Saint-Michel-de-Plélan</NomCommune>
+      <Localisation>
+         <Latitude>48.465251</Latitude>
+         <Longitude>-2.214403</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 27 04 06</Téléphone>
+      <Email>saint-michel.de.plelan@wanadoo.fr</Email>
+      <Url>https://www.saint-michel-de-plelan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

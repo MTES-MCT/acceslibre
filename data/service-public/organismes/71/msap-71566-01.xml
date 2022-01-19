@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-71566-01" codeInsee="71566" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Verdun-sur-le-Doubs</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté de communes Saône Doubs Bresse</Ligne>
+      <Ligne>16 rue de la République</Ligne>
+      <CodePostal>71350</CodePostal>
+      <NomCommune>Verdun-sur-le-Doubs</NomCommune>
+      <Localisation>
+         <Latitude>46.895658</Latitude>
+         <Longitude>5.024225</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 91 66 16</Téléphone>
+      <Email>ccsaonedoubsbresse@orange.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

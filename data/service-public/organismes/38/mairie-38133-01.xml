@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38133-01" codeInsee="38133" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coublevie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 chemin d'Orgeoise</Ligne>
+      <Ligne>BP 2</Ligne>
+      <CodePostal>38500</CodePostal>
+      <NomCommune>Coublevie</NomCommune>
+      <Localisation>
+         <Latitude>45.355597</Latitude>
+         <Longitude>5.616612</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 05 15 39</Téléphone>
+      <Email>accueil@coublevie.fr</Email>
+      <Url>http://www.coublevie.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le matin, le mardi après-midi pour le service urbanisme et le jeudi après-midi pour le service état civil.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le matin, le mardi après-midi pour le service urbanisme et le jeudi après-midi pour le service état civil.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil ouvert uniquement le matin, le mardi après-midi pour le service urbanisme et le jeudi après-midi pour le service état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

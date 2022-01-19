@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-02408-01" codeInsee="02408" dateMiseAJour="2019-02-22"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Laon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 Place Aubry</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>02011</CodePostal>
+      <NomCommune>Laon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.564928</Latitude>
+         <Longitude>3.624926</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 20 27 01</Téléphone>
+      <Télécopie>03 23 20 43 44</Télécopie>
+      <Url>http://www.avocats-laon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

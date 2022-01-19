@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-22140-01" codeInsee="22140" dateMiseAJour="2021-02-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Malhoure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Landsegal</Ligne>
+      <CodePostal>22640</CodePostal>
+      <NomCommune>La Malhoure</NomCommune>
+      <Localisation>
+         <Latitude>48.397201</Latitude>
+         <Longitude>-2.503119</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 30 05 41</Téléphone>
+      <Email>mairie.la.malhoure@orange.fr</Email>
+      <Url>https://www.lamballe-terre-mer.bzh/accueil/institution/le-territoire/les-38-communes/la-malhoure</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

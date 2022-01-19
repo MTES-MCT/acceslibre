@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62405-01" codeInsee="62405" dateMiseAJour="2016-08-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Hamblain-les-Prés</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place du Général-de-Gaulle</Ligne>
+      <CodePostal>62118</CodePostal>
+      <NomCommune>Hamblain-les-Prés</NomCommune>
+      <Localisation>
+         <Latitude>50.2952003479</Latitude>
+         <Longitude>2.89715003967</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 50 07 37</Téléphone>
+      <Télécopie>03 21 23 61 07</Télécopie>
+      <Email>mairie@hamblainlespres.fr</Email>
+      <Url>http://www.hamblainlespres.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+         <Note>Accueil fermé en juillet-août.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement le jeudi de 17h à 19h en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

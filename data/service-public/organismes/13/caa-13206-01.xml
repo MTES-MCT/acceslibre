@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caa-13206-01" codeInsee="13206" dateMiseAJour="2021-12-22" pivotLocal="caa">
+   <Nom>Cour administrative d'appel - Marseille</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>45 boulevard Paul-Peytral</Ligne>
+      <CodePostal>13291</CodePostal>
+      <NomCommune>Marseille Cedex 06</NomCommune>
+      <Localisation>
+         <Latitude>43.289745</Latitude>
+         <Longitude>5.378775</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 91 04 45 45</Téléphone>
+      <Télécopie>04 91 04 45 00</Télécopie>
+      <Email>greffe.caa-marseille@juradm.fr</Email>
+      <Url>http://www.marseille.cour-administrative-appel.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

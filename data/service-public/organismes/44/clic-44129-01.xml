@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-44129-01" codeInsee="44129" dateMiseAJour="2021-08-05"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Ponchâteau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination au fil de l'âge</Ligne>
+      <Ligne>ZI Le Landas</Ligne>
+      <Ligne>4 allée Denis-Papin</Ligne>
+      <CodePostal>44160</CodePostal>
+      <NomCommune>Pontchâteau</NomCommune>
+      <Localisation>
+         <Latitude>47.4276346</Latitude>
+         <Longitude>-2.0708819</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 40 42 61 93</Téléphone>
+      <Email>clic-ponchateau@orange.fr</Email>
+      <Url>https://www.aidants44.fr/partenaire/clic-au-fil-de-lage/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil physique l'après-midi uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

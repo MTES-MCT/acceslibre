@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61096-02" codeInsee="61096" dateMiseAJour="2018-07-04"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Geneslay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Geneslay</Ligne>
+      <Ligne>4 rue Victor-Vivier</Ligne>
+      <CodePostal>61140</CodePostal>
+      <NomCommune>Rives-d'Andaine</NomCommune>
+      <Localisation>
+         <Latitude>48.5108107</Latitude>
+         <Longitude>-0.4812444</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 38 26 98</Téléphone>
+      <Email>mairie.geneslay@wanadoo.fr</Email>
+      <Url>http://www.rivesdandaine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

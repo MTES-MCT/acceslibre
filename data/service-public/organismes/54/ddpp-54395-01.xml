@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddpp-54395-01" codeInsee="54395" dateMiseAJour="2021-05-05"
+           pivotLocal="ddpp">
+   <Nom>Direction départementale de la protection des populations (DDPP) - Meurthe-et-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 84303</Ligne>
+      <Ligne>45 rue Sainte Catherine</Ligne>
+      <Ligne>Cité administrative Bâtiment P1</Ligne>
+      <CodePostal>54043</CodePostal>
+      <NomCommune>Nancy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.69567</Latitude>
+         <Longitude>6.18704</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Le standard de la DDPP est ouvert du lundi au vendredi de 8h30 à 11h30 et de 13h30 à 16h30.">03 57 29 16 20</Téléphone>
+      <Télécopie>03 57 29 16 60</Télécopie>
+      <Email>ddpp@meurthe-et-moselle.gouv.fr</Email>
+      <Url>https://www.meurthe-et-moselle.gouv.fr/Services-de-l-Etat/Alimentation-Consommation-Commerce-Animaux/Direction-departementale-de-la-protection-des-populations/Direction-departementale-de-la-protection-des-populations</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Permanence consommateur : mardi et jeudi de 13h30 à 16h30</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil du public sur rendez-vous du lundi au vendredi de 9h00 à 11h30 et de 13h30 à 16h30.</Commentaire>
+</Organisme>

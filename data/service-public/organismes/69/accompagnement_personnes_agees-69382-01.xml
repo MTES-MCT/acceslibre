@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-69382-01" codeInsee="69382"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Lyon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accueil de jour Interlude</Ligne>
+      <Ligne>6 A cours Bayard</Ligne>
+      <CodePostal>69002</CodePostal>
+      <NomCommune>Lyon</NomCommune>
+      <Localisation>
+         <Latitude>45.744231</Latitude>
+         <Longitude>4.820281</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 07 61 97</Téléphone>
+      <Email>ssiad3@smdlyon.fr</Email>
+      <Url>http://smdlyon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

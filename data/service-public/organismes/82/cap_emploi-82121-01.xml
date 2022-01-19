@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-82121-01" codeInsee="82121" dateMiseAJour="2021-05-11"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Tarn-et-Garonne et Haute-Garonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 82-31 Nord</Ligne>
+      <Ligne>140 avenue de l'Europe</Ligne>
+      <Ligne>Adiad</Ligne>
+      <CodePostal>82000</CodePostal>
+      <NomCommune>Montauban</NomCommune>
+      <Localisation>
+         <Latitude>43.997592</Latitude>
+         <Longitude>1.336097</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 21 46 00</Téléphone>
+      <Email>contact@capemploi82-31nord.com</Email>
+      <Url>https://www.capemploi-82-31nord.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-32107-01" codeInsee="32107"
+           dateMiseAJour="2019-04-26"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Gers (Condom)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Condom</Ligne>
+      <Ligne>3 place Lannelongue</Ligne>
+      <Ligne>BP 40079</Ligne>
+      <CodePostal>32100</CodePostal>
+      <NomCommune>Condom</NomCommune>
+      <Localisation>
+         <Latitude>43.9584959</Latitude>
+         <Longitude>0.372145</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 61 44 00</Téléphone>
+      <Télécopie>05 62 28 36 46</Télécopie>
+      <Email>sp-condom@gers.gouv.fr</Email>
+      <Url>http://www.gers.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

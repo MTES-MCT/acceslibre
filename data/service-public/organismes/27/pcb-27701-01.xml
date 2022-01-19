@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pcb-27701-01" codeInsee="27701" dateMiseAJour="2021-11-26" pivotLocal="pcb">
+   <Nom>Point conseil budget -  Association Epireuil - Val de Reuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>84 Rue grande place aux jeunes</Ligne>
+      <CodePostal>27100</CodePostal>
+      <NomCommune>Val de Reuil</NomCommune>
+      <Localisation>
+         <Latitude>49.272869</Latitude>
+         <Longitude>1.215545</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 50 57 98</Téléphone>
+      <Email>association.epireuil@orange.fr</Email>
+      <Url>https://associationepireuil.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:00:00" fin="18:00:00"/>
+         <Note>Sur rendez-vous de 09:00 à  12:00 et de 14:00 à 16:00</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+         <Note>Aucun rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="11:00:00" fin="13:00:00"/>
+         <Note>Rendez-vous de 09:00 à 11:00 et de 14:00 à 15:00</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

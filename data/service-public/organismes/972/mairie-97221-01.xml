@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97221-01" codeInsee="97221" dateMiseAJour="2019-05-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rivière-Salée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Morne Costet</Ligne>
+      <Ligne>Quartier Laugier</Ligne>
+      <CodePostal>97215</CodePostal>
+      <NomCommune>Rivière-Salée</NomCommune>
+      <Localisation>
+         <Latitude>14.31267</Latitude>
+         <Longitude>-60.58293</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 68 01 90</Téléphone>
+      <Email>secretariat@mairie-riviere-salee.fr</Email>
+      <Url>https://riviere-salee.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:00:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:00:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

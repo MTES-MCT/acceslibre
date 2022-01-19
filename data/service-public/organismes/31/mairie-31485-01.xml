@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31485-01" codeInsee="31485" dateMiseAJour="2021-11-30"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Germier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 place des Acacias</Ligne>
+      <CodePostal>31290</CodePostal>
+      <NomCommune>Saint-Germier</NomCommune>
+      <Localisation>
+         <Latitude>43.47011</Latitude>
+         <Longitude>1.732246</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette, un agent se déplacera pour recevoir l'usager, contacter la mairie avant de vous déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 83 16 28</Téléphone>
+      <Email>mairie-saint-germier@orange.fr</Email>
+      <Url>https://saintgermier31.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

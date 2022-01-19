@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-59183-02" codeInsee="59183" dateMiseAJour="2019-01-08"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Dunkerque - Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue l'Hermitte</Ligne>
+      <Ligne>BP 86368</Ligne>
+      <CodePostal>59385</CodePostal>
+      <NomCommune>Dunkerque Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>51.040552</Latitude>
+         <Longitude>2.374945</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 07 94</Téléphone>
+      <Télécopie>03 28 63 44 58</Télécopie>
+      <Email>r-dunkerque-port@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

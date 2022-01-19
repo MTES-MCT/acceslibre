@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27476-01" codeInsee="27476" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Les Préaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1556 route de Lisieux</Ligne>
+      <CodePostal>27500</CodePostal>
+      <NomCommune>Les Préaux</NomCommune>
+      <Localisation>
+         <Latitude>49.326761</Latitude>
+         <Longitude>0.4934425</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 42 11 16</Téléphone>
+      <Email>les-preaux@wanadoo.fr</Email>
+      <Url>http://www.lespreaux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert sur rendez vous uniquement le 1e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

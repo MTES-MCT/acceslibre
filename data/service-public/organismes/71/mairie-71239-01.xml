@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71239-01" codeInsee="71239" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Issy-l'Évêque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 A rue des Fossés</Ligne>
+      <CodePostal>71760</CodePostal>
+      <NomCommune>Issy-l'Évêque</NomCommune>
+      <Localisation>
+         <Latitude>46.7089996338</Latitude>
+         <Longitude>3.97315001488</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 24 90 72</Téléphone>
+      <Télécopie>03 85 24 92 70</Télécopie>
+      <Email>mairie@issyleveque.com</Email>
+      <Url>http://www.issyleveque.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

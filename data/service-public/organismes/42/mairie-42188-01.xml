@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42188-01" codeInsee="42188" dateMiseAJour="2020-05-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Roche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>141 rue Antoine-Lugnier</Ligne>
+      <CodePostal>42600</CodePostal>
+      <NomCommune>Roche</NomCommune>
+      <Localisation>
+         <Latitude>45.61453</Latitude>
+         <Longitude>3.948172</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 76 24 31</Téléphone>
+      <Email>mairieroche42@orange.fr</Email>
+      <Url>http://www.mairie-roche-loire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

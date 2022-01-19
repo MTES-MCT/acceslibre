@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-77145-01" codeInsee="77145" dateMiseAJour="2020-07-02"
+           pivotLocal="mairie">
+   <Nom>Mairie - Crisenoy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 rue des Noyers</Ligne>
+      <CodePostal>77390</CodePostal>
+      <NomCommune>Crisenoy</NomCommune>
+      <Localisation>
+         <Latitude>48.595695</Latitude>
+         <Longitude>2.740479</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 38 83 22</Téléphone>
+      <Télécopie>01 64 38 86 27</Télécopie>
+      <Email>mairiedecrisenoy@wanadoo.fr</Email>
+      <Url>http://www.crisenoy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour la permanence des élus.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Tous les services sont maintenus le lundi : par téléphone ou par mail</Commentaire>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-24376-01" codeInsee="24376" dateMiseAJour="2021-05-10"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie de Saint-Aulaye - La Roche-Chalais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue du Docteur-Pierre-Rousseau</Ligne>
+      <CodePostal>24410</CodePostal>
+      <NomCommune>Saint-Aulaye</NomCommune>
+      <Localisation>
+         <Latitude>45.2021165</Latitude>
+         <Longitude>0.131218</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 90 80 38</Téléphone>
+      <Email>t024030@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:20:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Sans rendez-vous de 9h à 12h20 et uniquement sur rendez-vous de 13h30 à 15h30</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:20:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Sans rendez-vous de 9h à 12h20 et uniquement sur rendez-vous de 13h30 à 15h30</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

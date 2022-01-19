@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-91339-01" codeInsee="91339" dateMiseAJour="2018-05-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Linas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Ernest-Pillon</Ligne>
+      <CodePostal>91310</CodePostal>
+      <NomCommune>Linas</NomCommune>
+      <Localisation>
+         <Latitude>48.6315234</Latitude>
+         <Longitude>2.2664499</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 80 14 00</Téléphone>
+      <Télécopie>01 69 01 77 88</Télécopie>
+      <Email>mairie@linas.fr</Email>
+      <Url>http://www.linas.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Ouvert uniquement pour une permanence.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="19:00:00"/>
+         <Note>De 18h à 19h uniquement pour un service minimum.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

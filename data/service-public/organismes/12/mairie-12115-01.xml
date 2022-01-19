@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12115-01" codeInsee="12115" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Hospitalet-du-Larzac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 Grand'rue</Ligne>
+      <CodePostal>12230</CodePostal>
+      <NomCommune>L'Hospitalet-du-Larzac</NomCommune>
+      <Localisation>
+         <Latitude>43.9731292</Latitude>
+         <Longitude>3.1954429</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 62 71 01</Téléphone>
+      <Email>mairie-lhospitaletdularzac@orange.fr</Email>
+      <Url>http://www.lhospitaletdularzac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

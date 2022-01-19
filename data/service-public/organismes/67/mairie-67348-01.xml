@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67348-01" codeInsee="67348" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Obernai</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Marché</Ligne>
+      <Ligne>CS 80205</Ligne>
+      <CodePostal>67213</CodePostal>
+      <NomCommune>Obernai Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4619988</Latitude>
+         <Longitude>7.4824106</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 49 95 95</Téléphone>
+      <Télécopie>03 88 49 90 83</Télécopie>
+      <Email>info@obernai.fr</Email>
+      <Url>http://www.obernai.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

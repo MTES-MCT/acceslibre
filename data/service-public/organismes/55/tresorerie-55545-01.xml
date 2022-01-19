@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-55545-01" codeInsee="55545" dateMiseAJour="2021-07-23"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Verdun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Roland-Dorgeles</Ligne>
+      <Ligne>BP 10730</Ligne>
+      <CodePostal>55107</CodePostal>
+      <NomCommune>Verdun Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1642542</Latitude>
+         <Longitude>5.3835383</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 83 46 00</Téléphone>
+      <Email>sgc.verdun@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Appels téléphoniques du lundi au vendredi de 8h30 à 12h et de 13h30 à 16h</Commentaire>
+</Organisme>

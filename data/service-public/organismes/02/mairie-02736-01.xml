@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02736-01" codeInsee="02736" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tartiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Jean-Favre</Ligne>
+      <CodePostal>02290</CodePostal>
+      <NomCommune>Tartiers</NomCommune>
+      <Localisation>
+         <Latitude>49.4341545105</Latitude>
+         <Longitude>3.23873710632</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 55 30 73</Téléphone>
+      <Email>mairie.tartiers@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

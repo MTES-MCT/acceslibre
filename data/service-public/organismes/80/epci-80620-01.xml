@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-80620-01" codeInsee="80620" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - La Haute Somme Combles Péronne Roisel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 avenue de l'Europe</Ligne>
+      <Ligne>BP 80051</Ligne>
+      <CodePostal>80201</CodePostal>
+      <NomCommune>Péronne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.9328811004</Latitude>
+         <Longitude>2.93300628662</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 84 27 51</Téléphone>
+      <Télécopie>03 22 84 60 92</Télécopie>
+      <Email>cchs@cchs.fr</Email>
+      <Url>http://www.coeurhautesomme.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-40307-01" codeInsee="40307" dateMiseAJour="2020-12-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Sore</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>34 place de la République</Ligne>
+      <CodePostal>40430</CodePostal>
+      <NomCommune>Sore</NomCommune>
+      <Localisation>
+         <Latitude>44.323078</Latitude>
+         <Longitude>-0.581212</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.sore@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/sore-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

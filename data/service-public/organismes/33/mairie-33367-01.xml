@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33367-01" codeInsee="33367" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-André-du-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>36 le Bourg-Sud</Ligne>
+      <CodePostal>33490</CodePostal>
+      <NomCommune>Saint-André-du-Bois</NomCommune>
+      <Localisation>
+         <Latitude>44.6044337</Latitude>
+         <Longitude>-0.1837442</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 76 40 48</Téléphone>
+      <Télécopie>05 56 76 43 08</Télécopie>
+      <Email>mairie.saint.andredubois@wanadoo.fr</Email>
+      <Url>http://www.saintandredubois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

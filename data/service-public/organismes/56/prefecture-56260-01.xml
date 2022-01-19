@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture-56260-01" codeInsee="56260" dateMiseAJour="2021-02-24"
+           pivotLocal="prefecture">
+   <Nom>Préfecture - Morbihan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>24, place de la République</Ligne>
+      <CodePostal>56000</CodePostal>
+      <NomCommune>Vannes</NomCommune>
+      <Localisation>
+         <Latitude>47.6557441</Latitude>
+         <Longitude>-2.7615166</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Préfecture du Morbihan</Ligne>
+      <Ligne>BP 501</Ligne>
+      <CodePostal>56019</CodePostal>
+      <NomCommune>Vannes Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 54 84 00</Téléphone>
+      <Télécopie>+33 2 97 42 59 45</Télécopie>
+      <Url>http://www.morbihan.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

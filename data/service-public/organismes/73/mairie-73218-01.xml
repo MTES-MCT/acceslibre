@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73218-01" codeInsee="73218" dateMiseAJour="2021-10-01"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ruffieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>102 rue de la Mairie</Ligne>
+      <CodePostal>73310</CodePostal>
+      <NomCommune>Ruffieux</NomCommune>
+      <Localisation>
+         <Latitude>45.848174</Latitude>
+         <Longitude>5.843323</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 54 27 35</Téléphone>
+      <Télécopie>04 79 54 52 61</Télécopie>
+      <Email>mairie@ruffieux73.fr</Email>
+      <Url>http://www.ruffieux73.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines paires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

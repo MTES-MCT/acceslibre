@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-17381-01" codeInsee="17381" dateMiseAJour="2018-09-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Pardoult</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 les Basses-Rues</Ligne>
+      <CodePostal>17400</CodePostal>
+      <NomCommune>Saint-Pardoult</NomCommune>
+      <Localisation>
+         <Latitude>45.997272</Latitude>
+         <Longitude>-0.450478</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 59 98 68</Téléphone>
+      <Télécopie>05 46 24 04 03</Télécopie>
+      <Email>mairie@saintpardoult.fr</Email>
+      <Url>http://www.saintpardoult.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil fermé du 06 août 2018 au 17 août 2018 inclus.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

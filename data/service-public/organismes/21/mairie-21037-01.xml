@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21037-01" codeInsee="21037" dateMiseAJour="2021-03-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auxey-Duresses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue du Dessous</Ligne>
+      <CodePostal>21190</CodePostal>
+      <NomCommune>Auxey-Duresses</NomCommune>
+      <Localisation>
+         <Latitude>46.986277</Latitude>
+         <Longitude>4.748303</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 21 20 51</Téléphone>
+      <Télécopie>03 80 21 20 51</Télécopie>
+      <Email>mairieauxeyduresses@wanadoo.fr</Email>
+      <Url>https://auxeyduresses.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

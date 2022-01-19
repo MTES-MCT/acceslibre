@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-52448-01" codeInsee="52448"
+           dateMiseAJour="2020-06-10"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Saint-Dizier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue du Brigadier-Albert</Ligne>
+      <Ligne>CS 80125</Ligne>
+      <CodePostal>52115</CodePostal>
+      <NomCommune>Saint-Dizier Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.6398010254</Latitude>
+         <Longitude>4.96223020554</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 96 98 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:45:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 8h30 à 12h et de 13h30 à 16h.Pendant la crise sanitaire accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil l'après midi uniquement sur rendez-vous.Pendant la crise sanitaire accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Pendant la crise sanitaire accueil uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le public est reçu au service des impôts des particuliers à cette adresse, les professionnels sont reçus à Chaumont, Cité Administrative 89, rue Victoire-de-la-Marne.</Commentaire>
+</Organisme>

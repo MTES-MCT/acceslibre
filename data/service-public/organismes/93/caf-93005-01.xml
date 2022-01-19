@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-93005-01" codeInsee="93005" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Seine-Saint-Denis - accueil d'Aulnay-sous-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>134 rue Jacques-Duclos</Ligne>
+      <CodePostal>93600</CodePostal>
+      <NomCommune>Aulnay-sous-Bois</NomCommune>
+      <Localisation>
+         <Latitude>48.9452121</Latitude>
+         <Longitude>2.4949426</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">accueil accessible aux personnes à mobilité réduite, accueil en langue des signes pour les personnes malentendantes uniquement sur rendez-vous à l'accueil de Rosny-sous-Bois</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Seine-Saint-Denis</Ligne>
+      <CodePostal>93024</CodePostal>
+      <NomCommune>Bobigny Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+         <Note>Espace numérique en libre accès, accompagnement pour vos démarches numérique, accueil par un conseiller de la Caf uniquement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous le jeudi.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+         <Note>Espace numérique en libre accès, accompagnement pour vos démarches numérique, accueil par un conseiller de la Caf uniquement sur rendez-vous, accueil téléphonique du lundi au vendredi de 9h à 16h30 sans interruption.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

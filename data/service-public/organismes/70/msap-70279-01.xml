@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-70279-01" codeInsee="70279" dateMiseAJour="2020-10-05"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Gray</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de lorraine</Ligne>
+      <Ligne>Toi services</Ligne>
+      <CodePostal>70100</CodePostal>
+      <NomCommune>Gray</NomCommune>
+      <Localisation>
+         <Latitude>47.430588</Latitude>
+         <Longitude>5.591941</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 32 41 29</Téléphone>
+      <Email>toiservices@ville-gray.fr</Email>
+      <Url>http://www.gray.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

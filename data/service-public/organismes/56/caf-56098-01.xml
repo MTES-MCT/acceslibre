@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-56098-01" codeInsee="56098" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Morbihan - accueil de Lanester</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>58-60 avenue Kesler-Devillers</Ligne>
+      <CodePostal>56600</CodePostal>
+      <NomCommune>Lanester</NomCommune>
+      <Localisation>
+         <Latitude>47.7682991028</Latitude>
+         <Longitude>-3.34331011772</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Morbihan</Ligne>
+      <Ligne>70 rue de Sainte-Anne</Ligne>
+      <Ligne>BP 322</Ligne>
+      <CodePostal>56018</CodePostal>
+      <NomCommune>Vannes Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous, accueil temporairement fermé en raison du contexte sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

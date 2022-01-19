@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02570-01" codeInsee="02570" dateMiseAJour="2018-02-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ollezy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue des Mulquiniers</Ligne>
+      <CodePostal>02480</CodePostal>
+      <NomCommune>Ollezy</NomCommune>
+      <Localisation>
+         <Latitude>49.734527</Latitude>
+         <Longitude>3.143714</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 09 94 66</Téléphone>
+      <Email>Mairie.ollezy@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

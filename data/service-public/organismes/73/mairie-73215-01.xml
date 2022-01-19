@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73215-01" codeInsee="73215" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Valgelon-La Rochette</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>La Rochette</Ligne>
+      <Ligne>1 place Albert-Rey</Ligne>
+      <CodePostal>73110</CodePostal>
+      <NomCommune>Valgelon-La Rochette</NomCommune>
+      <Localisation>
+         <Latitude>45.456689</Latitude>
+         <Longitude>6.116313</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 25 50 32</Téléphone>
+      <Télécopie>04 79 25 78 25</Télécopie>
+      <Email>mairie@mairievalgelon-la-rochette.com</Email>
+      <Url>http://www.valgelon-la-rochette.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73285-01" codeInsee="73285" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Séez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Saint-Jean-Baptiste</Ligne>
+      <CodePostal>73700</CodePostal>
+      <NomCommune>Séez</NomCommune>
+      <Localisation>
+         <Latitude>45.623154</Latitude>
+         <Longitude>6.80008</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 41 00 54</Téléphone>
+      <Télécopie>04 79 41 02 70</Télécopie>
+      <Email>administratif@seez.fr</Email>
+      <Url>http://www.seez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

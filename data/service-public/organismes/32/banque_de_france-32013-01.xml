@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="banque_de_france-32013-01" codeInsee="32013" dateMiseAJour="2021-08-23"
+           pivotLocal="banque_de_france">
+   <Nom>Banque de France - Succursale départementale Gers - Auch</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>44 rue Victor Hugo</Ligne>
+      <Ligne>CS 30201</Ligne>
+      <CodePostal>32004</CodePostal>
+      <NomCommune>Auch Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.65026</Latitude>
+         <Longitude>0.57914</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 61 90 60</Téléphone>
+      <Url>https://accueil.banque-france.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Sur rendez-vous : au 05 62 61 90 61 ou en ligne sur https://accueil.banque-france.fr</Commentaire>
+</Organisme>

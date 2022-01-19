@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-83050-01" codeInsee="83050" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Draguignan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Claude-Gay</Ligne>
+      <CodePostal>83300</CodePostal>
+      <NomCommune>Draguignan</NomCommune>
+      <Localisation>
+         <Latitude>43.5391623</Latitude>
+         <Longitude>6.4630878</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">en cours</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 68 27 00</Téléphone>
+      <Email>bij@ville-draguignan.fr</Email>
+      <Url>https://www.ville-draguignan.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cci-2B134-01" codeInsee="2B134" dateMiseAJour="2021-07-27" pivotLocal="cci">
+   <Nom>Chambre de commerce et d'industrie (CCI) 20 - Haute-Corse - Antenne de L'Ile Rousse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Gare Maritime</Ligne>
+      <Ligne>Port de commerce</Ligne>
+      <Ligne>Route du Port</Ligne>
+      <CodePostal>20220</CodePostal>
+      <NomCommune>L'Ile Rousse</NomCommune>
+      <Localisation>
+         <Latitude>42.641605</Latitude>
+         <Longitude>8.936875</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04.95.55.25.45</Téléphone>
+      <Email>contact@ccihc.fr</Email>
+      <Url>http://www.ccihc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="76540" dateMiseAJour="2021-12-14" id="prudhommes-76540-01" idPresta="4cac9e6a293594648a001704" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Rouen</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 PLACE DE LA MADELEINE</Ligne>
+        <CodePostal>76000</CodePostal>
+        <NomCommune>ROUEN</NomCommune>
+        <Localisation>
+            <Latitude>49.445549</Latitude>
+            <Longitude>1.078998</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 PLACE DE LA MADELEINE</Ligne>
+        <CodePostal>76000</CodePostal>
+        <NomCommune>ROUEN</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 35 07 94 50</Téléphone>
+        <Télécopie>02 35 89 91 69</Télécopie>
+        <Email>mailto:cph-rouen@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

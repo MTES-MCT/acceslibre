@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-97415-02" codeInsee="97415" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Paul</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission intercommunale de l'ouest</Ligne>
+      <Ligne>65 rue Kovil-Savannah</Ligne>
+      <Ligne>BP 90149</Ligne>
+      <CodePostal>97861</CodePostal>
+      <NomCommune>Saint-Paul Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.98242</Latitude>
+         <Longitude>55.2947205</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 45 39 60</Téléphone>
+      <Télécopie>+262 2 62 45 39 79</Télécopie>
+      <Email>mio.saintpaul@mio.re</Email>
+      <Url>http://www.mio.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

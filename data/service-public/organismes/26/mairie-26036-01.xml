@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-26036-01" codeInsee="26036" dateMiseAJour="2021-11-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaumont-en-Diois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Village</Ligne>
+      <CodePostal>26310</CodePostal>
+      <NomCommune>Beaumont-en-Diois</NomCommune>
+      <Localisation>
+         <Latitude>44.570326</Latitude>
+         <Longitude>5.472958</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">une salle est mise en place à cet effet</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 21 38 05</Téléphone>
+      <Email>mairiebeaumontdiois@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Sans rendez-vous de 9h30 à 12h et sur rendez-vous de 13h30 à 16h30. Permanence des élus uniquement de 13h30 à 16h30</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+         <Note>Sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80792-01" codeInsee="80792" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Vicogne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Vallée</Ligne>
+      <CodePostal>80260</CodePostal>
+      <NomCommune>La Vicogne</NomCommune>
+      <Localisation>
+         <Latitude>50.0974998474</Latitude>
+         <Longitude>2.33341002464</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 93 41 69</Téléphone>
+      <Email>mairie.lavicogne@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

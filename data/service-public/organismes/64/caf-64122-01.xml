@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-64122-01" codeInsee="64122" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) des Pyrénées-Atlantiques - accueil de Biarritz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Centre communal d'action sociale</Ligne>
+      <Ligne>Square d'Ixelles</Ligne>
+      <CodePostal>64200</CodePostal>
+      <NomCommune>Biarritz</NomCommune>
+      <Localisation>
+         <Latitude>43.4832701</Latitude>
+         <Longitude>-1.5574288</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales des Pyrénées-Atlantiques</Ligne>
+      <Ligne>10 avenue du Maréchal-Foch</Ligne>
+      <Ligne>CS 70602</Ligne>
+      <CodePostal>64106</CodePostal>
+      <NomCommune>Bayonne Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement, accueil téléphonique lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

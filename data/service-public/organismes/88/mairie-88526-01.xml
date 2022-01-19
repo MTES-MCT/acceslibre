@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88526-01" codeInsee="88526" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Wisembach</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place François-Vaxelaire</Ligne>
+      <CodePostal>88520</CodePostal>
+      <NomCommune>Wisembach</NomCommune>
+      <Localisation>
+         <Latitude>48.2573013306</Latitude>
+         <Longitude>7.10449981689</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 51 73 01</Téléphone>
+      <Télécopie>03 29 52 95 17</Télécopie>
+      <Email>mairie-wisembach@orange.fr</Email>
+      <Url>http://www.wisembach.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

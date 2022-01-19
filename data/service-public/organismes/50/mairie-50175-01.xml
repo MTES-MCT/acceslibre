@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50175-01" codeInsee="50175" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Éroudeville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue de l'Église</Ligne>
+      <CodePostal>50310</CodePostal>
+      <NomCommune>Éroudeville</NomCommune>
+      <Localisation>
+         <Latitude>49.476600647</Latitude>
+         <Longitude>-1.38979005814</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 21 56 98</Téléphone>
+      <Email>mairie.eroudeville@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:15:00" fin="11:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

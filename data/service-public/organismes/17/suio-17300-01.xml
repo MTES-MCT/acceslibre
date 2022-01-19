@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-17300-01" codeInsee="17300" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université La Rochelle - pôle orientation</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 Passage Jacqueline de Romilly</Ligne>
+      <CodePostal>17000</CodePostal>
+      <NomCommune>La Rochelle</NomCommune>
+      <Localisation>
+         <Latitude>46.1519444</Latitude>
+         <Longitude>-1.1539106</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>23 avenue Albert Einstein</Ligne>
+      <Ligne>BP 33060</Ligne>
+      <CodePostal>17031</CodePostal>
+      <NomCommune>La Rochelle</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 45 83 37</Téléphone>
+      <Email>https://www.univ-larochelle.fr/contact/?contact=33</Email>
+      <Url>https://www.univ-larochelle.fr/orientation-et-insertion/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

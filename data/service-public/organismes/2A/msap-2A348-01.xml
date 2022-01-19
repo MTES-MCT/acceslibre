@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-2A348-01" codeInsee="2A348" dateMiseAJour="2020-11-19"
+           pivotLocal="msap">
+   <Nom>France Services - Vico</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de Poste</Ligne>
+      <Ligne>Cours Jean Etienne Colonna</Ligne>
+      <CodePostal>20160</CodePostal>
+      <NomCommune>Vico</NomCommune>
+      <Localisation>
+         <Latitude>42.167167</Latitude>
+         <Longitude>8.801391</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 26 26 52</Téléphone>
+      <Email>vico@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

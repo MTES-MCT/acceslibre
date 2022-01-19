@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-17434-01" codeInsee="17434" dateMiseAJour="2021-11-30"
+           pivotLocal="msap">
+   <Nom>France Services - Surgères</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Square du Château</Ligne>
+      <Ligne>Maison de l'emploi</Ligne>
+      <CodePostal>17700</CodePostal>
+      <NomCommune>Surgères</NomCommune>
+      <Localisation>
+         <Latitude>46.104914</Latitude>
+         <Longitude>-0.750532</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 07 51 66</Téléphone>
+      <Email>surgeres@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="10:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

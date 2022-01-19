@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39547-01" codeInsee="39547" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vaux-lès-Saint-Claude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>589 route de la Vallée</Ligne>
+      <CodePostal>39360</CodePostal>
+      <NomCommune>Vaux-lès-Saint-Claude</NomCommune>
+      <Localisation>
+         <Latitude>46.358282</Latitude>
+         <Longitude>5.734721</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 42 42 25</Téléphone>
+      <Télécopie>03 84 42 41 42</Télécopie>
+      <Email>mairie-de-vaux-les-saint-claude@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

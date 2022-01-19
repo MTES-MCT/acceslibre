@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="29019" dateMiseAJour="2021-12-14" id="prudhommes-29019-01" idPresta="4cac9e5f293594648a00023b" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Brest</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>150 RUE ERNEST HEMINGWAY</Ligne>
+        <CodePostal>29218</CodePostal>
+        <NomCommune>BREST CEDEX 2</NomCommune>
+        <Localisation>
+            <Latitude>48.385528</Latitude>
+            <Longitude>-4.478074</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>150 RUE ERNEST HEMINGWAY</Ligne>
+        <CodePostal>29218</CodePostal>
+        <NomCommune>BREST CEDEX 2</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 98 20 75 10</Téléphone>
+        <Télécopie>02 98 46 76 29</Télécopie>
+        <Email>mailto:cph-brest@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

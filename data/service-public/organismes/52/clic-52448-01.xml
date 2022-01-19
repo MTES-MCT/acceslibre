@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-52448-01" codeInsee="52448" dateMiseAJour="2019-12-31"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Saint-Dizier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Coordination gérontologique arrondissement nord</Ligne>
+      <Ligne>2 rue Godard-Jeanson</Ligne>
+      <CodePostal>52100</CodePostal>
+      <NomCommune>Saint-Dizier</NomCommune>
+      <Localisation>
+         <Latitude>48.6320194</Latitude>
+         <Longitude>4.95365649</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 04 19 19</Téléphone>
+      <Télécopie>03 25 04 91 64</Télécopie>
+      <Email>florence.puyssegur@haute-marne.fr</Email>
+      <Url>http://www.haute-marne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

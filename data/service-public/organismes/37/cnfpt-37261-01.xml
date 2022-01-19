@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cnfpt-37261-01" codeInsee="37261" dateMiseAJour="2021-06-07"
+           pivotLocal="cnfpt">
+   <Nom>Centre national de la fonction publique territoriale (CNFPT) - Antenne départementale - Indre-et-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>28 avenue Portalis</Ligne>
+      <Ligne>BP 641</Ligne>
+      <CodePostal>37206</CodePostal>
+      <NomCommune>Tours Cedex 3</NomCommune>
+      <Localisation>
+         <Latitude>47.3678016663</Latitude>
+         <Longitude>0.684746980667</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 78 94 94</Téléphone>
+      <Email>indreetloire@cnfpt.fr</Email>
+      <Url>http://www.cnfpt.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

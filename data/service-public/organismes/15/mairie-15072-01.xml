@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-15072-01" codeInsee="15072" dateMiseAJour="2019-07-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Freix-Anglards</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8, rue des forges</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>15310</CodePostal>
+      <NomCommune>Freix-Anglards</NomCommune>
+      <Localisation>
+         <Latitude>45.0215454102</Latitude>
+         <Longitude>2.38662099838</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 46 66 53</Téléphone>
+      <Télécopie>09 70 62 60 86</Télécopie>
+      <Email>freixanglards.mairie@wanadoo.fr</Email>
+      <Url>http://www.freix-anglards.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanences de Monsieur le Maire : Lundi de 16h à 18h et sur Rendez-vous</Commentaire>
+</Organisme>

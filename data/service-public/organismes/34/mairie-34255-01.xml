@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34255-01" codeInsee="34255" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Gély-du-Fesc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>216 rue Fontgrande</Ligne>
+      <Ligne>BP 2</Ligne>
+      <CodePostal>34980</CodePostal>
+      <NomCommune>Saint-Gély-du-Fesc Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>43.6912994385</Latitude>
+         <Longitude>3.80428004265</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 66 86 00</Téléphone>
+      <Email>mairie@saintgelydufesc.com</Email>
+      <Url>http://www.saintgelydufesc.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

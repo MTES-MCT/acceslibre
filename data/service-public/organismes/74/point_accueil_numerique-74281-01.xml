@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-74281-01" codeInsee="74281"
+           dateMiseAJour="2021-03-08"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Thonon-les-Bains (Sous-préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue Vallon</Ligne>
+      <Ligne>Sous-préfecture</Ligne>
+      <CodePostal>74200</CodePostal>
+      <NomCommune>Thonon-les-Bains Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.3724779</Latitude>
+         <Longitude>6.4767937</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 71 00 20</Téléphone>
+      <Email>sp-thonon@haute-savoie.gouv.fr</Email>
+      <Url>http://www.haute.savoie.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-56107-01" codeInsee="56107" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Larmor-Plage</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue des Quatre-Frères-LeRoy-Queret</Ligne>
+      <Ligne>BP 12</Ligne>
+      <CodePostal>56260</CodePostal>
+      <NomCommune>Larmor-Plage</NomCommune>
+      <Localisation>
+         <Latitude>47.7064323425</Latitude>
+         <Longitude>-3.38333296776</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 84 26 26</Téléphone>
+      <Télécopie>02 97 84 26 27</Télécopie>
+      <Email>mairie@larmor-plage.com</Email>
+      <Url>http://www.larmor-plage.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="11:45:00"/>
+         <PlageH début="13:15:00" fin="16:45:00"/>
+         <Note>Accueil ouvert de 8h15 à 11h50 et de 13h15 à 16h50.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement pour les urgences et l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

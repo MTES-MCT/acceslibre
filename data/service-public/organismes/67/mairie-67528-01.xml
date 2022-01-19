@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67528-01" codeInsee="67528" dateMiseAJour="2017-03-31"
+           pivotLocal="mairie">
+   <Nom>Mairie - Weyer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de l’Église</Ligne>
+      <CodePostal>67320</CodePostal>
+      <NomCommune>Weyer</NomCommune>
+      <Localisation>
+         <Latitude>48.8549895</Latitude>
+         <Longitude>7.1595249</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 00 62 34</Téléphone>
+      <Email>mairie.weyer@gmail.com</Email>
+      <Url>http://weyer.alsace.free.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

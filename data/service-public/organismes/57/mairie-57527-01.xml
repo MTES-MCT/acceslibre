@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57527-01" codeInsee="57527" dateMiseAJour="2020-06-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - Orny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Principale</Ligne>
+      <CodePostal>57420</CodePostal>
+      <NomCommune>Orny</NomCommune>
+      <Localisation>
+         <Latitude>49.022701</Latitude>
+         <Longitude>6.244615</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 52 40 49</Téléphone>
+      <Email>commune.orny@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:00:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

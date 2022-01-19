@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-85146-01" codeInsee="85146" dateMiseAJour="2020-02-04"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Montaigu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 Esplanade de Verdun</Ligne>
+      <Ligne>Maison de la solidarité et de la famille</Ligne>
+      <CodePostal>85600</CodePostal>
+      <NomCommune>Montaigu</NomCommune>
+      <Localisation>
+         <Latitude>46.981958</Latitude>
+         <Longitude>-1.30607</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 28 85 75 75</Téléphone>
+      <Email>clic.guidage@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

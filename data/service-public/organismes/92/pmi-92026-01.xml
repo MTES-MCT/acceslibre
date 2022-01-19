@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-92026-01" codeInsee="92026" dateMiseAJour="2021-04-20" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Courbevoie - Capitaine-Guynemer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>56 rue du Capitaine Guynemer</Ligne>
+      <CodePostal>92400</CodePostal>
+      <NomCommune>Courbevoie</NomCommune>
+      <Localisation>
+         <Latitude>48.8961982</Latitude>
+         <Longitude>2.2445199</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>08 06 00 00 92</Téléphone>
+      <Url>https://www.ville-courbevoie.fr/49/protection-maternelle-et-infantile-pmi.htm</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-30212-01" codeInsee="30212" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Pont du Gard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 bis avenue du Pont-du-Gard</Ligne>
+      <CodePostal>30210</CodePostal>
+      <NomCommune>Remoulins</NomCommune>
+      <Localisation>
+         <Latitude>43.937805</Latitude>
+         <Longitude>4.554798</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 37 67 67</Téléphone>
+      <Email>contact@cc-pontdugard.fr</Email>
+      <Url>http://www.cc-pontdugard.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

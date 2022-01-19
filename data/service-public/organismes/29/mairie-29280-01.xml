@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29280-01" codeInsee="29280" dateMiseAJour="2021-08-18"
+           pivotLocal="mairie">
+   <Nom>Mairie - Telgruc-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Ménez-Hom</Ligne>
+      <CodePostal>29560</CodePostal>
+      <NomCommune>Telgruc-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>48.2314987183</Latitude>
+         <Longitude>-4.34718990326</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 27 73 65</Téléphone>
+      <Télécopie>02 98 27 79 26</Télécopie>
+      <Email>mairie@telgruc-sur-mer.bzh</Email>
+      <Url>http://www.mairie-telgruc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ddpp-29232-01" codeInsee="29232" dateMiseAJour="2021-04-09"
+           pivotLocal="ddpp">
+   <Nom>Direction départementale de la protection des populations (DDPP) - Finistère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de Kérivoal</Ligne>
+      <CodePostal>29334</CodePostal>
+      <NomCommune>Quimper Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.006998</Latitude>
+         <Longitude>-4.109501</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 64 36 36</Téléphone>
+      <Télécopie>02 98 95 81 33</Télécopie>
+      <Email>ddpp@finistere.gouv.fr</Email>
+      <Url>https://www.finistere.gouv.fr/Services-de-l-Etat/Consommation-alimentation-animaux/Direction-Departementale-de-la-Protection-des-Populations-DDPP/Direction-departementale-de-la-protection-des-populations-DDPP</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="16:00:00"/>
+         <Note>les horaires du vendredi s'appliquent  les veilles de jours fériés</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

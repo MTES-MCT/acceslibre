@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57473-01" codeInsee="57473" dateMiseAJour="2018-06-22"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moncourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>20 rue Principale</Ligne>
+      <CodePostal>57810</CodePostal>
+      <NomCommune>Moncourt</NomCommune>
+      <Localisation>
+         <Latitude>48.7248001099</Latitude>
+         <Longitude>6.71648979187</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 86 73 60</Téléphone>
+      <Télécopie>03 87 86 73 60</Télécopie>
+      <Email>mairie.moncourt@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

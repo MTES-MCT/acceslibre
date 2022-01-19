@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-40088-01" codeInsee="40088" dateMiseAJour="2021-05-07"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Landes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 40-64 Pays Basque</Ligne>
+      <Ligne>55 rue d'Aspremont</Ligne>
+      <Ligne>Dephie</Ligne>
+      <CodePostal>40100</CodePostal>
+      <NomCommune>Dax</NomCommune>
+      <Localisation>
+         <Latitude>43.697776</Latitude>
+         <Longitude>-1.037332</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 56 18 58</Téléphone>
+      <Email>contact@capemploi40-64pb.com</Email>
+      <Url>https://www.capemploi-40-64pb.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

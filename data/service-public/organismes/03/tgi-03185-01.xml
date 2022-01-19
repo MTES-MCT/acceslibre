@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="03185" dateMiseAJour="2021-12-14" id="tgi-03185-01" idPresta="4cac9ed7293594648a00edf7" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Montluçon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>114 BOULEVARD DE COURTAIS</Ligne>
+        <Ligne>CS 53146</Ligne>
+        <CodePostal>03109</CodePostal>
+        <NomCommune>MONTLUCON CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.339828</Latitude>
+            <Longitude>2.607792</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>114 BOULEVARD DE COURTAIS</Ligne>
+        <Ligne>CS 53146</Ligne>
+        <CodePostal>03109</CodePostal>
+        <NomCommune>MONTLUCON CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 70 28 12 13</Téléphone>
+        <Télécopie>04 70 28 04 63</Télécopie>
+        <Email>mailto:tj-montlucon@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

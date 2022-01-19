@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-76351-02" codeInsee="76351" dateMiseAJour="2019-01-09"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Le Havre - Port</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>195 chaussée du 24ème Territorial</Ligne>
+      <CodePostal>76083</CodePostal>
+      <NomCommune>Le Havre Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.490901</Latitude>
+         <Longitude>0.120987</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 41 00</Téléphone>
+      <Télécopie>02 35 19 51 47</Télécopie>
+      <Email>peb-le-havre@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

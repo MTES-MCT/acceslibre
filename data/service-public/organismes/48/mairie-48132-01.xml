@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48132-01" codeInsee="48132" dateMiseAJour="2021-10-06"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Alban-sur-Limagnole</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Breuil</Ligne>
+      <CodePostal>48120</CodePostal>
+      <NomCommune>Saint-Alban-sur-Limagnole</NomCommune>
+      <Localisation>
+         <Latitude>44.7816009521</Latitude>
+         <Longitude>3.38645005226</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 31 50 29</Téléphone>
+      <Télécopie>04 66 31 58 70</Télécopie>
+      <Email>mairie.stalban48@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

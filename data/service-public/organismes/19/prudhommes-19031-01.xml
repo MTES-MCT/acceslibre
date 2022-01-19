@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="19031" dateMiseAJour="2021-12-14" id="prudhommes-19031-01" idPresta="4cac9e5f293594648a000217" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Brive-la-Gaillarde</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE SAINT BERNARD</Ligne>
+        <CodePostal>19100</CodePostal>
+        <NomCommune>BRIVE LA GAILLARDE</NomCommune>
+        <Localisation>
+            <Latitude>45.157549</Latitude>
+            <Longitude>1.531401</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE SAINT BERNARD</Ligne>
+        <CodePostal>19100</CodePostal>
+        <NomCommune>BRIVE LA GAILLARDE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 87 49 32 00</Téléphone>
+        <Télécopie>05 44 31 96 40</Télécopie>
+        <Email>mailto:cph-brive-la-gaillarde@justice.fr</Email>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

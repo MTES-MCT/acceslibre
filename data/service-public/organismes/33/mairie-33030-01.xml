@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33030-01" codeInsee="33030" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Barsac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 place Paul-Doumer</Ligne>
+      <CodePostal>33720</CodePostal>
+      <NomCommune>Barsac</NomCommune>
+      <Localisation>
+         <Latitude>44.6081008911</Latitude>
+         <Longitude>-0.316834002733</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 27 43 00</Téléphone>
+      <Télécopie>05 56 27 43 01</Télécopie>
+      <Email>mairie@barsac.fr</Email>
+      <Url>http://www.barsac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70519-01" codeInsee="70519" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Vandelans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 rue Bauffremont</Ligne>
+      <CodePostal>70190</CodePostal>
+      <NomCommune>Vandelans</NomCommune>
+      <Localisation>
+         <Latitude>47.3939376</Latitude>
+         <Longitude>6.1646681</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>06 76 03 40 63</Téléphone>
+      <Email>mairie.vandelans@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="15:30:00" fin="18:00:00"/>
+         <Note>Contacter la mairie pour les horaires du samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

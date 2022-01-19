@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16286-01" codeInsee="16286" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rouillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>16 place Thiers</Ligne>
+      <Ligne>BP 80020</Ligne>
+      <CodePostal>16170</CodePostal>
+      <NomCommune>Rouillac</NomCommune>
+      <Localisation>
+         <Latitude>45.7760532</Latitude>
+         <Longitude>-0.0658342000000403</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 96 51 41</Téléphone>
+      <Télécopie>05 45 96 52 29</Télécopie>
+      <Email>mairie@ville-rouillac.fr</Email>
+      <Url>http://www.ville-rouillac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

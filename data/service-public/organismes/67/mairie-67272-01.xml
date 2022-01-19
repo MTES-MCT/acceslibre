@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67272-01" codeInsee="67272" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lochwiller</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue de l'Église</Ligne>
+      <CodePostal>67440</CodePostal>
+      <NomCommune>Lochwiller</NomCommune>
+      <Localisation>
+         <Latitude>48.6968100485</Latitude>
+         <Longitude>7.41469860077</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 70 61 40</Téléphone>
+      <Télécopie>03 88 70 61 40</Télécopie>
+      <Email>mairie.lochwiller@orange.fr</Email>
+      <Url>http://www.paysdemarmoutier.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

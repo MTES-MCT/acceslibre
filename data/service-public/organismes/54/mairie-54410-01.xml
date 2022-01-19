@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54410-01" codeInsee="54410" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Onville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>54890</CodePostal>
+      <NomCommune>Onville</NomCommune>
+      <Localisation>
+         <Latitude>49.0158996582</Latitude>
+         <Longitude>5.9706401825</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 81 80 54</Téléphone>
+      <Email>mairie-onville@wanadoo.fr</Email>
+      <Url>http://www.onville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+         <Note>Accueil fermé le vendredi en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

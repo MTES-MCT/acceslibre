@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34143-01" codeInsee="34143" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Loupian</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Charles-de-Gaulle</Ligne>
+      <CodePostal>34140</CodePostal>
+      <NomCommune>Loupian</NomCommune>
+      <Localisation>
+         <Latitude>43.44932999622512</Latitude>
+         <Longitude>3.614379998116931</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 43 82 07</Téléphone>
+      <Télécopie>04 67 43 73 16</Télécopie>
+      <Email>mairie@loupian.fr</Email>
+      <Url>http://www.loupian.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>L'après-midi sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

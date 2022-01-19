@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-53147-02" codeInsee="53147" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Mayenne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>75 rue des Alouettes</Ligne>
+      <Ligne>CS 10500</Ligne>
+      <CodePostal>53103</CodePostal>
+      <NomCommune>Mayenne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.306309</Latitude>
+         <Longitude>-0.6283434</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 04 13 03</Téléphone>
+      <Email>sgc.mayenne@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

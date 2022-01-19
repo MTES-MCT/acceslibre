@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71460-01" codeInsee="71460" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Maurice-de-Satonnay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 place des Grenouillats</Ligne>
+      <CodePostal>71260</CodePostal>
+      <NomCommune>Saint-Maurice-de-Satonnay</NomCommune>
+      <Localisation>
+         <Latitude>46.41475</Latitude>
+         <Longitude>4.7861131</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 33 36 18</Téléphone>
+      <Email>saintmauricedesatonnaymairie@wanadoo.fr</Email>
+      <Url>http://www.saint-maurice-de-satonnay.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="12:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="12:45:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

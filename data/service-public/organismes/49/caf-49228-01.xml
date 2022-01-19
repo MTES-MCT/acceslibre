@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-49228-01" codeInsee="49228" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de Maine-et-Loire - accueil de Noyant-Villages</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison de services au public</Ligne>
+      <Ligne>1 rue d'Anjou</Ligne>
+      <CodePostal>49490</CodePostal>
+      <NomCommune>Noyant-Villages</NomCommune>
+      <Localisation>
+         <Latitude>47.7086396</Latitude>
+         <Longitude>-0.9776349</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de Maine-et-Loire</Ligne>
+      <Ligne>32 rue Louis-Gain</Ligne>
+      <CodePostal>49927</CodePostal>
+      <NomCommune>Angers Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous, accompagnement sur l'espace numérique aux mêmes heures, accueil téléphonique du lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

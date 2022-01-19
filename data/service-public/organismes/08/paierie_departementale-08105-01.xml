@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_departementale-08105-01" codeInsee="08105"
+           dateMiseAJour="2021-07-06"
+           pivotLocal="paierie_departementale">
+   <Nom>Paierie départementale - Ardennes - Charleville-Mézières</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue du Petit Bois</Ligne>
+      <Ligne>CS 30068</Ligne>
+      <CodePostal>08008</CodePostal>
+      <NomCommune>Charleville-Mézières</NomCommune>
+      <Localisation>
+         <Latitude>49.772902</Latitude>
+         <Longitude>4.725219</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 33 75 99</Téléphone>
+      <Email>t008090@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

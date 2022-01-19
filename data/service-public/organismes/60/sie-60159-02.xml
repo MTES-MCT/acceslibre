@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-60159-02" codeInsee="60159" dateMiseAJour="2020-01-16" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Compiegne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6, rue Winston-Churchill</Ligne>
+      <Ligne>CS 40055</Ligne>
+      <CodePostal>60321</CodePostal>
+      <NomCommune>Compiègne Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.4112105</Latitude>
+         <Longitude>2.8131437</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 92 58 58</Téléphone>
+      <Email>sie.compiegne@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:15:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>La réception du public se fait exclusivement sur rendez-vous.</Commentaire>
+</Organisme>

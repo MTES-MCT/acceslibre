@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-69092-01" codeInsee="69092" dateMiseAJour="2019-12-16"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Gleizé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison du Rhône du canton de Gleizé</Ligne>
+      <Ligne>352 rue de l'Ancienne-Distillerie</Ligne>
+      <CodePostal>69400</CodePostal>
+      <NomCommune>Gleizé</NomCommune>
+      <Localisation>
+         <Latitude>45.996536</Latitude>
+         <Longitude>4.701596</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 02 69 10</Téléphone>
+      <Télécopie>04 74 09 17 51</Télécopie>
+      <Email>mdr.gleize@rhone.fr</Email>
+      <Url>http://rhone.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

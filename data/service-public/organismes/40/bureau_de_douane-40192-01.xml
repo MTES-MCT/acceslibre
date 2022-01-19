@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-40192-01" codeInsee="40192" dateMiseAJour="2019-01-04"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Mont-De-Marsan</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>233 boulevard Lacaze</Ligne>
+      <Ligne>BP 331</Ligne>
+      <Ligne>Résidence Verdi</Ligne>
+      <CodePostal>40011</CodePostal>
+      <NomCommune>Mont-de-Marsan Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.88571</Latitude>
+         <Longitude>-0.49795</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 59 30</Téléphone>
+      <Télécopie>05 58 52 00 37</Télécopie>
+      <Email>r-mont-de-marsan@douane.finances.gouv.fr</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

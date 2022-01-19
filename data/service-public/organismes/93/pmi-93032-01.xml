@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-93032-01" codeInsee="93032" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Gagny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier Chenay</Ligne>
+      <Ligne>19 rue du 18-Juin</Ligne>
+      <CodePostal>93220</CodePostal>
+      <NomCommune>Gagny</NomCommune>
+      <Localisation>
+         <Latitude>48.8777999878</Latitude>
+         <Longitude>2.55570006371</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 71 29 57 59</Téléphone>
+      <Télécopie>01 43 88 34 90</Télécopie>
+      <Email>18juin93220@seinesaintdenis.fr</Email>
+      <Url>http://www.seinesaintdenis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

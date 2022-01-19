@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24095-01" codeInsee="24095" dateMiseAJour="2021-01-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Chalais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24800</CodePostal>
+      <NomCommune>Chalais</NomCommune>
+      <Localisation>
+         <Latitude>45.509026</Latitude>
+         <Longitude>0.9268181</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 52 82 17</Téléphone>
+      <Télécopie>05 53 52 83 18</Télécopie>
+      <Email>mairie.chalais@wanadoo.fr</Email>
+      <Url>http://www.mairie-chalais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

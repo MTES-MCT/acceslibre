@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-89309-01" codeInsee="89309" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Yonne Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>52 faubourg de Villeperrot</Ligne>
+      <Ligne>BP 19</Ligne>
+      <CodePostal>89140</CodePostal>
+      <NomCommune>Pont-sur-Yonne</NomCommune>
+      <Localisation>
+         <Latitude>48.2768262</Latitude>
+         <Longitude>3.2172778</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 67 99 00</Téléphone>
+      <Télécopie>03 86 96 30 73</Télécopie>
+      <Email>ccyn@ccyn.fr</Email>
+      <Url>http://www.cc-yonne-nord.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-89418-01" codeInsee="89418" dateMiseAJour="2020-11-30" pivotLocal="cij">
+   <Nom>Point information jeunesse - Tonnerre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Mission Locale du Tonnerrois</Ligne>
+      <Ligne>3 rue Claude Aillot</Ligne>
+      <CodePostal>89700</CodePostal>
+      <NomCommune>Tonnerre</NomCommune>
+      <Localisation>
+         <Latitude>47.857928</Latitude>
+         <Longitude>3.974316</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 55 17 33</Téléphone>
+      <Email>pij_tonnerre@ijbourgogne.com</Email>
+      <Url>http://www.mlrta.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

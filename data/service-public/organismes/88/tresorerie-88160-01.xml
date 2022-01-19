@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-88160-01" codeInsee="88160" dateMiseAJour="2021-04-15"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie hospitalière d'Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Docteur-Laflotte</Ligne>
+      <Ligne>BP 41009</Ligne>
+      <CodePostal>88060</CodePostal>
+      <NomCommune>Épinal Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>48.172254</Latitude>
+         <Longitude>6.444028</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 69 22 70</Téléphone>
+      <Email>t088022@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>avec ou sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38418-01" codeInsee="38418" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Marie-du-Mont</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>430 route des Prés</Ligne>
+      <CodePostal>38660</CodePostal>
+      <NomCommune>Sainte-Marie-du-Mont</NomCommune>
+      <Localisation>
+         <Latitude>45.406928</Latitude>
+         <Longitude>5.945467</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 08 50 40</Téléphone>
+      <Email>contact@sainte-marie-du-mont.fr</Email>
+      <Url>https://www.sainte-marie-du-mont.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

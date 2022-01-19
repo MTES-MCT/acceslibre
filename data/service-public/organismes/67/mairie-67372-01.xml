@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67372-01" codeInsee="67372" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Val-de-Moder</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Pfaffenhoffen</Ligne>
+      <Ligne>17 rue du Docteur-Albert-Schweitzer</Ligne>
+      <CodePostal>67350</CodePostal>
+      <NomCommune>Val-de-Moder</NomCommune>
+      <Localisation>
+         <Latitude>48.8457838</Latitude>
+         <Longitude>7.61002519</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Pfaffenhoffen</Ligne>
+      <Ligne>9 place du Marché</Ligne>
+      <Ligne>BP 62022</Ligne>
+      <CodePostal>67350</CodePostal>
+      <NomCommune>Val-de-Moder</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 07 70 55</Téléphone>
+      <Télécopie>03 88 72 50 93</Télécopie>
+      <Email>mairie@commune-valdemoder.fr</Email>
+      <Url>http://commune-valdemoder.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

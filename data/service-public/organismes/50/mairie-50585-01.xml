@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-50585-01" codeInsee="50585" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Surtainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 route du Brisay</Ligne>
+      <CodePostal>50270</CodePostal>
+      <NomCommune>Surtainville</NomCommune>
+      <Localisation>
+         <Latitude>49.4582916</Latitude>
+         <Longitude>-1.8128726</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 10 12 40</Téléphone>
+      <Télécopie>02 33 10 12 41</Télécopie>
+      <Email>mairie@surtainville.com</Email>
+      <Url>http://www.surtainville.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:15:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:15:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:15:00" fin="16:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:15:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

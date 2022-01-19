@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14516-01" codeInsee="14516" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Potigny</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la 1er-Division-Blindée-Polonaise</Ligne>
+      <CodePostal>14420</CodePostal>
+      <NomCommune>Potigny</NomCommune>
+      <Localisation>
+         <Latitude>48.970807</Latitude>
+         <Longitude>-0.243744</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 90 84 67</Téléphone>
+      <Télécopie>02 31 90 41 90</Télécopie>
+      <Email>ville-potigny@wanadoo.fr</Email>
+      <Url>http://www.potigny.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:45:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+         <PlageH début="13:15:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

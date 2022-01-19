@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-92046-01" codeInsee="92046" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Malakoff</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>Place du 11-Novembre-1918</Ligne>
+      <Ligne>CS 80031</Ligne>
+      <CodePostal>92245</CodePostal>
+      <NomCommune>Malakoff Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.8211267</Latitude>
+         <Longitude>2.3014858</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe sur le côté</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 47 46 75 00</Téléphone>
+      <Télécopie>01 42 53 04 03</Télécopie>
+      <Email>mairie@ville-malakoff.fr</Email>
+      <Url>http://www.ville-malakoff.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

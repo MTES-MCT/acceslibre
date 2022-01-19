@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2A362-01" codeInsee="2A362" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Zonza</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Annexe de Sainte-Lucie-de-Porto-Vecchio</Ligne>
+      <CodePostal>20144</CodePostal>
+      <NomCommune>Sainte-Lucie-de-Porto-Vecchio</NomCommune>
+      <Localisation>
+         <Latitude>41.6996743</Latitude>
+         <Longitude>9.3474571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 71 40 16</Téléphone>
+      <Télécopie>04 95 71 49 18</Télécopie>
+      <Email>communedezonza@orange.fr</Email>
+      <Url>http://zonza.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

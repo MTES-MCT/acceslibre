@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-83058-01" codeInsee="83058" dateMiseAJour="2021-07-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Flayosc</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Angelin-German</Ligne>
+      <Ligne>BP 35</Ligne>
+      <CodePostal>83780</CodePostal>
+      <NomCommune>Flayosc</NomCommune>
+      <Localisation>
+         <Latitude>43.534572</Latitude>
+         <Longitude>6.394899</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 94 70 40 03</Téléphone>
+      <Télécopie>04 94 70 40 63</Télécopie>
+      <Email>mairie@flayosc.fr</Email>
+      <Url>http://www.flayosc.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

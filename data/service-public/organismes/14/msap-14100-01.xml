@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-14100-01" codeInsee="14100" dateMiseAJour="2020-12-02"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Bretteville-sur-Laize</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>14680</CodePostal>
+      <NomCommune>Bretteville-sur-Laize</NomCommune>
+      <Localisation>
+         <Latitude>49.045181</Latitude>
+         <Longitude>-0.326155</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 23 49 47</Téléphone>
+      <Email>pointinfo14.brettevillelaize@gmail.com</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/point-info-14-bretteville-sur-laize</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le mercredi</Commentaire>
+</Organisme>

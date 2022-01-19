@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80501-01" codeInsee="80501" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Maison-Ponthieu</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Publique</Ligne>
+      <CodePostal>80150</CodePostal>
+      <NomCommune>Maison-Ponthieu</NomCommune>
+      <Localisation>
+         <Latitude>50.2088966</Latitude>
+         <Longitude>2.0449879</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 29 05 66</Téléphone>
+      <Télécopie>03 22 29 05 66</Télécopie>
+      <Email>mairiedemaisonponthieu@nordnet.fr</Email>
+      <Url>http://maison-ponthieu.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="15:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

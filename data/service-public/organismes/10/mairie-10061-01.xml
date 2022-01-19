@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10061-01" codeInsee="10061" dateMiseAJour="2021-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Brévonnes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue du Tremblet</Ligne>
+      <CodePostal>10220</CodePostal>
+      <NomCommune>Brévonnes</NomCommune>
+      <Localisation>
+         <Latitude>48.3600997925</Latitude>
+         <Longitude>4.40062999725</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 46 30 15</Téléphone>
+      <Télécopie>03 25 46 39 61</Télécopie>
+      <Email>mairie@brevonnes.fr</Email>
+      <Url>http://www.vivre-a-brevonnes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

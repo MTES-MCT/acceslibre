@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80410-01" codeInsee="80410" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ham</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>80400</CodePostal>
+      <NomCommune>Ham</NomCommune>
+      <Localisation>
+         <Latitude>49.7481994629</Latitude>
+         <Longitude>3.07220005989</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 81 00 00</Téléphone>
+      <Télécopie>03 23 81 24 38</Télécopie>
+      <Email>mairie@ville-ham.fr</Email>
+      <Url>http://www.ville-ham.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous pour les passeports, cartes d'identité et permanences des adjoints.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

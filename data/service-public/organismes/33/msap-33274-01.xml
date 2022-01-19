@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-33274-01" codeInsee="33274" dateMiseAJour="2021-01-13"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Martillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté de communes de Montesquieu</Ligne>
+      <Ligne>1 allée Jean-Rostand</Ligne>
+      <CodePostal>33650</CodePostal>
+      <NomCommune>Martillac</NomCommune>
+      <Localisation>
+         <Latitude>44.713243</Latitude>
+         <Longitude>-0.581808</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 96 01 20</Téléphone>
+      <Email>msap@cc-montesquieu.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/communaute-de-communes-de-montesquieu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Vendredi : sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

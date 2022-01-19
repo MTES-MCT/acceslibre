@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-30189-01" codeInsee="30189"
+           dateMiseAJour="2021-04-01"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Centre des impôts foncier de Nîmes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>67 rue Salomon-Reinach</Ligne>
+      <CodePostal>30032</CodePostal>
+      <NomCommune>Nimes Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>43.8313872</Latitude>
+         <Longitude>4.3812198</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 87 60 60</Téléphone>
+      <Télécopie>04 66 87 60 67</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

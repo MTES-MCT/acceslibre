@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61483-01" codeInsee="61483" dateMiseAJour="2021-10-13"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bagnoles de l'Orne Normandie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Château Hôtel de Ville</Ligne>
+      <Ligne>Allée Aloïs-Monnet</Ligne>
+      <CodePostal>61140</CodePostal>
+      <NomCommune>Bagnoles de l'Orne Normandie</NomCommune>
+      <Localisation>
+         <Latitude>48.553638</Latitude>
+         <Longitude>-0.423155</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 30 73 73</Téléphone>
+      <Télécopie>02 33 30 73 70</Télécopie>
+      <Email>mairieaccueil@bagnolesdelorne.com</Email>
+      <Url>http://www.ville-bagnolesdelorne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <Note>Accueil ouvert uniquement le 1er samedi du mois et hors jours fériés pour la permanence accueil état civil et élections.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

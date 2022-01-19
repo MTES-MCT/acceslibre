@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-77284-01" codeInsee="77284" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Bureau information jeunesse - Meaux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 boulevard Jean-Rose</Ligne>
+      <CodePostal>77100</CodePostal>
+      <NomCommune>Meaux</NomCommune>
+      <Localisation>
+         <Latitude>48.960235</Latitude>
+         <Longitude>2.88211</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur 1er étage</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 83 69 01 93</Téléphone>
+      <Email>bij@meaux.fr</Email>
+      <Url>http://www.ville-meaux.frjeunesse/bij.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

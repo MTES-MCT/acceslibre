@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-79049-01" codeInsee="79049" dateMiseAJour="2020-01-06"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bressuire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination de Bressuire</Ligne>
+      <Ligne>Parc Bocapole</Ligne>
+      <Ligne>Boulevard de Thouars</Ligne>
+      <CodePostal>79300</CodePostal>
+      <NomCommune>Bressuire</NomCommune>
+      <Localisation>
+         <Latitude>46.851094</Latitude>
+         <Longitude>-0.463759</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 65 52 74</Téléphone>
+      <Email>clic.bocage@deux-sevres.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

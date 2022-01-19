@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27361-01" codeInsee="27361" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Lande-Saint-Léger</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 chemin de l'Église</Ligne>
+      <CodePostal>27210</CodePostal>
+      <NomCommune>La Lande-Saint-Léger</NomCommune>
+      <Localisation>
+         <Latitude>49.3013305664</Latitude>
+         <Longitude>0.360145002604</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 57 15 61</Téléphone>
+      <Télécopie>02 32 57 15 61</Télécopie>
+      <Email>mairie.lalandestleger@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="15:30:00" fin="17:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement le 1er et le 3e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

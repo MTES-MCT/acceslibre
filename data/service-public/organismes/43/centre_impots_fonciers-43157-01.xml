@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="centre_impots_fonciers-43157-01" codeInsee="43157"
+           dateMiseAJour="2022-01-04"
+           pivotLocal="centre_impots_fonciers">
+   <Nom>Service départemental des impôts fonciers du Puy-en-Velay</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Alphonse-Terrasson</Ligne>
+      <Ligne>BP 10342</Ligne>
+      <CodePostal>43012</CodePostal>
+      <NomCommune>Le-Puy-en-Velay Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.043381</Latitude>
+         <Longitude>3.878994</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 09 83 38</Téléphone>
+      <Email>sdif43@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.cadastre.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Sur rendez-vous le lundi et le jeudi de 8h30 à 12h30</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil téléphonique:
+du lundi au vendredi de 8h30 à 12h et de 13h30 à 16h</Commentaire>
+</Organisme>

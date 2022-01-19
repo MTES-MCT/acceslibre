@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="65440" dateMiseAJour="2021-12-14" id="prudhommes-65440-01" idPresta="4cac9e5f293594648a0002da" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Tarbes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE EUGENE TENOT</Ligne>
+        <CodePostal>65000</CodePostal>
+        <NomCommune>TARBES</NomCommune>
+        <Localisation>
+            <Latitude>43.234814</Latitude>
+            <Longitude>0.076726</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>6 RUE EUGENE TENOT</Ligne>
+        <CodePostal>65000</CodePostal>
+        <NomCommune>TARBES</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 62 34 02 98</Téléphone>
+        <Télécopie>05 62 34 74 34</Télécopie>
+        <Email>mailto:cph-tarbes@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:45:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

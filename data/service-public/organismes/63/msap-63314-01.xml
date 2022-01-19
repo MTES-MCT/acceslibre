@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-63314-01" codeInsee="63314" dateMiseAJour="2020-12-14"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Saint-Amant-Roche-Savine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>13 rue Henri-Pourrat</Ligne>
+      <CodePostal>63890</CodePostal>
+      <NomCommune>Saint-Amant-Roche-Savine</NomCommune>
+      <Localisation>
+         <Latitude>45.574774</Latitude>
+         <Longitude>3.631632</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.saint-amant-roche-savine@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/saint-amant-roche-savine-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="13:45:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

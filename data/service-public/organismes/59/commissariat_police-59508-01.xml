@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-59508-01" codeInsee="59508" dateMiseAJour="2021-06-17"
+           pivotLocal="commissariat_police">
+   <Nom>Bureau de police de Roncq</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue des Arts</Ligne>
+      <CodePostal>59223</CodePostal>
+      <NomCommune>Roncq</NomCommune>
+      <Localisation>
+         <Latitude>50.7532473</Latitude>
+         <Longitude>3.1221626</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">03 20 01 06 71</Téléphone>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="17:25:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Les après-midi sont réservés aux convocations, pré-plaintes et URGENCES. En dehors de ces horaires, possibilité de se rendre au commissariat de Tourcoing 49 rue de la fin de la Guerre 59200 TOURCOING 03 59 71 10 00, ouvert 7j/7 et 24h/24.</Commentaire>
+</Organisme>

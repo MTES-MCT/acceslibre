@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-81076-01" codeInsee="81076" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cuq-Toulza</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 avenue Jean-Jaurès</Ligne>
+      <Ligne>BP 90007</Ligne>
+      <CodePostal>81470</CodePostal>
+      <NomCommune>Cuq-Toulza</NomCommune>
+      <Localisation>
+         <Latitude>43.5688018799</Latitude>
+         <Longitude>1.88355004787</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 75 71 17</Téléphone>
+      <Email>contact@mairie-cuqtoulza.fr</Email>
+      <Url>http://www.mairie-cuqtoulza.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

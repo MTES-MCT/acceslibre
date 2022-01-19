@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-87011-01" codeInsee="87011" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Haut Limousin en Marche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 avenue Jean-Jaurès</Ligne>
+      <CodePostal>87300</CodePostal>
+      <NomCommune>Bellac</NomCommune>
+      <Localisation>
+         <Latitude>46.1230368</Latitude>
+         <Longitude>1.0476243</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 60 09 99</Téléphone>
+      <Email>hautlimousinenmarche@cchlem.fr</Email>
+      <Url>http://www.hautlimousinenmarche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

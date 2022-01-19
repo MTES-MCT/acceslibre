@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57354-01" codeInsee="57354" dateMiseAJour="2020-10-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Juville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>55 Grande rue</Ligne>
+      <CodePostal>57590</CodePostal>
+      <NomCommune>Juville</NomCommune>
+      <Localisation>
+         <Latitude>48.930755</Latitude>
+         <Longitude>6.348121</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe amovible</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 75 58 81 40</Téléphone>
+      <Email>mairie.juville@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="18:30:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

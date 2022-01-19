@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-62041-01" codeInsee="62041" dateMiseAJour="2019-02-21"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau d'Arras</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place des Etats d'Artois</Ligne>
+      <Ligne>Maison de l'Avocat</Ligne>
+      <CodePostal>62000</CodePostal>
+      <NomCommune>Arras</NomCommune>
+      <Localisation>
+         <Latitude>50.290205</Latitude>
+         <Longitude>2.77631</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 23 71 88</Téléphone>
+      <Télécopie>03 21 71 30 93</Télécopie>
+      <Email>ordre@avocatsarras.com</Email>
+      <Url>http://www.avocatsarras.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

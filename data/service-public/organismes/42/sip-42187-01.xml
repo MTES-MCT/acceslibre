@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-42187-01" codeInsee="42187" dateMiseAJour="2021-07-05" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers - Centre des finances publiques de Roanne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place du Champ-de-Foire</Ligne>
+      <Ligne>CS 32801</Ligne>
+      <CodePostal>42300</CodePostal>
+      <NomCommune>Roanne</NomCommune>
+      <Localisation>
+         <Latitude>46.0464857</Latitude>
+         <Longitude>4.0715997</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Service recouvrement : 04 77 44 01 31">04 77 44 01 02</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Prendre rendez-vous pour vos questions complexes : sur impots.gouv.fr, rubrique Contact ; par téléphone au 04 77 44 01 02 ; en libre-service à l'accueil de votre Centre des finances publiques.</Commentaire>
+</Organisme>

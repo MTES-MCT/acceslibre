@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-48146-01" codeInsee="48146" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gorges du Tarn Causses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sainte-Enimie</Ligne>
+      <Ligne>Route de Mende</Ligne>
+      <CodePostal>48210</CodePostal>
+      <NomCommune>Gorges du Tarn Causses</NomCommune>
+      <Localisation>
+         <Latitude>44.3667098</Latitude>
+         <Longitude>3.4103551</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied, ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 48 50 09</Téléphone>
+      <Télécopie>04 66 48 52 28</Télécopie>
+      <Email>mairie-sainte-enimie@wanadoo.fr</Email>
+      <Url>http://www.gorgesdutarn-causses.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

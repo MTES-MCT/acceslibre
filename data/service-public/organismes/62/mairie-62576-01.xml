@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-62576-01" codeInsee="62576" dateMiseAJour="2018-04-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moncheaux lès Frévent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de Frévent</Ligne>
+      <CodePostal>62270</CodePostal>
+      <NomCommune>Moncheaux-lès-Frévent</NomCommune>
+      <Localisation>
+         <Latitude>50.3111426</Latitude>
+         <Longitude>2.3653111</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 41 56 70</Téléphone>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

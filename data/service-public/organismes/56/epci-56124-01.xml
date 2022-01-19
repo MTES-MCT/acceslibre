@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-56124-01" codeInsee="56124" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Oust à Brocéliande Communauté</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Parc d'activité de Tirten la Paviotaie</Ligne>
+      <Ligne>CS 80055</Ligne>
+      <CodePostal>56140</CodePostal>
+      <NomCommune>Malestroit</NomCommune>
+      <Localisation>
+         <Latitude>47.810173</Latitude>
+         <Longitude>-2.38333899999998</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 75 01 02</Téléphone>
+      <Télécopie>02 97 75 26 08</Télécopie>
+      <Email>contact@oust-broceliande.bzh</Email>
+      <Url>http://www.oust-broceliande.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

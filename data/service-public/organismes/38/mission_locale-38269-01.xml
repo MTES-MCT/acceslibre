@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-38269-01" codeInsee="38269" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - La Mure</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZI des Marais</Ligne>
+      <Ligne>20 rue du Genepi</Ligne>
+      <CodePostal>38350</CodePostal>
+      <NomCommune>La Mure</NomCommune>
+      <Localisation>
+         <Latitude>44.9055099487</Latitude>
+         <Longitude>5.78742980957</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 30 30 90</Téléphone>
+      <Url>https://www.mission-locale.fr/annuaire/agence/mission-locale-de-la-mure</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

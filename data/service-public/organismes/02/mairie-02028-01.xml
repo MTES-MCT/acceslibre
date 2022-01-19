@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02028-01" codeInsee="02028" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Athies-sous-Laon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du 11-Novembre-1918</Ligne>
+      <CodePostal>02840</CodePostal>
+      <NomCommune>Athies-sous-Laon</NomCommune>
+      <Localisation>
+         <Latitude>49.5733985901</Latitude>
+         <Longitude>3.68345999718</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 24 52 38</Téléphone>
+      <Email>mairie.athies02@wanadoo.fr</Email>
+      <Url>http://www.mairieathiesouslaon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

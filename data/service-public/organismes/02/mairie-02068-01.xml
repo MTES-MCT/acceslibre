@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02068-01" codeInsee="02068" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Berlancourt</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 rue Ernest-Paradis</Ligne>
+      <CodePostal>02250</CodePostal>
+      <NomCommune>Berlancourt</NomCommune>
+      <Localisation>
+         <Latitude>49.7793045044</Latitude>
+         <Longitude>3.75663399696</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 20 00 95</Téléphone>
+      <Email>mairie-berlancourt02@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67116-01" codeInsee="67116" dateMiseAJour="2021-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ebersmunster</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue du Général-Leclerc</Ligne>
+      <CodePostal>67600</CodePostal>
+      <NomCommune>Ebersmunster</NomCommune>
+      <Localisation>
+         <Latitude>48.3109016418</Latitude>
+         <Longitude>7.52569007874</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 85 71 66</Téléphone>
+      <Email>mairie@commune-ebersmunster.fr</Email>
+      <Url>http://www.ebersmunster.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="14:00:00" fin="19:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

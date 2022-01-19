@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40043-01" codeInsee="40043" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bias</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>272 route des Lacs</Ligne>
+      <CodePostal>40170</CodePostal>
+      <NomCommune>Bias</NomCommune>
+      <Localisation>
+         <Latitude>44.146454</Latitude>
+         <Longitude>-1.218771</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 09 03 02</Téléphone>
+      <Télécopie>05 58 82 44 36</Télécopie>
+      <Email>mairie@bias40.fr</Email>
+      <Url>http://www.bias40.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

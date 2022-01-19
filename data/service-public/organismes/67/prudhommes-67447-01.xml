@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="67447" dateMiseAJour="2021-12-14" id="prudhommes-67447-01" idPresta="4cac9ed6293594648a00ed71" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Schiltigheim</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>10 RUE DU TRIBUNAL</Ligne>
+        <CodePostal>67300</CodePostal>
+        <NomCommune>SCHILTIGHEIM</NomCommune>
+        <Localisation>
+            <Latitude>48.603229</Latitude>
+            <Longitude>7.754638</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>10 RUE DU TRIBUNAL</Ligne>
+        <CodePostal>67300</CodePostal>
+        <NomCommune>SCHILTIGHEIM</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 88 33 47 57</Téléphone>
+        <Télécopie>03 88 81 61 90</Télécopie>
+        <Email>mailto:cph-schiltigheim@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="mardi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mercredi" fin="mercredi">
+            <PlageH début="08:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

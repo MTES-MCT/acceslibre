@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45147-01" codeInsee="45147" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fleury-les-Aubrais</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la République</Ligne>
+      <Ligne>BP 12200</Ligne>
+      <CodePostal>45400</CodePostal>
+      <NomCommune>Fleury-les-Aubrais</NomCommune>
+      <Localisation>
+         <Latitude>47.93155</Latitude>
+         <Longitude>1.9199772</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 71 93 93</Téléphone>
+      <Télécopie>02 38 71 93 97</Télécopie>
+      <Email>secretariat.maire@ville-fleurylesaubrais.fr</Email>
+      <Url>http://www.ville-fleurylesaubrais.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

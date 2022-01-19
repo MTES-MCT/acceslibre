@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09224-01" codeInsee="09224" dateMiseAJour="2021-11-24"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pailhès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Pamiers</Ligne>
+      <CodePostal>09130</CodePostal>
+      <NomCommune>Pailhès</NomCommune>
+      <Localisation>
+         <Latitude>43.1020431519</Latitude>
+         <Longitude>1.44360995293</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 67 55 72</Téléphone>
+      <Télécopie>05 61 67 76 90</Télécopie>
+      <Email>pailhes.mairie@wanadoo.fr</Email>
+      <Url>http://www.pailhes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

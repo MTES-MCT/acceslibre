@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33327-01" codeInsee="33327" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Podensac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 place Gambetta</Ligne>
+      <Ligne>BP 26</Ligne>
+      <CodePostal>33720</CodePostal>
+      <NomCommune>Podensac</NomCommune>
+      <Localisation>
+         <Latitude>44.6503982544</Latitude>
+         <Longitude>-0.355066001415</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 27 17 54</Téléphone>
+      <Télécopie>05 56 27 05 31</Télécopie>
+      <Email>mairie@podensac.fr</Email>
+      <Url>http://www.podensac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:15:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les 1er et 3e samedis du mois, pendant la crise sanitaire accueil du lundi au vendredi de 9h à 11h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

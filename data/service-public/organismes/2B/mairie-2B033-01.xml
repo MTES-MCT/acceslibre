@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B033-01" codeInsee="2B033" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bastia</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Avenue Pierre-Giudicelli</Ligne>
+      <Ligne>BP 410</Ligne>
+      <CodePostal>20410</CodePostal>
+      <NomCommune>Bastia Cedex</NomCommune>
+      <Localisation>
+         <Latitude>42.7020784</Latitude>
+         <Longitude>9.4514698</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 95 55 95 55</Téléphone>
+      <Email>mairie@bastia.corsica</Email>
+      <Url>http://www.bastia.corsica</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

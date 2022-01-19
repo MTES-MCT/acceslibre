@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40296-01" codeInsee="40296" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Seignosse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1998 avenue Charles-de-Gaulle</Ligne>
+      <CodePostal>40510</CodePostal>
+      <NomCommune>Seignosse</NomCommune>
+      <Localisation>
+         <Latitude>43.6873016357</Latitude>
+         <Longitude>-1.37376999855</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 49 89 89</Téléphone>
+      <Email>mairie@seignosse.fr</Email>
+      <Url>http://www.seignosse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

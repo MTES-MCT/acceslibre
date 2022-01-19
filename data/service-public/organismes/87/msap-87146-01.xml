@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-87146-01" codeInsee="87146" dateMiseAJour="2020-11-19"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Germain-les-Belles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>2 avenue du Remblai</Ligne>
+      <CodePostal>87380</CodePostal>
+      <NomCommune>Saint-Germain-les-Belles</NomCommune>
+      <Localisation>
+         <Latitude>45.614946</Latitude>
+         <Longitude>1.493125</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 31 88 75</Téléphone>
+      <Email>saint-germain-les-belles@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

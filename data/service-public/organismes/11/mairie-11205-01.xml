@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11205-01" codeInsee="11205" dateMiseAJour="2021-07-21"
+           pivotLocal="mairie">
+   <Nom>Mairie - Limousis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 Grand’rue</Ligne>
+      <CodePostal>11600</CodePostal>
+      <NomCommune>Limousis</NomCommune>
+      <Localisation>
+         <Latitude>43.3343009949</Latitude>
+         <Longitude>2.40141010284</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">en cours, l'usager est invité à contacter l'accueil avant de se déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 77 15 79</Téléphone>
+      <Email>limousis@wanadoo.fr</Email>
+      <Url>https://www.limousis.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

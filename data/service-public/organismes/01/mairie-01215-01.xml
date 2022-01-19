@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01215-01" codeInsee="01215" dateMiseAJour="2020-05-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Surjoux-Lhopital</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>115 rue de la Mairie</Ligne>
+      <Ligne>Lhopital</Ligne>
+      <CodePostal>01420</CodePostal>
+      <NomCommune>Surjoux-Lhopital</NomCommune>
+      <Localisation>
+         <Latitude>46.022107</Latitude>
+         <Longitude>5.778145</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 75 17 55 97</Téléphone>
+      <Email>commune.lhopital@wibox.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Le 1er janvier 2019, la commune nouvelle de Surjoux-Lhopital est créée en lieu et place des communes de Surjoux et de Lhôpital (canton de Bellegarde-sur-Valserine, arrondissement de Nantua)</Commentaire>
+</Organisme>

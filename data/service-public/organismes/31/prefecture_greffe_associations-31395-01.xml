@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="prefecture_greffe_associations-31395-01" codeInsee="31395"
+           dateMiseAJour="2019-04-26"
+           pivotLocal="prefecture_greffe_associations">
+   <Nom>Greffe des associations - Haute-Garonne (Muret)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Sous-préfecture de Muret</Ligne>
+      <Ligne>Service des associations</Ligne>
+      <Ligne>10 allées Niel</Ligne>
+      <CodePostal>31605</CodePostal>
+      <NomCommune>Muret Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.4590147</Latitude>
+         <Longitude>1.3261784</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="accueil téléphonique uniquement du lundi au jeudi de 9h à 12h">05 34 45 34 45</Téléphone>
+      <Email>pref-public-associations@haute-garonne.gouv.fr</Email>
+      <Url>http://www.haute-garonne.gouv.fr/Demarches-administratives/Associations/Informations-locales/Votre-association-100-en-ligne</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous à prendre sur le site web.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

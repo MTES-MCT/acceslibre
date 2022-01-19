@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-34192-01" codeInsee="34192" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Palavas-les-Flots</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hôtel de Ville</Ligne>
+      <Ligne>16 boulevard Maréchal-Joffre</Ligne>
+      <Ligne>BP 106</Ligne>
+      <CodePostal>34250</CodePostal>
+      <NomCommune>Palavas-les-Flots</NomCommune>
+      <Localisation>
+         <Latitude>43.5287208557</Latitude>
+         <Longitude>3.93126988411</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 67 07 73 00</Téléphone>
+      <Télécopie>04 67 07 73 01</Télécopie>
+      <Email>mairie@palavaslesflots.com</Email>
+      <Url>http://www.palavaslesflots.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

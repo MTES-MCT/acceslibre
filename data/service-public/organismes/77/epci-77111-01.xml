@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-77111-01" codeInsee="77111" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Val d'Europe Agglomération</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Chessy</Ligne>
+      <Ligne>Château de Chessy</Ligne>
+      <Ligne>BP 40</Ligne>
+      <CodePostal>77701</CodePostal>
+      <NomCommune>Marne-la-Vallée Cedex 4</NomCommune>
+      <Localisation>
+         <Latitude>48.8761457</Latitude>
+         <Longitude>2.7649059</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 60 43 80 80</Téléphone>
+      <Télécopie>01 60 43 66 43</Télécopie>
+      <Email>contact@vdeagglo.fr</Email>
+      <Url>http://www.vdeagglo.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

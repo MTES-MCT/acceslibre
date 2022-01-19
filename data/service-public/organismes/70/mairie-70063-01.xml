@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70063-01" codeInsee="70063" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Belonchamp</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 route des Vosges</Ligne>
+      <CodePostal>70270</CodePostal>
+      <NomCommune>Belonchamp</NomCommune>
+      <Localisation>
+         <Latitude>47.7695617676</Latitude>
+         <Longitude>6.61251878738</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 20 80 84</Téléphone>
+      <Télécopie>03 84 20 04 54</Télécopie>
+      <Email>mairie.belonchamp@wanadoo.fr</Email>
+      <Url>https://www.belonchamp.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

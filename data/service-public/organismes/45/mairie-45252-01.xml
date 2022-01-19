@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-45252-01" codeInsee="45252" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pithiviers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5 place Denis-Poisson</Ligne>
+      <Ligne>BP 706</Ligne>
+      <CodePostal>45307</CodePostal>
+      <NomCommune>Pithiviers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.1738014221</Latitude>
+         <Longitude>2.25788998604</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">rampe par la médiathèque</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 30 08 77</Téléphone>
+      <Télécopie>02 38 30 41 22</Télécopie>
+      <Email>mairie@pithiviers.fr</Email>
+      <Url>http://www.pithiviers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

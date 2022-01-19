@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24362-02" codeInsee="24362" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Cendrieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cendrieux</Ligne>
+      <CodePostal>24380</CodePostal>
+      <NomCommune>Val-de-Louyre-et-Caudeau</NomCommune>
+      <Localisation>
+         <Latitude>45.020376</Latitude>
+         <Longitude>0.773191</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 03 22 43</Téléphone>
+      <Email>mairie@cendrieux.fr</Email>
+      <Url>http://www.valdelouyre-et-caudeau.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:30:00"/>
+         <Note>Permanence du maire de 11h à 12h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

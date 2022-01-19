@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-57616-01" codeInsee="57616" dateMiseAJour="2021-05-10"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue de la Tanerie</Ligne>
+      <Ligne>Pyramide Est</Ligne>
+      <Ligne>Cap emploi 57</Ligne>
+      <CodePostal>57050</CodePostal>
+      <NomCommune>Saint-Julien-lès-Metz</NomCommune>
+      <Localisation>
+         <Latitude>49.12658</Latitude>
+         <Longitude>6.195894</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 75 93 73</Téléphone>
+      <Email>secretariat@capemploi57.fr</Email>
+      <Url>http://capemploi57.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

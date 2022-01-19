@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30235-01" codeInsee="30235" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Bonnet-du-Gard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Fontaine</Ligne>
+      <CodePostal>30210</CodePostal>
+      <NomCommune>Saint-Bonnet-du-Gard</NomCommune>
+      <Localisation>
+         <Latitude>43.9159011</Latitude>
+         <Longitude>4.5069198</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 37 20 11</Téléphone>
+      <Email>mairie@saintbonnetdugard.fr</Email>
+      <Url>http://www.mairie-saintbonnetdugard.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

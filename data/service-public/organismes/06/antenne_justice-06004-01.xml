@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="06004" dateMiseAJour="2021-09-27" id="antenne_justice-06004-01" idPresta="612f2ebab473e40555dee804" pivotLocal="antenne_justice">
+    <Nom>Point-justice - Antenne de justice d'Antibes (06)</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>80 deuxième avenue</Ligne>
+        <Ligne>quartier Nova Antipolis</Ligne>
+        <CodePostal>06600</CodePostal>
+        <NomCommune>ANTIBES</NomCommune>
+        <Localisation>
+            <Latitude>43.578187</Latitude>
+            <Longitude>7.112929</Longitude>
+            <Précision>4</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 92 19 75 40</Téléphone>
+        <Télécopie>04 92 19 75 41</Télécopie>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:30:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

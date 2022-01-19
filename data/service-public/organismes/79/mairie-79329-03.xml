@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-79329-03" codeInsee="79329" dateMiseAJour="2021-09-03"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Missé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Missé</Ligne>
+      <Ligne>14 rue de l'Abbaye</Ligne>
+      <CodePostal>79100</CodePostal>
+      <NomCommune>Thouars</NomCommune>
+      <Localisation>
+         <Latitude>46.952523</Latitude>
+         <Longitude>-0.184407</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 66 62 97</Téléphone>
+      <Télécopie>05 49 96 18 96</Télécopie>
+      <Email>mairie.misse@thouars.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

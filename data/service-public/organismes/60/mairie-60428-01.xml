@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60428-01" codeInsee="60428" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Mont-Saint-Adrien</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Rome</Ligne>
+      <CodePostal>60650</CodePostal>
+      <NomCommune>Le Mont-Saint-Adrien</NomCommune>
+      <Localisation>
+         <Latitude>49.4450874329</Latitude>
+         <Longitude>2.00403404236</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 82 24 16</Téléphone>
+      <Email>lemontsaintadrien@wanadoo.fr</Email>
+      <Url>http://www.lemontsaintadrien.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:15:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="16:15:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-74010-01" codeInsee="74010" dateMiseAJour="2019-12-18"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Annecy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle gérontologique du bassin annécien</Ligne>
+      <Ligne>39 avenue de la Plaine</Ligne>
+      <CodePostal>74000</CodePostal>
+      <NomCommune>Annecy</NomCommune>
+      <Localisation>
+         <Latitude>45.909065</Latitude>
+         <Longitude>6.131107</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 33 20 10</Téléphone>
+      <Email>AEO-polegeronto@cg74.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

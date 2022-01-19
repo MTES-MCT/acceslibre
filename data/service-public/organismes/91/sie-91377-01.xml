@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-91377-01" codeInsee="91377" dateMiseAJour="2021-06-10" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Massy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 avenue de France</Ligne>
+      <CodePostal>91744</CodePostal>
+      <NomCommune>Massy Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7323118</Latitude>
+         <Longitude>2.2911268</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 93 58 00</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Exclusivement sur rendez-vous</Commentaire>
+</Organisme>

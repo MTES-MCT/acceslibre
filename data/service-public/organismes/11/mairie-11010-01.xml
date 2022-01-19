@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11010-01" codeInsee="11010" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Antugnac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 rue de la Mairie</Ligne>
+      <CodePostal>11190</CodePostal>
+      <NomCommune>Antugnac</NomCommune>
+      <Localisation>
+         <Latitude>42.9555053</Latitude>
+         <Longitude>2.2242708</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 74 04 09</Téléphone>
+      <Télécopie>04 68 31 65 47</Télécopie>
+      <Email>contact@mairie-antugnac.fr</Email>
+      <Url>https://mairie-antugnac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+         <Note>Pendant la crise sanitaire accueil sur rendez-vous uniquement, accueil ouvert uniquement les mardis et jeudis de 17h30 à 19h30 en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

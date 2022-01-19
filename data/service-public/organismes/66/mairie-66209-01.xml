@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66209-01" codeInsee="66209" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thuès-Entre-Valls</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de la Soulane</Ligne>
+      <CodePostal>66360</CodePostal>
+      <NomCommune>Thuès-Entre-Valls</NomCommune>
+      <Localisation>
+         <Latitude>42.525558</Latitude>
+         <Longitude>2.22373</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 97 06 96</Téléphone>
+      <Email>mairie-thues-entre-valls@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Permanence du maire le vendredi de 14h à 17h sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

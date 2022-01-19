@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-49328-01" codeInsee="49328" dateMiseAJour="2019-03-07"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Saumur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Saint-Michel</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>49400</CodePostal>
+      <NomCommune>Saumur</NomCommune>
+      <Localisation>
+         <Latitude>47.258288</Latitude>
+         <Longitude>-0.071472</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 52 69 62</Téléphone>
+      <Télécopie>09 67 49 69 62</Télécopie>
+      <Email>ordre@barreau-saumur.fr</Email>
+      <Url>https://www.barreau-saumur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

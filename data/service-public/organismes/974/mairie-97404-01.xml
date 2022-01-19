@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97404-01" codeInsee="97404" dateMiseAJour="2021-05-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Étang-Salé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>73 avenue Raymond-Barre</Ligne>
+      <Ligne>BP 901</Ligne>
+      <CodePostal>97427</CodePostal>
+      <NomCommune>L'Étang-Salé</NomCommune>
+      <Localisation>
+         <Latitude>-21.267378</Latitude>
+         <Longitude>55.359443</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 33 43 33</Téléphone>
+      <Télécopie>+262 2 62 33 43 69</Télécopie>
+      <Email>mairie@letangsale.fr</Email>
+      <Url>http://www.letangsale.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-12202-01" codeInsee="12202" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Aveyron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Parc d'activité de Cantaranne</Ligne>
+      <Ligne>341 rue des Métiers</Ligne>
+      <CodePostal>12850</CodePostal>
+      <NomCommune>Onet-le-Château</NomCommune>
+      <Localisation>
+         <Latitude>44.361026</Latitude>
+         <Longitude>2.60448599999995</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Chambre de métiers et de l'artisanat de l'Aveyron</Ligne>
+      <Ligne>CS 23350</Ligne>
+      <CodePostal>12033</CodePostal>
+      <NomCommune>Rodez Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 77 56 00</Téléphone>
+      <Email>artisanat@cm-aveyron.fr</Email>
+      <Url>http://www.cm-aveyron.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

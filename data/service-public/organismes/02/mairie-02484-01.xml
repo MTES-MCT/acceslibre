@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02484-01" codeInsee="02484" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mézy-Moulins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>27 avenue de Champagne</Ligne>
+      <CodePostal>02650</CodePostal>
+      <NomCommune>Mézy-Moulins</NomCommune>
+      <Localisation>
+         <Latitude>49.0596008301</Latitude>
+         <Longitude>3.52112007141</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 71 89 04</Téléphone>
+      <Email>mairie.mezy.moulins@wanadoo.fr</Email>
+      <Url>http://www.mezy-moulins.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

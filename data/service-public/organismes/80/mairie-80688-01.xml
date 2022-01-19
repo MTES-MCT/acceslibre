@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80688-01" codeInsee="80688" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Rue</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue Ernest-Dumont</Ligne>
+      <Ligne>BP 10035</Ligne>
+      <CodePostal>80120</CodePostal>
+      <NomCommune>Rue</NomCommune>
+      <Localisation>
+         <Latitude>50.2726254</Latitude>
+         <Longitude>1.6675298</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied par l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 25 00 43</Téléphone>
+      <Télécopie>03 22 25 19 99</Télécopie>
+      <Email>mairie-rue@nordnet.fr</Email>
+      <Url>http://www.villederue.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+         <Note>Dépôt des dossiers de demande de passeports et carte nationale d'identité de 9h à 11h30 et de 15h à 16h30 sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

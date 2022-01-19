@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pole_emploi-97116-01" codeInsee="97116" dateMiseAJour="2020-09-15"
+           pivotLocal="pole_emploi">
+   <Nom>Pôle emploi - Morne-à-l'Eau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>150 route Marie-Émile-Coco</Ligne>
+      <CodePostal>97111</CodePostal>
+      <NomCommune>Morne-à-l'Eau</NomCommune>
+      <Localisation>
+         <Latitude>16.306868</Latitude>
+         <Longitude>-61.512275</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet : service gratuit + prix appel (depuis l’étranger composez le +33 1 77 86 39 49) ; Employeur : 3995 (depuis l'étranger composez le +33 1 77 86 39 95)">3949</Téléphone>
+      <Url>https://www.pole-emploi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="11:15:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

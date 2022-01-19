@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-18033-01" codeInsee="18033" dateMiseAJour="2020-01-08"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Bourges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination - Berruyer</Ligne>
+      <Ligne>7 avenue du 11-Novembre-1918</Ligne>
+      <Ligne>CS 40216</Ligne>
+      <CodePostal>18000</CodePostal>
+      <NomCommune>Bourges</NomCommune>
+      <Localisation>
+         <Latitude>47.088512</Latitude>
+         <Longitude>2.398112</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 23 25 33</Téléphone>
+      <Télécopie>02 48 24 49 11</Télécopie>
+      <Email>maryline.patrigeon@ville-bourges.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

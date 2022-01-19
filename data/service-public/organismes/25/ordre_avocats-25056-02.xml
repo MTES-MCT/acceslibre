@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-25056-02" codeInsee="25056" dateMiseAJour="2019-02-19"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de Besançon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Megevand</Ligne>
+      <Ligne>BP 167</Ligne>
+      <CodePostal>25000</CodePostal>
+      <NomCommune>Besançon</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 81 44 53</Téléphone>
+      <Télécopie>03 81 83 00 82</Télécopie>
+      <Email>ordre.avocats.besancon@gmail.com</Email>
+      <Url>http://www.barreau-besancon-avocat.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

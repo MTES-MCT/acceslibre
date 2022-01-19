@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-85194-01" codeInsee="85194" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Les Sables-d'Olonne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>34 rue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>85100</CodePostal>
+      <NomCommune>Les Sables-d'Olonne</NomCommune>
+      <Localisation>
+         <Latitude>46.4966436</Latitude>
+         <Longitude>-1.7868568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">téléphoner au préalable pour être reçu dans une salle au rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>21 place du Poilu-de-France</Ligne>
+      <CodePostal>85100</CodePostal>
+      <NomCommune>Les Sables-d'Olonne</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 23 16 87</Téléphone>
+      <Télécopie>02 51 23 16 88</Télécopie>
+      <Email>mlvendee-atlantique@mlva.org</Email>
+      <Url>http://www.mlva.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

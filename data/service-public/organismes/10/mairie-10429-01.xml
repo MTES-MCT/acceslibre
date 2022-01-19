@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-10429-01" codeInsee="10429" dateMiseAJour="2021-03-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villette-sur-Aube</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>41 rue de Paris</Ligne>
+      <CodePostal>10700</CodePostal>
+      <NomCommune>Villette-sur-Aube</NomCommune>
+      <Localisation>
+         <Latitude>48.5360984802</Latitude>
+         <Longitude>4.13775014877</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 37 34 84</Téléphone>
+      <Email>mairie.villette-sur-aube@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

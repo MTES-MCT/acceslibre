@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-92025-01" codeInsee="92025" dateMiseAJour="2020-02-04"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Colombes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination</Ligne>
+      <Ligne>36 rue du Maréchal-Joffre</Ligne>
+      <CodePostal>92700</CodePostal>
+      <NomCommune>Colombes</NomCommune>
+      <Localisation>
+         <Latitude>48.921888</Latitude>
+         <Longitude>2.255514</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 47 60 43 54</Téléphone>
+      <Télécopie>01 47 60 83 60</Télécopie>
+      <Email>clic@mairie-colombes.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

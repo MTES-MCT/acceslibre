@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27321-01" codeInsee="27321" dateMiseAJour="2014-08-04"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Haye-le-Comte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5, allée François-Langlois</Ligne>
+      <CodePostal>27400</CodePostal>
+      <NomCommune>La Haye-le-Comte</NomCommune>
+      <Localisation>
+         <Latitude>49.2030525208</Latitude>
+         <Longitude>1.13575804234</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 25 08 44</Téléphone>
+      <Télécopie>02 32 25 08 44</Télécopie>
+      <Email>mairie-hayelecomte@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="17:30:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

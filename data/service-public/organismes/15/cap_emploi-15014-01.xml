@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cap_emploi-15014-01" codeInsee="15014" dateMiseAJour="2021-05-06"
+           pivotLocal="cap_emploi">
+   <Nom>Cap emploi - Cantal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cap emploi 15</Ligne>
+      <Ligne>Immeuble CCI</Ligne>
+      <Ligne>44 boulevard du Pont Rouge</Ligne>
+      <CodePostal>15000</CodePostal>
+      <NomCommune>Aurillac</NomCommune>
+      <Localisation>
+         <Latitude>44.926919</Latitude>
+         <Longitude>2.447906</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 48 89 00</Téléphone>
+      <Télécopie>04 71 64 81 26</Télécopie>
+      <Email>accueil@capemploi15.com</Email>
+      <Url>https://www.capemploi-15.com/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

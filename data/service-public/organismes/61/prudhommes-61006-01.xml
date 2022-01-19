@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="61006" dateMiseAJour="2021-12-14" id="prudhommes-61006-01" idPresta="4cac9e6a293594648a0016fd" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Argentan</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>17 RUE VIEILLES HALLES</Ligne>
+        <CodePostal>61201</CodePostal>
+        <NomCommune>ARGENTAN CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.745994</Latitude>
+            <Longitude>-0.017731</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>17 RUE VIEILLES HALLES</Ligne>
+        <CodePostal>61201</CodePostal>
+        <NomCommune>ARGENTAN CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 33 67 61 21</Téléphone>
+        <Télécopie>02 33 36 99 32</Télécopie>
+        <Email>mailto:cph-argentan@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

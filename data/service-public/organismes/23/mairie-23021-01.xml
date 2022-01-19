@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23021-01" codeInsee="23021" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bénévent-l'Abbaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Sarrazine</Ligne>
+      <CodePostal>23210</CodePostal>
+      <NomCommune>Bénévent-l'Abbaye</NomCommune>
+      <Localisation>
+         <Latitude>46.1180992126</Latitude>
+         <Longitude>1.62853002548</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 62 61 43</Téléphone>
+      <Email>mairie.benevent@gmail.com</Email>
+      <Url>http://www.beneventlabbaye.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

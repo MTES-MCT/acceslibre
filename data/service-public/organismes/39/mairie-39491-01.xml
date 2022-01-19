@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-39491-01" codeInsee="39491" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Coteaux-du-Lizon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Lupicin</Ligne>
+      <Ligne>2 place de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>39170</CodePostal>
+      <NomCommune>Coteaux-du-Lizon</NomCommune>
+      <Localisation>
+         <Latitude>46.400142</Latitude>
+         <Longitude>5.794471</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 42 11 59</Téléphone>
+      <Télécopie>03 84 42 15 44</Télécopie>
+      <Email>contact@coteauxdulizon.fr</Email>
+      <Url>http://www.coteauxdulizon.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

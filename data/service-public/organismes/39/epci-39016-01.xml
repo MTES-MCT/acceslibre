@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-39016-01" codeInsee="39016" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Petite Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des services de la Petite-Montagne</Ligne>
+      <Ligne>15 rue des Tilleuls</Ligne>
+      <CodePostal>39240</CodePostal>
+      <NomCommune>Arinthod</NomCommune>
+      <Localisation>
+         <Latitude>46.3931527</Latitude>
+         <Longitude>5.5682541</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée, ascenseur pour l’accès à l'étage</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 48 04 78</Téléphone>
+      <Télécopie>03 84 48 53 27</Télécopie>
+      <Email>ccpmontagne@petitemontagne.fr</Email>
+      <Url>http://www.petitemontagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

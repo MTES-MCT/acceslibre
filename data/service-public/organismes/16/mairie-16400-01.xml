@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-16400-01" codeInsee="16400" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Verteuil-sur-Charente</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la Mairie</Ligne>
+      <CodePostal>16510</CodePostal>
+      <NomCommune>Verteuil-sur-Charente</NomCommune>
+      <Localisation>
+         <Latitude>45.9792747498</Latitude>
+         <Longitude>0.232056006789</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 31 42 05</Téléphone>
+      <Télécopie>05 45 31 41 86</Télécopie>
+      <Email>mairie.verteuilsurcharente@wanadoo.fr</Email>
+      <Url>http://www.verteuil-charente.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

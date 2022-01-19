@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64228-01" codeInsee="64228" dateMiseAJour="2021-01-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Gabat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>64120</CodePostal>
+      <NomCommune>Gabat</NomCommune>
+      <Localisation>
+         <Latitude>43.369843</Latitude>
+         <Longitude>-1.035581</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 65 85 75</Téléphone>
+      <Télécopie>05 59 65 82 71</Télécopie>
+      <Email>mairie.64.gabat@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

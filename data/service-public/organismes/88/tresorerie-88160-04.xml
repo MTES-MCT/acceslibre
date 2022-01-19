@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-88160-04" codeInsee="88160" dateMiseAJour="2021-08-30"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) d'Épinal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue Antoine-Hurault</Ligne>
+      <Ligne>BP 51099</Ligne>
+      <CodePostal>88060</CodePostal>
+      <NomCommune>Épinal Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>48.172676</Latitude>
+         <Longitude>6.44375</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="03 29 69 25 21 (pour le service amende)">03 29 69 25 01</Téléphone>
+      <Email>sgc.epinal@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>avec ou sans rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

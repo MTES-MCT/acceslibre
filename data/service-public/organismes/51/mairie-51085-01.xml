@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-51085-01" codeInsee="51085" dateMiseAJour="2021-07-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Breuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Saint-Martin</Ligne>
+      <CodePostal>51210</CodePostal>
+      <NomCommune>Le Breuil</NomCommune>
+      <Localisation>
+         <Latitude>48.975652</Latitude>
+         <Longitude>3.645078</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 26 59 21 46</Téléphone>
+      <Email>mairie.lebreuil.51@wanadoo.fr</Email>
+      <Url>http://www.lebreuil51.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="14:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

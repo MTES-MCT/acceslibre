@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cidf-60057-01" codeInsee="60057" dateMiseAJour="2021-06-07"
+           pivotLocal="cidf">
+   <Nom>Centre d'information sur les droits des femmes et des familles (CIDFF) - Oise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue du Maréchal-Leclerc</Ligne>
+      <CodePostal>60000</CodePostal>
+      <NomCommune>Beauvais</NomCommune>
+      <Localisation>
+         <Latitude>49.4186461</Latitude>
+         <Longitude>2.1586651</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 15 74 12</Téléphone>
+      <Télécopie>03 44 15 74 12</Télécopie>
+      <Email>contact@cidff60.com</Email>
+      <Url>http://www.oise.cidff.info</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

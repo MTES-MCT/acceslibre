@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54415-01" codeInsee="54415" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pagny-sur-Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue des Aulnois</Ligne>
+      <CodePostal>54530</CodePostal>
+      <NomCommune>Pagny-sur-Moselle</NomCommune>
+      <Localisation>
+         <Latitude>48.9840911</Latitude>
+         <Longitude>6.0200387</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 81 71 18</Téléphone>
+      <Télécopie>03 83 81 58 44</Télécopie>
+      <Email>accueil-mairie@pagnysurmoselle.fr</Email>
+      <Url>http://www.pagnysurmoselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement les semaines impaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

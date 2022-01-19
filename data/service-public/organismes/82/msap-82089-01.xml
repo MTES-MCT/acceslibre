@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-82089-01" codeInsee="82089" dateMiseAJour="2020-12-07"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Lamagistère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>Allée Louis-Bourgeat</Ligne>
+      <CodePostal>82360</CodePostal>
+      <NomCommune>Lamagistère</NomCommune>
+      <Localisation>
+         <Latitude>44.12428</Latitude>
+         <Longitude>0.825494</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.lamagistere@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/lamagistere-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

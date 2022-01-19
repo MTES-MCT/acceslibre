@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-45208-01" codeInsee="45208" dateMiseAJour="2021-06-03" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques Loiret Est</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>CS 50214</Ligne>
+      <Ligne>33, rue des Déportés-Internés-de-la-Résistance</Ligne>
+      <CodePostal>45200</CodePostal>
+      <NomCommune>Montargis</NomCommune>
+      <Localisation>
+         <Latitude>47.9964274</Latitude>
+         <Longitude>2.7436974</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 38 28 19 00</Téléphone>
+      <Télécopie>02 38 28 19 11</Télécopie>
+      <Email>sie.loiret-est@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Fermé le Mercredi</Commentaire>
+</Organisme>

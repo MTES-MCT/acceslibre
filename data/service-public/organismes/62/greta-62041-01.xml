@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-62041-01" codeInsee="62041" dateMiseAJour="2021-12-02"
+           pivotLocal="greta">
+   <Nom>Greta Grand-Artois - Arras</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée Jacques Le Caron</Ligne>
+      <Ligne>25 boulevard Léon Gambetta</Ligne>
+      <CodePostal>62000</CodePostal>
+      <NomCommune>Arras</NomCommune>
+      <Localisation>
+         <Latitude>50.28843</Latitude>
+         <Longitude>2.7763</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 59 61 20 01</Téléphone>
+      <Email>greta.grand-artois@ac-lille.fr</Email>
+      <Url>https://www.greta-npdc.fr/greta/grand-artois/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

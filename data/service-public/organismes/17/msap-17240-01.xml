@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-17240-01" codeInsee="17240" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Montendre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>11 avenue de la Gare</Ligne>
+      <CodePostal>17130</CodePostal>
+      <NomCommune>Montendre</NomCommune>
+      <Localisation>
+         <Latitude>45.2799523</Latitude>
+         <Longitude>-0.397013799</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 46 70 43 67</Téléphone>
+      <Email>lam.montendre@wanadoo.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+         <Note>Accueil ouvert du lundi au vendredi de 9h à 13h pendant les congés scolaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

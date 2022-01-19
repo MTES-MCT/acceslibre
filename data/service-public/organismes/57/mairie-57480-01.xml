@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-57480-01" codeInsee="57480" dateMiseAJour="2019-05-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montigny-lès-Metz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>160 rue de Pont-à-Mousson</Ligne>
+      <Ligne>CS 70730</Ligne>
+      <CodePostal>57957</CodePostal>
+      <NomCommune>Montigny-lès-Metz Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.0999174</Latitude>
+         <Longitude>6.1527163</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 55 74 74</Téléphone>
+      <Télécopie>03 87 55 74 75</Télécopie>
+      <Email>mairie@montigny-les-metz.fr</Email>
+      <Url>http://www.montigny-les-metz.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

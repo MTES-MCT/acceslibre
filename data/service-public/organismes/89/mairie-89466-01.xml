@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89466-01" codeInsee="89466" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Villeroy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue de la Bigaserie</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Villeroy</NomCommune>
+      <Localisation>
+         <Latitude>48.1729011536</Latitude>
+         <Longitude>3.18479990959</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 88 82 16</Téléphone>
+      <Email>mairie-villeroy@wanadoo.fr</Email>
+      <Url>http://www.mairie-villeroy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:00:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous avec les élus le samedi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28229-01" codeInsee="28229" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Mainvilliers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place du Marché</Ligne>
+      <Ligne>BP 11013</Ligne>
+      <CodePostal>28301</CodePostal>
+      <NomCommune>Mainvilliers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4510342</Latitude>
+         <Longitude>1.4632245</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 18 56 80</Téléphone>
+      <Télécopie>02 37 21 80 33</Télécopie>
+      <Email>mairie@ville-mainvilliers.fr</Email>
+      <Url>http://www.ville-mainvilliers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

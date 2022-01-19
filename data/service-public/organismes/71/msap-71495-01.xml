@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-71495-01" codeInsee="71495" dateMiseAJour="2020-12-15"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Salornay-sur-Guye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>12 place Gandin</Ligne>
+      <Ligne>Bureau de Poste</Ligne>
+      <CodePostal>71250</CodePostal>
+      <NomCommune>Salornay-sur-Guye</NomCommune>
+      <Localisation>
+         <Latitude>46.520011</Latitude>
+         <Longitude>4.598035</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>msap.salornay-sur-guye@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/salornay-sur-guye-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:50:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <PlageH début="14:25:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

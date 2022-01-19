@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38298-01" codeInsee="38298" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Le Péage-de-Roussillon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue Adolphe-Garilland</Ligne>
+      <CodePostal>38550</CodePostal>
+      <NomCommune>Le Péage-de-Roussillon</NomCommune>
+      <Localisation>
+         <Latitude>45.375</Latitude>
+         <Longitude>4.7960600853</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">à l'arrière du bâtiment</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 11 15 55</Téléphone>
+      <Télécopie>04 74 29 54 59</Télécopie>
+      <Email>adm.accueil@le-peage-de-roussillon.fr</Email>
+      <Url>http://www.le-peage-de-roussillon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

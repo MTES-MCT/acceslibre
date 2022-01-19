@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-49012-01" codeInsee="49012" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aubigné-sur-Layon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>30 rue Nationale</Ligne>
+      <CodePostal>49540</CodePostal>
+      <NomCommune>Aubigné-sur-Layon</NomCommune>
+      <Localisation>
+         <Latitude>47.2117996</Latitude>
+         <Longitude>-0.460657</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonnette</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 41 59 40 19</Téléphone>
+      <Email>mairie.aubignesurlayon@wanadoo.fr</Email>
+      <Url>http://www.aubignesurlayon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+         <PlageH début="14:00:00" fin="19:00:00"/>
+         <Note>Accueil fermé du 9 au 15 août.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

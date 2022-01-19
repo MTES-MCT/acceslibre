@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-27202-01" codeInsee="27202" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Daubeuf-Près-Vatteville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>21 rue des Acacias</Ligne>
+      <CodePostal>27430</CodePostal>
+      <NomCommune>Daubeuf-près-Vatteville</NomCommune>
+      <Localisation>
+         <Latitude>49.269476</Latitude>
+         <Longitude>1.304217</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">une personne peut descendre</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 54 13 09</Téléphone>
+      <Email>commune.daubeuf@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:30:00" fin="20:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

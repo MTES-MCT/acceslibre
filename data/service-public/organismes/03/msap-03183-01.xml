@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-03183-01" codeInsee="03183" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Le Montet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Communauté du Bocage Bourdonnais</Ligne>
+      <Ligne>1 place du 8 Mai</Ligne>
+      <CodePostal>03240</CodePostal>
+      <NomCommune>Le Montet</NomCommune>
+      <Localisation>
+         <Latitude>46.41023</Latitude>
+         <Longitude>3.056289</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe et rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 70 47 37 76</Téléphone>
+      <Email>franceservices@ccbb.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement chaque premier samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

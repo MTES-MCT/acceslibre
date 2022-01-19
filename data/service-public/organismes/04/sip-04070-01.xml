@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-04070-01" codeInsee="04070" dateMiseAJour="2021-05-10" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Digne-les-Bains</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19, boulevard Victor-Hugo</Ligne>
+      <Ligne>CS 04015</Ligne>
+      <CodePostal>04015</CodePostal>
+      <NomCommune>Digne-les-Bains Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.0949075</Latitude>
+         <Longitude>6.2355683</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>0809 401 401</Téléphone>
+      <Télécopie>04 92 32 05 45</Télécopie>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <Note>Accueil ouvert également sur rendez-vous téléphonique l’après-midi. Fermé le mercredi.</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

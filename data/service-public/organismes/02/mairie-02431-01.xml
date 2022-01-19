@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02431-01" codeInsee="02431" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Liez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>02700</CodePostal>
+      <NomCommune>Liez</NomCommune>
+      <Localisation>
+         <Latitude>49.6901522</Latitude>
+         <Longitude>3.2934079</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 57 98 05</Téléphone>
+      <Télécopie>03 23 52 21 78</Télécopie>
+      <Email>mairiedeliez02@wanadoo.fr</Email>
+      <Url>http://www.commune-liez02.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:15:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="15:00:00"/>
+         <Note>Compte tenu du contexte sanitaire et jusqu'à nouvel ordre accueil exclusivement sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:15:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

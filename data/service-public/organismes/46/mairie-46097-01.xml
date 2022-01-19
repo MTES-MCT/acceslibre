@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-46097-01" codeInsee="46097" dateMiseAJour="2021-11-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Estal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>220 rue de Staals</Ligne>
+      <CodePostal>46130</CodePostal>
+      <NomCommune>Estal</NomCommune>
+      <Localisation>
+         <Latitude>44.9181671143</Latitude>
+         <Longitude>1.92169201374</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 39 70 60</Téléphone>
+      <Email>estal.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

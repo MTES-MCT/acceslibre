@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-86194-01" codeInsee="86194" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Poitiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 place du Maréchal-Leclerc</Ligne>
+      <Ligne>CS 10569</Ligne>
+      <CodePostal>86021</CodePostal>
+      <NomCommune>Poitiers Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.5802121</Latitude>
+         <Longitude>0.3407802</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 52 35 35</Téléphone>
+      <Télécopie>05 49 52 38 80</Télécopie>
+      <Email>maire@poitiers.fr</Email>
+      <Url>http://www.poitiers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="17:30:00"/>
+         <Note>Pendant les vacances scolaires, les horaires sont de 8h30 à 12h30 et de 13h30 à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

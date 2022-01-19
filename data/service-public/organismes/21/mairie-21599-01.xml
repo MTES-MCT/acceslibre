@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21599-01" codeInsee="21599" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Selongey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 place de la Mairie</Ligne>
+      <CodePostal>21260</CodePostal>
+      <NomCommune>Selongey</NomCommune>
+      <Localisation>
+         <Latitude>47.5876313</Latitude>
+         <Longitude>5.1859288</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 75 70 74</Téléphone>
+      <Télécopie>03 80 75 56 65</Télécopie>
+      <Email>mairie@selongey.fr</Email>
+      <Url>http://www.ville-selongey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 2e et le 4e samedi de chaque mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

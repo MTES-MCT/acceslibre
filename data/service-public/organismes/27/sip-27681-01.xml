@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-27681-01" codeInsee="27681" dateMiseAJour="2021-12-20" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers du centre des finances publiques de Vernon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>BP 908</Ligne>
+      <Ligne>21 boulevard Georges-Azémia</Ligne>
+      <CodePostal>27207</CodePostal>
+      <NomCommune>Vernon Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.0808589</Latitude>
+         <Longitude>1.485431</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 32 64 72 72</Téléphone>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Uniquement sur rendez-vous l'après-midi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

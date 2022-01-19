@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="03190" dateMiseAJour="2021-12-14" id="prudhommes-03190-01" idPresta="4cac9ed6293594648a00ed5a" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Moulins</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>16 RUE DIDEROT</Ligne>
+        <CodePostal>03018</CodePostal>
+        <NomCommune>MOULINS CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.567392</Latitude>
+            <Longitude>3.332664</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>16 RUE DIDEROT</Ligne>
+        <CodePostal>03018</CodePostal>
+        <NomCommune>MOULINS CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 70 20 27 32</Téléphone>
+        <Télécopie>04 70 20 69 05</Télécopie>
+        <Email>mailto:cph-moulins@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:45:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

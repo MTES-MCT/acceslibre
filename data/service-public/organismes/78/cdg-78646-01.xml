@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-78646-01" codeInsee="78646" dateMiseAJour="2021-06-07" pivotLocal="cdg">
+   <Nom>Centre interdépartemental de gestion (CIG) de la fonction publique territoriale - Grand couronne de la région Île-de-France (78-91-95)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue Boileau</Ligne>
+      <Ligne>BP 855</Ligne>
+      <CodePostal>78008</CodePostal>
+      <NomCommune>Versailles Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7947006226</Latitude>
+         <Longitude>2.14604997635</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 49 63 00</Téléphone>
+      <Email>cigversailles@cigversailles.fr</Email>
+      <Url>http://www.cigversailles.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="18:00:00"/>
+         <Note>Pendant la crise sanitaire, accueil fermé à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="17:00:00"/>
+         <Note>Pendant la crise sanitaire, accueil fermé à 16h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07042-01" codeInsee="07042" dateMiseAJour="2021-11-26"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bourg-Saint-Andéol</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place de la Concorde</Ligne>
+      <CodePostal>07700</CodePostal>
+      <NomCommune>Bourg-Saint-Andéol</NomCommune>
+      <Localisation>
+         <Latitude>44.3686981201</Latitude>
+         <Longitude>4.64670991898</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 54 85 00</Téléphone>
+      <Télécopie>04 75 54 85 82</Télécopie>
+      <Email>patrick.guerin@bsa-ville.fr</Email>
+      <Url>http://www.bsa-ville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil et la permanence du maire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

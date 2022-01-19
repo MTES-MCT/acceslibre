@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="29232" dateMiseAJour="2021-12-14" id="tgi-29232-01" idPresta="4cac9e87293594648a004cc3" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Quimper</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>48 A QUAI DE L&#39;ODET</Ligne>
+        <Ligne>CS 66031</Ligne>
+        <CodePostal>29327</CodePostal>
+        <NomCommune>QUIMPER CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.992522</Latitude>
+            <Longitude>-4.109357</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>48 A QUAI DE L&#39;ODET</Ligne>
+        <Ligne>CS 66031</Ligne>
+        <CodePostal>29327</CodePostal>
+        <NomCommune>QUIMPER CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>02 98 82 88 00</Téléphone>
+        <Email>mailto:tgi-quimper@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

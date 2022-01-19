@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25440-01" codeInsee="25440" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Ouhans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 Grande rue</Ligne>
+      <CodePostal>25520</CodePostal>
+      <NomCommune>Ouhans</NomCommune>
+      <Localisation>
+         <Latitude>46.998726</Latitude>
+         <Longitude>6.293259</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">accessible avec l'aide d'une tierce personne, téléphoner si besoin d'aide</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 69 90 89</Téléphone>
+      <Email>mairie.ouhans@gmail.com</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <Note>Accueil ouvert le vendredi en semaine paire uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="14:15:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

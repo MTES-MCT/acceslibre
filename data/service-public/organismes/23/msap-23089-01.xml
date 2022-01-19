@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-23089-01" codeInsee="23089" dateMiseAJour="2021-09-01"
+           pivotLocal="msap">
+   <Nom>France Services - Genouillac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de l'Église</Ligne>
+      <Ligne>Poste de Genouillac</Ligne>
+      <CodePostal>23350</CodePostal>
+      <NomCommune>Genouillac</NomCommune>
+      <Localisation>
+         <Latitude>46.353081</Latitude>
+         <Longitude>1.992199</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 45 29 55 89</Téléphone>
+      <Email>accueil-rgp.230890a@laposte.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

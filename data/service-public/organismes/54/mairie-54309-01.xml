@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-54309-01" codeInsee="54309" dateMiseAJour="2019-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Lemainville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>52 Grande rue</Ligne>
+      <CodePostal>54740</CodePostal>
+      <NomCommune>Lemainville</NomCommune>
+      <Localisation>
+         <Latitude>48.504295</Latitude>
+         <Longitude>6.199915</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 83 25 57 73</Téléphone>
+      <Email>lemainville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="10:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

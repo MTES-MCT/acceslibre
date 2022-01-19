@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-63407-01" codeInsee="63407" dateMiseAJour="2019-06-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saulzet-le-Froid</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>63970</CodePostal>
+      <NomCommune>Saulzet-le-Froid</NomCommune>
+      <Localisation>
+         <Latitude>45.6414985657</Latitude>
+         <Longitude>2.91883993149</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">travaux en cours (disponible début juillet )</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 73 79 33 65</Téléphone>
+      <Télécopie>04 73 79 39 94</Télécopie>
+      <Email>mairie.saulzet@wanadoo.fr</Email>
+      <Url>http://www.saulzet-le-froid.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

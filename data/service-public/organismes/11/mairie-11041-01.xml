@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-11041-01" codeInsee="11041" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bize-Minervois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue de l'Hôtel-de-Ville</Ligne>
+      <CodePostal>11120</CodePostal>
+      <NomCommune>Bize-Minervois</NomCommune>
+      <Localisation>
+         <Latitude>43.3181991577</Latitude>
+         <Longitude>2.87097001076</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 46 10 29</Téléphone>
+      <Télécopie>04 68 46 23 40</Télécopie>
+      <Email>bizeminervois@gmail.com</Email>
+      <Url>http://www.bizeminervois.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

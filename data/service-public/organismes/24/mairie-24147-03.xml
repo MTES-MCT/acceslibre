@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24147-03" codeInsee="24147" dateMiseAJour="2021-02-02"
+           pivotLocal="mairie">
+   <Nom>Mairie déléguée - Saint-Pantaly-d'Ans</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Saint-Pantaly-d'Ans</Ligne>
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24640</CodePostal>
+      <NomCommune>Cubjac-Auvézère-Val d'Ans</NomCommune>
+      <Localisation>
+         <Latitude>45.270561</Latitude>
+         <Longitude>1.059766</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 05 31 37</Téléphone>
+      <Email>mairiesaintpantalydans@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

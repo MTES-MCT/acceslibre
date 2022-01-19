@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-78498-01" codeInsee="78498" dateMiseAJour="2018-02-14"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Poissy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 boulevard Devaux</Ligne>
+      <CodePostal>78300</CodePostal>
+      <NomCommune>Poissy</NomCommune>
+      <Localisation>
+         <Latitude>48.9331528</Latitude>
+         <Longitude>2.04648550000002</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 30 06 30 08</Téléphone>
+      <Télécopie>01 39 22 97 49</Télécopie>
+      <Email>mlipoissyconflans@mlipc78-mlidf.org</Email>
+      <Url>http://www.ville-poissy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

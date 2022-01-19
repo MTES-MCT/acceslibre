@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cpam-97412-01" codeInsee="97412" dateMiseAJour="2021-09-20"
+           pivotLocal="cpam">
+   <Nom>Caisse générale de sécurité sociale (CGSS) de La Réunion - accueil de Saint-Joseph</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 rue Paul-Demange</Ligne>
+      <CodePostal>97480</CodePostal>
+      <NomCommune>Saint-Joseph</NomCommune>
+      <Localisation>
+         <Latitude>-21.3785449</Latitude>
+         <Longitude>55.620929</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse générale de sécurité sociale de La Réunion</Ligne>
+      <Ligne>4 boulevard Doret</Ligne>
+      <Ligne>CS 53001</Ligne>
+      <CodePostal>97741</CodePostal>
+      <NomCommune>Saint-Denis Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel) ; Depuis l’étranger, composez le +33 184 90 36 46">36 46</Téléphone>
+      <Url>https://www.ameli.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="07:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

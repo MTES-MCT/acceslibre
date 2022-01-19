@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_departementale-97611-02" codeInsee="97611"
+           dateMiseAJour="2021-07-06"
+           pivotLocal="paierie_departementale">
+   <Nom>Paierie départementale - Mayotte - Mamoudzou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rond-point El-Farouk</Ligne>
+      <Ligne>Kaweni</Ligne>
+      <Ligne>BP 501</Ligne>
+      <CodePostal>97600</CodePostal>
+      <NomCommune>Mamoudzou</NomCommune>
+      <Localisation>
+         <Latitude>-12.771389</Latitude>
+         <Longitude>45.223611</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+269 2 69 64 86 10</Téléphone>
+      <Télécopie>+269 2 69 64 86 33</Télécopie>
+      <Email>t106090@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

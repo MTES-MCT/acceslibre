@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61408-01" codeInsee="61408" dateMiseAJour="2018-07-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Honorine-la-Guillaume</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>61210</CodePostal>
+      <NomCommune>Sainte-Honorine-la-Guillaume</NomCommune>
+      <Localisation>
+         <Latitude>48.783174</Latitude>
+         <Longitude>-0.374536</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 66 20 79</Téléphone>
+      <Email>sthonorinelaguillaume@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

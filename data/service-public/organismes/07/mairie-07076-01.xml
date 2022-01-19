@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-07076-01" codeInsee="07076" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cruas</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place René-Cassin</Ligne>
+      <CodePostal>07350</CodePostal>
+      <NomCommune>Cruas</NomCommune>
+      <Localisation>
+         <Latitude>44.6573239</Latitude>
+         <Longitude>4.7651893</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 75 49 59 00</Téléphone>
+      <Télécopie>04 75 49 59 22</Télécopie>
+      <Email>accueil@cruas.fr</Email>
+      <Url>http://www.cruas.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Pendant la crise sanitaire accueil du lundi au jeudi de 9h à 11h45 et de 13h30 à 17h15 et le vendredi de 8h30 à 11h45.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

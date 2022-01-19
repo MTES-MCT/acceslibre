@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-78567-01" codeInsee="78567" dateMiseAJour="2020-03-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Martin-la-Garenne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>105 rue du Vieux-Puits</Ligne>
+      <CodePostal>78520</CodePostal>
+      <NomCommune>Saint-Martin-la-Garenne</NomCommune>
+      <Localisation>
+         <Latitude>49.0404144</Latitude>
+         <Longitude>1.6888725</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 77 07 72</Téléphone>
+      <Télécopie>01 34 77 96 54</Télécopie>
+      <Email>mairiesaintmartinlagarenne@wanadoo.fr</Email>
+      <Url>http://www.saint-martin-la-garenne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

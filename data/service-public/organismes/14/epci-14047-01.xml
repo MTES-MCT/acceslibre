@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-14047-01" codeInsee="14047" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté de communes - Bayeux Intercom</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place Gauquelin-des-Pallières</Ligne>
+      <Ligne>CS 62070</Ligne>
+      <CodePostal>14406</CodePostal>
+      <NomCommune>Bayeux Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.2810708</Latitude>
+         <Longitude>-0.7148283</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 51 63 00</Téléphone>
+      <Email>siege@bayeux-intercom.fr</Email>
+      <Url>http://www.bayeux-intercom.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement sur rendez-vous durant la crise sanitaire pour les services : facturation et enseignement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

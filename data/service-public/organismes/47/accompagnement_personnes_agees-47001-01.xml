@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="accompagnement_personnes_agees-47001-01" codeInsee="47001"
+           dateMiseAJour="2021-06-07"
+           pivotLocal="accompagnement_personnes_agees">
+   <Nom>Plateforme d'accompagnement et de répit pour les aidants de personnes âgées - Agen</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Accueil de jour La Clé des Sens</Ligne>
+      <Ligne>98 avenue Robert-Schuman</Ligne>
+      <Ligne>BP 30202</Ligne>
+      <CodePostal>47006</CodePostal>
+      <NomCommune>Agen Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.20747</Latitude>
+         <Longitude>0.63377</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 68 43 13</Téléphone>
+      <Email>plateforme.repit.carpediem@regain-coordination.fr</Email>
+      <Url>http://www.regain-coordination.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

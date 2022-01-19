@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-97408-01" codeInsee="97408" dateMiseAJour="2021-06-02"
+           pivotLocal="msap">
+   <Nom>France Services - La Possession (La Réunion)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Dos d'Âne</Ligne>
+      <Ligne>rue Père Lucien</Ligne>
+      <CodePostal>97419</CodePostal>
+      <NomCommune>La Possession</NomCommune>
+      <Localisation>
+         <Latitude>-20.985055131339088</Latitude>
+         <Longitude>55.38166261885936</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Email>fnativel@lapossession.re</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

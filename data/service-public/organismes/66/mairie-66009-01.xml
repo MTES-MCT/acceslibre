@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66009-01" codeInsee="66009" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Arles-sur-Tech</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Baills de la Mairie</Ligne>
+      <CodePostal>66150</CodePostal>
+      <NomCommune>Arles-sur-Tech</NomCommune>
+      <Localisation>
+         <Latitude>42.4558982849</Latitude>
+         <Longitude>2.63557004929</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC">en cours</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 39 12 22</Téléphone>
+      <Email>mairie@arles-sur-tech.fr</Email>
+      <Url>http://www.ville-arles-sur-tech.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

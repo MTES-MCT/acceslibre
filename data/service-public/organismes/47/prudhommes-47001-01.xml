@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="47001" dateMiseAJour="2021-12-14" id="prudhommes-47001-01" idPresta="4cac9e6a293594648a0016f2" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Agen</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1050 BIS AVENUE DU DR JEAN BRU</Ligne>
+        <CodePostal>47000</CodePostal>
+        <NomCommune>AGEN</NomCommune>
+        <Localisation>
+            <Latitude>44.193776</Latitude>
+            <Longitude>0.621995</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1050 BIS AVENUE DU DR JEAN BRU</Ligne>
+        <CodePostal>47000</CodePostal>
+        <NomCommune>AGEN</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 53 68 49 00</Téléphone>
+        <Télécopie>05 53 68 49 09</Télécopie>
+        <Email>mailto:cph-agen@justice.fr</Email>
+        <Url>http://www.ca-agen.justice.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="mercredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="jeudi" fin="jeudi">
+            <PlageH début="08:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

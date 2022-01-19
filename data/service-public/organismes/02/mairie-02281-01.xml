@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-02281-01" codeInsee="02281" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Épine-aux-Bois</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Vendières</Ligne>
+      <CodePostal>02540</CodePostal>
+      <NomCommune>L'Épine-aux-Bois</NomCommune>
+      <Localisation>
+         <Latitude>48.8850326538</Latitude>
+         <Longitude>3.44737005234</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 23 69 85 47</Téléphone>
+      <Télécopie>03 23 70 24 18</Télécopie>
+      <Email>mairielepineauxbois@orange.fr</Email>
+      <Url>http://www.lepineauxbois.fr.gd</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-82115-01" codeInsee="82115" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Monclar-de-Quercy</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place des Capitouls</Ligne>
+      <CodePostal>82230</CodePostal>
+      <NomCommune>Monclar-de-Quercy</NomCommune>
+      <Localisation>
+         <Latitude>43.9664840698</Latitude>
+         <Longitude>1.58405900002</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 63 30 40 29</Téléphone>
+      <Télécopie>05 63 30 33 19</Télécopie>
+      <Email>mairie-monclar.de.quercy@info82.com</Email>
+      <Url>http://www.monclar-de-quercy.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

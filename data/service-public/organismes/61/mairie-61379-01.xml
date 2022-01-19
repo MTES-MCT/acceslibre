@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61379-01" codeInsee="61379" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Cyr-la-Rosière</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Sainte-Julitte</Ligne>
+      <CodePostal>61130</CodePostal>
+      <NomCommune>Saint-Cyr-la-Rosière</NomCommune>
+      <Localisation>
+         <Latitude>48.330361</Latitude>
+         <Longitude>0.640365</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 73 40 26</Téléphone>
+      <Email>mairie-st-cyr-la-rosiere@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement le 2e samedi du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-46251-01" codeInsee="46251" dateMiseAJour="2021-11-02" pivotLocal="cij">
+   <Nom>Point information jeunesse - Saint-Céré</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 place gambetta</Ligne>
+      <Ligne>Maison des Services Publics 1er étage</Ligne>
+      <CodePostal>46400</CodePostal>
+      <NomCommune>Saint-Céré</NomCommune>
+      <Localisation>
+         <Latitude>44.85974</Latitude>
+         <Longitude>1.88851</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 38 07 15</Téléphone>
+      <Email>cyberbase@cauvaldor.fr</Email>
+      <Url>https://www.saint-cere.fr/jeunesse-/-enseignement/pij-et-cyber-base</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-67084-01" codeInsee="67084" dateMiseAJour="2021-01-12"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Dambach-la-Ville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Bureau de poste</Ligne>
+      <Ligne>2 rue de Bernstein</Ligne>
+      <CodePostal>67650</CodePostal>
+      <NomCommune>Dambach-la-Ville</NomCommune>
+      <Localisation>
+         <Latitude>48.322127</Latitude>
+         <Longitude>7.428645</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 92 65 85</Téléphone>
+      <Email>msap.dambach-la-ville@laposte.fr</Email>
+      <Url>https://www.maisondeservicesaupublic.fr/content/dambach-la-ville-bureau-de-poste</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

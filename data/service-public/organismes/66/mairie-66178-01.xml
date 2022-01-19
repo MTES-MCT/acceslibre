@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-66178-01" codeInsee="66178" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Jean-Pla-de-Corts</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Square Guy-Malé</Ligne>
+      <CodePostal>66490</CodePostal>
+      <NomCommune>Saint-Jean-Pla-de-Corts</NomCommune>
+      <Localisation>
+         <Latitude>42.5117551</Latitude>
+         <Longitude>2.7912283</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 68 83 17 64</Téléphone>
+      <Télécopie>04 68 83 55 87</Télécopie>
+      <Email>contact@stjeanpladecorts.fr</Email>
+      <Url>http://www.stjeanpladecorts.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

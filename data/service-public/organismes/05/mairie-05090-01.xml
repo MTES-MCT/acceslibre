@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05090-01" codeInsee="05090" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Motte-en-Champsaur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 A route de Molines</Ligne>
+      <Ligne>Place Jean-Hyppolyte-Gondre</Ligne>
+      <CodePostal>05500</CodePostal>
+      <NomCommune>La Motte-en-Champsaur</NomCommune>
+      <Localisation>
+         <Latitude>44.7331047058</Latitude>
+         <Longitude>6.06938314438</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 50 09 66</Téléphone>
+      <Email>motte.en.champsaur@orange.fr</Email>
+      <Url>https://www.la-motte-en-champsaur.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

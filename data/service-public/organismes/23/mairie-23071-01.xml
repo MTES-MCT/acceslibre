@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-23071-01" codeInsee="23071" dateMiseAJour="2019-07-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Croze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 la Grattade</Ligne>
+      <CodePostal>23500</CodePostal>
+      <NomCommune>Croze</NomCommune>
+      <Localisation>
+         <Latitude>45.819071</Latitude>
+         <Longitude>2.169571</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 66 93 52</Téléphone>
+      <Télécopie>05 55 66 94 63</Télécopie>
+      <Email>mairie-croze23@orange.fr</Email>
+      <Url>http://www.croze-en-creuse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

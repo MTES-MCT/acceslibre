@@ -15,74 +15,18 @@
       <p class="h4">{{ search|capfirst }} / {{ commune_search}}</p>
     </div>
   </div>
-  {% for result in results %}
-  <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-lg-6 a4a-result-map"
-        {% if result.coordonnees %}
-          style="background-image: url('{% result_map_img result.coordonnees size="400x300" %}')"
-        {% endif %}></div>
-      <div class="col-lg-6">
-        <div class="card-body">
-          <h3 class="h6 card-title font-weight-bold">
-            {% if result.exists and result.exists.is_online %}
-            <a href="{{ result.exists.get_absolute_url }}" target="_blank" rel="noopener noreferrer">{{ result.nom }}</a>
-            {% else %}
-            {{ result.nom }}
-            {% endif %}
-            {% if result.exists %}
-              {% if result.exists.is_online %}
-                {% if result.exists.user == user %}
-                <span class="badge badge-success">
-                  <i aria-hidden="true" class="icon icon-info-circled"></i>
-                  Vous avez créé cette fiche
-                </span>
-                {% else %}
-                <span class="badge badge-danger">Existe déjà dans la base</span>
-                {% endif %}
-              {% else %}
-                <span class="badge badge-warning">
-                  {% if result.exists.user == user %}
-                    Existe dans vos brouillons
-                  {% else %}
-                    Existe à l'état de brouillon
-                  {% endif %}
-                </span>
-              {% endif %}
-            {% endif %}
-          </h3>
-          <p class="card-text">
-            <small>
-              Source: {{ result.source|format_source:"Inconnue" }}<br>
-              {% if result.siret %}SIRET: {{ result.siret }}<br>{% endif %}
-              {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
-              {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-              {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-              {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
-            </small>
-          </p>
-          <p class="card-text mb-0">
-            {% if result.exists and result.exists.user == user %}
-              <a class="btn btn-success btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
-              {% if result.exists.published %}Modifier cet établissement{% else %}Reprendre votre brouillon{% endif %}
-              </a>
-            {% elif result.exists %}
-              <a class="btn btn-primary btn-block" href="{{ result.exists.get_absolute_url }}">
-                Voir cet établissement
-              </a>
-            {% else %}
-              <a class="btn btn-primary btn-block"
-                href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
-                Sélectionner cet établissement
-              </a>
-            {% endif %}
-          </p>
-        </div>
-      </div>
-    </div>
+    {% if results_bdd %}
+      <h4>Établissements existants dans Acceslibre <span class="text-muted">({{ results_bdd|length }} résultat{{ results_bdd|length|pluralize }})</span></h4>
+  <div class="card p-3">
+     {% include "contrib/includes/result_search_erps.html" with results=results_bdd %}
   </div>
-  {% endfor %}
-
+    {% endif %}
+  {% if results %}
+  <h4>Etablissements dont les informations administratives sont disponibles <span class="text-muted">({{ results|length }} résultat{{ results|length|pluralize }})</span></h4>
+<div class="card p-3">
+    {% include "contrib/includes/result_search_erps.html" with results=results %}
+</div>
+  {% endif %}
   <div class="">
     {% if results %}
     <hr>

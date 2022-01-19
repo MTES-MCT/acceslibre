@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-23176-01" codeInsee="23176" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - La Souterraine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination - La Souterraine</Ligne>
+      <Ligne>12 rue Pasteur</Ligne>
+      <CodePostal>23300</CodePostal>
+      <NomCommune>La Souterraine</NomCommune>
+      <Localisation>
+         <Latitude>46.235841</Latitude>
+         <Longitude>1.481445</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 89 59 94</Téléphone>
+      <Télécopie>05 55 89 59 99</Télécopie>
+      <Email>anne.menegon@ch-lasouterraine.fr</Email>
+      <Url>http://www.ch-lasouterraine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

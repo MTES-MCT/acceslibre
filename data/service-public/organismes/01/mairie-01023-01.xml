@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01023-01" codeInsee="01023" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Asnières-sur-Saône</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 route du Port</Ligne>
+      <CodePostal>01570</CodePostal>
+      <NomCommune>Asnières-sur-Saône</NomCommune>
+      <Localisation>
+         <Latitude>46.3837813</Latitude>
+         <Longitude>4.8789689</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 30 01 27</Téléphone>
+      <Télécopie>09 70 32 44 23</Télécopie>
+      <Email>asnieres.saone.mairie@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement un vendredi sur deux.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

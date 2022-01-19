@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="paierie_departementale-79191-03" codeInsee="79191"
+           dateMiseAJour="2021-07-06"
+           pivotLocal="paierie_departementale">
+   <Nom>Paierie départementale - Deux-Sèvres - Niort</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>171 avenue de Paris</Ligne>
+      <Ligne>BP 59126</Ligne>
+      <CodePostal>79061</CodePostal>
+      <NomCommune>Niort Cedex 9</NomCommune>
+      <Localisation>
+         <Latitude>46.327635</Latitude>
+         <Longitude>-0.449015</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 76 80 00</Téléphone>
+      <Email>t079090@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil également sur rendez-vous</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil également sur rendez-vous</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

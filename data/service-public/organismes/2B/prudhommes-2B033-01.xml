@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="2B033" dateMiseAJour="2021-12-14" id="prudhommes-2B033-01" idPresta="4cac9e69293594648a0016e5" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Bastia</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>10 BOULEVARD AUGUSTE GAUDIN</Ligne>
+        <CodePostal>20200</CodePostal>
+        <NomCommune>BASTIA</NomCommune>
+        <Localisation>
+            <Latitude>42.69467</Latitude>
+            <Longitude>9.448439</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>10 BOULEVARD AUGUSTE GAUDIN</Ligne>
+        <CodePostal>20200</CodePostal>
+        <NomCommune>BASTIA</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 95 32 38 56</Téléphone>
+        <Télécopie>04 95 31 69 25</Télécopie>
+        <Email>mailto:cph-bastia@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="gendarmerie-15045-01" codeInsee="15045" dateMiseAJour="2020-07-09"
+           pivotLocal="gendarmerie"
+           idPresta="1009692">
+   <Nom>Brigade de gendarmerie - Chaudes-Aigues</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Quartier Beauredon</Ligne>
+      <CodePostal>15110</CodePostal>
+      <NomCommune>Chaudes-Aigues</NomCommune>
+      <Localisation>
+         <Latitude>44.84961646</Latitude>
+         <Longitude>3.00190672</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 23 51 15</Téléphone>
+      <Email>https://www.contacterlagendarmerie.fr</Email>
+      <Url>http://www.gendarmerie.interieur.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="dimanche">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>hors cas dépôt de plainte. Jours fériés de 9h à 12h</Commentaire>
+</Organisme>

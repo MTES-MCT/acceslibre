@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-80021-03" codeInsee="80021" dateMiseAJour="2020-10-09"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police d'Amiens - secteur Ouest</Nom>
+   <EditeurSource>Ministère de l'Intérieur</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Secteur Ouest</Ligne>
+      <Ligne>Quartier Etouvie</Ligne>
+      <Ligne>Place de Bourgogne</Ligne>
+      <CodePostal>80000</CodePostal>
+      <NomCommune>Amiens</NomCommune>
+      <Localisation>
+         <Latitude>49.8805548</Latitude>
+         <Longitude>2.331693</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">03 22 69 24 70</Téléphone>
+      <Email>ddsp80-csp-amiens-etouvie@interieur.gouv.fr</Email>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

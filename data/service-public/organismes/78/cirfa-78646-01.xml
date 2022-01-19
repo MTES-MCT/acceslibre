@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cirfa-78646-01" codeInsee="78646" dateMiseAJour="2018-12-03"
+           pivotLocal="cirfa">
+   <Nom>Centre d'information et de recrutement des forces armées (CIRFA) - Versailles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>7 rue des Chantiers</Ligne>
+      <CodePostal>78000</CodePostal>
+      <NomCommune>Versailles</NomCommune>
+      <Localisation>
+         <Latitude>48.796903</Latitude>
+         <Longitude>2.136302</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 25 92 00</Téléphone>
+      <Email>https://www.recrutement.terre.defense.gouv.fr/contactez-nous</Email>
+      <Url>https://www.recrutement.terre.defense.gouv.fr/ou-nous-rencontrer/cirfa-de-versailles</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="12:45:00" fin="17:30:00"/>
+         <Note>Fermeture à 16h00 le vendredi.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="67482" dateMiseAJour="2021-12-14" id="prudhommes-67482-01" idPresta="4cac9ed6293594648a00ed72" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes de Strasbourg</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>19 AVENUE DE LA PAIX</Ligne>
+        <CodePostal>67000</CodePostal>
+        <NomCommune>STRASBOURG</NomCommune>
+        <Localisation>
+            <Latitude>48.589855</Latitude>
+            <Longitude>7.755455</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>19 AVENUE DE LA PAIX</Ligne>
+        <CodePostal>67000</CodePostal>
+        <NomCommune>STRASBOURG</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 88 76 70 70</Téléphone>
+        <Télécopie>03 88 35 66 34</Télécopie>
+        <Email>mailto:cph-strasbourg@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="lundi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="14:00:00" fin="17:00:00"/>
+        </PlageJ>
+        <PlageJ début="mardi" fin="vendredi">
+            <PlageH début="08:00:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="16:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

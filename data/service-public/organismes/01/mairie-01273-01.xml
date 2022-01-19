@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-01273-01" codeInsee="01273" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuville-sur-Ain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Michel-Floriot</Ligne>
+      <CodePostal>01160</CodePostal>
+      <NomCommune>Neuville-sur-Ain</NomCommune>
+      <Localisation>
+         <Latitude>46.081401825</Latitude>
+         <Longitude>5.37165021896</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 74 37 77 16</Téléphone>
+      <Email>mairie@neuvillesurain.fr</Email>
+      <Url>http://www.neuvillesurain.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>La mairie principale (Place Michel Floriot) est temporairement fermée au public, accueil à la mairie annexe (Place Joseph Rynois) sur rendez-vous uniquement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

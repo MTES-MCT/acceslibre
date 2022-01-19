@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maia-78646-01" codeInsee="78646" dateMiseAJour="2014-02-05"
+           pivotLocal="maia">
+   <Nom>Mission d'accueil et d'information des associations (MAIA) - Yvelines</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction départementale de la cohésion sociale des Yvelines</Ligne>
+      <Ligne>7, rue Jean-Mermoz</Ligne>
+      <Ligne>CS 20501</Ligne>
+      <CodePostal>78008</CodePostal>
+      <NomCommune>Versailles Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.7967863</Latitude>
+         <Longitude>2.1445656</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 39 24 24 81</Téléphone>
+      <Télécopie>01 39 24 24 77</Télécopie>
+      <Email>ddcs-sport-association@yvelines.gouv.fr</Email>
+      <Url>http://www.associations.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

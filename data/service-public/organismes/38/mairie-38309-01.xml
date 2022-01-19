@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38309-01" codeInsee="38309" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Poisat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place Georges-Brassens</Ligne>
+      <CodePostal>38320</CodePostal>
+      <NomCommune>Poisat</NomCommune>
+      <Localisation>
+         <Latitude>45.1587181091</Latitude>
+         <Longitude>5.75924491882</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 25 49 75</Téléphone>
+      <Télécopie>04 76 25 85 97</Télécopie>
+      <Email>mairie@ville-poisat.fr</Email>
+      <Url>http://www.ville-poisat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

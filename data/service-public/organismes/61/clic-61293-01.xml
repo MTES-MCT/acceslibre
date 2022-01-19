@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-61293-01" codeInsee="61293" dateMiseAJour="2020-02-13"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Mortagne-au-Perche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination Orne-est</Ligne>
+      <Ligne>Antenne du Perche</Ligne>
+      <Ligne>9 rue de Longny</Ligne>
+      <CodePostal>61400</CodePostal>
+      <NomCommune>Mortagne-au-Perche</NomCommune>
+      <Localisation>
+         <Latitude>48.522503</Latitude>
+         <Longitude>0.551083</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 73 11 02</Téléphone>
+      <Email>perche@clic-orne.com</Email>
+      <Url>http://www.clic-orne.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-88158-01" codeInsee="88158" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Éloyes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue Charles-de-Gaulle</Ligne>
+      <CodePostal>88510</CodePostal>
+      <NomCommune>Éloyes</NomCommune>
+      <Localisation>
+         <Latitude>48.0931346</Latitude>
+         <Longitude>6.6121548</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 32 40 18</Téléphone>
+      <Télécopie>03 29 32 47 36</Télécopie>
+      <Email>mairie.eloyes@wanadoo.fr</Email>
+      <Url>http://www.eloyes.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-63040-01" codeInsee="63040" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Puy-de-Dôme - accueil de Billom</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Rue Carnot</Ligne>
+      <CodePostal>63160</CodePostal>
+      <NomCommune>Billom</NomCommune>
+      <Localisation>
+         <Latitude>45.723746</Latitude>
+         <Longitude>3.339079</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Puy-de-Dôme</Ligne>
+      <Ligne>2 rue Auger</Ligne>
+      <CodePostal>63032</CodePostal>
+      <NomCommune>Clermont-Ferrand Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous les 1er, 3e et 5e mardis du mois.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

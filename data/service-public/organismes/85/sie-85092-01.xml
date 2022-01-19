@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sie-85092-01" codeInsee="85092" dateMiseAJour="2020-11-24" pivotLocal="sie">
+   <Nom>Service des impôts des entreprises du centre des finances publiques de Fontenay-le-Comte</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Marcel-Henri</Ligne>
+      <Ligne>BP 79</Ligne>
+      <CodePostal>85202</CodePostal>
+      <NomCommune>Fontenay-le-Comte Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.465972</Latitude>
+         <Longitude>-0.8065</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 50 11 11</Téléphone>
+      <Email>sip-sie.fontenay-le-comte@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Exclusivement sur rendez-vous de 13h30 à 16h15</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:15:00"/>
+         <Note>Exclusivement sur rendez-vous de 13h30 à 16h15</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

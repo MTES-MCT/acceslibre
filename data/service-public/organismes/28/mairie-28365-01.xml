@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28365-01" codeInsee="28365" dateMiseAJour="2021-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sandarville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue de l'Arche</Ligne>
+      <CodePostal>28120</CodePostal>
+      <NomCommune>Sandarville</NomCommune>
+      <Localisation>
+         <Latitude>48.3511314392</Latitude>
+         <Longitude>1.35374498367</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe, rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 25 38 64</Téléphone>
+      <Email>sandarville.mairie@orange.fr</Email>
+      <Url>http://www.sandarville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+         <Note>Fermeture à 18h pendant la période du couvre-feu.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+         <Note>Fermeture à 18h pendant la période du couvre-feu.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="97209" dateMiseAJour="2021-12-14" id="cour_appel-97209-01" idPresta="4cac9e61293594648a000589" pivotLocal="cour_appel">
+    <Nom>Cour d'appel de Fort-de-France</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>28 RUE VICTOR SCHOELCHER</Ligne>
+        <Ligne>BP 634</Ligne>
+        <CodePostal>97200</CodePostal>
+        <NomCommune>FORT DE FRANCE</NomCommune>
+        <Localisation>
+            <Latitude>14.605143</Latitude>
+            <Longitude>-61.069023</Longitude>
+            <Précision>6.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>28 RUE VICTOR SCHOELCHER</Ligne>
+        <Ligne>BP 634</Ligne>
+        <CodePostal>97200</CodePostal>
+        <NomCommune>FORT DE FRANCE</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>05 96 48 41 41</Téléphone>
+        <Télécopie>05 96 63 27 08</Télécopie>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="jeudi">
+            <PlageH début="07:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="16:00:00"/>
+        </PlageJ>
+        <PlageJ début="vendredi" fin="vendredi">
+            <PlageH début="07:30:00" fin="12:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

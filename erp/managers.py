@@ -133,6 +133,9 @@ class ErpQuerySet(models.QuerySet):
     def in_commune(self, commune):
         return self.filter(commune_ext=commune)
 
+    def in_code_postal(self, commune):
+        return self.filter(code_postal__in=commune.code_postaux)
+
     def having_a11y_data(self):
         """Filter ERPs having at least one a11y data filled in. A11y fields are defined
         in the `erp.schema.FIELDS` dict through the `is_a11y` flag for each field."""

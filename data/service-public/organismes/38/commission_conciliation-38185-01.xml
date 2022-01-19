@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commission_conciliation-38185-01" codeInsee="38185"
+           dateMiseAJour="2021-03-30"
+           pivotLocal="commission_conciliation">
+   <Nom>Commission départementale de conciliation - Isère</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Préfecture - DDCS</Ligne>
+      <Ligne>Secrétariat de la CDC</Ligne>
+      <Ligne>1 rue Joseph Chanrion</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <CodePostal>38000</CodePostal>
+      <NomCommune>Grenoble</NomCommune>
+      <Localisation>
+         <Latitude>45.1914439</Latitude>
+         <Longitude>5.7353744</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 57 38 65 38</Téléphone>
+      <Email>ddcs@isere.gouv.fr</Email>
+      <Url>http://www.isere.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

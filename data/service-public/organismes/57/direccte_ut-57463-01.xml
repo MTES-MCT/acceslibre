@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-57463-01" codeInsee="57463" dateMiseAJour="2018-05-16"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Moselle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue du Chanoine-Collin</Ligne>
+      <CodePostal>57000</CodePostal>
+      <NomCommune>Metz</NomCommune>
+      <Localisation>
+         <Latitude>49.120335</Latitude>
+         <Longitude>6.176942</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 56 54 00</Téléphone>
+      <Télécopie>03 87 56 59 42</Télécopie>
+      <Email>acal-ud57.direction@direccte.gouv.fr</Email>
+      <Url>http://www.alsace-champagne-ardenne-lorraine.direccte.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42092-01" codeInsee="42092" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - L'Étrat</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>175 rue de Verdun</Ligne>
+      <Ligne>BP 7</Ligne>
+      <CodePostal>42580</CodePostal>
+      <NomCommune>L'Étrat</NomCommune>
+      <Localisation>
+         <Latitude>45.4856987</Latitude>
+         <Longitude>4.37873983383</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 91 31 31</Téléphone>
+      <Email>etrat.mairie@orange.fr</Email>
+      <Url>http://www.ville-letrat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

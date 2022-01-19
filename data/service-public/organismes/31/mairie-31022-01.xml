@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-31022-01" codeInsee="31022" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Aucamville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Jean-Bazerque</Ligne>
+      <CodePostal>31140</CodePostal>
+      <NomCommune>Aucamville</NomCommune>
+      <Localisation>
+         <Latitude>43.6691483</Latitude>
+         <Longitude>1.4297408</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 75 94 94</Téléphone>
+      <Télécopie>05 62 75 94 92</Télécopie>
+      <Email>mairie@ville-aucamville.fr</Email>
+      <Url>http://www.ville-aucamville.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:45:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-94044-01" codeInsee="94044" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Limeil-Brévannes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination 3</Ligne>
+      <Ligne>48 rue Henri-Barbusse</Ligne>
+      <Ligne>BP 60010</Ligne>
+      <CodePostal>94451</CodePostal>
+      <NomCommune>Limeil-Brévannes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.751026</Latitude>
+         <Longitude>2.485531</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro vert : service et appel gratuits.">08 00 58 93 65</Téléphone>
+      <Télécopie>01 45 95 84 97</Télécopie>
+      <Email>clic.3.erx@aphp.fr</Email>
+      <Url>http://www.clic3-94.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

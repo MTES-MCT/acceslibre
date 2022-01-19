@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-18024-01" codeInsee="18024" dateMiseAJour="2021-07-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beddes</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 route de Saint-Jean-Vrin</Ligne>
+      <CodePostal>18370</CodePostal>
+      <NomCommune>Beddes</NomCommune>
+      <Localisation>
+         <Latitude>46.4245071</Latitude>
+         <Longitude>2.184237</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 48 61 40 66</Téléphone>
+      <Email>mairie.beddes18@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

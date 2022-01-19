@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-64483-01" codeInsee="64483" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Jean-de-Luz</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Quartier Ouarda-Zouri</Ligne>
+      <Ligne>10 place Biscaye</Ligne>
+      <CodePostal>64500</CodePostal>
+      <NomCommune>Saint-Jean-de-Luz</NomCommune>
+      <Localisation>
+         <Latitude>43.3832685</Latitude>
+         <Longitude>-1.6573633</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Résidence Paquier</Ligne>
+      <Ligne>15 rue Chauvin-Dragon</Ligne>
+      <CodePostal>64500</CodePostal>
+      <NomCommune>Saint-Jean-de-Luz</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 51 65 65</Téléphone>
+      <Télécopie>05 59 51 65 69</Télécopie>
+      <Email>accluz@le64.fr</Email>
+      <Url>http://www.le64.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

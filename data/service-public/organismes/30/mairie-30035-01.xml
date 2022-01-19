@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30035-01" codeInsee="30035" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Belvézet</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>33 place René-Domergue</Ligne>
+      <CodePostal>30580</CodePostal>
+      <NomCommune>Belvézet</NomCommune>
+      <Localisation>
+         <Latitude>44.0845399</Latitude>
+         <Longitude>4.3646776</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="DEM"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 66 22 42 70</Téléphone>
+      <Email>contact@belvezet30.fr</Email>
+      <Url>http://mairie-belvezet30.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="17:30:00"/>
+         <Note>Accueil téléphonique de 9h à 17h30.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique le lundi de 9h à 16h.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="17:30:00"/>
+         <Note>Accueil téléphonique le jeudi de 9h à 16h et le vendredi de 9h à 17h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

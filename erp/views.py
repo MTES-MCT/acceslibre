@@ -24,7 +24,7 @@ from erp.export.utils import (
     map_list_from_schema,
 )
 from erp.models import Accessibilite, Commune, Erp, Vote
-from erp.provider import geocoder, search as provider_search
+from erp.provider import geocoder, search as provider_search, acceslibre
 from subscription.models import ErpSubscription
 
 
@@ -126,6 +126,16 @@ def communes(request):
         request,
         "communes.html",
         context={"communes": communes_qs, "latest": latest},
+    )
+
+
+def _search_commune_code_postal(qs, code_insee):
+    commune = None
+    if code_insee:
+        commune = Commune.objects.filter(code_insee=code_insee).first()
+    return (
+        commune,
+        qs.in_code_postal(commune) if commune else qs,
     )
 
 
@@ -252,7 +262,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     accessibilite_data = form.get_accessibilite_data()
     user_vote = (
         request.user.is_authenticated
-        and Vote.objects.filter(user=request.user, erp=erp).first() is not None
+        and not Vote.objects.filter(user=request.user, erp=erp).exists()
         and request.user != erp.user
     )
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
@@ -578,8 +588,17 @@ def contrib_global_search(request):
     results = error = None
     try:
         results = provider_search.global_search(
-            request.GET.get("search"), request.GET.get("code_insee")
+            request.GET.get("search"), request.GET.get("code")
         )
+        qs_results_bdd = Erp.objects.select_related(
+            "accessibilite", "activite", "commune_ext"
+        ).search_what(request.GET.get("search"))
+
+        commune, qs_results_bdd = _search_commune_code_postal(
+            qs_results_bdd, request.GET.get("code")
+        )
+
+        results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
     except RuntimeError as err:
         error = err
     return render(
@@ -587,12 +606,13 @@ def contrib_global_search(request):
         template_name="contrib/0a-search_results.html",
         context={
             "search": request.GET.get("search"),
-            "commune_search": request.GET.get("commune_search"),
+            "commune_search": commune,
             "step": 1,
             "libelle_step": {
                 "current": "informations",
                 "next": schema.SECTION_TRANSPORT,
             },
+            "results_bdd": results_bdd,
             "results": results,
             "error": error,
         },

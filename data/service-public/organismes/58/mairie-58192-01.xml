@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-58192-01" codeInsee="58192" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuville-lès-Decize</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>118 le Bourg</Ligne>
+      <CodePostal>58300</CodePostal>
+      <NomCommune>Neuville-lès-Decize</NomCommune>
+      <Localisation>
+         <Latitude>46.769193</Latitude>
+         <Longitude>3.315213</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 50 61 60</Téléphone>
+      <Télécopie>03 86 50 68 40</Télécopie>
+      <Email>cmne-neuville-les-decize@orange.fr</Email>
+      <Url>https://www.neuville-les-decize.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

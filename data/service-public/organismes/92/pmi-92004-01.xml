@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-92004-01" codeInsee="92004" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Asnières-sur-Seine - Grésillons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>18 bis avenue des Grésillons</Ligne>
+      <CodePostal>92600</CodePostal>
+      <NomCommune>Asnières-sur-Seine</NomCommune>
+      <Localisation>
+         <Latitude>48.91321</Latitude>
+         <Longitude>2.298114</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">08 06 00 00 92</Téléphone>
+      <Url>http://www.hauts-de-seine.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+         <Note>Accueil fermé pendant la période de la crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

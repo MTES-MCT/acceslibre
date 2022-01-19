@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33136-01" codeInsee="33136" dateMiseAJour="2021-01-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cours-de-Monségur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>9 le Bourg</Ligne>
+      <CodePostal>33580</CodePostal>
+      <NomCommune>Cours-de-Monségur</NomCommune>
+      <Localisation>
+         <Latitude>44.651068</Latitude>
+         <Longitude>0.118097</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 56 61 62 43</Téléphone>
+      <Télécopie>05 56 61 62 43</Télécopie>
+      <Email>mairie.coursdemonsegur@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

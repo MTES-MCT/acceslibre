@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-19272-01" codeInsee="19272" dateMiseAJour="2021-08-06"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Corrèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>ZI Espace Cueille</Ligne>
+      <Ligne>2 rue du Docteur-Ramon</Ligne>
+      <CodePostal>19000</CodePostal>
+      <NomCommune>Tulle</NomCommune>
+      <Localisation>
+         <Latitude>45.2540054321</Latitude>
+         <Longitude>1.76012897491</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 19 07 85 00</Téléphone>
+      <Email>autonomie@correze.fr</Email>
+      <Url>https://www.correze.fr/nos-missions/seniors-handicap/handicap/sinformer-et-etre-accompagne-pour-les-personnes-en-situation-de-handicap</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

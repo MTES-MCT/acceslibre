@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cdg-19272-01" codeInsee="19272" dateMiseAJour="2021-06-07" pivotLocal="cdg">
+   <Nom>Centre de gestion de la fonction publique territoriale - Corrèze</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>19 c route de Champeau</Ligne>
+      <Ligne>CS 90208</Ligne>
+      <CodePostal>19007</CodePostal>
+      <NomCommune>Tulle Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.043872</Latitude>
+         <Longitude>4.760384</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 20 69 40</Téléphone>
+      <Télécopie>05 55 20 69 59</Télécopie>
+      <Email>accueil@cdg19.fr</Email>
+      <Url>http://www.cdg19.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

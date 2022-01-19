@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-29236-01" codeInsee="29236" dateMiseAJour="2021-11-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Riec-sur-Bélon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue François-Cadoret</Ligne>
+      <CodePostal>29340</CodePostal>
+      <NomCommune>Riec-sur-Bélon</NomCommune>
+      <Localisation>
+         <Latitude>47.8429832458</Latitude>
+         <Longitude>-3.69356799126</Longitude>
+         <Précision>9</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 06 91 04</Téléphone>
+      <Télécopie>02 98 06 50 40</Télécopie>
+      <Email>accueil@riecsurbelon.bzh</Email>
+      <Url>https://www.riecsurbelon.bzh</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

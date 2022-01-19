@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-08006-01" codeInsee="08006" dateMiseAJour="2019-08-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Alland'Huy-et-Sausseuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 rue Charles-Batteux</Ligne>
+      <CodePostal>08130</CodePostal>
+      <NomCommune>Alland'Huy-et-Sausseuil</NomCommune>
+      <Localisation>
+         <Latitude>49.513281</Latitude>
+         <Longitude>4.55702</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 24 71 45 58</Téléphone>
+      <Télécopie>03 24 72 51 43</Télécopie>
+      <Email>mairie.allandhuy.sausseuil@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="18:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

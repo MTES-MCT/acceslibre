@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-75119-01" codeInsee="75119" dateMiseAJour="2017-10-18"
+           pivotLocal="direccte_ut">
+   <Nom>Direction régionale et interdépartementale de l'économie, de l'emploi, du travail et des solidarités (DRIEETS) - Unité départementale de Paris</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>19-21 rue Madeleine Vionnet</Ligne>
+      <CodePostal>93300</CodePostal>
+      <NomCommune>Aubervilliers</NomCommune>
+      <Localisation>
+         <Latitude>48.9022796</Latitude>
+         <Longitude>2.3733352</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>35 rue de la Gare</Ligne>
+      <Ligne>CS 60003</Ligne>
+      <CodePostal>75144</CodePostal>
+      <NomCommune>Paris Cedex 19</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 70 96 20 00</Téléphone>
+      <Télécopie>01 70 96 18 00</Télécopie>
+      <Url>http://idf.direccte.gouv.fr/Paris</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

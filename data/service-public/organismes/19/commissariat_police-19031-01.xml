@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="commissariat_police-19031-01" codeInsee="19031" dateMiseAJour="2017-06-13"
+           pivotLocal="commissariat_police">
+   <Nom>Commissariat de police de Brive-la-Gaillarde</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 boulevard Anatole-France</Ligne>
+      <CodePostal>19100</CodePostal>
+      <NomCommune>Brive-la-Gaillarde</NomCommune>
+      <Localisation>
+         <Latitude>45.1606894</Latitude>
+         <Longitude>1.5348275</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="appeler le 17 ou 112 en cas d'urgence">05 55 17 46 00</Téléphone>
+      <Télécopie>05 55 17 46 35</Télécopie>
+      <Url>https://www.police-nationale.interieur.gouv.fr/Actualites/L-actu-police/moncommissariat.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="samedi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+         <Note>L'accueil du samedi est une permanence seulement.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

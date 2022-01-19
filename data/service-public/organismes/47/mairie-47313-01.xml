@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-47313-01" codeInsee="47313" dateMiseAJour="2021-02-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Tourtrès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>43 rue de l'Église</Ligne>
+      <CodePostal>47380</CodePostal>
+      <NomCommune>Tourtrès</NomCommune>
+      <Localisation>
+         <Latitude>44.505829</Latitude>
+         <Longitude>0.4272089</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 88 90 04</Téléphone>
+      <Télécopie>05 53 88 90 04</Télécopie>
+      <Email>mairie-de-tourtres@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

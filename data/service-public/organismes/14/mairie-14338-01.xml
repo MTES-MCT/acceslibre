@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-14338-01" codeInsee="14338" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Houlgate</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10 boulevard des Belges</Ligne>
+      <Ligne>BP 28</Ligne>
+      <CodePostal>14510</CodePostal>
+      <NomCommune>Houlgate</NomCommune>
+      <Localisation>
+         <Latitude>49.3007011414</Latitude>
+         <Longitude>-0.0748850032687</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rez-de-chaussée</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 31 28 14 00</Téléphone>
+      <Email>mairie@houlgate.fr</Email>
+      <Url>http://www.ville-houlgate.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:15:00"/>
+         <PlageH début="13:45:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

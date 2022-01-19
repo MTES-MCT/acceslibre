@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="direccte_ut-22278-01" codeInsee="22278" dateMiseAJour="2021-10-21"
+           pivotLocal="direccte_ut">
+   <Nom>Direction départementale de l'emploi, du travail et des solidarités (DDETS) (ex DIRECCTE) - Côtes-d'Armor</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1-3 boulevard Édouard-Prigent</Ligne>
+      <Ligne>CS 22048</Ligne>
+      <CodePostal>22022</CodePostal>
+      <NomCommune>Saint-Brieuc Cedex 1</NomCommune>
+      <Localisation>
+         <Latitude>48.5138</Latitude>
+         <Longitude>-2.762621</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 62 65 65</Téléphone>
+      <Email>ddets-renseignements@cotes-darmor.gouv.fr</Email>
+      <Url>https://bretagne.dreets.gouv.fr/Direction-departementale-de-l-emploi-du-travail-et-des-solidarites-des-Cotes-d</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Contacter l'accueil pour obtenir les horaires d'ouverture des différents services.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

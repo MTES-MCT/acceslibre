@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-04112-01" codeInsee="04112" dateMiseAJour="2019-12-19"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Manosque</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre local d'information et de coordination COOMAID du pays de Haute-Provence</Ligne>
+      <Ligne>Maison de retraite Saint-André</Ligne>
+      <Ligne>45 avenue Jean-Giono</Ligne>
+      <CodePostal>04100</CodePostal>
+      <NomCommune>Manosque</NomCommune>
+      <Localisation>
+         <Latitude>43.828906</Latitude>
+         <Longitude>5.78585</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 77 49 54</Téléphone>
+      <Télécopie>04 92 77 49 54</Télécopie>
+      <Email>asso.coomaid@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <Note>Accueil ouvert l'après-midi uniquement sur rendez-vous.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

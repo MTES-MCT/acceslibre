@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="onac-88160-01" codeInsee="88160" dateMiseAJour="2021-12-06"
+           pivotLocal="onac">
+   <Nom>Office national des anciens combattants et victimes de guerre (ONACVG) - Service départemental - Vosges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>17-19 avenue Gambetta</Ligne>
+      <Ligne>BP 349</Ligne>
+      <CodePostal>88009</CodePostal>
+      <NomCommune>Épinal Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.170296</Latitude>
+         <Longitude>6.448158</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 64 00 75</Téléphone>
+      <Email>https://www.onac-vg.fr/contact</Email>
+      <Url>https://www.onac-vg.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:45:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:15:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil physique uniquement sur rendez-vous.</Commentaire>
+</Organisme>

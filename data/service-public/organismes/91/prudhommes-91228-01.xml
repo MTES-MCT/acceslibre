@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="91228" dateMiseAJour="2021-12-14" id="prudhommes-91228-01" idPresta="4cac9e60293594648a00036d" pivotLocal="prudhommes">
+    <Nom>Conseil de prud'hommes d'Évry-Courcouronnes</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE DE LA PATINOIRE</Ligne>
+        <CodePostal>91011</CodePostal>
+        <NomCommune>EVRY CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>48.630241</Latitude>
+            <Longitude>2.429609</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE DE LA PATINOIRE</Ligne>
+        <CodePostal>91011</CodePostal>
+        <NomCommune>EVRY CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>01 69 47 36 26</Téléphone>
+        <Télécopie>01 60 78 60 77</Télécopie>
+        <Email>mailto:cph-evry@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:45:00" fin="12:00:00"/>
+            <PlageH début="13:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

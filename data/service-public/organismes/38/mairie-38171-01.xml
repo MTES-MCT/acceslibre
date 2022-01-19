@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-38171-01" codeInsee="38171" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Forteresse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>85 C route de Valette</Ligne>
+      <CodePostal>38590</CodePostal>
+      <NomCommune>La Forteresse</NomCommune>
+      <Localisation>
+         <Latitude>45.295457</Latitude>
+         <Longitude>5.401581</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 76 65 44 59</Téléphone>
+      <Email>mairielaforteresse@orange.fr</Email>
+      <Url>http://www.mairie-la-forteresse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

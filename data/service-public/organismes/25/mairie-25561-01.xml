@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-25561-01" codeInsee="25561" dateMiseAJour="2021-08-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thoraise</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de Surotte</Ligne>
+      <CodePostal>25320</CodePostal>
+      <NomCommune>Thoraise</NomCommune>
+      <Localisation>
+         <Latitude>47.174397</Latitude>
+         <Longitude>5.902414</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 81 56 61 64</Téléphone>
+      <Télécopie>09 80 32 46 73</Télécopie>
+      <Email>mairie.thoraise@free.fr</Email>
+      <Url>http://www.grandbesancon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence téléphonique lundi 08h30 à 11h</Commentaire>
+</Organisme>

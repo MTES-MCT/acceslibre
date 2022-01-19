@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-40046-01" codeInsee="40046" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Biscarrosse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>149 avenue du 14-Juillet</Ligne>
+      <Ligne>BP 40101</Ligne>
+      <CodePostal>40601</CodePostal>
+      <NomCommune>Biscarrosse Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.395931</Latitude>
+         <Longitude>-1.166998</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 58 83 40 40</Téléphone>
+      <Télécopie>05 58 83 40 57</Télécopie>
+      <Email>biscarrosse@ville-biscarosse.fr</Email>
+      <Url>http://www.ville-biscarrosse.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil, excepté les passeports.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

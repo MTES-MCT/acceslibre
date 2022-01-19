@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-93008-01" codeInsee="93008" dateMiseAJour="2017-02-21"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Seine-Saint-Denis</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Direction régionale et interdépartementale de l'hébergement et du logement</Ligne>
+      <Ligne>7 esplanade Jean-Moulin</Ligne>
+      <Ligne>BP 189</Ligne>
+      <CodePostal>93003</CodePostal>
+      <NomCommune>Bobigny Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.9058076</Latitude>
+         <Longitude>2.4517041</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 41 60 68 70</Téléphone>
+      <Télécopie>01 41 60 68 65</Télécopie>
+      <Email>anah.uthl93.drihl-if@developpement-durable.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Accueil ouvert uniquement sur rende-vous l'après-midi et accueil téléphonique lundi, mercredi et jeudi de 9h30 à 11h30, mardi et vendredi de 9h30 à 11h30 et de 14h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

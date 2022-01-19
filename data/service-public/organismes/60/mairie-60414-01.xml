@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60414-01" codeInsee="60414" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montataire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Auguste-Génie</Ligne>
+      <Ligne>BP 50209</Ligne>
+      <CodePostal>60762</CodePostal>
+      <NomCommune>Montataire Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.2563018799</Latitude>
+         <Longitude>2.43407011032</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 64 44 44</Téléphone>
+      <Télécopie>03 44 64 44 41</Télécopie>
+      <Email>contact@mairie-montataire.fr</Email>
+      <Url>http://www.mairie-montataire.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil fermé pour l'état civil le lundi matin.</Note>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="11:45:00"/>
+         <Note>Accueil ouvert uniquement pour l'état civil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

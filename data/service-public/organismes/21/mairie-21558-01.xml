@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-21558-01" codeInsee="21558" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sainte-Marie-la-Blanche</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 route de Beaune</Ligne>
+      <CodePostal>21200</CodePostal>
+      <NomCommune>Sainte-Marie-la-Blanche</NomCommune>
+      <Localisation>
+         <Latitude>46.9775678</Latitude>
+         <Longitude>4.8903826</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 80 26 60 73</Téléphone>
+      <Télécopie>03 80 26 60 50</Télécopie>
+      <Email>mairie.ste.marie.la.blanche@wanadoo.fr</Email>
+      <Url>https://www.mairie-sainte-marie-la-blanche.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

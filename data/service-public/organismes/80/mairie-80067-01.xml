@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80067-01" codeInsee="80067" dateMiseAJour="2021-09-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Beaufort-en-Santerre</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Grande rue</Ligne>
+      <CodePostal>80170</CodePostal>
+      <NomCommune>Beaufort-en-Santerre</NomCommune>
+      <Localisation>
+         <Latitude>49.775859</Latitude>
+         <Longitude>2.668003</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 37 46 50</Téléphone>
+      <Email>mairie.beaufortensanterre@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="11:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Permanence téléphonique : Mardi de 14h00 à 17h00 Jeudi de 8h30 à 12h00
+Samedi de 9h00 à 12h00</Commentaire>
+</Organisme>

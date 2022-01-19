@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="sip-15120-01" codeInsee="15120" dateMiseAJour="2021-02-02" pivotLocal="sip">
+   <Nom>Service des impôts des particuliers d'Aurillac (Antenne de Mauriac)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>5, boulevard Monthyon</Ligne>
+      <CodePostal>15201</CodePostal>
+      <NomCommune>Mauriac Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.2187443</Latitude>
+         <Longitude>2.3322098</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 67 40 00</Téléphone>
+      <Email>sip.aurillac@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:50:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Sans rendez-vous de 8h30 à 11h50 et sur rendez-vous de 14h à 16h</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="11:50:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+         <Note>Sans rendez -vous de 8h30 à 11h50 et sur rendez-vous de 14h à 16h</Note>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Pour contacter ce service par courriel, utilisez votre messagerie sécurisée disponible dans votre espace particulier sur le site impots.gouv.fr. Si vous ne disposez pas d'espace particulier, nous vous invitons à en créer un.</Commentaire>
+</Organisme>

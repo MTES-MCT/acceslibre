@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="draf-13203-01" codeInsee="13203" dateMiseAJour="2018-07-25"
+           pivotLocal="draf">
+   <Nom>Direction régionale de l'alimentation, de l'agriculture et de la forêt (DRAAF) - Provence-Alpes-Côte d'Azur</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>132 boulevard de Paris</Ligne>
+      <CodePostal>13003</CodePostal>
+      <NomCommune>Marseille</NomCommune>
+      <Localisation>
+         <Latitude>43.310994</Latitude>
+         <Longitude>5.369861</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 13 59 36 00</Téléphone>
+      <Télécopie>04 13 59 36 32</Télécopie>
+      <Email>draaf-paca@agriculture.gouv.fr</Email>
+      <Url>http://draaf.paca.agriculture.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

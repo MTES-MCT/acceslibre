@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-95446-01" codeInsee="95446" dateMiseAJour="2021-05-20"
+           pivotLocal="mairie">
+   <Nom>Mairie - Nesles-la-Vallée</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Aristide-Partois</Ligne>
+      <CodePostal>95690</CodePostal>
+      <NomCommune>Nesles-la-Vallée</NomCommune>
+      <Localisation>
+         <Latitude>49.1283988953</Latitude>
+         <Longitude>2.17018008232</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 34 70 61 42</Téléphone>
+      <Télécopie>01 34 70 62 79</Télécopie>
+      <Email>accueil.mairie@nesleslavallee.fr</Email>
+      <Url>http://www.nesleslavallee.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="16:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="16:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

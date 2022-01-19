@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie_com-98833-01" codeInsee="98833" dateMiseAJour="2021-10-21"
+           pivotLocal="mairie_com">
+   <Nom>Mairie - Kouaoua</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Village</Ligne>
+      <CodePostal>98818</CodePostal>
+      <NomCommune>Kouaoua</NomCommune>
+      <Localisation>
+         <Latitude>-21.3962071</Latitude>
+         <Longitude>165.8288475</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+687 42 64 64</Téléphone>
+      <Télécopie>+687 42 45 34</Télécopie>
+      <Email>accueil@mairie-kouaoua.nc</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="14:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

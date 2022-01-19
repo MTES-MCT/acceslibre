@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-33374-01" codeInsee="33374" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Aubin-de-Blaye</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>691 avenue de la Liberté</Ligne>
+      <CodePostal>33820</CodePostal>
+      <NomCommune>Saint-Aubin-de-Blaye</NomCommune>
+      <Localisation>
+         <Latitude>45.2690867</Latitude>
+         <Longitude>0.5615618</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 57 32 62 03</Téléphone>
+      <Email>st-aubindeblaye@wanadoo.fr</Email>
+      <Url>http://www.saint-aubin-de-blaye.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

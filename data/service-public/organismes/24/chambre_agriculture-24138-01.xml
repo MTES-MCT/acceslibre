@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_agriculture-24138-01" codeInsee="24138" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_agriculture">
+   <Nom>Chambre d'agriculture - Dordogne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Créavallée Nord</Ligne>
+      <Ligne>295 boulevard des Saveurs</Ligne>
+      <CodePostal>24660</CodePostal>
+      <NomCommune>Coulounieix-Chamiers</NomCommune>
+      <Localisation>
+         <Latitude>45.1872</Latitude>
+         <Longitude>0.6922</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Chambre d'agriculture de Dordogne</Ligne>
+      <Ligne>CS 10250</Ligne>
+      <CodePostal>24060</CodePostal>
+      <NomCommune>Périgueux Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 35 88 88</Téléphone>
+      <Télécopie>05 53 53 43 13</Télécopie>
+      <Email>accueil@dordogne.chambagri.fr</Email>
+      <Url>http://www.dordogne.chambagri.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

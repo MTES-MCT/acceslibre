@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-32132-01" codeInsee="32132" dateMiseAJour="2020-10-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fleurance</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place de la République</Ligne>
+      <Ligne>BP 33</Ligne>
+      <CodePostal>32500</CodePostal>
+      <NomCommune>Fleurance</NomCommune>
+      <Localisation>
+         <Latitude>43.8445171</Latitude>
+         <Longitude>0.6607502</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 06 10 01</Téléphone>
+      <Télécopie>05 62 06 29 97</Télécopie>
+      <Email>mairie@villefleurance.fr</Email>
+      <Url>http://www.villefleurance.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+         <Note>Accueil sur rendez-vous uniquement pour les passeports et cartes d'identité.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

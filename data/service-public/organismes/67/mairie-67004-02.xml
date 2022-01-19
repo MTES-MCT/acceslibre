@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-67004-02" codeInsee="67004" dateMiseAJour="2018-04-17"
+           pivotLocal="mairie">
+   <Nom>Mairie - Singrist</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>15 rue du Général-Leclerc</Ligne>
+      <CodePostal>67440</CodePostal>
+      <NomCommune>Marmoutier</NomCommune>
+      <Localisation>
+         <Latitude>48.6702626</Latitude>
+         <Longitude>7.3876834</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 88 70 84 76</Téléphone>
+      <Télécopie>03 88 70 81 45</Télécopie>
+      <Email>mairie.singrist@wanadoo.fr</Email>
+      <Url>http://www.paysdemarmoutier.eu</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="16:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

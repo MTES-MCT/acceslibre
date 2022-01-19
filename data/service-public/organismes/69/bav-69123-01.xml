@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="69123" dateMiseAJour="2021-06-25" id="bav-69123-01" idPresta="4d5e5e762935941fe900002c" pivotLocal="bav">
+    <Nom>Bureau d'aide aux victimes du tribunal judiciaire de Lyon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>67 RUE SERVIENT</Ligne>
+        <CodePostal>69433</CodePostal>
+        <NomCommune>LYON CEDEX 03</NomCommune>
+        <Localisation>
+            <Latitude>46.150749</Latitude>
+            <Longitude>4.920676</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 72 60 70 12</Téléphone>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="13:30:00" fin="16:30:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

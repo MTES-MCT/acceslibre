@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-13005-01" codeInsee="13005" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Aubagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle de santé</Ligne>
+      <Ligne>10 allée Antide-Boyer</Ligne>
+      <CodePostal>13400</CodePostal>
+      <NomCommune>Aubagne</NomCommune>
+      <Localisation>
+         <Latitude>43.2947998047</Latitude>
+         <Longitude>5.56269979477</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 13 31 06 15</Téléphone>
+      <Télécopie>04 42 03 47 99</Télécopie>
+      <Url>http://www.departement13.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Permanence téléphonique le mardi de 13h30 à 17h.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

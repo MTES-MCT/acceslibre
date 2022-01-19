@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-30317-01" codeInsee="30317" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sernhac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 rue des Bourgades</Ligne>
+      <CodePostal>30210</CodePostal>
+      <NomCommune>Sernhac</NomCommune>
+      <Localisation>
+         <Latitude>43.91138</Latitude>
+         <Longitude>4.550284</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 30 06 52 30</Téléphone>
+      <Télécopie>04 30 06 52 31</Télécopie>
+      <Email>secretariat@mairie-sernhac.fr</Email>
+      <Url>http://www.mairie-sernhac.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

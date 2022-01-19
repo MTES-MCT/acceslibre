@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="fdapp-35130-01" codeInsee="35130" dateMiseAJour="2021-05-18"
+           pivotLocal="fdapp">
+   <Nom>Fédération départementale pour la pêche et la protection du milieu aquatique - Ille-et-Vilaine</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison éclusière de la Pêchetière</Ligne>
+      <CodePostal>35630</CodePostal>
+      <NomCommune>Hédé-Bazouges</NomCommune>
+      <Localisation>
+         <Latitude>48.299238</Latitude>
+         <Longitude>-1.78093</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 22 81 80</Téléphone>
+      <Télécopie>02 99 22 81 81</Télécopie>
+      <Email>federation.de.peche.35@wanadoo.fr</Email>
+      <Url>https://www.peche35.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="14:15:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="ordre_avocats-43157-01" codeInsee="43157" dateMiseAJour="2019-09-24"
+           pivotLocal="ordre_avocats">
+   <Nom>Ordre des avocats - Barreau de la Haute-Loire</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>place du Breuil</Ligne>
+      <Ligne>Palais de Justice</Ligne>
+      <CodePostal>43000</CodePostal>
+      <NomCommune>Le Puy-en-Velay</NomCommune>
+      <Localisation>
+         <Latitude>45.042064</Latitude>
+         <Longitude>3.884646</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 71 09 79 98</Téléphone>
+      <Télécopie>04 71 02 26 61</Télécopie>
+      <Email>ordre-avocats-43@wanadoo.fr</Email>
+      <Url>https://www.barreaudehauteloire.fr/</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

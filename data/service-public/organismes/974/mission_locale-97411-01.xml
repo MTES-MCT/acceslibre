@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mission_locale-97411-01" codeInsee="97411" dateMiseAJour="2019-06-17"
+           pivotLocal="mission_locale">
+   <Nom>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans) - Sainte-Clotilde (Nord Réunion)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>6 bis avenue Desbassyns</Ligne>
+      <Ligne>BP 30339</Ligne>
+      <CodePostal>97494</CodePostal>
+      <NomCommune>Sainte-Clotilde Cedex</NomCommune>
+      <Localisation>
+         <Latitude>-20.8868707</Latitude>
+         <Longitude>55.4794273</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+262 2 62 92 41 41</Téléphone>
+      <Télécopie>+262 2 62 97 31 74</Télécopie>
+      <Url>http://www.missionlocalenord.re</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:15:00" fin="16:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

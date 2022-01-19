@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-42229-01" codeInsee="42229" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Germain-la-Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>35 rue de la Mairie</Ligne>
+      <CodePostal>42670</CodePostal>
+      <NomCommune>Saint-Germain-la-Montagne</NomCommune>
+      <Localisation>
+         <Latitude>46.202608</Latitude>
+         <Longitude>4.378205</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 77 63 60 16</Téléphone>
+      <Télécopie>04 77 63 78 00</Télécopie>
+      <Email>mairiesaintgermainlamontagne@wanadoo.fr</Email>
+      <Url>http://www.mairiesaintgermainlamontagne.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

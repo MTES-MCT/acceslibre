@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-28210-01" codeInsee="28210" dateMiseAJour="2017-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Levesville-la-Chenard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 rue Émile-Grapperon</Ligne>
+      <CodePostal>28310</CodePostal>
+      <NomCommune>Levesville-la-Chenard</NomCommune>
+      <Localisation>
+         <Latitude>48.3013687134</Latitude>
+         <Longitude>1.82584702969</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 37 22 13 13</Téléphone>
+      <Télécopie>02 37 22 13 13</Télécopie>
+      <Email>com.levesville@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

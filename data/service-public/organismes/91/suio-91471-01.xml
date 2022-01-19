@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-91471-01" codeInsee="91471" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Paris-Saclay - Orsay -Pôle d'orientation et d'insertion professionnelle (POIP)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1er étage</Ligne>
+      <Ligne>Rue du Douanier André Guinier</Ligne>
+      <Ligne>Bâtiment 333</Ligne>
+      <CodePostal>91405</CodePostal>
+      <NomCommune>Orsay Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.702391</Latitude>
+         <Longitude>2.168804</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 69 15 54 47</Téléphone>
+      <Email>accueil.oip@u-psud.fr</Email>
+      <Url>https://www.universite-paris-saclay.fr/formation/orientation-et-insertion-professionnelle</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="08:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

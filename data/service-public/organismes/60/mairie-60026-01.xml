@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60026-01" codeInsee="60026" dateMiseAJour="2020-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Auchy-la-Montagne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue Boutillier</Ligne>
+      <CodePostal>60360</CodePostal>
+      <NomCommune>Auchy-la-Montagne</NomCommune>
+      <Localisation>
+         <Latitude>49.5759010315</Latitude>
+         <Longitude>2.11888003349</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 46 38 09</Téléphone>
+      <Télécopie>03 44 46 38 09</Télécopie>
+      <Email>mairie-auchy-lamontagne@wanadoo.fr</Email>
+      <Url>http://www.infomairie.net/60-auchylamontagne</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:00:00" fin="19:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

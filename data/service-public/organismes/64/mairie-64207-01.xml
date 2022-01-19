@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64207-01" codeInsee="64207" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Escou</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 rue de la Mairie</Ligne>
+      <CodePostal>64870</CodePostal>
+      <NomCommune>Escou</NomCommune>
+      <Localisation>
+         <Latitude>43.182504</Latitude>
+         <Longitude>-0.537085</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 39 27 00</Téléphone>
+      <Télécopie>05 59 36 04 36</Télécopie>
+      <Email>comescou@cdg-64.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <Note>Permanence du maire tous les matins de 8h à 12h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

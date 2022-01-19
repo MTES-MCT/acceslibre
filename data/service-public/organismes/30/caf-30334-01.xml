@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-30334-01" codeInsee="30334" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) du Gard - accueil d'Uzès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Les jardins de l'Uzège</Ligne>
+      <Ligne>Avenue Georges-Chauvin</Ligne>
+      <CodePostal>30700</CodePostal>
+      <NomCommune>Uzès</NomCommune>
+      <Localisation>
+         <Latitude>44.0132786</Latitude>
+         <Longitude>4.4144257</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales du Gard</Ligne>
+      <Ligne>321 rue Maurice-Schumann</Ligne>
+      <CodePostal>30922</CodePostal>
+      <NomCommune>Nîmes Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous, accueil fermé les lundis après-midis en semaine impaire.</Note>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:45:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous, borne interactive en libre-service aux horaires d'ouverture de l'accueil.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

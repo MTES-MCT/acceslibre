@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="epci-57606-01" codeInsee="57606" dateMiseAJour="2020-11-16"
+           pivotLocal="epci">
+   <Nom>Communauté d'agglomération - Saint-Avold Synergie</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>10-12 rue du Général-de-Gaulle</Ligne>
+      <Ligne>BP 20046</Ligne>
+      <CodePostal>57502</CodePostal>
+      <NomCommune>Saint-Avold Cedex</NomCommune>
+      <Localisation>
+         <Latitude>49.1028536</Latitude>
+         <Longitude>6.7088821</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 92 84 76</Téléphone>
+      <Télécopie>03 87 92 98 32</Télécopie>
+      <Email>communaute@agglo-saint-avold.fr</Email>
+      <Url>http://www.agglo-saint-avold.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:15:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

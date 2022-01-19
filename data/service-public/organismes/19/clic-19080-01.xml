@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-19080-01" codeInsee="19080" dateMiseAJour="2020-01-03"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Eygurande</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Instance de coordination de l'autonomie</Ligne>
+      <Ligne>2 rue de l'Eglise</Ligne>
+      <CodePostal>19340</CodePostal>
+      <NomCommune>Eygurande</NomCommune>
+      <Localisation>
+         <Latitude>45.662153</Latitude>
+         <Longitude>2.451782</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 94 53 88</Téléphone>
+      <Email>icgeygurande@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

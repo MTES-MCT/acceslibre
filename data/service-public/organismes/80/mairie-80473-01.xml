@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-80473-01" codeInsee="80473" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Liancourt-Fosse</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>3 rue de l'École</Ligne>
+      <CodePostal>80700</CodePostal>
+      <NomCommune>Liancourt-Fosse</NomCommune>
+      <Localisation>
+         <Latitude>49.7541122437</Latitude>
+         <Longitude>2.81499004364</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 22 87 17 44</Téléphone>
+      <Télécopie>03 22 87 17 44</Télécopie>
+      <Email>mairie.liancourt-fosse@orange.fr</Email>
+      <Url>http://liancourt-fosse-fr.webnode.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="17:30:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

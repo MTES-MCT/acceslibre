@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-31526-01" codeInsee="31526" dateMiseAJour="2019-12-26"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - La Salvetat-Saint-Gilles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison des solidarités</Ligne>
+      <Ligne>2 place Georges-Brassens</Ligne>
+      <CodePostal>31880</CodePostal>
+      <NomCommune>La Salvetat-Saint-Gilles</NomCommune>
+      <Localisation>
+         <Latitude>43.57534</Latitude>
+         <Longitude>1.27418</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 62 13 08 00</Téléphone>
+      <Télécopie>05 34 33 19 10</Télécopie>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

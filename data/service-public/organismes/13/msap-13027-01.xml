@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-13027-01" codeInsee="13027" dateMiseAJour="2021-05-12"
+           pivotLocal="msap">
+   <Nom>France Services - Châteaurenard</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>838 boulevard de la Libération</Ligne>
+      <Ligne>Espace Antigua</Ligne>
+      <CodePostal>13160</CodePostal>
+      <NomCommune>Châteaurenard</NomCommune>
+      <Localisation>
+         <Latitude>43.88508</Latitude>
+         <Longitude>4.864131</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 93 72 68 39</Téléphone>
+      <Email>chateaurenard@france-services.gouv.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

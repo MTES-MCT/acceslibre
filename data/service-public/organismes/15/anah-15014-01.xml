@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="anah-15014-01" codeInsee="15014" dateMiseAJour="2020-06-10"
+           pivotLocal="anah">
+   <Nom>Agence nationale de l'habitat (Anah) - Cantal</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue du 139e-Régiment-d'Infanterie</Ligne>
+      <Ligne>BP 10414</Ligne>
+      <CodePostal>15004</CodePostal>
+      <NomCommune>Aurillac Cedex</NomCommune>
+      <Localisation>
+         <Latitude>44.924589</Latitude>
+         <Longitude>2.4425976</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 63 27 67 00</Téléphone>
+      <Télécopie>04 63 27 68 10</Télécopie>
+      <Email>ddt-shc-uhl@cantal.gouv.fr</Email>
+      <Url>http://www.anah.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+         <Note>Pendant la crise sanitaire accueil uniquement sur rendez-vous à prendre par téléphone.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

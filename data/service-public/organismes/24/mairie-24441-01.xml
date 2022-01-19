@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-24441-01" codeInsee="24441" dateMiseAJour="2021-10-19"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Léon-d'Issigeac</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Bourg</Ligne>
+      <CodePostal>24560</CodePostal>
+      <NomCommune>Saint-Léon-d'Issigeac</NomCommune>
+      <Localisation>
+         <Latitude>44.719533</Latitude>
+         <Longitude>0.690777</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 53 58 76 27</Téléphone>
+      <Télécopie>05 53 61 25 78</Télécopie>
+      <Email>mairie.saintleon@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="08:00:00" fin="15:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69199-01" codeInsee="69199" dateMiseAJour="2019-12-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Fons</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Roger-Salengro</Ligne>
+      <Ligne>BP 100</Ligne>
+      <CodePostal>69191</CodePostal>
+      <NomCommune>Saint-Fons Cedex</NomCommune>
+      <Localisation>
+         <Latitude>45.7092314</Latitude>
+         <Longitude>4.8527487</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied et ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 09 20 20</Téléphone>
+      <Télécopie>04 72 09 20 40</Télécopie>
+      <Email>accueil@saint-fons.fr</Email>
+      <Url>http://www.saint-fons.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="chambre_metier-88160-01" codeInsee="88160" dateMiseAJour="2021-06-07"
+           pivotLocal="chambre_metier">
+   <Nom>Chambre de métiers et de l'artisanat (CMA) - Vosges</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Cité de l'artisanat et de l'entreprise</Ligne>
+      <Ligne>22 rue Léo-Valentin</Ligne>
+      <Ligne>BP 21159</Ligne>
+      <CodePostal>88060</CodePostal>
+      <NomCommune>Épinal Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.202592</Latitude>
+         <Longitude>6.463464</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 29 69 55 55</Téléphone>
+      <Email>chambre.metiers@cma-vosges.fr</Email>
+      <Url>http://www.cma-vosges.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

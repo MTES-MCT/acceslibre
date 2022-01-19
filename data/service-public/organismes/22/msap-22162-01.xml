@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-22162-01" codeInsee="22162" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>Maison de services au public (MSAP) - Paimpol</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre Henri-Dunant</Ligne>
+      <Ligne>2 rue Dunant</Ligne>
+      <CodePostal>22500</CodePostal>
+      <NomCommune>Paimpol</NomCommune>
+      <Localisation>
+         <Latitude>48.7813261</Latitude>
+         <Longitude>-3.0500139</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 96 20 20 80</Téléphone>
+      <Email>msap.paimpol@guingamp-paimpol.bzh</Email>
+      <Url>https://www.maisondeservicesaupublic.frcontent/paimpol</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

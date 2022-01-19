@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-69087-01" codeInsee="69087" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Fontaines-Saint-Martin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Jean-Moulin</Ligne>
+      <CodePostal>69270</CodePostal>
+      <NomCommune>Fontaines-Saint-Martin</NomCommune>
+      <Localisation>
+         <Latitude>45.8445014954</Latitude>
+         <Longitude>4.8547000885</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 72 42 91 91</Téléphone>
+      <Télécopie>04 72 42 91 90</Télécopie>
+      <Email>accueil@fontaines-saint-martin.fr</Email>
+      <Url>http://www.fontaines-saint-martin.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement de 8h30 à 12h en juillet-août et durant la crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <Note>Accueil ouvert uniquement de 8h30 à 12h en juillet-août et durant la crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement de 8h30 à 12h en juillet-août et durant la crise sanitaire.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="11:30:00"/>
+         <PlageH début="14:30:00" fin="17:30:00"/>
+         <Note>Accueil ouvert uniquement de 8h30 à 12h en juillet-août et durant la crise sanitaire.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

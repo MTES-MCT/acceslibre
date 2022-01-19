@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-97411-06" codeInsee="97411" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) de La Réunion - accueil de Chaudron - Nord</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>2 rue Jacob-de-Cordemoy</Ligne>
+      <CodePostal>97490</CodePostal>
+      <NomCommune>Sainte-Clotilde</NomCommune>
+      <Localisation>
+         <Latitude>-20.8943189</Latitude>
+         <Longitude>55.4890926</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales de La Réunion</Ligne>
+      <Ligne>412 rue Fleur-de-Jade</Ligne>
+      <Ligne>CS 61038</Ligne>
+      <CodePostal>97833</CodePostal>
+      <NomCommune>Sainte-Marie Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="07:30:00" fin="15:00:00"/>
+         <Note>Sur rendez-vous.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="12:00:00"/>
+         <Note>Sur rendez-vous, accueil téléphonique du lundi au jeudi de 8h à 15h30 et le vendredi du 8h à 13h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

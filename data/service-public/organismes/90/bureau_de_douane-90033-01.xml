@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="bureau_de_douane-90033-01" codeInsee="90033" dateMiseAJour="2019-01-04"
+           pivotLocal="bureau_de_douane">
+   <Nom>Bureau de douane - Delle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Technoparc Franco-Suisse</Ligne>
+      <CodePostal>90100</CodePostal>
+      <NomCommune>Delle</NomCommune>
+      <Localisation>
+         <Latitude>47.506239</Latitude>
+         <Longitude>6.99655</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 70 27 66 70</Téléphone>
+      <Télécopie>03 84 54 28 32</Télécopie>
+      <Email>r-delle@douane.finances.gouv.fr'</Email>
+      <Url>https://www.douane.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-85074-01" codeInsee="85074" dateMiseAJour="2021-08-09"
+           pivotLocal="mairie">
+   <Nom>Mairie - La Couture</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 place de l'Église</Ligne>
+      <CodePostal>85320</CodePostal>
+      <NomCommune>La Couture</NomCommune>
+      <Localisation>
+         <Latitude>46.5026016235</Latitude>
+         <Longitude>-1.22184002399</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 51 97 26 61</Téléphone>
+      <Télécopie>02 51 97 30 33</Télécopie>
+      <Email>mairie.lacouture@wanadoo.fr</Email>
+      <Url>http://www.mairie-lacouture.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

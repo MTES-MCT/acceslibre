@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="25056" dateMiseAJour="2021-12-14" id="cour_appel-25056-01" idPresta="4cac9e5f293594648a000293" pivotLocal="cour_appel">
+    <Nom>Cour d'appel de Besançon</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE MEGEVAND</Ligne>
+        <Ligne>BP 339</Ligne>
+        <CodePostal>25017</CodePostal>
+        <NomCommune>BESANCON CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>47.236676</Latitude>
+            <Longitude>6.022476</Longitude>
+            <Précision>4.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>1 RUE MEGEVAND</Ligne>
+        <Ligne>BP 339</Ligne>
+        <CodePostal>25017</CodePostal>
+        <NomCommune>BESANCON CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>03 81 65 13 00</Téléphone>
+        <Email>mailto:ca-besancon@justice.fr et accueil-besancon@justice.fr</Email>
+        <Url>http://www.ca-besancon.justice.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="09:00:00" fin="17:00:00"/>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89113-01" codeInsee="89113" dateMiseAJour="2018-04-12"
+           pivotLocal="mairie">
+   <Nom>Mairie - Collemiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Presbytère</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Collemiers</NomCommune>
+      <Localisation>
+         <Latitude>48.1575012207</Latitude>
+         <Longitude>3.23481011391</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 65 93 77</Téléphone>
+      <Télécopie>03 86 65 93 77</Télécopie>
+      <Email>mairie.collemiers@wanadoo.fr</Email>
+      <Url>http://www.collemiers.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:30:00" fin="11:45:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

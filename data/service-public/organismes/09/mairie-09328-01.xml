@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-09328-01" codeInsee="09328" dateMiseAJour="2021-11-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Verdun</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>25 route des Côtes</Ligne>
+      <CodePostal>09310</CodePostal>
+      <NomCommune>Verdun</NomCommune>
+      <Localisation>
+         <Latitude>42.7918803</Latitude>
+         <Longitude>1.6888714</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 61 64 96 43</Téléphone>
+      <Email>verdun.mairie@free.fr</Email>
+      <Url>http://www.mairie-verdun-ariege.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="15:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pmi-39478-01" codeInsee="39478" dateMiseAJour="2021-04-12" pivotLocal="pmi">
+   <Nom>Centre de protection maternelle et infantile (PMI) - Saint-Claude</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>14 rue Rosset</Ligne>
+      <Ligne>BP 138</Ligne>
+      <CodePostal>39205</CodePostal>
+      <NomCommune>Saint-Claude Cedex</NomCommune>
+      <Localisation>
+         <Latitude>46.3879013062</Latitude>
+         <Longitude>5.86578989029</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 45 89 31</Téléphone>
+      <Télécopie>03 84 45 79 48</Télécopie>
+      <Email>pmisaintclaude@jura.fr</Email>
+      <Url>https://www.jura.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

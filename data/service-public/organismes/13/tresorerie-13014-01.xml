@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-13014-01" codeInsee="13014" dateMiseAJour="2021-04-12"
+           pivotLocal="tresorerie">
+   <Nom>Service de gestion comptable (SGC) de Berre-l'Etang</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>360 avenue Roger-Salengro</Ligne>
+      <Ligne>BP 223</Ligne>
+      <CodePostal>13138</CodePostal>
+      <NomCommune>Berre-L'Étang Cedex</NomCommune>
+      <Localisation>
+         <Latitude>43.4795731</Latitude>
+         <Longitude>5.1719589</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 85 41 00</Téléphone>
+      <Email>sgc.berre@dgfip.finances.gouv.fr</Email>
+      <Url>http://www.impots.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

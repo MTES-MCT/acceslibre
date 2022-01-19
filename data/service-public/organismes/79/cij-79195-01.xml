@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="cij-79195-01" codeInsee="79195" dateMiseAJour="2020-10-08" pivotLocal="cij">
+   <Nom>Point information jeunesse - Nueil-les-Aubiers</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Centre socioculturel</Ligne>
+      <Ligne>8 place de la Girainerie</Ligne>
+      <CodePostal>79250</CodePostal>
+      <NomCommune>Nueil-les-Aubiers</NomCommune>
+      <Localisation>
+         <Latitude>46.9552993774</Latitude>
+         <Longitude>-0.590021014214</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 49 65 42 10</Téléphone>
+      <Email>accueil.nueilaubiers@csc79.org</Email>
+      <Url>http://www.nueilaubiers.csc79.org</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="18:00:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert pendant les congés scolaires du lundi au vendredi 9h à 12h et de 14h à 18h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

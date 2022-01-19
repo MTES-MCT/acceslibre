@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-57132-01" codeInsee="57132" dateMiseAJour="2018-04-12"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Château-Salins</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Pôle autonomie Sarrebourg - Château-Salins</Ligne>
+      <Ligne>Rue de la Tuilerie</Ligne>
+      <CodePostal>57170</CodePostal>
+      <NomCommune>Château-Salins</NomCommune>
+      <Localisation>
+         <Latitude>48.822445</Latitude>
+         <Longitude>6.50513</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 21 47 12</Téléphone>
+      <Télécopie>03 87 21 47 16</Télécopie>
+      <Email>poleautonomiesarrebourg@moselle.fr</Email>
+      <Url>http://www.moselle.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="11:30:00"/>
+         <PlageH début="14:00:00" fin="16:30:00"/>
+         <Note>Téléphoner pour convenir d'un rendez-vous avant de se rendre sur place.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

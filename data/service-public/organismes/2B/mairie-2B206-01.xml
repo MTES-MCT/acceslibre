@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-2B206-01" codeInsee="2B206" dateMiseAJour="2021-10-25"
+           pivotLocal="mairie">
+   <Nom>Mairie - Penta-Acquatella</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Hameau de Penta</Ligne>
+      <CodePostal>20290</CodePostal>
+      <NomCommune>Penta-Acquatella</NomCommune>
+      <Localisation>
+         <Latitude>42.464901</Latitude>
+         <Longitude>9.363631</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>09 67 29 79 40</Téléphone>
+      <Email>mairie.pentaacquatella@gmail.com</Email>
+      <Url>http://www.penta-acquatella.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

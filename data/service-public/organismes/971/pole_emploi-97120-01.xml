@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="pole_emploi-97120-01" codeInsee="97120" dateMiseAJour="2020-09-15"
+           pivotLocal="pole_emploi">
+   <Nom>Pôle emploi - Pointe-à-Pitre - Bergevin</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue de la Ville-d'Orly</Ligne>
+      <CodePostal>97110</CodePostal>
+      <NomCommune>Pointe-à-Pitre</NomCommune>
+      <Localisation>
+         <Latitude>16.2411</Latitude>
+         <Longitude>-61.5331</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro violet : service gratuit + prix appel (depuis l’étranger composez le +33 1 77 86 39 49) ; Employeur : 3995 (depuis l'étranger composez le +33 1 77 86 39 95)">3949</Téléphone>
+      <Url>https://www.pole-emploi.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:15:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="11:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

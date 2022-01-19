@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_handicapees-64445-01" codeInsee="64445" dateMiseAJour="2021-05-04"
+           pivotLocal="maison_handicapees">
+   <Nom>Maison départementale des personnes handicapées (MDPH) - Pyrénées-Atlantiques</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue Pierre Bonnard</Ligne>
+      <Ligne>Cité administrative</Ligne>
+      <CodePostal>64000</CodePostal>
+      <NomCommune>Pau</NomCommune>
+      <Localisation>
+         <Latitude>43.310525</Latitude>
+         <Longitude>-0.362504</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 27 50 50</Téléphone>
+      <Télécopie>05 59 27 50 51</Télécopie>
+      <Email>mdph.pau@mdph64.com</Email>
+      <Url>http://www.mdph64.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="09:00:00" fin="17:00:00"/>
+         <Note>Accueil fermé de 12h30 à 13h30 pendant les vacances scolaires.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Antenne à Anglet : 2 avenue Belle-Marion 64600 Anglet, Tèl : 05-59-27-50-50.</Commentaire>
+</Organisme>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-12264-01" codeInsee="12264" dateMiseAJour="2021-10-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sébazac-Concourès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Rue du Salès</Ligne>
+      <CodePostal>12740</CodePostal>
+      <NomCommune>Sébazac-Concourès</NomCommune>
+      <Localisation>
+         <Latitude>44.4048995972</Latitude>
+         <Longitude>2.59141993523</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="DEM">sonner, un agent descendra rencontrer l'usager, contacter la mairie avant de vous déplacer</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 65 74 90 42</Téléphone>
+      <Email>mairie@sebazac-concoures.fr</Email>
+      <Url>http://sebazac-concoures.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

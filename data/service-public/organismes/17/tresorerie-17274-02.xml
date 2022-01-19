@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="tresorerie-17274-02" codeInsee="17274" dateMiseAJour="2019-04-04"
+           pivotLocal="tresorerie">
+   <Nom>Trésorerie banlieue et amendes de La Rochelle</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>13 rue du Peré</Ligne>
+      <Ligne>BP 50255</Ligne>
+      <CodePostal>17180</CodePostal>
+      <NomCommune>Périgny</NomCommune>
+      <Localisation>
+         <Latitude>46.155126</Latitude>
+         <Longitude>-1.094843</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="05 46 68 23 89 (service amendes">05 46 44 38 66 (service public local)</Téléphone>
+      <Email>t017010@dgfip.finances.gouv.fr</Email>
+      <Url>https://www.amendes.gouv.fr/tai</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Accueil téléphonique tous les jours de 13h30 à 16h.</Commentaire>
+</Organisme>

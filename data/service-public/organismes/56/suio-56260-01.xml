@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="suio-56260-01" codeInsee="56260" dateMiseAJour="2021-06-14"
+           pivotLocal="suio">
+   <Nom>Université Bretagne Sud - Vannes - Service universitaire d'information d'orientation et d'insertion professionnelle (SUIO-IP)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Campus de Tohannic</Ligne>
+      <Ligne>Bâtiment Yves-Coppens</Ligne>
+      <Ligne>Rue André-Lwoff</Ligne>
+      <Ligne>Espace Information Conseil</Ligne>
+      <CodePostal>56017</CodePostal>
+      <NomCommune>Vannes Cedex</NomCommune>
+      <Localisation>
+         <Latitude>47.645333</Latitude>
+         <Longitude>-2.740362</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 97 01 27 00</Téléphone>
+      <Email>suioip@univ-ubs.fr</Email>
+      <Url>https://www.univ-ubs.fr/fr/formation-initiale-continue/reussir-ici/orientation-insertion-professionnelle.html</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Fermé au public le lundi matin et le mercredi</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msa-29103-01" codeInsee="29103" dateMiseAJour="2021-09-20" pivotLocal="msa">
+   <Nom>Mutualité sociale agricole (MSA) Armorique - accueil de Landerneau</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>3 rue Hervé-de-Guébriant</Ligne>
+      <CodePostal>29412</CodePostal>
+      <NomCommune>Landerneau Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.4502216</Latitude>
+         <Longitude>-4.258943</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Mutualité sociale agricole Armorique</Ligne>
+      <Ligne>12 rue de Paimpont</Ligne>
+      <CodePostal>22025</CodePostal>
+      <NomCommune>Saint-Brieuc Cedex 1</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 98 85 79 79</Téléphone>
+      <Url>https://www.msa.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

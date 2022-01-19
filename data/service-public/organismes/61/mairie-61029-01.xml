@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-61029-01" codeInsee="61029" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Bazoches-sur-Hoëne</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 rue du Presbytère</Ligne>
+      <CodePostal>61560</CodePostal>
+      <NomCommune>Bazoches-sur-Hoëne</NomCommune>
+      <Localisation>
+         <Latitude>48.552872</Latitude>
+         <Longitude>0.471739</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 33 85 27 55</Téléphone>
+      <Télécopie>02 33 85 27 56</Télécopie>
+      <Email>mairie-bazoches-sur-hoene@wanadoo.fr</Email>
+      <Url>http://www.bazochessurhoene.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mardi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

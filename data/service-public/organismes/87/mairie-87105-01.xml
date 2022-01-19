@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87105-01" codeInsee="87105" dateMiseAJour="2018-03-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Neuvic-Entier</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>8 rue de la République</Ligne>
+      <CodePostal>87130</CodePostal>
+      <NomCommune>Neuvic-Entier</NomCommune>
+      <Localisation>
+         <Latitude>45.723135</Latitude>
+         <Longitude>1.6134599</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 69 31 13</Téléphone>
+      <Télécopie>05 55 69 47 70</Télécopie>
+      <Email>mairie.neuvic-entier@wanadoo.fr</Email>
+      <Url>http://www.neuvic-entier.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="caf-64371-01" codeInsee="64371" dateMiseAJour="2021-09-20" pivotLocal="caf">
+   <Nom>Caisse d'allocations familiales (Caf) des Pyrénées-Atlantiques - accueil de Mauléon-Soule</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>Maison de services au public</Ligne>
+      <Ligne>14 rue des Frères-Barenne</Ligne>
+      <CodePostal>64130</CodePostal>
+      <NomCommune>Mauléon-Soule</NomCommune>
+      <Localisation>
+         <Latitude>43.2225521</Latitude>
+         <Longitude>-0.8903508</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Caisse d'allocations familiales des Pyrénées-Atlantiques</Ligne>
+      <Ligne>10 avenue du Maréchal-Foch</Ligne>
+      <Ligne>CS 70602</Ligne>
+      <CodePostal>64106</CodePostal>
+      <NomCommune>Bayonne Cedex</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix d’un appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel).">32 30</Téléphone>
+      <Email>http://www.caf.frallocataires/ma-caf-recherche</Email>
+      <Url>https://www.caf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+         <Note>Accueil par un conseiller de la Caf le vendredi de 9h à 11h20 en visio-accueil sur rendez-vous uniquement, accueil téléphonique lundi au vendredi de 9h à 16h30.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

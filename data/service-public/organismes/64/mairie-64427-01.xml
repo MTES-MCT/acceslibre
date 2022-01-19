@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-64427-01" codeInsee="64427" dateMiseAJour="2021-01-29"
+           pivotLocal="mairie">
+   <Nom>Mairie - Orion</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Route de Lasbordes</Ligne>
+      <CodePostal>64390</CodePostal>
+      <NomCommune>Orion</NomCommune>
+      <Localisation>
+         <Latitude>43.423263</Latitude>
+         <Longitude>-0.87517</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 59 65 06 02</Téléphone>
+      <Télécopie>05 59 65 06 02</Télécopie>
+      <Email>mairie.orion@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="09:30:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

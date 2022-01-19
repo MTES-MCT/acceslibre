@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme codeInsee="01053" dateMiseAJour="2021-12-14" id="tgi-01053-01" idPresta="4cac9ed7293594648a00edf3" pivotLocal="tgi">
+    <Nom>Tribunal judiciaire de Bourg-en-Bresse</Nom>
+    <EditeurSource>Ministère de la Justice</EditeurSource>
+    <Adresse type="géopostale">
+        <Ligne>32 AVENUE ALSACE LORRAINE</Ligne>
+        <Ligne>CS 30306</Ligne>
+        <CodePostal>01011</CodePostal>
+        <NomCommune>BOURG EN BRESSE CEDEX</NomCommune>
+        <Localisation>
+            <Latitude>46.201858</Latitude>
+            <Longitude>5.220548</Longitude>
+            <Précision>8.0</Précision>
+        </Localisation>
+    </Adresse>
+    <Adresse type="géopostale">
+        <Ligne>32 AVENUE ALSACE LORRAINE</Ligne>
+        <Ligne>CS 30306</Ligne>
+        <CodePostal>01011</CodePostal>
+        <NomCommune>BOURG EN BRESSE CEDEX</NomCommune>
+    </Adresse>
+    <CoordonnéesNum>
+        <Téléphone>04 26 37 73 00</Téléphone>
+        <Email>mailto:tj-bourg-en-bresse@justice.fr</Email>
+        <Url>http://www.justice.gouv.fr/</Url>
+    <Sve>['http://www.justice.gouv.fr/sve']</Sve>
+    </CoordonnéesNum>
+    <Ouverture>
+        <PlageJ début="lundi" fin="vendredi">
+            <PlageH début="08:30:00" fin="12:00:00"/>
+            <PlageH début="13:30:00" fin="17:00:00"/>
+            <Note>Durant les vacations de printemps, été et Noël: fermeture à 16h30
+Horaires vacations de printemps, été, Noël:
+Fermeture à 16h30
+</Note>
+        </PlageJ>
+    </Ouverture>
+</Organisme>

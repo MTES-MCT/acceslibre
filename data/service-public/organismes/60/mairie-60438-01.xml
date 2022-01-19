@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60438-01" codeInsee="60438" dateMiseAJour="2019-11-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Moulin-sous-Touvent</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>2 rue du Général-Collardet</Ligne>
+      <CodePostal>60350</CodePostal>
+      <NomCommune>Moulin-sous-Touvent</NomCommune>
+      <Localisation>
+         <Latitude>49.4557991028</Latitude>
+         <Longitude>3.07170009613</Longitude>
+         <Précision>4</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 42 17 60</Téléphone>
+      <Email>mairie-moulin.sous.touvent@orange.fr</Email>
+      <Url>http://www.moulinsoustouvent.com</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="16:00:00" fin="18:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-71481-01" codeInsee="71481" dateMiseAJour="2021-02-08"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Symphorien-d'Ancelles</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>371 rue des Chalandons</Ligne>
+      <CodePostal>71570</CodePostal>
+      <NomCommune>Saint-Symphorien-d'Ancelles</NomCommune>
+      <Localisation>
+         <Latitude>46.1961860657</Latitude>
+         <Longitude>4.76875209808</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">ascenseur</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 85 36 71 37</Téléphone>
+      <Télécopie>03 85 33 88 17</Télécopie>
+      <Email>mairie-ssa@orange.fr</Email>
+      <Url>http://www.st-symphorien-st-romain.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="13:00:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

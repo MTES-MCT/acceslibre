@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="maison_emploi-77296-01" codeInsee="77296" dateMiseAJour="2021-06-25"
+           pivotLocal="maison_emploi">
+   <Nom>Maison de l’emploi et de la formation de Sénart - Moissy-Cramayel</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>462 rue Benjamin Delessert</Ligne>
+      <Ligne>Immeuble le Sextant</Ligne>
+      <CodePostal>77550</CodePostal>
+      <NomCommune>Moissy-Cramayel</NomCommune>
+      <Localisation>
+         <Latitude>48.62405</Latitude>
+         <Longitude>2.56869</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>01 64 13 40 18</Téléphone>
+      <Télécopie>01 64 88 90 62</Télécopie>
+      <Email>info@mdef-senart.fr</Email>
+      <Url>https://www.mdef-senart.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>le jeudi fermeture dès 12h30.</Commentaire>
+</Organisme>

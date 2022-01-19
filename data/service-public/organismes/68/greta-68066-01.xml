@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="greta-68066-01" codeInsee="68066" dateMiseAJour="2021-11-23"
+           pivotLocal="greta">
+   <Nom>Greta Centre Alsace - Colmar</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Lycée polyvalent Blaise Pascal</Ligne>
+      <Ligne>74 rue du Logelbach</Ligne>
+      <CodePostal>68025</CodePostal>
+      <NomCommune>Colmar Cedex</NomCommune>
+      <Localisation>
+         <Latitude>48.0828085</Latitude>
+         <Longitude>7.345401</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 22 92 22</Téléphone>
+      <Télécopie>03 89 22 92 23</Télécopie>
+      <Email>https://www.greta-alsace.fr/eform/submit/formulaire-contact?field_form_structure=15852</Email>
+      <Url>https://www.greta-alsace.fr/structure/greta-centre-alsace</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="jeudi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

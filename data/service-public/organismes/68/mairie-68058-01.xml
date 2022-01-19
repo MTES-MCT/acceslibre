@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-68058-01" codeInsee="68058" dateMiseAJour="2020-06-16"
+           pivotLocal="mairie">
+   <Nom>Mairie - Buhl</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>72 rue Florival</Ligne>
+      <CodePostal>68530</CodePostal>
+      <NomCommune>Buhl</NomCommune>
+      <Localisation>
+         <Latitude>47.928087</Latitude>
+         <Longitude>7.186579</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 89 62 15 95</Téléphone>
+      <Télécopie>03 89 83 05 14</Télécopie>
+      <Email>maire@ville-buhl.fr</Email>
+      <Url>http://www.ville-buhl.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <Note>Accueil uniquement sur rendez-vous l'après-midi.</Note>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="jeudi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

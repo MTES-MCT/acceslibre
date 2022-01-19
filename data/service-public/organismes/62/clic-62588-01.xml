@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="clic-62588-01" codeInsee="62588" dateMiseAJour="2020-01-02"
+           pivotLocal="clic">
+   <Nom>Point d'information local dédié aux personnes âgées - Montreuil</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Maison de l'autonomie du montreuillois</Ligne>
+      <Ligne>Place Saint-Walloy</Ligne>
+      <CodePostal>62170</CodePostal>
+      <NomCommune>Montreuil-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>50.463187</Latitude>
+         <Longitude>1.763568</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 21 90 00 00</Téléphone>
+      <Email>maison.autonomie.montreuillois@pasdecalais.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

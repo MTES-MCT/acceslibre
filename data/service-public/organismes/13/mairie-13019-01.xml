@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-13019-01" codeInsee="13019" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Cabriès</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place Ange-Estève</Ligne>
+      <CodePostal>13480</CodePostal>
+      <NomCommune>Cabriès</NomCommune>
+      <Localisation>
+         <Latitude>43.44121</Latitude>
+         <Longitude>5.380015</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 42 28 14 00</Téléphone>
+      <Télécopie>04 42 28 14 20</Télécopie>
+      <Email>maire@cabries.fr</Email>
+      <Url>http://www.cabries.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:00:00" fin="16:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

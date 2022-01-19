@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="point_accueil_numerique-57631-01" codeInsee="57631"
+           dateMiseAJour="2021-03-04"
+           pivotLocal="point_accueil_numerique">
+   <Nom>Point d'accueil numérique - Sarreguemines (Sous-préfecture)</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>4 avenue du Maréchal Foch</Ligne>
+      <Ligne>Sous-préfecture</Ligne>
+      <CodePostal>57200</CodePostal>
+      <NomCommune>Sarreguemines</NomCommune>
+      <Localisation>
+         <Latitude>49.1124216</Latitude>
+         <Longitude>7.0717506</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 87 27 62 62</Téléphone>
+      <Email>sp-sarreguemines@moselle.gouv.fr</Email>
+      <Url>http://www.moselle.gouv.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+   <Commentaire>Un point d'accueil numérique c’est : un ordinateur avec un accès aux sites internet dédiés aux téléprocédures ; la possibilité de scanner des documents et d’imprimer des justificatifs ; la possibilité de vous faire accompagner par un médiateur numérique. Il s’adresse prioritairement aux personnes ne disposant pas d’outils informatiques personnels, ou peu à l’aise avec Internet.</Commentaire>
+</Organisme>

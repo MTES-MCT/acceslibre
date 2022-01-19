@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-87169-01" codeInsee="87169" dateMiseAJour="2019-08-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Maurice-les-Brousses</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>29 avenue de Limoges</Ligne>
+      <CodePostal>87800</CodePostal>
+      <NomCommune>Saint-Maurice-les-Brousses</NomCommune>
+      <Localisation>
+         <Latitude>45.698308</Latitude>
+         <Longitude>1.23598</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>05 55 57 50 72</Téléphone>
+      <Télécopie>05 55 57 53 90</Télécopie>
+      <Email>mairie.stmaurice87@orange.fr</Email>
+      <Url>http://www.saintmauricelesbrousses.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+         <PlageH début="15:00:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="08:30:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

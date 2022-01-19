@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-97203-01" codeInsee="97203" dateMiseAJour="2020-11-27"
+           pivotLocal="mairie">
+   <Nom>Mairie - Basse-Pointe</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>22 rue du Docteur Hippolyte Morestin</Ligne>
+      <CodePostal>97218</CodePostal>
+      <NomCommune>Basse-Pointe</NomCommune>
+      <Localisation>
+         <Latitude>14.8687313</Latitude>
+         <Longitude>-61.1203363</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>+596 5 96 78 50 44</Téléphone>
+      <Télécopie>+596 5 96 78 97 16</Télécopie>
+      <Email>mairie.basse-pointe@orange.fr</Email>
+      <Url>http://www.mairie-basse-pointe.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="jeudi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+         <PlageH début="14:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="07:30:00" fin="13:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

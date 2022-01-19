@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-60416-01" codeInsee="60416" dateMiseAJour="2018-11-14"
+           pivotLocal="mairie">
+   <Nom>Mairie - Montgérain</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Place de la Mairie</Ligne>
+      <CodePostal>60420</CodePostal>
+      <NomCommune>Montgérain</NomCommune>
+      <Localisation>
+         <Latitude>49.5371017456</Latitude>
+         <Longitude>2.57602000237</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 44 51 04 90</Téléphone>
+      <Télécopie>09 70 61 64 58</Télécopie>
+      <Email>mairie.montgerain@orange.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="mercredi" fin="mercredi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+         <Note>Accueil sur rendez-vous possible sur d'autres horaires.</Note>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>Accueil sur rendez-vous possible sur d'autres horaires.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

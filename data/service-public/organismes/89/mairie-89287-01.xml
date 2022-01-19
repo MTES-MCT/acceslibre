@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-89287-01" codeInsee="89287" dateMiseAJour="2020-02-11"
+           pivotLocal="mairie">
+   <Nom>Mairie - Paron</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>23 avenue Jean-Jaurès</Ligne>
+      <CodePostal>89100</CodePostal>
+      <NomCommune>Paron</NomCommune>
+      <Localisation>
+         <Latitude>48.2159126</Latitude>
+         <Longitude>3.2882035</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 86 83 93 93</Téléphone>
+      <Télécopie>03 86 83 93 91</Télécopie>
+      <Email>mairie@paron.fr</Email>
+      <Url>http://www.paron.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:15:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

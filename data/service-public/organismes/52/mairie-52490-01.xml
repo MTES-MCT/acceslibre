@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-52490-01" codeInsee="52490" dateMiseAJour="2021-07-28"
+           pivotLocal="mairie">
+   <Nom>Mairie - Thonnance-lès-Joinville</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>86 rue du Général-de-Gaulle</Ligne>
+      <CodePostal>52300</CodePostal>
+      <NomCommune>Thonnance-lès-Joinville</NomCommune>
+      <Localisation>
+         <Latitude>48.454572</Latitude>
+         <Longitude>5.1733918</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="NAC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 25 94 02 07</Téléphone>
+      <Email>mairie.thonnanceles-join@wanadoo.fr</Email>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="mardi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="jeudi" fin="vendredi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <PlageH début="14:30:00" fin="15:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

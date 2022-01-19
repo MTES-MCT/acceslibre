@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-35278-01" codeInsee="35278" dateMiseAJour="2021-01-05"
+           pivotLocal="msap">
+   <Nom>France Services - Saint-Grégoire</Nom>
+   <EditeurSource>La Direction de l'Information Légale et Administrative (Premier Ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>rue Chateaubriand</Ligne>
+      <CodePostal>35760</CodePostal>
+      <NomCommune>Saint-Grégoire</NomCommune>
+      <Localisation>
+         <Latitude>48.15388</Latitude>
+         <Longitude>-1.68332</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 23 19 23</Téléphone>
+      <Email>franceservices-stgregoire@saint-gregoire.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+         <PlageH début="13:30:00" fin="17:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:30:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

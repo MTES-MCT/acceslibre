@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-70428-01" codeInsee="70428" dateMiseAJour="2021-05-10"
+           pivotLocal="mairie">
+   <Nom>Mairie - Pusey</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>49 rue Gustave-Courtois</Ligne>
+      <CodePostal>70000</CodePostal>
+      <NomCommune>Pusey</NomCommune>
+      <Localisation>
+         <Latitude>47.6529998779</Latitude>
+         <Longitude>6.12338018417</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>03 84 76 45 93</Téléphone>
+      <Télécopie>03 84 76 00 66</Télécopie>
+      <Email>mairie-pusey@wanadoo.fr</Email>
+      <Url>http://www.pusey.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="11:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="16:30:00"/>
+      </PlageJ>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:30:00" fin="11:30:00"/>
+         <Note>Les 1er et 3e samedis du mois, fermé en juillet-août.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-74263-01" codeInsee="74263" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Sciez</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>614 avenue de Sciez</Ligne>
+      <Ligne>BP 20</Ligne>
+      <CodePostal>74140</CodePostal>
+      <NomCommune>Sciez</NomCommune>
+      <Localisation>
+         <Latitude>46.332039</Latitude>
+         <Longitude>6.374448</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">rampe d'accès</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 50 72 60 09</Téléphone>
+      <Télécopie>04 50 72 63 08</Télécopie>
+      <Email>commune.sciez@orange.fr</Email>
+      <Url>http://www.ville-sciez.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil ouvert uniquement pour le service population.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="14:00:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

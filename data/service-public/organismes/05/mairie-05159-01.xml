@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-05159-01" codeInsee="05159" dateMiseAJour="2021-07-07"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saléon</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Le Serre</Ligne>
+      <CodePostal>05300</CodePostal>
+      <NomCommune>Saléon</NomCommune>
+      <Localisation>
+         <Latitude>44.3618202209</Latitude>
+         <Longitude>5.77589988708</Longitude>
+         <Précision>6</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 92 66 29 92</Téléphone>
+      <Télécopie>04 92 66 29 92</Télécopie>
+      <Email>mairie.saleon@wanadoo.fr</Email>
+      <Url>http://www.saleon.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="13:30:00" fin="15:30:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="mardi">
+         <PlageH début="09:00:00" fin="11:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

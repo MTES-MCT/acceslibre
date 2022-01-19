@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="urssaf-63113-01" codeInsee="63113" dateMiseAJour="2021-09-20"
+           pivotLocal="urssaf">
+   <Nom>Urssaf Auvergne - site de Clermont-Ferrand</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="physique">
+      <Ligne>La Pardieu</Ligne>
+      <Ligne>4 rue Patrick-Depailler</Ligne>
+      <CodePostal>63000</CodePostal>
+      <NomCommune>Clermont-Ferrand</NomCommune>
+      <Localisation>
+         <Latitude>45.762434</Latitude>
+         <Longitude>3.133153</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+   </Adresse>
+   <Adresse type="postale">
+      <Ligne>Urssaf Auvergne</Ligne>
+      <Ligne>TSA 10134</Ligne>
+      <CodePostal>69833</CodePostal>
+      <NomCommune>Saint-Priest Cedex 9</NomCommune>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone coût="Numéro gris : service gratuit + prix appel (dépend de votre opérateur, pour connaître le tarif écoutez le message en début d’appel)">39 57</Téléphone>
+      <Email>https://www.contact.urssaf.fr</Email>
+      <Url>https://www.urssaf.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <Note>Accueil téléphonique du lundi au vendredi de 9h à 17h.</Note>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

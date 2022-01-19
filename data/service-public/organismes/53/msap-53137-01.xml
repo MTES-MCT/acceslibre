@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="msap-53137-01" codeInsee="53137" dateMiseAJour="2020-11-16"
+           pivotLocal="msap">
+   <Nom>France Services - Loiron-Ruillé</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Loiron</Ligne>
+      <Ligne>Parc d'activités la Chapelle du Chêne</Ligne>
+      <CodePostal>53320</CodePostal>
+      <NomCommune>Loiron-Ruillé</NomCommune>
+      <Localisation>
+         <Latitude>48.070419</Latitude>
+         <Longitude>-0.929679</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 43 02 19 31</Téléphone>
+      <Email>franceservices.loiron@agglo-laval.fr</Email>
+      <Url>https://www.cohesion-territoires.gouv.fr/france-services</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+      <PlageJ début="mardi" fin="jeudi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+         <PlageH début="13:30:00" fin="17:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

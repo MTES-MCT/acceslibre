@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-35256-01" codeInsee="35256" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Saint-Briac-sur-Mer</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>1 place Tony-Vaccaro</Ligne>
+      <CodePostal>35800</CodePostal>
+      <NomCommune>Saint-Briac-sur-Mer</NomCommune>
+      <Localisation>
+         <Latitude>48.618631</Latitude>
+         <Longitude>-2.132706</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC">plain-pied</Accessibilité>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>02 99 88 32 34</Téléphone>
+      <Télécopie>02 99 88 39 35</Télécopie>
+      <Email>mairie@saintbriac.fr</Email>
+      <Url>http://www.saintbriac.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="samedi" fin="samedi">
+         <PlageH début="10:00:00" fin="12:00:00"/>
+         <Note>La mairie est ouverte le samedi matin du 15 juin au 15 septembre, pendant la crise sanitaire accueil sur rendez-vous uniquement.</Note>
+      </PlageJ>
+      <PlageJ début="lundi" fin="vendredi">
+         <PlageH début="08:30:00" fin="12:15:00"/>
+         <PlageH début="15:00:00" fin="17:15:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>

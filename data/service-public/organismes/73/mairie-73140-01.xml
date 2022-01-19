@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organisme id="mairie-73140-01" codeInsee="73140" dateMiseAJour="2020-12-15"
+           pivotLocal="mairie">
+   <Nom>Mairie - Jongieux</Nom>
+   <EditeurSource>La Direction de l'information légale et administrative (Premier ministre)</EditeurSource>
+   <Adresse type="géopostale">
+      <Ligne>Aimavigne</Ligne>
+      <Ligne>981 route de la Charvaz</Ligne>
+      <CodePostal>73170</CodePostal>
+      <NomCommune>Jongieux</NomCommune>
+      <Localisation>
+         <Latitude>45.7375</Latitude>
+         <Longitude>5.79906</Longitude>
+         <Précision>8</Précision>
+      </Localisation>
+      <Accessibilité type="ACC"/>
+   </Adresse>
+   <CoordonnéesNum>
+      <Téléphone>04 79 44 02 01</Téléphone>
+      <Télécopie>04 79 44 02 38</Télécopie>
+      <Email>communedejongieux@wanadoo.fr</Email>
+      <Url>https://jongieux.fr</Url>
+   </CoordonnéesNum>
+   <Ouverture>
+      <PlageJ début="lundi" fin="lundi">
+         <PlageH début="14:00:00" fin="19:00:00"/>
+      </PlageJ>
+      <PlageJ début="vendredi" fin="vendredi">
+         <PlageH début="09:00:00" fin="12:00:00"/>
+      </PlageJ>
+   </Ouverture>
+</Organisme>
