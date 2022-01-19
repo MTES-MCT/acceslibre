@@ -29,6 +29,8 @@ class Command(BaseCommand):
             results = importer.import_gendarmeries(verbose=verbose)
         elif dataset == "vaccination":
             results = importer.import_vaccination(verbose=verbose)
+        elif dataset == "nestenn":
+            results = importer.import_nestenn(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 

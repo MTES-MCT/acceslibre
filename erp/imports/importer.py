@@ -1,4 +1,5 @@
 import logging
+import os
 
 from datetime import datetime
 
@@ -8,6 +9,7 @@ from django.db.transaction import TransactionManagementError
 from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
+from erp.imports.mapper.nestenn import NestennMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
 
 from erp.models import Accessibilite, Activite
@@ -18,13 +20,23 @@ logger = logging.getLogger(__name__)
 
 
 class Importer:
-    def __init__(self, id, fetcher, mapper, activite=None, verbose=False, today=None):
+    def __init__(
+        self,
+        id,
+        fetcher,
+        mapper,
+        activite=None,
+        verbose=False,
+        today=None,
+        filepath=None,
+    ):
         self.id = id
         self.fetcher = fetcher
         self.mapper = mapper
         self.activite = activite
         self.verbose = verbose
         self.today = today if today is not None else datetime.today()
+        self.filepath = filepath
 
     def print_char(self, msg):
         if self.verbose:
@@ -37,8 +49,16 @@ class Importer:
             "unpublished": [],
             "errors": [],
         }
-
-        for record in self.fetcher.fetch(f"{ROOT_DATASETS_URL}/{self.id}"):
+        if self.filepath:
+            here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", ".."))
+            resource_path = os.path.join(os.path.dirname(here), "data", self.filepath)
+        elif self.id:
+            resource_path = f"{ROOT_DATASETS_URL}/{self.id}"
+        else:
+            raise Exception(
+                f"Import échoué. Aucun id ou fichier pour le mapper {self.mapper} transmis."
+            )
+        for record in self.fetcher.fetch(resource_path):
             erp = None
             try:
                 mapper = self.mapper(record, self.activite, self.today)
@@ -100,4 +120,15 @@ def import_vaccination(verbose=False):
         VaccinationMapper,
         Activite.objects.get(slug="centre-de-vaccination"),
         verbose=verbose,
+    ).process()
+
+
+def import_nestenn(verbose=False):
+    return Importer(
+        "d0566522-604d-4af6-be44-a26eefa01756",
+        fetcher.CsvFileFetcher(delimiter=";"),
+        NestennMapper,
+        Activite.objects.get(slug="agence-immobiliere"),
+        verbose=verbose,
+        filepath="nestenn.csv",
     ).process()

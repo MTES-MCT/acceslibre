@@ -48,3 +48,16 @@ class CsvFetcher(Fetcher):
             raise RuntimeError(
                 f"Erreur de récupération des données CSV: {url}:\n  {err}"
             )
+
+
+class CsvFileFetcher(CsvFetcher):
+    def fetch(self, url):
+        try:
+            csv_contents = open(url, "r", encoding="latin1").read()
+            return csv.DictReader(
+                io.StringIO(csv_contents),
+                delimiter=self.delimiter,
+                fieldnames=self.fieldnames,
+            )
+        except csv.Error as err:
+            raise RuntimeError(f"Erreur de lecture des données CSV:\n  {err}")
