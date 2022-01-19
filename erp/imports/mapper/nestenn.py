@@ -1,4 +1,3 @@
-import re
 import logging
 
 from datetime import datetime
@@ -63,10 +62,7 @@ class NestennMapper:
         for name, value in basic_fields.items():
             setattr(self.erp, name, value)
 
-        try:
-            self.erp.save()
-        except Exception as e:
-            breakpoint()
+        self.erp.save()
         self._retrieve_commune_ext()
         self._populate_accessibilite()
 

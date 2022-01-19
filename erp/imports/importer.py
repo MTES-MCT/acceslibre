@@ -49,15 +49,13 @@ class Importer:
             "unpublished": [],
             "errors": [],
         }
-        if self.filepath:
-            here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", ".."))
-            resource_path = os.path.join(os.path.dirname(here), "data", self.filepath)
-        elif self.id:
-            resource_path = f"{ROOT_DATASETS_URL}/{self.id}"
-        else:
-            raise Exception(
-                f"Import échoué. Aucun id ou fichier pour le mapper {self.mapper} transmis."
-            )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", ".."))
+        resource_path = (
+            os.path.join(os.path.dirname(here), "data", self.filepath)
+            if self.filepath
+            else f"{ROOT_DATASETS_URL}/{self.id}"
+        )
+
         for record in self.fetcher.fetch(resource_path):
             erp = None
             try:
