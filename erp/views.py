@@ -323,7 +323,9 @@ def widget_from_uuid(request, uuid):  # noqa
     elif (
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is True
-        and (erp.accessibilite.cheminement_ext_terrain_accidente is (False or None))
+        and (
+            erp.accessibilite.cheminement_ext_terrain_accidente is (True or None)
+        )  # TODO : Accidenté à Modifier
         and (
             erp.accessibilite.cheminement_ext_pente_presence is (False or None)
             or (
@@ -341,11 +343,11 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.cheminement_ext_plain_pied is False
         and (
             (
-                not erp.accessibilite.cheminement_ext_ascenseur
-                and not erp.accessibilite.cheminement_ext_rampe
+                erp.accessibilite.cheminement_ext_ascenseur
+                or erp.accessibilite.cheminement_ext_rampe
             )
         )
-        and (erp.accessibilite.cheminement_ext_terrain_accidente is (False or None))
+        and (erp.accessibilite.cheminement_ext_terrain_accidente is (True or None))
         and (
             erp.accessibilite.cheminement_ext_pente_presence is (False or None)
             or (
@@ -363,65 +365,79 @@ def widget_from_uuid(request, uuid):  # noqa
     elif (
         not erp.accessibilite.cheminement_ext_terrain_accidente
         or erp.accessibilite.cheminement_ext_pente_degre_difficulte
-        != schema.PENTE_LEGERE
+        == schema.PENTE_IMPORTANTE
         or erp.accessibilite.cheminement_ext_devers == schema.DEVERS_IMPORTANT
         or erp.accessibilite.cheminement_ext_retrecissement
         or (
             not erp.accessibilite.cheminement_ext_ascenseur
-            and not erp.accessibilite.cheminement_ext_rampe
+            and erp.accessibilite.cheminement_ext_rampe is (schema.RAMPE_AUCUNE, None)
+            and erp.accessibilite.cheminement_ext_plain_pied is False
         )
     ):
         chemin_ext_label = "Difficulté sur le chemin d'accès"
 
     # Conditions Entrée
     entree_label = None
-    if (
-        erp.accessibilite.entree_plain_pied
-        and erp.accessibilite.entree_largeur_mini >= 80
+    if erp.accessibilite.entree_plain_pied is True and (
+        erp.accessibilite.entree_largeur_mini is None
+        or erp.accessibilite.entree_largeur_mini >= 80
     ):
         entree_label = "Entrée de plain pied"
     elif (
-        erp.accessibilite.entree_plain_pied
+        erp.accessibilite.entree_plain_pied is True
         and erp.accessibilite.entree_largeur_mini < 80
     ):
         entree_label = "Entrée de plain pied mais étroite"
 
     elif (
-        not erp.accessibilite.entree_plain_pied
+        erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_largeur_mini >= 80
+        and (
+            erp.accessibilite.entree_largeur_mini is None
+            or erp.accessibilite.entree_largeur_mini >= 80
+        )
     ):
         entree_label = "Accès à l'entrée par ascenseur"
     elif (
-        not erp.accessibilite.entree_plain_pied
+        erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
         and erp.accessibilite.entree_largeur_mini < 80
     ):
-        entree_label = "Entrée rendue accessible (ascenseur) mais étroite"
+        entree_label = "Accès à l'entrée par ascenseur mais étroite"
     elif (
-        not erp.accessibilite.entree_plain_pied
+        erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
+        and not erp.accessibilite.entree_ascenseur
         and erp.accessibilite.entree_marches_rampe
-        and erp.accessibilite.entree_largeur_mini < 80
-    ):
-        entree_label = "Entrée rendue accessible (rampe) mais étroite"
-    elif (
-        erp.accessibilite.entree_marches_rampe
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and erp.accessibilite.entree_largeur_mini < 80
     ):
-        entree_label = "Entrée rendue accessible (rampe) mais étroite"
+        entree_label = "Accès à l'entrée par rampe mais étroite"
     elif (
-        erp.accessibilite.entree_marches_rampe
+        erp.accessibilite.entree_plain_pied is False
+        and not erp.accessibilite.entree_pmr
+        and not erp.accessibilite.entree_ascenseur
+        and erp.accessibilite.entree_marches_rampe
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
-        and erp.accessibilite.entree_largeur_mini >= 80
+        and (
+            erp.accessibilite.entree_largeur_mini is None
+            or erp.accessibilite.entree_largeur_mini >= 80
+        )
     ):
         entree_label = "Accès à l’entrée par une rampe"
-    elif erp.accessibilite.entree_marches_rampe in (schema.RAMPE_AUCUNE, None):
+    elif (
+        erp.accessibilite.entree_plain_pied is False
+        and not erp.accessibilite.entree_pmr
+        and not erp.accessibilite.entree_ascenseur
+        and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_AUCUNE, None)
+    ):
         entree_label = "L’entrée n’est pas de plain-pied"
-    elif erp.accessibilite.entree_pmr:
+    elif (
+        erp.accessibilite.entree_plain_pied in (False, None)
+        and erp.accessibilite.entree_pmr is True
+    ):
         entree_label = "Entrée spécifique PMR"
 
     if chemin_ext_label and entree_label:
@@ -467,9 +483,9 @@ def widget_from_uuid(request, uuid):  # noqa
         }
 
     # Conditions Présence d’équipement sourd et malentendant
-    presence_equiepement_sourd_label = None
+    presence_equipement_sourd_label = None
     if erp.accessibilite.accueil_equipements_malentendants_presence:
-        presence_equiepement_sourd_label = ", ".join(
+        presence_equipement_sourd_label = ", ".join(
             map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,
                 erp.accessibilite.accueil_equipements_malentendants,
@@ -477,9 +493,9 @@ def widget_from_uuid(request, uuid):  # noqa
             )
         )
 
-    if presence_equiepement_sourd_label:
+    if presence_equipement_sourd_label:
         accessibilite_data["équipements sourd et malentendant"] = {
-            "label": presence_equiepement_sourd_label,
+            "label": presence_equipement_sourd_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/assistive-listening-systems.png",
         }
 
@@ -494,7 +510,7 @@ def widget_from_uuid(request, uuid):  # noqa
         presence_sanitaire_label = "Sanitaire non adapté"
 
     if presence_sanitaire_label:
-        accessibilite_data["sanitaires"] = {
+        accessibilite_data["sanitaire"] = {
             "label": presence_sanitaire_label,
             "icon": f"{settings.SITE_ROOT_URL}/static/img/wc.png",
         }
