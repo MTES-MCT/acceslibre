@@ -375,13 +375,13 @@ def widget_from_uuid(request, uuid):  # noqa
 
     # Conditions Entrée
     entree_label = None
-    if (
-        erp.accessibilite.entree_plain_pied
+    if erp.accessibilite.entree_plain_pied and (
+        erp.accessibilite.entree_largeur_mini
         and erp.accessibilite.entree_largeur_mini >= 80
     ):
         entree_label = "Entrée de plain pied"
-    elif (
-        erp.accessibilite.entree_plain_pied
+    elif erp.accessibilite.entree_plain_pied and (
+        erp.accessibilite.entree_largeur_mini
         and erp.accessibilite.entree_largeur_mini < 80
     ):
         entree_label = "Entrée de plain pied mais étroite"
@@ -390,32 +390,45 @@ def widget_from_uuid(request, uuid):  # noqa
         not erp.accessibilite.entree_plain_pied
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_largeur_mini >= 80
+        and (
+            erp.accessibilite.entree_largeur_mini
+            and erp.accessibilite.entree_largeur_mini >= 80
+        )
     ):
         entree_label = "Accès à l'entrée par ascenseur"
     elif (
         not erp.accessibilite.entree_plain_pied
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_largeur_mini < 80
+        and (
+            erp.accessibilite.entree_largeur_mini
+            and erp.accessibilite.entree_largeur_mini < 80
+        )
     ):
         entree_label = "Entrée rendue accessible (ascenseur) mais étroite"
     elif (
         not erp.accessibilite.entree_plain_pied
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_marches_rampe
+        and (
+            erp.accessibilite.entree_largeur_mini
+            and erp.accessibilite.entree_largeur_mini < 80
+        )
+    ):
+        entree_label = "Entrée rendue accessible (rampe) mais étroite"
+    elif erp.accessibilite.entree_marches_rampe in (
+        schema.RAMPE_FIXE,
+        schema.RAMPE_AMOVIBLE,
+    ) and (
+        erp.accessibilite.entree_largeur_mini
         and erp.accessibilite.entree_largeur_mini < 80
     ):
         entree_label = "Entrée rendue accessible (rampe) mais étroite"
-    elif (
-        erp.accessibilite.entree_marches_rampe
-        in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
-        and erp.accessibilite.entree_largeur_mini < 80
-    ):
-        entree_label = "Entrée rendue accessible (rampe) mais étroite"
-    elif (
-        erp.accessibilite.entree_marches_rampe
-        in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
+    elif erp.accessibilite.entree_marches_rampe in (
+        schema.RAMPE_FIXE,
+        schema.RAMPE_AMOVIBLE,
+    ) and (
+        erp.accessibilite.entree_largeur_mini
         and erp.accessibilite.entree_largeur_mini >= 80
     ):
         entree_label = "Accès à l’entrée par une rampe"
