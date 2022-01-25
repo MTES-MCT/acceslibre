@@ -34,7 +34,13 @@ def upload_to_datagouv(csv_path):
     if not settings.DATAGOUV_API_KEY:
         return
 
-    url = f"{settings.DATAGOUV_DOMAIN}/api/1/datasets/60a528e8b656ce01b4c0c0a6/resources/{settings.DATAGOUV_DATASET_ID}/upload/"
+    url = (
+        "{domain}/api/1/datasets/{dataset_id}/resources/{resources_id}/upload/".format(
+            domain=settings.DATAGOUV_DOMAIN,
+            dataset_id=settings.DATAGOUV_DATASET_ID,
+            resources_id=settings.DATAGOUV_RESOURCES_ID,
+        )
+    )
 
     try:
         response = requests.post(
