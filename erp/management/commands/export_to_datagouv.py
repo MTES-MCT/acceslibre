@@ -38,7 +38,7 @@ class Command(BaseCommand):
         csv_path = "acceslibre.csv"
         self.log("Starting export")
         try:
-            erps = Erp.objects.published().having_a11y_data()
+            erps = Erp.objects.published()
             export_schema_to_csv(csv_path, erps, EtalabMapper)
             self.log("Local export successful: 'acceslibre.csv'")
             if skip_upload:
