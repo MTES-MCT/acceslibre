@@ -1,4 +1,7 @@
 {% load a4a static %}
+<div id="widget-a11y-container" data-pk="{{ erp.uuid }}" data-baseurl="{{ root_url }}"></div>
+<script src="{{ url_widget_js }}" type="text/javascript"></script>
+
 
 <div class="card shadow-sm">
   <div class="card-body pb-2">
@@ -128,8 +131,6 @@
   </div>
 </div>
 
-<div id="widget-a11y-container" data-pk="{{ erp.uuid }}" data-baseurl="{{ root_url }}"></div>
-<script src="{{ url_widget_js }}" type="text/javascript" async="true"></script>
 <script>
     var btncopy = document.querySelector('.js-copy');
     if(btncopy) {
