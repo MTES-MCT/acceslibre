@@ -410,7 +410,7 @@ def widget_from_uuid(request, uuid):  # noqa
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
         and (
-            not erp.accessibilite.entree_largeur_mini is None
+            erp.accessibilite.entree_largeur_mini is not None
             and erp.accessibilite.entree_largeur_mini < 80
         )
     ):
@@ -422,7 +422,7 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.entree_marches_rampe
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and (
-            not erp.accessibilite.entree_largeur_mini is None
+            erp.accessibilite.entree_largeur_mini is not None
             and erp.accessibilite.entree_largeur_mini
         )
         < 80
