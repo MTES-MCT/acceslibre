@@ -422,11 +422,8 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.entree_marches_rampe
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and (
-            erp.accessibilite.entree_largeur_mini is None
-            or (
-                erp.accessibilite.entree_largeur_mini is not None
-                and erp.accessibilite.entree_largeur_mini < 80
-            )
+            erp.accessibilite.entree_largeur_mini is not None
+            and erp.accessibilite.entree_largeur_mini < 80
         )
     ):
         entree_label = "Entrée rendue accessible par rampe mais étroite"
@@ -438,7 +435,10 @@ def widget_from_uuid(request, uuid):  # noqa
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and (
             erp.accessibilite.entree_largeur_mini is None
-            or erp.accessibilite.entree_largeur_mini >= 80
+            or (
+                erp.accessibilite.entree_largeur_mini is not None
+                and erp.accessibilite.entree_largeur_mini >= 80
+            )
         )
     ):
         entree_label = "Accès à l’entrée par une rampe"
