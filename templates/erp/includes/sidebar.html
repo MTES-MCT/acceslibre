@@ -1,4 +1,7 @@
 {% load a4a static %}
+<div id="widget-a11y-container" data-pk="{{ erp.uuid }}" data-baseurl="{{ root_url }}"></div>
+<script src="{{ url_widget_js }}" type="text/javascript"></script>
+
 
 <div class="card shadow-sm">
   <div class="card-body pb-2">
@@ -116,6 +119,7 @@
               </div>
             </div>
             <div class="modal-footer">
+              <a href="#" aria-haspopup="dialog" aria-controls="dialog">Tester le widget</a>
               <button type="button" class="btn btn-secondary" data-dismiss="modal" >Fermer</button>
               <button type="button" class="btn btn-primary js-copy" data-target="#tocopy">Copier</button>
             </div>

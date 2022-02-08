@@ -271,7 +271,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
-<a href="#" aria-haspopup="dialog" aria-controls="dialog">Afficher les informations d'accessibilité</a>
+<a href="#" aria-haspopup="dialog" aria-controls="dialog">Accessibilité</a>
 <script src="{url_widget_js}" type="text/javascript" async="true"></script>\n"""
     return render(
         request,
@@ -285,6 +285,8 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
             "geojson_list": geojson_list,
             "nearest_erps": nearest_erps,
             "widget_tag": widget_tag,
+            "url_widget_js": url_widget_js,
+            "root_url": settings.SITE_ROOT_URL,
             "user_is_subscribed": user_is_subscribed,
             "user_vote": user_vote,
         },
@@ -324,10 +326,10 @@ def widget_from_uuid(request, uuid):  # noqa
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is True
         and (
-            erp.accessibilite.cheminement_ext_terrain_accidente is (True or None)
+            erp.accessibilite.cheminement_ext_terrain_accidente in (True, None)
         )  # TODO : Accidenté à Modifier
         and (
-            erp.accessibilite.cheminement_ext_pente_presence is (False or None)
+            erp.accessibilite.cheminement_ext_pente_presence in (False, None)
             or (
                 erp.accessibilite.cheminement_ext_pente_degre_difficulte
                 == schema.PENTE_LEGERE
@@ -347,9 +349,9 @@ def widget_from_uuid(request, uuid):  # noqa
                 or erp.accessibilite.cheminement_ext_rampe
             )
         )
-        and (erp.accessibilite.cheminement_ext_terrain_accidente is (True or None))
+        and (erp.accessibilite.cheminement_ext_terrain_accidente in (True, None))
         and (
-            erp.accessibilite.cheminement_ext_pente_presence is (False or None)
+            erp.accessibilite.cheminement_ext_pente_presence in (False, None)
             or (
                 erp.accessibilite.cheminement_ext_pente_degre_difficulte
                 == schema.PENTE_LEGERE
@@ -370,7 +372,7 @@ def widget_from_uuid(request, uuid):  # noqa
         or erp.accessibilite.cheminement_ext_retrecissement
         or (
             not erp.accessibilite.cheminement_ext_ascenseur
-            and erp.accessibilite.cheminement_ext_rampe is (schema.RAMPE_AUCUNE, None)
+            and erp.accessibilite.cheminement_ext_rampe in (schema.RAMPE_AUCUNE, None)
             and erp.accessibilite.cheminement_ext_plain_pied is False
         )
     ):
@@ -385,7 +387,11 @@ def widget_from_uuid(request, uuid):  # noqa
         entree_label = "Entrée de plain pied"
     elif (
         erp.accessibilite.entree_plain_pied is True
-        and erp.accessibilite.entree_largeur_mini < 80
+        and (
+            erp.accessibilite.entree_largeur_mini is not None
+            and erp.accessibilite.entree_largeur_mini
+        )
+        < 80
     ):
         entree_label = "Entrée de plain pied mais étroite"
 
@@ -403,18 +409,24 @@ def widget_from_uuid(request, uuid):  # noqa
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_largeur_mini < 80
+        and (
+            erp.accessibilite.entree_largeur_mini is not None
+            and erp.accessibilite.entree_largeur_mini < 80
+        )
     ):
-        entree_label = "Accès à l'entrée par ascenseur mais étroite"
+        entree_label = "Entrée rendue accessible par ascenseur mais étroite"
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and not erp.accessibilite.entree_ascenseur
         and erp.accessibilite.entree_marches_rampe
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
-        and erp.accessibilite.entree_largeur_mini < 80
+        and (
+            erp.accessibilite.entree_largeur_mini is not None
+            and erp.accessibilite.entree_largeur_mini < 80
+        )
     ):
-        entree_label = "Accès à l'entrée par rampe mais étroite"
+        entree_label = "Entrée rendue accessible par rampe mais étroite"
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
@@ -423,7 +435,10 @@ def widget_from_uuid(request, uuid):  # noqa
         in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and (
             erp.accessibilite.entree_largeur_mini is None
-            or erp.accessibilite.entree_largeur_mini >= 80
+            or (
+                erp.accessibilite.entree_largeur_mini is not None
+                and erp.accessibilite.entree_largeur_mini >= 80
+            )
         )
     ):
         entree_label = "Accès à l’entrée par une rampe"
@@ -434,6 +449,8 @@ def widget_from_uuid(request, uuid):  # noqa
         and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_AUCUNE, None)
     ):
         entree_label = "L’entrée n’est pas de plain-pied"
+        if erp.accessibilite.entree_aide_humaine is True:
+            entree_label += "\n Aide humaine possible"
     elif (
         erp.accessibilite.entree_plain_pied in (False, None)
         and erp.accessibilite.entree_pmr is True
@@ -442,7 +459,7 @@ def widget_from_uuid(request, uuid):  # noqa
 
     if chemin_ext_label and entree_label:
         accessibilite_data["accès"] = {
-            "label": f"{chemin_ext_label} et {entree_label.lower()}",
+            "label": f"{chemin_ext_label} \n {entree_label}",
             "icon": f"{settings.SITE_ROOT_URL}/static/img/path.png",
         }
     elif chemin_ext_label:
