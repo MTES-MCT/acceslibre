@@ -388,7 +388,7 @@ def widget_from_uuid(request, uuid):  # noqa
     elif (
         erp.accessibilite.entree_plain_pied is True
         and (
-            not erp.accessibilite.entree_largeur_mini is None
+            erp.accessibilite.entree_largeur_mini is not None
             and erp.accessibilite.entree_largeur_mini
         )
         < 80
