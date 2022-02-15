@@ -14,5 +14,9 @@ import "leaflet.locatecontrol/dist/L.Control.Locate.min";
 import "../vendor/selectWoo-1.0.8/css/select2.min.css";
 import "../vendor/selectWoo-1.0.8/css/select2-bootstrap4.min.css";
 
+// DSFR
+import "../vendor/dsfr/dist/css/dsfr.css";
+
 // Acceslibre own styles
+import "./style-dsfr.scss";
 import "./style.scss";
