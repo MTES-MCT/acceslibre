@@ -145,7 +145,7 @@
     outline-width: 2px;
     outline-color: var(--focus);
     position: fixed;
-    z-index: 1100;
+    z-index: 999999;
     top: 0vh;
     right: 0;
     bottom: 0;
@@ -183,7 +183,7 @@
               <ul style="padding:0px">
                 {% for item, data in accessibilite_data.items %}
                   <li class="modal__item fr-grid-row">
-                    <div class="fr-col-md-1 modal__icon">
+                    <div class="fr-col-md-2 modal__icon">
                       <img src="{{ data.icon }}" style="width:40px"></img>
                     </div>
                     <div class="fr-col-md-10" style="padding: 1.5vh;">
