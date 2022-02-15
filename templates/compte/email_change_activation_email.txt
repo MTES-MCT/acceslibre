@@ -2,7 +2,7 @@
 
 Vous avez demandé à changer votre email sur {{ SITE_NAME.title }}
 
-Veuillez cliquez sur le lien suivant afin de confirmer le changement d'adresse email:
+Veuillez cliquer sur le lien suivant afin de confirmer le changement d'adresse email:
 {{ SITE_ROOT_URL }}{% url "change_email" activation_token=activation_token %}
 
 Ce lien sera actif 24h.
