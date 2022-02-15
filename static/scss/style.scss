@@ -29,6 +29,15 @@ iframe{
   margin:0px;
 }
 
+#home-latest-erps-list {
+  & ul{
+    padding-left: 0px;
+  }
+  & li {
+    list-style-type: none;
+  }
+}
+
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14
