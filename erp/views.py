@@ -70,7 +70,17 @@ def make_geojson(erp_qs):
 
 
 def home(request):
-    return render(request, "index.html")
+    return render(
+        request,
+        "index.html",
+        context={
+            "erp_count": Erp.objects.published().count(),
+            "contributor_count": get_user_model()
+            .objects.filter(erp__isnull=False)
+            .distinct()
+            .count(),
+        },
+    )
 
 
 def challenge_ddt(request):

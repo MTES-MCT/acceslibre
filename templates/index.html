@@ -1,7 +1,7 @@
 {% extends "editorial/base.html" %}
 
 {% load a4a %}
-{% load static %}
+{% load static humanize %}
 
 {% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock%}
 
@@ -13,21 +13,21 @@
 <div class="fr-grid-row bg-alt-blue-france-975">
   <div class="fr-container ">
       <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-          <div class="fr-col-lg-7">
+          <div class="fr-col-12 fr-col-sm-7">
               <h1 class="blue-fr-500 ">Rendez votre ville plus accessible</h1>
               <p class="fr-mb-3w fr-text--lead">
                 Partagez les informations indispensables aux déplacements des personnes en situation de handicap
               </p>
               <p class="fr-mb-5w">
-                <button class="fr-btn " data-fr-opened="false" aria-controls="fr-modal-1">
+                <a class="fr-btn " href="{% url "contrib_start" %}">
                   Contribuer
-                </button>
-                <button class="fr-btn fr-btn--secondary" data-fr-opened="false" aria-controls="fr-modal-1">
+                </a>
+                <a class="fr-btn fr-btn--secondary" href="{% url "communes" %}">
                   Explorer
-                </button>
+                </a>
               </p>
           </div>
-          <div class="fr-col-offset-2 fr-col-3 ">
+          <div class="fr-col-offset-sm-2 fr-col-12 fr-col-sm-3">
               <figure class="fr-content-media">
                   <div class="fr-content-media__img">
                       <img src="{% static "img/landing/formulaire.png" %}" alt="">
@@ -40,15 +40,15 @@
 <div class="fr-grid-row">
   <div class="fr-container ">
       <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
-        <div class="fr-col-4" style="text-align: center">
-          <p class="fr-h1">41833</p>
+        <div class="fr-col-6 fr-col-sm-4" style="text-align: center">
+          <p class="fr-h1">{{ erp_count|intcomma }}</p>
           <p class="fr-text--bold">lieux<br> référencés</p>
         </div>
-        <div class="fr-col-4" style="text-align: center">
-          <p class="fr-h1">938</p>
+        <div class="fr-col-6 fr-col-sm-4" style="text-align: center">
+          <p class="fr-h1">{{ contributor_count|intcomma }}</p>
           <p class="fr-text--bold">contributrices<br> et contributeurs</p>
         </div>
-        <div class="fr-col-4" style="text-align: center">
+        <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
           <p class="fr-h1">1,5 millions</p>
           <p class="fr-text--bold">de personnes<br> concernées</p>
         </div>
@@ -58,18 +58,18 @@
 <div class="fr-grid-row bg-alt-blue-france-975">
   <div class="fr-container ">
       <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-          <div class="fr-col-lg-6">
+          <div class="fr-col-12 fr-col-sm-6">
               <h2 class="fr-mb-5w">Faire une vraie différence</h2>
               <p class="fr-mt-5v fr-mb-5v">
-                <b>En France, prêt de une personne sur 5 est ou sera en situation de handicap au cours de sa vie.</b>
+                <b>En France, près d'une personne sur 5 est ou sera en situation de handicap au cours de sa vie.</b>
               </p>
-              <p class="fr-mt-5w fr-mb-5w"> Se déplacer et sortir peut devenir un vrai problème pour savoir si le lieu sera acceuillant et adapté.</p>
+              <p class="fr-mt-5w fr-mb-5w"> Se déplacer et sortir peut devenir un vrai problème pour savoir si le lieu sera accueillant et adapté.</p>
               <p class="fr-mb-0">
-                <b>« Pour trouver les tarifs et les horaires d’ouvertures, pas de soucis ! Mais savoir si mon fauteil rentre aux toilettes, c’est une vrai galère. »</b>
+                <b>« Pour trouver les tarifs et les horaires d’ouvertures, pas de soucis ! Mais savoir si mon fauteuil rentre aux toilettes, c’est une vrai galère. »</b>
               </p>
             <span class="fr-text--xs">Amélie</span>
           </div>
-          <div class="fr-col-6 ">
+          <div class="fr-col-12 fr-col-sm-6">
               <figure class="fr-content-media">
                   <div class="fr-content-media__img ">
                       <img class="auto-height" src="{% static "img/landing/widget.png" %}" alt="">
@@ -77,20 +77,20 @@
               </figure>
           </div>
       </div>
-      <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v ">
+      <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v fr-grid-row--bottom">
         <div class="fr-col-4" style="text-align: center">
-          <img style="height:20%" src="{% static "img/landing/puzzle.png" %}" alt="" />
+          <img class="fr-col-6 fr-col-sm-3" src="{% static "img/landing/puzzle.png" %}" alt="" />
           <p class="fr-text--lead fr-text--bold fr-mb-0">À votre niveau</p>
           <p class="fr-text">Toute information est utile,<br> même partielle</p>
         </div>
         <div class="fr-col-4" style="text-align: center">
-          <img style="height:20%" src="{% static "img/landing/check.png" %}" alt="" />
+          <img class="fr-col-6 fr-col-sm-3" src="{% static "img/landing/check.png" %}" alt="" />
            <p class="fr-text--lead fr-text--bold fr-mb-0">En quelques secondes</p>
           <p class="fr-text">Chaque information devient <br>un gain de temps</p>
 
         </div>
         <div class="fr-col-4" style="text-align: center">
-          <img style="height:20%" src="{% static "img/landing/heart.png" %}" alt="" />
+          <img class="fr-col-6 fr-col-sm-3" src="{% static "img/landing/heart.png" %}" alt="" />
           <p class="fr-text--lead fr-text--bold fr-mb-0">Pour la communauté</p>
           <p class="fr-text">Les données d’accessibilités<br> sont indispensables</p>
         </div>
@@ -100,27 +100,27 @@
 <div class="fr-grid-row">
   <div class="fr-container ">
       <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
-          <div class="fr-col-lg-7">
+          <div class="fr-col-12 fr-col-sm-7">
               <h2 class="fr-h3">Partagez des connaissances</h2>
-              <h3 class="fr-h5 fr-text--bold fr-mb-0">1. Explorer</h3>
+              <h3 class="fr-h5 fr-text--bold fr-mb-0">1. Explorez</h3>
               <p class="fr-mb-3w fr-text--sm">
                 Retrouvez de nombreux lieux ouverts au public : café, restaurants, administrations...
               </p>
-              <h3 class="fr-h5 fr-text--bold fr-mb-0">2. Documenter</h3>
+              <h3 class="fr-h5 fr-text--bold fr-mb-0">2. Renseignez les informations</h3>
               <p class="fr-mb-3w fr-text--sm">
                 Répondez à quelques questions : y-a-t-il une marche pour rentrer ? des places de parking à proximité ?
               </p>
-              <h3 class="fr-h5 fr-text--bold fr-mb-0">3. Et recommencer</h3>
+              <h3 class="fr-h5 fr-text--bold fr-mb-0">3. Et recommencez</h3>
               <p class="fr-mb-3w fr-text--sm">
                 Remplir une fiche est de plus en plus rapide, quand on sait à quoi faire attention !
               </p>
               <p class="fr-mb-5w">
-                <button class="fr-btn " data-fr-opened="false" aria-controls="fr-modal-1">
+                <a class="fr-btn " href="{% url "contrib_start" %}">
                   Contribuer
-                </button>
+                </a>
               </p>
           </div>
-          <div class="fr-col-offset-2 fr-col-3 ">
+          <div class="fr-col-12 fr-col-sm-5">
               <figure class="fr-content-media">
                   <div class="fr-content-media__img">
                       <img class="auto-height" src="{% static "img/landing/partage.png" %}" alt="">
@@ -128,7 +128,7 @@
               </figure>
           </div>
       </div>
-      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v" id="block_search_form">
           <div class="fr-col-lg-12">
               <h2 class="fr-h3">Explorer les lieux en France</h2>
               {% include "search/form.html" %}
@@ -140,9 +140,9 @@
               <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
                <div class="fr-card__body">
                    <h4 class="fr-card__title">
-                       <a href="#" class="fr-card__link">Voir les lieux prêt de chez moi</a>
+                       <a href="{% url "communes" %}" class="fr-card__link">Voir les lieux près de chez moi</a>
                    </h4>
-                   <p class="fr-card__desc">Documentez les lieux que vous connaissez le mieux</p>
+                   <p class="fr-card__desc">Renseignez les informations des lieux que vous connaissez le mieux</p>
                </div>
             </div>
           </div>
@@ -150,7 +150,7 @@
               <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
                <div class="fr-card__body">
                    <h4 class="fr-card__title">
-                       <a href="#" class="fr-card__link">Compléter une fiche incomplète</a>
+                       <a href="{% url "contrib_start" %}" class="fr-card__link">Compléter une fiche incomplète</a>
                    </h4>
                    <p class="fr-card__desc">Enrichissez les informations des fiches incomplètes</p>
                </div>
@@ -160,7 +160,7 @@
               <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
                <div class="fr-card__body">
                    <h4 class="fr-card__title">
-                       <a href="#" class="fr-card__link">Référencer un nouveau lieu</a>
+                       <a href="{% url "contrib_start" %}" class="fr-card__link">Référencer un nouveau lieu</a>
                    </h4>
                    <p class="fr-card__desc">Ajoutez un lieu ouvert au public manquant</p>
                </div>
@@ -170,7 +170,7 @@
       </div>
   </div>
 </div>
-  <div class="fr-grid-row bg-alt-blue-france-975">
+<div class="fr-grid-row bg-alt-blue-france-975">
   <div class="fr-container fr-mb-5w">
       <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
           <div class="fr-col-lg-6">
@@ -178,32 +178,45 @@
           </div>
       </div>
       <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v ">
-        <div class="fr-col-4" style="text-align: center">
-          <img style="display: inline-block;width:10%" src="{% static "img/landing/icon-check.png" %}" alt="">
-          <div style="display: inline-block" >
-            <p class="fr-text--bold fr-mb-0">Suivez les modifications de votre fiche</p>
-            <p class="fr-text--md">Abonnez-vous à votre fiche AccèsLibre</p>
+        <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+          <div class="fr-grid-row">
+            <div class="fr-col-2 d-none d-sm-block">
+              <img src="{% static "img/landing/icon-check.png" %}" alt="">
+            </div>
+            <div class="fr-col-12 fr-col-sm-10" >
+              <p class="fr-text--bold fr-mb-0">Suivez les modifications de votre fiche</p>
+              <p class="fr-text--md">Abonnez-vous à votre fiche AccèsLibre</p>
+            </div>
           </div>
         </div>
-        <div class="fr-col-4" style="text-align: center">
-          <img style="display: inline-block;width:10%" src="{% static "img/landing/icon-check.png" %}" alt="">
-          <div style="display: inline-block" >
-            <p class="fr-text--bold fr-mb-0">Suivez les modifications de votre fiche</p>
-            <p class="fr-text--md">Abonnez-vous à votre fiche AccèsLibre</p>
+        <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+          <div class="fr-grid-row">
+            <div class="fr-col-2 d-none d-sm-block">
+              <img src="{% static "img/landing/icon-check.png" %}" alt="">
+            </div>
+            <div class="fr-col-12 fr-col-sm-10" >
+              <p class="fr-text--bold fr-mb-0">Touchez une plus large clientèle</p>
+              <p class="fr-text--md">Augmentez la <b>visibilité de votre site internet</b> grâce au widget Acceslibre</p>
+            </div>
           </div>
-
         </div>
-        <div class="fr-col-4" style="text-align: center">
-          <img style="display: inline-block;width:10%" src="{% static "img/landing/icon-check.png" %}" alt="">
-          <div style="display: inline-block" >
-            <p class="fr-text--bold fr-mb-0">Suivez les modifications de votre fiche</p>
-            <p class="fr-text--md">Abonnez-vous à votre fiche AccèsLibre</p>
+        <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+          <div class="fr-grid-row">
+            <div class="fr-col-2 d-none d-sm-block">
+              <img src="{% static "img/landing/icon-check.png" %}" alt="">
+            </div>
+            <div class="fr-col-12 fr-col-sm-10" >
+              <p class="fr-text--bold fr-mb-0">Facilitez l’accès à votre établissement</p>
+              <p class="fr-text--md">Remplissez votre fiche en quelques clics</p>
+            </div>
           </div>
         </div>
       </div>
-    <button class="fr-btn fr-btn--secondary" data-fr-opened="false" aria-controls="fr-modal-1">
-                  Ajouter un établissement
-                </button>
+      <div class="fr-grid-row--center">
+        <a class="fr-btn fr-btn--secondary" href="{% url "contrib_start" %}">
+          Ajouter un établissement
+        </a>
+      </div>
 
   </div>
 </div>

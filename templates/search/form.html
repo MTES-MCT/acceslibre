@@ -1,28 +1,28 @@
 {% load static %}
-<form class="a4a-search-form fr-search-bar fr-search-bar--lg" id="search-form" role="search" action="{% url "search" %}">
-  <div class="row no-gutters">
+<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg" id="search-form" role="search" action="{% url "search" %}">
+  <div class="fr-col-12 fr-col-sm-10 no-gutters">
     <div class="what-field py-1">
-      <div class="input-group  input-form">
+      <div class="fr-col-12 fr-col-sm-5 input-group input-form">
         <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Quoi </strong> (activité, enseigne)<br>
         <input type="search" id="what-input" name="what"
           class="fr-input " placeholder="Mairie, café…"
           aria-label="Rechercher un établissement, une activité" autocomplete="off"
           value="{{ what|default_if_none:"" }}">
       </div>
-      <div class="input-group input-form search-where-field" style="z-index:9999">
+      <div class="fr-col-12 fr-col-sm-5 input-group input-form search-where-field" style="z-index:9999">
         <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Où</strong> (adresse, ville)<br>
-        <input id="where-input" class="autocomplete-input fr-input input-form" type="search" dir="ltr"
+        <input id="where-input" class="autocomplete-input fr-input" type="search" dir="ltr"
             spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
             name="where" placeholder="12 rue des prés, Nantes">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
-          <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
-          <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
-          <input type="hidden" name="code" value="{{ code|default_if_none:"" }}">
+        <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
+        <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
+        <input type="hidden" name="code" value="{{ code|default_if_none:"" }}">
 
       </div>
-<button type="submit" class="fr-btn">
-              <span class="sr-only"></span>
-            </button>
+      <button type="submit" class="fr-btn fr-col-sm-1">
+        <span class="sr-only"></span>
+      </button>
     </div>
 
   </div>
