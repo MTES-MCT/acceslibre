@@ -1,7 +1,7 @@
 {% extends "editorial/base.html" %}
 
 {% load a4a %}
-{% load static %}
+{% load static humanize %}
 
 {% block page_title %}acceslibre, la plateforme collaborative de l'accessibilité{% endblock%}
 
@@ -10,213 +10,214 @@
 {% endblock %}
 
 {% block top_fluid_content %}
-<aside class="container-fluid alert alert-warning mb-0 shadow-sm">
-  <div class="container">
-    <strong>Vaccination COVID-19&nbsp;:</strong>
-    trouvez les <a class="bold" href="{% url "search" %}?what=centres+de+vaccination">centres de vaccination</a>
-    et contribuez à mieux décrire leur accessibilité.
+<div class="fr-grid-row bg-alt-blue-france-975">
+  <div class="fr-container ">
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+          <div class="fr-col-12 fr-col-sm-7">
+              <h1 class="blue-fr-500 ">Rendez votre ville plus accessible</h1>
+              <p class="fr-mb-3w fr-text--lead">
+                Partagez les informations indispensables aux déplacements des personnes en situation de handicap
+              </p>
+              <p class="fr-mb-5w">
+                <a class="fr-btn " href="{% url "contrib_start" %}">
+                  Contribuer
+                </a>
+                <a class="fr-btn fr-btn--secondary" href="{% url "communes" %}">
+                  Explorer
+                </a>
+              </p>
+          </div>
+          <div class="fr-col-offset-sm-2 fr-col-12 fr-col-sm-3">
+              <figure class="fr-content-media">
+                  <div class="fr-content-media__img">
+                      <img src="{% static "img/landing/formulaire.png" %}" alt="">
+                  </div>
+              </figure>
+          </div>
+      </div>
   </div>
-</aside>
-<main role="main" id="content">
-  <section class="container-fluid bg-light py-5">
-    <div class="container" role="search">
-      <h2 class="font-weight-bold mb-3">Trouvez les lieux accessibles ouverts au public</h2>
-      <div class="row">
-        <div class="col-lg-6 col-xl-8">
-          <p>
-            Quel que soit votre handicap, {{ SITE_NAME.title }} vous permet d'accéder aux informations d'accessibilité
-            essentielles afin d'anticiper vos sorties et déplacements dans un établissement accueillant du public.
-          </p>
-          {% include "search/form.html" %}
-          <p class="text-center pt-3 mb-0">
-            Ou d'accéder à <a href="{% url "communes" %}">la liste des territoires pilotes</a>.
-          </p>
+</div>
+<div class="fr-grid-row">
+  <div class="fr-container ">
+      <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-2v fr-mt-5v ">
+        <div class="fr-col-6 fr-col-sm-4" style="text-align: center">
+          <p class="fr-h1">{{ erp_count|intcomma }}</p>
+          <p class="fr-text--bold">lieux<br> référencés</p>
         </div>
-        <div class="col-lg-6 col-xl-4 a4a-bg-home"
-          style="background-image:url('{% static "img/landing/illustration-principale.png" %}')">
+        <div class="fr-col-6 fr-col-sm-4" style="text-align: center">
+          <p class="fr-h1">{{ contributor_count|intcomma }}</p>
+          <p class="fr-text--bold">contributrices<br> et contributeurs</p>
+        </div>
+        <div class="fr-col-12 fr-col-sm-4" style="text-align: center">
+          <p class="fr-h1">1,5 millions</p>
+          <p class="fr-text--bold">de personnes<br> concernées</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="container-fluid pt-5 pb-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h3 class="font-weight-bold mb-3">
-            <img alt="" class="a4a-landing-picto-right" src="{% static "img/landing/fiabilite-des-donnees.png" %}">
-            Participez à l'enrichissement des données d'accessibilité
-          </h3>
-          <hr class="a4a-landing-separator">
-          <p>{{ SITE_NAME.title }} est une <strong>plateforme citoyenne ouverte à tous&nbsp;!</strong></p>
-          <p>Que vous soyez gestionnaire d'un établissement ou que vous le fréquentiez, que vous soyez expert de l'accessibilité parce que c'est votre quotidien et/ou votre métier, <strong>partagez</strong> votre expérience, <strong>contribuez</strong> et <strong> enrichissez</strong> les informations d'accessibilité d'{{ SITE_NAME.title }}.</p>
-          <p class="text-center"><a href="{% url "contrib_start" %}" class="btn btn-primary mb-3 mt-4">
-            Ajoutez un établissement
-          </a></p>
+  </div>
+</div>
+<div class="fr-grid-row bg-alt-blue-france-975">
+  <div class="fr-container ">
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+          <div class="fr-col-12 fr-col-sm-6">
+              <h2 class="fr-mb-5w">Faire une vraie différence</h2>
+              <p class="fr-mt-5v fr-mb-5v">
+                <b>En France, près d'une personne sur 5 est ou sera en situation de handicap au cours de sa vie.</b>
+              </p>
+              <p class="fr-mt-5w fr-mb-5w"> Se déplacer et sortir peut devenir un vrai problème pour savoir si le lieu sera accueillant et adapté.</p>
+              <p class="fr-mb-0">
+                <b>« Pour trouver les tarifs et les horaires d’ouvertures, pas de soucis ! Mais savoir si mon fauteuil rentre aux toilettes, c’est une vrai galère. »</b>
+              </p>
+            <span class="fr-text--xs">Amélie</span>
+          </div>
+          <div class="fr-col-12 fr-col-sm-6">
+              <figure class="fr-content-media">
+                  <div class="fr-content-media__img ">
+                      <img class="auto-height" src="{% static "img/landing/widget.png" %}" alt="">
+                  </div>
+              </figure>
+          </div>
+      </div>
+      <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v fr-grid-row--bottom">
+        <div class="fr-col-4" style="text-align: center">
+          <img class="fr-col-6 fr-col-sm-3" src="{% static "img/landing/puzzle.png" %}" alt="" />
+          <p class="fr-text--lead fr-text--bold fr-mb-0">À votre niveau</p>
+          <p class="fr-text">Toute information est utile,<br> même partielle</p>
         </div>
-        <div class="col-md-6">
-          <h3 class="font-weight-bold mb-3">
-            <img alt="" class="a4a-landing-picto-right" src="{% static "img/landing/participez-enrichissement-donnees.png" %}">
-            Acceslibre, la plateforme collaborative en Open Data
-          </h3>
-          <hr class="a4a-landing-separator">
-          <p>
-            <strong>Collectez, partagez, profitez.</strong>
-            Acceslibre promeut l'ouverture et le partage des données d'accessibilité (Open Data) afin
-            d‘<strong>optimiser une collecte formatée et qualifiée</strong> via un schéma de données
-            et de <strong>partager et diffuser ces informations</strong>, au bénéfice de tous.
-          </p>
-          <p>
-            Pour cela, Acceslibre met à disposition sur <a class="bold" href="https://www.data.gouv.fr/fr/datasets/acceslibre/">data.gouv.fr</a>
-            ses données régulièrement actualisées.
-          </p>
-          <p class="d-flex justify-content-around">
-            <a target="_blank" rel="noopener" aria-describedby="new_target" href="https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest.html" class="d-flex align-items-center btn btn-wrap btn-outline-primary mx-1">
-              Accédez au schéma de données
-            </a>
-            <a target="_blank" rel="noopener" aria-describedby="new_target" href="https://www.data.gouv.fr/fr/datasets/acceslibre/" class="d-flex align-items-center btn btn-wrap btn-primary mx-1">
-              Accédez au jeu de données
-            </a>
-          </p>
+        <div class="fr-col-4" style="text-align: center">
+          <img class="fr-col-6 fr-col-sm-3" src="{% static "img/landing/check.png" %}" alt="" />
+           <p class="fr-text--lead fr-text--bold fr-mb-0">En quelques secondes</p>
+          <p class="fr-text">Chaque information devient <br>un gain de temps</p>
+
+        </div>
+        <div class="fr-col-4" style="text-align: center">
+          <img class="fr-col-6 fr-col-sm-3" src="{% static "img/landing/heart.png" %}" alt="" />
+          <p class="fr-text--lead fr-text--bold fr-mb-0">Pour la communauté</p>
+          <p class="fr-text">Les données d’accessibilités<br> sont indispensables</p>
         </div>
       </div>
-    </div>
-  </section>
+  </div>
+</div>
+<div class="fr-grid-row">
+  <div class="fr-container ">
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+          <div class="fr-col-12 fr-col-sm-7">
+              <h2 class="fr-h3">Partagez des connaissances</h2>
+              <h3 class="fr-h5 fr-text--bold fr-mb-0">1. Explorez</h3>
+              <p class="fr-mb-3w fr-text--sm">
+                Retrouvez de nombreux lieux ouverts au public : café, restaurants, administrations...
+              </p>
+              <h3 class="fr-h5 fr-text--bold fr-mb-0">2. Renseignez les informations</h3>
+              <p class="fr-mb-3w fr-text--sm">
+                Répondez à quelques questions : y-a-t-il une marche pour rentrer ? des places de parking à proximité ?
+              </p>
+              <h3 class="fr-h5 fr-text--bold fr-mb-0">3. Et recommencez</h3>
+              <p class="fr-mb-3w fr-text--sm">
+                Remplir une fiche est de plus en plus rapide, quand on sait à quoi faire attention !
+              </p>
+              <p class="fr-mb-5w">
+                <a class="fr-btn " href="{% url "contrib_start" %}">
+                  Contribuer
+                </a>
+              </p>
+          </div>
+          <div class="fr-col-12 fr-col-sm-5">
+              <figure class="fr-content-media">
+                  <div class="fr-content-media__img">
+                      <img class="auto-height" src="{% static "img/landing/partage.png" %}" alt="">
+                  </div>
+              </figure>
+          </div>
+      </div>
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v" id="block_search_form">
+          <div class="fr-col-lg-12">
+              <h2 class="fr-h3">Explorer les lieux en France</h2>
+              {% include "search/form.html" %}
+          </div>
 
-  <section class="container-fluid bg-light py-5">
-    <div class="container">
-      <h2 class="text-center font-weight-bold mb-4">Vous êtes gérant ou responsable d'établissement recevant du public&nbsp;?</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <h3 class="font-weight-bold text-center my-3">Augmentez votre visibilité</h3>
-          <hr class="a4a-landing-separator">
-          <p class="text-center mb-4">Touchez une plus large clientèle en partageant en quelques clics des informations essentielles pour les personnes en situation de handicap</p>
-          <img alt="" class="a4a-landing-picto-center" src="{% static "img/landing/visibilite.png" %}">
+      </div>
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+          <div class="fr-col-lg-3">
+              <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
+               <div class="fr-card__body">
+                   <h4 class="fr-card__title">
+                       <a href="{% url "communes" %}" class="fr-card__link">Voir les lieux près de chez moi</a>
+                   </h4>
+                   <p class="fr-card__desc">Renseignez les informations des lieux que vous connaissez le mieux</p>
+               </div>
+            </div>
+          </div>
+          <div class="fr-col-lg-3 ">
+              <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
+               <div class="fr-card__body">
+                   <h4 class="fr-card__title">
+                       <a href="{% url "contrib_start" %}" class="fr-card__link">Compléter une fiche incomplète</a>
+                   </h4>
+                   <p class="fr-card__desc">Enrichissez les informations des fiches incomplètes</p>
+               </div>
+            </div>
+          </div>
+          <div class="fr-col-lg-3">
+              <div class="fr-card fr-enlarge-link bg-alt-blue-france-975">
+               <div class="fr-card__body">
+                   <h4 class="fr-card__title">
+                       <a href="{% url "contrib_start" %}" class="fr-card__link">Référencer un nouveau lieu</a>
+                   </h4>
+                   <p class="fr-card__desc">Ajoutez un lieu ouvert au public manquant</p>
+               </div>
+            </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+<div class="fr-grid-row bg-alt-blue-france-975">
+  <div class="fr-container fr-mb-5w">
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-2v fr-mt-5v ">
+          <div class="fr-col-lg-6">
+              <h4 class="fr-h5 fr-mb-5w">Vous êtes responsable d’un lieu ouvert au public ?</h4>
+          </div>
+      </div>
+      <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w fr-mr-1w fr-mb-0 fr-mt-5v ">
+        <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+          <div class="fr-grid-row">
+            <div class="fr-col-2 d-none d-sm-block">
+              <img src="{% static "img/landing/icon-check.png" %}" alt="">
+            </div>
+            <div class="fr-col-12 fr-col-sm-10" >
+              <p class="fr-text--bold fr-mb-0">Suivez les modifications de votre fiche</p>
+              <p class="fr-text--md">Abonnez-vous à votre fiche AccèsLibre</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-          <h3 class="font-weight-bold text-center my-3">En 5 minutes&nbsp;!</h3>
-          <hr class="a4a-landing-separator">
-          <p class="text-center mb-4">Complétez la fiche relative à votre établissement en quelques clics&nbsp;!<br><br></p>
-          <img alt="" class="a4a-landing-picto-center" src="{% static "img/landing/stopwatch.png" %}">
+        <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+          <div class="fr-grid-row">
+            <div class="fr-col-2 d-none d-sm-block">
+              <img src="{% static "img/landing/icon-check.png" %}" alt="">
+            </div>
+            <div class="fr-col-12 fr-col-sm-10" >
+              <p class="fr-text--bold fr-mb-0">Touchez une plus large clientèle</p>
+              <p class="fr-text--md">Augmentez la <b>visibilité de votre site internet</b> grâce au widget Acceslibre</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-          <h3 class="font-weight-bold text-center my-3">Et rassurez-vous</h3>
-          <hr class="a4a-landing-separator">
-          <p class="text-center mb-4">Les informations renseignées vous montreront que vous êtes plus accessible que vous ne l'imaginez.</p>
-          <img alt="" class="a4a-landing-picto-center" src="{% static "img/landing/rassurez-vous.png" %}">
+        <div class="fr-col-12 fr-col-sm-4 text-center" style="text-align: center">
+          <div class="fr-grid-row">
+            <div class="fr-col-2 d-none d-sm-block">
+              <img src="{% static "img/landing/icon-check.png" %}" alt="">
+            </div>
+            <div class="fr-col-12 fr-col-sm-10" >
+              <p class="fr-text--bold fr-mb-0">Facilitez l’accès à votre établissement</p>
+              <p class="fr-text--md">Remplissez votre fiche en quelques clics</p>
+            </div>
+          </div>
         </div>
       </div>
-      <p class="text-center"><a href="{% url "contrib_start" %}" class="btn btn-lg btn-primary mb-0 mt-5">
-        Ajoutez un établissement
-      </a></p>
-    </div>
-  </section>
-
-  <section class="container-fluid py-5 a4a-bg-primary-gradient">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h3 class="font-weight-bold text-light mb-3">Notre mission</h3>
-          <p class="text-light">Apporter une information manquante aux personnes en situation de handicap et leurs proches, en faisant participer l'ensemble des acteurs. Aidez la communauté en partageant votre expérience&nbsp;!</p>
-        </div>
-        <div class="col-md-6">
-          <h3 class="font-weight-bold text-light mb-3">Notre vision</h3>
-          <p class="text-light">Créer un commun, une base de données <strong>partagée, gratuite, libre</strong> — en mobilisant et en fédérant tous les acteurs de l'accessibilité via cet outil collaboratif.</p>
-        </div>
+      <div class="fr-grid-row--center">
+        <a class="fr-btn fr-btn--secondary" href="{% url "contrib_start" %}">
+          Ajouter un établissement
+        </a>
       </div>
-      <p class="h3 text-light font-weight-bold text-center mt-4 mb-0">Un commun pour tous, tous pour un commun</p>
-    </div>
-  </section>
 
-  <section class="container-fluid bg-light py-5">
-    <div class="container">
-      <h2 class="text-center uppercase mb-3">Ce que pensent nos utilisateurs</h2>
-      <hr class="a4a-landing-separator">
-      <div class="row">
-        <div class="col-md-6">
-          <blockquote>
-            <p class="text-center">
-              <q><em>
-                Je suis très agréablement surpris par l'exhaustivité des renseignements fournis, qui en plus se calquent sur la règlementation officielle. On sent que c'est très professionnel. Bravo&nbsp;!
-              </em></q>
-            </p>
-            <footer class="text-muted text-center">
-              <p><cite>Frédéric W.</cite></p>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="col-md-6">
-          <blockquote>
-            <p class="text-center">
-              <q><em>
-                J'ai trouvé le produit très intuitif. […] Quand je m'organise j'ai besoin de beaucoup d'informations, et je les ai trouvées sur votre produit.
-              </em></q>
-            </p>
-            <footer class="text-muted text-center">
-              <p><cite>Corinne L.<br>Utilisatrice en situation de handicap moteur</cite></p>
-            </footer>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container-fluid pt-5">
-    <div class="container">
-      <h2 class="text-center uppercase mb-3">Nos partenaires</h2>
-      <hr class="a4a-landing-separator">
-      <h3 class="font-weight-bold text-center mb-5">Un projet porté par</h3>
-      <div class="row">
-        <div class="col-md-6 text-center">
-          <a href="https://www.cohesion-territoires.gouv.fr/">
-            <img class="img-fluid mt-4 a4a-landing-ministere-logo" alt="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales" src="{% static "img/landing/mctrct.png" %}">
-          </a>
-        </div>
-        <div class="col-md-6 text-center">
-          <a href="https://www.ecologie.gouv.fr/">
-            <img class="img-fluid mt-4 a4a-landing-ministere-logo" alt="Ministère de la Transition Écologique et Solidaire" src="{% static "img/landing/mtes.jpg" %}">
-          </a>
-        </div>
-      </div>
-      <div class="row d-flex align-items-center">
-        <div class="col-lg-2 text-center">
-          <a aria-describedby="new_target" rel="nofollow noopener" target="_blank" href="https://www.wegoto.eu/">
-            <img class="a4a-landing-partenaire-logo mt-4" alt="Wegoto" src="{% static "img/partenaires/wegoto.png" %}">
-          </a>
-        </div>
-        <div class="col-lg-2 text-center">
-          <a aria-describedby="new_target" rel="nofollow noopener" target="_blank" href="https://jaccede.com/">
-            <img class="a4a-landing-partenaire-logo mt-4" alt="Jaccede.com" src="{% static "img/partenaires/jaccede.png" %}">
-          </a>
-        </div>
-        <div class="col-lg-2 text-center">
-          <a aria-describedby="new_target" rel="nofollow noopener" target="_blank" href="https://agence-lucie.com/">
-            <img class="a4a-landing-partenaire-logo mt-4" alt="RSE Lucie" src="{% static "img/partenaires/lucie.png" %}">
-          </a>
-        </div>
-        <div class="col-lg-2 text-center">
-          <a aria-describedby="new_target" rel="nofollow noopener" target="_blank" href="https://www.mobalib.com/">
-            <img class="a4a-landing-partenaire-logo mt-4" alt="Mobalib" src="{% static "img/partenaires/mobalib.png" %}">
-          </a>
-        </div>
-        <div class="col-lg-2 text-center">
-          <a aria-describedby="new_target" rel="nofollow noopener" target="_blank" href="http://www.accesmetrie.com">
-
-            <img class="a4a-landing-partenaire-logo mt-4" alt="AccèsMétrie" src="{% static "img/partenaires/accesmetrie.jpg" %}">
-          </a>
-        </div>
-        <div class="col-lg-2 text-center">
-          <a aria-describedby="new_target" rel="nofollow noopener" target="_blank" href="http://www.onecompagnon.com">
-
-            <img class="a4a-landing-partenaire-logo mt-4" alt="OneCompagnon" src="{% static "img/partenaires/onecompagnon.png" %}">
-          </a>
-        </div>
-      </div>
-      <p class="text-center mt-4 mb-0">
-        <a class="btn btn-link btn-lg" href="{% url "partenaires" %}">Tous nos partenaires&nbsp;&raquo;</a>
-      </p>
-    </div>
-  </section>
-</main>
-
+  </div>
+</div>
 {% endblock %}

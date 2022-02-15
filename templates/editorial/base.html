@@ -10,14 +10,16 @@
   {% block top_fluid_content %}
     <aside class="container-fluid bg-primary mb-4 py-4">
       <div class="container">
-        {% include "search/form.html" with dark=True %}
+{#        {% include "search/form.html" with dark=True %}#}
       </div>
     </aside>
   {% endblock %}
 
   {% comment %}Main content area{% endcomment %}
   <div class="container a4a-editorial my-4">
+    <div class="fr-container">
     {% block editorial_content %}{% endblock%}
+    </div>
   </div>
 
   {% comment %}Full-width content available area,empty by default{% endcomment %}

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-fr-scheme="light">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +21,9 @@
   </head>
 
   <body class="a4a">
-    <a class="skippy sr-only sr-only-focusable" href="#content">
-      <span class="skippy-text">Aller au contenu principal</span>
-    </a>
+{#    <a class="skippy sr-only sr-only-focusable" href="#content">#}
+{#      <span class="skippy-text">Aller au contenu principal</span>#}
+{#    </a>#}
     {% block skiplinks %}{% endblock %}
     {% include "common/notifications.html" %}
     {% block content %}{% endblock %}
