@@ -1,9 +1,13 @@
-{% if not debug and not STAGING %}
+{% if debug and not STAGING %}
   <script type="text/javascript">
   var _paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
+  _paq.push(['enableHeartBeatTimer']);
+  {% if tracking_goal  %}
+  _paq.push(['trackGoal', tracking_goal]);
+  {% endif %}
   (function() {
     var u="//stats.data.gouv.fr/";
     _paq.push(["setTrackerUrl", u+"matomo.php"]);
@@ -11,6 +15,7 @@
     var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
     g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
   })();
+
 
   $(document).ready(function() {
     $("[data-track-event]").on("click", function() {
