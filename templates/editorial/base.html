@@ -8,11 +8,11 @@
 
   {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %}
   {% block top_fluid_content %}
-{#    <aside class="container-fluid bg-primary mb-4 py-4">#}
-{#      <div class="container">#}
-{#        {% include "search/form.html" with dark=True %}#}
-{#      </div>#}
-{#    </aside>#}
+    <aside class="container-fluid bg-dark py-4">
+      <div class="container">
+        {% include "search/form.html" with dark=True %}
+      </div>
+    </aside>
   {% endblock %}
 
   {% comment %}Main content area{% endcomment %}
