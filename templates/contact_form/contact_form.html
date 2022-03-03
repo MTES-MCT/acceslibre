@@ -7,11 +7,13 @@
 {% block page_title %}Contact {% if erp %}- Signaler une malveillance pour l'établissement "{{ erp.nom }}"{% endif %}{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
+{% block top_fluid_content %}{% endblock %}
+
 {% block editorial_content %}
 <main role="main" id="content">
   <h2 class="h3 text-center mb-4">Contactez-nous</h2>
 
-  <div class="row justify-content-md-center">
+  <div class="row justify-content-md-cent
     <form id="contact-form" action="." method="POST" novalidate autocomplete class="col-md-6 col-lg-7 mb-4">
       {% csrf_token %}
 
