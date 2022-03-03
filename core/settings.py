@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "django.contrib.sitemaps",
     "django.contrib.sites",
+    "django.contrib.humanize",
     "corsheaders",
     "logentry_admin",
     "django_better_admin_arrayfield.apps.DjangoBetterAdminArrayfieldConfig",

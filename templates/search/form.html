@@ -1,46 +1,29 @@
 {% load static %}
-
-<form class="a4a-search-form" id="search-form" role="search" action="{% url "search" %}">
-  <div class="row no-gutters">
-    <div class="what-field col-xl-5 py-1">
-      <label for="what-input">
-        <span class="sr-only">Saisir vos termes de recherche, par exemple un type de service</span>
-        <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Quoi</strong>
-        <span aria-hidden="true" class="text-{% if dark %}light{% else %}muted{% endif %}">(activité, enseigne)</span>
-      </label>
-      <div class="input-group">
+<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg" id="search-form" role="search" action="{% url "search" %}">
+  <div class="fr-col-12 fr-col-sm-10 no-gutters">
+    <div class="what-field py-1">
+      <div class="fr-col-10 fr-col-sm-5 input-group input-form">
+        <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Quoi </strong> (activité, enseigne)<br>
         <input type="search" id="what-input" name="what"
-          class="form-control" placeholder="Exemple: mairie, café…"
+          class="fr-input " placeholder="Mairie, café…"
           aria-label="Rechercher un établissement, une activité" autocomplete="off"
           value="{{ what|default_if_none:"" }}">
       </div>
-    </div>
-    <div class="where-field col-xl-7 py-1">
-      <label for="where-input">
-        <span class="sr-only">Saisir une adresse ou une localité, puis sélectionner une entrée dans la liste</span>
-        <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Où</strong>
-        <span aria-hidden="true" class="text-{% if dark %}light{% else %}muted{% endif %}">(adresse, ville)</span>
-      </label>
-      <div class="search-where-field" style="z-index:9999">
-        <div class="input-group">
-          <input id="where-input" class="autocomplete-input form-control" type="search" dir="ltr"
+      <div class="fr-col-10 fr-col-sm-5 input-group input-form search-where-field" style="z-index:9999">
+        <strong aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}">Où</strong> (adresse, ville)<br>
+        <input id="where-input" class="autocomplete-input fr-input" type="search" dir="ltr"
             spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
-            name="where" placeholder="Exemple: 12 rue des prés, Nantes">
-          <div class="input-group-append">
-            <button type="submit" class="btn {% if dark %}btn-light{% else %}btn-primary{% endif %} border-left text-nowrap">
-              <i aria-hidden="true" class="icon icon-magnifying-glass a4a-icon-small-top"></i>
-              <span class="sr-only">Rechercher</span>
-            </button>
-          </div>
-        </div>
+            name="where" placeholder="12 rue des prés, Nantes">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
         <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
         <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
         <input type="hidden" name="code" value="{{ code|default_if_none:"" }}">
-        <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
-          Autoriser l'obtention de ma localisation géographique
-        </button>
+
       </div>
+      <button type="submit" class="fr-btn">
+        <span class="sr-only"></span>
+      </button>
     </div>
+
   </div>
 </form>

@@ -69,7 +69,7 @@ def test_erp_details_edit_links(data, browser, capsys):
 
 
 def test_registration_flow(data, browser):
-    browser.visit(reverse("django_registration_register") + "?next=/contactez-nous/")
+    browser.visit(reverse("django_registration_register") + "?next=/contact/")
     browser.fill("username", "johndoe")
     browser.fill("first_name", "John")
     browser.fill("last_name", "Doe")
@@ -87,7 +87,7 @@ def test_registration_flow(data, browser):
     assert "Activation de votre compte" in mail.outbox[0].subject
     assert "johndoe" in mail.outbox[0].body
     assert "http://testserver/compte/activate" in mail.outbox[0].body
-    assert "?next=/contactez-nous/" in mail.outbox[0].body
+    assert "?next=/contact/" in mail.outbox[0].body
 
     activation_url = [
         line
@@ -110,5 +110,5 @@ def test_registration_flow(data, browser):
     button.click()
 
     # ensure we've been redirected to where we registered initially from
-    assert browser.url == "/contactez-nous/"
+    assert browser.url == "/contact/"
     assert browser.is_text_present("Contactez-nous")
