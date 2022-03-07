@@ -25,6 +25,7 @@ from erp.export.utils import (
 )
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import geocoder, search as provider_search, acceslibre
+from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
 
 
@@ -75,10 +76,7 @@ def home(request):
         "index.html",
         context={
             "erp_count": Erp.objects.published().count(),
-            "contributor_count": get_user_model()
-            .objects.filter(erp__isnull=False)
-            .distinct()
-            .count(),
+            "contributor_count": get_count_active_contributors(),
         },
     )
 
