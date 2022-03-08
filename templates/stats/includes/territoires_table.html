@@ -26,8 +26,8 @@
         <td>
           <strong><a href="{% url "search_commune" commune_slug=row.slug %}">{{ row.nom }}</a></strong> ({{ row.departement }})
         </td>
-        {% if row.pourcentage_completude|floatformat > 100 %}
-        <td class="text-center {% if stats_territoires_sort == "completude" %}font-weight-bold{% endif %}">100 %</td>
+        {% if row.pourcentage_completude >= 100 %}
+        <td class="text-center {% if stats_territoires_sort == "completude" %}font-weight-bold{% endif %}">100.00 %</td>
         {% else %}
         <td class="text-center {% if stats_territoires_sort == "completude" %}font-weight-bold{% endif %}">{{ row.pourcentage_completude|floatformat }}%</td>
         {% endif %}
