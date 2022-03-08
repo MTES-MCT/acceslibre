@@ -42,7 +42,7 @@
             labels: {{ erp_counts_histogram.labels|safe }},
             datasets: [
               {
-                label: "Nombre d'établissements renseignés et publiés",
+                label: "Nombre d'établissements",
                 data: {{ erp_counts_histogram.totals|escapejs }},
                 backgroundColor: "#075ea2",
               }
