@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.utils.safestring import mark_safe
 from django_registration.forms import RegistrationFormUniqueEmail
 
 from compte.models import UserPreferences
@@ -68,6 +69,14 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         initial=False,
         required=False,
     )
+    cgu = forms.BooleanField(
+        label="J'accepte les CGU",
+        help_text=mark_safe(
+            "Lire les CGU <a target='_blank' href='/conditions-generales-d-utilisation'>ici</a>"
+        ),
+        initial=False,
+        required=True,
+    )
 
     def clean_robot(self):
         robot = self.cleaned_data["robot"]
@@ -76,6 +85,14 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
                 "Vous devez cocher cette case pour soumettre le formulaire"
             )
         return robot
+
+    def clean_cgu(self):
+        cgu = self.cleaned_data["cgu"]
+        if not cgu:
+            raise ValidationError(
+                "Vous devez cocher cette case pour soumettre le formulaire"
+            )
+        return cgu
 
 
 class UsernameChangeForm(forms.Form):
