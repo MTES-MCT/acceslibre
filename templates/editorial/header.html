@@ -11,7 +11,11 @@
                               <img src="{% static "img/logo-acceslibre.svg" %}" alt="acceslibre, République Française" height="75">
                             </a>
                         </div>
-
+                        <div class="fr-header__navbar">
+                            <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-menu-mobile" aria-haspopup="menu" title="Menu" id="menu-mobile">
+                                Menu
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="fr-header__tools">
@@ -39,6 +43,25 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="fr-header__menu fr-modal" aria-labelledby="menu-mobile" id="modal-menu-mobile">
+        <div class="fr-container">
+            <button class="fr-link--close fr-link" aria-controls="modal-menu-mobile">Fermer</button>
+            <div class="fr-header__menu-links"></div>
+            <nav class="fr-nav" id="navigation-869" role="navigation" aria-label="Menu principal">
+                <ul class="fr-nav__list">
+                  {% if user.is_authenticated %}
+                      <li class="fr-nav__item">
+                          <a class="fr-nav__link" target="_self" href="{% url "mon_compte" %}?next={{ request.path }}">Mon compte</a>
+                      </li>
+                  {% else %}
+                      <li class="fr-nav__item">
+                          <a class="fr-nav__link" target="_self" href="{% url "login" %}?next={{ request.path }}">Se connecter</a>
+                      </li>
+                  {% endif %}
+                </ul>
+            </nav>
         </div>
     </div>
 </header>
