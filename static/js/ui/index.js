@@ -5,7 +5,6 @@ import GeoLink from "./GeoLink.js";
 import GetGeolocBtn from "./GetGeolocBtn";
 import LocalisationMap from "./LocalisationMap";
 import MapExpander from "./MapExpander";
-import Menu from "./Menu";
 import SearchWhere from "./SearchWhere";
 
 export default {
@@ -16,6 +15,5 @@ export default {
   GetGeolocBtn,
   LocalisationMap,
   MapExpander,
-  Menu,
   SearchWhere,
 };

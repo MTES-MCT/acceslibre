@@ -40,7 +40,6 @@ dom.ready(() => {
   dom.mountOne("#id_code_insee", ui.CommuneSearch);
   dom.mountOne("#localisation-map", ui.LocalisationMap);
   dom.mountOne("#map-height-toggle-link", ui.MapExpander);
-  dom.mountOne("#menu-mobile", ui.Menu);
   dom.mountOne(".a4a-conditional-form", ui.ConditionalForm);
   dom.mountAll(".search-where-field", ui.SearchWhere);
   dom.mountAll(".asteriskField", ui.AsteriskField);
