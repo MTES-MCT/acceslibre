@@ -52,8 +52,8 @@ urlpatterns = [
         ),
         name="partenaires",
     ),
-    # Challenge DDT feb 2021
-    path("challenge/ddt/2021/02/", views.challenge_ddt, name="challenge-ddt"),
+    # Challenge DDT mars 2022
+    path("challenge/ddt/2022/03/", views.challenge_ddt, name="challenge-ddt"),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
     path(

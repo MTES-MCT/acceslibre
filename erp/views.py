@@ -82,8 +82,8 @@ def home(request):
 
 
 def challenge_ddt(request):
-    start_date = datetime.datetime(2021, 2, 22, 9)
-    stop_date = datetime.datetime(2021, 3, 31, 23, 59, 59)
+    start_date = datetime.datetime(2022, 2, 22, 9)
+    stop_date = datetime.datetime(2022, 3, 31, 23, 59, 59)
     today = datetime.datetime.today()
     filters = Q(
         erp__published=True,

@@ -45,7 +45,9 @@ class Command(BaseCommand):
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
-            for user in users_having_no_erps:
+            for user in users_having_no_erps.filter(
+                erp_count_published=0, erp_count_total=0, rev_count=0
+            ):
                 writer.writerow(
                     {
                         "username": user.username,
