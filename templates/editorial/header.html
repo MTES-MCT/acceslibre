@@ -4,14 +4,18 @@
     <div class="fr-header__body">
         <div class="fr-container">
             <div class="fr-header__body-row">
-                <div class="fr-header__brand fr-enlarge-link">
+                <div class="fr-header__brand">
                     <div class="fr-header__brand-top">
                         <div class="fr-header__logo">
                             <a class="d-flex align-items-center text-decoration-none" href="{% url "home" %}">
                               <img src="{% static "img/logo-acceslibre.svg" %}" alt="acceslibre, République Française" height="75">
                             </a>
                         </div>
-
+                        <div class="fr-header__navbar">
+                            <a href="{% url "mon_compte" %}" style="font-size: 2em;" class="m-4" >
+                              <i aria-hidden="true" class="icon icon-unlock"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="fr-header__tools">
