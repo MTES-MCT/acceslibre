@@ -86,6 +86,7 @@ def challenge_ddt(request):
     stop_date = datetime.datetime(2022, 6, 21, 23, 59, 59)
     today = datetime.datetime.today()
     emails_players_list = [
+        "gauthier.laprade@i-carre.net",
         "magali.vainjac@savoie.gouv.fr",
         "roxane.herin@savoie.gouv.fr",
         "christel.condemine@savoie.gouv.fr",
