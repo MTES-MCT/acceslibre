@@ -942,10 +942,10 @@ class Accessibilite(models.Model):
         verbose_name="Cheminement de plain-pied",
     )
     # Terrain meuble ou accidenté
-    cheminement_ext_terrain_accidente = models.BooleanField(
+    cheminement_ext_terrain_stable = models.BooleanField(
         null=True,
         blank=True,
-        choices=schema.get_field_choices("cheminement_ext_terrain_accidente"),
+        choices=schema.get_field_choices("cheminement_ext_terrain_stable"),
         verbose_name="Terrain meuble ou accidenté",
     )
     # Nombre de marches – nombre entre 0 et >10
@@ -1301,9 +1301,11 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("sanitaires_presence"),
         verbose_name="Sanitaires",
     )
-    sanitaires_adaptes = models.PositiveSmallIntegerField(
+
+    sanitaires_adaptes = models.BooleanField(
         null=True,
         blank=True,
+        choices=schema.get_field_choices("sanitaires_adaptes"),
         verbose_name="Nombre de sanitaires adaptés",
     )
 

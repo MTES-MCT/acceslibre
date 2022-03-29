@@ -10,7 +10,7 @@
   ],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
-  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1/schema.json",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.5/schema.json",
   "licenses": [
     {
       "title": "Etalab Licence Ouverte 2.0",
@@ -22,13 +22,13 @@
     {
       "title": "Fichier valide (CSV)",
       "name": "exemple-valide-csv",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.1/exemple-valide.csv"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.5/exemple-valide.csv"
     }
   ],
   "sources": [],
   "created": "2021-03-10",
   "lastModified": "2021-03-10",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "contributors": [
     {
       "title": "Caleb Eliacheff",
@@ -351,7 +351,7 @@
       "example": "True"
     },
     {
-      "name": "cheminement_ext_terrain_accidente",
+      "name": "cheminement_ext_terrain_stable",
       "title": "Revêtement extérieur",
       "description": "Le revêtement est stable (absence de pavés, gravillons, terre, herbe, sable, ou toute surface non stabilisée)",
       "type": "boolean",
@@ -1447,8 +1447,32 @@
       "name": "sanitaires_adaptes",
       "title": "Sanitaires adaptés",
       "description": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
-      "type": "integer",
-      "example": "0"
+      "type": "boolean",
+      "trueValues": [
+        "true",
+        "True",
+        "TRUE",
+        "1",
+        "vrai",
+        "Vrai",
+        "VRAI",
+        "oui",
+        "Oui",
+        "OUI"
+      ],
+      "falseValues": [
+        "false",
+        "False",
+        "FALSE",
+        "0",
+        "faux",
+        "Faux",
+        "FAUX",
+        "non",
+        "Non",
+        "NON"
+      ],
+      "example": "True"
     },
     {
       "name": "labels",

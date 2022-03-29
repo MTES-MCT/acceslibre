@@ -32,7 +32,7 @@ class EtalabMapper(BaseExportMapper):
     stationnement_ext_presence: bool
     stationnement_ext_pmr: bool
     cheminement_ext_presence: bool
-    cheminement_ext_terrain_accidente: bool
+    cheminement_ext_terrain_stable: bool
     cheminement_ext_plain_pied: bool
     cheminement_ext_ascenseur: bool
     cheminement_ext_nombre_marches: int
@@ -117,7 +117,7 @@ class EtalabMapper(BaseExportMapper):
             stationnement_ext_presence=erp.accessibilite.stationnement_ext_presence,
             stationnement_ext_pmr=erp.accessibilite.stationnement_ext_pmr,
             cheminement_ext_presence=erp.accessibilite.cheminement_ext_presence,
-            cheminement_ext_terrain_accidente=erp.accessibilite.cheminement_ext_terrain_accidente,
+            cheminement_ext_terrain_stable=erp.accessibilite.cheminement_ext_terrain_stable,
             cheminement_ext_plain_pied=erp.accessibilite.cheminement_ext_plain_pied,
             cheminement_ext_ascenseur=erp.accessibilite.cheminement_ext_ascenseur,
             cheminement_ext_nombre_marches=erp.accessibilite.cheminement_ext_nombre_marches,
@@ -220,7 +220,7 @@ class PartooMapper(BaseExportMapper):
     stationnement_ext_presence: bool
     stationnement_ext_pmr: bool
     cheminement_ext_presence: bool
-    cheminement_ext_terrain_accidente: bool
+    cheminement_ext_terrain_stable: bool
     cheminement_ext_plain_pied: bool
     cheminement_ext_ascenseur: bool
     cheminement_ext_nombre_marches: int
@@ -299,7 +299,7 @@ class PartooMapper(BaseExportMapper):
             stationnement_ext_presence=erp.accessibilite.stationnement_ext_presence,
             stationnement_ext_pmr=erp.accessibilite.stationnement_ext_pmr,
             cheminement_ext_presence=erp.accessibilite.cheminement_ext_presence,
-            cheminement_ext_terrain_accidente=erp.accessibilite.cheminement_ext_terrain_accidente,
+            cheminement_ext_terrain_stable=erp.accessibilite.cheminement_ext_terrain_stable,
             cheminement_ext_plain_pied=erp.accessibilite.cheminement_ext_plain_pied,
             cheminement_ext_ascenseur=erp.accessibilite.cheminement_ext_ascenseur,
             cheminement_ext_nombre_marches=erp.accessibilite.cheminement_ext_nombre_marches,

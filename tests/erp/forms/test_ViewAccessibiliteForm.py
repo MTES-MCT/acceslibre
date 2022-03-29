@@ -103,12 +103,9 @@ def test_ViewAccessibiliteForm_labels(form_test):
     assert_presence("sanitaires_presence", True)
     assert_absence("sanitaires_presence", False)
     assert_missing("sanitaires_presence", None)
-
-    # integer fields
-    assert_presence("sanitaires_adaptes", 1)
-    assert_presence("sanitaires_adaptes", 2)
-    assert_absence("sanitaires_adaptes", 0)
-    assert_missing("sanitaires_adaptes", None)
+    assert_presence("sanitaires_presence", True)
+    assert_absence("sanitaires_presence", False)
+    assert_missing("sanitaires_presence", None)
 
     # single string fields
     assert_presence("cheminement_ext_pente_degre_difficulte", schema.PENTE_LEGERE)

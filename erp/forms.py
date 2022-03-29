@@ -77,7 +77,7 @@ class AdminAccessibiliteForm(forms.ModelForm):
         required=False,
         label=schema.get_label("sanitaires_adaptes"),
         help_text=schema.get_help_text("sanitaires_adaptes"),
-        choices=schema.NULLABLE_BOOL_NUM_CHOICES,
+        choices=schema.NULLABLE_BOOLEAN_CHOICES,
         widget=forms.RadioSelect(attrs={"class": "inline"}),
     )
 
@@ -85,8 +85,12 @@ class AdminAccessibiliteForm(forms.ModelForm):
         initial = kwargs.get("initial", {})
         obj = kwargs.get("instance")
         # Nombre de sanitaires
-        if obj and obj.sanitaires_adaptes is not None and obj.sanitaires_adaptes > 1:
-            initial["sanitaires_adaptes"] = 1
+        if (
+            obj
+            and obj.sanitaires_adaptes is not None
+            and obj.sanitaires_adaptes is True
+        ):
+            initial["sanitaires_adaptes"] = True
         # Valeur par défaut présence d'une porte à l'entrée
         if obj and (
             obj.entree_porte_presence is None
@@ -329,10 +333,10 @@ class ViewAccessibiliteForm(forms.ModelForm):
         elif name == "cheminement_ext_devers" and value == schema.DEVERS_AUCUN:
             label = schema.get_help_text_ui_neg(name)
             values = []
-        elif name == "sanitaires_adaptes" and value == 0:
+        elif name == "sanitaires_adaptes" and value is False:
             label = schema.get_help_text_ui_neg(name)
             values = []
-        elif name == "sanitaires_adaptes" and value is not None and value > 0:
+        elif name == "sanitaires_adaptes" and value is not None and value is True:
             label = schema.get_help_text_ui(name)
             values = []
         elif (

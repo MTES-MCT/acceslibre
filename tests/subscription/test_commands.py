@@ -61,7 +61,7 @@ def niko_create_erp_and_subscribe_updates(client, data, mocker):
         reverse("contrib_sanitaires", kwargs={"erp_slug": erp.slug}),
         data={
             "sanitaires_presence": "True",
-            "sanitaires_adaptes": "1",
+            "sanitaires_adaptes": "True",
         },
         follow=True,
     )
@@ -140,7 +140,7 @@ def test_notification_accessibilite(client, data, mocker):
         reverse("contrib_sanitaires", kwargs={"erp_slug": erp.slug}),
         data={
             "sanitaires_presence": "False",
-            "sanitaires_adaptes": "0",
+            "sanitaires_adaptes": "False",
             "action": "contribute",
         },
         follow=True,
@@ -159,7 +159,7 @@ def test_notification_accessibilite(client, data, mocker):
     assert "34830 Jacou" in mail.outbox[0].body
     assert "sophie a mis à jour les informations suivantes" in mail.outbox[0].body
     assert 'Sanitaires: "Oui" devient "Non"' in mail.outbox[0].body
-    assert 'Sanitaires adaptés: "1" devient "0"' in mail.outbox[0].body
+    assert 'Sanitaires adaptés: "Oui" devient "Non"' in mail.outbox[0].body
     assert updated_acc.erp.get_absolute_url() in mail.outbox[0].body
 
 
