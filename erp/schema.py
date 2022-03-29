@@ -217,7 +217,15 @@ PARTENAIRES = {
         "name": "One Compagnon",
         "short_description": "L'assitant accessible à tous",
         "template": "editorial/partenaires/onecompagnon.html",
-        "url": "https://www.onecompagnon.com<",
+        "url": "https://www.onecompagnon.com",
+    },
+    "SORTIRAPARIS": {
+        "avatar": "sortir-a-paris_avatar.png",
+        "logo": "img/partenaires/sap.png",
+        "name": "Sortir À Paris",
+        "short_description": "1er média d'actualité Sorties en France",
+        "template": "editorial/partenaires/sortiraparis.html",
+        "url": "https://www.sortiraparis.com",
     },
 }
 
@@ -1105,7 +1113,7 @@ FIELDS = {
         "warn_if": False,
     },
     "sanitaires_adaptes": {
-        "type": "number",
+        "type": "boolean",
         "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires adaptés",
@@ -1114,11 +1122,10 @@ FIELDS = {
         ),
         "help_text_ui": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Aucun sanitaire adapté mis à disposition dans l'établissement",
-        "choices": None,
-        "unit": "sanitaire",
+        "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_SANITAIRES,
-        "nullable_bool": False,
-        "warn_if": lambda x, i: x is not None and x < 1,
+        "nullable_bool": True,
+        "warn_if": False,
     },
     # Labels
     "labels": {

@@ -1301,9 +1301,11 @@ class Accessibilite(models.Model):
         choices=schema.get_field_choices("sanitaires_presence"),
         verbose_name="Sanitaires",
     )
-    sanitaires_adaptes = models.PositiveSmallIntegerField(
+
+    sanitaires_adaptes = models.BooleanField(
         null=True,
         blank=True,
+        choices=schema.get_field_choices("sanitaires_adaptes"),
         verbose_name="Nombre de sanitaires adaptés",
     )
 

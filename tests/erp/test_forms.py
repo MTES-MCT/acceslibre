@@ -4,12 +4,12 @@ from erp import forms
 
 
 def test_AdminAccessibiliteForm_sanitaires_adaptes_value_mapping(data):
-    data.accessibilite.sanitaires_adaptes = 12
+    data.accessibilite.sanitaires_adaptes = True
     data.accessibilite.save()
 
     form = forms.AdminAccessibiliteForm(instance=data.accessibilite)
 
-    assert form.initial["sanitaires_adaptes"] == 1
+    assert form.initial["sanitaires_adaptes"] is True
 
 
 def test_ProviderGlobalSearchForm(data):
