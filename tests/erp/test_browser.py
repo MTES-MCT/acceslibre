@@ -511,7 +511,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         reverse("contrib_exterieur", kwargs={"erp_slug": erp.slug}),
         data={
             "cheminement_ext_presence": True,
-            "cheminement_ext_terrain_accidente": True,
+            "cheminement_ext_terrain_stable": True,
             "cheminement_ext_plain_pied": False,
             "cheminement_ext_ascenseur": True,
             "cheminement_ext_nombre_marches": 42,
@@ -530,7 +530,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.cheminement_ext_presence is True
-    assert accessibilite.cheminement_ext_terrain_accidente is True
+    assert accessibilite.cheminement_ext_terrain_stable is True
     assert accessibilite.cheminement_ext_plain_pied is False
     assert accessibilite.cheminement_ext_ascenseur is True
     assert accessibilite.cheminement_ext_nombre_marches == 42

@@ -413,7 +413,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": True,
     },
-    "cheminement_ext_terrain_accidente": {
+    "cheminement_ext_terrain_stable": {
         "type": "boolean",
         "nullable": True,
         "is_a11y": True,

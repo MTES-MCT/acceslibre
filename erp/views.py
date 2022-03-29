@@ -415,7 +415,7 @@ def widget_from_uuid(request, uuid):  # noqa
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is True
         and (
-            erp.accessibilite.cheminement_ext_terrain_accidente in (True, None)
+            erp.accessibilite.cheminement_ext_terrain_stable in (True, None)
         )  # TODO : Accidenté à Modifier
         and (
             erp.accessibilite.cheminement_ext_pente_presence in (False, None)
@@ -438,7 +438,7 @@ def widget_from_uuid(request, uuid):  # noqa
                 or erp.accessibilite.cheminement_ext_rampe
             )
         )
-        and (erp.accessibilite.cheminement_ext_terrain_accidente in (True, None))
+        and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))
         and (
             erp.accessibilite.cheminement_ext_pente_presence in (False, None)
             or (
@@ -454,7 +454,7 @@ def widget_from_uuid(request, uuid):  # noqa
             "rampe" if erp.accessibilite.cheminement_ext_rampe else "ascenseur"
         )
     elif (
-        not erp.accessibilite.cheminement_ext_terrain_accidente
+        not erp.accessibilite.cheminement_ext_terrain_stable
         or erp.accessibilite.cheminement_ext_pente_degre_difficulte
         == schema.PENTE_IMPORTANTE
         or erp.accessibilite.cheminement_ext_devers == schema.DEVERS_IMPORTANT
