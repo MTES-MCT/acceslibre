@@ -1,4 +1,5 @@
 import csv
+import datetime
 import os
 
 from datetime import date
@@ -37,17 +38,18 @@ class Command(BaseCommand):
         with open(os.path.join(settings.BASE_DIR, csv_filename), "w") as csvfile:
             fieldnames = [
                 "username",
-                "email",
-                "erp_count_published",
+                "email",                "erp_count_published",
                 "erp_count_total",
                 "votes",
                 "contributions",
+                "last_login",
+                "date_joined",
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for user in users_having_no_erps.filter(
                 erp_count_published=0, erp_count_total=0, rev_count=0
-            ):
+            ).filter(last_login__gte=datetime.date(2022, 1, 1)):
                 writer.writerow(
                     {
                         "username": user.username,
@@ -56,5 +58,7 @@ class Command(BaseCommand):
                         "erp_count_total": user.erp_count_total,
                         "votes": user.vote_count,
                         "contributions": user.rev_count,
+                        "last_login": user.last_login,
+                        "date_joined": user.date_joined,
                     }
                 )
