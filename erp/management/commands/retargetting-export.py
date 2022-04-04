@@ -38,7 +38,8 @@ class Command(BaseCommand):
         with open(os.path.join(settings.BASE_DIR, csv_filename), "w") as csvfile:
             fieldnames = [
                 "username",
-                "email",                "erp_count_published",
+                "email",
+                "erp_count_published",
                 "erp_count_total",
                 "votes",
                 "contributions",
