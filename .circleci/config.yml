@@ -21,10 +21,6 @@ jobs:
           POSTGRES_DB: circle_test
     steps:
       - checkout
-      - restore_cache:
-          name: Restore Python cached dependencies
-          keys:
-            - python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           name: Install System dependencies
           command: |
