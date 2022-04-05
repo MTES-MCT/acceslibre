@@ -8,11 +8,20 @@
 {% block editorial_content %}
 <main role="main" id="content">
   <h1 class="text-center">Challenge DDT (M)
-  <h3 class="text-center py-4">
+  <h2 class="text-center py-4">
     Tous acceslibre<br>
-    <strong>{{ total_contributions }} ERP{{ total_contributions|pluralize }} ajouté{{ total_contributions|pluralize }}</strong> <br>
     <small class="text-muted">Du {{ start_date|date:"d F Y" }} au {{ stop_date|date:"d F Y"  }}.</small><br>
-  </h3>
+  </h2>
+
+  <section class="row justify-content-center mt-4">
+    <h3 class="fr-h1">
+      <strong>{{ total_contributions }} ERP{{ total_contributions|pluralize }} ajouté{{ total_contributions|pluralize }}</strong>
+    </h3>
+  </section>
+
+  <div class="row justify-content-center">
+    <img src="{% static 'img/hands-challenge.png' %}" />
+  </div>
   <section class="row justify-content-center mt-4">
     <div>
       {% if today < start_date %}
