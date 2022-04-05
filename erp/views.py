@@ -191,6 +191,7 @@ def challenge_ddt(request):
         .filter(erp_count_published__gt=0)
         .order_by("-erp_count_published")
     )
+    total_contributions = sum([c.erp_count_published for c in top_contribs])
     return render(
         request,
         "challenge/podium.html",
@@ -199,6 +200,7 @@ def challenge_ddt(request):
             "stop_date": stop_date,
             "today": today,
             "top_contribs": top_contribs,
+            "total_contributions": total_contributions,
         },
     )
 
