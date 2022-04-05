@@ -119,7 +119,7 @@ def challenge_ddt(request):
         "sophie.batifoulier@landes.gouv.fr",
         "isabelle.plagnes@sfr.fr",
         "romain.gaeta@loire-atlantique.gouv.fr",
-        "olivier.claireau@sfr.fr",
+        "Olivier.claireau@sfr.fr",
         "franck.menard@loire-atlantique.gouv.fr",
         "veronique.laune@loire-atlantique.gouv.fr",
         "ddtm-vserp@loire-atlantique.gouv.fr",
