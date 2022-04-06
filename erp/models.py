@@ -43,7 +43,12 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     history = []
     current_fields_dict = {}
     for version in versions:
-        diff = diffutils.dict_diff_keys(current_fields_dict, version.field_dict)
+        try:
+            fields = version.field_dict
+        except Exception:
+            continue
+        else:
+            diff = diffutils.dict_diff_keys(current_fields_dict, fields)
         final_diff = []
         for entry in diff:
             entry["label"] = schema.get_label(entry["field"], entry["field"])
@@ -72,7 +77,7 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
                     ],
                 },
             )
-        current_fields_dict = version.field_dict
+        current_fields_dict = fields
     history = list(filter(lambda x: x["diff"] != [], history))
     if exclude_changes_from:
         history = [entry for entry in history if entry["user"] != exclude_changes_from]
