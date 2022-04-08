@@ -110,7 +110,7 @@ def challenge_ddt(request):
         "gauthier.laprade@i-carre.net",
         "laurence.monnet@developpement-durable.gouv.fr",
         "delphine.millot@meuse.gouv.fr",
-        "xavier.clisson@meuse.gouv.fr",
+        "ddt-scdt-ats@meuse.gouv.fr",
         "christelle.defloraine@meuse.gouv.fr",
         "catherine.pasquier@meuse.gouv.fr",
         "sophie.barbet@landes.gouv.fr",
