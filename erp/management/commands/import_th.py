@@ -12,7 +12,6 @@ from django.utils.text import slugify
 
 from erp.geocoder import geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
-from erp.provider import sirene
 
 VALEURS_VIDES = ["-", "https://", "http://"]
 

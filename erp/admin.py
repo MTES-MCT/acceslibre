@@ -13,10 +13,6 @@ from django.utils.safestring import mark_safe
 
 from admin_auto_filters.filters import AutocompleteFilterFactory
 from import_export.admin import (
-    ImportExportModelAdmin,
-    ExportActionMixin,
-    ImportExportActionModelAdmin,
-    ExportActionModelAdmin,
     ExportMixin,
 )
 from reversion.admin import VersionAdmin
@@ -29,7 +25,7 @@ from erp.forms import (
     AdminErpForm,
 )
 
-from erp.resources import ErpResource, ErpAdminResource
+from erp.resources import ErpAdminResource
 
 from .models import (
     Accessibilite,
