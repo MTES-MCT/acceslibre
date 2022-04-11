@@ -63,16 +63,13 @@ ACTIVITES_MAP_SEARCH = {
 }
 
 FIELDS = {
-    "NOM ETABLISSEMENT": "nom",
-    "ADRESSE": "adresse",
-    "SITE WEB ETABLISSEMENT": "site_internet",
-    "TELEPHONE ETABLISSEMENT": "telephone",
-    "COMMUNE": "commune",
-    "CP": "code_postal",
-    "CATEGORIE / FILIERE": "filiere",
-    "ACTIVITE": "activite",
+    "Nom Commercial": "nom",
+    "Adresse 1": "adresse",
+    "Site Web": "site_internet",
+    "Téléphone": "telephone",
+    "Ville": "commune",
+    "Code Postal": "code_postal",
     "HANDICAPS": "handicaps",
-    "SIRET": "siret",
 }
 
 
@@ -105,11 +102,6 @@ def clean(string):
 class Command(BaseCommand):
     help = "Importe les données Tourisme & Handicap"
 
-    def handle_siret(self, siret):
-        siret = sirene.validate_siret(clean(siret))
-        if siret:
-            return siret
-
     def validate_site_internet(self, site_internet):
         if not site_internet:
             return
@@ -123,36 +115,19 @@ class Command(BaseCommand):
     def get_familles(self, source):
         if not source:
             return None
-        return source.split(";")
+        handicaps = {
+            "auditif": True if source.get("Auditif") == 1 else False,
+            "mental": True if source.get("Mental") == 1 else False,
+            "moteur": True if source.get("Moteur") == 1 else False,
+            "visuel": True if source.get("Visuel") == 1 else False,
+        }
+        return [k for k, v in handicaps.items() if v is True]
 
     def map_row(self, row):
         mapped = {}
         for orig_key, target_key in FIELDS.items():
             mapped[target_key] = row.get(orig_key).strip()
         return mapped
-
-    def find_activite(self, row):
-        # Présence de termes équivoques dans le nom
-        for search, activite in ACTIVITES_MAP_SEARCH.items():
-            if search in slugify(row["nom"]).split("-"):
-                return Activite.objects.get(nom=activite)
-
-        # Activité du CSV
-        th_activites = row.get("activite", "").split(";")
-        if len(th_activites) > 0:
-            th_activite = th_activites[0].strip()
-            if th_activite:
-                return self.activites.get(th_activite)
-
-        # Fallback filière dans le CSV
-        filiere = row.get("filiere")
-        print(filiere)
-        if not filiere:
-            return None
-        filieres = filiere.split(";")
-        if len(filieres) == 0:
-            return None
-        return self.activites.get(filieres[0])
 
     def compute_source_id(self, fields):
         parts = [fields["nom"], fields["voie"], fields["code_postal"]]
@@ -161,7 +136,6 @@ class Command(BaseCommand):
 
     def prepare_fields(self, row):
         row = self.map_row(row)
-        siret = self.handle_siret(row["siret"])
         if not row or not row.get("adresse") or not row.get("code_postal"):
             raise IncompleteError(f"Données manquantes: {row}")
 
@@ -177,8 +151,6 @@ class Command(BaseCommand):
 
         code_insee = geo_info.get("code_insee")
 
-        activite = self.find_activite(row)
-
         commune_ext = (
             Commune.objects.filter(code_insee=code_insee).first()
             if code_insee
@@ -189,7 +161,6 @@ class Command(BaseCommand):
             "published": True,
             "source": Erp.SOURCE_TH,
             "nom": clean(row["nom"]).replace('"', ""),
-            "siret": siret,
             "numero": geo_info.get("numero"),
             "voie": geo_info.get("voie"),
             "lieu_dit": geo_info.get("lieu_dit"),
@@ -200,7 +171,6 @@ class Command(BaseCommand):
             "telephone": clean(row.get("telephone")) or None,
             "geom": geo_info.get("geom"),
             "commune_ext": commune_ext,
-            "activite": activite,
         }
         fields["source_id"] = self.compute_source_id(fields)
         return fields
@@ -216,7 +186,7 @@ class Command(BaseCommand):
             raise ExistError(f"Existe dans la base: {erpstr}")
 
     def import_row(self, row, **kwargs):
-        familles_handicaps = self.get_familles(row.get("HANDICAPS"))
+        familles_handicaps = self.get_familles(row)
         fields = self.prepare_fields(row)
         if not fields or self.check_existing(fields):
             return
@@ -228,7 +198,7 @@ class Command(BaseCommand):
             erp=erp,
             labels=["th"],
             labels_familles_handicap=familles_handicaps,
-            commentaire="Ces informations ont été importées depuis data.gouv.fr: https://www.data.gouv.fr/en/datasets/marque-detat-tourisme-handicap/",
+            commentaire="Ces informations ont été importées.",
         )
         accessibilite.save()
 

@@ -12,6 +12,13 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from admin_auto_filters.filters import AutocompleteFilterFactory
+from import_export.admin import (
+    ImportExportModelAdmin,
+    ExportActionMixin,
+    ImportExportActionModelAdmin,
+    ExportActionModelAdmin,
+    ExportMixin,
+)
 from reversion.admin import VersionAdmin
 
 from erp.provider.departements import DEPARTEMENTS
@@ -21,6 +28,8 @@ from erp.forms import (
     AdminCommuneForm,
     AdminErpForm,
 )
+
+from erp.resources import ErpResource, ErpAdminResource
 
 from .models import (
     Accessibilite,
@@ -178,8 +187,14 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
 
 
 @admin.register(Erp)
-class ErpAdmin(OSMGeoAdmin, nested_admin.NestedModelAdmin, VersionAdmin):
+class ErpAdmin(
+    ExportMixin,
+    OSMGeoAdmin,
+    nested_admin.NestedModelAdmin,
+    VersionAdmin,
+):
     form = AdminErpForm
+    resource_class = ErpAdminResource
 
     actions = ["assign_activite", "assign_user", "publish", "unpublish"]
     inlines = [AccessibiliteInline]
