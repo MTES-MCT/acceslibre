@@ -2,11 +2,14 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.db.models import Count, Q
+from import_export.admin import ExportMixin
 
 from compte.models import UserPreferences
+from compte.resources import UserAdminResource
 
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(ExportMixin, UserAdmin):
+    resource_class = UserAdminResource
     ordering = (
         "-date_joined",
         "username",
