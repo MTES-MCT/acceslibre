@@ -29,13 +29,13 @@
         <div class="fr-footer__bottom">
             <ul class="fr-footer__bottom-list">
                 <li class="fr-footer__bottom-item">
-                    <a class="fr-footer__bottom-link" href="/">Plan du site</a>
-                </li>
-                <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url "accessibilite" %}">Accessibilité</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url "partenaires" %}">Partenaires</a>
+                </li>
+                <li class="fr-footer__bottom-item">
+                    <a class="fr-footer__bottom-link" href="{% url "challenge-ddt" %}">Challenge</a>
                 </li>
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url "stats_home" %}">Statistiques</a>
@@ -64,6 +64,7 @@
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="{% url "contact_form" %}">Contactez nous</a>
                 </li>
+
             </ul>
             <div class="fr-footer__bottom-copy">
                 <p>Sauf mention contraire, tous les contenus de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence etalab-2.0</a>
