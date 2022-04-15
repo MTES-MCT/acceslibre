@@ -104,7 +104,8 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       // open dialog
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
-
+        var _paq = window._paq || [];
+        _paq.push(["trackEvent", "modal_open"]);
         open(dialog);
       });
 
