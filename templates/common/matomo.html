@@ -6,7 +6,7 @@
   _paq.push(["enableLinkTracking"]);
   _paq.push(['enableHeartBeatTimer']);
   {% if tracking_goal  %}
-  _paq.push(['trackGoal', tracking_goal]);
+  _paq.push(['trackGoal', {{ tracking_goal }}]);
   {% endif %}
   (function() {
     var u="//stats.data.gouv.fr/";
