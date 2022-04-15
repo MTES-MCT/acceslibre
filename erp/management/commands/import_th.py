@@ -115,10 +115,10 @@ class Command(BaseCommand):
         if not source:
             return None
         handicaps = {
-            "auditif": True if source.get("Auditif") == 1 else False,
-            "mental": True if source.get("Mental") == 1 else False,
-            "moteur": True if source.get("Moteur") == 1 else False,
-            "visuel": True if source.get("Visuel") == 1 else False,
+            "auditif": True if source.get("AUDITIF") == 1 else False,
+            "mental": True if source.get("MENTAL") == 1 else False,
+            "moteur": True if source.get("MOTEUR") == 1 else False,
+            "visuel": True if source.get("VISUEL") == 1 else False,
         }
         return [k for k, v in handicaps.items() if v is True]
 
@@ -186,6 +186,7 @@ class Command(BaseCommand):
 
     def import_row(self, row, **kwargs):
         familles_handicaps = self.get_familles(row)
+        breakpoint()
         fields = self.prepare_fields(row)
         if not fields or self.check_existing(fields):
             return
@@ -229,7 +230,7 @@ class Command(BaseCommand):
 
         try:
             with transaction.atomic():
-                csv_path = os.path.join(settings.BASE_DIR, "data", "th-20200505.csv")
+                csv_path = os.path.join(settings.BASE_DIR, "data", "th-20220401.csv")
                 self.stdout.write(f"Importation des ERP depuis {csv_path}")
 
                 with open(csv_path, "r") as file:
