@@ -583,7 +583,6 @@ def contrib_delete(request, erp_slug):
     )
 
 
-@login_required
 def contrib_start(request):
     form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
     if form.is_valid():
@@ -604,7 +603,6 @@ def contrib_start(request):
     )
 
 
-@login_required
 def contrib_global_search(request):
     results = error = None
     try:
@@ -640,7 +638,6 @@ def contrib_global_search(request):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_admin_infos(request):
     data = None
@@ -655,7 +652,8 @@ def contrib_admin_infos(request):
             if len(existing_matches) == 0 or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
-                erp.user = request.user
+                # TODO : Remove user
+                # erp.user = request.user
                 erp.save()
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été enregistrées."
@@ -689,7 +687,6 @@ def contrib_admin_infos(request):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
@@ -719,7 +716,6 @@ def contrib_edit_infos(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_localisation(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
@@ -775,7 +771,7 @@ def process_accessibilite_form(
     # N'amener l'utilisateur vers l'étape de publication que:
     # - s'il est propriétaire de la fiche
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
-    user_can_access_next_route = request.user == erp.user or step != 8
+    user_can_access_next_route = request.user == erp.user or step != 9
 
     if request.method == "POST":
         Form = modelform_factory(
@@ -796,7 +792,7 @@ def process_accessibilite_form(
                 )
             else:
                 redirect_url = erp.get_absolute_url()
-                if step == 7:
+                if step == 8:
                     redirect_url += f"#{redirect_hash}"
                 return redirect(redirect_url)
     else:
@@ -828,7 +824,6 @@ def process_accessibilite_form(
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_transport(request, erp_slug):
     return process_accessibilite_form(
@@ -847,7 +842,6 @@ def contrib_transport(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_stationnement(request, erp_slug):
     return process_accessibilite_form(
@@ -866,7 +860,6 @@ def contrib_stationnement(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
@@ -885,7 +878,6 @@ def contrib_exterieur(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
@@ -901,7 +893,6 @@ def contrib_entree(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
@@ -920,7 +911,6 @@ def contrib_accueil(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_sanitaires(request, erp_slug):
     return process_accessibilite_form(
@@ -939,7 +929,6 @@ def contrib_sanitaires(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_labellisation(request, erp_slug):
     return process_accessibilite_form(
@@ -958,7 +947,6 @@ def contrib_labellisation(request, erp_slug):
     )
 
 
-@login_required
 @reversion.views.create_revision()
 def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
@@ -977,7 +965,7 @@ def contrib_commentaire(request, erp_slug):
 @login_required
 @reversion.views.create_revision()
 def contrib_publication(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
+    erp = get_object_or_404(Erp, slug=erp_slug)
     accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
     initial = {
         "user_type": erp.user_type,
@@ -991,6 +979,8 @@ def contrib_publication(request, erp_slug):
             request.POST, instance=accessibilite, initial=initial
         )
         if form.is_valid():
+            erp.user = request.user
+            erp.save()
             accessibilite = form.save()
             if not accessibilite.has_data() and form.cleaned_data.get(
                 "published", False

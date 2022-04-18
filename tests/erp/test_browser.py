@@ -383,12 +383,11 @@ def test_admin_with_admin_user(data, client, capsys):
     assert response.status_code == 200
 
 
-def test_ajout_erp_requires_auth(data, client):
+def test_ajout_erp_witout_auth(data, client):
     response = client.get(reverse("contrib_start"), follow=True)
 
-    assert_redirect(response, "/compte/login/?next=/contrib/start/")
     assert response.status_code == 200
-    assert "registration/login.html" in [t.name for t in response.templates]
+    assert "contrib/0-start.html" in [t.name for t in response.templates]
 
 
 def test_erp_edit_can_be_contributed(data, client):
@@ -396,21 +395,10 @@ def test_erp_edit_can_be_contributed(data, client):
     response = client.get(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True
     )
-    assert_redirect(
-        response, "/compte/login/?next=/contrib/transport/aux-bons-croissants/"
-    )
+
     assert response.status_code == 200
 
     # owners can edit their erp
-    client.force_login(data.niko)
-    response = client.get(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
-    )
-    assert response.status_code == 200
-    assert "initialement fournies par" not in response.content.decode()
-
-    # non-owner can't
-    client.force_login(data.sophie)
     response = client.get(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
@@ -457,7 +445,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         follow=True,
     )
     erp = Erp.objects.get(nom="Test ERP")
-    assert erp.user == data.niko
+    assert erp.user is None
     assert erp.published is False
     assert_redirect(response, f"/contrib/localisation/{erp.slug}/")
     assert response.status_code == 200
@@ -685,6 +673,7 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     )
     erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
     assert erp.published is True
+    assert erp.user == data.niko
     assert_redirect(response, "/compte/erps/")
     assert response.status_code == 200
 
