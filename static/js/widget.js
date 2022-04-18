@@ -105,8 +105,16 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
         var _paq = window._paq || [];
+        _paq.push(["trackPageView"]);
         _paq.push(["trackEvent", "modal_open"]);
         open(dialog);
+        (function() {
+          var u="//stats.data.gouv.fr/";
+          _paq.push(["setTrackerUrl", u+"matomo.php"]);
+          _paq.push(["setSiteId", "118"]);
+          var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+          g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
+        })();
       });
 
       trigger.addEventListener('keydown', (event) => {
