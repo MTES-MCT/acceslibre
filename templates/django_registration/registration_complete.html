@@ -1,15 +1,36 @@
 {% extends "editorial/base.html" %}
 
-{% load static %}
+{% load static a4a %}
 
 {% block page_title %}Inscription en cours de finalisation{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
+{% block top_fluid_content %}
+  {% if 'contrib/publication/' in request.GET.next  %}
+
+<div class="fr-follow fr-p-3v bg-alt-blue-france-975">
+    <div class="container">
+      <div class="fr-container">
+        <div class="fr-follow__newsletter">
+            <div>
+                <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
+                <p class="fr-text--md">Publication</p>
+            </div>
+            <div>
+                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="Retour à la fiche">
+                    <i class="icon-arrow-left"></i>&nbsp;Retour
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+  {% endif %}
+{% endblock %}
 
 {% block editorial_content %}
 <main role="main" id="content">
   <h3 role="status">C'est presque fini</h3>
-  <p>Merci pour votre inscription. Un email a été envoyé à l'adresse que vous avez renseigné,
-  contenant un lien d'activation que vous devez cliquer pour pouvoir vous connecter sur la
-  plateforme.</p>
+  <p>Un email a été envoyé à {{ request.user.email }}. Il contient un lien qui permet d'activer votre compte et de publier la fiche.</p>
+  <p><a href="{% url "home" %}?next={{ next }}" class="fr-link">Retour à l'accueil</a></p>
 </main>
 {% endblock %}

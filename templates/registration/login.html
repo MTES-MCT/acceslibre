@@ -7,7 +7,28 @@
 {% block page_title %}Connexion{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
 
-{% block top_fluid_content %}{% endblock %}
+{% block top_fluid_content %}
+  {% if 'contrib/publication/' in next  %}
+
+<div class="fr-follow fr-p-3v bg-alt-blue-france-975">
+    <div class="container">
+      <div class="fr-container">
+        <div class="fr-follow__newsletter">
+            <div>
+                <h5 class="fr-h5 fr-follow__title">{% retrieve_erp next %}</h5>
+                <p class="fr-text--md">Publication</p>
+            </div>
+            <div>
+                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="Retour à la fiche">
+                    <i class="icon-arrow-left"></i>&nbsp;Retour
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+  {% endif %}
+{% endblock %}
 {% block editorial_content %}
 <main role="main" id="content">
   {% if user.is_authenticated %}
@@ -18,8 +39,8 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-  <h2 class="h3 text-center mb-4">Je me connecte</h2>
-  <div class="row justify-content-md-center">
+  <h2 class="h3 mb-4">Se connecter</h2>
+  <div class="row">
     <form action="." method="POST" novalidate class="login-form col-md-6 col-lg-5 mb-4">
       <input type="hidden" name="next" value="{{ next }}">
       {% csrf_token %}
@@ -37,7 +58,10 @@
         {{ form.password|as_crispy_field }}
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+          <button type="submit" class="btn btn-primary fr-btn btn-block">
+            <i aria-hidden="true" class="icon icon-lock"></i>&nbsp;
+            Connexion
+          </button>
         </div>
 
         <div class="text-center">
@@ -51,8 +75,8 @@
           Pourquoi créer un compte&nbsp;?
         </h3>
         <p>Créer son compte ne prend que quelques minutes et vous <strong>permet de contribuer au site</strong>.</p>
-        <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-primary btn-block">
-          <i aria-hidden="true" class="icon icon-user"></i>
+        <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-primary fr-btn btn-block">
+          <i aria-hidden="true" class="icon icon-user"></i>&nbsp;
           Je crée mon compte
         </a>
       </div>

@@ -21,9 +21,7 @@ def validate_username_whitelisted(value):
 def define_username_field():
     return forms.CharField(
         max_length=32,
-        help_text=f"Requis. 32 caractères maximum. {USERNAME_RULES}. "
-        "Note : ce nom d'utilisateur pourra être affiché publiquement sur le site si vous contribuez.",
-        required=True,
+        required=False,
         label="Nom d’utilisateur",
         validators=[
             RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),
@@ -44,14 +42,11 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = get_user_model()
         fields = [
-            "first_name",
-            "last_name",
             "username",
             "email",
             "password1",
             "password2",
             "next",
-            "robot",
         ]
 
     email = forms.EmailField(
@@ -63,19 +58,11 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
 
     username = define_username_field()
     next = forms.CharField(required=False)
+
     robot = forms.BooleanField(
         label="Je ne suis pas un robot",
-        help_text="Merci de cocher cette case avant de soumettre le formulaire",
         initial=False,
         required=False,
-    )
-    cgu = forms.BooleanField(
-        label="J'accepte les CGU",
-        help_text=mark_safe(
-            "Lire les CGU <a target='_blank' href='/conditions-generales-d-utilisation'>ici</a>"
-        ),
-        initial=False,
-        required=True,
     )
 
     def clean_robot(self):
@@ -85,14 +72,6 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
                 "Vous devez cocher cette case pour soumettre le formulaire"
             )
         return robot
-
-    def clean_cgu(self):
-        cgu = self.cleaned_data["cgu"]
-        if not cgu:
-            raise ValidationError(
-                "Vous devez cocher cette case pour soumettre le formulaire"
-            )
-        return cgu
 
 
 class UsernameChangeForm(forms.Form):

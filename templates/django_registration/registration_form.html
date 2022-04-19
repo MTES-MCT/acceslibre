@@ -6,8 +6,31 @@
 
 {% block page_title %}Créer un compte{% endblock%}
 {% block robots %}noindex, nofollow{% endblock %}
+{% block top_fluid_content %}
+  {% if 'contrib/publication/' in request.GET.next  %}
+
+<div class="fr-follow fr-p-3v bg-alt-blue-france-975">
+    <div class="container">
+      <div class="fr-container">
+        <div class="fr-follow__newsletter">
+            <div>
+                <h5 class="fr-h5 fr-follow__title">{% retrieve_erp request.GET.next %}</h5>
+                <p class="fr-text--md">Publication</p>
+            </div>
+            <div>
+                <a href="javascript:history.back()" class="fr-link fr-text--bold" title="Retour à la fiche">
+                    <i class="icon-arrow-left"></i>&nbsp;Retour
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+  {% endif %}
+{% endblock %}
 
 {% block editorial_content %}
+
 <main role="main" id="content">
   {% if user.is_authenticated %}
   <p class="alert alert-warning" role="alert">
@@ -17,9 +40,9 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-  <h2 class="h3 text-center mb-4">Créer un compte utilisateur</h2>
+  <h2 class="h3 text-left mb-4">Créer un compte</h2>
 
-  <div class="row justify-content-md-center">
+  <div class="row">
     <form action="." method="POST" novalidate class="registration-form col-md-6 col-lg-5 mb-4" id="registration">
       {% csrf_token %}
 
@@ -31,47 +54,18 @@
       </small></p>
 
       {{ form.non_field_errors }}
+      {{ form.email|as_crispy_field }}
 
       {{ form.username|as_crispy_field }}
-      <div class="row">
-        <div class="col-sm-6">
-          {{ form.first_name|as_crispy_field }}
-        </div>
-        <div class="col-sm-6">
-          {{ form.last_name|as_crispy_field }}
-        </div>
-      </div>
-      <p>
-        <small class="form-text text-muted">
-          <i aria-hidden="true" class="icon icon-info-circled"></i>
-          Votre nom et votre prénom de seront jamais affichés publiquement.
-        </small>
-      </p>
-      {{ form.email|as_crispy_field }}
+
       {{ form.password1|as_crispy_field }}
       {{ form.password2|as_crispy_field }}
       {{ form.robot|as_crispy_field }}
-      {{ form.cgu|as_crispy_field }}
 
-      <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
+      <button type="submit" class="btn fr-btns-group--center btn-primary fr-btn btn-block">Créer mon compte</button>
     </form>
 
-    <div class="col-md-6 col-lg-5">
-      <div class="alert alert-info">
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        Créer son compte ne prend que quelques minutes et vous permet de contribuer au site.
-      </div>
-      <div class="card p-4">
-        <h3 class="h5"><i aria-hidden="true" class="icon icon-exclamation-circle"></i> J'ai déjà créé mon compte</h3>
-        <p>Si vous avez déjà créé un compte sur la plateforme, vous pouvez vous y connecter.</p>
-        <p class="mb-0">
-          <a href="{% url "login" %}?next={{ request.GET.next }}" class="btn btn-primary btn-block">
-            <i aria-hidden="true" class="icon icon-key"></i>
-            Je me connecte
-          </a>
-        </p>
-      </div>
-    </div>
+
   </div>
   {% endif %}
 </main>
