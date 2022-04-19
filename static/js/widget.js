@@ -119,7 +119,7 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
         event.preventDefault();
         var _paq = window._paq || [];
         _paq.push(["trackPageView"]);
-        _paq.push(["trackEvent", "modal_open"]);
+
         open(dialog);
         (function() {
           var u="//stats.data.gouv.fr/";
@@ -128,6 +128,11 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
           var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
           g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
         })();
+        try {
+          _paq.push(["trackEvent", "modal_open"]);
+        } catch(e) {
+          console.error("Error while tracking event: " + e);
+        }
       });
 
       trigger.addEventListener('keydown', (event) => {
