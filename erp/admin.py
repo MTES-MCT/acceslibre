@@ -86,10 +86,7 @@ class DepartementFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         values = Commune.objects.distinct("departement").order_by("departement")
-        return (
-            (v.departement, f"{v.departement} - {DEPARTEMENTS[v.departement]['nom']}")
-            for v in values
-        )
+        return ((v.departement, f"{v.departement}") for v in values)
 
     def queryset(self, request, queryset):
         if self.value() is None:
