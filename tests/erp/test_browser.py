@@ -254,7 +254,6 @@ def test_registration(data, client, capsys):
             "password1": "Abc12345!",
             "password2": "Abc12345!",
             "robot": "on",
-            "cgu": "on",
         },
     )
     assert response.status_code == 302
@@ -262,41 +261,21 @@ def test_registration(data, client, capsys):
     assert User.objects.filter(username="julien", is_active=False).count() == 1
 
 
-def test_registration_without_cgu(data, client, capsys):
-    response = client.post(
-        reverse("django_registration_register"),
-        data={
-            "username": "julien",
-            "email": "julien@julien.tld",
-            "password1": "Abc12345!",
-            "password2": "Abc12345!",
-            "robot": "on",
-        },
-    )
-    assert response.status_code == 200
-    # TODO: test activation link
-    assert "cgu" in response.context["form"].errors
-    assert User.objects.filter(username="julien", is_active=False).count() == 0
-
-
 def test_registration_with_first_and_last_name(data, client, capsys):
     response = client.post(
         reverse("django_registration_register"),
         data={
             "username": "julien",
-            "first_name": "Julien",
-            "last_name": "Lebian",
             "email": "julien@julien.tld",
             "password1": "Abc12345!",
             "password2": "Abc12345!",
             "robot": "on",
-            "cgu": "on",
         },
     )
     assert response.status_code == 302
     assert (
         User.objects.filter(
-            username="julien", first_name="Julien", last_name="Lebian", is_active=False
+            username="julien", first_name="", last_name="", is_active=False
         ).count()
         == 1
     )
@@ -314,7 +293,6 @@ def test_registration_not_a_robot(data, client, capsys):
     )
     assert response.status_code == 200
     assert "robot" in response.context["form"].errors
-    assert "cgu" in response.context["form"].errors
     assert User.objects.filter(username="julien").count() == 0
 
 
@@ -337,7 +315,6 @@ def test_registration_username_blacklisted(username, data, client, capsys):
             "password1": "Abc12345!",
             "password2": "Abc12345!",
             "robot": "on",
-            "cgu": "on",
         },
     )
     assert response.status_code == 200

@@ -21,7 +21,7 @@ def validate_username_whitelisted(value):
 def define_username_field():
     return forms.CharField(
         max_length=32,
-        required=False,
+        required=True,
         label="Nom d’utilisateur",
         validators=[
             RegexValidator(r"^[\w.-]+\Z", message=USERNAME_RULES),

@@ -44,7 +44,9 @@ class ContactForm(forms.ModelForm):
         # prefill initial form data
         user = request.user
         if user.is_authenticated:
-            initial["name"] = f"{user.first_name} {user.last_name}".strip()
+            initial["name"] = (
+                f"{user.first_name} {user.last_name}".strip() or f"{user.username}"
+            )
             initial["email"] = user.email
             initial["user"] = user
 

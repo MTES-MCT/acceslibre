@@ -71,13 +71,10 @@ def test_erp_details_edit_links(data, browser, capsys):
 def test_registration_flow(data, browser):
     browser.visit(reverse("django_registration_register") + "?next=/contact/")
     browser.fill("username", "johndoe")
-    browser.fill("first_name", "John")
-    browser.fill("last_name", "Doe")
     browser.fill("email", "john@doe.com")
     browser.fill("password1", "Abcdef123!")
     browser.fill("password2", "Abcdef123!")
     browser.check("robot")
-    browser.check("cgu")
     button = browser.find_by_css("form.registration-form button[type=submit]")
     button.click()
 

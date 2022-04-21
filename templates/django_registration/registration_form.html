@@ -32,6 +32,8 @@
 {% block editorial_content %}
 
 <main role="main" id="content">
+  <div class="row fr-grid-row--center">
+
   {% if user.is_authenticated %}
   <p class="alert alert-warning" role="alert">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
@@ -40,10 +42,9 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-  <h2 class="h3 text-left mb-4">Créer un compte</h2>
+    <h2 class="h3 text-left mb-4">Créer un compte</h2>
 
-  <div class="row">
-    <form action="." method="POST" novalidate class="registration-form col-md-6 col-lg-5 mb-4" id="registration">
+    <form action="." method="POST" novalidate class="registration-form mb-4" id="registration">
       {% csrf_token %}
 
       <input type="hidden" name="next" value="{{ request.GET.next }}">
@@ -52,21 +53,26 @@
         <i aria-hidden="true" class="icon icon-info-circled"></i>
         Les champs marqué d'une astérique (*) sont obligatoires.
       </small></p>
-
-      {{ form.non_field_errors }}
-      {{ form.email|as_crispy_field }}
-
-      {{ form.username|as_crispy_field }}
-
-      {{ form.password1|as_crispy_field }}
-      {{ form.password2|as_crispy_field }}
-      {{ form.robot|as_crispy_field }}
-
+      <div class="row">
+        {{ form.non_field_errors }}
+        <div class="col-md-6">
+          {{ form.email|as_crispy_field }}
+          {{ form.username|as_crispy_field }}
+        </div>
+        <div class="col-md-6">
+          {{ form.password1|as_crispy_field }}
+          {{ form.password2|as_crispy_field }}
+          {{ form.robot|as_crispy_field }}
+        </div>
+      </div>
       <button type="submit" class="btn fr-btns-group--center btn-primary fr-btn btn-block">Créer mon compte</button>
+
+
     </form>
 
 
-  </div>
   {% endif %}
+
+  </div>
 </main>
 {% endblock %}
