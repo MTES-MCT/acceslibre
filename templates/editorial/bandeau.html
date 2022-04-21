@@ -1,4 +1,5 @@
 {% load static %}
+{% if active %}
 <aside class="container-fluid alert alert-warning mb-0 shadow-sm text-center">
   <div class="container">
     <img src="{% static 'img/lapin-paques.png' %}" height="60" class="d-none d-md-inline-block" alt="chocolatier accessible lapin"/>
@@ -9,3 +10,4 @@
     votre chocolatier préféré.</a></strong>
   </div>
 </aside>
+{% endif %}
