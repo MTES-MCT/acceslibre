@@ -69,16 +69,12 @@ def make_geojson(erp_qs):
 
 
 def home(request):
-    start_date = datetime.datetime(2022, 3, 21)
-    stop_date = datetime.datetime(2022, 6, 21, 23, 59, 59)
-    top_contribs, total_contributions = get_count_challenge(start_date, stop_date)
     return render(
         request,
         "index.html",
         context={
             "erp_count": Erp.objects.published().count(),
             "contributor_count": get_count_active_contributors(),
-            "challenge_count": total_contributions,
         },
     )
 
