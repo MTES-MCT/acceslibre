@@ -17,7 +17,6 @@ from import_export.admin import (
 )
 from reversion.admin import VersionAdmin
 
-from erp.provider.departements import DEPARTEMENTS
 from erp.forms import (
     AdminActiviteForm,
     AdminAccessibiliteForm,
