@@ -7,9 +7,9 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
-  <h2 class="h3 mb-3">
+  <h1 class="h3 mb-3">
     {% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement recevant du public
-  </h2>
+  </h1>
 
   {% if erp and erp.user != user %}
     <div class="alert alert-info">
@@ -82,7 +82,7 @@
             <div class="d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
               <div>
                 <div class="d-flex w-100 justify-content-between">
-                  <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                  <h2 class="h6 font-weight-bold w-100 mb-0 pb-0">
                     <!-- rank: {{ erp.rank }} -->
                     <a href="{{ erp.get_absolute_url }}">
                       <img alt="{% if erp.activite %}{{ erp.activite }}{% endif %}" class="act-icon act-icon-20 mb-1"
@@ -93,7 +93,7 @@
                       {{ erp.nom }}
                       <span class="sr-only">{{ erp.adresse }}</span>
                     </a>
-                  </h3>
+                  </h2>
                 </div>
                 <div aria-hidden="true">
                   {% if erp.activite %}
@@ -167,7 +167,7 @@
       </div>
     </div>
     <hr>
-    <h3>Informations complémentaires (optionnelles)</h3>
+    <h2 class="h3">Informations complémentaires (optionnelles)</h2>
     <div class="row">
       <div class="col-lg-4">
         {{ form.site_internet|as_crispy_field }}

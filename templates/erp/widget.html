@@ -171,20 +171,20 @@
         <div class="fr-modal__body">
           <div class="fr-modal__header text-right">
             <button aria-label="Fermer" data-dismiss="dialog" class="fr-link fr-link--close "
-                    title="Fermer la fenêtre modale" aria-controls="fr-modal-1">Fermer
+                    title="Fermer la fenêtre" aria-controls="fr-modal-1">Fermer
             </button>
           </div>
           <div class="fr-modal__content">
             <h1 class="fr-h4 fr-col-offset-1">
               Accessibilité
             </h1>
-            <p class="fr-col-offset-1 modal__subtitle fr-text--lg" style="color: #484D7A !important;font-weight: bold;">{{ erp.nom }}</p>
+            <h2 class="fr-col-offset-1 modal__subtitle fr-text--lg" style="color: #484D7A !important;font-weight: bold;">{{ erp.nom }}</h2>
             {% if accessibilite_data %}
               <ul style="padding:0px">
                 {% for item, data in accessibilite_data.items %}
                   <li class="modal__item fr-grid-row">
                     <div class="fr-col-md-2 modal__icon">
-                      <img src="{{ data.icon }}" style="width:40px"></img>
+                      <img aria-hidden="true" src="{{ data.icon }}" style="width:40px"></img>
                     </div>
                     <div class="fr-col-md-10" style="padding: 1.5vh;">
                       <span class="fr-text--bold">{{ item|capfirst }}</span>
@@ -198,8 +198,8 @@
               </ul>
             {% endif %}
             <p class="modal__footer_link">
+              <span style="margin-top: 13px;display: inline-block;vertical-align: top;">Voir plus sur</span>
               <a data-track-event="widget,redirection_acceslibre,{{ erp.slug }}" target="_blank" href="{{ erp.get_absolute_uri }}" rel="noopener noreferrer" class="fr-text--md">
-                <span style="margin-top: 13px;display: inline-block;vertical-align: top;">Voir plus sur </span>
                 <img src="{{ base_url }}{% static "img/logo-acceslibre-widget.png" %}" alt="acceslibre" style="height:50px;vertical-align: text-bottom;">
               </a>
             </p>

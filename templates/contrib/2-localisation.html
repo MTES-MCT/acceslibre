@@ -8,7 +8,7 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
-  <h2 class="h3 mb-3">Localiser précisément un établissement</h2>
+  <h1 class="h3 mb-3">Localiser précisément un établissement</h1>
 
   <div class="alert alert-info">
     <i aria-hidden="true" class="icon icon-info-circled"></i>
@@ -20,13 +20,13 @@
   <form action="" method="POST" class="mb-4" novalidate>
     {% csrf_token %}
 
-    <h3 class="h5 mb-3">
+    <h2 class="h5 mb-3">
       {{ erp.nom }}
       <small class="text-muted">
         {% if erp.activite %} - {{ erp.activite.nom }}{% endif %}
         - <em>{{ erp.adresse }}</em>
       </small>
-    </h3>
+    </h2>
 
     <div id="localisation-map">
       <div class="a4a-localisation-map"></div>

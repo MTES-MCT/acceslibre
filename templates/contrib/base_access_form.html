@@ -5,12 +5,12 @@
 
 {% block contrib_content %}
   <form action="" method="POST" class="a4a-form a4a-conditional-form mb-4" novalidate>
-    <h2 class="h3 mb-3">{% block page_title %}{% endblock%}</h2>
+    <h1 class="h3 mb-3">{% block page_title %}{% endblock%}</h1>
 
-    <h3 class="h5 mb-0">
+    <h2 class="h5 mb-0">
       {% if erp.published %}<a href="{{ erp.get_absolute_url }}">{{ erp.nom }}</a>{% else %}{{ erp.nom }}{% endif %}
       {% if erp.activite %} <small class="text-muted">{{ erp.activite.nom }}</small>{% endif %}
-    </h3>
+    </h2>
     <address class="text-muted mb-2">
       <em>{{ erp.adresse }}</em>
     </address>
