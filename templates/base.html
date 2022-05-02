@@ -29,6 +29,7 @@
     {% block content %}{% endblock %}
     {% include "common/matomo.html" %}
     {% include "common/sentry.html" %}
+    {% include "common/google_analytics.html" %}
     {% if STAGING %}
     <div class="a4a-staging-notice">
       Vous consultez actuellement le serveur de recette acceslibre.
