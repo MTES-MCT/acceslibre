@@ -120,19 +120,17 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
         var _paq = window._paq || [];
         _paq.push(["trackPageView"]);
 
-        open(dialog);
         (function() {
           var u="//stats.data.gouv.fr/";
           _paq.push(["setTrackerUrl", u+"matomo.php"]);
           _paq.push(["setSiteId", "118"]);
-          var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+          _paq.push(["trackEvent", "modal_open"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
           g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
         })();
-        try {
-          _paq.push(["trackEvent", "modal_open"]);
-        } catch(e) {
-          console.error("Error while tracking event: " + e);
-        }
+        open(dialog);
+
+
       });
 
       trigger.addEventListener('keydown', (event) => {
