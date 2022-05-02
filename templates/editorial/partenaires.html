@@ -7,17 +7,17 @@
 
 {% block editorial_content %}
 <main role="main" id="content" class="mt-5">
-  <h2 class="text-center mb-5">Nos partenaires</h2>
+  <h1 class="text-center mb-5">Nos partenaires</h1>
 
   {% for pid, partenaire in partenaires.items|shuffle %}
   <div class="card mb-3" id="{{ pid }}">
     <div class="card-body">
-      <h3 class="h5 card-title">
+      <h2 class="h5 card-title">
         <a rel="noopener" aria-describedby="new_target" target="_blank" href="{{ partenaire.url }}">
           <img class="a4a-partenaire-logo" src="{% static partenaire.logo %}"
             alt="{{ partenaire.name }}. {{ partenaire.short_description }}">
         </a>
-      </h3>
+      </h2>
       {% include partenaire.template %}
     </div>
   </div>

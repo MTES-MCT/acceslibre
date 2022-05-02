@@ -5,24 +5,24 @@
 {% block page_title %}Rechercher un établissement{% endblock%}
 
 {% block contrib_content %}
-  <h2 class="h3">Ajouter un établissement recevant du public</h2>
+  <h1 class="h3">Ajouter un établissement recevant du public</h1>
   <div class="card mb-4">
     <div class="card-header">
-      <h3 class="h6 mb-0 text-center">Saisie automatique</h3>
+      <h2 class="h6 mb-0 text-center">Saisie automatique</h2>
     </div>
     <div class="card-body">
-      <h4 class="h6">Votre recherche</h4>
+      <h3 class="h6">Votre recherche</h3>
       <p class="h4">{{ search|capfirst }} / {{ commune_search}}</p>
     </div>
   </div>
     {% if results_bdd %}
-      <h4>Établissements existants dans Acceslibre <span class="text-muted">({{ results_bdd|length }} résultat{{ results_bdd|length|pluralize }})</span></h4>
+      <h3 class="h4">Établissements existants dans Acceslibre <span class="text-muted">({{ results_bdd|length }} résultat{{ results_bdd|length|pluralize }})</span></h3>
   <div class="card p-3">
      {% include "contrib/includes/result_search_erps.html" with results=results_bdd %}
   </div>
     {% endif %}
   {% if results %}
-  <h4>Etablissements dont les informations administratives sont disponibles <span class="text-muted">({{ results|length }} résultat{{ results|length|pluralize }})</span></h4>
+  <h3 class="h4">Etablissements dont les informations administratives sont disponibles <span class="text-muted">({{ results|length }} résultat{{ results|length|pluralize }})</span></h4>
 <div class="card p-3">
     {% include "contrib/includes/result_search_erps.html" with results=results %}
 </div>

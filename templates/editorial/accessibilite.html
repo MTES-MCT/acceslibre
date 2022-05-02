@@ -5,39 +5,39 @@
 {% block editorial_content %}
   <main role="main" id="content" class="cgu row justify-content-center mt-5">
     <div class="col-md-9">
-      <h2 class="mb-3">Accessibilité</h2>
+      <h1 class="mb-3">Accessibilité</h1>
 
       <p><strong>Le <span class="basic-information organization-name">Ministère de l'Écologie et de la Transition Solidaire</span> s’engage à rendre son service accessible, conformément à <a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647">l’article 47 de la loi n° 2005-102 du 11 février 2005</a>.</strong></p>
       <p>Parce que l'accessibilité numérique est notre priorité, un audit d'évaluation de la conformité d'Acceslibre au <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/">Référentiel Général d'Amélioration de l'Accessibilité (RGAA)</a> est prévu courant 2021.</p>
 
-      <h3 class="my-4">Déclaration d'accessibilité</h3>
+      <h2 class="my-4">Déclaration d'accessibilité</h2>
 
-      <h4 class="my-4">État de conformité</h4>
+      <h3 class="my-4">État de conformité</h3>
       <p>
         <span class="basic-information website-name">Acceslibre</span> est
         <b><span class="basic-information conformance-status" data-printfilter="lowercase">partiellement conforme</span> avec le <span class="basic-information conformance-standard"><a href="https://www.numerique.gouv.fr/uploads/RGAA-v4.0.pdf">RGAA 4.0</a></span></b>.
         <span><span class="basic-information conformance-status">Partiellement conforme</span> veut dire que <span class="basic-information conformance-meaning">certaines sections du contenu ne sont pas entièrement conformes aux standards d'accessibilité</span>.</span>
       </p>
 
-      <h4 class="my-4">Résultats des tests</h4>
+      <h3 class="my-4">Résultats des tests</h3>
       <p>L’audit de conformité réalisé <span id="statement-assessments" class="technical-information assessment-approaches">en auto-évaluation</span> par le biais d'outils automatisés (<a href="https://accessibilityinsights.io/" target="_blank" rel="noopener noreferrer">Accessibility Insight</a>, <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener noreferrer">Lighthouse</a>) n'a pas remonté de défaut techniques majeurs d'accessibilité.</p>
       <p>La mise en place de tests utilisateurs en situation de handicap visuel nous a permis de relever des problèmes d'accessibilité (navigation au clavier, hiérarchisation des titres) que nous avons pu adresser techniquement, nous attendons désormais la confirmation que les problèmes sont concrètement réglés à ce niveau.</p>
 
-      <h4 class="my-4">Contenus non accessibles</h4>
+      <h3 class="my-4">Contenus non accessibles</h3>
       <p>Les contenus listés ci-dessous ne sont pas accessibles pour les raisons suivantes.</p>
-      <h5>Non conformité</h5>
+      <h4>Non conformité</h4>
       <p>Malgré nos efforts, certains contenus sont inaccessibles. Vous trouverez ci-dessous une liste des limitations connues et des solutions potentielles&nbsp;:</p>
       <ol class="technical-information accessibility-limitations">
         <li><strong>Cartographie interactive</strong>&nbsp;: Nous utilisons la librairie <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> pour gérer la cartographie interactive en javascript. Les fonctionnalités qu'elle expose ne sont pas totalement conformes, notamment en termes d'accessibilité visuelle pour les lecteurs d'écran. Nous avons développé des fonctionnalités alternatives qui permettent d'accéder à l'ensemble des informations présentées sur cette cartographie, sous la forme d'une liste textuelle accessible. Il faudrait pouvoir masquer la cartographie aux lecteur d'écran (avec <code>aria-hidden</code> par exemple), mais cela risque de perturber les fonctionnalités de navigation au clavier, en particulier sur la gestion des tabulations et du focus.</li>
       </ol>
-      <h5>Dérogations pour charge disproportionnée</h5>
+      <h4>Dérogations pour charge disproportionnée</h4>
       <p><em>Néant.</em></p>
-      <h5>Contenus non soumis à l’obligation d’accessibilité</h5>
+      <h4>Contenus non soumis à l’obligation d’accessibilité</h4>
       <p><em>Non-applicable à ce jour.</em></p>
 
-      <h4 class="my-4">Établissement de cette déclaration d'accessibilité</h4>
+      <h3 class="my-4">Établissement de cette déclaration d'accessibilité</h3>
       <p>Cette déclaration a été établie le <b><span class="basic-information statement-created-date">2 Juillet 2020</span></b>.</p>
-      <h5>Technologies utilisées</h5>
+      <h3>Technologies utilisées</h3>
       <p>L'accessibilité de <span class="basic-information website-name">Acceslibre</span> s'appuie sur les technologies suivantes&nbsp;:</p>
       <ul class="technical-information technologies-used">
         <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank" rel="noopener noreferrer">HTML</a></li>
@@ -45,7 +45,7 @@
         <li><a href="https://developer.mozilla.org/fr/docs/Glossaire/CSS" target="_blank" rel="noopener noreferrer">CSS</a></li>
         <li><a href="https://developer.mozilla.org/fr/docs/Glossaire/JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a></li>
       </ul>
-      <h5>Agents utilisateurs, technologies d’assistance et outils utilisés pour vérifier l’accessibilité</h5>
+      <h4>Agents utilisateurs, technologies d’assistance et outils utilisés pour vérifier l’accessibilité</h4>
       <p>Les tests des pages web ont été effectués avec les combinaisons de navigateurs web et lecteurs d’écran suivants&nbsp;:</p>
       <ul class="technical-information compatible-environments">
         <li>Navigateurs de bureau <a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">Chrome</a>, <a href="https://www.mozilla.org/fr/firefox/new/" target="_blank" rel="noopener noreferrer">Firefox</a>, <a href="https://www.microsoft.com/fr-fr/edge" target="_blank" rel="noopener noreferrer">Edge</a> en version récente sur Windows, Mac et Linux.</li>
@@ -58,13 +58,13 @@
         <li>Systèmes d'exploitation hors Windows, Mac OSX, Linux, Android et iOS.</li>
       </ul>
 
-      <h4 class="my-4">Amélioration et contact</h4>
+      <h3 class="my-4">Amélioration et contact</h3>
       <p>Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez <a href="{% url "contact_topic" topic="bug" %}">contacter l'équipe en charge de la gestion du site</a> pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.</p>
       <p>
         Nous essayons de répondre dans les <span class="feedback responsetime">cinq jours ouvrés</span>.
       </p>
 
-      <h4 class="my-4">Voie de recours</h4>
+      <h3 class="my-4">Voie de recours</h3>
       <p>Cette procédure est à utiliser dans le cas suivant&nbsp;: vous avez signalé au responsable du site internet un défaut d’accessibilité qui vous empêche d’accéder à un contenu ou à un des services du portail et vous n’avez pas obtenu de réponse satisfaisante.</p>
       <p>Vous pouvez&nbsp;:</p>
       <ul>
