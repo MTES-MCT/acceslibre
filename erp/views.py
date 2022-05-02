@@ -991,11 +991,11 @@ def contrib_publication(request, erp_slug):
                     ErpSubscription.subscribe(erp, request.user)
                 else:
                     ErpSubscription.unsubscribe(erp, request.user)
-                erp = erp.save()
+                erp.save()
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été sauvegardées."
                 )
-                return redirect("mes_erps")
+                return redirect(erp.get_absolute_url())
     else:
         form = forms.PublicPublicationForm(instance=accessibilite, initial=initial)
     return render(

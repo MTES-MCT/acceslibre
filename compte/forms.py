@@ -3,7 +3,6 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from django.utils.safestring import mark_safe
 from django_registration.forms import RegistrationFormUniqueEmail
 
 from compte.models import UserPreferences

@@ -21,6 +21,16 @@
 {% endblock skiplinks %}
 
 {% block editorial_content %}
+  {% if messages %}
+  <aside class="container-fluid alert alert-info mb-0 shadow-sm text-center">
+    <div class="container">
+      <span class="h1 mb-0">Merci !</span>
+      <img src="{% static 'img/merci.png' %}" height="60" class="d-none d-md-inline-block mb-2" alt="" aria-hidden="true"/>
+      <br>
+      Votre fiche est publiée. Merci pour votre contribution.
+    </div>
+  </aside>
+  {% endif %}
 <main role="main" id="content">
   <article class="mt-5">
     {% include "erp/includes/header.html" %}
