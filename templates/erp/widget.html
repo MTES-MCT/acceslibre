@@ -162,6 +162,15 @@
     color: var(--g700) !important;
     font-family: "Marianne", arial, sans-serif
   }
+
+  .fr-btn--secondary {
+    background-color: var(--t-plain);
+    color: var(--bf500);
+    box-shadow: inset 0 0 0 1px var(--bf500);
+  }
+  #btn_acceslibre:hover {
+    cursor: pointer;
+  }
 </style>
 <div class="js-document" data-fr-theme="dark">
   <div id="dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true"
@@ -198,10 +207,10 @@
               </ul>
             {% endif %}
             <p class="modal__footer_link">
-              <span style="margin-top: 13px;display: inline-block;vertical-align: top;">Voir plus sur</span>
-              <a data-track-event="widget,redirection_acceslibre,{{ erp.slug }}" target="_blank" href="{{ erp.get_absolute_uri }}" rel="noopener noreferrer" class="fr-text--md">
+              <btn id="btn_acceslibre" onclick="location.href='{{ erp.get_absolute_uri }}';" data-track-event="widget,redirection_acceslibre,{{ erp.slug }}" rel="noopener noreferrer" class="fr-btn fr-btn--secondary fr-text--md">
+                <span>Voir plus sur </span>
                 <img src="{{ base_url }}{% static "img/logo-acceslibre-widget.png" %}" alt="acceslibre" style="height:50px;vertical-align: text-bottom;">
-              </a>
+              </btn>
             </p>
           </div>
         </div>
