@@ -17,12 +17,12 @@
 
 {% block editorial_content %}
 <main id="content">
-  <h2 class="mt-3 mb-2">
+  <h1 class="mt-3 mb-2">
     <small class="text-muted" style="font-size:.6em">Votre recherche</small><br>
     <span class="sr-only">Localité:</span> {{ where }}
     {% if where and what %}<small class="text-muted">/</small>{% endif %}
     {% if what %}<span class="sr-only">Activité:</span> {{ what }}{% endif %}
-  </h2>
+  </h1>
 
   {% if what and "centres de vaccination" in what %}
   <div class="alert alert-warning mt-3">

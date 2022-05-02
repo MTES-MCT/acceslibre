@@ -6,7 +6,7 @@
 
 {% block editorial_content %}
 <main role="main" id="content">
-  <h2 class="mb-3"><a href="{% url "annuaire_home" %}">Annuaire</a></h2>
+  <h1 class="mb-3"><a href="{% url "annuaire_home" %}">Annuaire</a></h1>
   <div class="row">
     <div class="col-md-3">
       <div class="list-group">
@@ -28,10 +28,10 @@
         Sélectionnez un département dans la liste pour en afficher les communes disposant d'établissements renseignés.
       </p>
       {% else %}
-      <h3 class="mt-2 mb-3">
+      <h2 class="mt-2 mb-3">
         {{ current_departement.code }} - {{ current_departement.nom }}
         <small class="text-muted">{{ current_departement_erp_count }} établissement{{ current_departement_erp_count|pluralize:"s" }}</small>
-      </h3>
+      </h2>
       {% for commune in communes %}
       <p>
         {{ commune.code_postaux|join:", " }} -

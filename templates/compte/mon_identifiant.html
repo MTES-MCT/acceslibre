@@ -7,9 +7,9 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block compte_content %}
-  <h3 class="mb-3">
+  <h1 class="h3 mb-3">
     Changer mon identifiant <small class="text-muted">(nom d'utilisateur)</small>
-  </h3>
+  </h1>
 
   <form action="{% url "mon_identifiant" %}" method="post">
     <p>Votre identifiant (ou nom d'utilisateur) actuel est <strong>{{ request.user.username }}</strong>.</p>

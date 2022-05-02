@@ -42,7 +42,7 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-    <h2 class="h3 text-left mb-4">Créer un compte</h2>
+  <h1 class="h3 text-left mb-4">Créer un compte utilisateur</h1>
 
     <form action="." method="POST" novalidate class="registration-form mb-4" id="registration">
       {% csrf_token %}

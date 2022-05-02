@@ -6,11 +6,11 @@
 
 {% block editorial_content %}
 <main role="main" id="content">
-  <h2 class="my-3">Statistiques</h2>
+  <h1 class="my-3">Statistiques</h1>
   <div class="card-group my-4">
     <div class="card col-md-6 p-0">
       <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-        <h3 class="text-center text-count font-weight-bold">{{ nb_published_erps }}</h3>
+        <p class="fr-h3 text-center text-count font-weight-bold">{{ nb_published_erps }}</p>
         <div class="h3 px-3 text-center text-md-left">
           établissement{{ nb_published_erps|pluralize:"s" }} publié{{ nb_published_erps|pluralize:"s" }}
           sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }} grâce à la contribution de <strong>tous</strong>
@@ -20,7 +20,7 @@
 
     <div class="card md-6 p-0">
         <div class="card-body flex-column flex-md-row justify-content-center justify-content-md-start align-items-center">
-          <h3 class="text-center text-count font-weight-bold">{{ nb_contributors }}</h3>
+          <p class="fr-h3 text-center text-count font-weight-bold">{{ nb_contributors }}</p>
           <div class="h3 px-3 text-center text-md-left">
             contributeur{{ nb_contributors|pluralize:"s" }}
             sur {{ SITE_NAME|title }} au {{ current_date|date:"j/m/Y" }}
@@ -31,7 +31,7 @@
   <div class="card-group my-4">
     <div class="card shadow-sm col-md-7 p-0">
       <div class="card-header text-truncate">
-        <h3 class="fr-h4 fr-text--sm">Évolution du nombre d'établissements publiés</h3>
+        <h2 class="fr-h4 fr-text--sm">Évolution du nombre d'établissements publiés</h2>
       </div>
       <div class="card-body p-2">
         <canvas id="erpCountChart" width="100%" height="250" role="img" alt="Graphique représentant l'évolution du nombre d'établissements publiés">Graphique représentant l'évolution du nombre d'établissements publiés</canvas>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="card shadow-sm col-md-5 p-0">
-      <div class="card-header"><h3>Top contributeurs</h3></div>
+      <div class="card-header"><h2 class="fr-h4 fr-text--sm">Top contributeurs</h2></div>
       <div class="card-body">
         <ol class="mb-0">
         {% for contributor in top_contributors %}
@@ -77,7 +77,7 @@
   </div>
   <aside class="container-fluid alert alert-warning mb-0 shadow-sm text-left">
     <div class="container">
-      <h3>Challenge en cours</h3>
+      <h2 class="fr-h3">Challenge en cours</h2>
       <a class="btn-link fr-text--bold" href="{% url "challenge-ddt" %}">"Tous acceslibre"</a> du 21 mars au 21 juin, challenge entre les
       Directions Départementales des Territoires.</a>
     </div>
@@ -86,7 +86,7 @@
   <div class="card-deck mt-3" id="territoires">
     <div class="card shadow-sm">
       <div class="card-header d-flex justify-content-between align-items-center">
-        <h3>Principaux territoires couverts</h3>
+        <h2 class="fr-h3">Principaux territoires couverts</h2>
         <a href="{% url "stats_territoires" %}?sort={{ stats_territoires_sort }}" class="text-right">Voir plus de territoires</a>
       </div>
       <div class="card-body">

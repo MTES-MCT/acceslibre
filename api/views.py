@@ -36,9 +36,9 @@ Le point d'entrée racine de l'API est accessible à l'adresse
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
 - Une réponse de type `application/json` est restituée si explicitement demandée par le client.
 
-#### Quelques exemples d'utilisation
+## Quelques exemples d'utilisation
 
-##### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
+### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/?q=piscine&commune=Villeurbanne -H "accept: application/json"
@@ -48,7 +48,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 
 ---
 
-##### Récupérer les détails d'un établissement particulier
+### Récupérer les détails d'un établissement particulier
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
@@ -58,7 +58,7 @@ Notez la présence de la clé `accessbilite` qui expose l'URL du point de récup
 
 ---
 
-##### Récupérer les détails d'accessibilité pour cet ERP
+### Récupérer les détails d'accessibilité pour cet ERP
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: application/json"
@@ -66,7 +66,7 @@ $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/ -H "accept: applica
 
 ---
 
-##### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
+### Récupérer les détails d'accessibilité pour cet ERP en format lisible et accessible
 
 ```
 $ curl -X GET {settings.SITE_ROOT_URL}/api/accessibilite/80/?readable=true -H "accept: application/json"

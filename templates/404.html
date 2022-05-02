@@ -8,7 +8,7 @@
 <main role="main" id="content" class="text-center">
   <h2 class="display-4">Page introuvable</h2>
   <div class="my-4">
-    <img class="w-50" src="{% static "img/undraw_page_not_found.svg" %}" alt="">
+    <img class="w-50" src="{% static "img/undraw_page_not_found.svg" %}" aria-hidden="true">
   </div>
   <p>Vous pouvez tenter de revenir à <a href="{% url "home" %}">l'accueil</a>
     ou de nous <a href="{% url "contact_topic" topic="bug" %}">contacter à ce sujet</a> en prenant

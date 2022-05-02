@@ -39,7 +39,7 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-  <h2 class="h3 mb-4">Se connecter</h2>
+  <h1 class="h3 text-center mb-4">Je me connecte</h1>
   <div class="row">
     <form action="." method="POST" novalidate class="login-form col-md-6 col-lg-5 mb-4">
       <input type="hidden" name="next" value="{{ next }}">
@@ -70,10 +70,10 @@
     </form>
     <div class="col-md-6 col-lg-5">
       <div class="card p-4">
-        <h3 class="h5">
+        <h2 class="h5">
           <i aria-hidden="true" class="icon icon-info-circled"></i>
           Pourquoi créer un compte&nbsp;?
-        </h3>
+        </h2>
         <p>Créer son compte ne prend que quelques minutes et vous <strong>permet de contribuer au site</strong>.</p>
         <a href="{% url "django_registration_register" %}?next={{ next }}" class="btn btn-primary fr-btn btn-block">
           <i aria-hidden="true" class="icon icon-user"></i>&nbsp;

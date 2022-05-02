@@ -199,19 +199,16 @@ def get_count_challenge(start_date, stop_date):
         erp__created_at__gte=start_date,
         erp__created_at__lt=stop_date,
     )
-    excludes = Q(erp__user__username="julien")
     top_contribs = (
         get_user_model()
         .objects.annotate(
             erp_count_published=Count(
                 "erp",
                 filter=filters,
-                excude=excludes,
                 distinct=True,
             )
         )
         .filter(filters)
-        .exclude(excludes)
         .filter(erp_count_published__gt=0)
         .order_by("-erp_count_published")
     )
