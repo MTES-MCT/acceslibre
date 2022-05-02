@@ -23,7 +23,8 @@ from erp.export.utils import (
 )
 from erp.models import Accessibilite, Commune, Erp, Vote
 from erp.provider import geocoder, search as provider_search, acceslibre
-from stats.queries import get_count_active_contributors, get_count_challenge
+from stats.models import Challenge
+from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
 
 
@@ -80,19 +81,17 @@ def home(request):
 
 
 def challenge_ddt(request):
-    start_date = datetime.datetime(2022, 3, 21)
-    stop_date = datetime.datetime(2022, 6, 21, 23, 59, 59)
     today = datetime.datetime.today()
-    top_contribs, total_contributions = get_count_challenge(start_date, stop_date)
+    challenge = Challenge.objects.get()
     return render(
         request,
         "challenge/podium.html",
         context={
-            "start_date": start_date,
-            "stop_date": stop_date,
+            "start_date": challenge.start_date,
+            "stop_date": challenge.end_date,
             "today": today,
-            "top_contribs": top_contribs,
-            "total_contributions": total_contributions,
+            "top_contribs": challenge.classement,
+            "total_contributions": challenge.nb_erp_total_added,
         },
     )
 
@@ -485,7 +484,10 @@ def widget_from_uuid(request, uuid):  # noqa
 
     # Conditions Présence d’équipement sourd et malentendant
     presence_equipement_sourd_label = None
-    if erp.accessibilite.accueil_equipements_malentendants_presence:
+    if (
+        erp.accessibilite.accueil_equipements_malentendants_presence
+        and erp.accessibilite.accueil_equipements_malentendants
+    ):
         presence_equipement_sourd_label = ", ".join(
             map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,

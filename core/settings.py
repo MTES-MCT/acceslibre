@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     "django_admin_listfilter_dropdown",
     "compte.apps.CompteConfig",
     "erp.apps.ErpConfig",
+    "stats.apps.StatsConfig",
     "subscription.apps.SubscriptionConfig",
     "contact.apps.ContactConfig",
     "django.contrib.admin",
