@@ -485,7 +485,10 @@ def widget_from_uuid(request, uuid):  # noqa
 
     # Conditions Présence d’équipement sourd et malentendant
     presence_equipement_sourd_label = None
-    if erp.accessibilite.accueil_equipements_malentendants_presence:
+    if (
+        erp.accessibilite.accueil_equipements_malentendants_presence
+        and erp.accessibilite.accueil_equipements_malentendants
+    ):
         presence_equipement_sourd_label = ", ".join(
             map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,
