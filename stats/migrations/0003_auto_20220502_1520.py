@@ -12,8 +12,10 @@ def create_challenge(apps, schema_editor):
     User = get_user_model()
     start_date = datetime.datetime(2022, 3, 21, 0, 0, 0)
     stop_date = datetime.datetime(2022, 6, 21, 23, 59, 59)
+    user, created = User.objects.get_or_create(username="Vanfrackem")
+
     challenge = Challenge.objects.create(
-        created_by=User.objects.get(username="Vanfrackem"),
+        created_by=user,
         nom="Challenge DDT",
         start_date=start_date,
         end_date=stop_date,
