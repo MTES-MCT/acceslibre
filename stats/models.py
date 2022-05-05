@@ -44,3 +44,36 @@ class Challenge(models.Model):
             for user in classement
         ]
         self.save()
+
+
+class Referer(models.Model):
+    domain = models.URLField(help_text="Domaine du site réutilisateur")
+
+    class Meta:
+        ordering = ("domain",)
+        verbose_name = "Site réutilisateur"
+        verbose_name_plural = "Sites réutilisateur"
+
+    def __str__(self):
+        return self.domain
+
+
+class Implementation(models.Model):
+    referer = models.ForeignKey(
+        Referer, on_delete=models.CASCADE, related_name="implementations"
+    )
+    urlpath = models.URLField(help_text="Url complète")
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Date de détection de tracking"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True, verbose_name="Date de dernier contact"
+    )
+
+    class Meta:
+        ordering = ("-updated_at", "urlpath")
+        verbose_name = "Implémentation du Widget"
+        verbose_name_plural = "Implémentations du Widget"
+
+    def __str__(self):
+        return self.urlpath
