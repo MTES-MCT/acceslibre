@@ -1,3 +1,5 @@
+from django.contrib.sites.models import Site
+
 from stats.models import Implementation, Referer
 
 
@@ -11,6 +13,7 @@ class TrackStatsWidget:
             request.resolver_match
             and request.resolver_match.url_name == "widget_erp_uuid"
             and request.headers.get("Origin")
+            and Site.objects.get_current().domain not in request.headers.get("Origin")
         ):
 
             referer, created = Referer.objects.update_or_create(

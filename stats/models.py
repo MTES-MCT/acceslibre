@@ -50,7 +50,7 @@ class Referer(models.Model):
     domain = models.URLField(help_text="Domaine du site réutilisateur")
 
     class Meta:
-        ordering = ("domain",)
+        ordering = ("-id",)
         verbose_name = "Site réutilisateur"
         verbose_name_plural = "Sites réutilisateur"
 
