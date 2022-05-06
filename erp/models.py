@@ -653,7 +653,9 @@ class Erp(models.Model):
         if self.has_accessibilite():
             (a_created_at, a_updated_at) = (
                 self.accessibilite.created_at,
-                self.accessibilite.updated_at,
+                self.accessibilite.get_history()[0]["date"]
+                if self.accessibilite.get_history()
+                else self.accessibilite.created_at,
             )
             (created_at, updated_at) = (
                 a_created_at if a_created_at > created_at else created_at,
