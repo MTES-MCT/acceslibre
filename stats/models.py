@@ -2,7 +2,9 @@ import uuid
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
+from core import mattermost
 from stats.queries import get_count_challenge
 
 
@@ -49,6 +51,10 @@ class Challenge(models.Model):
 class Referer(models.Model):
     domain = models.URLField(help_text="Domaine du site réutilisateur")
 
+    date_notification_to_mattermost = models.DateTimeField(
+        null=True, verbose_name="Date de notification sur Mattermost ?"
+    )
+
     class Meta:
         ordering = ("-id",)
         verbose_name = "Site réutilisateur"
@@ -56,6 +62,29 @@ class Referer(models.Model):
 
     def __str__(self):
         return self.domain
+
+    def create_notification(self):
+        return self.domain
+
+    def notif_mattermost(self):
+        if self.date_notification_to_mattermost:
+            return
+        try:
+            mattermost.send(
+                "Nouveau Réutilisateur du Widget",
+                attachements=[
+                    {
+                        "pretext": "Un nouveau domaine a été détecté :thumbsup:",
+                        "text": f"- \n[Lien vers le réutilisateur]({self.domain})",
+                    }
+                ],
+                tags=[__name__],
+            )
+        except Exception as e:
+            raise e
+        else:
+            self.date_notification_to_mattermost = timezone.now()
+            self.save()
 
 
 class Implementation(models.Model):
