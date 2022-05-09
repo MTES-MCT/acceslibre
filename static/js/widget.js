@@ -164,6 +164,10 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
           close(dialog, trigger);
         }
       });
+      btn = document.getElementById('btn_acceslibre')
+      btn.addEventListener('click', (event) => {
+        _paq.push(['trackGoal', 8]);
+      });
     });
 
     function showPopup() {
@@ -175,15 +179,4 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       })
     }
   });
-  $(document).ready(function() {
-    $("[data-track-event]").on("click", function() {
-      try {
-        const rawData = $(this).data("track-event") || "";
-        if (rawData.length > 0) {
-          _paq.push(["trackEvent"].concat(rawData.split(",")));
-        }
-      } catch(e) {
-        console.error("Error while tracking event: " + e);
-      }
-    });
-  });
+
