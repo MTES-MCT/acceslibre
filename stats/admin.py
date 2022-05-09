@@ -12,8 +12,9 @@ class ChallengeAdmin(admin.ModelAdmin):
 
 @admin.register(Referer)
 class RefererAdmin(admin.ModelAdmin):
-    list_display = ("domain",)
+    list_display = ("domain", "date_notification_to_mattermost")
     search_fields = ("domain",)
+    list_filter = ("date_notification_to_mattermost",)
 
 
 @admin.register(Implementation)
