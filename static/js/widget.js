@@ -19,7 +19,10 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       var u="//stats.data.gouv.fr/";
       _paq.push(["setTrackerUrl", u+"matomo.php"]);
       _paq.push(["setSiteId", "118"]);
+      var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+      g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
     })();
+
     var container = document.getElementById('widget-a11y-container');
     var newDiv = document.createElement("div");
     newDiv.innerHTML = body;
@@ -171,4 +174,16 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
         open(dialog);
       })
     }
+  });
+  $(document).ready(function() {
+    $("[data-track-event]").on("click", function() {
+      try {
+        const rawData = $(this).data("track-event") || "";
+        if (rawData.length > 0) {
+          _paq.push(["trackEvent"].concat(rawData.split(",")));
+        }
+      } catch(e) {
+        console.error("Error while tracking event: " + e);
+      }
+    });
   });
