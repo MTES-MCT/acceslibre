@@ -423,19 +423,34 @@ class BasePublicErpInfosForm(BaseErpForm):
             "source": forms.HiddenInput(),
             "source_id": forms.HiddenInput(),
             "geom": forms.HiddenInput(),
-            "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
+            "nom": forms.TextInput(
+                attrs={
+                    "autocomplete": "organization",
+                    "placeholder": "ex: La ronde des fleurs",
+                }
+            ),
             "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
             "voie": forms.TextInput(attrs={"placeholder": "ex: rue des prés"}),
             "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
-            "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
+            "code_postal": forms.TextInput(
+                attrs={"autocomplete": "postal-code", "placeholder": "ex: 75001"}
+            ),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
             "contact_email": forms.EmailInput(
-                attrs={"placeholder": "ex: nom@domain.tld"}
+                attrs={"autocomplete": "email", "placeholder": "ex: nom@domain.tld"}
             ),
             "site_internet": forms.URLInput(
-                attrs={"placeholder": "ex: http://etablissement.com"}
+                attrs={
+                    "autocomplete": "url",
+                    "placeholder": "ex: http://etablissement.com",
+                }
             ),
-            "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
+            "telephone": forms.TextInput(
+                attrs={
+                    "autocomplete": "tel-national",
+                    "placeholder": "ex: 01.02.03.04.05",
+                }
+            ),
             "contact_url": forms.URLInput(
                 attrs={
                     "placeholder": "https://mon-etablissement.fr/contactez-nous.html"

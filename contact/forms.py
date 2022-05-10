@@ -15,6 +15,10 @@ class ContactForm(forms.ModelForm):
             "updated_at",
             "sent_ok",
         )
+        widgets = {
+            "email": forms.TextInput(attrs={"autocomplete": "email"}),
+            "name": forms.TextInput(attrs={"autocomplete": "family-name"}),
+        }
 
     # hide relations
     user = forms.ModelChoiceField(

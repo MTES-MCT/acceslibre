@@ -8,7 +8,6 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<main role="main" id="content">
   {% if user.is_authenticated %}
   <p class="alert alert-warning" role="alert">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
@@ -44,7 +43,7 @@
       <p>
         <small class="form-text text-muted">
           <i aria-hidden="true" class="icon icon-info-circled"></i>
-          Votre nom et votre prénom de seront jamais affichés publiquement.
+          Votre nom et votre prénom ne seront jamais affichés publiquement.
         </small>
       </p>
       {{ form.email|as_crispy_field }}
@@ -74,5 +73,4 @@
     </div>
   </div>
   {% endif %}
-</main>
 {% endblock %}

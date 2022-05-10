@@ -9,7 +9,7 @@
   <div class="col-md-9 order-last" id="content">
     {% block contrib_content %}{% endblock %}
   </div>
-  <nav class="col-md-3 mb-3">
+  <nav class="col-md-3 mb-3" aria-label="Étapes d'ajout d'un établissement" role="navigation">
     <div class="d-md-none" id="step-navigation">
       <label for="step-select" class="font-weight-bold">Navigation</label>
       <select id="step-select" class="form-control" onchange="location=$(this).val()+'#step-navigation'">
@@ -64,15 +64,15 @@
         aria-label="{% if step == 1 %}en cours{% endif %}{% if step > 1 %} validé{% endif %}"
       >
         {% if erp %}
-        <a href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Informations</a>
+        <a title="Informations ({% if step == 1 %}en cours{% endif %}{% if step > 1 %} validé{% endif %})" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Informations</a>
         {% else %}
-        <a href="{% url "contrib_start" %}">Trouver un établissement</a>
+        <a title="Trouver un établissement {% if step == 1 %}(Étape en cours){% endif %}{% if step > 1 %}(Étapevalidée){% endif %}" href="{% url "contrib_start" %}">Trouver un établissement</a>
         {% endif %}
       </li>
       <li class="StepProgress-item{% if step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}"
         aria-label="{% if step == 2 %}en cours{% endif %}{% if step > 2 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_transport" erp_slug=erp.slug %}">Venir dans l'établissement</a>
+        <a title="Venir dans l'établissement {% if step == 2 %}(Étape en cours){% endif %}{% if step > 2 %}(Étape validée){% endif %}" href="{% url "contrib_transport" erp_slug=erp.slug %}">Venir dans l'établissement</a>
         {% else %}
         Venir dans l'établissement
         {% endif %}
@@ -80,7 +80,7 @@
       <li class="StepProgress-item{% if step == 3 %} current{% endif %}{% if step > 3 %} is-done{% endif %}"
         aria-label="{% if step == 3 %}en cours{% endif %}{% if step > 3 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_exterieur" erp_slug=erp.slug %}">Atteindre l'entrée</a>
+        <a title="Atteindre l'entrée {% if step == 3 %}(Étape en cours){% endif %}{% if step > 3 %}(Étape validée){% endif %}" href="{% url "contrib_exterieur" erp_slug=erp.slug %}">Atteindre l'entrée</a>
         {% else %}
         Atteindre l'entrée
         {% endif %}
@@ -88,7 +88,7 @@
       <li class="StepProgress-item{% if step == 4 %} current{% endif %}{% if step > 4 %} is-done{% endif %}"
         aria-label="{% if step == 4 %}en cours{% endif %}{% if step > 4 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_entree" erp_slug=erp.slug %}">Entrée</a>
+        <a title="Entrée {% if step == 4 %}(Étape en cours){% endif %}{% if step > 4 %}(Étape validée){% endif %}" href="{% url "contrib_entree" erp_slug=erp.slug %}">Entrée</a>
         {% else %}
         Entrée
         {% endif %}
@@ -96,7 +96,7 @@
       <li class="StepProgress-item{% if step == 5 %} current{% endif %}{% if step > 5 %} is-done{% endif %}"
         aria-label="{% if step == 5 %}en cours{% endif %}{% if step > 5 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_accueil" erp_slug=erp.slug %}">Accueil</a>
+        <a title="Accueil {% if step == 5 %}(Étape en cours){% endif %}{% if step > 5 %}(Étape validée){% endif %}" href="{% url "contrib_accueil" erp_slug=erp.slug %}">Accueil</a>
         {% else %}
         Accueil
         {% endif %}
@@ -104,7 +104,7 @@
       <li class="StepProgress-item{% if step == 6 %} current{% endif %}{% if step > 6 %} is-done{% endif %}"
         aria-label="{% if step == 6 %}en cours{% endif %}{% if step > 6 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_sanitaires" erp_slug=erp.slug %}">Sanitaires</a>
+        <a title="Sanitaires {% if step == 6 %}(Étape en cours){% endif %}{% if step > 6 %}(Étape validée){% endif %}" href="{% url "contrib_sanitaires" erp_slug=erp.slug %}">Sanitaires</a>
         {% else %}
         Sanitaires
         {% endif %}
@@ -112,7 +112,7 @@
       <li class="StepProgress-item{% if step == 7 %} current{% endif %}{% if step > 7 %} is-done{% endif %}"
         aria-label="{% if step == 7 %}en cours{% endif %}{% if step > 7 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_labellisation" erp_slug=erp.slug %}">Labellisation</a>
+        <a title="Labellisation {% if step == 7 %}(Étape en cours){% endif %}{% if step > 7 %}(Étape validée){% endif %}" href="{% url "contrib_labellisation" erp_slug=erp.slug %}">Labellisation</a>
         {% else %}
         Labellisation
         {% endif %}
@@ -120,7 +120,7 @@
       <li class="StepProgress-item{% if step == 8 %} current{% endif %}{% if step > 8 %} is-done{% endif %}"
         aria-label="{% if step == 8 %}en cours{% endif %}{% if step > 8 %} validé{% endif %}">
         {% if erp %}
-        <a href="{% url "contrib_commentaire" erp_slug=erp.slug %}">Commentaire</a>
+        <a title="Commentaire {% if step == 8 %}(Étape en cours){% endif %}{% if step > 8 %}(Étape validée){% endif %}" href="{% url "contrib_commentaire" erp_slug=erp.slug %}">Commentaire</a>
         {% else %}
         Commentaire
         {% endif %}
@@ -128,7 +128,7 @@
       <li class="StepProgress-item{% if step == 9 %} current{% endif %}"
         aria-label="{% if step == 9 %}en cours{% endif %}">
         {% if erp and erp.user == request.user %}
-        <a href="{% url "contrib_publication" erp_slug=erp.slug %}">Publication</a>
+        <a title="Publication {% if step == 9 %}(Étape en cours){% endif %}{% if step > 9 %}(Étape validée){% endif %}" href="{% url "contrib_publication" erp_slug=erp.slug %}">Publication</a>
         {% else %}
         <span class="text-muted">Publication</span>
         {% endif %}

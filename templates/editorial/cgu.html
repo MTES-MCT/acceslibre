@@ -3,7 +3,7 @@
 {% block page_title %}Conditions générales d'utilisation{% endblock%}
 
 {% block editorial_content %}
-<main role="main" id="content" class="cgu row justify-content-center mt-5">
+<div class="cgu row justify-content-center mt-5">
   <div class="col-md-9">
     <h1 class="mb-3">Conditions générales d'utilisation</h1>
 
@@ -34,14 +34,14 @@
 
     <h2 class="h4 my-4">Objet</h2>
 
-    <p>Le service est composé, d’une part, d’une <a href="{% url "home" %}">application Web</a> qui vous permet de&nbsp;:</p>
+    <p>Le service est composé, d’une part, d’une <a class="bold" href="{% url "home" %}">application Web</a> qui vous permet de&nbsp;:</p>
 
     <ol>
       <li>Renseigner un formulaire décrivant l’accessibilité d’un ERP via l’interface dédiée aux contributeurs</li>
       <li>Consulter ces informations d’accessibilité via l’interface utilisateur</li>
     </ol>
 
-    <p>D’autre part, une <a href="{% url "apidocs" %}">interface de programmation applicative (API)</a> qui vous permet de&nbsp;:</p>
+    <p>D’autre part, une <a class="bold" href="{% url "apidocs" %}">interface de programmation applicative (API)</a> qui vous permet de&nbsp;:</p>
 
     <ol>
       <li>Obtenir une liste des ERP et leurs informations d’accessibilité à partir de différents critères de recherche.</li>
@@ -56,7 +56,7 @@
 
     <p>Par conséquent, les informations publiées sur {{ SITE_NAME.title }} ne sauraient engager la responsabilité de leur éditeur ou d’un quelconque service de l’État, l’utilisateur y ayant recours en ayant conscience des potentielles erreurs ou omissions qu’elles peuvent comporter.</p>
 
-    <p>Nous nous efforçons de livrer des données de la meilleure qualité possible. Toutefois, malgré toute notre attention, elles peuvent encore comporter des erreurs ou omissions. Si vous constatez une erreur ou omission parmi ces données, nous vous invitons à nous la signaler à l’aide du <a href="{% url "contact_topic" topic="signalement" %}">formulaire de contact</a> ou à l’adresse <a href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a> disponible sur le site.</p>
+    <p>Nous nous efforçons de livrer des données de la meilleure qualité possible. Toutefois, malgré toute notre attention, elles peuvent encore comporter des erreurs ou omissions. Si vous constatez une erreur ou omission parmi ces données, nous vous invitons à nous la signaler à l’aide du <a class="bold" href="{% url "contact_topic" topic="signalement" %}">formulaire de contact</a> ou à l’adresse <a class="bold" href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a> disponible sur le site.</p>
 
     <hr class="my-5">
 
@@ -70,7 +70,7 @@
       <li>Le design et la conception graphique du site Internet</li>
     </ol>
 
-    <p>Si vous souhaitez reproduire ou réutiliser des contenus présents sur ce site, veuillez contacter le webmestre par le biais du <a href="{% url "contact_topic" topic="contact" %}">formulaire de contact</a> disponible sur le site ou à l’adresse <a href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a> pour connaître les conditions de réutilisation applicables.</p>
+    <p>Si vous souhaitez reproduire ou réutiliser des contenus présents sur ce site, veuillez contacter le webmestre par le biais du <a class="bold" href="{% url "contact_topic" topic="contact" %}">formulaire de contact</a> disponible sur le site ou à l’adresse <a href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a> pour connaître les conditions de réutilisation applicables.</p>
 
     <p>Les marques dont est titulaire le ministère de la transition écologique et solidaire et ministère de la cohésion des territoires et des relations avec les collectivités territoriales, ainsi que ses logos figurant sur le site sont des marques régulièrement déposées auprès de l’Institut national de la propriété industrielle (INPI). Toute reproduction totale ou partielle de ces marques ou de ces logos effectuées à partir des éléments du site sans l’autorisation expresse du propriétaire de ce site est prohibée au sens des articles L. 713-2 et suivants du Code de la propriété intellectuelle. Tout contrefacteur s’expose aux sanctions prévues aux articles L. 716-1 et suivants du code de la propriété intellectuelle.</p>
 
@@ -78,7 +78,7 @@
 
     <h3 class="h5 my-4">Code source</h3>
 
-    <p>Le code source de l’application Web et de l’interface de programmation applicative (API) sont libres et peuvent donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a href="https://spdx.org/licenses/MIT.html">licence MIT</a>. Ils sont disponibles sur Github à l'adresse <a href="https://github.com/MTES-MCT/acceslibre">github.com/MTES-MCT/acceslibre</a>.</p>
+    <p>Le code source de l’application Web et de l’interface de programmation applicative (API) sont libres et peuvent donc être vérifiés et améliorés par chacun dans les conditions précisées par la <a class="bold" href="https://spdx.org/licenses/MIT.html">licence MIT</a>. Ils sont disponibles sur Github à l'adresse <a class="bold" href="https://github.com/MTES-MCT/acceslibre">github.com/MTES-MCT/acceslibre</a>.</p>
 
     <h3 class="h5 my-4">Données administratives publiques relatives</h3>
 
@@ -98,7 +98,7 @@
 
     <p>Le responsable du traitement de vos données à caractère personnel est&nbsp;:</p>
 
-    <blockquote class="bl-highlight">
+    <div class="bl-highlight">
       <address>
         Le Ministère de la Transition écologique et solidaire - Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales<br>
         Délégation ministérielle à l’accessibilité<br>
@@ -107,7 +107,7 @@
         Grande Arche<br>
         92055 La Défense Cedex
       </address>
-    </blockquote>
+    </div>
 
     <h3 class="h5 my-4">Traitement des données et utilisation</h3>
 
@@ -134,35 +134,35 @@
     <p>En application du règlement général sur la protection des données et de la loi informatique et aux libertés, vous disposez d’un droit d’accès, de rectification, de suppression et d’opposition.</p>
 
     <ul>
-      <li>Par mail&nbsp;: <a href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a></li>
+      <li>Par mail&nbsp;: <a class="bold" href="mailto:acceslibre@beta.gouv.fr">acceslibre@beta.gouv.fr</a></li>
       <li>Par voie postale&nbsp;:
-        <blockquote class="bl-highlight">
+        <div class="bl-highlight">
           Ministère de la Transition écologique et solidaire<br>
           Délégation ministérielle à l’accessibilité<br>
           {{ SITE_NAME.title }}<br>
           Grande Arche <br>
           92055 La Défense Cedex
-        </blockquote>
+        </div>
       </li>
     </ul>
 
     <p>Cette demande écrite est accompagnée d’une copie du titre d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être envoyée.
     Le délégué à la protection des données du ministère de la transition écologique et solidaire peut également être contacté à l’adresse suivante&nbsp;:</p>
 
-    <blockquote class="bl-highlight">dpd.daj.sg@developpement-durable.gouv.fr.</blockquote>
+    <div class="bl-highlight">dpd.daj.sg@developpement-durable.gouv.fr.</div>
 
     <p>Conformément au règlement général sur la protection des données, vous disposez du droit d’introduire une réclamation auprès de la <a href="https://www.cnil.fr">CNIL</a>&nbsp;:</p>
 
-    <blockquote class="bl-highlight">
+    <div class="bl-highlight">
       <address>
         CNIL<br>
         3 place de Fontenoy<br>
         TSA 80715<br>
         75334 PARIS CEDEX 07
       </address>
-    </blockquote>
+    </div>
 
-    <p>Les modalités de réclamation sont précisées sur le site de la CNIL&nbsp;: <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+    <p>Les modalités de réclamation sont précisées sur le site de la CNIL&nbsp;: <a class="bold" href="https://www.cnil.fr">www.cnil.fr</a>.</p>
 
     <h3 class="h5 my-4">Procédure en cas de violations de données à caractère personnel</h3>
 
@@ -172,7 +172,7 @@
 
     <h3 class="h5 my-4">Cookies</h3>
 
-    <p>Nous déposons des cookies de mesure d’audience (nombre de visites, pages consultées), respectant les conditions d’exemption du consentement de l’internaute définies par la recommandation <q>Cookies</q> de la <a href="https://www.cnil.fr/">Commission nationale informatique et libertés (CNIL)</a>. Cela signifie, notamment, que ces cookies ne servent qu’à la production de statistiques anonymes et ne permettent pas de suivre votre navigation sur d’autres sites.</p>
+    <p>Nous déposons des cookies de mesure d’audience (nombre de visites, pages consultées), respectant les conditions d’exemption du consentement de l’internaute définies par la recommandation <q>Cookies</q> de la <a class="bold" href="https://www.cnil.fr/">Commission nationale informatique et libertés (CNIL)</a>. Cela signifie, notamment, que ces cookies ne servent qu’à la production de statistiques anonymes et ne permettent pas de suivre votre navigation sur d’autres sites.</p>
 
     <p>Nous déposons également des cookies de navigation, aux fins strictement techniques, qui ne sont pas conservés (mémorisation, pendant la durée de la session, des paramètres de filtrage et de préférence de fond cartographique). La consultation de la plateforme n’est pas affectée lorsque les utilisateurs utilisent des navigateurs désactivant les cookies.</p>
 
@@ -198,9 +198,9 @@
 
     <h2 class="h4 mb-3">Hébergement du service</h2>
 
-    <p>{{ SITE_NAME.title }} est hébergé en France sur l'infrastructure <a href="https://scalingo.com/fr">Scalingo</a>.</p>
+    <p>{{ SITE_NAME.title }} est hébergé en France sur l'infrastructure <a class="bold" href="https://scalingo.com/fr">Scalingo</a>.</p>
 
-    <blockquote class="bl-highlight">
+    <div class="bl-highlight">
       <address>
         Scalingo SAS
         <br>15, avenue du Rhin
@@ -208,7 +208,7 @@
         <br>France
         <br>SIRET 80866548300018
       </address>
-    </blockquote>
+    </div>
 
     <hr class="my-5">
 
@@ -216,7 +216,7 @@
 
     <p>Les termes des présentes conditions d’utilisation peuvent être modifiés ou complétés à tout moment, sans préavis, en fonction des modifications apportées au service, de l’évolution de la législation ou pour tout autre motif jugé nécessaire. Ces modifications et mises à jour s’imposent à l’utilisateur qui doit, en conséquence, se référer régulièrement à cette rubrique pour vérifier les conditions générales en vigueur.</p>
 
-    <p>Nous rendons librement accessible <a href="https://github.com/MTES-MCT/acceslibre/commits/master/templates/editorial/cgu.html">l’historique de ces conditions</a>.</p>
+    <p>Nous rendons librement accessible <a class="bold" href="https://github.com/MTES-MCT/acceslibre/commits/master/templates/editorial/cgu.html">l’historique de ces conditions</a>.</p>
   </div>
-</main>
+</div>
 {% endblock%}

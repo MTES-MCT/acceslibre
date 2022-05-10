@@ -34,6 +34,15 @@ iframe{
   width:auto;
 }
 
+button.fr-btn:focus, button.fr-btn:hover{
+  background-color: white;
+  color: rgba(41, 41, 255, 0.5);
+  background-image: none !important;
+  --color-hover: rgba(41, 41, 255, 0.5);
+  --color-active: rgba(41, 41, 255, 0.5);
+  border: 2px solid rgba(41, 41, 255, 0.5);
+}
+
 #home-latest-erps-list {
   & ul{
     padding-left: 0px;
@@ -42,7 +51,9 @@ iframe{
     list-style-type: none;
   }
 }
-
+.fr-header__brand-top{
+  display:block !important;
+}
 .a4a {
   // Ensure sticky footer
   // https://dev.to/nehalahmadkhan/how-to-make-footer-stick-to-bottom-of-web-page-3i14

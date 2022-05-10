@@ -5,7 +5,7 @@
 {% block page_title %}Erreur{% endblock%}
 
 {% block editorial_content %}
-<main role="main" id="content" class="text-center">
+<div class="text-center">
   <h2 class="display-4">Oups... Le serveur a crashé</h2>
   <div class="my-4">
     <img class="w-50" src="{% static "img/undraw_server_down.svg" %}" aria-hidden="true">
@@ -19,5 +19,5 @@
     ou de nous <a href="{% url "contact_topic" topic="bug" %}">contacter spécifiquement à ce sujet</a>
     si vous l'estimez nécessaire.
   </p>
-</main>
+</div>
 {% endblock %}

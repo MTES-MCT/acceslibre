@@ -6,7 +6,6 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block editorial_content %}
-<main role="main" id="content">
   {% if activation_error %}
     <div class="alert alert-warning">
       Une erreur est survenue: {{ activation_error }}
@@ -17,5 +16,4 @@
       Merci de <a href="{% url "contact_topic" topic="bug" %}">nous contacter</a>.
     </p>
   {% endif %}
-</main>
 {% endblock %}

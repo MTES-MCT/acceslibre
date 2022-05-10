@@ -3,14 +3,18 @@
   <div class="fr-col-12 fr-col-sm-10 no-gutters">
     <div class="what-field py-1">
       <div class="fr-col-10 fr-col-sm-5 input-group input-form text-left">
-        <span aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}"><strong>Quoi </strong> (activité, enseigne)</span><br>
+        <label for="what-input">
+          <span class="larger-font{% if dark %} text-light{% endif %}"><strong>Quoi </strong> (activité, enseigne)</span><br>
+        </label>
         <input type="search" id="what-input" name="what"
           class="fr-input " placeholder="Mairie, café…"
           aria-label="Rechercher un établissement, une activité. Exemple : Mairie, Café" autocomplete="off"
           value="{{ what|default_if_none:"" }}">
       </div>
       <div class="fr-col-10 fr-col-sm-5 input-group input-form search-where-field text-left" style="z-index:9999">
-        <span aria-hidden="true" class="larger-font{% if dark %} text-light{% endif %}"><strong>Où</strong> (adresse, ville)</span><br>
+        <label for="where-input">
+          <span class="larger-font{% if dark %} text-light{% endif %}"><strong>Où</strong> (adresse, ville)</span><br>
+        </label>
         <input id="where-input" class="autocomplete-input fr-input" type="search" dir="ltr"
             spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
             name="where" placeholder="12 rue des prés, Nantes">

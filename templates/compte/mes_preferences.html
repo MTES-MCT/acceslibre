@@ -7,7 +7,6 @@
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block compte_content %}
-  <main role="main" id="content">
     <h1 class="h3 mb-3">Mes préférences</h1>
     <form action="{% url "mes_preferences" %}" method="post">
       {% csrf_token %}
@@ -19,5 +18,4 @@
         </button>
       </p>
     </form>
-  </main>
 {% endblock %}
