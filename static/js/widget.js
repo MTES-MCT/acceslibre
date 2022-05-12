@@ -2,7 +2,7 @@ var erp_pk = document.getElementById('widget-a11y-container').getAttribute('data
 var base_url = document.getElementById('widget-a11y-container').getAttribute('data-baseurl');
 var opts = {
   method: 'GET',
-  headers: {}
+  headers: {'X-OriginUrl': window.location}
 };
 
 fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) {

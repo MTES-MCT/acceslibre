@@ -49,7 +49,7 @@ class Challenge(models.Model):
 
 
 class Referer(models.Model):
-    domain = models.URLField(help_text="Domaine du site réutilisateur")
+    domain = models.URLField(help_text="Domaine du site réutilisateur", unique=True)
 
     date_notification_to_mattermost = models.DateTimeField(
         null=True, verbose_name="Date de notification sur Mattermost ?"
@@ -91,7 +91,7 @@ class Implementation(models.Model):
     referer = models.ForeignKey(
         Referer, on_delete=models.CASCADE, related_name="implementations"
     )
-    urlpath = models.URLField(help_text="Url complète")
+    urlpath = models.URLField(help_text="Url complète", unique=True)
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Date de détection de tracking"
     )
