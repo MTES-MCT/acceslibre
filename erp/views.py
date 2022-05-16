@@ -637,7 +637,6 @@ def contrib_global_search(request):
 
 
 @create_revision()
-@reversion.views.create_revision()
 def contrib_admin_infos(request):
     data = None
     data_error = None
