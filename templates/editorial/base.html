@@ -7,6 +7,8 @@
   {% endblock %}
 
   {% comment %}Full-width content available area, by default featuring the generic search form.{% endcomment %}
+  <main role="main" id="content">
+
   {% block top_fluid_content %}
     <aside class="container-fluid bg-light py-4">
       <div class="container text-center">
@@ -25,6 +27,7 @@
   {% comment %}Full-width content available area,empty by default{% endcomment %}
   {% block bottom_fluid_content %}{% endblock %}
 
+  </main>
   {% comment %}Common page footer{% endcomment %}
   {% include "editorial/footer.html" %}
 {% endblock %}

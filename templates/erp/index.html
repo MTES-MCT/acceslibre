@@ -9,6 +9,7 @@
 
 {% block top_fluid_content %}
   {% include "editorial/bandeau.html" with active=False %}
+  {{ block.super }}
 {% endblock %}
 
 {% block skiplinks %}

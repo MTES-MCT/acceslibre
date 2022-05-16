@@ -1,13 +1,21 @@
 {% load a4a %}
 
 <div class="a4a-form-field field-{{ field.name }} mb-3">
+  {% if field.id_for_label %}
   <label for="{{ field.id_for_label }}" class="mb-0">
     <strong>{{ field.label }}</strong><br>
   </label>
+{% else %}
+  <span class="mb-0">
+    <strong>{{ field.label }}</strong><br>
+  </span>
+{% endif %}
   <div class="form-group mb-1">
     <p>{{ field.help_text|safe }}</p>
     <div class="a4a-form-choices{% if inline %} inline{% endif %}" role="group">
+    <fieldset>
       {{ field }}
+      </fieldset>
     </div>
     {% for error in field.errors %}
     <div class="form-text text-danger" role="alert">{{ error }}</div>

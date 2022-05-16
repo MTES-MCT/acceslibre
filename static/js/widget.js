@@ -2,7 +2,7 @@ var erp_pk = document.getElementById('widget-a11y-container').getAttribute('data
 var base_url = document.getElementById('widget-a11y-container').getAttribute('data-baseurl');
 var opts = {
   method: 'GET',
-  headers: {}
+  headers: {'X-OriginUrl': window.location}
 };
 
 fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) {
@@ -22,6 +22,7 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
       g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
     })();
+
     var container = document.getElementById('widget-a11y-container');
     var newDiv = document.createElement("div");
     newDiv.innerHTML = body;
@@ -60,6 +61,18 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
     };
 
     const open = function (dialog) {
+      var _paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      _paq.push(['enableHeartBeatTimer']);
+      _paq.push(['trackGoal', 7]);
+      (function() {
+        var u="//stats.data.gouv.fr/";
+        _paq.push(["setTrackerUrl", u+"matomo.php"]);
+        _paq.push(["setSiteId", "118"]);
+      })();
+
       const focusableElements = dialog.querySelectorAll(focusableElementsArray);
       const firstFocusableElement = focusableElements[0];
       const lastFocusableElement = focusableElements[focusableElements.length - 1];
@@ -117,17 +130,6 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       // open dialog
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
-        var _paq = window._paq || [];
-        _paq.push(["trackPageView"]);
-
-        (function() {
-          var u="//stats.data.gouv.fr/";
-          _paq.push(["setTrackerUrl", u+"matomo.php"]);
-          _paq.push(["setSiteId", "118"]);
-          _paq.push(["trackEvent", "modal_open"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
-          g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"matomo.js"; s.parentNode.insertBefore(g,s);
-        })();
         open(dialog);
 
 
@@ -136,7 +138,6 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       trigger.addEventListener('keydown', (event) => {
         if (event.which === keyCodes.enter) {
           event.preventDefault();
-
           open(dialog);
         }
       });
@@ -163,6 +164,10 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
           close(dialog, trigger);
         }
       });
+      btn = document.getElementById('btn_acceslibre')
+      btn.addEventListener('click', (event) => {
+        _paq.push(['trackGoal', 8]);
+      });
     });
 
     function showPopup() {
@@ -174,3 +179,4 @@ fetch(base_url + '/uuid/' + erp_pk + '/widget/', opts).then(function (response) 
       })
     }
   });
+

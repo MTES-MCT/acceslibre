@@ -226,7 +226,7 @@
               </ul>
             {% endif %}
             <p class="modal__footer_link">
-              <btn id="btn_acceslibre" onclick="location.href='{{ erp.get_absolute_uri }}';" data-track-event="widget,redirection_acceslibre,{{ erp.slug }}" rel="noopener noreferrer" class="fr-btn fr-btn--secondary fr-text--md">
+              <btn id="btn_acceslibre" onclick="location.href='{{ erp.get_absolute_uri }}';" rel="noopener noreferrer" class="fr-btn fr-btn--secondary fr-text--md">
                 <span>Voir plus sur </span>
                 <img src="{{ base_url }}{% static "img/logo-acceslibre-widget.png" %}" alt="acceslibre" style="height:50px;vertical-align: text-bottom;">
               </btn>
@@ -238,5 +238,5 @@
   </div>
 </div>
 
-{% include "common/matomo.html" %}
+
 {% include "common/sentry.html" %}

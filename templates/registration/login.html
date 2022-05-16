@@ -30,7 +30,6 @@
   {% endif %}
 {% endblock %}
 {% block editorial_content %}
-<main role="main" id="content">
   {% if user.is_authenticated %}
   <p class="alert alert-warning">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
@@ -83,5 +82,4 @@
     </div>
   </div>
   {% endif %}
-</main>
 {% endblock %}

@@ -104,10 +104,11 @@
                   </address>
                 </div>
               </div>
-              <div class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
+              <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
                 title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
+                Localiser<br>
                 <i aria-hidden="true" class="icon icon-target"></i>
-              </div>
+              </button>
             </div>
             <p class="text-left">
               <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url "contrib_localisation" erp_slug=erp.slug %}">

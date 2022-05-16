@@ -1,9 +1,15 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
+from django.utils.functional import lazy
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as _
 from django_registration.forms import RegistrationFormUniqueEmail
+from six import text_type
 
 from compte.models import UserPreferences
 
@@ -37,6 +43,24 @@ def define_email_field(label="Email"):
     )
 
 
+def _custom_password_validators_help_text_html(password_validators=None):
+    """
+    Return an HTML string with all help texts of all configured validators
+    in an <ul>.
+    """
+    help_texts = password_validators_help_texts(password_validators)
+    help_items = [
+        format_html("<span>- {}</span><br>", help_text) for help_text in help_texts
+    ]
+    # <------------- append your hint here in help_items  ------------->
+    return "%s" % "".join(help_items) if help_items else ""
+
+
+custom_password_validators_help_text_html = custom_validators_help_text_html = lazy(
+    _custom_password_validators_help_text_html, text_type
+)
+
+
 class CustomRegistrationForm(RegistrationFormUniqueEmail):
     class Meta(RegistrationFormUniqueEmail.Meta):
         model = get_user_model()
@@ -47,6 +71,10 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "password2",
             "next",
         ]
+        widgets = {
+            "email": forms.TextInput(attrs={"autocomplete": "email"}),
+            "username": forms.TextInput(attrs={"autocomplete": "username"}),
+        }
 
     email = forms.EmailField(
         error_messages={
@@ -54,7 +82,13 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "unique": "Cet email est déja utilisé. Merci de fournir un email différent.",
         }
     )
-
+    password1 = forms.CharField(
+        label=_("Password"),
+        required=True,
+        widget=forms.PasswordInput,
+        strip=False,
+        help_text=custom_validators_help_text_html(),
+    )
     username = define_username_field()
     next = forms.CharField(required=False)
 

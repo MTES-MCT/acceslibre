@@ -2,7 +2,9 @@ import uuid
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
+from core import mattermost
 from stats.queries import get_count_challenge
 
 
@@ -44,3 +46,63 @@ class Challenge(models.Model):
             for user in classement
         ]
         self.save()
+
+
+class Referer(models.Model):
+    domain = models.URLField(help_text="Domaine du site réutilisateur", unique=True)
+
+    date_notification_to_mattermost = models.DateTimeField(
+        null=True, verbose_name="Date de notification sur Mattermost ?"
+    )
+
+    class Meta:
+        ordering = ("-id",)
+        verbose_name = "Site réutilisateur"
+        verbose_name_plural = "Sites réutilisateur"
+
+    def __str__(self):
+        return self.domain
+
+    def create_notification(self):
+        return self.domain
+
+    def notif_mattermost(self):
+        if self.date_notification_to_mattermost:
+            return
+        try:
+            mattermost.send(
+                "Nouveau Réutilisateur du Widget",
+                attachements=[
+                    {
+                        "pretext": "Un nouveau domaine a été détecté :thumbsup:",
+                        "text": f"- \n[Lien vers le réutilisateur]({self.domain})",
+                    }
+                ],
+                tags=[__name__],
+            )
+        except Exception as e:
+            raise e
+        else:
+            self.date_notification_to_mattermost = timezone.now()
+            self.save()
+
+
+class Implementation(models.Model):
+    referer = models.ForeignKey(
+        Referer, on_delete=models.CASCADE, related_name="implementations"
+    )
+    urlpath = models.URLField(help_text="Url complète", unique=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Date de détection de tracking"
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True, verbose_name="Date de dernier contact"
+    )
+
+    class Meta:
+        ordering = ("-updated_at", "urlpath")
+        verbose_name = "Implémentation du Widget"
+        verbose_name_plural = "Implémentations du Widget"
+
+    def __str__(self):
+        return self.urlpath

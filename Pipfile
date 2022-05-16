@@ -14,7 +14,7 @@ pytest-circleci-parallelized = "*"
 
 [packages]
 coreapi = "*"
-Django = "==3.2.11"
+Django = "==3.2.13"
 django-admin-autocomplete-filter = {editable = true, ref = "pre_release", git = "https://github.com/farhan0581/django-admin-autocomplete-filter.git"}
 django-admin-list-filter-dropdown = "*"
 django-autoslug = "*"
@@ -29,7 +29,7 @@ django-nested-admin = "*"
 django-registration = "*"
 django-reset-migrations = "*"
 django-rest-framework = "*"
-django-reversion = "*"
+django-reversion = "==4.0.2"
 django-toolbelt = "*"
 djangorestframework-gis = "*"
 frictionless = "*"

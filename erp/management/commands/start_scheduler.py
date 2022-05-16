@@ -24,6 +24,7 @@ class Command(BaseCommand):
     def setup(self):
         schedule.every().day.at("04:00").do(call_command, "purge_inactive_accounts")
         schedule.every().hour.do(call_command, "purge_tokens")
+        schedule.every().hour.do(call_command, "calculate_challenge_stats")
         schedule.every().day.at("01:00").do(call_command, "export_to_datagouv")
         schedule.every().hour.do(call_command, "import_dataset", "vaccination")
         schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
@@ -32,6 +33,9 @@ class Command(BaseCommand):
         # Do NOT periodically notify people from staging, because that would confuse them A LOT
         # Fix me : replace by kill switch
         if not settings.STAGING:
+            schedule.every().hour.do(
+                call_command, "widget_implementation_notifications"
+            )
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
             schedule.every().thursday.at("14:30").do(
                 call_command, "notify_unpublished_erps"
