@@ -4,9 +4,6 @@
 
 {% block editorial_content %}
 <div class="row">
-  <main class="col-md-8 col-lg-9 order-last" id="content">
-    {% block annuaire_content %}{% endblock %}
-  </main>
   <nav class="col-md-4 col-lg-3 mb-4">
     <ul class="nav flex-column nav-pills" aria-label="Menu">
       <li class="nav-item">
@@ -18,5 +15,8 @@
 
     </ul>
   </nav>
+  <main class="col-md-8 col-lg-9 order-last">
+    {% block annuaire_content %}{% endblock %}
+  </main>
 </div>
 {% endblock %}
