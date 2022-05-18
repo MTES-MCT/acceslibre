@@ -84,6 +84,7 @@ class AdminAccessibiliteForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
         obj = kwargs.get("instance")
+
         # Nombre de sanitaires
         if (
             obj
@@ -102,6 +103,11 @@ class AdminAccessibiliteForm(forms.ModelForm):
             initial["entree_porte_presence"] = True
         kwargs["initial"] = initial
         super().__init__(*args, **kwargs)
+
+    def clean_accueil_equipements_malentendants(self):
+        if self.cleaned_data["accueil_equipements_malentendants_presence"] is not True:
+            return None
+        return self.cleaned_data["accueil_equipements_malentendants"]
 
     def clean_sanitaires_adaptes(self):
         # Specific case where we want to map nullable bool choices
@@ -172,7 +178,7 @@ class BaseErpForm(forms.ModelForm):
         return ", ".join([p for p in adresse_parts if p != ""])
 
     def format_error(self, message):
-        signalement_url = reverse("contact_topic", kwargs={"topic": "support"})
+        signalement_url = reverse("contact_topic", kwargs={"topic": "bug"})
         return mark_safe(
             f'{message}. Veuillez vérifier votre saisie ou <a href="{signalement_url}" target="_blank">signaler une erreur</a>.'
         )
@@ -423,34 +429,19 @@ class BasePublicErpInfosForm(BaseErpForm):
             "source": forms.HiddenInput(),
             "source_id": forms.HiddenInput(),
             "geom": forms.HiddenInput(),
-            "nom": forms.TextInput(
-                attrs={
-                    "autocomplete": "organization",
-                    "placeholder": "ex: La ronde des fleurs",
-                }
-            ),
+            "nom": forms.TextInput(attrs={"placeholder": "ex: La ronde des fleurs"}),
             "numero": forms.TextInput(attrs={"placeholder": "ex: 4bis"}),
             "voie": forms.TextInput(attrs={"placeholder": "ex: rue des prés"}),
             "lieu_dit": forms.TextInput(attrs={"placeholder": "ex: le Val du Puits"}),
-            "code_postal": forms.TextInput(
-                attrs={"autocomplete": "postal-code", "placeholder": "ex: 75001"}
-            ),
+            "code_postal": forms.TextInput(attrs={"placeholder": "ex: 75001"}),
             "commune": forms.TextInput(attrs={"placeholder": "ex: Paris"}),
             "contact_email": forms.EmailInput(
-                attrs={"autocomplete": "email", "placeholder": "ex: nom@domain.tld"}
+                attrs={"placeholder": "ex: nom@domain.tld"}
             ),
             "site_internet": forms.URLInput(
-                attrs={
-                    "autocomplete": "url",
-                    "placeholder": "ex: http://etablissement.com",
-                }
+                attrs={"placeholder": "ex: http://etablissement.com"}
             ),
-            "telephone": forms.TextInput(
-                attrs={
-                    "autocomplete": "tel-national",
-                    "placeholder": "ex: 01.02.03.04.05",
-                }
-            ),
+            "telephone": forms.TextInput(attrs={"placeholder": "ex: 01.02.03.04.05"}),
             "contact_url": forms.URLInput(
                 attrs={
                     "placeholder": "https://mon-etablissement.fr/contactez-nous.html"
