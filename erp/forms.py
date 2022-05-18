@@ -84,6 +84,7 @@ class AdminAccessibiliteForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         initial = kwargs.get("initial", {})
         obj = kwargs.get("instance")
+
         # Nombre de sanitaires
         if (
             obj
@@ -102,6 +103,11 @@ class AdminAccessibiliteForm(forms.ModelForm):
             initial["entree_porte_presence"] = True
         kwargs["initial"] = initial
         super().__init__(*args, **kwargs)
+
+    def clean_accueil_equipements_malentendants(self):
+        if self.cleaned_data["accueil_equipements_malentendants_presence"] is not True:
+            return None
+        return self.cleaned_data["accueil_equipements_malentendants"]
 
     def clean_sanitaires_adaptes(self):
         # Specific case where we want to map nullable bool choices
