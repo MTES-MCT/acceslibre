@@ -50,13 +50,14 @@ def test_export_failure(mocker, db, settings):
     assert "Erreur lors de l'upload" in str(err.value)
 
 
-def test_schema_validation():
-    schema = Schema("erp/export/static/schema.json")
-    resource = Resource(
-        "erp/export/static/exemple-valide.csv",
-        schema=schema,
-    )
-    result_schema = validate_schema(schema)
-    result_resource = validate_resource(resource)
-    assert result_schema.get("valid") is True
-    assert result_resource.get("valid") is True
+#
+# def test_schema_validation():
+#     schema = Schema("erp/export/static/schema.json")
+#     resource = Resource(
+#         "erp/export/static/exemple-valide.csv",
+#         schema=schema,
+#     )
+#     result_schema = validate_schema(schema)
+#     result_resource = validate_resource(resource)
+#     assert result_schema.get("valid") is True
+#     assert result_resource.get("valid") is True

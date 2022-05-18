@@ -105,7 +105,11 @@ class AdminAccessibiliteForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
     def clean_accueil_equipements_malentendants(self):
-        if self.cleaned_data["accueil_equipements_malentendants_presence"] is not True:
+        if (
+            "accueil_equipements_malentendants_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_equipements_malentendants_presence"]
+            is not True
+        ):
             return None
         return self.cleaned_data["accueil_equipements_malentendants"]
 
