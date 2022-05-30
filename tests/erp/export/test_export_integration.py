@@ -50,6 +50,7 @@ def test_export_failure(mocker, db, settings):
     assert "Erreur lors de l'upload" in str(err.value)
 
 
+#
 # def test_schema_validation():
 #     schema = Schema("erp/export/static/schema.json")
 #     resource = Resource(
