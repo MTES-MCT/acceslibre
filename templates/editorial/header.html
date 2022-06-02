@@ -7,11 +7,14 @@
                 <div class="fr-header__brand">
                     <div class="fr-header__brand-top">
                         <div class="fr-header__logo">
-                            <a class="d-flex align-items-center text-decoration-none" href="{% url "home" %}">
+                            <a class="d-flex align-items-center text-decoration-none" href="{% url "home" %}" style="margin-bottom: 10px;">
                               <img src="{% static "img/logo-acceslibre.svg" %}" alt="acceslibre, République Française" height="75">
                             </a>
+                            <a class="skippy sr-only sr-only-focusable" href="#content" style="position:relative !important">
+                              <span class="skippy-text">Aller au contenu principal</span>
+                            </a>
                         </div>
-                        <div class="fr-header__navbar" style="justify-content: center;">
+                        <div class="fr-header__navbar" style="justify-content: right;">
                             <a href="{% url "mon_compte" %}" class="m-4" >
                               <i aria-hidden="true" class="icon icon-unlock"></i> Mon compte
                             </a>
