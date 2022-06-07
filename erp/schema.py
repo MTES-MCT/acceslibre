@@ -227,6 +227,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/sortiraparis.html",
         "url": "https://www.sortiraparis.com",
     },
+    "NESTENN": {
+        "avatar": "nestenn_avatar.png",
+        "logo": "img/partenaires/nestenn.png",
+        "name": "Nestenn",
+        "short_description": "Groupe d'agences immobilières",
+        "template": "editorial/partenaires/nestenn.html",
+        "url": "https://nestenn.com/groupe-immobilier-nestenn",
+    },
 }
 
 SECTION_TRANSPORT = "transport"
