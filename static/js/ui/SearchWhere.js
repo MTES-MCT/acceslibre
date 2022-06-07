@@ -13,7 +13,7 @@ async function getCommonResults(loc) {
 }
 
 function SearchWhere(root) {
-  const input = root.querySelector("input[type=search]");
+  const input = root.querySelector("input[name=where]");
   const a11yGeolocBtn = document.querySelector(".get-geoloc-btn");
   const hiddens = {
     lat: root.querySelector("input[name=lat]"),

@@ -7,6 +7,7 @@ from django.core.validators import RegexValidator
 from django.utils.functional import lazy
 from django.utils.html import format_html
 from django.utils.translation import gettext as _
+from django_registration import validators
 from django_registration.forms import RegistrationFormUniqueEmail
 from six import text_type
 
@@ -96,6 +97,15 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         initial=False,
         required=False,
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        email_field = get_user_model().get_email_field_name()
+        self.fields[email_field].validators = (
+            validators.CaseInsensitiveUnique(
+                get_user_model(), email_field, validators.DUPLICATE_EMAIL
+            ),
+        )
 
     def clean_robot(self):
         robot = self.cleaned_data["robot"]

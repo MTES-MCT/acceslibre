@@ -20,16 +20,12 @@
     <meta name="google-site-verification" content="SPPq95ai4uSt5AL3H0POB1MjydYAMiBY6ReGBkC_ZFg">
   </head>
 
-  <body class="a4a">
-{#    <a class="skippy sr-only sr-only-focusable" href="#content">#}
-{#      <span class="skippy-text">Aller au contenu principal</span>#}
-{#    </a>#}
+  <body class="a4a" tabindex="0">
     {% block skiplinks %}{% endblock %}
     {% include "common/notifications.html" %}
     {% block content %}{% endblock %}
     {% include "common/matomo.html" %}
     {% include "common/sentry.html" %}
-    {% include "common/google_analytics.html" %}
     {% if STAGING %}
     <div class="a4a-staging-notice">
       Vous consultez actuellement le serveur de recette acceslibre.

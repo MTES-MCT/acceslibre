@@ -6,10 +6,7 @@
 
 {% block editorial_content %}
 <div class="row">
-  <div class="col-md-9 order-last">
-    {% block contrib_content %}{% endblock %}
-  </div>
-  <nav class="col-md-3 mb-3" aria-label="Étapes d'ajout d'un établissement" role="navigation">
+<nav class="col-md-3 mb-3" aria-label="Étapes d'ajout d'un établissement" role="navigation">
     <div class="d-md-none" id="step-navigation">
       <label for="step-select" class="font-weight-bold">Navigation</label>
       <select id="step-select" class="form-control" onchange="location=$(this).val()+'#step-navigation'">
@@ -135,5 +132,9 @@
       </li>
     </ul>
   </nav>
+  <div class="col-md-9 order-last">
+    {% block contrib_content %}{% endblock %}
+  </div>
+
 </div>
 {% endblock %}

@@ -3,15 +3,15 @@
 <div class="a4a-form-field field-{{ field.name }} mb-3">
   {% if field.id_for_label %}
   <label for="{{ field.id_for_label }}" class="mb-0">
-    <strong>{{ field.label }}</strong><br>
+    <strong tabindex="0">{{ field.label }}</strong><br>
   </label>
 {% else %}
   <span class="mb-0">
-    <strong>{{ field.label }}</strong><br>
+    <strong tabindex="0">{{ field.label }}</strong><br>
   </span>
 {% endif %}
   <div class="form-group mb-1">
-    <p>{{ field.help_text|safe }}</p>
+    <p tabindex="0">{{ field.help_text|safe }}</p>
     <div class="a4a-form-choices{% if inline %} inline{% endif %}" role="group">
     <fieldset>
       {{ field }}

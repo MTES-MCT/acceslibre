@@ -227,6 +227,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/sortiraparis.html",
         "url": "https://www.sortiraparis.com",
     },
+    "NESTENN": {
+        "avatar": "nestenn_avatar.png",
+        "logo": "img/partenaires/nestenn.png",
+        "name": "Nestenn",
+        "short_description": "Groupe d'agences immobilières",
+        "template": "editorial/partenaires/nestenn.html",
+        "url": "https://nestenn.com/groupe-immobilier-nestenn",
+    },
 }
 
 SECTION_TRANSPORT = "transport"
@@ -1218,7 +1226,7 @@ FIELDS = {
             "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
         ),
         "help_text_ui": "L'établissement a été déclaré conforme à la réglementation",
-        "help_text_ui_neg": "l'établissement a été déclaré non conforme à la réglementation",
+        "help_text_ui_neg": "l'établissement n'a pas été déclaré conforme à la réglementation auprès de l'administration",
         "choices": NULLABLE_BOOLEAN_CHOICES,
         "section": SECTION_CONFORMITE,
         "nullable_bool": True,

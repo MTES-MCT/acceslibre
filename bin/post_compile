@@ -1,5 +1,4 @@
 #!/bin/sh
 
 npm run build:prod
-
 python manage.py collectstatic --noinput
