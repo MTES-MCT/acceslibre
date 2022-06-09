@@ -727,7 +727,7 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
         follow=True,
     )
 
-    assert_redirect(response, erp.get_absolute_url())
+    assert_redirect(response, reverse("mes_erps"))
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.published is False
 

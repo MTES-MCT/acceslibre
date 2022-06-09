@@ -2,7 +2,7 @@ import logging
 
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
-from django.contrib.auth import get_user_model, logout
+from django.contrib.auth import get_user_model, logout, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
@@ -23,6 +23,15 @@ from subscription.models import ErpSubscription
 logger = logging.getLogger(__name__)
 
 
+class CustomRegistrationCompleteView(TemplateView):
+    def get_context_data(self, **kwargs):
+        "Spread the next redirect value from qs param to template context key."
+        context = super().get_context_data(**kwargs)
+        context["email"] = self.request.GET.get("email", "")
+        context["next"] = self.request.GET.get("next", "")
+        return context
+
+
 class CustomActivationCompleteView(TemplateView):
     def get_context_data(self, **kwargs):
         "Spread the next redirect value from qs param to template context key."
@@ -32,10 +41,16 @@ class CustomActivationCompleteView(TemplateView):
 
 
 class CustomRegistrationView(RegistrationView):
+    def get_success_url(self, user=None):
+        return (
+            self.success_url
+            + f"?email={user.email}&next={self.request.POST.get('next', '')}"
+        )
+
     def get_email_context(self, activation_key):
         "Add the next redirect value to the email template context."
         context = super().get_email_context(activation_key)
-        context["next"] = self.request.GET.get("next", "")
+        context["next"] = self.request.POST.get("next", "")
         return context
 
 
@@ -43,9 +58,15 @@ class CustomActivationView(ActivationView):
     def get_success_url(self, user=None):
         "Add the next redirect path to the success redirect url"
         url = super().get_success_url(user)
+        #
         next = self.request.GET.get("next", "")
         if not next and self.extra_context and "next" in self.extra_context:
             next = self.extra_context.get("next", "")
+        if next:
+            login(
+                self.request, user, backend="django.contrib.auth.backends.ModelBackend"
+            )
+            return next
         return f"{url}?next={next}"
 
 

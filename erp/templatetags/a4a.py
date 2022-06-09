@@ -207,7 +207,7 @@ def preposition_nom(value):
 @register.simple_tag
 def retrieve_erp(value):
     if "/contrib/publication" in value:
-        erp_slug = value.split("/contrib/publication/")[1].strip("/")
+        erp_slug = value.split("/contrib/publication/")[1].split("/")[0].strip("/")
         try:
             return Erp.objects.get(slug=erp_slug).nom
         except Erp.DoesNotExist:

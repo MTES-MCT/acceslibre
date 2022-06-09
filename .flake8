@@ -1,5 +1,6 @@
 [flake8]
 ignore =
+    C901, # Too complex
     E231, # Space after comma
     E501, # Line too long
     E731, # Allow inline lambda assignments

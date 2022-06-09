@@ -22,13 +22,13 @@
 {% endblock skiplinks %}
 
 {% block editorial_content %}
-  {% if messages %}
+  {% if 'success' in request.GET and messages %}
   <aside class="container-fluid alert alert-info mb-0 shadow-sm text-center">
     <div class="container">
       <span class="h1 mb-0">Merci !</span>
       <img src="{% static 'img/merci.png' %}" height="60" class="d-none d-md-inline-block mb-2" alt="" aria-hidden="true"/>
       <br>
-      Votre fiche est publiée. Merci pour votre contribution.
+      La fiche est publiée. Merci pour votre contribution.
     </div>
   </aside>
   {% endif %}

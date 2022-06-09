@@ -621,6 +621,9 @@ class Erp(models.Model):
     def get_absolute_uri(self):
         return f"{settings.SITE_ROOT_URL}{self.get_absolute_url()}"
 
+    def get_success_url(self):
+        return f"{self.get_absolute_url()}?success=true"
+
     def get_absolute_url(self):
         if self.commune_ext:
             commune_slug = self.commune_ext.slug

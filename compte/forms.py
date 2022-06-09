@@ -1,6 +1,7 @@
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 from django.contrib.auth.password_validation import password_validators_help_texts
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
@@ -72,7 +73,9 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
             "next",
         ]
         widgets = {
-            "email": forms.TextInput(attrs={"autocomplete": "email"}),
+            "email": forms.TextInput(
+                attrs={"autocomplete": "email", "autofocus": True}
+            ),
             "username": forms.TextInput(attrs={"autocomplete": "username"}),
         }
 
@@ -80,7 +83,7 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         error_messages={
             "invalid": "Format de l'email attendu : nom@domaine.tld",
             "unique": "Cet email est déja utilisé. Merci de fournir un email différent.",
-        }
+        },
     )
     password1 = forms.CharField(
         label=_("Password"),
@@ -173,3 +176,9 @@ class PreferencesForm(forms.ModelForm):
     class Meta:
         model = UserPreferences
         fields = ["notify_on_unpublished_erps"]
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = UsernameField(
+        label="Adresse e-mail", widget=forms.TextInput(attrs={"autofocus": True})
+    )

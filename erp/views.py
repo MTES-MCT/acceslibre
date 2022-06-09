@@ -747,6 +747,35 @@ def contrib_localisation(request, erp_slug):
     )
 
 
+def check_authentication(request, erp, form, check_online=True):
+    if check_online:
+        if erp.is_online() and not request.user.is_authenticated:
+            return redirect(
+                reverse("login")
+                + "?"
+                + urllib.parse.urlencode(
+                    {
+                        "next": request.path
+                        + "?"
+                        + urllib.parse.urlencode(form.cleaned_data)
+                    }
+                )
+            )
+    else:
+        if not request.user.is_authenticated:
+            return redirect(
+                reverse("login")
+                + "?"
+                + urllib.parse.urlencode(
+                    {
+                        "next": request.path
+                        + "?"
+                        + urllib.parse.urlencode(form.cleaned_data)
+                    }
+                )
+            )
+
+
 def process_accessibilite_form(
     request,
     erp_slug,
@@ -769,32 +798,44 @@ def process_accessibilite_form(
     # N'amener l'utilisateur vers l'étape de publication que:
     # - s'il est propriétaire de la fiche
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
-    user_can_access_next_route = request.user == erp.user or step != 9
+    user_can_access_next_route = (
+        request.user == erp.user or step not in (8, 9) or not erp.is_online()
+    )
 
+    Form = modelform_factory(
+        Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields
+    )
     if request.method == "POST":
-        Form = modelform_factory(
-            Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields
-        )
         form = Form(request.POST, instance=accessibilite)
-        if form.is_valid():
-            accessibilite = form.save(commit=False)
-            accessibilite.erp = erp
-            accessibilite.save()
-            form.save_m2m()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
-            if user_can_access_next_route:
-                return redirect(
-                    reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
-                )
-            else:
-                redirect_url = erp.get_absolute_url()
-                if step == 8:
-                    redirect_url += f"#{redirect_hash}"
-                return redirect(redirect_url)
     else:
-        form = forms.AdminAccessibiliteForm(instance=accessibilite)
+        if request.GET:
+            form = Form(request.GET, instance=accessibilite)
+        else:
+            form = forms.AdminAccessibiliteForm(instance=accessibilite)
+    if form.is_valid():
+        if check_authentication(request, erp, form):
+            return check_authentication(request, erp, form)
+        accessibilite = form.save(commit=False)
+        accessibilite.erp = erp
+        accessibilite.save()
+        form.save_m2m()
+        messages.add_message(
+            request, messages.SUCCESS, "Les données ont été enregistrées."
+        )
+        if user_can_access_next_route:
+            return redirect(
+                reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
+            )
+        else:
+            if erp.is_online():
+                redirect_url = erp.get_success_url()
+            elif erp.user == request.user:
+                redirect_url = reverse("mes_erps")
+            else:
+                redirect_url = reverse("mes_contributions")
+            if step == 8:
+                redirect_url += f"#{redirect_hash}"
+            return redirect(redirect_url)
 
     if prev_route:
         prev_route = reverse(prev_route, kwargs={"erp_slug": erp.slug})
@@ -960,7 +1001,6 @@ def contrib_commentaire(request, erp_slug):
     )
 
 
-@login_required
 @create_revision()
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
@@ -969,37 +1009,49 @@ def contrib_publication(request, erp_slug):
         "user_type": erp.user_type,
         "published": erp.published,
         "certif": erp.published,
-        "subscribe": erp.is_subscribed_by(request.user),
     }
     empty_a11y = False
     if request.method == "POST":
+        # initial["subscribe"] = (erp.is_subscribed_by(request.user),)
         form = forms.PublicPublicationForm(
             request.POST, instance=accessibilite, initial=initial
         )
-        if form.is_valid():
-            erp.user = request.user
-            erp.save()
-            accessibilite = form.save()
-            if not accessibilite.has_data() and form.cleaned_data.get(
-                "published", False
-            ):
-                erp.published = False
-                erp.save()
-                empty_a11y = True
-            else:
-                erp.user_type = form.cleaned_data.get("user_type")
-                erp.published = form.cleaned_data.get("published")
-                if form.cleaned_data.get("subscribe"):
-                    ErpSubscription.subscribe(erp, request.user)
-                else:
-                    ErpSubscription.unsubscribe(erp, request.user)
-                erp.save()
-                messages.add_message(
-                    request, messages.SUCCESS, "Les données ont été sauvegardées."
-                )
-                return redirect(erp.get_absolute_url())
     else:
-        form = forms.PublicPublicationForm(instance=accessibilite, initial=initial)
+        if request.GET:
+            form = forms.PublicPublicationForm(
+                request.GET, instance=accessibilite, initial=initial
+            )
+
+        else:
+            form = forms.PublicPublicationForm(instance=accessibilite, initial=initial)
+    if form.is_valid():
+        if check_authentication(request, erp, form, check_online=False):
+            return check_authentication(request, erp, form, check_online=False)
+        erp.user = request.user
+        erp.save()
+        accessibilite = form.save()
+        if not accessibilite.has_data() and form.cleaned_data.get("published", False):
+            erp.published = False
+            erp.save()
+            empty_a11y = True
+        else:
+            erp.user_type = form.cleaned_data.get("user_type")
+            erp.published = form.cleaned_data.get("published")
+            if form.cleaned_data.get("subscribe"):
+                ErpSubscription.subscribe(erp, request.user)
+            else:
+                ErpSubscription.unsubscribe(erp, request.user)
+            erp.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Les données ont été sauvegardées."
+            )
+            if erp.is_online():
+                redirect_url = erp.get_success_url()
+            elif erp.user == request.user:
+                redirect_url = reverse("mes_erps")
+
+            return redirect(redirect_url)
+
     return render(
         request,
         template_name="contrib/11-publication.html",

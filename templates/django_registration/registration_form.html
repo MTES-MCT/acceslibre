@@ -31,8 +31,6 @@
 
 {% block editorial_content %}
 
-  <div class="row fr-grid-row--center">
-
   {% if user.is_authenticated %}
   <p class="alert alert-warning" role="alert">
     Vous êtes déjà authentifié en tant que <strong>{{ user.username }}</strong>,
@@ -41,37 +39,41 @@
     ou revenir à la <a href="{% url "home" %}">page d'accueil</a>.
   </p>
   {% else %}
-  <h1 class="h3 text-left mb-4">Créer un compte utilisateur</h1>
+<div class="row">
+  <div class="fr-col-6">
+      <form action="." method="POST" novalidate class="registration-form mb-4" id="registration">
+        {% csrf_token %}
 
-    <form action="." method="POST" novalidate class="registration-form mb-4" id="registration">
-      {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.GET.next|urlencode }}">
+        <h1 class="h3 text-left mb-4">Je crée un compte</h1>
+        <p><small class="text-muted">
+          <i aria-hidden="true" class="icon icon-info-circled"></i>
+          Les champs marqué d'une astérique (*) sont obligatoires.
+        </small></p>
+        <div class="">
+          {{ form.non_field_errors }}
 
-      <input type="hidden" name="next" value="{{ request.GET.next }}">
-
-      <p><small class="text-muted">
-        <i aria-hidden="true" class="icon icon-info-circled"></i>
-        Les champs marqué d'une astérique (*) sont obligatoires.
-      </small></p>
-      <div class="row">
-        {{ form.non_field_errors }}
-        <div class="col-md-6">
           {{ form.email|as_crispy_field }}
           {{ form.username|as_crispy_field }}
-        </div>
-        <div class="col-md-6">
           {{ form.password1|as_crispy_field }}
           {{ form.password2|as_crispy_field }}
           {{ form.robot|as_crispy_field }}
         </div>
-      </div>
-      <button type="submit" class="btn fr-btns-group--center btn-primary fr-btn btn-block">Créer mon compte</button>
+        <button type="submit" class="btn fr-btns-group--center btn-primary fr-btn btn-block">Créer mon compte</button>
 
 
-    </form>
-
+      </form>
+    </div>
+    <div class="fr-col-5 fr-col-offset-1">
+      <figure class="fr-content-media d-none d-sm-block">
+          <div class="fr-content-media__img ">
+              <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">
+          </div>
+      </figure>
+    </div>
+</div>
 
   {% endif %}
 
-  </div>
 </main>
 {% endblock %}

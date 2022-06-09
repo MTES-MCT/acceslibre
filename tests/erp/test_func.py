@@ -68,6 +68,36 @@ def test_erp_details_edit_links(data, browser, capsys):
         assert len(matches) > 0, f'Edit url "{edit_url}" not found'
 
 
+def test_registration_flow_without_next(data, browser):
+    browser.visit(reverse("django_registration_register"))
+    browser.fill("username", "johndoe")
+    browser.fill("email", "john@doe.com")
+    browser.fill("password1", "Abcdef123!")
+    browser.fill("password2", "Abcdef123!")
+    browser.check("robot")
+    button = browser.find_by_css("form.registration-form button[type=submit]")
+    button.click()
+
+    user = User.objects.get(username="johndoe")
+    assert user.is_active is False
+
+    assert len(mail.outbox) == 1
+    assert "Activation de votre compte" in mail.outbox[0].subject
+    assert "johndoe" in mail.outbox[0].body
+    assert "http://testserver/compte/activate" in mail.outbox[0].body
+
+    activation_url = [
+        line
+        for line in mail.outbox[0].body.split("\n")
+        if line.startswith("http") and "/activate/" in line
+    ][0].strip()
+    browser.visit(activation_url)
+
+    assert browser.is_text_present("Votre compte est désormais actif")
+    user = User.objects.get(username="johndoe")
+    assert user.is_active is True
+
+
 def test_registration_flow(data, browser):
     browser.visit(reverse("django_registration_register") + "?next=/contact/")
     browser.fill("username", "johndoe")
@@ -94,18 +124,8 @@ def test_registration_flow(data, browser):
     ][0].strip()
     browser.visit(activation_url)
 
-    assert browser.is_text_present("Votre compte est désormais actif")
     user = User.objects.get(username="johndoe")
     assert user.is_active is True
-
-    connect_link = browser.find_by_text("Je me connecte")
-    connect_link.click()
-
-    assert browser.is_text_present("Nom d’utilisateur")
-    browser.find_by_css(".login-form [name=username]").first.fill("johndoe")
-    browser.find_by_css(".login-form [name=password]").first.fill("Abcdef123!")
-    button = browser.find_by_css(".login-form button[type=submit]")
-    button.click()
 
     # ensure we've been redirected to where we registered initially from
     assert browser.url == "/contact/"

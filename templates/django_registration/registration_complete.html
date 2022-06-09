@@ -29,7 +29,7 @@
 
 {% block editorial_content %}
   <h3 role="status">C'est presque fini</h3>
-  <p>Un email a été envoyé à {{ request.user.email }}. Il contient un lien qui permet d'activer votre compte et de publier la fiche.</p>
-  <p><a href="{% url "home" %}?next={{ next }}" class="fr-link">Retour à l'accueil</a></p>
+  <p>Un email a été envoyé à {{ email }}. Il contient un lien qui permet d'activer votre compte et de publier la fiche.</p>
+  <p><a href="{% url "home" %}" class="fr-link">Retour à l'accueil</a></p>
 </main>
 {% endblock %}
