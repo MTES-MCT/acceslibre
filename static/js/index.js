@@ -52,3 +52,14 @@ window.a4a = {
   dom,
   geo,
 };
+
+window.onload = function() {
+    var src = document.getElementById("id_email"),
+        dst = document.getElementById("id_username");
+    if (src && dst) {
+    src.addEventListener('input', function() {
+        dst.value = src.value.split('@')[0];
+    });
+    }
+
+};
