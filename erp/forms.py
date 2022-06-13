@@ -398,6 +398,9 @@ class ViewAccessibiliteForm(forms.ModelForm):
 
 
 class BasePublicErpInfosForm(BaseErpForm):
+    lat = forms.DecimalField(widget=forms.HiddenInput)
+    lon = forms.DecimalField(widget=forms.HiddenInput)
+
     class Meta:
         model = Erp
         fields = (
@@ -467,7 +470,6 @@ class BasePublicErpInfosForm(BaseErpForm):
 
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
     def clean(self):
-        # geom
         if not self.cleaned_data["geom"]:
             self.geocode()
 
@@ -517,23 +519,11 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
             self.geocode()
 
 
-class PublicLocalisationForm(forms.Form):
-    lat = forms.DecimalField(widget=forms.HiddenInput)
-    lon = forms.DecimalField(widget=forms.HiddenInput)
-
-    def clean(self):
-        try:
-            self.cleaned_data["lat"] = float(self.cleaned_data["lat"])
-            self.cleaned_data["lon"] = float(self.cleaned_data["lon"])
-        except (TypeError, ValueError):
-            raise ValidationError("Données de localisation invalides.")
-
-
 class ProviderGlobalSearchForm(forms.Form):
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
     code = forms.DecimalField(required=True, widget=forms.HiddenInput)
-    search = forms.CharField(
+    what = forms.CharField(
         label="Recherche",
         help_text=mark_safe(
             """Recherche sur le nom d'une administration publique, d'une entreprise, un

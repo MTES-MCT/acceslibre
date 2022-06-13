@@ -4,41 +4,15 @@
 {% load crispy_forms_tags static %}
 
 {% block page_title %}{% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement{% endblock%}
+{% block contrib_title %}Ajouter les données d'accessibilité d'un établissement{% endblock %}
+{% block contrib_step %}<small>Étape 1 sur 7</small>{% endblock %}
+{% block contrib_subtitle %}L'établissement{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block contrib_content %}
   <h1 class="h3 mb-3">
-    {% if erp %}Modifier{% else %}Ajouter{% endif %} un établissement recevant du public
+    Adresse de l'établissement
   </h1>
-
-  {% if erp and erp.user != user %}
-    <div class="alert alert-info">
-      <i aria-hidden="true" class="icon icon-info-circled"></i>
-      Vous vous apprêtez à modifier les informations
-      {% if erp.user %}
-        initialement fournies par <strong>{{ erp.user }}</strong>
-      {% else %}
-        existantes pour cet établissement
-      {% endif %}.
-      Veuillez vous assurer de la fiabilité des informations que vous contribuez.
-    </div>
-  {% endif %}
-
-  {% if has_data %}
-  <div class="alert alert-success">
-    <p>
-      <i aria-hidden="true" class="icon icon-info-circled"></i>
-      Le formulaire ci-dessous est prérempli avec
-      les informations que nous avons pu récupérer auprès des services numériques de l'État.<br>
-    </p>
-    <p class="mb-0 text-center">
-      <strong>
-        <ins>N'hésitez pas</ins> à les modifier ou les compléter si elles s'avéraient imprécises
-        ou erronées.
-      </strong>
-    </p>
-  </div>
-  {% endif %}
 
   <form action="" method="POST" class="mb-4" novalidate>
     {% csrf_token %}
@@ -168,7 +142,7 @@
       </div>
     </div>
     <hr>
-    <h2 class="h3">Informations complémentaires (optionnelles)</h2>
+    <h2 class="h3">Contact</h2>
     <div class="row">
       <div class="col-lg-4">
         {{ form.site_internet|as_crispy_field }}
@@ -181,6 +155,35 @@
       </div>
     </div>
     {{ form.contact_url|as_crispy_field }}
+
+    <h3 class="h3 mb-3">Emplacement de l'établissement</h3>
+
+    <div class="alert alert-info">
+      <i aria-hidden="true" class="icon icon-info-circled"></i>
+      Merci de bien vérifier la bonne géolocalisation de votre établissement sur
+      la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte
+      pour faire correspondre le pointeur central sur sa position précise.</strong>
+    </div>
+
+    {% if erp or external_erp %}
+    <h2 class="h5 mb-3">
+      {%  if erp %}
+      {{ erp.nom }}
+      {% elif external_erp %}
+      {{ external_erp.nom }}
+      {% endif %}
+      <small class="text-muted">
+        {% if erp.activite %} - {{ erp.activite.nom }}{% endif %}
+        - <em>{%  if erp %}{{ erp.adresse }}{% elif external_erp %}{{ external_erp.adresse }}{% endif %}</em>
+      </small>
+    </h2>
+  {% endif %}
+
+    <div id="localisation-map">
+      <div class="a4a-localisation-map"></div>
+      {{ form.lat }}
+      {{ form.lon }}
+    </div>
 
     {% if not existing_matches %}
      {% include "contrib/includes/prevnext.html" %}

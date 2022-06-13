@@ -18,6 +18,8 @@ def parse_etablissements(qs, other_sources):
         erp.pop("source_id")
         erp["get_absolute_url"] = Erp.objects.get(pk=erp["id"]).get_absolute_url()
         erp["is_online"] = Erp.objects.get(pk=erp["id"]).is_online()
+        erp["icon"] = Erp.objects.get(pk=erp["id"]).get_activite_vector_icon()
+        erp["activite"] = Erp.objects.get(pk=erp["id"]).activite
         other_sources = [
             other_erp for other_erp in other_sources if _check_doublons(erp, other_erp)
         ]
@@ -29,6 +31,8 @@ def parse_etablissements(qs, other_sources):
                 "slug": data["slug"],
                 "user": data["user_id"],
                 "published": data["published"],
+                "icon": data["icon"],
+                "activite": data["activite"],
             },
             source="acceslibre",
             coordonnees=data["geom"],

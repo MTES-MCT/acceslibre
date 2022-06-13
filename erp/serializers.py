@@ -40,9 +40,19 @@ class SpecialErpSerializer(geojson.Serializer):
 
 def decode_provider_data(data):
     try:
-        decoded = json.loads(base64.urlsafe_b64decode(data).decode())
-        if "coordonnees" in decoded:
-            decoded["geom"] = Point(decoded["coordonnees"])
+        if data:
+            decoded = json.loads(base64.urlsafe_b64decode(data).decode())
+            if "coordonnees" in decoded:
+                decoded["geom"] = Point(decoded["coordonnees"])
+                decoded["lat"] = decoded["coordonnees"][1]
+                decoded["lon"] = decoded["coordonnees"][0]
+        else:
+            decoded = dict()
+            # On prend les coordonnées de la Défense en paramètre
+            decoded["lat"] = 48.892598
+            decoded["lon"] = 2.236112
+            decoded["geom"] = Point(decoded["lon"], decoded["lat"])
+
         return decoded
     except Exception as err:
         logger.error(f"decode_provider_data error: {err}")

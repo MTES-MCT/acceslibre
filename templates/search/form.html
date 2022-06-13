@@ -1,5 +1,5 @@
 {% load static %}
-<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg" id="search-form" role="search" action="{% url "search" %}">
+<form class="fr-col-12 a4a-search-form fr-search-bar fr-search-bar--lg" id="search-form" role="search" action="{% if search_action %}{{ search_action }}{% else %}{% url "search" %}{% endif %}">
   <div class="fr-col-12 fr-col-sm-10 no-gutters">
     <div class="what-field py-1">
       <div class="fr-col-10 fr-col-sm-5 input-group input-form text-left">
@@ -9,24 +9,59 @@
         <input type="search" id="what-input" name="what"
           class="fr-input " placeholder="Mairie, café…"
           aria-label="Rechercher un établissement, une activité. Exemple : Mairie, Café" autocomplete="off"
-          value="{{ what|default_if_none:"" }}">
+          {% if "what" in request.GET %}
+          value="{{ what|default:request.GET.what }}"
+          {% else %}
+           value="{{ what }}"
+          {% endif %}
+      >
       </div>
       <div class="fr-col-10 fr-col-sm-5 input-group input-form search-where-field text-left" style="z-index:9999">
         <label for="where-input">
           <span class="larger-font{% if dark %} text-light{% endif %}"><strong>Où</strong> (adresse, ville)</span><br>
         </label>
         <input id="where-input" class="autocomplete-input fr-input" type="search" dir="ltr"
-            spellcheck=false autocomplete="off" autocapitalize="off" value="{{ where }}"
+            spellcheck=false autocomplete="off" autocapitalize="off"
+         {% if "where" in request.GET %}
+          value="{{ where|default:request.GET.where }}"
+          {% else %}
+           value="{{ where }}"
+          {% endif %}
             name="where" placeholder="12 rue des prés, Nantes">
         <ul class="list-group autocomplete-result-list rounded-only-bottom"></ul>
-        <input type="hidden" name="lat" value="{{ lat|default_if_none:"" }}">
-        <input type="hidden" name="lon" value="{{ lon|default_if_none:"" }}">
-        <input type="hidden" name="code" value="{{ code|default_if_none:"" }}">
+        <input type="hidden" name="lat"
+               {% if "lat" in request.GET %}
+                value="{{ lat|default:request.GET.lat }}"
+                {% else %}
+                 value="{{ lat }}"
+                {% endif %}
+        >
+        <input type="hidden" name="lon"
+                {% if "lon" in request.GET %}
+                value="{{ lon|default:request.GET.lon }}"
+                {% else %}
+                 value="{{ lon }}"
+                {% endif %}"
+        >
+        <input type="hidden" name="code"
+                {% if "code" in request.GET %}
+                value="{{ code|default:request.GET.code }}"
+                {% else %}
+                 value="{{ code }}"
+                {% endif %}"
+        >
 
       </div>
+    {% if contrib %}
+      <div class="row mt-5 col-3">
+        <button type="submit" class="fr-btn" title="Rechercher" style="border-radius: 0px"> Rechercher</button>
+      </div>
+
+    {% else %}
       <button type="submit" class="fr-btn" title="Rechercher">
         <span class="sr-only"></span>
       </button>
+    {% endif %}
     </div>
 
   </div>

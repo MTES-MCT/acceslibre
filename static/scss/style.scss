@@ -877,20 +877,9 @@ button.fr-btn:focus, button.fr-btn:hover{
     list-style: none;
   }
 
-  .StepProgress::before {
-    display: inline-block;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 15px;
-    width: 10px;
-    height: 100%;
-    border-left: 2px solid #ccc;
-  }
 
   .StepProgress-item {
     position: relative;
-    counter-increment: list;
     padding-top: 4px;
   }
 
@@ -902,46 +891,15 @@ button.fr-btn:focus, button.fr-btn:hover{
     display: inline-block;
     content: "";
     position: absolute;
-    left: -30px;
-    height: 100%;
+    left: -15px;
+    height: 50%;
     width: 10px;
   }
 
-  .StepProgress-item::after {
-    background-color: $white;
-    border-radius: 50%;
-    border: 2px solid #ccc;
-    color: #999;
-    content: counter(list);
-    display: inline-block;
-    font-size: 18px;
+  .StepProgress-item.is-done {
+    left: -17px;
+    font-size: 1.2em;
     font-weight: bold;
-    height: 32px;
-    left: -45px;
-    line-height: 28px;
-    overflow: hidden;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 32px;
-  }
-
-  .StepProgress-item.is-done::before {
-    border-left: 2px solid $success;
-  }
-
-  .StepProgress-item.is-done::after {
-    background-color: $success;
-    border: 2px solid $success;
-    color: $white;
-    content: "\e904";
-    font-family: "icomoon", sans-serif !important;
-    font-style: normal !important;
-    font-variant: normal !important;
-    font-weight: normal !important;
-    text-align: center;
-    text-transform: none !important;
-    vertical-align: middle;
   }
 
   .StepProgress-item.current {
@@ -949,7 +907,7 @@ button.fr-btn:focus, button.fr-btn:hover{
   }
 
   .StepProgress-item.current::before {
-    border-left: 2px solid $success;
+    border-left: 2px solid $primary;
   }
 
   .StepProgress-item.current::after {

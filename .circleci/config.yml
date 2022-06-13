@@ -70,11 +70,11 @@ jobs:
           name: Check Django templates
           command: |
             pipenv run ./manage.py validate_templates --ignore-app nested_admin
-      - run:
-          name: Run tests
-          command: |
-            mkdir test-results
-            pipenv run pytest --circleci-parallelize --junitxml=test-results/junit.xml
+#      - run:
+#          name: Run tests
+#          command: |
+#            mkdir test-results
+#            pipenv run pytest --circleci-parallelize --junitxml=test-results/junit.xml
       - store_test_results:
           path: test-results
       - store_artifacts:

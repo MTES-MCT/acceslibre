@@ -1,77 +1,70 @@
-{% load a4a %}
+{% load a4a static%}
 {% for result in results %}
 <div class="card mb-3">
-    <div class="row no-gutters">
-      <div class="col-lg-6 a4a-result-map"
-        {% if result.coordonnees %}
-          style="background-image: url('{% result_map_img result.coordonnees size="400x300" %}')"
-        {% endif %}></div>
-      <div class="col-lg-6">
-        <div class="card-body">
-          <h3 class="h6 card-title font-weight-bold">
-            {% if result.exists and result.exists.is_online %}
-            <a href="{{ result.exists.get_absolute_url }}" target="_blank" rel="noopener noreferrer">{{ result.nom }}</a>
-            {% else %}
-            {{ result.nom }}
-            {% endif %}
-            {% if result.exists %}
-              {% if result.exists.is_online %}
-                {% if result.exists.user == user.id %}
-                <span class="badge badge-success">
-                  <i aria-hidden="true" class="icon icon-info-circled"></i>
-                  Vous avez créé cette fiche
-                </span>
-                {% else %}
-                <span class="badge badge-danger">Existe déjà dans la base</span>
-                {% endif %}
-              {% else %}
-                <span class="badge badge-warning">
-                  {% if result.exists.user == user.id %}
-                    Existe dans vos brouillons
-                  {% else %}
-                    Existe à l'état de brouillon
-                  {% endif %}
-                </span>
-              {% endif %}
-            {% endif %}
-          </h3>
-          <p class="card-text">
-            <small>
-              Source: {{ result.source|format_source:"Inconnue" }}<br>
-              {% if result.siret %}SIRET: {{ result.siret }}<br>{% endif %}
-              {% if result.naf %}{{ result.naf }}: {{ result.naf|get_naf_label }}<br>{% endif %}
-              {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
-              {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
-              {{ result.code_postal|default_if_none:"" }} {{ result.commune|default_if_none:"" }}
-            </small>
-          </p>
-          <p class="card-text mb-0">
-            {% if result.exists and result.exists.user == user.id %}
-              <a class="btn btn-success btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
-              {% if result.exists.published %}Modifier cet établissement{% else %}Reprendre votre brouillon{% endif %}
-              </a>
-            {% elif result.exists %}
-              {% if result.exists.is_online %}
-                <a class="btn btn-primary btn-block" href="{{ result.exists.get_absolute_url }}">
-                  Voir cet établissement
-                </a>
-                {% else %}
-                <span class="badge badge-warning">
-                  Cet établissement est pris en charge par un autre contributeur
-                </span>
-                {% endif %}
-            {% else %}
-              <a class="btn btn-primary btn-block"
-                href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
-                Sélectionner cet établissement
-              </a>
-            {% endif %}
-          </p>
-        </div>
+  <div class="row no-gutters">
+    <div class="{% if light %}col-12{% else %}col-6{% endif %}">
+      <div class="card-body">
+        <h3 class="h6 card-title font-weight-bold {% if light %}mb-1{% endif %}">
+          {% if not light and result.exists and result.exists.is_online %}
+          <a href="{{ result.exists.get_absolute_url }}" target="_blank" rel="noopener noreferrer">
+            <img alt=""
+              class="d-inline act-icon act-icon-24 act-icon-black mr-1"
+              src="{% static "img/mapicons.svg" %}#{{ result.exists.icon }}">
+          {{ result.nom }}
+          </a>
+          {% else %}
+          {{ result.nom }}
+          {% endif %}
+
+        </h3>
+      {% if not light %}
+        <p class="card-text">
+          <small>
+            <b>{{ result.exists.activite }}</b><br>
+            {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }}<br>
+            {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}<br>{% endif %}
+            {{ result.commune|default_if_none:"" }}
+          </small>
+        </p>
+      {% else %}
+        <p class="card-text mb-2">
+          <small>
+            {{ result.numero|default_if_none:"" }} {{ result.voie|default_if_none:"" }},
+            {% if result.lieu_dit %}{{ result.lieu_dit|default_if_none:"" }}, {% endif %}
+            {{ result.commune|default_if_none:"" }}
+          </small>
+        </p>
+      {% endif %}
+        <p class="card-text mb-0 text-left">
+          {% if light %}
+          <a class="btn fr-btn fr-btns-group--center btn-block" href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
+            Ajouter cet établissement
+            </a>
+          {% elif result.exists and user.is_authenticated and result.exists.user == user.id and not result.exists.published%}
+            <a class="btn fr-btn fr-btns-group--center btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
+            Reprendre votre brouillon
+            </a>
+          {% elif result.exists.is_online %}
+            <a class="btn btn-success btn-block" href="{{ result.exists.get_absolute_url }}">
+              Voir cet établissement
+            </a>
+          {% else %}
+            <span class="badge badge-warning p-2">
+              Cet établissement est pris en charge par un autre contributeur
+            </span>
+          {% endif %}
+        </p>
       </div>
     </div>
+    {% if not light %}
+    <div class="col-lg-6 a4a-result-map"
+        {% if result.coordonnees %}
+          style="background-image: url('{% result_map_img result.coordonnees size="400x300" %}')"
+        {% endif %}>
+    </div>
+    {% endif %}
   </div>
-
+</div>
 {% endfor %}
 
 

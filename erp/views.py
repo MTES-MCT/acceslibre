@@ -6,7 +6,6 @@ from reversion.views import create_revision
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.forms import modelform_factory
@@ -605,11 +604,11 @@ def contrib_global_search(request):
     results = error = None
     try:
         results = provider_search.global_search(
-            request.GET.get("search"), request.GET.get("code")
+            request.GET.get("what"), request.GET.get("code")
         )
         qs_results_bdd = Erp.objects.select_related(
             "accessibilite", "activite", "commune_ext"
-        ).search_what(request.GET.get("search"))
+        ).search_what(request.GET.get("what"))
 
         commune, qs_results_bdd = _search_commune_code_postal(
             qs_results_bdd, request.GET.get("code")
@@ -622,7 +621,7 @@ def contrib_global_search(request):
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "search": request.GET.get("search"),
+            "what": request.GET.get("what"),
             "commune_search": commune,
             "step": 1,
             "libelle_step": {
@@ -632,13 +631,14 @@ def contrib_global_search(request):
             "results_bdd": results_bdd,
             "results": results,
             "error": error,
+            "results_global_count": len(results) + len(results_bdd),
         },
     )
 
 
 @create_revision()
 def contrib_admin_infos(request):
-    data = None
+    data = erp = external_erp = None
     data_error = None
     existing_matches = None
     if request.method == "POST":
@@ -650,21 +650,31 @@ def contrib_admin_infos(request):
             if len(existing_matches) == 0 or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
-                # TODO : Remove user
-                # erp.user = request.user
                 erp.save()
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été enregistrées."
                 )
-                return redirect("contrib_localisation", erp_slug=erp.slug)
+                return redirect("contrib_transport", erp_slug=erp.slug)
     else:
         encoded_data = request.GET.get("data")
-        if encoded_data is not None:
-            try:
-                data = serializers.decode_provider_data(encoded_data)
-            except RuntimeError as err:
-                data_error = err
-        form = forms.PublicErpAdminInfosForm(data)
+        try:
+            data = serializers.decode_provider_data(encoded_data)
+        except RuntimeError as err:
+            data_error = err
+        else:
+            data["contact_url"] = "http://"
+            data_erp = data.copy()
+            if "coordonnees" in data_erp:
+                del data_erp["coordonnees"]
+            if "naf" in data_erp:
+                del data_erp["naf"]
+            if "lat" in data_erp:
+                del data_erp["lat"]
+            if "lon" in data_erp:
+                del data_erp["lon"]
+            external_erp = Erp(**data_erp)
+        form = forms.PublicErpAdminInfosForm(initial=data)
+
     geojson_list = make_geojson(existing_matches) if existing_matches else None
 
     return render(
@@ -681,6 +691,8 @@ def contrib_admin_infos(request):
             "data_error": data_error,
             "existing_matches": existing_matches,
             "geojson_list": geojson_list,
+            "erp": erp,
+            "external_erp": external_erp,
         },
     )
 
@@ -688,6 +700,7 @@ def contrib_admin_infos(request):
 @create_revision()
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
+    initial = {"lat": float(erp.geom.y), "lon": float(erp.geom.x)}
     if request.method == "POST":
         form = forms.PublicErpEditInfosForm(request.POST, instance=erp)
         if form.is_valid():
@@ -695,9 +708,9 @@ def contrib_edit_infos(request, erp_slug):
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
-            return redirect("contrib_localisation", erp_slug=erp.slug)
+            return redirect("contrib_exterieur", erp_slug=erp.slug)
     else:
-        form = forms.PublicErpAdminInfosForm(instance=erp)
+        form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -705,44 +718,11 @@ def contrib_edit_infos(request, erp_slug):
             "step": 1,
             "libelle_step": {
                 "current": "informations",
-                "next": schema.SECTION_TRANSPORT,
+                "next": schema.SECTION_CHEMINEMENT_EXT,
             },
             "erp": erp,
             "form": form,
             "has_data": False,
-        },
-    )
-
-
-@create_revision()
-def contrib_localisation(request, erp_slug):
-    erp = get_object_or_404(Erp, slug=erp_slug)
-    if request.method == "POST":
-        form = forms.PublicLocalisationForm(request.POST)
-        if form.is_valid():
-            lat = form.cleaned_data.get("lat")
-            lon = form.cleaned_data.get("lon")
-            erp.geom = Point(x=lon, y=lat, srid=4326)
-            erp.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
-            return redirect("contrib_transport", erp_slug=erp.slug)
-    elif erp.geom is not None:
-        form = forms.PublicLocalisationForm(
-            {"lon": erp.geom.coords[0], "lat": erp.geom.coords[1]}
-        )
-    return render(
-        request,
-        template_name="contrib/2-localisation.html",
-        context={
-            "step": 1,
-            "erp": erp,
-            "form": form,
-            "libelle_step": {
-                "current": "informations",
-                "next": schema.SECTION_TRANSPORT,
-            },
         },
     )
 
@@ -822,6 +802,11 @@ def process_accessibilite_form(
         messages.add_message(
             request, messages.SUCCESS, "Les données ont été enregistrées."
         )
+        if "publier" in request.POST:
+            return redirect(
+                reverse("contrib_publication", kwargs={"erp_slug": erp.slug})
+            )
+
         if user_can_access_next_route:
             return redirect(
                 reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
@@ -843,9 +828,9 @@ def process_accessibilite_form(
         prev_route = None
 
     if user_can_access_next_route:
-        next_route = reverse(redirect_route, kwargs={"erp_slug": erp.slug})
+        publier_route = reverse("contrib_publication", kwargs={"erp_slug": erp.slug})
     else:
-        next_route = None
+        publier_route = None
 
     return render(
         request,
@@ -857,7 +842,7 @@ def process_accessibilite_form(
             "form": form,
             "accessibilite": accessibilite,
             "redirect_hash": redirect_hash,
-            "next_route": next_route,
+            "publier_route": publier_route,
             "prev_route": prev_route,
         },
     )
@@ -872,7 +857,7 @@ def contrib_transport(request, erp_slug):
         schema.get_section_fields(schema.SECTION_TRANSPORT),
         "contrib/3-transport.html",
         "contrib_stationnement",
-        prev_route="contrib_localisation",
+        prev_route="contrib_edit_infos",
         redirect_hash=schema.SECTION_TRANSPORT,
         libelle_step={
             "current": schema.SECTION_TRANSPORT,
