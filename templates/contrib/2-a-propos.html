@@ -1,0 +1,21 @@
+{% extends "contrib/base_access_form.html" %}
+
+{% load a4a %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}A propos de vous - acceslibre{% endblock %}
+{% block full_infos %}{% endblock %}
+{% block contrib_title %}{{ erp.nom }} de {{ erp.commune_ext }}{% endblock %}
+{% block contrib_step %}<small>Étape 2 sur 7</small>{% endblock %}
+{% block contrib_subtitle %}À propos de vous{% endblock %}
+{% block robots %}noindex, nofollow{% endblock %}
+
+{% block fields_content %}
+
+  {{ form.user_type|as_crispy_field }}
+  {% include "fields/textarea.html" with field=form.registre_url %}
+  {% include "fields/boolradio.html" with field=form.conformite inline=True %}
+
+  Les informations sur cet établissement vous intéressent ?
+  {{ form.subscribe|as_crispy_field }}
+{% endblock %}

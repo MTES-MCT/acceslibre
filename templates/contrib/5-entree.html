@@ -1,9 +1,14 @@
 {% extends "contrib/base_access_form.html" %}
 
 {% block page_title %}L'entrée de l'établissement{% endblock%}
+{% block full_infos %}{% endblock %}
+{% block contrib_title %}{{ erp.nom }} de {{ erp.commune_ext }}{% endblock %}
+{% block contrib_step %}<small>Étape 5 sur 7</small>{% endblock %}
+{% block contrib_subtitle %}Informations d'accessibilité{% endblock %}
 {% block robots %}noindex, nofollow{% endblock %}
 
 {% block fields_content %}
+  <h3 class="h4">Entrée</h3>
   {% include "fields/boolradio.html" with field=form.entree_reperage inline=True %}
   {% include "fields/boolradio.html" with field=form.entree_porte_presence inline=True %}
   {% include "fields/boolradio.html" with field=form.entree_porte_manoeuvre inline=True %}

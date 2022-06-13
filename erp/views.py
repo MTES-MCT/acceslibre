@@ -708,7 +708,7 @@ def contrib_edit_infos(request, erp_slug):
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
-            return redirect("contrib_exterieur", erp_slug=erp.slug)
+            return redirect("contrib_a_propos", erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
     return render(
@@ -718,7 +718,37 @@ def contrib_edit_infos(request, erp_slug):
             "step": 1,
             "libelle_step": {
                 "current": "informations",
-                "next": schema.SECTION_CHEMINEMENT_EXT,
+            },
+            "erp": erp,
+            "form": form,
+            "has_data": False,
+        },
+    )
+
+
+@create_revision()
+def contrib_a_propos(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    initial = {"user_type": Erp.USER_ROLE_PUBLIC}
+    if request.method == "POST":
+        form = forms.PublicAProposForm(request.POST, instance=erp, initial=initial)
+        if form.is_valid():
+            erp = form.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Les données ont été enregistrées."
+            )
+            return redirect("contrib_transport", erp_slug=erp.slug)
+    else:
+        form = forms.PublicAProposForm(instance=erp, initial=initial)
+    return render(
+        request,
+        template_name="contrib/2-a-propos.html",
+        context={
+            "step": 2,
+            "prev_route": reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
+            "libelle_step": {
+                "current": "informations",
+                "next": schema.SECTION_TRANSPORT,
             },
             "erp": erp,
             "form": form,
@@ -853,47 +883,28 @@ def contrib_transport(request, erp_slug):
     return process_accessibilite_form(
         request,
         erp_slug,
-        2,
+        3,
         schema.get_section_fields(schema.SECTION_TRANSPORT),
         "contrib/3-transport.html",
-        "contrib_stationnement",
-        prev_route="contrib_edit_infos",
+        "contrib_exterieur",
+        prev_route="contrib_a_propos",
         redirect_hash=schema.SECTION_TRANSPORT,
         libelle_step={
             "current": schema.SECTION_TRANSPORT,
-            "next": schema.SECTION_STATIONNEMENT,
-        },
-    )
-
-
-@create_revision()
-def contrib_stationnement(request, erp_slug):
-    return process_accessibilite_form(
-        request,
-        erp_slug,
-        2,
-        schema.get_section_fields(schema.SECTION_STATIONNEMENT),
-        "contrib/4-stationnement.html",
-        "contrib_exterieur",
-        prev_route="contrib_transport",
-        redirect_hash=schema.SECTION_STATIONNEMENT,
-        libelle_step={
-            "current": schema.SECTION_STATIONNEMENT,
             "next": schema.SECTION_CHEMINEMENT_EXT,
         },
     )
-
 
 @create_revision()
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
         request,
         erp_slug,
-        3,
+        4,
         schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT),
-        "contrib/5-exterieur.html",
+        "contrib/4-exterieur.html",
         "contrib_entree",
-        prev_route="contrib_stationnement",
+        prev_route="contrib_transport",
         redirect_hash=schema.SECTION_CHEMINEMENT_EXT,
         libelle_step={
             "current": schema.SECTION_CHEMINEMENT_EXT,
@@ -907,9 +918,9 @@ def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
         request,
         erp_slug,
-        4,
+        5,
         schema.get_section_fields(schema.SECTION_ENTREE),
-        "contrib/6-entree.html",
+        "contrib/5-entree.html",
         "contrib_accueil",
         prev_route="contrib_exterieur",
         redirect_hash=schema.SECTION_ENTREE,
@@ -922,50 +933,14 @@ def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
         request,
         erp_slug,
-        5,
+        6,
         schema.get_section_fields(schema.SECTION_ACCUEIL),
-        "contrib/7-accueil.html",
-        "contrib_sanitaires",
+        "contrib/6-accueil.html",
+        "contrib_commentaire",
         prev_route="contrib_entree",
         redirect_hash=schema.SECTION_ACCUEIL,
         libelle_step={
             "current": schema.SECTION_ACCUEIL,
-            "next": schema.SECTION_SANITAIRES,
-        },
-    )
-
-
-@create_revision()
-def contrib_sanitaires(request, erp_slug):
-    return process_accessibilite_form(
-        request,
-        erp_slug,
-        6,
-        schema.get_section_fields(schema.SECTION_SANITAIRES),
-        "contrib/8-sanitaires.html",
-        "contrib_labellisation",
-        prev_route="contrib_accueil",
-        redirect_hash=schema.SECTION_SANITAIRES,
-        libelle_step={
-            "current": schema.SECTION_SANITAIRES,
-            "next": schema.SECTION_LABELS,
-        },
-    )
-
-
-@create_revision()
-def contrib_labellisation(request, erp_slug):
-    return process_accessibilite_form(
-        request,
-        erp_slug,
-        7,
-        schema.get_section_fields(schema.SECTION_LABELS),
-        "contrib/9-labellisation.html",
-        "contrib_commentaire",
-        prev_route="contrib_sanitaires",
-        redirect_hash=schema.SECTION_LABELS,
-        libelle_step={
-            "current": schema.SECTION_LABELS,
             "next": schema.SECTION_COMMENTAIRE,
         },
     )
@@ -976,76 +951,54 @@ def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
         request,
         erp_slug,
-        8,
+        7,
         schema.get_section_fields(schema.SECTION_COMMENTAIRE),
-        "contrib/10-commentaire.html",
+        "contrib/7-commentaire.html",
         "contrib_publication",
-        prev_route="contrib_labellisation",
+        prev_route="contrib_accueil",
         redirect_hash=schema.SECTION_COMMENTAIRE,
-        libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": "publication"},
+        libelle_step={"current": schema.SECTION_COMMENTAIRE, "next": None},
     )
 
 
 @create_revision()
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    accessibilite = erp.accessibilite if hasattr(erp, "accessibilite") else None
-    initial = {
-        "user_type": erp.user_type,
-        "published": erp.published,
-        "certif": erp.published,
-    }
-    empty_a11y = False
+
     if request.method == "POST":
-        # initial["subscribe"] = (erp.is_subscribed_by(request.user),)
-        form = forms.PublicPublicationForm(
-            request.POST, instance=accessibilite, initial=initial
-        )
+        # initial["subscribe"] = (,)
+        form = forms.PublicPublicationForm(request.POST, instance=erp)
     else:
         if request.GET:
-            form = forms.PublicPublicationForm(
-                request.GET, instance=accessibilite, initial=initial
-            )
+            form = forms.PublicPublicationForm(request.GET, instance=erp)
 
         else:
-            form = forms.PublicPublicationForm(instance=accessibilite, initial=initial)
+            form = forms.PublicPublicationForm({"published": True}, instance=erp)
     if form.is_valid():
         if check_authentication(request, erp, form, check_online=False):
             return check_authentication(request, erp, form, check_online=False)
+        erp = form.save()
         erp.user = request.user
         erp.save()
-        accessibilite = form.save()
-        if not accessibilite.has_data() and form.cleaned_data.get("published", False):
-            erp.published = False
-            erp.save()
-            empty_a11y = True
-        else:
-            erp.user_type = form.cleaned_data.get("user_type")
-            erp.published = form.cleaned_data.get("published")
-            if form.cleaned_data.get("subscribe"):
-                ErpSubscription.subscribe(erp, request.user)
-            else:
-                ErpSubscription.unsubscribe(erp, request.user)
-            erp.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été sauvegardées."
-            )
-            if erp.is_online():
-                redirect_url = erp.get_success_url()
-            elif erp.user == request.user:
-                redirect_url = reverse("mes_erps")
+        ErpSubscription.subscribe(erp, request.user)
+        messages.add_message(
+            request, messages.SUCCESS, "Les données ont été sauvegardées."
+        )
+        if erp.is_online():
+            redirect_url = erp.get_success_url()
+        elif erp.user == request.user:
+            redirect_url = reverse("mes_erps")
 
-            return redirect(redirect_url)
+        return redirect(redirect_url)
 
     return render(
         request,
-        template_name="contrib/11-publication.html",
+        template_name="contrib/8-publication.html",
         context={
-            "step": 9,
+            "step": 8,
             "libelle_step": {"current": "publication", "next": None},
             "erp": erp,
             "form": form,
-            "empty_a11y": empty_a11y,
             "prev_route": reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
         },
     )

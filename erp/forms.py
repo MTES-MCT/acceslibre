@@ -2,6 +2,7 @@ from functools import reduce
 
 from django import forms
 from django.conf import settings
+from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
 from django.forms import widgets
@@ -515,6 +516,15 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
     def clean(self):
         # En édition publique d'un ERP, on ne met à jour la localisation que si
         # elle est absente ou que l'adresse a été modifiée
+        if self.cleaned_data["geom"] != Point(
+            float(self.cleaned_data["lon"]), float(self.cleaned_data["lat"]), srid=4326
+        ):
+            self.cleaned_data["geom"] = Point(
+                float(self.cleaned_data["lon"]),
+                float(self.cleaned_data["lat"]),
+                srid=4326,
+            )
+
         if self.cleaned_data["geom"] is None or self.adresse_changed():
             self.geocode()
 
@@ -563,9 +573,9 @@ class ProviderGlobalSearchForm(forms.Form):
         super().__init__(*args, **kwargs)
 
 
-class PublicPublicationForm(forms.ModelForm):
+class PublicAProposForm(forms.ModelForm):
     class Meta:
-        model = Accessibilite
+        model = Erp
         fields = (
             "user_type",
             "registre_url",
@@ -574,12 +584,11 @@ class PublicPublicationForm(forms.ModelForm):
         help_texts = schema.get_help_texts()
 
     user_type = forms.ChoiceField(
-        label="Mon profil",
-        help_text="À quel titre contribuez vous les informations pour cet établissement ?",
+        label="Vous êtes ?",
         choices=[
             (
                 Erp.USER_ROLE_PUBLIC,
-                "Je fréquente cet établissement",
+                "Je suis simple contributeur",
             ),
             (
                 Erp.USER_ROLE_GESTIONNAIRE,
@@ -587,7 +596,7 @@ class PublicPublicationForm(forms.ModelForm):
             ),
             (
                 Erp.USER_ROLE_ADMIN,
-                "Je représente une administration publique",
+                "Je représente la fonction publique",
             ),
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
@@ -608,27 +617,25 @@ class PublicPublicationForm(forms.ModelForm):
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=False,
     )
+
+    subscribe = forms.BooleanField(
+        label="Je veux être informé des modifications sur cet établissement",
+        required=False,
+    )
+
+
+class PublicPublicationForm(forms.ModelForm):
+    class Meta:
+        model = Erp
+        fields = ("published",)
+        help_texts = schema.get_help_texts()
+
     published = forms.BooleanField(
         label="Je souhaite mettre en ligne cette fiche d'établissement immédiatement",
-        required=False,
+        required=True,
         initial=True,
         widget=forms.CheckboxInput(attrs={"checked": "checked"}),
     )
-    subscribe = forms.BooleanField(
-        label="Je souhaite recevoir des notifications par email lorsque cette fiche est mise à jour par d'autres contributeurs",
-        required=False,
-    )
-    certif = forms.BooleanField(
-        label=f"Je certifie sur l'honneur l'exactitude de ces informations et consens à leur publication sur {settings.SITE_NAME}.",
-        required=True,
-    )
-
-    def clean_certif(self):
-        if not self.cleaned_data.get("certif", False):
-            raise ValidationError(
-                "Publication impossible sans ces garanties de votre part"
-            )
-        return True
 
 
 class PublicClaimForm(forms.Form):

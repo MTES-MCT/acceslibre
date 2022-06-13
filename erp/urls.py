@@ -107,14 +107,14 @@ urlpatterns = [
         name="contrib_edit_infos",
     ),
     path(
+        "contrib/a-propos/<str:erp_slug>/",
+        views.contrib_a_propos,
+        name="contrib_a_propos",
+    ),
+    path(
         "contrib/transport/<str:erp_slug>/",
         views.contrib_transport,
         name="contrib_transport",
-    ),
-    path(
-        "contrib/stationnement/<str:erp_slug>/",
-        views.contrib_stationnement,
-        name="contrib_stationnement",
     ),
     path(
         "contrib/exterieur/<str:erp_slug>/",
@@ -130,16 +130,6 @@ urlpatterns = [
         "contrib/accueil/<str:erp_slug>/",
         views.contrib_accueil,
         name="contrib_accueil",
-    ),
-    path(
-        "contrib/sanitaires/<str:erp_slug>/",
-        views.contrib_sanitaires,
-        name="contrib_sanitaires",
-    ),
-    path(
-        "contrib/labellisation/<str:erp_slug>/",
-        views.contrib_labellisation,
-        name="contrib_labellisation",
     ),
     path(
         "contrib/commentaire/<str:erp_slug>/",
