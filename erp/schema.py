@@ -236,12 +236,12 @@ PARTENAIRES = {
         "url": "https://nestenn.com/groupe-immobilier-nestenn",
     },
     "ANDRE_DE_CABO": {
-        "avatar": "andre_cabo_avatar.png",
-        "logo": "img/partenaires/andre_cabo.png",
+        "avatar": "andre_cabo_avatar.jpg",
+        "logo": "img/partenaires/andre_cabo.jpg",
         "name": "André de CABO",
-        "short_description": "Notre vocation ",
-        "template": "editorial/partenaires/nestenn.html",
-        "url": "https://nestenn.com/groupe-immobilier-nestenn",
+        "short_description": "Notre vocation est de vous conseiller et de vous accompagner",
+        "template": "editorial/partenaires/andre_de_cabo.html",
+        "url": "https://andredecabo.fr/",
     },
 }
 
