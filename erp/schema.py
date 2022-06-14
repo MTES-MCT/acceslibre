@@ -235,6 +235,14 @@ PARTENAIRES = {
         "template": "editorial/partenaires/nestenn.html",
         "url": "https://nestenn.com/groupe-immobilier-nestenn",
     },
+    "ANDRE_DE_CABO": {
+        "avatar": "andre_cabo_avatar.png",
+        "logo": "img/partenaires/andre_cabo.png",
+        "name": "André de CABO",
+        "short_description": "Notre vocation ",
+        "template": "editorial/partenaires/nestenn.html",
+        "url": "https://nestenn.com/groupe-immobilier-nestenn",
+    },
 }
 
 SECTION_TRANSPORT = "transport"

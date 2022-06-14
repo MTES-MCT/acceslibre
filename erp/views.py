@@ -895,6 +895,7 @@ def contrib_transport(request, erp_slug):
         },
     )
 
+
 @create_revision()
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(

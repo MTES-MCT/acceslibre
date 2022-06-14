@@ -1,7 +1,6 @@
 from functools import reduce
 
 from django import forms
-from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.exceptions import ValidationError
