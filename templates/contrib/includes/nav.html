@@ -2,39 +2,35 @@
     <div class="d-md-none" id="step-navigation">
       <label for="step-select" class="font-weight-bold">Navigation</label>
       <select id="step-select" class="form-control" onchange="location=$(this).val()+'#step-navigation'">
-        <option {% if erp %}value="{% url "contrib_edit_infos" erp_slug=erp.slug %}"{% else %}value="{% url "contrib_start" %}"{% endif %}
+        <option {% if erp %}value="{% url "contrib_edit_infos" erp_slug=erp.slug %}"{% else %}value="{% url "contrib_edit_infos" %}"{% endif %}
           {% if step == 1 %}selected{% endif %}>
           {% if step > 1 %}[ok]{% endif %}
           Informations
         </option>
         <option {% if erp %}value="{% url "contrib_transport" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
-          {% if step == 2 %}selected{% endif %}>
-          {% if step > 2 %}[ok]{% endif %}
-          Venir dans l'établissement
-        </option>
-        <option {% if erp %}value="{% url "contrib_exterieur" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 3 %}selected{% endif %}>
           {% if step > 3 %}[ok]{% endif %}
-          Atteindre l'entrée
+          Accès
         </option>
-        <option {% if erp %}value="{% url "contrib_entree" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
+        <option {% if erp %}value="{% url "contrib_exterieur" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 4 %}selected{% endif %}>
           {% if step > 4 %}[ok]{% endif %}
+          Extérieur
+        </option>
+        <option {% if erp %}value="{% url "contrib_entree" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
+          {% if step == 5 %}selected{% endif %}>
+          {% if step > 5 %}[ok]{% endif %}
           Entrée
         </option>
         <option {% if erp %}value="{% url "contrib_accueil" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
-          {% if step == 5 %}selected{% endif %}>
-          {% if step > 5 %}[ok]{% endif %}
+          {% if step == 6 %}selected{% endif %}>
+          {% if step > 6 %}[ok]{% endif %}
           Accueil
         </option>
         <option {% if erp %}value="{% url "contrib_commentaire" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
-          {% if step == 8 %}selected{% endif %}>
-          {% if step > 8 %}[ok]{% endif %}
+          {% if step == 7 %}selected{% endif %}>
+          {% if step > 7 %}[ok]{% endif %}
           Commentaire
-        </option>
-        <option {% if erp and erp.user == request.user %}value="{% url "contrib_publication" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
-          {% if step == 9 %}selected{% endif %}>
-          Publication
         </option>
       </select>
     </div>

@@ -516,11 +516,13 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
         # En édition publique d'un ERP, on ne met à jour la localisation que si
         # elle est absente ou que l'adresse a été modifiée
         if self.cleaned_data["geom"] != Point(
-            float(self.cleaned_data["lon"]), float(self.cleaned_data["lat"]), srid=4326
+            float(self.cleaned_data.get("lon")),
+            float(self.cleaned_data.get("lat")),
+            srid=4326,
         ):
             self.cleaned_data["geom"] = Point(
-                float(self.cleaned_data["lon"]),
-                float(self.cleaned_data["lat"]),
+                float(self.cleaned_data.get("lon")),
+                float(self.cleaned_data.get("lat")),
                 srid=4326,
             )
 

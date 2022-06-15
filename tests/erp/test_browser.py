@@ -368,24 +368,15 @@ def test_ajout_erp_witout_auth(data, client):
 
 
 def test_erp_edit_can_be_contributed(data, client):
-    # editing requires authentication
     response = client.get(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True
     )
 
     assert response.status_code == 200
 
-    # owners can edit their erp
-    response = client.get(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
-    )
-    assert response.status_code == 200
-    assert "initialement fournies par" in response.content.decode()
 
 
-def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
-    client.force_login(data.niko)
-
+def test_ajout_erp(data, client, monkeypatch, capsys):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
 
@@ -418,43 +409,25 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "lieu_dit": "",
             "code_postal": "34830",
             "commune": "JACOU",
+            "lat": 43,
+            "lon": 3,
         },
         follow=True,
     )
     erp = Erp.objects.get(nom="Test ERP")
     assert erp.user is None
     assert erp.published is False
-    assert_redirect(response, f"/contrib/localisation/{erp.slug}/")
-    assert response.status_code == 200
-
-    # Localisation
-    response = client.post(
-        reverse("contrib_localisation", kwargs={"erp_slug": erp.slug}),
-        data={"lat": "43", "lon": "3"},
-        follow=True,
-    )
-    erp = Erp.objects.get(nom="Test ERP")
-    assert erp.geom.x == 3
-    assert erp.geom.y == 43
-    assert_redirect(response, "/contrib/transport/test-erp/")
+    assert erp.geom.x == 0.0
+    assert erp.geom.y == 0.0
+    assert_redirect(response, f"/contrib/transport/{erp.slug}/")
     assert response.status_code == 200
 
     # Transport
     response = client.post(
         reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
-        data={"transport_station_presence": True, "transport_information": "blah"},
-        follow=True,
-    )
-    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
-    assert accessibilite.transport_station_presence is True
-    assert accessibilite.transport_information == "blah"
-    assert_redirect(response, "/contrib/stationnement/test-erp/")
-    assert response.status_code == 200
-
-    # Stationnement
-    response = client.post(
-        reverse("contrib_stationnement", kwargs={"erp_slug": erp.slug}),
         data={
+            "transport_station_presence": True,
+            "transport_information": "blah",
             "stationnement_presence": True,
             "stationnement_pmr": True,
             "stationnement_ext_presence": True,
@@ -463,6 +436,8 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    assert accessibilite.transport_station_presence is True
+    assert accessibilite.transport_information == "blah"
     assert accessibilite.stationnement_presence is True
     assert accessibilite.stationnement_pmr is True
     assert accessibilite.stationnement_ext_presence is True
@@ -573,6 +548,8 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
             "accueil_cheminement_main_courante": True,
             "accueil_cheminement_rampe": "aucune",
             "accueil_retrecissement": True,
+            "sanitaires_presence": True,
+            "sanitaires_adaptes": True,
         },
         follow=True,
     )
@@ -589,38 +566,8 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     assert accessibilite.accueil_cheminement_main_courante is True
     assert accessibilite.accueil_cheminement_rampe == "aucune"
     assert accessibilite.accueil_retrecissement is True
-    assert_redirect(response, "/contrib/sanitaires/test-erp/")
-    assert response.status_code == 200
-
-    # Sanitaires
-    response = client.post(
-        reverse("contrib_sanitaires", kwargs={"erp_slug": erp.slug}),
-        data={
-            "sanitaires_presence": True,
-            "sanitaires_adaptes": True,
-        },
-        follow=True,
-    )
-    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.sanitaires_presence is True
     assert accessibilite.sanitaires_adaptes is True
-    assert_redirect(response, "/contrib/labellisation/test-erp/")
-    assert response.status_code == 200
-
-    # Labels
-    response = client.post(
-        reverse("contrib_labellisation", kwargs={"erp_slug": erp.slug}),
-        data={
-            "labels": ["th"],
-            "labels_familles_handicap": ["visuel", "auditif"],
-            "labels_autre": "X",
-        },
-        follow=True,
-    )
-    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
-    assert accessibilite.labels == ["th"]
-    assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
-    assert accessibilite.labels_autre == "X"
     assert_redirect(response, "/contrib/commentaire/test-erp/")
     assert response.status_code == 200
 
@@ -628,69 +575,39 @@ def test_ajout_erp_authenticated(data, client, monkeypatch, capsys):
     response = client.post(
         reverse("contrib_commentaire", kwargs={"erp_slug": erp.slug}),
         data={
+            "labels": ["th"],
+            "labels_familles_handicap": ["visuel", "auditif"],
+            "labels_autre": "X",
             "commentaire": "test commentaire",
         },
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    assert accessibilite.labels == ["th"]
+    assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
+    assert accessibilite.labels_autre == "X"
     assert accessibilite.commentaire == "test commentaire"
     assert_redirect(response, "/contrib/publication/test-erp/")
     assert response.status_code == 200
 
     # Publication
     # Public user
+    client.force_login(data.niko)
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
         data={
-            "user_type": Erp.USER_ROLE_PUBLIC,
             "published": "on",
-            "certif": "on",
         },
         follow=True,
     )
-    erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_PUBLIC)
+    erp = Erp.objects.get(slug=erp.slug)
     assert erp.published is True
     assert erp.user == data.niko
     assert_redirect(response, erp.get_absolute_url())
     assert response.status_code == 200
 
-    # Gestionnaire user
-    response = client.post(
-        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={
-            "user_type": Erp.USER_ROLE_GESTIONNAIRE,
-            "registre_url": "http://www.google.com/",
-            "published": "on",
-            "certif": "on",
-        },
-        follow=True,
-    )
-    erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_GESTIONNAIRE)
-    assert erp.published is True
-    # FIXME: this performs an actual query, we should use a mock
-    assert erp.accessibilite.registre_url == "http://www.google.com/"
-    assert_redirect(response, erp.get_absolute_url())
-    assert response.status_code == 200
 
-    # Administrative user
-    response = client.post(
-        reverse("contrib_publication", kwargs={"erp_slug": erp.slug}),
-        data={
-            "user_type": Erp.USER_ROLE_ADMIN,
-            "conformite": True,
-            "published": "on",
-            "certif": "on",
-        },
-        follow=True,
-    )
-    erp = Erp.objects.get(slug=erp.slug, user_type=Erp.USER_ROLE_ADMIN)
-    assert erp.published is True
-    assert erp.accessibilite.conformite is True
-    assert_redirect(response, erp.get_absolute_url())
-    assert response.status_code == 200
-
-
-def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
+def test_ajout_erp_a11y_vide(data, client, capsys):
     client.force_login(data.niko)
 
     # empty a11y data
@@ -705,25 +622,20 @@ def test_ajout_erp_a11y_vide_erreur(data, client, capsys):
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
         data={
-            "user_type": Erp.USER_ROLE_PUBLIC,
             "published": "on",
-            "certif": "on",
         },
+        follow=True,
     )
 
+    assert_redirect(response, data.erp.get_absolute_url())
     assert response.status_code == 200
-    assert response.context.get("empty_a11y") is True
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.accessibilite.has_data() is False
-    assert erp.published is False
+    assert erp.published is True
 
     # published field off
     response = client.post(
         reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
-        data={
-            "user_type": Erp.USER_ROLE_PUBLIC,
-            "certif": "on",
-        },
         follow=True,
     )
 
@@ -845,18 +757,12 @@ def test_accessibilite_history(data, client):
 
     client.force_login(data.niko)
     client.post(
-        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
-        data={
-            "sanitaires_presence": True,
-            "sanitaires_adaptes": True,
-        },
+        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        data={"transport_station_presence": True},
     )
     client.post(
-        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
-        data={
-            "sanitaires_presence": False,
-            "sanitaires_adaptes": False,
-        },
+        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        data={"transport_station_presence": False},
     )
     accessibilite.refresh_from_db()
     history = accessibilite.get_history()
@@ -865,14 +771,8 @@ def test_accessibilite_history(data, client):
     assert history[0]["user"] == data.niko
     assert history[0]["diff"] == [
         {
-            "field": "sanitaires_presence",
-            "label": "Sanitaires",
-            "new": "Non",
-            "old": "Oui",
-        },
-        {
-            "field": "sanitaires_adaptes",
-            "label": "Sanitaires adaptés",
+            "field": "transport_station_presence",
+            "label": "Proximité d'un arrêt de transport en commun",
             "new": "Non",
             "old": "Oui",
         },
@@ -980,6 +880,8 @@ def test_contribution_flow_administrative_data(data, mocker, client):
             "commune": "JACOU",
             "site_internet": "http://google.com/",
             "action": "contribute",
+            "lat": data.erp.geom.x,
+            "lon": data.erp.geom.y,
         },
         follow=True,
     )
@@ -988,35 +890,32 @@ def test_contribution_flow_administrative_data(data, mocker, client):
     assert response.context["form"].errors == {}
     assert updated_erp.nom == "Test contribution"
     assert updated_erp.user == data.erp.user  # original owner is preserved
-    assert_redirect(response, "/contrib/localisation/aux-bons-croissants/")
+    assert_redirect(response, "/contrib/transport/aux-bons-croissants/")
     assert response.status_code == 200
 
 
 def test_contribution_flow_accessibilite_data(data, client):
-    client.force_login(data.sophie)
     response = client.get(
-        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug})
+        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
     )
 
     assert response.status_code == 200
 
     response = client.post(
-        reverse("contrib_sanitaires", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
         data={
-            "sanitaires_presence": "False",
-            "sanitaires_adaptes": "",
-            "action": "contribute",
+            "transport_station_presence": "False",
+            "contribute": "Continuer",
         },
         follow=True,
     )
 
     updated_erp = Erp.objects.get(slug=data.erp.slug)
     assert updated_erp.user == data.erp.user  # original owner is preserved
-    assert updated_erp.accessibilite.sanitaires_presence is False
-    assert updated_erp.accessibilite.sanitaires_adaptes is None
+    assert updated_erp.accessibilite.transport_station_presence is False
     assert_redirect(
         response,
-        reverse("contrib_labellisation", kwargs={"erp_slug": updated_erp.slug}),
+        reverse("contrib_exterieur", kwargs={"erp_slug": updated_erp.slug}),
     )
     assert response.status_code == 200
 

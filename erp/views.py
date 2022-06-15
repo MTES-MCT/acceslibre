@@ -654,7 +654,7 @@ def contrib_admin_infos(request):
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été enregistrées."
                 )
-                return redirect("contrib_transport", erp_slug=erp.slug)
+                return redirect("contrib_a_propos", erp_slug=erp.slug)
     else:
         encoded_data = request.GET.get("data")
         try:
@@ -684,7 +684,7 @@ def contrib_admin_infos(request):
             "step": 1,
             "libelle_step": {
                 "current": "informations",
-                "next": schema.SECTION_TRANSPORT,
+                "next": schema.SECTION_A_PROPOS,
             },
             "form": form,
             "has_data": data is not None,
@@ -718,6 +718,7 @@ def contrib_edit_infos(request, erp_slug):
             "step": 1,
             "libelle_step": {
                 "current": "informations",
+                "next": schema.SECTION_A_PROPOS,
             },
             "erp": erp,
             "form": form,

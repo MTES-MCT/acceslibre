@@ -245,6 +245,7 @@ PARTENAIRES = {
     },
 }
 
+SECTION_A_PROPOS = "a_propos"
 SECTION_TRANSPORT = "transport"
 SECTION_STATIONNEMENT = "stationnement"
 SECTION_CHEMINEMENT_EXT = "cheminement_ext"
@@ -257,11 +258,11 @@ SECTION_CONFORMITE = "conformite"
 SECTION_ACTIVITE = "activite"
 SECTION_COMMENTAIRE = "commentaire"
 SECTIONS = {
-    SECTION_LABELS: {
+    SECTION_A_PROPOS: {
         "icon": "trophy",
-        "label": "Marques ou labels",
-        "description": "Marques ou labels d'accessibilité",
-        "edit_route": "contrib_labellisation",
+        "label": "À propos",
+        "description": "de l'établissement",
+        "edit_route": "contrib_a_propos",
     },
     SECTION_TRANSPORT: {
         "icon": "bus",
@@ -364,7 +365,7 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement sont disponibles au sein de la parcelle de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible au sein de la parcelle de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
     },
@@ -379,7 +380,7 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement adaptées sont disponibles au sein de la parcelle de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible adaptée au sein de la parcelle de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
     },
@@ -394,7 +395,7 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement sont disponibles à moins de 200 mètres de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
     },
@@ -409,7 +410,7 @@ FIELDS = {
         "help_text_ui": "Des places de stationnement adaptées sont disponibles à moins de 200 mètres de l'établissement",
         "help_text_ui_neg": "Pas de place de stationnement disponible adaptée à moins de 200 mètres de l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_STATIONNEMENT,
+        "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
     },
@@ -1124,7 +1125,7 @@ FIELDS = {
         "help_text_ui": "Des sanitaires sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Pas de sanitaires mis à disposition dans l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_SANITAIRES,
+        "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
@@ -1139,7 +1140,7 @@ FIELDS = {
         "help_text_ui": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Aucun sanitaire adapté mis à disposition dans l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
-        "section": SECTION_SANITAIRES,
+        "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
     },
@@ -1155,7 +1156,7 @@ FIELDS = {
         "help_text_ui": "Marque(s) ou label(s) obtenus par l'établissement",
         "help_text_ui_neg": "Marque(s) ou label(s) obtenus par l'établissement",
         "choices": LABEL_CHOICES,
-        "section": SECTION_LABELS,
+        "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
     },
@@ -1170,7 +1171,7 @@ FIELDS = {
         "help_text_ui": "Famille(s) de handicap couverte(s) par ces marques ou labels",
         "help_text_ui_neg": "Famille(s) de handicap couverte(s) par ces marques ou labels",
         "choices": HANDICAP_CHOICES,
-        "section": SECTION_LABELS,
+        "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
     },
@@ -1183,7 +1184,7 @@ FIELDS = {
         "help_text_ui": "Autre marque ou label obtenus",
         "help_text_ui_neg": "Autre marque ou label obtenus",
         "choices": None,
-        "section": SECTION_LABELS,
+        "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
         "example": "HandiLabel",

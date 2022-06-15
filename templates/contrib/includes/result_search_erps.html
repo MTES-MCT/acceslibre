@@ -2,7 +2,7 @@
 {% for result in results %}
 <div class="card mb-3">
   <div class="row no-gutters">
-    <div class="{% if light %}col-12{% else %}col-6{% endif %}">
+    <div class="{% if light %}col-12{% else %}col-12 col-md-6{% endif %}">
       <div class="card-body">
         <h3 class="h6 card-title font-weight-bold {% if light %}mb-1{% endif %}">
           {% if not light and result.exists and result.exists.is_online %}
