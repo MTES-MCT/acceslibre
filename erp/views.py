@@ -701,6 +701,12 @@ def contrib_admin_infos(request):
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"lat": float(erp.geom.y), "lon": float(erp.geom.x)}
+    if request.user.is_authenticated and erp.user is request.user:
+        libelle_next = schema.SECTION_A_PROPOS
+        next_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
+    else:
+        libelle_next = schema.SECTION_TRANSPORT
+        next_route = schema.SECTIONS[schema.SECTION_TRANSPORT]["edit_route"]
     if request.method == "POST":
         form = forms.PublicErpEditInfosForm(request.POST, instance=erp)
         if form.is_valid():
@@ -708,9 +714,10 @@ def contrib_edit_infos(request, erp_slug):
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
-            return redirect("contrib_a_propos", erp_slug=erp.slug)
+            return redirect(next_route, erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
+
     return render(
         request,
         template_name="contrib/1-admin-infos.html",
@@ -718,7 +725,7 @@ def contrib_edit_infos(request, erp_slug):
             "step": 1,
             "libelle_step": {
                 "current": "informations",
-                "next": schema.SECTION_A_PROPOS,
+                "next": libelle_next,
             },
             "erp": erp,
             "form": form,
