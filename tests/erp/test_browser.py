@@ -375,7 +375,6 @@ def test_erp_edit_can_be_contributed(data, client):
     assert response.status_code == 200
 
 
-
 def test_ajout_erp(data, client, monkeypatch, capsys):
     response = client.get(reverse("contrib_start"))
     assert response.status_code == 200
