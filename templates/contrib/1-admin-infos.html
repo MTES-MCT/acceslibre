@@ -51,7 +51,7 @@
       </div>
       <div class="list-group list-group-flush">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             {% for erp in existing_matches %}
             <div class="d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
               <div>
@@ -78,23 +78,17 @@
                   </address>
                 </div>
               </div>
-              <button class="btn btn-sm btn-outline-primary d-none d-sm-none d-md-block a4a-icon-btn a4a-geo-link ml-2"
-                title="Localiser sur la carte" data-erp-id="{{ erp.pk }}">
-                Localiser<br>
-                <i aria-hidden="true" class="icon icon-target"></i>
-              </button>
+
             </div>
             <p class="text-left">
-              <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url "contrib_localisation" erp_slug=erp.slug %}">
+              <a class="btn btn-outline-primary text-wrap mx-auto" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">
                 <i aria-hidden="true" class="icon icon-pencil"></i>
                 Améliorez ces informations
               </a>
             </p>
           {% endfor %}
           </div>
-          <div class="col-md-6 a4a-search-map-area">
-            {% include "common/map.html" with map_classes="a4a-search-map rounded" erp=erp geojson_list=geojson_list%}
-          </div>
+
 
         </div>
         <hr class="my-5" style="width: 100%; border:1px solid rgba(0, 0, 0, 0.1);">

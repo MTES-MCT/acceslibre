@@ -590,12 +590,7 @@ def contrib_start(request):
         request,
         template_name="contrib/0-start.html",
         context={
-            "step": 1,
             "form": form,
-            "libelle_step": {
-                "current": "informations",
-                "next": schema.SECTION_TRANSPORT,
-            },
         },
     )
 
@@ -650,6 +645,8 @@ def contrib_admin_infos(request):
             if len(existing_matches) == 0 or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
+                if request.user.is_authenticated and erp.user is None:
+                    erp.user = request.user
                 erp.save()
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été enregistrées."
@@ -662,7 +659,6 @@ def contrib_admin_infos(request):
         except RuntimeError as err:
             data_error = err
         else:
-            data["contact_url"] = "http://"
             data_erp = data.copy()
             if "coordonnees" in data_erp:
                 del data_erp["coordonnees"]
@@ -711,6 +707,9 @@ def contrib_edit_infos(request, erp_slug):
         form = forms.PublicErpEditInfosForm(request.POST, instance=erp)
         if form.is_valid():
             erp = form.save()
+            if request.user.is_authenticated and erp.user is None:
+                erp.user = request.user
+                erp.save()
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
@@ -742,6 +741,9 @@ def contrib_a_propos(request, erp_slug):
         form = forms.PublicAProposForm(request.POST, instance=erp, initial=initial)
         if form.is_valid():
             erp = form.save()
+            if request.user.is_authenticated and erp.user is None:
+                erp.user = request.user
+                erp.save()
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
@@ -836,6 +838,9 @@ def process_accessibilite_form(
         accessibilite = form.save(commit=False)
         accessibilite.erp = erp
         accessibilite.save()
+        if request.user.is_authenticated and accessibilite.erp.user is None:
+            accessibilite.erp.user = request.user
+            accessibilite.erp.save()
         form.save_m2m()
         messages.add_message(
             request, messages.SUCCESS, "Les données ont été enregistrées."

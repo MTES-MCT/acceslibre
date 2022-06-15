@@ -42,6 +42,7 @@ def decode_provider_data(data):
     try:
         if data:
             decoded = json.loads(base64.urlsafe_b64decode(data).decode())
+            del decoded["activite"]
             if "coordonnees" in decoded:
                 decoded["geom"] = Point(decoded["coordonnees"])
                 decoded["lat"] = decoded["coordonnees"][1]

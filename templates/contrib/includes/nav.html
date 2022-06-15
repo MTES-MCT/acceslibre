@@ -2,11 +2,18 @@
     <div class="d-md-none" id="step-navigation">
       <label for="step-select" class="font-weight-bold">Navigation</label>
       <select id="step-select" class="form-control" onchange="location=$(this).val()+'#step-navigation'">
-        <option {% if erp %}value="{% url "contrib_edit_infos" erp_slug=erp.slug %}"{% else %}value="{% url "contrib_edit_infos" %}"{% endif %}
+        <option {% if erp %}value="{% url "contrib_edit_infos" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 1 %}selected{% endif %}>
           {% if step > 1 %}[ok]{% endif %}
           Informations
         </option>
+      {% if not erp.user or erp.user == request.user %}
+        <option {% if erp %}value="{% url "contrib_a_propos" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
+          {% if step == 2 %}selected{% endif %}>
+          {% if step > 2 %}[ok]{% endif %}
+          À propos
+        </option>
+      {% endif %}
         <option {% if erp %}value="{% url "contrib_transport" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 3 %}selected{% endif %}>
           {% if step > 3 %}[ok]{% endif %}
@@ -35,15 +42,25 @@
       </select>
     </div>
     <ul class="d-none d-md-block StepProgress">
-      <li class="StepProgress-item{% if step == 1 or step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}"
-        aria-label="{% if step == 1 or step == 2 %}en cours{% endif %}{% if step > 2 %} validé{% endif %}"
+      <li class="StepProgress-item{% if step == 1  %} current{% endif %}{% if step > 1 %} is-done{% endif %}"
+        aria-label="{% if step == 1  %}en cours{% endif %}{% if step > 1 %} validé{% endif %}"
       >
         {% if erp %}
-        <a title="Informations ({% if step == 1 or step == 2 %}en cours{% endif %}{% if step > 2 %} validé{% endif %})" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Informations</a>
+        <a title="Informations ({% if step == 1 %}en cours{% endif %}{% if step > 1 %} validé{% endif %})" href="{% url "contrib_edit_infos" erp_slug=erp.slug %}">Informations</a>
         {% else %}
         Informations
         {% endif %}
       </li>
+    {% if not erp.user or erp.user == request.user%}
+      <li class="StepProgress-item{% if step == 2 %} current{% endif %}{% if step > 2 %} is-done{% endif %}"
+        aria-label="{% if step == 2 %}en cours{% endif %}{% if step > 2 %} validé{% endif %}">
+        {% if erp %}
+        <a title="À propos {% if step == 2 %}(Étape en cours){% endif %}{% if step > 2 %}(Étape validée){% endif %}" href="{% url "contrib_a_propos" erp_slug=erp.slug %}">À propos</a>
+        {% else %}
+        À propos
+        {% endif %}
+      </li>
+    {% endif %}
       <li class="StepProgress-item{% if step == 3 %} current{% endif %}{% if step > 3 %} is-done{% endif %}"
         aria-label="{% if step == 3 %}en cours{% endif %}{% if step > 3 %} validé{% endif %}">
         {% if erp %}
