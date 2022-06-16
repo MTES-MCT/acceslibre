@@ -59,6 +59,9 @@ class Referer(models.Model):
         ordering = ("-id",)
         verbose_name = "Site réutilisateur"
         verbose_name_plural = "Sites réutilisateur"
+        indexes = [
+            models.Index(fields=["domain"], name="domain_idx"),
+        ]
 
     def __str__(self):
         return self.domain
@@ -103,6 +106,10 @@ class Implementation(models.Model):
         ordering = ("-updated_at", "urlpath")
         verbose_name = "Implémentation du Widget"
         verbose_name_plural = "Implémentations du Widget"
+        indexes = [
+            models.Index(fields=["referer"], name="referer_idx"),
+            models.Index(fields=["urlpath"], name="urlpath_idx"),
+        ]
 
     def __str__(self):
         return self.urlpath
