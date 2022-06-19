@@ -43,7 +43,7 @@ class Command(BaseCommand):
         while True:
             try:
                 schedule.run_pending()
-            except CommandError as err:
+            except Exception as err:
                 trace = traceback.format_exc()
                 logger.error(err)
                 mattermost.send(
