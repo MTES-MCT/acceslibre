@@ -106,10 +106,12 @@ class Command(BaseCommand):
                 print("Doublonner dans le fichier source")
                 return None
         # activité
-        fields["activite_id"] = Activite.objects.get(nom="Restaurant").id
-
+        if "théâtre" in fields["nom"].lower():
+            fields["activite_id"] = Activite.objects.get(nom="Théâtre").id
+        else:
+            fields["activite_id"] = Activite.objects.get(nom="Musée").id
         erp = Erp(**fields)
-        act = "\n    Restaurant"
+        act = f"\n    {erp.activite}"
 
         print(f"ADD {erp.nom}{act}\n    {erp.adresse}")
         return erp
@@ -121,7 +123,7 @@ class Command(BaseCommand):
         return os.path.join(
             os.path.dirname(here),
             "data",
-            "restaurant_gamma.csv",
+            "culture_gamma.csv",
         )
 
     def add_arguments(self, parser):
