@@ -30,7 +30,7 @@ def get_erp_counts_histogram():
     }
 
 
-def get_stats_territoires(sort="completude", max=10):
+def get_stats_territoires(sort="completude", max=50):
     sort_field = "erps_commune" if sort == "count" else "pourcentage_completude"
     return sql.run_sql(
         f"""--sql

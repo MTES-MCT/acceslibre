@@ -25,6 +25,7 @@ class Command(BaseCommand):
         schedule.every().day.at("04:00").do(call_command, "purge_inactive_accounts")
         schedule.every().hour.do(call_command, "purge_tokens")
         schedule.every().hour.do(call_command, "calculate_challenge_stats")
+        schedule.every().day.at("03:00").do(call_command, "refresh_global_stats")
         schedule.every().day.at("01:00").do(call_command, "export_to_datagouv")
         schedule.every().hour.do(call_command, "import_dataset", "vaccination")
         schedule.every().day.do(call_command, "import_dataset", "gendarmerie")
