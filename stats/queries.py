@@ -30,7 +30,7 @@ def get_erp_counts_histogram():
     }
 
 
-def get_stats_territoires(sort="completude", max=10):
+def get_stats_territoires(sort="completude", max=50):
     sort_field = "erps_commune" if sort == "count" else "pourcentage_completude"
     return sql.run_sql(
         f"""--sql
@@ -199,16 +199,15 @@ def get_count_challenge(start_date, stop_date):
         erp__created_at__gte=start_date,
         erp__created_at__lt=stop_date,
     )
+    challengers = get_user_model().objects.filter(email__in=emails_players_list)
     top_contribs = (
-        get_user_model()
-        .objects.annotate(
+        challengers.annotate(
             erp_count_published=Count(
                 "erp",
                 filter=filters,
                 distinct=True,
             )
         )
-        .filter(filters)
         .filter(erp_count_published__gt=0)
         .order_by("-erp_count_published")
     )

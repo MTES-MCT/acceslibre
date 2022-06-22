@@ -5,7 +5,40 @@ from django.db import models
 from django.utils import timezone
 
 from core import mattermost
-from stats.queries import get_count_challenge
+from stats.queries import (
+    get_count_challenge,
+    get_erp_counts_histogram,
+    get_stats_territoires,
+    get_top_contributors,
+)
+
+
+class GlobalStats(models.Model):
+    _singleton = models.BooleanField(default=True, editable=False, unique=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    erp_counts_histogram = models.JSONField(default=dict)
+    stats_territoires_sort_count = models.JSONField(default=dict)
+    stats_territoires_sort_default = models.JSONField(default=dict)
+    top_contributors = models.JSONField(default=dict)
+
+    class Meta:
+        verbose_name = "Statistiques"
+        verbose_name_plural = "Statistiques"
+
+    @classmethod
+    def refresh_stats(cls):
+        self, created = cls.objects.get_or_create()
+        self.erp_counts_histogram = get_erp_counts_histogram()
+        self.stats_territoires_sort_count = get_stats_territoires(sort="count")
+        self.stats_territoires_sort_default = get_stats_territoires()
+        self.top_contributors = list(get_top_contributors())
+        self.save()
+
+    def get_stats_territoires(self, sort):
+        if sort == "count":
+            return self.stats_territoires_sort_count
+        else:
+            return self.stats_territoires_sort_default
 
 
 class Challenge(models.Model):
@@ -59,6 +92,9 @@ class Referer(models.Model):
         ordering = ("-id",)
         verbose_name = "Site réutilisateur"
         verbose_name_plural = "Sites réutilisateur"
+        indexes = [
+            models.Index(fields=["domain"], name="domain_idx"),
+        ]
 
     def __str__(self):
         return self.domain
@@ -103,6 +139,10 @@ class Implementation(models.Model):
         ordering = ("-updated_at", "urlpath")
         verbose_name = "Implémentation du Widget"
         verbose_name_plural = "Implémentations du Widget"
+        indexes = [
+            models.Index(fields=["referer"], name="referer_idx"),
+            models.Index(fields=["urlpath"], name="urlpath_idx"),
+        ]
 
     def __str__(self):
         return self.urlpath

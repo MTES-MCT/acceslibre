@@ -1,10 +1,11 @@
 import pytest
 from django.contrib.sites.models import Site
+from django.core.management import call_command
 
 from django.test import Client
 from django.urls import reverse
 
-from stats.models import Referer, Implementation
+from stats.models import Referer, Implementation, GlobalStats
 
 
 @pytest.mark.django_db
@@ -72,3 +73,10 @@ def test_widget_tracking_verify_dupes(data):
     assert Implementation.objects.all().count() == 1
     impl = Implementation.objects.last()
     assert impl.urlpath == "http://test_widget_external_website.tld/test_url.php"
+
+
+def test_command_refresh_stats(client, data, mocker):
+    call_command("refresh_global_stats")
+    assert GlobalStats.objects.count() == 1
+    stat = GlobalStats.objects.get()
+    assert stat.top_contributors is not dict()
