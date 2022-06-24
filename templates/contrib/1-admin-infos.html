@@ -31,13 +31,6 @@
       </ul>
     </div>
     {% endif %}
-    {% if not existing_matches %}
-    <p class="text-muted"><small>
-      Les champs marqués d'une astérisque (*) sont obligatoires. Pour l'adresse,
-      le renseignement d'une voie ou d'un lieu dit est obligatoire.
-    </small></p>
-    {% endif %}
-
     {% if data_error %}
       <div class="alert alert-danger">{{ data_error }}</div>
     {% endif %}
@@ -46,7 +39,7 @@
       <div class="alert alert-warning">
         <p>
           <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
-          Des établissements correspondant à votre saisie sont déjà présents sur Acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie.
+          Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie.
         </p>
       </div>
       <div class="list-group list-group-flush">

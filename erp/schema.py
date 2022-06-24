@@ -1194,10 +1194,11 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": False,
-        "label": "Informations complémentaires et prestations spécifiques",
+        "label": mark_safe(
+            "<strong>Informations complémentaires et prestations spécifiques</strong>"
+        ),
         "help_text": mark_safe(
             "Ajoutez ici toute information supplémentaire concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées."
-            "<br><strong>Note&nbsp;:</strong> ces informations seront affichées sur la fiche publique de l'établissement."
         ),
         "help_text_ui": "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées",
         "help_text_ui_neg": "Informations supplémentaires concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées",

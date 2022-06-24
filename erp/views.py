@@ -738,18 +738,24 @@ def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"user_type": Erp.USER_ROLE_PUBLIC}
     if request.method == "POST":
-        form = forms.PublicAProposForm(request.POST, instance=erp, initial=initial)
+        form = forms.PublicAProposForm(
+            request.POST, instance=erp.accessibilite, initial=initial
+        )
         if form.is_valid():
-            erp = form.save()
+            breakpoint()
+            erp.accessibilite = form.save()
+            erp.save()
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
+                if form.cleaned_data["subscribe"] is True:
+                    ErpSubscription.subscribe(erp, request.user)
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
-        form = forms.PublicAProposForm(instance=erp, initial=initial)
+        form = forms.PublicAProposForm(instance=erp.accessibilite, initial=initial)
     return render(
         request,
         template_name="contrib/2-a-propos.html",
@@ -893,6 +899,12 @@ def process_accessibilite_form(
 
 @create_revision()
 def contrib_transport(request, erp_slug):
+    erp = get_object_or_404(Erp, slug=erp_slug)
+    if request.user.is_authenticated and erp.user is request.user:
+        prev_route = schema.SECTIONS[schema.SECTION_A_PROPOS]["edit_route"]
+    else:
+        prev_route = "contrib_edit_infos"
+
     return process_accessibilite_form(
         request,
         erp_slug,
@@ -900,7 +912,7 @@ def contrib_transport(request, erp_slug):
         schema.get_section_fields(schema.SECTION_TRANSPORT),
         "contrib/3-transport.html",
         "contrib_exterieur",
-        prev_route="contrib_a_propos",
+        prev_route=prev_route,
         redirect_hash=schema.SECTION_TRANSPORT,
         libelle_step={
             "current": schema.SECTION_TRANSPORT,
@@ -994,7 +1006,6 @@ def contrib_publication(request, erp_slug):
         erp = form.save()
         erp.user = request.user
         erp.save()
-        ErpSubscription.subscribe(erp, request.user)
         messages.add_message(
             request, messages.SUCCESS, "Les données ont été sauvegardées."
         )

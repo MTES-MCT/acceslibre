@@ -39,16 +39,11 @@
   </p>
   {% else %}
   <div class="row">
-    <div class="fr-col-6">
+    <div class="fr-col-12 fr-col-md-6">
       <form action="." method="POST" novalidate class="login-form">
         <input type="hidden" name="next" value="{{ next }}">
         {% csrf_token %}
         <h1 class="h3 text-left mb-4">Je me connecte</h1>
-
-        <p><small class="text-muted">
-          <i aria-hidden="true" class="icon icon-info-circled"></i>
-          Les champs marqué d'une astérique (*) sont obligatoires.
-        </small></p>
 
         {% for error in form.non_field_errors %}
           <p class="form-text text-danger" role="alert">{{ error }}</p>
@@ -57,18 +52,18 @@
           {{ form.username|as_crispy_field }}
           {{ form.password|as_crispy_field }}
 
-          <div class="text-center mb-3">
-            <a href="{% url "password_reset" %}">Mot de passe oublié ?</a>
+          <div class="text-center mb-5">
+            <a class="small" href="{% url "password_reset" %}">Mot de passe oublié ?</a>
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
+            <button type="submit" class="btn fr-btn fr-btns-group--center btn-block text-center">
               Se connecter
             </button>
             <div class="text-center m-4">
               ou
             </div>
-            <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}" class="btn fr-btn fr-btns-group--center btn-block text-center">
+            <a href="{% url "django_registration_register" %}?next={{ next|urlencode:'' }}" class="btn fr-btn fr-btns-group--center fr-btn--secondary btn-block text-center">
             S'inscrire
           </a>
           </div>
@@ -76,7 +71,7 @@
 
       </form>
     </div>
-    <div class="fr-col-5 fr-col-offset-1">
+    <div class="fr-col-5 fr-col-offset-1 mt-10">
       <figure class="fr-content-media d-none d-sm-block">
           <div class="fr-content-media__img ">
               <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">

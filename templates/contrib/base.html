@@ -24,7 +24,7 @@
     {% include 'contrib/includes/nav.html' %}
   </div>
  {% endblock %}
-  <div class="col-md-9">
+  <div class="{% block search %}col-md-9{% endblock %}">
     {% block contrib_content %}{% endblock %}
   </div>
 

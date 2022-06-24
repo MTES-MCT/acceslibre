@@ -576,7 +576,7 @@ class ProviderGlobalSearchForm(forms.Form):
 
 class PublicAProposForm(forms.ModelForm):
     class Meta:
-        model = Erp
+        model = Accessibilite
         fields = (
             "user_type",
             "registre_url",
@@ -602,21 +602,6 @@ class PublicAProposForm(forms.ModelForm):
         ],
         widget=forms.RadioSelect(attrs={"class": "inline"}),
         required=True,
-    )
-    registre_url = forms.URLField(
-        label="Registre d'accessibilité",
-        help_text=schema.get_help_text("registre_url"),
-        widget=forms.TextInput(
-            attrs={"type": "url", "placeholder": "http://", "autocomplete": "off"}
-        ),
-        required=False,
-    )
-    conformite = forms.ChoiceField(
-        label="Conformité",
-        help_text=schema.get_help_text("conformite"),
-        choices=schema.NULLABLE_BOOLEAN_CHOICES,
-        widget=forms.RadioSelect(attrs={"class": "inline"}),
-        required=False,
     )
 
     subscribe = forms.BooleanField(

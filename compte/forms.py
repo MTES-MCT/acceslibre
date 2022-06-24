@@ -51,7 +51,7 @@ def _custom_password_validators_help_text_html(password_validators=None):
     """
     help_texts = password_validators_help_texts(password_validators)
     help_items = [
-        format_html("<span>- {}</span><br>", help_text) for help_text in help_texts
+        format_html("<span>* {}</span><br>", help_text) for help_text in help_texts
     ]
     # <------------- append your hint here in help_items  ------------->
     return "%s" % "".join(help_items) if help_items else ""
@@ -91,6 +91,12 @@ class CustomRegistrationForm(RegistrationFormUniqueEmail):
         widget=forms.PasswordInput,
         strip=False,
         help_text=custom_validators_help_text_html(),
+    )
+    password2 = forms.CharField(
+        label=_("Confirmation du mot de passe"),
+        required=True,
+        widget=forms.PasswordInput,
+        strip=False,
     )
     username = define_username_field()
     next = forms.CharField(required=False)

@@ -24,6 +24,17 @@ $viewport-xl: 1200px;
 @import "~bootstrap/scss/bootstrap";
 // App specific styles
 
+// SPACING
+.mt-10,
+.my-10 {
+  margin-top: 9rem !important;
+}
+
+.mt-20,
+.my-20 {
+  margin-top: 15rem !important;
+}
+
 iframe{
   border: 0px;
   margin:0px;
@@ -896,10 +907,11 @@ button.fr-btn:focus, button.fr-btn:hover{
     width: 10px;
   }
 
-  .StepProgress-item.is-done {
-    left: -17px;
-    font-size: 1.2em;
-    font-weight: bold;
+
+  .StepProgress-item.is-done::before {
+    color: limegreen;
+    left:-25px;
+    content:"✔"
   }
 
   .StepProgress-item.current {
