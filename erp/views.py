@@ -738,11 +738,8 @@ def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"user_type": Erp.USER_ROLE_PUBLIC}
     if request.method == "POST":
-        form = forms.PublicAProposForm(
-            request.POST, instance=erp.accessibilite, initial=initial
-        )
+        form = forms.PublicAProposForm(request.POST, instance=erp, initial=initial)
         if form.is_valid():
-            breakpoint()
             erp.accessibilite = form.save()
             erp.save()
             if request.user.is_authenticated and erp.user is None:
@@ -755,7 +752,7 @@ def contrib_a_propos(request, erp_slug):
             )
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
-        form = forms.PublicAProposForm(instance=erp.accessibilite, initial=initial)
+        form = forms.PublicAProposForm(instance=erp, initial=initial)
     return render(
         request,
         template_name="contrib/2-a-propos.html",
