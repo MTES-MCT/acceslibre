@@ -995,7 +995,6 @@ def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
 
     if request.method == "POST":
-        # initial["subscribe"] = (,)
         form = forms.PublicPublicationForm(request.POST, instance=erp)
     else:
         if request.GET:

@@ -35,7 +35,7 @@
           </small>
         </p>
       {% endif %}
-        <p class="card-text mb-0 text-left">
+        <p class="card-text mb-0 text-center">
           {% if light %}
           <a class="btn fr-btn fr-btns-group--center btn-block" href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
             Ajouter cet établissement
@@ -49,7 +49,7 @@
               Voir cet établissement
             </a>
           {% else %}
-            <span class="badge badge-warning p-2">
+            <span class="alert alert-warning p-0 pl-1 pr-1 h6">
               Cet établissement est pris en charge par un autre contributeur
             </span>
           {% endif %}

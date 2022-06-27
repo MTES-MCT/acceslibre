@@ -418,7 +418,7 @@ def test_ajout_erp(data, client, monkeypatch, capsys):
     assert erp.published is False
     assert erp.geom.x == 0.0
     assert erp.geom.y == 0.0
-    assert_redirect(response, f"/contrib/transport/{erp.slug}/")
+    assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert response.status_code == 200
 
     # Transport
@@ -631,16 +631,6 @@ def test_ajout_erp_a11y_vide(data, client, capsys):
     erp = Erp.objects.get(slug=data.erp.slug)
     assert erp.accessibilite.has_data() is False
     assert erp.published is True
-
-    # published field off
-    response = client.post(
-        reverse("contrib_publication", kwargs={"erp_slug": data.erp.slug}),
-        follow=True,
-    )
-
-    assert_redirect(response, reverse("mes_erps"))
-    erp = Erp.objects.get(slug=data.erp.slug)
-    assert erp.published is False
 
 
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
@@ -900,6 +890,18 @@ def test_contribution_flow_accessibilite_data(data, client):
 
     assert response.status_code == 200
 
+    client.post(
+        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
+        data={
+            "transport_station_presence": "False",
+            "contribute": "Continuer",
+        },
+        follow=True,
+    )
+    updated_erp = Erp.objects.get(slug=data.erp.slug)
+    assert updated_erp.accessibilite.transport_station_presence is None
+
+    client.force_login(data.niko)
     response = client.post(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
         data={
