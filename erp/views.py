@@ -738,7 +738,13 @@ def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"user_type": Erp.USER_ROLE_PUBLIC}
     if request.method == "POST":
-        form = forms.PublicAProposForm(request.POST, instance=erp, initial=initial)
+        if erp.has_accessibilite():
+            accessibilite = erp.accessibilite
+        else:
+            accessibilite = None
+        form = forms.PublicAProposForm(
+            request.POST, instance=accessibilite, initial=initial
+        )
         if form.is_valid():
             erp.accessibilite = form.save()
             erp.save()
