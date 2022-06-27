@@ -1008,6 +1008,7 @@ def contrib_publication(request, erp_slug):
         erp = form.save()
         erp.user = request.user
         erp.save()
+        ErpSubscription.subscribe(erp, request.user)
         messages.add_message(
             request, messages.SUCCESS, "Les données ont été sauvegardées."
         )
