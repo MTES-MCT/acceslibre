@@ -777,32 +777,19 @@ def contrib_a_propos(request, erp_slug):
 
 
 def check_authentication(request, erp, form, check_online=True):
+    redirect_path = redirect(
+        reverse("login")
+        + "?"
+        + urllib.parse.urlencode(
+            {"next": request.path + "?" + urllib.parse.urlencode(form.data)}
+        )
+    )
     if check_online:
         if erp.is_online() and not request.user.is_authenticated:
-            return redirect(
-                reverse("login")
-                + "?"
-                + urllib.parse.urlencode(
-                    {
-                        "next": request.path
-                        + "?"
-                        + urllib.parse.urlencode(form.cleaned_data)
-                    }
-                )
-            )
+            return redirect_path
     else:
         if not request.user.is_authenticated:
-            return redirect(
-                reverse("login")
-                + "?"
-                + urllib.parse.urlencode(
-                    {
-                        "next": request.path
-                        + "?"
-                        + urllib.parse.urlencode(form.cleaned_data)
-                    }
-                )
-            )
+            return redirect_path
 
 
 def process_accessibilite_form(
@@ -832,7 +819,7 @@ def process_accessibilite_form(
     )
 
     Form = modelform_factory(
-        Accessibilite, form=forms.AdminAccessibiliteForm, fields=form_fields
+        Accessibilite, form=forms.ContribAccessibiliteForm, fields=form_fields
     )
     if request.method == "POST":
         form = Form(request.POST, instance=accessibilite)
@@ -840,7 +827,7 @@ def process_accessibilite_form(
         if request.GET:
             form = Form(request.GET, instance=accessibilite)
         else:
-            form = forms.AdminAccessibiliteForm(instance=accessibilite)
+            form = forms.ContribAccessibiliteForm(instance=accessibilite)
     if form.is_valid():
         if check_authentication(request, erp, form):
             return check_authentication(request, erp, form)

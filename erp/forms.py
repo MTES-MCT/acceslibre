@@ -27,7 +27,7 @@ def get_widgets_for_accessibilite():
     return dict([(f, bool_radios()) for f in field_names])
 
 
-class AdminAccessibiliteForm(forms.ModelForm):
+class ContribAccessibiliteForm(forms.ModelForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
 
@@ -38,6 +38,10 @@ class AdminAccessibiliteForm(forms.ModelForm):
         labels = schema.get_labels()
         help_texts = schema.get_help_texts()
 
+
+class AdminAccessibiliteForm(ContribAccessibiliteForm):
+    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
+    # fields, hence why we set them up manually for each fields.
     accueil_equipements_malentendants = forms.MultipleChoiceField(
         required=False,
         choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
