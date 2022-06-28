@@ -12,7 +12,7 @@
 
 {% block fields_content %}
 
-  {{ form.user_type|as_crispy_field }}
+  {% include "fields/boolradio.html" with field=form.user_type %}
   {% include "fields/textarea.html" with field=form.registre_url %}
   {% include "fields/boolradio.html" with field=form.conformite inline=True %}
 
