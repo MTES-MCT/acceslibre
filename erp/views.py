@@ -102,7 +102,7 @@ def challenges(request):
 
 def challenge_ddt(request):
     today = datetime.datetime.today()
-    challenge = Challenge.objects.get()
+    challenge = Challenge.objects.get(slug="challenge-ddt")
     return render(
         request,
         "challenge/podium.html",
