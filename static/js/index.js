@@ -33,6 +33,7 @@ window.SentryIntegrations = Integrations;
 import dom from "./dom";
 import geo from "./geo";
 import ui from "./ui";
+import api from "./api"
 
 // Initializations
 dom.ready(() => {
@@ -56,6 +57,36 @@ window.a4a = {
 window.onload = function() {
     var src = document.getElementById("id_email"),
         dst = document.getElementById("id_username");
+
+    var numero = document.getElementById("id_numero");
+    var voie = document.getElementById("id_voie");
+    var lieu_dit = document.getElementById("id_lieu_dit");
+    var code_postal = document.getElementById("id_code_postal");
+    var ville = document.getElementById("id_commune");
+
+    var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
+
+    console.log(query)
+    numero.addEventListener("change", function (event) {
+      api.getCoordinate(query).then(function(response){
+        var result = response.results[0];
+        var mapDomEl = document.querySelector(".a4a-localisation-map");
+
+        if (mapDomEl !== undefined) {
+           mapDomEl._leaflet_id = null;
+        }
+        const map = geo.createMap(mapDomEl, { scrollWheelZoom: false });
+        map.setView(
+          {
+            lat: result.lat,
+            lon: result.lon,
+          },
+          18
+        );
+      });
+      });
+
+
     if (src && dst) {
     src.addEventListener('input', function() {
         dst.value = src.value.split('@')[0];
