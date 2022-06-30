@@ -53,7 +53,13 @@ urlpatterns = [
         name="partenaires",
     ),
     # Challenge DDT mars 2022
+    path("challenges/", views.challenges, name="challenges"),
     path("challenge/ddt/2022/03/", views.challenge_ddt, name="challenge-ddt"),
+    path(
+        "challenge/<str:challenge_slug>/",
+        views.challenge_detail,
+        name="challenge-detail",
+    ),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
     path(
