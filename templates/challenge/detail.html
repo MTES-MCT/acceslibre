@@ -14,7 +14,8 @@
   </h2>
   {% if challenge.objectif %}
     <p>
-    <strong>Objectifs : </strong>{{ challenge.objectif }}
+    <strong>Objectifs : </strong>
+    {{ challenge.objectif | safe }}
     </p>
   {% endif %}
 
