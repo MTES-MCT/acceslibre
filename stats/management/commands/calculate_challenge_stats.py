@@ -10,6 +10,6 @@ class Command(BaseCommand):
         for challenge in Challenge.objects.filter(active=True):
             try:
                 challenge.refresh_stats()
-                print(f"STATS for challenge {challenge} update succesfully")
+                print(f"STATS for challenge {challenge} update successfully")
             except KeyboardInterrupt:
                 raise CommandError("Interrompu.")

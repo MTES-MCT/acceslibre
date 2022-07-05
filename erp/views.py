@@ -79,13 +79,50 @@ def home(request):
     )
 
 
+def challenges(request):
+    today = datetime.datetime.today()
+    challenges = Challenge.objects.filter(active=True)
+    return render(
+        request,
+        "challenge/list.html",
+        context={
+            "today": today,
+            "challenges": challenges,
+            "challenges_en_cours": challenges.filter(
+                start_date__lte=today, end_date__gt=today
+            ),
+            "challenges_termines": challenges.filter(end_date__lt=today),
+            "challenges_a_venir": challenges.filter(
+                start_date__gt=today,
+            ),
+        },
+    )
+
+
 def challenge_ddt(request):
     today = datetime.datetime.today()
-    challenge = Challenge.objects.get()
+    challenge = Challenge.objects.get(slug="challenge-ddt")
     return render(
         request,
         "challenge/podium.html",
         context={
+            "start_date": challenge.start_date,
+            "stop_date": challenge.end_date,
+            "today": today,
+            "top_contribs": challenge.classement,
+            "total_contributions": challenge.nb_erp_total_added,
+        },
+    )
+
+
+def challenge_detail(request, challenge_slug=None):
+    challenge = get_object_or_404(Challenge, slug=challenge_slug)
+    today = datetime.datetime.today()
+    return render(
+        request,
+        "challenge/detail.html",
+        context={
+            "challenge": challenge,
             "start_date": challenge.start_date,
             "stop_date": challenge.end_date,
             "today": today,

@@ -1,0 +1,51 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}Challenges{% endblock%}
+
+{% block editorial_content %}
+<div class="row">
+  <div class="fr-col-6">
+    <section class="row justify-content-end mt-4">
+      <h1 class="text-center fr-h1">Challenges</h1>
+    </section>
+
+
+    {% if challenges_en_cours %}
+    <section class="row justify-content-start mt-4">
+      <h2 class="fr-h2">
+        <strong>Challenges en cours</strong>
+      </h2>
+    {% include 'common/challenge_item.html' with challenges=challenges_en_cours %}
+    </section>
+    {% endif %}
+
+    {% if challenges_termines %}
+    <section class="row justify-content-start mt-4">
+      <h2 class="fr-h2">
+        <strong>Challenges terminés</strong>
+      </h2>
+      {% include 'common/challenge_item.html' with challenges=challenges_termines %}
+    </section>
+    {% endif %}
+    {% if challenges_a_venir %}
+    <section class="row justify-content-start mt-4">
+      <h2 class="fr-h2">
+        <strong>Prochains challenges</strong>
+      </h2>
+      {% include 'common/challenge_item.html' with challenges=challenges_a_venir %}
+    </section>
+    {% endif %}
+  </div>
+  <div class="fr-col-5 fr-col-offset-1 mt-20">
+    <figure class="fr-content-media d-none d-sm-block">
+        <div class="fr-content-media__img ">
+            <img class="auto-height" src="{% static "img/login.jpg" %}" alt="" aria-hidden="true">
+        </div>
+    </figure>
+  </div>
+</div
+
+{% endblock %}
