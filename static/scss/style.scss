@@ -24,6 +24,13 @@ $viewport-xl: 1200px;
 @import "~bootstrap/scss/bootstrap";
 // App specific styles
 
+.btn-search {
+  max-width: 7% !important;
+  @media screen and (max-width: $viewport-md) {
+        max-width: 15%!important;
+      }
+}
+
 // SPACING
 .mt-10,
 .my-10 {
