@@ -21,7 +21,6 @@ from erp.provider import departements, geocoder
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
-
 def get_widgets_for_accessibilite():
     field_names = schema.get_nullable_bool_fields()
     return dict([(f, bool_radios()) for f in field_names])
@@ -31,17 +30,6 @@ class ContribAccessibiliteForm(forms.ModelForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
 
-    class Meta:
-        model = Accessibilite
-        exclude = ("pk",)
-        widgets = get_widgets_for_accessibilite()
-        labels = schema.get_labels()
-        help_texts = schema.get_help_texts()
-
-
-class AdminAccessibiliteForm(ContribAccessibiliteForm):
-    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
-    # fields, hence why we set them up manually for each fields.
     accueil_equipements_malentendants = forms.MultipleChoiceField(
         required=False,
         choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
@@ -77,6 +65,29 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         label=schema.get_label("labels"),
         help_text=schema.get_help_text("labels"),
     )
+
+    class Meta:
+        model = Accessibilite
+        exclude = ("pk",)
+        widgets = get_widgets_for_accessibilite()
+        labels = schema.get_labels()
+        help_texts = schema.get_help_texts()
+        required = schema.get_required_fields()
+
+    def clean_accueil_equipements_malentendants(self):
+        if (
+            "accueil_equipements_malentendants_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_equipements_malentendants_presence"]
+            is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_equipements_malentendants"]
+
+
+class AdminAccessibiliteForm(ContribAccessibiliteForm):
+    # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
+    # fields, hence why we set them up manually for each fields.
+
     sanitaires_adaptes = forms.ChoiceField(
         required=False,
         label=schema.get_label("sanitaires_adaptes"),
@@ -274,7 +285,7 @@ class AdminErpForm(BaseErpForm):
             self.geocode()
 
 
-class ViewAccessibiliteForm(forms.ModelForm):
+class ViewAccessibiliteForm(AdminAccessibiliteForm):
     """This form is used to render Accessibilite data in Erp details pages, and is
     probably one of the most hairy piece of code and logic from the whole app. This
     is due to the inherent complexity of the professional accessibility domain

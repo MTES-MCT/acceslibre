@@ -131,7 +131,7 @@ def data(db):
         user=obj_niko,
     )
     obj_accessibilite = Accessibilite.objects.create(
-        erp=obj_erp, sanitaires_presence=True, sanitaires_adaptes=0
+        erp=obj_erp, sanitaires_presence=True, sanitaires_adaptes=False
     )
 
     class Data:

@@ -8,6 +8,12 @@ from core.lib import text
 UNKNOWN = "Inconnu"
 UNKNOWN_OR_NA = "Inconnu ou sans objet"
 
+BOOLEAN_CHOICES = (
+    (True, "Oui"),
+    (False, "Non"),
+)
+
+
 NULLABLE_BOOLEAN_CHOICES = (
     (True, "Oui"),
     (False, "Non"),
@@ -660,10 +666,11 @@ FIELDS = {
         ),
         "help_text_ui": "Présence d'une porte à l'entrée de l'établissement",
         "help_text_ui_neg": "Pas de porte à l'entrée de l'établissement",
-        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "choices": BOOLEAN_CHOICES,
         "section": SECTION_ENTREE,
-        "nullable_bool": False,
+        "nullable_bool": True,
         "warn_if": None,
+        "required": True,
     },
     "entree_porte_manoeuvre": {
         "type": "string",
@@ -1411,6 +1418,10 @@ def get_help_text_ui_neg(field):
 
 def get_nullable_bool_fields():
     return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]
+
+
+def get_required_fields():
+    return [k for (k, v) in FIELDS.items() if "required" in v and v["required"] is True]
 
 
 def get_section_fields(section_id):

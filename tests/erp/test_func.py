@@ -47,7 +47,6 @@ def test_erp_details(data, browser):
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
-    assert browser.is_text_present("Sanitaires")
     assert browser.is_text_present(
         html.unescape(schema.get_help_text_ui("sanitaires_presence"))
     )
@@ -61,7 +60,7 @@ def test_erp_details_edit_links(data, browser, capsys):
 
     assert browser.title.startswith(data.erp.nom)
     edit_urls = [
-        reverse("contrib_localisation", kwargs={"erp_slug": data.erp.slug}),
+        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}),
     ]
     for edit_url in edit_urls:
         matches = browser.links.find_by_href(edit_url)
