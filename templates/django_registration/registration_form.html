@@ -44,7 +44,7 @@
       <form action="." method="POST" novalidate class="registration-form mb-4" id="registration">
         {% csrf_token %}
 
-        <input type="hidden" name="next" value="{{ request.GET.next|urlencode }}">
+        <input type="hidden" name="next" value="{{ next|urlencode }}">
         <h1 class="h3 text-left mb-4">Je crée un compte</h1>
         <div class="">
           {{ form.non_field_errors }}

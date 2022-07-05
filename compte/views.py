@@ -53,6 +53,14 @@ class CustomRegistrationView(RegistrationView):
         context["next"] = self.request.POST.get("next", "")
         return context
 
+    def get_context_data(self, **kwargs):
+        "Add the next redirect value to the email template context."
+        context = super().get_context_data(**kwargs)
+        context["next"] = self.request.POST.get(
+            "next", self.request.GET.get("next", "")
+        )
+        return context
+
 
 class CustomActivationView(ActivationView):
     def get_success_url(self, user=None):
