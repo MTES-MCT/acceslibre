@@ -21,6 +21,7 @@ from erp.provider import departements, geocoder
 def bool_radios():
     return forms.RadioSelect(attrs={"class": "inline"})
 
+
 def get_widgets_for_accessibilite():
     field_names = schema.get_nullable_bool_fields()
     return dict([(f, bool_radios()) for f in field_names])
