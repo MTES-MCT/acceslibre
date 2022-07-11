@@ -80,10 +80,10 @@ jobs:
 #      - store_artifacts:
 #          path: test-results
 #          destination: tr1
-       - sonarcloud/scan
+      - sonarcloud/scan
 
 orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.3
+  sonarcloud: sonarsource/sonarcloud@1.1.1
 
 workflows:
   main:
