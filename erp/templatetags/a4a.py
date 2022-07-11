@@ -195,6 +195,13 @@ def isnonemptylist(value):
     return isinstance(value, list) and len(value) > 0
 
 
+@register.simple_tag
+def render_field(value):
+    return (isinstance(value, list) and len(value) > 0) or (
+        not isinstance(value, list) and value != "" and value is not None
+    )
+
+
 @register.filter("preposition_nom")
 def preposition_nom(value):
     value = str(value)
