@@ -634,13 +634,12 @@ def contrib_start(request):
 
 def contrib_global_search(request):
     results = error = None
+    what_lower = request.GET.get("what").lower()
     try:
-        results = provider_search.global_search(
-            request.GET.get("what"), request.GET.get("code")
-        )
+        results = provider_search.global_search(what_lower, request.GET.get("code"))
         qs_results_bdd = Erp.objects.select_related(
             "accessibilite", "activite", "commune_ext"
-        ).search_what(request.GET.get("what"))
+        ).search_what(what_lower)
 
         commune, qs_results_bdd = _search_commune_code_postal(
             qs_results_bdd, request.GET.get("code")

@@ -549,7 +549,7 @@ class PublicErpEditInfosForm(BasePublicErpInfosForm):
 class ProviderGlobalSearchForm(forms.Form):
     lat = forms.DecimalField(required=False, widget=forms.HiddenInput)
     lon = forms.DecimalField(required=False, widget=forms.HiddenInput)
-    code = forms.DecimalField(required=True, widget=forms.HiddenInput)
+    code = forms.CharField(required=True, widget=forms.HiddenInput)
     what = forms.CharField(
         label="Recherche",
         help_text=mark_safe(
