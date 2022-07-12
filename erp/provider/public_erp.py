@@ -438,7 +438,7 @@ def parse_etablissement(feature):
 
 def request(path, params=None):
     try:
-        res = requests.get(f"{BASE_URL}/{path}", params)
+        res = requests.get(f"{BASE_URL}/{path}", params, timeout=5)
         logger.info(f"public_erp api call: {res.url}")
         if res.status_code != 200:
             raise RuntimeError(
@@ -447,6 +447,9 @@ def request(path, params=None):
         return res.json()
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"public_erp api error: {err}")
+    except requests.exceptions.Timeout:
+        logger.error(f"public_erp api timeout : {BASE_URL}/{path}")
+        return None
 
 
 def search_types(type, code_insee):
@@ -455,12 +458,13 @@ def search_types(type, code_insee):
     response = request(f"communes/{code_insee}/{type}")
     try:
         results = []
-        for feature in response["features"]:
-            try:
-                results.append(parse_etablissement(feature))
-            except RuntimeError as err:
-                logger.error(err)
-                continue
+        if isinstance(response, dict) and "features" in response:
+            for feature in response["features"]:
+                try:
+                    results.append(parse_etablissement(feature))
+                except RuntimeError as err:
+                    logger.error(err)
+                    continue
         return results
     except (AttributeError, KeyError, IndexError, TypeError) as err:
         raise RuntimeError(f"Impossible de récupérer les résultats: {err}")

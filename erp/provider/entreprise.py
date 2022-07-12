@@ -272,7 +272,9 @@ def query(terms, code_insee):
     try:
         terms = clean_search_terms(terms)
         res = requests.get(
-            f"{BASE_URL_V1}/full_text/{terms}", {"per_page": MAX_PER_PAGE, "page": 1}
+            f"{BASE_URL_V1}/full_text/{terms}",
+            {"per_page": MAX_PER_PAGE, "page": 1},
+            timeout=5,
         )
         logger.info(f"entreprise api call: {res.url}")
         if res.status_code == 404:
@@ -282,6 +284,9 @@ def query(terms, code_insee):
         return process_response(res.json(), terms, code_insee)
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"entreprise api error: {err}")
+    except requests.exceptions.Timeout:
+        logger.error(f"entreprise api timeout : {BASE_URL_V1}/full_text/{terms}")
+        return []
 
 
 def search(terms, code_insee):

@@ -108,7 +108,7 @@ def build_query_params(terms, code_insee):
 def query(terms, code_insee):
     try:
         res = requests.get(
-            f"{BASE_API_URL}/search/", build_query_params(terms, code_insee)
+            f"{BASE_API_URL}/search/", build_query_params(terms, code_insee), timeout=5
         )
         logger.info(f"opendatasoft api search call: {res.url}")
         if res.status_code == 404:
@@ -124,6 +124,9 @@ def query(terms, code_insee):
         return [parse_etablissement(r) for r in json_value["records"]]
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"opendatasoft search api error: {err}")
+    except requests.exceptions.Timeout:
+        logger.error(f"opendatasoft api timeout : {BASE_API_URL}/search/")
+        return []
 
 
 def search(terms, code_insee):
