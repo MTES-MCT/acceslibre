@@ -8,7 +8,6 @@
       <h1 class="mb-3">Accessibilité</h1>
 
       <p><strong>Le <span class="basic-information organization-name">Ministère de l'Écologie et de la Transition Solidaire</span> s’engage à rendre son service accessible, conformément à <a class="bold" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000809647">l’article 47 de la loi n° 2005-102 du 11 février 2005</a>.</strong></p>
-      <p>Parce que l'accessibilité numérique est notre priorité, un audit d'évaluation de la conformité d'Acceslibre au <a class="bold" href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/">Référentiel Général d'Amélioration de l'Accessibilité (RGAA)</a> est prévu courant 2021.</p>
 
       <h2 class="my-4">Déclaration d'accessibilité</h2>
 
@@ -20,46 +19,159 @@
       </p>
 
       <h3 class="my-4">Résultats des tests</h3>
-      <p>L’audit de conformité réalisé <span id="statement-assessments" class="technical-information assessment-approaches">en auto-évaluation</span> par le biais d'outils automatisés (<a title="Accessibility Insight (ouverture dans une nouvelle fenêtre)" href="https://accessibilityinsights.io/" target="_blank" rel="noopener noreferrer">Accessibility Insight</a>, <a title="LightHouse (ouverture dans une nouvelle fenêtre)" href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener noreferrer">Lighthouse</a>) n'a pas remonté de défaut techniques majeurs d'accessibilité.</p>
-      <p>La mise en place de tests utilisateurs en situation de handicap visuel nous a permis de relever des problèmes d'accessibilité (navigation au clavier, hiérarchisation des titres) que nous avons pu adresser techniquement, nous attendons désormais la confirmation que les problèmes sont concrètement réglés à ce niveau.</p>
+      <p>L’audit de conformité réalisé le 09 Juin 2022 par la société Access42 révèle que le site est conforme à 79,59% du RGAA version 4.0.</p>
 
-      <h3 class="my-4">Contenus non accessibles</h3>
-      <p>Les contenus listés ci-dessous ne sont pas accessibles pour les raisons suivantes.</p>
+      <table class="table table-striped">
+        <caption>
+          Tableau 1 : Échantillon de test
+        </caption>
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Titre</th>
+            <th>Url</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P01</td>
+            <td>Accueil</td>
+            <td>https://acceslibre.beta.gouv.fr/</td>
+          </tr>
+          <tr>
+            <td>P02</td>
+            <td>Contact</td>
+            <td>https://acceslibre.beta.gouv.fr/contact/</td>
+          </tr>
+          <tr>
+            <td>P03</td>
+            <td>Mention légales</td>
+            <td>https://acceslibre.beta.gouv.fr/conditions-generales-d-utilisation</td>
+          </tr>
+          <tr>
+            <td>P04</td>
+            <td>Accessibilité</td>
+            <td>https://acceslibre.beta.gouv.fr/accessibilite</td>
+          </tr>
+          <tr>
+            <td>P05</td>
+            <td>Partenaires</td>
+            <td>https://acceslibre.beta.gouv.fr/partenaires</td>
+          </tr>
+          <tr>
+            <td>P06</td>
+            <td>Authentification</td>
+            <td>https://acceslibre.beta.gouv.fr/compte/login/?next=/</td>
+          </tr>
+          <tr>
+            <td>P07</td>
+            <td>Création de compte</td>
+            <td>https://acceslibre.beta.gouv.fr/compte/register/?next=/</td>
+          </tr>
+          <tr>
+            <td>P08</td>
+            <td>Statistiques</td>
+            <td>https://acceslibre.beta.gouv.fr/stats/</td>
+          </tr>
+          <tr>
+            <td>P09</td>
+            <td>Résultats de recherche</td>
+            <td>https://acceslibre.beta.gouv.fr/recherche/?what=&where=Poitiers+(86)&lat=46.586616&lon=0.356849&code=86194</td>
+          </tr>
+          <tr>
+            <td>P10</td>
+            <td>Détails d'un ERP</td>
+            <td>https://acceslibre.beta.gouv.fr/app/86-poitiers/a/gendarmerie/erp/gendarmerie-centre-dinformation-et-de-recrutement-de-poitiers/</td>
+          </tr>
+          <tr>
+            <td>P11</td>
+            <td>Page introuvable</td>
+            <td>https://acceslibre.beta.gouv.fr/404/</td>
+          </tr>
+          <tr>
+            <td>P12</td>
+            <td>Territoires pilotes</td>
+            <td>https://acceslibre.beta.gouv.fr/communes/</td>
+          </tr>
+          <tr>
+            <td>P13</td>
+            <td>Ajout d'un établissement</td>
+            <td>https://acceslibre.beta.gouv.fr/contrib/start/</td>
+          </tr>
+          <tr>
+            <td>P14</td>
+            <td>Modification d'un établissement</td>
+            <td>https://acceslibre.beta.gouv.fr/contrib/localisation/gendarmerie-brigade-de-soultz-sous-forets/</td>
+          </tr>
+          <tr>
+            <td>P15</td>
+            <td>Signaler une malveillance sur un établissement</td>
+            <td>https://acceslibre.beta.gouv.fr/contact/signalement/patisserie-salon-de-the-meyer/</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="my-4">Contenus inaccessibles</h3>
       <h4>Non conformité</h4>
-      <p>Malgré nos efforts, certains contenus sont inaccessibles. Vous trouverez ci-dessous une liste des limitations connues et des solutions potentielles&nbsp;:</p>
-      <ol class="technical-information accessibility-limitations">
-        <li><strong>Cartographie interactive</strong>&nbsp;: Nous utilisons la librairie <a title="Leaflet (ouverture dans une nouvelle fenêtre)" href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> pour gérer la cartographie interactive en javascript. Les fonctionnalités qu'elle expose ne sont pas totalement conformes, notamment en termes d'accessibilité visuelle pour les lecteurs d'écran. Nous avons développé des fonctionnalités alternatives qui permettent d'accéder à l'ensemble des informations présentées sur cette cartographie, sous la forme d'une liste textuelle accessible. Il faudrait pouvoir masquer la cartographie aux lecteur d'écran (avec <code>aria-hidden</code> par exemple), mais cela risque de perturber les fonctionnalités de navigation au clavier, en particulier sur la gestion des tabulations et du focus.</li>
-      </ol>
-      <h4>Dérogations pour charge disproportionnée</h4>
-      <p><em>Néant.</em></p>
-      <h4>Contenus non soumis à l’obligation d’accessibilité</h4>
-      <p><em>Non-applicable à ce jour.</em></p>
+      <ul>
+        <li>Absence d’aide et de contrôle des saisies dans certains formulaires ;</li>
+        <li>Des champs de formulaire dont la nature de saisie n’est pas indiquée ;</li>
+        <li>Un rapport de contraste entre la couleur du texte et de l’arrière-plan insuffisant pour certains composants ;</li>
+        <li>Des liens signalisés uniquement par la couleur avec un rapport de contraste insuffisant ;</li>
+        <li>Des champs de formulaires qui nécessitent d’être regroupés ;</li>
+      </ul>
+      <h3 class="my-4">Dérogation</h3>
+      <h4>Contenu tiers</h4>
+      <p>
+        La dérogation est un moyen d’exclure du champ d’application du référentiel des contenus particuliers. Les cas de dérogations sont très encadrés, vous en trouverez le détail dans <a title="Guide des dérogations RGAA (ouverture dans une nouvelle fenêtre)" href="https://github.com/DISIC/guide-derogations/blob/master/guide_derogations.pdf" target="_blank" rel="noopener noreferrer">le guide des dérogations</a>.
+      </p>
+      <p>Les contenus suivants n’entrent pas dans le périmètre des éléments à rendre accessible, ils sont dérogés :</p>
+      <ul>
+        <li>Cartes OpenStreetMap (motif : service externe) ;</li>
+        <li>Autocomplétion « Autocomplete JS » (motif : service externe) ;</li>
+        <li>Graphique des fréquentations dans la page « Statistiques » (motif : service externe) ;</li>
+      </ul>
 
-      <h3 class="my-4">Établissement de cette déclaration d'accessibilité</h3>
-      <p>Cette déclaration a été établie le <b><span class="basic-information statement-created-date">2 Juillet 2020</span></b>.</p>
-      <h3>Technologies utilisées</h3>
-      <p>L'accessibilité de <span class="basic-information website-name">Acceslibre</span> s'appuie sur les technologies suivantes&nbsp;:</p>
+      <h3>Technologies utilisées pour la réalisation du site</h3>
       <ul class="technical-information technologies-used">
-        <li><a title="HTML (ouverture dans une nouvelle fenêtre)" href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank" rel="noopener noreferrer">HTML</a></li>
-        <li><a title="WAI-ARIA (ouverture dans une nouvelle fenêtre)" href="https://www.w3.org/WAI/standards-guidelines/aria/" target="_blank" rel="noopener noreferrer">WAI-ARIA</a></li>
+        <li><a title="HTML (ouverture dans une nouvelle fenêtre)" href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank" rel="noopener noreferrer">HTML4 et HTML5</a></li>
         <li><a title="CSS (ouverture dans une nouvelle fenêtre)" href="https://developer.mozilla.org/fr/docs/Glossaire/CSS" target="_blank" rel="noopener noreferrer">CSS</a></li>
         <li><a title="JavaScript (ouverture dans une nouvelle fenêtre)" href="https://developer.mozilla.org/fr/docs/Glossaire/JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a></li>
-      </ul>
-      <h4>Agents utilisateurs, technologies d’assistance et outils utilisés pour vérifier l’accessibilité</h4>
-      <p>Les tests des pages web ont été effectués avec les combinaisons de navigateurs web et lecteurs d’écran suivants&nbsp;:</p>
-      <ul class="technical-information compatible-environments">
-        <li>Navigateurs de bureau <a title="Chrome (ouverture dans une nouvelle fenêtre)" href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">Chrome</a>, <a title="Firefox (ouverture dans une nouvelle fenêtre)" href="https://www.mozilla.org/fr/firefox/new/" target="_blank" rel="noopener noreferrer">Firefox</a>, <a title="Edge (ouverture dans une nouvelle fenêtre)" href="https://www.microsoft.com/fr-fr/edge" target="_blank" rel="noopener noreferrer">Edge</a> en version récente sur Windows, Mac et Linux.</li>
-        <li>Navigateur Chrome sous Android, Safari sous iOS en vue responsive.</li>
-      </ul>
-      <p><span class="basic-information website-name">Acceslibre</span>
-        n'est pas compatible avec&nbsp;:</p>
-      <ul class="technical-information incompatible-environments">
-        <li>Navigateurs vieux de plus de 3 versions majeures</li>
-        <li>Systèmes d'exploitation hors Windows, Mac OSX, Linux, Android et iOS.</li>
+        <li><a title="Django (ouverture dans une nouvelle fenêtre)" href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Outil de gestion de contenu : Django</a></li>
       </ul>
 
+
+      <h3>Agents utilisateurs et technologies d’assistance utilisées pour vérifier l’accessibilité des contenus</h3>
+      <p>La vérification de l’accessibilité est le résultat de tests manuels, assistés par des outils (feuilles CSS dédiés, extensions HeadingsMaps et WebDeveloper Toolbar, Color Contrast Analyser).</p>
+      <p>Les vérifications de restitution de contenus ont été réalisées sur la base de la combinaison fournie par la base de référence du RGAA, avec les versions suivantes :</p>
+
+      <table class="table table-striped">
+        <caption>
+          Tableau 2 : Base de référence utilisée pour vérifier la compatibilité avec l'accessibilité
+        </caption>
+        <thead>
+          <tr>
+            <th>Technologie d'assistance</th>
+            <th>Navigateur</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NVDA 2020.1</td>
+            <td>Firefox 90</td>
+          </tr>
+          <tr>
+            <td>JAWS 2019</td>
+            <td>Firefox 90</td>
+          </tr>
+          <tr>
+            <td>VoiceOver (OSX 11.4)</td>
+            <td>Safari 14.1</td>
+          </tr>
+        </tbody>
+      </table>
       <h3 class="my-4">Amélioration et contact</h3>
-      <p>Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez <a href="{% url "contact_topic" topic="bug" %}">contacter l'équipe en charge de la gestion du site</a> pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.</p>
+      <a>Si vous n’arrivez pas à accéder à un contenu ou à un service, vous pouvez contacter l'équipe en charge de la gestion du site <a href="mailto:acceslibre@beta.gouv.fr">(acceslibre@beta.gouv.fr)</a> pour être orienté vers une alternative accessible ou obtenir le contenu sous une autre forme.</p>
       <p>
         Nous essayons de répondre dans les <span class="feedback responsetime">cinq jours ouvrés</span>.
       </p>
@@ -79,10 +191,6 @@
           </address>
       </li>
       </ul>
-
-      <p>
-        Cette déclaration d'accessibilité a été créé le <span class="basic-information statement-created-date">2 Juillet 2020</span> grâce au <a class="bold" href="https://betagouv.github.io/a11y-generateur-declaration/#create">Générateur de Déclaration d'Accessibilité de BetaGouv</a>.
-      </p>
     </div>
   </div>
 {% endblock%}

@@ -363,6 +363,7 @@ class Erp(models.Model):
     SOURCE_SERVICE_PUBLIC = "service_public"
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
+    SOURCE_TYPEFORM = "typeform"
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
@@ -379,6 +380,7 @@ class Erp(models.Model):
         (SOURCE_SERVICE_PUBLIC, "Service Public"),
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
+        (SOURCE_TYPEFORM, "Questionnaires Typeform"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
     )
     USER_ROLE_ADMIN = "admin"
