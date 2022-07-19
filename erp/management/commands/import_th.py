@@ -186,7 +186,6 @@ class Command(BaseCommand):
 
     def import_row(self, row, **kwargs):
         familles_handicaps = self.get_familles(row)
-        breakpoint()
         fields = self.prepare_fields(row)
         if not fields or self.check_existing(fields):
             return
