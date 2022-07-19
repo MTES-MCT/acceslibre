@@ -92,8 +92,8 @@ class Command(BaseCommand):
         # check doublons
         qs = Erp.objects.filter(
             numero=fields["numero"],
-            voie=fields["voie"],
-            commune=fields["commune"],
+            voie__iexact=fields["voie"],
+            commune__iexact=fields["commune"],
             code_insee=code_insee,
             activite__pk=fields["activite_id"],
         )
