@@ -40,6 +40,7 @@ class ContribAccessibiliteForm(forms.ModelForm):
     )
     entree_porte_presence = forms.ChoiceField(
         required=False,
+        initial=True,
         label=schema.get_label("entree_porte_presence"),
         help_text=schema.get_help_text("entree_porte_presence"),
         choices=[(True, "Oui"), (False, "Non")],
