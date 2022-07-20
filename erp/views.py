@@ -863,7 +863,9 @@ def process_accessibilite_form(
         if request.GET:
             form = Form(request.GET, instance=accessibilite)
         else:
-            form = forms.ContribAccessibiliteForm(instance=accessibilite)
+            form = forms.ContribAccessibiliteForm(
+                instance=accessibilite, initial={"entree_porte_presence": True}
+            )
     if form.is_valid():
         if check_authentication(request, erp, form):
             return check_authentication(request, erp, form)
