@@ -20,16 +20,19 @@ function SearchWhere(root) {
     lon: root.querySelector("input[name=lon]"),
     code: root.querySelector("input[name=code]"),
   };
-  activate_submit_btn();
+  input.addEventListener('input', activate_submit_btn, false);
 
-  input.addEventListener("change", (event) => {
-    activate_submit_btn();
-  });
 
-  function activate_submit_btn(){
-    if(input.value){
-        input.form.querySelector("button[type=submit]").removeAttribute('disabled');
-      }
+
+  function activate_submit_btn(event, force=false){
+    if(input.value.length == 0){
+        input.form.querySelector("button[type=submit]").setAttribute('disabled', '');
+    };
+    console.log(input.value);
+    console.log(force);
+    if(force){
+      input.form.querySelector("button[type=submit]").removeAttribute('disabled');
+    };
   }
 
   function setSearchData(loc) {
@@ -63,7 +66,7 @@ function SearchWhere(root) {
       if (!result) {
         return;
       }
-
+      activate_submit_btn(event=false, force=true);
       if (result.lat && result.lon) {
         setSearchData(result);
       } else if (result.text.startsWith(AROUND_ME)) {
@@ -81,7 +84,6 @@ function SearchWhere(root) {
         } else {
           setSearchData(loc);
           setSearchValue(`${AROUND_ME} ${loc.label}`);
-          activate_submit_btn();
           input.form.querySelector("button[type=submit]").focus();
         }
       } else {
@@ -113,6 +115,12 @@ function SearchWhere(root) {
 
   // Invalidate lat/lon on every key stroke in the search input, except when user tabs
   // out of the field or selects and entry by pressing the Enter key.
+  autocomplete.input.addEventListener("keydown", (event) => {
+    if (event.key != "Tab" && event.key != "Enter") {
+      setSearchData(null);
+    }
+  });
+
   autocomplete.input.addEventListener("keydown", (event) => {
     if (event.key != "Tab" && event.key != "Enter") {
       setSearchData(null);
