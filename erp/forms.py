@@ -488,7 +488,9 @@ class BasePublicErpInfosForm(BaseErpForm):
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
     def clean(self):
         if not self.cleaned_data["geom"]:
-            self.geocode()
+            self.cleaned_data["geom"] = Point(
+                float(self.cleaned_data["lon"]), float(self.cleaned_data["lat"])
+            )
 
         # Unicité du nom et de l'adresse
         nom = self.cleaned_data.get("nom")

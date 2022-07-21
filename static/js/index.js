@@ -56,6 +56,8 @@ window.a4a = {
 
 function update_map(event, query){
   var mapDomEl = document.querySelector(".a4a-localisation-map");
+  var btnSubmit = document.querySelector('[name="contribute"]');
+  btnSubmit.setAttribute('disabled', '');
   mapDomEl.style.opacity = 0.3;
   api.getCoordinate(query).then(function(response){
     var result = response.results[0];
@@ -74,6 +76,7 @@ function update_map(event, query){
 
   }).then(function(response){
     mapDomEl.style.opacity = 1;
+    btnSubmit.removeAttribute('disabled');
   });
 };
 

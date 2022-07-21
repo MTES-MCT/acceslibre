@@ -272,7 +272,7 @@ SECTIONS = {
     },
     SECTION_TRANSPORT: {
         "icon": "bus",
-        "label": "Transports en commun",
+        "label": "Accès",
         "description": "à proximité",
         "edit_route": "contrib_transport",
     },
