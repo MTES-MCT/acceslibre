@@ -20,6 +20,17 @@ function SearchWhere(root) {
     lon: root.querySelector("input[name=lon]"),
     code: root.querySelector("input[name=code]"),
   };
+  activate_submit_btn();
+
+  input.addEventListener("change", (event) => {
+    activate_submit_btn();
+  });
+
+  function activate_submit_btn(){
+    if(input.value){
+        input.form.querySelector("button[type=submit]").removeAttribute('disabled');
+      }
+  }
 
   function setSearchData(loc) {
     hiddens.lat.value = loc?.lat || "";
@@ -70,6 +81,7 @@ function SearchWhere(root) {
         } else {
           setSearchData(loc);
           setSearchValue(`${AROUND_ME} ${loc.label}`);
+          activate_submit_btn();
           input.form.querySelector("button[type=submit]").focus();
         }
       } else {
