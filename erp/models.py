@@ -572,6 +572,15 @@ class Erp(models.Model):
             return self.activite.vector_icon
         return default
 
+    def get_first_user(self):
+        user_list = [
+            version["user"]
+            for version in self.get_history()
+            if version["user"] is not None
+        ]
+        if user_list:
+            return user_list[-1]
+
     def get_history(self, exclude_changes_from=None):
         "Combines erp and related accessibilite histories."
         erp_history = _get_history(

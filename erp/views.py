@@ -1031,9 +1031,10 @@ def contrib_publication(request, erp_slug):
         if check_authentication(request, erp, form, check_online=False):
             return check_authentication(request, erp, form, check_online=False)
         erp = form.save()
-        erp.user = request.user
-        erp.save()
-        ErpSubscription.subscribe(erp, request.user)
+        if erp.user is None:
+            erp.user = request.user
+            erp.save()
+            ErpSubscription.subscribe(erp, request.user)
         messages.add_message(
             request, messages.SUCCESS, "Les données ont été sauvegardées."
         )
