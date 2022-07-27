@@ -32,6 +32,7 @@
     {% endwith %}
 
     <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start text-primary">
+      {% comment %}
       {% with erp.metadata.centre_vaccination as cv %}
         {% if cv and cv.url_rdv %}
           <a class="btn btn-outline-primary mr-3 mt-2" href="{{ cv.url_rdv }}" target="_blank" rel="noopener noreferrer">
@@ -39,7 +40,7 @@
             <span>Prendre rendez-vous {{ cv.url_rdv|cv_provider_name }}</span>
           </a>
         {% endif %}
-      {% endwith %}
+      {% endwith %}{% endcomment %}
       {% if erp.site_internet %}
       <span class="mr-3 mt-2">
         <i aria-hidden="true" class="icon icon-globe"></i>
