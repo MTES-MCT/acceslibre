@@ -1,4 +1,5 @@
 import logging
+from urllib.parse import unquote
 
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
@@ -7,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
+
 from django.views.generic import TemplateView
 from django_registration.backends.activation.views import (
     RegistrationView,
@@ -56,8 +58,8 @@ class CustomRegistrationView(RegistrationView):
     def get_context_data(self, **kwargs):
         "Add the next redirect value to the email template context."
         context = super().get_context_data(**kwargs)
-        context["next"] = self.request.POST.get(
-            "next", self.request.GET.get("next", "")
+        context["next"] = unquote(
+            self.request.POST.get("next", self.request.GET.get("next", ""))
         )
         return context
 
