@@ -21,16 +21,15 @@ function SearchWhere(root) {
     code: root.querySelector("input[name=code]"),
   };
   input.addEventListener('input', activate_submit_btn, false);
+  activate_submit_btn(event=false, force=false)
 
 
 
   function activate_submit_btn(event, force=false){
-    if(input.value.length == 0){
+    if(hiddens.code.value.length == 0){
         input.form.querySelector("button[type=submit]").setAttribute('disabled', '');
     };
-    console.log(input.value);
-    console.log(force);
-    if(force){
+    if(force || hiddens.code.value){
       input.form.querySelector("button[type=submit]").removeAttribute('disabled');
     };
   }

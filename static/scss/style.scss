@@ -31,6 +31,31 @@ $viewport-xl: 1200px;
       }
 }
 
+.blur {
+    background-color: white;
+    opacity: 0.3;
+}
+
+#spinner_container {
+    z-index:9999;
+    position:absolute;
+    height:100%;
+    width:100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#spinner   {
+  color: $primary;
+  width: 10rem;
+  height: 10rem;
+  left: 50%;
+  top: 50%;
+  position:absolute;
+}
+
+
 // SPACING
 .mt-10,
 .my-10 {

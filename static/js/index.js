@@ -124,4 +124,19 @@ window.onload = function() {
     });
     }
 
+    var loader = document.querySelector(".loader-api");
+    if(loader){
+      loader.addEventListener("click", function (e) {
+        wait_screen();
+      });
+      loader.addEventListener("submit", function () {
+        wait_screen();
+      })
+    }
+
+    function wait_screen(){
+      document.querySelector("#content").classList.add('blur');
+      document.querySelector("#spinner_container").style.display = "block";
+    }
+
 };
