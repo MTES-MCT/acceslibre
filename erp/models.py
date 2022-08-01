@@ -750,7 +750,7 @@ class Erp(models.Model):
         erp_updates = 0
         erp_total = Erp.objects.filter(geom=Point(2.236112, 48.892598)).count()
         print(f"{erp_total} erps à mettre à jour.")
-        csv_filename = f"export-error_geocodage.csv"
+        csv_filename = "export-error_geocodage.csv"
         with open(os.path.join(settings.BASE_DIR, csv_filename), "w") as csvfile:
             fieldnames = ["nom", "code_postal", "commune", "link", "error"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=";")
