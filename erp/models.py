@@ -1,3 +1,4 @@
+import csv
 import datetime
 import math
 import json
@@ -743,6 +744,42 @@ class Erp(models.Model):
                     else:
                         print("No Coordinates")
         print(f"{erp_updates} erps mis à jour sur {counter}")
+
+    @classmethod
+    def update_coordinates_error_defense(cls):
+        erp_updates = 0
+        erp_total = Erp.objects.filter(geom=Point(2.236112, 48.892598)).count()
+        print(f"{erp_total} erps à mettre à jour.")
+        csv_filename = f"export-error_geocodage.csv"
+        with open(os.path.join(settings.BASE_DIR, csv_filename), "w") as csvfile:
+            fieldnames = ["nom", "code_postal", "commune", "link", "error"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=";")
+            writer.writeheader()
+            for e in Erp.objects.filter(geom=Point(2.236112, 48.892598)).iterator():
+                print(f"Erp concerné : {e.nom}; {e.code_postal}; {e.commune}")
+                try:
+                    coordinates = geocoder.geocode(
+                        e.short_adresse, citycode=e.commune_ext.code_insee
+                    )
+                    if coordinates:
+                        e.geom = Point(coordinates["geom"][0], coordinates["geom"][1])
+                        e.save()
+                        erp_updates += 1
+                    else:
+                        raise Exception("No Coordinates in BAN")
+                except Exception as error:
+                    print(f"Géocodage impossible pour cet erp : {error}")
+                    writer.writerow(
+                        {
+                            "nom": e.nom,
+                            "code_postal": e.code_postal,
+                            "commune": e.commune,
+                            "link": e.get_absolute_uri(),
+                            "error": error,
+                        }
+                    )
+
+        print(f"{erp_updates} erps mis à jour sur {erp_total}")
 
     @classmethod
     def fix_import_service_public(cls):
