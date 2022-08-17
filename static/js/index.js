@@ -61,18 +61,20 @@ function update_map(event, query){
   mapDomEl.style.opacity = 0.3;
   api.getCoordinate(query).then(function(response){
     var result = response.results[0];
-
-    if (mapDomEl !== undefined) {
-       mapDomEl._leaflet_id = null;
+    if (result !== undefined) {
+      if (mapDomEl !== undefined) {
+         mapDomEl._leaflet_id = null;
+      }
+      const map = geo.createMap(mapDomEl, { scrollWheelZoom: false });
+      map.setView(
+        {
+          lat: result.lat,
+          lon: result.lon,
+        },
+        18
+      );
     }
-    const map = geo.createMap(mapDomEl, { scrollWheelZoom: false });
-    map.setView(
-      {
-        lat: result.lat,
-        lon: result.lon,
-      },
-      18
-    );
+
 
   }).then(function(response){
     mapDomEl.style.opacity = 1;
