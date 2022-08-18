@@ -54,7 +54,7 @@ window.a4a = {
   geo,
 };
 
-function update_map(event, query){
+function update_map(query){
   var mapDomEl = document.querySelector(".a4a-localisation-map");
   var btnSubmit = document.querySelector('[name="contribute"]');
   btnSubmit.setAttribute('disabled', '');
@@ -73,6 +73,10 @@ function update_map(event, query){
         },
         18
       );
+      var hiddenLat = document.querySelector("[type=hidden][name=lat]");
+      var hiddenLon = document.querySelector("[type=hidden][name=lon]");
+      hiddenLat.value = result.lat;
+      hiddenLon.value = result.lon;
     }
 
 
@@ -93,30 +97,31 @@ window.onload = function() {
     var ville = document.getElementById("id_commune");
 
     if(numero){
+      var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
       numero.addEventListener("change", function (event) {
         var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(event, query);
+        update_map(query);
         });
 
       voie.addEventListener("change", function (event) {
         var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(event, query);
+        update_map(query);
         });
 
       lieu_dit.addEventListener("change", function (event) {
         var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(event, query);
+        update_map(query);
         });
 
       code_postal.addEventListener("change", function (event) {
         var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(event, query);
+        update_map(query);
         });
 
       ville.addEventListener("change", function (event) {
-        var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(event, query);
+        update_map(query);
         });
+      update_map(query);
     }
 
 
