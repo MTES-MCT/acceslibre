@@ -54,76 +54,9 @@ window.a4a = {
   geo,
 };
 
-function update_map(query){
-  var mapDomEl = document.querySelector(".a4a-localisation-map");
-  var btnSubmit = document.querySelector('[name="contribute"]');
-  btnSubmit.setAttribute('disabled', '');
-  mapDomEl.style.opacity = 0.3;
-  api.getCoordinate(query).then(function(response){
-    var result = response.results[0];
-    if (result !== undefined) {
-      if (mapDomEl !== undefined) {
-         mapDomEl._leaflet_id = null;
-      }
-      const map = geo.createMap(mapDomEl, { scrollWheelZoom: false });
-      map.setView(
-        {
-          lat: result.lat,
-          lon: result.lon,
-        },
-        18
-      );
-      var hiddenLat = document.querySelector("[type=hidden][name=lat]");
-      var hiddenLon = document.querySelector("[type=hidden][name=lon]");
-      hiddenLat.value = result.lat;
-      hiddenLon.value = result.lon;
-    }
-
-
-  }).then(function(response){
-    mapDomEl.style.opacity = 1;
-    btnSubmit.removeAttribute('disabled');
-  });
-};
-
 window.onload = function() {
     var src = document.getElementById("id_email"),
         dst = document.getElementById("id_username");
-
-    var numero = document.getElementById("id_numero");
-    var voie = document.getElementById("id_voie");
-    var lieu_dit = document.getElementById("id_lieu_dit");
-    var code_postal = document.getElementById("id_code_postal");
-    var ville = document.getElementById("id_commune");
-
-    if(numero){
-      var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-      numero.addEventListener("change", function (event) {
-        var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(query);
-        });
-
-      voie.addEventListener("change", function (event) {
-        var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(query);
-        });
-
-      lieu_dit.addEventListener("change", function (event) {
-        var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(query);
-        });
-
-      code_postal.addEventListener("change", function (event) {
-        var query = numero.value + " " + voie.value + " " + lieu_dit.value + " " + code_postal.value + " " + ville.value;
-        update_map(query);
-        });
-
-      ville.addEventListener("change", function (event) {
-        update_map(query);
-        });
-      update_map(query);
-    }
-
 
     if (src && dst) {
     src.addEventListener('input', function() {
