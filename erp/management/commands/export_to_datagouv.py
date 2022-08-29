@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 from core import mattermost
 from erp.export.export import export_schema_to_csv, upload_to_datagouv
-from erp.export.mappers import EtalabMapper
+from erp.export.mappers import EtalabMapper, EtalabMapperWithUrl
 from erp.models import Erp
 
 logger = logging.getLogger(__name__)
@@ -41,12 +41,17 @@ class Command(BaseCommand):
             erps = Erp.objects.published()
             export_schema_to_csv(csv_path, erps, EtalabMapper)
             self.log("Local export successful: 'acceslibre.csv'")
+            export_schema_to_csv(
+                "acceslibre-with-web-url.csv", erps, EtalabMapperWithUrl
+            )
+            self.log("Local export successful: 'acceslibre-with-web-url.csv'")
+
             if skip_upload:
                 return
-            res = upload_to_datagouv(csv_path)
-            if res:
-                ping_mattermost(len(erps))
-                self.log("Dataset uploaded")
+            upload_to_datagouv(csv_path)
+            upload_to_datagouv("acceslibre-with-web-url.csv")
+            self.log("Datasets uploaded")
+
         except RuntimeError as err:
             raise CommandError(f"Impossible de publier le dataset: {err}")
 
