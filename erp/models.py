@@ -351,6 +351,7 @@ class Erp(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25  # Fix me : move to settings
 
     SOURCE_ACCESLIBRE = "acceslibre"
+    SOURCE_ACCEO = "Acceo"
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
     SOURCE_API_ENTREPRISE = "entreprise_api"
@@ -368,6 +369,7 @@ class Erp(models.Model):
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
+        (SOURCE_ACCEO, "Acceo"),
         (SOURCE_ADMIN, "Back-office"),
         (SOURCE_API, "API"),
         (SOURCE_API_ENTREPRISE, "API Entreprise (publique)"),
