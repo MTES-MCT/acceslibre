@@ -161,6 +161,8 @@ class Command(BaseCommand):
                         "lat",
                         "id",
                         "act",
+                        "accueil_equipements_malentendants_presence",
+                        "accueil_equipements_malentendants",
                         "error",
                     ]
                     writer = csv.DictWriter(
