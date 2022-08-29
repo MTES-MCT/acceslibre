@@ -34,7 +34,7 @@ class Command(BaseCommand):
             return "0" + cpost
         return cpost
 
-    def import_row(self, row, **kwargs):
+    def import_row(self, row, writer, **kwargs):
         fields = {}
         # nom
         fields["nom"] = row["nom"]
@@ -50,11 +50,15 @@ class Command(BaseCommand):
         except Exception as e:
             error = f"Erreur géocodage : {e}"
             print(error)
+            row["error"] = error
+            writer.writerow(row)
             return None, None
         else:
             if not geo_info:
                 error = "Adresse introuvable"
                 print(error)
+                row["error"] = error
+                writer.writerow(row)
                 return None, None
 
         code_insee = geo_info.get("code_insee")
@@ -67,7 +71,10 @@ class Command(BaseCommand):
         try:
             activite = Activite.objects.get(nom=row["act"]).id
         except Activite.DoesNotExist:
-            print("Activité inexistante : %s" % row["act"])
+            error = "Activité inexistante : %s" % row["act"]
+            print(error)
+            row["error"] = error
+            writer.writerow(row)
             return None, None
 
         fields["source"] = "acceo"
@@ -120,14 +127,14 @@ class Command(BaseCommand):
         accessibilite.save()
         return erp, duplicated_pks
 
-    def get_csv_path(self):
+    def get_csv_path(self, filename="generic.csv"):
         here = os.path.abspath(
             os.path.join(os.path.abspath(__file__), "..", "..", "..")
         )
         return os.path.join(
             os.path.dirname(here),
             "data",
-            "generic.csv",
+            filename,
         )
 
     def add_arguments(self, parser):
@@ -144,15 +151,31 @@ class Command(BaseCommand):
         with open(csv_path, "r") as file:
             reader = csv.DictReader(file, delimiter=";")
             try:
-                for row in reader:
-                    erp, duplicated_pks = self.import_row(row)
-                    if erp:
-                        self.to_import.append(erp)
-                    if duplicated_pks:
-                        print(f"Add duplicate: {duplicated_pks}")
-                        self.doublons.append(
-                            (f"{row['cp']} - {row['nom']}", duplicated_pks)
-                        )
+                with open(self.get_csv_path("error.csv"), "w") as error_file:
+                    fieldnames = [
+                        "nom",
+                        "adr",
+                        "vil",
+                        "cp",
+                        "lng",
+                        "lat",
+                        "id",
+                        "act",
+                        "error",
+                    ]
+                    writer = csv.DictWriter(
+                        error_file, fieldnames=fieldnames, delimiter=";"
+                    )
+                    writer.writeheader()
+                    for row in reader:
+                        erp, duplicated_pks = self.import_row(row, writer)
+                        if erp:
+                            self.to_import.append(erp)
+                        if duplicated_pks:
+                            print(f"Add duplicate: {duplicated_pks}")
+                            self.doublons.append(
+                                (f"{row['cp']} - {row['nom']}", duplicated_pks)
+                            )
 
             except csv.Error as err:
                 sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")

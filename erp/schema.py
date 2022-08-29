@@ -51,12 +51,12 @@ EQUIPEMENT_MALENTENDANT_LSF = "lsf"
 EQUIPEMENT_MALENTENDANT_STS = "sts"
 EQUIPEMENT_MALENTENDANT_LPC = "lpc"
 EQUIPEMENT_MALENTENDANT_CHOICES = [
-    (EQUIPEMENT_MALENTENDANT_BIM, "Boucle à induction magnétique fixe"),
-    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, "Boucle à induction magnétique portative"),
-    (EQUIPEMENT_MALENTENDANT_LSF, "Langue des signes française"),
-    (EQUIPEMENT_MALENTENDANT_LPC, "Langue Française Parlée Complétée (LFPC)"),
-    (EQUIPEMENT_MALENTENDANT_STS, "Sous-Titrage ou Transcription Simultanée"),
-    (EQUIPEMENT_MALENTENDANT_AUTRES, "Autres"),
+    (EQUIPEMENT_MALENTENDANT_BIM, "boucle à induction magnétique fixe"),
+    (EQUIPEMENT_MALENTENDANT_BM_PORTATIVE, "boucle à induction magnétique portative"),
+    (EQUIPEMENT_MALENTENDANT_LSF, "langue des signes française (LSF)"),
+    (EQUIPEMENT_MALENTENDANT_LPC, "langue française parlée complétée (LFPC)"),
+    (EQUIPEMENT_MALENTENDANT_STS, "sous-titrage ou transcription simultanée"),
+    (EQUIPEMENT_MALENTENDANT_AUTRES, "autres"),
 ]
 
 EQUIPEMENT_MALENTENDANT_DESCRIPTIONS = {
