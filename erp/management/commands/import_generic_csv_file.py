@@ -64,6 +64,11 @@ class Command(BaseCommand):
             if code_insee
             else None
         )
+        try:
+            activite = Activite.objects.get(nom=row["act"]).id
+        except Activite.DoesNotExist:
+            print("Activité inexistante : %s" % row["act"])
+            return None, None
 
         fields["source"] = "acceo"
         fields["published"] = False
@@ -74,7 +79,7 @@ class Command(BaseCommand):
         fields["commune"] = geo_info.get("commune")
         fields["geom"] = geo_info.get("geom")
         fields["commune_ext"] = commune_ext
-        fields["activite_id"] = Activite.objects.get(nom=row["act"]).id
+        fields["activite_id"] = activite
 
         # checks rest
         if any(
