@@ -133,6 +133,10 @@ class Activite(models.Model):
             '<a href="/mapicons" target="_blank">le catalogue</a>.'
         ),
     )
+    position = models.PositiveSmallIntegerField(
+        default=0,
+        verbose_name="Position dans la liste",
+    )
 
     # datetimes
     created_at = models.DateTimeField(
