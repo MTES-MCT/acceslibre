@@ -1034,7 +1034,7 @@ def contrib_publication(request, erp_slug):
         if erp.user is None:
             erp.user = request.user
             erp.save()
-            ErpSubscription.subscribe(erp, request.user)
+        ErpSubscription.subscribe(erp, erp.user)
         messages.add_message(
             request, messages.SUCCESS, "Les données ont été sauvegardées."
         )
