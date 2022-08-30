@@ -351,7 +351,7 @@ class Erp(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25  # Fix me : move to settings
 
     SOURCE_ACCESLIBRE = "acceslibre"
-    SOURCE_ACCEO = "Acceo"
+    SOURCE_ACCEO = "acceo"
     SOURCE_ADMIN = "admin"
     SOURCE_API = "api"
     SOURCE_API_ENTREPRISE = "entreprise_api"

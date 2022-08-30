@@ -49,7 +49,10 @@ class Command(BaseCommand):
             if skip_upload:
                 return
             upload_to_datagouv(csv_path)
-            upload_to_datagouv("acceslibre-with-web-url.csv")
+            upload_to_datagouv(
+                "acceslibre-with-web-url.csv",
+                resources_id="93ae96a7-1db7-4cb4-a9f1-6d778370b640",
+            )
             self.log("Datasets uploaded")
 
         except RuntimeError as err:

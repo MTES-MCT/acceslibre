@@ -26,7 +26,11 @@ def export_schema_to_csv(file_path, erps: List[Erp], model: Type[BaseExportMappe
             csv_writer.writerow(data)
 
 
-def upload_to_datagouv(csv_path):
+def upload_to_datagouv(
+    csv_path,
+    dataset_id=settings.DATAGOUV_DATASET_ID,
+    resources_id=settings.DATAGOUV_RESOURCES_ID,
+):
     """
     OpenAPI: https://doc.data.gouv.fr/api/reference/#/datasets/upload_dataset_resource
     Documentation: https://doc.data.gouv.fr/api/dataset-workflow/#modification-dun-jeu-de-donn%C3%A9es
@@ -37,8 +41,8 @@ def upload_to_datagouv(csv_path):
     url = (
         "{domain}/api/1/datasets/{dataset_id}/resources/{resources_id}/upload/".format(
             domain=settings.DATAGOUV_DOMAIN,
-            dataset_id=settings.DATAGOUV_DATASET_ID,
-            resources_id=settings.DATAGOUV_RESOURCES_ID,
+            dataset_id=dataset_id,
+            resources_id=resources_id,
         )
     )
 
