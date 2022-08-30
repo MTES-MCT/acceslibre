@@ -417,9 +417,8 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(widget=forms.HiddenInput)
     lon = forms.DecimalField(widget=forms.HiddenInput)
-    activite = forms.ModelChoiceField(
-        queryset=Activite.objects.order_by("position", "nom")
-    )
+    activite = forms.ModelChoiceField(queryset=Activite.objects.order_by("position"))
+    nouvelle_activite = forms.CharField(widget=forms.TextInput)
 
     class Meta:
         model = Erp
@@ -480,7 +479,10 @@ class BasePublicErpInfosForm(BaseErpForm):
         super().__init__(*args, **kwargs)
         # Les contributions publiques rendent obligatoire le renseignement de l'activité
         self.fields["activite"].required = True
-        self.fields["activite"].help_text = "<a href=''>Test</a>"
+        self.fields["nouvelle_activite"].required = False
+        self.fields[
+            "activite"
+        ].help_text = "<a href='#' id='no_activite'>Je ne trouve pas l'activité</a>"
 
         # Source id non requis
         self.fields["source_id"].required = False

@@ -20,7 +20,7 @@ from erp import forms, schema, serializers
 from erp.export.utils import (
     map_list_from_schema,
 )
-from erp.models import Accessibilite, Commune, Erp, Vote
+from erp.models import Accessibilite, Commune, Erp, Vote, Activite
 from erp.provider import geocoder, search as provider_search, acceslibre
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
@@ -684,6 +684,10 @@ def contrib_admin_infos(request):
                 if request.user.is_authenticated and erp.user is None:
                     erp.user = request.user
                 erp.save()
+                if erp.activite.nom == "Autre":
+                    Activite.notify_admin(
+                        new_activity=form.cleaned_data["nouvelle_activite"], erp=erp
+                    )
                 messages.add_message(
                     request, messages.SUCCESS, "Les données ont été enregistrées."
                 )
@@ -725,6 +729,7 @@ def contrib_admin_infos(request):
             "geojson_list": geojson_list,
             "erp": erp,
             "external_erp": external_erp,
+            "activite": Activite.objects.get(nom="Autre"),
         },
     )
 
@@ -746,6 +751,10 @@ def contrib_edit_infos(request, erp_slug):
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
+            if erp.activite.nom == "Autre":
+                Activite.notify_admin(
+                    new_activity=form.cleaned_data["nouvelle_activite"], erp=erp
+                )
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
@@ -765,6 +774,7 @@ def contrib_edit_infos(request, erp_slug):
             "erp": erp,
             "form": form,
             "has_data": False,
+            "activite": Activite.objects.get(nom="Autre"),
         },
     )
 

@@ -23,6 +23,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
+from core import mailer
 from core.lib import calc, diff as diffutils, geo
 from erp import managers, schema
 from erp.provider import sirene, geocoder
@@ -85,6 +86,15 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
     return history
 
 
+def get_last_position():
+    if Activite.objects.order_by("position").exists():
+        try:
+            return Activite.objects.order_by("position").last().position + 1
+        except Exception:
+            return 1
+    return 1
+
+
 class Activite(models.Model):
     class Meta:
         ordering = ("nom",)
@@ -134,7 +144,7 @@ class Activite(models.Model):
         ),
     )
     position = models.PositiveSmallIntegerField(
-        default=0,
+        default=get_last_position,
         verbose_name="Position dans la liste",
     )
 
@@ -148,6 +158,24 @@ class Activite(models.Model):
 
     def __str__(self):
         return self.nom
+
+    @staticmethod
+    def notify_admin(new_activity, erp):
+        add_activite_admin_url = f"/admin/erp/activite/add/?nom={new_activity}"
+        list_erp_with_activite_autre_url = (
+            f"/admin/erp/erp/?activite={Activite.objects.get(nom='Autre').pk}"
+        )
+        subject = "Nouvelle activité"
+        mailer.mail_admins(
+            subject,
+            "mail/new_activity.txt",
+            {
+                "add_activite_admin_url": add_activite_admin_url,
+                "list_erp_with_activite_autre_url": list_erp_with_activite_autre_url,
+                "erp": erp,
+                "new_activity": new_activity,
+            },
+        )
 
 
 def generate_commune_slug(instance):

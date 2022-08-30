@@ -39,9 +39,16 @@ from . import schema
 @admin.register(Activite)
 class ActiviteAdmin(admin.ModelAdmin):
     form = AdminActiviteForm
-    list_display = ("icon_img", "nom", "erp_count", "created_at", "updated_at")
+    list_display = (
+        "icon_img",
+        "nom",
+        "position",
+        "erp_count",
+        "created_at",
+        "updated_at",
+    )
     list_display_links = ("nom",)
-    ordering = ("nom",)
+    ordering = ("position",)
     search_fields = ("nom",)
 
     def get_queryset(self, request):

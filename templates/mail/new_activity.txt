@@ -1,0 +1,10 @@
+{% autoescape off %}Une nouvelle activité a été proposée pour l'établissement {{erp.nom}} ({{ SITE_ROOT_URL }}{{erp.get_admin_url}}) : {{new_activity}}
+
+Ajouter cette activité dans l'admin : {{ SITE_ROOT_URL }}{{add_activite_admin_url}}
+Voir les établissements sans activité {{ SITE_ROOT_URL }}{{list_erp_with_activite_autre_url}}
+
+
+--
+L'équipe {{ SITE_NAME.title }}
+{{ SITE_ROOT_URL }}
+{% endautoescape %}
