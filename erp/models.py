@@ -87,9 +87,10 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
 
 
 def get_last_position():
-    if Activite.objects.order_by("position").exists():
+    qs = Activite.objects.order_by("position").exclude(nom="Autre")
+    if qs.exists():
         try:
-            return Activite.objects.order_by("position").last().position + 1
+            return qs.last().position + 1
         except Exception:
             return 1
     return 1
