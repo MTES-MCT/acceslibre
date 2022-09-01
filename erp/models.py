@@ -4,6 +4,7 @@ import math
 import json
 import os
 import uuid
+
 import reversion
 
 from autoslug import AutoSlugField
@@ -159,6 +160,14 @@ class Activite(models.Model):
 
     def __str__(self):
         return self.nom
+
+    @classmethod
+    def reorder(cls):
+        position = 1
+        for act in cls.objects.all().order_by("nom").exclude(nom="Autre"):
+            act.position = position
+            position += 1
+            act.save()
 
     @staticmethod
     def notify_admin(new_activity, erp):
