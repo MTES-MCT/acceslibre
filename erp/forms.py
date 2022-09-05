@@ -156,9 +156,9 @@ class AdminActiviteForm(forms.ModelForm):
     def save(self, commit=True):
         m = super(AdminActiviteForm, self).save(commit=False)
         m.nom = m.nom.capitalize()
-        if commit:
-            m.save()
+        m.save()
         Activite.reorder()
+        m.refresh_from_db()
         return m
 
 
