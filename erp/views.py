@@ -597,7 +597,7 @@ def vote(request, erp_slug):
 
 
 @login_required
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_delete(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
@@ -667,7 +667,7 @@ def contrib_global_search(request):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_admin_infos(request):
     data = erp = external_erp = None
     data_error = None
@@ -734,7 +734,7 @@ def contrib_admin_infos(request):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"lat": float(erp.geom.y), "lon": float(erp.geom.x)}
@@ -779,7 +779,7 @@ def contrib_edit_infos(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"user_type": Erp.USER_ROLE_PUBLIC}
@@ -935,7 +935,7 @@ def process_accessibilite_form(
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     if request.user.is_authenticated and erp.user is request.user:
@@ -959,7 +959,7 @@ def contrib_transport(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -977,7 +977,7 @@ def contrib_exterieur(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -992,7 +992,7 @@ def contrib_entree(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -1010,7 +1010,7 @@ def contrib_accueil(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -1025,7 +1025,7 @@ def contrib_commentaire(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
 

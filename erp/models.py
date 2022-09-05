@@ -67,19 +67,20 @@ def _get_history(versions, exclude_fields=None, exclude_changes_from=None):
             if entry["old"] != entry["new"]:
                 final_diff.append(entry)
         if final_diff:
-            history.insert(
-                0,
-                {
-                    "user": version.revision.user,
-                    "date": version.revision.date_created,
-                    "comment": version.revision.get_comment(),
-                    "diff": [
-                        entry
-                        for entry in final_diff
-                        if entry["field"] not in exclude_fields
-                    ],
-                },
-            )
+            if version.revision.user:
+                history.insert(
+                    0,
+                    {
+                        "user": version.revision.user,
+                        "date": version.revision.date_created,
+                        "comment": version.revision.get_comment(),
+                        "diff": [
+                            entry
+                            for entry in final_diff
+                            if entry["field"] not in exclude_fields
+                        ],
+                    },
+                )
         current_fields_dict = fields
     history = list(filter(lambda x: x["diff"] != [], history))
     if exclude_changes_from:
