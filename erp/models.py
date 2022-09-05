@@ -172,7 +172,8 @@ class Activite(models.Model):
 
     @staticmethod
     def notify_admin(new_activity, erp):
-        add_activite_admin_url = f"/admin/erp/activite/add/?nom={new_activity}"
+        new_activity_str = "%20".join(new_activity.split())
+        add_activite_admin_url = f"/admin/erp/activite/add/?nom={new_activity_str}"
         list_erp_with_activite_autre_url = (
             f"/admin/erp/erp/?activite={Activite.objects.get(nom='Autre').pk}"
         )
