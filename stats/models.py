@@ -167,6 +167,12 @@ class Challenge(models.Model):
                 .objects.filter(email__contains="@beta.gouv.fr")
                 .values_list("email", flat=True)
             )
+        elif self.pk == 3:  # Challenge Semaine du handicap à Antony
+            emails_players_list = (
+                get_user_model()
+                .objects.filter(email__contains="@ville-antony.fr")
+                .values_list("email", flat=True)
+            )
         classement, self.nb_erp_total_added = get_count_challenge(
             self.start_date, self.end_date, emails_players_list
         )
