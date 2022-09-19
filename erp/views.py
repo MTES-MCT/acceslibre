@@ -782,7 +782,7 @@ def contrib_edit_infos(request, erp_slug):
 @create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    initial = {"user_type": Erp.USER_ROLE_PUBLIC}
+    initial = {"user_type": erp.user_type or Erp.USER_ROLE_PUBLIC}
     if request.method == "POST":
         if erp.has_accessibilite():
             accessibilite = erp.accessibilite
@@ -792,6 +792,7 @@ def contrib_a_propos(request, erp_slug):
             request.POST, instance=accessibilite, initial=initial
         )
         if form.is_valid():
+            erp.user_type = form.data["user_type"]
             erp.accessibilite = form.save()
             erp.save()
             if request.user.is_authenticated and erp.user is None:
@@ -804,7 +805,10 @@ def contrib_a_propos(request, erp_slug):
             )
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
-        form = forms.PublicAProposForm(instance=erp, initial=initial)
+        if hasattr(erp, "accessibilite"):
+            form = forms.PublicAProposForm(instance=erp.accessibilite, initial=initial)
+        else:
+            form = forms.PublicAProposForm(instance=erp, initial=initial)
     return render(
         request,
         template_name="contrib/2-a-propos.html",
