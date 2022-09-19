@@ -14,6 +14,11 @@ class Command(BaseCommand):
             help="Identifiant du jeu de données à importer (gendarmerie, vaccination)",
         )
         parser.add_argument(
+            "source",
+            type=str,
+            help="Nom de la source à récupérer",
+        )
+        parser.add_argument(
             "--verbose",
             action="store_true",
             help="Afficher les erreurs",
@@ -22,6 +27,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Démarrage de l'importation")
         dataset = options.get("dataset")
+        source = options.get("source")
         verbose = options.get("verbose", False)
         if not dataset:
             raise CommandError("Identifiant du jeu de données à importer manquant")
@@ -31,6 +37,8 @@ class Command(BaseCommand):
             results = importer.import_vaccination(verbose=verbose)
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
+        elif dataset == "generic":
+            results = importer.import_generic(verbose=verbose, source=source)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 
@@ -72,7 +80,11 @@ def build_detailed_report(results):
 
 Erreurs rencontrées
 
-{to_text_list(results["errors"])}"""
+{to_text_list(results["errors"])}
+
+Activités non mappées
+
+{to_text_list(results["activites_not_found"])}"""
 
 
 def build_summary(dataset, results):
@@ -81,4 +93,5 @@ def build_summary(dataset, results):
 - Importés: {len(results['imported'])}
 - Écartés: {len(results['skipped'])}
 - Dépubliés: {len(results['unpublished'])}
-- Erreurs: {len(results['errors'])}"""
+- Erreurs: {len(results['errors'])}
+- Activités: {len(results['activites_not_found'])}"""

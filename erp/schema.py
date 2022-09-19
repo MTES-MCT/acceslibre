@@ -1416,6 +1416,10 @@ def get_help_text_ui_neg(field):
         return get_help_text_ui(field)
 
 
+def get_nullable(field):
+    return FIELDS[field].get("nullable")
+
+
 def get_nullable_bool_fields():
     return [k for (k, v) in FIELDS.items() if v["nullable_bool"] is True]
 

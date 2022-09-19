@@ -53,7 +53,7 @@ class CsvFetcher(Fetcher):
 class CsvFileFetcher(CsvFetcher):
     def fetch(self, url):
         try:
-            csv_contents = open(url, "r", encoding="latin1").read()
+            csv_contents = open(url, "r", encoding="utf-8-sig").read()
             return csv.DictReader(
                 io.StringIO(csv_contents),
                 delimiter=self.delimiter,

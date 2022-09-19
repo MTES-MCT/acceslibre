@@ -401,6 +401,7 @@ class Erp(models.Model):
     SOURCE_API_ENTREPRISE = "entreprise_api"
     SOURCE_CCONFORME = "cconforme"
     SOURCE_GENDARMERIE = "gendarmerie"
+    SOURCE_LORIENT = "lorient"
     SOURCE_NESTENN = "nestenn"
     SOURCE_ODS = "opendatasoft"
     SOURCE_PUBLIC = "public"
@@ -419,6 +420,7 @@ class Erp(models.Model):
         (SOURCE_API_ENTREPRISE, "API Entreprise (publique)"),
         (SOURCE_CCONFORME, "cconforme"),
         (SOURCE_GENDARMERIE, "Gendarmerie"),
+        (SOURCE_LORIENT, "Lorient"),
         (SOURCE_NESTENN, "Nestenn"),
         (SOURCE_ODS, "API OpenDataSoft"),
         (SOURCE_PUBLIC, "Saisie manuelle publique"),
@@ -738,6 +740,31 @@ class Erp(models.Model):
     def is_subscribed_by(self, user):
         return ErpSubscription.objects.filter(user=user, erp=self).count() == 1
 
+    def has_doublons(self):
+        return (
+            self.__class__.objects.filter(
+                numero=self.numero,
+                voie__iexact=self.voie,
+                code_postal=self.code_postal,
+                commune__iexact=self.commune,
+                activite=self.activite,
+            )
+            .exclude(pk=self.pk, nom__iexact=self.nom)
+            .exists()
+        )
+
+    def get_doublons(self, ids_exclude=None):
+        qs = self.__class__.objects.filter(
+            numero=self.numero,
+            voie__iexact=self.voie,
+            code_postal=self.code_postal,
+            commune__iexact=self.commune,
+            activite=self.activite,
+        )
+        if ids_exclude:
+            qs = qs.exclude(pk__in=ids_exclude)
+        return qs
+
     @property
     def adresse(self):
         pieces = filter(
@@ -837,24 +864,69 @@ class Erp(models.Model):
                 erp.save()
 
     @classmethod
-    def export_doublons(cls):
+    def export_doublons(cls, source=None, activity_slug=None, source_from_only=None):
         filename = "doublons.csv"
         start_date = datetime.date(2022, 1, 19)
 
         qs = cls.objects.filter(accessibilite__isnull=False)
+        if source:
+            qs = qs.filter(source=source)
+        if activity_slug:
+            qs = qs.filter(activite__slug=activity_slug)
         if os.path.exists(filename):
             os.remove(filename)
         csv = open(filename, "w")
-        doublons = list(
-            e["erp_list"]
-            for e in qs.annotate(
-                voie_lower=Lower("voie"), commune_lower=Lower("commune")
+        if source_from_only:
+            doublons = list()
+            print(
+                f"{cls.objects.filter(source=source_from_only).count()} erps dans la source d'origine {source_from_only}"
             )
-            .values("numero", "voie_lower", "code_postal", "commune_lower")
-            .annotate(erp_count=Count("pk"), erp_list=ArrayAgg("pk"))
-            .order_by("-erp_count")
-            .filter(erp_count__gt=1)
-        )
+            erp_in_source_counter = 1
+            for e in cls.objects.filter(source=source_from_only):
+                print(f"Traitement ERP n°{erp_in_source_counter}")
+                if e.has_doublons():
+                    print("\tDoublons détectés")
+                    doublons.extend(
+                        list(
+                            erp["erp_list"]
+                            for erp in e.get_doublons(
+                                ids_exclude=list(
+                                    element
+                                    for erp_list in doublons
+                                    for element in erp_list
+                                )
+                            )
+                            .annotate(
+                                voie_lower=Lower("voie"), commune_lower=Lower("commune")
+                            )
+                            .values(
+                                "numero",
+                                "voie_lower",
+                                "code_postal",
+                                "commune_lower",
+                                "activite",
+                            )
+                            .annotate(erp_list=ArrayAgg("pk"))
+                        )
+                    )
+                erp_in_source_counter += 1
+        else:
+            doublons = list(
+                e["erp_list"]
+                for e in qs.annotate(
+                    voie_lower=Lower("voie"), commune_lower=Lower("commune")
+                )
+                .values(
+                    "numero",
+                    "voie_lower",
+                    "code_postal",
+                    "commune_lower",
+                    "activite",
+                )
+                .annotate(erp_count=Count("pk"), erp_list=ArrayAgg("pk"))
+                .order_by("-erp_count")
+                .filter(erp_count__gt=1)
+            )
         csv.write(
             f"created_at;nom;numero;voie;code_postal;commune;activite;{Accessibilite.export_data_comma_headers()}\n"
         )
