@@ -13,11 +13,7 @@ class Command(BaseCommand):
             type=str,
             help="Identifiant du jeu de données à importer (gendarmerie, vaccination)",
         )
-        parser.add_argument(
-            "source",
-            type=str,
-            help="Nom de la source à récupérer",
-        )
+
         parser.add_argument(
             "--verbose",
             action="store_true",
@@ -27,7 +23,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Démarrage de l'importation")
         dataset = options.get("dataset")
-        source = options.get("source")
+        source = options.get("source", None)
         verbose = options.get("verbose", False)
         if not dataset:
             raise CommandError("Identifiant du jeu de données à importer manquant")
