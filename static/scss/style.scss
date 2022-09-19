@@ -635,6 +635,16 @@ button.fr-btn:focus, button.fr-btn:hover{
     }
   }
 
+  &-search-map-area-global {
+    position: relative;
+    min-height: 800px; // desktop
+
+    @media only screen and (max-width: $viewport-sm) {
+      min-height: 200px; // mobile
+      order: -1; // on mobile the map is on top of results
+    }
+  }
+
   &-search-map {
     position: absolute;
     top: 0;
