@@ -23,7 +23,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Démarrage de l'importation")
         dataset = options.get("dataset")
-        source = options.get("source", None)
         verbose = options.get("verbose", False)
         if not dataset:
             raise CommandError("Identifiant du jeu de données à importer manquant")
