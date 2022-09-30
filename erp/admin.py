@@ -205,6 +205,8 @@ class ErpAdmin(
         "user",
         "user_type",
         "source",
+        "source_id",
+        "itm_id",
         "created_at",
         "updated_at",
         "view_search",

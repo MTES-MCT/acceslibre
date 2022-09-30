@@ -14,11 +14,6 @@ class Command(BaseCommand):
             help="Identifiant du jeu de données à importer (gendarmerie, vaccination)",
         )
         parser.add_argument(
-            "source",
-            type=str,
-            help="Nom de la source à récupérer",
-        )
-        parser.add_argument(
             "--verbose",
             action="store_true",
             help="Afficher les erreurs",
@@ -27,7 +22,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa
         self.stdout.write("Démarrage de l'importation")
         dataset = options.get("dataset")
-        source = options.get("source")
         verbose = options.get("verbose", False)
         if not dataset:
             raise CommandError("Identifiant du jeu de données à importer manquant")
@@ -38,7 +32,11 @@ class Command(BaseCommand):
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
         elif dataset == "generic":
-            results = importer.import_generic(verbose=verbose, source=source)
+            results = importer.import_generic(
+                verbose=verbose,
+            )
+        elif dataset == "sp":
+            results = importer.import_service_public(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 

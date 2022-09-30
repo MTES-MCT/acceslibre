@@ -11,6 +11,7 @@ from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.nestenn import NestennMapper
+from erp.imports.mapper.sp import SPMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
 
 from erp.models import Accessibilite, Activite
@@ -147,4 +148,13 @@ def import_generic(verbose=False, source=None):
         source=source,
         verbose=verbose,
         filepath="import_generic.csv",
+    ).process()
+
+
+def import_service_public(verbose=False):
+    return Importer(
+        "73302880-e4df-4d4c-8676-1a61bb997f3d",
+        fetcher.JsonCompressedFetcher(hook=lambda x: x["service"]),
+        SPMapper,
+        verbose=verbose,
     ).process()

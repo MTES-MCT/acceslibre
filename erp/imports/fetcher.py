@@ -1,6 +1,7 @@
 import csv
 import io
 import json
+import tarfile
 
 import requests
 
@@ -21,6 +22,27 @@ class JsonFetcher(Fetcher):
         try:
             res = super().fetch(url).json()
             return self.hook(res)
+        except KeyError as err:
+            raise RuntimeError(f"Erreur de clé JSON: {err}")
+        except json.JSONDecodeError as err:
+            raise RuntimeError(f"Erreur de décodage des données JSON:\n  {err}")
+        except requests.exceptions.RequestException as err:
+            raise RuntimeError(f"Erreur de récupération des données JSON:\n  {err}")
+
+
+class JsonCompressedFetcher(Fetcher):
+    def __init__(self, hook=lambda x: x):
+        self.hook = hook
+
+    def fetch(self, url):
+        try:
+            res = super().fetch(url)
+            open("sp.bz2", "wb").write(res.content)
+            with tarfile.open("sp.bz2", "r:bz2") as tar:
+                for tarinfo in tar:
+                    if tarinfo.isreg() and "-data.gouv_local.json" in tarinfo.name:
+                        f = tar.extractfile(tarinfo)
+                        return self.hook(json.loads(f.read().decode("utf8")))
         except KeyError as err:
             raise RuntimeError(f"Erreur de clé JSON: {err}")
         except json.JSONDecodeError as err:
