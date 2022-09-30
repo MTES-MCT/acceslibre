@@ -245,6 +245,8 @@ class ErpAdmin(
     view_on_site = True
 
     readonly_fields = [
+        "source_id",
+        "itm_id",
         "commune_ext",
     ]
 
@@ -253,6 +255,8 @@ class ErpAdmin(
             None,
             {
                 "fields": [
+                    "source_id",
+                    "itm_id",
                     "activite",
                     "nom",
                     "siret",
