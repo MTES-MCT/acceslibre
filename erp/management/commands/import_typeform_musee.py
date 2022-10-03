@@ -168,6 +168,13 @@ class Command(BaseCommand):
 
         field_label = "Est-ce qu’il y au moins une place handicapé dans votre parking ?"
         if field_label in row:
+            if row[field_label] == "Oui, nous avons une place handicapé":
+                accessibilite.stationnement_pmr = True
+            elif row[field_label] == "Non, nous n'avons pas de place handicapé":
+                accessibilite.stationnement_pmr = False
+
+        field_label = "Est-ce que le chemin pour aller de votre place de parking handicapé jusqu'à l'entrée est praticable par un fauteuil roulant ?(L)"
+        if field_label in row:
             if row[field_label] == "Oui c'est praticable":
                 accessibilite.cheminement_ext_presence = True
                 accessibilite.cheminement_ext_terrain_stable = True
@@ -175,16 +182,6 @@ class Command(BaseCommand):
                 accessibilite.cheminement_ext_retrecissement = False
             elif row[field_label] == "Non, ce n'est pas praticable":
                 accessibilite.cheminement_ext_presence = True
-
-        # field_label = "Est-ce que le chemin pour aller de votre place de parking handicapé jusqu'à l'entrée est praticable par un fauteuil roulant ?"
-        # if field_label in row:
-        #     if row[field_label] == "Oui c'est praticable":
-        #         accessibilite.cheminement_ext_presence = True
-        #         accessibilite.cheminement_ext_terrain_stable = True
-        #         accessibilite.cheminement_ext_plain_pied = True
-        #         accessibilite.cheminement_ext_retrecissement = False
-        #     elif row[field_label] == "Non, ce n'est pas praticable":
-        #         accessibilite.cheminement_ext_presence = True
 
         field_label = "Ce chemin n'est pas praticable car :"
         if field_label in row:
