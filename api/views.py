@@ -269,6 +269,11 @@ class ErpFilterBackend(BaseFilterBackend):
         if source_id is not None:
             queryset = queryset.filter(source_id__iexact=source_id)
 
+        # ITM Id
+        itm_id = request.query_params.get("itm_id", None)
+        if itm_id is not None:
+            queryset = queryset.filter(itm_id__iexact=itm_id)
+
         # UUID
         uuid = request.query_params.get("uuid", None)
         if uuid is not None:

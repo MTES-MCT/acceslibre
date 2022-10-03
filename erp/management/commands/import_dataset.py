@@ -31,6 +31,12 @@ class Command(BaseCommand):
             results = importer.import_vaccination(verbose=verbose)
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
+        elif dataset == "generic":
+            results = importer.import_generic(
+                verbose=verbose,
+            )
+        elif dataset == "sp":
+            results = importer.import_service_public(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 
@@ -72,7 +78,11 @@ def build_detailed_report(results):
 
 Erreurs rencontrées
 
-{to_text_list(results["errors"])}"""
+{to_text_list(results["errors"])}
+
+Activités non mappées
+
+{to_text_list(results["activites_not_found"])}"""
 
 
 def build_summary(dataset, results):
@@ -81,4 +91,5 @@ def build_summary(dataset, results):
 - Importés: {len(results['imported'])}
 - Écartés: {len(results['skipped'])}
 - Dépubliés: {len(results['unpublished'])}
-- Erreurs: {len(results['errors'])}"""
+- Erreurs: {len(results['errors'])}
+- Activités: {len(results['activites_not_found'])}"""

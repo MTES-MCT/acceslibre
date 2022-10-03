@@ -97,14 +97,16 @@ class Command(BaseCommand):
             code_insee=code_insee,
             activite__pk=fields["activite_id"],
         )
-        if qs.count() >= 1:
-            duplicated_pks = qs.values_list("pk", flat=True)
-        else:
-            duplicated_pks = []
-        erp = Erp(**fields)
-        erp.save()
+        duplicated_pks = []
 
-        accessibilite = Accessibilite(erp=erp)
+        try:
+            erp = qs.get()
+            accessibilite = erp.accessibilite
+        except Exception:
+            duplicated_pks.extend(qs.values_list("pk", flat=True))
+            erp = Erp(**fields)
+            erp.save()
+            accessibilite = Accessibilite(erp=erp)
 
         field_label = "Votre mairie : {{hidden:nom}}  Y-a-t il une marche (ou plus) pour y rentrer ? (même toute petite)"
         if field_label in row:

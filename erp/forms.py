@@ -153,6 +153,14 @@ class AdminActiviteForm(forms.ModelForm):
         help_text="Un mots-clé par ligne",
     )
 
+    def save(self, commit=True):
+        m = super(AdminActiviteForm, self).save(commit=False)
+        m.nom = m.nom.capitalize()
+        m.save()
+        Activite.reorder()
+        m.refresh_from_db()
+        return m
+
 
 class AdminCommuneForm(forms.ModelForm):
     class Meta:

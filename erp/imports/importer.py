@@ -8,8 +8,10 @@ from django.db.transaction import TransactionManagementError
 
 from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
+from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.nestenn import NestennMapper
+from erp.imports.mapper.sp import SPMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
 
 from erp.models import Accessibilite, Activite
@@ -25,6 +27,7 @@ class Importer:
         id,
         fetcher,
         mapper,
+        source=None,
         activite=None,
         verbose=False,
         today=None,
@@ -33,6 +36,7 @@ class Importer:
         self.id = id
         self.fetcher = fetcher
         self.mapper = mapper
+        self.source = source
         self.activite = activite
         self.verbose = verbose
         self.today = today if today is not None else datetime.today()
@@ -48,6 +52,7 @@ class Importer:
             "skipped": [],
             "unpublished": [],
             "errors": [],
+            "activites_not_found": [],
         }
         here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", ".."))
         resource_path = (
@@ -55,11 +60,10 @@ class Importer:
             if self.filepath
             else f"{ROOT_DATASETS_URL}/{self.id}"
         )
-
         for record in self.fetcher.fetch(resource_path):
             erp = None
             try:
-                mapper = self.mapper(record, self.activite, self.today)
+                mapper = self.mapper(record, self.source, self.activite, self.today)
                 (erp, unpublish_reason) = mapper.process()
                 if not erp:
                     self.print_char("X")
@@ -92,6 +96,10 @@ class Importer:
                 logger.error(f"Database error while importing dataset: {err}")
                 self.print_char("E")
                 results["errors"].append(f"{str(erp)}: {str(err)}")
+            except Exception as e:
+
+                if str(e) not in results["activites_not_found"]:
+                    results["activites_not_found"].append(str(e))
 
         return results
 
@@ -129,4 +137,24 @@ def import_nestenn(verbose=False):
         Activite.objects.get(slug="agence-immobiliere"),
         verbose=verbose,
         filepath="nestenn.csv",
+    ).process()
+
+
+def import_generic(verbose=False, source=None):
+    return Importer(
+        "d0566522-604d-4af6-be44-a26eefa01756",
+        fetcher.CsvFileFetcher(delimiter=";"),
+        GenericMapper,
+        source=source,
+        verbose=verbose,
+        filepath="import_generic.csv",
+    ).process()
+
+
+def import_service_public(verbose=False):
+    return Importer(
+        "73302880-e4df-4d4c-8676-1a61bb997f3d",
+        fetcher.JsonCompressedFetcher(hook=lambda x: x["service"]),
+        SPMapper,
+        verbose=verbose,
     ).process()

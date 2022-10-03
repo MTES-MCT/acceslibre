@@ -232,10 +232,58 @@ def search(request, commune_slug=None):
         request,
         "search/results.html",
         context={
+            "url_params": request.META["QUERY_STRING"],
             "commune": commune,
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
+            "lat": lat,
+            "lon": lon,
+            "code": code,
+            "what": what,
+            "where": where,
+            "geojson_list": geojson_list,
+            "commune_json": commune.toTemplateJson() if commune else None,
+        },
+    )
+
+
+def global_map(request, commune_slug=None):
+    where, what, lat, lon, code = _clean_search_params(
+        request.GET, "where", "what", "lat", "lon", "code"
+    )
+    where = where or "France entière"
+    location = _parse_location_or_404(lat, lon)
+    qs = (
+        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+        .published()
+        .search_what(what)
+    )
+    commune = None
+    if commune_slug:
+        commune = get_object_or_404(Commune, slug=commune_slug)
+        qs = qs.filter(commune_ext=commune)
+        where = str(commune)
+    elif location:
+        commune, qs = _search_commune_around(qs, location, code)
+    elif where and not where == "France entière":
+        location = geocoder.autocomplete(where)
+        if location:
+            lat, lon = (location.y, location.x)  # update current searched lat/lon
+            qs = qs.nearest(location)
+        else:
+            qs = qs.search_commune(where)
+    # pager
+    paginator = Paginator(qs, qs.count())
+    pager = paginator.get_page(request.GET.get("page", 1))
+    geojson_list = make_geojson(pager)
+    return render(
+        request,
+        "search/global_map.html",
+        context={
+            "commune": commune,
+            "paginator": paginator,
+            "pager": pager,
             "lat": lat,
             "lon": lon,
             "code": code,
@@ -597,7 +645,7 @@ def vote(request, erp_slug):
 
 
 @login_required
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_delete(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug, user=request.user)
     if request.method == "POST":
@@ -667,7 +715,7 @@ def contrib_global_search(request):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_admin_infos(request):
     data = erp = external_erp = None
     data_error = None
@@ -734,7 +782,7 @@ def contrib_admin_infos(request):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_edit_infos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     initial = {"lat": float(erp.geom.y), "lon": float(erp.geom.x)}
@@ -779,10 +827,10 @@ def contrib_edit_infos(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_a_propos(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
-    initial = {"user_type": Erp.USER_ROLE_PUBLIC}
+    initial = {"user_type": erp.user_type or Erp.USER_ROLE_PUBLIC}
     if request.method == "POST":
         if erp.has_accessibilite():
             accessibilite = erp.accessibilite
@@ -792,6 +840,7 @@ def contrib_a_propos(request, erp_slug):
             request.POST, instance=accessibilite, initial=initial
         )
         if form.is_valid():
+            erp.user_type = form.data["user_type"]
             erp.accessibilite = form.save()
             erp.save()
             if request.user.is_authenticated and erp.user is None:
@@ -804,7 +853,10 @@ def contrib_a_propos(request, erp_slug):
             )
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
-        form = forms.PublicAProposForm(instance=erp, initial=initial)
+        if hasattr(erp, "accessibilite"):
+            form = forms.PublicAProposForm(instance=erp.accessibilite, initial=initial)
+        else:
+            form = forms.PublicAProposForm(instance=erp, initial=initial)
     return render(
         request,
         template_name="contrib/2-a-propos.html",
@@ -935,7 +987,7 @@ def process_accessibilite_form(
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_transport(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
     if request.user.is_authenticated and erp.user is request.user:
@@ -959,7 +1011,7 @@ def contrib_transport(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_exterieur(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -977,7 +1029,7 @@ def contrib_exterieur(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_entree(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -992,7 +1044,7 @@ def contrib_entree(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_accueil(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -1010,7 +1062,7 @@ def contrib_accueil(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_commentaire(request, erp_slug):
     return process_accessibilite_form(
         request,
@@ -1025,7 +1077,7 @@ def contrib_commentaire(request, erp_slug):
     )
 
 
-@create_revision()
+@create_revision(request_creates_revision=lambda x: True)
 def contrib_publication(request, erp_slug):
     erp = get_object_or_404(Erp, slug=erp_slug)
 
