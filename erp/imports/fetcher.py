@@ -36,13 +36,20 @@ class JsonCompressedFetcher(Fetcher):
 
     def fetch(self, url):
         try:
+            print(f"Récupération des données sur {url}")
             res = super().fetch(url)
             open("sp.bz2", "wb").write(res.content)
+            print(f"Récupération des données => [OK]")
             with tarfile.open("sp.bz2", "r:bz2") as tar:
                 for tarinfo in tar:
                     if tarinfo.isreg() and "-data.gouv_local.json" in tarinfo.name:
+                        print(f"Extraction des données sur le fichier {tarinfo}")
                         f = tar.extractfile(tarinfo)
-                        return self.hook(json.loads(f.read().decode("utf8")))
+                        print(f"Extraction des données => [OK]")
+                        for item in iter(
+                            self.hook(json.loads(f.read().decode("utf8")))
+                        ):
+                            yield item
         except KeyError as err:
             raise RuntimeError(f"Erreur de clé JSON: {err}")
         except json.JSONDecodeError as err:
