@@ -3,6 +3,7 @@ import io
 import json
 import tarfile
 
+import ijson
 import requests
 
 
@@ -46,9 +47,7 @@ class JsonCompressedFetcher(Fetcher):
                         print(f"Extraction des données sur le fichier {tarinfo}")
                         f = tar.extractfile(tarinfo)
                         print("Extraction des données => [OK]")
-                        for item in iter(
-                            self.hook(json.loads(f.read().decode("utf8")))
-                        ):
+                        for item in ijson.items(f, "service.item"):
                             yield item
         except KeyError as err:
             raise RuntimeError(f"Erreur de clé JSON: {err}")
