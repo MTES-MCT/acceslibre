@@ -377,6 +377,17 @@ class ErpSchema(A4aAutoSchema):
                 "schema": {"type": "string"},
             },
         },
+        "asp_id": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "asp_id",
+                "in": "query",
+                "required": False,
+                "description": "ID ASP unique fourni par Service Public",
+                "schema": {"type": "string"},
+            },
+        },
         "uuid": {
             "paths": ["/erps/"],
             "methods": ["GET"],
@@ -418,6 +429,8 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
       au choix les champs `code_postal` ou `code_insee`.
     - `?source=gendarmerie&source_id=1002326` permet de rechercher un enregistrement
       par source et identifiant dans la source.
+    - `?source=sp&asp_id=00033429-1b83-46b4-9101-3a2ad178af79` permet de rechercher un enregistrement
+      pour la source Service Public et identifiant ASP de la source.
     - `?uuid=d8823070-f999-4992-92e9-688be87a76a6` permet de rechercher un enregistrement
       par son [identifiant unique OpenData](https://schema.data.gouv.fr/MTES-MCT/acceslibre-schema/latest/documentation.html#propri%C3%A9t%C3%A9-id).
 
