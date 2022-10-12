@@ -126,7 +126,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
             "accessibilite",
             "distance",
             "source_id",
-            "itm_id",
+            "asp_id",
         )
         lookup_field = "slug"
         extra_kwargs = {"url": {"lookup_field": "slug"}}

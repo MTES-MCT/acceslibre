@@ -478,10 +478,10 @@ class Erp(models.Model):
         verbose_name="Source ID",
         help_text="Identifiant de l'ERP dans la source initiale de données",
     )
-    itm_id = models.CharField(
+    asp_id = models.CharField(
         max_length=255,
         null=True,
-        verbose_name="ITM ID",
+        verbose_name="ASP ID",
         help_text="Identifiant de l'ERP dans la base Service Public",
     )
     user = models.ForeignKey(

@@ -22,6 +22,6 @@ class SPMapper:
         except Erp.DoesNotExist:
             return None, None
 
-        erp.itm_id = self.record["id"]
+        erp.asp_id = self.record["id"]
 
         return erp, None
