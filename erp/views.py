@@ -232,10 +232,58 @@ def search(request, commune_slug=None):
         request,
         "search/results.html",
         context={
+            "url_params": request.META["QUERY_STRING"],
             "commune": commune,
             "paginator": paginator,
             "pager": pager,
             "pager_base_url": pager_base_url,
+            "lat": lat,
+            "lon": lon,
+            "code": code,
+            "what": what,
+            "where": where,
+            "geojson_list": geojson_list,
+            "commune_json": commune.toTemplateJson() if commune else None,
+        },
+    )
+
+
+def global_map(request, commune_slug=None):
+    where, what, lat, lon, code = _clean_search_params(
+        request.GET, "where", "what", "lat", "lon", "code"
+    )
+    where = where or "France entière"
+    location = _parse_location_or_404(lat, lon)
+    qs = (
+        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+        .published()
+        .search_what(what)
+    )
+    commune = None
+    if commune_slug:
+        commune = get_object_or_404(Commune, slug=commune_slug)
+        qs = qs.filter(commune_ext=commune)
+        where = str(commune)
+    elif location:
+        commune, qs = _search_commune_around(qs, location, code)
+    elif where and not where == "France entière":
+        location = geocoder.autocomplete(where)
+        if location:
+            lat, lon = (location.y, location.x)  # update current searched lat/lon
+            qs = qs.nearest(location)
+        else:
+            qs = qs.search_commune(where)
+    # pager
+    paginator = Paginator(qs, qs.count())
+    pager = paginator.get_page(request.GET.get("page", 1))
+    geojson_list = make_geojson(pager)
+    return render(
+        request,
+        "search/global_map.html",
+        context={
+            "commune": commune,
+            "paginator": paginator,
+            "pager": pager,
             "lat": lat,
             "lon": lon,
             "code": code,

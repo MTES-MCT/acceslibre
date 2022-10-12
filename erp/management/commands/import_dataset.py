@@ -33,7 +33,11 @@ class Command(BaseCommand):
         elif dataset == "nestenn":
             results = importer.import_nestenn(verbose=verbose)
         elif dataset == "generic":
-            results = importer.import_generic(verbose=verbose)
+            results = importer.import_generic(
+                verbose=verbose,
+            )
+        elif dataset == "sp":
+            results = importer.import_service_public(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
 
