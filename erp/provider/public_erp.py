@@ -1,7 +1,7 @@
 import logging
 import requests
 
-from fuzzywuzzy import process as fuzzy_process
+from fuzzywuzzy import fuzz
 
 from core.lib import text
 from erp.models import Activite, Commune
@@ -475,7 +475,12 @@ def find_public_types(terms):
     clean = text.remove_accents(terms).lower()
     for key, val in TYPES.items():
         searches = [key, val["description"]] + val.get("searches", [])
-        (found, score) = fuzzy_process.extractOne(clean, searches)
+
+        score = sorted(
+            [{"score": fuzz.ratio(clean, s)} for s in searches],
+            key=lambda x: x["score"],
+            reverse=True,
+        )[0]["score"]
         results.append({"score": score, "type": key})
     _sorted = sorted(results, key=lambda x: x["score"], reverse=True)
     return [r["type"] for r in _sorted if r["score"] > MIN_SCORE][:MAX_TYPES]
