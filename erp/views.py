@@ -102,8 +102,21 @@ def challenges(request):
 @login_required
 def challenge_inscription(request, challenge_slug=None):
     challenge = get_object_or_404(Challenge, slug=challenge_slug)
-    if request.user not in challenge.players.all():
+    if request.user.email in Challenge.objects.filter(active=True).values_list(
+        "players__email", flat=True
+    ):
+        messages.add_message(
+            request, messages.ERROR, "Vous participez déjà à un autre challenge."
+        )
+    elif request.user not in challenge.players.all():
         challenge.players.add(request.user)
+        messages.add_message(
+            request, messages.SUCCESS, "Votre inscription a bien été enregistrée."
+        )
+    else:
+        messages.add_message(
+            request, messages.INFO, "Vous êtes déjà inscrit au challenge."
+        )
     return redirect("challenges")
 
 def challenge_ddt(request):

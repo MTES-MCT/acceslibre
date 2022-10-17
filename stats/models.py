@@ -199,10 +199,16 @@ class Challenge(models.Model):
 class ChallengePlayer(models.Model):
 
     player = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name="Joueur", on_delete=models.PROTECT
+        settings.AUTH_USER_MODEL,
+        verbose_name="Joueur",
+        on_delete=models.PROTECT,
+        related_name="inscriptions",
     )
     challenge = models.ForeignKey(
-        "stats.Challenge", verbose_name="Challenge", on_delete=models.PROTECT
+        "stats.Challenge",
+        verbose_name="Challenge",
+        on_delete=models.PROTECT,
+        related_name="inscriptions",
     )
     inscription_date = models.DateTimeField(
         verbose_name="Date d'inscription", auto_now_add=True

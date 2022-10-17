@@ -2,12 +2,17 @@
     <div class="fr-grid-row fr-grid-row--gutters fr-ml-1w">
         <ul class="row" style="list-style-type: none">
         {% for challenge in challenges %}
-            <li><a class="btn-link fr-text--bold" href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>: {{ challenge.start_date|date:"d F Y" }} au {{ challenge.end_date|date:"d F Y" }} inclus</li>
+            <li>
+              <a class="btn-link fr-text--bold" href="{{ challenge.get_absolute_url }}">{{ challenge }}</a>: {{ challenge.start_date|date:"d F Y" }} au {{ challenge.end_date|date:"d F Y" }} inclus
+
             {% if request.user in challenge.players.all %}
-              <a class="btn btn-outline-primary disabled" href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">Déja inscrit</a>
+              <br><small class="text-success">
+                Inscrit depuis le {{ request.user.inscriptions.last.inscription_date|date:"d F Y" }}
+              </small>
             {% elif challenge.has_open_inscription %}
-              <a class="btn btn-outline-primary" href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">S'inscrire à <b>{{ challenge }}</b></a>
+              <a class="btn-block btn btn-outline-primary" href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">S'inscrire à <b>{{ challenge }}</b></a>
             {% endif %}
+          </li>
         {% endfor %}
         </ul>
     </div>

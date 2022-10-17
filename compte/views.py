@@ -295,6 +295,20 @@ def mes_abonnements(request):
 
 
 @login_required
+def mes_challenges(request):
+    qs = request.user.challenge_players.all().order_by(
+        "-inscriptions__inscription_date"
+    )
+    paginator = Paginator(qs, 10)
+    pager = paginator.get_page(request.GET.get("page", 1))
+    return render(
+        request,
+        "compte/mes_challenges.html",
+        context={"pager": pager, "pager_base_url": "?1"},
+    )
+
+
+@login_required
 def mes_preferences(request):
     if request.method == "POST":
         form = forms.PreferencesForm(request.POST)
