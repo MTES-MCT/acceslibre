@@ -119,6 +119,7 @@ def challenge_inscription(request, challenge_slug=None):
         )
     return redirect("challenges")
 
+
 def challenge_ddt(request):
     today = datetime.datetime.today()
     challenge = Challenge.objects.get(slug="challenge-ddt")
