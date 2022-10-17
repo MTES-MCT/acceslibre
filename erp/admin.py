@@ -206,7 +206,7 @@ class ErpAdmin(
         "user_type",
         "source",
         "source_id",
-        "itm_id",
+        "asp_id",
         "created_at",
         "updated_at",
         "view_search",
@@ -248,7 +248,7 @@ class ErpAdmin(
 
     readonly_fields = [
         "source_id",
-        "itm_id",
+        "asp_id",
         "commune_ext",
     ]
 
@@ -258,7 +258,7 @@ class ErpAdmin(
             {
                 "fields": [
                     "source_id",
-                    "itm_id",
+                    "asp_id",
                     "activite",
                     "nom",
                     "siret",

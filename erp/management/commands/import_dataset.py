@@ -13,6 +13,7 @@ class Command(BaseCommand):
             type=str,
             help="Identifiant du jeu de données à importer (gendarmerie, vaccination)",
         )
+
         parser.add_argument(
             "--verbose",
             action="store_true",

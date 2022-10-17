@@ -92,11 +92,10 @@ class GenericMapper:
 
     fields = erp_fields + accessibility_fields
 
-    def __init__(self, record, source=None, activite=None, today=None):
+    def __init__(self, record, activite=None, today=None):
         self.record = record
         self.today = today if today is not None else datetime.today()
         self.activite = activite
-        self.source = source
 
     def process(self):
         try:

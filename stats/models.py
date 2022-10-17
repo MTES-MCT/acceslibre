@@ -169,6 +169,7 @@ class Challenge(models.Model):
                 "sylvie.chanut@rhone.gouv.fr",
                 "claire.vancauwemberge@rhone.gouv.fr",
                 "thierry.morel@rhone.gouv.fr",
+                "claire.para-desthomas@haute-savoie.gouv.fr",
             ]
         elif self.nom == "Challenge de l’été beta.gouv":
             emails_players_list = (

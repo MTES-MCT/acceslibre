@@ -27,7 +27,6 @@ class Importer:
         id,
         fetcher,
         mapper,
-        source=None,
         activite=None,
         verbose=False,
         today=None,
@@ -36,7 +35,6 @@ class Importer:
         self.id = id
         self.fetcher = fetcher
         self.mapper = mapper
-        self.source = source
         self.activite = activite
         self.verbose = verbose
         self.today = today if today is not None else datetime.today()
@@ -63,7 +61,7 @@ class Importer:
         for record in self.fetcher.fetch(resource_path):
             erp = None
             try:
-                mapper = self.mapper(record, self.source, self.activite, self.today)
+                mapper = self.mapper(record, self.activite, self.today)
                 (erp, unpublish_reason) = mapper.process()
                 if not erp:
                     self.print_char("X")
@@ -140,12 +138,11 @@ def import_nestenn(verbose=False):
     ).process()
 
 
-def import_generic(verbose=False, source=None):
+def import_generic(verbose=False):
     return Importer(
         "d0566522-604d-4af6-be44-a26eefa01756",
         fetcher.CsvFileFetcher(delimiter=";"),
         GenericMapper,
-        source=source,
         verbose=verbose,
         filepath="import_generic.csv",
     ).process()

@@ -1,7 +1,7 @@
 import logging
 import requests
 
-from fuzzywuzzy import process as fuzzy_process
+from fuzzywuzzy_custom import process as fuzzy_process
 
 from core.lib import text
 from erp.models import Activite, Commune

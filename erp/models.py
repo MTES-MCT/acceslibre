@@ -411,6 +411,7 @@ class Erp(models.Model):
     SOURCE_SIRENE = "sirene"
     SOURCE_TH = "tourisme-handicap"
     SOURCE_TYPEFORM = "typeform"
+    SOURCE_TYPEFORM_MUSEE = "typeform_musee"
     SOURCE_VACCINATION = "centres-vaccination"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
@@ -430,6 +431,7 @@ class Erp(models.Model):
         (SOURCE_SIRENE, "API Sirene INSEE"),
         (SOURCE_TH, "Tourisme & Handicap"),
         (SOURCE_TYPEFORM, "Questionnaires Typeform"),
+        (SOURCE_TYPEFORM_MUSEE, "Questionnaires Typeform Musée"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
     )
     USER_ROLE_ADMIN = "admin"
@@ -476,10 +478,10 @@ class Erp(models.Model):
         verbose_name="Source ID",
         help_text="Identifiant de l'ERP dans la source initiale de données",
     )
-    itm_id = models.CharField(
+    asp_id = models.CharField(
         max_length=255,
         null=True,
-        verbose_name="ITM ID",
+        verbose_name="ASP ID",
         help_text="Identifiant de l'ERP dans la base Service Public",
     )
     user = models.ForeignKey(
