@@ -99,6 +99,13 @@ def challenges(request):
     )
 
 
+@login_required
+def challenge_inscription(request, challenge_slug=None):
+    challenge = get_object_or_404(Challenge, slug=challenge_slug)
+    if request.user not in challenge.players.all():
+        challenge.players.add(request.user)
+    return redirect("challenges")
+
 def challenge_ddt(request):
     today = datetime.datetime.today()
     challenge = Challenge.objects.get(slug="challenge-ddt")
