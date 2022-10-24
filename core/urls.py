@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.sitemaps import views as sitemap_views
 from django.urls import include, path
 from django.views.decorators.cache import cache_page
+from django.views.generic import RedirectView
 
 from compte.forms import CustomRegistrationForm, CustomAuthenticationForm
 from compte.views import (
@@ -19,6 +20,12 @@ SITEMAP_CACHE_TTL = 86400
 
 
 urlpatterns = [
+    path(
+        "librairie",
+        RedirectView.as_view(
+            url="https://startupdetat.typeform.com/to/XjPdaMBE", permanent=True
+        ),
+    ),
     path("", include("erp.urls")),
     path("annuaire/", include("annuaire.urls")),
     path("api/", include("api.urls")),
