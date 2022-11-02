@@ -37,6 +37,13 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mes_challenges" }}"
+          href="{% url "mes_challenges" %}">
+          <i aria-hidden="true" class="icon icon-trophy mr-1"></i>
+          Mes challenges
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link text-nowrap {{ request.path|active_compte_section:"mes_abonnements" }}"
           href="{% url "mes_abonnements" %}">
           <i aria-hidden="true" class="icon icon-bell mr-1"></i>

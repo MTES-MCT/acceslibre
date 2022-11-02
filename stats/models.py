@@ -1,4 +1,6 @@
+import json
 import uuid
+
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -51,6 +53,7 @@ class Challenge(models.Model):
     )
     nom = models.CharField(max_length=255, help_text="Nom du challenge")
     accroche = models.TextField(null=True, blank=True)
+    text_reserve = models.TextField(null=True, blank=True)
     objectif = models.TextField(null=True, blank=True)
     slug = AutoSlugField(
         default="",
@@ -61,8 +64,13 @@ class Challenge(models.Model):
     )
     start_date = models.DateTimeField(verbose_name="Date de début du challenge")
     end_date = models.DateTimeField(verbose_name="Date de fin du challenge (inclus)")
+    players = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through="stats.ChallengePlayer",
+        related_name="challenge_players",
+    )
     nb_erp_total_added = models.BigIntegerField(default=0)
-    classement = models.JSONField(default=dict)
+    classement = models.JSONField(default=json.dumps(dict()))
 
     active = models.BooleanField(default=True)
 
@@ -76,6 +84,10 @@ class Challenge(models.Model):
 
     def get_absolute_url(self):
         return reverse("challenge-detail", kwargs={"challenge_slug": self.slug})
+
+    @property
+    def has_open_inscription(self):
+        return timezone.now() < self.end_date and timezone.now() >= self.start_date
 
     def refresh_stats(self):
         if self.nom == "Challenge DDT":
@@ -174,6 +186,9 @@ class Challenge(models.Model):
                 .objects.filter(email__contains="@ville-antony.fr")
                 .values_list("email", flat=True)
             )
+        else:
+            emails_players_list = self.players.all().values_list("email", flat=True)
+
         classement, self.nb_erp_total_added = get_count_challenge(
             self.start_date, self.end_date, emails_players_list
         )
@@ -182,6 +197,33 @@ class Challenge(models.Model):
             for user in classement
         ]
         self.save()
+
+
+class ChallengePlayer(models.Model):
+
+    player = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Joueur",
+        on_delete=models.PROTECT,
+        related_name="inscriptions",
+    )
+    challenge = models.ForeignKey(
+        "stats.Challenge",
+        verbose_name="Challenge",
+        on_delete=models.PROTECT,
+        related_name="inscriptions",
+    )
+    inscription_date = models.DateTimeField(
+        verbose_name="Date d'inscription", auto_now_add=True
+    )
+
+    class Meta:
+        ordering = ("inscription_date",)
+        verbose_name = "Challenge Player"
+        verbose_name_plural = "Challenges Players"
+
+    def __str__(self):
+        return f"{self.player} - {self.challenge}"
 
 
 class Referer(models.Model):

@@ -60,6 +60,11 @@ urlpatterns = [
         views.challenge_detail,
         name="challenge-detail",
     ),
+    path(
+        "challenge/<str:challenge_slug>/inscription/",
+        views.challenge_inscription,
+        name="challenge-inscription",
+    ),
     # Map icons
     path("mapicons", views.mapicons, name="mapicons"),
     path(

@@ -11,7 +11,18 @@
   <h2 class="text-center py-4">
     {{ challenge.accroche}}<br>
     <small class="text-muted">Du {{ start_date|date:"d F Y" }} au {{ stop_date|date:"d F Y"  }}.</small><br>
+    {% if challenge.text_reserve %}
+      <small class="text-muted">{{ challenge.text_reserve }}</small>
+    {% endif %}
   </h2>
+
+  {% if challenge.has_open_inscription and request.user not in challenge.players.all %}
+  <div class="row">
+    <div class="col-8 offset-2">
+      <a class="btn-block btn btn-outline-primary" href="{% url 'challenge-inscription' challenge_slug=challenge.slug %}">S'inscrire</a>
+    </div>
+  </div>
+  {% endif %}
   {% if challenge.objectif %}
     <p>
     <strong>Objectifs : </strong>
