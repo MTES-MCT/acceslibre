@@ -1,6 +1,7 @@
 import datetime
 import urllib
 
+from django.db.models import Q
 from reversion.views import create_revision
 
 from django.conf import settings
@@ -102,9 +103,17 @@ def challenges(request):
 @login_required
 def challenge_inscription(request, challenge_slug=None):
     challenge = get_object_or_404(Challenge, slug=challenge_slug)
-    if request.user.email in Challenge.objects.filter(active=True).values_list(
-        "players__email", flat=True
-    ):
+    today = datetime.datetime.today()
+    challenges = Challenge.objects.filter(
+        Q(active=True)
+        & (
+            Q(
+                start_date__gt=today,
+            )
+            | Q(start_date__lte=today, end_date__gt=today)
+        )
+    )
+    if request.user.email in challenges.values_list("players__email", flat=True):
         messages.add_message(
             request, messages.ERROR, "Vous participez déjà à un autre challenge."
         )

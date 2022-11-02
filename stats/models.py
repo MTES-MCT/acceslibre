@@ -51,6 +51,7 @@ class Challenge(models.Model):
     )
     nom = models.CharField(max_length=255, help_text="Nom du challenge")
     accroche = models.TextField(null=True, blank=True)
+    text_reserve = models.TextField(null=True, blank=True)
     objectif = models.TextField(null=True, blank=True)
     slug = AutoSlugField(
         default="",
