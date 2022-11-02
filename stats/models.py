@@ -1,4 +1,6 @@
+import json
 import uuid
+
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -68,7 +70,7 @@ class Challenge(models.Model):
         related_name="challenge_players",
     )
     nb_erp_total_added = models.BigIntegerField(default=0)
-    classement = models.JSONField(default=dict)
+    classement = models.JSONField(default=json.dumps(dict()))
 
     active = models.BooleanField(default=True)
 

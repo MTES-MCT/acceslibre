@@ -7,35 +7,41 @@
 
 {% block editorial_content %}
 <div class="row">
-  <div class="fr-col-6">
-    <section class="row justify-content-end mt-4">
-      <h1 class="text-center fr-h1">Challenges</h1>
+  <div class="fr-col-12 fr-col-md-6 ">
+    <section class="row mt-4">
+      <div class="col-12"><h1 class="text-center text-md-right fr-h1 ">Challenges</h1></div>
     </section>
 
 
     {% if challenges_en_cours %}
     <section class="row justify-content-start mt-4">
-      <h2 class="fr-h2">
-        <strong>Challenges en cours</strong>
-      </h2>
-    {% include 'common/challenge_item.html' with challenges=challenges_en_cours %}
+      <div class="col-12">
+        <h2 class="fr-h2">
+          <strong>Challenges en cours</strong>
+        </h2>
+        {% include 'common/challenge_item.html' with challenges=challenges_en_cours %}
+      </div>
     </section>
     {% endif %}
 
     {% if challenges_termines %}
     <section class="row justify-content-start mt-4">
-      <h2 class="fr-h2">
-        <strong>Challenges terminés</strong>
-      </h2>
-      {% include 'common/challenge_item.html' with challenges=challenges_termines %}
+      <div class="col-12">
+          <h2 class="fr-h2">
+            <strong>Challenges terminés</strong>
+          </h2>
+          {% include 'common/challenge_item.html' with challenges=challenges_termines %}
+        </div>
     </section>
     {% endif %}
     {% if challenges_a_venir %}
     <section class="row justify-content-start mt-4">
-      <h2 class="fr-h2">
-        <strong>Prochains challenges</strong>
-      </h2>
-      {% include 'common/challenge_item.html' with challenges=challenges_a_venir %}
+      <div class="col-12">
+          <h2 class="fr-h2">
+            <strong>Prochains challenges</strong>
+          </h2>
+          {% include 'common/challenge_item.html' with challenges=challenges_a_venir %}
+        </div>
     </section>
     {% endif %}
   </div>
