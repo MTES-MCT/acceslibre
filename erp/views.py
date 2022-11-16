@@ -874,13 +874,13 @@ def contrib_a_propos(request, erp_slug):
             accessibilite = form.save(commit=False)
             accessibilite.erp = erp
             accessibilite.save()
+
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
-                erp.save()
                 if form.cleaned_data["subscribe"] is True:
                     ErpSubscription.subscribe(erp, request.user)
-            else:
-                erp.save()
+
+            erp.save()
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
