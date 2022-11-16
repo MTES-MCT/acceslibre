@@ -27,7 +27,7 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
 DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"
-DATAGOUV_RESOURCES_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
+DATAGOUV_RESOURCES_ID = "5b0f44f2-e6ea-4a58-874d-6fe364b40342"
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
