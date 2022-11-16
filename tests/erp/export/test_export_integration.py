@@ -5,7 +5,7 @@ from tempfile import NamedTemporaryFile
 import pytest
 import requests
 from django.core import management
-from frictionless import validate_resource, Resource, validate_schema, Schema
+from frictionless import Resource, Schema, validate
 
 from erp.export.export import export_schema_to_csv
 from erp.export.mappers import EtalabMapper
@@ -50,14 +50,13 @@ def test_export_failure(mocker, db, settings):
     assert "Erreur lors de l'upload" in str(err.value)
 
 
-#
-# def test_schema_validation():
-#     schema = Schema("erp/export/static/schema.json")
-#     resource = Resource(
-#         "erp/export/static/exemple-valide.csv",
-#         schema=schema,
-#     )
-#     result_schema = validate_schema(schema)
-#     result_resource = validate_resource(resource)
-#     assert result_schema.get("valid") is True
-#     assert result_resource.get("valid") is True
+def test_schema_validation():
+    schema = Schema("erp/export/static/schema.json")
+    resource = Resource(
+        "erp/export/static/exemple-valide.csv",
+        schema=schema,
+    )
+    result_schema = validate(schema=schema, name="schema")
+    result_resource = validate(source=resource, name="resource")
+    assert result_schema.valid is True, f"Schema is not valid: {result_schema.error}"
+    assert result_resource.valid is True, f"Resource is not valid: {result_resource.error}"

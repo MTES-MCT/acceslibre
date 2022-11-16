@@ -34,22 +34,19 @@
                 value="{{ lat|default:request.GET.lat }}"
                 {% else %}
                  value="{{ lat }}"
-                {% endif %}
-        >
+                {% endif %}>
         <input type="hidden" name="lon"
                 {% if "lon" in request.GET %}
                 value="{{ lon|default:request.GET.lon }}"
                 {% else %}
                  value="{{ lon }}"
-                {% endif %}"
-        >
+                {% endif %}>
         <input type="hidden" name="code"
                 {% if "code" in request.GET %}
                 value="{{ code|default:request.GET.code }}"
                 {% else %}
                  value="{{ code }}"
-                {% endif %}"
-        >
+                {% endif %}>
 
       </div>
 

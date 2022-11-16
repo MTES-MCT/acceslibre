@@ -17,6 +17,12 @@ def form_test():
     return _factory
 
 
+def get_by_name(entries: dict, name: str):
+    for entry in entries:
+        if entry["name"] == name:
+            return entry
+
+
 def test_ViewAccessibiliteForm_empty():
     form = forms.ViewAccessibiliteForm()
     data = form.get_accessibilite_data()
@@ -36,21 +42,13 @@ def test_ViewAccessibiliteForm_filled():
         }
     )
     data = form.get_accessibilite_data()
-    assert list(data.keys()) == [
-        "Transports en commun",
-        "Stationnement",
-        "Chemin extérieur",
-        "Entrée",
-        "Accueil",
-        "Sanitaires",
-        "Commentaire",
-    ]
+    assert list(data.keys()) == ["Accès", "Chemin extérieur", "Entrée", "Accueil", "Commentaire"]
 
 
 def test_ViewAccessibiliteForm_filled_with_comment():
     form = forms.ViewAccessibiliteForm({"commentaire": "plop"})
     data = form.get_accessibilite_data()
-    field = data["Commentaire"]["fields"][0]
+    field = get_by_name(data["Commentaire"]["fields"], "commentaire")
     assert field["value"] == "plop"
     assert field["is_comment"] is True
 
@@ -63,7 +61,7 @@ def test_ViewAccessibiliteForm_filled_null_comment():
         }
     )
     data = form.get_accessibilite_data()
-    assert list(data.keys()) == ["Sanitaires"]
+    assert list(data.keys()) == ["Accueil"]
 
 
 def test_ViewAccessibiliteForm_serialized():
@@ -73,9 +71,8 @@ def test_ViewAccessibiliteForm_serialized():
         }
     )
     data = form.get_accessibilite_data()
-    field = data["Entrée"]["fields"][0]
+    field = get_by_name(data["Entrée"]["fields"], "entree_reperage")
 
-    assert field["name"] == "entree_reperage"
     assert field["label"] == schema.get_help_text_ui("entree_reperage")
     assert field["value"] is True
     assert field["warning"] is False
