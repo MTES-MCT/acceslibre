@@ -871,13 +871,16 @@ def contrib_a_propos(request, erp_slug):
         )
         if form.is_valid():
             erp.user_type = form.data["user_type"]
-            erp.accessibilite = form.save()
-            erp.save()
+            accessibilite = form.save(commit=False)
+            accessibilite.erp = erp
+            accessibilite.save()
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
                 if form.cleaned_data["subscribe"] is True:
                     ErpSubscription.subscribe(erp, request.user)
+            else:
+                erp.save()
             messages.add_message(
                 request, messages.SUCCESS, "Les données ont été enregistrées."
             )
@@ -949,6 +952,7 @@ def process_accessibilite_form(
     Form = modelform_factory(
         Accessibilite, form=forms.ContribAccessibiliteForm, fields=form_fields
     )
+
     if request.method == "POST":
         form = Form(request.POST, instance=accessibilite)
     else:
