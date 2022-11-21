@@ -785,6 +785,7 @@ def test_history_human_readable_diff(data, client):
             published=True,
             geom=Point(0, 0),
         )
+        reversion.set_user(data.niko)
         erp.save()
         accessibilite = Accessibilite(erp=erp)
         accessibilite.save()
@@ -793,6 +794,8 @@ def test_history_human_readable_diff(data, client):
         erp.siret = "52128577500017"
         erp.published = False
         erp.geom = Point(1, 1)
+        reversion.set_user(data.niko)
+
         erp.save()
 
         erp.accessibilite.cheminement_ext_nombre_marches = 42
