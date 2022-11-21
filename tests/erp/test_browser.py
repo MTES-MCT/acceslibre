@@ -421,6 +421,16 @@ def test_ajout_erp(data, client, monkeypatch, capsys):
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert response.status_code == 200
 
+    # A propos
+    response = client.post(
+        reverse("contrib_a_propos", kwargs={"erp_slug": erp.slug}),
+        data={"conformite": True, "user_type": Erp.USER_ROLE_ADMIN},
+        follow=True,
+    )
+    accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    assert accessibilite.conformite is True
+    assert_redirect(response, f"/contrib/transport/{erp.slug}/")
+
     # Transport
     response = client.post(
         reverse("contrib_transport", kwargs={"erp_slug": erp.slug}),
