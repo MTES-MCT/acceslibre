@@ -30,22 +30,22 @@ def example_data(erp_with_a11y) -> List[Erp]:
 
 
 def test_export_to_csv(example_data):
-    first_row = EtalabMapper.headers()
-    headers, mapped_data = map_erps_to_json_schema(example_data, EtalabMapper)
     file = NamedTemporaryFile(suffix=".csv").name
+    export_schema_to_csv(file, Erp.objects.all(), EtalabMapper)
 
-    export_schema_to_csv(file, example_data, EtalabMapper)
+    assert os.path.isfile(file) is True
+
     with open(file, "r") as csv_file:
-        reader = csv.DictReader(csv_file, fieldnames=first_row)
+        reader = csv.DictReader(csv_file, fieldnames=EtalabMapper.headers())
         next(reader)  # Skip headers
 
         erp_0 = next(reader)
         assert erp_0["transport_station_presence"] == str(
-            mapped_data[0].transport_station_presence
+            example_data[0].accessibilite.transport_station_presence
         )
         erp_1 = next(reader)
         assert erp_1["transport_station_presence"] == str(
-            mapped_data[1].transport_station_presence
+            example_data[1].accessibilite.transport_station_presence
         )
 
 
