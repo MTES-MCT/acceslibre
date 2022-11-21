@@ -32,7 +32,7 @@ django-rest-framework = "*"
 django-reversion = "==4.0.2"
 django-toolbelt = "*"
 djangorestframework-gis = "*"
-frictionless = "==4.40.8"
+frictionless = "*"
 fuzzywuzzy = "*"
 ipython = "*"
 Markdown = "*"
@@ -59,4 +59,4 @@ ijson = "*"
 python_version = "3.8"
 
 [pipenv]
-allow_prereleases = true
+allow_prereleases = false
