@@ -26,7 +26,7 @@ def get_by_name(entries: dict, name: str):
 def test_ViewAccessibiliteForm_empty():
     form = forms.ViewAccessibiliteForm()
     data = form.get_accessibilite_data()
-    assert list(data.keys()) == []
+    assert list(data.keys()) == ["Entrée"], "Entrée is mandatory"
 
 
 def test_ViewAccessibiliteForm_filled():
