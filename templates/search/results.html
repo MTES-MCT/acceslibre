@@ -83,18 +83,18 @@
           <div class="list-group-item d-flex justify-content-between align-items-center pt-2 pr-2 pb-1 pl-0">
             <div>
               <div class="d-flex w-100 justify-content-between">
-                <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
+                <a href="{{ erp.get_absolute_url }}">
+                  <h3 class="h6 font-weight-bold w-100 mb-0 pb-0">
                   <!-- rank: {{ erp.rank }} -->
-                  <a href="{{ erp.get_absolute_url }}">
                     <img alt="" class="act-icon act-icon-20 mb-1"
                       src="{% static "img/mapicons.svg" %}#{{ erp.get_activite_vector_icon }}">
                     {% if where|startswith:"Autour de moi" and erp.distance %}
                       <small class="text-muted"><em>{{ erp.distance|format_distance }}</em></small>
                     {% endif %}
                     {{ erp.nom }}
-                    <span class="sr-only">{{ erp.adresse }}</span>
-                  </a>
-                </h3>
+                    <span class="sr-only">{% if erp.activite %}{{ erp.activite }}{% endif %} à l'adresse {{ erp.adresse }}</span>
+                  </h3>
+                </a>
               </div>
               <div aria-hidden="true">
                 {% if erp.activite %}
