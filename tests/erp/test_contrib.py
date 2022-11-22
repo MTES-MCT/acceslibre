@@ -1,11 +1,11 @@
 import pytest
-
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
+from unittest.mock import ANY
 
-from erp.models import Accessibilite, Erp
+from erp.models import Accessibilite, Activite, Erp
 
 AKEI_SIRET = "88076068100010"
 
@@ -58,7 +58,7 @@ def mairie_jacou_result():
         coordonnees=[3, 42],
         naf=None,
         activite=None,
-        nom="Marie - Jacou",
+        nom="Mairie - Jacou",
         siret=None,
         numero="2",
         voie="Place de la Mairie",
@@ -107,6 +107,44 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
 
     assert response.status_code == 200
     assert response.context["results"] == [mairie_jacou_result, akei_result]
+
+
+def test_contrib_start_global_search_with_existing(client, data, mocker, akei_result, mairie_jacou_result):
+    mocker.patch(
+        "erp.provider.search.global_search",
+        return_value=[mairie_jacou_result, akei_result],
+    )
+
+    mairie = Activite.objects.create(nom="Mairie")
+    obj_erp = Erp.objects.create(
+        nom="Mairie - Jacou",
+        siret=None,
+        numero="2",
+        voie="place de la Mairie",
+        code_postal="34830",
+        commune="Jacou",
+        commune_ext=data.jacou,
+        geom=Point((3.9047933, 43.6648217)),
+        activite=mairie,
+        published=True,
+        user=data.niko,
+    )
+
+    response = client.get(
+        reverse("contrib_global_search"),
+        data={
+            "code": "34120",
+            "what": "mairie",
+        },
+        follow=True,
+    )
+
+    assert response.status_code == 200
+    assert response.context["results"] == [akei_result]
+    assert len(response.context["results_bdd"]) == 1
+    assert "exists" in response.context["results_bdd"][0]
+    assert response.context["results_bdd"][0]["source"] == "acceslibre"
+    assert response.context["results_bdd"][0]["id"] == obj_erp.id
 
 
 def test_claim(client, user):
