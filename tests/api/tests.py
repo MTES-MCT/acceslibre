@@ -39,6 +39,7 @@ def test_endpoint_erp_list(data, api_client):
     assert erp_json["nom"] == "Aux bons croissants"
     assert erp_json["activite"]["nom"] == "Boulangerie"
     assert erp_json["activite"]["slug"] == "boulangerie"
+    assert erp_json["code_postal"] == "34830"
     assert "user" not in erp_json
 
 
