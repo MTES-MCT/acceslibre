@@ -2,8 +2,6 @@ import logging
 
 from django.forms.models import model_to_dict
 
-from erp.models import Erp
-
 logger = logging.getLogger(__name__)
 
 
