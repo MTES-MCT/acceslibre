@@ -81,9 +81,8 @@ def test_empty_search_results(data, client):
     response = client.get(
         reverse("contrib_global_search"),
         data={
-            "where": "",
+            "what": "",
             "code": "",
-            "search": "",
         },
     )
     assert response.status_code == 200
@@ -98,9 +97,8 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
     response = client.get(
         reverse("contrib_global_search"),
         data={
-            "commune_search": "Jacou (34)",
-            "code_insee": "34120",
-            "search": "mairie",
+            "code": "34120",
+            "what": "mairie",
         },
         follow=True,
     )
@@ -148,7 +146,7 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
 
 
 def test_claim(client, user):
-    erp = Erp.objects.create(nom="test", published=True)
+    erp = Erp.objects.create(nom="test", published=True, geom=Point(0,0))
 
     response = client.get(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200  # jean-pierre is logged in the client
