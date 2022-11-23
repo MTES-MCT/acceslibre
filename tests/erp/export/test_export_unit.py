@@ -49,10 +49,10 @@ def test_export_to_csv(example_data):
         )
 
 
-def test_generate_schema(db):
+def test_generate_schema(db, activite):
     base = "erp/export/static/base-schema.json"
     outfile = "schema-test.json"
-    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.9/"
+    repository = "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/"
 
     generate_schema(base, outfile, repository)
 

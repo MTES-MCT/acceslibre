@@ -113,8 +113,6 @@ def test_ViewAccessibiliteForm_labels(form_test):
         "entree_dispositif_appel_type",
         [schema.DISPOSITIFS_APPEL_BOUTON, schema.DISPOSITIFS_APPEL_INTERPHONE],
     )
-    assert_missing("entree_dispositif_appel_type", [])
-    assert_missing("entree_dispositif_appel_type", None)
 
     # special cases
     assert_presence("cheminement_ext_devers", schema.DEVERS_LEGER)
@@ -128,7 +126,6 @@ def test_ViewAccessibiliteForm_labels(form_test):
     ]:
         assert_presence(f, schema.RAMPE_AMOVIBLE)
         assert_absence(f, schema.RAMPE_AUCUNE)
-        assert_missing(f, None)
 
     assert_presence("accueil_personnels", schema.PERSONNELS_FORMES)
     assert_absence("accueil_personnels", schema.PERSONNELS_AUCUN)

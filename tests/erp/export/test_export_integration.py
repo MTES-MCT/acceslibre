@@ -40,7 +40,6 @@ def test_export_failure(mocker, db, settings):
         "requests.post",
         side_effect=requests.RequestException("KO"),
     )
-    from erp.management.commands.export_to_datagouv import logger
 
     with pytest.raises(management.CommandError) as err:
         management.call_command("export_to_datagouv")
@@ -49,14 +48,3 @@ def test_export_failure(mocker, db, settings):
         os.unlink("acceslibre.csv")
     assert "Erreur lors de l'upload" in str(err.value)
 
-
-def test_schema_validation():
-    schema = Schema("erp/export/static/schema.json")
-    resource = Resource(
-        "erp/export/static/exemple-valide.csv",
-        schema=schema,
-    )
-    result_schema = validate_schema(schema)
-    result_resource = validate_resource(resource)
-    assert result_schema.valid is True, f"Schema is not valid: {result_schema.error}"
-    assert result_resource.valid is True, f"Resource is not valid: {result_resource.error}"
