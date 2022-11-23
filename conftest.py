@@ -329,6 +329,7 @@ def activite(db):
     for a in list_activite:
         Activite.objects.get_or_create(nom=a)
 
+
 @pytest.fixture
 def data(db):
     obj_admin = User.objects.create_user(

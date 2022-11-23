@@ -47,4 +47,3 @@ def test_export_failure(mocker, db, settings):
     if os.path.isfile("acceslibre.csv"):
         os.unlink("acceslibre.csv")
     assert "Erreur lors de l'upload" in str(err.value)
-
