@@ -23,6 +23,9 @@ def form_data(data):
         "lieu_dit": "blah",
         "code_postal": "75002",
         "commune": "Paris",
+        "lat": 43.657028,
+        "lon": 2.6754,
+        "asp_id": 1234,
     }
 
 
@@ -98,6 +101,8 @@ def test_BaseErpForm_clean_geom_missing(data, mocker):
             "lieu_dit": "",
             "code_postal": "34830",
             "commune": "Jacou",
+            "lat": 43.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is False
@@ -132,6 +137,8 @@ def test_BaseErpForm_clean_code_postal_mismatch(data, mocker):
             "lieu_dit": "",
             "code_postal": "75002",
             "commune": "Paris",
+            "lat": 44.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is False
@@ -166,6 +173,8 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
             "lieu_dit": "",
             "code_postal": "34830",
             "commune": "Jacou",
+            "lat": 43.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is True
@@ -190,22 +199,7 @@ def test_BaseErpForm_valid_on_geocoded_results(
     assert form.is_valid() is True
 
 
-def test_BaseErpForm_retrieve_code_insee_from_manual_input(
-    data, mocker, geocoder_result_ok
-):
-    mocker.patch(
-        "erp.provider.geocoder.geocode",
-        return_value={
-            "geom": POINT,
-            "numero": "12",
-            "voie": "Grand Rue",
-            "lieu_dit": None,
-            "code_postal": "34830",
-            "commune": "Jacou",
-            "code_insee": "34120",
-        },
-    )
-    geocode = mocker.spy(geocoder, "geocode")
+def test_BaseErpForm_retrieve_code_insee_from_manual_input(data):
     form = forms.PublicErpAdminInfosForm(
         {
             "source": Erp.SOURCE_PUBLIC,
@@ -221,7 +215,9 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(
             "contact_email": "",
             "site_internet": "",
             "telephone": "",
+            "lat": 43.657028,
+            "lon": 2.6754,
         }
     )
     assert form.is_valid() is True
-    geocode.assert_called_with("12 grand rue, jacou", citycode="34120")
+    assert form.cleaned_data["geom"] == Point(2.6754, 43.657028, srid=4326), "geom should have by built from lat & lon"

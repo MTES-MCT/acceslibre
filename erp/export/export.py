@@ -15,14 +15,21 @@ def factory(data):
     return dict([(x[0], json.dumps(x[1])) if type(x[1]) == list else x for x in data])
 
 
-def export_schema_to_csv(file_path, erps: List[Erp], model: Type[BaseExportMapper]):
+def export_schema_to_csv(
+    file_path, erps: List[Erp], model: Type[BaseExportMapper], logger=None
+):
     with open(file_path, "w", newline="") as csv_file:
-        headers, mapped_data = map_erps_to_json_schema(erps, model)
-        csv_writer = csv.DictWriter(csv_file, fieldnames=headers)
+        if logger:
+            logger(f"Initialisation du csv {file_path}")
+        csv_writer = csv.DictWriter(csv_file, fieldnames=model.headers())
+        if logger:
+            logger("Écriture des entêtes")
         csv_writer.writeheader()
 
-        for erp in mapped_data:
-            data = asdict(erp, dict_factory=factory)
+        for erp_data in map_erps_to_json_schema(erps, model):
+            if logger:
+                logger(f"\t * Ajout de l'ERP {erp_data.name}")
+            data = asdict(erp_data, dict_factory=factory)
             csv_writer.writerow(data)
 
 

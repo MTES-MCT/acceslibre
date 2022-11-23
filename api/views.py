@@ -54,7 +54,7 @@ Notez que chaque résultat expose une clé `url`, qui est un point de récupéra
 $ curl -X GET {settings.SITE_ROOT_URL}/api/erps/piscine-des-gratte-ciel-2/ -H "accept: application/json"
 ```
 
-Notez la présence de la clé `accessbilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
+Notez la présence de la clé `accessibilite` qui expose l'URL du point de récupération des données d'accessibilité pour cet établissement.
 
 ---
 

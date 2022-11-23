@@ -43,7 +43,7 @@ def validate_html(html):
         return
     results = res.json()
     errors = [format_error(m) for m in results["messages"] if m["type"] == "error"]
-    if len(errors) > 0:
+    if errors:
         raise AssertionError("\n- ".join(["Errors encountered:"] + errors))
 
 
