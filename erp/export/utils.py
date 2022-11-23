@@ -24,10 +24,9 @@ def map_erps_to_json_schema(
     erps: List[Erp],
     export_model: Type[Mapper],
 ) -> Tuple[List[str], List[Mapper]]:
-    headers = export_model.headers()
-    results = [export_model.map_from(erp) for erp in erps if erp.accessibilite]
-
-    return headers, results
+    for erp in erps.iterator(chunk_size=500):
+        if erp.accessibilite:
+            yield export_model.map_from(erp)
 
 
 def map_value_from_schema(schema_enum, data):

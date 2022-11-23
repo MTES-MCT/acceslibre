@@ -38,11 +38,16 @@ class Command(BaseCommand):
         csv_path = "acceslibre.csv"
         self.log("Starting export")
         try:
+            self.log("Récupération des ERPs")
             erps = Erp.objects.published()
-            export_schema_to_csv(csv_path, erps, EtalabMapper)
+            self.log(f"{erps.count()} ERP(s) trouvé(s)")
+            export_schema_to_csv(csv_path, erps, EtalabMapper, logger=self.log)
             self.log("Local export successful: 'acceslibre.csv'")
             export_schema_to_csv(
-                "acceslibre-with-web-url.csv", erps, EtalabMapperWithUrl
+                "acceslibre-with-web-url.csv",
+                erps,
+                EtalabMapperWithUrl,
+                logger=self.log,
             )
             self.log("Local export successful: 'acceslibre-with-web-url.csv'")
 

@@ -383,19 +383,6 @@ def test_ajout_erp(data, client, monkeypatch, capsys):
     assert response.status_code == 200
 
     # Admin infos
-    def mock_geocode(*args, **kwargs):
-        return {
-            "geom": Point(0, 0),
-            "numero": "12",
-            "voie": "Grand rue",
-            "lieu_dit": None,
-            "code_postal": "34830",
-            "commune": "Jacou",
-            "code_insee": "34122",
-        }
-
-    monkeypatch.setattr(geocoder, "geocode", mock_geocode)
-
     response = client.post(
         reverse("contrib_admin_infos"),
         data={
@@ -416,8 +403,8 @@ def test_ajout_erp(data, client, monkeypatch, capsys):
     erp = Erp.objects.get(nom="Test ERP")
     assert erp.user is None
     assert erp.published is False
-    assert erp.geom.x == 0.0
-    assert erp.geom.y == 0.0
+    assert erp.geom.x == 3
+    assert erp.geom.y == 43
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert response.status_code == 200
 
@@ -798,6 +785,7 @@ def test_history_human_readable_diff(data, client):
             published=True,
             geom=Point(0, 0),
         )
+        reversion.set_user(data.niko)
         erp.save()
         accessibilite = Accessibilite(erp=erp)
         accessibilite.save()
@@ -806,6 +794,8 @@ def test_history_human_readable_diff(data, client):
         erp.siret = "52128577500017"
         erp.published = False
         erp.geom = Point(1, 1)
+        reversion.set_user(data.niko)
+
         erp.save()
 
         erp.accessibilite.cheminement_ext_nombre_marches = 42
