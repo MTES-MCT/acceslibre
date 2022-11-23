@@ -7,6 +7,7 @@ verify_ssl = true
 black = "*"
 flake8 = "*"
 ipdb = "*"
+pre-commit = "*"
 pylint = "*"
 pytest-mock = "*"
 splinter = {extras = [ "django",], version = "*"}

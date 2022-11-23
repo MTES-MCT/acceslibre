@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
 from core import mattermost
-from erp.export.export import export_schema_to_csv, upload_to_datagouv,,
+from erp.export.export import export_schema_to_csv, upload_to_datagouv
 from erp.export.mappers import EtalabMapper, EtalabMapperWithUrl
 from erp.models import Erp
 
