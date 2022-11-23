@@ -37,7 +37,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 MAP_SEARCH_RADIUS_KM = 10
 # Mapbox
 # Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
-MAPBOX_TOKEN = "pk.eyJ1IjoibjFrMCIsImEiOiJjazdkOTVncDMweHc2M2xyd2Nhd3BueTJ5In0.-Mbvg6EfocL5NqjFbzlOSw"
+MAPBOX_TOKEN = "pk.eyJ1IjoiemVudHV4IiwiYSI6ImNrOG96dGh1eTA3MTUzcHFwYmM1b3ViMDEifQ.Hg-DxcNWCapv8PhApQLf8g"
 
 # Notifications
 # number of days to send a ping notification after an erp is created but not published
