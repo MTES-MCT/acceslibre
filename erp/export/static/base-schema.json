@@ -10,7 +10,7 @@
   ],
   "countryCode": "FR",
   "homepage": "https://github.com/MTES-MCT/acceslibre-schema",
-  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.9/schema.json",
+  "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/schema.json",
   "licenses": [
     {
       "title": "Etalab Licence Ouverte 2.0",
@@ -22,14 +22,25 @@
     {
       "title": "Fichier valide (CSV)",
       "name": "exemple-valide-csv",
-      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.9/exemple-valide.csv"
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/raw/v0.0.10/exemple-valide.csv"
+    },
+    {
+      "title": "Schéma au format XLS",
+      "name": "schema_format_xls",
+      "path": "https://github.com/MTES-MCT/acceslibre-schema/blob/v0.0.10/schema_format_excel.xls"
     }
   ],
   "sources": [],
   "created": "2021-03-10",
-  "lastModified": "2021-03-10",
-  "version": "0.0.9",
+  "lastModified": "2022-04-11",
+  "version": "0.0.10",
   "contributors": [
+    {
+      "title": "Christophe Vanfrackem",
+      "email": "christophe.vanfrackem@beta.gouv.fr",
+      "organisation": "MTES-MCT",
+      "role": "author"
+    },
     {
       "title": "Caleb Eliacheff",
       "email": "caleb.eliacheff@beta.gouv.fr",
@@ -39,12 +50,6 @@
     {
       "title": "Nicolas Perriault",
       "email": "nicolas@perriault.net",
-      "organisation": "MTES-MCT",
-      "role": "author"
-    },
-    {
-      "title": "Christophe VANFRACKEM",
-      "email": "christophe@zentux.fr",
       "organisation": "MTES-MCT",
       "role": "author"
     }
