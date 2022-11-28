@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/python:3.8.4-node
+      - image: cimg/python:3.9.14-node
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DATABASE_URL: postgres://root:password@localhost/circle_test
@@ -34,7 +34,7 @@ jobs:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "/usr/local/lib/python3.8/site-packages"
+            - "/usr/local/lib/python3.9/site-packages"
       - restore_cache:
           name: Restore Node cached dependencies
           keys:

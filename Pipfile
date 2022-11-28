@@ -31,7 +31,6 @@ django-registration = "*"
 django-reset-migrations = "*"
 django-rest-framework = "*"
 django-reversion = "==4.0.2"
-django-toolbelt = "*"
 djangorestframework-gis = "*"
 frictionless = "*"
 fuzzywuzzy = "*"
@@ -55,9 +54,12 @@ uritemplate = "*"
 uuid = "*"
 selenium = "*"
 ijson = "*"
+gunicorn = "*"
+dj-database-url = "*"
+dj-static = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
 
 [pipenv]
 allow_prereleases = false
