@@ -148,7 +148,7 @@ class Command(BaseCommand):
                         to_import.append(erp)
             except csv.Error as err:
                 sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
-        if len(to_import) == 0:
+        if not to_import:
             print("Rien à importer.")
             exit(0)
         Erp.objects.bulk_create(to_import)

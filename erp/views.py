@@ -1120,9 +1120,9 @@ def contrib_publication(request, erp_slug):
     else:
         if request.GET:
             form = forms.PublicPublicationForm(request.GET, instance=erp)
-
         else:
             form = forms.PublicPublicationForm({"published": True}, instance=erp)
+
     if form.is_valid():
         if check_authentication(request, erp, form, check_online=False):
             return check_authentication(request, erp, form, check_online=False)
