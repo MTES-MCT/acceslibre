@@ -53,7 +53,7 @@ def decode_provider_data(data):
 
         return decoded
     except Exception as err:
-        logger.error(f"decode_provider_data error: {err}")
+        logger.error("decode_provider_data error", err)
         raise RuntimeError(
             "Impossible de décoder les informations du fournisseur de données"
         )
