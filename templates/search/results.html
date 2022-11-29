@@ -35,21 +35,26 @@
 
   <section class="pt-2" id="results">
     {% if paginator.count == 0 %}
-    <div class="alert alert-info" role="alert" aria-live="assertive">
-      <i aria-hidden="true" class="icon icon-warning"></i>
-      Il n'y a pas de résultat correspondant à votre recherche <strong>{{ what }} {{ where }}</strong>.
+    <h3 class="h5">
+      <b>Il n'y a pas de résultat correspondant à votre recherche.</b>
+    </h3>
+    <div class="mb-3 row ml-0">
+      <div class="mt-2 pr-4">
+        <a class="fr-btn btn-lg" href="{% url 'contrib_admin_infos' %}?data={{ data_contrib|encode_provider_data }}#content">Ajouter un établissement</a>
+      </div>
+      <div class="mt-2 pr-4">
+        <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "contrib_start" %}">Nouvelle recherche</a>
+      </div>
     </div>
     <div class="alert" role="alert" aria-live="assertive">
       <p>
         <i aria-hidden="true" class="icon icon-bulb"></i>
-        Vous pouvez cependant :
+        Vous pouvez également:
       </p>
       <ul>
         {% if commune %}
         <li><a href="{% url "search" %}?where={{ commune }}&code={{ commune.code_insee }}">Afficher la liste de tous les établissements situés à {{ commune }}</a></li>
-        <li><a href="{% url "search" %}?where={{ commune.nom }}&lat={{ commune.geom.y }}&lon={{ commune.geom.x }}">Afficher les établissements situés dans un rayon de {{ MAP_SEARCH_RADIUS_KM }} kilomètres autour {{ commune|preposition_nom }}</a></li>
         {% endif %}
-        <li><a href="{% url "contrib_start" %}{% if commune %}?code_insee={{ commune.code_insee }}{% endif %}">Ajouter un établissement manquant{% if commune %} à {{ commune }}{% endif %}</a></li>
         <li><a href="{% url "contact_form" %}">Nous contacter pour obtenir de l'aide ou nous signaler un problème</a></li>
       </ul>
     </div>
