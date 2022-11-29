@@ -31,9 +31,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
 
-    erp = serializers.HyperlinkedRelatedField(
-        lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
-    )
+    erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
 
     def _readable_value(self, source, instance, repr, field):
         repr["readable_fields"].append(field)
@@ -64,9 +62,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             repr[section] = {}
             for field in data["fields"]:
                 # clean up empty fields
-                if clean and (
-                    source[field] is None or source[field] == [] or source[field] == ""
-                ):
+                if clean and source[field] in (None, [], ""):
                     continue
                 if readable:
                     repr = self._readable_value(source, instance, repr, field)
@@ -78,9 +74,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             del repr["commentaire"]
         # remove section if entirely empty
         if clean:
-            return dict(
-                (key, section) for (key, section) in repr.items() if section != {}
-            )
+            return dict((key, section) for (key, section) in repr.items() if section != {})
         else:
             return repr
 
