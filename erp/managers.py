@@ -75,14 +75,8 @@ class CommuneQuerySet(models.QuerySet):
                 clauses = clauses | Q(code_postaux__contains=[term])
             if len(term) > 2:
                 similarity_field = f"similarity_{index}"
-                qs = qs.annotate(
-                    **{similarity_field: search.TrigramSimilarity("nom", term)}
-                )
-                clauses = (
-                    clauses
-                    | Q(nom__unaccent__icontains=term)
-                    | Q(**{f"{similarity_field}__gte": 0.6})
-                )
+                qs = qs.annotate(**{similarity_field: search.TrigramSimilarity("nom", term)})
+                clauses = clauses | Q(nom__unaccent__icontains=term) | Q(**{f"{similarity_field}__gte": 0.6})
         return qs.filter(clauses)
 
     def search_by_nom_code_postal(self, nom, code_postal):
@@ -107,7 +101,20 @@ class CommuneQuerySet(models.QuerySet):
 
 
 class ErpQuerySet(models.QuerySet):
+    def find_duplicate(self, numero: int, commune: str, activite: "Activite", voie: str = None, lieu_dit: str = None):  # noqa
+        qs = self.filter(commune__iexact=commune, numero=numero, activite__pk=activite.pk)
+        if voie or lieu_dit:
+            clause = Q()
+            if voie:
+                clause = clause | Q(voie__iexact=voie)
+            if lieu_dit:
+                clause = clause | Q(lieu_dit__iexact=lieu_dit)
+            qs = qs.filter(clause)
+        return qs
+
     def find_similar(self, nom, commune, voie=None, lieu_dit=None):
+        # FIXME: might be deprecated as this is not compliant with the last definition of a duplicate.
+        # Prefer `find_duplicate`
         qs = self.filter(
             nom__iexact=nom,
             commune__iexact=commune,
@@ -195,9 +202,7 @@ class ErpQuerySet(models.QuerySet):
         return qs.order_by("distance")
 
     def not_published(self):
-        return self.filter(
-            Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True)
-        )
+        return self.filter(Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True))
 
     def published(self):
         return self.filter(published=True).geolocated().having_an_accessibilite()
@@ -216,13 +221,7 @@ class ErpQuerySet(models.QuerySet):
                 )
             if len(term) > 2:
                 similarity_field = f"similarity_{index}"
-                qs = qs.annotate(
-                    **{
-                        similarity_field: search.TrigramSimilarity(
-                            "commune_ext__nom", term
-                        )
-                    }
-                )
+                qs = qs.annotate(**{similarity_field: search.TrigramSimilarity("commune_ext__nom", term)})
                 clauses = (
                     clauses
                     | Q(**{f"{similarity_field}__gte": 0.6})

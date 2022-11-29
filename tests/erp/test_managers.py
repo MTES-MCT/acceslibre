@@ -2,9 +2,7 @@ import pytest
 from django.contrib.gis.geos import Point
 
 from erp import schema
-from erp.models import Accessibilite, Erp
-
-# ErpQuerySet#having_a11y_data
+from erp.models import Accessibilite, Activite, Erp
 
 
 @pytest.fixture
@@ -80,9 +78,6 @@ def test_ErpQuerySet_having_a11y_data_accumulation(erp_with_a11y):
     assert "test3" not in [e["nom"] for e in qs.values("nom")]
 
 
-# ErpQuerySet#nearest
-
-
 @pytest.fixture
 def erp_with_geom(db):
     def _factory(name, lat, lon):
@@ -113,3 +108,29 @@ def test_ErpQuerySet_nearest_point(jacou_erp, paris_point, vendargues_point):
 
     assert Erp.objects.nearest(vendargues_point, max_radius_km=5).count() == 1
     assert Erp.objects.nearest(vendargues_point, max_radius_km=5).first() == jacou_erp
+
+
+def test_ErpQuerySet_find_duplicate(data):
+    other_activity = Activite.objects.create(nom="Garage")
+
+    erp = data.erp
+    assert (
+        Erp.objects.find_duplicate(
+            numero=erp.numero, commune=erp.commune, activite=data.boulangerie, voie=erp.voie
+        ).exists()
+        is True
+    )
+
+    assert (
+        Erp.objects.find_duplicate(
+            numero=int(erp.numero) + 1, commune=erp.commune, activite=data.boulangerie, voie=erp.voie
+        ).exists()
+        is False
+    )
+
+    assert (
+        Erp.objects.find_duplicate(
+            numero=erp.numero, commune=erp.commune, activite=other_activity, voie=erp.voie
+        ).exists()
+        is False
+    )
