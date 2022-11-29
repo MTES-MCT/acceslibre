@@ -1,13 +1,12 @@
 import logging
-
 from datetime import datetime
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.measure import Distance
 
-from erp.models import Erp, Commune, Accessibilite, Activite
+from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import arrondissements
-from erp.schema import get_type, get_nullable
+from erp.schema import get_nullable, get_type
 
 logger = logging.getLogger(__name__)
 

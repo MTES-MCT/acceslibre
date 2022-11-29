@@ -6,8 +6,8 @@ import time
 from django.contrib.gis.geos import Point
 from django.core.management.base import BaseCommand
 
-from erp.models import Commune
 from erp.geocoder import geocode_commune
+from erp.models import Commune
 
 # Le fichier source est téléchargeable à https://sql.sh/ressources/sql-villes-france/villes_france.csv
 # Il faut l'enregistrer dans le répertoire `data` à la racine du dépôt.

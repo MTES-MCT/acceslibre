@@ -1,10 +1,10 @@
 import logging
+
 import requests
 
 from core.lib import text
 from erp.models import Commune
 from erp.provider import arrondissements, voies
-
 
 logger = logging.getLogger(__name__)
 

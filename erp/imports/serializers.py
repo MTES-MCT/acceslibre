@@ -14,8 +14,12 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
 
 
 class ErpImportSerializer(serializers.ModelSerializer):
-    activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom")
-    commune = serializers.SlugRelatedField(queryset=Commune.objects.all(), slug_field="nom")
+    activite = serializers.SlugRelatedField(
+        queryset=Activite.objects.all(), slug_field="nom"
+    )
+    commune = serializers.SlugRelatedField(
+        queryset=Commune.objects.all(), slug_field="nom"
+    )
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
     latitude = serializers.FloatField(min_value=-90, max_value=90, required=False)
     longitude = serializers.FloatField(min_value=-180, max_value=180, required=False)
@@ -59,7 +63,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def validate_accessibilite(self, obj):
         if not obj:
-            raise serializers.ValidationError("Au moins un champ d'accessibilité requis.")
+            raise serializers.ValidationError(
+                "Au moins un champ d'accessibilité requis."
+            )
 
         return obj
 

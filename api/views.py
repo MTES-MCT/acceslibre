@@ -1,15 +1,15 @@
-from rest_framework import viewsets
-from rest_framework import permissions
+from django.conf import settings
+from rest_framework import permissions, viewsets
 from rest_framework.decorators import action
+from rest_framework.filters import BaseFilterBackend
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
-from rest_framework.filters import BaseFilterBackend
 
-from django.conf import settings
-from erp.provider import geocoder
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
+from erp.provider import geocoder
+
 from .serializers import (
     AccessibiliteSerializer,
     ActiviteWithCountSerializer,

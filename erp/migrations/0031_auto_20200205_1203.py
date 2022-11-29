@@ -6,20 +6,32 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0030_auto_20200205_1150'),
+        ("erp", "0030_auto_20200205_1150"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='activite',
-            options={'ordering': ['nom'], 'verbose_name': 'Activité', 'verbose_name_plural': 'Activités'},
+            name="activite",
+            options={
+                "ordering": ["nom"],
+                "verbose_name": "Activité",
+                "verbose_name_plural": "Activités",
+            },
         ),
         migrations.AlterModelOptions(
-            name='equipementmalentendant',
-            options={'ordering': ['nom'], 'verbose_name': 'Équipement sourd/malentendant', 'verbose_name_plural': 'Équipements sourd/malentendant'},
+            name="equipementmalentendant",
+            options={
+                "ordering": ["nom"],
+                "verbose_name": "Équipement sourd/malentendant",
+                "verbose_name_plural": "Équipements sourd/malentendant",
+            },
         ),
         migrations.AlterModelOptions(
-            name='label',
-            options={'ordering': ['nom'], 'verbose_name': "Label d'accessibilité", 'verbose_name_plural': "Labels d'accessibilité"},
+            name="label",
+            options={
+                "ordering": ["nom"],
+                "verbose_name": "Label d'accessibilité",
+                "verbose_name_plural": "Labels d'accessibilité",
+            },
         ),
     ]

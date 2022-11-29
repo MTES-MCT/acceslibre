@@ -94,5 +94,8 @@ class Migration(migrations.Migration):
                 unique=True,
             ),
         ),
-        migrations.RunPython(migrate_data_forward, migrate_data_backward,),
+        migrations.RunPython(
+            migrate_data_forward,
+            migrate_data_backward,
+        ),
     ]

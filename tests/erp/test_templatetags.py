@@ -1,5 +1,4 @@
 import pytest
-
 from django.contrib.gis.measure import Distance
 
 from erp.templatetags import a4a

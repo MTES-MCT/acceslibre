@@ -6,13 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0027_auto_20200205_1119'),
+        ("erp", "0027_auto_20200205_1119"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='cheminement',
-            name='type',
-            field=models.CharField(choices=[('entree', "Accessibilité de l'entrée"), ('ext_stationnement_vers_entree', "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée"), ('ext_entree_parcelle_entree_vers_batiment', "Cheminement extérieur de l'entrée de la parcelle de terrain à l'entrée du bâtiment"), ('int_entree_batiment_vers_accueil', "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil")], default='entree', help_text='Type de circulation', max_length=100, verbose_name='Type'),
+            model_name="cheminement",
+            name="type",
+            field=models.CharField(
+                choices=[
+                    ("entree", "Accessibilité de l'entrée"),
+                    (
+                        "ext_stationnement_vers_entree",
+                        "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée",
+                    ),
+                    (
+                        "ext_entree_parcelle_entree_vers_batiment",
+                        "Cheminement extérieur de l'entrée de la parcelle de terrain à l'entrée du bâtiment",
+                    ),
+                    (
+                        "int_entree_batiment_vers_accueil",
+                        "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil",
+                    ),
+                ],
+                default="entree",
+                help_text="Type de circulation",
+                max_length=100,
+                verbose_name="Type",
+            ),
         ),
     ]

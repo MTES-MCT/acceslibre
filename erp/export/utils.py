@@ -1,6 +1,6 @@
 from abc import abstractmethod
 from dataclasses import dataclass
-from typing import List, Tuple, TypeVar, Type, Optional
+from typing import List, Optional, Tuple, Type, TypeVar
 
 from erp.models import Erp
 

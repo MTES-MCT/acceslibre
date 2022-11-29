@@ -1,8 +1,6 @@
 import pytest
 
-
-from erp import schema
-from erp import forms
+from erp import forms, schema
 from erp.models import Accessibilite
 from erp.schema import get_help_text_ui, get_help_text_ui_neg
 
@@ -42,7 +40,13 @@ def test_ViewAccessibiliteForm_filled():
         }
     )
     data = form.get_accessibilite_data()
-    assert list(data.keys()) == ["Accès", "Chemin extérieur", "Entrée", "Accueil", "Commentaire"]
+    assert list(data.keys()) == [
+        "Accès",
+        "Chemin extérieur",
+        "Entrée",
+        "Accueil",
+        "Commentaire",
+    ]
 
 
 def test_ViewAccessibiliteForm_filled_with_comment():

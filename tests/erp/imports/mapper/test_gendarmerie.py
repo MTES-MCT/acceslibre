@@ -1,10 +1,8 @@
 import pytest
-
 from django.contrib.gis.geos import Point
 
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.models import Activite, Erp
-
 from tests.erp.imports.mapper.fixtures import gendarmeries_valid
 
 

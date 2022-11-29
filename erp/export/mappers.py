@@ -1,12 +1,12 @@
 from dataclasses import dataclass, fields
-from typing import Literal, Set, Optional
+from typing import Literal, Optional, Set
 
 from erp import schema
 from erp.export.utils import (
-    map_value_from_schema,
-    map_list_from_schema,
     BaseExportMapper,
     map_coords,
+    map_list_from_schema,
+    map_value_from_schema,
 )
 
 

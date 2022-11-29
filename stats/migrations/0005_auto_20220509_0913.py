@@ -6,17 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stats', '0004_implementation_referer'),
+        ("stats", "0004_implementation_referer"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='referer',
-            options={'ordering': ('-id',), 'verbose_name': 'Site réutilisateur', 'verbose_name_plural': 'Sites réutilisateur'},
+            name="referer",
+            options={
+                "ordering": ("-id",),
+                "verbose_name": "Site réutilisateur",
+                "verbose_name_plural": "Sites réutilisateur",
+            },
         ),
         migrations.AddField(
-            model_name='referer',
-            name='date_notification_to_mattermost',
-            field=models.DateTimeField(null=True, verbose_name='Date de notification sur Mattermost ?'),
+            model_name="referer",
+            name="date_notification_to_mattermost",
+            field=models.DateTimeField(
+                null=True, verbose_name="Date de notification sur Mattermost ?"
+            ),
         ),
     ]

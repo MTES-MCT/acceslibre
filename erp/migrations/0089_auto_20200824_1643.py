@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0088_statuscheck'),
+        ("erp", "0088_statuscheck"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='statuscheck',
-            name='last_checked',
-            field=models.DateTimeField(auto_now=True, verbose_name='Dernière vérification'),
+            model_name="statuscheck",
+            name="last_checked",
+            field=models.DateTimeField(
+                auto_now=True, verbose_name="Dernière vérification"
+            ),
         ),
     ]

@@ -3,37 +3,98 @@
 import autoslug.fields
 import django.contrib.gis.db.models.fields
 import django.contrib.postgres.fields
-from django.db import migrations, models
 import django.db.models.deletion
+from django.db import migrations, models
+
 import erp.models
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0073_auto_20200501_1128'),
+        ("erp", "0073_auto_20200501_1128"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Commune',
+            name="Commune",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nom', models.CharField(help_text='Nom', max_length=255)),
-                ('slug', autoslug.fields.AutoSlugField(editable=False, help_text="Identifiant d'URL (slug)", populate_from=erp.models.generate_commune_slug, unique_with=['departement', 'nom'])),
-                ('departement', models.CharField(help_text='Codé sur deux ou trois caractères.', max_length=3, verbose_name='Département')),
-                ('code_insee', models.CharField(help_text='Code INSEE de la commune', max_length=5, verbose_name='Code INSEE')),
-                ('superficie', models.PositiveIntegerField(blank=True, help_text='Exprimée en mètres carrés (m²)', null=True, verbose_name='Superficie')),
-                ('geom', django.contrib.gis.db.models.fields.PointField(help_text='Coordonnées géographique du centre de la commune', srid=4326, verbose_name='Localisation')),
-                ('code_postaux', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=5), default=list, help_text='Liste des codes postaux de cette commune', size=None, verbose_name='Codes postaux')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nom", models.CharField(help_text="Nom", max_length=255)),
+                (
+                    "slug",
+                    autoslug.fields.AutoSlugField(
+                        editable=False,
+                        help_text="Identifiant d'URL (slug)",
+                        populate_from=erp.models.generate_commune_slug,
+                        unique_with=["departement", "nom"],
+                    ),
+                ),
+                (
+                    "departement",
+                    models.CharField(
+                        help_text="Codé sur deux ou trois caractères.",
+                        max_length=3,
+                        verbose_name="Département",
+                    ),
+                ),
+                (
+                    "code_insee",
+                    models.CharField(
+                        help_text="Code INSEE de la commune",
+                        max_length=5,
+                        verbose_name="Code INSEE",
+                    ),
+                ),
+                (
+                    "superficie",
+                    models.PositiveIntegerField(
+                        blank=True,
+                        help_text="Exprimée en mètres carrés (m²)",
+                        null=True,
+                        verbose_name="Superficie",
+                    ),
+                ),
+                (
+                    "geom",
+                    django.contrib.gis.db.models.fields.PointField(
+                        help_text="Coordonnées géographique du centre de la commune",
+                        srid=4326,
+                        verbose_name="Localisation",
+                    ),
+                ),
+                (
+                    "code_postaux",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=5),
+                        default=list,
+                        help_text="Liste des codes postaux de cette commune",
+                        size=None,
+                        verbose_name="Codes postaux",
+                    ),
+                ),
             ],
             options={
-                'ordering': ('nom',),
+                "ordering": ("nom",),
             },
         ),
         migrations.AddField(
-            model_name='erp',
-            name='commune_ext',
-            field=models.ForeignKey(help_text='La commune de cet établissement', null=True, on_delete=django.db.models.deletion.SET_NULL, to='erp.Commune', verbose_name='Commune (relation)'),
+            model_name="erp",
+            name="commune_ext",
+            field=models.ForeignKey(
+                help_text="La commune de cet établissement",
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="erp.Commune",
+                verbose_name="Commune (relation)",
+            ),
         ),
     ]

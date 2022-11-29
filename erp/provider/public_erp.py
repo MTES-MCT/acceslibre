@@ -1,10 +1,10 @@
 import logging
-import requests
 
-from fuzzywuzzy_custom import process as fuzzy_process
+import requests
 
 from core.lib import text
 from erp.models import Activite, Commune
+from fuzzywuzzy_custom import process as fuzzy_process
 
 logger = logging.getLogger(__name__)
 

@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stats', '0016_challenge_text_reserve'),
+        ("stats", "0016_challenge_text_reserve"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='challenge',
-            name='classement',
-            field=models.JSONField(default='{}'),
+            model_name="challenge",
+            name="classement",
+            field=models.JSONField(default="{}"),
         ),
     ]

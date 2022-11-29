@@ -1,6 +1,6 @@
 from typing import Any
 
-from frictionless import Schema, Field
+from frictionless import Field, Schema
 
 from erp.export.mappers import EtalabMapper
 from erp.schema import FIELDS, get_bdd_values

@@ -6,32 +6,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0097_auto_20201028_1001'),
+        ("erp", "0097_auto_20201028_1001"),
     ]
 
     operations = [
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['nom'], name='erp_commune_nom_c8bcbd_idx'),
+            model_name="commune",
+            index=models.Index(fields=["nom"], name="erp_commune_nom_c8bcbd_idx"),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['slug'], name='erp_commune_slug_6414cc_idx'),
+            model_name="commune",
+            index=models.Index(fields=["slug"], name="erp_commune_slug_6414cc_idx"),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['code_insee'], name='erp_commune_code_in_72a230_idx'),
+            model_name="commune",
+            index=models.Index(
+                fields=["code_insee"], name="erp_commune_code_in_72a230_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['departement'], name='erp_commune_departe_a4b660_idx'),
+            model_name="commune",
+            index=models.Index(
+                fields=["departement"], name="erp_commune_departe_a4b660_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['nom', 'departement'], name='erp_commune_nom_2d2fc5_idx'),
+            model_name="commune",
+            index=models.Index(
+                fields=["nom", "departement"], name="erp_commune_nom_2d2fc5_idx"
+            ),
         ),
         migrations.AddIndex(
-            model_name='commune',
-            index=models.Index(fields=['nom', 'code_postaux'], name='erp_commune_nom_b18548_idx'),
+            model_name="commune",
+            index=models.Index(
+                fields=["nom", "code_postaux"], name="erp_commune_nom_b18548_idx"
+            ),
         ),
     ]

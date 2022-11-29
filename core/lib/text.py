@@ -4,7 +4,6 @@ import unicodedata
 
 from django.contrib.gis.geos import Point
 
-
 FRENCH_STOPWORDS = "le,la,les,au,aux,de,du,des,et".split(",")
 
 

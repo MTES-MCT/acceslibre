@@ -1,10 +1,10 @@
 import json
-import pytest
 
+import pytest
 from django.contrib.gis.geos import Point
 
-from erp.provider import public_erp
 from erp.models import Activite, Commune
+from erp.provider import public_erp
 
 
 def test_find_public_types_simple():

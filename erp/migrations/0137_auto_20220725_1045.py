@@ -6,7 +6,6 @@ from django.db import migrations
 from django.db.migrations import RunPython
 
 
-
 def reset_user(apps, schema_editor):
     count = 0
     Erp = apps.get_model("erp", "Erp")

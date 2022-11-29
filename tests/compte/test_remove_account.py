@@ -1,5 +1,4 @@
 import pytest
-
 from django.contrib.admin.models import CHANGE, LogEntry
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import check_password

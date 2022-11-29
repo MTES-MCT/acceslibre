@@ -4,7 +4,7 @@ import sys
 
 from django.core.management.base import BaseCommand
 
-from erp.models import Activite, Erp, Commune
+from erp.models import Activite, Commune, Erp
 from erp.provider.geocoder import geocode
 
 VILLES_CIBLES = [r"^Lyon$", r"^Clichy$"]

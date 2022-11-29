@@ -1,5 +1,6 @@
-from erp.models import Accessibilite
 from django.core.management.base import BaseCommand
+
+from erp.models import Accessibilite
 
 fields = [
     "cheminement_ext_plain_pied",

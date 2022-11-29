@@ -1,6 +1,6 @@
-import dj_database_url
 import os
 
+import dj_database_url
 from django.contrib.messages import constants as message_constants
 from django.core.exceptions import ImproperlyConfigured
 

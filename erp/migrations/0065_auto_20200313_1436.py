@@ -6,23 +6,59 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0064_auto_20200313_1433'),
+        ("erp", "0064_auto_20200313_1433"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='cheminement_ext_pente',
-            field=models.CharField(blank=True, choices=[('aucune', 'Aucune'), ('légère', 'Légère'), ('importante', 'Importante'), (None, 'Inconnu ou sans objet')], help_text='Présence et type de pente', max_length=15, null=True, verbose_name='Pente'),
+            model_name="accessibilite",
+            name="cheminement_ext_pente",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("aucune", "Aucune"),
+                    ("légère", "Légère"),
+                    ("importante", "Importante"),
+                    (None, "Inconnu ou sans objet"),
+                ],
+                help_text="Présence et type de pente",
+                max_length=15,
+                null=True,
+                verbose_name="Pente",
+            ),
         ),
         migrations.AlterField(
-            model_name='accessibilite',
-            name='cheminement_ext_rampe',
-            field=models.CharField(blank=True, choices=[('aucune', 'Aucune'), ('fixe', 'Fixe'), ('amovible', 'Amovible'), (None, 'Inconnu')], help_text='Présence et type de rampe', max_length=20, null=True, verbose_name='Rampe'),
+            model_name="accessibilite",
+            name="cheminement_ext_rampe",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("aucune", "Aucune"),
+                    ("fixe", "Fixe"),
+                    ("amovible", "Amovible"),
+                    (None, "Inconnu"),
+                ],
+                help_text="Présence et type de rampe",
+                max_length=20,
+                null=True,
+                verbose_name="Rampe",
+            ),
         ),
         migrations.AlterField(
-            model_name='accessibilite',
-            name='entree_marches_rampe',
-            field=models.CharField(blank=True, choices=[('aucune', 'Aucune'), ('fixe', 'Fixe'), ('amovible', 'Amovible'), (None, 'Inconnu')], help_text='Présence et type de rampe', max_length=20, null=True, verbose_name='Rampe'),
+            model_name="accessibilite",
+            name="entree_marches_rampe",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("aucune", "Aucune"),
+                    ("fixe", "Fixe"),
+                    ("amovible", "Amovible"),
+                    (None, "Inconnu"),
+                ],
+                help_text="Présence et type de rampe",
+                max_length=20,
+                null=True,
+                verbose_name="Rampe",
+            ),
         ),
     ]

@@ -6,22 +6,54 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0141_auto_20220930_1009'),
+        ("erp", "0141_auto_20220930_1009"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='erp',
-            name='itm_id',
+            model_name="erp",
+            name="itm_id",
         ),
         migrations.AddField(
-            model_name='erp',
-            name='asp_id',
-            field=models.CharField(help_text="Identifiant de l'ERP dans la base Service Public", max_length=255, null=True, verbose_name='ASP ID'),
+            model_name="erp",
+            name="asp_id",
+            field=models.CharField(
+                help_text="Identifiant de l'ERP dans la base Service Public",
+                max_length=255,
+                null=True,
+                verbose_name="ASP ID",
+            ),
         ),
         migrations.AlterField(
-            model_name='erp',
-            name='source',
-            field=models.CharField(choices=[('acceslibre', 'Base de données Acceslibre'), ('acceo', 'Acceo'), ('admin', 'Back-office'), ('api', 'API'), ('entreprise_api', 'API Entreprise (publique)'), ('cconforme', 'cconforme'), ('gendarmerie', 'Gendarmerie'), ('lorient', 'Lorient'), ('nestenn', 'Nestenn'), ('opendatasoft', 'API OpenDataSoft'), ('public', 'Saisie manuelle publique'), ('public_erp', 'API des établissements publics'), ('sap', 'Sortir À Pair'), ('service_public', 'Service Public'), ('sirene', 'API Sirene INSEE'), ('tourisme-handicap', 'Tourisme & Handicap'), ('typeform', 'Questionnaires Typeform'), ('typeform_musee', 'Questionnaires Typeform Musée'), ('centres-vaccination', 'Centres de vaccination')], default='public', help_text='Nom de la source de données dont est issu cet ERP', max_length=100, null=True, verbose_name='Source'),
+            model_name="erp",
+            name="source",
+            field=models.CharField(
+                choices=[
+                    ("acceslibre", "Base de données Acceslibre"),
+                    ("acceo", "Acceo"),
+                    ("admin", "Back-office"),
+                    ("api", "API"),
+                    ("entreprise_api", "API Entreprise (publique)"),
+                    ("cconforme", "cconforme"),
+                    ("gendarmerie", "Gendarmerie"),
+                    ("lorient", "Lorient"),
+                    ("nestenn", "Nestenn"),
+                    ("opendatasoft", "API OpenDataSoft"),
+                    ("public", "Saisie manuelle publique"),
+                    ("public_erp", "API des établissements publics"),
+                    ("sap", "Sortir À Pair"),
+                    ("service_public", "Service Public"),
+                    ("sirene", "API Sirene INSEE"),
+                    ("tourisme-handicap", "Tourisme & Handicap"),
+                    ("typeform", "Questionnaires Typeform"),
+                    ("typeform_musee", "Questionnaires Typeform Musée"),
+                    ("centres-vaccination", "Centres de vaccination"),
+                ],
+                default="public",
+                help_text="Nom de la source de données dont est issu cet ERP",
+                max_length=100,
+                null=True,
+                verbose_name="Source",
+            ),
         ),
     ]

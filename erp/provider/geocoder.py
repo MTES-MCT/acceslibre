@@ -1,10 +1,9 @@
 import logging
-import requests
 
+import requests
 from django.contrib.gis.geos import Point
 
 from core.lib import geo
-
 
 logger = logging.getLogger(__name__)
 

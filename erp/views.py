@@ -1,28 +1,26 @@
 import datetime
 import urllib
 
-from django.db.models import Q
-from reversion.views import create_revision
-
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
+from django.db.models import Q
 from django.forms import modelform_factory
 from django.http import Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
+from reversion.views import create_revision
 
 from core import mailer
 from core.lib import geo, url
 from erp import forms, schema, serializers
-from erp.export.utils import (
-    map_list_from_schema,
-)
-from erp.models import Accessibilite, Commune, Erp, Vote, Activite
-from erp.provider import geocoder, search as provider_search, acceslibre
+from erp.export.utils import map_list_from_schema
+from erp.models import Accessibilite, Activite, Commune, Erp, Vote
+from erp.provider import acceslibre, geocoder
+from erp.provider import search as provider_search
 from stats.models import Challenge
 from stats.queries import get_count_active_contributors
 from subscription.models import ErpSubscription
@@ -274,7 +272,7 @@ def search(request, commune_slug=None):
             "where": where,
             "geojson_list": geojson_list,
             "commune_json": commune.toTemplateJson() if commune else None,
-            "data_contrib": {"nom": what, "lat": lat, "lon": lon, "activite": ""}
+            "data_contrib": {"nom": what, "lat": lat, "lon": lon, "activite": ""},
         },
     )
 

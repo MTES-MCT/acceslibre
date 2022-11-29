@@ -1,17 +1,14 @@
 import pytest
 from django.conf import settings
-
 from django.contrib.gis.geos import Point
 from django.core import mail
 from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
+from reversion.models import Version
 
 from erp.models import Accessibilite, Erp
 from subscription.models import ErpSubscription
-
-
-from reversion.models import Version
 
 
 @pytest.fixture
