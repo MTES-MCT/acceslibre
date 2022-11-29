@@ -87,9 +87,7 @@ def challenges(request):
         context={
             "today": today,
             "challenges": challenges,
-            "challenges_en_cours": challenges.filter(
-                start_date__lte=today, end_date__gt=today
-            ),
+            "challenges_en_cours": challenges.filter(start_date__lte=today, end_date__gt=today),
             "challenges_termines": challenges.filter(end_date__lt=today),
             "challenges_a_venir": challenges.filter(
                 start_date__gt=today,
@@ -112,18 +110,12 @@ def challenge_inscription(request, challenge_slug=None):
         )
     )
     if request.user.email in challenges.values_list("players__email", flat=True):
-        messages.add_message(
-            request, messages.ERROR, "Vous participez déjà à un autre challenge."
-        )
+        messages.add_message(request, messages.ERROR, "Vous participez déjà à un autre challenge.")
     elif request.user not in challenge.players.all():
         challenge.players.add(request.user)
-        messages.add_message(
-            request, messages.SUCCESS, "Votre inscription a bien été enregistrée."
-        )
+        messages.add_message(request, messages.SUCCESS, "Votre inscription a bien été enregistrée.")
     else:
-        messages.add_message(
-            request, messages.INFO, "Vous êtes déjà inscrit au challenge."
-        )
+        messages.add_message(request, messages.INFO, "Vous êtes déjà inscrit au challenge.")
     return redirect("challenges")
 
 
@@ -161,14 +153,8 @@ def challenge_detail(request, challenge_slug=None):
 
 
 def communes(request):
-    communes_qs = Commune.objects.erp_stats().only(
-        "nom", "slug", "departement", "geom"
-    )[:12]
-    latest = (
-        Erp.objects.select_related("activite", "commune_ext")
-        .published()
-        .order_by("-created_at")[:17]
-    )
+    communes_qs = Commune.objects.erp_stats().only("nom", "slug", "departement", "geom")[:12]
+    latest = Erp.objects.select_related("activite", "commune_ext").published().order_by("-created_at")[:17]
     return render(
         request,
         "communes.html",
@@ -210,9 +196,7 @@ def _update_search_pager(pager, commune):
 
 
 def _clean_search_params(params, *args):
-    return (
-        "" if params.get(arg, "") == "None" else params.get(arg, "") for arg in args
-    )
+    return ("" if params.get(arg, "") == "None" else params.get(arg, "") for arg in args)
 
 
 def _parse_location_or_404(lat, lon):
@@ -225,16 +209,10 @@ def _parse_location_or_404(lat, lon):
 
 
 def search(request, commune_slug=None):
-    where, what, lat, lon, code = _clean_search_params(
-        request.GET, "where", "what", "lat", "lon", "code"
-    )
+    where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
     where = where or "France entière"
     location = _parse_location_or_404(lat, lon)
-    qs = (
-        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-        .published()
-        .search_what(what)
-    )
+    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what)
     commune = None
     if commune_slug:
         commune = get_object_or_404(Commune, slug=commune_slug)
@@ -272,22 +250,22 @@ def search(request, commune_slug=None):
             "where": where,
             "geojson_list": geojson_list,
             "commune_json": commune.toTemplateJson() if commune else None,
-            "data_contrib": {"nom": what, "lat": lat, "lon": lon, "activite": ""},
+            "data_contrib": {
+                "nom": what,
+                "lat": lat,
+                "lon": lon,
+                "activite": "",
+                "commune": commune.nom if commune else "",
+            },
         },
     )
 
 
 def global_map(request, commune_slug=None):
-    where, what, lat, lon, code = _clean_search_params(
-        request.GET, "where", "what", "lat", "lon", "code"
-    )
+    where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
     where = where or "France entière"
     location = _parse_location_or_404(lat, lon)
-    qs = (
-        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
-        .published()
-        .search_what(what)
-    )
+    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what)
     commune = None
     if commune_slug:
         commune = get_object_or_404(Commune, slug=commune_slug)
@@ -361,9 +339,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         and not Vote.objects.filter(user=request.user, erp=erp).exists()
         and request.user != erp.user
     )
-    user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(
-        request.user
-    )
+    user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
@@ -421,40 +397,25 @@ def widget_from_uuid(request, uuid):  # noqa
     elif (
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is True
-        and (
-            erp.accessibilite.cheminement_ext_terrain_stable in (True, None)
-        )  # TODO : Accidenté à Modifier
+        and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))  # TODO : Accidenté à Modifier
         and (
             erp.accessibilite.cheminement_ext_pente_presence in (False, None)
-            or (
-                erp.accessibilite.cheminement_ext_pente_degre_difficulte
-                == schema.PENTE_LEGERE
-            )
+            or (erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_LEGERE)
         )
-        and erp.accessibilite.cheminement_ext_devers
-        in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
+        and erp.accessibilite.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
         and not erp.accessibilite.cheminement_ext_retrecissement
     ):
         chemin_ext_label = "Chemin d’accès de plain pied"
     elif (
         erp.accessibilite.cheminement_ext_presence is True
         and erp.accessibilite.cheminement_ext_plain_pied is False
-        and (
-            (
-                erp.accessibilite.cheminement_ext_ascenseur
-                or erp.accessibilite.cheminement_ext_rampe
-            )
-        )
+        and ((erp.accessibilite.cheminement_ext_ascenseur or erp.accessibilite.cheminement_ext_rampe))
         and (erp.accessibilite.cheminement_ext_terrain_stable in (True, None))
         and (
             erp.accessibilite.cheminement_ext_pente_presence in (False, None)
-            or (
-                erp.accessibilite.cheminement_ext_pente_degre_difficulte
-                == schema.PENTE_LEGERE
-            )
+            or (erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_LEGERE)
         )
-        and erp.accessibilite.cheminement_ext_devers
-        in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
+        and erp.accessibilite.cheminement_ext_devers in (schema.DEVERS_AUCUN, schema.DEVERS_LEGER, None)
         and not erp.accessibilite.cheminement_ext_retrecissement
     ):
         chemin_ext_label = "Chemin rendu accessible (%s)" % (
@@ -462,8 +423,7 @@ def widget_from_uuid(request, uuid):  # noqa
         )
     elif (
         not erp.accessibilite.cheminement_ext_terrain_stable
-        or erp.accessibilite.cheminement_ext_pente_degre_difficulte
-        == schema.PENTE_IMPORTANTE
+        or erp.accessibilite.cheminement_ext_pente_degre_difficulte == schema.PENTE_IMPORTANTE
         or erp.accessibilite.cheminement_ext_devers == schema.DEVERS_IMPORTANT
         or erp.accessibilite.cheminement_ext_retrecissement
         or (
@@ -477,17 +437,12 @@ def widget_from_uuid(request, uuid):  # noqa
     # Conditions Entrée
     entree_label = None
     if erp.accessibilite.entree_plain_pied is True and (
-        erp.accessibilite.entree_largeur_mini is None
-        or erp.accessibilite.entree_largeur_mini >= 80
+        erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80
     ):
         entree_label = "Entrée de plain pied"
     elif (
         erp.accessibilite.entree_plain_pied is True
-        and (
-            erp.accessibilite.entree_largeur_mini is not None
-            and erp.accessibilite.entree_largeur_mini
-        )
-        < 80
+        and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini) < 80
     ):
         entree_label = "Entrée de plain pied mais étroite"
 
@@ -495,46 +450,32 @@ def widget_from_uuid(request, uuid):  # noqa
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
-        and (
-            erp.accessibilite.entree_largeur_mini is None
-            or erp.accessibilite.entree_largeur_mini >= 80
-        )
+        and (erp.accessibilite.entree_largeur_mini is None or erp.accessibilite.entree_largeur_mini >= 80)
     ):
         entree_label = "Accès à l'entrée par ascenseur"
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and erp.accessibilite.entree_ascenseur
-        and (
-            erp.accessibilite.entree_largeur_mini is not None
-            and erp.accessibilite.entree_largeur_mini < 80
-        )
+        and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80)
     ):
         entree_label = "Entrée rendue accessible par ascenseur mais étroite"
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and not erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_marches_rampe
-        in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
-        and (
-            erp.accessibilite.entree_largeur_mini is not None
-            and erp.accessibilite.entree_largeur_mini < 80
-        )
+        and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
+        and (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini < 80)
     ):
         entree_label = "Entrée rendue accessible par rampe mais étroite"
     elif (
         erp.accessibilite.entree_plain_pied is False
         and not erp.accessibilite.entree_pmr
         and not erp.accessibilite.entree_ascenseur
-        and erp.accessibilite.entree_marches_rampe
-        in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
+        and erp.accessibilite.entree_marches_rampe in (schema.RAMPE_FIXE, schema.RAMPE_AMOVIBLE)
         and (
             erp.accessibilite.entree_largeur_mini is None
-            or (
-                erp.accessibilite.entree_largeur_mini is not None
-                and erp.accessibilite.entree_largeur_mini >= 80
-            )
+            or (erp.accessibilite.entree_largeur_mini is not None and erp.accessibilite.entree_largeur_mini >= 80)
         )
     ):
         entree_label = "Accès à l’entrée par une rampe"
@@ -547,10 +488,7 @@ def widget_from_uuid(request, uuid):  # noqa
         entree_label = "L’entrée n’est pas de plain-pied"
         if erp.accessibilite.entree_aide_humaine is True:
             entree_label += "\n Aide humaine possible"
-    elif (
-        erp.accessibilite.entree_plain_pied in (False, None)
-        and erp.accessibilite.entree_pmr is True
-    ):
+    elif erp.accessibilite.entree_plain_pied in (False, None) and erp.accessibilite.entree_pmr is True:
         entree_label = "Entrée spécifique PMR"
 
     if chemin_ext_label and entree_label:
@@ -619,10 +557,7 @@ def widget_from_uuid(request, uuid):  # noqa
     presence_sanitaire_label = None
     if erp.accessibilite.sanitaires_presence and erp.accessibilite.sanitaires_adaptes:
         presence_sanitaire_label = "Sanitaire adapté"
-    elif (
-        erp.accessibilite.sanitaires_presence
-        and not erp.accessibilite.sanitaires_adaptes
-    ):
+    elif erp.accessibilite.sanitaires_presence and not erp.accessibilite.sanitaires_adaptes:
         presence_sanitaire_label = "Sanitaire non adapté"
 
     if presence_sanitaire_label:
@@ -645,13 +580,9 @@ def widget_from_uuid(request, uuid):  # noqa
 def vote(request, erp_slug):
     if not request.user.is_active:
         raise Http404("Only active users can vote")
-    erp = get_object_or_404(
-        Erp, slug=erp_slug, published=True, accessibilite__isnull=False
-    )
+    erp = get_object_or_404(Erp, slug=erp_slug, published=True, accessibilite__isnull=False)
     if request.user == erp.user:
-        return HttpResponseBadRequest(
-            "Vous ne pouvez pas voter sur votre établissement"
-        )
+        return HttpResponseBadRequest("Vous ne pouvez pas voter sur votre établissement")
     if request.method == "POST":
         action = request.POST.get("action")
         comment = request.POST.get("comment") if action == "DOWN" else None
@@ -667,9 +598,7 @@ def vote(request, erp_slug):
                     "SITE_ROOT_URL": settings.SITE_ROOT_URL,
                 },
             )
-            messages.add_message(
-                request, messages.SUCCESS, "Votre vote a été enregistré."
-            )
+            messages.add_message(request, messages.SUCCESS, "Votre vote a été enregistré.")
     return redirect(erp.get_absolute_url())
 
 
@@ -681,9 +610,7 @@ def contrib_delete(request, erp_slug):
         form = forms.PublicErpDeleteForm(request.POST)
         if form.is_valid():
             erp.delete()
-            messages.add_message(
-                request, messages.SUCCESS, "L'établissement a été supprimé."
-            )
+            messages.add_message(request, messages.SUCCESS, "L'établissement a été supprimé.")
             return redirect("mes_erps")
     else:
         form = forms.PublicErpDeleteForm()
@@ -697,9 +624,7 @@ def contrib_delete(request, erp_slug):
 def contrib_start(request):
     form = forms.ProviderGlobalSearchForm(request.GET if request.GET else None)
     if form.is_valid():
-        return redirect(
-            f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}"
-        )
+        return redirect(f"{reverse('contrib_global_search')}?{urllib.parse.urlencode(form.cleaned_data)}")
     return render(
         request,
         template_name="contrib/0-start.html",
@@ -714,13 +639,9 @@ def contrib_global_search(request):
     what_lower = request.GET.get("what").lower()
     try:
         results = provider_search.global_search(what_lower, request.GET.get("code"))
-        qs_results_bdd = Erp.objects.select_related(
-            "accessibilite", "activite", "commune_ext"
-        ).search_what(what_lower)
+        qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").search_what(what_lower)
 
-        commune, qs_results_bdd = _search_commune_code_postal(
-            qs_results_bdd, request.GET.get("code")
-        )
+        commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
 
         results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
     except RuntimeError as err:
@@ -762,12 +683,8 @@ def contrib_admin_infos(request):
                     erp.user = request.user
                 erp.save()
                 if erp.activite.nom == "Autre":
-                    Activite.notify_admin(
-                        new_activity=form.cleaned_data["nouvelle_activite"], erp=erp
-                    )
-                messages.add_message(
-                    request, messages.SUCCESS, "Les données ont été enregistrées."
-                )
+                    Activite.notify_admin(new_activity=form.cleaned_data["nouvelle_activite"], erp=erp)
+                messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
     else:
         encoded_data = request.GET.get("data")
@@ -829,12 +746,8 @@ def contrib_edit_infos(request, erp_slug):
                 erp.user = request.user
                 erp.save()
             if erp.activite.nom == "Autre":
-                Activite.notify_admin(
-                    new_activity=form.cleaned_data["nouvelle_activite"], erp=erp
-                )
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
+                Activite.notify_admin(new_activity=form.cleaned_data["nouvelle_activite"], erp=erp)
+            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
             return redirect(next_route, erp_slug=erp.slug)
     else:
         form = forms.PublicErpAdminInfosForm(instance=erp, initial=initial)
@@ -865,9 +778,7 @@ def contrib_a_propos(request, erp_slug):
             accessibilite = erp.accessibilite
         else:
             accessibilite = None
-        form = forms.PublicAProposForm(
-            request.POST, instance=accessibilite, initial=initial
-        )
+        form = forms.PublicAProposForm(request.POST, instance=accessibilite, initial=initial)
         if form.is_valid():
             erp.user_type = form.data["user_type"]
             accessibilite = form.save(commit=False)
@@ -880,9 +791,7 @@ def contrib_a_propos(request, erp_slug):
                     ErpSubscription.subscribe(erp, request.user)
 
             erp.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Les données ont été enregistrées."
-            )
+            messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
             return redirect("contrib_transport", erp_slug=erp.slug)
     else:
         if hasattr(erp, "accessibilite"):
@@ -910,9 +819,7 @@ def check_authentication(request, erp, form, check_online=True):
     redirect_path = redirect(
         reverse("login")
         + "?"
-        + urllib.parse.urlencode(
-            {"next": request.path + "?" + urllib.parse.urlencode(form.data)}
-        )
+        + urllib.parse.urlencode({"next": request.path + "?" + urllib.parse.urlencode(form.data)})
     )
     if check_online:
         if erp.is_online() and not request.user.is_authenticated:
@@ -944,13 +851,9 @@ def process_accessibilite_form(
     # N'amener l'utilisateur vers l'étape de publication que:
     # - s'il est propriétaire de la fiche
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
-    user_can_access_next_route = (
-        request.user == erp.user or step not in (8, 9) or not erp.is_online()
-    )
+    user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.is_online()
 
-    Form = modelform_factory(
-        Accessibilite, form=forms.ContribAccessibiliteForm, fields=form_fields
-    )
+    Form = modelform_factory(Accessibilite, form=forms.ContribAccessibiliteForm, fields=form_fields)
 
     if request.method == "POST":
         form = Form(request.POST, instance=accessibilite)
@@ -958,9 +861,7 @@ def process_accessibilite_form(
         if request.GET:
             form = Form(request.GET, instance=accessibilite)
         else:
-            form = forms.ContribAccessibiliteForm(
-                instance=accessibilite, initial={"entree_porte_presence": True}
-            )
+            form = forms.ContribAccessibiliteForm(instance=accessibilite, initial={"entree_porte_presence": True})
     if form.is_valid():
         if check_authentication(request, erp, form):
             return check_authentication(request, erp, form)
@@ -971,18 +872,12 @@ def process_accessibilite_form(
             accessibilite.erp.user = request.user
             accessibilite.erp.save()
         form.save_m2m()
-        messages.add_message(
-            request, messages.SUCCESS, "Les données ont été enregistrées."
-        )
+        messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
         if "publier" in request.POST:
-            return redirect(
-                reverse("contrib_publication", kwargs={"erp_slug": erp.slug})
-            )
+            return redirect(reverse("contrib_publication", kwargs={"erp_slug": erp.slug}))
 
         if user_can_access_next_route:
-            return redirect(
-                reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content"
-            )
+            return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
         else:
             if erp.is_online():
                 redirect_url = erp.get_success_url()
@@ -1130,9 +1025,7 @@ def contrib_publication(request, erp_slug):
             erp.user = request.user
             erp.save()
         ErpSubscription.subscribe(erp, erp.user)
-        messages.add_message(
-            request, messages.SUCCESS, "Les données ont été sauvegardées."
-        )
+        messages.add_message(request, messages.SUCCESS, "Les données ont été sauvegardées.")
         if erp.is_online():
             redirect_url = erp.get_success_url()
         elif erp.user == request.user:
@@ -1165,9 +1058,7 @@ def contrib_claim(request, erp_slug):
             erp.user = request.user
             erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
             erp.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Opération effectuée avec succès."
-            )
+            messages.add_message(request, messages.SUCCESS, "Opération effectuée avec succès.")
             return redirect("contrib_edit_infos", erp_slug=erp.slug)
     else:
         form = forms.PublicClaimForm()
