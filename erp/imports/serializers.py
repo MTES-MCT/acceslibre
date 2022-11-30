@@ -19,12 +19,8 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
 
 
 class ErpImportSerializer(serializers.ModelSerializer):
-    activite = serializers.SlugRelatedField(
-        queryset=Activite.objects.all(), slug_field="nom"
-    )
-    commune = serializers.SlugRelatedField(
-        queryset=Commune.objects.all(), slug_field="nom"
-    )
+    activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom")
+    commune = serializers.CharField(required=True)
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
     latitude = serializers.FloatField(min_value=-90, max_value=90, required=False)
     longitude = serializers.FloatField(min_value=-180, max_value=180, required=False)
@@ -69,15 +65,19 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def validate_accessibilite(self, obj):
         if not obj:
-            raise serializers.ValidationError(
-                "Au moins un champ d'accessibilité requis."
-            )
+            raise serializers.ValidationError("Au moins un champ d'accessibilité requis.")
 
         return obj
 
     def validate(self, obj):
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
+
+        obj["commune_ext"] = Commune.objects.filter(
+            nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
+        ).first()
+        if not obj["commune_ext"]:
+            raise serializers.ValidationError(f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}")
 
         address = " ".join(
             [
@@ -89,13 +89,13 @@ class ErpImportSerializer(serializers.ModelSerializer):
             [
                 address,
                 obj.get("lieu_dit") or "",
-                obj["commune"].nom,
+                obj["commune_ext"].nom,
             ]
         )
 
         for i in range(3):
             try:
-                locdata = geocoder.geocode(address, citycode=obj["commune"].code_insee)
+                locdata = geocoder.geocode(address, citycode=obj["commune_ext"].code_insee)
                 self._geom = locdata["geom"]
                 break
             except (RuntimeError, KeyError):
@@ -114,9 +114,10 @@ class ErpImportSerializer(serializers.ModelSerializer):
             numero=obj.get("numero"),
             voie=obj.get("voie"),
             lieu_dit=obj.get("lieu_dit"),
-            commune=obj["commune"].nom,
+            commune=obj["commune"],
             activite=obj["activite"],
         ).first()
+
         if existing:
             raise DuplicatedExceptionErp(f"Potentiel doublon avec l'ERP : {existing}")
 
