@@ -1,14 +1,11 @@
 import csv
 
 from django.core.management.base import BaseCommand, CommandError
+from rest_framework.exceptions import ValidationError
 
 from erp.imports.mapper.base import BaseMapper
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
-
-
-class DuplicatedExceptionErp(Exception):
-    pass
 
 
 class Command(BaseCommand):
@@ -89,27 +86,45 @@ Paramètres de lancement du script :
                         )
                         try:
                             validated_erp_data = self.validate_data(row)
-                        except DuplicatedExceptionErp as e:
-                            print_error(
-                                f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
-                            )
-                            self.results["duplicated"]["count"] += 1
-                            self.results["duplicated"]["msgs"].append(e)
-
                         except Exception as e:
-                            print_error(
-                                f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
-                            )
-                            self.results["in_error"]["count"] += 1
-                            self.results["in_error"]["msgs"].append(
-                                {"line": _, "error": e, "data": row}
-                            )
+                            if (
+                                isinstance(e, ValidationError)
+                                and "non_field_errors" in e.get_codes()
+                                and "duplicate" in e.get_codes()["non_field_errors"]
+                            ):
+                                print_error(
+                                    f"Un doublon a été détecté lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
+                                )
+                                self.results["duplicated"]["count"] += 1
+                                self.results["duplicated"]["msgs"].append(
+                                    {"line": _, "error": e, "data": row}
+                                )
+                            else:
+                                print_error(
+                                    f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
+                                )
+                                self.results["in_error"]["count"] += 1
+                                self.results["in_error"]["msgs"].append(
+                                    {"line": _, "error": e, "data": row}
+                                )
                         else:
                             print_success(
                                 "\t         - La ligne est valide et peut-être importée"
                             )
                             self.results["validated"]["count"] += 1
                             self.results["validated"]["erps"].append(validated_erp_data)
+
+                            if not self.skip_import:
+                                print_success("\t * Importation de l'ERP")
+                                try:
+                                    erp = validated_erp_data.save()
+                                except Exception as e:
+                                    print_error(
+                                        f"Une erreur est survenue lors de l'import de la ligne {_}: {e}. Passage à la ligne suivante."
+                                    )
+                                else:
+                                    self.results["imported"]["count"] += 1
+                                    self.results["imported"]["erps"].append(erp)
                         if self.one_line:
                             break
             except FileNotFoundError:
@@ -119,14 +134,10 @@ Paramètres de lancement du script :
                     f"Une erreur est survenue lors du traitement du fichier {self.input_file}: {e}"
                 )
 
-            if self.skip_import:
-                print_error("\t * L'import a été désactivé par l'utilisateur")
-            else:
-                print_success("\t * Démarrage de l'import des fichiers validés")
-                print_success("\t     TODO")
-
             print(self.build_summary())
-            if self.generate_errors_file:
+            if self.generate_errors_file and (
+                self.results["in_error"]["count"] or self.results["duplicated"]["count"]
+            ):
                 self.write_error_file()
                 print_success("Le fichier d'erreurs 'errors.csv' est disponible.")
 
@@ -134,6 +145,7 @@ Paramètres de lancement du script :
         data = BaseMapper().csv_to_erp(record=row)
         serializer = ErpImportSerializer(data=data)
         serializer.is_valid(raise_exception=True)
+        return serializer
 
     def write_error_file(self):
         with open("errors.csv", "w") as self.error_file:
@@ -146,6 +158,8 @@ Paramètres de lancement du script :
                 self.error_file, fieldnames=fieldnames, delimiter=";"
             )
             writer.writeheader()
+            for line in self.results["duplicated"]["msgs"]:
+                writer.writerow(line)
             for line in self.results["in_error"]["msgs"]:
                 writer.writerow(line)
 
@@ -156,4 +170,5 @@ Paramètres de lancement du script :
 
     - Validés: {self.results['validated']['count']}
     - Importés: {self.results['imported']['count']}
+    - Dupliqués: {self.results['duplicated']['count']}
     - Erreurs: {self.results['in_error']['count']}"""

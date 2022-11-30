@@ -57,6 +57,8 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         "nom": "Mairie",
         "activite": "Boulangerie",
         "accessibilite": {"entree_porte_presence": True},
+        "latitude": 5,
+        "longitude": 56,
     }
     serializer = ErpImportSerializer(data=initial_values | erp_values)
 

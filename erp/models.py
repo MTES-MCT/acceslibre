@@ -299,9 +299,9 @@ class Commune(models.Model):
         if not max_distance_meters and self.superficie:
             max_distance_meters = calc.clamp(
                 500,
-                round(  # note: superficie is in hectares
+                round(
                     math.sqrt(self.superficie * 10000) / 5
-                ),
+                ),  # note: superficie is in hectares
                 3000,
             )
         else:

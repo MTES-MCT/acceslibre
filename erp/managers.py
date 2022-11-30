@@ -8,7 +8,6 @@ from django.db.models.functions import Length
 
 from core.lib import text
 from erp import schema
-from erp.models import Activite
 
 
 class ActiviteQuerySet(models.QuerySet):
@@ -112,10 +111,10 @@ class ErpQuerySet(models.QuerySet):
         self,
         numero: int,
         commune: str,
-        activite: Activite,
+        activite: "Activite",  # noqa
         voie: str = None,
         lieu_dit: str = None,
-    ):  # noqa
+    ):
         qs = self.filter(
             commune__iexact=commune, numero=numero, activite__pk=activite.pk
         )
