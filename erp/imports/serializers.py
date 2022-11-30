@@ -7,6 +7,11 @@ from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import geocoder, sirene
 
 
+class DuplicatedExceptionErp(serializers.ValidationError):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs, code="duplicate")
+
+
 class AccessibilityImportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Accessibilite
@@ -42,6 +47,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "accessibilite",
             "latitude",
             "longitude",
+            "source",
         )
 
     def validate_siret(self, obj):
@@ -104,6 +110,20 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
                 raise serializers.ValidationError(f"Adresse non localisable: {address}")
 
+        existing = Erp.objects.find_duplicate(
+            numero=obj.get("numero"),
+            voie=obj.get("voie"),
+            lieu_dit=obj.get("lieu_dit"),
+            commune=obj["commune"].nom,
+            activite=obj["activite"],
+        ).first()
+        if existing:
+            raise DuplicatedExceptionErp(f"Potentiel doublon avec l'ERP : {existing}")
+
+        erp_data = obj.copy()
+        erp_data.pop("accessibilite")
+        Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
+        Accessibilite(**obj["accessibilite"]).full_clean()
         return obj
 
     def create(self, validated_data):
