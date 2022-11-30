@@ -1,11 +1,10 @@
 import pytest
 from django.contrib.sites.models import Site
 from django.core.management import call_command
-
 from django.test import Client
 from django.urls import reverse
 
-from stats.models import Referer, Implementation, GlobalStats
+from stats.models import GlobalStats, Implementation, Referer
 
 
 @pytest.mark.django_db

@@ -1,14 +1,13 @@
 import logging
-
 from datetime import datetime
+
 from django.conf import settings
-from django.utils import timezone
 from django.core.management.base import BaseCommand
+from django.utils import timezone
 
 from core import mailer, mattermost
 from erp import versioning
 from subscription.models import ErpSubscription
-
 
 logger = logging.getLogger(__name__)
 

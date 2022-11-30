@@ -1,8 +1,6 @@
-import pytest
-
 from datetime import timedelta
-from requests import Response
 
+import pytest
 from django.conf import settings
 from django.contrib.gis.geos import Point
 from django.core import mail
@@ -10,9 +8,10 @@ from django.core.management import call_command
 from django.test import Client
 from django.urls import reverse
 from django.utils import timezone
+from requests import Response
 
 from erp.management.commands.notify_unpublished_erps import Command
-from erp.models import Erp, Accessibilite, Activite
+from erp.models import Accessibilite, Activite, Erp
 
 
 @pytest.fixture

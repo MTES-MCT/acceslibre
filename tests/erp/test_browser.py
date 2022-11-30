@@ -1,8 +1,7 @@
-import pytest
-import reversion
-
 from datetime import date
 
+import pytest
+import reversion
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.core import mail
@@ -12,7 +11,6 @@ from django.urls import reverse
 from erp import schema
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
 from erp.provider import geocoder
-
 from tests.utils import assert_redirect
 
 

@@ -6,7 +6,9 @@ logger = logging.getLogger(__name__)
 
 
 def _not_duplicate(erp, other):
-    return all([erp.get("siret") != other.get("siret"), erp.get("nom") != other.get("nom")])
+    return all(
+        [erp.get("siret") != other.get("siret"), erp.get("nom") != other.get("nom")]
+    )
 
 
 def parse_etablissements(qs, other_sources):
@@ -19,7 +21,11 @@ def parse_etablissements(qs, other_sources):
         erp_as_dict["is_online"] = erp.is_online()
         erp_as_dict["icon"] = erp.get_activite_vector_icon()
         erp_as_dict["activite"] = erp.activite
-        other_sources = [other_erp for other_erp in other_sources if _not_duplicate(erp_as_dict, other_erp)]
+        other_sources = [
+            other_erp
+            for other_erp in other_sources
+            if _not_duplicate(erp_as_dict, other_erp)
+        ]
         results.append(
             dict(
                 exists={

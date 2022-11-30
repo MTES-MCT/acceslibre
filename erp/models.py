@@ -1,12 +1,11 @@
 import csv
 import datetime
-import math
 import json
+import math
 import os
 import uuid
 
 import reversion
-
 from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
@@ -16,7 +15,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
-from django.db.models import Value, Count
+from django.db.models import Count, Value
 from django.db.models.functions import Lower
 from django.forms.models import model_to_dict
 from django.urls import reverse
@@ -25,9 +24,11 @@ from django.utils.text import slugify
 from reversion.models import Version
 
 from core import mailer
-from core.lib import calc, diff as diffutils, geo
+from core.lib import calc
+from core.lib import diff as diffutils
+from core.lib import geo
 from erp import managers, schema
-from erp.provider import sirene, geocoder
+from erp.provider import geocoder, sirene
 from erp.provider.departements import DEPARTEMENTS
 from subscription.models import ErpSubscription
 

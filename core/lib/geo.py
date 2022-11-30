@@ -1,6 +1,6 @@
 import json
 
-from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
+from django.contrib.gis.geos import GEOSGeometry, MultiPolygon, Point, Polygon
 
 
 def geojson_mpoly(geojson):

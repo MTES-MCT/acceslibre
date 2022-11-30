@@ -1,5 +1,5 @@
 from django.contrib.auth import views as auth_views
-from django.urls import path, include
+from django.urls import include, path
 
 from core.cache import cache_per_user
 from erp import schema, views

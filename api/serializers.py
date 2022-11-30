@@ -1,13 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-
 from erp import schema
-from erp.models import (
-    Activite,
-    Erp,
-    Accessibilite,
-)
+from erp.models import Accessibilite, Activite, Erp
 
 # Useful docs:
 # - extra fields: https://stackoverflow.com/a/36697562/330911
@@ -31,7 +26,9 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
 
-    erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
+    erp = serializers.HyperlinkedRelatedField(
+        lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
+    )
 
     def _readable_value(self, source, instance, repr, field):
         repr["readable_fields"].append(field)
@@ -74,7 +71,9 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             del repr["commentaire"]
         # remove section if entirely empty
         if clean:
-            return dict((key, section) for (key, section) in repr.items() if section != {})
+            return dict(
+                (key, section) for (key, section) in repr.items() if section != {}
+            )
         else:
             return repr
 

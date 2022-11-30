@@ -5,16 +5,15 @@ import requests
 from django.db import DataError
 
 from erp.imports.fetcher import JsonFetcher
-from erp.imports.importer import Importer, ROOT_DATASETS_URL
+from erp.imports.importer import ROOT_DATASETS_URL, Importer
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Activite, Erp
-from tests.erp.imports.mapper.fixtures import FakeJsonFetcher
-
 from tests.erp.imports.mapper.fixtures import (
+    FakeJsonFetcher,
     neufchateau,
-    sample_record_ok,
     record_invalid_cp,
     record_skippable,
+    sample_record_ok,
 )
 
 

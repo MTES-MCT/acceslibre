@@ -6,12 +6,14 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0103_auto_20210129_1101'),
+        ("erp", "0103_auto_20210129_1101"),
     ]
 
     operations = [
-        migrations.RunSQL('update erp_accessibilite '
-                          'set accueil_equipements_malentendants_presence = true '
-                          'where accueil_equipements_malentendants <> \'{}\'',
-                          elidable=True)
+        migrations.RunSQL(
+            "update erp_accessibilite "
+            "set accueil_equipements_malentendants_presence = true "
+            "where accueil_equipements_malentendants <> '{}'",
+            elidable=True,
+        )
     ]

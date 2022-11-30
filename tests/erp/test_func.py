@@ -1,13 +1,13 @@
-import pytest
 import html
 
+import pytest
 from django.contrib.auth.models import User
 from django.core import mail
 from django.urls import reverse
 from splinter import Browser
 
-from erp.models import Erp
 from erp import schema
+from erp.models import Erp
 
 
 @pytest.fixture

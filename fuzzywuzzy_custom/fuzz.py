@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 from __future__ import unicode_literals
+
 import platform
 import warnings
 
@@ -14,7 +15,6 @@ except ImportError:
     from difflib import SequenceMatcher
 
 from . import utils
-
 
 ###########################
 # Basic Scoring Functions #

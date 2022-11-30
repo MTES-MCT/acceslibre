@@ -1,7 +1,7 @@
 import copy
 import json
-import pytest
 
+import pytest
 from django.contrib.gis.geos import Point
 
 from erp.imports.fetcher import Fetcher

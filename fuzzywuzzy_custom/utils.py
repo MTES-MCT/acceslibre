@@ -1,9 +1,9 @@
 from __future__ import unicode_literals
-import sys
+
 import functools
+import sys
 
 from fuzzywuzzy.string_processing import StringProcessor
-
 
 PY3 = sys.version_info[0] == 3
 

@@ -6,13 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0048_auto_20200226_1434'),
+        ("erp", "0048_auto_20200226_1434"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='erp',
-            name='numero',
-            field=models.CharField(blank=True, help_text='Numéro dans la voie, incluant le complément (BIS, TER, etc.)', max_length=255, null=True, verbose_name='Numéro'),
+            model_name="erp",
+            name="numero",
+            field=models.CharField(
+                blank=True,
+                help_text="Numéro dans la voie, incluant le complément (BIS, TER, etc.)",
+                max_length=255,
+                null=True,
+                verbose_name="Numéro",
+            ),
         ),
     ]

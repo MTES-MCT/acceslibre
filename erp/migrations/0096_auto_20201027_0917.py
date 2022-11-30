@@ -11,7 +11,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name="accessibilite", name="labels",),
+        migrations.RemoveField(
+            model_name="accessibilite",
+            name="labels",
+        ),
         migrations.AddField(
             model_name="accessibilite",
             name="labels",
@@ -53,5 +56,7 @@ class Migration(migrations.Migration):
                 verbose_name="Source",
             ),
         ),
-        migrations.DeleteModel(name="Label",),
+        migrations.DeleteModel(
+            name="Label",
+        ),
     ]

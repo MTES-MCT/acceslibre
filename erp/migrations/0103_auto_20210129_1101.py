@@ -7,18 +7,40 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0102_auto_20201215_1647'),
+        ("erp", "0102_auto_20201215_1647"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='accessibilite',
-            name='accueil_equipements_malentendants_presence',
-            field=models.BooleanField(blank=True, choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], null=True, verbose_name='Équipement(s) sourd/malentendant'),
+            model_name="accessibilite",
+            name="accueil_equipements_malentendants_presence",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                null=True,
+                verbose_name="Équipement(s) sourd/malentendant",
+            ),
         ),
         migrations.AlterField(
-            model_name='accessibilite',
-            name='accueil_equipements_malentendants',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, choices=[('bim', 'Boucle à induction magnétique'), ('lsf', 'Langue des signes française'), ('scd', 'Service de communication à distance'), ('lpc', 'Langue Française Parlée Complétée (LFPC)'), ('autres', 'Autres')], max_length=255), blank=True, default=list, null=True, size=None, verbose_name='Équipement(s) sourd/malentendant'),
+            model_name="accessibilite",
+            name="accueil_equipements_malentendants",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(
+                    blank=True,
+                    choices=[
+                        ("bim", "Boucle à induction magnétique"),
+                        ("lsf", "Langue des signes française"),
+                        ("scd", "Service de communication à distance"),
+                        ("lpc", "Langue Française Parlée Complétée (LFPC)"),
+                        ("autres", "Autres"),
+                    ],
+                    max_length=255,
+                ),
+                blank=True,
+                default=list,
+                null=True,
+                size=None,
+                verbose_name="Équipement(s) sourd/malentendant",
+            ),
         ),
     ]

@@ -6,23 +6,36 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0023_auto_20200205_0830'),
+        ("erp", "0023_auto_20200205_0830"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='accueil_equipements_malentendants',
-            field=models.ManyToManyField(blank=True, to='erp.EquipementMalentendant', verbose_name='Équipements sourds/malentendants'),
+            model_name="accessibilite",
+            name="accueil_equipements_malentendants",
+            field=models.ManyToManyField(
+                blank=True,
+                to="erp.EquipementMalentendant",
+                verbose_name="Équipements sourds/malentendants",
+            ),
         ),
         migrations.AlterField(
-            model_name='accessibilite',
-            name='labels',
-            field=models.ManyToManyField(blank=True, help_text="Labels d'accessibilité obtenus par l'ERP", to='erp.Label'),
+            model_name="accessibilite",
+            name="labels",
+            field=models.ManyToManyField(
+                blank=True,
+                help_text="Labels d'accessibilité obtenus par l'ERP",
+                to="erp.Label",
+            ),
         ),
         migrations.AlterField(
-            model_name='erp',
-            name='site_internet',
-            field=models.URLField(blank=True, help_text="Adresse du site internet de l'ERP", max_length=255, null=True),
+            model_name="erp",
+            name="site_internet",
+            field=models.URLField(
+                blank=True,
+                help_text="Adresse du site internet de l'ERP",
+                max_length=255,
+                null=True,
+            ),
         ),
     ]

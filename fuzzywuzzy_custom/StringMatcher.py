@@ -8,10 +8,10 @@ ported from python-Levenshtein
 License available here: https://github.com/miohtama/python-Levenshtein/blob/master/COPYING
 """
 
-from Levenshtein import *
 from warnings import warn
 
 from fuzz import ratio
+from Levenshtein import *
 
 
 class StringMatcher:

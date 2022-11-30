@@ -6,13 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0093_auto_20200922_0802'),
+        ("erp", "0093_auto_20200922_0802"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='erp',
-            name='source',
-            field=models.CharField(choices=[('admin', 'Back-office'), ('api', 'API'), ('cconforme', 'cconforme'), ('public', 'Saisie manuelle publique'), ('public_erp', 'API des établissements publics'), ('sirene', 'API Sirene INSEE')], default='public', help_text='Nom de la source de données dont est issu cet ERP', max_length=100, null=True, verbose_name='Source'),
+            model_name="erp",
+            name="source",
+            field=models.CharField(
+                choices=[
+                    ("admin", "Back-office"),
+                    ("api", "API"),
+                    ("cconforme", "cconforme"),
+                    ("public", "Saisie manuelle publique"),
+                    ("public_erp", "API des établissements publics"),
+                    ("sirene", "API Sirene INSEE"),
+                ],
+                default="public",
+                help_text="Nom de la source de données dont est issu cet ERP",
+                max_length=100,
+                null=True,
+                verbose_name="Source",
+            ),
         ),
     ]

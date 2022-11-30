@@ -1,11 +1,10 @@
-import pytest
-
 from datetime import datetime
+
+import pytest
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 
 from erp.models import Erp
-
 
 User = get_user_model()
 

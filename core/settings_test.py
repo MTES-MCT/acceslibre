@@ -1,7 +1,6 @@
 # flake8: noqa
 from .settings import *
 
-
 DEBUG = True
 
 SITE_HOST = "localhost"

@@ -7,13 +7,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0043_auto_20200217_1406'),
+        ("erp", "0043_auto_20200217_1406"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='activite',
-            name='mots_cles',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, max_length=40), blank=True, default=list, help_text='Liste de mots-clés apparentés à cette activité', size=None, verbose_name='Mots-clés'),
+            model_name="activite",
+            name="mots_cles",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(blank=True, max_length=40),
+                blank=True,
+                default=list,
+                help_text="Liste de mots-clés apparentés à cette activité",
+                size=None,
+                verbose_name="Mots-clés",
+            ),
         ),
     ]

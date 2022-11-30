@@ -7,7 +7,6 @@ from django.core.management.base import BaseCommand
 
 from erp.models import Activite, Erp
 
-
 VILLES_CIBLES = [r"^Lyon$", r"^Clichy$"]
 VALEURS_VIDES = [
     "nr",

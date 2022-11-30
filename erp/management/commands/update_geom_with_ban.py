@@ -1,5 +1,6 @@
-from erp.models import Erp
 from django.core.management.base import BaseCommand
+
+from erp.models import Erp
 
 
 class Command(BaseCommand):

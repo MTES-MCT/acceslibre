@@ -1,6 +1,6 @@
 import os
-import pytest
 
+import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.db import connection

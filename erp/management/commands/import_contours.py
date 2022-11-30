@@ -1,14 +1,12 @@
 import json
-import requests
 
+import requests
 from django.contrib.contenttypes.models import ContentType
 from django.core.management.base import BaseCommand, CommandError
-
 from progress import bar
 
 from core.lib import geo
 from erp.models import Commune, Erp
-
 
 # Standard (Polygon)
 # https://geo.api.gouv.fr/communes/34120?fields=contour&format=json&geometry=contour

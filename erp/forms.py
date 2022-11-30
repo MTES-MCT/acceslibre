@@ -9,12 +9,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from erp import schema
-from erp.models import (
-    Activite,
-    Accessibilite,
-    Commune,
-    Erp,
-)
+from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
 

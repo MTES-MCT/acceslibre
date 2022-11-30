@@ -1,9 +1,8 @@
 import pytest
-
 from django.contrib.gis.geos import Point
 
-from erp.models import Accessibilite, Erp
 from erp import schema
+from erp.models import Accessibilite, Erp
 
 # ErpQuerySet#having_a11y_data
 

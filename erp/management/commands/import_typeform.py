@@ -4,7 +4,7 @@ import sys
 
 from django.core.management.base import BaseCommand
 
-from erp.models import Activite, Erp, Commune, Accessibilite
+from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider.geocoder import geocode
 
 

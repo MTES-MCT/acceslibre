@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand
 from django.core.validators import URLValidator
-from django.db import transaction, IntegrityError
+from django.db import IntegrityError, transaction
 from django.db.models import Q
 from django.utils.text import slugify
 

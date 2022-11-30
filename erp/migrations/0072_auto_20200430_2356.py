@@ -6,32 +6,56 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0071_auto_20200428_1105'),
+        ("erp", "0071_auto_20200428_1105"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='accessibilite',
-            name='cheminement_ext_guidage_sonore',
+            model_name="accessibilite",
+            name="cheminement_ext_guidage_sonore",
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='cheminement_terrain_accidente',
-            field=models.BooleanField(blank=True, choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], help_text='Le revêtement du cheminement extérieur est-il meuble, accidenté ou non-praticable en fauteuil ?', null=True, verbose_name='Terrain meuble ou accidenté'),
+            model_name="accessibilite",
+            name="cheminement_terrain_accidente",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                help_text="Le revêtement du cheminement extérieur est-il meuble, accidenté ou non-praticable en fauteuil ?",
+                null=True,
+                verbose_name="Terrain meuble ou accidenté",
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='entree_balise_sonore',
-            field=models.BooleanField(blank=True, choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], help_text="Présence d'un système de guidage sonore aidant le déplacement d'une personne aveugle ou malvoyante", null=True, verbose_name="Présence d'une balise sonore"),
+            model_name="accessibilite",
+            name="entree_balise_sonore",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                help_text="Présence d'un système de guidage sonore aidant le déplacement d'une personne aveugle ou malvoyante",
+                null=True,
+                verbose_name="Présence d'une balise sonore",
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='transport_information',
-            field=models.TextField(blank=True, help_text="Précisions complémentaires sur la desserte de l'établissement par les transports en commun (lignes, stations, arrêts)", max_length=1000, null=True, verbose_name='Informations transports'),
+            model_name="accessibilite",
+            name="transport_information",
+            field=models.TextField(
+                blank=True,
+                help_text="Précisions complémentaires sur la desserte de l'établissement par les transports en commun (lignes, stations, arrêts)",
+                max_length=1000,
+                null=True,
+                verbose_name="Informations transports",
+            ),
         ),
         migrations.AlterField(
-            model_name='accessibilite',
-            name='transport_station_presence',
-            field=models.BooleanField(blank=True, choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], help_text="L'établissement est-il desservi par les transports en commun ?", null=True, verbose_name='Desserte par transports en commun'),
+            model_name="accessibilite",
+            name="transport_station_presence",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                help_text="L'établissement est-il desservi par les transports en commun ?",
+                null=True,
+                verbose_name="Desserte par transports en commun",
+            ),
         ),
     ]

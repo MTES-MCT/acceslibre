@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from stats.models import Challenge, ChallengePlayer, Referer, Implementation
+from stats.models import Challenge, ChallengePlayer, Implementation, Referer
 
 
 @admin.register(Challenge)

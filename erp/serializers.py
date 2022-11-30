@@ -4,7 +4,6 @@ import logging
 
 from django.contrib.gis.serializers import geojson
 
-
 logger = logging.getLogger(__name__)
 
 

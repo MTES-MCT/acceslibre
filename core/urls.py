@@ -6,15 +6,14 @@ from django.urls import include, path
 from django.views.decorators.cache import cache_page
 from django.views.generic import RedirectView
 
-from compte.forms import CustomRegistrationForm, CustomAuthenticationForm
+from compte.forms import CustomAuthenticationForm, CustomRegistrationForm
 from compte.views import (
     CustomActivationCompleteView,
     CustomActivationView,
-    CustomRegistrationView,
     CustomRegistrationCompleteView,
+    CustomRegistrationView,
 )
 from core.sitemaps import SITEMAPS
-
 
 SITEMAP_CACHE_TTL = 86400
 

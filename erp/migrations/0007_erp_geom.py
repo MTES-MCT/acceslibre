@@ -7,13 +7,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0006_auto_20200131_1634'),
+        ("erp", "0006_auto_20200131_1634"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='erp',
-            name='geom',
-            field=django.contrib.gis.db.models.fields.PointField(blank=True, null=True, srid=4326),
+            model_name="erp",
+            name="geom",
+            field=django.contrib.gis.db.models.fields.PointField(
+                blank=True, null=True, srid=4326
+            ),
         ),
     ]

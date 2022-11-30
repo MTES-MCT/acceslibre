@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0099_activite_vector_icon'),
+        ("erp", "0099_activite_vector_icon"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='statuscheck',
-            name='non_diffusable',
-            field=models.BooleanField(default=False, verbose_name='Données SIRENE non diffusables'),
+            model_name="statuscheck",
+            name="non_diffusable",
+            field=models.BooleanField(
+                default=False, verbose_name="Données SIRENE non diffusables"
+            ),
         ),
     ]
