@@ -71,9 +71,7 @@ Paramètres de lancement du script :
                     lines = list(reader)
                     total_line = len(lines)
 
-                    print_success(
-                        f"\t * Validation du fichier {self.input_file} ({total_line} ligne(s) détectée(s))"
-                    )
+                    print_success(f"\t * Validation du fichier {self.input_file} ({total_line} ligne(s) détectée(s))")
                     self.results = {
                         "duplicated": {"count": 0, "msgs": []},
                         "in_error": {"count": 0, "msgs": []},
@@ -81,9 +79,7 @@ Paramètres de lancement du script :
                         "imported": {"count": 0, "erps": []},
                     }
                     for _, row in enumerate(lines, 1):
-                        print_success(
-                            f"\t     -> Validation ligne {_}/{total_line} ..."
-                        )
+                        print_success(f"\t     -> Validation ligne {_}/{total_line} ...")
                         try:
                             validated_erp_data = self.validate_data(row)
                         except Exception as e:
@@ -96,21 +92,15 @@ Paramètres de lancement du script :
                                     f"Un doublon a été détecté lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
                                 )
                                 self.results["duplicated"]["count"] += 1
-                                self.results["duplicated"]["msgs"].append(
-                                    {"line": _, "error": e, "data": row}
-                                )
+                                self.results["duplicated"]["msgs"].append({"line": _, "error": e, "data": row})
                             else:
                                 print_error(
                                     f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
                                 )
                                 self.results["in_error"]["count"] += 1
-                                self.results["in_error"]["msgs"].append(
-                                    {"line": _, "error": e, "data": row}
-                                )
+                                self.results["in_error"]["msgs"].append({"line": _, "error": e, "data": row})
                         else:
-                            print_success(
-                                "\t         - La ligne est valide et peut-être importée"
-                            )
+                            print_success("\t         - La ligne est valide et peut-être importée")
                             self.results["validated"]["count"] += 1
                             self.results["validated"]["erps"].append(validated_erp_data)
 
@@ -130,14 +120,10 @@ Paramètres de lancement du script :
             except FileNotFoundError:
                 raise Exception(f"Le fichier {self.input_file} est introuvable.")
             except Exception as e:
-                raise Exception(
-                    f"Une erreur est survenue lors du traitement du fichier {self.input_file}: {e}"
-                )
+                raise Exception(f"Une erreur est survenue lors du traitement du fichier {self.input_file}: {e}")
 
             print(self.build_summary())
-            if self.generate_errors_file and (
-                self.results["in_error"]["count"] or self.results["duplicated"]["count"]
-            ):
+            if self.generate_errors_file and (self.results["in_error"]["count"] or self.results["duplicated"]["count"]):
                 self.write_error_file()
                 print_success("Le fichier d'erreurs 'errors.csv' est disponible.")
 
@@ -149,14 +135,13 @@ Paramètres de lancement du script :
 
     def write_error_file(self):
         with open("errors.csv", "w") as self.error_file:
-            fieldnames = [
+            fieldnames = (
                 "line",
                 "error",
                 "data",
-            ]
-            writer = csv.DictWriter(
-                self.error_file, fieldnames=fieldnames, delimiter=";"
             )
+
+            writer = csv.DictWriter(self.error_file, fieldnames=fieldnames, delimiter=";")
             writer.writeheader()
             for line in self.results["duplicated"]["msgs"]:
                 writer.writerow(line)
