@@ -18,7 +18,9 @@ from erp.models import Erp
         pytest.param({"activite": "Unknown in DB"}, False, None, id="invalid_activity"),
         pytest.param({"commune": "Unknown in DB"}, False, None, id="invalid_commune"),
         pytest.param({"accessibilite": {}}, False, None, id="empty_accessibility"),
-        pytest.param({"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"),
+        pytest.param(
+            {"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"
+        ),
         pytest.param(
             {
                 "activite": "Boulangerie",

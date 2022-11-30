@@ -79,13 +79,25 @@ class BaseMapper:
 
     fields = erp_fields + accessibility_fields
 
+    def format_data(self, key, value):
+        if value == "":
+            return None
+        else:
+            return value
+
     def csv_to_erp(self, record):
         try:
-            dest_fields = {k: v for k, v in record.items() if k in self.erp_fields}
+            dest_fields = {
+                k: self.format_data(k, v)
+                for k, v in record.items()
+                if k in self.erp_fields
+            }
             dest_fields["nom"] = record.get("name")
             dest_fields["code_postal"] = record.get("postal_code")
             dest_fields["accessibilite"] = {
-                k: v for k, v in record.items() if k in self.accessibility_fields
+                k: self.format_data(k, v)
+                for k, v in record.items()
+                if k in self.accessibility_fields
             }
             return dest_fields
         except KeyError as key:

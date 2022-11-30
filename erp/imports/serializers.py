@@ -97,6 +97,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
             try:
                 locdata = geocoder.geocode(address, citycode=obj["commune"].code_insee)
                 self._geom = locdata["geom"]
+                obj.pop("latitude")
+                obj.pop("longitude")
                 break
             except (RuntimeError, KeyError):
                 if i < 2:
@@ -122,7 +124,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         erp_data = obj.copy()
         erp_data.pop("accessibilite")
-        Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
+        Erp(**erp_data).full_clean(
+            exclude=("source_id", "asp_id", "user", "metadata", "search_vector")
+        )
         Accessibilite(**obj["accessibilite"]).full_clean()
         return obj
 

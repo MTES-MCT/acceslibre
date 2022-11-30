@@ -132,7 +132,6 @@ Paramètres de lancement du script :
 
     def validate_data(self, row):
         data = BaseMapper().csv_to_erp(record=row)
-        breakpoint()
         serializer = ErpImportSerializer(data=data)
         serializer.is_valid(raise_exception=True)
 
