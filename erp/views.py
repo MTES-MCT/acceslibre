@@ -274,6 +274,7 @@ def search(request, commune_slug=None):
             "where": where,
             "geojson_list": geojson_list,
             "commune_json": commune.toTemplateJson() if commune else None,
+            "data_contrib": {"nom": what, "lat": lat, "lon": lon, "activite": ""}
         },
     )
 
@@ -1120,9 +1121,9 @@ def contrib_publication(request, erp_slug):
     else:
         if request.GET:
             form = forms.PublicPublicationForm(request.GET, instance=erp)
-
         else:
             form = forms.PublicPublicationForm({"published": True}, instance=erp)
+
     if form.is_valid():
         if check_authentication(request, erp, form, check_online=False):
             return check_authentication(request, erp, form, check_online=False)
