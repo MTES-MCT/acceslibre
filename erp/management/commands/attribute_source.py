@@ -1,12 +1,11 @@
 import csv
 import os
 import sys
-
 from datetime import datetime
+
 from django.core.management.base import BaseCommand
 
 from erp.models import Erp
-
 
 VILLES_CIBLES = [r"^Lyon$", r"^Clichy$"]
 VALEURS_VIDES = [

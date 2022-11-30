@@ -3,7 +3,6 @@ from datetime import datetime, timedelta, timezone
 import pytest
 from django.conf import settings
 from django.core import mail, management
-
 from django.test import Client
 from django.urls import reverse
 

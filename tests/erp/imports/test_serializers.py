@@ -9,7 +9,7 @@ from erp.models import Erp
 @pytest.mark.django_db
 @pytest.mark.parametrize(
     "erp_values, is_valid, geocoder_result",
-    [
+    (
         pytest.param({"siret": "Non renseigné"}, False, None, id="invalid_siret"),
         pytest.param({"siret": "48137888300021"}, True, None, id="valid_siret"),
         pytest.param({"nom": ""}, False, None, id="empty_name"),
@@ -19,7 +19,19 @@ from erp.models import Erp
         pytest.param({"commune": "Unknown in DB"}, False, None, id="invalid_commune"),
         pytest.param({"accessibilite": {}}, False, None, id="empty_accessibility"),
         pytest.param({"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"),
-    ],
+        pytest.param(
+            {
+                "activite": "Boulangerie",
+                "numero": "4",
+                "voie": "grand rue",
+                "code_postal": "34830",
+                "commune": "Jacou",
+            },
+            False,
+            None,
+            id="duplicate",
+        ),
+    ),
 )
 def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_result):
     mocker.patch(

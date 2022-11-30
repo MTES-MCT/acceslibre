@@ -1,7 +1,7 @@
-import pytest
-import requests
 import tempfile
 
+import pytest
+import requests
 from django.test import Client
 from django.urls import reverse
 

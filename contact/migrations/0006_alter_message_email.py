@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contact', '0005_alter_message_topic'),
+        ("contact", "0005_alter_message_topic"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='message',
-            name='email',
-            field=models.EmailField(error_messages={'invalid': ''}, max_length=255, verbose_name='Adresse email'),
+            model_name="message",
+            name="email",
+            field=models.EmailField(
+                error_messages={"invalid": ""},
+                max_length=255,
+                verbose_name="Adresse email",
+            ),
         ),
     ]

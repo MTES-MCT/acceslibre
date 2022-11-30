@@ -4,15 +4,14 @@ import pytest
 
 from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.vaccination import (
-    VaccinationMapper,
-    RAISON_RESERVE_PS,
-    RAISON_PUBLIC_RESTREINT,
-    RAISON_EQUIPE_MOBILE,
     RAISON_EN_ATTENTE,
+    RAISON_EQUIPE_MOBILE,
+    RAISON_PUBLIC_RESTREINT,
     RAISON_RESERVE_CARCERAL,
+    RAISON_RESERVE_PS,
+    VaccinationMapper,
 )
-from erp.models import Erp, Activite
-
+from erp.models import Activite, Erp
 from tests.erp.imports.mapper.fixtures import neufchateau, sample_record_ok
 
 

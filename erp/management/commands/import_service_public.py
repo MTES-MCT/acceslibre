@@ -1,12 +1,11 @@
 import os
+from xml.etree import ElementTree as ET
 
 from django.contrib.gis.geos import Point
 from django.core.management.base import BaseCommand
 
 from core.lib import geo
-from erp.models import Activite, Erp, Accessibilite, Commune
-from xml.etree import ElementTree as ET
-
+from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import arrondissements
 
 VALEURS_VIDES = [
@@ -110,7 +109,7 @@ class Command(BaseCommand):
             commune=fields["commune"],
             code_insee=fields["code_insee"],
             code_postal=fields["code_postal"],
-            xml=xml
+            xml=xml,
         )
         lat = extract(xml, fieldname="**Latitude")
         long = extract(xml, fieldname="**Longitude")

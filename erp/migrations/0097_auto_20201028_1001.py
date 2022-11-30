@@ -7,13 +7,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0096_auto_20201027_0917'),
+        ("erp", "0096_auto_20201027_0917"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='labels',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(blank=True, choices=[('autre', 'Autre'), ('dpt', 'Destination pour Tous'), ('mobalib', 'Mobalib'), ('th', 'Tourisme & Handicap')], max_length=255), blank=True, default=list, null=True, size=None, verbose_name='Marques ou labels'),
+            model_name="accessibilite",
+            name="labels",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(
+                    blank=True,
+                    choices=[
+                        ("autre", "Autre"),
+                        ("dpt", "Destination pour Tous"),
+                        ("mobalib", "Mobalib"),
+                        ("th", "Tourisme & Handicap"),
+                    ],
+                    max_length=255,
+                ),
+                blank=True,
+                default=list,
+                null=True,
+                size=None,
+                verbose_name="Marques ou labels",
+            ),
         ),
     ]

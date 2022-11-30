@@ -4,9 +4,9 @@ from django.contrib.gis.geos import Point
 from django.db.utils import DataError
 
 from core.lib import text
+from erp.imports.mapper import SkippedRecord
 from erp.models import Accessibilite, Commune, Erp
 from erp.provider import arrondissements
-from erp.imports.mapper import SkippedRecord
 
 RAISON_EN_ATTENTE = "En attente d'affectation"
 RAISON_EQUIPE_MOBILE = "Équipe mobile écartée"

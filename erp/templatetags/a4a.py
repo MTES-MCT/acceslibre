@@ -1,17 +1,15 @@
 import json
-import phonenumbers
 import random
-
 from datetime import datetime
 from urllib.parse import quote
 
+import phonenumbers
 from django import template
 from django.conf import settings
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
-from erp import schema
-from erp import serializers
+from erp import schema, serializers
 from erp.models import Erp
 from erp.provider import arrondissements, naf, sirene
 

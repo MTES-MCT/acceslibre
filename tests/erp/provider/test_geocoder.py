@@ -1,10 +1,8 @@
 import pytest
 import requests
-
 from django.contrib.gis.geos import Point
 
 from erp.provider import geocoder
-
 
 # geocoder#autocomplete()
 

@@ -6,21 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0086_auto_20200722_1725'),
+        ("erp", "0086_auto_20200722_1725"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='accessibilite',
-            name='conformite_adap_fin',
+            model_name="accessibilite",
+            name="conformite_adap_fin",
         ),
         migrations.RemoveField(
-            model_name='accessibilite',
-            name='conformite_type',
+            model_name="accessibilite",
+            name="conformite_type",
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='conformite',
-            field=models.NullBooleanField(choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], verbose_name='Conformité'),
+            model_name="accessibilite",
+            name="conformite",
+            field=models.NullBooleanField(
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                verbose_name="Conformité",
+            ),
         ),
     ]

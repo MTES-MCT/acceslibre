@@ -1,9 +1,9 @@
 # flake8: noqa
 import os
+
 import sentry_sdk
 
 from .settings import *
-
 
 DEBUG = False
 

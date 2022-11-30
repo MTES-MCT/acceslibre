@@ -6,13 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0082_auto_20200713_1523'),
+        ("erp", "0082_auto_20200713_1523"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='conformite_type',
-            field=models.CharField(blank=True, choices=[(None, 'Conformité inconnue'), ('non-conforme', "L'établissement est non-conforme"), ('attestation', "L'établissement a envoyé une attestation d’accessibilité"), ('adap', "Un dossier Ad'AP a été ouvert")], max_length=255, null=True, verbose_name='Conformité'),
+            model_name="accessibilite",
+            name="conformite_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    (None, "Conformité inconnue"),
+                    ("non-conforme", "L'établissement est non-conforme"),
+                    (
+                        "attestation",
+                        "L'établissement a envoyé une attestation d’accessibilité",
+                    ),
+                    ("adap", "Un dossier Ad'AP a été ouvert"),
+                ],
+                max_length=255,
+                null=True,
+                verbose_name="Conformité",
+            ),
         ),
     ]

@@ -7,12 +7,14 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0042_auto_20200217_1336'),
+        ("erp", "0042_auto_20200217_1336"),
     ]
 
     operations = [
         migrations.AddIndex(
-            model_name='erp',
-            index=django.contrib.postgres.indexes.GinIndex(fields=['nom'], name='nom_trgm', opclasses=['gin_trgm_ops']),
+            model_name="erp",
+            index=django.contrib.postgres.indexes.GinIndex(
+                fields=["nom"], name="nom_trgm", opclasses=["gin_trgm_ops"]
+            ),
         ),
     ]

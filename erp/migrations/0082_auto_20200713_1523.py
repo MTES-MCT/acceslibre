@@ -6,23 +6,37 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0081_auto_20200629_1213'),
+        ("erp", "0081_auto_20200629_1213"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='accessibilite',
-            name='conformite_adap_fin',
-            field=models.DateField(blank=True, null=True, verbose_name="Date de fin Ad'AP"),
+            model_name="accessibilite",
+            name="conformite_adap_fin",
+            field=models.DateField(
+                blank=True, null=True, verbose_name="Date de fin Ad'AP"
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='conformite_type',
-            field=models.CharField(blank=True, choices=[('non-conforme', 'Non-conforme'), ('attestation', 'Attestation'), ('adap', "Ad'AP")], max_length=255, null=True, verbose_name='Conformité'),
+            model_name="accessibilite",
+            name="conformite_type",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("non-conforme", "Non-conforme"),
+                    ("attestation", "Attestation"),
+                    ("adap", "Ad'AP"),
+                ],
+                max_length=255,
+                null=True,
+                verbose_name="Conformité",
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='registre_url',
-            field=models.URLField(blank=True, max_length=255, null=True, verbose_name='URL du registre'),
+            model_name="accessibilite",
+            name="registre_url",
+            field=models.URLField(
+                blank=True, max_length=255, null=True, verbose_name="URL du registre"
+            ),
         ),
     ]

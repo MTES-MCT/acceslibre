@@ -1,9 +1,10 @@
+from unittest.mock import ANY
+
 import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
-from unittest.mock import ANY
 
 from erp.models import Accessibilite, Activite, Erp
 
@@ -107,7 +108,9 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
     assert response.context["results"] == [mairie_jacou_result, akei_result]
 
 
-def test_contrib_start_global_search_with_existing(client, data, mocker, akei_result, mairie_jacou_result):
+def test_contrib_start_global_search_with_existing(
+    client, data, mocker, akei_result, mairie_jacou_result
+):
     mocker.patch(
         "erp.provider.search.global_search",
         return_value=[mairie_jacou_result, akei_result],
@@ -146,7 +149,7 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
 
 
 def test_claim(client, user):
-    erp = Erp.objects.create(nom="test", published=True, geom=Point(0,0))
+    erp = Erp.objects.create(nom="test", published=True, geom=Point(0, 0))
 
     response = client.get(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200  # jean-pierre is logged in the client

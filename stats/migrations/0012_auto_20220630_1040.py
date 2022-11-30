@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stats', '0011_auto_20220622_1127'),
+        ("stats", "0011_auto_20220622_1127"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='challenge',
-            name='accroche',
+            model_name="challenge",
+            name="accroche",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='challenge',
-            name='objectif',
+            model_name="challenge",
+            name="objectif",
             field=models.TextField(blank=True, null=True),
         ),
     ]

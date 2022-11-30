@@ -3,7 +3,6 @@ from django.views.generic import TemplateView
 
 from . import views
 
-
 urlpatterns = [
     path("", views.contact, name="contact_form"),
     path("<str:topic>/", views.contact, name="contact_topic"),

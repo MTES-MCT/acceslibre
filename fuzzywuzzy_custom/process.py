@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
-from . import fuzz
-from . import utils
 import heapq
 import logging
 from functools import partial
 
+from . import fuzz, utils
 
 default_scorer = fuzz.WRatio
 
@@ -81,7 +80,7 @@ def extractWithoutOrder(
 
     if len(processed_query) == 0:
         logging.warning(
-            u"Applied processor reduces input query to empty string, "
+            "Applied processor reduces input query to empty string, "
             "all comparisons will have score 0. "
             "[Query: '{0}']".format(query)
         )

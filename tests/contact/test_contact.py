@@ -1,15 +1,13 @@
-import pytest
-
 from datetime import date
 
+import pytest
 from django.contrib.auth.models import User
 from django.core import mail
 from django.test import Client
 from django.urls import reverse
 
-from erp.models import Erp
 from contact.models import Message
-
+from erp.models import Erp
 
 TEST_NAME = "Joe Test"
 TEST_EMAIL = "joe@test.com"

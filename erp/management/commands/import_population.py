@@ -3,8 +3,8 @@ import time
 
 from django.core.management.base import BaseCommand
 
-from erp.models import Commune
 from erp.geocoder import geocode_commune
+from erp.models import Commune
 
 
 class SkipImport(Exception):

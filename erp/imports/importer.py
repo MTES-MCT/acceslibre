@@ -1,19 +1,17 @@
 import logging
 import os
-
 from datetime import datetime
 
-from django.db import DataError, DatabaseError, transaction
+from django.db import DatabaseError, DataError, transaction
 from django.db.transaction import TransactionManagementError
 
 from erp.imports import fetcher
 from erp.imports.mapper import SkippedRecord
-from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
+from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.nestenn import NestennMapper
 from erp.imports.mapper.sp import SPMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
-
 from erp.models import Accessibilite, Activite
 
 ROOT_DATASETS_URL = "https://www.data.gouv.fr/fr/datasets/r"

@@ -1,11 +1,9 @@
 import pytest
-
 from django.contrib.gis.geos import Point
 
 from erp import forms
 from erp.models import Commune, Erp
 from erp.provider import geocoder
-
 
 POINT = Point((0, 0))
 
@@ -220,4 +218,6 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(data):
         }
     )
     assert form.is_valid() is True
-    assert form.cleaned_data["geom"] == Point(2.6754, 43.657028, srid=4326), "geom should have by built from lat & lon"
+    assert form.cleaned_data["geom"] == Point(
+        2.6754, 43.657028, srid=4326
+    ), "geom should have by built from lat & lon"

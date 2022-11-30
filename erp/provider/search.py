@@ -1,5 +1,5 @@
 from erp.models import Commune, Erp
-from erp.provider import arrondissements, entreprise, public_erp, opendatasoft
+from erp.provider import arrondissements, entreprise, opendatasoft, public_erp
 
 
 def get_searched_commune(code_insee, search):

@@ -6,13 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0090_auto_20200908_1548'),
+        ("erp", "0090_auto_20200908_1548"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='accessibilite',
-            name='conformite',
-            field=models.BooleanField(blank=True, choices=[(True, 'Oui'), (False, 'Non'), (None, 'Inconnu')], null=True, verbose_name='Conformité'),
+            model_name="accessibilite",
+            name="conformite",
+            field=models.BooleanField(
+                blank=True,
+                choices=[(True, "Oui"), (False, "Non"), (None, "Inconnu")],
+                null=True,
+                verbose_name="Conformité",
+            ),
         ),
     ]

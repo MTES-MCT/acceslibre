@@ -5,7 +5,7 @@ from tempfile import NamedTemporaryFile
 import pytest
 import requests
 from django.core import management
-from frictionless import validate_resource, Resource, validate_schema, Schema
+from frictionless import Resource, Schema, validate_resource, validate_schema
 
 from erp.export.export import export_schema_to_csv
 from erp.export.mappers import EtalabMapper

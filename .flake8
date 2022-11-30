@@ -19,7 +19,7 @@ exclude =
     erp/migrations,
     fuzzywuzzy_custom,
     node_modules
-max-line-length = 88
+max-line-length = 120
 max-complexity = 10
 per-file-ignores =
     test_*.py: F401,F811

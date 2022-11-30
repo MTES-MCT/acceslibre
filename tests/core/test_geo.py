@@ -1,7 +1,7 @@
 import json
-import pytest
 
-from django.contrib.gis.geos import Point, MultiPolygon, Polygon, GEOSGeometry
+import pytest
+from django.contrib.gis.geos import GEOSGeometry, MultiPolygon, Point, Polygon
 
 from core.lib import geo
 

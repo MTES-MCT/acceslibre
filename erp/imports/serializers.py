@@ -7,6 +7,11 @@ from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import geocoder, sirene
 
 
+class DuplicatedExceptionErp(serializers.ValidationError):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs, code="duplicate")
+
+
 class AccessibilityImportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Accessibilite
@@ -14,8 +19,12 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
 
 
 class ErpImportSerializer(serializers.ModelSerializer):
-    activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom")
-    commune = serializers.SlugRelatedField(queryset=Commune.objects.all(), slug_field="nom")
+    activite = serializers.SlugRelatedField(
+        queryset=Activite.objects.all(), slug_field="nom"
+    )
+    commune = serializers.SlugRelatedField(
+        queryset=Commune.objects.all(), slug_field="nom"
+    )
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
     latitude = serializers.FloatField(min_value=-90, max_value=90, required=False)
     longitude = serializers.FloatField(min_value=-180, max_value=180, required=False)
@@ -38,6 +47,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "accessibilite",
             "latitude",
             "longitude",
+            "source",
         )
 
     def validate_siret(self, obj):
@@ -59,7 +69,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def validate_accessibilite(self, obj):
         if not obj:
-            raise serializers.ValidationError("Au moins un champ d'accessibilité requis.")
+            raise serializers.ValidationError(
+                "Au moins un champ d'accessibilité requis."
+            )
 
         return obj
 
@@ -98,6 +110,20 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
                 raise serializers.ValidationError(f"Adresse non localisable: {address}")
 
+        existing = Erp.objects.find_duplicate(
+            numero=obj.get("numero"),
+            voie=obj.get("voie"),
+            lieu_dit=obj.get("lieu_dit"),
+            commune=obj["commune"].nom,
+            activite=obj["activite"],
+        ).first()
+        if existing:
+            raise DuplicatedExceptionErp(f"Potentiel doublon avec l'ERP : {existing}")
+
+        erp_data = obj.copy()
+        erp_data.pop("accessibilite")
+        Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
+        Accessibilite(**obj["accessibilite"]).full_clean()
         return obj
 
     def create(self, validated_data):

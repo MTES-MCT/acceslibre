@@ -3,16 +3,15 @@ from urllib.parse import unquote
 
 from django.contrib import messages
 from django.contrib.admin.models import CHANGE, LogEntry
-from django.contrib.auth import get_user_model, logout, login
+from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect
-
+from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django_registration.backends.activation.views import (
-    RegistrationView,
     ActivationView,
+    RegistrationView,
 )
 
 from compte import forms, service
@@ -20,7 +19,6 @@ from compte.models import UserPreferences
 from erp import versioning
 from erp.models import Erp
 from subscription.models import ErpSubscription
-
 
 logger = logging.getLogger(__name__)
 

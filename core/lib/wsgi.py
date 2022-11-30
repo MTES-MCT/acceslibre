@@ -1,8 +1,9 @@
 from urllib.parse import urlparse
 
-import static
 from dj_static import Cling as Static3Cling
 from django.contrib.staticfiles.handlers import StaticFilesHandler as DebugHandler
+
+import static
 
 
 class Cling(Static3Cling):

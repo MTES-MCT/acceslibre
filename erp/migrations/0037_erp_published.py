@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0036_auto_20200206_1548'),
+        ("erp", "0036_auto_20200206_1548"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='erp',
-            name='published',
-            field=models.BooleanField(default=True, help_text="Statut de publication de cette fiche ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.", verbose_name='Publié'),
+            model_name="erp",
+            name="published",
+            field=models.BooleanField(
+                default=True,
+                help_text="Statut de publication de cette fiche ERP: si la case est décochée, l'ERP ne sera pas listé publiquement.",
+                verbose_name="Publié",
+            ),
         ),
     ]

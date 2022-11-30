@@ -7,36 +7,49 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0010_auto_20200203_1159'),
+        ("erp", "0010_auto_20200203_1159"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='accessibilite',
-            name='presence',
+            model_name="accessibilite",
+            name="presence",
         ),
         migrations.RemoveField(
-            model_name='accessibilite',
-            name='reserve_pmr',
+            model_name="accessibilite",
+            name="reserve_pmr",
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='stationnement_pmr',
-            field=models.BooleanField(blank=True, help_text='Présence de stationnements adaptés à proximité', null=True),
+            model_name="accessibilite",
+            name="stationnement_pmr",
+            field=models.BooleanField(
+                blank=True,
+                help_text="Présence de stationnements adaptés à proximité",
+                null=True,
+            ),
         ),
         migrations.AddField(
-            model_name='accessibilite',
-            name='stationnement_presence',
-            field=models.BooleanField(blank=True, help_text='Présence de stationnement à proximité', null=True),
+            model_name="accessibilite",
+            name="stationnement_presence",
+            field=models.BooleanField(
+                blank=True, help_text="Présence de stationnement à proximité", null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='circulation',
-            name='reperage_vitres',
-            field=models.BooleanField(blank=True, help_text="Présence d'un repérage sur les surfaces vitrées", null=True, verbose_name='Répérage surfaces vitrées'),
+            model_name="circulation",
+            name="reperage_vitres",
+            field=models.BooleanField(
+                blank=True,
+                help_text="Présence d'un repérage sur les surfaces vitrées",
+                null=True,
+                verbose_name="Répérage surfaces vitrées",
+            ),
         ),
         migrations.AlterField(
-            model_name='erp',
-            name='geom',
-            field=django.contrib.gis.db.models.fields.PointField(blank=True, null=True, srid=4326, verbose_name='Localisation'),
+            model_name="erp",
+            name="geom",
+            field=django.contrib.gis.db.models.fields.PointField(
+                blank=True, null=True, srid=4326, verbose_name="Localisation"
+            ),
         ),
     ]

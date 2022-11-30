@@ -1,5 +1,5 @@
-from stdnum.fr import siret
 from stdnum import exceptions as stdnum_ex
+from stdnum.fr import siret
 
 
 def format_siret(value, separator=""):

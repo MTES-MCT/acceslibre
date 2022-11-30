@@ -1,15 +1,14 @@
 import uuid
-
 from datetime import datetime, timezone
+
 from _datetime import timedelta
 from django.conf import settings
 from django.contrib.auth.hashers import make_password
-from django.db import models, DatabaseError
+from django.db import DatabaseError, models
 
 from compte.models import EmailToken
 from core import mailer
 from core.lib import text
-
 
 DELETED_ACCOUNT_USERNAME = "anonyme"
 

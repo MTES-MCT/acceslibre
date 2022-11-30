@@ -6,16 +6,16 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0007_erp_geom'),
+        ("erp", "0007_erp_geom"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='erp',
-            name='lat',
+            model_name="erp",
+            name="lat",
         ),
         migrations.RemoveField(
-            model_name='erp',
-            name='lon',
+            model_name="erp",
+            name="lon",
         ),
     ]

@@ -6,20 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stats', '0008_auto_20220518_2242'),
+        ("stats", "0008_auto_20220518_2242"),
     ]
 
     operations = [
         migrations.AddIndex(
-            model_name='implementation',
-            index=models.Index(fields=['referer'], name='referer_idx'),
+            model_name="implementation",
+            index=models.Index(fields=["referer"], name="referer_idx"),
         ),
         migrations.AddIndex(
-            model_name='implementation',
-            index=models.Index(fields=['urlpath'], name='urlpath_idx'),
+            model_name="implementation",
+            index=models.Index(fields=["urlpath"], name="urlpath_idx"),
         ),
         migrations.AddIndex(
-            model_name='referer',
-            index=models.Index(fields=['domain'], name='domain_idx'),
+            model_name="referer",
+            index=models.Index(fields=["domain"], name="domain_idx"),
         ),
     ]

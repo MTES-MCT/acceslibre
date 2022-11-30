@@ -1,5 +1,5 @@
 import nested_admin
-
+from admin_auto_filters.filters import AutocompleteFilterFactory
 from django import forms
 from django.conf import settings
 from django.contrib import admin
@@ -10,30 +10,19 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-
-from admin_auto_filters.filters import AutocompleteFilterFactory
-from import_export.admin import (
-    ExportMixin,
-)
+from import_export.admin import ExportMixin
 from reversion.admin import VersionAdmin
 
 from erp.forms import (
-    AdminActiviteForm,
     AdminAccessibiliteForm,
+    AdminActiviteForm,
     AdminCommuneForm,
     AdminErpForm,
 )
-
 from erp.resources import ErpAdminResource
 
-from .models import (
-    Accessibilite,
-    Activite,
-    Commune,
-    Erp,
-    Vote,
-)
 from . import schema
+from .models import Accessibilite, Activite, Commune, Erp, Vote
 
 
 @admin.register(Activite)

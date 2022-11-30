@@ -6,13 +6,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0098_auto_20201029_1524'),
+        ("erp", "0098_auto_20201029_1524"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='activite',
-            name='vector_icon',
-            field=models.CharField(blank=True, default='building', help_text='Nom de l\'icône dans <a href="/mapicons" target="_blank">le catalogue</a>.', max_length=120, null=True, verbose_name='Icône vectorielle'),
+            model_name="activite",
+            name="vector_icon",
+            field=models.CharField(
+                blank=True,
+                default="building",
+                help_text='Nom de l\'icône dans <a href="/mapicons" target="_blank">le catalogue</a>.',
+                max_length=120,
+                null=True,
+                verbose_name="Icône vectorielle",
+            ),
         ),
     ]
