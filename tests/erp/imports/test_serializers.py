@@ -18,7 +18,9 @@ from erp.models import Erp
         pytest.param({"activite": "Unknown in DB"}, False, None, id="invalid_activity"),
         pytest.param({"commune": "Unknown in DB"}, False, None, id="invalid_commune"),
         pytest.param({"accessibilite": {}}, False, None, id="empty_accessibility"),
-        pytest.param({"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"),
+        pytest.param(
+            {"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"
+        ),
         pytest.param(
             {
                 "activite": "Boulangerie",
@@ -55,6 +57,8 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         "nom": "Mairie",
         "activite": "Boulangerie",
         "accessibilite": {"entree_porte_presence": True},
+        "latitude": 5,
+        "longitude": 56,
     }
     serializer = ErpImportSerializer(data=initial_values | erp_values)
 

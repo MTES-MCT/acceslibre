@@ -19,7 +19,9 @@ class AccessibilityImportSerializer(serializers.ModelSerializer):
 
 
 class ErpImportSerializer(serializers.ModelSerializer):
-    activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom")
+    activite = serializers.SlugRelatedField(
+        queryset=Activite.objects.all(), slug_field="nom"
+    )
     commune = serializers.CharField(required=True)
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
     latitude = serializers.FloatField(min_value=-90, max_value=90, required=False)
@@ -65,7 +67,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def validate_accessibilite(self, obj):
         if not obj:
-            raise serializers.ValidationError("Au moins un champ d'accessibilité requis.")
+            raise serializers.ValidationError(
+                "Au moins un champ d'accessibilité requis."
+            )
 
         return obj
 
@@ -77,7 +81,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
             nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
         ).first()
         if not obj["commune_ext"]:
-            raise serializers.ValidationError(f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}")
+            raise serializers.ValidationError(
+                f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}"
+            )
 
         address = " ".join(
             [
@@ -95,8 +101,12 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         for i in range(3):
             try:
-                locdata = geocoder.geocode(address, citycode=obj["commune_ext"].code_insee)
+                locdata = geocoder.geocode(
+                    address, citycode=obj["commune_ext"].code_insee
+                )
                 self._geom = locdata["geom"]
+                obj.pop("latitude")
+                obj.pop("longitude")
                 break
             except (RuntimeError, KeyError):
                 if i < 2:
@@ -123,7 +133,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
         erp_data = obj.copy()
         erp_data.pop("accessibilite")
-        Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
+        Erp(**erp_data).full_clean(
+            exclude=("source_id", "asp_id", "user", "metadata", "search_vector")
+        )
         Accessibilite(**obj["accessibilite"]).full_clean()
         return obj
 

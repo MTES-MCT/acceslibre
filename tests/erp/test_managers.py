@@ -116,21 +116,30 @@ def test_ErpQuerySet_find_duplicate(data):
     erp = data.erp
     assert (
         Erp.objects.find_duplicate(
-            numero=erp.numero, commune=erp.commune, activite=data.boulangerie, voie=erp.voie
+            numero=erp.numero,
+            commune=erp.commune,
+            activite=data.boulangerie,
+            voie=erp.voie,
         ).exists()
         is True
     )
 
     assert (
         Erp.objects.find_duplicate(
-            numero=int(erp.numero) + 1, commune=erp.commune, activite=data.boulangerie, voie=erp.voie
+            numero=int(erp.numero) + 1,
+            commune=erp.commune,
+            activite=data.boulangerie,
+            voie=erp.voie,
         ).exists()
         is False
     )
 
     assert (
         Erp.objects.find_duplicate(
-            numero=erp.numero, commune=erp.commune, activite=other_activity, voie=erp.voie
+            numero=erp.numero,
+            commune=erp.commune,
+            activite=other_activity,
+            voie=erp.voie,
         ).exists()
         is False
     )
