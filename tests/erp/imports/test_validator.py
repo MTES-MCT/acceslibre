@@ -27,7 +27,7 @@ def test_skip_import_with_KO_file():
     Generate Errors file : {self.generate_errors_file}
     """
     cm = Command()
-    call_command(cm, file="data/generic_test_failed.csv", skip_import=True)
+    call_command(cm, file="data/tests/generic_test_failed.csv", skip_import=True)
 
     assert cm.skip_import is True
     assert cm.results["in_error"]["count"] != 0
@@ -43,7 +43,7 @@ def test_one_line_with_KO_file():
     Generate Errors file : {self.generate_errors_file}
     """
     cm = Command()
-    call_command(cm, file="data/generic_test_failed.csv", one_line=True)
+    call_command(cm, file="data/tests/generic_test_failed.csv", one_line=True)
 
     assert cm.one_line is True
     assert cm.results["in_error"]["count"] == 1
@@ -58,7 +58,9 @@ def test_generate_error_file_with_KO_file():
     Generate Errors file : {self.generate_errors_file}
     """
     cm = Command()
-    call_command(cm, file="data/generic_test_failed.csv", generate_errors_file=True)
+    call_command(
+        cm, file="data/tests/generic_test_failed.csv", generate_errors_file=True
+    )
 
     assert cm.generate_errors_file is True
     assert cm.error_file is not None
@@ -78,7 +80,7 @@ def test_generate_error_file_with_KO_file_and_oneline():
     cm = Command()
     call_command(
         cm,
-        file="data/generic_test_failed.csv",
+        file="data/tests/generic_test_failed.csv",
         generate_errors_file=True,
         one_line=True,
     )
@@ -89,3 +91,21 @@ def test_generate_error_file_with_KO_file_and_oneline():
     with open("errors.csv", "r") as error_file:
         reader = csv.DictReader(error_file, delimiter=";")
         assert len(list(reader)) == 1
+
+
+def test_skip_import_with_OK_file(
+    activite,
+):
+    """
+    File : {self.input_file}
+    Verbose : {self.verbose}
+    One Line : {self.one_line}
+    Skip import : {self.skip_import}
+    Generate Errors file : {self.generate_errors_file}
+    """
+    cm = Command()
+    call_command(cm, file="data/tests/generic_test_ok.csv", skip_import=True)
+
+    assert cm.skip_import is True
+    assert cm.results["in_error"]["count"] == 0
+    assert cm.results["validated"]["count"] == 6

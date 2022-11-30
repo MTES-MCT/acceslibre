@@ -2,7 +2,8 @@ import csv
 
 from django.core.management.base import BaseCommand, CommandError
 
-from api.serializers import ErpSerializer
+from erp.imports.mapper.base import BaseMapper
+from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
 
 
@@ -69,7 +70,7 @@ Paramètres de lancement du script :
             print(f"\tTraitement du fichier {self.input_file}")
             try:
                 with open(self.input_file, "r") as file:
-                    reader = csv.DictReader(file, delimiter=";")
+                    reader = csv.DictReader(file, delimiter=",")
                     lines = list(reader)
                     total_line = len(lines)
 
@@ -130,7 +131,9 @@ Paramètres de lancement du script :
                 print_success("Le fichier d'erreurs 'errors.csv' est disponible.")
 
     def validate_data(self, row):
-        serializer = ErpSerializer(data=row)
+        data = BaseMapper().csv_to_erp(record=row)
+        breakpoint()
+        serializer = ErpImportSerializer(data=data)
         serializer.is_valid(raise_exception=True)
 
     def write_error_file(self):
