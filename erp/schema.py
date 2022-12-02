@@ -166,7 +166,9 @@ ESCALIER_SENS = [
     (None, UNKNOWN),
 ]
 
-REGISTRE_INFO_URL = "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
+REGISTRE_INFO_URL = (
+    "https://handicap.gouv.fr/actualites/article/registre-d-accessibilite-obligatoire-un-guide-pour-les-erp"
+)
 
 PARTENAIRES = {
     "DGE": {
@@ -245,34 +247,20 @@ PARTENAIRES = {
 
 SECTION_A_PROPOS = "a_propos"
 SECTION_TRANSPORT = "transport"
-SECTION_STATIONNEMENT = "stationnement"
 SECTION_CHEMINEMENT_EXT = "cheminement_ext"
 SECTION_ENTREE = "entree"
 SECTION_ACCUEIL = "accueil"
-SECTION_SANITAIRES = "sanitaires"
 SECTION_LABELS = "labels"
 SECTION_REGISTRE = "registre"
 SECTION_CONFORMITE = "conformite"
 SECTION_ACTIVITE = "activite"
 SECTION_COMMENTAIRE = "commentaire"
 SECTIONS = {
-    SECTION_A_PROPOS: {
-        "icon": "trophy",
-        "label": "À propos",
-        "description": "de l'établissement",
-        "edit_route": "contrib_a_propos",
-    },
     SECTION_TRANSPORT: {
         "icon": "bus",
         "label": "Accès",
         "description": "à proximité",
         "edit_route": "contrib_transport",
-    },
-    SECTION_STATIONNEMENT: {
-        "icon": "car",
-        "label": "Stationnement",
-        "description": "aux abords de l'établissement",
-        "edit_route": "contrib_stationnement",
     },
     SECTION_CHEMINEMENT_EXT: {
         "icon": "road",
@@ -291,12 +279,6 @@ SECTIONS = {
         "label": "Accueil",
         "description": "et prestations",
         "edit_route": "contrib_accueil",
-    },
-    SECTION_SANITAIRES: {
-        "icon": "male-female",
-        "label": "Sanitaires",
-        "description": "Toilettes, WC",
-        "edit_route": "contrib_sanitaires",
     },
     SECTION_REGISTRE: {
         "icon": "registre",
@@ -493,9 +475,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
-        "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"),
         "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "help_text_ui_neg": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
@@ -523,9 +503,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe(
-            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
-        ),
+        "help_text": mark_safe("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"),
         "help_text_ui": "L'escalier est équipé d'une ou plusieurs main-courantes",
         "help_text_ui_neg": "L'escalier n'est pas équipé de main-courante",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -538,9 +516,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
-        "help_text": mark_safe(
-            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
-        ),
+        "help_text": mark_safe("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
         "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
@@ -584,8 +560,7 @@ FIELDS = {
         "choices": PENTE_LENGTH_CHOICES,
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
-        "warn_if": lambda x, i: x is not None
-        and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
+        "warn_if": lambda x, i: x is not None and x in [PENTE_LONGUEUR_MOYENNE, PENTE_LONGUEUR_LONGUE],
     },
     "cheminement_ext_devers": {
         "type": "string",
@@ -653,9 +628,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Y a-t-il une porte ?",
-        "help_text": mark_safe(
-            "Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"
-        ),
+        "help_text": mark_safe("Y a-t-il une porte à l'entrée de l'établissement&nbsp;?"),
         "help_text_ui": "Présence d'une porte à l'entrée de l'établissement",
         "help_text_ui_neg": "Pas de porte à l'entrée de l'établissement",
         "choices": BOOLEAN_CHOICES,
@@ -765,9 +738,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
-        "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"),
         "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "help_text_ui_neg": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
@@ -795,9 +766,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe(
-            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
-        ),
+        "help_text": mark_safe("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"),
         "help_text_ui": "L'escalier est équipé d'une ou plusieurs main-courantes",
         "help_text_ui_neg": "L'escalier n'est pas équipé de main-courante",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -810,9 +779,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
-        "help_text": mark_safe(
-            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
-        ),
+        "help_text": mark_safe("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
         "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
@@ -840,9 +807,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Type de dispositif d'appel à l'entrée",
-        "help_text": mark_safe(
-            "Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel(s) type(s) de dispositifs d'appel sont présents&nbsp;?"),
         "help_text_ui": "Dispositifs d'appels présents",
         "help_text_ui_neg": "Dispositifs d'appels présents",
         "choices": DISPOSITIFS_APPEL_CHOICES,
@@ -870,9 +835,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Aide humaine",
-        "help_text": mark_safe(
-            "Présence ou possibilité d'une aide humaine au déplacement"
-        ),
+        "help_text": mark_safe("Présence ou possibilité d'une aide humaine au déplacement"),
         "help_text_ui": "Possibilité d'une aide humaine au déplacement",
         "help_text_ui_neg": "Pas de possibilité d'aide humaine au déplacement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -916,9 +879,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Informations complémentaires concernant l'entrée PMR",
-        "help_text": mark_safe(
-            "Précisions sur les modalités d'accès de l'entrée spécifique PMR"
-        ),
+        "help_text": mark_safe("Précisions sur les modalités d'accès de l'entrée spécifique PMR"),
         "help_text_ui": "Précisions sur les modalités d'accès de l'entrée spécifique PMR",
         "help_text_ui_neg": "Précisions sur les modalités d'accès de l'entrée spécifique PMR",
         "choices": None,
@@ -992,9 +953,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sens de circulation de l'escalier",
-        "help_text": mark_safe(
-            "Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"
-        ),
+        "help_text": mark_safe("Quel est le sens de circulation des marches ou de l'escalier&nbsp;?"),
         "help_text_ui": "Sens de circulation des marches ou de l'escalier",
         "help_text_ui_neg": "Sens de circulation des marches ou de l'escalier",
         "choices": ESCALIER_SENS,
@@ -1022,9 +981,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Main courante",
-        "help_text": mark_safe(
-            "L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"
-        ),
+        "help_text": mark_safe("L'escalier est-il équipé d'une ou plusieurs main-courantes&nbsp;?"),
         "help_text_ui": "L'escalier est équipé d'une ou plusieurs main-courantes",
         "help_text_ui_neg": "L'escalier n'est pas équipé de main-courante",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -1037,9 +994,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Rampe",
-        "help_text": mark_safe(
-            "S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"
-        ),
+        "help_text": mark_safe("S'il existe une rampe ayant une pente douce, est-elle fixe ou amovible&nbsp;?"),
         "help_text_ui": "Présence d'une rampe fixe ou amovible",
         "help_text_ui_neg": "Pas de rampe fixe ou amovible",
         "choices": RAMPE_CHOICES,
@@ -1118,9 +1073,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires",
-        "help_text": mark_safe(
-            "Y a-t-il des sanitaires mis à disposition du public&nbsp;?"
-        ),
+        "help_text": mark_safe("Y a-t-il des sanitaires mis à disposition du public&nbsp;?"),
         "help_text_ui": "Des sanitaires sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Pas de sanitaires mis à disposition dans l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -1133,9 +1086,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": True,
         "label": "Sanitaires adaptés",
-        "help_text": mark_safe(
-            "Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"
-        ),
+        "help_text": mark_safe("Y a-t-il des sanitaires adaptés mis à disposition du public&nbsp;?"),
         "help_text_ui": "Des sanitaires adaptés sont mis à disposition dans l'établissement",
         "help_text_ui_neg": "Aucun sanitaire adapté mis à disposition dans l'établissement",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -1164,9 +1115,7 @@ FIELDS = {
         "nullable": False,
         "is_a11y": True,
         "label": "Famille(s) de handicap concernées(s)",
-        "help_text": mark_safe(
-            "Quelle(s) famille(s) de handicap sont couvertes par ces marques et labels&nbsp;?"
-        ),
+        "help_text": mark_safe("Quelle(s) famille(s) de handicap sont couvertes par ces marques et labels&nbsp;?"),
         "help_text_ui": "Famille(s) de handicap couverte(s) par ces marques ou labels",
         "help_text_ui_neg": "Famille(s) de handicap couverte(s) par ces marques ou labels",
         "choices": HANDICAP_CHOICES,
@@ -1193,9 +1142,7 @@ FIELDS = {
         "type": "string",
         "nullable": True,
         "is_a11y": False,
-        "label": mark_safe(
-            "<strong>Informations complémentaires et prestations spécifiques</strong>"
-        ),
+        "label": mark_safe("<strong>Informations complémentaires et prestations spécifiques</strong>"),
         "help_text": mark_safe(
             "Ajoutez ici toute information supplémentaire concernant l'accessibilité du bâtiment ou des prestations spécifiques proposées."
         ),
@@ -1231,9 +1178,7 @@ FIELDS = {
         "nullable": True,
         "is_a11y": False,
         "label": "Conformité",
-        "help_text": mark_safe(
-            "L'établissement est-il déclaré conforme ? (réservé à l'administration)"
-        ),
+        "help_text": mark_safe("L'établissement est-il déclaré conforme ? (réservé à l'administration)"),
         "help_text_ui": "L'établissement a été déclaré conforme à la réglementation",
         "help_text_ui_neg": "l'établissement n'a pas été déclaré conforme à la réglementation auprès de l'administration",
         "choices": NULLABLE_BOOLEAN_CHOICES,
@@ -1349,11 +1294,7 @@ def get_a11y_fields():
 def get_bdd_values(field):
     try:
         field = FIELDS.get(field)
-        return (
-            apps.get_model(*field.get("app_model"))
-            .objects.all()
-            .values_list(field.get("attribute"), flat=True)
-        )
+        return apps.get_model(*field.get("app_model")).objects.all().values_list(field.get("attribute"), flat=True)
     except AttributeError:
         return None
 
