@@ -15,9 +15,7 @@ def update_activite_position(apps, schema_editor):
 
 def add_activite_autre(apps, schema_editor):
     Activite = apps.get_model("erp", "Activite")
-    Activite.objects.create(
-        nom="Autre", vector_icon="building", position=get_last_position()
-    )
+    Activite.objects.create(nom="Autre", vector_icon="building", position=get_last_position())
 
 
 class Migration(migrations.Migration):

@@ -108,9 +108,7 @@ def test_contrib_start_global_search(client, mocker, akei_result, mairie_jacou_r
     assert response.context["results"] == [mairie_jacou_result, akei_result]
 
 
-def test_contrib_start_global_search_with_existing(
-    client, data, mocker, akei_result, mairie_jacou_result
-):
+def test_contrib_start_global_search_with_existing(client, data, mocker, akei_result, mairie_jacou_result):
     mocker.patch(
         "erp.provider.search.global_search",
         return_value=[mairie_jacou_result, akei_result],

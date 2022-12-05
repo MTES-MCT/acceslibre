@@ -67,10 +67,6 @@ def global_search(terms, code_insee):
     # Administration publique
     result_public = public_erp.search(terms, code_insee)
     for result in result_public:
-        result["exists"] = Erp.objects.find_by_source_id(
-            result["source"], result["source_id"]
-        ).first()
+        result["exists"] = Erp.objects.find_by_source_id(result["source"], result["source_id"]).first()
 
-    return sort_and_filter_results(
-        code_insee, result_public + result_ods + result_entreprises
-    )
+    return sort_and_filter_results(code_insee, result_public + result_ods + result_entreprises)

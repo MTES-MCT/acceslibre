@@ -33,8 +33,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=models.Index(
-                fields=["source", "source_id"], name="erp_erp_source_ca3d57_idx"
-            ),
+            index=models.Index(fields=["source", "source_id"], name="erp_erp_source_ca3d57_idx"),
         ),
     ]

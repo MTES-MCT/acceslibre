@@ -24,9 +24,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=models.Index(
-                fields=["commune", "activite_id"], name="erp_erp_commune_42668e_idx"
-            ),
+            index=models.Index(fields=["commune", "activite_id"], name="erp_erp_commune_42668e_idx"),
         ),
         migrations.AddIndex(
             model_name="label",

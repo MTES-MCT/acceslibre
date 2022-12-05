@@ -18,8 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="referer",
             name="domain",
-            field=models.URLField(
-                help_text="Domaine du site réutilisateur", unique=True
-            ),
+            field=models.URLField(help_text="Domaine du site réutilisateur", unique=True),
         ),
     ]

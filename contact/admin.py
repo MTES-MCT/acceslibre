@@ -38,9 +38,7 @@ class MessageAdmin(admin.ModelAdmin):
 
     def get_erp(self, obj):
         if obj.erp:
-            return mark_safe(
-                f'<a href="{obj.erp.get_absolute_url()}" target="_blank">{obj.erp}</a>'
-            )
+            return mark_safe(f'<a href="{obj.erp.get_absolute_url()}" target="_blank">{obj.erp}</a>')
         return ""
 
     get_erp.short_description = "ERP"

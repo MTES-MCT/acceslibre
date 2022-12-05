@@ -180,20 +180,14 @@ class GenericMapper:
             erp_basic_fields = {k: v for k, v in record.items() if k in self.erp_fields}
             erp_basic_fields["nom"] = record.get("name")
             erp_basic_fields["geom"] = self._import_coordinates(erp_basic_fields)
-            erp_basic_fields["activite"] = Activite.objects.get(
-                nom__iexact=erp_basic_fields["activite"]
-            )
-            erp_basic_fields["code_insee"] = self._handle_5digits_code(
-                erp_basic_fields, erp_basic_fields["code_insee"]
-            )
+            erp_basic_fields["activite"] = Activite.objects.get(nom__iexact=erp_basic_fields["activite"])
+            erp_basic_fields["code_insee"] = self._handle_5digits_code(erp_basic_fields, erp_basic_fields["code_insee"])
             erp_basic_fields["code_postal"] = self._handle_5digits_code(
                 erp_basic_fields, erp_basic_fields["postal_code"]
             )
             return erp_basic_fields
         except KeyError as key:
-            raise RuntimeError(
-                f"Impossible d'extraire des données: champ {key} manquant"
-            )
+            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
         except Activite.DoesNotExist:
             raise Exception(f"{erp_basic_fields['activite']}")
 
@@ -204,17 +198,11 @@ class GenericMapper:
             if not commune_ext:
                 arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
                 if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
+                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
         elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[self.erp.code_postal]
-            ).first()
+            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
         else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
-            )
+            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
 
         if not commune_ext:
             raise RuntimeError(
@@ -252,9 +240,7 @@ class GenericMapper:
 
     def _build_a11y(self, erp, data):
         accessibility_fields = {
-            k: self._get_typed_value(k, v)
-            for k, v in data.items()
-            if k in self.accessibility_fields
+            k: self._get_typed_value(k, v) for k, v in data.items() if k in self.accessibility_fields
         }
         return Accessibilite(erp=erp, **accessibility_fields)
 

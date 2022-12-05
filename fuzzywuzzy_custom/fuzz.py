@@ -9,9 +9,7 @@ try:
     from .StringMatcher import StringMatcher as SequenceMatcher
 except ImportError:
     if platform.python_implementation() != "PyPy":
-        warnings.warn(
-            "Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning"
-        )
+        warnings.warn("Using slow pure-python SequenceMatcher. Install python-Levenshtein to remove this warning")
     from difflib import SequenceMatcher
 
 from . import utils
@@ -106,18 +104,14 @@ def token_sort_ratio(s1, s2, force_ascii=True, full_process=True):
     """Return a measure of the sequences' similarity between 0 and 100
     but sorting the token before comparing.
     """
-    return _token_sort(
-        s1, s2, partial=False, force_ascii=force_ascii, full_process=full_process
-    )
+    return _token_sort(s1, s2, partial=False, force_ascii=force_ascii, full_process=full_process)
 
 
 def partial_token_sort_ratio(s1, s2, force_ascii=True, full_process=True):
     """Return the ratio of the most similar substring as a number between
     0 and 100 but sorting the token before comparing.
     """
-    return _token_sort(
-        s1, s2, partial=True, force_ascii=force_ascii, full_process=full_process
-    )
+    return _token_sort(s1, s2, partial=True, force_ascii=force_ascii, full_process=full_process)
 
 
 @utils.check_for_none
@@ -174,15 +168,11 @@ def _token_set(s1, s2, partial=True, force_ascii=True, full_process=True):
 
 
 def token_set_ratio(s1, s2, force_ascii=True, full_process=True):
-    return _token_set(
-        s1, s2, partial=False, force_ascii=force_ascii, full_process=full_process
-    )
+    return _token_set(s1, s2, partial=False, force_ascii=force_ascii, full_process=full_process)
 
 
 def partial_token_set_ratio(s1, s2, force_ascii=True, full_process=True):
-    return _token_set(
-        s1, s2, partial=True, force_ascii=force_ascii, full_process=full_process
-    )
+    return _token_set(s1, s2, partial=True, force_ascii=force_ascii, full_process=full_process)
 
 
 ###################
@@ -298,16 +288,8 @@ def WRatio(s1, s2, force_ascii=True, full_process=True):
 
     if try_partial:
         partial = partial_ratio(p1, p2) * partial_scale
-        ptsor = (
-            partial_token_sort_ratio(p1, p2, full_process=False)
-            * unbase_scale
-            * partial_scale
-        )
-        ptser = (
-            partial_token_set_ratio(p1, p2, full_process=False)
-            * unbase_scale
-            * partial_scale
-        )
+        ptsor = partial_token_sort_ratio(p1, p2, full_process=False) * unbase_scale * partial_scale
+        ptser = partial_token_set_ratio(p1, p2, full_process=False) * unbase_scale * partial_scale
 
         return utils.intr(max(base, partial, ptsor, ptser))
     else:

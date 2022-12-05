@@ -30,14 +30,10 @@ def migrate_cheminement_types(apps, schema_editor):
     for cheminement in Cheminement.objects.all():
         if cheminement.type == "int_entree_batiment_vers_accueil":
             cheminement.type = "int"
-            cheminement.nom = (
-                "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil"
-            )
+            cheminement.nom = "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil"
         elif cheminement.type == "ext_stationnement_vers_entree":
             cheminement.type = "ext"
-            cheminement.nom = (
-                "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée"
-            )
+            cheminement.nom = "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée"
         elif cheminement.type == "ext_entree_parcelle_entree_vers_batiment":
             cheminement.type = "ext"
             cheminement.nom = "Cheminement extérieur de l'entrée de la parcelle de terrain à l'entrée du bâtiment"
@@ -87,9 +83,7 @@ def prepare_equipements_data(apps, schema_editor):
     # ['Aucun', 'Autres', 'BIM', 'LSF', 'Service de communication à distance']
     Accessibilite = apps.get_model("erp", "Accessibilite")
     for a in Accessibilite.objects.all():
-        existing = [
-            eq["nom"] for eq in a.accueil_equipements_malentendants.values("nom")
-        ]
+        existing = [eq["nom"] for eq in a.accueil_equipements_malentendants.values("nom")]
         to_add = []
         if "Aucun" in existing:
             to_add.append("aucun")
@@ -133,9 +127,7 @@ def migrate_sources(apps, schema_editor):
 
 def migrate_equipement_choices(apps, schema_editor):
     Accessibilite = apps.get_model("erp", "Accessibilite")
-    to_be_updated = Accessibilite.objects.filter(
-        accueil_equipements_malentendants__contains=["aucun"]
-    )
+    to_be_updated = Accessibilite.objects.filter(accueil_equipements_malentendants__contains=["aucun"])
     for accessibilite in to_be_updated:
         accessibilite.accueil_equipements_malentendants = [
             x for x in accessibilite.accueil_equipements_malentendants if x != "aucun"
@@ -222,9 +214,7 @@ def update_erp_accueil_equipements_malentendants(apps, schema_editor):
 def reset_user(apps, schema_editor):
     count = 0
     Erp = apps.get_model("erp", "Erp")
-    qs = Erp.objects.filter(
-        updated_at__gte=datetime.date(2022, 7, 5), accessibilite__isnull=False
-    )
+    qs = Erp.objects.filter(updated_at__gte=datetime.date(2022, 7, 5), accessibilite__isnull=False)
     print(f"{ qs.count()} erps sur la période")
     for erp in qs:
         try:
@@ -232,9 +222,7 @@ def reset_user(apps, schema_editor):
                 if erp.get_first_user() is None and erp.user is not None:
                     pass
                 else:
-                    print(
-                        f"{erp.pk} Changement de contributeur : {erp.user} -> {erp.get_first_user()}"
-                    )
+                    print(f"{erp.pk} Changement de contributeur : {erp.user} -> {erp.get_first_user()}")
                     erp.user = erp.get_first_user()
                     erp.save()
                     count += 1
@@ -253,9 +241,7 @@ def update_activite_position(apps, schema_editor):
 
 def add_activite_autre(apps, schema_editor):
     Activite = apps.get_model("erp", "Activite")
-    Activite.objects.create(
-        nom="Autre", vector_icon="building", position=get_last_position()
-    )
+    Activite.objects.create(nom="Autre", vector_icon="building", position=get_last_position())
 
 
 def reorder(apps, schema_editor):
@@ -439,21 +425,15 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "nom",
-                    models.CharField(
-                        help_text="Nom de l'activité", max_length=255, unique=True
-                    ),
+                    models.CharField(help_text="Nom de l'activité", max_length=255, unique=True),
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
             ],
             options={
@@ -476,21 +456,15 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "nom",
-                    models.CharField(
-                        help_text="Nom du label", max_length=255, unique=True
-                    ),
+                    models.CharField(help_text="Nom du label", max_length=255, unique=True),
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
             ],
             options={
@@ -540,15 +514,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "voie",
-                    models.CharField(
-                        blank=True, help_text="Voie", max_length=255, null=True
-                    ),
+                    models.CharField(blank=True, help_text="Voie", max_length=255, null=True),
                 ),
                 (
                     "lieu_dit",
-                    models.CharField(
-                        blank=True, help_text="Lieu dit", max_length=255, null=True
-                    ),
+                    models.CharField(blank=True, help_text="Lieu dit", max_length=255, null=True),
                 ),
                 (
                     "code_postal",
@@ -560,9 +530,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "code_insee",
-                    models.CharField(
-                        blank=True, help_text="Code INSEE", max_length=5, null=True
-                    ),
+                    models.CharField(blank=True, help_text="Code INSEE", max_length=5, null=True),
                 ),
                 (
                     "activite",
@@ -577,15 +545,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
                 (
                     "geom",
@@ -626,9 +590,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "search_vector",
-                    django.contrib.postgres.search.SearchVectorField(
-                        null=True, verbose_name="Search vector"
-                    ),
+                    django.contrib.postgres.search.SearchVectorField(null=True, verbose_name="Search vector"),
                 ),
             ],
             options={
@@ -651,21 +613,15 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "nom",
-                    models.CharField(
-                        help_text="Nom de l'équipement", max_length=255, unique=True
-                    ),
+                    models.CharField(help_text="Nom de l'équipement", max_length=255, unique=True),
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
             ],
             options={
@@ -751,15 +707,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
                 (
                     "labels",
@@ -1127,17 +1079,13 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=django.contrib.postgres.indexes.GinIndex(
-                fields=["search_vector"], name="erp_erp_search__717de3_gin"
-            ),
+            index=django.contrib.postgres.indexes.GinIndex(fields=["search_vector"], name="erp_erp_search__717de3_gin"),
         ),
         django.contrib.postgres.operations.TrigramExtension(),
         django.contrib.postgres.operations.UnaccentExtension(),
         migrations.AddIndex(
             model_name="erp",
-            index=django.contrib.postgres.indexes.GinIndex(
-                fields=["nom"], name="nom_trgm", opclasses=["gin_trgm_ops"]
-            ),
+            index=django.contrib.postgres.indexes.GinIndex(fields=["nom"], name="nom_trgm", opclasses=["gin_trgm_ops"]),
         ),
         migrations.AddField(
             model_name="activite",
@@ -2031,9 +1979,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=models.Index(
-                fields=["commune", "activite_id"], name="erp_erp_commune_42668e_idx"
-            ),
+            index=models.Index(fields=["commune", "activite_id"], name="erp_erp_commune_42668e_idx"),
         ),
         migrations.AddIndex(
             model_name="label",
@@ -2842,9 +2788,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="accueil_cheminement_nombre_marches",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Nombre de marches"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Nombre de marches"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3011,9 +2955,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="cheminement_ext_nombre_marches",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Nombre de marches"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Nombre de marches"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3104,9 +3046,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="commentaire",
-            field=models.TextField(
-                blank=True, max_length=1000, null=True, verbose_name="Commentaire libre"
-            ),
+            field=models.TextField(blank=True, max_length=1000, null=True, verbose_name="Commentaire libre"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3151,16 +3091,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="entree_largeur_mini",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Largeur minimale"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Largeur minimale"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
             name="entree_marches",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Marches d'escalier"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Marches d'escalier"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3277,16 +3213,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="labels",
-            field=models.ManyToManyField(
-                blank=True, to="erp.Label", verbose_name="Marques ou labels"
-            ),
+            field=models.ManyToManyField(blank=True, to="erp.Label", verbose_name="Marques ou labels"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
             name="labels_autre",
-            field=models.CharField(
-                blank=True, max_length=255, null=True, verbose_name="Autre label"
-            ),
+            field=models.CharField(blank=True, max_length=255, null=True, verbose_name="Autre label"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3312,9 +3244,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="sanitaires_adaptes",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Nombre de sanitaires adaptés"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Nombre de sanitaires adaptés"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3425,9 +3355,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=models.Index(
-                fields=["source", "source_id"], name="erp_erp_source_ca3d57_idx"
-            ),
+            index=models.Index(fields=["source", "source_id"], name="erp_erp_source_ca3d57_idx"),
         ),
         migrations.AddField(
             model_name="erp",
@@ -3481,16 +3409,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="accessibilite",
             name="conformite_adap_fin",
-            field=models.DateField(
-                blank=True, null=True, verbose_name="Date de fin Ad'AP"
-            ),
+            field=models.DateField(blank=True, null=True, verbose_name="Date de fin Ad'AP"),
         ),
         migrations.AddField(
             model_name="accessibilite",
             name="registre_url",
-            field=models.URLField(
-                blank=True, max_length=255, null=True, verbose_name="URL du registre"
-            ),
+            field=models.URLField(blank=True, max_length=255, null=True, verbose_name="URL du registre"),
         ),
         migrations.AddField(
             model_name="accessibilite",
@@ -3542,15 +3466,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
                 (
                     "erp",
@@ -3576,15 +3496,11 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="vote",
-            index=models.Index(
-                fields=["erp", "value"], name="erp_vote_erp_id_1853cc_idx"
-            ),
+            index=models.Index(fields=["erp", "value"], name="erp_vote_erp_id_1853cc_idx"),
         ),
         migrations.AddIndex(
             model_name="vote",
-            index=models.Index(
-                fields=["erp", "user", "value"], name="erp_vote_erp_id_108b22_idx"
-            ),
+            index=models.Index(fields=["erp", "user", "value"], name="erp_vote_erp_id_108b22_idx"),
         ),
         migrations.AlterUniqueTogether(
             name="vote",
@@ -3633,9 +3549,7 @@ class Migration(migrations.Migration):
                 ("active", models.BooleanField(verbose_name="Toujours en activité")),
                 (
                     "last_checked",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière vérification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière vérification"),
                 ),
                 (
                     "erp",
@@ -3795,27 +3709,19 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["code_insee"], name="erp_commune_code_in_72a230_idx"
-            ),
+            index=models.Index(fields=["code_insee"], name="erp_commune_code_in_72a230_idx"),
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["departement"], name="erp_commune_departe_a4b660_idx"
-            ),
+            index=models.Index(fields=["departement"], name="erp_commune_departe_a4b660_idx"),
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["nom", "departement"], name="erp_commune_nom_2d2fc5_idx"
-            ),
+            index=models.Index(fields=["nom", "departement"], name="erp_commune_nom_2d2fc5_idx"),
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["nom", "code_postaux"], name="erp_commune_nom_b18548_idx"
-            ),
+            index=models.Index(fields=["nom", "code_postaux"], name="erp_commune_nom_b18548_idx"),
         ),
         migrations.AddField(
             model_name="activite",
@@ -3832,9 +3738,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="statuscheck",
             name="non_diffusable",
-            field=models.BooleanField(
-                default=False, verbose_name="Données SIRENE non diffusables"
-            ),
+            field=models.BooleanField(default=False, verbose_name="Données SIRENE non diffusables"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -3980,9 +3884,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=django.contrib.postgres.indexes.GinIndex(
-                fields=["metadata"], name="gin_metadata"
-            ),
+            index=django.contrib.postgres.indexes.GinIndex(fields=["metadata"], name="gin_metadata"),
         ),
         migrations.AlterField(
             model_name="erp",
@@ -4420,9 +4322,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["arrondissement"], name="erp_commune_arrondi_d4ff5c_idx"
-            ),
+            index=models.Index(fields=["arrondissement"], name="erp_commune_arrondi_d4ff5c_idx"),
         ),
         migrations.AddField(
             model_name="commune",
@@ -4435,9 +4335,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["obsolete"], name="erp_commune_obsolet_cd7260_idx"
-            ),
+            index=models.Index(fields=["obsolete"], name="erp_commune_obsolet_cd7260_idx"),
         ),
         migrations.AddIndex(
             model_name="commune",
@@ -4509,9 +4407,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="activite",
             name="position",
-            field=models.PositiveSmallIntegerField(
-                default=0, verbose_name="Position dans la liste"
-            ),
+            field=models.PositiveSmallIntegerField(default=0, verbose_name="Position dans la liste"),
         ),
         migrations.AlterField(
             model_name="accessibilite",

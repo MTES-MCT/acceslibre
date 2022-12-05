@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddIndex(
             model_name="erp",
-            index=django.contrib.postgres.indexes.GinIndex(
-                fields=["nom"], name="nom_trgm", opclasses=["gin_trgm_ops"]
-            ),
+            index=django.contrib.postgres.indexes.GinIndex(fields=["nom"], name="nom_trgm", opclasses=["gin_trgm_ops"]),
         ),
     ]

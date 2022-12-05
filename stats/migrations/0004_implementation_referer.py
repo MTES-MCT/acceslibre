@@ -46,15 +46,11 @@ class Migration(migrations.Migration):
                 ("urlpath", models.URLField(help_text="Url complète")),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de détection de tracking"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de détection de tracking"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Date de dernier contact"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Date de dernier contact"),
                 ),
                 (
                     "referer",

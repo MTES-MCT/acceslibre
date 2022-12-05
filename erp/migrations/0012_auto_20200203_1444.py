@@ -19,30 +19,22 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="created_at",
-            field=models.DateTimeField(
-                auto_now_add=True, verbose_name="Date de création"
-            ),
+            field=models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
             name="updated_at",
-            field=models.DateTimeField(
-                auto_now=True, verbose_name="Dernière modification"
-            ),
+            field=models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
         ),
         migrations.AlterField(
             model_name="activite",
             name="created_at",
-            field=models.DateTimeField(
-                auto_now_add=True, verbose_name="Date de création"
-            ),
+            field=models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
         ),
         migrations.AlterField(
             model_name="activite",
             name="updated_at",
-            field=models.DateTimeField(
-                auto_now=True, verbose_name="Dernière modification"
-            ),
+            field=models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
         ),
         migrations.AlterField(
             model_name="circulation",
@@ -130,9 +122,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="erp",
             name="created_at",
-            field=models.DateTimeField(
-                auto_now_add=True, verbose_name="Date de création"
-            ),
+            field=models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
         ),
         migrations.AlterField(
             model_name="erp",
@@ -170,22 +160,16 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="erp",
             name="updated_at",
-            field=models.DateTimeField(
-                auto_now=True, verbose_name="Dernière modification"
-            ),
+            field=models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
         ),
         migrations.AlterField(
             model_name="label",
             name="created_at",
-            field=models.DateTimeField(
-                auto_now_add=True, verbose_name="Date de création"
-            ),
+            field=models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
         ),
         migrations.AlterField(
             model_name="label",
             name="updated_at",
-            field=models.DateTimeField(
-                auto_now=True, verbose_name="Dernière modification"
-            ),
+            field=models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
         ),
     ]

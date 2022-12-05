@@ -89,9 +89,7 @@ class Command(BaseCommand):
 
     def get_contour(self, code_insee):
         try:
-            res = requests.get(
-                f"https://geo.api.gouv.fr/communes/{code_insee}?fields=contour&format=json"
-            )
+            res = requests.get(f"https://geo.api.gouv.fr/communes/{code_insee}?fields=contour&format=json")
             res.raise_for_status()
             return res.json()["contour"]
         except (KeyError, json.JSONDecodeError):
@@ -107,9 +105,7 @@ class Command(BaseCommand):
 
     def print_report(self):
         self.print_report_section("Non-existent", self.report[TYPE_OBSOLETE])
-        self.print_report_section(
-            "Non-existent with ERPs attached", self.report[TYPE_OBSOLETE_NONEMPTY]
-        )
+        self.print_report_section("Non-existent with ERPs attached", self.report[TYPE_OBSOLETE_NONEMPTY])
         self.print_report_section("Errors", self.report[TYPE_ERROR])
         print("\nDone.")
 

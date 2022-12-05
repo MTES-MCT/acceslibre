@@ -22,16 +22,10 @@ class ContactForm(forms.ModelForm):
         }
 
     # hide relations
-    user = forms.ModelChoiceField(
-        queryset=get_user_model().objects, widget=forms.HiddenInput, required=False
-    )
-    erp = forms.ModelChoiceField(
-        queryset=Erp.objects, widget=forms.HiddenInput, required=False
-    )
+    user = forms.ModelChoiceField(queryset=get_user_model().objects, widget=forms.HiddenInput, required=False)
+    erp = forms.ModelChoiceField(queryset=Erp.objects, widget=forms.HiddenInput, required=False)
 
-    email = forms.EmailField(
-        error_messages={"invalid": "Format de l'email attendu : nom@domaine.tld"}
-    )
+    email = forms.EmailField(error_messages={"invalid": "Format de l'email attendu : nom@domaine.tld"})
 
     # form specific fields
     next = forms.CharField(required=False, widget=forms.HiddenInput)
@@ -49,9 +43,7 @@ class ContactForm(forms.ModelForm):
         # prefill initial form data
         user = request.user
         if user.is_authenticated:
-            initial["name"] = (
-                f"{user.first_name} {user.last_name}".strip() or f"{user.username}"
-            )
+            initial["name"] = f"{user.first_name} {user.last_name}".strip() or f"{user.username}"
             initial["email"] = user.email
             initial["user"] = user
 
@@ -62,7 +54,5 @@ class ContactForm(forms.ModelForm):
     def clean_robot(self):
         robot = self.cleaned_data.get("robot", True)
         if not robot:
-            raise ValidationError(
-                mark_safe("Cochez cette case pour soumettre le formulaire.")
-            )
+            raise ValidationError(mark_safe("Cochez cette case pour soumettre le formulaire."))
         return robot

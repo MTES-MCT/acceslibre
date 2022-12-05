@@ -47,9 +47,7 @@ urlpatterns = [
     ),
     path(
         "partenaires",
-        cache_editorial_page(
-            "editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}
-        ),
+        cache_editorial_page("editorial/partenaires.html", context={"partenaires": schema.PARTENAIRES}),
         name="partenaires",
     ),
     # Challenge DDT mars 2022

@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="statuscheck",
             name="non_diffusable",
-            field=models.BooleanField(
-                default=False, verbose_name="Données SIRENE non diffusables"
-            ),
+            field=models.BooleanField(default=False, verbose_name="Données SIRENE non diffusables"),
         ),
     ]

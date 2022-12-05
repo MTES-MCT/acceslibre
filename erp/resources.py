@@ -5,9 +5,7 @@ from .schema import get_a11y_fields
 
 VILLES_CIBLES = ["rueil-malmaison", "courbevoie", "lorient"]
 
-accessibility_fields = [
-    f"accessibilite__{fieldname}" for fieldname in get_a11y_fields()
-]
+accessibility_fields = [f"accessibilite__{fieldname}" for fieldname in get_a11y_fields()]
 
 
 class ErpAdminResource(resources.ModelResource):

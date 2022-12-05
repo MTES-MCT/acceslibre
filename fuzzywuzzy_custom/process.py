@@ -12,9 +12,7 @@ default_scorer = fuzz.WRatio
 default_processor = utils.full_process
 
 
-def extractWithoutOrder(
-    query, choices, processor=default_processor, scorer=default_scorer, score_cutoff=0
-):
+def extractWithoutOrder(query, choices, processor=default_processor, scorer=default_scorer, score_cutoff=0):
     """Select the best match in a list or dictionary of choices.
 
     Find best matches in a list or dictionary of choices, return a
@@ -136,9 +134,7 @@ def extractWithoutOrder(
                 yield (choice, score)
 
 
-def extract(
-    query, choices, processor=default_processor, scorer=default_scorer, limit=5
-):
+def extract(query, choices, processor=default_processor, scorer=default_scorer, limit=5):
     """Select the best match in a list or dictionary of choices.
 
     Find best matches in a list or dictionary of choices, return a
@@ -226,9 +222,7 @@ def extractBests(
     )
 
 
-def extractOne(
-    query, choices, processor=default_processor, scorer=default_scorer, score_cutoff=0
-):
+def extractOne(query, choices, processor=default_processor, scorer=default_scorer, score_cutoff=0):
     """Find the single best match above a score in a list of choices.
 
     This is a convenience method which returns the single best choice.

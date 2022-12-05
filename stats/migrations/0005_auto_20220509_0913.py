@@ -21,8 +21,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="referer",
             name="date_notification_to_mattermost",
-            field=models.DateTimeField(
-                null=True, verbose_name="Date de notification sur Mattermost ?"
-            ),
+            field=models.DateTimeField(null=True, verbose_name="Date de notification sur Mattermost ?"),
         ),
     ]

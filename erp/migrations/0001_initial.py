@@ -124,15 +124,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "duree",
-                    models.IntegerField(
-                        blank=True, help_text="Durée d’Ad’AP en mois", null=True
-                    ),
+                    models.IntegerField(blank=True, help_text="Durée d’Ad’AP en mois", null=True),
                 ),
                 (
                     "siret",
-                    models.CharField(
-                        blank=True, help_text="Numéro SIRET", max_length=255, null=True
-                    ),
+                    models.CharField(blank=True, help_text="Numéro SIRET", max_length=255, null=True),
                 ),
                 (
                     "adresse",
@@ -164,9 +160,7 @@ class Migration(migrations.Migration):
                 ("voie", models.CharField(help_text="Voie", max_length=255)),
                 (
                     "lieu_dit",
-                    models.CharField(
-                        blank=True, help_text="Lieu dit", max_length=255, null=True
-                    ),
+                    models.CharField(blank=True, help_text="Lieu dit", max_length=255, null=True),
                 ),
                 ("cpost", models.CharField(help_text="Code postal", max_length=10)),
                 (
@@ -175,21 +169,15 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "code_insee",
-                    models.CharField(
-                        blank=True, help_text="Code INSEE", max_length=10, null=True
-                    ),
+                    models.CharField(blank=True, help_text="Code INSEE", max_length=10, null=True),
                 ),
                 (
                     "precision",
-                    models.FloatField(
-                        blank=True, help_text="Précision (géographique ?)", null=True
-                    ),
+                    models.FloatField(blank=True, help_text="Précision (géographique ?)", null=True),
                 ),
                 (
                     "derog",
-                    models.BooleanField(
-                        blank=True, help_text="Dérogation existante sur ERP", null=True
-                    ),
+                    models.BooleanField(blank=True, help_text="Dérogation existante sur ERP", null=True),
                 ),
                 (
                     "objet_dero",

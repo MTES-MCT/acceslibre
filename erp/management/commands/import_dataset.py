@@ -51,9 +51,7 @@ class Command(BaseCommand):
             attachements=[
                 {
                     "pretext": "Détail des erreurs",
-                    "text": to_text_list(results["errors"])
-                    if results["errors"]
-                    else "Aucune erreur rencontrée",
+                    "text": to_text_list(results["errors"]) if results["errors"] else "Aucune erreur rencontrée",
                 }
             ],
             tags=[__name__],

@@ -72,9 +72,7 @@ def test_horaires_missing(mapper, gendarmeries_valid):
     assert "Horaires d'accueil" not in erp.accessibilite.commentaire
 
 
-def test_unpublish_preexisting_duplicate_import(
-    mapper, activite_gendarmerie, gendarmeries_valid
-):
+def test_unpublish_preexisting_duplicate_import(mapper, activite_gendarmerie, gendarmeries_valid):
     # create two duplicates
     preexisting = Erp.objects.create(
         nom="preexisting",

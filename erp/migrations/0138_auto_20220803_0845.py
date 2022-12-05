@@ -13,9 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="activite",
             name="position",
-            field=models.PositiveSmallIntegerField(
-                default=0, verbose_name="Position dans la liste"
-            ),
+            field=models.PositiveSmallIntegerField(default=0, verbose_name="Position dans la liste"),
         ),
         migrations.AlterField(
             model_name="accessibilite",

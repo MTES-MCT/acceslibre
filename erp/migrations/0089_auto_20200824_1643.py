@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="statuscheck",
             name="last_checked",
-            field=models.DateTimeField(
-                auto_now=True, verbose_name="Dernière vérification"
-            ),
+            field=models.DateTimeField(auto_now=True, verbose_name="Dernière vérification"),
         ),
     ]

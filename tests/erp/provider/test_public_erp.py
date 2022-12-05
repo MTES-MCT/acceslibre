@@ -9,10 +9,7 @@ from erp.provider import public_erp
 
 def test_find_public_types_simple():
     assert public_erp.find_public_types("dlfhsdjhfsjh") == []
-    assert (
-        public_erp.find_public_types("Commissariat de police")[0]
-        == "commissariat_police"
-    )
+    assert public_erp.find_public_types("Commissariat de police")[0] == "commissariat_police"
     assert public_erp.find_public_types("commissariat")[0] == "commissariat_police"
     assert public_erp.find_public_types("maison du handicap")[0] == "maison_handicapees"
     assert public_erp.find_public_types("MDPH hérault")[0] == "maison_handicapees"
@@ -20,10 +17,7 @@ def test_find_public_types_simple():
     assert public_erp.find_public_types("ASSEDIC castelnau le lez")[0] == "pole_emploi"
     assert public_erp.find_public_types("préfécture à paris")[0] == "prefecture"
     assert public_erp.find_public_types("sous prefecture")[0] == "sous_pref"
-    assert (
-        public_erp.find_public_types("accompagnement gériatrie")[0]
-        == "accompagnement_personnes_agees"
-    )
+    assert public_erp.find_public_types("accompagnement gériatrie")[0] == "accompagnement_personnes_agees"
 
     assert public_erp.find_public_types("information logement")[0] == "adil"
     assert public_erp.find_public_types("formation pro")[0] == "afpa"
@@ -113,9 +107,7 @@ def test_parse_etablissement_jacou(data, activite_mairie):
     }
 
 
-def test_parse_etablissement_gendarmerie_castelnau(
-    data, commune_castelnau, activite_administration_publique
-):
+def test_parse_etablissement_gendarmerie_castelnau(data, commune_castelnau, activite_administration_publique):
     json_feature = json.loads(
         """
         {
@@ -231,9 +223,7 @@ def test_parse_etablissement_montreuil(data, commune_montreuil, activite_mairie)
     }
 
 
-def test_parse_prefecture_montpellier(
-    data, commune_montpellier, activite_administration_publique
-):
+def test_parse_prefecture_montpellier(data, commune_montpellier, activite_administration_publique):
     json_feature = json.loads(
         """
         {

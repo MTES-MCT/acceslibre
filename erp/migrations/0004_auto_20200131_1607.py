@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="activite",
             name="nom",
-            field=models.CharField(
-                help_text="Nom de l'activité", max_length=255, unique=True
-            ),
+            field=models.CharField(help_text="Nom de l'activité", max_length=255, unique=True),
         ),
     ]

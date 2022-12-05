@@ -18,24 +18,20 @@ class TrackStatsWidget:
         ):
 
             try:
-                referer, created = Referer.objects.update_or_create(
-                    domain=request.headers.get("Origin")
-                )
+                referer, created = Referer.objects.update_or_create(domain=request.headers.get("Origin"))
             except Referer.MultipleObjectsReturned:
                 qs = Referer.objects.filter(domain=request.headers.get("Origin"))
                 last_referer = qs.last()
                 qs.exclude(id=last_referer.id).delete()
             try:
                 Implementation.objects.update_or_create(
-                    urlpath=request.headers.get("X-Originurl")
-                    or request.headers.get("Origin"),
+                    urlpath=request.headers.get("X-Originurl") or request.headers.get("Origin"),
                     referer=referer,
                 )
             except Implementation.MultipleObjectsReturned:
                 qs = Implementation.objects.filter(
                     referer=referer,
-                    urlpath=request.headers.get("X-Originurl")
-                    or request.headers.get("Origin"),
+                    urlpath=request.headers.get("X-Originurl") or request.headers.get("Origin"),
                 )
                 last_implementation = qs.latest("updated_at")
                 qs.exclude(id=last_implementation.id).delete()

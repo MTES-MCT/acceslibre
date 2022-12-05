@@ -114,9 +114,7 @@ def test_skip_importing_reserve_pros(mapper, updates, neufchateau, sample_record
     "updates",
     [{"c_centre_fermeture": True}],
 )
-def test_skip_importing_reserve_public_restreint(
-    mapper, updates, neufchateau, sample_record_ok
-):
+def test_skip_importing_reserve_public_restreint(mapper, updates, neufchateau, sample_record_ok):
     sample_public_restreint = sample_record_ok.copy()
     sample_public_restreint["properties"].update(updates)
 
@@ -179,9 +177,7 @@ def test_skip_importing_en_attente(mapper, updates, neufchateau, sample_record_o
         {"c_nom": "XXX", "c_rdv_modalites": "réservé USMP"},
     ],
 )
-def test_skip_importing_etablissements_penitentiares(
-    mapper, updates, neufchateau, sample_record_ok
-):
+def test_skip_importing_etablissements_penitentiares(mapper, updates, neufchateau, sample_record_ok):
     sample_en_attente = sample_record_ok.copy()
     sample_en_attente["properties"].update(updates)
 
@@ -238,9 +234,7 @@ def test_save_non_existing_erp(mapper, neufchateau, sample_record_ok, activite_c
             "url_rdv": "https://partners.doctolib.fr/hopital-public/neufchateau/centre-de-vaccination-covid-neufchateau-et-vittel?speciality_id=5494&enable_cookies_consent=1",
         },
     }
-    assert (
-        "importées depuis data.gouv.fr le 01/01/2021" in erp.accessibilite.commentaire
-    )
+    assert "importées depuis data.gouv.fr le 01/01/2021" in erp.accessibilite.commentaire
 
 
 def test_update_existing_erp(mapper, neufchateau, sample_record_ok):

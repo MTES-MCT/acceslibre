@@ -18,8 +18,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=django.contrib.postgres.indexes.GinIndex(
-                fields=["metadata"], name="gin_metadata"
-            ),
+            index=django.contrib.postgres.indexes.GinIndex(fields=["metadata"], name="gin_metadata"),
         ),
     ]

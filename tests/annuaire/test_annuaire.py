@@ -13,18 +13,8 @@ def test_annuaire_home(data, client):
 
 
 def test_annuaire_departement(data, client):
-    assert (
-        client.get(
-            reverse("annuaire_departement", kwargs={"departement": "34"})
-        ).status_code
-        == 200
-    )
+    assert client.get(reverse("annuaire_departement", kwargs={"departement": "34"})).status_code == 200
 
 
 def test_annuaire_departement_missing(data, client):
-    assert (
-        client.get(
-            reverse("annuaire_departement", kwargs={"departement": "99999"})
-        ).status_code
-        == 404
-    )
+    assert client.get(reverse("annuaire_departement", kwargs={"departement": "99999"})).status_code == 404

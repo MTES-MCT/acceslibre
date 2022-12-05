@@ -59,9 +59,7 @@ def test_generate_error_file_with_KO_file():
     Generate Errors file : {self.generate_errors_file}
     """
     cm = Command()
-    call_command(
-        cm, file="data/tests/generic_test_failed.csv", generate_errors_file=True
-    )
+    call_command(cm, file="data/tests/generic_test_failed.csv", generate_errors_file=True)
 
     assert cm.generate_errors_file is True
     assert cm.error_file is not None

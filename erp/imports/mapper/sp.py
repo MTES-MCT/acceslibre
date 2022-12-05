@@ -15,9 +15,7 @@ class SPMapper:
 
     def process(self):
         try:
-            erp = Erp.objects.find_by_source_id(
-                Erp.SOURCE_SERVICE_PUBLIC, self.record["ancien_code_pivot"]
-            ).get()
+            erp = Erp.objects.find_by_source_id(Erp.SOURCE_SERVICE_PUBLIC, self.record["ancien_code_pivot"]).get()
         except Erp.DoesNotExist:
             return None, None
 

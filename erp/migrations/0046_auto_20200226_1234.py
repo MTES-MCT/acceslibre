@@ -8,14 +8,10 @@ def migrate_cheminement_types(apps, schema_editor):
     for cheminement in Cheminement.objects.all():
         if cheminement.type == "int_entree_batiment_vers_accueil":
             cheminement.type = "int"
-            cheminement.nom = (
-                "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil"
-            )
+            cheminement.nom = "Cheminement intérieur de l'entrée du bâtiment jusqu'à l'accueil"
         elif cheminement.type == "ext_stationnement_vers_entree":
             cheminement.type = "ext"
-            cheminement.nom = (
-                "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée"
-            )
+            cheminement.nom = "Cheminement extérieur de la place de stationnement de l'ERP à l'entrée"
         elif cheminement.type == "ext_entree_parcelle_entree_vers_batiment":
             cheminement.type = "ext"
             cheminement.nom = "Cheminement extérieur de l'entrée de la parcelle de terrain à l'entrée du bâtiment"

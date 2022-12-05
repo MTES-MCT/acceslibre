@@ -9,9 +9,7 @@ from django.db.migrations import RunPython
 def reset_user(apps, schema_editor):
     count = 0
     Erp = apps.get_model("erp", "Erp")
-    qs = Erp.objects.filter(
-        updated_at__gte=datetime.date(2022, 7, 5), accessibilite__isnull=False
-    )
+    qs = Erp.objects.filter(updated_at__gte=datetime.date(2022, 7, 5), accessibilite__isnull=False)
     print(f"{ qs.count()} erps sur la période")
     for erp in qs:
         try:
@@ -19,9 +17,7 @@ def reset_user(apps, schema_editor):
                 if erp.get_first_user() is None and erp.user is not None:
                     pass
                 else:
-                    print(
-                        f"{erp.pk} Changement de contributeur : {erp.user} -> {erp.get_first_user()}"
-                    )
+                    print(f"{erp.pk} Changement de contributeur : {erp.user} -> {erp.get_first_user()}")
                     erp.user = erp.get_first_user()
                     erp.save()
                     count += 1

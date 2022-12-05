@@ -9,11 +9,7 @@ class Command(BaseCommand):
 
     def migrate_erp(self, erp):
         communes = Commune.objects.filter(
-            Q(code_insee=erp.code_insee)
-            | (
-                Q(nom__unaccent=erp.commune)
-                & Q(code_postaux__contains=[erp.code_postal])
-            )
+            Q(code_insee=erp.code_insee) | (Q(nom__unaccent=erp.commune) & Q(code_postaux__contains=[erp.code_postal]))
         )
         if len(communes) == 0:
             print(f"SKIP not found: {erp.nom} à {erp.commune} ({erp.code_postal[:2]})")

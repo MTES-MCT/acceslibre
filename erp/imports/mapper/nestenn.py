@@ -45,9 +45,7 @@ class NestennMapper:
         erp = None
         # already imported erps
         if not erp:
-            erp = Erp.objects.find_by_source_id(
-                Erp.SOURCE_NESTENN, self.record["id"]
-            ).first()
+            erp = Erp.objects.find_by_source_id(Erp.SOURCE_NESTENN, self.record["id"]).first()
 
         # new erp
         if not erp:
@@ -126,9 +124,7 @@ class NestennMapper:
                 "contact_url": record["contact_url"],
             }
         except KeyError as key:
-            raise RuntimeError(
-                f"Impossible d'extraire des données: champ {key} manquant"
-            )
+            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"
@@ -137,17 +133,11 @@ class NestennMapper:
             if not commune_ext:
                 arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
                 if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
+                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
         elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[self.erp.code_postal]
-            ).first()
+            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
         else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
-            )
+            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
 
         if not commune_ext:
             raise RuntimeError(
@@ -172,15 +162,9 @@ class NestennMapper:
         data_a11y["stationnement_ext_presence"] = self._get_typed_value(
             data["transport_station_presence"], "nullboolean"
         )
-        data_a11y["entree_balise_sonore"] = self._get_typed_value(
-            data["transport_station_presence"], "nullboolean"
-        )
-        data_a11y["entree_aide_humaine"] = self._get_typed_value(
-            data["transport_station_presence"], "nullboolean"
-        )
-        data_a11y["entree_porte_presence"] = self._get_typed_value(
-            data["transport_station_presence"], "nullboolean"
-        )
+        data_a11y["entree_balise_sonore"] = self._get_typed_value(data["transport_station_presence"], "nullboolean")
+        data_a11y["entree_aide_humaine"] = self._get_typed_value(data["transport_station_presence"], "nullboolean")
+        data_a11y["entree_porte_presence"] = self._get_typed_value(data["transport_station_presence"], "nullboolean")
 
         data_a11y["commentaire"] = self._build_comment()
         return Accessibilite(erp=erp, **data_a11y)

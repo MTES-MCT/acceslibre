@@ -9,12 +9,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from core import mattermost
-from stats.queries import (
-    get_count_challenge,
-    get_erp_counts_histogram,
-    get_stats_territoires,
-    get_top_contributors,
-)
+from stats.queries import get_count_challenge, get_erp_counts_histogram, get_stats_territoires, get_top_contributors
 
 
 class GlobalStats(models.Model):
@@ -48,9 +43,7 @@ class GlobalStats(models.Model):
 class Challenge(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
 
-    created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, verbose_name="Créateur", on_delete=models.PROTECT
-    )
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="Créateur", on_delete=models.PROTECT)
     nom = models.CharField(max_length=255, help_text="Nom du challenge")
     accroche = models.TextField(null=True, blank=True)
     text_reserve = models.TextField(null=True, blank=True)
@@ -176,25 +169,18 @@ class Challenge(models.Model):
             ]
         elif self.nom == "Challenge de l’été beta.gouv":
             emails_players_list = (
-                get_user_model()
-                .objects.filter(email__contains="@beta.gouv.fr")
-                .values_list("email", flat=True)
+                get_user_model().objects.filter(email__contains="@beta.gouv.fr").values_list("email", flat=True)
             )
         elif self.pk == 3:  # Challenge Semaine du handicap à Antony
             emails_players_list = (
-                get_user_model()
-                .objects.filter(email__contains="@ville-antony.fr")
-                .values_list("email", flat=True)
+                get_user_model().objects.filter(email__contains="@ville-antony.fr").values_list("email", flat=True)
             )
         else:
             emails_players_list = self.players.all().values_list("email", flat=True)
 
-        classement, self.nb_erp_total_added = get_count_challenge(
-            self.start_date, self.end_date, emails_players_list
-        )
+        classement, self.nb_erp_total_added = get_count_challenge(self.start_date, self.end_date, emails_players_list)
         self.classement = [
-            {"username": user.username, "erp_count_published": user.erp_count_published}
-            for user in classement
+            {"username": user.username, "erp_count_published": user.erp_count_published} for user in classement
         ]
         self.save()
 
@@ -213,9 +199,7 @@ class ChallengePlayer(models.Model):
         on_delete=models.PROTECT,
         related_name="inscriptions",
     )
-    inscription_date = models.DateTimeField(
-        verbose_name="Date d'inscription", auto_now_add=True
-    )
+    inscription_date = models.DateTimeField(verbose_name="Date d'inscription", auto_now_add=True)
 
     class Meta:
         ordering = ("inscription_date",)
@@ -269,16 +253,10 @@ class Referer(models.Model):
 
 
 class Implementation(models.Model):
-    referer = models.ForeignKey(
-        Referer, on_delete=models.CASCADE, related_name="implementations"
-    )
+    referer = models.ForeignKey(Referer, on_delete=models.CASCADE, related_name="implementations")
     urlpath = models.URLField(help_text="Url complète", unique=True)
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de détection de tracking"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Date de dernier contact"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de détection de tracking")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Date de dernier contact")
 
     class Meta:
         ordering = ("-updated_at", "urlpath")

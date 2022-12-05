@@ -61,9 +61,7 @@ def test_unpublish_closed_erp(neufchateau, sample_record_ok, activite_cdv):
     assert erp.published is False
 
 
-def test_import_invalid_erp(
-    sample_record_ok, record_skippable, record_invalid_cp, activite_cdv, neufchateau
-):
+def test_import_invalid_erp(sample_record_ok, record_skippable, record_invalid_cp, activite_cdv, neufchateau):
     fetcher = FakeJsonFetcher([sample_record_ok, record_skippable, record_invalid_cp])
     today = datetime(2021, 1, 1)
     mapper = VaccinationMapper

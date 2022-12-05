@@ -38,9 +38,7 @@ def test_search_departement_score():
 
 
 def test_search_departement_exclude_stopword():
-    assert departements.search("territoire belfort") == [
-        departements.get_departement("90")
-    ]
+    assert departements.search("territoire belfort") == [departements.get_departement("90")]
 
 
 def test_search_departement_limit():
