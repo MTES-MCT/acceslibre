@@ -34,9 +34,7 @@ class Command(BaseCommand):
         # Fix me : replace by kill switch
         if not settings.STAGING:
             schedule.every(3).hours.do(call_command, "notify_changed_erps", hours=3)
-            schedule.every().thursday.at("14:30").do(
-                call_command, "notify_unpublished_erps"
-            )
+            schedule.every().thursday.at("14:30").do(call_command, "notify_unpublished_erps")
 
     def start(self):
         print("Scheduler started")
@@ -46,9 +44,13 @@ class Command(BaseCommand):
             except Exception as err:
                 trace = traceback.format_exc()
                 logger.error(err)
-                mattermost.send(
-                    f"Erreur d'exécution de la commande: {err}",
-                    attachements=[{"pretext": "Stack trace", "text": trace}],
-                    tags=[__name__],
-                )
+                try:
+                    mattermost.send(
+                        f"Erreur d'exécution de la commande: {err}",
+                        attachements=[{"pretext": "Stack trace", "text": trace}],
+                        tags=[__name__],
+                    )
+                except Exception:
+                    # silent error, already logged, here to prevent from breaking the while True loop
+                    pass
             time.sleep(1)
