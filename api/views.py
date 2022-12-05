@@ -10,11 +10,7 @@ from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from erp.provider import geocoder
 
-from .serializers import (
-    AccessibiliteSerializer,
-    ActiviteWithCountSerializer,
-    ErpSerializer,
-)
+from .serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpSerializer
 
 # Useful docs
 # - permissions: https://www.django-rest-framework.org/api-guide/permissions/#api-reference
@@ -141,11 +137,7 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     d'un objet *Erp*.**
     """
 
-    queryset = (
-        Accessibilite.objects.select_related("erp")
-        .filter(erp__published=True)
-        .order_by("-updated_at")
-    )
+    queryset = Accessibilite.objects.select_related("erp").filter(erp__published=True).order_by("-updated_at")
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
     pagination_class = AccessibilitePagination
@@ -223,6 +215,17 @@ class ActiviteViewSet(viewsets.ReadOnlyModelViewSet):
 class ErpPagination(PageNumberPagination):
     page_size = 20
 
+    def get_paginated_response(self, data):
+        return Response(
+            {
+                "count": self.page.paginator.count,
+                "page_size": self.page_size,
+                "next": self.get_next_link(),
+                "previous": self.get_previous_link(),
+                "results": data,
+            }
+        )
+
 
 class ErpFilterBackend(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
@@ -235,9 +238,7 @@ class ErpFilterBackend(BaseFilterBackend):
         # Code postal
         code_postal = request.query_params.get("code_postal", None)
         if code_postal is not None:
-            queryset = queryset.filter(
-                commune_ext__code_postaux__contains=[code_postal]
-            )
+            queryset = queryset.filter(commune_ext__code_postaux__contains=[code_postal])
 
         # Code INSEE
         code_insee = request.query_params.get("code_insee", None)
@@ -441,9 +442,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = (
-        Erp.objects.select_related("activite", "accessibilite", "commune_ext", "user")
-        .published()
-        .order_by("nom")
+        Erp.objects.select_related("activite", "accessibilite", "commune_ext", "user").published().order_by("nom")
     )
     serializer_class = ErpSerializer
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]

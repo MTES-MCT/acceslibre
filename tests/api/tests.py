@@ -35,6 +35,7 @@ def test_endpoint_erp_list(data, api_client):
 
     content = json.loads(response.content)
     assert content["count"] == 1
+    assert content["page_size"] == 20
     erp_json = content["results"][0]
     assert erp_json["nom"] == "Aux bons croissants"
     assert erp_json["activite"]["nom"] == "Boulangerie"

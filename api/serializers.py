@@ -26,23 +26,21 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         model = Accessibilite
         exclude = ["created_at", "updated_at"]
 
-    erp = serializers.HyperlinkedRelatedField(
-        lookup_field="slug", many=False, read_only=True, view_name="erp-detail"
-    )
+    erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
 
-    def _readable_value(self, source, instance, repr, field):
+    def _readable_value(self, source, instance, repr, field, section):
         repr["readable_fields"].append(field)
+
         if schema.get_type(field) == "boolean":
             if source[field]:
-                repr["datas"][field] = schema.get_help_text_ui(field)
+                repr["datas"][section][field] = schema.get_help_text_ui(field)
             else:
-                repr["datas"][field] = schema.get_help_text_ui_neg(field)
+                repr["datas"][section][field] = schema.get_help_text_ui_neg(field)
         else:
-            repr["datas"][field] = "{} : {}".format(
+            repr["datas"][section][field] = "{} : {}".format(
                 schema.get_help_text_ui(field),
                 schema.get_human_readable_value(field, getattr(instance, field)),
             )
-        return repr
 
     def to_representation(self, instance):
         request = self.context.get("request")
@@ -56,24 +54,29 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             repr["readable_fields"] = []
             repr["datas"] = {}
         for section, data in schema.get_api_fieldsets().items():
-            repr[section] = {}
+            if readable:
+                repr["datas"][section] = {}
+            else:
+                repr[section] = {}
             for field in data["fields"]:
                 # clean up empty fields
                 if clean and source[field] in (None, [], ""):
                     continue
                 if readable:
-                    repr = self._readable_value(source, instance, repr, field)
+                    self._readable_value(source, instance, repr, field, section)
                 else:
                     repr[section][field] = source[field]
+        if "commentaire" in repr:
+            comm_field = repr["commentaire"]
+        else:
+            comm_field = repr["datas"]["commentaire"]
         try:
-            repr["commentaire"] = repr["commentaire"]["commentaire"]
+            comm_field = comm_field["commentaire"]
         except KeyError:
-            del repr["commentaire"]
+            del comm_field
         # remove section if entirely empty
         if clean:
-            return dict(
-                (key, section) for (key, section) in repr.items() if section != {}
-            )
+            return dict((key, section) for (key, section) in repr.items() if section != {})
         else:
             return repr
 
@@ -131,6 +134,7 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     commune = serializers.SerializerMethodField()
     code_insee = serializers.SerializerMethodField()
     web_url = serializers.SerializerMethodField()
+    accessibilite = AccessibiliteSerializer(many=False, read_only=True)
 
     def get_distance(self, obj):
         if hasattr(obj, "distance"):
