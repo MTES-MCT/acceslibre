@@ -1,4 +1,3 @@
-import json
 import uuid
 
 from autoslug import AutoSlugField
@@ -63,7 +62,7 @@ class Challenge(models.Model):
         related_name="challenge_players",
     )
     nb_erp_total_added = models.BigIntegerField(default=0)
-    classement = models.JSONField(default=json.dumps(dict()))
+    classement = models.JSONField(default=dict)
 
     active = models.BooleanField(default=True)
 

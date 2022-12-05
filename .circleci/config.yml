@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/python:3.9.14-node
+      - image: cimg/python:3.11.0-node
         environment:
           PIPENV_VENV_IN_PROJECT: true
           DATABASE_URL: postgres://root:password@localhost/circle_test
@@ -14,7 +14,7 @@ jobs:
           EMAIL_HOST_USER: xxx
           EMAIL_HOST_PASSWORD: xxx
           SCALINGO_APP: access4all
-      - image: circleci/postgres:12.2-postgis
+      - image: cimg/postgres:12.12-postgis
         environment:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
@@ -34,7 +34,7 @@ jobs:
           key: python-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "/usr/local/lib/python3.9/site-packages"
+            - "/usr/local/lib/python3.11/site-packages"
       - restore_cache:
           name: Restore Node cached dependencies
           keys:
