@@ -4,8 +4,11 @@ from django.core.management.base import BaseCommand, CommandError
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.mapper.base import BaseMapper
+from erp.imports.mapper.typeform import TypeFormMairie
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
+
+mapper_choices = {"base": BaseMapper, "typeform_mairie": TypeFormMairie}
 
 
 class Command(BaseCommand):
@@ -42,12 +45,20 @@ class Command(BaseCommand):
             help="Écrit un CSV d'erreurs rencontrées lors de la validation du fichier",
         )
 
+        parser.add_argument(
+            "--mapper",
+            type=str,
+            default="base",
+            help="Mapper à utiliser. Au choix : base (par défaut), typeform_mairie",
+        )
+
     def handle(self, *args, **options):  # noqa
         self.input_file = options.get("file")
         self.verbose = options.get("verbose", False)
         self.one_line = options.get("one_line", False)
         self.skip_import = options.get("skip_import", False)
         self.generate_errors_file = options.get("generate_errors_file", False)
+        self.mapper = options.get("mapper")
 
         print("Démarrage du script")
         print_success(
@@ -55,6 +66,7 @@ class Command(BaseCommand):
 Paramètres de lancement du script :
 
     File : {self.input_file}
+    Mapper : {self.mapper}
     Verbose : {self.verbose}
     One Line : {self.one_line}
     Skip import : {self.skip_import}
@@ -128,7 +140,8 @@ Paramètres de lancement du script :
                 print_success("Le fichier d'erreurs 'errors.csv' est disponible.")
 
     def validate_data(self, row):
-        data = BaseMapper().csv_to_erp(record=row)
+        mapper = mapper_choices.get(self.mapper)
+        data = mapper().csv_to_erp(record=row)
         serializer = ErpImportSerializer(data=data)
         serializer.is_valid(raise_exception=True)
         return serializer
