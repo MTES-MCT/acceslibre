@@ -6,9 +6,7 @@ from django.db import migrations, models
 
 def migrate_equipement_choices(apps, schema_editor):
     Accessibilite = apps.get_model("erp", "Accessibilite")
-    to_be_updated = Accessibilite.objects.filter(
-        accueil_equipements_malentendants__contains=["aucun"]
-    )
+    to_be_updated = Accessibilite.objects.filter(accueil_equipements_malentendants__contains=["aucun"])
     for accessibilite in to_be_updated:
         accessibilite.accueil_equipements_malentendants = [
             x for x in accessibilite.accueil_equipements_malentendants if x != "aucun"

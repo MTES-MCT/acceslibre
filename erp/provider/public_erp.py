@@ -410,9 +410,7 @@ def parse_etablissement(feature):
 
     # Activité
     activite = Activite.objects.filter(
-        slug="mairie"
-        if properties.get("pivotLocal") == "mairie"
-        else "administration-publique"
+        slug="mairie" if properties.get("pivotLocal") == "mairie" else "administration-publique"
     ).first()
     activite_id = activite.pk if activite else None
 
@@ -441,9 +439,7 @@ def request(path, params=None):
         res = requests.get(f"{BASE_URL}/{path}", params, timeout=5)
         logger.info(f"public_erp api call: {res.url}")
         if res.status_code != 200:
-            raise RuntimeError(
-                f"Erreur HTTP {res.status_code} lors de la requête: {res.url}"
-            )
+            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête: {res.url}")
         return res.json()
     except requests.exceptions.RequestException as err:
         raise RuntimeError(f"public_erp api error: {err}")

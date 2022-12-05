@@ -102,8 +102,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="erp",
             name="nom",
-            field=models.CharField(
-                help_text="Nom de l'établissement ou de l'enseigne", max_length=255
-            ),
+            field=models.CharField(help_text="Nom de l'établissement ou de l'enseigne", max_length=255),
         ),
     ]

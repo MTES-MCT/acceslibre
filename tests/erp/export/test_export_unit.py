@@ -39,13 +39,9 @@ def test_export_to_csv(example_data):
         next(reader)  # Skip headers
 
         erp_0 = next(reader)
-        assert erp_0["transport_station_presence"] == str(
-            example_data[0].accessibilite.transport_station_presence
-        )
+        assert erp_0["transport_station_presence"] == str(example_data[0].accessibilite.transport_station_presence)
         erp_1 = next(reader)
-        assert erp_1["transport_station_presence"] == str(
-            example_data[1].accessibilite.transport_station_presence
-        )
+        assert erp_1["transport_station_presence"] == str(example_data[1].accessibilite.transport_station_presence)
 
 
 @pytest.mark.skip(reason="Dependancies error.")
@@ -57,9 +53,7 @@ def test_generate_schema(db, activite):
     generate_schema(base, outfile, repository)
 
     try:
-        with open("schema-test.json", "r") as test_schema, open(
-            "erp/export/static/schema.json", "r"
-        ) as actual_schema:
+        with open("schema-test.json", "r") as test_schema, open("erp/export/static/schema.json", "r") as actual_schema:
             assert test_schema.read().strip() == actual_schema.read().strip()
     finally:
         os.remove(test_schema.name)

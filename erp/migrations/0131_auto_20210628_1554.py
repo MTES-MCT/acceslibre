@@ -21,9 +21,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["obsolete"], name="erp_commune_obsolet_cd7260_idx"
-            ),
+            index=models.Index(fields=["obsolete"], name="erp_commune_obsolet_cd7260_idx"),
         ),
         migrations.AddIndex(
             model_name="commune",

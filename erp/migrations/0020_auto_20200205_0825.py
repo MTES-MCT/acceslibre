@@ -28,15 +28,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
             ],
             options={
@@ -191,9 +187,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="erp",
             name="code_insee",
-            field=models.CharField(
-                blank=True, help_text="Code INSEE", max_length=5, null=True
-            ),
+            field=models.CharField(blank=True, help_text="Code INSEE", max_length=5, null=True),
         ),
         migrations.AlterField(
             model_name="erp",

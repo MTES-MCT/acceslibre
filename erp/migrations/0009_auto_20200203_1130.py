@@ -182,15 +182,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "accueil_lsf",
-                    models.BooleanField(
-                        blank=True, help_text="Présence d'équipements LSF", null=True
-                    ),
+                    models.BooleanField(blank=True, help_text="Présence d'équipements LSF", null=True),
                 ),
                 (
                     "accueil_bim",
-                    models.BooleanField(
-                        blank=True, help_text="Présence d'équipements BIM", null=True
-                    ),
+                    models.BooleanField(blank=True, help_text="Présence d'équipements BIM", null=True),
                 ),
                 (
                     "accueil_prestations",

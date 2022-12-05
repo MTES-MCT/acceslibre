@@ -12,9 +12,7 @@ def get_env_variable(var_name, required=True, type=str):
         except TypeError:
             raise ImproperlyConfigured(f"Unable to cast '{var_name}' to {type}.")
         except KeyError:
-            raise ImproperlyConfigured(
-                f"The '{var_name}' environment variable must be set."
-            )
+            raise ImproperlyConfigured(f"The '{var_name}' environment variable must be set.")
     else:
         return os.environ.get(var_name)
 
@@ -172,9 +170,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 # see https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # see https://doc.scalingo.com/languages/python/django/start#configure-the-database-access
 # see https://pypi.org/project/dj-database-url/ for options management
-database_url = os.environ.get(
-    "DATABASE_URL", "postgres://access4all:access4all@localhost/access4all"
-)
+database_url = os.environ.get("DATABASE_URL", "postgres://access4all:access4all@localhost/access4all")
 DATABASES = {"default": dj_database_url.config()}
 DATABASES["default"]["ENGINE"] = "django.contrib.gis.db.backends.postgis"
 

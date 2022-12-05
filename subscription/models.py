@@ -21,12 +21,8 @@ class ErpSubscription(models.Model):
         on_delete=models.CASCADE,
     )
     # datetimes
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="Date de création"
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="Dernière modification"
-    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
 
     @staticmethod
     def subscribe(erp, user):

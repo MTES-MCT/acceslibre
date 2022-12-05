@@ -8,11 +8,7 @@ from subscription.models import ErpSubscription
 
 def _message_and_redirect(request, erp, message):
     messages.add_message(request, messages.SUCCESS, message)
-    return redirect(
-        reverse("mes_abonnements")
-        if request.GET.get("redir") == "account"
-        else erp.get_absolute_url()
-    )
+    return redirect(reverse("mes_abonnements") if request.GET.get("redir") == "account" else erp.get_absolute_url())
 
 
 @login_required

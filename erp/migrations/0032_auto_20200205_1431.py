@@ -13,15 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="equipementmalentendant",
             name="nom",
-            field=models.CharField(
-                help_text="Nom de l'équipement", max_length=255, unique=True
-            ),
+            field=models.CharField(help_text="Nom de l'équipement", max_length=255, unique=True),
         ),
         migrations.AlterField(
             model_name="label",
             name="nom",
-            field=models.CharField(
-                help_text="Nom du label", max_length=255, unique=True
-            ),
+            field=models.CharField(help_text="Nom du label", max_length=255, unique=True),
         ),
     ]

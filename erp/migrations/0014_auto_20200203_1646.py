@@ -201,8 +201,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="cheminement",
             name="accessibilite",
-            field=models.ForeignKey(
-                on_delete=django.db.models.deletion.CASCADE, to="erp.Accessibilite"
-            ),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="erp.Accessibilite"),
         ),
     ]

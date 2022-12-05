@@ -15,9 +15,7 @@ def factory(data):
     return dict([(x[0], json.dumps(x[1])) if type(x[1]) == list else x for x in data])
 
 
-def export_schema_to_csv(
-    file_path, erps: List[Erp], model: Type[BaseExportMapper], logger=None
-):
+def export_schema_to_csv(file_path, erps: List[Erp], model: Type[BaseExportMapper], logger=None):
     with open(file_path, "w", newline="") as csv_file:
         if logger:
             logger(f"Initialisation du csv {file_path}")
@@ -45,12 +43,10 @@ def upload_to_datagouv(
     if not settings.DATAGOUV_API_KEY:
         return
 
-    url = (
-        "{domain}/api/1/datasets/{dataset_id}/resources/{resources_id}/upload/".format(
-            domain=settings.DATAGOUV_DOMAIN,
-            dataset_id=dataset_id,
-            resources_id=resources_id,
-        )
+    url = "{domain}/api/1/datasets/{dataset_id}/resources/{resources_id}/upload/".format(
+        domain=settings.DATAGOUV_DOMAIN,
+        dataset_id=dataset_id,
+        resources_id=resources_id,
     )
 
     try:

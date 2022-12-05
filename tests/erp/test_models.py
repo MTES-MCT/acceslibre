@@ -88,9 +88,7 @@ def test_Erp_vote(data):
 
 
 def test_Erp_metadata_tags_update_key(data):
-    erp = Erp.objects.create(
-        nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]}
-    )
+    erp = Erp.objects.create(nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]})
 
     erp.metadata["tags"].append("plop")
     erp.save()
@@ -100,9 +98,7 @@ def test_Erp_metadata_tags_update_key(data):
 
 
 def test_Erp_metadata_tags_delete_key(data):
-    erp = Erp.objects.create(
-        nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]}
-    )
+    erp = Erp.objects.create(nom="erp1", metadata={"keepme": 42, "tags": ["foo", "bar"]})
 
     del erp.metadata["keepme"]
     erp.save()

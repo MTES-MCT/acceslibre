@@ -82,6 +82,19 @@ class BaseMapper:
 
     fields = erp_fields + accessibility_fields
 
+    @staticmethod
+    def clean(string):
+        return (
+            str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
+        )
+
+    @staticmethod
+    def handle_5digits_code(cpost):
+        cpost = BaseMapper.clean(cpost).strip()
+        if len(cpost) == 4:
+            return "0" + cpost
+        return cpost
+
     def format_data(self, value):
         if value == "":
             return None
@@ -89,28 +102,16 @@ class BaseMapper:
 
     def csv_to_erp(self, record):
         try:
-            dest_fields = {
-                k: self.format_data(v)
-                for k, v in record.items()
-                if k in self.erp_fields
-            }
+            dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
             dest_fields["nom"] = record.get("name")
             dest_fields["code_postal"] = record.get("postal_code")
             dest_fields["accessibilite"] = {
-                k: self.format_data(v)
-                for k, v in record.items()
-                if k in self.accessibility_fields
+                k: self.format_data(v) for k, v in record.items() if k in self.accessibility_fields
             }
-            dest_fields["accessibilite"]["labels"] = (
-                json.loads(record.get("labels")) if record.get("labels") else None
-            )
+            dest_fields["accessibilite"]["labels"] = json.loads(record.get("labels")) if record.get("labels") else None
             dest_fields["accessibilite"]["labels_familles_handicap"] = (
-                json.loads(record.get("labels_familles_handicap"))
-                if record.get("labels_familles_handicap")
-                else None
+                json.loads(record.get("labels_familles_handicap")) if record.get("labels_familles_handicap") else None
             )
             return dest_fields
         except KeyError as key:
-            raise RuntimeError(
-                f"Impossible d'extraire des données: champ {key} manquant"
-            )
+            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")

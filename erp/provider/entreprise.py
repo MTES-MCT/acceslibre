@@ -39,9 +39,7 @@ def format_email(record):
 
 
 def format_naf(record):
-    naf = record.get("activite_principale") or record.get(
-        "activite_principale_entreprise"
-    )
+    naf = record.get("activite_principale") or record.get("activite_principale_entreprise")
     if not naf:
         return None
     if "." not in naf:

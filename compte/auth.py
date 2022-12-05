@@ -18,9 +18,7 @@ class EmailOrUsernameModelBackend(ModelBackend):
         # technically a given email address could be present in either field,
         # possibly even for different users, so we'll query for all matching
         # records and test each one.
-        users = User._default_manager.filter(
-            Q(**{User.USERNAME_FIELD: username}) | Q(email__iexact=username)
-        )
+        users = User._default_manager.filter(Q(**{User.USERNAME_FIELD: username}) | Q(email__iexact=username))
 
         # Test whether any matched user has the provided password:
         for user in users:

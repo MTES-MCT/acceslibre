@@ -13,9 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="accessibilite",
             name="conformite_adap_fin",
-            field=models.DateField(
-                blank=True, null=True, verbose_name="Date de fin Ad'AP"
-            ),
+            field=models.DateField(blank=True, null=True, verbose_name="Date de fin Ad'AP"),
         ),
         migrations.AddField(
             model_name="accessibilite",
@@ -35,8 +33,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="accessibilite",
             name="registre_url",
-            field=models.URLField(
-                blank=True, max_length=255, null=True, verbose_name="URL du registre"
-            ),
+            field=models.URLField(blank=True, max_length=255, null=True, verbose_name="URL du registre"),
         ),
     ]
