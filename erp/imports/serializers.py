@@ -1,6 +1,7 @@
 import re
 
 from django.contrib.gis.geos import Point
+from django.forms.models import model_to_dict
 from rest_framework import serializers
 
 from erp.models import Accessibilite, Activite, Commune, Erp
@@ -70,6 +71,12 @@ class ErpImportSerializer(serializers.ModelSerializer):
         return obj
 
     def validate(self, obj):
+        if self.instance:
+            # if we are updating an ERP, only accessibility is editable
+            accessibilite = Accessibilite(**obj["accessibilite"])
+            accessibilite.full_clean()
+            return model_to_dict(self.instance) | {"accessibilite": model_to_dict(accessibilite)}
+
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
 
@@ -128,6 +135,13 @@ class ErpImportSerializer(serializers.ModelSerializer):
         Erp(**erp_data).full_clean(exclude=("source_id", "asp_id", "user", "metadata", "search_vector"))
         Accessibilite(**obj["accessibilite"]).full_clean()
         return obj
+
+    def update(self, instance, validated_data, partial=True):
+        accessibilite = instance.accessibilite
+        for attr in validated_data["accessibilite"]:
+            setattr(accessibilite, attr, validated_data["accessibilite"][attr])
+        accessibilite.save()
+        return instance
 
     def create(self, validated_data):
         accessibilite_data = validated_data.pop("accessibilite")

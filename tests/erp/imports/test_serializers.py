@@ -18,9 +18,7 @@ from erp.models import Erp
         pytest.param({"activite": "Unknown in DB"}, False, None, id="invalid_activity"),
         pytest.param({"commune": "Unknown in DB"}, False, None, id="invalid_commune"),
         pytest.param({"accessibilite": {}}, False, None, id="empty_accessibility"),
-        pytest.param(
-            {"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"
-        ),
+        pytest.param({"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"),
         pytest.param(
             {
                 "activite": "Boulangerie",
@@ -70,3 +68,20 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
         assert erp.activite
         assert erp.accessibilite
         assert erp.geom.x == erp.geom.y == 0
+
+
+def test_erp_update_serializer(data):
+    assert data.erp.nom != "Aux bons pains"
+    assert not data.accessibilite.entree_porte_presence
+
+    serializer = ErpImportSerializer(
+        instance=data.erp,
+        data={"accessibilite": {"entree_porte_presence": True}, "nom": "Aux bons pains"},
+        partial=True,
+    )
+    assert serializer.is_valid(), serializer.errors
+    serializer.save()
+
+    data.erp.refresh_from_db()
+    assert data.erp.nom != "Aux bons pains", "Name should not be editable"
+    assert data.accessibilite.entree_porte_presence is True
