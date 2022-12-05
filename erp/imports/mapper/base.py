@@ -82,6 +82,19 @@ class BaseMapper:
 
     fields = erp_fields + accessibility_fields
 
+    @staticmethod
+    def clean(string):
+        return (
+            str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
+        )
+
+    @staticmethod
+    def handle_5digits_code(cpost):
+        cpost = BaseMapper.clean(cpost).strip()
+        if len(cpost) == 4:
+            return "0" + cpost
+        return cpost
+
     def format_data(self, value):
         if value == "":
             return None
