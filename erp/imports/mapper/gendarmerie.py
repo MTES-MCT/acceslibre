@@ -39,9 +39,7 @@ class GendarmerieMapper:
 
         # already imported erps
         if not erp:
-            erp = Erp.objects.find_by_source_id(
-                Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]
-            ).first()
+            erp = Erp.objects.find_by_source_id(Erp.SOURCE_GENDARMERIE, self.record["identifiant_public_unite"]).first()
 
         # new erp
         if not erp:
@@ -127,9 +125,7 @@ class GendarmerieMapper:
                 "contact_url": "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr",
             }
         except KeyError as key:
-            raise RuntimeError(
-                f"Impossible d'extraire des données: champ {key} manquant"
-            )
+            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
 
     def _retrieve_commune_ext(self):
         "Assigne une commune normalisée à l'Erp en cours de génération"
@@ -138,17 +134,11 @@ class GendarmerieMapper:
             if not commune_ext:
                 arrdt = arrondissements.get_by_code_insee(self.erp.code_insee)
                 if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
+                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
         elif self.erp.code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[self.erp.code_postal]
-            ).first()
+            commune_ext = Commune.objects.filter(code_postaux__contains=[self.erp.code_postal]).first()
         else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})"
-            )
+            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {self.erp.commune})")
 
         if not commune_ext:
             raise RuntimeError(
@@ -171,10 +161,7 @@ class GendarmerieMapper:
             f"Ces informations ont été importées depuis data.gouv.fr le {date} "
             "https://www.data.gouv.fr/fr/datasets/liste-des-unites-de-gendarmerie-accueillant-du-public-comprenant-leur-geolocalisation-et-leurs-horaires-douverture/"
         )
-        horaires = [
-            s.strip()
-            for s in re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())
-        ]
+        horaires = [s.strip() for s in re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())]
         if len(horaires) > 0:
             comment += "\n\nHoraires d'accueil: \n"
             for horaire in horaires:

@@ -13,12 +13,7 @@ from django.utils.safestring import mark_safe
 from import_export.admin import ExportMixin
 from reversion.admin import VersionAdmin
 
-from erp.forms import (
-    AdminAccessibiliteForm,
-    AdminActiviteForm,
-    AdminCommuneForm,
-    AdminErpForm,
-)
+from erp.forms import AdminAccessibiliteForm, AdminActiviteForm, AdminCommuneForm, AdminErpForm
 from erp.resources import ErpAdminResource
 
 from . import schema
@@ -287,9 +282,7 @@ class ErpAdmin(
                 f'<img src="/static/img/mapicons.svg#{obj.get_activite_vector_icon()}" style="width:16px;height:16px;background:#075ea2;padding:3px;margin-bottom:5px;border-radius:25%"> {obj.activite.nom} &raquo;'
             )
         edit_url = reverse("admin:erp_erp_change", kwargs={"object_id": obj.pk})
-        return mark_safe(
-            f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>'
-        )
+        return mark_safe(f'{icon} <a href="{edit_url}"><strong>{obj.nom}</strong></a><br><small>{obj.adresse}</small>')
 
     get_nom.short_description = "Établissement"
 
@@ -410,9 +403,7 @@ class ErpAdmin(
 
     def view_search(self, obj):
         terms = f"{obj.nom} {obj.voie} {obj.commune}"
-        return mark_safe(
-            f'<a target="_blank" href="https://www.google.fr/search?source=hp&q={terms}">Rech.</a>'
-        )
+        return mark_safe(f'<a target="_blank" href="https://www.google.fr/search?source=hp&q={terms}">Rech.</a>')
 
     view_search.short_description = ""
 
@@ -470,9 +461,7 @@ class VoteAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        queryset = queryset.select_related("erp__activite", "user").prefetch_related(
-            "erp", "erp__commune_ext"
-        )
+        queryset = queryset.select_related("erp__activite", "user").prefetch_related("erp", "erp__commune_ext")
         return queryset
 
     def get_bool_vote(self, obj):

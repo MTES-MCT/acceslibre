@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="erp",
             name="voie",
-            field=models.CharField(
-                blank=True, help_text="Voie", max_length=255, null=True
-            ),
+            field=models.CharField(blank=True, help_text="Voie", max_length=255, null=True),
         ),
     ]

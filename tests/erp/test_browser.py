@@ -32,9 +32,7 @@ def test_communes(data, client):
 
 
 def test_search_clean_params(data, client):
-    response = client.get(
-        reverse("search") + "?where=None&what=None&lat=None&lon=None&code=None"
-    )
+    response = client.get(reverse("search") + "?where=None&what=None&lat=None&lon=None&code=None")
     assert response.context["where"] == "France entière"
     assert response.context["what"] == ""
     assert response.context["lat"] == ""
@@ -67,9 +65,7 @@ def test_search_pagination(data, client):
 
 def test_search_commune(data, client, mocker):
     mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
-    response = client.get(
-        reverse("search") + "?where=Jacou&what=croissant&lat=43.661&lon=3.912"
-    )
+    response = client.get(reverse("search") + "?where=Jacou&what=croissant&lat=43.661&lon=3.912")
     assert response.context["where"] == "Jacou"
     assert response.context["what"] == "croissant"
     assert len(response.context["pager"]) == 1
@@ -89,9 +85,7 @@ def test_search_raw_commune(data, client, mocker):
 
 def test_search_qualified_commune(data, client, mocker):
     mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
-    response = client.get(
-        reverse("search_commune", kwargs={"commune_slug": "34-jacou"})
-    )
+    response = client.get(reverse("search_commune", kwargs={"commune_slug": "34-jacou"}))
     assert response.context["where"] == "Jacou (34)"
     assert len(response.context["pager"]) == 1
     assert response.context["pager"][0].nom == "Aux bons croissants"
@@ -108,10 +102,7 @@ def test_search_empty_text_query(data, client, mocker):
 
 def test_search_around_me(data, client, mocker):
     mocker.patch("erp.provider.geocoder.autocomplete", return_value=None)
-    response = client.get(
-        reverse("search")
-        + "?where=around_me&what=croissant&lat=43.6648062&lon=3.9048148"
-    )
+    response = client.get(reverse("search") + "?where=around_me&what=croissant&lat=43.6648062&lon=3.9048148")
     assert response.context["where"] == "around_me"
     assert response.context["what"] == "croissant"
     assert len(response.context["pager"]) == 1
@@ -271,12 +262,7 @@ def test_registration_with_first_and_last_name(data, client, capsys):
         },
     )
     assert response.status_code == 302
-    assert (
-        User.objects.filter(
-            username="julien", first_name="", last_name="", is_active=False
-        ).count()
-        == 1
-    )
+    assert User.objects.filter(username="julien", first_name="", last_name="", is_active=False).count() == 1
 
 
 def test_registration_not_a_robot(data, client, capsys):
@@ -366,9 +352,7 @@ def test_ajout_erp_witout_auth(data, client):
 
 
 def test_erp_edit_can_be_contributed(data, client):
-    response = client.get(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True
-    )
+    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}), follow=True)
 
     assert response.status_code == 200
 
@@ -688,12 +672,7 @@ def test_erp_vote_logged_in(data, client):
     assert response.status_code == 400
 
     # Ensure votes are not counted
-    assert (
-        Vote.objects.filter(
-            erp=data.erp, user=data.niko, value=-1, comment="bouh"
-        ).count()
-        == 0
-    )
+    assert Vote.objects.filter(erp=data.erp, user=data.niko, value=-1, comment="bouh").count() == 0
 
     # test email notification verify not send.
     assert len(mail.outbox) == 0
@@ -827,10 +806,7 @@ def test_history_human_readable_diff(data, client):
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["old"] == "Vide"
     assert get_entry("cheminement_ext_nombre_marches", a11y_diff)["new"] == "42"
     assert get_entry("labels", a11y_diff)["old"] == "Vide"
-    assert (
-        get_entry("labels", a11y_diff)["new"]
-        == "Destination pour Tous, Tourisme & Handicap"
-    )
+    assert get_entry("labels", a11y_diff)["new"] == "Destination pour Tous, Tourisme & Handicap"
 
 
 def test_contribution_flow_administrative_data(data, mocker, client):
@@ -847,9 +823,7 @@ def test_contribution_flow_administrative_data(data, mocker, client):
         },
     )
     client.force_login(data.sophie)
-    response = client.get(
-        reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug})
-    )
+    response = client.get(reverse("contrib_edit_infos", kwargs={"erp_slug": data.erp.slug}))
 
     assert response.status_code == 200
 
@@ -882,9 +856,7 @@ def test_contribution_flow_administrative_data(data, mocker, client):
 
 
 def test_contribution_flow_accessibilite_data(data, client):
-    response = client.get(
-        reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug})
-    )
+    response = client.get(reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}))
 
     assert response.status_code == 200
 

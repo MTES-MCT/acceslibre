@@ -24,9 +24,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="challengeplayer",
             name="inscription_date",
-            field=models.DateTimeField(
-                auto_now_add=True, verbose_name="Date d'inscription"
-            ),
+            field=models.DateTimeField(auto_now_add=True, verbose_name="Date d'inscription"),
         ),
         migrations.AlterField(
             model_name="challengeplayer",

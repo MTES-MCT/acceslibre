@@ -45,9 +45,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "name",
-                    models.CharField(
-                        blank=True, max_length=255, null=True, verbose_name="Votre nom"
-                    ),
+                    models.CharField(blank=True, max_length=255, null=True, verbose_name="Votre nom"),
                 ),
                 (
                     "email",
@@ -57,15 +55,11 @@ class Migration(migrations.Migration):
                 ("sent_ok", models.BooleanField(verbose_name="Envoi OK")),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
                 (
                     "erp",

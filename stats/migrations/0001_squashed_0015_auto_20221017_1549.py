@@ -33,9 +33,7 @@ def dedoublonnage_implementation(apps, schema_editor):
 
     for e in implementations:
         list_implementation = (
-            Implementation.objects.filter(urlpath=e["urlpath"])
-            .order_by("created_at")[1:]
-            .values_list("pk", flat=True)
+            Implementation.objects.filter(urlpath=e["urlpath"]).order_by("created_at")[1:].values_list("pk", flat=True)
         )
         Implementation.objects.filter(pk__in=list_implementation).delete()
 
@@ -98,9 +96,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "end_date",
-                    models.DateTimeField(
-                        verbose_name="Date de fin du challenge (inclus)"
-                    ),
+                    models.DateTimeField(verbose_name="Date de fin du challenge (inclus)"),
                 ),
                 ("nb_erp_total_added", models.BigIntegerField(default=0)),
                 ("classement", models.JSONField(default=dict)),
@@ -135,9 +131,7 @@ class Migration(migrations.Migration):
                 ("domain", models.URLField(help_text="Domaine du site réutilisateur")),
                 (
                     "date_notification_to_mattermost",
-                    models.DateTimeField(
-                        null=True, verbose_name="Date de notification sur Mattermost ?"
-                    ),
+                    models.DateTimeField(null=True, verbose_name="Date de notification sur Mattermost ?"),
                 ),
             ],
             options={
@@ -161,15 +155,11 @@ class Migration(migrations.Migration):
                 ("urlpath", models.URLField(help_text="Url complète")),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de détection de tracking"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de détection de tracking"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Date de dernier contact"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Date de dernier contact"),
                 ),
                 (
                     "referer",
@@ -200,9 +190,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="referer",
             name="domain",
-            field=models.URLField(
-                help_text="Domaine du site réutilisateur", unique=True
-            ),
+            field=models.URLField(help_text="Domaine du site réutilisateur", unique=True),
         ),
         migrations.AddIndex(
             model_name="implementation",
@@ -270,9 +258,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "inscription_date",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date d'inscription"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date d'inscription"),
                 ),
                 (
                     "challenge",

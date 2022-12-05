@@ -23,9 +23,7 @@ def dedoublonnage_implementation(apps, schema_editor):
 
     for e in implementations:
         list_implementation = (
-            Implementation.objects.filter(urlpath=e["urlpath"])
-            .order_by("created_at")[1:]
-            .values_list("pk", flat=True)
+            Implementation.objects.filter(urlpath=e["urlpath"]).order_by("created_at")[1:].values_list("pk", flat=True)
         )
         Implementation.objects.filter(pk__in=list_implementation).delete()
 

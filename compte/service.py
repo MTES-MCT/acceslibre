@@ -74,6 +74,4 @@ def anonymize_user(user):
         user.save()
         return user
     except (ValueError, DatabaseError) as err:
-        raise RuntimeError(
-            f"Erreur lors de la suppression du compte utilisateur: {err}"
-        )
+        raise RuntimeError(f"Erreur lors de la suppression du compte utilisateur: {err}")

@@ -9,15 +9,7 @@ from erp.provider.geocoder import geocode
 
 
 def clean(string):
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 def clean_commune(string):
@@ -60,11 +52,7 @@ class Command(BaseCommand):
 
         code_insee = geo_info.get("code_insee")
 
-        commune_ext = (
-            Commune.objects.filter(code_insee=code_insee).first()
-            if code_insee
-            else None
-        )
+        commune_ext = Commune.objects.filter(code_insee=code_insee).first() if code_insee else None
 
         fields["source"] = "typeform"
         fields["published"] = True
@@ -108,7 +96,9 @@ class Command(BaseCommand):
             erp.save()
             accessibilite = Accessibilite(erp=erp)
 
-        field_label = "Votre mairie : {{hidden:nom}}  Y-a-t il une marche (ou plus) pour y rentrer ? (même toute petite)"
+        field_label = (
+            "Votre mairie : {{hidden:nom}}  Y-a-t il une marche (ou plus) pour y rentrer ? (même toute petite)"
+        )
         if field_label in row:
             if row[field_label] == "Non, c'est de plain-pied":
                 accessibilite.entree_plain_pied = True
@@ -189,10 +179,7 @@ class Command(BaseCommand):
 
         field_label = "Est-ce qu’il y au moins une place handicapé dans les environs ?"
         if field_label in row:
-            if (
-                row[field_label]
-                == "Oui, il y a une place  de parking handicapé pas loin"
-            ):
+            if row[field_label] == "Oui, il y a une place  de parking handicapé pas loin":
                 accessibilite.stationnement_ext_presence = True
                 accessibilite.stationnement_ext_pmr = True
             elif row[field_label] == "Non, pas de place handicapé pas loin":
@@ -202,9 +189,7 @@ class Command(BaseCommand):
         return erp, duplicated_pks
 
     def get_csv_path(self):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
         return os.path.join(
             os.path.dirname(here),
             "data",
@@ -231,9 +216,7 @@ class Command(BaseCommand):
                         self.to_import.append(erp)
                     if duplicated_pks:
                         print(f"Add duplicate: {duplicated_pks}")
-                        self.doublons.append(
-                            (f"{row['cp']} - {row['nom']}", duplicated_pks)
-                        )
+                        self.doublons.append((f"{row['cp']} - {row['nom']}", duplicated_pks))
 
             except csv.Error as err:
                 sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")

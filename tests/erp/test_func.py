@@ -47,12 +47,8 @@ def test_erp_details(data, browser):
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
-    assert browser.is_text_present(
-        html.unescape(schema.get_help_text_ui("sanitaires_presence"))
-    )
-    assert browser.is_text_present(
-        html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes"))
-    )
+    assert browser.is_text_present(html.unescape(schema.get_help_text_ui("sanitaires_presence")))
+    assert browser.is_text_present(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes")))
 
 
 def test_erp_details_edit_links(data, browser, capsys):
@@ -86,9 +82,7 @@ def test_registration_flow_without_next(data, browser):
     assert "http://testserver/compte/activate" in mail.outbox[0].body
 
     activation_url = [
-        line
-        for line in mail.outbox[0].body.split("\n")
-        if line.startswith("http") and "/activate/" in line
+        line for line in mail.outbox[0].body.split("\n") if line.startswith("http") and "/activate/" in line
     ][0].strip()
     browser.visit(activation_url)
 
@@ -117,9 +111,7 @@ def test_registration_flow(data, browser):
     assert "?next=/contact/" in mail.outbox[0].body
 
     activation_url = [
-        line
-        for line in mail.outbox[0].body.split("\n")
-        if line.startswith("http") and "/activate/" in line
+        line for line in mail.outbox[0].body.split("\n") if line.startswith("http") and "/activate/" in line
     ][0].strip()
     browser.visit(activation_url)
 

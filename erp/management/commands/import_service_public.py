@@ -20,15 +20,7 @@ VALEURS_VIDES = [
 def clean(string):
     if string in VALEURS_VIDES:
         return ""
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 def clean_commune(string):
@@ -94,16 +86,12 @@ class Command(BaseCommand):
         fields["contact_email"] = extract(xml, fieldname="*Email")
         fields["site_internet"] = extract(xml, fieldname="*Url")
 
-        fields["code_insee"] = self.handle_5digits_code(
-            extract(xml, attribute="codeInsee")
-        )
+        fields["code_insee"] = self.handle_5digits_code(extract(xml, attribute="codeInsee"))
         num, voie, lieu_dit = extract_adresse(xml, fieldname="*Ligne")
         fields["numero"] = num
         fields["lieu_dit"] = lieu_dit
         fields["voie"] = voie
-        fields["code_postal"] = self.handle_5digits_code(
-            extract(xml, fieldname="*CodePostal")
-        )
+        fields["code_postal"] = self.handle_5digits_code(extract(xml, fieldname="*CodePostal"))
         fields["commune"] = clean_commune(extract(xml, fieldname="*NomCommune"))
         fields["commune_ext_id"] = self._retrieve_or_create_commune_ext(
             commune=fields["commune"],
@@ -158,33 +146,21 @@ class Command(BaseCommand):
         return erp if erp else Erp(**fields)
 
     def get_xml_dirpath(self):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
-        return os.path.join(
-            os.path.dirname(here), "data", "service-public", "organismes"
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
+        return os.path.join(os.path.dirname(here), "data", "service-public", "organismes")
 
-    def _retrieve_or_create_commune_ext(
-        self, commune, code_insee=None, code_postal=None, xml=None
-    ):
+    def _retrieve_or_create_commune_ext(self, commune, code_insee=None, code_postal=None, xml=None):
         "Assigne une commune normalisée à l'Erp en cours de génération"
         if code_insee:
             commune_ext = Commune.objects.filter(code_insee=code_insee).first()
             if not commune_ext:
                 arrdt = arrondissements.get_by_code_insee(code_insee)
                 if arrdt:
-                    commune_ext = Commune.objects.filter(
-                        nom__iexact=arrdt["commune"]
-                    ).first()
+                    commune_ext = Commune.objects.filter(nom__iexact=arrdt["commune"]).first()
         elif code_postal:
-            commune_ext = Commune.objects.filter(
-                code_postaux__contains=[code_postal]
-            ).first()
+            commune_ext = Commune.objects.filter(code_postaux__contains=[code_postal]).first()
         else:
-            raise RuntimeError(
-                f"Champ code_insee et code_postal nuls (commune: {commune})"
-            )
+            raise RuntimeError(f"Champ code_insee et code_postal nuls (commune: {commune})")
 
         if not commune_ext:
             print(
@@ -279,9 +255,7 @@ class Command(BaseCommand):
                 raise e
             else:
                 if erp and data_access:
-                    self.stdout.write(
-                        f"Ajout de l'ERP depuis {erp.source} (id: {erp.source_id})"
-                    )
+                    self.stdout.write(f"Ajout de l'ERP depuis {erp.source} (id: {erp.source_id})")
                     if hasattr(erp, "pk") and erp.pk:
                         self.existed_erps += 1
                         print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")

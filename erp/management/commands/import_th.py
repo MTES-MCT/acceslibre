@@ -87,15 +87,7 @@ class ExistError(Exception):
 def clean(string):
     if string in VALEURS_VIDES:
         return ""
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 class Command(BaseCommand):
@@ -141,20 +133,14 @@ class Command(BaseCommand):
         try:
             geo_info = geocode(row["adresse"], postcode=row["code_postal"])
         except RuntimeError as err:
-            raise GeoError(
-                f"Impossible de localiser cette adresse: {row.get('adresse')}: {err}"
-            )
+            raise GeoError(f"Impossible de localiser cette adresse: {row.get('adresse')}: {err}")
 
         if not geo_info:
             raise GeoError("Données de géolocalisation manquantes ou insatisfaisantes.")
 
         code_insee = geo_info.get("code_insee")
 
-        commune_ext = (
-            Commune.objects.filter(code_insee=code_insee).first()
-            if code_insee
-            else None
-        )
+        commune_ext = Commune.objects.filter(code_insee=code_insee).first() if code_insee else None
 
         fields = {
             "published": True,
@@ -217,14 +203,9 @@ class Command(BaseCommand):
             "incompletes": 0,
         }
 
-        self.activites = dict(
-            [(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP.items()]
-        )
+        self.activites = dict([(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP.items()])
         self.activites_search = dict(
-            [
-                (key, Activite.objects.get(nom=val))
-                for key, val in ACTIVITES_MAP_SEARCH.items()
-            ]
+            [(key, Activite.objects.get(nom=val)) for key, val in ACTIVITES_MAP_SEARCH.items()]
         )
 
         try:

@@ -15,14 +15,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="erp",
             name="search_vector",
-            field=django.contrib.postgres.search.SearchVectorField(
-                null=True, verbose_name="Search vector"
-            ),
+            field=django.contrib.postgres.search.SearchVectorField(null=True, verbose_name="Search vector"),
         ),
         migrations.AddIndex(
             model_name="erp",
-            index=django.contrib.postgres.indexes.GinIndex(
-                fields=["search_vector"], name="erp_erp_search__717de3_gin"
-            ),
+            index=django.contrib.postgres.indexes.GinIndex(fields=["search_vector"], name="erp_erp_search__717de3_gin"),
         ),
     ]

@@ -21,9 +21,7 @@ def extract_personne_physique(etablissement):
     pseudonyme = etablissement.get("pseudonymeunitelegale")
     if pseudonyme:
         return pseudonyme
-    prenom = etablissement.get("prenomusuelunitelegale", "") or etablissement.get(
-        "prenom1unitelegale", ""
-    )
+    prenom = etablissement.get("prenomusuelunitelegale", "") or etablissement.get("prenom1unitelegale", "")
     nom = etablissement.get("nomunitelegale", "")
     nom_usage = etablissement.get("nomusageunitelegale", "")
     if nom_usage:
@@ -108,16 +106,12 @@ def build_query_params(terms, code_insee):
 
 def query(terms, code_insee):
     try:
-        res = requests.get(
-            f"{BASE_API_URL}/search/", build_query_params(terms, code_insee), timeout=5
-        )
+        res = requests.get(f"{BASE_API_URL}/search/", build_query_params(terms, code_insee), timeout=5)
         logger.info(f"opendatasoft api search call: {res.url}")
         if res.status_code == 404:
             return []
         elif res.status_code != 200:
-            raise RuntimeError(
-                f"Erreur HTTP {res.status_code} lors de la requête: {res.url}"
-            )
+            raise RuntimeError(f"Erreur HTTP {res.status_code} lors de la requête: {res.url}")
         json_value = res.json()
         if not json_value or "records" not in json_value:
             raise RuntimeError(f"Résultat invalide: {json_value}")

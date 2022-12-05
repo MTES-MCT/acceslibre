@@ -28,9 +28,7 @@ def sample_response():
 
 def test_format_coordonnees():
     assert entreprise.format_coordonnees({}) is None
-    assert (
-        entreprise.format_coordonnees({"latitude": "43.2", "longitude": None}) is None
-    )
+    assert entreprise.format_coordonnees({"latitude": "43.2", "longitude": None}) is None
     assert entreprise.format_coordonnees({"latitude": None, "longitude": "3.1"}) is None
     assert [
         3.1,
@@ -46,9 +44,7 @@ def test_format_email():
 
 def test_format_naf():
     assert entreprise.format_naf({}) is None
-    assert (
-        entreprise.format_naf({"activite_principale_entreprise": "6202A"}) == "62.02A"
-    )
+    assert entreprise.format_naf({"activite_principale_entreprise": "6202A"}) == "62.02A"
 
 
 def test_format_source_id():
@@ -62,12 +58,7 @@ def test_retrieve_code_insee(data):
 
     # Note: Jacou Commune record is provided by the data fixture
     assert entreprise.retrieve_code_insee({"code_commune": "34120"}) == "34120"
-    assert (
-        entreprise.retrieve_code_insee(
-            {"code_postal": "34830", "libelle_commune": "JACOU"}
-        )
-        == "34120"
-    )
+    assert entreprise.retrieve_code_insee({"code_postal": "34830", "libelle_commune": "JACOU"}) == "34120"
 
 
 def test_parse_etablissement_jacou_data_ok(data, sample_response):
@@ -107,9 +98,7 @@ def test_normalize_commune_ext(data):
 
 
 def test_extract_geo_adresse_simple():
-    assert entreprise.extract_geo_adresse(
-        "9 Boulevard Édouard Rey 38000 Grenoble", "38000"
-    ) == (
+    assert entreprise.extract_geo_adresse("9 Boulevard Édouard Rey 38000 Grenoble", "38000") == (
         {
             "numero": "9",
             "voie": "Boulevard Édouard Rey",
@@ -120,9 +109,7 @@ def test_extract_geo_adresse_simple():
 
 
 def test_extract_geo_adresse_glued_ter():
-    assert entreprise.extract_geo_adresse(
-        "911Ter Allée Jean-Paul Belmondo 34170 Castelnau le Lez", "34170"
-    ) == (
+    assert entreprise.extract_geo_adresse("911Ter Allée Jean-Paul Belmondo 34170 Castelnau le Lez", "34170") == (
         {
             "numero": "911Ter",
             "voie": "Allée Jean-Paul Belmondo",
@@ -144,9 +131,7 @@ def test_extract_geo_adresse_no_numero():
 
 
 def test_extract_geo_adresse_numbers_in_voie():
-    assert entreprise.extract_geo_adresse(
-        "28 Route Departementale 71 78125 Mittainville", "78125"
-    ) == (
+    assert entreprise.extract_geo_adresse("28 Route Departementale 71 78125 Mittainville", "78125") == (
         {
             "numero": "28",
             "voie": "Route Departementale 71",
@@ -157,9 +142,7 @@ def test_extract_geo_adresse_numbers_in_voie():
 
 
 def test_extract_geo_adresse_missing_numero():
-    assert entreprise.extract_geo_adresse(
-        "Aeroport Saint-exupéry 69124 Colombier-Saugnieu", "69124"
-    ) == (
+    assert entreprise.extract_geo_adresse("Aeroport Saint-exupéry 69124 Colombier-Saugnieu", "69124") == (
         {
             "numero": None,
             "voie": "Aeroport Saint-exupéry",
@@ -170,9 +153,7 @@ def test_extract_geo_adresse_missing_numero():
 
 
 def test_extract_geo_adresse_bis_after_space():
-    assert entreprise.extract_geo_adresse(
-        "19 Bis Rue Joannés Beaulieu 42170 Saint-Just-Saint-Rambert", "42170"
-    ) == (
+    assert entreprise.extract_geo_adresse("19 Bis Rue Joannés Beaulieu 42170 Saint-Just-Saint-Rambert", "42170") == (
         {
             "numero": "19 Bis",
             "voie": "Rue Joannés Beaulieu",
@@ -183,9 +164,7 @@ def test_extract_geo_adresse_bis_after_space():
 
 
 def test_extract_geo_adresse_bis_short_form():
-    assert entreprise.extract_geo_adresse(
-        "19 B Rue Joannés Beaulieu 42170 Saint-Just-Saint-Rambert", "42170"
-    ) == (
+    assert entreprise.extract_geo_adresse("19 B Rue Joannés Beaulieu 42170 Saint-Just-Saint-Rambert", "42170") == (
         {
             "numero": "19 B",
             "voie": "Rue Joannés Beaulieu",
@@ -199,9 +178,7 @@ def test_extract_geo_adresse_common_failures():
     assert entreprise.extract_geo_adresse("", "34200") is None
     assert entreprise.extract_geo_adresse("xxx", "34200") is None
     assert entreprise.extract_geo_adresse("6 xxx xxx", "34200") is None
-    assert (
-        entreprise.extract_geo_adresse("4 rue droite 33000 Bordeaux", "99999") is None
-    )
+    assert entreprise.extract_geo_adresse("4 rue droite 33000 Bordeaux", "99999") is None
 
 
 def test_format_nom():

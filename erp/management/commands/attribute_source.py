@@ -20,15 +20,7 @@ VALEURS_VIDES = [
 def clean(string):
     if string in VALEURS_VIDES:
         return ""
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 def clean_commune(string):
@@ -79,9 +71,7 @@ class Command(BaseCommand):
             return None
 
     def get_csv_path(self):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
         return os.path.join(
             os.path.dirname(here),
             "data",

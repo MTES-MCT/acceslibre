@@ -21,8 +21,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="commune",
-            index=models.Index(
-                fields=["arrondissement"], name="erp_commune_arrondi_d4ff5c_idx"
-            ),
+            index=models.Index(fields=["arrondissement"], name="erp_commune_arrondi_d4ff5c_idx"),
         ),
     ]

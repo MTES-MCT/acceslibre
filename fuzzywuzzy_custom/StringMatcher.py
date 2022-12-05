@@ -57,9 +57,7 @@ class StringMatcher:
 
     def get_matching_blocks(self):
         if not self._matching_blocks:
-            self._matching_blocks = matching_blocks(
-                self.get_opcodes(), self._str1, self._str2
-            )
+            self._matching_blocks = matching_blocks(self.get_opcodes(), self._str1, self._str2)
         return self._matching_blocks
 
     def ratio(self):

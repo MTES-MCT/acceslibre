@@ -31,9 +31,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="accessibilite",
             name="stationnement_presence",
-            field=models.BooleanField(
-                blank=True, help_text="Présence de stationnement à proximité", null=True
-            ),
+            field=models.BooleanField(blank=True, help_text="Présence de stationnement à proximité", null=True),
         ),
         migrations.AlterField(
             model_name="circulation",

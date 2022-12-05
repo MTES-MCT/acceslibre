@@ -15,9 +15,7 @@ def test_widget_tracking(data):
         "HTTP_X-Originurl": "http://test_widget_external_website.tld/test_url.php",
     }
     assert Referer.objects.all().count() == 0
-    response = c.get(
-        reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers
-    )
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
     assert response.status_code == 200
     assert Referer.objects.all().count() == 1
     assert Implementation.objects.all().count() == 1
@@ -33,9 +31,7 @@ def test_widget_tracking_without_origin(data):
         "HTTP_X-Originurl": "http://test_widget_external_website.tld",
     }
     assert Referer.objects.all().count() == 0
-    response = c.get(
-        reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers
-    )
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
     assert response.status_code == 200
     assert Referer.objects.all().count() == 0
 
@@ -48,9 +44,7 @@ def test_widget_tracking_with_same_origin_site(data):
         "HTTP_X-Originurl": "http://test_widget_external_website.tld",
     }
     assert Referer.objects.all().count() == 0
-    response = c.get(
-        reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers
-    )
+    response = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
     assert response.status_code == 200
     assert Referer.objects.all().count() == 0
 
@@ -64,9 +58,7 @@ def test_widget_tracking_verify_dupes(data):
     }
     assert Referer.objects.all().count() == 0
     c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
-    response_dupes = c.get(
-        reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers
-    )
+    response_dupes = c.get(reverse("widget_erp_uuid", kwargs={"uuid": data.erp.uuid}), **headers)
     assert response_dupes.status_code == 200
     assert Referer.objects.all().count() == 1
     assert Implementation.objects.all().count() == 1

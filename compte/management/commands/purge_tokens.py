@@ -15,15 +15,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            nb_deleted, _ = EmailToken.objects.filter(
-                expire_at__lt=datetime.now(timezone.utc)
-            ).delete()
+            nb_deleted, _ = EmailToken.objects.filter(expire_at__lt=datetime.now(timezone.utc)).delete()
             if nb_deleted > 0:
                 mattermost.send(
                     f"{nb_deleted} jetons d'activation d'adresse email supprimés",
                     tags=[__name__],
                 )
         except DatabaseError as err:
-            raise CommandError(
-                f"Erreur lors de la purge des jetons de changement d'adresse email: {err}"
-            )
+            raise CommandError(f"Erreur lors de la purge des jetons de changement d'adresse email: {err}")

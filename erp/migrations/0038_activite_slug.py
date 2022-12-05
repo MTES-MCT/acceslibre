@@ -14,9 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="activite",
             name="slug",
-            field=autoslug.fields.AutoSlugField(
-                default="generic", editable=False, populate_from="nom"
-            ),
+            field=autoslug.fields.AutoSlugField(default="generic", editable=False, populate_from="nom"),
             preserve_default=False,
         ),
     ]

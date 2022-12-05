@@ -85,20 +85,14 @@ def test_ViewAccessibiliteForm_serialized():
 
 def test_ViewAccessibiliteForm_labels(form_test):
     def assert_absence(name, value):
-        assert get_help_text_ui_neg(name) in [
-            f["label"] for f in form_test(name, value)
-        ]
+        assert get_help_text_ui_neg(name) in [f["label"] for f in form_test(name, value)]
 
     def assert_presence(name, value):
         assert get_help_text_ui(name) in [f["label"] for f in form_test(name, value)]
 
     def assert_missing(name, value):
-        assert get_help_text_ui(name) not in [
-            f["label"] for f in form_test(name, value)
-        ]
-        assert get_help_text_ui_neg(name) not in [
-            f["label"] for f in form_test(name, value)
-        ]
+        assert get_help_text_ui(name) not in [f["label"] for f in form_test(name, value)]
+        assert get_help_text_ui_neg(name) not in [f["label"] for f in form_test(name, value)]
 
     # boolean fields
     assert_presence("sanitaires_presence", True)

@@ -13,9 +13,7 @@ def prepare_equipements_data(apps, schema_editor):
     # ['Aucun', 'Autres', 'BIM', 'LSF', 'Service de communication à distance']
     Accessibilite = apps.get_model("erp", "Accessibilite")
     for a in Accessibilite.objects.all():
-        existing = [
-            eq["nom"] for eq in a.accueil_equipements_malentendants.values("nom")
-        ]
+        existing = [eq["nom"] for eq in a.accueil_equipements_malentendants.values("nom")]
         to_add = []
         if "Aucun" in existing:
             to_add.append("aucun")
@@ -79,9 +77,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="accueil_cheminement_nombre_marches",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Nombre de marches"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Nombre de marches"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -248,9 +244,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="cheminement_ext_nombre_marches",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Nombre de marches"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Nombre de marches"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -341,9 +335,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="commentaire",
-            field=models.TextField(
-                blank=True, max_length=1000, null=True, verbose_name="Commentaire libre"
-            ),
+            field=models.TextField(blank=True, max_length=1000, null=True, verbose_name="Commentaire libre"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -388,16 +380,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="entree_largeur_mini",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Largeur minimale"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Largeur minimale"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
             name="entree_marches",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Marches d'escalier"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Marches d'escalier"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -514,16 +502,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="labels",
-            field=models.ManyToManyField(
-                blank=True, to="erp.Label", verbose_name="Marques ou labels"
-            ),
+            field=models.ManyToManyField(blank=True, to="erp.Label", verbose_name="Marques ou labels"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
             name="labels_autre",
-            field=models.CharField(
-                blank=True, max_length=255, null=True, verbose_name="Autre label"
-            ),
+            field=models.CharField(blank=True, max_length=255, null=True, verbose_name="Autre label"),
         ),
         migrations.AlterField(
             model_name="accessibilite",
@@ -549,9 +533,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="accessibilite",
             name="sanitaires_adaptes",
-            field=models.PositiveSmallIntegerField(
-                blank=True, null=True, verbose_name="Nombre de sanitaires adaptés"
-            ),
+            field=models.PositiveSmallIntegerField(blank=True, null=True, verbose_name="Nombre de sanitaires adaptés"),
         ),
         migrations.AlterField(
             model_name="accessibilite",

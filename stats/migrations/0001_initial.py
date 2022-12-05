@@ -44,15 +44,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "start_date",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de début du challenge"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de début du challenge"),
                 ),
                 (
                     "end_date",
-                    models.DateTimeField(
-                        verbose_name="Date de fin du challenge (inclus)"
-                    ),
+                    models.DateTimeField(verbose_name="Date de fin du challenge (inclus)"),
                 ),
                 ("nb_erp_total_added", models.BigIntegerField(default=0)),
                 ("classement", models.JSONField(default=dict)),

@@ -44,15 +44,11 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "created_at",
-                    models.DateTimeField(
-                        auto_now_add=True, verbose_name="Date de création"
-                    ),
+                    models.DateTimeField(auto_now_add=True, verbose_name="Date de création"),
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Dernière modification"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Dernière modification"),
                 ),
                 (
                     "erp",
@@ -78,14 +74,10 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="vote",
-            index=models.Index(
-                fields=["erp", "value"], name="erp_vote_erp_id_1853cc_idx"
-            ),
+            index=models.Index(fields=["erp", "value"], name="erp_vote_erp_id_1853cc_idx"),
         ),
         migrations.AddIndex(
             model_name="vote",
-            index=models.Index(
-                fields=["erp", "user", "value"], name="erp_vote_erp_id_108b22_idx"
-            ),
+            index=models.Index(fields=["erp", "user", "value"], name="erp_vote_erp_id_108b22_idx"),
         ),
     ]
