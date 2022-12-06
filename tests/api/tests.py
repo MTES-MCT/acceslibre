@@ -42,6 +42,46 @@ def test_endpoint_erp_list(data, api_client):
     assert erp_json["activite"]["slug"] == "boulangerie"
     assert erp_json["code_postal"] == "34830"
     assert "user" not in erp_json
+    assert erp_json["accessibilite"]["transport"]["transport_station_presence"] is None
+
+    # same request with clean
+    response = api_client.get(reverse("erp-list") + "?clean=true")
+    content = json.loads(response.content)
+    assert content["count"] == 1
+    assert content["page_size"] == 20
+    erp_json = content["results"][0]
+    assert erp_json["nom"] == "Aux bons croissants"
+    assert "transport" not in erp_json["accessibilite"]
+    assert erp_json["accessibilite"]["accueil"]["sanitaires_presence"] is True
+    assert erp_json["accessibilite"]["accueil"]["sanitaires_adaptes"] is False
+
+    # same request with readable
+    response = api_client.get(reverse("erp-list") + "?readable=true")
+    content = json.loads(response.content)
+    erp_json = content["results"][0]
+    assert (
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_presence"]
+        == "Des sanitaires sont mis à disposition dans l'établissement"
+    )
+    assert (
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_adaptes"]
+        == "Aucun sanitaire adapté mis à disposition dans l'établissement"
+    )
+    assert erp_json["accessibilite"]["datas"]["transport"]["transport_station_presence"] is None
+
+    # same request with readable & clean
+    response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
+    content = json.loads(response.content)
+    erp_json = content["results"][0]
+    assert (
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_presence"]
+        == "Des sanitaires sont mis à disposition dans l'établissement"
+    )
+    assert (
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_adaptes"]
+        == "Aucun sanitaire adapté mis à disposition dans l'établissement"
+    )
+    assert "transport" not in erp_json["accessibilite"]["datas"]
 
 
 def test_endpoint_erp_list_qs(data, api_client):

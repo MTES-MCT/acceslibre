@@ -32,10 +32,12 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         repr["readable_fields"].append(field)
 
         if schema.get_type(field) == "boolean":
-            if source[field]:
+            if source[field] is True:
                 repr["datas"][section][field] = schema.get_help_text_ui(field)
-            else:
+            elif source[field] is False:
                 repr["datas"][section][field] = schema.get_help_text_ui_neg(field)
+            else:
+                repr["datas"][section][field] = None
         else:
             repr["datas"][section][field] = "{} : {}".format(
                 schema.get_help_text_ui(field),
@@ -58,25 +60,30 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                 repr["datas"][section] = {}
             else:
                 repr[section] = {}
+
+            has_field = False
             for field in data["fields"]:
+                if field == "commentaire":
+                    continue
                 # clean up empty fields
                 if clean and source[field] in (None, [], ""):
                     continue
                 if readable:
+                    has_field = True
                     self._readable_value(source, instance, repr, field, section)
                 else:
+                    has_field = True
                     repr[section][field] = source[field]
-        if "commentaire" in repr:
-            comm_field = repr["commentaire"]
-        else:
-            comm_field = repr["datas"]["commentaire"]
-        try:
-            comm_field = comm_field["commentaire"]
-        except KeyError:
-            del comm_field
+
+            if not has_field:
+                if readable:
+                    del repr["datas"][section]
+                else:
+                    del repr[section]
+
         # remove section if entirely empty
         if clean:
-            return dict((key, section) for (key, section) in repr.items() if section != {})
+            return dict((key, section) for key, section in repr.items() if section != {})
         else:
             return repr
 
