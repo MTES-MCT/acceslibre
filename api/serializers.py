@@ -28,21 +28,18 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
 
     erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
 
-    def _readable_value(self, source, instance, repr, field, section):
-        repr["readable_fields"].append(field)
-
+    def _get_readable_value(self, source, instance, repr, field, section):
         if schema.get_type(field) == "boolean":
             if source[field] is True:
-                repr["datas"][section][field] = schema.get_help_text_ui(field)
-            elif source[field] is False:
-                repr["datas"][section][field] = schema.get_help_text_ui_neg(field)
-            else:
-                repr["datas"][section][field] = None
-        else:
-            repr["datas"][section][field] = "{} : {}".format(
-                schema.get_help_text_ui(field),
-                schema.get_human_readable_value(field, getattr(instance, field)),
-            )
+                return schema.get_help_text_ui(field)
+            if source[field] is False:
+                return schema.get_help_text_ui_neg(field)
+            return None
+
+        return "{} : {}".format(
+            schema.get_help_text_ui(field),
+            schema.get_human_readable_value(field, getattr(instance, field)),
+        )
 
     def to_representation(self, instance):
         request = self.context.get("request")
@@ -54,14 +51,10 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         repr = {"url": source["url"], "erp": source["erp"]}
         if readable:
             repr["readable_fields"] = []
-            repr["datas"] = {}
         for section, data in schema.get_api_fieldsets().items():
-            if readable:
-                repr["datas"][section] = {}
-            else:
-                repr[section] = {}
+            repr[section] = {}
 
-            has_field = False
+            has_child_or_attr = False
             for field in data["fields"]:
                 if field == "commentaire":
                     continue
@@ -69,17 +62,15 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                 if clean and source[field] in (None, [], ""):
                     continue
                 if readable:
-                    has_field = True
-                    self._readable_value(source, instance, repr, field, section)
+                    has_child_or_attr = True
+                    repr["readable_fields"].append(field)
+                    repr[section][field] = self._get_readable_value(source, instance, repr, field, section)
                 else:
-                    has_field = True
+                    has_child_or_attr = True
                     repr[section][field] = source[field]
 
-            if not has_field:
-                if readable:
-                    del repr["datas"][section]
-                else:
-                    del repr[section]
+            if not has_child_or_attr:
+                del repr[section]
 
         # remove section if entirely empty
         if clean:
