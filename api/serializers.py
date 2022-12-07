@@ -28,18 +28,20 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
 
     erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
 
-    def _get_readable_value(self, source, instance, repr, field, section):
+    def _readable_value(self, source, instance, repr, field, section):
+        repr["readable_fields"].append(field)
         if schema.get_type(field) == "boolean":
             if source[field] is True:
-                return schema.get_help_text_ui(field)
-            if source[field] is False:
-                return schema.get_help_text_ui_neg(field)
-            return None
-
-        return "{} : {}".format(
-            schema.get_help_text_ui(field),
-            schema.get_human_readable_value(field, getattr(instance, field)),
-        )
+                repr["datas"][section][field] = schema.get_help_text_ui(field)
+            elif source[field] is False:
+                repr["datas"][section][field] = schema.get_help_text_ui_neg(field)
+            else:
+                repr["datas"][section][field] = None
+        else:
+            repr["datas"][section][field] = "{} : {}".format(
+                schema.get_help_text_ui(field),
+                schema.get_human_readable_value(field, getattr(instance, field)),
+            )
 
     def to_representation(self, instance):
         request = self.context.get("request")
@@ -51,32 +53,41 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         repr = {"url": source["url"], "erp": source["erp"]}
         if readable:
             repr["readable_fields"] = []
+            repr["datas"] = {}
         for section, data in schema.get_api_fieldsets().items():
-            repr[section] = {}
-
-            has_child_or_attr = False
+            if readable:
+                repr["datas"][section] = {}
+            else:
+                repr[section] = {}
             for field in data["fields"]:
-                if field == "commentaire":
-                    continue
                 # clean up empty fields
                 if clean and source[field] in (None, [], ""):
                     continue
                 if readable:
-                    has_child_or_attr = True
-                    repr["readable_fields"].append(field)
-                    repr[section][field] = self._get_readable_value(source, instance, repr, field, section)
+                    self._readable_value(source, instance, repr, field, section)
                 else:
-                    has_child_or_attr = True
                     repr[section][field] = source[field]
 
-            if not has_child_or_attr:
-                del repr[section]
-
-        # remove section if entirely empty
-        if clean:
-            return dict((key, section) for key, section in repr.items() if section != {})
+        if "commentaire" in repr:
+            comm_field = repr["commentaire"]
         else:
-            return repr
+            comm_field = repr["datas"]["commentaire"]
+        try:
+            comm_field = comm_field["commentaire"]
+        except KeyError:
+            del comm_field
+        # remove section if entirely empty
+        if readable and clean:
+            repr["datas"] = dict(
+                (key, section)
+                for key, section in repr["datas"].items()
+                if section != {}
+            )
+        if clean:
+            return dict(
+                (key, section) for key, section in repr.items() if section != {}
+            )
+        return repr
 
 
 class ActiviteSerializer(serializers.HyperlinkedModelSerializer):

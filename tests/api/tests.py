@@ -61,31 +61,34 @@ def test_endpoint_erp_list(data, api_client):
     response = api_client.get(reverse("erp-list") + "?readable=true")
     content = json.loads(response.content)
     erp_json = content["results"][0]
-    assert erp_json["accessibilite"]["accueil"]["accueil_visibilite"] is None
+    assert erp_json["accessibilite"]["datas"]["accueil"]["accueil_visibilite"] is None
     assert (
-        erp_json["accessibilite"]["accueil"]["sanitaires_presence"]
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_presence"]
         == "Des sanitaires sont mis à disposition dans l'établissement"
     )
     assert (
-        erp_json["accessibilite"]["accueil"]["sanitaires_adaptes"]
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_adaptes"]
         == "Aucun sanitaire adapté mis à disposition dans l'établissement"
     )
-    assert erp_json["accessibilite"]["transport"]["transport_station_presence"] is None
+    assert (
+        erp_json["accessibilite"]["datas"]["transport"]["transport_station_presence"]
+        is None
+    )
 
     # same request with readable & clean
     response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
     content = json.loads(response.content)
     erp_json = content["results"][0]
-    assert "accueil_visibilite" not in erp_json["accessibilite"]["accueil"]
+    assert "accueil_visibilite" not in erp_json["accessibilite"]["datas"]["accueil"]
     assert (
-        erp_json["accessibilite"]["accueil"]["sanitaires_presence"]
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_presence"]
         == "Des sanitaires sont mis à disposition dans l'établissement"
     )
     assert (
-        erp_json["accessibilite"]["accueil"]["sanitaires_adaptes"]
+        erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_adaptes"]
         == "Aucun sanitaire adapté mis à disposition dans l'établissement"
     )
-    assert "transport" not in erp_json["accessibilite"]
+    assert "transport" not in erp_json["accessibilite"]["datas"]
 
 
 def test_endpoint_erp_list_qs(data, api_client):
