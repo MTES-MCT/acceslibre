@@ -6,11 +6,10 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
 
+from api.serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpSerializer
 from erp import schema
 from erp.models import Accessibilite, Activite, Erp
 from erp.provider import geocoder
-
-from .serializers import AccessibiliteSerializer, ActiviteWithCountSerializer, ErpSerializer
 
 # Useful docs
 # - permissions: https://www.django-rest-framework.org/api-guide/permissions/#api-reference
@@ -409,6 +408,28 @@ class ErpSchema(A4aAutoSchema):
                 "required": False,
                 "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=43.22,3.83`)",
                 "schema": {"type": "string"},
+            },
+        },
+        "clean": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "clean",
+                "in": "query",
+                "required": False,
+                "description": "Écarter les valeurs nulles ou non-renseignées",
+                "schema": {"type": "boolean"},
+            },
+        },
+        "readable": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "readable",
+                "in": "query",
+                "required": False,
+                "description": "Formater les données d'accessibilité pour une lecture humaine",
+                "schema": {"type": "boolean"},
             },
         },
     }
