@@ -30,12 +30,13 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
 
     def _readable_value(self, source, instance, repr, field, section):
         repr["readable_fields"].append(field)
-
         if schema.get_type(field) == "boolean":
-            if source[field]:
+            if source[field] is True:
                 repr["datas"][section][field] = schema.get_help_text_ui(field)
-            else:
+            elif source[field] is False:
                 repr["datas"][section][field] = schema.get_help_text_ui_neg(field)
+            else:
+                repr["datas"][section][field] = None
         else:
             repr["datas"][section][field] = "{} : {}".format(
                 schema.get_help_text_ui(field),
@@ -66,6 +67,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
                     self._readable_value(source, instance, repr, field, section)
                 else:
                     repr[section][field] = source[field]
+
         if "commentaire" in repr:
             comm_field = repr["commentaire"]
         else:
@@ -75,10 +77,17 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
         except KeyError:
             del comm_field
         # remove section if entirely empty
+        if readable and clean:
+            repr["datas"] = dict(
+                (key, section)
+                for key, section in repr["datas"].items()
+                if section != {}
+            )
         if clean:
-            return dict((key, section) for (key, section) in repr.items() if section != {})
-        else:
-            return repr
+            return dict(
+                (key, section) for key, section in repr.items() if section != {}
+            )
+        return repr
 
 
 class ActiviteSerializer(serializers.HyperlinkedModelSerializer):
