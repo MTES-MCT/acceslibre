@@ -28,7 +28,7 @@ def niko_create_erp_and_subscribe_updates(client, data):
             "source_id": "xxx",
             "nom": "niko erp",
             "activite": data.boulangerie.pk,
-            "numero": "4",
+            "numero": "5",
             "voie": "Grand rue",
             "lieu_dit": "",
             "code_postal": "34830",

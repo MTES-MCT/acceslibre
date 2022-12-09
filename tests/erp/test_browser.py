@@ -612,6 +612,31 @@ def test_ajout_erp_a11y_vide(data, client, capsys):
     assert erp.published is True
 
 
+def test_add_erp_duplicate(data, client):
+    client.force_login(data.niko)
+
+    response = client.post(
+        reverse("contrib_admin_infos"),
+        data={
+            "source": "sirene",
+            "source_id": "xxx",
+            "nom": "Test ERP",
+            "activite": data.erp.activite_id,
+            "numero": data.erp.numero,
+            "voie": data.erp.voie,
+            "lieu_dit": "",
+            "code_postal": data.erp.code_postal,
+            "commune": data.erp.commune,
+            "lat": 43,
+            "lon": 3,
+        },
+        follow=True,
+    )
+
+    assert "existe déjà dans la base de données" in response.context["form"].errors["__all__"][0]
+    assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
+
+
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
     client.force_login(data.sophie)
 
