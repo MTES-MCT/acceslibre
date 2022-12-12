@@ -250,13 +250,6 @@ def search(request, commune_slug=None):
             "where": where,
             "geojson_list": geojson_list,
             "commune_json": commune.toTemplateJson() if commune else None,
-            "data_contrib": {
-                "nom": what,
-                "lat": lat,
-                "lon": lon,
-                "activite": "",
-                "commune": commune.nom if commune else "",
-            },
         },
     )
 
