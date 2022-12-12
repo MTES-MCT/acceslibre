@@ -9,10 +9,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
-from django_registration.backends.activation.views import (
-    ActivationView,
-    RegistrationView,
-)
+from django_registration.backends.activation.views import ActivationView, RegistrationView
 
 from compte import forms, service
 from compte.models import UserPreferences
@@ -42,10 +39,7 @@ class CustomActivationCompleteView(TemplateView):
 
 class CustomRegistrationView(RegistrationView):
     def get_success_url(self, user=None):
-        return (
-            self.success_url
-            + f"?email={user.email}&next={self.request.POST.get('next', '')}"
-        )
+        return self.success_url + f"?email={user.email}&next={self.request.POST.get('next', '')}"
 
     def get_email_context(self, activation_key):
         "Add the next redirect value to the email template context."
@@ -56,9 +50,7 @@ class CustomRegistrationView(RegistrationView):
     def get_context_data(self, **kwargs):
         "Add the next redirect value to the email template context."
         context = super().get_context_data(**kwargs)
-        context["next"] = unquote(
-            self.request.POST.get("next", self.request.GET.get("next", ""))
-        )
+        context["next"] = unquote(self.request.POST.get("next", self.request.GET.get("next", "")))
         return context
 
 
@@ -71,9 +63,7 @@ class CustomActivationView(ActivationView):
         if not next and self.extra_context and "next" in self.extra_context:
             next = self.extra_context.get("next", "")
         if next:
-            login(
-                self.request, user, backend="django.contrib.auth.backends.ModelBackend"
-            )
+            login(self.request, user, backend="django.contrib.auth.backends.ModelBackend")
             return next
         return f"{url}?next={next}"
 
@@ -199,9 +189,7 @@ def delete_account(request):
                 )
                 return redirect("mon_compte")
             logout(request)
-            messages.add_message(
-                request, messages.SUCCESS, "Votre compte à bien été supprimé"
-            )
+            messages.add_message(request, messages.SUCCESS, "Votre compte à bien été supprimé")
             LogEntry.objects.log_action(
                 user_id=userid,
                 content_type_id=ContentType.objects.get_for_model(get_user_model()).pk,
@@ -222,9 +210,7 @@ def delete_account(request):
 
 @login_required
 def mes_erps(request):
-    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(
-        user_id=request.user.pk
-    )
+    qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(user_id=request.user.pk)
     published_qs = qs.published()
     non_published_qs = qs.not_published()
     erp_total_count = qs.count()
@@ -277,9 +263,7 @@ def mes_contributions_recues(request):
 @login_required
 def mes_abonnements(request):
     qs = (
-        ErpSubscription.objects.select_related(
-            "erp", "erp__activite", "erp__commune_ext", "erp__user"
-        )
+        ErpSubscription.objects.select_related("erp", "erp__activite", "erp__commune_ext", "erp__user")
         .filter(user=request.user)
         .order_by("-updated_at")
     )
@@ -294,9 +278,7 @@ def mes_abonnements(request):
 
 @login_required
 def mes_challenges(request):
-    qs = request.user.challenge_players.all().order_by(
-        "-inscriptions__inscription_date"
-    )
+    qs = request.user.challenge_players.all().order_by("-inscriptions__inscription_date")
     paginator = Paginator(qs, 10)
     pager = paginator.get_page(request.GET.get("page", 1))
     return render(
@@ -312,14 +294,10 @@ def mes_preferences(request):
         form = forms.PreferencesForm(request.POST)
         if form.is_valid():
             prefs = UserPreferences.objects.get(user=request.user)
-            prefs.notify_on_unpublished_erps = form.cleaned_data.get(
-                "notify_on_unpublished_erps"
-            )
+            prefs.notify_on_unpublished_erps = form.cleaned_data.get("notify_on_unpublished_erps")
             prefs.save()
 
-            messages.add_message(
-                request, messages.SUCCESS, "Vos préférences ont bien été enregistrées"
-            )
+            messages.add_message(request, messages.SUCCESS, "Vos préférences ont bien été enregistrées")
 
             return redirect("mes_preferences")
         pass

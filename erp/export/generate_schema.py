@@ -66,19 +66,13 @@ def create_field(field_name, field):
         format=constraints.get("format", None),
     )
 
-    schema_field["example"] = field.get(
-        "example", generate_example_text(field)
-    ) or generate_example_text(field)
+    schema_field["example"] = field.get("example", generate_example_text(field)) or generate_example_text(field)
 
     return schema_field
 
 
 def get_description(field_name, field):
-    help_text = (
-        field.get("help_text").replace("&nbsp;", " ")
-        if field.get("help_text")
-        else None
-    )
+    help_text = field.get("help_text").replace("&nbsp;", " ") if field.get("help_text") else None
     description = field.get("description") or field.get("help_text_ui") or help_text
     if not description:
         raise ValueError("No description found for field: " + field_name)
@@ -103,15 +97,11 @@ def get_constraints(field_name: str, field: Any) -> dict:
     if enum and field_type == "string":
         constraints["simple"] = {}
 
-        constraints["simple"]["enum"] = [
-            value[0] for value in enum if value[0] is not None
-        ]
+        constraints["simple"]["enum"] = [value[0] for value in enum if value[0] is not None]
     elif enum and field_type == "array":
         constraints["arrayItem"] = {}
         constraints["arrayItem"]["type"] = "string"
-        constraints["arrayItem"]["enum"] = [
-            value[0] for value in enum if value[0] is not None
-        ]
+        constraints["arrayItem"]["enum"] = [value[0] for value in enum if value[0] is not None]
     elif bdd_values:
         constraints["arrayItem"] = {}
         constraints["arrayItem"]["type"] = "string"

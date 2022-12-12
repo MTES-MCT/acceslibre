@@ -40,7 +40,7 @@
     </h3>
     <div class="mb-3 row ml-0">
       <div class="mt-2 pr-4">
-        <a class="fr-btn btn-lg" href="{% url 'contrib_admin_infos' %}?data={{ data_contrib|encode_provider_data }}#content">Ajouter un établissement</a>
+        <a class="fr-btn btn-lg" href="{% url 'contrib_global_search' %}?lat={{ lat }}&lon={{ lon }}&code={{ code }}&what={{ what }}&where={{ where }}">Ajouter un établissement</a>
       </div>
       <div class="mt-2 pr-4">
         <a class="fr-btn fr-btn--secondary btn-lg" href="{% url "contrib_start" %}">Nouvelle recherche</a>

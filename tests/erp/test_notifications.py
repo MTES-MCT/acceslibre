@@ -72,10 +72,7 @@ def test_notification_unpublished_erp_command(unpublished_erp, data):
     assert "Des établissements sont en attente de publication" in mail.outbox[0].subject
     assert "Boulangerie: Croissants chauds, Jacou (34)" in mail.outbox[0].body
     assert reverse("mes_preferences") in mail.outbox[0].body
-    assert (
-        reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug})
-        in mail.outbox[0].body
-    )
+    assert reverse("contrib_publication", kwargs={"erp_slug": unpublished_erp.slug}) in mail.outbox[0].body
 
 
 def test_notifications_default_settings(data):

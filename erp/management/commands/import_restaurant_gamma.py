@@ -20,15 +20,7 @@ VALEURS_VIDES = [
 def clean(string):
     if string in VALEURS_VIDES:
         return ""
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 def clean_commune(string):
@@ -61,11 +53,7 @@ class Command(BaseCommand):
 
         code_insee = geo_info.get("code_insee")
 
-        commune_ext = (
-            Commune.objects.filter(code_insee=code_insee).first()
-            if code_insee
-            else None
-        )
+        commune_ext = Commune.objects.filter(code_insee=code_insee).first() if code_insee else None
 
         fields["source"] = "sap"
         fields["published"] = True
@@ -115,9 +103,7 @@ class Command(BaseCommand):
         return erp
 
     def get_csv_path(self):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
         return os.path.join(
             os.path.dirname(here),
             "data",

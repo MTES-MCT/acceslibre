@@ -36,10 +36,7 @@ def send_receipt(message):
             "erp": message.erp,
             "contact_infos": get_erp_contact_infos(message.erp),
             "is_vaccination": message.topic == Message.TOPIC_VACCINATION
-            or (
-                message.erp
-                and message.erp.metadata.get("centre_vaccination") is not None
-            ),
+            or (message.erp and message.erp.metadata.get("centre_vaccination") is not None),
             "SITE_NAME": settings.SITE_NAME,
             "SITE_ROOT_URL": settings.SITE_ROOT_URL,
         },

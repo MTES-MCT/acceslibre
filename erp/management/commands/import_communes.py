@@ -23,9 +23,7 @@ class Command(BaseCommand):
     help = "Importe les communes de France"
 
     def get_csv_path(self):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
         return os.path.join(
             os.path.dirname(here),
             "data",
@@ -92,15 +90,11 @@ class Command(BaseCommand):
                     try:
                         self.import_row(row)
                     except AssertionError as err:
-                        self.errors.append(
-                            f"Validation error: line {reader.line_num}: {err}"
-                        )
+                        self.errors.append(f"Validation error: line {reader.line_num}: {err}")
                         sys.stdout.write("E")
                         sys.stdout.flush()
                     except RuntimeError as err:
-                        self.errors.append(
-                            f"Import error: line {reader.line_num}: {err}"
-                        )
+                        self.errors.append(f"Import error: line {reader.line_num}: {err}")
                         sys.stdout.write("E")
                         sys.stdout.flush()
                     except SkipImport:

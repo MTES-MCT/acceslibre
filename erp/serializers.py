@@ -53,9 +53,7 @@ def decode_provider_data(data):
         return decoded
     except Exception as err:
         logger.error("decode_provider_data error", err)
-        raise RuntimeError(
-            "Impossible de décoder les informations du fournisseur de données"
-        )
+        raise RuntimeError("Impossible de décoder les informations du fournisseur de données")
 
 
 def encode_provider_data(data):
@@ -65,6 +63,4 @@ def encode_provider_data(data):
         return base64.urlsafe_b64encode(json.dumps(data).encode()).decode("utf-8")
     except Exception as err:
         logger.error(f"encode_provider_data error: {err}")
-        raise RuntimeError(
-            "Impossible d'encoder les informations du fournisseur de données"
-        )
+        raise RuntimeError("Impossible d'encoder les informations du fournisseur de données")

@@ -73,9 +73,7 @@ class CsvFetcher(Fetcher):
         except csv.Error as err:
             raise RuntimeError(f"Erreur de lecture des données CSV:\n  {err}")
         except requests.exceptions.RequestException as err:
-            raise RuntimeError(
-                f"Erreur de récupération des données CSV: {url}:\n  {err}"
-            )
+            raise RuntimeError(f"Erreur de récupération des données CSV: {url}:\n  {err}")
 
 
 class CsvFileFetcher(CsvFetcher):

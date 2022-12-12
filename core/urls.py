@@ -21,9 +21,7 @@ SITEMAP_CACHE_TTL = 86400
 urlpatterns = [
     path(
         "librairie",
-        RedirectView.as_view(
-            url="https://startupdetat.typeform.com/to/XjPdaMBE", permanent=True
-        ),
+        RedirectView.as_view(url="https://startupdetat.typeform.com/to/XjPdaMBE", permanent=True),
     ),
     path("", include("erp.urls")),
     path("annuaire/", include("annuaire.urls")),
@@ -51,9 +49,7 @@ urlpatterns = [
     ),
     path(
         "compte/register/complete/",
-        CustomRegistrationCompleteView.as_view(
-            template_name="django_registration/registration_complete.html"
-        ),
+        CustomRegistrationCompleteView.as_view(template_name="django_registration/registration_complete.html"),
         name="django_registration_complete",
     ),
     path(

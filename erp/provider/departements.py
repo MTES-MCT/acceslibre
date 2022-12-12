@@ -435,9 +435,7 @@ def search(q, limit=None, for_autocomplete=False, keep_scores=False):
                 if term in _clean_term(dpt["nom"]):
                     score += 1 / n_terms
         if score > 0:
-            results.append(
-                _format_result(code, dpt, score, for_autocomplete=for_autocomplete)
-            )
+            results.append(_format_result(code, dpt, score, for_autocomplete=for_autocomplete))
         seen_codes.append(code)
     # sort by score desc
     results = sorted(results, key=lambda result: result["score"], reverse=True)

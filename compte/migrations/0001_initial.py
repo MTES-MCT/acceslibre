@@ -47,8 +47,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="emailtoken",
-            index=models.Index(
-                fields=["activation_token"], name="compte_emai_activat_10bf8e_idx"
-            ),
+            index=models.Index(fields=["activation_token"], name="compte_emai_activat_10bf8e_idx"),
         ),
     ]

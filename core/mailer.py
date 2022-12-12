@@ -3,9 +3,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
 
-def send_email(
-    to_list, subject, template, context=None, reply_to=None, fail_silently=True
-):
+def send_email(to_list, subject, template, context=None, reply_to=None, fail_silently=True):
     context = context if context else {}
     context["SITE_NAME"] = settings.SITE_NAME
     context["SITE_ROOT_URL"] = settings.SITE_ROOT_URL

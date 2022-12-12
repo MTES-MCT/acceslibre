@@ -74,10 +74,7 @@ def test_user_draft_listed(data, test_response):
     data.erp.save()
     response_content = test_response(data.sophie)
 
-    assert (
-        "Cet établissement est pris en charge par un autre contributeur"
-        in response_content
-    )
+    assert "Cet établissement est pris en charge par un autre contributeur" in response_content
 
 
 def test_user_published_listed(data, test_response):

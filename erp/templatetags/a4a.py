@@ -87,18 +87,12 @@ def format_distance(value):
     if value.m == 0:
         return "Au même endroit"
     elif value.m < 1500:
-        return mark_safe(
-            f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> mètres</i>'
-        )
+        return mark_safe(f'À {round(value.m)}<i aria-hidden="true">m</i><i class="sr-only"> mètres</i>')
     elif value.m < 10000:
         formatted = f"{value.km:.2f}".replace(".", ",")
-        return mark_safe(
-            f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>'
-        )
+        return mark_safe(f'À {formatted}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>')
     else:
-        return mark_safe(
-            f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>'
-        )
+        return mark_safe(f'À {round(value.km)}<i aria-hidden="true">km</i><i class="sr-only"> kilomètres</i>')
 
 
 @register.filter(name="format_isodate")
@@ -222,9 +216,7 @@ def retrieve_erp(value):
 
 
 @register.simple_tag
-def result_map_img(
-    coordonnees, size="500x300", zoom=16, style="streets-v11", marker=True
-):
+def result_map_img(coordonnees, size="500x300", zoom=16, style="streets-v11", marker=True):
     base = f"https://api.mapbox.com/styles/v1/mapbox/{style}/static/"
     lat = coordonnees[1]
     lon = coordonnees[0]

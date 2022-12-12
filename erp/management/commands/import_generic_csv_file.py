@@ -9,15 +9,7 @@ from erp.provider.geocoder import geocode
 
 
 def clean(string):
-    return (
-        str(string)
-        .replace("\n", " ")
-        .replace("«", "")
-        .replace("»", "")
-        .replace("’", "'")
-        .replace('"', "")
-        .strip()
-    )
+    return str(string).replace("\n", " ").replace("«", "").replace("»", "").replace("’", "'").replace('"', "").strip()
 
 
 def clean_commune(string):
@@ -63,11 +55,7 @@ class Command(BaseCommand):
 
         code_insee = geo_info.get("code_insee")
 
-        commune_ext = (
-            Commune.objects.filter(code_insee=code_insee).first()
-            if code_insee
-            else None
-        )
+        commune_ext = Commune.objects.filter(code_insee=code_insee).first() if code_insee else None
         try:
             activite = Activite.objects.get(nom=row["act"]).id
         except Activite.DoesNotExist:
@@ -117,20 +105,14 @@ class Command(BaseCommand):
 
         accessibilite = Accessibilite(erp=erp)
         accessibilite.entree_porte_presence = None
-        accessibilite.accueil_equipements_malentendants_presence = row[
-            "accueil_equipements_malentendants_presence"
-        ]
-        accessibilite.accueil_equipements_malentendants = row[
-            "accueil_equipements_malentendants"
-        ].split(",")
+        accessibilite.accueil_equipements_malentendants_presence = row["accueil_equipements_malentendants_presence"]
+        accessibilite.accueil_equipements_malentendants = row["accueil_equipements_malentendants"].split(",")
 
         accessibilite.save()
         return erp, duplicated_pks
 
     def get_csv_path(self, filename="generic.csv"):
-        here = os.path.abspath(
-            os.path.join(os.path.abspath(__file__), "..", "..", "..")
-        )
+        here = os.path.abspath(os.path.join(os.path.abspath(__file__), "..", "..", ".."))
         return os.path.join(
             os.path.dirname(here),
             "data",
@@ -165,9 +147,7 @@ class Command(BaseCommand):
                         "accueil_equipements_malentendants",
                         "error",
                     ]
-                    writer = csv.DictWriter(
-                        error_file, fieldnames=fieldnames, delimiter=";"
-                    )
+                    writer = csv.DictWriter(error_file, fieldnames=fieldnames, delimiter=";")
                     writer.writeheader()
                     for row in reader:
                         erp, duplicated_pks = self.import_row(row, writer)
@@ -175,9 +155,7 @@ class Command(BaseCommand):
                             self.to_import.append(erp)
                         if duplicated_pks:
                             print(f"Add duplicate: {duplicated_pks}")
-                            self.doublons.append(
-                                (f"{row['cp']} - {row['nom']}", duplicated_pks)
-                            )
+                            self.doublons.append((f"{row['cp']} - {row['nom']}", duplicated_pks))
 
             except csv.Error as err:
                 sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")

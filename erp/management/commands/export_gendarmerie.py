@@ -33,11 +33,7 @@ class Command(BaseCommand):
         csv_path = "gendarmerie.csv"
         self.log("Starting export")
         try:
-            erps = (
-                Erp.objects.published()
-                .having_a11y_data()
-                .filter(activite__slug="gendarmerie")
-            )
+            erps = Erp.objects.published().having_a11y_data().filter(activite__slug="gendarmerie")
             export_schema_to_csv(csv_path, erps, PartooMapper)
             self.log("Local export successfull: '%s'" % csv_path)
 

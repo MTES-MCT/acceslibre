@@ -20,9 +20,7 @@ def django_db_setup(django_db_setup, django_db_blocker):
         cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis")
         cursor.execute("CREATE EXTENSION IF NOT EXISTS pg_trgm")
         cursor.execute("CREATE EXTENSION IF NOT EXISTS unaccent")
-        cursor.execute(
-            "CREATE TEXT SEARCH CONFIGURATION french_unaccent( COPY = french )"
-        )
+        cursor.execute("CREATE TEXT SEARCH CONFIGURATION french_unaccent( COPY = french )")
         cursor.execute(
             "ALTER TEXT SEARCH CONFIGURATION french_unaccent ALTER MAPPING FOR hword, hword_part, word WITH unaccent, french_stem"
         )
@@ -389,9 +387,7 @@ def data(db):
         published=True,
         user=obj_niko,
     )
-    obj_accessibilite = Accessibilite.objects.create(
-        erp=obj_erp, sanitaires_presence=True, sanitaires_adaptes=False
-    )
+    obj_accessibilite = Accessibilite.objects.create(erp=obj_erp, sanitaires_presence=True, sanitaires_adaptes=False)
 
     class Data:
         admin = obj_admin
