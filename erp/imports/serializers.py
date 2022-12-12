@@ -40,6 +40,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "siret",
             "contact_url",
             "activite",
+            "import_email",
             "site_internet",
             "accessibilite",
             "latitude",

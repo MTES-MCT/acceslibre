@@ -23,6 +23,20 @@ def neufchateau(db):
 
 
 @pytest.fixture
+def vallorcine(db):
+    return Commune.objects.create(
+        nom="Vallorcine",
+        slug="74-vallorcine",
+        departement="74",
+        code_insee="74660",
+        superficie=2380,
+        population=6639,
+        geom=Point(6.93822479248, 46.0415725708),
+        code_postaux=["74660"],
+    )
+
+
+@pytest.fixture
 def sample_record_ok():
     return json.loads(
         """

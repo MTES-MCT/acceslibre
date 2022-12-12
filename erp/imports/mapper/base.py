@@ -18,6 +18,7 @@ class BaseMapper:
         "site_internet",
         "longitude",
         "latitude",
+        "import_email",
     ]
 
     accessibility_fields = [
@@ -114,4 +115,6 @@ class BaseMapper:
             )
             return dest_fields
         except KeyError as key:
-            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
+            raise RuntimeError(
+                f"Impossible d'extraire des données: champ {key} manquant"
+            )

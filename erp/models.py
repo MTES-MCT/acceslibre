@@ -577,6 +577,14 @@ class Erp(models.Model):
     # search vector
     search_vector = SearchVectorField("Search vector", null=True)
 
+    import_email = models.EmailField(
+        max_length=255,
+        null=True,
+        blank=True,
+        verbose_name="Email lié à l'import",
+        help_text="Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP",
+    )
+
     def __str__(self):
         return f"ERP #{self.id} ({self.nom}, {self.commune})"
 

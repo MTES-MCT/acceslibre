@@ -12,6 +12,7 @@ class TypeFormMairie(BaseMapper):
             dest_fields["source"] = "typeform"
             dest_fields["code_postal"] = BaseMapper.handle_5digits_code(record.get("cp"))
             dest_fields["commune"] = record["nom"]
+            dest_fields["import_email"] = record["email"]
             dest_fields["latitude"], dest_fields["longitude"] = (
                 (float(x) for x in record["geo"].split(",")) if record["geo"] else (0.0, 0.0)
             )
@@ -31,7 +32,11 @@ class TypeFormMairie(BaseMapper):
                 dest_fields["accessibilite"]["entree_plain_pied"] = False
 
             field_label = "Combien de marches y a-t-il pour entrer dans votre mairie ?"
-            dest_fields["accessibilite"]["entree_marches"] = record[field_label]
+            try:
+                nb_marches = int(record[field_label])
+            except (ValueError, TypeError):
+                nb_marches = None
+            dest_fields["accessibilite"]["entree_marches"] = nb_marches
 
             field_label = "Est-ce qu'il faut, pour entrer dans la mairie, monter les marches ou les descendre ?"
             if record[field_label] == "Je dois monter le(s) marche(s)":
