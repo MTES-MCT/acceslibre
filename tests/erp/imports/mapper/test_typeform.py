@@ -33,6 +33,8 @@ def test_save_non_existing_erp(activite_mairie, vallorcine):
     assert erp.import_email == "secretaire.mairie@vallorcine.fr"
     assert erp.activite == activite_mairie
     assert erp.user_type == "system"
+    assert erp.commune_ext == vallorcine
+    assert erp.nom == "Mairie"
 
 
 def test_nosave_duplicate_erp(activite_mairie, vallorcine):
@@ -58,3 +60,33 @@ def test_nosave_duplicate_erp(activite_mairie, vallorcine):
     )
 
     assert cm.results["duplicated"]["count"] == 1
+    assert cm.results["validated"]["count"] == 0
+    assert cm.results["imported"]["count"] == 0
+
+
+def test_update_duplicate_erp(activite_mairie, vallorcine):
+    cm = Command()
+    call_command(
+        cm,
+        file="data/tests/typeform_mairie_test_ok.csv",
+        skip_import=False,
+        mapper="typeform_mairie",
+    )
+
+    assert cm.skip_import is False
+    assert cm.results["in_error"]["count"] == 0
+    assert cm.results["validated"]["count"] == 1
+    assert cm.results["imported"]["count"] == 1
+    assert cm.results["duplicated"]["count"] == 0
+
+    call_command(
+        cm,
+        file="data/tests/typeform_mairie_test_ok.csv",
+        skip_import=False,
+        mapper="typeform_mairie",
+        force_update_duplicate_erp=True,
+    )
+
+    assert cm.results["duplicated"]["count"] == 1
+    assert cm.results["validated"]["count"] == 1
+    assert cm.results["imported"]["count"] == 1

@@ -154,3 +154,31 @@ def test_duplicate_with_OK_file(activite, neufchateau):
     assert cm.results["in_error"]["count"] == 0
     assert cm.results["duplicated"]["count"] == 1
     assert cm.results["imported"]["count"] == 0
+
+
+def test_duplicate_with_OK_file_force(activite, neufchateau):
+    """
+    File : {self.input_file}
+    Verbose : {self.verbose}
+    One Line : {self.one_line}
+    Skip import : {self.skip_import}
+    Generate Errors file : {self.generate_errors_file}
+    """
+    cm = Command()
+    call_command(
+        cm,
+        file="data/tests/generic_test_ok.csv",
+    )
+
+    assert cm.results["in_error"]["count"] == 0
+    assert cm.results["imported"]["count"] == 1
+    assert cm.results["duplicated"]["count"] == 0
+
+    call_command(
+        cm, file="data/tests/generic_test_ok.csv", force_update_duplicate_erp=True
+    )
+
+    assert cm.results["in_error"]["count"] == 0
+    assert cm.results["duplicated"]["count"] == 1
+    assert cm.results["imported"]["count"] == 1
+    assert cm.results["validated"]["count"] == 1
