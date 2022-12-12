@@ -12,6 +12,7 @@ class TypeFormMairie(BaseMapper):
             dest_fields["source"] = "typeform"
             dest_fields["code_postal"] = BaseMapper.handle_5digits_code(record.get("cp"))
             dest_fields["commune"] = record["nom"]
+            dest_fields["import_email"] = record["email"]
             dest_fields["latitude"], dest_fields["longitude"] = (
                 (float(x) for x in record["geo"].split(",")) if record["geo"] else (0.0, 0.0)
             )
