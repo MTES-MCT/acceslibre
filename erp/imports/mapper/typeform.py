@@ -34,7 +34,7 @@ class TypeFormMairie(BaseMapper):
             field_label = "Combien de marches y a-t-il pour entrer dans votre mairie ?"
             try:
                 nb_marches = int(record[field_label])
-            except ValueError:
+            except (ValueError, TypeError):
                 nb_marches = None
             dest_fields["accessibilite"]["entree_marches"] = nb_marches
 
