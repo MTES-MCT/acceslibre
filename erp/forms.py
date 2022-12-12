@@ -461,13 +461,15 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         # Unicity is made on activity + address
         activite = self.cleaned_data.get("activite")
         adresse = self.get_adresse_query()
-        existing = Erp.objects.find_duplicate(
-            numero=self.cleaned_data.get("numero"),
-            commune=self.cleaned_data.get("commune"),
-            activite=self.cleaned_data.get("activite"),
-            voie=self.cleaned_data.get("voie"),
-            lieu_dit=self.cleaned_data.get("lieu_dit"),
-        ).first()
+        existing = False
+        if activite and adresse:
+            existing = Erp.objects.find_duplicate(
+                numero=self.cleaned_data.get("numero"),
+                commune=self.cleaned_data.get("commune"),
+                activite=self.cleaned_data.get("activite"),
+                voie=self.cleaned_data.get("voie"),
+                lieu_dit=self.cleaned_data.get("lieu_dit"),
+            ).first()
         if existing:
             if existing.is_online():
                 erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
