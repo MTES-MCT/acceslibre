@@ -637,6 +637,30 @@ def test_add_erp_duplicate(data, client):
     assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
 
 
+def test_add_erp_missing_activity(data, client):
+    client.force_login(data.niko)
+
+    response = client.post(
+        reverse("contrib_admin_infos"),
+        data={
+            "source": "sirene",
+            "source_id": "xxx",
+            "nom": "Test ERP",
+            "numero": data.erp.numero,
+            "voie": data.erp.voie,
+            "lieu_dit": "",
+            "code_postal": data.erp.code_postal,
+            "commune": data.erp.commune,
+            "lat": 43,
+            "lon": 3,
+        },
+        follow=True,
+    )
+
+    assert response.context["form"].errors == {"activite": ["Ce champ est obligatoire."]}
+    assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
+
+
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
     client.force_login(data.sophie)
 
