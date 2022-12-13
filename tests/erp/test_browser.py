@@ -518,6 +518,8 @@ def test_ajout_erp(data, client, monkeypatch, capsys):
             "accueil_personnels": "aucun",
             "accueil_equipements_malentendants_presence": True,
             "accueil_equipements_malentendants": ["bim", "lsf"],
+            "accueil_audiodescription_presence": True,
+            "accueil_audiodescription": ["sans_équipement"],
             "accueil_cheminement_plain_pied": False,
             "accueil_cheminement_ascenseur": True,
             "accueil_cheminement_nombre_marches": 42,
@@ -536,6 +538,8 @@ def test_ajout_erp(data, client, monkeypatch, capsys):
     assert accessibilite.accueil_personnels == "aucun"
     assert accessibilite.accueil_equipements_malentendants_presence is True
     assert accessibilite.accueil_equipements_malentendants == ["bim", "lsf"]
+    assert accessibilite.accueil_audiodescription_presence is True
+    assert accessibilite.accueil_audiodescription == ["sans_équipement"]
     assert accessibilite.accueil_cheminement_plain_pied is False
     assert accessibilite.accueil_cheminement_ascenseur is True
     assert accessibilite.accueil_cheminement_nombre_marches == 42

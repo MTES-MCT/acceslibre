@@ -71,6 +71,8 @@ class GenericMapper:
         "entree_porte_type",
         "acceuil_visibilite",
         "acceuil_personnels",
+        "accueil_audiodescription_presence",
+        "accueil_audiodescription",
         "accueil_equipements_malentendants_presence",
         "accueil_equipements_malentendants",
         "accueil_cheminement_plain_pied",

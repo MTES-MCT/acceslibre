@@ -62,6 +62,17 @@ class EtalabMapper(BaseExportMapper):
     entree_porte_type: Literal["manuelle", "automatique"]
     accueil_visibilite: bool
     accueil_personnels: Literal["formés", "non-formés"]
+    accueil_audiodescription_presence: bool
+    accueil_audiodescription: Optional[
+        Set[
+            Literal[
+                schema.AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
+                schema.AUDIODESCRIPTION_AVEC_APP,
+                schema.AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL,
+                schema.AUDIODESCRIPTION_SANS_EQUIPEMENT,
+            ]
+        ]
+    ]
     accueil_equipements_malentendants_presence: bool
     accueil_equipements_malentendants: Optional[Set[Literal["autres", "bim", "lsf", "scd", "lpc"]]]
     accueil_cheminement_plain_pied: bool
@@ -147,6 +158,11 @@ class EtalabMapper(BaseExportMapper):
             entree_pmr=erp.accessibilite.entree_pmr,
             accueil_visibilite=erp.accessibilite.accueil_visibilite,
             accueil_personnels=map_value_from_schema(schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels),
+            accueil_audiodescription_presence=erp.accessibilite.accueil_audiodescription_presence,
+            accueil_audiodescription=map_list_from_schema(
+                schema.AUDIODESCRIPTION_CHOICES,
+                erp.accessibilite.accueil_audiodescription,
+            ),
             accueil_equipements_malentendants_presence=erp.accessibilite.accueil_equipements_malentendants_presence,
             accueil_equipements_malentendants=map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,
@@ -257,6 +273,11 @@ class EtalabMapperWithUrl(EtalabMapper):
             entree_pmr=erp.accessibilite.entree_pmr,
             accueil_visibilite=erp.accessibilite.accueil_visibilite,
             accueil_personnels=map_value_from_schema(schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels),
+            accueil_audiodescription=erp.accessibilite.accueil_audiodescription,
+            accueil_audiodescription_presence=map_list_from_schema(
+                schema.AUDIODESCRIPTION_CHOICES,
+                erp.accessibilite.accueil_audiodescription,
+            ),
             accueil_equipements_malentendants_presence=erp.accessibilite.accueil_equipements_malentendants_presence,
             accueil_equipements_malentendants=map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,
@@ -344,6 +365,17 @@ class PartooMapper(BaseExportMapper):
     entree_porte_type: Literal["manuelle", "automatique"]
     accueil_visibilite: bool
     accueil_personnels: Literal["formés", "non-formés"]
+    accueil_audiodescription_presence: bool
+    accueil_audiodescription: Optional[
+        Set[
+            Literal[
+                schema.AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
+                schema.AUDIODESCRIPTION_AVEC_APP,
+                schema.AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL,
+                schema.AUDIODESCRIPTION_SANS_EQUIPEMENT,
+            ]
+        ]
+    ]
     accueil_equipements_malentendants_presence: bool
     accueil_equipements_malentendants: Optional[Set[Literal["autres", "bim", "lsf", "scd", "lpc"]]]
     accueil_cheminement_plain_pied: bool
@@ -423,6 +455,11 @@ class PartooMapper(BaseExportMapper):
             entree_pmr=erp.accessibilite.entree_pmr,
             accueil_visibilite=erp.accessibilite.accueil_visibilite,
             accueil_personnels=map_value_from_schema(schema.PERSONNELS_CHOICES, erp.accessibilite.accueil_personnels),
+            accueil_audiodescription=erp.accessibilite.accueil_audiodescription,
+            accueil_audiodescription_presence=map_list_from_schema(
+                schema.AUDIODESCRIPTION_CHOICES,
+                erp.accessibilite.accueil_audiodescription,
+            ),
             accueil_equipements_malentendants_presence=erp.accessibilite.accueil_equipements_malentendants_presence,
             accueil_equipements_malentendants=map_list_from_schema(
                 schema.EQUIPEMENT_MALENTENDANT_CHOICES,

@@ -526,6 +526,22 @@ def widget_from_uuid(request, uuid):  # noqa
             "icon": f"{settings.SITE_ROOT_URL}/static/img/people.png",
         }
 
+    presence_audiodescription_label = None
+    if erp.accessibilite.accueil_audiodescription_presence and erp.accessibilite.accueil_audiodescription:
+        presence_audiodescription_label = ", ".join(
+            map_list_from_schema(
+                schema.AUDIODESCRIPTION_CHOICES,
+                erp.accessibilite.accueil_audiodescription,
+                verbose=True,
+            )
+        )
+
+    if presence_audiodescription_label:
+        accessibilite_data["audiodescription"] = {
+            "label": presence_audiodescription_label,
+            "icon": f"{settings.SITE_ROOT_URL}/static/img/audiodescription.png",
+        }
+
     # Conditions Présence d’équipement sourd et malentendant
     presence_equipement_sourd_label = None
     if (

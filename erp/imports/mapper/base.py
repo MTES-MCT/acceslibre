@@ -63,6 +63,8 @@ class BaseMapper:
         "entree_porte_type",
         "acceuil_visibilite",
         "acceuil_personnels",
+        "accueil_audiodescription_presence",
+        "accueil_audiodescription",
         "accueil_equipements_malentendants_presence",
         "accueil_equipements_malentendants",
         "accueil_cheminement_plain_pied",
@@ -106,32 +108,20 @@ class BaseMapper:
             dest_fields = self.get_erp_fields(record, *args, **kwargs)
             dest_fields["accessibilite"] = self.get_a11y_fields(record)
         except KeyError as key:
-            raise RuntimeError(
-                f"Impossible d'extraire des données: champ {key} manquant"
-            )
+            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
 
         return dest_fields
 
     def get_erp_fields(self, record, *args, **kwargs):
-        dest_fields = {
-            k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
-        }
+        dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
         dest_fields["nom"] = record.get("name")
         dest_fields["code_postal"] = record.get("postal_code")
         return dest_fields
 
     def get_a11y_fields(self, record):
-        a11y_data = {
-            k: self.format_data(v)
-            for k, v in record.items()
-            if k in self.accessibility_fields
-        }
-        a11y_data["labels"] = (
-            json.loads(record.get("labels")) if record.get("labels") else None
-        )
+        a11y_data = {k: self.format_data(v) for k, v in record.items() if k in self.accessibility_fields}
+        a11y_data["labels"] = json.loads(record.get("labels")) if record.get("labels") else None
         a11y_data["labels_familles_handicap"] = (
-            json.loads(record.get("labels_familles_handicap"))
-            if record.get("labels_familles_handicap")
-            else None
+            json.loads(record.get("labels_familles_handicap")) if record.get("labels_familles_handicap") else None
         )
         return a11y_data

@@ -127,6 +127,32 @@ PERSONNELS_CHOICES = [
     (None, UNKNOWN),
 ]
 
+AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT = "avec_équipement_permanent"
+AUDIODESCRIPTION_AVEC_APP = "avec_app"
+AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL = "avec_équipement_occasionnel"
+AUDIODESCRIPTION_SANS_EQUIPEMENT = "sans_équipement"
+AUDIODESCRIPTION_CHOICES = [
+    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT, "avec équipement permanent"),
+    (AUDIODESCRIPTION_AVEC_APP, "avec application sur smartphone"),
+    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "avec équipement occasionnel"),
+    (AUDIODESCRIPTION_SANS_EQUIPEMENT, "sans équipement"),
+]
+AUDIODESCRIPTION_DESCRIPTIONS = [
+    (
+        AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
+        "Avec équipement permanent, casques et boîtiers disponibles à l’accueil",
+    ),
+    (
+        AUDIODESCRIPTION_AVEC_APP,
+        "Avec équipement permanent nécessitant le téléchargement d'une application sur smartphone",
+    ),
+    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "Avec équipement occasionnel selon la programmation"),
+    (
+        AUDIODESCRIPTION_SANS_EQUIPEMENT,
+        "Sans équipement, audiodescription audible par toute la salle (selon la programmation)",
+    ),
+]
+
 PORTE_TYPE_MANUELLE = "manuelle"
 PORTE_TYPE_AUTOMATIQUE = "automatique"
 PORTE_TYPE_CHOICES = [
@@ -1036,6 +1062,32 @@ FIELDS = {
             PERSONNELS_NON_FORMES,
             PERSONNELS_AUCUN,
         ],
+    },
+    "accueil_audiodescription_presence": {
+        "type": "boolean",
+        "nullable": True,
+        "is_a11y": True,
+        "label": "Audiodescription",
+        "help_text": mark_safe("L'établissement propose-t-il de l’audiodescription&nbsp?"),
+        "help_text_ui": "L'établissement propose l'audiodescription.",
+        "help_text_ui_neg": "L'établissement ne propose pas l’audiodescription",
+        "choices": NULLABLE_BOOLEAN_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": False,
+    },
+    "accueil_audiodescription": {
+        "type": "array",
+        "nullable": False,
+        "is_a11y": True,
+        "label": "Liste des équipements pour l'audiodescription",
+        "help_text": mark_safe("Type d'équipement&nbsp;:"),
+        "help_text_ui": "Équipements disponibles",
+        "help_text_ui_neg": "Équipements disponibles",
+        "choices": AUDIODESCRIPTION_CHOICES,
+        "section": SECTION_ACCUEIL,
+        "nullable_bool": True,
+        "warn_if": lambda x, i: x is not None and len(x) == 0,
     },
     "accueil_equipements_malentendants_presence": {
         "type": "boolean",
