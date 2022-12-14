@@ -104,9 +104,13 @@ class ErpImportSerializer(serializers.ModelSerializer):
         for i in range(3):
             try:
                 locdata = geocoder.geocode(address, citycode=obj["commune_ext"].code_insee)
+                if not locdata:
+                    raise RuntimeError
                 self._geom = locdata["geom"]
-                obj.pop("latitude")
-                obj.pop("longitude")
+                if "latitude" in obj:
+                    obj.pop("latitude")
+                if "longitude" in obj:
+                    obj.pop("longitude")
                 break
             except (RuntimeError, KeyError):
                 if i < 2:

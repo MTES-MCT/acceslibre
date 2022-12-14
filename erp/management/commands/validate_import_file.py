@@ -1,16 +1,21 @@
 import csv
 import re
 
+from django.utils.timezone import now
 from django.core.management.base import BaseCommand, CommandError
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.mapper.base import BaseMapper
-from erp.imports.mapper.typeform import TypeFormMairie
+from erp.imports.mapper.typeform import TypeFormMairie, TypeFormBase
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
 from erp.models import Erp
 
-mapper_choices = {"base": BaseMapper, "typeform_mairie": TypeFormMairie}
+mapper_choices = {
+    "base": BaseMapper,
+    "typeform_mairie": TypeFormMairie,
+    "typeform_base": TypeFormBase,
+}
 
 
 class Command(BaseCommand):
@@ -51,8 +56,16 @@ class Command(BaseCommand):
             "--mapper",
             type=str,
             default="base",
-            help="Mapper à utiliser. Au choix : base (par défaut), typeform_mairie",
+            help="Mapper à utiliser. Au choix : base (par défaut), typeform_mairie, typeform_base",
         )
+
+        parser.add_argument(
+            "--activite",
+            type=str,
+            default=None,
+            help="Activité à spécifier si l'on est sur le mapper typeform_base",
+        )
+
         parser.add_argument(
             "--force_update_duplicate_erp",
             action="store_true",
@@ -66,6 +79,7 @@ class Command(BaseCommand):
         self.skip_import = options.get("skip_import", False)
         self.generate_errors_file = options.get("generate_errors_file", False)
         self.mapper = options.get("mapper")
+        self.activite = options.get("activite", None)
         self.force_update_duplicate_erp = options.get(
             "force_update_duplicate_erp", False
         )
@@ -78,6 +92,7 @@ Paramètres de lancement du script :
 
     File : {self.input_file}
     Mapper : {self.mapper}
+    Activité : {self.activite}
     Verbose : {self.verbose}
     One Line : {self.one_line}
     Skip import : {self.skip_import}
@@ -179,18 +194,19 @@ Paramètres de lancement du script :
                 or (self.results["duplicated"]["count"])
                 and not self.force_update_duplicate_erp
             ):
-                self.write_error_file()
-                print_success("Le fichier d'erreurs 'errors.csv' est disponible.")
+                error_file = self.write_error_file()
+                print_success(f"Le fichier d'erreurs '{error_file}' est disponible.")
 
     def validate_data(self, row, duplicated_erp=None):
         mapper = mapper_choices.get(self.mapper)
-        data = mapper().csv_to_erp(record=row)
+        data = mapper().csv_to_erp(record=row, activite=self.activite)
         serializer = ErpImportSerializer(instance=duplicated_erp, data=data)
         serializer.is_valid(raise_exception=True)
         return serializer
 
     def write_error_file(self):
-        with open("errors.csv", "w") as self.error_file:
+        self.error_file_path = f"errors_{now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
+        with open(self.error_file_path, "w") as self.error_file:
             fieldnames = (
                 "line",
                 "error",
@@ -207,6 +223,7 @@ Paramètres de lancement du script :
                     writer.writerow(line)
             for line in self.results["in_error"]["msgs"]:
                 writer.writerow(line)
+        return self.error_file_path
 
     def build_summary(
         self,

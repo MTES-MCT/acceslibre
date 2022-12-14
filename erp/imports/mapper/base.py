@@ -101,20 +101,37 @@ class BaseMapper:
             return None
         return value
 
-    def csv_to_erp(self, record):
+    def csv_to_erp(self, record, *args, **kwargs):
         try:
-            dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
-            dest_fields["nom"] = record.get("name")
-            dest_fields["code_postal"] = record.get("postal_code")
-            dest_fields["accessibilite"] = {
-                k: self.format_data(v) for k, v in record.items() if k in self.accessibility_fields
-            }
-            dest_fields["accessibilite"]["labels"] = json.loads(record.get("labels")) if record.get("labels") else None
-            dest_fields["accessibilite"]["labels_familles_handicap"] = (
-                json.loads(record.get("labels_familles_handicap")) if record.get("labels_familles_handicap") else None
-            )
-            return dest_fields
+            dest_fields = self.set_erp_fields(record, *args, **kwargs)
+            dest_fields["accessibilite"] = self.set_a11y_fields(record)
         except KeyError as key:
             raise RuntimeError(
                 f"Impossible d'extraire des données: champ {key} manquant"
             )
+
+        return dest_fields
+
+    def set_erp_fields(self, record, *args, **kwargs):
+        dest_fields = {
+            k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
+        }
+        dest_fields["nom"] = record.get("name")
+        dest_fields["code_postal"] = record.get("postal_code")
+        return dest_fields
+
+    def set_a11y_fields(self, record):
+        a11y_data = {
+            k: self.format_data(v)
+            for k, v in record.items()
+            if k in self.accessibility_fields
+        }
+        a11y_data["labels"] = (
+            json.loads(record.get("labels")) if record.get("labels") else None
+        )
+        a11y_data["labels_familles_handicap"] = (
+            json.loads(record.get("labels_familles_handicap"))
+            if record.get("labels_familles_handicap")
+            else None
+        )
+        return a11y_data
