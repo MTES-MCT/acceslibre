@@ -113,7 +113,7 @@ class TypeFormBase(BaseMapper):
         return a11y_data
 
 
-class TypeFormMairie(BaseMapper):
+class TypeFormMairie(TypeFormBase):
     def set_erp_fields(self, record, *args, **kwargs):
         dest_fields = {
             k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
