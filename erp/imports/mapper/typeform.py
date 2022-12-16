@@ -8,6 +8,7 @@ class TypeFormBase(BaseMapper):
         dest_fields = {
             k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
         }
+        dest_fields["activite"] = record["Activité"]
         if activite:
             dest_fields["activite"] = activite
         dest_fields["source"] = "typeform"
