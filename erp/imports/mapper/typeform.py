@@ -3,99 +3,137 @@ import re
 from erp.imports.mapper.base import BaseMapper
 
 
-class TypeFormMairie(BaseMapper):
-    def csv_to_erp(self, record):
-        try:
-            dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
-            dest_fields["nom"] = "Mairie"
-            dest_fields["activite"] = "Mairie"
-            dest_fields["source"] = "typeform"
-            dest_fields["code_postal"] = BaseMapper.handle_5digits_code(record.get("cp"))
-            dest_fields["commune"] = record["nom"]
+class TypeFormBase(BaseMapper):
+    def get_erp_fields(self, record, activite, *args, **kwargs):
+        dest_fields = {
+            k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
+        }
+        dest_fields["activite"] = record["Activité"]
+        if activite:
+            dest_fields["activite"] = activite
+        dest_fields["source"] = "typeform"
+        dest_fields["code_postal"] = BaseMapper.handle_5digits_code(record.get("cp"))
+        dest_fields["commune"] = record["Ville"]
+        dest_fields["import_email"] = record["email"]
+        if record["geo"]:
             dest_fields["latitude"], dest_fields["longitude"] = (
-                (float(x) for x in record["geo"].split(",")) if record["geo"] else (0.0, 0.0)
+                float(x) for x in record["geo"].split(",")
             )
 
-            try:
-                dest_fields["numero"], dest_fields["voie"] = re.match("([0-9]*) ?(.*)", record["adresse"]).groups()
-            except Exception:
-                pass
-            dest_fields["accessibilite"] = {}
+        try:
+            dest_fields["numero"], dest_fields["voie"] = re.match(
+                "([0-9]*) ?(.*)", record["adresse"]
+            ).groups()
+        except Exception:
+            pass
 
-            field_label = (
-                "Votre mairie : {{hidden:nom}}  Y a-t-il une marche (ou plus) pour y rentrer ? (même toute petite) "
-            )
-            if record[field_label] == "Non, c'est de plain-pied":
-                dest_fields["accessibilite"]["entree_plain_pied"] = True
-            elif record[field_label] == "Oui, au moins une marche":
-                dest_fields["accessibilite"]["entree_plain_pied"] = False
+        return dest_fields
 
-            field_label = "Combien de marches y a-t-il pour entrer dans votre mairie ?"
-            dest_fields["accessibilite"]["entree_marches"] = record[field_label]
+    def get_a11y_fields(self, record):
+        a11y_data = {}
 
-            field_label = "Est-ce qu'il faut, pour entrer dans la mairie, monter les marches ou les descendre ?"
-            if record[field_label] == "Je dois monter le(s) marche(s)":
-                dest_fields["accessibilite"]["entree_marches_sens"] = "montant"
-            elif record[field_label] == "je dois descendre le(s) marche(s)":
-                dest_fields["accessibilite"]["entree_marches_sens"] = "descendant"
+        field_label = "Votre mairie : {{hidden:nom}}  Y a-t-il une marche (ou plus) pour y rentrer ? (même toute petite) "
+        if record[field_label] == "Non, c'est de plain-pied":
+            a11y_data["entree_plain_pied"] = True
+        elif record[field_label] == "Oui, au moins une marche":
+            a11y_data["entree_plain_pied"] = False
 
-            field_label = "Avez-vous une rampe d'accès pour entrer dans votre mairie ?"
-            if record[field_label] == "Oui, j'ai une rampe fixe":
-                dest_fields["accessibilite"]["entree_marches_rampe"] = "fixe"
-            elif record[field_label] == "Oui, j'ai une rampe amovible":
-                dest_fields["accessibilite"]["entree_marches_rampe"] = "amovible"
-            elif record[field_label] == "Non, pas de rampe":
-                dest_fields["accessibilite"]["entree_marches_rampe"] = "aucune"
+        field_label = "Combien de marches y a-t-il pour entrer dans votre mairie ?"
+        try:
+            nb_marches = int(record[field_label])
+        except (ValueError, TypeError):
+            nb_marches = None
+        a11y_data["entree_marches"] = nb_marches
 
-            field_label = "Vous avez une rampe amovible : avez-vous aussi une sonnette pour appeler à l'intérieur ?"
-            if record[field_label] == "True":
-                dest_fields["accessibilite"]["entree_dispositif_appel"] = True
-            elif record[field_label] == "False":
-                dest_fields["accessibilite"]["entree_dispositif_appel"] = False
+        field_label = "Est-ce qu'il faut, pour entrer dans la mairie, monter les marches ou les descendre ?"
+        if record[field_label] == "Je dois monter le(s) marche(s)":
+            a11y_data["entree_marches_sens"] = "montant"
+        elif record[field_label] == "je dois descendre le(s) marche(s)":
+            a11y_data["entree_marches_sens"] = "descendant"
 
-            field_label = "Est-ce qu’il y a des toilettes adaptées dans votre mairie ?"
-            if record[field_label] == "Oui, j'ai des toilettes adaptées":
-                dest_fields["accessibilite"]["sanitaires_presence"] = True
-                dest_fields["accessibilite"]["sanitaires_adaptes"] = True
-            elif record[field_label] == "Non, ce sont des toilettes classiques":
-                dest_fields["accessibilite"]["sanitaires_presence"] = True
-                dest_fields["accessibilite"]["sanitaires_adaptes"] = False
-            elif record[field_label] == "Je n'ai pas de toilettes":
-                dest_fields["accessibilite"]["sanitaires_presence"] = False
+        field_label = "Avez-vous une rampe d'accès pour entrer dans votre mairie ?"
+        if record[field_label] == "Oui, j'ai une rampe fixe":
+            a11y_data["entree_marches_rampe"] = "fixe"
+        elif record[field_label] == "Oui, j'ai une rampe amovible":
+            a11y_data["entree_marches_rampe"] = "amovible"
+        elif record[field_label] == "Non, pas de rampe":
+            a11y_data["entree_marches_rampe"] = "aucune"
 
-            field_label = "Avez-vous un parking réservé à vos administrés? "
-            if record[field_label] == "Oui, nous avons un parking reservé":
-                dest_fields["accessibilite"]["stationnement_presence"] = True
-            elif record[field_label] == "Non, nous n'avons pas de parking reservé":
-                dest_fields["accessibilite"]["stationnement_presence"] = False
+        field_label = "Vous avez une rampe amovible : avez-vous aussi une sonnette pour appeler à l'intérieur ?"
+        if record[field_label] == "True":
+            a11y_data["entree_dispositif_appel"] = True
+        elif record[field_label] == "False":
+            a11y_data["entree_dispositif_appel"] = False
 
-            field_label = "Est-ce qu’il y au moins une place handicapé dans votre parking ?"
-            if record[field_label] == "Oui c'est praticable":
-                dest_fields["accessibilite"]["cheminement_ext_presence"] = True
-                dest_fields["accessibilite"]["cheminement_ext_terrain_stable"] = True
-                dest_fields["accessibilite"]["cheminement_ext_plain_pied"] = True
-                dest_fields["accessibilite"]["cheminement_ext_retrecissement"] = False
-            elif record[field_label] == "Non, ce n'est pas praticable":
-                dest_fields["accessibilite"]["cheminement_ext_presence"] = True
+        field_label = "Est-ce qu’il y a des toilettes adaptées dans votre mairie ?"
+        if record[field_label] == "Oui, j'ai des toilettes adaptées":
+            a11y_data["sanitaires_presence"] = True
+            a11y_data["sanitaires_adaptes"] = True
+        elif record[field_label] == "Non, ce sont des toilettes classiques":
+            a11y_data["sanitaires_presence"] = True
+            a11y_data["sanitaires_adaptes"] = False
+        elif record[field_label] == "Je n'ai pas de toilettes":
+            a11y_data["sanitaires_presence"] = False
 
-            field_label = "Ce chemin n'est pas praticable car : "
-            if record[field_label] == "problème de pente":
-                dest_fields["accessibilite"]["cheminement_ext_pente_presence"] = True
-                dest_fields["accessibilite"]["cheminement_ext_pente_degre_difficulte"] = "importante"
-                dest_fields["accessibilite"]["cheminement_ext_pente_longueur"] = "longue"
-            elif record[field_label] == "problème de marche":
-                dest_fields["accessibilite"]["cheminement_ext_plain_pied"] = False
-                dest_fields["accessibilite"]["cheminement_ext_ascenseur"] = False
-                dest_fields["accessibilite"]["cheminement_ext_rampe"] = "aucune"
+        field_label = "Avez-vous un parking réservé à vos administrés? "
+        if record[field_label] == "Oui, nous avons un parking reservé":
+            a11y_data["stationnement_presence"] = True
+        elif record[field_label] == "Non, nous n'avons pas de parking reservé":
+            a11y_data["stationnement_presence"] = False
 
-            field_label = "Est-ce qu’il y au moins une place handicapé dans les environs ?"
-            if record[field_label] == "Oui, il y a une place  de parking handicapé pas loin":
-                dest_fields["accessibilite"]["stationnement_ext_presence"] = True
-                dest_fields["accessibilite"]["stationnement_ext_pmr"] = True
-            elif record[field_label] == "Non, pas de place handicapé pas loin":
-                dest_fields["accessibilite"]["stationnement_ext_presence"] = True
-                dest_fields["accessibilite"]["stationnement_ext_pmr"] = False
+        field_label = "Est-ce qu’il y au moins une place handicapé dans votre parking ?"
+        if record[field_label] == "Oui c'est praticable":
+            a11y_data["cheminement_ext_presence"] = True
+            a11y_data["cheminement_ext_terrain_stable"] = True
+            a11y_data["cheminement_ext_plain_pied"] = True
+            a11y_data["cheminement_ext_retrecissement"] = False
+        elif record[field_label] == "Non, ce n'est pas praticable":
+            a11y_data["cheminement_ext_presence"] = True
 
-            return dest_fields
-        except KeyError as key:
-            raise RuntimeError(f"Impossible d'extraire des données: champ {key} manquant")
+        field_label = "Ce chemin n'est pas praticable car : "
+        if record[field_label] == "problème de pente":
+            a11y_data["cheminement_ext_pente_presence"] = True
+            a11y_data["cheminement_ext_pente_degre_difficulte"] = "importante"
+            a11y_data["cheminement_ext_pente_longueur"] = "longue"
+        elif record[field_label] == "problème de marche":
+            a11y_data["cheminement_ext_plain_pied"] = False
+            a11y_data["cheminement_ext_ascenseur"] = False
+            a11y_data["cheminement_ext_rampe"] = "aucune"
+
+        field_label = "Est-ce qu’il y au moins une place handicapé dans les environs ?"
+        if (
+            record[field_label]
+            == "Oui, il y a une place  de parking handicapé pas loin"
+        ):
+            a11y_data["stationnement_ext_presence"] = True
+            a11y_data["stationnement_ext_pmr"] = True
+        elif record[field_label] == "Non, pas de place handicapé pas loin":
+            a11y_data["stationnement_ext_presence"] = True
+            a11y_data["stationnement_ext_pmr"] = False
+
+        return a11y_data
+
+
+class TypeFormMairie(TypeFormBase):
+    def get_erp_fields(self, record, *args, **kwargs):
+        dest_fields = {
+            k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
+        }
+        dest_fields["nom"] = "Mairie"
+        dest_fields["activite"] = "Mairie"
+        dest_fields["source"] = "typeform"
+        dest_fields["code_postal"] = BaseMapper.handle_5digits_code(record.get("cp"))
+        dest_fields["commune"] = record["nom"]
+        dest_fields["import_email"] = record["email"]
+        dest_fields["latitude"], dest_fields["longitude"] = (
+            float(x) for x in record["geo"].split(",")
+        )
+
+        try:
+            dest_fields["numero"], dest_fields["voie"] = re.match(
+                "([0-9]*) ?(.*)", record["adresse"]
+            ).groups()
+        except Exception:
+            pass
+
+        return dest_fields

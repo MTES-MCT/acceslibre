@@ -458,20 +458,23 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         if not self.cleaned_data["geom"]:
             self.cleaned_data["geom"] = Point(float(self.cleaned_data["lon"]), float(self.cleaned_data["lat"]))
 
-        # Unicité du nom et de l'adresse
-        nom = self.cleaned_data.get("nom")
+        # Unicity is made on activity + address
+        activite = self.cleaned_data.get("activite")
         adresse = self.get_adresse_query()
-        existing = Erp.objects.find_similar(
-            nom=self.cleaned_data.get("nom"),
-            voie=self.cleaned_data.get("voie"),
-            lieu_dit=self.cleaned_data.get("lieu_dit"),
-            commune=self.cleaned_data.get("commune"),
-        ).first()
+        existing = False
+        if activite and adresse:
+            existing = Erp.objects.find_duplicate(
+                numero=self.cleaned_data.get("numero"),
+                commune=self.cleaned_data.get("commune"),
+                activite=self.cleaned_data.get("activite"),
+                voie=self.cleaned_data.get("voie"),
+                lieu_dit=self.cleaned_data.get("lieu_dit"),
+            ).first()
         if existing:
             if existing.is_online():
-                erp_display = f'<a href="{existing.get_absolute_url()}">{nom} - {adresse}</a>'
+                erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
             else:
-                erp_display = f"{nom} - {adresse}"
+                erp_display = f"{activite} - {adresse}"
             raise ValidationError(
                 mark_safe(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données.")
             )

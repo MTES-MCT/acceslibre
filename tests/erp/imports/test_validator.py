@@ -63,7 +63,7 @@ def test_generate_error_file_with_KO_file():
 
     assert cm.generate_errors_file is True
     assert cm.error_file is not None
-    with open("errors.csv", "r") as error_file:
+    with open(cm.error_file_path, "r") as error_file:
         reader = csv.DictReader(error_file, delimiter=";")
         assert len(list(reader)) == 5
 
@@ -87,7 +87,7 @@ def test_generate_error_file_with_KO_file_and_oneline():
     assert cm.generate_errors_file is True
     assert cm.one_line is True
     assert cm.error_file is not None
-    with open("errors.csv", "r") as error_file:
+    with open(cm.error_file_path, "r") as error_file:
         reader = csv.DictReader(error_file, delimiter=";")
         assert len(list(reader)) == 1
 
@@ -154,3 +154,31 @@ def test_duplicate_with_OK_file(activite, neufchateau):
     assert cm.results["in_error"]["count"] == 0
     assert cm.results["duplicated"]["count"] == 1
     assert cm.results["imported"]["count"] == 0
+
+
+def test_duplicate_with_OK_file_force(activite, neufchateau):
+    """
+    File : {self.input_file}
+    Verbose : {self.verbose}
+    One Line : {self.one_line}
+    Skip import : {self.skip_import}
+    Generate Errors file : {self.generate_errors_file}
+    """
+    cm = Command()
+    call_command(
+        cm,
+        file="data/tests/generic_test_ok.csv",
+    )
+
+    assert cm.results["in_error"]["count"] == 0
+    assert cm.results["imported"]["count"] == 1
+    assert cm.results["duplicated"]["count"] == 0
+
+    call_command(
+        cm, file="data/tests/generic_test_ok.csv", force_update_duplicate_erp=True
+    )
+
+    assert cm.results["in_error"]["count"] == 0
+    assert cm.results["duplicated"]["count"] == 1
+    assert cm.results["imported"]["count"] == 1
+    assert cm.results["validated"]["count"] == 1
