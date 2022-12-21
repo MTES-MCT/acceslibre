@@ -4,7 +4,7 @@ from erp.imports.mapper.base import BaseMapper
 
 
 class TypeFormBase(BaseMapper):
-    def set_erp_fields(self, record, activite, *args, **kwargs):
+    def get_erp_fields(self, record, activite, *args, **kwargs):
         dest_fields = {
             k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
         }
@@ -29,7 +29,7 @@ class TypeFormBase(BaseMapper):
 
         return dest_fields
 
-    def set_a11y_fields(self, record):
+    def get_a11y_fields(self, record):
         a11y_data = {}
 
         field_label = "Votre mairie : {{hidden:nom}}  Y a-t-il une marche (ou plus) pour y rentrer ? (même toute petite) "
@@ -115,7 +115,7 @@ class TypeFormBase(BaseMapper):
 
 
 class TypeFormMairie(TypeFormBase):
-    def set_erp_fields(self, record, *args, **kwargs):
+    def get_erp_fields(self, record, *args, **kwargs):
         dest_fields = {
             k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
         }
@@ -126,9 +126,7 @@ class TypeFormMairie(TypeFormBase):
         dest_fields["commune"] = record["nom"]
         dest_fields["import_email"] = record["email"]
         dest_fields["latitude"], dest_fields["longitude"] = (
-            (float(x) for x in record["geo"].split(","))
-            if record["geo"]
-            else (0.0, 0.0)
+            float(x) for x in record["geo"].split(",")
         )
 
         try:

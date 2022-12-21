@@ -107,10 +107,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 if not locdata:
                     raise RuntimeError
                 self._geom = locdata["geom"]
-                if "latitude" in obj:
-                    obj.pop("latitude")
-                if "longitude" in obj:
-                    obj.pop("longitude")
+                obj.pop("latitude", None)
+                obj.pop("longitude", None)
                 break
             except (RuntimeError, KeyError):
                 if i < 2:

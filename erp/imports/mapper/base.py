@@ -103,8 +103,8 @@ class BaseMapper:
 
     def csv_to_erp(self, record, *args, **kwargs):
         try:
-            dest_fields = self.set_erp_fields(record, *args, **kwargs)
-            dest_fields["accessibilite"] = self.set_a11y_fields(record)
+            dest_fields = self.get_erp_fields(record, *args, **kwargs)
+            dest_fields["accessibilite"] = self.get_a11y_fields(record)
         except KeyError as key:
             raise RuntimeError(
                 f"Impossible d'extraire des données: champ {key} manquant"
@@ -112,7 +112,7 @@ class BaseMapper:
 
         return dest_fields
 
-    def set_erp_fields(self, record, *args, **kwargs):
+    def get_erp_fields(self, record, *args, **kwargs):
         dest_fields = {
             k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
         }
@@ -120,7 +120,7 @@ class BaseMapper:
         dest_fields["code_postal"] = record.get("postal_code")
         return dest_fields
 
-    def set_a11y_fields(self, record):
+    def get_a11y_fields(self, record):
         a11y_data = {
             k: self.format_data(v)
             for k, v in record.items()
