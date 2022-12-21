@@ -105,8 +105,10 @@ class Command(BaseCommand):
 
         accessibilite = Accessibilite(erp=erp)
         accessibilite.entree_porte_presence = None
-        accessibilite.accueil_equipements_malentendants_presence = row["accueil_equipements_malentendants_presence"]
-        accessibilite.accueil_equipements_malentendants = row["accueil_equipements_malentendants"].split(",")
+
+        for field in ("accueil_audiodescription", "accueil_equipements_malentendants"):
+            setattr(accessibilite, f"{field}_presence", row[f"{field}_presence"])
+            setattr(accessibilite, field, row[field].split(","))
 
         accessibilite.save()
         return erp, duplicated_pks
@@ -159,9 +161,9 @@ class Command(BaseCommand):
 
             except csv.Error as err:
                 sys.exit(f"file {csv_path}, line {reader.line_num}: {err}")
-        if len(self.to_import) == 0:
+        if not self.to_import:
             print("Rien à importer.")
         else:
             print(f"{len(self.to_import)} ERP à importer")
-        if len(self.doublons) != 0:
+        if self.doublons:
             print(f"Doublons détectés ({len(self.doublons)}): {self.doublons}")

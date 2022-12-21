@@ -1336,6 +1336,21 @@ class Accessibilite(models.Model):
         verbose_name="Personnel d'accueil",
     )
 
+    # Audiodescription
+    accueil_audiodescription_presence = models.BooleanField(
+        null=True,
+        blank=True,
+        choices=schema.get_field_choices("accueil_audiodescription_presence"),
+        verbose_name="Audiodescription",
+    )
+    accueil_audiodescription = ArrayField(
+        models.CharField(max_length=255, blank=True, choices=schema.AUDIODESCRIPTION_CHOICES),
+        verbose_name="Équipement(s) audiodescription",
+        default=list,
+        null=True,
+        blank=True,
+    )
+
     # Équipements pour personnes sourdes ou malentendantes
     accueil_equipements_malentendants_presence = models.BooleanField(
         null=True,

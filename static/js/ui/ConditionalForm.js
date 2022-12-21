@@ -102,6 +102,12 @@ const rules = [
 
   // Accueil
   {
+    source: "accueil_audiodescription_presence",
+    values: ["True"],
+    targets: ["accueil_audiodescription"],
+    indent: 1,
+  },
+  {
     source: "accueil_equipements_malentendants_presence",
     values: ["True"],
     targets: ["accueil_equipements_malentendants"],

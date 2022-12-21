@@ -26,6 +26,13 @@ class ContribAccessibiliteForm(forms.ModelForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
     # fields, hence why we set them up manually for each fields.
 
+    accueil_audiodescription = forms.MultipleChoiceField(
+        required=False,
+        choices=schema.AUDIODESCRIPTION_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        label=schema.get_label("accueil_audiodescription"),
+        help_text=schema.get_help_text("accueil_audiodescription"),
+    )
     accueil_equipements_malentendants = forms.MultipleChoiceField(
         required=False,
         choices=schema.EQUIPEMENT_MALENTENDANT_CHOICES,
@@ -79,6 +86,14 @@ class ContribAccessibiliteForm(forms.ModelForm):
             return None
         return self.cleaned_data["accueil_equipements_malentendants"]
 
+    def clean_accueil_audiodescription(self):
+        if (
+            "accueil_audiodescription_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_audiodescription_presence"] is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_audiodescription"]
+
 
 class AdminAccessibiliteForm(ContribAccessibiliteForm):
     # Note: defining `labels` and `help_texts` in `Meta` doesn't work with custom
@@ -115,6 +130,14 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         ):
             return None
         return self.cleaned_data["accueil_equipements_malentendants"]
+
+    def clean_accueil_audiodescription(self):
+        if (
+            "accueil_audiodescription_presence" in self.cleaned_data
+            and self.cleaned_data["accueil_audiodescription_presence"] is not True
+        ):
+            return None
+        return self.cleaned_data["accueil_audiodescription"]
 
     def clean_sanitaires_adaptes(self):
         # Specific case where we want to map nullable bool choices

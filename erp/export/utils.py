@@ -39,7 +39,7 @@ def map_list_from_schema(schema_enum, data, verbose=False):
     else:
         index = 0
 
-    if not data or not len(data):
+    if not data:
         return None
 
     result = set()
