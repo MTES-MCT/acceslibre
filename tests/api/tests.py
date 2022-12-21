@@ -91,6 +91,13 @@ def test_endpoint_erp_list(data, api_client):
     assert "transport" not in erp_json["accessibilite"]["datas"]
 
 
+def test_endpoint_erp_list_page_size(data, api_client):
+    response = api_client.get(reverse("erp-list") + "?page_size=25")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 1
+    assert content["page_size"] == 25
+
+
 def test_endpoint_erp_list_qs(data, api_client):
     response = api_client.get(reverse("erp-list") + "?q=croissants")
     content = json.loads(response.content)

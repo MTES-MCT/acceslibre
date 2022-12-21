@@ -63,7 +63,7 @@ def test_generate_error_file_with_KO_file():
 
     assert cm.generate_errors_file is True
     assert cm.error_file is not None
-    with open("errors.csv", "r") as error_file:
+    with open(cm.error_file_path, "r") as error_file:
         reader = csv.DictReader(error_file, delimiter=";")
         assert len(list(reader)) == 5
 
@@ -87,7 +87,7 @@ def test_generate_error_file_with_KO_file_and_oneline():
     assert cm.generate_errors_file is True
     assert cm.one_line is True
     assert cm.error_file is not None
-    with open("errors.csv", "r") as error_file:
+    with open(cm.error_file_path, "r") as error_file:
         reader = csv.DictReader(error_file, delimiter=";")
         assert len(list(reader)) == 1
 
