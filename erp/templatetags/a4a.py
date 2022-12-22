@@ -9,7 +9,7 @@ from django.conf import settings
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
-from erp import schema, serializers
+from erp import forms, schema, serializers
 from erp.models import Erp
 from erp.provider import arrondissements, naf, sirene
 
@@ -173,9 +173,9 @@ def get_naf_label(value):
     return naf.get_naf_label(value, "inconnu")
 
 
-@register.filter(name="get_schema_label")
-def get_schema_label(value):
-    return schema.get_label(value)
+@register.filter(name="get_field_label")
+def get_field_label(value):
+    return schema.get_label(value) or forms.get_label(value)
 
 
 @register.filter("isemptylist")
