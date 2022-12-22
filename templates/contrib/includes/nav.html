@@ -37,7 +37,7 @@
         <option {% if erp %}value="{% url "contrib_commentaire" erp_slug=erp.slug %}"{% else %}disabled{% endif %}
           {% if step == 7 %}selected{% endif %}>
           {% if step > 7 %}[ok]{% endif %}
-          Commentaire
+          Informations complémentaires
         </option>
       </select>
     </div>
@@ -97,9 +97,9 @@
       <li class="StepProgress-item{% if step == 7 %} current{% endif %}{% if step > 7 %} is-done{% endif %}"
         aria-label="{% if step == 7 %}en cours{% endif %}{% if step > 7 %} validé{% endif %}">
         {% if erp %}
-        <a title="Commentaires {% if step == 7 %}(Étape en cours){% endif %}{% if step > 7 %}(Étape validée){% endif %}" href="{% url "contrib_commentaire" erp_slug=erp.slug %}">Commentaires</a>
+        <a title="Informations complémentaires {% if step == 7 %}(Étape en cours){% endif %}{% if step > 7 %}(Étape validée){% endif %}" href="{% url "contrib_commentaire" erp_slug=erp.slug %}">Informations complémentaires</a>
         {% else %}
-        Commentaires
+        Informations complémentaires
         {% endif %}
       </li>
     </ul>
