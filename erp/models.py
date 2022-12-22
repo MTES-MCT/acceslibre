@@ -826,8 +826,8 @@ class Erp(models.Model):
                 raise ValidationError(
                     {"commune": translate(f"Commune {self.commune} introuvable, veuillez vérifier votre saisie.")}
                 )
-            else:
-                self.commune_ext = matches[0]
+
+            self.commune_ext = matches[0]
 
         # SIRET
         if self.siret:

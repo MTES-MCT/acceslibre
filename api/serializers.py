@@ -17,7 +17,7 @@ from erp.models import Accessibilite, Activite, Erp
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["username"]
+        fields = ("username",)
 
 
 class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
@@ -25,7 +25,7 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Accessibilite
-        exclude = ["created_at", "updated_at"]
+        exclude = ("created_at", "updated_at", "completion_rate")
 
     erp = serializers.HyperlinkedRelatedField(lookup_field="slug", many=False, read_only=True, view_name="erp-detail")
 
