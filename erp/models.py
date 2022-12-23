@@ -421,6 +421,7 @@ class Erp(models.Model):
         verbose_name = "Établissement"
         verbose_name_plural = "Établissements"
         indexes = [
+            models.Index(fields=["nom"]),
             models.Index(fields=["source", "source_id"]),
             models.Index(fields=["slug"]),
             models.Index(fields=["commune"]),
