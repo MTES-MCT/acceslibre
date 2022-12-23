@@ -3,12 +3,12 @@ from django.views.generic import TemplateView
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
 
-from .views import API_DOC_SUMMARY, AccessibiliteViewSet, ActiviteViewSet  # , ErpViewSet
+from .views import API_DOC_SUMMARY, AccessibiliteViewSet, ActiviteViewSet, ErpViewSet
 
 router = routers.DefaultRouter()
 router.register(r"accessibilite", AccessibiliteViewSet)
 router.register(r"activites", ActiviteViewSet)
-# router.register(r"erps", ErpViewSet)
+router.register(r"erps", ErpViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
