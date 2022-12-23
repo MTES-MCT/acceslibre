@@ -639,3 +639,15 @@ class PublicClaimForm(forms.Form):
         required=True,
         label="Je m'engage sur l'honneur à fournir des informations factuelles sur cet établissement.",
     )
+
+
+FORM_FIELDS = {
+    "user_type": {"label": PublicAProposForm.declared_fields["user_type"].label},
+}
+
+
+def get_label(field, default=""):
+    try:
+        return FORM_FIELDS[field].get("label", default)
+    except KeyError:
+        return default

@@ -50,7 +50,7 @@
       Attention, des erreurs ont été rencontrées.
       <ul class="my-1">
         {% for field_name, message in form.errors.items %}
-        <li>{{ field_name|get_schema_label }}: {{ message }}</li>
+        <li>{{ field_name|get_field_label }}: {{ message }}</li>
         {% endfor %}
       </ul>
     </div>
