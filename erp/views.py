@@ -645,21 +645,27 @@ def contrib_start(request):
 
 def contrib_global_search(request):
     results = error = None
-    what_lower = request.GET.get("what").lower()
-    try:
-        results = provider_search.global_search(what_lower, request.GET.get("code"))
-        qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").search_what(what_lower)
+    commune = ""
+    results_bdd = []
+    results = []
+    if request.GET.get("what"):
+        what_lower = request.GET.get("what", "").lower()
+        try:
+            results = provider_search.global_search(what_lower, request.GET.get("code"))
+            qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").search_what(
+                what_lower
+            )
 
-        commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
+            commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
 
-        results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
-    except RuntimeError as err:
-        error = err
+            results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
+        except RuntimeError as err:
+            error = err
     return render(
         request,
         template_name="contrib/0a-search_results.html",
         context={
-            "what": request.GET.get("what"),
+            "what": request.GET.get("what", ""),
             "commune_search": commune,
             "step": 1,
             "libelle_step": {
