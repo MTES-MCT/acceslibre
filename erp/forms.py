@@ -415,7 +415,7 @@ class ViewAccessibiliteForm(AdminAccessibiliteForm):
 class BasePublicErpInfosForm(BaseErpForm):
     lat = forms.DecimalField(widget=forms.HiddenInput)
     lon = forms.DecimalField(widget=forms.HiddenInput)
-    activite = forms.ModelChoiceField(queryset=Activite.objects.order_by("position"))
+    activite = forms.ModelChoiceField(label="Activité", queryset=Activite.objects.order_by("position"))
     nouvelle_activite = forms.CharField(widget=forms.TextInput)
 
     class Meta:

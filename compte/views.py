@@ -211,6 +211,9 @@ def delete_account(request):
 @login_required
 def mes_erps(request):
     qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").filter(user_id=request.user.pk)
+    if request.GET.get("q"):
+        qs = qs.filter(nom__icontains=request.GET["q"])
+
     published_qs = qs.published()
     non_published_qs = qs.not_published()
     erp_total_count = qs.count()
@@ -234,6 +237,7 @@ def mes_erps(request):
             "pager": pager,
             "pager_base_url": f"?published={published or ''}",
             "filter_published": published,
+            "q": request.GET.get("q") or "",
         },
     )
 

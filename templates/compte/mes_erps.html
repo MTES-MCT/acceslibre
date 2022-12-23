@@ -16,6 +16,14 @@
     </div>
   </div>
 
+  <form action="{% url 'mes_erps' %}" class="form-inline" method="get">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="q" class="sr-only">Recherche dans mes ERPs</label>
+      <input name="q" type="" class="form-control" id="" placeholder="Nom" value="{{ q }}">
+    </div>
+    <button type="submit" class="btn btn-success btn-lg mb-2">Rechercher</button>
+  </form>
+
   {% if erp_total_count > 0 %}
   <nav class="nav nav-tabs nav-fill">
     <a class="nav-item nav-link{% if not filter_published and not filter_filled %} active{% endif %}" href=".">
