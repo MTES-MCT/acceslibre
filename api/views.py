@@ -467,7 +467,10 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = (
-        Erp.objects.select_related("activite", "accessibilite", "commune_ext", "user").published().order_by("nom")
+        Erp.objects.select_related("activite", "accessibilite", "commune_ext", "user")
+        .published()
+        .distinct("id", "nom")
+        .order_by("nom")
     )
     serializer_class = ErpSerializer
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
