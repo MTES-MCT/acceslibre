@@ -139,7 +139,7 @@ class AccessibiliteViewSet(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = (
-        Accessibilite.objects.select_related("erp").filter(erp__published=True).distinct().order_by("-updated_at")
+        Accessibilite.objects.select_related("erp").filter(erp__published=True).order_by("-updated_at")
     )
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     serializer_class = AccessibiliteSerializer
