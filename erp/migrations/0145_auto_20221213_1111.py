@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("erp", "0143_erp_import_email"),
+        ("erp", "0144_erp_erp_erp_nom_58d353_idx"),
     ]
 
     operations = [
