@@ -78,15 +78,9 @@ class AccessibiliteSerializer(serializers.HyperlinkedModelSerializer):
             del comm_field
         # remove section if entirely empty
         if readable and clean:
-            repr["datas"] = dict(
-                (key, section)
-                for key, section in repr["datas"].items()
-                if section != {}
-            )
+            repr["datas"] = dict((key, section) for key, section in repr["datas"].items() if section != {})
         if clean:
-            return dict(
-                (key, section) for key, section in repr.items() if section != {}
-            )
+            return dict((key, section) for key, section in repr.items() if section != {})
         return repr
 
 

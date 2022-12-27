@@ -70,10 +70,7 @@ def test_endpoint_erp_list(data, api_client):
         erp_json["accessibilite"]["datas"]["accueil"]["sanitaires_adaptes"]
         == "Aucun sanitaire adapté mis à disposition dans l'établissement"
     )
-    assert (
-        erp_json["accessibilite"]["datas"]["transport"]["transport_station_presence"]
-        is None
-    )
+    assert erp_json["accessibilite"]["datas"]["transport"]["transport_station_presence"] is None
 
     # same request with readable & clean
     response = api_client.get(reverse("erp-list") + "?readable=true&clean=true")
