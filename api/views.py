@@ -31,6 +31,11 @@ Le point d'entrée racine de l'API est accessible à l'adresse
 - Une vue HTML est présentée quand requêtée par le biais d'un navigateur Web,
 - Une réponse de type `application/json` est restituée si explicitement demandée par le client.
 
+## Limitation
+
+Afin de garantir la disponibilité du site pour tous, un nombre maximum de requêtes par seconde est défini.
+Si vous atteignez cette limite, une réponse `HTTP 429 (Too many requests)` sera émise, vous invitant à réduire la fréquence de vos requêtes.
+
 ## Quelques exemples d'utilisation
 
 ### Rechercher les établissements dont le nom contient ou s'approche de `piscine`, à Villeurbanne :
