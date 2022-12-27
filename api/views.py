@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.gis.geos import Point
 from rest_framework import permissions, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import BaseFilterBackend
@@ -286,7 +287,8 @@ class ErpFilterBackend(BaseFilterBackend):
         # Proximity
         around = geocoder.parse_coords(request.query_params.get("around"))
         if around is not None:
-            queryset = queryset.nearest(around)
+            lat, lon = around
+            queryset = queryset.nearest(Point(lon, lat, srid=4326))
 
         return queryset
 
@@ -410,7 +412,7 @@ class ErpSchema(A4aAutoSchema):
                 "name": "around",
                 "in": "query",
                 "required": False,
-                "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=43.22,3.83`)",
+                "description": "Biais de localisation géographique, au format `latitude,longitude` (par ex. `?around=45.76,4.83`)",
                 "schema": {"type": "string"},
             },
         },
