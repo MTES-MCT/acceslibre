@@ -129,6 +129,9 @@ def test_invalid_search_params_404(data, client):
         reverse("search") + "?where=jacou&what=boulangerie",
         reverse("search") + "?where=jacou&what=boulangerie&lat=43.2&lon=2.39",
         reverse("search_commune", kwargs={"commune_slug": "34-jacou"}),
+        # Global Search
+        reverse("global_map"),
+        reverse("global_map") + "?where=jacou&what=boulangerie",
         # Editorial
         reverse("accessibilite"),
         reverse("cgu"),

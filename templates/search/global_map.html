@@ -1,0 +1,72 @@
+{% extends "editorial/base.html" %}
+
+{% load a4a %}
+{% load static %}
+
+{% block page_title %}{% spaceless %}
+  {% if pager %}
+    Résultats pour {{ what|default_if_none:"" }} {{ where|default_if_none:"" }}, page {{ pager.number }}/{{ paginator.num_pages }}
+  {% else %}
+    Aucun résultat
+  {% endif %}
+{% endspaceless %}{% endblock%}
+{% block top_fluid_content %}{% endblock %}
+
+{% block header %}
+  {% include "editorial/header.html" with dark=True %}
+{% endblock %}
+
+{% block editorial_content %}
+  <h1 class="mt-3 mb-2">
+    <span class="sr-only">Localité:</span> {{ where }}
+    {% if where and what %}<small class="text-muted">/</small>{% endif %}
+    {% if what %}<span class="sr-only">Activité:</span> {{ what }}{% endif %}
+  </h1>
+
+  <section class="pt-2" id="results">
+    {% if paginator.count == 0 %}
+    <div class="alert alert-info" role="alert" aria-live="assertive">
+      <i aria-hidden="true" class="icon icon-warning"></i>
+      Il n'y a pas de résultat correspondant à votre recherche <strong>{{ what }} {{ where }}</strong>.
+    </div>
+    <div class="alert" role="alert" aria-live="assertive">
+      <p>
+        <i aria-hidden="true" class="icon icon-bulb"></i>
+        Vous pouvez cependant :
+      </p>
+      <ul>
+        {% if commune %}
+        <li><a href="{% url "search" %}?where={{ commune }}&code={{ commune.code_insee }}">Afficher la liste de tous les établissements situés à {{ commune }}</a></li>
+        <li><a href="{% url "search" %}?where={{ commune.nom }}&lat={{ commune.geom.y }}&lon={{ commune.geom.x }}">Afficher les établissements situés dans un rayon de {{ MAP_SEARCH_RADIUS_KM }} kilomètres autour {{ commune|preposition_nom }}</a></li>
+        {% endif %}
+        <li><a href="{% url "contrib_start" %}{% if commune %}?code_insee={{ commune.code_insee }}{% endif %}">Ajouter un établissement manquant{% if commune %} à {{ commune }}{% endif %}</a></li>
+        <li><a href="{% url "contact_form" %}">Nous contacter pour obtenir de l'aide ou nous signaler un problème</a></li>
+      </ul>
+    </div>
+    {% elif pager %}
+    <div class="row mt-2">
+      <div class="col-sm-6">
+        <h2 class="h4 m-0 mb-3">
+          {{ paginator.count }} établissement{{ paginator.count|pluralize:"s" }}
+          {% if where|startswith:"Autour de moi" %}
+            à moins de {{ MAP_SEARCH_RADIUS_KM }}<span aria-hidden="true">km</span> <span class="sr-only">kilomètres</span>
+          {% endif %}
+          <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
+        </h2>
+      </div>
+      <div class="col-12 col-sm-10 pt-5 text-sm-right text-center mb-2">
+        <h3 class="h6 font-weight-bold w-100 mb-0 pt-3">Retrouvez l'ensemble de ces établissements via ce QRCode</h3>
+      </div>
+      <div class="col-12 col-sm-2 text-sm-right text-center mb-2">
+        <img height="150" src="data:image/png;base64,{{ qrcode_img }}">
+
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-12 a4a-search-map-area-global">
+        {% include "common/map.html" with map_classes="a4a-search-map rounded" %}
+      </div>
+    </div>
+    {% endif %}
+  </section>
+{% endblock %}

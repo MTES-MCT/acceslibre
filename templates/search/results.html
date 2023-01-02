@@ -69,8 +69,8 @@
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>
-      <div class="col-sm-6">
-        {% include "common/pager.html" with pager=pager pager_base_url=pager_base_url no_page_links=True css_classes="a4a-search-pager" %}
+      <div class="col-sm-6 text-right">
+        <a target="_blank" href="{% url 'global_map' %}?{{ url_params }}" class="fr-btn fr-btn--secondary">Afficher la carte globale</a>
       </div>
     </div>
     <div class="row no-gutters">
