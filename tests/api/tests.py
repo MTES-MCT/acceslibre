@@ -103,3 +103,13 @@ def test_endpoint_erp_list_qs(data, api_client):
     response = api_client.get(reverse("erp-list") + "?q=nexiste_pas")
     content = json.loads(response.content)
     assert len(content["results"]) == 0
+
+
+def test_endpoint_erp_list_around(data, api_client):
+    response = api_client.get(reverse("erp-list") + "?around=45.4,4.4")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 0
+
+    response = api_client.get(reverse("erp-list") + "?around=43.66,3.91")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 1
