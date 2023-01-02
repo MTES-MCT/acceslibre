@@ -17,6 +17,7 @@ def get_env_variable(var_name, required=True, type=str):
         return os.environ.get(var_name)
 
 
+TEST = False
 STAGING = False
 SITE_NAME = "acceslibre"
 SITE_HOST = "acceslibre.beta.gouv.fr"

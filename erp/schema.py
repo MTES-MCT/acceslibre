@@ -26,14 +26,6 @@ NULLABLE_OR_NA_BOOLEAN_CHOICES = (
     (None, UNKNOWN_OR_NA),
 )
 
-# Specific case where we want to map nullable bool choices
-# to 0 and 1 integers (see sanitaires_adaptes field)
-NULLABLE_BOOL_NUM_CHOICES = (
-    (1, "Oui"),
-    (0, "Non"),
-    (None, UNKNOWN),
-)
-
 DEVERS_AUCUN = "aucun"
 DEVERS_LEGER = "léger"
 DEVERS_IMPORTANT = "important"
