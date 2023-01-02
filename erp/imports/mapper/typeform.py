@@ -6,7 +6,7 @@ from erp.imports.mapper.base import BaseMapper
 class TypeFormBase(BaseMapper):
     def get_erp_fields(self, record, activite, *args, **kwargs):
         dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
-        dest_fields["activite"] = record["Activité"]
+        dest_fields["activite"] = record.get("Activité", None)
         if activite:
             dest_fields["activite"] = activite
         dest_fields["source"] = "typeform"

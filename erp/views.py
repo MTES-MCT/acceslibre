@@ -1,6 +1,9 @@
+import base64
 import datetime
+import io
 import urllib
 
+import qrcode
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -277,10 +280,16 @@ def global_map(request, commune_slug=None):
     paginator = Paginator(qs, qs.count())
     pager = paginator.get_page(request.GET.get("page", 1))
     geojson_list = make_geojson(pager)
+    img = qrcode.make(request.build_absolute_uri())
+    with io.BytesIO() as output:
+        img.save(output, format="PNG")
+        qrcode_img = base64.b64encode(output.getvalue()).decode("utf-8")
+
     return render(
         request,
         "search/global_map.html",
         context={
+            "qrcode_img": qrcode_img,
             "commune": commune,
             "paginator": paginator,
             "pager": pager,
