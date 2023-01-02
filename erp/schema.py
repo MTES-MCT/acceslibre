@@ -132,10 +132,19 @@ AUDIODESCRIPTION_AVEC_APP = "avec_app"
 AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL = "avec_équipement_occasionnel"
 AUDIODESCRIPTION_SANS_EQUIPEMENT = "sans_équipement"
 AUDIODESCRIPTION_CHOICES = [
-    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT, "avec équipement permanent"),
-    (AUDIODESCRIPTION_AVEC_APP, "avec application sur smartphone"),
-    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "avec équipement occasionnel"),
-    (AUDIODESCRIPTION_SANS_EQUIPEMENT, "sans équipement"),
+    (
+        AUDIODESCRIPTION_AVEC_EQUIPEMENT_PERMANENT,
+        "avec équipement permanent, casques et boîtiers disponibles à l’accueil",
+    ),
+    (
+        AUDIODESCRIPTION_AVEC_APP,
+        "avec équipement permanent nécessitant le téléchargement d'une application sur smartphone",
+    ),
+    (AUDIODESCRIPTION_AVEC_EQUIPEMENT_OCCASIONNEL, "avec équipement occasionnel selon la programmation"),
+    (
+        AUDIODESCRIPTION_SANS_EQUIPEMENT,
+        "sans équipement, audiodescription audible par toute la salle (selon la programmation)",
+    ),
 ]
 AUDIODESCRIPTION_DESCRIPTIONS = [
     (
@@ -1080,8 +1089,7 @@ FIELDS = {
         "type": "array",
         "nullable": False,
         "is_a11y": True,
-        "label": "Liste des équipements pour l'audiodescription",
-        "help_text": mark_safe("Type d'équipement&nbsp;:"),
+        "label": "Type d'équipements pour l'audiodescription",
         "help_text_ui": "Équipements disponibles",
         "help_text_ui_neg": "Équipements disponibles",
         "choices": AUDIODESCRIPTION_CHOICES,

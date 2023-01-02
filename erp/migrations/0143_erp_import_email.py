@@ -6,13 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('erp', '0142_auto_20221012_1202'),
+        ("erp", "0142_auto_20221012_1202"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='erp',
-            name='import_email',
-            field=models.EmailField(blank=True, help_text="Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP", max_length=255, null=True, verbose_name="Email lié à l'import"),
+            model_name="erp",
+            name="import_email",
+            field=models.EmailField(
+                blank=True,
+                help_text="Adresse email permettant de relancer l'utilisateur lié à l'import de l'ERP",
+                max_length=255,
+                null=True,
+                verbose_name="Email lié à l'import",
+            ),
         ),
     ]

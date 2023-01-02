@@ -5,9 +5,7 @@ from erp.imports.mapper.base import BaseMapper
 
 class TypeFormBase(BaseMapper):
     def get_erp_fields(self, record, activite, *args, **kwargs):
-        dest_fields = {
-            k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
-        }
+        dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
         dest_fields["activite"] = record["Activité"]
         if activite:
             dest_fields["activite"] = activite
@@ -16,14 +14,10 @@ class TypeFormBase(BaseMapper):
         dest_fields["commune"] = record["Ville"]
         dest_fields["import_email"] = record["email"]
         if record["geo"]:
-            dest_fields["latitude"], dest_fields["longitude"] = (
-                float(x) for x in record["geo"].split(",")
-            )
+            dest_fields["latitude"], dest_fields["longitude"] = (float(x) for x in record["geo"].split(","))
 
         try:
-            dest_fields["numero"], dest_fields["voie"] = re.match(
-                "([0-9]*) ?(.*)", record["adresse"]
-            ).groups()
+            dest_fields["numero"], dest_fields["voie"] = re.match("([0-9]*) ?(.*)", record["adresse"]).groups()
         except Exception:
             pass
 
@@ -32,7 +26,9 @@ class TypeFormBase(BaseMapper):
     def get_a11y_fields(self, record):
         a11y_data = {}
 
-        field_label = "Votre mairie : {{hidden:nom}}  Y a-t-il une marche (ou plus) pour y rentrer ? (même toute petite) "
+        field_label = (
+            "Votre mairie : {{hidden:nom}}  Y a-t-il une marche (ou plus) pour y rentrer ? (même toute petite) "
+        )
         if record[field_label] == "Non, c'est de plain-pied":
             a11y_data["entree_plain_pied"] = True
         elif record[field_label] == "Oui, au moins une marche":
@@ -101,10 +97,7 @@ class TypeFormBase(BaseMapper):
             a11y_data["cheminement_ext_rampe"] = "aucune"
 
         field_label = "Est-ce qu’il y au moins une place handicapé dans les environs ?"
-        if (
-            record[field_label]
-            == "Oui, il y a une place  de parking handicapé pas loin"
-        ):
+        if record[field_label] == "Oui, il y a une place  de parking handicapé pas loin":
             a11y_data["stationnement_ext_presence"] = True
             a11y_data["stationnement_ext_pmr"] = True
         elif record[field_label] == "Non, pas de place handicapé pas loin":
@@ -116,23 +109,17 @@ class TypeFormBase(BaseMapper):
 
 class TypeFormMairie(TypeFormBase):
     def get_erp_fields(self, record, *args, **kwargs):
-        dest_fields = {
-            k: self.format_data(v) for k, v in record.items() if k in self.erp_fields
-        }
+        dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
         dest_fields["nom"] = "Mairie"
         dest_fields["activite"] = "Mairie"
         dest_fields["source"] = "typeform"
         dest_fields["code_postal"] = BaseMapper.handle_5digits_code(record.get("cp"))
         dest_fields["commune"] = record["nom"]
         dest_fields["import_email"] = record["email"]
-        dest_fields["latitude"], dest_fields["longitude"] = (
-            float(x) for x in record["geo"].split(",")
-        )
+        dest_fields["latitude"], dest_fields["longitude"] = (float(x) for x in record["geo"].split(","))
 
         try:
-            dest_fields["numero"], dest_fields["voie"] = re.match(
-                "([0-9]*) ?(.*)", record["adresse"]
-            ).groups()
+            dest_fields["numero"], dest_fields["voie"] = re.match("([0-9]*) ?(.*)", record["adresse"]).groups()
         except Exception:
             pass
 

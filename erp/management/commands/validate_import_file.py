@@ -1,12 +1,12 @@
 import csv
 import re
 
-from django.utils.timezone import now
 from django.core.management.base import BaseCommand, CommandError
+from django.utils.timezone import now
 from rest_framework.exceptions import ValidationError
 
 from erp.imports.mapper.base import BaseMapper
-from erp.imports.mapper.typeform import TypeFormMairie, TypeFormBase
+from erp.imports.mapper.typeform import TypeFormBase, TypeFormMairie
 from erp.imports.serializers import ErpImportSerializer
 from erp.management.utils import print_error, print_success
 from erp.models import Erp
@@ -80,9 +80,7 @@ class Command(BaseCommand):
         self.generate_errors_file = options.get("generate_errors_file", False)
         self.mapper = options.get("mapper")
         self.activite = options.get("activite", None)
-        self.force_update_duplicate_erp = options.get(
-            "force_update_duplicate_erp", False
-        )
+        self.force_update_duplicate_erp = options.get("force_update_duplicate_erp", False)
 
         counter = 0
         print("Démarrage du script")
@@ -123,9 +121,7 @@ Paramètres de lancement du script :
                         erp_duplicated = None
                         while counter < 2:
                             try:
-                                validated_erp_data = self.validate_data(
-                                    row, duplicated_erp=erp_duplicated
-                                )
+                                validated_erp_data = self.validate_data(row, duplicated_erp=erp_duplicated)
                             except Exception as e:
                                 if (
                                     isinstance(e, ValidationError)
@@ -137,16 +133,12 @@ Paramètres de lancement du script :
                                             f"Un doublon a été détecté lors du traitement de la ligne {_}: {e}."
                                         )
                                     self.results["duplicated"]["count"] += 1
-                                    self.results["duplicated"]["msgs"].append(
-                                        {"line": _, "error": e, "data": row}
-                                    )
+                                    self.results["duplicated"]["msgs"].append({"line": _, "error": e, "data": row})
                                     if self.force_update_duplicate_erp is True:
                                         erp_duplicated = Erp.objects.get(
                                             pk=re.search(
                                                 r".*ERP #(\d*)",
-                                                e.detail["non_field_errors"][
-                                                    0
-                                                ].__str__(),
+                                                e.detail["non_field_errors"][0].__str__(),
                                             ).group(1)
                                         )
                                         counter += 1
@@ -156,17 +148,11 @@ Paramètres de lancement du script :
                                         f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
                                     )
                                     self.results["in_error"]["count"] += 1
-                                    self.results["in_error"]["msgs"].append(
-                                        {"line": _, "error": e, "data": row}
-                                    )
+                                    self.results["in_error"]["msgs"].append({"line": _, "error": e, "data": row})
                             else:
-                                print_success(
-                                    "\t         - La ligne est valide et peut-être importée"
-                                )
+                                print_success("\t         - La ligne est valide et peut-être importée")
                                 self.results["validated"]["count"] += 1
-                                self.results["validated"]["erps"].append(
-                                    validated_erp_data
-                                )
+                                self.results["validated"]["erps"].append(validated_erp_data)
 
                                 if not self.skip_import:
                                     print_success("\t * Importation de l'ERP")
@@ -215,10 +201,7 @@ Paramètres de lancement du script :
 
             writer = csv.DictWriter(self.error_file, fieldnames=fieldnames, delimiter=";")
             writer.writeheader()
-            if (
-                self.results["duplicated"]["count"]
-                and not self.force_update_duplicate_erp
-            ):
+            if self.results["duplicated"]["count"] and not self.force_update_duplicate_erp:
                 for line in self.results["duplicated"]["msgs"]:
                     writer.writerow(line)
             for line in self.results["in_error"]["msgs"]:
