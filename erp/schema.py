@@ -329,8 +329,8 @@ SECTIONS = {
     },
     SECTION_COMMENTAIRE: {
         "icon": "info-circled",
-        "label": "Commentaire",
-        "description": "et informations complémentaires",
+        "label": "Informations complémentaires",
+        "description": "",
         "edit_route": "contrib_commentaire",
     },
 }
