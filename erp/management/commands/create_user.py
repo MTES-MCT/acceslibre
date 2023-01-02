@@ -7,7 +7,6 @@ from core.lib import text
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("email", help="Adresse email de la personne")
-        pass
 
     def generate_username(self, email):
         a, *_ = email.split("@")
