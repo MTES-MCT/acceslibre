@@ -427,6 +427,7 @@ class Erp(models.Model):
             models.Index(fields=["commune"]),
             models.Index(fields=["commune", "activite_id"]),
             models.Index(fields=["user_type"]),
+            models.Index(fields=["published", "geom"]),  # used in many managers
             GinIndex(name="nom_trgm", fields=["nom"], opclasses=["gin_trgm_ops"]),
             GinIndex(fields=["search_vector"]),
             GinIndex(fields=["metadata"], name="gin_metadata"),
