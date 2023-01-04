@@ -140,9 +140,6 @@ class AdminAccessibiliteForm(ContribAccessibiliteForm):
         return self.cleaned_data["accueil_audiodescription"]
 
     def clean_sanitaires_adaptes(self):
-        # Specific case where we want to map nullable bool choices
-        # to 0 and 1 integers, hence why we use NULLABLE_BOOL_NUM_CHOICES
-        # as choices.
         value = self.cleaned_data["sanitaires_adaptes"]
         if value == "":
             return None

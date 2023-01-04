@@ -2,6 +2,7 @@
 from .settings import *
 
 DEBUG = True
+TEST = True
 
 SITE_HOST = "localhost"
 SITE_ROOT_URL = f"http://testserver"
