@@ -23,6 +23,34 @@ def neufchateau(db):
 
 
 @pytest.fixture
+def jacou():
+    return Commune.objects.create(
+        nom="Jacou",
+        slug="34-jacou",
+        code_postaux=["34830"],
+        code_insee="34830",
+        departement="34",
+        superficie=2380,
+        population=6639,
+        geom=Point(5.6962, 48.3568),
+    )
+
+
+@pytest.fixture
+def paris():
+    return Commune.objects.create(
+        nom="Paris",
+        slug="75-paris",
+        code_postaux=["75002"],
+        code_insee="75111",
+        departement="75",
+        superficie=2380,
+        population=6639,
+        geom=Point(5.6962, 48.3568),
+    )
+
+
+@pytest.fixture
 def vallorcine(db):
     return Commune.objects.create(
         nom="Vallorcine",
