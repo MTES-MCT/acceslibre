@@ -69,7 +69,7 @@ jobs:
       - run:
           name: Check Django templates
           command: |
-            pipenv run ./manage.py validate_templates --ignore-app nested_admin
+            pipenv run ./manage.py validate_templates
       - run:
           name: Run tests
           command: |

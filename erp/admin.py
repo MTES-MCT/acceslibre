@@ -1,4 +1,3 @@
-import nested_admin
 from admin_auto_filters.filters import AutocompleteFilterFactory
 from django import forms
 from django.conf import settings
@@ -133,10 +132,12 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
     voir_les_erps.short_description = "Action"
 
 
-class AccessibiliteInline(nested_admin.NestedStackedInline):
+@admin.register(Accessibilite)
+class AccessibiliteAdmin(VersionAdmin):
     model = Accessibilite
     form = AdminAccessibiliteForm
-    fieldsets = schema.get_admin_fieldsets()
+    readonly_fields = ("erp",)
+    fieldsets = [("ERP", {"fields": ["erp"]})] + schema.get_admin_fieldsets()
 
 
 class ErpOnlineFilter(admin.SimpleListFilter):
@@ -173,14 +174,11 @@ class ErpRenseigneFilter(admin.SimpleListFilter):
 class ErpAdmin(
     ExportMixin,
     OSMGeoAdmin,
-    nested_admin.NestedModelAdmin,
     VersionAdmin,
 ):
     form = AdminErpForm
     resource_class = ErpAdminResource
-
     actions = ["assign_activite", "assign_user", "publish", "unpublish"]
-    inlines = [AccessibiliteInline]
     list_display = (
         "get_nom",
         "published",
@@ -228,13 +226,14 @@ class ErpAdmin(
         "user",
         "user_type",
     )
-    view_on_site = True
 
-    readonly_fields = [
-        "source_id",
-        "asp_id",
-        "commune_ext",
-    ]
+    def view_on_site(self, obj):
+        # Do not use default `view_on_site` because it is based on Site model.
+        # As we frequently restore prod db on localhost without editing the Site,
+        # it is here to prevent from being redirected to prod from the localhost admin
+        return f"{settings.SITE_ROOT_URL}{obj.get_absolute_url()}"
+
+    readonly_fields = ["source_id", "asp_id", "commune_ext", "accessibilite"]
 
     fieldsets = [
         (
@@ -271,6 +270,12 @@ class ErpAdmin(
             "Contact",
             {
                 "fields": ["telephone", "site_internet", "contact_email"],
+            },
+        ),
+        (
+            "Données d'accessibilité",
+            {
+                "fields": ["accessibilite"],
             },
         ),
     ]
