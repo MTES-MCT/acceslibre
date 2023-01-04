@@ -52,6 +52,12 @@
       "email": "nicolas@perriault.net",
       "organisation": "MTES-MCT",
       "role": "author"
+    },
+    {
+      "title": "Marie-Laure Vernay",
+      "email": "marielaure.vernay@beta.gouv.fr",
+      "organisation": "MTES-MCT",
+      "role": "author"
     }
   ],
   "fields": [
@@ -174,6 +180,7 @@
           "Aéroport",
           "Afpa",
           "Agence départementale d'information sur le logement",
+          "Agence de publicité",
           "Agence de travail temporaire",
           "Agence de voyage",
           "Agence immobilière",
@@ -214,6 +221,7 @@
           "Bibliothèque médiathèque",
           "Bien-être",
           "Bijouterie joaillerie",
+          "Biscuiterie",
           "Blanchisserie teinturerie",
           "Boucherie / commerce de viande",
           "Boulangerie",
@@ -288,6 +296,7 @@
           "Conservatoire et école de musique",
           "Construction de maisons, immeubles",
           "Contrôle technique auto",
+          "Coopérative agricole",
           "Cordonnerie serrurerie",
           "Courtier",
           "Coworking",
@@ -298,9 +307,11 @@
           "Cyclisme",
           "Déchetterie",
           "Décoration Design",
+          "Déménageur",
           "Dermatologie vénéréologie",
           "Direction départementale de la protection des populations",
           "Direction départementale de l'emploi, du travail, des solidarités et de la protection des populations",
+          "Discothèque",
           "Disquaire",
           "Distribution spécialisée / commerce de gros",
           "Droguerie",
@@ -358,6 +369,7 @@
           "Jardin botanique et/ou zoologique",
           "Jardinerie",
           "Jeux jouets",
+          "Karaoké",
           "Kiosque (théâtre, pizza, journaux)",
           "Laboratoire d'analyse médicale",
           "Laverie",
@@ -382,6 +394,7 @@
           "Maroquinerie sellerie articles de voyage",
           "Massages",
           "Masseur kinésithérapeute",
+          "Matériel de pêche",
           "Médecine du travail",
           "Médecin généraliste",
           "Menuiserie, ébénisterie",
@@ -395,6 +408,7 @@
           "Musique",
           "Neurologie",
           "Notaire",
+          "Numérique",
           "Office du tourisme",
           "Opéra",
           "Ophtalmologie",
@@ -449,6 +463,7 @@
           "Radiodiagnostic et imagerie médicale",
           "Rempailleur tapissier chaises fauteuils",
           "Réparation auto et de matériel agricole",
+          "Résidence, foyer",
           "Ressourcerie",
           "Restaurant",
           "Restaurant scolaire",
@@ -468,12 +483,15 @@
           "Salles de remise en forme",
           "Salle spécialisée",
           "Salon de thé",
+          "Sécurité sociale, mutuelle santé",
           "Service de la publicité foncière",
           "Service des impôts des entreprises du centre des finances publiques",
           "Service ou aide à domicile",
+          "Services techniques",
           "Sex shop",
           "Skatepark",
           "Soins de beauté",
+          "Sophrologue",
           "Spa",
           "Sports et loisirs",
           "Sports nautiques",
@@ -486,10 +504,12 @@
           "Syndic, gérance immo",
           "Tabac",
           "Tatouage Piercing",
+          "Taxi",
           "Taxidermie",
           "Téléphonie",
           "Tennis",
           "Textile hors habillement",
+          "Thalassothérapie",
           "Théâtre",
           "Toilettes publiques",
           "Toiletteur",
@@ -506,7 +526,7 @@
           "Vétérinaire"
         ]
       },
-      "example": "Mairie"
+      "example": ""
     },
     {
       "name": "transport_station_presence",
@@ -1551,19 +1571,19 @@
     },
     {
       "name": "accueil_audiodescription",
-      "title": "Liste des équipements pour l'audiodescription",
+      "title": "Type d'équipements pour l'audiodescription",
       "description": "Équipements disponibles",
       "type": "array",
       "arrayItem": {
         "type": "string",
         "enum": [
           "avec_équipement_permanent",
-          "app",
+          "avec_app",
           "avec_équipement_occasionnel",
           "sans_équipement"
         ]
       },
-      "example": "Valeurs possibles: avec_équipement_permanent -> avec équipement permanent, app -> avec application sur smartphone, avec_équipement_occasionnel -> avec équipement occasionnel, sans_équipement -> sans équipement"
+      "example": "Valeurs possibles: avec_équipement_permanent -> avec équipement permanent, casques et boîtiers disponibles à l’accueil, avec_app -> avec équipement permanent nécessitant le téléchargement d'une application sur smartphone, avec_équipement_occasionnel -> avec équipement occasionnel selon la programmation, sans_équipement -> sans équipement, audiodescription audible par toute la salle (selon la programmation)"
     },
     {
       "name": "accueil_equipements_malentendants_presence",
