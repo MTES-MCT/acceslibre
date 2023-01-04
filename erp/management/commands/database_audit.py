@@ -12,6 +12,8 @@ class Command(BaseCommand):
         nbs = defaultdict(int)
         for erp in query.iterator(chunk_size=200):
             try:
+                if not erp.activite:
+                    raise Exception("Missing activity")
                 data = erp.__dict__
                 data |= {"accessibilite": erp.accessibilite.__dict__}
                 data |= {"activite": erp.activite.nom}
