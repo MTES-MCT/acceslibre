@@ -11,9 +11,6 @@ from erp import schema
 
 
 class ActiviteQuerySet(models.QuerySet):
-    def in_commune(self, commune):
-        return self.filter(erp__commune_ext=commune)
-
     def with_erp_counts(self):
         """Note: this should come last when chained, otherwise you'll have
         erroneous counts.
@@ -110,9 +107,6 @@ class ErpQuerySet(models.QuerySet):
             nom__unaccent__lower__trigram_similar=nom,
             distance__lt=measure.Distance(m=200),
         )
-
-    def in_commune(self, commune):
-        return self.filter(commune_ext=commune)
 
     def in_code_postal(self, commune):
         return self.filter(code_postal__in=commune.code_postaux)
