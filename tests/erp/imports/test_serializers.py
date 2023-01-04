@@ -5,6 +5,8 @@ from django.core.exceptions import ValidationError
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Erp
 
+from tests.erp.imports.mapper.fixtures import paris, jacou
+
 
 @pytest.mark.django_db
 @pytest.mark.parametrize(
@@ -16,7 +18,20 @@ from erp.models import Erp
         pytest.param({"code_postal": "99999"}, False, None, id="invalid_postal_code"),
         pytest.param({"code_postal": "348300"}, False, None, id="invalid_postal_code"),
         pytest.param({"activite": "Unknown in DB"}, False, None, id="invalid_activity"),
-        pytest.param({"commune": "Unknown in DB"}, False, None, id="invalid_commune"),
+        pytest.param({"commune": "Unknown in DB"}, True, None, id="invalid_commune"),
+        pytest.param(
+            {
+                "commune": "Unknown in DB",
+                "numero": "125",
+                "voie": "Rue des Pompiers",
+                "code_postal": "86140",
+            },
+            False,
+            {
+                "geom": Point((0, 0)),
+            },
+            id="invalid_ban_adresse",
+        ),
         pytest.param({"accessibilite": {}}, False, None, id="empty_accessibility"),
         pytest.param({"latitude": 0, "longitude": 0}, True, {"empty": True}, id="empty_geocoder"),
         pytest.param(
@@ -28,12 +43,21 @@ from erp.models import Erp
                 "commune": "Jacou",
             },
             False,
-            None,
+            {
+                "geom": Point((0, 0)),
+                "numero": "4",
+                "voie": "grand rue",
+                "code_postal": "34830",
+                "commune": "Jacou",
+                "code_insee": "34830",
+            },
             id="duplicate",
         ),
     ),
 )
-def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_result):
+def test_erp_import_serializer(
+    mocker, data, erp_values, is_valid, geocoder_result, jacou, paris
+):
     mocker.patch(
         "erp.provider.geocoder.geocode",
         return_value=geocoder_result

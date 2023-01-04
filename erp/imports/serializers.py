@@ -81,12 +81,6 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
 
-        obj["commune_ext"] = Commune.objects.filter(
-            nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
-        ).first()
-        if not obj["commune_ext"]:
-            raise serializers.ValidationError(f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}")
-
         address = " ".join(
             [
                 obj.get("numero") or "",
@@ -97,16 +91,21 @@ class ErpImportSerializer(serializers.ModelSerializer):
             [
                 address,
                 obj.get("lieu_dit") or "",
-                obj["commune_ext"].nom,
+                obj["commune"],
             ]
         )
 
         for i in range(3):
             try:
-                locdata = geocoder.geocode(address, citycode=obj["commune_ext"].code_insee)
+                locdata = geocoder.geocode(address, postcode=obj["code_postal"])
                 if not locdata:
                     raise RuntimeError
                 self._geom = locdata["geom"]
+                obj["voie"] = locdata["voie"]
+                obj["lieu_dit"] = locdata["lieu_dit"]
+                obj["code_postal"] = locdata["code_postal"]
+                obj["commune"] = locdata["commune"]
+                obj["code_insee"] = locdata["code_insee"]
                 obj.pop("latitude", None)
                 obj.pop("longitude", None)
                 break
@@ -121,6 +120,14 @@ class ErpImportSerializer(serializers.ModelSerializer):
                     break
 
                 raise serializers.ValidationError(f"Adresse non localisable: {address}")
+
+        obj["commune_ext"] = Commune.objects.filter(
+            nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
+        ).first()
+        if not obj["commune_ext"]:
+            raise serializers.ValidationError(
+                f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}"
+            )
 
         existing = Erp.objects.find_duplicate(
             numero=obj.get("numero"),
