@@ -239,6 +239,7 @@ class ErpPagination(PageNumberPagination):
 class ErpFilterBackend(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
     def filter_queryset(self, request, queryset, view):
+        use_distinct = True
         # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:
@@ -267,6 +268,7 @@ class ErpFilterBackend(BaseFilterBackend):
         # Search
         search_terms = request.query_params.get("q", None)
         if search_terms is not None:
+            use_distinct = False
             queryset = queryset.search_what(search_terms)
 
         # Source Externe
@@ -294,7 +296,10 @@ class ErpFilterBackend(BaseFilterBackend):
         if around is not None:
             lat, lon = around
             queryset = queryset.nearest(Point(lon, lat, srid=4326))
+            use_distinct = False
 
+        if use_distinct:
+            queryset = queryset.distinct("id", "nom")
         return queryset
 
 
