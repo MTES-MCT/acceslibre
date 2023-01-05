@@ -3,7 +3,6 @@ from django.contrib.gis.geos import Point
 
 from erp import forms
 from erp.models import Commune, Erp
-from erp.provider import geocoder
 
 POINT = Point((0, 0))
 
@@ -191,7 +190,7 @@ def test_BaseErpForm_valid_on_geocoded_results(form_data, mocker, geocoder_resul
     assert form.is_valid() is True
 
 
-def test_BaseErpForm_retrieve_code_insee_from_manual_input(data):
+def test_BaseErpForm_retrieve_code_insee_from_manual_input(mock_geocode, data):
     form = forms.PublicErpAdminInfosForm(
         {
             "source": Erp.SOURCE_PUBLIC,
@@ -211,5 +210,5 @@ def test_BaseErpForm_retrieve_code_insee_from_manual_input(data):
             "lon": 2.6754,
         }
     )
-    assert form.is_valid() is True
+    assert form.is_valid() is True, form.errors
     assert form.cleaned_data["geom"] == Point(2.6754, 43.657028, srid=4326), "geom should have by built from lat & lon"

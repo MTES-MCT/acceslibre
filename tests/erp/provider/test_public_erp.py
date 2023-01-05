@@ -1,9 +1,5 @@
 import json
 
-import pytest
-from django.contrib.gis.geos import Point
-
-from erp.models import Activite, Commune
 from erp.provider import public_erp
 
 
