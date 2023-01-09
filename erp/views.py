@@ -334,7 +334,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     nearest_erps = (
         Erp.objects.select_related("activite", "commune_ext")
         .published()
-        .nearest(erp.geom, max_radius_km=20, order_it=False)[:10]
+        .nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
     )
     geojson_list = make_geojson(nearest_erps)
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
