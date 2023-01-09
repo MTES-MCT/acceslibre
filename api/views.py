@@ -239,7 +239,7 @@ class ErpPagination(PageNumberPagination):
 class ErpFilterBackend(BaseFilterBackend):
     # FIXME: do NOT apply filters on details view
     def filter_queryset(self, request, queryset, view):
-        use_distinct = True
+        use_distinct = False
         # Commune (legacy)
         commune = request.query_params.get("commune", None)
         if commune is not None:
