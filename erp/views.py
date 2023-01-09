@@ -7,7 +7,6 @@ import qrcode
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.gis.measure import Distance
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.forms import modelform_factory
@@ -157,7 +156,7 @@ def challenge_detail(request, challenge_slug=None):
 
 def communes(request):
     communes_qs = Commune.objects.erp_stats().only("nom", "slug", "departement", "geom")[:12]
-    latest = Erp.objects.select_related("activite", "commune_ext").published().order_by("-created_at")[:17]
+    latest = Erp.objects.select_related("activite", "commune_ext").published().order_by("-id")[:17]
     return render(
         request,
         "communes.html",
@@ -322,16 +321,20 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         )
         .published()
         .with_votes()
-        .filter(commune_ext__slug=commune, slug=erp_slug)
+        .filter(slug=erp_slug)
     )
-    if activite_slug:
-        base_qs = base_qs.filter(activite__slug=activite_slug)
+
     erp = get_object_or_404(base_qs)
+    if commune != erp.commune_ext.slug:
+        raise Http404()
+
+    if activite_slug and (erp.activite.slug != activite_slug):
+        raise Http404()
+
     nearest_erps = (
-        Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+        Erp.objects.select_related("activite", "commune_ext")
         .published()
-        .nearest(erp.geom)
-        .filter(distance__lt=Distance(km=20))[:10]
+        .nearest(erp.geom, max_radius_km=20, order_it=False)[:10]
     )
     geojson_list = make_geojson(nearest_erps)
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
