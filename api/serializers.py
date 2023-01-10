@@ -134,26 +134,12 @@ class ErpSerializer(serializers.HyperlinkedModelSerializer):
     activite = ActiviteSerializer(many=False, read_only=True)
     adresse = serializers.ReadOnlyField()
     distance = serializers.SerializerMethodField()
-    commune = serializers.SerializerMethodField()
-    code_insee = serializers.SerializerMethodField()
     web_url = serializers.SerializerMethodField()
     accessibilite = AccessibiliteSerializer(many=False, read_only=True)
 
     def get_distance(self, obj):
         if hasattr(obj, "distance"):
             return obj.distance.m
-
-    def get_commune(self, obj):
-        if obj.commune_ext:
-            return obj.commune_ext.nom
-        else:
-            return obj.commune
-
-    def get_code_insee(self, obj):
-        if obj.commune_ext:
-            return obj.commune_ext.code_insee
-        else:
-            return obj.code_insee
 
     def get_web_url(self, obj):
         return self.context["request"].build_absolute_uri(obj.get_absolute_url())

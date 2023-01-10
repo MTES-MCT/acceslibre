@@ -478,9 +478,7 @@ class ErpViewSet(viewsets.ReadOnlyModelViewSet):
     (*slug*).
     """
 
-    queryset = (
-        Erp.objects.select_related("activite", "accessibilite", "commune_ext", "user").published().order_by("nom")
-    )
+    queryset = Erp.objects.select_related("activite", "accessibilite").published().order_by("nom")
     serializer_class = ErpSerializer
     permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     lookup_field = "slug"

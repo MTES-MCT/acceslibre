@@ -662,10 +662,7 @@ class Erp(models.Model):
         return f"{self.get_absolute_url()}?success=true"
 
     def get_absolute_url(self):
-        if self.commune_ext:
-            commune_slug = self.commune_ext.slug
-        else:
-            commune_slug = slugify(f"{self.departement}-{self.commune}")
+        commune_slug = slugify(f"{self.departement}-{self.commune}")
         if self.activite is None:
             return reverse(
                 "commune_erp",
@@ -745,7 +742,7 @@ class Erp(models.Model):
                 self.voie,
                 self.lieu_dit,
                 self.code_postal,
-                self.commune_ext.nom if self.commune_ext else self.commune,
+                self.self.commune,
             ],
         )
         return " ".join(pieces).strip().replace("  ", " ")
