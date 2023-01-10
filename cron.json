@@ -1,0 +1,8 @@
+{
+  "jobs": [
+    {
+      "command": "25 */1 * * * python manage.py purge_tokens",
+      "size": "M"
+    }
+  ]
+}
