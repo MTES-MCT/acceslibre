@@ -4,6 +4,7 @@ import io
 import urllib
 
 import qrcode
+import waffle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -333,12 +334,14 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     if activite_slug and (erp.activite.slug != activite_slug):
         raise Http404()
 
-    nearest_erps = (
-        Erp.objects.select_related("activite", "commune_ext")
-        .published()
-        .nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
-    )
-    geojson_list = make_geojson(nearest_erps)
+    nearest_erps = []
+    if waffle.switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
+        nearest_erps = (
+            Erp.objects.select_related("activite", "commune_ext")
+            .published()
+            .nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
+        )
+    geojson_list = make_geojson(nearest_erps or [erp])
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)
     accessibilite_data = form.get_accessibilite_data()
     user_vote = (
