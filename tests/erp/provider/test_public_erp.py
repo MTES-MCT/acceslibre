@@ -1,9 +1,5 @@
 import json
 
-import pytest
-from django.contrib.gis.geos import Point
-
-from erp.models import Activite, Commune
 from erp.provider import public_erp
 
 
@@ -87,7 +83,7 @@ def test_parse_etablissement_jacou(data, activite_mairie):
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature, activite_mairie, None) == {
         "source": "public_erp",
         "source_id": "mairie-34120-01",
         "coordonnees": [3.9106014, 43.6609939],
@@ -144,7 +140,7 @@ def test_parse_etablissement_gendarmerie_castelnau(data, commune_castelnau, acti
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature, None, activite_administration_publique) == {
         "source": "public_erp",
         "source_id": "gendarmerie-34057-01",
         "coordonnees": [3.91375272, 43.64536644],
@@ -203,7 +199,7 @@ def test_parse_etablissement_montreuil(data, commune_montreuil, activite_mairie)
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature, activite_mairie, None) == {
         "source": "public_erp",
         "source_id": "mairie-93048-01",
         "coordonnees": [2.441878, 48.860395],
@@ -259,7 +255,7 @@ def test_parse_prefecture_montpellier(data, commune_montpellier, activite_admini
             }
         }"""
     )
-    assert public_erp.parse_etablissement(json_feature) == {
+    assert public_erp.parse_etablissement(json_feature, None, activite_administration_publique) == {
         "source": "public_erp",
         "source_id": "prefecture-34172-01",
         "coordonnees": [3.87658905983, 43.6109542847],
@@ -270,7 +266,7 @@ def test_parse_prefecture_montpellier(data, commune_montpellier, activite_admini
         "numero": "34",
         "voie": "place des Martyrs-de-la-Résistance",
         "lieu_dit": None,
-        "code_postal": commune_montpellier.code_postaux[0],
+        "code_postal": "34062",
         "commune": commune_montpellier.nom,
         "code_insee": commune_montpellier.code_insee,
         "contact_email": None,

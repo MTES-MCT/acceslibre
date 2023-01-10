@@ -491,7 +491,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                 lieu_dit=self.cleaned_data.get("lieu_dit"),
             ).first()
         if existing:
-            if existing.is_online():
+            if existing.published:
                 erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
             else:
                 erp_display = f"{activite} - {adresse}"

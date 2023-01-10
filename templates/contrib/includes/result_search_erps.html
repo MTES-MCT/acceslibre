@@ -5,7 +5,7 @@
     <div class="{% if light %}col-12{% else %}col-12 col-md-6{% endif %}">
       <div class="card-body">
         <h3 class="h6 card-title font-weight-bold {% if light %}mb-1{% endif %}">
-          {% if not light and result.exists and result.exists.is_online %}
+          {% if not light and result.exists and result.exists.published %}
           <a href="{{ result.exists.get_absolute_url }}" target="_blank" rel="noopener noreferrer">
             <img alt=""
               class="d-inline act-icon act-icon-24 act-icon-black mr-1"
@@ -44,7 +44,7 @@
             <a class="btn fr-btn fr-btns-group--center btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
             Reprendre votre brouillon
             </a>
-          {% elif result.exists.is_online %}
+          {% elif result.exists.published %}
             <a class="btn btn-success btn-block" href="{{ result.exists.get_absolute_url }}">
               Voir cet établissement
             </a>

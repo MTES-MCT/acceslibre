@@ -147,7 +147,7 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
 
 
 def test_claim(client, user):
-    erp = Erp.objects.create(nom="test", published=True, geom=Point(0, 0))
+    erp = Erp.objects.create(nom="test", commune="lyon", published=True, geom=Point(0, 0))
 
     response = client.get(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}))
     assert response.status_code == 200  # jean-pierre is logged in the client

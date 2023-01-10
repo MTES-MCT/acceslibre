@@ -19,16 +19,7 @@ class ActiviteQuerySet(models.QuerySet):
         erroneous counts.
         """
         qs = self
-        qs = qs.annotate(
-            count=Count(
-                "erp__activite",
-                filter=Q(
-                    erp__published=True,
-                    erp__accessibilite__isnull=False,
-                    erp__geom__isnull=False,
-                ),
-            )
-        )
+        qs = qs.annotate(count=Count("erp__activite", filter=Q(erp__published=True)))
         qs = qs.filter(count__gt=0)
         qs = qs.order_by("nom")
         return qs
@@ -38,15 +29,7 @@ class CommuneQuerySet(models.QuerySet):
     def having_published_erps(self):
         return (
             self.annotate(
-                erp_access_count=Count(
-                    "erp",
-                    filter=Q(
-                        erp__accessibilite__isnull=False,
-                        erp__geom__isnull=False,
-                        erp__published=True,
-                    ),
-                    distinct=True,
-                ),
+                erp_access_count=Count("erp", filter=Q(erp__published=True), distinct=True),
                 updated_at=Max("erp__updated_at"),
             )
             .filter(erp_access_count__gt=0)
@@ -55,15 +38,7 @@ class CommuneQuerySet(models.QuerySet):
 
     def erp_stats(self):
         return self.annotate(
-            erp_access_count=Count(
-                "erp",
-                filter=Q(
-                    erp__accessibilite__isnull=False,
-                    erp__geom__isnull=False,
-                    erp__published=True,
-                ),
-                distinct=True,
-            ),
+            erp_access_count=Count("erp", filter=Q(erp__published=True), distinct=True),
         ).order_by("-erp_access_count")
 
     def search(self, query):
@@ -88,15 +63,7 @@ class CommuneQuerySet(models.QuerySet):
 
     def with_published_erp_count(self):
         return self.annotate(
-            erp_access_count=Count(
-                "erp",
-                filter=Q(
-                    erp__accessibilite__isnull=False,
-                    erp__geom__isnull=False,
-                    erp__published=True,
-                ),
-                distinct=True,
-            ),
+            erp_access_count=Count("erp", filter=Q(erp__published=True), distinct=True),
         )
 
 
@@ -175,9 +142,6 @@ class ErpQuerySet(models.QuerySet):
     def having_activite(self, activite_slug):
         return self.filter(activite__slug=activite_slug)
 
-    def having_an_activite(self):
-        return self.filter(activite__isnull=False)
-
     def in_and_around_commune(self, point, commune):
         "Filter erps from within commune expanded contour and order them by distance."
         return (
@@ -194,9 +158,6 @@ class ErpQuerySet(models.QuerySet):
             ).order_by("-strictly_within", "distance")
         )
 
-    def geolocated(self):
-        return self.filter(geom__isnull=False)
-
     def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM, order_it=True):
         """Filter Erps around a given point, which can be either a `Point` instance
         or a tuple(lat, lon)."""
@@ -209,10 +170,10 @@ class ErpQuerySet(models.QuerySet):
         return qs.order_by("distance")
 
     def not_published(self):
-        return self.filter(Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True))
+        return self.filter(published=False)
 
     def published(self):
-        return self.filter(published=True).geolocated()
+        return self.filter(published=True)
 
     def search_commune(self, query):
         # FIXME: way too much code in common with ComuneQuerySet#search which should

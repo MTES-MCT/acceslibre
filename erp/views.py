@@ -606,7 +606,7 @@ def widget_from_uuid(request, uuid):  # noqa
 def vote(request, erp_slug):
     if not request.user.is_active:
         raise Http404("Only active users can vote")
-    erp = get_object_or_404(Erp, slug=erp_slug, published=True, accessibilite__isnull=False)
+    erp = get_object_or_404(Erp, slug=erp_slug, published=True)
     if request.user == erp.user:
         return HttpResponseBadRequest("Vous ne pouvez pas voter sur votre établissement")
     if request.method == "POST":
@@ -665,6 +665,7 @@ def contrib_global_search(request):
     commune = ""
     results_bdd = []
     results = []
+
     if request.GET.get("what"):
         what_lower = request.GET.get("what", "").lower()
         try:
@@ -678,6 +679,7 @@ def contrib_global_search(request):
             results_bdd, results = acceslibre.parse_etablissements(qs_results_bdd, results)
         except RuntimeError as err:
             error = err
+
     return render(
         request,
         template_name="contrib/0a-search_results.html",
@@ -854,7 +856,7 @@ def check_authentication(request, erp, form, check_online=True):
         + urllib.parse.urlencode({"next": request.path + "?" + urllib.parse.urlencode(form.data)})
     )
     if check_online:
-        if erp.is_online() and not request.user.is_authenticated:
+        if erp.published and not request.user.is_authenticated:
             return redirect_path
     else:
         if not request.user.is_authenticated:
@@ -883,7 +885,7 @@ def process_accessibilite_form(
     # N'amener l'utilisateur vers l'étape de publication que:
     # - s'il est propriétaire de la fiche
     # - ou s'il est à une étape antérieure à celle qui amène à la gestion de la publication
-    user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.is_online()
+    user_can_access_next_route = request.user == erp.user or step not in (8, 9) or not erp.published
 
     Form = modelform_factory(Accessibilite, form=forms.ContribAccessibiliteForm, fields=form_fields)
 
@@ -911,7 +913,7 @@ def process_accessibilite_form(
         if user_can_access_next_route:
             return redirect(reverse(redirect_route, kwargs={"erp_slug": erp.slug}) + "#content")
         else:
-            if erp.is_online():
+            if erp.published:
                 redirect_url = erp.get_success_url()
             elif erp.user == request.user:
                 redirect_url = reverse("mes_erps")
@@ -1058,7 +1060,7 @@ def contrib_publication(request, erp_slug):
             erp.save()
         ErpSubscription.subscribe(erp, erp.user)
         messages.add_message(request, messages.SUCCESS, "Les données ont été sauvegardées.")
-        if erp.is_online():
+        if erp.published:
             redirect_url = erp.get_success_url()
         elif erp.user == request.user:
             redirect_url = reverse("mes_erps")

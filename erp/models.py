@@ -702,9 +702,6 @@ class Erp(models.Model):
     def has_accessibilite(self):
         return hasattr(self, "accessibilite") and self.accessibilite is not None
 
-    def is_online(self):
-        return self.published and self.has_accessibilite() and self.geom is not None
-
     def is_subscribed_by(self, user):
         return ErpSubscription.objects.filter(user=user, erp=self).count() == 1
 
