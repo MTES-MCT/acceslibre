@@ -46,6 +46,7 @@ def test_search_pagination(data, client):
         erp = Erp.objects.create(
             nom=f"e{i}",
             commune_ext=data.jacou,
+            commune="jacou",
             geom=data.erp.geom,
             published=True,
         )
