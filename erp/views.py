@@ -258,7 +258,9 @@ def search(request, commune_slug=None):
 
 def global_map(request, commune_slug=None):
     where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
-    where = where or "France entière"
+    if not where:
+        raise Http404()
+
     location = _parse_location_or_404(lat, lon)
     qs = Erp.objects.select_related("accessibilite", "activite", "commune_ext").published().search_what(what)
     commune = None
