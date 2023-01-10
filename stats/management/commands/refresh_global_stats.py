@@ -1,6 +1,10 @@
+import logging
+
 from django.core.management import BaseCommand, CommandError
 
 from stats.models import GlobalStats
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -9,6 +13,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             GlobalStats.objects.get().refresh_stats()
-            print("STATS update succesfully")
+            logger.info("STATS updated succesfully")
         except KeyboardInterrupt:
             raise CommandError("Interrompu.")
