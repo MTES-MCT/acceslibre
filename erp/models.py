@@ -742,7 +742,7 @@ class Erp(models.Model):
                 self.voie,
                 self.lieu_dit,
                 self.code_postal,
-                self.self.commune,
+                self.commune,
             ],
         )
         return " ".join(pieces).strip().replace("  ", " ")
