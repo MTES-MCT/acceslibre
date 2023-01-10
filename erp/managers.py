@@ -139,7 +139,7 @@ class ErpQuerySet(models.QuerySet):
         return self.filter(source=source, source_id=source_id, **filters)
 
     def find_existing_matches(self, nom, geom):
-        return self.nearest(geom).filter(
+        return self.nearest(geom, order_it=False).filter(
             nom__unaccent__lower__trigram_similar=nom,
             distance__lt=measure.Distance(m=200),
         )
@@ -178,9 +178,6 @@ class ErpQuerySet(models.QuerySet):
     def having_an_activite(self):
         return self.filter(activite__isnull=False)
 
-    def having_an_accessibilite(self):
-        return self.filter(accessibilite__isnull=False)
-
     def in_and_around_commune(self, point, commune):
         "Filter erps from within commune expanded contour and order them by distance."
         return (
@@ -200,19 +197,22 @@ class ErpQuerySet(models.QuerySet):
     def geolocated(self):
         return self.filter(geom__isnull=False)
 
-    def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM):
+    def nearest(self, point, max_radius_km=settings.MAP_SEARCH_RADIUS_KM, order_it=True):
         """Filter Erps around a given point, which can be either a `Point` instance
         or a tuple(lat, lon)."""
         qs = self.annotate(distance=Distance("geom", point))
         if max_radius_km:
             qs = qs.filter(distance__lt=measure.Distance(km=max_radius_km))
+        if not order_it:
+            return qs
+
         return qs.order_by("distance")
 
     def not_published(self):
         return self.filter(Q(published=False) | Q(accessibilite__isnull=True) | Q(geom__isnull=True))
 
     def published(self):
-        return self.filter(published=True).geolocated().having_an_accessibilite()
+        return self.filter(published=True).geolocated()
 
     def search_commune(self, query):
         # FIXME: way too much code in common with ComuneQuerySet#search which should
