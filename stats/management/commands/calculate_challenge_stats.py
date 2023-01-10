@@ -1,9 +1,12 @@
 import datetime
+import logging
 
 from django.core.management import BaseCommand, CommandError
 from django.db.models import Q
 
 from stats.models import Challenge
+
+logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
@@ -20,6 +23,6 @@ class Command(BaseCommand):
         ):
             try:
                 challenge.refresh_stats()
-                print(f"STATS for challenge {challenge} update successfully")
+                logger.info(f"STATS for challenge {challenge} updated")
             except KeyboardInterrupt:
                 raise CommandError("Interrompu.")
