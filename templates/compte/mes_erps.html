@@ -62,11 +62,6 @@
         <div>
           <address class="mb-0"><small class="text-muted">{{ erp.adresse }}</small></address>
         </div>
-        {% if erp.siret %}
-          <div>
-            <small class="text-muted">Numéro SIRET : {{ erp.siret }}</small>
-          </div>
-        {% endif %}
         <div>
         {% if not erp.published or not erp.geom or not erp.accessibilite %}
           <small class="text-secondary">
