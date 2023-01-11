@@ -357,8 +357,6 @@ class Vote(models.Model):
         "uuid",
         "source",
         "source_id",
-        "created_at",
-        "updated_at",
         "search_vector",
     ],
 )
@@ -978,7 +976,10 @@ class Erp(models.Model):
 
 @reversion.register(
     ignore_duplicates=True,
-    exclude=["id", "erp_id", "created_at", "updated_at"],
+    exclude=[
+        "id",
+        "erp_id",
+    ],
 )
 class Accessibilite(models.Model):
     HISTORY_MAX_LATEST_ITEMS = 25

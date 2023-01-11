@@ -74,7 +74,6 @@ MESSAGE_TAGS = {
 INSTALLED_APPS = [
     "admin_auto_filters",
     "django_extensions",
-    "nested_admin",
     "import_export",
     "reset_migrations",
     "django_admin_listfilter_dropdown",

@@ -1,5 +1,5 @@
 from django.contrib.auth import views as auth_views
-from django.urls import include, path
+from django.urls import path
 
 from core.cache import cache_per_user
 from erp import schema, views
@@ -178,5 +178,4 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(),
         name="admin_password_reset_complete",
     ),
-    path("nested_admin/", include("nested_admin.urls")),
 ]
