@@ -3,7 +3,7 @@ import logging
 import requests
 
 from core.lib import text
-from erp.models import Activite, Commune
+from erp.models import Activite
 from fuzzywuzzy_custom import process as fuzzy_process
 
 logger = logging.getLogger(__name__)
@@ -370,7 +370,7 @@ def get_type_choices():
     return list(TYPES.items())
 
 
-def parse_etablissement(feature):
+def parse_etablissement(feature, activite_mairie, activite_administration):
     properties = feature.get("properties", {})
 
     # Coordonnées géographiques
@@ -390,16 +390,11 @@ def parse_etablissement(feature):
         raise RuntimeError("L'enregistrement ne possède aucune adresse")
     adresse = adresses[0]
     code_insee = properties.get("codeInsee")
-    commune = Commune.objects.filter(code_insee=code_insee).first()
-    if commune:
-        commune_nom = commune.nom
-        commune_code_postal = commune.code_postaux[0]
-    else:
-        commune_nom = clean_commune(adresse.get("commune"))
-        commune_code_postal = adresse.get("codePostal")
+    commune_nom = clean_commune(adresse.get("commune"))
+    commune_code_postal = adresse.get("codePostal")
 
     lignes = adresse.get("lignes", [])
-    if len(lignes) == 0:
+    if not lignes:
         raise RuntimeError("L'enregistrement ne possède aucune ligne d'adresse")
 
     (numero, voie) = extract_numero_voie(lignes[0])
@@ -409,9 +404,7 @@ def parse_etablissement(feature):
     email = email if email and "@" in email else None
 
     # Activité
-    activite = Activite.objects.filter(
-        slug="mairie" if properties.get("pivotLocal") == "mairie" else "administration-publique"
-    ).first()
+    activite = activite_mairie if properties.get("pivotLocal") == "mairie" else activite_administration
     activite_id = activite.pk if activite else None
 
     return dict(
@@ -448,7 +441,8 @@ def request(path, params=None):
         return None
 
 
-def search_types(type, code_insee):
+def search_types(type, code_insee, activite_mairie, activite_administration):
+
     if type not in TYPES:
         raise RuntimeError(f'Le type "{type}" est invalide.')
     response = request(f"communes/{code_insee}/{type}")
@@ -457,7 +451,7 @@ def search_types(type, code_insee):
         if isinstance(response, dict) and "features" in response:
             for feature in response["features"]:
                 try:
-                    results.append(parse_etablissement(feature))
+                    results.append(parse_etablissement(feature, activite_mairie, activite_administration))
                 except RuntimeError as err:
                     logger.error(err)
                     continue
@@ -479,10 +473,14 @@ def find_public_types(terms):
 
 def query(terms, code_insee):
     results = []
+    # Not a perfect solution here. We fetch the 2 default activities, will be set on parsed erps later on.
+    # Just here to prevent from fetching db in a loop for whereas the slugs are known.
+    activite_mairie = Activite.objects.filter(slug="mairie").first()
+    activite_administration = Activite.objects.filter(slug="administration-publique").first()
     found_public_types = find_public_types(terms)
     for public_type in found_public_types:
         try:
-            type_results = search_types(public_type, code_insee)
+            type_results = search_types(public_type, code_insee, activite_mairie, activite_administration)
             for result in type_results:
                 if result and code_insee == result["code_insee"]:
                     results.append(result)

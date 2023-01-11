@@ -50,17 +50,7 @@ class CustomUserAdmin(ExportMixin, UserAdmin):
             .get_queryset(request)
             .annotate(vote_count=Count("vote", distinct=True))
             .annotate(erp_count_total=Count("erp", distinct=True))
-            .annotate(
-                erp_count_published=Count(
-                    "erp",
-                    filter=Q(
-                        erp__published=True,
-                        erp__accessibilite__isnull=False,
-                        erp__geom__isnull=False,
-                    ),
-                    distinct=True,
-                )
-            )
+            .annotate(erp_count_published=Count("erp", filter=Q(erp__published=True), distinct=True))
         )
 
 

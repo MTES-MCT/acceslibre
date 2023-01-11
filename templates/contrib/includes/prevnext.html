@@ -14,7 +14,7 @@
     {% endif %}
 
 
-    {% if erp and erp.is_online %}
+    {% if erp and erp.published %}
       <li><a class="btn btn-link" href="{{ erp.get_absolute_url }}">Revenir à la fiche</a></li>
     {% endif %}
     </ul>

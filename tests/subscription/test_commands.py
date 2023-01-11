@@ -66,7 +66,7 @@ def niko_create_erp_and_subscribe_updates(client, data):
     assert response.status_code == 200
     # ensure erp is published
     erp = Erp.objects.get(nom="niko erp")
-    assert erp.is_online() is True
+    assert erp.published is True
     # subscribe user
     ErpSubscription.subscribe(erp, data.niko)
     return erp

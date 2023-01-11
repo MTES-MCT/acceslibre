@@ -19,15 +19,7 @@ class Command(BaseCommand):
         users_having_no_erps = (
             User.objects.annotate(
                 erp_count_total=Count("erp", distinct=True),
-                erp_count_published=Count(
-                    "erp",
-                    filter=Q(
-                        erp__published=True,
-                        erp__accessibilite__isnull=False,
-                        erp__geom__isnull=False,
-                    ),
-                    distinct=True,
-                ),
+                erp_count_published=Count("erp", filter=Q(erp__published=True), distinct=True),
             )
             .annotate(vote_count=Count("vote", distinct=True))
             .annotate(rev_count=Count("revision", distinct=True))
