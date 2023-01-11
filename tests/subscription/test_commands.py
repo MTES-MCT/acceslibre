@@ -72,31 +72,26 @@ def niko_create_erp_and_subscribe_updates(client, data):
     return erp
 
 
-def test_notification_erp(client, data, mocker):
-    geo_data = {
-        "numero": "4",
-        "voie": "Grand rue",
-        "lieu_dit": "",
-        "code_postal": "34830",
-        "commune": "Jacou",
-        "code_insee": "38140",
-    }
-    mocker.patch("erp.provider.geocoder.query", return_value={})
-    mocker.patch("erp.provider.geocoder.geocode", return_value=geo_data | {"geom": Point(0, 0)})
+def test_notification_erp(mock_geocode, client, data):
     erp = niko_create_erp_and_subscribe_updates(client, data)
 
     # sophie updates this erp data
     client.force_login(data.sophie)
     response = client.post(
         reverse("contrib_edit_infos", kwargs={"erp_slug": erp.slug}),
-        data=geo_data
-        | {
+        data={
             "source": "sirene",
             "source_id": "xxx",
             "nom": "sophie erp",
             "activite": data.boulangerie.pk,
             "site_internet": "http://google.com/",
             "action": "contribute",
+            "numero": "4",
+            "voie": "Grand rue",
+            "lieu_dit": "",
+            "code_postal": "34830",
+            "commune": "Jacou",
+            "code_insee": "38140",
             "lat": 43.657028,
             "lon": 2.6754,
         },

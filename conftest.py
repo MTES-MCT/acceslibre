@@ -27,6 +27,28 @@ def django_db_setup(django_db_setup, django_db_blocker):
 
 
 @pytest.fixture
+def mock_geocode(mocker):
+    def _result(*args, **kwargs):
+        # naive address splitting, could be enhanced
+        numero_voie, commune = args[0].split(", ")
+        numero_voie = numero_voie.split(" ")
+        numero = numero_voie[0]
+        voie = " ".join(numero_voie[1:])
+
+        return {
+            "geom": Point((3, 43)),
+            "numero": numero,
+            "voie": voie.capitalize(),
+            "lieu_dit": None,
+            "code_postal": "34830",
+            "commune": commune,
+            "code_insee": "34830",
+        }
+
+    mocker.patch("erp.provider.geocoder.geocode", side_effect=_result)
+
+
+@pytest.fixture
 def activite_administration_publique():
     return Activite.objects.create(nom="Administration Publique")
 
