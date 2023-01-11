@@ -1,8 +1,5 @@
-import csv
-import datetime
 import json
 import math
-import os
 import uuid
 
 import reversion
@@ -10,14 +7,12 @@ from autoslug import AutoSlugField
 from django.conf import settings
 from django.contrib.gis.db import models
 from django.contrib.gis.geos import Point
-from django.contrib.postgres.aggregates import ArrayAgg
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchVector, SearchVectorField
 from django.core.exceptions import ValidationError
-from django.db.models import Count, Value
+from django.db.models import Value
 from django.db.models.functions import Lower
-from django.forms.models import model_to_dict
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
@@ -779,120 +774,6 @@ class Erp(models.Model):
                         print("No Coordinates")
         print(f"{erp_updates} erps mis à jour sur {counter}")
 
-    @classmethod
-    def update_coordinates_error_defense(cls):
-        erp_updates = 0
-        erp_total = Erp.objects.filter(geom=Point(2.236112, 48.892598)).count()
-        print(f"{erp_total} erps à mettre à jour.")
-        csv_filename = "export-error_geocodage.csv"
-        with open(os.path.join(settings.BASE_DIR, csv_filename), "w") as csvfile:
-            fieldnames = ["nom", "code_postal", "commune", "link", "error"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=";")
-            writer.writeheader()
-            for e in Erp.objects.filter(geom=Point(2.236112, 48.892598)).iterator():
-                print(f"Erp concerné : {e.nom}; {e.code_postal}; {e.commune}")
-                try:
-                    coordinates = geocoder.geocode(e.short_adresse, citycode=e.commune_ext.code_insee)
-                    if coordinates:
-                        e.geom = Point(coordinates["geom"][0], coordinates["geom"][1])
-                        e.save()
-                        erp_updates += 1
-                    else:
-                        raise Exception("No Coordinates in BAN")
-                except Exception as error:
-                    print(f"Géocodage impossible pour cet erp : {error}")
-                    writer.writerow(
-                        {
-                            "nom": e.nom,
-                            "code_postal": e.code_postal,
-                            "commune": e.commune,
-                            "link": e.get_absolute_uri(),
-                            "error": error,
-                        }
-                    )
-
-        print(f"{erp_updates} erps mis à jour sur {erp_total}")
-
-    @classmethod
-    def fix_import_service_public(cls):
-        qs = cls.objects.filter(numero__isnull=False, voie__isnull=False)
-        for erp in qs:
-            if all(not char.isdigit() for char in erp.numero):
-                erp.voie = f"{erp.numero} {erp.voie}"
-                erp.numero = None
-                erp.save()
-
-    @classmethod
-    def export_doublons(cls, source=None, activity_slug=None, source_from_only=None):
-        filename = "doublons.csv"
-        start_date = datetime.date(2022, 1, 19)
-
-        qs = cls.objects.filter(accessibilite__isnull=False)
-        if source:
-            qs = qs.filter(source=source)
-        if activity_slug:
-            qs = qs.filter(activite__slug=activity_slug)
-        if os.path.exists(filename):
-            os.remove(filename)
-        csv = open(filename, "w")
-        if source_from_only:
-            doublons = list()
-            print(
-                f"{cls.objects.filter(source=source_from_only).count()} erps dans la source d'origine {source_from_only}"
-            )
-            erp_in_source_counter = 1
-            for e in cls.objects.filter(source=source_from_only):
-                print(f"Traitement ERP n°{erp_in_source_counter}")
-                if e.has_doublons():
-                    print("\tDoublons détectés")
-                    doublons.extend(
-                        list(
-                            erp["erp_list"]
-                            for erp in e.get_doublons(
-                                ids_exclude=list(element for erp_list in doublons for element in erp_list)
-                            )
-                            .annotate(voie_lower=Lower("voie"), commune_lower=Lower("commune"))
-                            .values(
-                                "numero",
-                                "voie_lower",
-                                "code_postal",
-                                "commune_lower",
-                                "activite",
-                            )
-                            .annotate(erp_list=ArrayAgg("pk"))
-                        )
-                    )
-                erp_in_source_counter += 1
-        else:
-            doublons = list(
-                e["erp_list"]
-                for e in qs.annotate(voie_lower=Lower("voie"), commune_lower=Lower("commune"))
-                .values(
-                    "numero",
-                    "voie_lower",
-                    "code_postal",
-                    "commune_lower",
-                    "activite",
-                )
-                .annotate(erp_count=Count("pk"), erp_list=ArrayAgg("pk"))
-                .order_by("-erp_count")
-                .filter(erp_count__gt=1)
-            )
-        csv.write(
-            f"created_at;nom;numero;voie;code_postal;commune;activite;{Accessibilite.export_data_comma_headers()}\n"
-        )
-        counter_doublons = 0
-        for e in doublons:
-            if any(erp.created_at.date() >= start_date for erp in cls.objects.filter(pk__in=e)):
-                for id in e:
-                    counter_doublons += 1
-                    erp = cls.objects.get(pk=id)
-                    csv.write(
-                        f"{erp.created_at.date()};{erp.nom};{erp.numero or ''};{erp.voie};{erp.code_postal};{erp.commune};{erp.activite};{erp.accessibilite.export_data_comma()};\n"
-                    )
-        csv.close()
-        print(f"{counter_doublons} erps exportés dans {filename}")
-
     def clean(self):  # Fix me : move to form (abstract)
         # Code postal
         if self.code_postal and len(self.code_postal) != 5:
@@ -1522,16 +1403,6 @@ class Accessibilite(models.Model):
         versions.reverse()
         return versions
 
-    def to_debug(self):
-        cleaned = dict(
-            [(k, v) for (k, v) in model_to_dict(self).copy().items() if v is not None and v != "" and v != []]
-        )
-        return json.dumps(cleaned, indent=2)
-
-    def has_cheminement_ext(self):
-        fields = schema.get_section_fields(schema.SECTION_CHEMINEMENT_EXT)
-        return any(getattr(f) is not None for f in fields)
-
     def has_data(self):
         # count the number of filled fields to provide more validation
         for field_name in schema.get_a11y_fields():
@@ -1540,33 +1411,3 @@ class Accessibilite(models.Model):
                 if field_value not in [None, "", []]:
                     return True
         return False
-
-    @staticmethod
-    def export_data_comma_headers():
-        return ";".join(
-            [
-                str(field_name)
-                for field_name in schema.get_a11y_fields()
-                if field_name
-                not in (
-                    "commentaire",
-                    "transport_information",
-                    "entree_pmr_informations",
-                )
-            ]
-        )
-
-    def export_data_comma(self):
-        # count the number of filled fields to provide more validation
-        fields = [
-            getattr(self, field_name)
-            for field_name in schema.get_a11y_fields()
-            if field_name not in ("commentaire", "transport_information", "entree_pmr_informations")
-        ]
-        fl = list()
-        for f in fields:
-            if f is None or (isinstance(f, list) and len(f) == 0):
-                fl.append("")
-            else:
-                fl.append(str(f).replace("\n", " ").replace(";", " "))
-        return ";".join(fl)

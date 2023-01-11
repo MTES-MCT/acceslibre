@@ -227,9 +227,6 @@ class Referer(models.Model):
     def __str__(self):
         return self.domain
 
-    def create_notification(self):
-        return self.domain
-
     def notif_mattermost(self):
         if self.date_notification_to_mattermost:
             return
