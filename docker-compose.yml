@@ -11,7 +11,12 @@ services:
     ports:
       - 5432:5432
     restart: unless-stopped
-
+    ## uncomment to limit database resources
+    # deploy:
+    #     resources:
+    #         limits:
+    #           cpus: 0.05
+    #           memory: 8G
   adminer:
     image: adminer
     depends_on:
@@ -19,3 +24,16 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
+
+  cache:
+    image: redis:7.0.7-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass access4allpwd
+    volumes:
+      - cache:/data
+
+volumes:
+  cache:
+    driver: local

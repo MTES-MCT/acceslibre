@@ -27,19 +27,6 @@ if SENTRY_DSN is not None:
         environment="production",
     )
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": "/var/tmp/django_cache",
-    }
-}
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-#         "LOCATION": "cache_acceslibre",
-#     }
-# }
-
 # FIXME: removed because of a nasty bug with dist static assets
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 
