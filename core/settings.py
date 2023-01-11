@@ -100,6 +100,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_gis",
     "crispy_forms",
+    "waffle",
     "reversion",
 ]
 
@@ -113,6 +114,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "waffle.middleware.WaffleMiddleware",
     "stats.middleware.TrackStatsWidget",
 ]
 
