@@ -120,7 +120,7 @@ class GendarmerieMapper:
                 "numero": numero,
                 "voie": voie,
                 "geom": self._import_coordinates(record),
-                "site_internet": record["url"],
+                "site_internet": record["url"].replace('"', ""),
                 "nom": record["service"],
                 "contact_url": "https://www.gendarmerie.interieur.gouv.fr/a-votre-contact/contacter-la-gendarmerie/magendarmerie.fr",
             }
