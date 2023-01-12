@@ -4,7 +4,6 @@ import io
 import urllib
 
 import qrcode
-import waffle
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -16,6 +15,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import TemplateView
 from reversion.views import create_revision
+from waffle import switch_is_active
+from waffle.decorators import waffle_switch
 
 from core import mailer
 from core.lib import geo, url
@@ -257,9 +258,12 @@ def search(request, commune_slug=None):
     )
 
 
+@waffle_switch("USE_GLOBAL_MAP")
 def global_map(request, commune_slug=None):
     where, what, lat, lon, code = _clean_search_params(request.GET, "where", "what", "lat", "lon", "code")
-    if not where:
+    # FIXME: "France entière" is engendering huge perf pb and has been disabled, since this has been released with
+    # this possibility we might have some cached links here and there and have to block this possible value.
+    if not where or where == "France entière":
         raise Http404()
 
     location = _parse_location_or_404(lat, lon)
@@ -335,7 +339,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         raise Http404()
 
     nearest_erps = []
-    if waffle.switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
+    if switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
         nearest_erps = (
             Erp.objects.select_related("activite", "commune_ext")
             .published()

@@ -2,6 +2,7 @@
 
 {% load a4a %}
 {% load static %}
+{% load waffle_tags %}
 
 {% block page_title %}{% spaceless %}
   {% if pager %}
@@ -69,9 +70,13 @@
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>
-      <div class="col-sm-6 text-right">
-        <a target="_blank" href="{% url 'global_map' %}?{{ url_params }}" class="fr-btn fr-btn--secondary">Afficher la carte globale</a>
-      </div>
+      {% switch 'USE_GLOBAL_MAP' %}
+        {% if url_params %}
+        <div class="col-sm-6 text-right">
+          <a target="_blank" href="{% url 'global_map' %}?{{ url_params }}" class="fr-btn fr-btn--secondary">Afficher la carte globale</a>
+        </div>
+        {% endif %}
+      {% endswitch %}
     </div>
     <div class="row no-gutters">
       <div class="col-md-5">
