@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from core import mailer
+from core.mailer import get_mailer
 from erp import versioning
 from subscription.models import ErpSubscription
 
@@ -35,7 +35,7 @@ class Command(BaseCommand):
 
     def send_notification(self, notification):
         recipient = notification["user"]
-        return mailer.send_email(
+        return get_mailer().send_email(
             [recipient.email],
             f"[{settings.SITE_NAME}] Vous avez reçu de nouvelles contributions",
             "mail/changed_erp_notification.txt",

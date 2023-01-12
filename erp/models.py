@@ -18,10 +18,10 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from reversion.models import Version
 
-from core import mailer
 from core.lib import calc
 from core.lib import diff as diffutils
 from core.lib import geo
+from core.mailer import get_mailer
 from erp import managers, schema
 from erp.provider import geocoder, sirene
 from erp.provider.departements import DEPARTEMENTS
@@ -157,7 +157,7 @@ class Activite(models.Model):
         add_activite_admin_url = f"/admin/erp/activite/add/?nom={new_activity_str}"
         list_erp_with_activite_autre_url = f"/admin/erp/erp/?activite={Activite.objects.get(nom='Autre').pk}"
         subject = "Nouvelle activité"
-        mailer.mail_admins(
+        get_mailer().mail_admins(
             subject,
             "mail/new_activity.txt",
             {

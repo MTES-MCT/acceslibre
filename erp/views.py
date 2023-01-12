@@ -18,8 +18,8 @@ from reversion.views import create_revision
 from waffle import switch_is_active
 from waffle.decorators import waffle_switch
 
-from core import mailer
 from core.lib import geo, url
+from core.mailer import SendInBlueMailer, get_mailer
 from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
 from erp.models import Accessibilite, Activite, Commune, Erp, Vote
@@ -603,7 +603,7 @@ def vote(request, erp_slug):
         comment = request.POST.get("comment") if action == "DOWN" else None
         vote = erp.vote(request.user, action, comment=comment)
         if vote:
-            mailer.mail_admins(
+            get_mailer().mail_admins(
                 f"Vote {'positif' if vote.value == 1 else 'négatif'} pour {erp.nom} ({erp.commune_ext.nom})",
                 "mail/vote_notification.txt",
                 {
@@ -659,8 +659,10 @@ def contrib_global_search(request):
         what_lower = request.GET.get("what", "").lower()
         try:
             results = provider_search.global_search(what_lower, request.GET.get("code"))
-            qs_results_bdd = Erp.objects.select_related("accessibilite", "activite", "commune_ext").search_what(
-                what_lower
+            qs_results_bdd = (
+                Erp.objects.select_related("accessibilite", "activite", "commune_ext")
+                .published()
+                .search_what(what_lower)
             )
 
             commune, qs_results_bdd = _search_commune_code_postal(qs_results_bdd, request.GET.get("code"))
@@ -700,7 +702,7 @@ def contrib_admin_infos(request):
             existing_matches = Erp.objects.find_existing_matches(
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
             )
-            if len(existing_matches) == 0 or request.POST.get("force") == "1":
+            if not existing_matches or request.POST.get("force") == "1":
                 erp = form.save(commit=False)
                 erp.published = False
                 if request.user.is_authenticated and erp.user is None:
@@ -1054,6 +1056,24 @@ def contrib_publication(request, erp_slug):
         ErpSubscription.subscribe(erp, erp.user)
         messages.add_message(request, messages.SUCCESS, "Les données ont été sauvegardées.")
         if erp.published:
+            # Suppress old draft matching this ERP + send email notification
+            for draft in Erp.objects.find_duplicate(
+                numero=erp.numero,
+                commune=erp.commune,
+                activite=erp.activite,
+                voie=erp.voie,
+                lieu_dit=erp.lieu_dit,
+                published=False,
+            ).all():
+                if not draft.user:
+                    continue
+
+                context = {"draft_nom": draft.nom, "commune": draft.commune, "erp_url": erp.get_absolute_uri()}
+                SendInBlueMailer().send_email(
+                    to_list=draft.user.email, subject=None, template="draft_deleted", context=context
+                )
+                draft.delete()
+
             redirect_url = erp.get_success_url()
         elif erp.user == request.user:
             redirect_url = reverse("mes_erps")

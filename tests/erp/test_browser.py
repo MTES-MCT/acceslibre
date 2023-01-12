@@ -371,7 +371,7 @@ def test_admin_with_admin_user(data, client, capsys):
     assert response.status_code == 200
 
 
-def test_ajout_erp_witout_auth(data, client):
+def test_ajout_erp_without_auth(data, client):
     response = client.get(reverse("contrib_start"), follow=True)
 
     assert response.status_code == 200

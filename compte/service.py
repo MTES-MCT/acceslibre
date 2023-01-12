@@ -7,8 +7,8 @@ from django.contrib.auth.hashers import make_password
 from django.db import DatabaseError, models
 
 from compte.models import EmailToken
-from core import mailer
 from core.lib import text
+from core.mailer import get_mailer
 
 DELETED_ACCOUNT_USERNAME = "anonyme"
 
@@ -27,7 +27,7 @@ def create_token(user, email, activation_token=None, today=datetime.now(timezone
 
 
 def send_activation_mail(activation_token, email, user):
-    mailer.send_email(
+    get_mailer().send_email(
         [email],
         f"Activation de votre compte {settings.SITE_NAME.title()}",
         "compte/email_change_activation_email.txt",
