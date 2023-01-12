@@ -758,6 +758,9 @@ class Erp(models.Model):
 
     @property
     def departement(self):
+        if self.code_postal[:3] in ("971", "972", "973", "974", "975", "976", "978", "986", "987", "988"):
+            return self.code_postal[:3]
+
         return self.code_postal[:2]
 
     @classmethod
