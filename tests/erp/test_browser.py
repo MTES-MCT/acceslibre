@@ -5,6 +5,7 @@ from django.contrib.gis.geos import Point
 from django.core import mail
 from django.test import Client
 from django.urls import reverse
+from waffle.testutils import override_switch
 
 from erp.models import Accessibilite, Erp, Vote
 from tests.utils import assert_redirect
@@ -134,6 +135,7 @@ def test_invalid_search_params_404(data, client):
     assert response.status_code == 404
 
 
+@override_switch("USE_GLOBAL_MAP", True)
 @pytest.mark.parametrize(
     "url",
     [
