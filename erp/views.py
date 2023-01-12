@@ -323,7 +323,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
         Erp.objects.select_related(
             "accessibilite",
             "activite",
-            "commune_ext",
             "user",
         )
         .published()
@@ -332,8 +331,6 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     )
 
     erp = get_object_or_404(base_qs)
-    if commune != erp.commune_ext.slug:
-        raise Http404()
 
     if activite_slug and (erp.activite.slug != activite_slug):
         raise Http404()
@@ -341,9 +338,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     nearest_erps = []
     if switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
         nearest_erps = (
-            Erp.objects.select_related("activite", "commune_ext")
-            .published()
-            .nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
+            Erp.objects.select_related("activite").published().nearest(erp.geom, max_radius_km=20, order_it=True)[:10]
         )
     geojson_list = make_geojson(nearest_erps or [erp])
     form = forms.ViewAccessibiliteForm(instance=erp.accessibilite)

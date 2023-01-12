@@ -2,17 +2,44 @@ import html
 
 import pytest
 from django.contrib.auth.models import User
+from django.contrib.gis.geos import Point
 from django.core import mail
 from django.urls import reverse
 from splinter import Browser
 
 from erp import schema
-from erp.models import Erp
+from erp.models import Accessibilite, Activite, Commune, Erp
 
 
 @pytest.fixture
 def browser():
     return Browser("django")
+
+
+@pytest.fixture
+def erp_domtom():
+    lycee, _ = Activite.objects.get_or_create(nom="Lycée")
+    commune_ext, _ = Commune.objects.get_or_create(
+        slug="972-riviere-salee",
+        nom="Rivière-Salée",
+        code_postaux=[97215],
+        departement=972,
+        geom=Point((-60.9737, 14.5327)),
+    )
+    erp = Erp.objects.create(
+        nom="Lycée Joseph Zobel",
+        numero="G27M+7J8",
+        voie=" Quartier THORAILLE",
+        code_postal="97215",
+        commune="RIVIERE-SALEE",
+        commune_ext=commune_ext,
+        geom=Point((-60.968791544437416, 14.515293175686068)),
+        activite=lycee,
+        published=True,
+        user=User.objects.first(),
+    )
+    Accessibilite.objects.create(erp=erp, sanitaires_presence=True, sanitaires_adaptes=False)
+    return erp
 
 
 def login(browser, username, password, next=None):
@@ -38,7 +65,7 @@ def test_communes(data, browser, capsys):
     assert len(browser.find_by_css("#home-latest-erps-list a")) == 1
 
 
-def test_erp_details(data, browser):
+def test_erp_details(data, browser, erp_domtom):
     browser.visit(data.erp.get_absolute_url())
 
     assert "Aux bons croissants" in browser.title
@@ -47,6 +74,17 @@ def test_erp_details(data, browser):
     assert browser.is_text_present(data.erp.nom)
     assert browser.is_text_present(data.erp.activite.nom)
     assert browser.is_text_present(data.erp.adresse)
+    assert browser.is_text_present(html.unescape(schema.get_help_text_ui("sanitaires_presence")))
+    assert browser.is_text_present(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes")))
+
+    browser.visit(erp_domtom.get_absolute_url())
+
+    assert "Lycée Joseph Zobel" in browser.title
+    assert "Lycée" in browser.title
+    assert "Rivière-Salée" in browser.title
+    assert browser.is_text_present(erp_domtom.nom)
+    assert browser.is_text_present(erp_domtom.activite.nom)
+    assert browser.is_text_present(erp_domtom.adresse)
     assert browser.is_text_present(html.unescape(schema.get_help_text_ui("sanitaires_presence")))
     assert browser.is_text_present(html.unescape(schema.get_help_text_ui_neg("sanitaires_adaptes")))
 
