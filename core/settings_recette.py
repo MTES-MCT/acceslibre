@@ -24,13 +24,6 @@ if SENTRY_DSN is not None:
         environment="recette",
     )
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        "LOCATION": "/var/tmp/django_cache",
-    }
-}
-
 # FIXME: removed because of a nasty bug with dist static assets
 STATICFILES_STORAGE = "core.storage.AppStaticFilesStorage"
 

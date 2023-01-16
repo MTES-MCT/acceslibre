@@ -59,7 +59,10 @@ dj-database-url = "*"
 dj-static = "*"
 qrcode = "*"
 image = "*"
-
+redis = "*"
+# NOTE: redis cache is built in in django4
+django-redis = "*"
+# END NOTE
 [requires]
 python_version = "3.11"
 
