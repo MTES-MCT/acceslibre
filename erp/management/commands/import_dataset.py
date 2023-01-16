@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from core import mattermost
 from erp.imports import importer
 
 
@@ -45,17 +44,6 @@ class Command(BaseCommand):
         detailed_report = build_detailed_report(results)
         if verbose:
             print(detailed_report + "\n\n" + summary)
-
-        mattermost.send(
-            summary,
-            attachements=[
-                {
-                    "pretext": "Détail des erreurs",
-                    "text": to_text_list(results["errors"]) if results["errors"] else "Aucune erreur rencontrée",
-                }
-            ],
-            tags=[__name__],
-        )
 
 
 def to_text_list(items):
