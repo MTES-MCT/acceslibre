@@ -1,8 +1,26 @@
 import pytest
 from django.core.exceptions import ValidationError
 
-from erp import schema
 from erp.models import Accessibilite, Erp, Vote
+
+
+@pytest.mark.parametrize(
+    "other, expected",
+    (
+        pytest.param({"sanitaires_presence": True, "sanitaires_adaptes": False}, True, id="same"),
+        pytest.param({"sanitaires_presence": True, "sanitaires_adaptes": True}, False, id="not_the_same"),
+        pytest.param(
+            {"sanitaires_presence": True, "sanitaires_adaptes": True, "stationnement_presence": True},
+            False,
+            id="more_attrs",
+        ),
+        pytest.param({"sanitaires_adaptes": False}, False, id="less_attrs"),
+    ),
+)
+def test_Accessibilite_equals(data, other, expected):
+    other = Accessibilite(**other)
+    access = data.erp.accessibilite
+    assert (access == other) is expected
 
 
 def test_Accessibilite_has_data(data):
