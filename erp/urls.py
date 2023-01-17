@@ -4,8 +4,9 @@ from django.urls import path
 from core.cache import cache_per_user
 from erp import schema, views
 
-APP_CACHE_TTL = 60 * 5
-EDITORIAL_CACHE_TTL = 60 * 60
+MINUTES = 60
+APP_CACHE_TTL = 5 * MINUTES
+EDITORIAL_CACHE_TTL = 60 * MINUTES
 
 handler403 = views.handler403
 handler404 = views.handler404
@@ -67,7 +68,7 @@ urlpatterns = [
     path("mapicons", views.mapicons, name="mapicons"),
     path(
         "communes/",
-        cache_user_page(views.communes),
+        views.communes,  # cached in template side
         name="communes",
     ),
     path(
