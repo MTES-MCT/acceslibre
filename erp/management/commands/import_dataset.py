@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 
-from core import mattermost
 from erp.imports import importer
 
 
@@ -36,7 +35,7 @@ class Command(BaseCommand):
             results = importer.import_generic(
                 verbose=verbose,
             )
-        elif dataset == "sp":
+        elif dataset == "service_public":
             results = importer.import_service_public(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
@@ -46,16 +45,8 @@ class Command(BaseCommand):
         if verbose:
             print(detailed_report + "\n\n" + summary)
 
-        mattermost.send(
-            summary,
-            attachements=[
-                {
-                    "pretext": "Détail des erreurs",
-                    "text": to_text_list(results["errors"]) if results["errors"] else "Aucune erreur rencontrée",
-                }
-            ],
-            tags=[__name__],
-        )
+        print(summary)
+        print(to_text_list(results["errors"]) if results["errors"] else "Aucune erreur rencontrée")
 
 
 def to_text_list(items):

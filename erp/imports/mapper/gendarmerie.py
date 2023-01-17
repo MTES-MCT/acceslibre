@@ -28,7 +28,7 @@ class GendarmerieMapper:
 
     def __init__(self, record, activite=None, today=None):
         self.record = record
-        self.today = today if today is not None else datetime.today()
+        self.today = today or datetime.today()
         self.activite = activite
 
     def process(self):
@@ -151,7 +151,7 @@ class GendarmerieMapper:
 
     def _populate_accessibilite(self, record):
         if not self.erp.has_accessibilite():
-            accessibilite = Accessibilite(erp=self.erp)
+            accessibilite = Accessibilite(erp=self.erp, entree_porte_presence=True)
             self.erp.accessibilite = accessibilite
         self.erp.accessibilite.commentaire = self._build_comment(record)
 
@@ -162,7 +162,7 @@ class GendarmerieMapper:
             "https://www.data.gouv.fr/fr/datasets/liste-des-unites-de-gendarmerie-accueillant-du-public-comprenant-leur-geolocalisation-et-leurs-horaires-douverture/"
         )
         horaires = [s.strip() for s in re.findall("[A-Z][^A-Z]*", record["horaires_accueil"].strip())]
-        if len(horaires) > 0:
+        if horaires:
             comment += "\n\nHoraires d'accueil: \n"
             for horaire in horaires:
                 comment += horaire + "\n"
