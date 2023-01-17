@@ -100,7 +100,9 @@ class ErpQuerySet(models.QuerySet):
         return qs
 
     def find_by_source_id(self, source, source_id, **filters):
-        return self.filter(source=source, source_id=source_id, **filters)
+        if not isinstance(source, (list, set, tuple)):
+            source = [source]
+        return self.filter(source__in=source, source_id=source_id, **filters)
 
     def find_existing_matches(self, nom, geom):
         return self.nearest(geom, order_it=False).filter(

@@ -1,10 +1,12 @@
 import csv
 import io
 import json
+import os
 import tarfile
 
 import ijson
 import requests
+from django.conf import settings
 
 
 class Fetcher:
@@ -37,10 +39,12 @@ class JsonCompressedFetcher(Fetcher):
 
     def fetch(self, url):
         try:
-            print(f"Récupération des données sur {url}")
-            res = super().fetch(url)
-            open("sp.bz2", "wb").write(res.content)
-            print("Récupération des données => [OK]")
+            # Allow to reuse our previous download when settings.DEBUG is True
+            if not (settings.DEBUG and os.path.exists("sp.bz2")):
+                print(f"Récupération des données sur {url}")
+                res = super().fetch(url)
+                open("sp.bz2", "wb").write(res.content)
+                print("Récupération des données => [OK]")
             with tarfile.open("sp.bz2", "r:bz2") as tar:
                 for tarinfo in tar:
                     if tarinfo.isreg() and "-data.gouv_local.json" in tarinfo.name:

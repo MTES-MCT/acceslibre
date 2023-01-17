@@ -63,6 +63,7 @@ def extract_adresse(xml, fieldname):
 
 class Command(BaseCommand):
     help = "Importe les données Service Public"
+    activites = {}
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -107,9 +108,8 @@ class Command(BaseCommand):
             return None
         nom_activite = extract(xml, attribute="pivotLocal")
         if nom_activite:
-            for (pka, activite) in self.activites:
-                if nom_activite.lower().strip() == activite:
-                    fields["activite_id"] = pka
+            if nom_activite.lower().strip() in self.activites:
+                fields["activite_id"] = self.activites[nom_activite.lower().strip()]
 
         # checks rest
         if any(
@@ -229,14 +229,14 @@ class Command(BaseCommand):
         self.imported_erps = 0
         self.existed_erps = 0
         self.erps_with_access_changed = 0
-        for root, directories, files in os.walk(csv_dirpath, topdown=False):
+        for root, _, files in os.walk(csv_dirpath, topdown=False):
             for name in files:
                 path_file = os.path.join(root, name)
                 if os.path.splitext(path_file)[-1] == ".xml":
                     self.all_files.append(path_file)
         self.stdout.write(f"{len(self.all_files)} fichier(s) à traiter")
 
-        self.activites = [(a.pk, a.nom.lower().strip()) for a in Activite.objects.all()]
+        self.activites = {a.nom.lower().strip(): a.pk for a in Activite.objects.all()}
 
     def parse_files(self):
         for f in self.all_files:
@@ -247,24 +247,26 @@ class Command(BaseCommand):
                 data_access = self.get_access(root)
             except Exception as e:
                 self.stdout.write(f"Access Data Error : {e}")
-                raise e
+                continue
             try:
                 erp = self.import_row(root)
             except Exception as e:
                 self.stdout.write(f"ERP Data Error : {e}")
-                raise e
+                continue
             else:
-                if erp and data_access:
+                data_access = data_access or {"entree_porte_presence": True}
+
+                if erp:
                     self.stdout.write(f"Ajout de l'ERP depuis {erp.source} (id: {erp.source_id})")
                     if hasattr(erp, "pk") and erp.pk:
                         self.existed_erps += 1
-                        print(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
+                        self.stdout.write(f"EXIST {erp.nom} {erp.voie} {erp.commune}")
                         if self.force_update:
                             print("\tUPDATE FORCED on this ERP")
                             erp.save()
                     else:
                         erp.save()
-                        print(f"ADD {erp}")
+                        self.stdout.write(f"ADD {erp}")
                         self.imported_erps += 1
                         if not hasattr(erp, "accessibilite"):
                             erp.accessibilite = Accessibilite(**data_access)
