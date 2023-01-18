@@ -176,16 +176,6 @@ def _search_commune_code_postal(qs, code_insee):
     )
 
 
-def _search_commune_around(qs, point, code_insee):
-    commune = None
-    if code_insee:
-        commune = Commune.objects.filter(code_insee=code_insee).first()
-    return (
-        commune,
-        qs.in_and_around_commune(point, commune) if commune else qs.nearest(point),
-    )
-
-
 def _update_search_pager(pager, commune):
     for erp in pager.object_list:
         if any(
@@ -223,7 +213,7 @@ def search(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = str(commune)
     elif location:
-        commune, qs = _search_commune_around(qs, location, code)
+        qs = qs.nearest(location)
     elif where and not where == "France entière":
         location = geocoder.autocomplete(where)
         if location:
@@ -274,7 +264,7 @@ def global_map(request, commune_slug=None):
         qs = qs.filter(commune_ext=commune)
         where = str(commune)
     elif location:
-        commune, qs = _search_commune_around(qs, location, code)
+        qs = qs.nearest(location)
     elif where and not where == "France entière":
         location = geocoder.autocomplete(where)
         if location:
