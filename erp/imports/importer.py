@@ -10,7 +10,7 @@ from erp.imports.mapper import SkippedRecord
 from erp.imports.mapper.gendarmerie import GendarmerieMapper
 from erp.imports.mapper.generic import GenericMapper
 from erp.imports.mapper.nestenn import NestennMapper
-from erp.imports.mapper.sp import SPMapper
+from erp.imports.mapper.service_public import ServicePublicMapper
 from erp.imports.mapper.vaccination import VaccinationMapper
 from erp.models import Accessibilite, Activite
 
@@ -71,7 +71,7 @@ class Importer:
 
                     # Attach an Accessibilite to newly created Erps
                     if not erp.has_accessibilite():
-                        accessibilite = Accessibilite(erp=erp)
+                        accessibilite = Accessibilite(erp=erp, entree_porte_presence=True)
                         accessibilite.save()
                     else:
                         erp.accessibilite.save()
@@ -150,6 +150,6 @@ def import_service_public(verbose=False):
     return Importer(
         "73302880-e4df-4d4c-8676-1a61bb997f3d",
         fetcher.JsonCompressedFetcher(hook=lambda x: x["service"]),
-        SPMapper,
+        ServicePublicMapper,
         verbose=verbose,
     ).process()

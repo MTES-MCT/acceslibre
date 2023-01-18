@@ -35,7 +35,7 @@ class Command(BaseCommand):
             results = importer.import_generic(
                 verbose=verbose,
             )
-        elif dataset == "sp":
+        elif dataset == "service_public":
             results = importer.import_service_public(verbose=verbose)
         else:
             raise CommandError(f"Identifiant de jeu de données inconnu: {dataset}")
@@ -44,6 +44,9 @@ class Command(BaseCommand):
         detailed_report = build_detailed_report(results)
         if verbose:
             print(detailed_report + "\n\n" + summary)
+
+        print(summary)
+        print(to_text_list(results["errors"]) if results["errors"] else "Aucune erreur rencontrée")
 
 
 def to_text_list(items):
