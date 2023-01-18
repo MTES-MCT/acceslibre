@@ -1,0 +1,10 @@
+# instruction at the http level like
+limit_req_zone $binary_remote_addr zone=one:10m rate=1r/s;
+
+server {
+    location / {
+        limit_req zone=one burst=5;
+        limit_req_status 429;
+        limit_conn_status 429;
+    }
+}
