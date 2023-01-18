@@ -33,7 +33,7 @@ django-rest-framework = "*"
 django-reversion = "==4.0.2"
 djangorestframework-gis = "*"
 django-waffle = "*"
-frictionless = "*"
+frictionless = "==4.40.8"  # Tests are not compatible with 5.x.x versions
 fuzzywuzzy = "*"
 ipython = "*"
 Markdown = "*"
