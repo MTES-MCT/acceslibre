@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class ServicePublicMapper:
     def __init__(self, record, source=None, activite=None, today=None):
         self.record = record
-        self.today = today if today is not None else datetime.today()
+        self.today = today or datetime.today()
         self.activite = activite
         self.source = source
 
@@ -18,12 +18,14 @@ class ServicePublicMapper:
         # ownership on all the gendarmeries even on those initially coming from the service_public import
         try:
             erp = Erp.objects.find_by_source_id(
-                [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], self.record["ancien_code_pivot"]
+                [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], self.record["ancien_code_pivot"], published=True
             ).get()
         except Erp.DoesNotExist:
             try:
                 erp = Erp.objects.find_by_source_id(
-                    [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE], self.record["partenaire_identifiant"]
+                    [Erp.SOURCE_SERVICE_PUBLIC, Erp.SOURCE_GENDARMERIE],
+                    self.record["partenaire_identifiant"],
+                    published=True,
                 ).get()
             except Erp.DoesNotExist:
                 return None, None
