@@ -14,6 +14,7 @@ from compte.views import (
     CustomRegistrationView,
 )
 from core.sitemaps import SITEMAPS
+from core.views import robots_txt
 
 SITEMAP_CACHE_TTL = 86400
 
@@ -73,6 +74,7 @@ urlpatterns = [
         {"sitemaps": SITEMAPS},
         name="sitemap",
     ),
+    path("robots.txt", robots_txt),
 ]
 
 if settings.DEBUG:

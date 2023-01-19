@@ -176,6 +176,9 @@ def test_invalid_search_params_404(data, client):
                 erp_slug="aux-bons-croissants",
             ),
         ),
+        # Core
+        "/sitemap.xml",
+        "/robots.txt",
     ],
 )
 def test_urls_ok(data, url, client):
