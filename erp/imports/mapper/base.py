@@ -101,7 +101,7 @@ class BaseMapper:
     def format_data(self, value):
         if value == "":
             return None
-        return value
+        return value.strip()
 
     def csv_to_erp(self, record, *args, **kwargs):
         try:

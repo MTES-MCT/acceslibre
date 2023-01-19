@@ -23,8 +23,8 @@ class ErpImportSerializer(serializers.ModelSerializer):
     activite = serializers.SlugRelatedField(queryset=Activite.objects.all(), slug_field="nom")
     commune = serializers.CharField(required=True)
     accessibilite = AccessibilityImportSerializer(many=False, required=True)
-    latitude = serializers.FloatField(min_value=-90, max_value=90, required=False)
-    longitude = serializers.FloatField(min_value=-180, max_value=180, required=False)
+    latitude = serializers.FloatField(min_value=-90, max_value=90, required=False, allow_null=True, default=None)
+    longitude = serializers.FloatField(min_value=-180, max_value=180, required=False, allow_null=True, default=None)
     _geom: Point = None
 
     class Meta:
@@ -81,19 +81,21 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
 
-        address = " ".join(
-            [
-                obj.get("numero") or "",
-                obj.get("voie") or "",
-            ]
-        )
-        address = ", ".join(
-            [
-                address,
-                obj.get("lieu_dit") or "",
-                obj["commune"],
-            ]
-        )
+        if obj.get("lieu_dit"):
+            address = ", ".join(
+                [
+                    obj.get("lieu_dit"),
+                    obj["commune"],
+                ]
+            )
+        else:
+            address = ", ".join(
+                [
+                    obj.get("numero") or "",
+                    obj.get("voie") or "",
+                    obj["commune"],
+                ]
+            )
 
         for i in range(3):
             try:
@@ -113,7 +115,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 if i < 2:
                     continue
 
-                if "latitude" in obj and "longitude" in obj:
+                if obj.get("latitude") is not None and obj.get("longitude") is not None:
                     self._geom = Point((obj["latitude"], obj["longitude"]))
                     obj.pop("latitude")
                     obj.pop("longitude")
@@ -125,9 +127,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
         ).first()
         if not obj["commune_ext"]:
-            raise serializers.ValidationError(
-                f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}"
-            )
+            raise serializers.ValidationError(f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}")
 
         existing = Erp.objects.find_duplicate(
             numero=obj.get("numero"),
