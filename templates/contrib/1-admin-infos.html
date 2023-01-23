@@ -35,14 +35,17 @@
       <div class="alert alert-danger">{{ data_error }}</div>
     {% endif %}
 
-    {% if existing_matches %}
+    {% if existing_matches or duplicated %}
+      {% if existing_matches %}
       <div class="alert alert-warning">
         <p>
           <i aria-hidden="true" class="icon icon-exclamation-circle"></i>
           Des établissements correspondant à votre saisie sont déjà présents sur acceslibre. Assurez vous que l'établissement que vous souhaitez ajouter ne figure pas dans la liste ci-dessous avant de poursuivre la saisie.
         </p>
       </div>
+      {% endif %}
       <div class="list-group list-group-flush">
+        {% if existing_matches %}
         <div class="row">
           <div class="col-md-12">
             {% for erp in existing_matches %}
@@ -81,9 +84,9 @@
             </p>
           {% endfor %}
           </div>
-
-
         </div>
+        {% endif %}
+        {% if duplicated or existing_matches %}
         <hr class="my-5" style="width: 100%; border:1px solid rgba(0, 0, 0, 0.1);">
         <p class="mb-0">
           <button class="btn btn-primary" type="submit" name="force" value="1">
@@ -91,6 +94,7 @@
             Continuer ma saisie d'un nouvel établissement
           </button>
         </p>
+        {% endif %}
       </div>
     {% endif %}
 
