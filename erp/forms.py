@@ -474,6 +474,12 @@ class BasePublicErpInfosForm(BaseErpForm):
 
 
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
+    ignore_duplicate_check = False
+
+    def __init__(self, *args, **kwargs):
+        self.ignore_duplicate_check = kwargs.pop("ignore_duplicate_check", False)
+        super().__init__(*args, **kwargs)
+
     def clean(self):
         if self.cleaned_data["geom"] is None or self.adresse_changed():
             self.geocode()
@@ -485,7 +491,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         activite = self.cleaned_data.get("activite")
         adresse = self.get_adresse_query()
         existing = False
-        if activite and adresse:
+        if activite and adresse and not self.ignore_duplicate_check:
             existing = Erp.objects.find_duplicate(
                 numero=self.cleaned_data.get("numero"),
                 commune=self.cleaned_data.get("commune"),

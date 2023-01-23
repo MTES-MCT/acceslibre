@@ -693,8 +693,9 @@ def contrib_admin_infos(request):
     data = erp = external_erp = None
     data_error = None
     existing_matches = None
+    duplicated = False
     if request.method == "POST":
-        form = forms.PublicErpAdminInfosForm(request.POST)
+        form = forms.PublicErpAdminInfosForm(request.POST, ignore_duplicate_check=request.POST.get("force") == "1")
         if form.is_valid():
             existing_matches = Erp.objects.find_existing_matches(
                 form.cleaned_data.get("nom"), form.cleaned_data.get("geom")
@@ -709,6 +710,8 @@ def contrib_admin_infos(request):
                     Activite.notify_admin(new_activity=form.cleaned_data["nouvelle_activite"], erp=erp)
                 messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
+        else:
+            duplicated = bool("existe déjà" in form.errors.get("__all__", [""])[0])
     else:
         encoded_data = request.GET.get("data")
         try:
@@ -747,6 +750,7 @@ def contrib_admin_infos(request):
             "erp": erp,
             "external_erp": external_erp,
             "activite": Activite.objects.get(nom="Autre"),
+            "duplicated": duplicated,
         },
     )
 
