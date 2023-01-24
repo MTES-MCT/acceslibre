@@ -286,6 +286,12 @@ class ErpFilterBackend(BaseFilterBackend):
         if asp_id is not None:
             queryset = queryset.filter(asp_id__iexact=asp_id)
 
+        # ASP ID is not null
+        asp_id_not_null = request.query_params.get("asp_id_not_null", None)
+        if asp_id_not_null is not None:
+            asp_id_not_null = asp_id_not_null == "true"
+            queryset = queryset.filter(asp_id__isnull=not asp_id_not_null)
+
         # UUID
         uuid = request.query_params.get("uuid", None)
         if uuid is not None:
@@ -402,6 +408,17 @@ class ErpSchema(A4aAutoSchema):
                 "required": False,
                 "description": "ID ASP unique fourni par Service Public",
                 "schema": {"type": "string"},
+            },
+        },
+        "asp_id_not_null": {
+            "paths": ["/erps/"],
+            "methods": ["GET"],
+            "field": {
+                "name": "asp_id_not_null",
+                "in": "query",
+                "required": False,
+                "description": "ID ASP fournit",
+                "schema": {"type": "boolean"},
             },
         },
         "uuid": {
