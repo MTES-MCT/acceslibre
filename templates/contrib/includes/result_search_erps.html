@@ -40,11 +40,7 @@
           <a class="btn fr-btn fr-btns-group--center btn-block" href="{% url "contrib_admin_infos" %}?data={{ result|encode_provider_data }}#content">
             Ajouter cet établissement
             </a>
-          {% elif result.exists and user.is_authenticated and result.exists.user == user.id and not result.exists.published%}
-            <a class="btn fr-btn fr-btns-group--center btn-block" href="{% url "contrib_edit_infos" erp_slug=result.exists.slug %}">
-            Reprendre votre brouillon
-            </a>
-          {% elif result.exists.published %}
+          {% elif result.exists %}
             <a class="btn btn-success btn-block" href="{{ result.exists.get_absolute_url }}">
               Voir cet établissement
             </a>
@@ -66,5 +62,3 @@
   </div>
 </div>
 {% endfor %}
-
-

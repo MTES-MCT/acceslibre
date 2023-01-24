@@ -14,6 +14,7 @@ jobs:
           EMAIL_HOST_USER: xxx
           EMAIL_HOST_PASSWORD: xxx
           SCALINGO_APP: access4all
+          SEND_IN_BLUE_API_KEY: xxx
       - image: cimg/postgres:12.12-postgis
         environment:
           POSTGRES_USER: root

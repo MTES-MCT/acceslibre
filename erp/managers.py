@@ -72,8 +72,10 @@ class ErpQuerySet(models.QuerySet):
         activite: "Activite",  # noqa
         voie: str = None,
         lieu_dit: str = None,
+        published: bool = None,
     ):
-        qs = self.filter(commune__iexact=commune, numero=numero, activite__pk=activite.pk)
+        published = True if published is None else published
+        qs = self.filter(published=published, commune__iexact=commune, numero=numero, activite__pk=activite.pk)
         if voie or lieu_dit:
             clause = Q()
             if voie:
@@ -87,6 +89,7 @@ class ErpQuerySet(models.QuerySet):
         # FIXME: might be deprecated as this is not compliant with the last definition of a duplicate.
         # Prefer `find_duplicate`
         qs = self.filter(
+            published=True,
             nom__iexact=nom,
             commune__iexact=commune,
         )
@@ -106,6 +109,7 @@ class ErpQuerySet(models.QuerySet):
 
     def find_existing_matches(self, nom, geom):
         return self.nearest(geom, order_it=False).filter(
+            published=True,
             nom__unaccent__lower__trigram_similar=nom,
             distance__lt=measure.Distance(m=200),
         )

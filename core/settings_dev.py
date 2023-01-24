@@ -40,3 +40,8 @@ LOGGING = {
         "level": "INFO",
     },
 }
+
+
+SEND_IN_BLUE_TEMPLATE_IDS = {
+    "draft_deleted": 4,
+}

@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from core import mailer
+from core.mailer import get_mailer
 from erp.models import Erp
 
 logger = logging.getLogger(__name__)
@@ -51,7 +51,7 @@ class Command(BaseCommand):
 
     def send_notification(self, notification):
         user, erps = notification["user"], notification["erps"]
-        return mailer.send_email(
+        return get_mailer().send_email(
             [user.email],
             f"[{settings.SITE_NAME}] Des établissements sont en attente de publication",
             "mail/unpublished_erps_notification.txt",
