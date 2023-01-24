@@ -113,3 +113,24 @@ def test_endpoint_erp_list_around(data, api_client):
     response = api_client.get(reverse("erp-list") + "?around=43.66,3.91")
     content = json.loads(response.content)
     assert len(content["results"]) == 1
+
+
+def test_endpoint_erp_list_asp_id(data, api_client):
+    data.erp.asp_id = "abc"
+    data.erp.save()
+
+    response = api_client.get(reverse("erp-list") + "?asp_id=unknown")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 0
+
+    response = api_client.get(reverse("erp-list") + "?asp_id=abc")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 1
+
+    response = api_client.get(reverse("erp-list") + "?asp_id_not_null=true")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 1
+
+    response = api_client.get(reverse("erp-list") + "?asp_id_not_null=false")
+    content = json.loads(response.content)
+    assert len(content["results"]) == 0
