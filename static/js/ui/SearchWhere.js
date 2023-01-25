@@ -108,7 +108,7 @@ function SearchWhere(root) {
         return commonResults;
       }
       const { results } = await api.searchLocation(input, loc);
-      return commonResults.concat(results);
+      return results;
     },
   });
 
