@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 
 class Mailer:
-    # FIXME: when all mails will be migrated, clean those args, should be sufficient to keep only to_list and template
+    # FIXME: when all mails will be migrated, clean those args, should be sufficient to keep only to_list, template and context
     def send_email(self, to_list, subject, template, context=None, reply_to=None, fail_silently=True):
         raise NotImplementedError
 
