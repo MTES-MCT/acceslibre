@@ -1395,6 +1395,10 @@ class Accessibilite(models.Model):
                 return False
         return True
 
+    # NOTE: a class overriding `__eq__` MUST also override `__hash__`
+    def __hash__(self):
+        return super().__hash__()
+
     def get_history(self, exclude_changes_from=None):
         return _get_history(self.get_versions(), exclude_changes_from=exclude_changes_from)
 
