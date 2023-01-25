@@ -171,8 +171,8 @@
 
     <h3 class="h3 mb-3">Emplacement de l'établissement</h3>
 
-    <div class="alert alert-info">
-      <i aria-hidden="true" class="icon icon-info-circled"></i>
+    <div aria-hidden="true" class="alert alert-info">
+      <i class="icon icon-info-circled"></i>
       Merci de bien vérifier la bonne géolocalisation de votre établissement sur
       la carte ci-dessous. <strong>Vous pouvez affiner l'emplacement en déplaçant la carte
       pour faire correspondre le pointeur central sur sa position précise.</strong>
@@ -192,7 +192,7 @@
     </h2>
   {% endif %}
 
-    <div id="localisation-map">
+    <div id="localisation-map" aria-hidden="true">
       <div class="a4a-localisation-map"></div>
       {{ form.lat }}
       {{ form.lon }}
