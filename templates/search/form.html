@@ -54,6 +54,9 @@
       <button type="submit" {% if 'contrib' in request.path %}disabled{% endif %} class="fr-col-2 fr-col-sm-1 fr-text--sm fr-btn btn-search{% if 'contrib' in request.path %} loader-api{% endif %}" title="Rechercher">
         <span class="sr-only">Rechercher</span>
       </button>
+      <button type="button" class="sr-only get-geoloc-btn" tabindex="-1">
+        Autoriser l'obtention de ma localisation géographique
+      </button>
     </div>
 
   </div>
