@@ -239,7 +239,7 @@ def safe_username(value):
 @register.filter
 def shuffle(arg):
     tmp = list(arg)[:]
-    random.shuffle(tmp)
+    tmp.sort(key=lambda item: random.randint(0, 99) + item[1].get("weight", 0), reverse=True)
     return tmp
 
 
