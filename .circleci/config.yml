@@ -76,6 +76,7 @@ jobs:
           command: |
             mkdir test-results
             pipenv run pytest --circleci-parallelize --junitxml=test-results/junit.xml
+          parallelism: 4
       - store_test_results:
           path: test-results
       - store_artifacts:
