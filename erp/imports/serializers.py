@@ -4,6 +4,7 @@ from django.contrib.gis.geos import Point
 from django.forms.models import model_to_dict
 from rest_framework import serializers
 
+from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import geocoder, sirene
 
@@ -81,24 +82,9 @@ class ErpImportSerializer(serializers.ModelSerializer):
         if not obj.get("voie") and not obj.get("lieu_dit"):
             raise serializers.ValidationError("Veuillez entrer une voie OU un lieu-dit")
 
-        if obj.get("lieu_dit"):
-            address = ", ".join(
-                [
-                    obj.get("lieu_dit"),
-                    obj["commune"],
-                ]
-            )
-        else:
-            address = ", ".join(
-                [
-                    obj.get("numero") or "",
-                    obj.get("voie") or "",
-                    obj["commune"],
-                ]
-            )
-
         for i in range(3):
             try:
+                address = get_address_query_to_geocode(obj)
                 locdata = geocoder.geocode(address, postcode=obj["code_postal"])
                 if not locdata:
                     raise RuntimeError

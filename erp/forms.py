@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 from erp import schema
+from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Accessibilite, Activite, Commune, Erp
 from erp.provider import departements, geocoder
 
@@ -199,16 +200,16 @@ class BaseErpForm(forms.ModelForm):
         except KeyError:
             return True
 
-    def get_adresse_query(self):
+    def _get_address_query(self, obj):
         parts = [
-            self.cleaned_data.get("numero") or "",
-            self.cleaned_data.get("voie") or "",
+            obj.get("numero") or "",
+            obj.get("voie") or "",
         ]
         voie_ville = " ".join([p for p in parts if p != ""]).strip()
         adresse_parts = [
             voie_ville,
-            self.cleaned_data.get("lieu_dit") or "",
-            self.cleaned_data.get("commune") or "",
+            obj.get("lieu_dit") or "",
+            obj.get("commune") or "",
         ]
         return ", ".join([p for p in adresse_parts if p != ""])
 
@@ -222,7 +223,7 @@ class BaseErpForm(forms.ModelForm):
         raise ValidationError({field: self.format_error(message)})
 
     def geocode(self):
-        adresse = self.get_adresse_query()
+        adresse = get_address_query_to_geocode(self.cleaned_data)
         code_postal = self.cleaned_data.get("code_postal", "").strip() or None
         departement = code_postal[:2] if code_postal and len(code_postal) == 5 else None
         commune_input = self.cleaned_data.get("commune")
@@ -489,7 +490,7 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
 
         # Unicity is made on activity + address
         activite = self.cleaned_data.get("activite")
-        adresse = self.get_adresse_query()
+        adresse = get_address_query_to_geocode(self.cleaned_data)
         existing = False
         if activite and adresse and not self.ignore_duplicate_check:
             existing = Erp.objects.find_duplicate(

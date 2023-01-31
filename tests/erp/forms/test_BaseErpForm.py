@@ -2,6 +2,7 @@ import pytest
 from django.contrib.gis.geos import Point
 
 from erp import forms
+from erp.imports.utils import get_address_query_to_geocode
 from erp.models import Commune, Erp
 
 POINT = Point((0, 0))
@@ -50,7 +51,7 @@ def test_BaseErpForm_get_adresse_query(form_data, mocker, geocoder_result_ok, pa
     mocker.patch("erp.provider.geocoder.geocode", return_value=geocoder_result_ok)
     form = forms.AdminErpForm(form_data)
     form.is_valid()  # populates cleaned_data
-    assert form.get_adresse_query() == "4 Rue de la Paix, Paris"
+    assert get_address_query_to_geocode(form.cleaned_data) == "4 Rue de la Paix, Paris"
 
 
 @pytest.mark.django_db
