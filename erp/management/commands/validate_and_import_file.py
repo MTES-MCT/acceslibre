@@ -67,7 +67,7 @@ class Command(BaseCommand):
         )
 
         parser.add_argument(
-            "--force_update_duplicate_erp",
+            "--force_update",
             action="store_true",
             help="Forcer la mise à jour des ERPs dupliqués avec les données de l'import",
         )
@@ -80,7 +80,7 @@ class Command(BaseCommand):
         self.generate_errors_file = options.get("generate_errors_file", False)
         self.mapper = options.get("mapper")
         self.activite = options.get("activite", None)
-        self.force_update_duplicate_erp = options.get("force_update_duplicate_erp", False)
+        self.force_update = options.get("force_update", False)
 
         counter = 0
         print("Démarrage du script")
@@ -95,7 +95,7 @@ Paramètres de lancement du script :
     One Line : {self.one_line}
     Skip import : {self.skip_import}
     Generate Errors file : {self.generate_errors_file}
-    Force update duplicate erp : {self.force_update_duplicate_erp}
+    Force update duplicate erp : {self.force_update}
 
         """
         )
@@ -128,13 +128,13 @@ Paramètres de lancement du script :
                                     and "non_field_errors" in e.get_codes()
                                     and "duplicate" in e.get_codes()["non_field_errors"]
                                 ):
-                                    if not self.force_update_duplicate_erp:
+                                    if not self.force_update:
                                         print_error(
                                             f"Un doublon a été détecté lors du traitement de la ligne {_}: {e}."
                                         )
                                     self.results["duplicated"]["count"] += 1
                                     self.results["duplicated"]["msgs"].append({"line": _, "error": e, "data": row})
-                                    if self.force_update_duplicate_erp is True:
+                                    if self.force_update is True:
                                         erp_duplicated = Erp.objects.get(
                                             pk=re.search(
                                                 r".*ERP #(\d*)",
@@ -176,9 +176,7 @@ Paramètres de lancement du script :
 
             print(self.build_summary())
             if self.generate_errors_file and (
-                self.results["in_error"]["count"]
-                or (self.results["duplicated"]["count"])
-                and not self.force_update_duplicate_erp
+                self.results["in_error"]["count"] or (self.results["duplicated"]["count"]) and not self.force_update
             ):
                 error_file = self.write_error_file()
                 print_success(f"Le fichier d'erreurs '{error_file}' est disponible.")
@@ -201,7 +199,7 @@ Paramètres de lancement du script :
 
             writer = csv.DictWriter(self.error_file, fieldnames=fieldnames, delimiter=";")
             writer.writeheader()
-            if self.results["duplicated"]["count"] and not self.force_update_duplicate_erp:
+            if self.results["duplicated"]["count"] and not self.force_update:
                 for line in self.results["duplicated"]["msgs"]:
                     writer.writerow(line)
             for line in self.results["in_error"]["msgs"]:
