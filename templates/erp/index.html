@@ -1,5 +1,6 @@
 {% extends "editorial/base.html" %}
 
+{% load waffle_tags %}
 {% load a4a %}
 {% load static %}
 
@@ -66,9 +67,11 @@
 {% endblock %}
 
 {% block bottom_fluid_content %}
+{% switch 'USE_GEOSPATIAL_SEARCH_IN_DETAIL' %}
 <aside id="proximite" class="container-fluid bg-light mt-4 py-4">
   <div class="container">
     {% include "erp/includes/proximite.html" %}
   </div>
 </aside>
+{% endswitch %}
 {% endblock %}
