@@ -3,7 +3,7 @@ import csv
 import pytest
 from django.core.management import CommandError, call_command
 
-from erp.management.commands.validate_import_file import Command
+from erp.management.commands.validate_and_import_file import Command
 from tests.erp.imports.mapper.fixtures import neufchateau
 
 
@@ -16,7 +16,7 @@ def test_without_params_command():
     Generate Errors file : {self.generate_errors_file}
     """
     with pytest.raises(CommandError):
-        call_command("validate_import_file")
+        call_command("validate_and_import_file")
 
 
 def test_skip_import_with_KO_file():
@@ -174,7 +174,7 @@ def test_duplicate_with_OK_file_force(activite, neufchateau):
     assert cm.results["imported"]["count"] == 1
     assert cm.results["duplicated"]["count"] == 0
 
-    call_command(cm, file="data/tests/generic_test_ok.csv", force_update_duplicate_erp=True)
+    call_command(cm, file="data/tests/generic_test_ok.csv", force_update=True)
 
     assert cm.results["in_error"]["count"] == 0
     assert cm.results["duplicated"]["count"] == 1

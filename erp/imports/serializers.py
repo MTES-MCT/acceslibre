@@ -112,8 +112,6 @@ class ErpImportSerializer(serializers.ModelSerializer):
         obj["commune_ext"] = Commune.objects.filter(
             nom__iexact=obj["commune"], code_postaux__contains=[obj["code_postal"]]
         ).first()
-        if not obj["commune_ext"]:
-            raise serializers.ValidationError(f"Commune inconnue: {obj['commune']} au code postal {obj['code_postal']}")
 
         existing = Erp.objects.find_duplicate(
             numero=obj.get("numero"),

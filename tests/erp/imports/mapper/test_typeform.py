@@ -1,9 +1,7 @@
 import pytest
-
 from django.core.management import call_command
 
-from erp.management.commands.validate_import_file import Command
-
+from erp.management.commands.validate_and_import_file import Command
 from erp.models import Activite, Erp
 from tests.erp.imports.mapper.fixtures import vallorcine
 
@@ -84,7 +82,7 @@ def test_update_duplicate_erp(activite_mairie, vallorcine):
         file="data/tests/typeform_mairie_test_ok.csv",
         skip_import=False,
         mapper="typeform_mairie",
-        force_update_duplicate_erp=True,
+        force_update=True,
     )
 
     assert cm.results["duplicated"]["count"] == 1

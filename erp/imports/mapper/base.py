@@ -85,6 +85,14 @@ class BaseMapper:
 
     fields = erp_fields + accessibility_fields
 
+    array_fields = [
+        "labels",
+        "labels_familles_handicap",
+        "entree_dispositif_appel_type",
+        "accueil_audiodescription",
+        "accueil_equipements_malentendants",
+    ]
+
     @staticmethod
     def clean(string):
         return (
@@ -120,8 +128,6 @@ class BaseMapper:
 
     def get_a11y_fields(self, record):
         a11y_data = {k: self.format_data(v) for k, v in record.items() if k in self.accessibility_fields}
-        a11y_data["labels"] = json.loads(record.get("labels")) if record.get("labels") else None
-        a11y_data["labels_familles_handicap"] = (
-            json.loads(record.get("labels_familles_handicap")) if record.get("labels_familles_handicap") else None
-        )
+        for name in self.array_fields:
+            a11y_data[name] = json.loads(record.get(name)) if record.get(name) else None
         return a11y_data
