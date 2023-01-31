@@ -64,8 +64,9 @@ sib-api-v3-sdk = "*"
 # NOTE: redis cache is built in in django4
 django-redis = "*"
 # END NOTE
+
 [requires]
-python_version = "3.11"
+python_version = "3.10"   # can be upgraded to 3.11 once supported by scalingo https://doc.scalingo.com/languages/python/start#supported-versions
 
 [pipenv]
 allow_prereleases = false
