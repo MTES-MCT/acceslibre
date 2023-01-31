@@ -66,7 +66,7 @@ django-redis = "*"
 # END NOTE
 
 [requires]
-python_version = "3.10.8"   # can be upgraded to 3.11 once supported by scalingo https://doc.scalingo.com/languages/python/start#supported-versions
+python_version = "3.10"   # can be upgraded to 3.11 once supported by scalingo https://doc.scalingo.com/languages/python/start#supported-versions
 
 [pipenv]
 allow_prereleases = false
