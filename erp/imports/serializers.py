@@ -132,8 +132,12 @@ class ErpImportSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data, partial=True):
         accessibilite = instance.accessibilite
+        for attr in ("id", "erp"):
+            validated_data["accessibilite"].pop(attr, False)
+
         for attr in validated_data["accessibilite"]:
             setattr(accessibilite, attr, validated_data["accessibilite"][attr])
+
         accessibilite.save()
         return instance
 
