@@ -1,4 +1,5 @@
 import os
+from unittest.mock import MagicMock
 
 import pytest
 from django.contrib.auth.models import User
@@ -46,6 +47,12 @@ def mock_geocode(mocker):
         }
 
     mocker.patch("erp.provider.geocoder.geocode", side_effect=_result)
+
+
+@pytest.fixture(autouse=True)
+def mock_send_in_blue(mocker):
+    mocker.patch("sib_api_v3_sdk.ContactsApi.get_contact_info", return_value=MagicMock(id=1))
+    mocker.patch("sib_api_v3_sdk.ContactsApi.update_contact", return_value=True)
 
 
 @pytest.fixture

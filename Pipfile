@@ -62,6 +62,7 @@ image = "*"
 redis = "*"
 sib-api-v3-sdk = "*"
 platformdirs = "2.6.2"
+celery = "*"
 # NOTE: redis cache is built in in django4
 django-redis = "*"
 # END NOTE

@@ -6,10 +6,14 @@ from django.template.loader import render_to_string
 from sib_api_v3_sdk import (
     ApiClient,
     Configuration,
+    ContactsApi,
+    CreateAttribute,
+    CreateContact,
     SendSmtpEmail,
     SendSmtpEmailSender,
     SendSmtpEmailTo,
     TransactionalEmailsApi,
+    UpdateContact,
 )
 from sib_api_v3_sdk.rest import ApiException
 from waffle import switch_is_active
@@ -76,6 +80,45 @@ class SendInBlueMailer(Mailer):
             return True
         except ApiException:
             return False
+
+    def create_default_user_attributes(self):
+        api_instance = ContactsApi(ApiClient(self.configuration))
+        current_attributes = [a.to_dict()["name"] for a in api_instance.get_attributes().attributes]
+
+        if "DATE_JOINED" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="DATE_JOINED",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="date"),
+            )
+
+        if "IS_ACTIVE" not in current_attributes:
+            api_instance.create_attribute(
+                attribute_name="IS_ACTIVE",
+                attribute_category="normal",
+                create_attribute=CreateAttribute(type="boolean"),
+            )
+
+    def sync_user(self, user):
+        api_instance = ContactsApi(ApiClient(self.configuration))
+        try:
+            contact = api_instance.get_contact_info(user.email)
+        except ApiException as exc:
+            if exc.reason == "Not Found":
+                contact = api_instance.create_contact(CreateContact(email=user.email))
+            else:
+                return False
+
+        update_contact = UpdateContact(
+            attributes={
+                "DATE_JOINED": user.date_joined.strftime("%Y-%m-%d"),
+                "IS_ACTIVE": user.is_active,
+                "NOM": user.last_name,
+                "PRENOM": user.first_name,
+            }
+        )
+        api_instance.update_contact(contact.id, update_contact)
+        return True
 
 
 def get_mailer():

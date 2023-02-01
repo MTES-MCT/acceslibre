@@ -25,15 +25,15 @@ services:
       - 8080:8080
     restart: unless-stopped
 
-  cache:
+  redis:
     image: redis:7.0.7-alpine
     restart: always
     ports:
       - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning --requirepass access4allpwd
     volumes:
-      - cache:/data
+      - redis:/data
 
 volumes:
-  cache:
+  redis:
     driver: local

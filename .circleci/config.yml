@@ -21,6 +21,7 @@ executors:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
           POSTGRES_DB: circle_test
+      - image: cimg/redis:7.0
 
   for_checks:
     docker:
@@ -95,8 +96,8 @@ jobs:
           command: |
             pipenv sync --dev
       - run:
-          name: Wait for Postgres server
-          command: dockerize -wait tcp://localhost:5432 -timeout 10s
+          name: Wait for Postgres & redis server
+          command: dockerize -wait tcp://localhost:5432 -wait tcp://localhost:6379 -timeout 10s
       - run:
           name: Run database migrations
           command: |
