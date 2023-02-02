@@ -269,7 +269,7 @@ class ErpAdmin(
         (
             "Contact",
             {
-                "fields": ["telephone", "site_internet", "contact_email"],
+                "fields": ["telephone", "site_internet", "contact_email", "import_email"],
             },
         ),
         (
