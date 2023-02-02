@@ -1,7 +1,7 @@
 version: 2.1
 
-jobs:
-  build:
+executors:
+  for_tests:
     docker:
       - image: cimg/python:3.10.9-node
         environment:
@@ -15,11 +15,25 @@ jobs:
           EMAIL_HOST_PASSWORD: xxx
           SCALINGO_APP: access4all
           SEND_IN_BLUE_API_KEY: xxx
+          SCALINGO_REDIS_URL: redis://default:access4allpwd@127.0.0.1:6379/1
       - image: cimg/postgres:12.12-postgis
         environment:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: password
           POSTGRES_DB: circle_test
+
+  for_checks:
+    docker:
+      - image: cimg/python:3.10.9-node
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+          DJANGO_SETTINGS_MODULE: core.settings_test
+          SECRET_KEY: secret-key
+          DATABASE_URL: postgres://root:password@localhost/circle_test
+jobs:
+  checks:
+    executor:
+      name: for_checks
     steps:
       - checkout
       - run:
@@ -49,13 +63,6 @@ jobs:
           paths:
             - "node_modules"
       - run:
-          name: Wait for Postgres server
-          command: dockerize -wait tcp://localhost:5432 -timeout 10s
-      - run:
-          name: Run database migrations
-          command: |
-            pipenv run ./manage.py migrate
-      - run:
           name: Run Flake8
           command: |
             pipenv run flake8
@@ -71,6 +78,29 @@ jobs:
           name: Check Django templates
           command: |
             pipenv run ./manage.py validate_templates
+
+  tests:
+    executor:
+      name: for_tests
+    parallelism: 4
+    steps:
+      - checkout
+      - run:
+          name: Install System dependencies
+          command: |
+            sudo apt update
+            sudo apt install -y gdal-bin
+      - run:
+          name: Install Python dependencies
+          command: |
+            pipenv sync --dev
+      - run:
+          name: Wait for Postgres server
+          command: dockerize -wait tcp://localhost:5432 -timeout 10s
+      - run:
+          name: Run database migrations
+          command: |
+            pipenv run ./manage.py migrate
       - run:
           name: Run tests
           command: |
@@ -81,3 +111,11 @@ jobs:
       - store_artifacts:
           path: test-results
           destination: tr1
+
+
+workflows:
+  version: 2
+  worflow:
+    jobs:
+      - checks
+      - tests
