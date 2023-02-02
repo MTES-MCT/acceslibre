@@ -123,7 +123,7 @@ class BaseMapper:
     def get_erp_fields(self, record, *args, **kwargs):
         dest_fields = {k: self.format_data(v) for k, v in record.items() if k in self.erp_fields}
         dest_fields["nom"] = record.get("name")
-        dest_fields["code_postal"] = record.get("postal_code")
+        dest_fields["code_postal"] = self.handle_5digits_code(record.get("postal_code"))
         return dest_fields
 
     def get_a11y_fields(self, record):
