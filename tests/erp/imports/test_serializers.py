@@ -4,8 +4,7 @@ from django.core.exceptions import ValidationError
 
 from erp.imports.serializers import ErpImportSerializer
 from erp.models import Erp
-
-from tests.erp.imports.mapper.fixtures import paris, jacou
+from tests.erp.imports.mapper.fixtures import jacou, paris
 
 
 @pytest.mark.django_db
@@ -41,6 +40,7 @@ from tests.erp.imports.mapper.fixtures import paris, jacou
                 "voie": "grand rue",
                 "code_postal": "34830",
                 "commune": "Jacou",
+                "email": "importator@tierce.com",
             },
             False,
             {
@@ -55,9 +55,7 @@ from tests.erp.imports.mapper.fixtures import paris, jacou
         ),
     ),
 )
-def test_erp_import_serializer(
-    mocker, data, erp_values, is_valid, geocoder_result, jacou, paris
-):
+def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_result, jacou, paris):
     mocker.patch(
         "erp.provider.geocoder.geocode",
         return_value=geocoder_result
@@ -92,6 +90,7 @@ def test_erp_import_serializer(
         assert erp.activite
         assert erp.accessibilite
         assert erp.geom.x == erp.geom.y == 0
+        assert erp.import_email == erp_values.get("email")
 
 
 def test_erp_update_serializer(data):
