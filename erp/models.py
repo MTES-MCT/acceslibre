@@ -377,6 +377,7 @@ class Erp(models.Model):
     SOURCE_TYPEFORM = "typeform"
     SOURCE_TYPEFORM_MUSEE = "typeform_musee"
     SOURCE_VACCINATION = "centres-vaccination"
+    SOURCE_DELL = "dell"
     SOURCE_CHOICES = (
         (SOURCE_ACCESLIBRE, "Base de données Acceslibre"),
         (SOURCE_ACCEO, "Acceo"),
@@ -397,6 +398,7 @@ class Erp(models.Model):
         (SOURCE_TYPEFORM, "Questionnaires Typeform"),
         (SOURCE_TYPEFORM_MUSEE, "Questionnaires Typeform Musée"),
         (SOURCE_VACCINATION, "Centres de vaccination"),
+        (SOURCE_DELL, "Dell"),
     )
     USER_ROLE_ADMIN = "admin"
     USER_ROLE_GESTIONNAIRE = "gestionnaire"
