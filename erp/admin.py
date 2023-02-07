@@ -429,7 +429,6 @@ class ErpAdmin(
 @admin.register(Vote)
 class VoteAdmin(admin.ModelAdmin):
     list_display = (
-        # "__str__",
         "get_erp_nom",
         "get_erp_activite",
         "get_erp_commune",

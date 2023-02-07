@@ -54,7 +54,15 @@ class CustomUserAdmin(ExportMixin, UserAdmin):
         )
 
 
+@admin.register(UserPreferences)
+class UserPreferencesAdmin(admin.ModelAdmin):
+    list_display = (
+        "user",
+        "notify_on_unpublished_erps",
+    )
+    search_fields = ("user__email",)
+
+
 # Replace the default UserAdmin with our custom one
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
-admin.site.register(UserPreferences)
