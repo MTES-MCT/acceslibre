@@ -322,8 +322,19 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
 
     erp = get_object_or_404(base_qs)
 
+    need_redirect = False
+    if erp.commune_ext and commune != erp.commune_ext.slug:
+        need_redirect = True
+
     if activite_slug and (erp.activite.slug != activite_slug):
-        raise Http404()
+        need_redirect = True
+
+    # NOTE: ATM we won't have this case as we fetch the erp from its slug. But the aim is to fetch it by its id/uuid
+    if erp_slug != erp.slug:
+        need_redirect = True
+
+    if need_redirect:
+        return redirect(erp.get_absolute_url())
 
     nearest_erps = []
     if switch_is_active("USE_GEOSPATIAL_SEARCH_IN_DETAIL"):
