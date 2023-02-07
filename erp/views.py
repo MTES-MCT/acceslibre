@@ -323,7 +323,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     erp = get_object_or_404(base_qs)
 
     need_redirect = False
-    if erp.commune_ext and commune != erp.commune_ext.slug:
+    if erp.commune_ext and commune not in erp.commune_ext.slug:
         need_redirect = True
 
     if activite_slug and (erp.activite.slug != activite_slug):
