@@ -212,6 +212,7 @@
   }
 
 </style>
+
 <div class="js-document" data-fr-theme="dark">
   <div id="dialog" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true"
     aria-hidden="true" tabindex="-1" class="c-dialog">
@@ -248,12 +249,12 @@
             </ul>
             {% endif %}
             <p class="modal__footer_link">
-              <btn id="btn_acceslibre" onclick="location.href='{{ erp.get_absolute_uri }}';" rel="noopener noreferrer"
+              <a id="btn_acceslibre" href="{{ erp.get_absolute_uri }}" target="_blank" rel="noopener"
                 class="fr-btn fr-btn--secondary fr-text--md">
                 <span>Voir plus sur </span>
                 <img src="{{ base_url }}{% static 'img/logo-acceslibre-widget.png' %}" alt="acceslibre"
                   style="height:50px;vertical-align: text-bottom;">
-              </btn>
+            </a>
             </p>
           </div>
         </div>
