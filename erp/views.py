@@ -323,7 +323,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     erp = get_object_or_404(base_qs)
 
     need_redirect = False
-    if erp.commune_ext and (commune not in erp.commune_ext.slug or erp.commune_ext.slug not in commune):
+    if erp.commune_ext and not (commune in erp.commune_ext.slug or erp.commune_ext.slug in commune):
         # NOTE: the last 2 conditions are here to manage "arrondissements" in commune ext
         need_redirect = True
 
