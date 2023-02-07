@@ -29,3 +29,6 @@ TEMPLATES[0]["OPTIONS"]["context_processors"].insert(0, "django.template.context
 
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
+
+CELERY_TASK_ALWAYS_EAGER = True
+CELERY_TASK_STORE_EAGER_RESULT = True

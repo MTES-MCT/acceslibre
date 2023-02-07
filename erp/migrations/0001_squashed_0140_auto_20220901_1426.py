@@ -215,7 +215,6 @@ def reset_user(apps, schema_editor):
     count = 0
     Erp = apps.get_model("erp", "Erp")
     qs = Erp.objects.filter(updated_at__gte=datetime.date(2022, 7, 5), accessibilite__isnull=False)
-    print(f"{ qs.count()} erps sur la période")
     for erp in qs:
         try:
             if erp.user and erp.get_history() and erp.user != erp.get_first_user():
@@ -228,8 +227,6 @@ def reset_user(apps, schema_editor):
                     count += 1
         except Exception as e:
             print(e)
-
-    print(f"{count} erps mis à jour")
 
 
 def update_activite_position(apps, schema_editor):

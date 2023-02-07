@@ -210,6 +210,8 @@ CACHES = {
     }
 }
 
+CELERY_BROKER_URL = os.environ.get("SCALINGO_REDIS_URL")
+CELERY_RESULT_BACKEND = os.environ.get("SCALINGO_REDIS_URL")
 
 # Cookie security
 CSRF_COOKIE_SECURE = True
@@ -230,7 +232,7 @@ USE_TZ = True
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Email configuration (production uses Mailjet - see README)
-SEND_IN_BLUE_API_KEY = get_env_variable('SEND_IN_BLUE_API_KEY')
+SEND_IN_BLUE_API_KEY = get_env_variable("SEND_IN_BLUE_API_KEY")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = True

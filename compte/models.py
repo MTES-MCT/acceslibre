@@ -4,6 +4,8 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from compte.tasks import sync_user_attributes
+
 
 class EmailToken(models.Model):
     class Meta:
@@ -46,3 +48,5 @@ class UserPreferences(models.Model):
         if created:
             user_prefs = UserPreferences(user=instance)
             user_prefs.save()
+
+        sync_user_attributes.delay(instance.pk)
