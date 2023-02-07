@@ -960,7 +960,7 @@ def test_contribution_flow_accessibilite_data(data, client):
     assert response.status_code == 200
 
 
-def test_uuid_redirect(client, data):
+def test_erp_redirect(client, data):
     response = client.get(
         reverse("erp_uuid", kwargs={"uuid": str(data.erp.uuid)}),
         follow=True,
@@ -968,3 +968,14 @@ def test_uuid_redirect(client, data):
 
     assert response.status_code == 200
     assert response.context["erp"] == data.erp
+
+    response = client.get(
+        reverse(
+            "commune_activite_erp",
+            kwargs={"commune": "foo", "activite_slug": "bar", "erp_slug": data.erp.slug},
+        ),
+        follow=True,
+    )
+    assert response.status_code == 200
+    assert response.context["erp"] == data.erp
+    assert response.redirect_chain == [("/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/", 302)]
