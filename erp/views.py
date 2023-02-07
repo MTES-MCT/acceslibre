@@ -353,6 +353,7 @@ def erp_details(request, commune, erp_slug, activite_slug=None):
     user_is_subscribed = request.user.is_authenticated and erp.is_subscribed_by(request.user)
     url_widget_js = f"{settings.SITE_ROOT_URL}/static/js/widget.js"
 
+    # NOTE: if the widget code is edited it should be also reflected in metabase
     widget_tag = f"""<div id="widget-a11y-container" data-pk="{erp.uuid}" data-baseurl="{settings.SITE_ROOT_URL}"></div>\n
 <a href="#" aria-haspopup="dialog" aria-controls="dialog">Accessibilité</a>
 <script src="{url_widget_js}" type="text/javascript" async="true"></script>\n"""
