@@ -74,6 +74,7 @@ urlpatterns = [
         {"sitemaps": SITEMAPS},
         name="sitemap",
     ),
+    path("maintenance-mode/", include("maintenance_mode.urls")),
     path("robots.txt", robots_txt),
 ]
 
