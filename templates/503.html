@@ -1,0 +1,16 @@
+{% extends "editorial/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Maintenance{% endblock%}
+
+{% block editorial_content %}
+<div class="text-center">
+  <h2 class="display-4">Le serveur est en maintenance.</h2>
+  <div class="my-4">
+    <img class="w-50" src="{% static "img/undraw_server_down.svg" %}" aria-hidden="true">
+  </div>
+  <p>Acceslibre est actuellement en maintenance et revient au plus vite.
+  </p>
+</div>
+{% endblock %}

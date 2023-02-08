@@ -103,6 +103,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "waffle",
     "reversion",
+    "maintenance_mode",
 ]
 
 
@@ -117,6 +118,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "waffle.middleware.WaffleMiddleware",
     "stats.middleware.TrackStatsWidget",
+    "maintenance_mode.middleware.MaintenanceModeMiddleware",
 ]
 
 SITE_ID = 1
