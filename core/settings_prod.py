@@ -8,6 +8,9 @@ from .settings import *
 DEBUG = False
 
 DATAGOUV_DOMAIN = "https://www.data.gouv.fr"
+# NOTE: to retrieve resources id: https://www.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
+DATAGOUV_RESOURCES_ID = "5b0f44f2-e6ea-4a58-874d-6fe364b40342"
+DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 
 APP_NAME = os.environ.get("APP", "access4all")
 ALLOWED_HOSTS = [
