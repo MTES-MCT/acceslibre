@@ -232,7 +232,7 @@ def search(request, commune_slug=None):
         request,
         "search/results.html",
         context={
-            "url_params": request.META["QUERY_STRING"],
+            "url_params": request.META["QUERY_STRING"] if where != "France entière" else None,
             "commune": commune,
             "paginator": paginator,
             "pager": pager,
