@@ -26,7 +26,9 @@ SECRET_KEY = get_env_variable("SECRET_KEY")
 DATAGOUV_API_KEY = get_env_variable("DATAGOUV_API_KEY", required=False)
 DATAGOUV_DOMAIN = "https://demo.data.gouv.fr"
 DATAGOUV_DATASET_ID = "60a528e8b656ce01b4c0c0a6"
-DATAGOUV_RESOURCES_ID = "5b0f44f2-e6ea-4a58-874d-6fe364b40342"
+# NOTE: to retrieve resources id: https://demo.data.gouv.fr/api/1/datasets/60a528e8b656ce01b4c0c0a6/
+DATAGOUV_RESOURCES_ID = "993e8f0f-07fe-4b44-8fba-cca4ce102c0c"
+DATAGOUV_RESOURCES_WITH_URL_ID = "93ae96a7-1db7-4cb4-a9f1-6d778370b640"
 
 # Security
 SECURE_BROWSER_XSS_FILTER = True
@@ -35,7 +37,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # Maps
 MAP_SEARCH_RADIUS_KM = 10
 # Mapbox
-# Note: this is NOT a sensitive information, as this token is exposed on the frontend anyway
+# NOTE: this is NOT a sensitive information, as this token is exposed on the frontend anyway
 MAPBOX_TOKEN = "pk.eyJ1IjoiemVudHV4IiwiYSI6ImNrOG96dGh1eTA3MTUzcHFwYmM1b3ViMDEifQ.Hg-DxcNWCapv8PhApQLf8g"
 
 # Notifications

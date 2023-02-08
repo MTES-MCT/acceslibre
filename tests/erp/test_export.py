@@ -8,7 +8,6 @@ from unittest.mock import ANY
 import pytest
 import requests
 from django.core import management
-from frictionless import Resource, Schema, validate_resource, validate_schema
 
 from erp.export.export import export_schema_to_csv
 from erp.export.generate_schema import generate_schema
@@ -39,90 +38,100 @@ def test_export_command(mocker, data, settings):
 
     assert Erp.objects.all(), "No ERP"
 
-    management.call_command("export_to_datagouv")
+    expected = [
+        ANY,
+        "Aux bons croissants",
+        "34830",
+        "Jacou",
+        "4",
+        "grand rue",
+        "",
+        "",
+        "52128577500016",
+        "Boulangerie",
+        "",
+        "",
+        "3.9047933",
+        "43.6648217",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "True",
+        '["avec_app"]',
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "True",
+        "False",
+        "",
+        "",
+        "",
+        "",
+    ]
+
+    management.call_command("export_to_datagouv", "--skip-upload")
     assert os.path.isfile("acceslibre.csv")
     assert os.stat("acceslibre.csv").st_size > 0
     with open("acceslibre.csv", "r") as f:
         reader = csv.reader(f)
         header, erp_csv = iter(reader)
         assert len(header) == 73, "New exported field or missing field in export"
-        assert erp_csv == [
-            ANY,
-            "Aux bons croissants",
-            "34830",
-            "Jacou",
-            "4",
-            "grand rue",
-            "",
-            "",
-            "52128577500016",
-            "Boulangerie",
-            "",
-            "",
-            "3.9047933",
-            "43.6648217",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "True",
-            '["avec_app"]',
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "True",
-            "False",
-            "",
-            "",
-            "",
-            "",
-        ]
+        assert erp_csv == expected
 
-    os.unlink("acceslibre.csv")
+    assert os.path.isfile("acceslibre-with-web-url.csv")
+    assert os.stat("acceslibre-with-web-url.csv").st_size > 0
+    with open("acceslibre-with-web-url.csv", "r") as f:
+        reader = csv.reader(f)
+        header, erp_csv = iter(reader)
+        assert len(header) == 74, "New exported field or missing field in export"
+        assert erp_csv == expected + ["http://testserver/app/34-jacou/a/boulangerie/erp/aux-bons-croissants/"]
+
+    os.unlink("acceslibre-with-web-url.csv")
 
 
 def test_export_failure(mocker, data, settings):

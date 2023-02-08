@@ -1,11 +1,12 @@
 import logging
 
+import pandas as pd
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 
 from core import mattermost
 from erp.export.export import export_schema_to_csv, upload_to_datagouv
-from erp.export.mappers import EtalabMapper, EtalabMapperWithUrl
+from erp.export.mappers import EtalabMapper
 from erp.models import Erp
 
 logger = logging.getLogger(__name__)
@@ -33,31 +34,30 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         self.verbose = options.get("verbose", False)
-        skip_upload = options.get("skip-upload", False)
+        skip_upload = options.get("skip_upload", False)
 
         csv_path = "acceslibre.csv"
+        csv_path_with_url = "acceslibre-with-web-url.csv"
         self.log("Starting export")
         try:
             self.log("Récupération des ERPs")
             erps = Erp.objects.published()
             self.log(f"{erps.count()} ERP(s) trouvé(s)")
-            export_schema_to_csv(csv_path, erps, EtalabMapper, logger=self.log)
-            self.log("Local export successful: 'acceslibre.csv'")
-            export_schema_to_csv(
-                "acceslibre-with-web-url.csv",
-                erps,
-                EtalabMapperWithUrl,
-                logger=self.log,
-            )
-            self.log("Local export successful: 'acceslibre-with-web-url.csv'")
+            export_schema_to_csv(csv_path_with_url, erps, EtalabMapper, logger=self.log)
+            self.log(f"Local export successful: '{csv_path_with_url}'")
+
+            df = pd.read_csv(csv_path_with_url)
+            df.pop("web_url")
+            df.to_csv(csv_path, index=False)
+
+            self.log(f"Local export successful: '{csv_path}'")
 
             if skip_upload:
+                self.log("Upload skipped.")
                 return
-            upload_to_datagouv(csv_path)
-            upload_to_datagouv(
-                "acceslibre-with-web-url.csv",
-                resources_id="93ae96a7-1db7-4cb4-a9f1-6d778370b640",
-            )
+
+            upload_to_datagouv(csv_path, resources_id=settings.DATAGOUV_RESOURCES_ID)
+            upload_to_datagouv(csv_path_with_url, resources_id=settings.DATAGOUV_RESOURCES_WITH_URL_ID)
             self.log("Datasets uploaded")
 
         except RuntimeError as err:
