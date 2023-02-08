@@ -25,7 +25,7 @@ def map_erps_to_json_schema(
     export_model: Type[Mapper],
 ) -> Tuple[List[str], List[Mapper]]:
     for erp in erps.iterator(chunk_size=500):
-        if erp.accessibilite:
+        if getattr(erp, "accessibilite", None):
             yield export_model.map_from(erp)
 
 
