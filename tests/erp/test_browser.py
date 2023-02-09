@@ -7,7 +7,7 @@ from django.test import Client
 from django.urls import reverse
 from waffle.testutils import override_switch
 
-from erp.models import Accessibilite, Erp, Vote
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Erp, Vote
 from tests.utils import assert_redirect
 
 
@@ -691,6 +691,37 @@ def test_add_erp_missing_activity(mock_geocode, data, client):
 
     assert response.context["form"].errors == {"activite": ["Ce champ est obligatoire."]}
     assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
+
+
+def test_add_erp_other_activity(mock_geocode, data, client):
+    assert ActivitySuggestion.objects.count() == 0
+
+    client.force_login(data.niko)
+
+    client.post(
+        reverse("contrib_admin_infos"),
+        data={
+            "source": "sirene",
+            "source_id": "xxx",
+            "nom": "Test ERP",
+            "numero": "12",
+            "voie": "GRAND RUE",
+            "lieu_dit": "",
+            "code_postal": "34830",
+            "commune": "JACOU",
+            "lat": 43,
+            "lon": 3,
+            "activite": Activite.objects.get(nom="Autre").pk,
+            "nouvelle_activite": "My suggestion",
+        },
+        follow=True,
+    )
+
+    assert ActivitySuggestion.objects.count() == 1
+    activity_suggest = ActivitySuggestion.objects.last()
+    assert activity_suggest.erp is not None
+    assert activity_suggest.name == "My suggestion"
+    assert activity_suggest.user == data.niko
 
 
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):

@@ -21,7 +21,6 @@ from reversion.models import Version
 from core.lib import calc
 from core.lib import diff as diffutils
 from core.lib import geo
-from core.mailer import get_mailer
 from erp import managers, schema
 from erp.provider import geocoder, sirene
 from erp.provider.departements import DEPARTEMENTS
@@ -151,22 +150,32 @@ class Activite(models.Model):
             position += 1
             act.save()
 
-    @staticmethod
-    def notify_admin(new_activity, erp):
-        new_activity_str = "%20".join(new_activity.split())
-        add_activite_admin_url = f"/admin/erp/activite/add/?nom={new_activity_str}"
-        list_erp_with_activite_autre_url = f"/admin/erp/erp/?activite={Activite.objects.get(nom='Autre').pk}"
-        subject = "Nouvelle activité"
-        get_mailer().mail_admins(
-            subject,
-            "mail/new_activity.txt",
-            {
-                "add_activite_admin_url": add_activite_admin_url,
-                "list_erp_with_activite_autre_url": list_erp_with_activite_autre_url,
-                "erp": erp,
-                "new_activity": new_activity,
-            },
-        )
+
+class ActivitySuggestion(models.Model):
+    erp = models.ForeignKey("Erp", verbose_name="Établissement", on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, unique=True, help_text="Nom suggéré pour l'activité")
+    mapped_activity = models.ForeignKey(
+        "Activite", verbose_name="Activité attribuée", on_delete=models.CASCADE, blank=True, null=True
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, verbose_name="Utilisateur", on_delete=models.CASCADE, blank=True, null=True
+    )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Dernière modification")
+
+    def __str__(self):
+        return f"Suggestion d'activité : {self.name}"
+
+    class Meta:
+        verbose_name = "Suggestion d'activité"
+        verbose_name_plural = "Suggestions d'activités"
+
+    def save(self, *args, **kwargs):
+        if self.mapped_activity and self.erp.activite and self.erp.activite.nom.lower() == "autre":
+            self.erp.activite = self.mapped_activity
+            self.erp.save()
+
+        return super().save(*args, **kwargs)
 
 
 def generate_commune_slug(instance):
