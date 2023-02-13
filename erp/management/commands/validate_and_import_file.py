@@ -134,6 +134,7 @@ Paramètres de lancement du script :
                                         )
                                     self.results["duplicated"]["count"] += 1
                                     self.results["duplicated"]["msgs"].append({"line": _, "error": e, "data": row})
+                                    counter = 0
                                     if self.force_update is True:
                                         erp_duplicated = Erp.objects.get(
                                             pk=re.search(
@@ -141,7 +142,6 @@ Paramètres de lancement du script :
                                                 e.detail["non_field_errors"][0].__str__(),
                                             ).group(1)
                                         )
-                                        counter += 1
                                         continue
                                 else:
                                     print_error(

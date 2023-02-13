@@ -465,13 +465,19 @@ class BasePublicErpInfosForm(BaseErpForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Les contributions publiques rendent obligatoire le renseignement de l'activité
         self.fields["activite"].required = True
         self.fields["nouvelle_activite"].required = False
         self.fields["activite"].help_text = "<a href='#' id='no_activite'>Je ne trouve pas l'activité</a>"
-
-        # Source id non requis
         self.fields["source_id"].required = False
+
+    def clean_nouvelle_activite(self):
+        new_activity = self.cleaned_data["nouvelle_activite"]
+        if not self.cleaned_data.get("activite"):
+            return new_activity
+
+        if self.cleaned_data["activite"].nom.lower() == "autre" and not new_activity:
+            raise ValidationError(mark_safe("Vous devez suggérer un nom d'activité pour l'établissement."))
+        return new_activity
 
 
 class PublicErpAdminInfosForm(BasePublicErpInfosForm):
@@ -491,7 +497,6 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
         # Unicity is made on activity + address
         activite = self.cleaned_data.get("activite")
         adresse = get_address_query_to_geocode(self.cleaned_data)
-        existing = False
         if activite and adresse and not self.ignore_duplicate_check:
             existing = Erp.objects.find_duplicate(
                 numero=self.cleaned_data.get("numero"),
@@ -500,14 +505,15 @@ class PublicErpAdminInfosForm(BasePublicErpInfosForm):
                 voie=self.cleaned_data.get("voie"),
                 lieu_dit=self.cleaned_data.get("lieu_dit"),
             ).first()
-        if existing:
-            if existing.published:
-                erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
-            else:
-                erp_display = f"{activite} - {adresse}"
-            raise ValidationError(
-                mark_safe(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données.")
-            )
+
+            if existing:
+                if existing.published:
+                    erp_display = f'<a href="{existing.get_absolute_url()}">{activite} - {adresse}</a>'
+                else:
+                    erp_display = f"{activite} - {adresse}"
+                raise ValidationError(
+                    mark_safe(f"L'établissement <b>{erp_display}</b> existe déjà dans la base de données.")
+                )
 
 
 class PublicErpDeleteForm(forms.Form):

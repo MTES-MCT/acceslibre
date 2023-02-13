@@ -22,7 +22,7 @@ from core.lib import geo, url
 from core.mailer import SendInBlueMailer, get_mailer
 from erp import forms, schema, serializers
 from erp.export.utils import map_list_from_schema
-from erp.models import Accessibilite, Activite, Commune, Erp, Vote
+from erp.models import Accessibilite, Activite, ActivitySuggestion, Commune, Erp, Vote
 from erp.provider import acceslibre, geocoder
 from erp.provider import search as provider_search
 from stats.models import Challenge
@@ -710,8 +710,12 @@ def contrib_admin_infos(request):
                 if request.user.is_authenticated and erp.user is None:
                     erp.user = request.user
                 erp.save()
-                if erp.activite.nom == "Autre":
-                    Activite.notify_admin(new_activity=form.cleaned_data["nouvelle_activite"], erp=erp)
+                if erp.activite.nom.lower() == "autre":
+                    ActivitySuggestion.objects.create(
+                        name=form.cleaned_data["nouvelle_activite"],
+                        erp=erp,
+                        user=request.user if request.user.is_authenticated else None,
+                    )
                 messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
                 return redirect("contrib_a_propos", erp_slug=erp.slug)
         else:
@@ -776,8 +780,12 @@ def contrib_edit_infos(request, erp_slug):
             if request.user.is_authenticated and erp.user is None:
                 erp.user = request.user
                 erp.save()
-            if erp.activite.nom == "Autre":
-                Activite.notify_admin(new_activity=form.cleaned_data["nouvelle_activite"], erp=erp)
+            if erp.activite.nom.lower() == "autre":
+                ActivitySuggestion.objects.create(
+                    name=form.cleaned_data["nouvelle_activite"],
+                    erp=erp,
+                    user=request.user if request.user.is_authenticated else None,
+                )
             messages.add_message(request, messages.SUCCESS, "Les données ont été enregistrées.")
             return redirect(next_route, erp_slug=erp.slug)
     else:
