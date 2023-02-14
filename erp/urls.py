@@ -116,6 +116,7 @@ urlpatterns = [
     ),
     path("contrib/claim/<str:erp_slug>/", views.contrib_claim, name="contrib_claim"),
     path("contrib/admin-infos/", views.contrib_admin_infos, name="contrib_admin_infos"),
+    # NOTE: The next 8 URLs should not be renamed (at least without any back compatibility), used by Service Public.
     path(
         "contrib/edit-infos/<str:erp_slug>/",
         views.contrib_edit_infos,
