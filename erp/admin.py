@@ -349,6 +349,7 @@ class ErpAdmin(
             form.base_fields["activite"].widget.can_change_related = False
             form.base_fields["activite"].widget.can_delete_related = False
         if "user" in form.base_fields:
+            form.base_fields["user"].required = False
             form.base_fields["user"].widget.can_add_related = False
             form.base_fields["user"].widget.can_change_related = False
             form.base_fields["user"].widget.can_delete_related = False
