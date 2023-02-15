@@ -60,6 +60,7 @@ class ActivitySuggestionAdmin(admin.ModelAdmin):
     )
     readonly_fields = ("erp", "name", "user")
     list_filter = (("mapped_activity", admin.EmptyFieldListFilter), "erp__published")
+    search_fields = ("name",)
 
     def has_add_permission(self, request, obj=None):
         return False
