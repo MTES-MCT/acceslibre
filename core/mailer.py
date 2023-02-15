@@ -82,6 +82,7 @@ class SendInBlueMailer(Mailer):
             return False
 
     def create_default_user_attributes(self):
+        # FIXME: unused in code, but has to be launched before being able to sync_user
         api_instance = ContactsApi(ApiClient(self.configuration))
         current_attributes = [a.to_dict()["name"] for a in api_instance.get_attributes().attributes]
 
@@ -100,6 +101,9 @@ class SendInBlueMailer(Mailer):
             )
 
     def sync_user(self, user):
+        if not user.email:
+            return False
+
         api_instance = ContactsApi(ApiClient(self.configuration))
         try:
             contact = api_instance.get_contact_info(user.email)
