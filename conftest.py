@@ -7,6 +7,7 @@ from django.contrib.gis.geos import Point
 from django.db import connection
 
 from erp.models import Accessibilite, Activite, Commune, Erp
+from erp.provider import geocoder
 
 TEST_PASSWORD = "Abc12345!"
 
@@ -27,7 +28,7 @@ def django_db_setup(django_db_setup, django_db_blocker):
         )
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def mock_geocode(mocker):
     def _result(*args, **kwargs):
         # naive address splitting, could be enhanced
@@ -41,12 +42,12 @@ def mock_geocode(mocker):
             "numero": numero,
             "voie": voie.capitalize(),
             "lieu_dit": None,
-            "code_postal": "34830",
+            "code_postal": kwargs.get("postcode") or "34830",
             "commune": commune,
-            "code_insee": "34830",
+            "code_insee": kwargs.get("postcode") or "34830",
         }
 
-    mocker.patch("erp.provider.geocoder.geocode", side_effect=_result)
+    mocker.patch.object(geocoder, "geocode", side_effect=_result)
 
 
 @pytest.fixture(autouse=True)
