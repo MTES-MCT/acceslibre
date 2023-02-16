@@ -153,7 +153,7 @@ class Activite(models.Model):
 
 class ActivitySuggestion(models.Model):
     erp = models.ForeignKey("Erp", verbose_name="Établissement", on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, unique=True, help_text="Nom suggéré pour l'activité")
+    name = models.CharField(max_length=255, help_text="Nom suggéré pour l'activité")
     mapped_activity = models.ForeignKey(
         "Activite", verbose_name="Activité attribuée", on_delete=models.CASCADE, blank=True, null=True
     )
