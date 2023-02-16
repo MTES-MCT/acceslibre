@@ -55,6 +55,13 @@ $viewport-xl: 1200px;
   position:absolute;
 }
 
+#qrcode {
+  display: flex;
+  @media screen and (max-width: $viewport-sm) {
+    // on mobile we don't want to display qrcode
+    display: none;
+  }
+}
 
 // SPACING
 .mt-10,

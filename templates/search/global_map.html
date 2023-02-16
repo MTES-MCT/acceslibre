@@ -32,7 +32,7 @@
     <div class="alert" role="alert" aria-live="assertive">
       <p>
         <i aria-hidden="true" class="icon icon-bulb"></i>
-        Vous pouvez cependant :
+        Vous pouvez cependant :
       </p>
       <ul>
         {% if commune %}
@@ -54,12 +54,11 @@
           <small class="text-muted">{% if paginator.num_pages > 1 %}page {{ pager.number }}/{{ paginator.num_pages }}{% endif %}</small>
         </h2>
       </div>
-      <div class="col-12 col-sm-10 pt-5 text-sm-right text-center mb-2">
-        <h3 class="h6 font-weight-bold w-100 mb-0 pt-3">Retrouvez l'ensemble de ces établissements via ce QRCode</h3>
-      </div>
-      <div class="col-12 col-sm-2 text-sm-right text-center mb-2">
-        <img height="150" src="data:image/png;base64,{{ qrcode_img }}">
-
+    </div>
+    <div id="qrcode" class="row">
+      <div class="col-12 text-sm-right text-center mb-2 mt-0">
+        <span class="h6 font-weight-bold w-100 mb-0 pt-3">Retrouvez l'ensemble de ces établissements via ce QRCode</span>
+        <img height="100" src="data:image/png;base64,{{ qrcode_img }}">
       </div>
     </div>
     <div class="row no-gutters">
