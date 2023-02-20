@@ -646,6 +646,8 @@ def test_ajout_erp_a11y_vide(data, client, capsys):
 
 def test_add_erp_duplicate(mock_geocode, data, client):
     client.force_login(data.niko)
+    data.niko.stats.refresh_from_db()
+    initial_nb_created = data.niko.stats.nb_erp_created
 
     response = client.post(
         reverse("contrib_admin_infos"),
@@ -667,6 +669,8 @@ def test_add_erp_duplicate(mock_geocode, data, client):
 
     assert "existe déjà dans la base de données" in response.context["form"].errors["__all__"][0]
     assert not Erp.objects.filter(nom="Test ERP").exists(), "Should not have been created"
+    data.niko.stats.refresh_from_db()
+    assert data.niko.stats.nb_erp_created == initial_nb_created
 
 
 def test_add_erp_missing_activity(mock_geocode, data, client):
@@ -697,6 +701,8 @@ def test_add_erp_other_activity(mock_geocode, data, client):
     assert ActivitySuggestion.objects.count() == 0
 
     client.force_login(data.niko)
+    data.niko.stats.refresh_from_db()
+    initial_nb_created = data.niko.stats.nb_erp_created
 
     client.post(
         reverse("contrib_admin_infos"),
@@ -722,6 +728,9 @@ def test_add_erp_other_activity(mock_geocode, data, client):
     assert activity_suggest.erp is not None
     assert activity_suggest.name == "My suggestion"
     assert activity_suggest.user == data.niko
+
+    data.niko.stats.refresh_from_db()
+    assert data.niko.stats.nb_erp_created == initial_nb_created + 1
 
 
 def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
@@ -957,8 +966,10 @@ def test_contribution_flow_administrative_data(data, mock_geocode, client):
 
 def test_contribution_flow_accessibilite_data(data, client):
     response = client.get(reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}))
-
     assert response.status_code == 200
+
+    data.niko.stats.refresh_from_db()
+    initial_nb_edited = data.niko.stats.nb_erp_edited
 
     client.post(
         reverse("contrib_transport", kwargs={"erp_slug": data.erp.slug}),
@@ -989,6 +1000,9 @@ def test_contribution_flow_accessibilite_data(data, client):
         reverse("contrib_exterieur", kwargs={"erp_slug": updated_erp.slug}),
     )
     assert response.status_code == 200
+
+    data.niko.stats.refresh_from_db()
+    assert data.niko.stats.nb_erp_edited == initial_nb_edited + 1
 
 
 def test_erp_redirect(client, data):

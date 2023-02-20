@@ -161,6 +161,7 @@ class Command(BaseCommand):
         return fields
 
     def check_existing(self, fields):
+        # FIXME this is not how we have to check duplicates
         # check doublons
         erpstr = f"{fields['nom']} {fields['voie']} {fields['commune']}"
         count = Erp.objects.filter(

@@ -50,3 +50,22 @@ class UserPreferences(models.Model):
             user_prefs.save()
 
         sync_user_attributes.delay(instance.pk)
+
+
+class UserStats(models.Model):
+    class Meta:
+        verbose_name = "UserStats"
+        verbose_name_plural = "UsersStats"
+
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        verbose_name="Utilisateur",
+        on_delete=models.CASCADE,
+        related_name="stats",
+    )
+    nb_erp_created = models.IntegerField(default=0)
+    nb_erp_edited = models.IntegerField(default=0)
+    nb_erp_attributed = models.IntegerField(default=0)
+
+    def __str__(self) -> str:
+        return f"for user #{self.user_id}: {self.nb_erp_created}/{self.nb_erp_edited}/{self.nb_erp_attributed}"

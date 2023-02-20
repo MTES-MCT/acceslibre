@@ -1,12 +1,10 @@
-from unittest.mock import ANY
-
 import pytest
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 from django.test import Client
 from django.urls import reverse
 
-from erp.models import Accessibilite, Activite, Erp
+from erp.models import Activite, Erp
 
 AKEI_SIRET = "88076068100010"
 
@@ -147,18 +145,34 @@ def test_contrib_start_global_search_with_existing(client, data, mocker, akei_re
 
 
 def test_claim(client, user):
-    erp = Erp.objects.create(nom="test", commune="lyon", published=True, geom=Point(0, 0))
+    erp = Erp.objects.create(user=user, nom="test", commune="lyon", published=True, geom=Point(0, 0))
 
-    response = client.get(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}))
-    assert response.status_code == 200  # jean-pierre is logged in the client
+    user.stats.refresh_from_db()
+    initial_nb_attributed = user.stats.nb_erp_attributed
 
-    response = client.post(
-        reverse("contrib_claim", kwargs={"erp_slug": erp.slug}),
-        data={"ok": "on"},
-        follow=True,
-    )
+    response = client.post(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}), follow=True)
+    assert response.redirect_chain == [
+        ("/contrib/edit-infos/test/", 302)
+    ], "ERP is already attributed, should redirect to edition"
 
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_attributed == initial_nb_attributed
+
+    erp.user = None
+    erp.save()
+
+    response = client.post(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}), data={"ok": False}, follow=True)
+    assert response.context["form"].is_valid() is False
     erp.refresh_from_db()
-    assert response.context["form"].errors == {}
+    assert erp.user is None, "User has not certified he is the owner and did not check the tickbox."
+
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_attributed == initial_nb_attributed
+
+    response = client.post(reverse("contrib_claim", kwargs={"erp_slug": erp.slug}), data={"ok": True}, follow=True)
+    erp.refresh_from_db()
     assert erp.user == user
     assert erp.user_type == Erp.USER_ROLE_GESTIONNAIRE
+
+    user.stats.refresh_from_db()
+    assert user.stats.nb_erp_attributed == initial_nb_attributed + 1
