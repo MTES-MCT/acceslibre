@@ -37,6 +37,10 @@ def save_access_update_stats(sender, instance, created, **kwargs):
         # considering that nb_erp_edited will be incremented with erp creation and not accessibility one.
         return
 
+    if "completion_rate" in (kwargs.get("update_fields") or []):
+        # ignore internal changes made on completion_rate
+        return
+
     user_stats, _ = UserStats.objects.get_or_create(user=instance.erp.user)
     user_stats.nb_erp_edited = F("nb_erp_edited") + 1
     user_stats.save()

@@ -874,6 +874,7 @@ class Erp(models.Model):
     exclude=[
         "id",
         "erp_id",
+        "completion_rate",
     ],
 )
 class Accessibilite(models.Model):
@@ -1389,6 +1390,8 @@ class Accessibilite(models.Model):
         verbose_name="Conformité",
         choices=schema.get_field_choices("conformite"),
     )
+
+    completion_rate = models.PositiveIntegerField(default=0)
 
     # Datetimes
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date de création")
