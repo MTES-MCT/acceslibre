@@ -133,7 +133,9 @@ Paramètres de lancement du script :
                                             f"Un doublon a été détecté lors du traitement de la ligne {_}: {e}."
                                         )
                                     self.results["duplicated"]["count"] += 1
-                                    self.results["duplicated"]["msgs"].append({"line": _, "error": e, "data": row})
+                                    self.results["duplicated"]["msgs"].append(
+                                        {"line": _, "name": row.get("name"), "error": e, "data": row}
+                                    )
                                     counter = 0
                                     if self.force_update is True:
                                         erp_duplicated = Erp.objects.get(
@@ -148,7 +150,9 @@ Paramètres de lancement du script :
                                         f"Une erreur est survenue lors du traitement de la ligne {_}: {e}. Passage à la ligne suivante."
                                     )
                                     self.results["in_error"]["count"] += 1
-                                    self.results["in_error"]["msgs"].append({"line": _, "error": e, "data": row})
+                                    self.results["in_error"]["msgs"].append(
+                                        {"line": _, "name": row.get("name"), "error": e, "data": row}
+                                    )
                             else:
                                 print_success("\t         - La ligne est valide et peut-être importée")
                                 self.results["validated"]["count"] += 1
@@ -191,11 +195,7 @@ Paramètres de lancement du script :
     def write_error_file(self):
         self.error_file_path = f"errors_{now().strftime('%Y-%m-%d_%Hh%Mm%S')}.csv"
         with open(self.error_file_path, "w") as self.error_file:
-            fieldnames = (
-                "line",
-                "error",
-                "data",
-            )
+            fieldnames = ("line", "name", "error", "data")
 
             writer = csv.DictWriter(self.error_file, fieldnames=fieldnames, delimiter=";")
             writer.writeheader()

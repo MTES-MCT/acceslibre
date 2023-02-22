@@ -151,7 +151,14 @@ class CommuneAdmin(OSMGeoAdmin, admin.ModelAdmin):
 class AccessibiliteAdmin(VersionAdmin):
     model = Accessibilite
     form = AdminAccessibiliteForm
-    readonly_fields = ("erp",)
+    list_display = (
+        "__str__",
+        "completion_rate",
+    )
+    readonly_fields = (
+        "erp",
+        "completion_rate",
+    )
     fieldsets = [("ERP", {"fields": ["erp"]})] + schema.get_admin_fieldsets()
 
 

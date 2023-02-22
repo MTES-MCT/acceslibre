@@ -415,6 +415,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert erp.geom.x == 3
     assert erp.geom.y == 43
     assert erp.voie == "Grand rue", "Should have been normalized with geocode result"
+    assert not hasattr(erp, "accessibilite")
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert response.status_code == 200
 
@@ -426,6 +427,7 @@ def test_ajout_erp(mock_geocode, data, client):
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
     assert accessibilite.conformite is True
+    assert accessibilite.completion_rate == 0
     assert_redirect(response, f"/contrib/transport/{erp.slug}/")
 
     # Transport
@@ -448,6 +450,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert accessibilite.stationnement_pmr is True
     assert accessibilite.stationnement_ext_presence is True
     assert accessibilite.stationnement_ext_pmr is True
+    assert accessibilite.completion_rate == 14
     assert_redirect(response, "/contrib/exterieur/test-erp/")
 
     assert response.status_code == 200
@@ -490,6 +493,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert accessibilite.cheminement_ext_devers == "aucun"
     assert accessibilite.cheminement_ext_bande_guidage is True
     assert accessibilite.cheminement_ext_retrecissement is True
+    assert accessibilite.completion_rate == 19
     assert_redirect(response, "/contrib/entree/test-erp/")
     assert response.status_code == 200
 
@@ -497,6 +501,7 @@ def test_ajout_erp(mock_geocode, data, client):
     response = client.post(
         reverse("contrib_entree", kwargs={"erp_slug": erp.slug}),
         data={
+            "entree_porte_presence": True,
             "entree_reperage": True,
             "entree_vitree": True,
             "entree_vitree_vitrophanie": True,
@@ -518,6 +523,7 @@ def test_ajout_erp(mock_geocode, data, client):
         follow=True,
     )
     accessibilite = Accessibilite.objects.get(erp__slug=erp.slug)
+    assert accessibilite.entree_porte_presence is True
     assert accessibilite.entree_reperage is True
     assert accessibilite.entree_vitree is True
     assert accessibilite.entree_vitree_vitrophanie is True
@@ -535,6 +541,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert accessibilite.entree_largeur_mini == 80
     assert accessibilite.entree_pmr is True
     assert accessibilite.entree_pmr_informations == "blah"
+    assert accessibilite.completion_rate == 57
     assert_redirect(response, "/contrib/accueil/test-erp/")
     assert response.status_code == 200
 
@@ -578,6 +585,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert accessibilite.accueil_retrecissement is True
     assert accessibilite.sanitaires_presence is True
     assert accessibilite.sanitaires_adaptes is True
+    assert accessibilite.completion_rate == 90
     assert_redirect(response, "/contrib/commentaire/test-erp/")
     assert response.status_code == 200
 
@@ -597,6 +605,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert accessibilite.labels_familles_handicap == ["visuel", "auditif"]
     assert accessibilite.labels_autre == "X"
     assert accessibilite.commentaire == "test commentaire"
+    assert accessibilite.completion_rate == 100
     assert_redirect(response, "/contrib/publication/test-erp/")
     assert response.status_code == 200
 
