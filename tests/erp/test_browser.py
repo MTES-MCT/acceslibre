@@ -28,6 +28,7 @@ def mock_geocode(mocker):
             "code_postal": "34830",
             "commune": commune,
             "code_insee": "34830",
+            "provider": "ban",
         }
 
     mocker.patch("erp.provider.geocoder.geocode", side_effect=_result)
@@ -236,7 +237,7 @@ def test_urls_404(data, url, client):
     assert response.status_code == 404
 
 
-def test_auth(data, client, capsys):
+def test_auth(data, client):
     response = client.post(
         reverse("login"),
         data={"username": "niko", "password": "Abc12345!"},
@@ -252,7 +253,7 @@ def test_auth(data, client, capsys):
     assert response.context["pager"][0].nom == "Aux bons croissants"
 
 
-def test_auth_using_email(data, client, capsys):
+def test_auth_using_email(data, client):
     response = client.post(
         reverse("login"),
         data={"username": "niko@niko.tld", "password": "Abc12345!"},
@@ -261,7 +262,7 @@ def test_auth_using_email(data, client, capsys):
     assert response.wsgi_request.user.username == "niko"
 
 
-def test_registration(data, client, capsys):
+def test_registration(data, client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -277,7 +278,7 @@ def test_registration(data, client, capsys):
     assert User.objects.filter(username="julien", is_active=False).count() == 1
 
 
-def test_registration_with_first_and_last_name(data, client, capsys):
+def test_registration_with_first_and_last_name(data, client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -292,7 +293,7 @@ def test_registration_with_first_and_last_name(data, client, capsys):
     assert User.objects.filter(username="julien", first_name="", last_name="", is_active=False).count() == 1
 
 
-def test_registration_not_a_robot(data, client, capsys):
+def test_registration_not_a_robot(data, client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -317,7 +318,7 @@ def test_registration_not_a_robot(data, client, capsys):
         "  Commercial  ",
     ],
 )
-def test_registration_username_blacklisted(username, data, client, capsys):
+def test_registration_username_blacklisted(username, data, client):
     response = client.post(
         reverse("django_registration_register"),
         data={
@@ -333,7 +334,7 @@ def test_registration_username_blacklisted(username, data, client, capsys):
     assert "username" in response.context["form"].errors
 
 
-def test_admin_with_regular_user(data, client, capsys):
+def test_admin_with_regular_user(data, client):
     # test that regular frontend user don't have access to the admin
     client.force_login(data.samuel)
 
@@ -344,7 +345,7 @@ def test_admin_with_regular_user(data, client, capsys):
     assert "admin/login.html" in [t.name for t in response.templates]
 
 
-def test_admin_with_staff_user(data, client, capsys):
+def test_admin_with_staff_user(data, client):
     # the staff flag is for partners (gestionnaire ou territoire)
     client.force_login(data.niko)
 
@@ -355,7 +356,7 @@ def test_admin_with_staff_user(data, client, capsys):
     assert response.status_code == 403
 
 
-def test_admin_with_admin_user(data, client, capsys):
+def test_admin_with_admin_user(data, client):
     client.force_login(data.admin)
 
     response = client.get(reverse("admin:index"))
@@ -415,6 +416,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert erp.geom.x == 3
     assert erp.geom.y == 43
     assert erp.voie == "Grand rue", "Should have been normalized with geocode result"
+    assert erp.geoloc_provider == "ban"
     assert not hasattr(erp, "accessibilite")
     assert_redirect(response, f"/contrib/a-propos/{erp.slug}/")
     assert response.status_code == 200
@@ -626,7 +628,7 @@ def test_ajout_erp(mock_geocode, data, client):
     assert response.status_code == 200
 
 
-def test_ajout_erp_a11y_vide(data, client, capsys):
+def test_ajout_erp_a11y_vide(data, client):
     client.force_login(data.niko)
 
     # empty a11y data
@@ -742,14 +744,14 @@ def test_add_erp_other_activity(mock_geocode, data, client):
     assert data.niko.stats.nb_erp_created == initial_nb_created + 1
 
 
-def test_delete_erp_unauthorized(data, client, monkeypatch, capsys):
+def test_delete_erp_unauthorized(data, client):
     client.force_login(data.sophie)
 
     response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))
     assert response.status_code == 404
 
 
-def test_delete_erp_owner(data, client, monkeypatch, capsys):
+def test_delete_erp_owner(data, client):
     client.force_login(data.niko)
 
     response = client.get(reverse("contrib_delete", kwargs={"erp_slug": data.erp.slug}))

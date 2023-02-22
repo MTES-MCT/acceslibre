@@ -155,6 +155,7 @@ class Command(BaseCommand):
             "site_internet": self.validate_site_internet(row.get("site_internet")),
             "telephone": clean(row.get("telephone")) or None,
             "geom": geo_info.get("geom"),
+            "geoloc_provider": geo_info.get("provider"),
             "commune_ext": commune_ext,
         }
         fields["source_id"] = self.compute_source_id(fields)

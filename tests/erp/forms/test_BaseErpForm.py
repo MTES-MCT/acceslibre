@@ -37,6 +37,7 @@ def geocoder_result_ok():
         "code_postal": "75002",
         "commune": "Paris",
         "code_insee": "75111",
+        "provider": "ban",
     }
 
 
@@ -152,6 +153,7 @@ def test_BaseErpForm_clean_numero_mismatch(data, mocker):
             "code_postal": "34830",
             "commune": "Jacou",
             "code_insee": "12345",
+            "provider": "ban",
         },
     )
     form = forms.PublicErpEditInfosForm(

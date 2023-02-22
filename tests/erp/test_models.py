@@ -34,13 +34,13 @@ class TestAccessibility:
 
 
 class TestErp:
-    def test_clean_validates_code_postal(self, data, capsys):
+    def test_clean_validates_code_postal(self, data):
         erp = Erp.objects.create(nom="x", code_postal="1234")
         with pytest.raises(ValidationError) as excinfo:
             erp.clean()
         assert "code_postal" in excinfo.value.error_dict
 
-    def test_clean_validates_commune_ext(self, data, capsys):
+    def test_clean_validates_commune_ext(self, data):
         erp = Erp.objects.create(nom="x", code_postal="12345", voie="y", commune="missing")
         with pytest.raises(ValidationError) as excinfo:
             erp.clean()
@@ -64,7 +64,7 @@ class TestErp:
         data.erp.clean()
         assert data.erp.siret == "88076068100010"
 
-    def test_clean_validates_voie(self, data, capsys):
+    def test_clean_validates_voie(self, data):
         erp = Erp.objects.create(nom="x", code_postal="12345")
         with pytest.raises(ValidationError) as excinfo:
             erp.clean()

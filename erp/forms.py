@@ -270,6 +270,7 @@ class BaseErpForm(forms.ModelForm):
         self.cleaned_data["code_postal"] = locdata["code_postal"]
         self.cleaned_data["commune"] = locdata["commune"]
         self.cleaned_data["code_insee"] = locdata["code_insee"]
+        self.cleaned_data["geoloc_provider"] = locdata["provider"]
 
 
 class AdminErpForm(BaseErpForm):
@@ -433,6 +434,7 @@ class BasePublicErpInfosForm(BaseErpForm):
             "site_internet",
             "telephone",
             "contact_url",
+            "geoloc_provider",
         )
         labels = {"user_type": "Saisie en qualité de"}
         help_texts = {

@@ -47,6 +47,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
             "latitude",
             "longitude",
             "source",
+            "geoloc_provider",
         )
 
     def validate_siret(self, obj):
@@ -94,6 +95,7 @@ class ErpImportSerializer(serializers.ModelSerializer):
                 obj["code_postal"] = locdata["code_postal"]
                 obj["commune"] = locdata["commune"]
                 obj["code_insee"] = locdata["code_insee"]
+                obj["geoloc_provider"] = locdata["provider"]
                 obj.pop("latitude", None)
                 obj.pop("longitude", None)
                 break

@@ -67,6 +67,7 @@ def test_erp_import_serializer(mocker, data, erp_values, is_valid, geocoder_resu
             "code_postal": "75002",
             "commune": "Paris",
             "code_insee": "75111",
+            "provider": "ban",
         },
     )
 
