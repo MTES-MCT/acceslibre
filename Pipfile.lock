@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "335786f19ef571c28f57d4d7720a10e27ada56f2871adf21c8a59b929fde8482"
+            "sha256": "73fc1de79c5a9253a0526ac351e06f749df9e125d49ef0786ad7793dccdd40c3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -391,14 +391,6 @@
             ],
             "index": "pypi",
             "version": "==3.3"
-        },
-        "django-reset-migrations": {
-            "hashes": [
-                "sha256:902921c626a7d2c3348330b8afd8336ab46e4137165027817d5c2aeac884274d",
-                "sha256:d14e008a06efd6f5f488121d8be7d60dac0fae2053a9a1b7582bb1194dd31e1a"
-            ],
-            "index": "pypi",
-            "version": "==0.4.0"
         },
         "django-rest-framework": {
             "hashes": [
@@ -1061,7 +1053,8 @@
         },
         "prompt-toolkit": {
             "hashes": [
-                "sha256:6a2948ec427dfcc7c983027b1044b355db6aaa8be374f54ad2015471f7d81c5b"
+                "sha256:6a2948ec427dfcc7c983027b1044b355db6aaa8be374f54ad2015471f7d81c5b",
+                "sha256:d5d73d4b5eb1a92ba884a88962b157f49b71e06c4348b417dd622b25cdd3800b"
             ],
             "markers": "python_full_version >= '3.7.0'",
             "version": "==3.0.37"
@@ -2111,7 +2104,8 @@
         },
         "prompt-toolkit": {
             "hashes": [
-                "sha256:6a2948ec427dfcc7c983027b1044b355db6aaa8be374f54ad2015471f7d81c5b"
+                "sha256:6a2948ec427dfcc7c983027b1044b355db6aaa8be374f54ad2015471f7d81c5b",
+                "sha256:d5d73d4b5eb1a92ba884a88962b157f49b71e06c4348b417dd622b25cdd3800b"
             ],
             "markers": "python_full_version >= '3.7.0'",
             "version": "==3.0.37"
