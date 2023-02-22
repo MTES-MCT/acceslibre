@@ -18,6 +18,7 @@ from reversion.views import create_revision
 from waffle import switch_is_active
 from waffle.decorators import waffle_switch
 
+from compte.signals import erp_claimed
 from core.lib import geo, url
 from core.mailer import SendInBlueMailer, get_mailer
 from erp import forms, schema, serializers
@@ -1109,16 +1110,19 @@ def contrib_claim(request, erp_slug):
     if not erp:
         erp = get_object_or_404(Erp, slug=erp_slug, published=True)
         return redirect("contrib_edit_infos", erp_slug=erp.slug)
+
     if request.method == "POST":
         form = forms.PublicClaimForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and form.cleaned_data["ok"] is True:
             erp.user = request.user
             erp.user_type = Erp.USER_ROLE_GESTIONNAIRE
             erp.save()
+            erp_claimed.send(sender=Erp, instance=erp)
             messages.add_message(request, messages.SUCCESS, "Opération effectuée avec succès.")
             return redirect("contrib_edit_infos", erp_slug=erp.slug)
     else:
         form = forms.PublicClaimForm()
+
     return render(
         request,
         template_name="contrib/claim.html",

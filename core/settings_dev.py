@@ -3,7 +3,7 @@ from .settings import *
 
 DEBUG = True
 
-SITE_HOST = "localhost"
+SITE_HOST = "127.0.0.1"
 SITE_ROOT_URL = f"http://{SITE_HOST}:8000"
 
 ALLOWED_HOSTS = [
