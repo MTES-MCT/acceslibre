@@ -346,6 +346,9 @@ SECTIONS = {
 }
 
 FIELDS = {
+    # NOTE root(true|false) determines whether a field is a nested field or a root one. A root one can be made of 0 to N sub non root fields.
+    #      In the UI, the sub fields are visible only if the root field has given value.
+    #      Default is False if not provided.
     # Transport
     "transport_station_presence": {
         "type": "boolean",
@@ -361,6 +364,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "transport_information": {
         "type": "string",
@@ -377,6 +381,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "example": "Ligne n4",
+        "root": False,
     },
     # Stationnement
     "stationnement_presence": {
@@ -393,6 +398,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "stationnement_pmr": {
         "type": "boolean",
@@ -408,6 +414,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     "stationnement_ext_presence": {
         "type": "boolean",
@@ -423,6 +430,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "stationnement_ext_pmr": {
         "type": "boolean",
@@ -438,6 +446,7 @@ FIELDS = {
         "section": SECTION_TRANSPORT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     # Cheminement extérieur
     "cheminement_ext_presence": {
@@ -454,6 +463,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": True,
+        "root": True,
     },
     "cheminement_ext_terrain_stable": {
         "type": "boolean",
@@ -469,6 +479,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     "cheminement_ext_plain_pied": {
         "type": "boolean",
@@ -485,6 +496,7 @@ FIELDS = {
         "section": SECTION_CHEMINEMENT_EXT,
         "nullable_bool": True,
         "warn_if": False,
+        "root": False,
     },
     "cheminement_ext_ascenseur": {
         "type": "boolean",
@@ -499,6 +511,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": False,
         "description": "Existe-t-il un ascenseur ou un élévateur&nbsp;?",
+        "root": False,
     },
     "cheminement_ext_nombre_marches": {
         "type": "number",
@@ -514,6 +527,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x > 0,
         "description": "Combien y'a t'il de marches&nbsp;?",
+        "root": False,
     },
     "cheminement_ext_sens_marches": {
         "type": "string",
@@ -667,6 +681,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_porte_presence": {
         "type": "boolean",
@@ -681,6 +696,7 @@ FIELDS = {
         "nullable_bool": True,
         "warn_if": None,
         "required": True,
+        "root": True,
     },
     "entree_porte_manoeuvre": {
         "type": "string",
@@ -750,6 +766,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_ascenseur": {
         "type": "boolean",
@@ -846,6 +863,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_dispositif_appel_type": {
         "type": "array",
@@ -874,6 +892,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_aide_humaine": {
         "type": "boolean",
@@ -887,6 +906,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_largeur_mini": {
         "type": "number",
@@ -903,6 +923,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": False,
         "warn_if": lambda x, i: x is not None and x < 80,
+        "root": True,
     },
     "entree_pmr": {
         "type": "boolean",
@@ -918,6 +939,7 @@ FIELDS = {
         "section": SECTION_ENTREE,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "entree_pmr_informations": {
         "type": "string",
@@ -948,6 +970,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_cheminement_plain_pied": {
         "type": "boolean",
@@ -965,6 +988,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_cheminement_ascenseur": {
         "type": "boolean",
@@ -1061,6 +1085,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": True,
+        "root": True,
     },
     "accueil_personnels": {
         "type": "string",
@@ -1081,6 +1106,7 @@ FIELDS = {
             PERSONNELS_NON_FORMES,
             PERSONNELS_AUCUN,
         ],
+        "root": True,
     },
     "accueil_audiodescription_presence": {
         "type": "boolean",
@@ -1094,6 +1120,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_audiodescription": {
         "type": "array",
@@ -1121,6 +1148,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "accueil_equipements_malentendants": {
         "type": "array",
@@ -1150,6 +1178,7 @@ FIELDS = {
         "section": SECTION_ACCUEIL,
         "nullable_bool": True,
         "warn_if": False,
+        "root": True,
     },
     "sanitaires_adaptes": {
         "type": "boolean",
@@ -1179,6 +1208,7 @@ FIELDS = {
         "section": SECTION_COMMENTAIRE,
         "nullable_bool": False,
         "warn_if": None,
+        "root": True,
     },
     "labels_familles_handicap": {
         "type": "array",
@@ -1223,6 +1253,7 @@ FIELDS = {
         "nullable_bool": False,
         "warn_if": None,
         "example": "Propose des places gratuites",
+        "root": True,
     },
     # Registre
     "registre_url": {
